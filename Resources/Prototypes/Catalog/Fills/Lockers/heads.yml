@@ -257,7 +257,62 @@
       - id: ClothingBeltUtilityFilled
       - id: RubberStampRd
       - id: BoxEncryptionKeyScience
+<<<<<<< HEAD
       - id: ClothingHeadsetAltScience
+=======
+      - id: BoxEncryptionKeyRobo
+      # Sirena-Add-Start
+      - id: ADTUnderwearBoxRD
+      - id: SirenaAnomalyPinpointer
+      # Sirena-Add-End
+      - id: EncryptionKeyBinary
+
+- type: entity
+  id: LockerHeadOfSecurityFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerHeadOfSecurity
+  components:
+  - type: StorageFill
+    contents:
+      - id: NesSecurityShuttleConsoleCircuitboard
+      - id: ClothingEyesHudSecurity
+      - id: WeaponDisabler
+      - id: ClothingHeadHatBeretHoS
+      - id: ClothingHeadHatCapHoS # Corvax-SecFashion
+        prob: 0.5
+      - id: ClothingHeadHatHoshat
+      - id: ClothingNeckCloakHos
+      - id: ClothingOuterCoatHoSTrench
+      - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
+      - id: ADTHOSJumpsuitWarm
+      - id: ADTHOSJumpskirtWarm
+      - id: ClothingOuterHardsuitSecurityRed
+      - id: ClothingMaskGasSwat
+#      - id: ClothingShoeSlippersDuck # Corvax-Resprite: Need more space for style
+#        prob: 0.2
+      - id: DrinkVacuumFlask
+        prob: 0.8
+      - id: ClothingBeltSecurityFilled
+      - id: ClothingHeadsetAltSecurity
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingShoesBootsJack
+      - id: CigarGoldCase
+        prob: 0.50
+      - id: DoorRemoteSecurity
+      - id: ClothingUniformJumpskirtHosFormal
+      - id: ClothingUniformJumpsuitHosFormal
+      - id: RubberStampHos
+      - id: SecurityTechFabCircuitboard
+      - id: JetpackSecurityFilled
+      - id: BoxEncryptionKeySecurity
+      - id: HoloprojectorSecurity
+      - id: BookSecretDocuments
+      - id: WeaponRevolverUnica #ADTrevolver
+      - id: ADTWeaponPistolX01 #ADTmultiphase
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxRD
+      # Sirena-Underwear-End
+>>>>>>> d5129af200 (Added Manual Anomaly Finder (#40))
       - id: EncryptionKeyBinary
 
 - type: entity
