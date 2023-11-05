@@ -1,0 +1,188 @@
+- type: entity
+  parent: BaseItem
+  id: ADTSoundGenBase
+  name: ADTSoundGenBase
+  abstract: true
+  description: Sound Generator! Wowie!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/soundgen.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Misc/soundgen.rsi
+  - sound:
+      path: /Audio/ADT/SoundGen/destruction_1.ogg
+
+
+
+- type: entity
+  parent: BaseItem
+  id: ADTSoundGenBaseAmb
+  name: ADTSoundGenBase
+  abstract: true
+  description: Sound Generator! Wowie!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/soundgen.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Misc/soundgen.rsi
+  - sound:
+      path: /Audio/ADT/SoundGen/shaft_water.ogg
+
+
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenDestruction1
+  name: ADTSoundGenDestruction1
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/destruction_1.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenDestruction2
+  name: ADTSoundGenDestruction2
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/destruction_2.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenDestruction3
+  name: ADTSoundGenDestruction3
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/destruction_3.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenBudilnik
+  name: ADTSoundGenBudilnik
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/budilnik.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenHit
+  name: ADTSoundGenHit
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/hit.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBaseAmb
+  id: ADTSoundGenMovingObjects
+  name: ADTSoundGenMovingObjects
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/moving_objects_ambient_scary.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBaseAmb
+  id: ADTSoundGenFactory
+  name: ADTSoundGenFactory
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/factory_ambient.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenSuddenChord
+  name: ADTSoundGenSuddenChord
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/pianino_chord_sudden.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBaseAmb
+  id: ADTSoundGenShaftWater
+  name: ADTSoundGenShaftWater
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/shaft_water.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBaseAmb
+  id: ADTSoundGenShortScaryAmbient
+  name: ADTSoundGenShortScaryAmbient
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/short_ambient_scary.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenReverseDissolveScary
+  name: ADTSoundGenReverseDissolveScary
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/reverse_dissolve_scary.ogg
+
+
+- type: entity
+  parent: ADTSoundGenBaseAmb
+  id: ADTSoundGenDungeonAmbientScary
+  name: ADTSoundGenDungeonAmbientScary
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/dungeon_ambient_scary.ogg
