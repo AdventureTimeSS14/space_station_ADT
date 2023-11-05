@@ -13,6 +13,7 @@
     state: soundgen
   - sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
+      radius: 7
 
 
 
@@ -31,6 +32,7 @@
     state: soundgen
   - sound:
       path: /Audio/ADT/SoundGen/shaft_water.ogg
+      radius: 16
 
 
 
