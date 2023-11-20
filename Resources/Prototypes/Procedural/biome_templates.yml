@@ -469,7 +469,9 @@
       allowedTiles:
         - FloorChromite
       entities:
-        - CrystalPink
+        - CrystalPink 
+        - CrystalPinkSmall
+        - CrystalPinkMedium
     - !type:BiomeEntityLayer
       threshold: 0.97
       noise:
@@ -521,7 +523,7 @@
       threshold: -1
       tile: FloorChromite
 
-# Caves
+# Caves (new Crystal by malanisa)
 - type: biomeTemplate
   id: Caves
   layers:
@@ -534,11 +536,26 @@
       allowedTiles:
         - FloorAsteroidSand
       entities:
-        - CrystalGreen
-        - CrystalPink
+        - CrystalGreen 
+        - CrystalGreenSmall
+        - CrystalGreenMedium
+        - CrystalPink 
+        - CrystalPinkSmall
+        - CrystalPinkMedium
         - CrystalOrange
+        - CrystalOrangeSmall
+        - CrystalOrangeMedium
         - CrystalBlue
+        - CrystalBlueSmall
+        - CrystalBlueMedium
         - CrystalCyan
+        - CrystalCyanSmall
+        - CrystalCyanMedium
+        - Stalagmite1
+        - Stalagmite2
+        - Stalagmite3
+        - Stalagmite4
+        - Stalagmite5
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:

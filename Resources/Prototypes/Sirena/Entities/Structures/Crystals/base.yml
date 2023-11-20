@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCrystal
+  parent: BaseStructure
+  abstract: true
+  description: A glowing, dense cluster of mineral. You can see your reflection in it.
+  components:
+  - type: Sprite
+    sprite: Sirena/Structures/Decoration/crystal.rsi
+    state: crystal_green
+    noRot: true
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - Energy
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 60
+        mask:
+          - MachineMask
+        layer:
+          - MidImpassable
+          - LowImpassable
+          - BulletImpassable
+          - Opaque
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+- type: entity
+  parent: BaseItem
+  id: BaseCrystalShard
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Sirena/Structures/Decoration/crystal.rsi
+    state: crystal_green
+    noRot: true
