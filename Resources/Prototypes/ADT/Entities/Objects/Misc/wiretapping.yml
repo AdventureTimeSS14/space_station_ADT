@@ -46,8 +46,8 @@
   - type: RadioMicrophone
     broadcastChannel: ADTWiretapping
     listenRange: 8
-    enabled: true
-    toggleOnInteract: false
+    enabled: false
+    toggleOnInteract: true
   - type: Sprite
     sprite: ADT/Objects/Misc/wiretapping.rsi
     layers:
