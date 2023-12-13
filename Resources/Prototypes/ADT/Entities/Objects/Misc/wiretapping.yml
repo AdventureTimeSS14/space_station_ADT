@@ -61,12 +61,13 @@
   name: WiretappingToy
   abstract: true
   components:
+  - type: Matchbox
   - type: StorageFill
     contents:
       - id: ADTWiretapping
   - type: Storage
     maxSlots: 1
-    maxItemSize: Normal
+    maxItemSize: Small
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
