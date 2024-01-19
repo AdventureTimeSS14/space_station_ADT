@@ -1,41 +1,41 @@
 # Батончики упакованный
 
 ent-ADTFoodSnackChocolateBarChocoPack = шоколадный батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarCoconutPack = кокосовый батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarEnergyPack = энергетический батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarNutsPack = шоколадный батончик с орехами
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarPinkPack = розовый шоколадный батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarTwoPack = двойной батончик
-    .desc =  
+    .desc = Батончик
 
 # Батончики
 ent-ADTFoodSnackChocolateBarChoco = шоколадный батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarCoconut = кокосовый батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarEnergy = энергетический батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarNuts = шоколадный батончик с орехами
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarPink = розовый шоколадный батончик
-    .desc =  
+    .desc = Батончик
 
 ent-ADTFoodSnackChocolateBarTwo = двойной батончик
-    .desc =  
+    .desc = Батончик
 
 # Обертки
 ent-ADTFoodSnackChocolateTrashChoco = обертка от шоколадного батончика
