@@ -1,0 +1,258 @@
+#Chocolate packing
+
+- type: entity
+  name: chocolate bar
+  parent: FoodSnackChocolate
+  id: ADTFoodSnackChocolateBarsBase
+  description: Tastes like cardboard.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Chocolate/packing.rsi
+    state: choco-packed
+  - type: Item
+    heldPrefix: chocolatebar
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketChocolateTrash
+      - id: FoodSnackChocolateBar
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackChocolateBarChocoPack
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: choco-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketChocolateTrashChoco
+      - id: ADTFoodSnackChocolateBarCoconut
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackChocolateBarCoconutPack
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: coconut-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketChocolateTrashCoconut
+      - id: ADTFoodSnackChocolateBarCoconut
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackChocolateBarEnergyPack
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: energy-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketChocolateTrashEnergy
+      - id: ADTFoodSnackChocolateBarEnergy
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackChocolateBarNutsPack
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: nuts-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketChocolateTrashNuts
+      - id: ADTFoodSnackChocolateBarNuts
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackChocolateBarPinkPack
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: pink-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketChocolateTrashPink
+      - id: ADTFoodSnackChocolateBarPink
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackChocolateBarTwoPack
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: two-packed
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketChocolateTrashTwo
+      - id: ADTFoodSnackChocolateBarTwo
+#Chocolate bars
+- type: entity
+  name: chocolate bar
+  parent: FoodSnackChocolateBar
+  id: ADTFoodSnackChocolateBarBase
+  description: Tastes like cardboard.
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Chocolate/bars.rsi
+    state: bar-choco
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+  - type: Extractable
+    grindableSolutionName: food
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackChocolateBarChoco
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: bar-choco
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackChocolateBarCoconut
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: bar-coconut
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackChocolateBarEnergy
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: bar-energy
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackChocolateBarNuts
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: bar-nuts
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackChocolateBarPink
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: bar-pink
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackChocolateBarTwo
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: bar-two
+
+#Trash 
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrash
+  name: chocolate wrapper
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Chocolate/trash.rsi
+    state: choco-trash
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrashChoco
+  name: chocolate wrapper
+  components:
+  - type: Sprite
+    state: choco-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrashCoconut
+  name: chocolate wrapper
+  components:
+  - type: Sprite
+    state: coconut-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrashEnergy
+  name: chocolate wrapper
+  components:
+  - type: Sprite
+    state: energy-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrashNuts
+  name: chocolate wrapper
+  components:
+  - type: Sprite
+    state: nuts-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrashPink
+  name: chocolate wrapper
+  components:
+  - type: Sprite
+    state: pink-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrashTwo
+  name: chocolate wrapper
+  components:
+  - type: Sprite
+    state: two-trash
