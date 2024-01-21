@@ -1,0 +1,156 @@
+- type: species
+  id: UrsusSpecies
+  name: species-name-Ursus
+  roundStart: false
+  prototype: MobUrsus
+  sprites: MobUrsusSprites
+  defaultSkinTone: "#964B00"
+  markingLimits: MobUrsusMarkingLimits
+  dollPrototype: MobUrsusDummy
+  skinColoration: Hues
+  maleFirstNames: firstMaleUrs
+  femaleFirstNames: firstFemaleUrs
+  maleLastNames: LastUrs
+  femaleLastNames: LastUrs
+  naming: firstlast
+
+- type: speciesBaseSprites
+  id: MobUrsusSprites
+  sprites:
+    Head: MobUrsusHead
+    Eyes: MobUrsusEyes
+    Hair: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobUrsusTorso
+    LArm: MobUrsusLArm
+    RArm: MobUrsusRArm
+    LHand: MobUrsusLHand
+    RHand: MobUrsusRHand
+    LLeg: MobUrsusLLeg
+    RLeg: MobUrsusRLeg
+    LFoot: MobUrsusLFoot
+    RFoot: MobUrsusRFoot
+
+- type: markingPoints
+  id: MobUrsusMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Head:
+      points: 1
+      required: false
+    Hair:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+    HeadSide:
+      points: 1
+      required: true
+    Chest:
+      points: 1
+      required: true
+    Tail:
+      points: 1
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobUrsusEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobUrsusHead
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobUrsusHeadMale
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobUrsusHeadFemale
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobUrsusTorso
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobUrsusTorsoMale
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobUrsusTorsoFemale
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobUrsusLLeg
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobUrsusLArm
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobUrsusLHand
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobUrsusLFoot
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobUrsusRLeg
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobUrsusRArm
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobUrsusRHand
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobUrsusRFoot
+  baseSprite:
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: r_foot

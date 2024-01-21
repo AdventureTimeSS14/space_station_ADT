@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobUrsus
+  name: Urist McUrsus
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: UrsusSpecies
+  - type: Hunger
+    starvationDamage:
+      types:
+        Cold: 0.05
+        Bloodloss: 0.05
+  - type: Icon
+    sprite: ADT/Mobs/Ursus/parts.rsi
+    state: full
+  - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatBear
+      amount: 5
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 0.9
+        Slash: 5
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Ursus
+  - type: Vocal
+    sounds:
+      Male: MaleUrsus
+      Female: FemaleUrsus
+      Unsexed: MaleUrsus
+
+- type: entity
+  save: false
+  name: Urist McUrsus
+  parent: MobHumanDummy
+  id: MobUrsusDummy
+  noSpawn: true
+  description:
+  components:
+    - type: HumanoidAppearance
+      species: UrsusSpecies

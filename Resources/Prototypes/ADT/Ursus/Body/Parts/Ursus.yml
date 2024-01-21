@@ -1,0 +1,190 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartUrsus
+  parent: BaseItem
+  name: "Урс части тела"
+  abstract: true
+  components:
+    - type: Damageable
+      damageContainer: Biological
+    - type: BodyPart
+    - type: ContainerContainer
+      containers:
+        bodypart: !type:Container
+          ents: []
+
+- type: entity
+  id: TorsoUrsus
+  name: "тело урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "torso_m"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "torso_m"
+    - type: BodyPart
+      partType: Torso
+
+- type: entity
+  id: HeadUrsus
+  name: "голова урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "head_m"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "head_m"
+    - type: BodyPart
+      partType: Head
+      vital: true
+    - type: Input
+      context: "ghost"
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 0
+      baseSprintSpeed: 0
+    - type: InputMover
+    - type: GhostOnMove
+    - type: Tag
+      tags:
+        - Head
+
+- type: entity
+  id: LeftArmUrsus
+  name: "левая рука урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_arm"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_arm"
+    - type: BodyPart
+      partType: Arm
+      symmetry: Left
+
+- type: entity
+  id: RightArmUrsus
+  name: "правая рука урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_arm"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_arm"
+    - type: BodyPart
+      partType: Arm
+      symmetry: Right
+
+- type: entity
+  id: LeftHandUrsus
+  name: "левая кисть урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_hand"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_hand"
+    - type: BodyPart
+      partType: Hand
+      symmetry: Left
+
+- type: entity
+  id: RightHandUrsus
+  name: "правая кисть урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_hand"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_hand"
+    - type: BodyPart
+      partType: Hand
+      symmetry: Right
+
+- type: entity
+  id: LeftLegUrsus
+  name: "левая нога урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_leg"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_leg"
+    - type: BodyPart
+      partType: Leg
+      symmetry: Left
+    - type: MovementBodyPart
+      walkSpeed: 2.7
+      sprintSpeed: 4.6
+
+- type: entity
+  id: RightLegUrsus
+  name: "правая нога урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_leg"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_leg"
+    - type: BodyPart
+      partType: Leg
+      symmetry: Right
+    - type: MovementBodyPart
+      walkSpeed: 2.7
+      sprintSpeed: 4.6
+
+- type: entity
+  id: LeftFootUrsus
+  name: "левая ступня урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_foot"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "l_foot"
+    - type: BodyPart
+      partType: Foot
+      symmetry: Left
+
+- type: entity
+  id: RightFootUrsus
+  name: "правая ступня урса"
+  parent: PartUrsus
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_foot"
+    - type: Icon
+      sprite: ADT/Mobs/Ursus/parts.rsi
+      state: "r_foot"
+    - type: BodyPart
+      partType: Foot
+      symmetry: Right

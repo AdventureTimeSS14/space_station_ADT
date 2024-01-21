@@ -1,0 +1,19 @@
+- type: soundCollection
+  id: UrsusScreams
+  files:
+  - /Audio/ADT/Ursus/scream1.ogg
+  - /Audio/ADT/Ursus/scream2.ogg
+  - /Audio/ADT/Ursus/scream3.ogg
+  - /Audio/ADT/Ursus/scream4.ogg
+
+- type: soundCollection
+  id: UrsusCry
+  files:
+  - /Audio/ADT/Ursus/cry1.ogg
+  - /Audio/ADT/Ursus/cry2.ogg
+
+- type: soundCollection
+  id: UrsusLaugh
+  files:
+  - /Audio/ADT/Ursus/laugh1.ogg
+  - /Audio/ADT/Ursus/laugh2.ogg
