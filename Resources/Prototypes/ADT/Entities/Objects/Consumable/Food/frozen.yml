@@ -210,7 +210,7 @@
 - type: entity
   name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
-  id: ADTFoodFrozenPopsicleChocolate
+  id: ADTFoodFrozenChocolatePopsicle
   components:
   - type: Sprite
     layers:
@@ -220,7 +220,7 @@
 - type: entity
   name: Popsicle 
   parent: ADTFoodFrozenPopsicleBase
-  id: ADTFoodFrozenPopsicleChocolateWithNuts
+  id: ADTFoodFrozenChocolatePopsicleWithNuts
   components:
   - type: Sprite
     layers:
@@ -260,7 +260,7 @@
 - type: entity
   name: Popsicle 
   parent: ADTFoodFrozenPopsicleBase
-  id: ADTFoodFrozenPopsicleMelon
+  id: ADTFoodFrozenMelonPopsicle
   components:
   - type: Sprite
     layers:
@@ -270,7 +270,7 @@
 - type: entity
   name: Popsicle 
   parent: ADTFoodFrozenPopsicleBase
-  id: ADTFoodFrozenPopsicleOrange
+  id: ADTFoodFrozenOrangePopsicle
   components:
   - type: Sprite
     layers:
@@ -330,7 +330,7 @@
 - type: entity
   name: Popsicle 
   parent: ADTFoodFrozenPopsicleBase
-  id: ADTFoodFrozenPopsicleThreeFlavors
+  id: ADTFoodFrozenThreeFlavorsPopsicle
   components:
   - type: Sprite
     layers:
@@ -340,7 +340,7 @@
 - type: entity
   name: Popsicle 
   parent: ADTFoodFrozenPopsicleBase
-  id: ADTFoodFrozenPopsicleWatermelon
+  id: ADTFoodFrozenWatermelonPopsicle
   components:
   - type: Sprite
     layers:
@@ -678,7 +678,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolateFreezyTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: chocolatefreezy_trash
@@ -687,7 +687,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolateIceCreamTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: chocolateicecream_trash
@@ -696,7 +696,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolatePopsicleTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: ChocolatePopsicle_trash
@@ -705,7 +705,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolatePopsicleWithNutsTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: chocolatepopsiclewithnuts_trash
@@ -714,7 +714,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenIceCreamWaffleconeTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: icecreamwafflecone_trash
@@ -723,7 +723,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenIceCreamWaffleconeNutsTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: icecreamwaffleconenuts_trash
@@ -731,8 +731,8 @@
 - type: entity
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
-  id: ADTFoodFrozenJumboPopsicleTrash
-  nospawn: true
+  id: ADTFoodFrozenPopsicleJumboTrash
+  noSpawn: true
   components:
   - type: Sprite
     state: jumbopopsicle_trash
@@ -741,7 +741,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenMelonPopsicleTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: melonpopsicle_trash
@@ -750,7 +750,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenOrangePopsicleTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: orangepopsicle_trash
@@ -759,7 +759,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPineappleChocolateTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: pineapplechocolate_trash
@@ -768,7 +768,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleAppleTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: popsicleapple_trash
@@ -777,7 +777,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleBananaTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: popsiclebanana_trash
@@ -786,7 +786,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleMoleTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: popsiclemole_trash
@@ -795,7 +795,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenRandomFruitIceTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: randomfruitIce_trash
@@ -804,7 +804,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleSeaSaltTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: seasaltppopsicle_trash
@@ -813,7 +813,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenSpaceFreezyTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: spacefreezy_trash
@@ -822,7 +822,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenSpaceIceCreamTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: spaceicecream_trash
@@ -831,7 +831,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenStrawberryIceCreamTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: strawberryicecream_trash
@@ -840,7 +840,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenThreeFlavorsFreezyTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: threeflavorsfreezy_trash
@@ -849,7 +849,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenThreeFlavorsPopsicleTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: threeflavorspopsicle_trash
@@ -858,7 +858,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenVanillaFreezyTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: vanillafreezy_trash
@@ -867,7 +867,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenVanillaIceCreamTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: vanillaicecream_trash
@@ -876,7 +876,7 @@
   name: Frozen 
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenWatermelonPopsicleTrash
-  nospawn: true
+  noSpawn: true
   components:
   - type: Sprite
     state: watermelonpopsicle_trash
