@@ -11,10 +11,12 @@
       types:
         Cold: 0.05
         Bloodloss: 0.05
+    baseDecayRate: 0.0983
+  - type: Thirst
+    #baseDecayRate: 0.0083
   - type: Icon
     sprite: ADT/Mobs/Ursus/parts.rsi
     state: full
-  - type: Thirst
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -26,8 +28,14 @@
     animation: WeaponArcClaw
     damage:
       types:
+        Blunt: 6.5
+        Slash: 3.5
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
         Blunt: 0.9
-        Slash: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Ursus

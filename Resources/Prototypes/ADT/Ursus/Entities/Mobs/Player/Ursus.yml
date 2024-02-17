@@ -4,6 +4,19 @@
   parent: BaseMobUrsus
   id: MobUrsus
   components:
+    - type: Inventory
+      speciesId: urs #для одежды на урсов
+    - type: Temperature
+      heatDamageThreshold: 320
+      coldDamageThreshold: 250
+      currentTemperature: 280
+      specificHeat: 50
+      coldDamage:
+        types:
+          Cold: 0.005 #per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat: 1.5 #per second, scales with temperature & other constants
     - type: CombatMode
     - type: InteractionPopup
       successChance: 1

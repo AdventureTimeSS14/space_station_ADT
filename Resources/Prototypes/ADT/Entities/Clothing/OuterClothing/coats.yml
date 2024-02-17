@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatUrs
+  name: Aidan coat
+  description: Aidan coat.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90

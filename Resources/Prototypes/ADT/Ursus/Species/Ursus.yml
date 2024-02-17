@@ -1,7 +1,7 @@
 - type: species
   id: UrsusSpecies
   name: species-name-Ursus
-  roundStart: false
+  roundStart: true
   prototype: MobUrsus
   sprites: MobUrsusSprites
   defaultSkinTone: "#964B00"
@@ -13,6 +13,7 @@
   maleLastNames: LastUrs
   femaleLastNames: LastUrs
   naming: firstlast
+  sponsorOnly: true
 
 - type: speciesBaseSprites
   id: MobUrsusSprites
@@ -38,25 +39,25 @@
   onlyWhitelisted: true
   points:
     Head:
-      points: 1
+      points: 5
       required: false
     Hair:
       points: 1
       required: false
     HeadTop:
-      points: 1
+      points: 5
       required: true
     HeadSide:
-      points: 1
+      points: 5
       required: true
     Chest:
-      points: 1
+      points: 2
       required: true
     Tail:
-      points: 1
+      points: 2
       required: false
     Snout:
-      points: 1
+      points: 2
       required: false
     Legs:
       points: 2
