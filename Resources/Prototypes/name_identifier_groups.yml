@@ -12,6 +12,20 @@
   prefix: ГОЛО # Corvax-Localization
 
 - type: nameIdentifierGroup
+  id: ADTDroneAntag
+  prefix: SD
+  fullName: true
+  minValue: 10000
+  maxValue: 99999
+
+- type: nameIdentifierGroup
+  id: ADTIPCAntag
+  prefix: BF
+  fullName: true
+  minValue: 10000
+  maxValue: 99999
+
+- type: nameIdentifierGroup
   id: MMI
   prefix: ЧМИ # Corvax-Localization
   minValue: 100
