@@ -15,15 +15,15 @@
   id: ADTDroneAntag
   prefix: SD
   fullName: true
-  minValue: 10000
-  maxValue: 99999
+  minValue: 100
+  maxValue: 999
 
 - type: nameIdentifierGroup
   id: ADTIPCAntag
   prefix: BF
   fullName: true
-  minValue: 10000
-  maxValue: 99999
+  minValue: 100
+  maxValue: 999
 
 - type: nameIdentifierGroup
   id: MMI

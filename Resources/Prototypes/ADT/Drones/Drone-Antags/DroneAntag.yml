@@ -1,22 +1,11 @@
 - type: entity
+  save: false
   abstract: true
   id: ADTDroneAntagBase
   components:
   - type: MindContainer
   - type: InputMover
   - type: MobMover
-  - type: Clickable
-  - type: CombatMode
-  - type: InteractionOutline
-  - type: DoAfter
-  - type: Pullable
-  - type: Examiner
-  - type: Puller
-  - type: StandingState
-  - type: Alerts
-  - type: Rotatable
-  - type: RotationVisuals
-  - type: FloatingVisuals
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -28,6 +17,7 @@
         Blunt: 5
     soundHit:
       collection: MetalThud
+  - type: Clickable
   - type: Damageable
     damageContainer: Inorganic
   - type: Bloodstream
@@ -40,6 +30,7 @@
       types:
         Bloodloss:
           -1
+  - type: InteractionOutline
   - type: Fixtures
     fixtures:
       fix1:
@@ -55,8 +46,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
     baseSprintSpeed : 3
-  - type: EyeProtection
-    protectionTime: 12
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -75,18 +64,15 @@
     channels:
     - ADTDroneAntag
     - Common
+  - type: DoAfter
+  - type: Pullable
+  - type: Examiner
+  - type: Puller
+  - type: StandingState
+  - type: Alerts
   - type: Tag
     tags:
       - ShoesRequiredStepTriggerImmune
-      - CannotSuicide
-      - DoorBumpOpener
-  - type: Access
-    tags:
-    - External
-  - type: TypingIndicator
-    proto: robot
-  - type: Speech
-    speechSounds: Pai
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -96,19 +82,27 @@
     - BorgTalk
     - SolCommon
 
-# 1 - МАЙНЕР
-
 - type: entity
   name: drone miner
   id: ADTDroneAntagMiner
   parent: ADTDroneAntagBase
   components:
+  - type: Drone
   - type: NameIdentifier
     group: ADTDroneAntag
   - type: Inventory
     templateId: drone
   - type: InventorySlots
-# БЛА БЛА БЛА отделил сложное
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  #   - key: enum.SiliconLawsUiKey.Key
+  #     type: SiliconLawBoundUserInterface
+  # - type: SiliconLawBound
+  # - type: SiliconLawProvider
+  #   laws: Drone
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 5
@@ -116,7 +110,6 @@
     allowedStates:
       - Alive
       - Dead
-  - type: ZombieImmune
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -124,10 +117,7 @@
   - type: NoSlip
   - type: StatusEffects
     allowed:
-    - SlowedDown
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      80: 0.5
+    - Stun
   - type: Temperature
     heatDamageThreshold: 5000
     currentTemperature: 310.15
@@ -137,7 +127,6 @@
         Heat : 1 #per second, scales with temperature & other constants
   - type: Sprite
     drawdepth: Mobs
-    netsync: true
     layers:
     - state: mineshell
       sprite: ADT/Mobs/Silicon/AntagDrones/drone-miner.rsi
@@ -171,17 +160,19 @@
           On: { state: minedrone }
 #  - type: ReplacementAccent
 #    accent: silicon
-  - type: Repairable
-    fuelcost: 15
-    doAfterDelay: 5
   - type: Actions
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 3.5
-    softness: 1
+    color: "#d7f705"
+    radius: 7
+    energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+  - type: Tag
+    tags:
+      - ShoesRequiredStepTriggerImmune
+      - CannotSuicide
   - type: StaticPrice
     price: 250
   # Frontier - languages mechanic
@@ -192,12 +183,390 @@
     - GalacticCommon
     - BorgTalk
     - SolCommon
+  - type: CombatMode
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      groups:
+        Brute: 5
+  - type: EyeProtection
+    protectionTime: 12
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechSounds: Pai
+  - type: ZombieImmune
+  - type: Repairable
+    fuelcost: 15
+    doAfterDelay: 5
+  - type: Hands
+    showInHands: false
+  - type: Body
+    prototype: Human
 
-# 2 - ИНЖЕНЕР
+
+
+- type: entity
+  name: drone soldier
+  id: ADTDroneAntagEngineer
+  parent: ADTDroneAntagBase
+  components:
+  - type: Drone
+  - type: NameIdentifier
+    group: ADTDroneAntag
+  - type: Inventory
+    templateId: drone
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  #   - key: enum.SiliconLawsUiKey.Key
+  #     type: SiliconLawBoundUserInterface
+  # - type: SiliconLawBound
+  # - type: SiliconLawProvider
+  #   laws: Drone
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Dead
+  - type: NoSlip
+  - type: StatusEffects
+    allowed:
+    - Stun
+  - type: Temperature
+    heatDamageThreshold: 5000
+    currentTemperature: 310.15
+    specificHeat: 42
+    heatDamage:
+      types:
+        Heat : 1 #per second, scales with temperature & other constants
+  # - type: Sprite
+  #   drawdepth: Mobs
+  #   layers:
+  #   - state: engshell
+  #     sprite: ADT/Mobs/Silicon/AntagDrones/drone-engineer.rsi
+  #     map: ["base"]
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - state: engshell
+      sprite: ADT/Mobs/Silicon/AntagDrones/drone-engineer.rsi
+      map: ["base"]
+  - type: MovementIgnoreGravity
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - ADTDroneAntag
+    - Common
+  - type: ActiveRadio
+    channels:
+    - ADTDroneAntag
+    - Common
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DroneVisuals.Status:
+        base:
+          Off: { state: engshell }
+          On: { state: engdrone }
+  # - type: ReplacementAccent
+  #   accent: silicon
+  - type: Actions
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    color: "#d7f705"
+    radius: 7
+    energy: 1
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: Tag
+    tags:
+      - ShoesRequiredStepTriggerImmune
+      - CannotSuicide
+  - type: StaticPrice
+    price: 250
+  # Frontier - languages mechanic
+  - type: LanguageSpeaker
+    speaks:
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - SolCommon
+  - type: CombatMode
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      groups:
+        Brute: 5
+  - type: EyeProtection
+    protectionTime: 12
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechSounds: Pai
+  - type: ZombieImmune
+  - type: Repairable
+    fuelcost: 15
+    doAfterDelay: 5
+  - type: Hands
+    showInHands: false
+  - type: Body
+    prototype: Human
+
+
+
+- type: entity
+  name: drone sodlier
+  id: ADTDroneAntagCharge
+  parent: ADTDroneAntagBase
+  components:
+  - type: Drone
+  - type: NameIdentifier
+    group: ADTDroneAntag
+  - type: Inventory
+    templateId: drone
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  #   - key: enum.SiliconLawsUiKey.Key
+  #     type: SiliconLawBoundUserInterface
+  # - type: SiliconLawBound
+  # - type: SiliconLawProvider
+  #   laws: Drone
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Dead
+  - type: NoSlip
+  - type: StatusEffects
+    allowed:
+    - Stun
+  - type: Temperature
+    heatDamageThreshold: 5000
+    currentTemperature: 310.15
+    specificHeat: 42
+    heatDamage:
+      types:
+        Heat : 1 #per second, scales with temperature & other constants
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - state: chargeshell
+      sprite: ADT/Mobs/Silicon/AntagDrones/drone-charger.rsi
+      map: ["base"]
+  - type: MovementIgnoreGravity
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - ADTDroneAntag
+    - Common
+  - type: ActiveRadio
+    channels:
+    - ADTDroneAntag
+    - Common
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DroneVisuals.Status:
+        base:
+          Off: { state: chargeshell }
+          On: { state: chargedrone }
+#  - type: ReplacementAccent
+#    accent: silicon
+  - type: Actions
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    color: "#d7f705"
+    radius: 7
+    energy: 1
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: Tag
+    tags:
+      - ShoesRequiredStepTriggerImmune
+      - CannotSuicide
+  - type: StaticPrice
+    price: 250
+  # Frontier - languages mechanic
+  - type: LanguageSpeaker
+    speaks:
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - SolCommon
+  - type: CombatMode
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      groups:
+        Brute: 5
+  - type: EyeProtection
+    protectionTime: 12
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechSounds: Pai
+  - type: ZombieImmune
+  - type: Repairable
+    fuelcost: 15
+    doAfterDelay: 5
+  - type: Hands
+    showInHands: false
+  - type: Body
+    prototype: Human
+
+
+# OLD DRONE BASE
+
 
 # - type: entity
-#   name: drone soldier
-#   id: ADTDroneAntagEngineer
+#   abstract: true
+#   id: ADTDroneAntagBase
+#   components:
+#   - type: MindContainer
+#   - type: InputMover
+#   - type: MobMover
+#   - type: Clickable
+#   - type: CombatMode
+#   - type: InteractionOutline
+#   - type: DoAfter
+#   - type: Pullable
+#   - type: Examiner
+#   - type: Puller
+#   - type: StandingState
+#   - type: Alerts
+#   - type: Rotatable
+#   - type: RotationVisuals
+#   - type: FloatingVisuals
+#   - type: Reactive
+#     groups:
+#       Acidic: [Touch]
+#   - type: Input
+#     context: "human"
+#   - type: DamageOnHighSpeedImpact
+#     damage:
+#       types:
+#         Blunt: 5
+#     soundHit:
+#       collection: MetalThud
+#   - type: Damageable
+#     damageContainer: Inorganic
+#   - type: Bloodstream
+#     bloodReagent: Oil
+#     bloodlossDamage:
+#       types:
+#         Bloodloss:
+#           1
+#     bloodlossHealDamage:
+#       types:
+#         Bloodloss:
+#           -1
+#   - type: Fixtures
+#     fixtures:
+#       fix1:
+#         shape:
+#           # Circles, cuz rotation of rectangles looks very bad
+#           !type:PhysShapeCircle
+#           radius: 0.35
+#         density: 50
+#         mask:
+#         - MobMask
+#         layer:
+#         - MobLayer
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed : 4
+#     baseSprintSpeed : 3
+#   - type: EyeProtection
+#     protectionTime: 12
+#   - type: Sprite
+#     noRot: true
+#     drawdepth: Mobs
+#   - type: Physics
+#     bodyType: KinematicController
+#   - type: Hands
+#     showInHands: false
+#   - type: Body
+#     prototype: Drone
+#   - type: IntrinsicRadioReceiver
+#   - type: IntrinsicRadioTransmitter
+#     channels:
+#     - ADTDroneAntag
+#     - Common
+#   - type: ActiveRadio
+#     channels:
+#     - ADTDroneAntag
+#     - Common
+#   - type: Tag
+#     tags:
+#       - ShoesRequiredStepTriggerImmune
+#       - CannotSuicide
+#       - DoorBumpOpener
+#   - type: Access
+#     tags:
+#     - External
+#   - type: TypingIndicator
+#   proto: robot
+#   - type: Speech
+#   speechSounds: Pai
+#   # Frontier - languages mechanic
+#   - type: LanguageSpeaker
+#     speaks:
+#     - BorgTalk
+#     understands:
+#     - GalacticCommon
+#     - BorgTalk
+#     - SolCommon
+
+
+# OLD FIRST DRONE
+
+
+# - type: entity
+#   name: drone miner
+#   id: ADTDroneAntagMiner
 #   parent: ADTDroneAntagBase
 #   components:
 #   - type: NameIdentifier
@@ -205,7 +574,6 @@
 #   - type: Inventory
 #     templateId: drone
 #   - type: InventorySlots
-# # БЛА БЛА БЛА отделил сложное
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed : 5
 #     baseSprintSpeed : 5
@@ -221,7 +589,6 @@
 #   - type: NoSlip
 #   - type: StatusEffects
 #     allowed:
-#     - Stun
 #     - SlowedDown
 #   - type: SlowOnDamage
 #     speedModifierThresholds:
@@ -234,7 +601,8 @@
 #       types:
 #         Heat : 1 #per second, scales with temperature & other constants
 #   - type: Sprite
-#     drawdepth: SmallMobs
+#     drawdepth: Mobs
+#     netsync: true
 #     layers:
 #     - state: mineshell
 #       sprite: ADT/Mobs/Silicon/AntagDrones/drone-miner.rsi
@@ -256,9 +624,9 @@
 #           radius: 0.35
 #         density: 50
 #         mask:
-#         - SmallMobMask
+#         - FlyingMobMask
 #         layer:
-#         - SmallMobLayer
+#         - FlyingMobLayer
 #   - type: Appearance
 #   - type: GenericVisualizer
 #     visuals:
@@ -284,106 +652,15 @@
 #   # Frontier - languages mechanic
 #   - type: LanguageSpeaker
 #     speaks:
-#     - RobotTalk
+#     - BorgTalk
 #     understands:
-#     - RobotTalk
+#     - GalacticCommon
+#     - BorgTalk
+#     - SolCommon
 
-# 3 - ЗАРЯЖАЮЩИЙ
 
-# - type: entity
-#   name: drone soldier
-#   id: ADTDroneAntagCharge
-#   parent: ADTDroneAntagBase
-#   components:
-#   - type: NameIdentifier
-#     group: ADTDroneAntag
-#   - type: Inventory
-#     templateId: drone
-#   - type: InventorySlots
-# # БЛА БЛА БЛА отделил сложное
-#   - type: MovementSpeedModifier
-#     baseWalkSpeed : 5
-#     baseSprintSpeed : 5
-#   - type: MobState
-#     allowedStates:
-#       - Alive
-#       - Dead
-#   - type: ZombieImmune
-#   - type: MobThresholds
-#     thresholds:
-#       0: Alive
-#       125: Dead
-#   - type: NoSlip
-#   - type: StatusEffects
-#     allowed:
-#     - Stun
-#     - SlowedDown
-#   - type: SlowOnDamage
-#     speedModifierThresholds:
-#       80: 0.5
-#   - type: Temperature
-#     heatDamageThreshold: 5000
-#     currentTemperature: 310.15
-#     specificHeat: 42
-#     heatDamage:
-#       types:
-#         Heat : 1 #per second, scales with temperature & other constants
-#   - type: Sprite
-#     drawdepth: SmallMobs
-#     layers:
-#     - state: mineshell
-#       sprite: ADT/Mobs/Silicon/AntagDrones/drone-miner.rsi
-#       map: ["base"]
-#   - type: MovementIgnoreGravity
-#   - type: IntrinsicRadioTransmitter
-#     channels:
-#     - ADTDroneAntag
-#     - Common
-#   - type: ActiveRadio
-#     channels:
-#     - ADTDroneAntag
-#     - Common
-#   - type: Fixtures
-#     fixtures:
-#       fix1:
-#         shape:
-#           !type:PhysShapeCircle
-#           radius: 0.35
-#         density: 50
-#         mask:
-#         - SmallMobMask
-#         layer:
-#         - SmallMobLayer
-#   - type: Appearance
-#   - type: GenericVisualizer
-#     visuals:
-#       enum.DroneVisuals.Status:
-#         base:
-#           Off: { state: mineshell }
-#           On: { state: minedrone }
-# #  - type: ReplacementAccent
-# #    accent: silicon
-#   - type: Repairable
-#     fuelcost: 15
-#     doAfterDelay: 5
-#   - type: Actions
-#   - type: UnpoweredFlashlight
-#   - type: PointLight
-#     enabled: false
-#     radius: 3.5
-#     softness: 1
-#     mask: /Textures/Effects/LightMasks/cone.png
-#     autoRot: true
-#   - type: StaticPrice
-#     price: 250
-#   # Frontier - languages mechanic
-#   - type: LanguageSpeaker
-#     speaks:
-#     - RobotTalk
-#     understands:
-#     - RobotTalk
+# IPC DRONE
 
-# КПБ ДРОН
 
 # - type: entity
 #   name: drone soldier
@@ -396,12 +673,20 @@
 #     100: Critical
 #     200: Dead
 
+
+# DRONE NAME IDENTIFIER
+
+
 # - type: nameIdentifierGroup
 #   id: ADTDroneAntag
 #   prefix: SD
 #   fullName: true
 #   minValue: 10000
 #   maxValue: 99999
+
+
+# IPC DRONE NAME IDENTIFIER
+
 
 # - type: nameIdentifierGroup
 #   id: ADTIPCAntag
@@ -410,12 +695,20 @@
 #   minValue: 10000
 #   maxValue: 99999
 
+
+# DRONE RADIO CHANNEL
+
+
 # - type: radioChannel
 #   id: ADTDroneAntag
 #   name: Дроны
 #   keycode: 'й'
 #   frequency: 1301
 #   color: "#690e0e"
+
+
+# DRONE ENCRYPTION KEY
+
 
 # - type: entity
 #   parent: EncryptionKey
@@ -432,3 +725,7 @@
 #     layers:
 #     - state: crypt_silver
 #     - state: rd_label
+
+
+
+
