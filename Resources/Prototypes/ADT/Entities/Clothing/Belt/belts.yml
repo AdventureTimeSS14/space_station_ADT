@@ -1,0 +1,431 @@
+#Supreme commander
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltSupremeCommanderSheath
+  name: suppreme connamder's sabre sheath
+  description: where is my beauty?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/supreme-commander-sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/supreme-commander-sheath.rsi
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+        - SupremeCommanderSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - SupremeCommanderSabre
+  - type: Appearance
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltSupremeSheath
+  name: suppreme sabre sheath
+  description: where is my beauty?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/supreme-sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/supreme-sheath.rsi
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+        - SupremeSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - SupremeSabre
+  - type: Appearance
+
+#ERT
+#RPSS
+- type: entity
+  id: ADTClothingBeltMilitaryWebbingRPSSL
+  parent: ClothingBeltMilitaryWebbing
+  name: ERT security belt
+  description: Part of ERT security's gear
+  components:
+
+  - type: StorageFill
+    contents:
+      - id: EmergencyMedipen
+        amount: 2
+      - id: MagazineMagnum
+      - id: WeaponPistolN1984
+      - id: MedicatedSuture
+
+- type: entity
+  id: ADTClothingBeltMilitaryWebbingRPSSL_Rev
+  parent: ClothingBeltMilitaryWebbing
+  name: ERT security belt
+  description: Part of ERT security's gear
+  suffix: Anti-REV
+  components:
+
+  - type: StorageFill
+    contents:
+      - id: EmergencyMedipen # Size 2
+        amount: 2
+      - id: ADTtelescopicBaton #Size 2
+      - id: Stunbaton #Size 2
+      - id: Flash #Size 2
+      - id: Handcuffs #Size 2
+        amount: 3
+
+#RPSL
+- type: entity
+  id: ADTClothingBeltMilitaryWebbingRPSL
+  parent: ClothingBeltMilitaryWebbing
+  name: ERT Leader belt
+  description: Part of ERT leader's gear
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmergencyMedipen
+        amount: 2
+      - id: MagazineMagnum
+      - id: WeaponPistolN1984
+      - id: MedicatedSuture
+      - id: ADTAdvancedHoloprojectorField
+
+- type: entity
+  id: ADTClothingBeltMilitaryWebbingRPSL_Rev
+  parent: ClothingBeltMilitaryWebbing
+  name: ERT Leader belt
+  description: Part of ERT leader's gear
+  suffix: Anti-REV
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmergencyMedipen
+        amount: 2
+      - id: ADTtelescopicBaton
+      - id: Stunbaton
+      - id: Flash
+      - id: Handcuffs
+        amount: 3
+
+#RPSM
+- type: entity
+  id: ADTClothingBeltMilitaryWebbingRPSML
+  parent: ClothingBeltMilitaryWebbing
+  name: ERT medical belt
+  description: Part of ERT medical's gear
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmergencyMedipen
+      - id: EmergencyMedipen
+      - id: MedicatedSuture
+      - id: MedicatedSuture
+      - id: EpinephrineChemistryBottle
+      - id: EphedrineChemistryBottle
+      - id: ADTObjectsSpecificBicaridineChemistryBottle
+      - id: ADTObjectsSpecificDexalinPlusChemistryBottle
+      - id: RegenerativeMesh
+
+#Pyotr
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltPyotrSheath
+  name: Pyotr`s sabre sheath
+  description: An ornate sheath designed to hold an officer's blade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/pyotr_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/pyotr_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTPyotrSabre
+  - type: Appearance
+
+#кобура следователя СБ
+
+- type: entity
+  id: ADTClothingBeltInvestigatorHolster
+  parent: ClothingBeltHolster
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+        - id: WeaponPistolMk58Nonlethal
+        - id: MagazinePistol
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltMedicalBag
+  name: medical bag
+  description: Small but capacious bag to hold various medical equipment. It even has some place for a tablet for paper!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - Folder
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+  - type: Appearance
+
+#РПС Киллы
+
+- type: entity
+  id: ADTClothingBeltKilla
+  parent: ClothingBeltMilitaryWebbing
+  name: Triton belt
+  description: Triton belt
+  suffix: Halloween
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+
+ #Празатомат
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTClothingBeltBlackSuspenders
+  name: black suspenders
+  description: A suspenders made with elastic ribbon and the addition of rubber. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/black_suspenders.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/black_suspenders.rsi #спрайты от prazat911
+    quickEquip: true
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTClothingBeltBrownSuspenders
+  name: brown suspenders
+  description: A suspenders made of rough leather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/leather_suspenders.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/leather_suspenders.rsi #спрайты от prazat911
+    quickEquip: true
+
+#кобура аудитора СБ
+
+- type: entity
+  id: ADTClothingBeltSecAuditorHolster
+  parent: ClothingBeltHolster
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+        - id: ADTWeaponPistolPMM
+        - id: ADTMagazinePistolPMM
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/sec_auditor_holster.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/sec_auditor_holster.rsi
+    quickEquip: true
+
+#офицерский ремень с кобурой
+
+- type: entity
+  id: ADTClothingBeltOfficersbeltwithholster
+  parent: ClothingBeltHolster
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+        - id: ADTWeaponPistolPMM
+        - id: ADTMagazinePistolPMM
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/officers_belt_with_holster.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/officers_belt_with_holster.rsi
+    quickEquip: true
+
+#рпс
+
+- type: entity
+  id: ADTClothingRPSUSSP
+  parent: ClothingBeltMilitaryWebbing
+  name: RPS USSP
+  description: RPS USSP
+  suffix: USSP
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/rps_ussp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/rps_ussp.rsi
+
+#тактический рпс
+
+- type: entity
+  id: ADTClothingRPSTacticalUSSP
+  parent: ClothingBeltMilitaryWebbing
+  name: RPS Tactical USSP
+  description: RPS Tactical USSP
+  suffix: USSP
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/rps_tactical_ussp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/rps_tactical_ussp.rsi
+
+#День Святого Валентина
+
+- type: entity
+  parent: ClothingBeltQuiver
+  id: ADTClothingBeltQuiverCupidon
+  name: cupidon quiver
+  description: cupidon quiver
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/cupidon_quiver.rsi
+    layers:
+    - state: icon
+    - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+      visible: false
+
+#разгрузка и подсумки ТСФ
+
+- type: entity
+  id: ADTClothingWarbeltTSF
+  parent: ClothingBeltMilitaryWebbing
+  name: TSF warbelt
+  description: TSF warbelt
+  suffix: TSF
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/tsf_webbing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/tsf_webbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,0,1
+    - 2,0,5,1
+    - 7,0,8,1
+    - 10,0,10,1
+    maxItemSize: Normal
+
+- type: entity
+  id: ADTClothingTSFMagBelt
+  parent: ClothingBeltMilitaryWebbing
+  name: TSF mag belt
+  description: TSF mag belt
+  suffix: TSF
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/tsf_magbelt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/tsf_magbelt.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Small
+  - type: Item
+    size: Small
+
+- type: entity
+  id: ADTClothingTSFMedBelt
+  parent: ClothingBeltMilitaryWebbing
+  name: TSF med belt
+  description: TSF med belt
+  suffix: TSF
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/tsf_medbelt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/tsf_medbelt.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Small
+  - type: Item
+    size: Small
+
+#Сабельные ножны ОЦК
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltSheathOCK
+  name: sabre sheath OCK
+  description: This is a green scabbard that is given only to the best of the Central Committee.There are rumors that a saber in them can reduce wages.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/sheath_OCK.rsi
+    state: sheath
+  - type: Clothing
+    sprite: Clothing/Belt/sheath_OCK.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: Appearance
