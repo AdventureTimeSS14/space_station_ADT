@@ -97,6 +97,9 @@
       types:
         Blunt: 0.9
         Slash: 5
+  - type: DiseaseCarrier
+    naturalImmunities:
+    - OwOnavirus
   - type: Blindable
   - type: Speech
     speechSounds: Alto

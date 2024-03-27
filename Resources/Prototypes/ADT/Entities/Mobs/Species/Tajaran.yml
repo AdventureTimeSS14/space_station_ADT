@@ -28,6 +28,9 @@
       damage:
         types:
           Piercing: 5
+    - type: DiseaseCarrier
+      naturalImmunities:
+      - FurryVirus
     - type: Temperature
       heatDamageThreshold: 400
       coldDamageThreshold: 200
