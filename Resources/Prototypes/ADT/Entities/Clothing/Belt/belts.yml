@@ -407,10 +407,10 @@
   description: This is a green scabbard that is given only to the best of the Central Committee.There are rumors that a saber in them can reduce wages.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/sheath_OCK.rsi
+    sprite: ADT/Clothing/Belt/sheath_OCK.rsi
     state: sheath
   - type: Clothing
-    sprite: Clothing/Belt/sheath_OCK.rsi
+    sprite: ADT/Clothing/Belt/sheath_OCK.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots
