@@ -1,0 +1,331 @@
+- type: entity
+  parent: BaseMob
+  id: ADTDroneAntagBase2
+  name: BASE 2 DRONE MINER
+  save: false
+  abstract: true
+  components:
+  - type: MindContainer
+  - type: InputMover
+  - type: MobMover
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: Input
+    context: "human"
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Silicon
+  - type: CombatMode
+  - type: MovementIgnoreGravity
+  - type: NoSlip
+  - type: StaticPrice
+    price: 700
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 3
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+  - type: Physics
+    bodyType: KinematicController
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+    locPrefix: silicon
+  - type: UserInterface
+    interfaces:
+    # - key: enum.SiliconLawsUiKey.Key
+    #   type: SiliconLawBoundUserInterface
+    # - key: enum.BorgUiKey.Key
+    #   type: BorgBoundUserInterface
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  # - type: ActivatableUI
+  #   key: enum.BorgUiKey.Key
+  # - type: SiliconLawBound
+  # - type: EmagSiliconLaw
+  #   stunTime: 5
+  # - type: SiliconLawProvider
+  #   laws: Crewsimov
+  - type: Strippable
+  - type: InventorySlots
+  - type: Inventory
+    templateId: Human
+  - type: Hands
+    showInHands: false
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - ADTDroneAntag
+    - Common
+  - type: ActiveRadio
+    channels:
+    - ADTDroneAntag
+    - Common
+  - type: ZombieImmune
+  - type: Repairable
+    fuelcost: 15
+    doAfterDelay: 3
+    allowSelfRepair: true
+  - type: NameIdentifier
+    group: ADTDroneAntag
+  # - type: PowerCellSlot
+  #   cellSlotId: cell_slot
+  #   fitsInCharger: true
+  # - type: PowerCellDraw
+  #   drawRate: 0.6
+  # - type: ItemSlots
+  #   slots:
+  #     cell_slot:
+  #       name: power-cell-slot-component-slot-name-default
+  - type: Body
+  - type: ContainerContainer
+    containers:
+      borg_module: !type:Container
+  - type: BorgChassis
+  - type: StatusEffects
+    allowed:
+    - Stun
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: UnblockableSpeech
+  - type: Construction
+    graph: cyborg
+    containers:
+    - borg_module
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      # - !type:EmptyContainersBehaviour
+      #   containers:
+      #   - borg_brain
+      #   - borg_module
+      #   - cell_slot
+      # - !type:DoActsBehavior
+      #   acts: [ "Destruction" ]
+  # - type: HandheldLight
+  #   toggleOnInteract: false
+  #   wattage: 0.2
+  #   blinkingBehaviourId: blinking
+  #   radiatingBehaviourId: radiating
+  # - type: LightBehaviour
+  #   behaviours:
+  #   - !type:FadeBehaviour
+  #     id: radiating
+  #     maxDuration: 2.0
+  #     startValue: 3.0
+  #     endValue: 2.0
+  #     isLooped: true
+  #     reverseWhenFinished: true
+  #   - !type:PulseBehaviour
+  #     id: blinking
+  #     interpolate: Nearest
+  #     maxDuration: 1.0
+  #     minValue: 0.1
+  #     maxValue: 2.0
+  #     isLooped: true
+  - type: ToggleableLightVisuals
+  - type: PointLight
+    enabled: false
+    color: "#d7f705"
+    radius: 7
+    energy: 1
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: DoAfter
+  - type: Pullable
+  - type: Examiner
+  - type: Alerts
+  - type: Puller
+    needsHands: false
+  - type: StandingState
+  - type: Tag
+    tags:
+    - ShoesRequiredStepTriggerImmune
+    # - DoorBumpOpener
+    - CanPilot
+    - CannotSuicide
+  # - type: Emoting
+  # - type: GuideHelp
+  #   guides:
+  #     - Cyborgs
+  - type: LanguageSpeaker
+    speaks:
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - SolCommon
+
+- type: entity
+  id: ADTDroneAntagMiner2
+  parent: ADTDroneAntagBase2
+  name: DRONE MINER 2
+  components:
+  - type: Body
+    prototype: Human
+  - type: Hands
+    showInHands: false
+  - type: InventorySlots
+  - type: Strippable
+  - type: ContainerContainer
+    containers:
+      borg_module: !type:Container
+  - type: ContainerFill
+    containers:
+      borg_module:
+        - ADTDroneModuleMiner
+  - type: BorgChassis
+    maxModules: 1
+    moduleWhitelist:
+      tags:
+        - BorgModuleGeneric
+        - BorgModuleSyndicate
+        - BorgModuleSyndicateAssault
+  - type: NameIdentifier
+    group: ADTDroneAntag
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Dead
+  - type: NoSlip
+  - type: StatusEffects
+    allowed:
+    - Stun
+  - type: Temperature
+    heatDamageThreshold: 5000
+    currentTemperature: 310.15
+    specificHeat: 42
+    heatDamage:
+      types:
+        Heat : 1 #per second, scales with temperature & other constants
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - state: minedrone
+      sprite: ADT/Mobs/Silicon/AntagDrones/drone-miner.rsi
+      map: ["base"]
+  - type: MovementIgnoreGravity
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Appearance
+  # - type: GenericVisualizer
+  #   visuals:
+  #     enum.DroneVisuals.Status:
+  #       base:
+  #         Off: { state: mineshell }
+  #         On: { state: minedrone }
+  - type: Actions
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    color: "#d7f705"
+    radius: 7
+    energy: 1
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: Tag
+    tags:
+      - ShoesRequiredStepTriggerImmune
+      - CannotSuicide
+  - type: StaticPrice
+    price: 750
+  # Frontier - languages mechanic
+  - type: LanguageSpeaker
+    speaks:
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - SolCommon
+  - type: CombatMode
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      groups:
+        Brute: 5
+  - type: EyeProtection
+    protectionTime: 12
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechSounds: Pai
+  - type: ZombieImmune
+  - type: Repairable
+    fuelcost: 15
+    doAfterDelay: 5
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: Inventory
+    templateId: borgShort
