@@ -6,9 +6,9 @@
   components:
   - type: EncryptionKey
     channels:
-    - ADTDroneAntag
+    - ADTDroneAntagChannel
     - Common
-    defaultChannel: ADTDroneAntag
+    defaultChannel: ADTDroneAntagChannel
   - type: Sprite
     layers:
     - state: crypt_silver

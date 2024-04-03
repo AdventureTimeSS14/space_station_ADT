@@ -12,8 +12,15 @@
   prefix: ГОЛО # Corvax-Localization
 
 - type: nameIdentifierGroup
-  id: ADTDroneAntag
-  prefix: SD
+  id: ADTDroneAntagMiner
+  prefix: drone miner SD
+  fullName: true
+  minValue: 100
+  maxValue: 999
+
+- type: nameIdentifierGroup
+  id: ADTDroneAntagSoldier
+  prefix: drone soldier SD
   fullName: true
   minValue: 100
   maxValue: 999

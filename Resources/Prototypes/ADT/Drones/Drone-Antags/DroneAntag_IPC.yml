@@ -1,0 +1,646 @@
+- type: entity
+  save: false
+  abstract: true
+  id: ADTipcdronebase1
+  components:
+    - type: Reactive
+      groups:
+        Acidic: [Touch]
+    - type: Input
+      context: "human"
+    - type: InputMover
+    - type: ZombieImmune
+    - type: MobMover
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+    - type: Clickable
+    - type: Damageable
+      damageContainer: Inorganic # Note that for dumb reasons, this essentially makes them a wall.
+    # - type: Bloodstream # This is left commented out because it's not necessary for a robot, but you may want it.
+    #   bloodReagent: MotorOil
+    #   bloodlossDamage:
+    #     types:
+    #       Bloodloss:
+    #         1
+    #   bloodlossHealDamage:
+    #     types:
+    #       Bloodloss:
+    #         -0.25
+    - type: InteractionOutline
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 185 ### влияет на шанс Disarm. было 50
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 3
+      baseSprintSpeed: 4
+    - type: Sprite
+      sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+      state: ipc_full
+      noRot: true
+      drawdepth: Mobs
+    - type: Physics
+      bodyType: KinematicController
+    - type: Body
+      prototype: Drone
+    - type: DoAfter
+    - type: Examiner
+    # - type: Recyclable
+    #   safe: false
+    - type: StandingState
+    - type: Alerts
+    # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
+    #   protectionTime: 12
+    # - type: Silicon
+    #   entityType: enum.SiliconType.Player
+    #   batteryPowered: false # Needs to also have a battery!
+    #   chargeThresholdMid: 0.60
+    #   chargeThresholdLow: 0.30
+    #   chargeThresholdCritical: 0
+    #   speedModifierThresholds:
+    #     4: 1
+    #     3: 1
+    #     2: 0.80
+    #     1: 0.45
+    #     0: 0.00
+    # - type: RadiationReceiver
+    # - type: AtmosExposed
+    # - type: Temperature
+    #   heatDamageThreshold: 700
+    #   coldDamageThreshold: 0
+    #   currentTemperature: 400
+    #   specificHeat: 24
+    #   coldDamage:
+    #     types:
+    #       Cold: 0.1 # Per second, scales with temperature & other constants.
+    #   heatDamage:
+    #     types:
+    #       Heat: 0.25 # Per second, scales with temperature & other constants.
+    #   atmosTemperatureTransferEfficiency: 0.05
+    # - type: ThermalRegulator
+    #   metabolismHeat: 600
+    #   radiatedHeat: 350
+    #   implicitHeatRegulation: 350
+    #   sweatHeatRegulation: 0 # This might end up being a problem if they can't cool themselves down?
+    #   shiveringHeatRegulation: 1200
+    #   normalBodyTemperature: 400
+    #   thermalRegulationTemperatureThreshold: 125
+
+- type: entity
+  parent: ADTipcdronebase1
+  id: ADTipcdronebase2
+  abstract: true
+  components:
+    - type: StatusIcon
+    - type: MobState
+      allowedStates:
+        - Alive
+        - Dead
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Critical
+        200: Dead
+    - type: Damageable
+      damageContainer: ADTSiliconDamageContainer # Not a wall.
+    - type: Stamina
+      critThreshold: 300
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 500
+          behaviors:
+            - !type:GibBehavior {}
+    - type: Icon
+      sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+      state: ipc_full
+    - type: MindContainer
+      showExamineInfo: true
+    - type: Sprite
+      noRot: true
+      drawdepth: Mobs
+      layers:
+        - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Head"]
+        - map: ["enum.HumanoidVisualLayers.Snout"]
+        - map: ["enum.HumanoidVisualLayers.Eyes"]
+        - map: ["enum.HumanoidVisualLayers.RArm"]
+        - map: ["enum.HumanoidVisualLayers.LArm"]
+        - map: ["enum.HumanoidVisualLayers.RLeg"]
+        - map: ["enum.HumanoidVisualLayers.LLeg"]
+        - shader: StencilClear
+          sprite: Mobs/Species/Human/parts.rsi
+          state: l_leg
+        - shader: StencilMask
+          map: ["enum.HumanoidVisualLayers.StencilMask"]
+          sprite: Mobs/Customization/masking_helpers.rsi
+          state: unisex_full
+          visible: false
+        - map: ["enum.HumanoidVisualLayers.LFoot"]
+        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
+        - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
+        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
+        - map: ["id"]
+        - map: ["gloves"]
+        - map: ["shoes"]
+        - map: ["ears"]
+        - map: ["outerClothing"]
+        - map: ["eyes"]
+        - map: ["belt"]
+        - map: ["neck"]
+        - map: ["back"]
+        - map: ["enum.HumanoidVisualLayers.FacialHair"]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
+        - map: ["enum.HumanoidVisualLayers.HeadSide"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: ["mask"]
+        - map: ["head"]
+        - map: ["pocket1"]
+        - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        #- map: ["enum.HumanoidVisualLayers.Wings"]
+        - map: ["clownedon"] # Dynamically generated
+          sprite: "Effects/creampie.rsi"
+          state: "creampie_human"
+          visible: false
+    - type: Repairable
+      doAfterDelay: 5 # was 18
+      damage:
+        types:
+          Blunt: -20
+          Slash: -20
+          Piercing: -20
+      #bloodlossModifier: -100
+#     - type: Bloodstream ### я добавил компонент Bloodstream как заглушку. Он нужен,
+# # чтобы хилиться с помощью CableStack. Дело в том, что HealingSystem использует проверку на наличие BloodstreamComponent.
+# # В любом случае Bloodstream здесь является костылём, чтобы не лезть в код. В будущем можно зделать для IPC нормальную bloodstream систему.
+#       damageBleedModifiers: BloodlossIPC
+#       bloodReagent: Water
+#       bleedReductionAmount: 0
+#       bloodMaxVolume: 0
+#       chemicalMaxVolume: 0
+#       bleedPuddleThreshold: 3
+#       bleedRefreshAmount: 0
+#       bloodLossThreshold: 0
+#       maxBleedAmount: 0
+#       bloodlossDamage:
+#         types:
+#           Burn: 1.5
+#       bloodlossHealDamage:
+#         types:
+#           Burn: 0
+    - type: Flammable
+      fireSpread: true
+      canResistFire: true
+      damage:
+        types:
+          Heat: 0.75 #per second, scales with number of fire 'stacks'
+    # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
+    #   damage:
+    #     types:
+    #       Blunt: 0.28 #per second, scales with pressure and other constants.
+    - type: Polymorphable
+    - type: Identity
+    - type: MovedByPressure
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/metal_break1.ogg
+    - type: LagCompensation
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection: MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection: MetalLaserImpact
+    - type: Tag
+      tags:
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+    - type: Hands
+    - type: Inventory
+      templateId: human
+    - type: InventorySlots
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.CreamPiedVisuals.Creamed:
+          clownedon:
+            True: { visible: true }
+            False: { visible: false }
+    - type: RotationVisuals
+    - type: FloatingVisuals
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Generic_mob_burning
+      alternateState: Standing
+      fireStackAlternateState: 3
+    - type: CombatMode
+      canDisarm: true
+    - type: Climbing
+    - type: Cuffable
+    - type: AnimationPlayer
+    - type: Buckle
+    - type: CreamPied
+    - type: Stripping
+    - type: Strippable
+    - type: UserInterface
+      interfaces:
+        - key: enum.VoiceMaskUIKey.Key
+          type: VoiceMaskBoundUserInterface
+        - key: enum.HumanoidMarkingModifierKey.Key
+          type: HumanoidMarkingModifierBoundUserInterface
+        - key: enum.StrippingUiKey.Key
+          type: StrippableBoundUserInterface
+    - type: StandingState
+    - type: CanEscapeInventory
+    # - type: HumanoidAppearance
+    #   species: IPC
+    - type: Body
+      prototype: IPC
+      requiredLegs: 2
+    - type: Ensnareable
+      sprite: Objects/Misc/ensnare.rsi
+    - type: Speech
+      speechSounds: Pai
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        collection: Punch
+      angle: 30
+      animation: WeaponArcFist
+      attackRate: 1
+      damage:
+        types:
+          Blunt: 6 # It's tough.
+    - type: MobPrice
+      price: 1500 # Kidnapping a living person and selling them for cred is a good move.
+      deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+    - type: Pullable
+    - type: Puller
+    - type: Reactive
+      groups:
+        Flammable: [Touch]
+        Extinguish: [Touch]
+        Acidic: [Touch, Ingestion]
+      reactions:
+        - reagents: [Water, SpaceCleaner]
+          methods: [Touch]
+          effects:
+            - !type:WashCreamPieReaction
+    - type: DamageVisuals
+      thresholds: [20, 40, 100]
+      targetLayers:
+        - "enum.HumanoidVisualLayers.Chest"
+        - "enum.HumanoidVisualLayers.Head"
+        - "enum.HumanoidVisualLayers.LArm"
+        - "enum.HumanoidVisualLayers.LLeg"
+        - "enum.HumanoidVisualLayers.RArm"
+        - "enum.HumanoidVisualLayers.RLeg"
+      damageOverlayGroups:
+        Brute:
+          sprite: Mobs/Effects/brute_damage.rsi
+          color: "#1a1a1a"
+        # Burn:
+        #   sprite: Mobs/Effects/burn_damage.rsi
+    # Organs
+    - type: IdExaminable
+    - type: HealthExaminable
+      examinableTypes:
+        - Blunt
+        - Slash
+        - Piercing
+        - Heat
+        - Shock
+    - type: StatusEffects
+      allowed:
+        - Stun
+    - type: Blindable
+
+- type: entity
+  id: ADTDroneAntagIPC
+  parent: ADTipcdronebase2
+  name: drone soldier
+  suffix: Antag Drone IPC
+  description: Вам, вероятно, не стоит стоять рядом с ним, чтобы проверить, включен ли он.
+  components:
+  - type: InteractionPopup
+    interactSuccessString: petting-success-ipc
+    #interactFailureString: petting-failure-cleanbot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  # - type: SiliconEmitSoundOnDrained
+  #   sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg"
+  #   interval: 15
+  #   playChance: 1
+  #   popUp: silicon-power-low
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+    state: ipc_full
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+        state: ipc_full
+      - map: ["enum.HumanoidVisualLayers.Chest"]
+      - map: ["enum.HumanoidVisualLayers.Head"]
+      - map: ["enum.HumanoidVisualLayers.Snout"]
+      - map: ["enum.HumanoidVisualLayers.Eyes"]
+      - map: ["enum.HumanoidVisualLayers.RArm"]
+      - map: ["enum.HumanoidVisualLayers.LArm"]
+      - map: ["enum.HumanoidVisualLayers.RLeg"]
+      - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+      #- map: ["enum.HumanoidVisualLayers.Wings"]
+      - map: ["clownedon"] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Critical
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+
+    allowRevives: true # Для воскрешения достаточно починить урон. - ss220.
+  - type: NpcFactionMember
+    factions:
+      - DroneAntag
+  - type: NameIdentifier
+    group: ADTDroneAntagSoldier
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    color: "#cc5500"
+    radius: 7
+    energy: 1.7
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: TypingIndicator
+    proto: robot
+  - type: Prying
+    pryPowered: true
+    force: true
+  - type: AutoImplant
+    implants:
+    - SyndUniversalTranslatorImplanter
+  - type: Repairable
+    doAfterDelay: 5 # was 18
+    damage:
+      types:
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
+  - type: Damageable
+    damageModifierSet: ADTAntagDroneIPCDamageModSet
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTDroneAntagCoreAdvanced:
+            min: 1
+            max: 1
+          SheetSteel1:
+            min: 5
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SiliconDownOnDead
+  - type: Inventory
+    templateId: ipc
+  - type: EyeProtection
+    protectionTime: 30
+  # - type: Battery
+  #   maxCharge: 75000
+  #   startingCharge: 75000
+  # - type: Silicon
+  #   entityType: enum.SiliconType.Player
+  #   batteryPowered: true
+  #   drainPerSecond: 30
+  #   chargeThresholdMid: 0.80
+  #   chargeThresholdLow: 0.35
+  #   chargeThresholdCritical: 0.10
+  #   speedModifierThresholds:
+  #     4: 1
+  #     3: 1
+  #     2: 0.80
+  #     1: 0.45
+  #     0: 0.00
+  # - type: BatteryDrinker
+  # - type: Wires
+  #   boardName: "ipc-board-name"
+  #   layoutId: IPC
+  # - type: WiresPanel
+  - type: EncryptionKeyHolder
+    keySlots: 2
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - ADTDroneAntagChannel
+    - Common
+  - type: ActiveRadio
+    channels:
+    - ADTDroneAntagChannel
+    - Common
+#  - type: UnblockableSpeech
+  - type: ContentEye
+    maxZoom: 1.0,1.0
+  - type: LightningTarget
+    priority: 4
+    lightningExplode: false
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/ADT/IPC/borg_deathsound.ogg
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+    - SolCommon
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+    - SolCommon
+  - type: Tag
+    tags:
+    - ChangelingBlacklist
+    - ShoesRequiredStepTriggerImmune
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
+
+# damage modifier set
+
+- type: damageModifierSet
+  id: ADTAntagDroneIPCDamageModSet
+  coefficients:
+    Blunt: 0.35
+    Slash: 0.35
+    Piercing: 0.45
+    Heat: 0.20
+    Explosive: 0.25
+    Structural: 0
+    # zap
+    Shock: 0.5
+    Cold: 0
+    Caustic: 0.3
+
+
+# DRONE NAME IDENTIFIER
+
+
+# - type: nameIdentifierGroup
+#   id: ADTDroneAntagMiner
+#   prefix: drone miner SD
+#   fullName: true
+#   minValue: 100
+#   maxValue: 999
+
+# - type: nameIdentifierGroup
+#   id: ADTDroneAntagSoldier
+#   prefix: drone soldier SD
+#   fullName: true
+#   minValue: 100
+#   maxValue: 999
+
+
+# IPC DRONE NAME IDENTIFIER
+
+
+# - type: nameIdentifierGroup
+#   id: ADTIPCAntag
+#   prefix: BF
+#   fullName: true
+#   minValue: 10000
+#   maxValue: 99999
+
+
+# DRONE RADIO CHANNEL
+
+
+# - type: radioChannel
+#   id: ADTDroneAntagChannel
+#   name: Дроны
+#   keycode: 'й'
+#   frequency: 1301
+#   color: "#690e0e"
+
+
+# DRONE ENCRYPTION KEY
+
+
+# - type: entity
+#   parent: EncryptionKey
+#   id: ADTEncryptionKeyDroneAntag
+#   name: Ключ к каналу дронов
+#   description: Ключ к доступу каналов дронов.
+#   components:
+#   - type: EncryptionKey
+#     channels:
+#     - ADTDroneAntag
+#     - Common
+#     defaultChannel: ADTDroneAntag
+#   - type: Sprite
+#     layers:
+#     - state: crypt_silver
+#     - state: rd_label

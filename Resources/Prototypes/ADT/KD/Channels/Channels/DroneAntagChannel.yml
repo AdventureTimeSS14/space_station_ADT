@@ -1,6 +1,7 @@
 - type: radioChannel
-  id: ADTDroneAntag
+  id: ADTDroneAntagChannel
   name: Дроны
   keycode: 'й'
   frequency: 1301
   color: "#690e0e"
+  longRange: true
