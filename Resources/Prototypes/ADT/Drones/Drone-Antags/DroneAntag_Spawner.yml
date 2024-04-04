@@ -42,3 +42,19 @@
     - type: ConditionalSpawner
       prototypes:
         - ADTDroneAntagMiner
+
+- type: entity
+  name: drone soldier spawner
+  suffix: IPC
+  id: ADTSpawnerDroneAntagIPC
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+          state: ipc_icon
+    - type: ConditionalSpawner
+      prototypes:
+        - ADTDroneAntagIPC
