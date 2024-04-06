@@ -21,19 +21,14 @@ using System.ComponentModel;
 using System.Linq;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-
-
-
 public sealed class AutoPostingChatSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<AutoPostingChatComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<AutoPostingChatComponent, MobStateChangedEvent>(OnMobState);
     }
@@ -49,8 +44,6 @@ public sealed class AutoPostingChatSystem : EntitySystem
             _damageableSystem.TryChangeDamage(uid, damageSpec);
         }
     }
-
-
     private void OnComponentStartup(EntityUid uid, AutoPostingChatComponent component, ComponentStartup args)
     {
         // Проверяем наличие компонента AutoPostingChatComponent на сущности
@@ -59,7 +52,6 @@ public sealed class AutoPostingChatSystem : EntitySystem
         //    Logger.Warning("AutoPostingChatComponent отсутствует на сущности с UID: " + uid);
         //    return;
         //}
-
         // Создаем таймеры для Speak и Emote
         var speakTimer = new System.Timers.Timer(component.SpeakTimerRead); // 8000 миллисекунд = 8 секунд по умолчанию
         speakTimer.Elapsed += (sender, eventArgs) =>
@@ -81,7 +73,6 @@ public sealed class AutoPostingChatSystem : EntitySystem
             {
                 //if (component.PostingMessageEmote == "")
                 //    emoteTimer.Stop();
-
                 _chat.TrySendInGameICMessage(uid, component.PostingMessageEmote, InGameICChatType.Emote, ChatTransmitRange.Normal);
             }
         };
