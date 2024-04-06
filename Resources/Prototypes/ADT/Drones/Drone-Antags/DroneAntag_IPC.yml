@@ -574,7 +574,7 @@
     short: true
     shortscale: 0.9
   - type: StaticPrice
-    price: 10
+    price: 2525
 
 # damage modifier set
 
