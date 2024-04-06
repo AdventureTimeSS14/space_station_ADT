@@ -229,9 +229,14 @@
     allowed:
     - Stun
   - type: EncryptionKeyHolder
-    keySlots: 2
+    keySlots: 5
     examineWhileLocked: false
     keysExtractionMethod: Cutting
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTEncryptionKeyDroneAntag
+      - EncryptionKeyCommon
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -382,9 +387,14 @@
     allowed:
     - Stun
   - type: EncryptionKeyHolder
-    keySlots: 2
+    keySlots: 5
     examineWhileLocked: false
     keysExtractionMethod: Cutting
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTEncryptionKeyDroneAntag
+      - EncryptionKeyCommon
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -536,9 +546,14 @@
     allowed:
     - Stun
   - type: EncryptionKeyHolder
-    keySlots: 2
+    keySlots: 5
     examineWhileLocked: false
     keysExtractionMethod: Cutting
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTEncryptionKeyDroneAntag
+      - EncryptionKeyCommon
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
