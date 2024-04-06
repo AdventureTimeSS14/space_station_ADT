@@ -320,7 +320,7 @@
       - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
-    price: 750
+    price: 300
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -478,7 +478,7 @@
       - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
-    price: 750
+    price: 400
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
