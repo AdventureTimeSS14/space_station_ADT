@@ -17,6 +17,9 @@
     tags:
     - HideContextMenu
   - type: AnimationPlayer
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: sparks
 
 - type: entity
   id: EffectTeslaSparks
@@ -38,7 +41,7 @@
     - HideContextMenu
   - type: AnimationPlayer
   - type: EmitSoundOnSpawn
-    sound: 
+    sound:
       path: /Audio/Effects/tesla_consume.ogg
       params:
         variation: 0.3
