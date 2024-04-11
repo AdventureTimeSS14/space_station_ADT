@@ -405,12 +405,12 @@ public sealed partial class ComponentalActionsSystem
     public void IgniteNearby(EntityUid uid, EntityCoordinates coordinates, float severity, float radius, ElectrionPulseActComponent component)
     {
         //_flammables.Clear();
-        _lookup.GetEntitiesInRange(coordinates, radius, _electrocution);
-        var range = component.MaxElectrocuteRange * component.Stability;
+        //_lookup.GetEntitiesInRange(coordinates, radius, _electrocution);
+        var range = component.MaxElectrocuteRange * component.Severity; //component.Stability;
         var damage = (int) (component.MaxElectrocuteDamage * component.Severity);
         var duration = component.MaxElectrocuteDuration * component.Severity;
 
-        foreach (var flammable in _flammables)
+        foreach (var flammable in _electrocutio)
         {
             var ent = flammable.Owner;
             if (ent != uid)
