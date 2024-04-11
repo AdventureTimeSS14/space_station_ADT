@@ -1,0 +1,108 @@
+- type: entity
+  id: ADTAnomalySpawnTimePatrol
+  parent: BaseAnomaly
+  suffix: Gravity
+  components:
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnStabilityChanged: true
+        minAmount: 1
+        maxAmount: 1
+        maxRange: 1
+      spawns:
+      - ADTTimePatrolSpawn  # сущность которая спавнится при спавне данного энтити
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: Anomaly
+    animationTime: 6
+    # corePrototype: AnomalyCoreGravity
+    # coreInertPrototype: AnomalyCoreGravityInert
+  - type: Sprite
+    layers:
+    - state: anom4
+      map: ["enum.AnomalyVisualLayers.Base"]
+    - state: anom4-pulse
+      map: ["enum.AnomalyVisualLayers.Animated"]
+      visible: false
+  - type: PointLight
+    radius: 3.0
+    energy: 2.5
+    color: "#00ccff"
+    castShadows: false
+  - type: SingularityDistortion
+    intensity: 1000
+    falloffPower: 2.7
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/Lightning/lightningbolt.ogg
+
+
+# - type: entity
+#   id: ADTRandomHumanoidSpawnerDeathSquad
+#   name: Death Squad Agent
+#   suffix: ERTRole, Death Squad
+#   components:
+#     - type: Sprite
+#       sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+#       state: icon
+#     - type: RandomMetadata
+#       nameSegments:
+#         - NamesFirstMilitaryLeader
+#         - NamesLastMilitary
+#     - type: RandomHumanoidSpawner
+#       settings: ADTDeathSquad
+#     - type: InitialInfectedExempt
+
+# - type: randomHumanoidSettings
+#   speciesBlacklist:
+#     - Diona
+#   id: ADTDeathSquad
+#   randomizeName: false
+#   components:
+#     - type: MindShield
+#     - type: GhostRole
+#       name: ghost-role-information-Death-Squad-name
+#       description: ghost-role-information-Death-Squad-description
+#       requirements:
+#       - !type:OverallPlaytimeRequirement
+#         time: 36000 # 10h overall
+#     - type: GhostTakeoverAvailable
+#     - type: Loadout
+#       prototypes: [ DeathSquadGear ]
+#     - type: RandomMetadata
+#       nameSegments:
+#         - NamesFirstMilitaryLeader
+#         - NamesLastMilitary
+#     - type: InitialInfectedExempt
+
+- type: entity
+  name: Cultist
+  parent: BaseMobHuman
+  id: ADTTimePatrolSpawn
+  suffix: "Cult, BoneKnife, Cult of the Lamb"
+  components:
+  - type: TeleportAct
+  - type: Loadout
+    prototypes:
+      - ADTTimePatrolGear
+
+- type: startingGear
+  id: ADTTimePatrolGear
+  equipment:
+    mask: ClothingMaskPlague
+    jumpsuit: ADTClothingUniformJumpsuitOldDarkSuit
+    shoes: ClothingShoesBootsWinter
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterPlagueSuit
+    #id: CentcomPDA
+    #ears: ClothingHeadsetAltCentCom
+    belt: ADTBoneKnife
+    pocket1: Brutepack
+    pocket2: Ointment
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
