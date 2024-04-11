@@ -82,11 +82,47 @@
   id: ADTTimePatrolSpawn
   suffix: "Cult, BoneKnife, Cult of the Lamb"
   components:
-  #- type: Firestarter
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      170: Critical
+      300: Dead
+  - type: ElectrionPulseAct
   - type: TeleportAct
   - type: Loadout
     prototypes:
       - ADTTimePatrolGear
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: SoldierDeath
+  - type: Vocal
+    sounds:
+      Male: UnisexIPC
+      Female: UnisexIPC
+      Unsexed: UnisexIPC
+  - type: Speech
+    speechSounds: Metrocop
+    soundCooldownTime: 0.5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSoldier
+      params:
+        volume: -2
+  - type: NoSlip
+  - type: Insulated
+  - type: Tag
+    tags:
+    - ChangelingBlacklist
+    - ShoesRequiredStepTriggerImmune
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener # авто открытие двери, когда подходишь к ней
 
 - type: startingGear
   id: ADTTimePatrolGear

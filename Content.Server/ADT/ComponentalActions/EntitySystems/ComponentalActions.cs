@@ -152,11 +152,11 @@ public sealed partial class ComponentalActionsSystem : EntitySystem
         _action.RemoveAction(uid, component.ActionEntity);
     }
 
-    private void OnElectrionPulseInit(EntityUid uid, LevitationActComponent component, MapInitEvent args)
+    private void OnElectrionPulseInit(EntityUid uid, ElectrionPulseActComponent component, MapInitEvent args)
     {
         _action.AddAction(uid, ref component.ActionEntity, component.Action);
     }
-    private void OnElectrionPulseShutdown(EntityUid uid, LevitationActComponent component, ComponentShutdown args)
+    private void OnElectrionPulseShutdown(EntityUid uid, ElectrionPulseActComponent component, ComponentShutdown args)
     {
         _action.RemoveAction(uid, component.ActionEntity);
     }

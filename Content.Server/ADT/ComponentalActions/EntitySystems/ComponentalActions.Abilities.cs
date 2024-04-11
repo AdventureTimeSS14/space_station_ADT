@@ -66,6 +66,13 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Containers;
+using Content.Server.Electrocution;
+using Content.Server.Lightning;
+using Content.Shared.Anomaly.Components;
+using Content.Shared.Anomaly.Effects.Components;
+using Content.Shared.StatusEffect;
+using Robust.Shared.Timing;
+using Content.Server.Anomaly.Effects;
 
 namespace Content.Server.ComponentalActions.EntitySystems;
 
@@ -94,6 +101,9 @@ public sealed partial class ComponentalActionsSystem
     [Dependency] private readonly ClothingSpeedModifierSystem _clothingSpeedModifier = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly LightningSystem _lightning = default!;
+    [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
     private void InitializeCompAbilities()
     {
         SubscribeLocalEvent<TeleportActComponent, CompTeleportActionEvent>(OnTeleport);
@@ -362,14 +372,17 @@ public sealed partial class ComponentalActionsSystem
         }
     }
 
-    private void OnElectrionPulse(EntityUid uid, ElectrionPulseActComponent component, CompElectrionPulseActionEvent args)
+    private void OnElectrionPulse(EntityUid uid, Entity<ElectrionPulseActComponent> component, CompElectrionPulseActionEvent args)
     {
         if (args.Handled)
             return;
 
-        // var range = anomaly.Comp.MaxElectrocuteRange * args.Stability;
-        // int boltCount = (int)MathF.Floor(MathHelper.Lerp((float)anomaly.Comp.MinBoltCount, (float)anomaly.Comp.MaxBoltCount, args.Severity));
-        // _lightning.ShootRandomLightnings(anomaly, range, boltCount);
+        if (component == null)
+            return;
+
+        var range = component.MaxElectrocuteRange; // * args.Stability;
+        int boltCount = (int)MathF.Floor(MathHelper.Lerp((float)component.MinBoltCount, (float)component.MaxBoltCount, component.Severity));
+        _lightning.ShootRandomLightnings(component, range, boltCount);
 
         // var range = anomaly.Comp.MaxElectrocuteRange * 3;
         // _emp.EmpPulse(_transform.GetMapCoordinates(anomaly), range, anomaly.Comp.EmpEnergyConsumption, anomaly.Comp.EmpDisabledDuration);
