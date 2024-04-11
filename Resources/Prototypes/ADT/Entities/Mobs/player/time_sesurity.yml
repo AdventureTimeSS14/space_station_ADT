@@ -90,6 +90,13 @@
 - type: startingGear
   id: ADTTimePatrolGear
   equipment:
+    #suitstorage: ADTGunRifleFNFAL  #ADTMagazineRifleFNFAL
+    back: ADTClothingBackpackTimePatrol
+    #id: ADTSecurityCybPDA #ADTSecurityCybPDA
+    #belt: ClothingBeltSecurityFilled
+    #pocket1: ADtWeaponSecCyborg
+    #pocket2: WeaponDisabler
+    #neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
     mask: ClothingMaskPlague
     jumpsuit: ADTClothingUniformJumpsuitOldDarkSuit
     shoes: ClothingShoesBootsWinter
@@ -99,10 +106,31 @@
     outerClothing: ClothingOuterPlagueSuit
     #id: CentcomPDA
     #ears: ClothingHeadsetAltCentCom
-    belt: ADTBoneKnife
     pocket1: Brutepack
     pocket2: Ointment
     underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
     socks: ClothingUnderwearSocksNormal
   underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
   underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+
+
+- type: entity
+  parent: ClothingBackpackERTLeader # ADTADTClothingBackpackSecurityCybBase
+  id: ADTClothingBackpackTimePatrol
+  name: backpack time patrol
+  description: desc
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: Flash
+        - id: JawsOfLife
+        - id: CombatKnife
+        - id: FlashlightSeclite
+        - id: GrenadeStinger
+        - id: GrenadeStinger
+        - id: GrenadeFlashBang
+        - id: GrenadeFlashBang
+        #- id: WelderIndustrialAdvanced
