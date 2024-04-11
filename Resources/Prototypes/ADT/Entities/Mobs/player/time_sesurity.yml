@@ -82,6 +82,7 @@
   id: ADTTimePatrolSpawn
   suffix: "Cult, BoneKnife, Cult of the Lamb"
   components:
+  #- type: Firestarter
   - type: TeleportAct
   - type: Loadout
     prototypes:
