@@ -74,6 +74,7 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Timing;
 using Content.Server.Anomaly.Effects;
 
+
 namespace Content.Server.ComponentalActions.EntitySystems;
 
 public sealed partial class ComponentalActionsSystem
@@ -372,7 +373,7 @@ public sealed partial class ComponentalActionsSystem
         }
     }
 
-    private void OnElectrionPulse(EntityUid uid, Entity<ElectrionPulseActComponent> component, CompElectrionPulseActionEvent args)
+    private void OnElectrionPulse(EntityUid uid, ElectrionPulseActComponent component, CompElectrionPulseActionEvent args)
     {
         if (args.Handled)
             return;
