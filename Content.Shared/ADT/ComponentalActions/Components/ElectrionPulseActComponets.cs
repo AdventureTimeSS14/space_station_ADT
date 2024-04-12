@@ -20,6 +20,9 @@ public sealed partial class ElectrionPulseActComponent : Component
     [DataField]
     public float IgnitionRadius = 4f;
 
+    [DataField("lifetime")]
+    public float Lifetime = 5f;
+
     /// <summary>
     /// The action entity.
     /// </summary>
