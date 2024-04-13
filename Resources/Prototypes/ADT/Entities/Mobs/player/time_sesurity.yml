@@ -1,9 +1,13 @@
 - type: entity
   id: ADTAnomalySpawnTimePatrol
   parent: BaseAnomaly
-  suffix: Gravity
+  suffix: Time Patrol
   name: Spawn Time Patrol
   components:
+  - type: PointLight
+    color: "#a83da8"
+    radius: 1.1
+    energy: 120
   - type: EntitySpawnAnomaly
     entries:
     - settings:
@@ -26,14 +30,14 @@
     - state: anom4-pulse
       map: ["enum.AnomalyVisualLayers.Animated"]
       visible: false
-  - type: PointLight
-    radius: 3.0
-    energy: 2.5
-    color: "#00ccff"
-    castShadows: false
+  # - type: PointLight
+  #   radius: 3.0
+  #   energy: 2.5
+  #   color: "#00ccff"
+  #   castShadows: false
   - type: SingularityDistortion
     intensity: 1000
-    falloffPower: 2.7
+    falloffPower: 2.3
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/Lightning/lightningbolt.ogg
@@ -83,7 +87,7 @@
   name: Cultist
   parent: ADTBaseMobHumanTimePatrol
   id: ADTTimePatrolSpawn
-  suffix: "Cult, BoneKnife, Cult of the Lamb"
+  suffix: "Time Patrol"
   components:
   - type: Eye
     drawFov: false
@@ -99,7 +103,7 @@
   - type: TeleportAct
   - type: Loadout
     prototypes:
-      - DeathSquad
+      - ADTTimePatrolGear
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
@@ -132,20 +136,20 @@
 - type: startingGear
   id: ADTTimePatrolGear
   equipment:
-    #suitstorage: ADTGunRifleFNFAL  #ADTMagazineRifleFNFAL
+    suitstorage: ADTADTWeaponPulseCarabinUSSP  #ADTMagazineRifleFNFAL
     back: ADTClothingBackpackTimePatrol
     #id: ADTSecurityCybPDA #ADTSecurityCybPDA
     #belt: ClothingBeltSecurityFilled
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
     #neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
-    mask: ClothingMaskPlague
-    jumpsuit: ADTClothingUniformJumpsuitOldDarkSuit
+    mask: ClothingMaskGasDeathSquad
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
     shoes: ClothingShoesBootsWinter
-    head: ClothingHeadHatPlaguedoctor
+    #head: ClothingHeadHatPlaguedoctor
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterPlagueSuit
+    outerClothing: ClothingOuterHardsuitDeathsquad
     #id: CentcomPDA
     #ears: ClothingHeadsetAltCentCom
     pocket1: Brutepack
@@ -546,6 +550,7 @@
   parent: BaseWeaponBatterySmall
   id: ADTADTWeaponPulseCarabinUSSP
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  suffix: Time Patrol
   components:
     - type: BatterySelfRecharger
       autoRecharge: true
@@ -558,7 +563,7 @@
     - type: Gun
       fireRate: 1.5
       soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
     - type: ProjectileBatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150
@@ -575,12 +580,17 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 0.01
+        Blunt: 1
+        Heat: 1
+        Burn: 1
+        Slash: 1
+        Piercing: 1
+        Radiation: 1
     soundHit:
-      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+      path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
     forceSound: true
   - type: StaminaDamageOnCollide
-    damage: 40 # 3 hits to stun
+    damage: 30 # 3 hits to stun
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -589,16 +599,16 @@
   - type: SolutionContainerManager
     solutions:
       ammo:
-        maxVol: 6
+        maxVol: 3
         reagents:
         - ReagentId: ADTChloralHydrate
-          Quantity: 6
+          Quantity: 3
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution
     solution: ammo
   - type: SolutionInjectOnCollide
-    transferAmount: 6
+    transferAmount: 3
     blockSlots: NONE #tranquillizer darts shouldn't be blocked by a mask
   - type: InjectableSolution
     solution: ammo
@@ -615,41 +625,34 @@
     Poison:
       effects:
       - !type:MovespeedModifier
-        walkSpeedModifier: 0.25
-        sprintSpeedModifier: 0.25
+        walkSpeedModifier: 0.05
+        sprintSpeedModifier: 0.05
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: ADTChloralHydrate
-          min: 30
+          min: 15
+        key: ForcedSleep
+        component: SingularityDistortion
+        type: Add
+        refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ADTChloralHydrate
+          min: 15
+        key: ForcedSleep
+        component: PointLightColorBlue
+        type: Add
+        refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ADTChloralHydrate
+          min: 15
         key: ForcedSleep
         component: TimedDespawn
-        lifetime: 1.3
         refresh: false
         type: Add
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: ADTChloralHydrate
-          min: 16
-        key: PointLight
-        radius: 4
-        energy: 30.5
-        color: "#00e600"
-        component: PointLight
-        type: Add
-        refresh: false
-        # radius: 4
-        # energy: 30.5
-        # color: "#00e600"
-        # enabled: true
-        # netsync: true
-        # castShadows: true
 
-
-  # - type: PointLight
-  #   enabled: false
-  #   netsync: false
-  #   energy: 2
-  #   radius: 1.3 #slightly stronger than the other lighters
-  #   color: "#00e600" #green
+#PointLight
