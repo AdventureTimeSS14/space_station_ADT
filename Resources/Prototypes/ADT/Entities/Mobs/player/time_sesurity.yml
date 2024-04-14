@@ -149,7 +149,7 @@
     #head: ClothingHeadHatPlaguedoctor
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterHardsuitDeathsquad
+    outerClothing: ADTClothingOuterHardsuitDeathsquad
     #id: CentcomPDA
     #ears: ClothingHeadsetAltCentCom
     pocket1: Brutepack
@@ -159,6 +159,69 @@
   underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
   underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
 
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitDeathsquad
+  name: deathsquad hardsuit
+  description: An advanced hardsuit favored by commandos for use in special operations.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2 #best armor in the game
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.1
+        Radiation: 0.1
+        Caustic: 0.2
+        Stun: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitDeathsquad
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase # Corvax-Resprite
+  id: ADTClothingHeadHelmetHardsuitDeathsquad
+  name: deathsquad hardsuit helmet
+  description: A robust helmet for special operations.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/deathsquad.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/deathsquad.rsi
+  # - type: PointLight # Corvax-Resprite
+  #   color: cyan
+  - type: PointLight
+    color: "#a83da8"
+    #radius: 1.1
+    #energy: 120
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.80
+        Caustic: 0.95
 
 - type: entity
   parent: ClothingBackpackERTLeader # ADTADTClothingBackpackSecurityCybBase
