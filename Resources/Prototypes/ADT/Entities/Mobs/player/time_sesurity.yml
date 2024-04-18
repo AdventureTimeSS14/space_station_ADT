@@ -99,7 +99,7 @@
       0: Alive
       170: Critical
       300: Dead
-  - type: ElectrionPulseAct
+  - type: ElectrionPulseAct  # Тут имя менять
   - type: TeleportAct
   - type: Loadout
     prototypes:
@@ -166,9 +166,9 @@
   description: An advanced hardsuit favored by commandos for use in special operations.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/time_security_hardsuit.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/time_security_hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -201,13 +201,13 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/deathsquad.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/time_security_helmet.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/deathsquad.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/time_security_helmet.rsi
   # - type: PointLight # Corvax-Resprite
   #   color: cyan
   - type: PointLight
-    color: "#a83da8"
+    color: "#c53dff"
     #radius: 1.1
     #energy: 120
   - type: PressureProtection
@@ -705,7 +705,7 @@
           reagent: ADTChloralHydrate
           min: 15
         key: ForcedSleep
-        component: PointLightColorBlue
+        component: PointLightColorBlue #Эту штуку менять
         type: Add
         refresh: false
       - !type:GenericStatusEffect
