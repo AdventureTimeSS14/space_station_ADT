@@ -143,10 +143,10 @@
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
     #neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
-    mask: ClothingMaskGasDeathSquad
+    mask: ClothingMaskNeckGaiter
     jumpsuit: ClothingUniformJumpsuitDeathSquad
-    shoes: ClothingShoesBootsWinter
-    #head: ClothingHeadHatPlaguedoctor
+    shoes: ADTClothingShoesBootsMagAdvSynd
+    #head: ADTClothingHeadHelmetHardsuitDeathsquad
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ADTClothingOuterHardsuitDeathsquad
@@ -194,11 +194,13 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitDeathsquad
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase # Corvax-Resprite
+  parent: ClothingHeadHardsuitWithLightBase  #ClothingHeadHardsuitWithLightBase 
   id: ADTClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
   components:
+  # - type: IngestionBlocker
+  # - type: IdentityBlocker
   - type: BreathMask
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/time_security_helmet.rsi
@@ -209,19 +211,19 @@
   - type: PointLight
     color: "#c53dff"
     #radius: 1.1
-    #energy: 120
+    energy: 6
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
-        Radiation: 0.80
-        Caustic: 0.95
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.3
+        Caustic: 0.3
 
 - type: entity
   parent: ClothingBackpackERTLeader # ADTADTClothingBackpackSecurityCybBase
@@ -626,7 +628,7 @@
     - type: Gun
       fireRate: 1.5
       soundGunshot:
-        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
+        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg #/Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg  
     - type: ProjectileBatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150
@@ -717,5 +719,22 @@
         component: TimedDespawn
         refresh: false
         type: Add
-
+      - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: ADTChloralHydrate
+            min: 15
+        key: Pacified
+        component: Pacified
+        refresh: false
+        type: Add
+      # - !type:GenericStatusEffect
+      #   conditions:
+      #     - !type:ReagentThreshold
+      #       reagent: ADTChloralHydrate
+      #       min: 15
+      #   key: Pacified
+      #   component: Cuffable
+      #   refresh: false
+      #   type: Add
 #PointLight

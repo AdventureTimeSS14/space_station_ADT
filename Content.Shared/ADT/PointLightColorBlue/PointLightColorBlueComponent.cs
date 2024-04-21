@@ -7,6 +7,12 @@ namespace Content.Shared.ADT.PointLightColorBlue;
 [NetworkedComponent]
 public sealed partial class PointLightColorBlueComponent : Component
 {
+    [DataField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/Weapons/Guns/Gunshots/nakop_energii.ogg");
+
+
+
+
     /// <summary>
     /// timings for giggles and knocks.
     /// </summary>

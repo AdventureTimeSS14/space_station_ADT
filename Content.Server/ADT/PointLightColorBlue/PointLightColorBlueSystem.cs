@@ -22,12 +22,15 @@ using System.Linq;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+
 public sealed class PointLightColorBlueSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
 
     //[Dependency] private readonly PointLightComponent _lightCom = = default!;
@@ -56,6 +59,7 @@ public sealed class PointLightColorBlueSystem : EntitySystem
         _light.SetColor(uid, Color.FromHex("#005f9e"));
         _light.SetRadius(uid, 1.2f);
         _light.SetEnergy(uid, 160f);
+        _audioSystem.PlayPvs(component.Sound, uid); //, AudioParams.Default.WithVolume(component.Sound));
         //_light.
     }
 }
