@@ -423,7 +423,7 @@ public sealed partial class ComponentalActionsSystem
         timer.AutoReset = false; // Для однократного срабатывания
         timer.Elapsed += (sender, e) =>
         {
-            AddComp<SingularityDistortionComponent>(uid);
+            //AddComp<SingularityDistortionComponent>(uid);
             AddComp<PointLightComponent>(uid);
             _light.SetEnabled(uid, true);
             _light.SetColor(uid, Color.FromHex("#a83da8"));
