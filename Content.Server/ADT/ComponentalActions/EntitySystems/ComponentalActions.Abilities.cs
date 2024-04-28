@@ -427,7 +427,7 @@ public sealed partial class ComponentalActionsSystem
             AddComp<PointLightComponent>(uid);
             _light.SetEnabled(uid, true);
             _light.SetColor(uid, Color.FromHex("#a83da8"));
-            _light.SetRadius(uid, 1.1f);
+            _light.SetRadius(uid, 1.7f);
             _light.SetEnergy(uid, 160f);
             _audio.PlayPvs(component.IgniteSound, uid);
             var despawn = AddComp<TimedDespawnComponent>(uid);

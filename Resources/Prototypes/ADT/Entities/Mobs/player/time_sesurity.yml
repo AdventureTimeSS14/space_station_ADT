@@ -88,6 +88,7 @@
   parent: ADTBaseMobHumanTimePatrol
   id: ADTTimePatrolSpawn
   suffix: "Time Patrol"
+  abstract: true
   components:
   - type: Eye
     drawFov: false
@@ -132,19 +133,26 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener # авто открытие двери, когда подходишь к ней
+  # Frontier - languages mechanic
+  - type: UniversalLanguageSpeaker # Ghosts should understand any language.
+  - type: RandomMetadata
+    nameSegments:
+      - NamesFirstMilitaryLeaderCorvax # Corvax-Localization
+      - NamesLastERTCallsign # Corvax-Localization
+
 
 - type: startingGear
   id: ADTTimePatrolGear
   equipment:
-    suitstorage: ADTADTWeaponPulseCarabinUSSP  #ADTMagazineRifleFNFAL
+    suitstorage: OxygenTankFilled
     back: ADTClothingBackpackTimePatrol
     #id: ADTSecurityCybPDA #ADTSecurityCybPDA
-    #belt: ClothingBeltSecurityFilled
+    belt: ADTADTWeaponPulseCarabinUSSP
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
     #neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
     mask: ClothingMaskNeckGaiter
-    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    jumpsuit: ClothingUniformJumpsuitOperative
     shoes: ADTClothingShoesBootsMagAdvSynd
     #head: ADTClothingHeadHelmetHardsuitDeathsquad
     eyes: ClothingEyesGlassesSunglasses
@@ -194,7 +202,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitDeathsquad
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase  #ClothingHeadHardsuitWithLightBase 
+  parent: ClothingHeadHardsuitWithLightBase  #ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -619,23 +627,75 @@
   components:
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 150
+      autoRechargeRate: 50
     - type: Sprite
-      sprite: ADT/Objects/Weapons/Guns/Battery/secretsUSSPLaser.rsi
+      sprite: ADT/Objects/Weapons/Guns/Battery/tsd_gun.rsi
       layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: ADT/Objects/Weapons/Guns/Battery/tsd_gun.rsi
+      quickEquip: false
+      slots:
+        - Belt
     - type: Gun
       fireRate: 1.5
       soundGunshot:
-        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg #/Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg  
+        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg #/Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
     - type: ProjectileBatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
     - type: Appearance
     - type: Battery
       maxCharge: 2000
       startingCharge: 2000
+
+# - type: entity
+#   name: disabler
+#   parent: BaseWeaponBatterySmall
+#   id: WeaponDisabler
+#   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+#   components:
+#     - type: Tag
+#       tags:
+#         - Taser
+#         - Sidearm
+#     - type: Sprite
+#       sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+#       layers:
+#         - state: base
+#           map: ["enum.GunVisualLayers.Base"]
+#         - state: mag-unshaded-0
+#           map: ["enum.GunVisualLayers.MagUnshaded"]
+#           shader: unshaded
+#     - type: Clothing
+#       sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+#       quickEquip: false
+#       slots:
+#         - Belt
+#     - type: Gun
+#       fireRate: 2
+#       soundGunshot:
+#         path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+#     - type: ProjectileBatteryAmmoProvider
+#       proto: BulletDisabler
+#       fireCost: 100
+#     - type: MagazineVisuals
+#       magState: mag
+#       steps: 5
+#       zeroVisible: true
+#     - type: Appearance
+#     - type: GuideHelp
+#       guides:
+#       - Security
+
 
 - type: entity
   id: ADTADTBulletMagnumHighVelocityTranquilizer
@@ -728,13 +788,3 @@
         component: Pacified
         refresh: false
         type: Add
-      # - !type:GenericStatusEffect
-      #   conditions:
-      #     - !type:ReagentThreshold
-      #       reagent: ADTChloralHydrate
-      #       min: 15
-      #   key: Pacified
-      #   component: Cuffable
-      #   refresh: false
-      #   type: Add
-#PointLight
