@@ -701,3 +701,34 @@
      Plastic: 1000
      Plasma: 500
      Glass: 500
+
+- type: latheRecipe
+  id: WeaponADTWeaponLasgunSALR36
+  result: ADTWeaponLasgunSALR36
+  completetime: 8
+  materials:
+    Steel: 2000
+    Glass: 800
+    Plastic: 500
+    Gold: 300
+
+- type: latheRecipe
+  id: WeaponADTPowerCellLasgun
+  result: ADTPowerCellLasgunEmpty
+  completetime: 6
+  materials:
+    Steel: 300
+    Glass: 300
+    Plastic: 100
+    Gold: 10
+
+- type: latheRecipe
+  id: ADTWeaponIonRifle
+  result: ADTWeaponIonRifle
+  completetime: 6
+  materials:
+    Steel: 900
+    Glass: 400
+    Plastic: 100
+    Gold: 10
+    Plasma: 400

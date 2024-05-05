@@ -1727,3 +1727,13 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: ADTUplinkIonRifle
+  name: ADTuplink-ion-rifle-name
+  description: ADTuplink-ion-rifle-desc
+  productEntity: ADTWeaponIonRifle
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry

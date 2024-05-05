@@ -202,7 +202,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             headRevList.Add(uid);
         }
-
+//ADT immortal headrev start
         // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
         // Cuffing Head Revs is not enough - they must be killed.
         if (IsGroupDetainedOrDead(headRevList, false, false))
@@ -212,7 +212,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             {
                 if (HasComp<HeadRevolutionaryComponent>(uid))
                     continue;
-                if (TryComp<MobStateComponent>(uid, out var mobstate) && mobstate.CurrentState != MobState.Dead)
+                if (TryComp<MobStateComponent>(uid, out var mobstate) && mobstate.CurrentState == MobState.Alive)
                 {
                     AddComp<HeadRevolutionaryComponent>(uid);
                     return false;
@@ -223,7 +223,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         return false;
     }
-
+//ADT immortal headrev end
     /// <summary>
     /// Will take a group of entities and check if these entities are alive, dead or cuffed.
     /// </summary>

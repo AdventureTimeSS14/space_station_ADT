@@ -205,3 +205,15 @@
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
+
+- type: technology
+  id: IonRifle
+  name: ADT-research-technology-ionrifle
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - ADTWeaponIonRifle

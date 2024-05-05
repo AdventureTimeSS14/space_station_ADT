@@ -799,6 +799,7 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - ADTWeaponIonRifle
   - type: MaterialStorage
     whitelist:
       tags:

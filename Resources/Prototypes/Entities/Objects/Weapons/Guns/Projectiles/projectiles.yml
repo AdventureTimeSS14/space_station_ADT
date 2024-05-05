@@ -979,3 +979,185 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+#ADT
+- type: entity
+  id: ADTBulletChargestrong
+  name: charge bolt
+  parent: BaseBullet
+  noSpawn: true
+  description: Marks a target for additional damage.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+      - state: chronobolt
+        shader: unshaded
+  - type: GatheringProjectile
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+        - Damageable
+    damage:
+      types:
+        Blunt: 50
+        Structural: 40
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 0
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.4
+
+- type: entity
+  parent: AnomalousParticleDelta
+  id: ADTAnomalousParticleOmegaStrongCyb
+  name: omega particles
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+      - state: magicm_green
+        shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Heat: 27
+
+- type: entity
+  name: emitter bolt
+  id: ADTEmitterBoltCyb
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Singularity/emitter.rsi
+    layers:
+      - state: projectile
+        shader: unshaded
+  - type: Ammo
+    muzzleFlash: null
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+      fly-by: *flybyfixture
+  - type: StaminaDamageOnCollide
+    damage: 14
+  - type: Projectile
+#   soundHit:  Waiting on serv3
+    damage:
+      types:
+        Heat: 20
+  # mining laser real
+  - type: GatheringProjectile
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: ADTProjectilePolyboltVulpkanin
+  parent: BaseBullet
+  name: vulpkanin polybolt
+  description: Nooo, I don't wanna be monkey!
+  noSpawn: true
+  components:
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture
+  - type: Ammo
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: adtomnilaser
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 2
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+    forceSound: true
+  - type: PolymorphOnCollide
+    polymorph: ADTWizardForcedVulpkanin
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ADTProjectileIonRifle
+  parent: BaseBullet
+  name: ion bolt
+  description: No energy
+  noSpawn: true
+  components:
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture
+  - type: Ammo
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 2
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+    forceSound: true
+  - type: EmpOnCollide
+    energyConsumption: 40000
