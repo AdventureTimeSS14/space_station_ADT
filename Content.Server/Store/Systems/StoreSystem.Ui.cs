@@ -177,7 +177,7 @@ public sealed partial class StoreSystem
         //spawn entity
         if (listing.ProductEntity != null)
         {
-            var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
+            var product = component.StoreCordsSpawn ? Spawn(listing.ProductEntity, Transform(uid).Coordinates) : Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
             _hands.PickupOrDrop(buyer, product);
 
             HandleRefundComp(uid, component, product);

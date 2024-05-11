@@ -1,18 +1,32 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Atlas
-  - Bagel
-  - Box
-  - Cluster
-  - Core
-  - Fland
-  - Marathon
-  - Meta
-  - Oasis
-  - Omega
-  - Origin
-  - Saltern
-  - Packed
-  - Reach
-  #- Train
+  # - Atlas
+  # - Bagel
+  # - Box
+  # - Cluster
+  # - Core
+  # - Fland
+  # - Marathon
+  # - Meta
+  # - Gemini
+  # - Omega
+  # - Origin
+  # - Saltern
+  # - Packed
+  #- Reach
+  # - CorvaxAvrite
+  - ADTDelta
+  - ADTAtlas
+  - ADTBagel
+  - ADTBox
+  - ADTCluster
+  - ADTCore
+  - ADTFland
+  - ADTMarathon
+  - ADTMeta
+  - ADTOmega
+  - ADTOrigin
+  - ADTSaltern
+  - ADTPacked
+  - Kilo

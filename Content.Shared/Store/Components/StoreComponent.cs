@@ -87,6 +87,12 @@ public sealed partial class StoreComponent : Component
     [DataField]
     public EntityUid? StartingMap;
 
+    /// <summary>
+    ///     The map the store was originally from, used to block refunds if the map is changed
+    /// </summary>
+    [ViewVariables, DataField]
+    public bool StoreCordsSpawn = false;
+
     #region audio
     /// <summary>
     /// The sound played to the buyer when a purchase is succesfully made.

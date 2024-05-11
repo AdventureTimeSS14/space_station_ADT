@@ -212,23 +212,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             {
                 if (HasComp<HeadRevolutionaryComponent>(uid))
                     continue;
-
-                _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
-                _stun.TryParalyze(uid, stunTime, true);
-                RemCompDeferred<RevolutionaryComponent>(uid);
-                _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
-                _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
-
-                if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
-                    continue;
-
-                // remove their antag role
-                _role.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId);
-
-                // make it very obvious to the rev they've been deconverted since
-                // they may not see the popup due to antag and/or new player tunnel vision
-                if (_mind.TryGetSession(mindId, out var session))
-                    _euiMan.OpenEui(new DeconvertedEui(), session);
+                if (TryComp<MobStateComponent>(uid, out var mobstate) && mobstate.CurrentState != MobState.Dead)
+                {
+                    AddComp<HeadRevolutionaryComponent>(uid);
+                    return false;
+                }
             }
             return true;
         }
