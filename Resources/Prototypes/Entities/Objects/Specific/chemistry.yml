@@ -512,7 +512,7 @@
       - PillCanister
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,5,1
     quickInsert: true
     areaInsert: true
     areaInsertRadius: 1

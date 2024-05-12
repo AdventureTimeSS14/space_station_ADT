@@ -1,7 +1,8 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Hqlle (github). Vox state made by Flareguy for SS14",
+  "copyright": "Created by discord:prazat911",
+
   "size": {
     "x": 32,
     "y": 32
@@ -12,10 +13,6 @@
     },
     {
       "name": "equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
     {
