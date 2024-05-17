@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Backmen.Disease.Components;
 using Content.Server.Backmen.Disease.Server;
 using Content.Server.Nutrition.Components;
@@ -104,7 +104,7 @@ public sealed class DiseaseDiagnosisSystem : EntitySystem
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, swab.SwabDelay, new DiseaseSwabDoAfterEvent(), uid, target: args.Target, used: uid)
         {
-            BreakOnMove = true,
+            BreakOnUserMove = true,
             NeedHand = true
         });
     }

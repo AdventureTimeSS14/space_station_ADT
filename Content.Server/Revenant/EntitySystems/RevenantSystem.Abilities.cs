@@ -327,7 +327,7 @@ public sealed partial class RevenantSystem
             if (emo.TryGetComponent(ent, out var comp))
                 EntityManager.System<Backmen.Disease.DiseaseSystem>().TryAddDisease(ent, component.BlightDiseasePrototypeId, comp);
         }
-        EntityManager.System<Shared.Backmen.Abilities.Psionics.SharedPsionicAbilitiesSystem>().LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
+        //EntityManager.System<Shared.Backmen.Abilities.Psionics.SharedPsionicAbilitiesSystem>().LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
         // backmen-end: Disease
     }
 

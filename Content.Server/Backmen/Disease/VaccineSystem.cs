@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Backmen.Disease.Components;
 using Content.Server.Backmen.Disease.Server;
 using Content.Server.DoAfter;
@@ -230,7 +230,7 @@ public sealed class VaccineSystem : EntitySystem
         var ev = new VaccineDoAfterEvent();
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, vaxx.InjectDelay, ev, uid, target: args.Target, used: uid)
         {
-            BreakOnMove = true,
+            BreakOnUserMove = true,
             NeedHand = true
         };
 
