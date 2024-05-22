@@ -84,7 +84,7 @@
     - id: ClothingMaskClown
     - id: ClothingMaskMime
     - id: ClothingShoesClown
-    - id: ClothingUniformJumpskirtJanimaid
+   # - id: ClothingUniformJumpskirtJanimaid
     - id: ClothingNeckCloakVoid
     - id: RevolverCapGun
     - id: BarberScissors
