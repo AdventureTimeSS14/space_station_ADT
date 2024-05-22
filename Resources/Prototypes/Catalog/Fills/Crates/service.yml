@@ -88,11 +88,15 @@
     - id: ClothingNeckCloakVoid
     - id: RevolverCapGun
     - id: BarberScissors
+<<<<<<< HEAD
     - id: ClothingUniformJumpskirtOldDress
     - id: BikeHorn
     - id: ClownRecorder
     - id: ClothingBeltSuspenders
 
+=======
+    - id: ADTClothingUniformJumpskirtJanimaid
+>>>>>>> 06a9a90629 (маленькие правки)
 - type: entity
   id: CrateServiceCustomSmokable
   parent: CrateGenericSteel
