@@ -5,9 +5,11 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingNeckCloakQm
       - id: BoxFolderQmClipboard
+      - id: ClothingHeadsetCargo
+      - id: ClothingHandsGlovesColorBrown
       - id: CargoRequestComputerCircuitboard
-      - id: CargoSaleComputerCircuitboard
       - id: CargoShuttleComputerCircuitboard
       - id: CargoShuttleConsoleCircuitboard
       - id: SalvageShuttleConsoleCircuitboard
@@ -15,12 +17,16 @@
       - id: CigPackGreen
         prob: 0.50
       - id: DoorRemoteCargo
+      - id: ADTClothingHeadHatsBeretSupply
       - id: RubberStampQm
-      - id: RubberStampDenied
-      - id: RubberStampApproved
       - id: ClothingHeadsetAltCargo
       - id: BoxEncryptionKeyCargo
-      - id: PrinterDocFlatpack # Corvax-Printer
+      - id: ADTtelescopicBaton
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxQM
+      # Sirena-Underwear-End
+      - id: ADTQMJumpskirtWarm
+      - id: ADTQMJumpsuitWarm
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -33,26 +39,41 @@
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
+      - id: ClothingHeadHatCaptain
+      - id: ClothingNeckCloakCap
       - id: ClothingOuterHardsuitCap
       - id: ClothingMaskGasCaptain
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
-      - id: SpaceCash1000
+      - id: SpaceCash10000
       - id: PlushieNuke
         prob: 0.1
       - id: CigarGoldCase
         prob: 0.25
       - id: ClothingBeltSheathFilled
       - id: DoorRemoteCommand
+      - id: ClothingNeckCloakCapFormal
+      - id: ClothingUniformJumpsuitCapFormal
+      - id: ClothingUniformJumpskirtCapFormalDress
       - id: RubberStampCaptain
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: MedalCase
+      - id: ClothingHeadHatCapcap
+      - id: ClothingHeadCaptainHat
+      - id: ClothingOuterCoatCaptain
+      - id: ADTtelescopicBaton
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxCap
+      # Sirena-Underwear-End
+      - id: ADTSwimsuitCap
+      - id: ADTCapJumpsuitWarm
+      - id: ADTCapJumpskirtWarm
 
 - type: entity
   id: LockerCaptainFilled
-  suffix: Filled, AntiqueLaser
+  suffix: Filled
   parent: LockerCaptain
   components:
   - type: StorageFill
@@ -61,24 +82,39 @@
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
+      - id: ClothingHeadHatCaptain
+      - id: ClothingNeckCloakCap
+      - id: ClothingHandsGlovesCaptain
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
-      - id: SpaceCash1000
+      - id: SpaceCash10000
       - id: PlushieNuke
         prob: 0.1
       - id: CigarGoldCase
         prob: 0.25
       - id: ClothingBeltSheathFilled
       - id: DoorRemoteCommand
+      - id: ClothingNeckCloakCapFormal
+      - id: ClothingUniformJumpsuitCapFormal
+      - id: ClothingUniformJumpskirtCapFormalDress
       - id: RubberStampCaptain
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: MedalCase
+      - id: ClothingHeadHatCapcap
+      - id: ADTtelescopicBaton
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxCap
+      # Sirena-Underwear-End
       # Corvax-Resprite-Start
       - id: ClothingHeadCaptainHat
       - id: ClothingOuterCoatCaptain
       # Corvax-Resprite-End
+      - id: ADTClothingEyesHudAdvanced #ADT mods
+      - id: ADTSwimsuitCap
+      - id: ADTCapJumpsuitWarm
+      - id: ADTCapJumpskirtWarm
 
 - type: entity
   id: LockerCaptainFilledNoLaser
@@ -91,19 +127,38 @@
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
+      - id: ClothingHeadHatCaptain
+      - id: ClothingNeckCloakCap
+      - id: ClothingHandsGlovesCaptain
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
-      - id: SpaceCash1000
+      - id: SpaceCash10000
       - id: PlushieNuke
         prob: 0.1
       - id: CigarGoldCase
         prob: 0.25
       - id: ClothingBeltSheathFilled
       - id: DoorRemoteCommand
+      - id: ClothingNeckCloakCapFormal
+      - id: ClothingUniformJumpsuitCapFormal
+      - id: ClothingUniformJumpskirtCapFormalDress
       - id: RubberStampCaptain
       - id: JetpackCaptainFilled
       - id: MedalCase
+      - id: ClothingHeadHatCapcap
+      - id: ADTtelescopicBaton
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxCap
+      # Sirena-Underwear-End
+      # Corvax-Resprite-Start
+      - id: ClothingHeadCaptainHat
+      - id: ClothingOuterCoatCaptain
+      # Corvax-Resprite-End
+      - id: ADTClothingEyesHudAdvanced #ADT mods
+      - id: ADTSwimsuitCap
+      - id: ADTCapJumpsuitWarm
+      - id: ADTCapJumpskirtWarm
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -112,13 +167,17 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingNeckCloakHop
+      - id: ClothingHeadHatHopcap
       - id: HoPIDCard
       - id: ClothingHeadsetCommand
       - id: BoxPDA
       - id: BoxID
+      - id: ADTtelescopicBaton
       - id: BoxHeadset
       - id: IDComputerCircuitboard
       - id: WeaponDisabler
+      - id: ClothingOuterWinterHoP
       - id: CigarGoldCase
         prob: 0.25
         # Fuck the HoP they don't deserve fucking cigars.
@@ -126,15 +185,19 @@
       - id: DoorRemoteService
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
-      - id: RubberStampDenied
-      - id: RubberStampApproved
       - id: BoxEncryptionKeyPassenger
       - id: BoxEncryptionKeyService
       - id: ClothingBackpackIan
         prob: 0.5
       - id: ClothingOuterCoatHOP # Corvax-Resprite
       - id: AccessConfigurator
-      - id: PrinterDocFlatpack # Corvax-Printer
+      - id: ADTClothingNeckHoPAltCloak # ADT-Resprite
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxHOP
+      # Sirena-Underwear-End
+      - id: ADTHOPJumpskirtWarm
+      - id: ADTHOPJumpsuitWarm
+      - id: ADTClothingHeadHatsBeretHOP
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -145,6 +208,9 @@
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
       - id: ClothingMaskBreath
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingNeckCloakCe
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingShoesBootsMagAdv
@@ -153,12 +219,17 @@
         prob: 0.15
       - id: DoorRemoteEngineering
       - id: RubberStampCE
+      - id: ADTtelescopicBaton
       - id: JetpackVoidFilled
       - id: ClothingHeadsetAltEngineering
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxCE
+      # Sirena-Underwear-End
+      - id: ADTClothingHeadHatsBeretCE
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -167,6 +238,8 @@
   components:
   - type: StorageFill
     contents:
+      - id: ADTtelescopicBaton
+      - id: ClothingNeckCloakCe
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingHandsGlovesColorYellow
@@ -179,6 +252,12 @@
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxCE
+      # Sirena-Underwear-End
+      - id: ADTCEJumpskirtWarm
+      - id: ADTCEJumpsuitWarm
+      - id: ADTClothingHeadHatsBeretCE
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -197,11 +276,30 @@
       - id: ClothingHeadHatBeretCmo
       - id: ClothingOuterHardsuitMedical
       - id: Hypospray
+      - id: ADTBookNewChemicals
+      - id: ADTReagentAnalyzer
+      - id: ADTMobileDefibrillator
+      - id: ADTBriefcaseMedical
       - id: HandheldCrewMonitor
       - id: DoorRemoteMedical
       - id: RubberStampCMO
+      - id: ADTtelescopicBaton
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      # id: ADTMindShieldImplanter
+      #  amount: 2
+      - id: ADTCMOJumpskirtWarm
+      - id: ADTCMOJumpsuitWarm
+      - id: MaterialBiomass
+        amount: 3
+      - id: TrackingImplanter
+        amount: 2
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxCMO
+      # Sirena-Underwear-End
+      - id: ADTBriefcaseBrownHikingCmo
+      - id: ADTClothingBeltMedicalBagFilled
+
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -214,14 +312,36 @@
       - id: ClothingHandsGlovesNitrile
       - id: ClothingEyesHudMedical
       - id: ClothingHeadsetAltMedical
+      - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled
+      - id: ClothingOuterCoatLabCmo
       - id: ClothingMaskSterile
+      - id: ClothingHeadHatBeretCmo
       - id: Hypospray
+      - id: ADTBookNewChemicals
+      - id: ADTReagentAnalyzer
+      - id: ADTMobileDefibrillator
+      - id: ADTBriefcaseMedical
       - id: HandheldCrewMonitor
       - id: DoorRemoteMedical
       - id: RubberStampCMO
+      - id: ADTtelescopicBaton
       - id: MedicalTechFabCircuitboard
+      - id: ADTCMOJumpskirtWarm
+      - id: ADTCMOJumpsuitWarm
+      - id: MaterialBiomass
+        amount: 3
+      - id: TrackingImplanter
+        amount: 2
+      # id: ADTMindShieldImplanter
+      # amount: 2
+      - id: NitrousOxideTankFilled
       - id: BoxEncryptionKeyMedical
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxCMO
+      # Sirena-Underwear-End
+      - id: ADTBriefcaseBrownHikingCmo
+      - id: ADTClothingBeltMedicalBagFilled
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -233,13 +353,22 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
+      - id: ClothingNeckCloakRd
+      - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
       - id: HandTeleporter
       - id: DoorRemoteResearch
+      - id: ClothingHeadHatBeretRND
+      - id: ClothingHandsGlovesColorPurple
       - id: ClothingBeltUtilityFilled
       - id: RubberStampRd
-      - id: BoxEncryptionKeyScience
+      - id: ADTtelescopicBaton
       - id: ClothingHeadsetAltScience
+      - id: BoxEncryptionKeyScience
+      - id: BoxEncryptionKeyRobo
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxRD
+      # Sirena-Underwear-End
       - id: EncryptionKeyBinary
 
 - type: entity
@@ -249,17 +378,20 @@
   components:
   - type: StorageFill
     contents:
+      - id: ADTtelescopicBaton
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
+      - id: ClothingNeckCloakRd
+      - id: ClothingHeadsetMedicalScience
       - id: HandTeleporter
       - id: DoorRemoteResearch
+      - id: ClothingHeadHatBeretRND
+      - id: ClothingHandsGlovesColorPurple
       - id: ClothingBeltUtilityFilled
       - id: RubberStampRd
-      - id: BoxEncryptionKeyScience
-<<<<<<< HEAD
       - id: ClothingHeadsetAltScience
-=======
+      - id: BoxEncryptionKeyScience
       - id: BoxEncryptionKeyRobo
       # Sirena-Add-Start
       - id: ADTUnderwearBoxRD
@@ -312,42 +444,7 @@
       # Sirena-Underwear-Start
       - id: ADTUnderwearBoxRD
       # Sirena-Underwear-End
->>>>>>> d5129af200 (Added Manual Anomaly Finder (#40))
       - id: EncryptionKeyBinary
-
-- type: entity
-  id: LockerHeadOfSecurityFilledHardsuit
-  suffix: Filled, Hardsuit
-  parent: LockerHeadOfSecurity
-  components:
-  - type: StorageFill
-    contents:
-      - id: WeaponDisabler
-      - id: ClothingHeadHatCapHoS # Corvax-SecFashion
-        prob: 0.5
-      - id: ClothingOuterCoatHoSTrench
-      - id: ClothingMaskNeckGaiter
-      - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
-      - id: ClothingOuterHardsuitSecurityRed
-      - id: ClothingMaskGasSwat
-#      - id: ClothingShoeSlippersDuck # Corvax-Resprite: Need more space for style
-#        prob: 0.2
-      - id: DrinkVacuumFlask
-        prob: 0.8
-      - id: ClothingBeltSecurityFilled
-      - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
-      - id: ClothingShoesBootsJack
-      - id: CigarGoldCase
-        prob: 0.50
-      - id: DoorRemoteSecurity
-      - id: RubberStampHos
-      - id: SecurityTechFabCircuitboard
-      - id: JetpackSecurityFilled
-      - id: BoxEncryptionKeySecurity
-      - id: HoloprojectorSecurity
-      - id: BookSecretDocuments
-      - id: BookBusido # Corvax-Books
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -356,24 +453,50 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingEyesHudSecurity
+      - id: NesSecurityShuttleConsoleCircuitboard
       - id: WeaponDisabler
+      - id: ClothingHeadHatBeretHoS
       - id: ClothingHeadHatCapHoS # Corvax-SecFashion
         prob: 0.5
+      - id: ClothingHeadHatHoshat
+      - id: ClothingNeckCloakHos
       - id: ClothingOuterCoatHoSTrench
-      - id: ClothingMaskNeckGaiter
       - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
+      - id: ADTHOSJumpskirtWarm
+      - id: ADTHOSJumpsuitWarm
+      - id: ClothingUniformJumpsuitHoSBlue
+        prob: 0.5
+      - id: ClothingUniformJumpsuitHoSGrey
+        prob: 0.5
+      - id: ClothingUniformJumpsuitHoSParadeMale
+        prob: 0.1
+      - id: ClothingUniformJumpskirtHoSParadeMale
+        prob: 0.1
+#      - id: ClothingShoeSlippersDuck # Corvax-Resprite: Need more space for style
+#        prob: 0.2
+      - id: DrinkVacuumFlask
+        prob: 0.8
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
       - id: DoorRemoteSecurity
+      - id: ClothingUniformJumpskirtHosFormal
+      - id: ClothingUniformJumpsuitHosFormal
       - id: RubberStampHos
       - id: SecurityTechFabCircuitboard
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
+      - id: WeaponRevolverUnica #ADTrevolver
+      - id: ADTWeaponPistolX01 #ADTmultiphase
+      # Sirena-Underwear-Start
+      - id: ADTUnderwearBoxHOS
+      # Sirena-Underwear-End
+
 
 - type: entity
   id: LockerFreezerVaultFilled

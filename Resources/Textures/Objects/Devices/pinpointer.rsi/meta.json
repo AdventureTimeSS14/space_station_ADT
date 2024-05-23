@@ -157,6 +157,9 @@
             "name": "pinpointer-station"
         },
         {
+            "name": "pinpointer-anomaly"
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },

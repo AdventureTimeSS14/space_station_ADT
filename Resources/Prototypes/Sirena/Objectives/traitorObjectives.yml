@@ -1,15 +1,7 @@
-- type: objective
-  id: AnomalyPinpointerStealObjective
-  issuer: syndicate
-  difficultyOverride: 2.75
-  requirements:
-  - !type:TraitorRequirement {}
-  - !type:IncompatibleConditionsRequirement
-    conditions:
-    - DieCondition
-  - !type:NotRoleRequirement
-    roleId: ResearchDirector
-  conditions:
-  - !type:StealCondition
-    prototype: AnomalyPinpointer
-    owner: job-name-rd
+- type: entity
+  noSpawn: true
+  parent: BaseRDStealObjective
+  id: RDPinpointerStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: AnomalyPinpointer

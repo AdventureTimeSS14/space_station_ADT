@@ -1,22 +1,20 @@
 - type: entity
-  parent: BaseItem
+  parent: PinpointerBase
   id: AnomalyPinpointer
   name: M.A.F.
   description: Manual Anomaly Finder. Shows where this freaking anomaly is. Amazing!
   components:
-  - type: Transform
-    noRot: True
   - type: Sprite
-    netsync: false
-    noRot: True
     sprite: Objects/Devices/pinpointer.rsi
     layers:
-    - state: pinpointer_anomaly
-      map: ["enum.PinpointerLayers.Base"]
-    - state: pinonnull
-      map: ["enum.PinpointerLayers.Screen"]
-  - type: Item
-    sprite: Objects/Devices/pinpointer.rsi
+    - state: pinpointer-anomaly
+  - type: Icon
+    state: pinpointer-anomaly
   - type: Pinpointer
     component: Anomaly
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: AnomalyPinpointer
 
