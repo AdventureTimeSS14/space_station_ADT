@@ -1,0 +1,603 @@
+## ОЦк для игроков
+- type: entity
+  name: CentCom official
+  id: ADTRandomHumanoidSpawnerOperatorCentComm
+  suffix: "Game-Master, Operator CentComm"
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: centcom
+    - type: RandomHumanoidSpawner
+      settings: ADTOperatorCentComm
+    - type: InitialInfectedExempt
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+
+- type: randomHumanoidSettings
+  id: ADTOperatorCentComm
+  components:
+    - type: MindShield
+    - type: GhostRole
+      name: ghost-role-information-operator-centcom-official-name
+      description: ghost-role-information-operator-centcom-official-description
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20h overall
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 72000 # 20h
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 72000 # 20h
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTOperatorCentCommGear ]
+    - type: InitialInfectedExempt
+
+- type: startingGear
+  id: ADTOperatorCentCommGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatCentcom
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterArmorBasic
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: BoxFolderCentComClipboard
+    pocket1: ADTBookSrpOperatorCentComm
+    pocket2: PhoneInstrument
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+
+#START-Event-Cult-of-the-Lamb
+- type: entity
+  name: Cultist
+  parent: BaseMobHuman
+  id: ADTMobCult
+  suffix: "Cult, BoneKnife, Cult of the Lamb"
+  components:
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Loadout
+    prototypes:
+      - ADTMobCult1Gear
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+
+- type: startingGear
+  id: ADTMobCult1Gear
+  equipment:
+    mask: ClothingMaskPlague
+    jumpsuit: ADTClothingUniformJumpsuitOldDarkSuit
+    shoes: ClothingShoesBootsWinter
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterPlagueSuit
+    #id: CentcomPDA
+    #ears: ClothingHeadsetAltCentCom
+    belt: ADTBoneKnife
+    pocket1: Brutepack
+    pocket2: Ointment
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+
+- type: entity
+  name: Cultist1
+  parent: ADTMobCult
+  id: ADTMobCult2
+  suffix: "Cult, Spear, Cult of the Lamb"
+  components:
+  - type: Loadout
+    prototypes:
+      - ADTMobCult2Gear
+
+- type: startingGear
+  id: ADTMobCult2Gear
+  equipment:
+    mask: ClothingMaskPlague
+    jumpsuit: ADTClothingUniformJumpsuitOldDarkSuit
+    shoes: ClothingShoesBootsWinter
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterPlagueSuit
+    #id: CentcomPDA
+    #ears: ClothingHeadsetAltCentCom
+    #belt: BoxFolderCentComClipboard
+    pocket1: Brutepack
+    pocket2: Ointment
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+    back: Spear
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+
+- type: entity
+  name: Cultist2
+  parent: ADTMobCult
+  id: ADTMobCult3
+  suffix: "Cult, Update Spear, Cult of the Lamb"
+  components:
+  - type: Loadout
+    prototypes:
+      - ADTMobCult3Gear
+
+- type: startingGear
+  id: ADTMobCult3Gear
+  equipment:
+    mask: ClothingMaskPlague
+    jumpsuit: ADTClothingUniformJumpsuitOldDarkSuit
+    shoes: ClothingShoesBootsWinter
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterPlagueSuit
+    #id: CentcomPDA
+    #ears: ClothingHeadsetAltCentCom
+    #belt: BoxFolderCentComClipboard
+    pocket1: Brutepack
+    pocket2: Ointment
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+    back: SpearReinforced
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+
+
+- type: entity
+  parent: BaseMobHuman
+  id: ADTRandomHumanoidSpawnerCluwneCult
+  name: Morgort
+  suffix: "Cult of the Lamb"
+  components:
+    - type: Firestarter
+    - type: HealAct
+      healAction: CompActionHealAbomination
+    - type: ProjectileAct
+      projAction: CompActionShoot
+      prototype: BulletKinetic
+    - type: TeleportAct
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cluwne
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: Cluwne
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: HellSpawn
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2
+      baseSprintSpeed: 3
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        550: Critical
+        600: Dead
+    - type: Destructible #процесс разрушения на органы
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt #при каком дамаге это происходит
+          damage: 610
+        behaviors:
+        - !type:GibBehavior { }
+    - type: HealthExaminable
+      examinableTypes:
+        - Blunt
+        - Slash
+        - Piercing
+        - Shock
+    - type: Blindable
+    - type: Stamina
+      decay: 1
+      cooldown: 1
+      critThreshold: 4000
+
+- type: entity
+  parent: CollideRune
+  id: ADTExplosionRuneCult
+  name: "explosion rune"
+  suffix: "Cult of the Lamb, NOT explosion, it`s Decoration"
+  components:
+    - type: Sprite
+      sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: trap
+          color: '#cc1b00'
+
+- type: entity
+  parent: CollideRune
+  id: ADTUnlimitedLithing
+  name: "explosion rune"
+  suffix: "Cult of the Lamb, NOT explosion, it`s Decoration"
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/empity.rsi
+      layers:
+        - state: icon
+          #color: '#FF00FF'
+          #color: '#cc1b00'
+    - type: PointLight
+      radius: 14
+      energy: 3.5
+      color: "#ff3333"
+      castShadows: false
+#END-Event-Cult-of-the-Lamb
+
+#СССП штуки
+#Рядовой
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPPrivate
+  name: USSP Private
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPPrivateSettings
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPPrivateSettings
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: рядовой СССП
+      description: Служите социализму и подчиняйтесь офицерам.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmyPrivateGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+  
+#Офицер
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPOfficer
+  name: USSP Officer
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPOfficerSettings
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPOfficerSettings
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: офицер СССП
+      description: Служите социализму и управляйте своими подчиненными.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmyOfficerGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+
+#Рядовой в ОБС-5
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPOBS5
+  name: USSP OBS-5
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPSettingsOBS5
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPSettingsOBS5
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: рядовой в ОБС-5
+      description: Служите социализму и подчиняйтесь офицерам.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmyOBS5Gear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+
+#Командир группы в ОБС-7
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPOBS7
+  name: USSP SquadLeader
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPSettingsOBS7
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPSettingsOBS7
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: командир группы в ОБС-7
+      description: Служите социализму и управляйте своими подчиненными.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmyOBS7Gear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+
+#Пилот
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPPilot
+  name: USSP Pilot
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPSettingsPilot
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPSettingsPilot
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: пилот СССП
+      description: Служите социализму и управляйте шаттлом.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmyPilotGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+
+#Спецназ
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPSpetsnaz
+  name: USSP Spetsnaz
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPSettingsSpetsnaz
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPSettingsSpetsnaz
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: боец спецназа СССП
+      description: Служите социализму и проводите спецоперации.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmySpetsnazGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+
+#Спецназ-пулеметчик
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPSpetsnazLMG
+  name: USSP Spetsnaz LMG
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPSettingsSpetsnazLMG
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPSettingsSpetsnazLMG
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: боец спецназа СССП
+      description: Служите социализму и проводите спецоперации.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmySpetsnazLMGGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryOfficerUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+
+#Медик
+- type: entity
+  id: ADTRandomHumanoidSpawnerUSSPMedic
+  name: USSP Medic
+  suffix: USSP
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Objects/Decoration/poster_ussp.rsi
+          state: kdv
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryUSSP
+      - NamesLastMilitaryUSSP
+    - type: RandomHumanoidSpawner
+      settings: ADTUSSPSettingsMedic
+    - type: InitialInfectedExempt
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTUSSPSettingsMedic
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: медик СССП
+      description: Служите социализму и спасайте жизни товарищей.
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTUSSPArmyMedicGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryUSSP
+      - NamesLastMilitaryUSSP
+    - type: InitialInfectedExempt
+
+- type: entity
+  id: ADTRandomHumanoidSpawnerCBURNUnit
+  name: Cmnd CBURN Agent
+  suffix: AdtERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: ADTCmndCBURNAgent
+    - type: InitialInfectedExempt
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTCmndCBURNAgent
+  components:
+    - type: MindShield
+    - type: Loadout
+      prototypes: [ADTCmndCBURNGear]
+    - type: GhostRole
+      name: ghost-role-information-cmnd-cburn-agent-name
+      description: ghost-role-information-cmnd-cburn-agent-description
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10h overall
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+      - ADTCmndNamesFirstMilitaryCorvax # Corvax-Localization
+      - NamesLastERTCallsign # Corvax-Localization
+    - type: InitialInfectedExempt
+
+- type: startingGear
+  id: ADTCmndCBURNGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasExplorer
+    eyes: ClothingEyesHudSecurity
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCBURNLeader
+    shoes: ADTClothingShoesBootsMagERT
+    id: CBURNPDA
+    pocket1: RubberStampCentcom
+    pocket2: WeaponPulsePistol
+    suitstorage: OxygenTankFilled
+    belt: ClothingBeltBandolier
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+  innerClothingSkirt: ClothingUniformJumpsuitColorBrown
+  satchel: ClothingBackpackDuffelCBURN
+  duffelbag: ClothingBackpackDuffelCBURN
