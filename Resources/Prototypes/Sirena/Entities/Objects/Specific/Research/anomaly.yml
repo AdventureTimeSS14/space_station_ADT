@@ -11,7 +11,7 @@
     noRot: True
     sprite: Objects/Devices/pinpointer.rsi
     layers:
-    - state: pinpointer_crew
+    - state: pinpointer_anomaly
       map: ["enum.PinpointerLayers.Base"]
     - state: pinonnull
       map: ["enum.PinpointerLayers.Screen"]
@@ -19,4 +19,4 @@
     sprite: Objects/Devices/pinpointer.rsi
   - type: Pinpointer
     component: Anomaly
-  - type: Appearance
+
