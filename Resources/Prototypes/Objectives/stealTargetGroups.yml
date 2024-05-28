@@ -182,6 +182,13 @@
     state: icon
 
 - type: stealTargetGroup
+  id: ADTClothingMaskGasCE
+  name: CE's elite gas mask
+  sprite:
+    sprite: ADT/Clothing/Mask/gasCE.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: ClothingOuterHardsuitVoidParamed
   name: paramedic void suit
   sprite:
