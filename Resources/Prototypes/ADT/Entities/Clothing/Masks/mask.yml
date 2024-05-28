@@ -279,9 +279,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.15
-        Caustic: 0.85
-        Radiation: 0.70
-        Heat: 0.75
+        Blunt: 0.95
+        Caustic: 0.90
+        Radiation: 0.80
+        Heat: 0.80
   - type: StealTarget
     stealGroup: ADTClothingMaskGasCE
