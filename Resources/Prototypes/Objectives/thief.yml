@@ -248,9 +248,9 @@
   - type: NotJobRequirement
     job: StationEngineer
   - type: StealCondition
-    stealGroup: ADTClothingMaskGas
-  type: Objective
-  difficulty: 1
+    stealGroup: ADTClothingMaskGasCE
+  - type: Objective
+    difficulty: 1
 
 - type: entity                                      #Cargo subgroup
   parent: BaseThiefStealObjective
