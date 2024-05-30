@@ -1,48 +1,127 @@
-- type: lobbyBackground
-  id: Warden
-  background: /Textures/LobbyScreens/warden.webp
+#- type: lobbyBackground
+#  id: Robotics
+#  background: /Textures/LobbyScreens/robotics.png
+
+#- type: lobbyBackground
+#  id: Supermatter
+#  background: /Textures/LobbyScreens/supermatter.png
+
+#- type: lobbyBackground
+#  id: Warden
+#  background: /Textures/LobbyScreens/warden.png
+
+#- type: lobbyBackground
+#  id: Pharmacy
+#  background: /Textures/LobbyScreens/pharmacy.png
+
+#- type: lobbyBackground
+#  id: SSXIV
+#  background: /Textures/LobbyScreens/ssxiv.png
 
 - type: lobbyBackground
-  id: Pharmacy
-  background: /Textures/LobbyScreens/pharmacy.webp
+  id: Lobby1
+  background: /Textures/LobbyScreens/Lobby1.png
 
 - type: lobbyBackground
-  id: SSXIV
-  background: /Textures/LobbyScreens/ssxiv.webp
+  id: Lobby2
+  background: /Textures/LobbyScreens/Lobby2.png
+
+- type: lobbyBackground
+  id: Lobby3
+  background: /Textures/LobbyScreens/Lobby3.png
+
+- type: lobbyBackground
+  id: Lobby4
+  background: /Textures/LobbyScreens/Lobby4.png
+
+- type: lobbyBackground
+  id: Lobby5
+  background: /Textures/LobbyScreens/Lobby5.png
+
+- type: lobbyBackground
+  id: Banka
+  background: /Textures/LobbyScreens/banka.png
+
+- type: lobbyBackground
+  id: Kuss
+  background: /Textures/LobbyScreens/kuss.png
+
+- type: lobbyBackground
+  id: Clown
+  background: /Textures/LobbyScreens/clown.png
+
+- type: lobbyBackground
+  id: TemporaryFriends
+  background: /Textures/LobbyScreens/temporaryfriends.png
+
+- type: lobbyBackground
+  id: ClownVsSec
+  background: /Textures/LobbyScreens/ClownVsSec.jpg
+
+- type: lobbyBackground
+  id: Epsil
+  background: /Textures/LobbyScreens/Epsil.jpg
+
+- type: lobbyBackground
+  id: Nuke
+  background: /Textures/LobbyScreens/Nuke.jpg
+
+- type: lobbyBackground
+  id: Jojo
+  background: /Textures/LobbyScreens/Jojo.jpg
+
+- type: lobbyBackground
+  id: UnderTheTree
+  background: /Textures/LobbyScreens/UnderTheTree.png
+
+- type: lobbyBackground
+  id: RobusTyanka
+  background: /Textures/LobbyScreens/RobusTyanka.png
+
+- type: lobbyBackground
+  id: Lunalita
+  background: /Textures/LobbyScreens/Lunalita.png
+
+- type: lobbyBackground
+  id: ShizzyAllstars
+  background: /Textures/LobbyScreens/adtallstars.png
+
+- type: lobbyBackground
+  id: AveRezomi
+  background: /Textures/LobbyScreens/averezomi.png
+
+- type: lobbyBackground
+  id: LoVud_and_Sati
+  background: /Textures/LobbyScreens/barsiki.png
+
+- type: lobbyBackground
+  id: Timrika
+  background: /Textures/LobbyScreens/timrika.png
+
+- type: lobbyBackground
+  id: revolution
+  background: /Textures/LobbyScreens/revolution.png
 
 - type: lobbyBackground
   id: Susstation
-  background: /Textures/LobbyScreens/susstation.webp
+  background: /Textures/LobbyScreens/susstation.png
 
 - type: lobbyBackground
   id: SkellyVsTheRev
-  background: /Textures/LobbyScreens/skellyvstherev.webp
+  background: /Textures/LobbyScreens/skellyvstherev.png
 
 - type: lobbyBackground
   id: Doomed
-  background: /Textures/LobbyScreens/doomed.webp
+  background: /Textures/LobbyScreens/doomed.png
 
 - type: lobbyBackground
-  id: Blueprint
-  background: /Textures/LobbyScreens/blueprint.webp
+  id: Gool1
+  background: /Textures/LobbyScreens/goal1.png
 
 - type: lobbyBackground
-  id: Behonker
-  background: /Textures/LobbyScreens/behonker.webp
+  id: Cosmo1
+  background: /Textures/LobbyScreens/cosmo1.png
 
 - type: lobbyBackground
-  id: TerminalStation
-  background: /Textures/LobbyScreens/terminalstation.webp
-
-- type: lobbyBackground
-  id: JustAWeekAway
-  background: /Textures/LobbyScreens/justaweekaway.webp
-
-- type: lobbyBackground
-  id: JaniShootout
-  background: /Textures/LobbyScreens/janishootout.webp
-
-- type: lobbyBackground
-  id: ReclaimerNuke
-  background: /Textures/LobbyScreens/reclaimer-nuke.webp
-  
+  id: Cat1
+  background: /Textures/LobbyScreens/cat1.png
