@@ -6,6 +6,6 @@
   - type: NotJobRequirement
     job: StationEngineer
   - type: StealCondition
-    stealGroup: ADTClothingMaskGas
+    stealGroup: ADTClothingMaskGasCE
   - type: Objective
     difficulty: 1
