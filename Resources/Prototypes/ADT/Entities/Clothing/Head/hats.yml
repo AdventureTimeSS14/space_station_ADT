@@ -1,0 +1,1079 @@
+#chu-see
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsTrueDetectiveHat
+  name: True detective hat
+  description: This hat is worthy of a real detactive
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/true_detective_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/true_detective_hat.rsi
+
+#Luna
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGreatDruidWreath
+  name: Great Druid Wreath
+  description: So heavy, but it's worth it to proudly wear it.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/great_druid_wreath.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/great_druid_wreath.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBatHat
+  name: Bat hat
+  description: The same as Fin, only it's Remilia.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bat_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bat_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsDungeonMasterHat
+  name: Dungeon Master Hat
+  description: Dungeon Master Hat.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/dungeon_master.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/dungeon_master.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadMarineBeret
+  name: MarineLieutenantBeret
+  description: Marine beret
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/marineberet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/marineberet.rsi
+
+#Pyotr
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsPyotrCap
+  name: Pyotr`s cap
+  description: Standart officer`s cap from Pyotr Shahin`s homeworld
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/pyotr_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/pyotr_cap.rsi
+
+#Conjurer
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsJohanCap
+  name: Johans`s cap
+  description: Looks strange but cool
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/johan_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/johan_cap.rsi
+
+#Фуражка следователя
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsInvestigatorCap
+  name: investigator cap
+  description: Glory to NanoTrasen!
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/investigator_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/investigator_cap.rsi
+
+#кепка Мендозы
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsMendozaCap
+  name: Mendoza`s cap
+  description: The purple cap of a certain Alexei Mendoza. At the back is a large cross drawn with a marker. Next to it are fourteen more of the same small crosses. The owner of the cap jokes that this is the number of his escapes from brig.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/mendosa_soft.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/mendosa_soft.rsi
+
+#октоберфест
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHat
+  name: bavarian hat
+  description: Traditional bavarian hat
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hat.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hat.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatBlueBorder
+  name: bavarian hat with blue border
+  description: Traditional bavarian hat with a blue border
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatborderblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatborderblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatRedBorder
+  name: bavarian hat with red border
+  description: Traditional bavarian hat with a red border
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatborderred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatborderred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatGreenBorder
+  name: bavarian hat with green border
+  description: Traditional bavarian hat with a green border
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatbordergreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatbordergreen.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatBlue
+  name: bavarian blue hat
+  description: Traditional bavarian blue hat with a feather
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatGreen
+  name: bavarian green hat
+  description: Traditional bavarian green hat with a feather
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatgreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatgreen.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatRed
+  name: bavarian red hat
+  description: Traditional bavarian red hat with a feather
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Oktoberfest/bavarian_hatred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadPovar
+  name: MarineLieutenantBeret
+  description: Marine beret
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/hat_povar.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/hat_povar.rsi
+
+#колпаки ко Дню Рождения
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsNTCap
+  name: NT birthday cap
+  description: NT birthday cap
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/ntbirthdaycap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/ntbirthdaycap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBlueCap
+  name: blue birthday cap
+  description: blue birthday cap
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bluebirthdaycap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bluebirthdaycap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGrayCap
+  name: gray birthday cap
+  description: gray birthday cap
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/graybirthdaycap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/graybirthdaycap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsPinkCap
+  name: pink birthday cap
+  description: pink birthday cap
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/pinkbirthdaycap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/pinkbirthdaycap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsSyndieCap
+  name: syndie birthday cap
+  description: syndie birthday cap
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/syndiebirthdaycap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/syndiebirthdaycap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsCinnamonFlatCap
+  name: sinnamon flat cap
+  description: A cap with rounded crown and short margins. Sewn from thick fabric, that makes it perfect for cold weather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGreyFlatCap
+  name: grey flat cap
+  description: A cap with rounded crown and short margins. Sewn from thick fabric, that makes it perfect for cold weather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi #спрайты от prazat911
+
+# Новые береты от Празата. Ну, который prazat911.
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretAtmos
+  name: atmospheric techinican's beret
+  description: A blue beret with sewn emblem of engineering departament. Smells like frezon.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_atmospheric_technician.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_atmospheric_technician.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretHOP
+  name: head of personell's beret
+  description: A blue beret with sewn commander's emblem. The most important in work - cold mind and sure hand.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_HOP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_HOP.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretSOO
+  name: special operations officer's beret
+  description: A grey beret with sewn ERT emblem. Show who's in charge here!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_SOO.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_SOO.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretSupply
+  name: suply departament beret
+  description: Copper beret with sewn Supply departament emblem. #медный берет?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_cargo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_cargo.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretCE
+  name: chief engineer's beret
+  description: A white beret with sewn engineering departament emblem. Smells like machine oil and beer.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_CE.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_CE.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretCentCom
+  name: central command beret
+  description: A green with sewn CentComm emblem. The style of a military bureaucrat.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_CentCom.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_CentCom.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretArmy
+  name: army beret
+  description: army beret
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/armyberet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/armyberet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsAntenna
+  name: antennas
+  description: For better pilot synchronization.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/antennas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/antennas.rsi #спрайты от Умы
+
+#New Year
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsElf
+  name: elf hat
+  description: A hat of a real worker. With glued ears.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/New-Year/elf_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/New-Year/elf_hat.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsSnowMaiden
+  name: snow maiden's hat
+  description: A hat of a Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_snow_maiden.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHornsDeer
+  name: deer horns
+  description: A horns of Santa's helpers.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/New-Year/deer_horns.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/New-Year/deer_horns.rsi #спрайты от prazat911
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-linght
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatChristmas
+  name: christmas hat
+  description: A hat to celebrate christmas.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_christmas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_christmas.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsMonkeyHoliday
+  name: monkey holiday hat
+  description: A holiday hat for monkeys.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_monkey_holiday.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_monkey_holiday.rsi #спрайты от Умы
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsCatHoliday
+  name: cat holiday hat
+  description: A holiday hat for cats.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_cat_holiday.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_cat_holiday.rsi #спрайты от Умы
+  - type: Tag
+    tags:
+    - CatWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadChristmasFlower
+  name: christmas flower
+  description: A flower on your head
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_flower.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/New-Year/hat_flower.rsi #спрайты от prazat911
+
+#аудитор СБ
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadSecAuditorCap
+  name: sec auditor cap
+  description: sec auditor cap
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/sec_auditor_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/sec_auditor_cap.rsi
+
+#Не поверите, шапки от @prazat911
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadSportHat
+  name: sport winter hat
+  description: A winter hat for men of sports. #я всё ещё жду описаний с названиями.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/sport_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/sport_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadSportRoseCap
+  name: pink sport cap
+  description: sec auditor cap
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/sport_rose_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/sport_rose_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadSportHatStep
+  name: sport hat STEP
+  description: A futuristic looking striped hat from "STEP" clothing series.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/sport_step_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/sport_step_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadUrsHat
+  name: urs hat
+  description: A futuristic looking striped hat from "STEP" clothing series.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/urs_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/urs_hat.rsi
+
+#шлем "Сфера" СССП
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetUSSPSfera
+  name: sfera helmet
+  description: Standard security gear. Protects the head from impacts.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# medical update
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsParamedicBeret
+  name: paramedic's beret
+  description: A blue beret of a constantly busy job.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_paramedic.rsi #спрайты от prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_paramedic.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+#Шлемы для биокостюмов.
+- type: entity
+  parent: ClothingHeadHatHoodBioGeneral
+  id: ADTClothingHeadHatHoodBioPathologist
+  name: bio hood
+  suffix: pathologist
+  description: An hood for pathologists that protects the head and face from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/hood_pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/hood_pathologist.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodBioGeneral
+  id: ADTClothingHeadHatHoodBioParamedic
+  name: bio hood
+  suffix: paramedic
+  description: An hood for paramedics that protects the head and face from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/hood_paramedic.rsi #спрайты от prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/hood_paramedic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatTrader
+  name: hat
+  description: trader.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/trader.rsi #спрайты от prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/trader.rsi
+
+#шлем ТСФ
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetTSF
+  name: TSF helmet
+  description: Standard security gear. Protects the head from impacts.
+  suffix: TSF
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/tsf_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/tsf_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+ #nope_ingeneer когда-то давно.
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatRedji
+  name: Redji hat
+  description: stylish hat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/redji_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/redji_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlackCivilian
+  name: black beret
+  description: A black beret.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsRavenHatFriskis
+  suffix: Only Friskis
+  name: Security raven hat
+  description: No English
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/raven_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/raven_hat.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlueshield
+  name: blueshield officer's beret
+  description: A corporate blue beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlueshieldBlack
+  name: blueshield officer's beret
+  description: A corporate black beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret_black.rsi
+    
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHuraskaIlisium
+  name: Huraska
+  description: Ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/hurashka.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/hurashka.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretJay
+  name: jay's beret
+  description: The best beret in the world.
+  components:
+  - type: Sprite
+    sprite: ADT/KD/jayberet.rsi
+  - type: Clothing
+    sprite: ADT/KD/jayberet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadPinkHat
+  name: pink hat
+  description: where my martini shot?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/pink_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/pink_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTZepelli
+  name: zepelli hat
+  description: Edited by one businessman.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/zepelli.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/zepelli.rsi
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 15
+  - type: Item
+    size: Huge
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatKivchikBerete
+  suffix: Kivchik
+  name: blue beret of retribution
+  description: A beautiful black beret. He smells like berries.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/kivchikset_beret.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/kivchikset_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretParatrooperUSSP
+  name: paratrooper's beret
+  description: The famous crimson beret of the USSP Space Marines. This beret is worn only by those who deserve to prove themselves in battle, it is the most honorable award for paratroopers along with a gold medal.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/paratrooper_beret_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/paratrooper_beret_USSP.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretOfTheArmedForcesoftheUSSP
+  name: beret of the armed forces of the USSP
+  description: An olive beret with the symbols of the Armed Forces of the USSP. This beret is a very honorable award for military personnel, a sign of professionalism and long service. They are often worn by commanders.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_of_the_armed_forces_of_the_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_of_the_armed_forces_of_the_USSP.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretSpecialForcesUSSP
+  name: beret Special Forces USSP
+  description: A black beret with the symbols of the security forces of the Ministry of Internal Affairs of the USSP, which is awarded to elite troops and special forces, including special forces
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_Special_Forces_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_Special_Forces_USSP.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsAdmiralUSSPCap
+  name: the cap of the Admiral of the USSP fleet
+  description: A terribly clean and well-groomed cap. The obtrusive headdress of admirals in the space Fleet.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/admiral_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/admiral_USSP_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsCaptainUSSPCap
+  name: the cap of the captain of the SSS fleet
+  description: The obtrusive headdress of captains in the space Fleet.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/captain_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/captain_USSP_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsOfficerUSSPCap
+  name: the cap of an officer of the USSP Space Fleet
+  description: An obligatory part of the uniform of a field and staff officer of the Space Fleet of the USSP. The cap has the emblem of the Space Forces of the USSP.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/officer_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/officer_USSP_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBMF
+  name: hat bmf
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/bmf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/bmf.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadMusical
+  name: hat mus
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/musical.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/musical.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadKVD
+  name: hat KVD
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/kvdhead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/kvdhead.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadMVD
+  name: hat mvd
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/mvd.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/mvd.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadMSH
+  name: hat msh
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/msh.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/msh.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadSea
+  name: hat sea
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/sea.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/sea.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadMil
+  name: hat millitary
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/millitary.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/millitary.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadBorder
+  name: hat border
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Nine/border.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Nine/border.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBMF
+  name: UniformBMF
+  description: Pepe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Nine/bmf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Nine/bmf.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformMusical
+  name: Uniform Mus
+  description: Pepe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Nine/musical.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Nine/musical.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformKVD
+  name: UniformKVD
+  description: Pepe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Nine/kvd.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Nine/kvd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSea
+  name: UniformSea
+  description: Pepe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Nine/sea.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Nine/sea.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCommon
+  name: UniformCommon
+  description: Pepe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Nine/commonnine.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Nine/commonnine.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformMillitary
+  name: UniformMillitary
+  description: Pepe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Nine/millitary.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Nine/millitary.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBorder
+  name: UniformBorder
+  description: Pepe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Nine/border.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Nine/border.rsi
+
+# Brigmedic beret
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBrigmedic
+  name: brigmedic beret
+  description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi

@@ -1,0 +1,1000 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitIlisium
+  name: hardsuit ilisium
+  description: hardsuit ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/hardsuit_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/hardsuit_ili.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Heat: 0.35
+        Radiation: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetIlisium
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitSaibaSain
+  name: Saiba Sain elite hardsuit
+  description: Produced from plasmatic fibers, nanomachines and silicon. Smells like cherry blossom
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/saiba_sain_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/saiba_sain_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.55
+    sprintModifier: 0.55
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitSaibaSain
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitSecurityModern
+  name: It looks like a spacesuit.
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.7
+        Radiation: 0.8
+        Caustic: 0.85
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadSecurityModern
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitSecurityModernBlue
+  name: It looks like a spacesuit.
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern_b.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern_b.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.7
+        Radiation: 0.8
+        Caustic: 0.85
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadSecurityModernBlue
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitSecurityModernGreen
+  name: It looks like a spacesuit.
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern_g.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern_g.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.7
+        Radiation: 0.8
+        Caustic: 0.85
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadSecurityModernGreen
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitSecurityModernPur
+  name: It looks like a spacesuit.
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern_p.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security_modern_p.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.7
+        Radiation: 0.8
+        Caustic: 0.85
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadSecurityModernPurple
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitOBS7USSP
+  name: USSP OBS-7 Konrad armor suit
+  description: OBS-7 "Konrad", stands for, Combined-Arms Armor-Suit Model 7, is a single combined-arms armor suit of the Konrad series, designed to provide high protection and mobility. This armor suit surpasses its predecessor in terms of mobility and protection from laser weapons, although it is significantly inferior in armor protection from small arms and explosions.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS7USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS7USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.8
+        Caustic: 0.75
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitOBS7USSP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitOBS5USSP
+  name: USSP OBS-5 Konrad armor suit
+  description: OBS-5 "Konrad", also known as the Combined-Arms Armor Suit Model 5, is a morally intimidating model of a single combined-arms armor suit of the Konrad series. This spacesuit was designed with high protection against small arms and explosions in mind.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS5USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS5USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.8
+        Caustic: 0.75
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitOBS5USSPP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitSL5USSP
+  name: USSP SL-5 "Pilot" spacesuit
+  description: Pilot's Spacesuit Model 5, a special kit consisting of an outer jumpsuit, shock absorbers and armor plates designed to protect and isolate the pilot of a space shuttle from the external environment of boundless space.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/SL5USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/SL5USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.45
+        Heat: 0.8
+        Radiation: 0.8
+        Caustic: 0.8
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.95
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitSL5USSPP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitDBS40KUSSP
+  name: Power armor of the cosmo-paratrooper SSSP "DBS-40k"
+  description: An experimental model of a military armored suit, specially designed for the needs of the Space Landing forces of the USSP. This is a weighted and modified version of the OBS-7. During the modifications of the armor suit, the armor plates were replaced with a stronger analog, and additional armor was installed, which made it more massive. However, the protective characteristics have been significantly improved, providing the carrier with high protection from enemy factors in outer space and on the surface of planets.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/DBS40KUSSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/DBS40KUSSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.8
+        Caustic: 0.75
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitDBS40KUSSPP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitCamouflageColorsExocosuit
+  name: the exocosuit of the SSSP special forces "S.A.M." in camouflage colors
+  description: The S.A.M. exocosuit, also known as the "Adaptive Camouflage System", is a completely innovative means of protection for operatives of Special units of the USSP. Combining advanced technologies of composite materials, carbon coatings, as well as adaptive camouflage, roughly speaking - "invisibility", these exosuits provide outstanding protective effectiveness and have shown themselves to be at their best in operational conditions. This spacesuit is in the "Camouflage" color scheme
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/camouflagecolors_exocosuitUSSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/camouflagecolors_exocosuitUSSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.8
+        Caustic: 0.75
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitCamouflageColors
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitDesertedExocosuit
+  name: the exocosuit of the SSSP special forces "S.A.M." in deserted colors
+  description: The S.A.M. exocosuit, also known as the "Adaptive Camouflage System", is a completely innovative means of protection for operatives of Special units of the USSP. Combining advanced technologies of composite materials, carbon coatings, as well as adaptive camouflage, roughly speaking - "invisibility", these exosuits provide outstanding protective effectiveness and have shown themselves to be at their best in operational conditions. This spacesuit is in the "Deserted" color scheme
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/deserted_exocosuitUSSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/deserted_exocosuitUSSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
+        Heat: 0.5
+        Radiation: 0.6
+        Caustic: 0.65
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitDesertedColors
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitTacticalExocosuit
+  name: the exocosuit of the SSSP special forces "S.A.M." in the tactical scheme
+  description: The S.A.M. exocosuit, also known as the "Adaptive Camouflage System", is a completely innovative means of protection for operatives of Special units of the USSP. Combining advanced technologies of composite materials, carbon coatings, as well as adaptive camouflage, roughly speaking - "invisibility", these exosuits provide outstanding protective effectiveness and have shown themselves to be at their best in operational conditions. This spacesuit is in the "Tactical" color scheme
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/tactical_exocosuitUSSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/tactical_exocosuitUSSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.8
+        Caustic: 0.75
+        Stun: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitTacticalColors
+  - type: StealthClothing
+    visibility: 0.3
+    toggleAction: ActionTogglePhaseCloak
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitMonolithReserch
+  name: MoNILIth exocosuit of the SSSP
+  description: The S.A.M. exocosuit, also known as the "Adaptive Camouflage System", is a completely innovative means of protection for operatives of Special units of the USSP. Combining advanced technologies of composite materials, carbon coatings, as well as adaptive camouflage, roughly speaking - "invisibility", these exosuits provide outstanding protective effectiveness and have shown themselves to be at their best in operational conditions. This spacesuit is in the "Tactical" color scheme
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/ussp_rd.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/ussp_rd.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.3
+        Radiation: 0.1
+        Caustic: 0.2
+        Stun: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitMonolithReserch
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ADTVeteranSecHardsuit
+  name: veteran security hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/veteransechardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/veteransechardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 10000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.75
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+        Radiation: 0.25
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: ToggleableClothing
+    clothingPrototype: ADTVeteranSecHardsuitHelm
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitCerber
+  name: cerber hardsuit
+  description: A specialized black spacesuit used in 19th century Asian countries by the central police.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cerber.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cerber.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 10000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.1
+        Radiation: 0.35
+        Caustic: 0.7
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitCerber
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitCybersunBodyGuard
+  name: cybersun bodyguard hardsuit
+  description: An upgraded version of the blood red hardsuit that features enhanced fireproofing, pressure resist, and superior armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersunbodyguard.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersunbodyguard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.2
+        Radiation: 0.20
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitCybersunBodyGuard
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitCybersunCrysis
+  name: cybersun supersoldier's hardsuit
+  description: CyberSun's most advanced, secret security technology. It seems this development is leading to the creation of super soldiers. It smells of plastitan and dishonorable fight
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersun_crysis_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersun_crysis_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.55
+    sprintModifier: 0.55
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitCybersunCrysis
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterFemHardsuitSyndieCommander
+  name: женский командирский скафандр синдиката
+  description: Кроваво-красный женский скафандр, специально разработан для командиров синдиката.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/syndiecommander_fem.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/syndiecommander_fem.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.20
+        Caustic: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadFemHelmetHardsuitSyndieCommander
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterFemHardsuitSyndieElite
+  name: женский элитный скафандр синдиката
+  description: Усовершенствованная версия женского кроваво-красного скафандра, отличающаяся повышенной огнеупорностью, устойчивостью к давлению и превосходной броней.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/syndieelite_fem.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/syndieelite_fem.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.2
+        Radiation: 0.20
+        Caustic: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingFemHeadHelmetHardsuitSyndieElite
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: BlueshieldSuit
+  name: blueshield's hardsuit
+  description: A rugged and mobile spacesuit for the lives of high-ranking members of Nanotrasen.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/blueshield_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/blueshield_hardsuit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.7
+        Radiation: 0.3
+        Caustic: 0.5
+        Stun: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitBlueshield
+
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterFemHardsuitSyndie
+  name: женский кроваво-красный скафандр
+  description: Женский тяжелобронированный и мобильный скафандр, предназначенный для специальных операций.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/syndi_fem.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/syndi_fem.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.4
+        Radiation: 0.20
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingFemHeadHelmetHardsuitSyndie
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitERTHeavy
+  name: ERT heavy suit
+  description: ERT heavy suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/heavyERT.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/heavyERT.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.15
+        Heat: 0.2
+        Radiation: 0
+        Caustic: 0.1
+        Stun: 0.05
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitERTHeavy
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTinquisitory
+  name: inquisitory hardsuit
+  description: Repent of your sins.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5 
+        Slash: 0.5
+        Piercing: 0.5 
+        Heat: 0.5
+        Radiation: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ADTInquisitoryHead
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTKirasCloakn
+  name: Kiras cloakn
+  description: beautiful kapeshon u Kirava.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/kiras_cloakn.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/kiras_cloakn.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 10000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.9
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitKiravaHoodsec
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTSpaceMarinne
+  name: berserker hardsuit
+  description: Technology from the dark age.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/marinne.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/marinne.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5 
+        Slash: 0.5
+        Piercing: 0.5 
+        Heat: 0.5
+        Radiation: 0.5
+        Stun: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: ToggleableClothing
+    clothingPrototype: ADTSpaceMarinneHead
+
+# Nano-Scale
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitNanoScale
+  name: Nano scale armor
+  description: Reptiles are not as primitive as you thought.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/nano_scale_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/nano_scale_armor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.3
+    sprintModifier: 1.3
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.2
+        Radiation: 0.20
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingClothingHeadHelmetHardsuitNanoScale
+
+  # Nano-Scale-Chameleon
+  # Не знаю точно ли это hardsuit так как отсутствует шлем
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterHardsuitNanoScaleChameleon
+  name: Nano scale armor chameleon
+  description: Very secretive and smells very sugary
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/nano_scale_armor_chameleon.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/nano_scale_armor_chameleon.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.01
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    # throwing in a recharger would bypass glove charging mechanic
+    fitsInCharger: false
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellAntiqueProto
+  # delay for when attacked while cloaked
+  - type: UseDelay
+    delay: 5
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterParamedicVoidHardsuit
+  name: paramedic hardsuit
+  description: A modern means of protection for paramedics. It is a high-tech kit designed to ensure the safety and effective work of specialists in extreme space conditions. The spacesuit provides reliable protection against external factors such as radiation, chemicals and biological threats. It is made of durable and stable materials.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+        Radiation: 0.75
+        Caustic: 0.5
+  #- type: Appearance
+  - type: GroupExamine
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetParamedicVoid
+  #- type: ItemSlots   #слот для ПИИ
+  #  slots:
+  #    place:
+  #      name: PersonalAI
+  #      startingItem: PersonalAI
+  #      priority: 1
+  #      whitelist:
+  #        tags:
+  #          - ADTPAIEqepped
+  #- type: ItemMapper
+    #mapLayers:
+    #  equipped-OUTERCLOTHING-PAI:
+    #    whitelist:
+    #      tags:
+    #      - ADTPAIEqepped
+    #sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi
+  #- type: ContainerContainer
+  #  containers:
+  #    place: !type:ContainerSlot
+        #ents: [ ]
+
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTPilotSuit
+  name: Pilot Suit
+  description: The second skin of those who love speed and stars.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pilotsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pilotsuit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 10000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.75
+        Piercing: 0.6
+        Heat: 0.4
+        Radiation: 0.2
+  - type: ToggleableClothing
+    clothingPrototype: ADTPilotSuitHelm
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTPilotSuitSEC
+  name: Pilot Suit Security
+  description: For keepers of order among the stars.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pilotsuitsec.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pilotsuitsec.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 10000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.75
+        Piercing: 0.6
+        Heat: 0.4
+        Radiation: 0.2
+  - type: ToggleableClothing
+    clothingPrototype: ADTPilotSuitHelmSEC
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ADTClothingOuterHardsuitPioneerAgent
+  name: agent "Pioneer" hardsuit
+  description: agent "Pioneer" hardsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pioneeragent.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pioneeragent.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitPioneerAgent

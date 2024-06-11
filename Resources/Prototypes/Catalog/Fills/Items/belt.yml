@@ -167,6 +167,11 @@
         amount: 2
       - id: OmnizineChemistryBottle
       - id: MedkitCombatFilled
+  - type: Storage
+    maxItemSize: Large
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1
 
 - type: entity
   parent: ClothingBeltWand
@@ -199,3 +204,18 @@
     contents:
     - id: FoodShakerSalt
     - id: FoodShakerPepper
+<<<<<<< HEAD
+=======
+
+- type: entity
+  id: ClothingBeltMedicalSecurityFilled
+  name: medical-security belt
+  description: Special medical-security belt.
+  parent: ClothingBeltMedicalSecurity
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Stunbaton
+      - id: Handcuffs
+>>>>>>> 9a95663cd9 (Merge pull request #705 from ITamiokiI/BSH)

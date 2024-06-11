@@ -1,0 +1,38 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackSatchelninja
+  name: satchel
+  description: A trendy looking satchel.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/ninjasatchel.rsi #Adventure Time sprites
+  - type: Storage
+    maxItemSize: Huge
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ADTClothingBackpackSatchelMedical
+  name: medical satchel
+  description: A satchel to hold medical equipment
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/genetics.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ADTClothingSatchelParamedic
+  name: paramedical satchel
+  description: A satchel to store some paramedical equipment.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/paramedic_satchel.rsi
+
+#ОСЩ
+- type: entity
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelBlueshield
+  name: blueshield satchel
+  description: A satchel to hold medical and security equipment
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/blueshield_satchel.rsi

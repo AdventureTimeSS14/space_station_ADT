@@ -1,0 +1,194 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSupremeCommanderCloak
+  name: supreme commander's cloak
+  description: Don't let it get dirty. It made from super-tecnological blue-space threads. Only you have this unique coat!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/supreme_commander_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckKnightCloak
+  name: Knight's cloak
+  description: Silky and imposing knight's cloak. For the honor of the crown!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/knight_cloak.rsi
+
+#Pyotr
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckPyotrCloak
+  name: Pyotr's cloak
+  description: Dark green with gold thread cloak.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/pyotr_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckHoPAltCloak
+  name: HoP parade cloak
+  description: Cloak for Head of Personell for special events.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/HoP_alt_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckDarkGreyCloak
+  name: dark grey cloak
+  description: Even a greytide deserve his cloak.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/darkgrey_cloak.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckGothicCloak
+  name: gothic cloak
+  description: For a classy old-style vampires.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/gothic_cloak.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSyndicateCloak
+  name: syndicate cloak
+  description: Antagonize with style!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/syndicate_cloak.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckNukeOpsCloak
+  name: nuke ops cloak
+  description: Protect from cold evening on a nukie planet.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka
+
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckNewMekkaCloak
+  name: New Mekka cloak
+  description: Protect from cold evening on a nukie planet.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/newmekkacloak.rsi #спрайты от floppo4ka
+
+#плащ Lapkee
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakLapkee
+  name: light cloak
+  description: light cloak
+  suffix: Lapkee
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/lapkeeset_cloack.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckKivchikCloak
+  suffix: Kivchik
+  name: black cloak of retribution
+  description: A neat black raincoat with golden stripes and clasps.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/kivchikset_cloak.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTVampireCloak
+  name: vampire cloak
+  description: vampire cloak
+  suffix: Halloween
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Halloween/vampire_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckKirasCloakn
+  name: Kiras cloakns
+  description: cloakn Kiras
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/kiras_cloakns.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckNecklaceWithEmerald
+  name: Necklace with emerald
+  description: This stone is so mesmerizing.. it's just like your green eyes
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/necklace_with_emerald.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckNecklaceWithPlasma
+  name: Necklace with plasma
+  description: Necklace with plasma is it safe?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/necklace_with_plasma.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckNecklaceWithSapphire
+  name: Necklace with sapphire
+  description: THis necklace is missng rubies
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/necklace_with_sapphire.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckRaincoatForAShortDress
+  name: Raincoat for a short dress
+  description: Cloak with gold plating. Blindingly
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/raincoat_for_a_short_dress.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTVergileCloak
+  name: Vergile cloak
+  description: Vergile cloak
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/Halloween/vergile_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/Halloween/vergile_cloak.rsi
+
+# Blueshield
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakBlueshield
+  name: blueshield cloak
+  description: A blue cape with an armored shoulder pad, especially for the protection of station heads.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/blueshield_neck.rsi

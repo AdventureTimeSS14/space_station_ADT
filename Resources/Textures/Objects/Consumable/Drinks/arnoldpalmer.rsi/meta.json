@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD:Resources/Textures/Objects/Consumable/Drinks/arnoldpalmer.rsi/meta.json
+=======
+    "license": "CC-BY-SA-3.0",
+    "copyright": "By Adventure Time Team",
+>>>>>>> 9a95663cd9 (Merge pull request #705 from ITamiokiI/BSH):Resources/Textures/ADT/Clothing/Underwear/blueshield_bra.rsi/meta.json
     "version": 1,
     "size": {
         "x": 32,

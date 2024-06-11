@@ -500,11 +500,15 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
+<<<<<<< HEAD
   - type: Tag
     tags:
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+=======
+  # - type: DNALocker
+>>>>>>> 9a95663cd9 (Merge pull request #705 from ITamiokiI/BSH)
 
 # Syndicate Medic Hardsuit
 - type: entity

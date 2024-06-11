@@ -1,0 +1,157 @@
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackDuffelParamedic
+  id: ADTClothingBackpackDuffelParamedicalFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: JawsOfLife # Парамед теперь без МЩ и может быть антагом
+      - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledAKMS
+  name: AKMS bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleAk
+      - id: MagazineLightRifle
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledHristov
+  name: Hristov bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponSniperHristovII
+      - id: ADTMagazineHriII
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledElite
+  name: Syndicate elite bundle
+  description: "For those who knows at armor." #, and a Suppressor.
+  components:
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,10,7
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitSyndieElite
+      - id: ClothingShoesBootsMagSyndie
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledC20Ammo
+  name: C20 Ammo Bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolSubMachineGun
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmo
+  name: Buldog Ammo Bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineShotgunSlug
+      - id: MagazineShotgunSlug
+      - id: MagazineShotgun
+      - id: MagazineShotgun
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmoXL
+  name: Buldog XL Ammo Bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMagazineShotgunSlugXL
+      - id: ADTMagazineShotgunSlugXL
+      - id: ADTMagazineShotgunXL
+        amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledXC67
+  name: xC-67 rifle bundle
+  description: bundle with a prototype xC-67 assault fifle and two mags #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponRifleXC67
+      - id: ADTExtMagazineRifle
+        amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledXC67Ammo
+  name: xC-67 extended magazine bundle
+  description: Duffelbag with a three extended 6.5 mm mag for xC-67
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTExtMagazineRifle
+        amount: 3
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSsmokeGrenade
+  name: набор дымовых гранат синдиката
+  description: Набор из шести дымовых гранат синдиката
+  components:
+  - type: StorageFill
+    contents:
+      - id: SmokeGrenade
+        amount: 6
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackDuffelPathologist
+  id: ADTClothingBackpackDuffelPathologistFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: BodyBag_Folded
+      - id: ADTFootTag
+      - id: SpaceCash500
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackDuffelDurathead
+  id: ClothingBackpackTraderFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: RubberStampTrader
+        - id: AppraisalTool
+        - id: SpaceCash500
+        - id: ADTClothingOuterCoatTrader
+
+#Blueshield
+- type: entity
+  parent: ADTClothingBackpackDuffelBlueshield
+  id: ADTClothingBackpackDuffelBlueshieldFilled
+  suffix: filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: SpaceCash500
+      - id: Flash

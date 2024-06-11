@@ -120,9 +120,34 @@ ent-SeniorEngineerIDCard = ID карта ведущего инженера
 ent-SeniorResearcherIDCard = ID карта ведущего учёного
     .desc = { ent-ResearchIDCard.desc }
 ent-SeniorPhysicianIDCard = ID карта ведущего врача
+<<<<<<< HEAD
     .desc = { ent-MedicalIDCard.desc }
 ent-SeniorOfficerIDCard = ID карта инструктора СБ
     .desc = { ent-SecurityIDCard.desc }
 ent-UniversalIDCard = универсальная ID карта
     .desc = ID карта, которая позволит вам осуществить свои самые сокровенные желания.
     .suffix = Админ
+=======
+    .desc = { ent-IDCardStandard.desc }
+ent-SeniorOfficerIDCard = ID карта офицера-инструктора
+    .desc = { ent-IDCardStandard.desc }
+
+ent-ADTInvestigatorIDCard = ID карта следователя СБ
+    .desc = { ent-IDCardStandard.desc }
+
+ent-ADTPathologistIDCard = ID карта патологоанатома
+    .desc = { ent-IDCardStandard.desc }
+
+ent-ERTChaplainIDCard = ID карта священника ОБР
+    .desc = { ent-CentcomIDCard.desc }
+ent-ERTEngineerIDCard = ID карта инженера ОБР
+    .desc = { ent-CentcomIDCard.desc }
+ent-ERTJanitorIDCard = ID карта уборщика ОБР
+    .desc = { ent-CentcomIDCard.desc }
+ent-ERTMedicIDCard = ID карта медика ОБР
+    .desc = { ent-CentcomIDCard.desc }
+ent-ERTSecurityIDCard = ID карта офицера безопасности ОБР
+    .desc = { ent-CentcomIDCard.desc }
+ent-ADTBlueShieldOfficerIDCard = ID карта офицера синего щита
+    .desc = Блестящая карта Офицера Синего Щита.
+>>>>>>> 9a95663cd9 (Merge pull request #705 from ITamiokiI/BSH)

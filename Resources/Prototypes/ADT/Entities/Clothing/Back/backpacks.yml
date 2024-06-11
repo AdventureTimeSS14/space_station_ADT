@@ -1,0 +1,255 @@
+- type: entity
+  parent: Clothing
+  id: ADTSyndicateBack
+  name: Syndicate Bag
+  description: You wear this on your back and put items into it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/syndicate_bag.rsi
+    state: icon
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,10,7
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  # to prevent bag open/honk spam
+  - type: UseDelay
+    delay: 0.5
+
+- type: entity
+  parent: Clothing
+  id: ADTClothingBackpackUSSPattaked
+  name: Shtormed backpack
+  description: A large duffel bag for holding extra things.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/ussp_attaked_backpack.rsi
+    state: icon
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,10,7
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.8
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  # to prevent bag open/honk spam
+  - type: UseDelay
+    delay: 0.5
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackHeartSatchel
+  name: heart satchel
+  description: Satchel for storage. Wow, whats there? A stolen hearts?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/heart_satchel.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackHeart
+  name: heart backpack
+  description: Backpack for storage. Wow, whats there? A stolen hearts?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/heart_backpack.rsi
+
+# Приколы Патологоанатома
+- type: entity
+  parent: ClothingBackpackMedical
+  id: ADTClothingBackpackPathologist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/pathologist_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchelMedical
+  id: ADTClothingBackpackSatchelPathologist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/pathologist_satchel.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelMedical
+  id: ADTClothingBackpackDuffelPathologist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/pathologist_duffel.rsi
+
+# медицинские штучки-брючки
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackMedical
+  name: medical backpack
+  description: Backpack to store some medical equipment.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/genetics.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackParamedic
+  name: paramedical backpack
+  description: Backpack to store some paramedical equipment.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/paramedic_backpack.rsi
+#дамские сумочки
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackBlackLadySatchel
+  name: black lady satchel
+  description: Satchel for storage. Wow, whats there? A stolen hearts?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/blacklady_satchel.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackLeatherLadySatchel
+  name: leather lady satchel
+  description: Satchel for storage. Wow, whats there? A stolen hearts?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/leatherlady_satchel.rsi
+
+
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackOR80L
+  name: backpack "OR-80L"
+  description: combined arms backpack
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackOR40L
+  name: backpack "OR-40L"
+  description: combined arms backpack
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/backpack_OR40L.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+
+#РКС-2 - рюкзак СССП
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackRKS2
+  name: backpack "RKS-2"
+  description: combined arms backpack
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/backpack_RKS2.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    maxItemSize: Huge
+
+#Рюкзак криминалиста
+
+- type: entity
+  parent: ClothingMilitaryBackpack
+  id: ADTClothingCriminalistBackpack
+  name: criminalst backpack
+  description: criminalst backpack
+  suffix: criminalist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/criminalist_back.rsi
+  - type: Storage
+    maxItemSize: Huge
+
+#ОСЩ
+
+- type: entity
+  parent: ClothingBackpackSecurity
+  id: ADTClothingBlueshieldBackpack
+  name: blueshield's backpack
+  description: criminalst backpack
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/blueshield_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ADTClothingBackpackKivchikSatchel
+  suffix: Kivchik
+  name: satchel of retribution
+  description: A beautiful black bag with a gold clasp and red stripes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/kivchikset_satchel.rsi
+
+- type: entity
+  id: ADTRadioHandheldTSFBackpack
+  name: TSF backpack radio
+  description: A handy bacpack radio
+  parent: ADTRadioHandheldTSF
+  components:
+  - type: Clothing
+    sprite: ADT/Objects/Device/tsf_radio_backpack.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: ADT/Objects/Device/tsf_radio_backpack.rsi
+    layers:
+    - state: icon

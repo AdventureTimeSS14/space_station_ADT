@@ -1,0 +1,199 @@
+- type: entity
+  parent: IDCardStandard
+  id: MagistratIDCard
+  name: magistrat ID card
+  description: magistrat ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: idlawyer
+    - type: PresetIdCard
+      job: Magistrat
+
+- type: entity
+  parent: IDCardStandard
+  id: VirusologIDCard
+  name: virusolog ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: idmedicaldoctor
+    - type: PresetIdCard
+      job: Virusolog
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTPathologistIDCard
+  name: pathologist's ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: id-pathologist
+  - type: PresetIdCard
+    job: ADTPathologist
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTBlueShieldOfficerIDCard
+  name: Blue Shield Officer ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: centcom
+        - state: idblueshield
+    - type: PresetIdCard
+      job: ADTBlueShieldOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTRoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idroboticist
+  - type: PresetIdCard
+    job: ADTRoboticist
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTInvestigatorIDCard
+  name: investigator ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idinvestigator
+  - type: PresetIdCard
+    job: ADTInvestigator
+
+#СССП штуки 
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTUSSPArmyCard
+  name: USSP Army Card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/USSP_idcard.rsi
+      state: private
+    - type: PresetIdCard
+      job: ADTJobUSSPArmyPrivate
+
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTUSSPArmyOfficerCard
+  name: USSP Army Card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/USSP_idcard.rsi
+      state: private
+    - type: PresetIdCard
+      job: ADTJobUSSPArmyOfficer
+    # - type: AgentIDCard
+    #   icons:
+    #   # TODO figure out a better way of doing this.
+    #   # Probably by adding a bool or icon-category data-field to the icon prototype?
+    #   - JobIconDetective
+    #   - JobIconQuarterMaster
+    #   - JobIconBotanist
+    #   - JobIconBoxer
+    #   - JobIconAtmosphericTechnician
+    #   - JobIconNanotrasen
+    #   - JobIconPrisoner
+    #   - JobIconJanitor
+    #   - JobIconChemist
+    #   - JobIconStationEngineer
+    #   - JobIconSecurityOfficer
+    #   - JobIconChiefMedicalOfficer
+    #   - JobIconRoboticist
+    #   - JobIconChaplain
+    #   - JobIconLawyer
+    #   - JobIconUnknown
+    #   - JobIconLibrarian
+    #   - JobIconCargoTechnician
+    #   - JobIconScientist
+    #   - JobIconResearchAssistant
+    #   - JobIconGeneticist
+    #   - JobIconClown
+    #   - JobIconCaptain
+    #   - JobIconHeadOfPersonnel
+    #   - JobIconVirologist
+    #   - JobIconShaftMiner
+    #   - JobIconPassenger
+    #   - JobIconChiefEngineer
+    #   - JobIconBartender
+    #   - JobIconHeadOfSecurity
+    #   - JobIconBrigmedic
+    #   - JobIconMedicalDoctor
+    #   - JobIconParamedic
+    #   - JobIconChef
+    #   - JobIconWarden
+    #   - JobIconResearchDirector
+    #   - JobIconMime
+    #   - JobIconMusician
+    #   - JobIconReporter
+    #   - JobIconPsychologist
+    #   - JobIconMedicalIntern
+    #   - JobIconTechnicalAssistant
+    #   - JobIconServiceWorker
+    #   - JobIconSecurityCadet
+    #   - JobIconZookeeper
+    #   - JobIconSeniorPhysician
+    #   - JobIconSeniorOfficer
+    #   - JobIconSeniorEngineer
+    #   - JobIconSeniorResearcher
+    #   - JobIconVisitor
+    # - type: ActivatableUI
+    #   key: enum.AgentIDCardUiKey.Key
+    #   inHandsOnly: true
+    # - type: Tag
+    #   tags:
+    #   - DoorBumpOpener
+    # - type: UserInterface
+    #   interfaces:
+    #     - key: enum.AgentIDCardUiKey.Key
+    #       type: AgentIDCardBoundUserInterface
+    #     - key: enum.ChameleonUiKey.Key
+    #       type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: CentcomIDCard #SecurityIDCard
+  id: ADTSecurityCybIDCard
+  name: "security cyborg ID card"
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idsecurityofficer
+  - type: PresetIdCard
+    job: ADTSecurityCyborg
+  - type: Access
+    groups:
+    - AllAccessCentcom
+    tags:
+    - CentralCommand
+
+- type: entity
+  parent: IDCardStandard
+  id: TraderIDCard
+  name: TraderIDCard
+  description: TraderIDCard
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/trader_id.rsi
+      layers:
+        - state: tsf
+        - state: idtrader_tsf
+    - type: IdCard
+      jobTitle: Торговец
+    - type: Access
+      tags:
+      - Trader
+      - External

@@ -83,8 +83,14 @@
     contents:
       - id: MedicatedSuture
       - id: RegenerativeMesh
+<<<<<<< HEAD
       - id: Bloodpack
         amount: 2
+=======
+        amount: 1
+      - id: RadAutoInjector
+      - id: AntiPoisonMedipen
+>>>>>>> 9a95663cd9 (Merge pull request #705 from ITamiokiI/BSH)
 
 - type: entity
   id: MedkitCombatFilled
