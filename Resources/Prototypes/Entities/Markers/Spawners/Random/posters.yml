@@ -93,6 +93,18 @@
       - PosterContrabandInterdyne
       - PosterContrabandWaffleCorp
       - PosterContrabandMissingSpacepen
+      - ADTPosterContrabandLustTayaran # Спрайт от Празата
+      - ADTPosterContrabandFearThem # Спрайт от Иллюми
+      - ADTPosterContrabandSilence # Спрайт от Иллюми
+      - ADTPosterContrabandLustUma
+      - ADTPosterContrabandLustArDeco
+      - ADTPosterDontSitDown
+      - ADTPosterTayarHalloween
+      - ADTPosterLustyMoth
+      - ADTPosterWatchOutChem
+      - ADTPosterPanem
+      - ADTPosterGasAttack
+      - ADTPosterNoGood
     chance: 1
 
 - type: entity
@@ -150,4 +162,17 @@
       - PosterLegitPeriodicTable
       - PosterLegitRenault
       - PosterLegitNTTGC
+      - ADTPosterLegitEfficiency
+      - ADTPosterLegitGreatFood #спрайт от Празата
+      - ADTPosterLegitTurnOnSensors #спрайт от Празата
+      - ADTPosterLegitOktoberfest #спрайт от Празата
+      - ADTPosterLegitOktoberfest2 #спрайт от Празата
+      - ADTPosterPassTheBanana #спрайт от Уолтера
+      - ADTPosterSingoPizza
+      - ADTPosterPapersPlease
+      - ADTPosterDontTalkToArty
+      - ADTPosterWorkUnderWay
+      - ADTPosterPlasmaMan
+      - ADTPosterError
+      - ADTPosterNoBad
     chance: 1
