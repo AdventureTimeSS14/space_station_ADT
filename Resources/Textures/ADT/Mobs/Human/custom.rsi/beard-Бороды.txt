@@ -1,0 +1,8 @@
+bread-beardShort - Короткий борода
+bread-beardviking - Борода Викинга
+beard-beardlong - Длинная борода
+beard-bristle - Щётины
+beard-mustachewithstubble - Усы с щётиной
+beard-thickbristle - Щётины
+beard-beardthick - Борода густой
+beard-beardchin - Борода без усов

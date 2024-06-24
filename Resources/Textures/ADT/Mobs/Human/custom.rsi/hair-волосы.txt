@@ -1,0 +1,9 @@
+hair-ArabicGathered Hair - Арабский пучок
+hair-ClassicHairMale - Классический короткий стрижка
+hair-CombedFromSide - Зачесанный Набок
+hair-Longhair - Длинные волосы
+hair-Short-haired - Коротко стриженный
+hair-WomenBun - Пучок (женский)
+hair-shaved side - Бритый бок
+hair-manbunold - Пучок (мужской, старый)
+hair-pigtailtajaran - Косичка по Таярански

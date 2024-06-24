@@ -1,0 +1,27 @@
+
+- type: marking
+  id: SlimeRabbitAntennae
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimeSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Slime/custom.rsi
+    state: rabbit-antennae
+
+- type: marking
+  id: SlimeRabbitEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimeSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Slime/custom.rsi
+    state: rabbit-ears
+
+- type: marking
+  id: SlimeButterflyWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimeSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Slime/custom.rsi
+    state: butterfly-wings
