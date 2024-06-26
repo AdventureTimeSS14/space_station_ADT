@@ -161,7 +161,13 @@ def main():
 
     github_token = sys.argv[1]
     repo = sys.argv[2]
-    pr_number = int(sys.argv[3])
+    pr_number = sys.argv[3]
+
+    if pr_number is None:
+        logging.error("PR_NUMBER cannot be null")
+        sys.exit(1)
+
+    pr_number = int(pr_number)
 
     pr_data = fetch_pr_data(github_token, repo, pr_number)
 
