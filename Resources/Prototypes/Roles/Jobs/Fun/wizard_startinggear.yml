@@ -1,0 +1,35 @@
+#Wizard outfit startingGear definitions.
+- type: startingGear
+  id: WizardBlueGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    head: ClothingHeadHatWizard
+    outerClothing: ClothingOuterWizard
+    shoes: ClothingShoesWizard
+    id: PassengerPDA
+    ears: ClothingHeadsetService
+  storage:
+    back:
+    - BoxSurvival
+
+- type: startingGear
+  id: WizardRedGear
+  parent: WizardBlueGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+    head: ClothingHeadHatRedwizard
+    outerClothing: ClothingOuterWizardRed
+
+- type: startingGear
+  id: WizardVioletGear
+  parent: WizardBlueGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPurple
+    head: ClothingHeadHatVioletwizard
+    outerClothing: ClothingOuterWizardViolet
+
+- type: startingGear
+  id: WizardHardsuitGear
+  parent: WizardVioletGear
+  equipment:
+    outerClothing: ClothingOuterHardsuitWizard

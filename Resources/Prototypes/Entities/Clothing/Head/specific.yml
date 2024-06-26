@@ -1,0 +1,35 @@
+﻿- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatChameleon
+  name: beret
+  description: A beret, an artists favorite headwear.
+  suffix: Chameleon
+  components:
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/Head/Hats/beret.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/beret.rsi
+    - type: ChameleonClothing
+      slot: [HEAD]
+      default: ClothingHeadHatBeret
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+# Corvax-HiddenDesc-Start
+    - type: HiddenDescription
+      entries:
+      - label: corvax-hidden-desc-Chameleon-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+      - label: corvax-hidden-desc-Chameleon-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+# Corvax-HiddenDesc-End

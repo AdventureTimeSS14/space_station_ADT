@@ -1,0 +1,525 @@
+# Implanters
+
+- type: entity
+  name: implanter
+  description: A syringe exclusively designed for the injection and extraction of subdermal implants.
+  id: BaseImplanter
+  parent: BaseItem
+  abstract: true
+  components:
+    - type: ItemSlots
+    - type: ContainerContainer
+      containers:
+        implanter_slot: !type:ContainerSlot { }
+    - type: Implanter
+      whitelist:
+        components:
+        - Body # no chair microbomb
+      blacklist:
+        components:
+        - Guardian # no holoparasite macrobomb wombo combo
+        tags:
+        - Unimplantable
+      currentMode: Draw
+      implanterSlot:
+        name: Implant
+        locked: True
+        priority: 0
+        whitelist:
+          tags:
+            - SubdermalImplant
+    - type: Sprite
+      sprite: Objects/Specific/Medical/implanter.rsi
+      state: implanter0
+      layers:
+        - state: implanter0
+          map: [ "implantOnly" ]
+          visible: true
+        - state: implanter1
+          map: [ "implantFull" ]
+          visible: false
+    - type: Item
+      sprite: Objects/Specific/Medical/implanter.rsi
+      heldPrefix: 0
+      size: Small
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ImplanterVisuals.Full:
+          implantFull:
+            True: {visible: true}
+            False: {visible: false}
+        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+          implantOnly:
+            True: {state: broken}
+            False: {state: implanter0}
+
+- type: entity
+  id: Implanter
+  parent: BaseImplanter
+  description: A disposable syringe exclusively designed for the injection and extraction of subdermal implants.
+  components:
+    - type: Tag
+      tags:
+        - Trash
+
+- type: entity
+  parent: Implanter
+  id: ImplanterAdmeme
+  suffix: Admeme
+  components:
+  - type: Implanter
+    # go wild with sentient chairs with macrobombs
+    whitelist: null
+    blacklist: null
+
+- type: entity
+  id: BaseImplantOnlyImplanter
+  parent: Implanter
+  description: A disposable syringe exclusively designed for the injection of subdermal implants.
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Medical/implanter.rsi
+      state: implanter0
+      layers:
+        - state: implanter1
+          map: [ "implantFull" ]
+          visible: true
+        - state: implanter0
+          map: [ "implantOnly" ]
+    - type: Implanter
+      currentMode: Inject
+      implantOnly: true
+
+- type: entity
+  id: BaseImplantOnlyImplanterSyndi
+  parent: BaseImplantOnlyImplanter
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants.
+  abstract: true
+  components:
+    - type: Item
+      #sprite: Objects/Specific/Medical/syndi_implanter.rsi
+      sprite: Objects/Specific/Medical/implanter.rsi #Corvax MRP anti-meta
+    - type: Sprite
+      #sprite: Objects/Specific/Medical/syndi_implanter.rsi
+      sprite: Objects/Specific/Medical/implanter.rsi #Corvax MRP anti-meta
+      state: implanter1
+      layers:
+        - state: implanter0
+          map: [ "implantFull" ]
+          visible: true
+        - state: implanter1
+          map: [ "implantOnly" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.ImplanterVisuals.Full:
+          implantFull:
+            True: {visible: true}
+            False: {visible: false}
+        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+          implantOnly:
+            True: {state: broken}
+            False: {state: implanter1}
+    - type: Tag
+      tags: []
+
+#Fun implanters
+
+- type: entity
+  id: SadTromboneImplanter
+  name: sad trombone implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: SadTromboneImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-LegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-SadTromboneImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-SadTromboneImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: LightImplanter
+  name: light implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: LightImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-LegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-LightImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-LightImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: BikeHornImplanter
+  name: bike horn implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: BikeHornImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-LegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-BikeHornImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-BikeHornImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+#Security implanters
+
+- type: entity
+  id: TrackingImplanter
+  name: tracking implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: TrackingImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-LegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-TrackingImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-TrackingImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+#Traitor implanters
+
+- type: entity
+  id: StorageImplanter
+  name: storage implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: StorageImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-StorageImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-FreedomImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: FreedomImplanter
+  name: freedom implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: FreedomImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-FreedomImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-FreedomImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: UplinkImplanter
+  name: uplink implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: UplinkImplant
+  - type: HiddenDescription #Corvax MRP Hidden Description
+    entries:
+    - label: corvax-hidden-desc-IllegalImplants-medical
+      jobRequired:
+        - Paramedic
+        - MedicalDoctor
+        - ChiefMedicalOfficer
+    - label: corvax-hidden-desc-UplinkImplanter-research
+      jobRequired:
+        - ResearchAssistant
+        - ResearchDirector
+        - Scientist
+        - Borg
+    - label: corvax-hidden-desc-UplinkImplanter-syndicate
+      whitelistMind:
+        components:
+          - TraitorRole
+          - NukeOperative
+
+- type: entity
+  id: EmpImplanter
+  name: EMP implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: EmpImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-EmpImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-EmpImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: ScramImplanter
+  name: scram implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: ScramImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-ScramImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-ScramImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: DnaScramblerImplanter
+  name: DNA scrambler implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: DnaScramblerImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-DnaScramblerImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-DnaScramblerImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+#Nuclear Operative/Special implanters
+
+- type: entity
+  id: MicroBombImplanter
+  name: micro-bomb implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: MicroBombImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-MicroBombImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-MicroBombImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: MacroBombImplanter
+  name: macro-bomb implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: MacroBombImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-MacroBombImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-MacroBombImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: DeathRattleImplanter
+  name: death rattle implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: DeathRattleImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-IllegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-DeathRattleImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-DeathRattleImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+
+- type: entity
+  id: DeathAcidifierImplanter
+  name: death acidifier implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: DeathAcidifierImplant
+  - type: HiddenDescription #Corvax MRP Hidden Description
+    entries:
+    - label: corvax-hidden-desc-IllegalImplants-medical
+      jobRequired:
+        - Paramedic
+        - MedicalDoctor
+        - ChiefMedicalOfficer
+    - label: corvax-hidden-desc-DeathAcidifierImplanter-research
+      jobRequired:
+        - ResearchAssistant
+        - ResearchDirector
+        - Scientist
+        - Borg
+    - label: corvax-hidden-desc-DeathAcidifierImplanter-syndicate
+      whitelistMind:
+        components:
+          - TraitorRole
+          - NukeOperative
+
+# Security and Command implanters
+
+- type: entity
+  id: MindShieldImplanter
+  name: mindshield implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: MindShieldImplant
+    - type: HiddenDescription #Corvax MRP Hidden Description
+      entries:
+      - label: corvax-hidden-desc-LegalImplants-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+      - label: corvax-hidden-desc-MindShieldImplanter-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+      - label: corvax-hidden-desc-MindShieldImplanter-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative

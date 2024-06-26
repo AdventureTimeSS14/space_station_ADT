@@ -1,0 +1,87 @@
+<Document>
+  # Предатели
+
+  - Предатель - это антагонист, нанятый Синдикатом. Они имеют доступ к различным инструментам и оружию Синдиката через [color=#a4885c]Аплинк[/color].
+  - Предатели могут использовать кодовые слова, чтобы идентифицировать себя друг с другом для сотрудничества.
+  - В раунде предателем может стать любой игрок, кроме глав отделов, капитана и сотрудников службы безопасности.
+  - Предатели должны в первую очередь сосредоточиться на том, чтобы успешно выполнить свои задачи к концу раунда.
+
+  ## Аплинк
+  <Box>
+    <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="Аплинк"/>
+  </Box>
+  - [color=#a4885c]Аплинк[/color] - самый важный инструмент Предателя, так как с его помощью можно покупать инструменты и оружие за [color=#a4885c]телекристаллы[/color] (ТК).
+  <Box>
+    <GuideEntityEmbed Entity="Telecrystal" Caption="Телекристаллы"/>
+  </Box>
+  - [color=#a4885c]Телекристаллы[/color] даются в самом начале, чтобы дать предателям преимущество на станции. Другие предатели могут обменивать свои [color=#a4885c]телекристаллы[/color] друг с другом, повышая их обычное количество.
+  - Использование [color=#a4885c]КПК[/color] и установка нужного рингтона-кода к аплинку даёт вам множество возможностей для борьбы со станцией и её экипажем.
+  <Box>
+  <GuideEntityEmbed Entity="PassengerPDA" Caption="КПК"/>
+  </Box>
+  Не забудьте заблокировать свой [color=#a4885c]КПК[/color], чтобы никто не смог увидеть аплинк!
+  - Различные приспособления включают:
+  <Box>
+    <GuideEntityEmbed Entity="WeaponPistolViper" Caption="Пистолеты и винтовки"/>
+    <GuideEntityEmbed Entity="FireAxe" State="icon" Caption="Ближнее оружие"/>
+    <GuideEntityEmbed Entity="C4" Caption=" Взрывчатку"/>
+    <GuideEntityEmbed Entity="Syringe" Caption="Импланты"/>
+    <GuideEntityEmbed Entity="ClothingBackpackDuffelSyndicate" Caption="Различные наборы"/>
+  </Box>
+
+  ## Цели
+
+  - Став предателем, вы получите список задач, начиная от побега живым, кражи чего-то, и заканчивая убийством. Использование [color=#a4885c]Аплинка[/color] поможет вам справиться с большинством из этих задач.
+
+  ## Список возможных целей
+
+  - Убить или не дать покинуть станцию случайному не предателю.
+  - Убить или не дать покинуть станцию случайному предателю.
+  - Убить или не дать покинуть станцию случайному главе отдела.
+  - Не дать умереть случайно выбранному предателю.
+  - Сбежать на эвакуационном шаттле живым и без наручников.
+  - Помогите случайно выбранному предателю завершить 2/3 его целей.
+  - Умереть славной смертью.
+  - Украсть у Капитана [color=#a4885c]ID карту[/color].
+  <Box>
+    <GuideEntityEmbed Entity="CaptainIDCard" Caption="ID карта капитана"/>
+  </Box>
+  - Украсть у Капитана [color=#a4885c]Антикварный Лазерный Пистолет[/color].
+  <Box>
+    <GuideEntityEmbed Entity="WeaponAntiqueLaser" Caption="Капитанский Антикварный Лазерный Пистолет"/>
+  </Box>
+  - Украсть у Капитана [color=#a4885c]Джетпак[/color].
+  <Box>
+    <GuideEntityEmbed Entity="JetpackCaptainFilled" Caption="Джетпак Капитана"/>
+  </Box>
+  - Украсть у Главного Врача [color=#a4885c]Гипоспрей[/color].
+  <Box>
+    <GuideEntityEmbed Entity="Hypospray" Caption="Гипоспрей Главврача"/>
+  </Box>
+  - Украсть у Научного Руководителя [color=#a4885c]Скафандр[/color].
+  <Box>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption="Скафандр Научрука"/>
+  </Box>
+  - Украсть у Научного Руководителя [color=#a4885c]Ручной Телепорт[/color].
+  <Box>
+    <GuideEntityEmbed Entity="HandTeleporter" Caption="Ручной Телепорт"/>
+  </Box>
+  - Украсть у Главы Службы Безопасноти [color=#a4885c]Секретные Документы[/color].
+  <Box>
+    <GuideEntityEmbed Entity="BookSecretDocuments" Caption="Секретные Документы"/>
+  </Box>
+  - Украсть у Старшего Инженера [color=#a4885c]Продвинутные Магнитные Сапоги[/color].
+  <Box>
+    <GuideEntityEmbed Entity="ClothingShoesBootsMagAdv" Caption="Продвинутые Магнитные Сапоги"/>
+  </Box>
+  - Украсть [color=#a4885c]Диск Ядерной Авторизации[/color].
+  <Box>
+    <GuideEntityEmbed Entity="NukeDisk" Caption="Диск Ядерной Авторизации"/>
+  </Box>
+  - Украсть [color=#a4885c]Мясо корги[/color].
+  <Box>
+  <GuideEntityEmbed Entity="MobCorgiIan" Caption="Корги"/>
+  <GuideEntityEmbed Entity="FoodMeatCorgi" Caption="Мясо корги"/>
+  </Box>
+
+</Document>

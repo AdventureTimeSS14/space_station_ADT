@@ -1,0 +1,97 @@
+- type: entity
+  save: false
+  name: Urist McHands
+  parent: BaseMobHuman
+  id: MobHuman
+
+#Syndie
+- type: entity
+  parent: MobHuman
+  id: MobHumanSyndicateAgentBase
+  name: syndicate agent
+  suffix: Human, Base
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      hair: HairBald
+    - type: Loadout
+      prototypes: [SyndicateOperativeGearExtremelyBasic]
+    - type: RandomMetadata
+      nameSegments: # Corvax-MRP
+      - names_first_male
+      - names_last_male
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+
+- type: entity
+  parent: MobHumanSyndicateAgentBase
+  id: MobHumanSyndicateAgent
+  name: syndicate agent
+  suffix: Human, Traitor
+  components:
+    # make the player a traitor once its taken
+    - type: AutoTraitor
+      giveUplink: false
+      giveObjectives: false
+
+- type: entity
+  parent: MobHumanSyndicateAgentBase
+  id: MobHumanSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
+  suffix: Human, NukeOps
+  components:
+    - type: NukeOperative
+
+# Nuclear Operative
+- type: entity
+  noSpawn: true
+  name: Nuclear Operative
+  parent: MobHuman
+  id: MobHumanNukeOp
+  components:
+    - type: NukeOperative
+    - type: RandomHumanoidAppearance
+
+- type: entity
+  noSpawn: true
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperative
+  name: Lone Operative
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: NukeOperative
+    - type: Loadout
+      prototypes: [SyndicateLoneOperativeGearFull]
+    - type: RandomMetadata
+      nameSegments:
+      - SyndicateNamesPrefix
+      - SyndicateNamesNormal
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+
+# Space Ninja
+- type: entity
+  noSpawn: true
+  name: Space Ninja
+  parent: MobHuman
+  id: MobHumanSpaceNinja
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [SpaceNinjaGear]
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: SpaceNinja
+  - type: GenericAntag
+    rule: Ninja
+  - type: AutoImplant
+    implants:
+    - DeathAcidifierImplant
+  - type: RandomMetadata
+    nameSegments:
+    - names_ninja_title
+    - names_ninja

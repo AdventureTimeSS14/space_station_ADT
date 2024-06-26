@@ -1,0 +1,35 @@
+﻿- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterChameleon
+  name: vest
+  description: A thick vest with a rubbery, water-resistant shell.
+  suffix: Chameleon
+  components:
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Vests/vest.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Vests/vest.rsi
+    - type: ChameleonClothing
+      slot: [outerClothing]
+      default: ClothingOuterVest
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+# Corvax-HiddenDesc-Start
+    - type: HiddenDescription
+      entries:
+      - label: corvax-hidden-desc-Chameleon-syndicate
+        whitelistMind:
+          components:
+            - TraitorRole
+            - NukeOperative
+      - label: corvax-hidden-desc-Chameleon-research
+        jobRequired:
+          - ResearchAssistant
+          - ResearchDirector
+          - Scientist
+          - Borg
+# Corvax-HiddenDesc-End
