@@ -1,10 +1,12 @@
-import re
-import yaml
 import logging
 import os
+import re
 import sys
-import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
+
+import requests
+import yaml
 
 MAX_ENTRIES = 500
 CHANGELOG_PATH = os.path.join(os.path.dirname(__file__), '../../Resources/Changelog/ChangelogADT.yml')
@@ -71,19 +73,20 @@ def strip_newlines(data):
 
 def fetch_pr_data(token, repo, pr_number):
     pr_data = []
-    for number in range(1, pr_number + 1):
+
+    def fetch_single_pr(number):
         try:
             pr_info = get_pr_info(token, repo, number)
-
+            
             # Проверяем, что PR был замержен
             if not pr_info.get('merged_at'):
-                continue
+                return None
 
             body = pr_info.get('body', '')
             cl_match = re.search(r':cl:\s*(.*)', body)
             if not cl_match:
-                continue
-            
+                return None
+
             author = cl_match.group(1).strip() or pr_info['user']['login']
 
             changes = []
@@ -99,22 +102,31 @@ def fetch_pr_data(token, repo, pr_number):
                     changes.append({"message": line[len('- fix:'):].strip(), "type": "Fix"})
 
             if changes:
-                pr_data.append({
+                return {
                     "author": author,
                     "changes": changes,
                     "time": pr_info['merged_at']
-                })
-                logging.info(f"Fetched PR #{number}")
-
+                }
         except requests.exceptions.RequestException as e:
             logging.error(f"Failed to fetch PR #{number}: {e}")
-    
+        return None
+
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = [executor.submit(fetch_single_pr, number) for number in range(1, pr_number + 1)]
+        for future in as_completed(futures):
+            pr_info = future.result()
+            if pr_info:
+                pr_data.append(pr_info)
+
+    # Сортируем по времени мерджа
+    pr_data.sort(key=lambda x: x['time'])
+
     return pr_data
 
 def update_cl_file(file_path, new_data):
     cl_old_data = load_yaml(file_path)
     existing_entries = cl_old_data.get("Entries", [])
-    
+
     # Calculate the next ID based on existing entries
     if existing_entries:
         next_id = max(entry['id'] for entry in existing_entries) + 1
