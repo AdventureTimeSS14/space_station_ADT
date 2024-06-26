@@ -1,9 +1,0 @@
-- type: entity
-  id: ClothingShoesBootsJackSecFilled
-  parent: ClothingShoesBootsJackSec
-  suffix: Filled
-  components:
-  - type: ContainerFill
-    containers:
-      item:
-      - CombatKnife
