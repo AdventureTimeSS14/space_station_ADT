@@ -24,7 +24,7 @@ jobs:
         python-version: '3.x'
 
     - name: Install requirements
-      run: pip install requests yaml
+      run: pip install requests pyyaml
 
     - name: Get PR Information
       id: pr_info
