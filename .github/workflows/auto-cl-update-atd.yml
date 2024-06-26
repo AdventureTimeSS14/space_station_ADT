@@ -23,6 +23,9 @@ jobs:
       with:
         python-version: '3.x'
 
+    - name: Install requirements
+      run: pip install requests
+
     - name: Get PR Information
       id: pr_info
       run: |
