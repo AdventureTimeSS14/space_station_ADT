@@ -2046,3 +2046,8 @@ Entries:
       - {message: Добавлена информация об команде разработки Adventure Time., type: Add}
     time: '2024-06-27T09:41:16Z'
     id: 213
+  - author: Schrodinger71
+    changes:
+      - {message: 'Upstream 27.06.24, подтянуты коммиты с корвакса.', type: Tweak}
+    time: '2024-06-27T17:32:38Z'
+    id: 214
