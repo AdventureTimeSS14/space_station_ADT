@@ -50,6 +50,19 @@ def get_pr_info(token, repo, pr_number):
     else:
         response.raise_for_status()
 
+def get_latest_pr_number(token, repo):
+    url = f"https://api.github.com/repos/{repo}/pulls?state=all&sort=created&direction=desc&per_page=1"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        pr_list = response.json()
+        if pr_list:
+            return pr_list[0]['number']
+    response.raise_for_status()
+
 def load_yaml(file_path):
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -155,19 +168,18 @@ def update_cl_file(file_path, new_data):
     logging.info("Updated PR data saved to ChangelogADT.yml")
 
 def main():
-    if len(sys.argv) != 4:
-        logging.error("Usage: auto_cl.py <GITHUB_TOKEN> <REPO> <PR_NUMBER>")
+    if len(sys.argv) < 3:
+        logging.error("Usage: auto_cl.py <GITHUB_TOKEN> <REPO>")
         sys.exit(1)
 
     github_token = sys.argv[1]
     repo = sys.argv[2]
-    pr_number = sys.argv[3]
 
+
+    pr_number = get_latest_pr_number(github_token, repo)
     if pr_number is None:
-        logging.error("PR_NUMBER cannot be null")
+        logging.error("Failed to get the latest PR number")
         sys.exit(1)
-
-    pr_number = int(pr_number)
 
     pr_data = fetch_pr_data(github_token, repo, pr_number)
 
