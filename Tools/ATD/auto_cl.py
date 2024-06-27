@@ -91,18 +91,21 @@ def fetch_pr_data(token, repo, pr_number):
     def fetch_single_pr(number):
         try:
             pr_info = get_pr_info(token, repo, number)
-            logging.info(pr_info)
+
             # Проверяем, что PR был замержен
             if not pr_info.get('merged_at'):
                 return None
 
             body = pr_info.get('body', '')
-            cl_match = re.search(r':cl:\s*(.*?)(?:\r?\n|$)', body)
+            cl_match = re.search(r':cl:\s*(.*)$', body)
             if not cl_match:
                 return None
 
             # Извлекаем автора до конца строки
-            author = cl_match.group(1).strip() or pr_info['user']['login']
+            if cl_match:
+                author = cl_match.group(1).strip()
+            else:
+                author = pr_info['user']['login']
 
             changes = []
             for line in body.splitlines():
