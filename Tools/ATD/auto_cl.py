@@ -91,12 +91,14 @@ def fetch_pr_data(token, repo, pr_number):
     def fetch_single_pr(number):
         try:
             pr_info = get_pr_info(token, repo, number)
-
+    
             # Проверяем, что PR был замержен
             if not pr_info.get('merged_at'):
                 return None
-
+    
             body = pr_info.get('body', '')
+            
+            # Находим строку, которая начинается с :cl:
             author = pr_info['user']['login']
             for line in body.splitlines():
                 if line.strip().startswith(':cl:'):
@@ -104,14 +106,7 @@ def fetch_pr_data(token, repo, pr_number):
                     if potential_author:
                         author = potential_author
                     break
-
-
-            # Извлекаем автора до конца строки
-            if cl_match:
-                author = cl_match.group(1).strip()
-            else:
-                author = pr_info['user']['login']
-
+    
             changes = []
             for line in body.splitlines():
                 line = line.strip()
@@ -123,7 +118,7 @@ def fetch_pr_data(token, repo, pr_number):
                     changes.append({"message": line[len('- tweak:'):].strip(), "type": "Tweak"})
                 elif line.startswith('- fix:'):
                     changes.append({"message": line[len('- fix:'):].strip(), "type": "Fix"})
-
+    
             if changes:
                 return {
                     "author": author,
