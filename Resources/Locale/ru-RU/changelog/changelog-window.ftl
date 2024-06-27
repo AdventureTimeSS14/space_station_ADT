@@ -9,4 +9,5 @@ changelog-version-tag = версия v{ $version }
 changelog-button = Обновления
 changelog-button-new-entries = Обновления (!)
 changelog-tab-title-Changelog = Список изменений
+changelog-tab-title-ChangelogADT = Время Приключений
 changelog-tab-title-Admin = Админское
