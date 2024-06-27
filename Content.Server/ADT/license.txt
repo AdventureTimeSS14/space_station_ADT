@@ -1,0 +1,19 @@
+Copyright (c) 2024 Adventure Station
+
+1. The provided software code in this and nested directories (hereinafter referred to as the "Adventure Station" project code) is intended solely for use within the "Adventure Station" project.
+
+2. Any use, copying, distribution, or modification of the "Adventure Station" project code outside of "Adventure Station" project is prohibited.
+
+3. This license does not grant any rights to own, use, or distribute the "Adventure Station" project code outside of the "Adventure Station" project.
+
+4. This license is valid indefinitely, or until a decision is made by the copyright holder of the "Adventure Station" project to revoke/modify it.
+
+Copyright (c) 2024 Adventure Station
+
+1. Представленный программный код в данном и вложенных директориях (далее - код проекта "Adventure Station") предназначен исключительно для использования в рамках проекта "Adventure Station"
+
+2. Любое использование, копирование, распространение и изменение кода проекта "Adventure Station" за пределами данного проекта запрещены.
+
+3. Настоящая лицензия не предоставляет никаких прав на владение, использование или распространение кода проекта "Adventure Station" вне проекта "Adventure Station".
+
+4. Настоящая лицензия действительна бессрочно, или до решения об упразднении/изменении правообладателем проекта "Adventure Station".
