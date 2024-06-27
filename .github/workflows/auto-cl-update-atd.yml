@@ -49,6 +49,7 @@ jobs:
     - name: Commit changes
       id: commit-changes
       run: |
+        git checkout update-changelog
         git add .
         git diff-index --quiet HEAD || git commit -m "Auto cl update"
       continue-on-error: true
@@ -79,8 +80,9 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        base: master
         branch: update-changelog
         commit-message: "Auto cl update"
         title: "Auto CL update"
-        body: "No cl, no fun!"
-        labels: "auto-update changelog"
+        body: "This PR updates the changelog."
+        labels: "auto-update, changelog"
