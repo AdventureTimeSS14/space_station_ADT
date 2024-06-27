@@ -10,6 +10,7 @@ import yaml
 
 MAX_ENTRIES = 500
 CHANGELOG_PATH = os.path.join(os.path.dirname(__file__), '../../Resources/Changelog/ChangelogADT.yml')
+OLD_CHANGELOG_PATH = os.path.join(os.path.dirname(__file__), 'cl_old.yml')
 
 class NoDatesSafeLoader(yaml.SafeLoader):
     @classmethod
@@ -50,6 +51,19 @@ def get_pr_info(token, repo, pr_number):
     else:
         response.raise_for_status()
 
+def get_latest_pr_number(token, repo):
+    url = f"https://api.github.com/repos/{repo}/pulls?state=all&sort=created&direction=desc&per_page=1"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        pr_list = response.json()
+        if pr_list:
+            return pr_list[0]['number']
+    response.raise_for_status()
+
 def load_yaml(file_path):
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -77,18 +91,22 @@ def fetch_pr_data(token, repo, pr_number):
     def fetch_single_pr(number):
         try:
             pr_info = get_pr_info(token, repo, number)
-            
+    
             # Проверяем, что PR был замержен
             if not pr_info.get('merged_at'):
                 return None
-
+    
             body = pr_info.get('body', '')
-            cl_match = re.search(r':cl:\s*(.*)', body)
-            if not cl_match:
-                return None
-
-            author = cl_match.group(1).strip() or pr_info['user']['login']
-
+            
+            # Находим строку, которая начинается с :cl:
+            author = pr_info['user']['login']
+            for line in body.splitlines():
+                if line.strip().startswith(':cl:'):
+                    potential_author = line.strip()[4:].strip()  # Убираем :cl: и пробелы
+                    if potential_author:
+                        author = potential_author
+                    break
+    
             changes = []
             for line in body.splitlines():
                 line = line.strip()
@@ -100,7 +118,7 @@ def fetch_pr_data(token, repo, pr_number):
                     changes.append({"message": line[len('- tweak:'):].strip(), "type": "Tweak"})
                 elif line.startswith('- fix:'):
                     changes.append({"message": line[len('- fix:'):].strip(), "type": "Fix"})
-
+    
             if changes:
                 return {
                     "author": author,
@@ -124,12 +142,14 @@ def fetch_pr_data(token, repo, pr_number):
     return pr_data
 
 def update_cl_file(file_path, new_data):
-    cl_old_data = load_yaml(file_path)
-    existing_entries = cl_old_data.get("Entries", [])
+    if os.path.exists(file_path):
+        os.remove(file_path)
+
+    old_entries = load_yaml(OLD_CHANGELOG_PATH).get("Entries", [])
 
     # Calculate the next ID based on existing entries
-    if existing_entries:
-        next_id = max(entry['id'] for entry in existing_entries) + 1
+    if old_entries:
+        next_id = max(entry['id'] for entry in old_entries) + 1
     else:
         next_id = 1
 
@@ -138,8 +158,8 @@ def update_cl_file(file_path, new_data):
         entry['id'] = next_id
         next_id += 1
 
-    # Combine and reorder entries
-    combined_data = existing_entries + new_data
+    # Combine old entries and new data
+    combined_data = old_entries + new_data
 
     # Ensure we do not exceed MAX_ENTRIES
     if len(combined_data) > MAX_ENTRIES:
@@ -149,19 +169,22 @@ def update_cl_file(file_path, new_data):
     combined_data = strip_newlines(combined_data)
 
     # Save the updated data back to ChangelogADT.yml
-    cl_old_data["Entries"] = combined_data
-    save_yaml(cl_old_data, file_path)
+    save_yaml({"Entries": combined_data}, file_path)
 
     logging.info("Updated PR data saved to ChangelogADT.yml")
 
 def main():
-    if len(sys.argv) != 4:
-        logging.error("Usage: auto_cl.py <GITHUB_TOKEN> <REPO> <PR_NUMBER>")
+    if len(sys.argv) < 3:
+        logging.error("Usage: auto_cl.py <GITHUB_TOKEN> <REPO>")
         sys.exit(1)
 
     github_token = sys.argv[1]
     repo = sys.argv[2]
-    pr_number = int(sys.argv[3])
+
+    pr_number = get_latest_pr_number(github_token, repo)
+    if pr_number is None:
+        logging.error("Failed to get the latest PR number")
+        sys.exit(1)
 
     pr_data = fetch_pr_data(github_token, repo, pr_number)
 
