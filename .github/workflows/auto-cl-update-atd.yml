@@ -66,3 +66,4 @@ jobs:
         title: "Auto CL update"
         body: "No cl, no fun"
         labels: "auto-update changelog"
+      continue-on-error: true
