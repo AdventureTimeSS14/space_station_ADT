@@ -14,3 +14,8 @@ Entries:
       - {message: Исправлен автоматизированный CL, type: Fix}
     time: '2024-06-26T23:21:08Z'
     id: 3
+  - author: '- fix: Исправлен автоматизированный CL'
+    changes:
+      - {message: Исправлен автоматизированный CL, type: Fix}
+    time: '2024-06-26T23:21:08Z'
+    id: 4
