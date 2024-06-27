@@ -21,8 +21,12 @@ jobs:
     - name: Pull latest changes for update-changelog branch
       run: |
         git fetch origin
-        git checkout -B update-changelog origin/update-changelog || git checkout -b update-changelog
-        git pull origin update-changelog --rebase
+        if git show-ref --verify --quiet refs/remotes/origin/update-changelog; then
+          git checkout update-changelog
+          git pull origin update-changelog --rebase
+        else
+          git checkout -b update-changelog
+        fi
 
     - name: Setup Python
       uses: actions/setup-python@v3
@@ -78,5 +82,5 @@ jobs:
         branch: update-changelog
         commit-message: "Auto cl update"
         title: "Auto CL update"
-        body: "This PR updates the changelog."
-        labels: "auto-update, changelog"
+        body: "No cl, no fun!"
+        labels: "auto-update changelog"
