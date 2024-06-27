@@ -48,7 +48,7 @@ jobs:
       run: |
         git fetch origin
         git checkout -B update-changelog origin/update-changelog || git checkout -b update-changelog
-        git merge origin/update-changelog || echo "No changes to merge"
+        git merge -X ours origin/update-changelog || echo "No changes to merge"
 
     - name: Push changes to a new branch
       if: steps.commit-changes.outcome == 'success'
