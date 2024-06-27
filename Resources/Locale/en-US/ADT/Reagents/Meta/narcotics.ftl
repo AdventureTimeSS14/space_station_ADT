@@ -1,0 +1,2 @@
+reagent-name-opium = opium
+reagent-desc-opium = Drastic narcotic produced by papaver somniferum. Used to be a pain killer, however, due to the consequences of drug addiction in patients, it has been used only in production of medical chemicals.

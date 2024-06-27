@@ -1,0 +1,3 @@
+narcotic-effect-sleepy = You feel sleepy.
+narcotic-effect-rainbows = A picture before your eyes becomes more and more indistinct...
+narcotic-effect-visible-miosis = The pupils of { CAPITALIZE($entity) } are narrowed in a strange way.
