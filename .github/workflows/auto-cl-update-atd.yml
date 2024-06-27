@@ -21,12 +21,7 @@ jobs:
     - name: Pull latest changes for update-changelog branch
       run: |
         git fetch origin
-        if git show-ref --verify --quiet refs/remotes/origin/update-changelog; then
-          git checkout update-changelog
-          git pull origin update-changelog --rebase
-        else
-          git checkout -b update-changelog
-        fi
+        git checkout -b update-changelog || git checkout update-changelog
 
     - name: Setup Python
       uses: actions/setup-python@v3
@@ -60,27 +55,14 @@ jobs:
       run: |
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} update-changelog --force
 
-    - name: Check if Pull Request exists
-      id: pr-check
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const { data: pullRequests } = await github.rest.pulls.list({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            state: 'open',
-            head: `${context.repo.owner}:update-changelog`
-          });
-          return pullRequests.length > 0;
-
     - name: Create Pull Request
-      if: steps.commit-changes.outcome == 'success' && steps.pr-check.outputs.result == 'false'
+      if: steps.commit-changes.outcome == 'success'
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        base: master
         branch: update-changelog
         commit-message: "Auto cl update"
         title: "Auto CL update"
-        body: "No cl, no fun!"
+        body: "No cl, no fun"
         labels: "auto-update changelog"
