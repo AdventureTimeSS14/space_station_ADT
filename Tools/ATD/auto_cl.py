@@ -97,9 +97,14 @@ def fetch_pr_data(token, repo, pr_number):
                 return None
 
             body = pr_info.get('body', '')
-            cl_match = re.search(r':cl:\s*(.*)$', body)
-            if not cl_match:
-                return None
+            author = pr_info['user']['login']
+            for line in body.splitlines():
+                if line.strip().startswith(':cl:'):
+                    potential_author = line.strip()[4:].strip()  # Убираем :cl: и пробелы
+                    if potential_author:
+                        author = potential_author
+                    break
+
 
             # Извлекаем автора до конца строки
             if cl_match:
