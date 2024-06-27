@@ -67,16 +67,16 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const { data: pullRequests } = await github.pulls.list({
+          const { data: pullRequests } = await github.rest.pulls.list({
             owner: context.repo.owner,
             repo: context.repo.repo,
             state: 'open',
             head: `${context.repo.owner}:update-changelog`
           });
-          core.setOutput('pr_exists', pullRequests.length > 0 ? 'true' : 'false');
+          return pullRequests.length > 0;
 
     - name: Create Pull Request
-      if: steps.commit-changes.outcome == 'success' && steps.pr-check.outputs.pr_exists == 'false'
+      if: steps.commit-changes.outcome == 'success' && steps.pr-check.outputs.result == 'false'
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
