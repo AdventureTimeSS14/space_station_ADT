@@ -9,11 +9,11 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Server.Hemophilia;
+using Content.Server.Hemophilia; // ADT Add hemophilia
 
 namespace Content.Server.Body.Components
 {
-    [RegisterComponent, Access(typeof(BloodstreamSystem), typeof(ReactionMixerSystem), typeof(HemophiliaSystem))]
+    [RegisterComponent, Access(typeof(BloodstreamSystem), typeof(ReactionMixerSystem), typeof(HemophiliaSystem))] // ADT Tweak for hemophilia update
     public sealed partial class BloodstreamComponent : Component
     {
         public static string DefaultChemicalsSolutionName = "chemicals";
