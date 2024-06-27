@@ -1,0 +1,59 @@
+# Tier 2 - entrypoint to translators
+- type: technology
+  id: BasicTranslation
+  name: research-technology-basic-translation
+  icon:
+    sprite: _NF/Objects/Devices/translator.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - CanilunztTranslator
+  - BubblishTranslator
+  - NekomimeticTranslator
+  - DraconicTranslator
+  - SolCommonTranslator
+  - RootSpeakTranslator
+  - BasicGalaticCommonTranslatorImplanter
+  - MofficTranslator
+  - DraskTranslator
+#  - UrsTranslator # Закомменчено до раундстарт урсов
+  - ArkaneTranslator
+  - ShadowkinTranslator
+  - NianTranslator
+  - FireTranslator
+  - SikTajTranslator
+  - CintaTajTranslator
+
+
+# Frontier - languages mechanic
+- type: technology
+  id: AdvancedTranslation
+  name: research-technology-advanced-translation
+  icon:
+    sprite: _NF/Objects/Devices/translator.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - XenoTranslator
+  - AdvancedGalaticCommonTranslatorImplanter
+  - BubblishTranslatorImplanter
+  - NekomimeticTranslatorImplanter
+  - DraconicTranslatorImplanter
+  - CanilunztTranslatorImplanter
+  - SolCommonTranslatorImplanter
+  - RootSpeakTranslatorImplanter
+  - AnimalTranslator
+  - MofficTranslatorImplanter
+  - DraskTranslatorImplanter
+  - SikTajTranslatorImplanter
+  - NianTranslatorImplanter
+  - FireTranslatorImplanter
+  - DraskTranslatorImplanter
+#  - UrsTranslatorImplanter # Закомменчено до раундстарт урсов
+  - ArkaneTranslatorImplanter
+  - ShadowkinTranslatorImplanter
+  - CintaTajTranslatorImplanter

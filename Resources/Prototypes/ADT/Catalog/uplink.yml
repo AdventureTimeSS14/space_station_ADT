@@ -1,0 +1,500 @@
+- type: listing
+  id: ADTUplinkBulldogAKMS
+  name: uplink-AKMS-bundle-name
+  description: uplink-AKMS-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledAKMS
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkDisruption
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
+
+- type: listing
+  id: ADTUplinkMagazineShothgun
+  name: uplink-Shotgun-magazine-name
+  description: uplink-Shotgun-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: base }
+  productEntity: MagazineShotgun
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: ADTUplinkMagazineMachineGun
+  name: uplink-MachineGun-magazine-name
+  description: uplink-MachineGun-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red }
+  productEntity: MagazinePistolSubMachineGun
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: ADTUplinkMagazineLightRifle
+  name: uplink-LightRifle-magazine-name
+  description: uplink-LightRifle-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: red }
+  productEntity: MagazineLightRifle
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: ADTUplinkadvansedHristov
+  name: uplink-Hristov-bundle-name
+  description: uplink-hrisov-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledHristov
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkadvansedmagboots
+  name: uplink-advanced-magboots
+  description: uplink-advanced-magboots-desc
+  icon: { sprite: ADT/Clothing/Shoes/Boots/advanced.rsi, state: icon }
+  productEntity: ADTClothingShoesBootsMagAdvSynd
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkEliteBundle
+  name: uplink-elite-bundle-name
+  description: uplink-elite-bundle-desc
+  icon: { sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledElite
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkC20AmmoBundle
+  name: uplink-C20-ammo-bundle-name
+  description: uplink-C20-ammo-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledC20Ammo
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkBuldogAmmoBundle
+  name: uplink-Buldog-ammo-bundle-name
+  description: uplink-Buldog-ammo-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: base }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmo
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkBuldogXLAmmoBundle
+  name: uplink-BuldogXL-ammo-bundle-name
+  description: uplink-BuldogXL-ammo-bundle-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Ammunition/Magazine/xl.rsi, state: base }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmoXL
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkXC67Bundle
+  name: uplink-xc67-name
+  description: uplink-xc67-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Rifels/xc67.rsi, state: icon}
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledXC67
+  cost:
+    Telecrystal: 18
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkXC67AmmoBundle
+  name: uplink-xc67ammo-name
+  description: uplink-xc67ammo-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Ammunition/Magazine/ext_rifle_mag.rsi, state: base }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledXC67Ammo
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkSyndieCloak
+  name: uplink-syndiecloak-name
+  description: uplink-syndiecloak-desc
+  productEntity: ADTClothingNeckSyndicateCloak
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: ADTUplinkNukeOpsCloak
+  name: uplink-nukeopscloak-name
+  description: uplink-nukeopscloak-desc
+  productEntity: ADTClothingNeckNukeOpsCloak
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkADTHandDefibrillator
+  name: uplink-ADTHandDefibrillator-name
+  description: uplink-ADTHandDefibrillator-desc
+  productEntity: ADTHandDefibrillator
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+#- type: listing
+#  id: ADTUplinkSyndieSSmokegrenade
+#  name: uplink-ssmokegrenade-name
+#  description: uplink-ssmokegrenade-desc
+#  productEntity: ADTSSmokeGrenade
+#  cost:
+#    Telecrystal: 2
+#  categories:
+#  - UplinkExplosives
+
+- type: listing
+  id: ADTUplinkSmokeBundle
+  name: uplink-ssmokegrenade-bundle-name
+  description: uplink-ssmokegrenade-bundle-desc
+  productEntity: ADTClothingBackpackDuffelSsmokeGrenade
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkDisruption
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
+
+- type: listing
+  id: ADTUplinkSyndieADTTritiumGrenades
+  name: uplink-tritiumgrenades-name
+  description: uplink-tritiumgrenades-desc
+  productEntity: ADTTritiumGrenades
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+
+    # Job Specific
+
+- type: listing
+  id: ADTStunbaguette
+  name: uplink-stun-baguette-name
+  description: uplink-stun-baguette-desc
+  productEntity: ADTStunbaguette
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+    - Mime
+
+- type: listing
+  id: ADTuplinkCaneShotgun
+  name: uplink-cane-shotgun-name
+  description: uplink-cane-shotgun-desc
+  productEntity: ADTWhiteCaneShotgun
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+    - Passenger
+
+- type: listing
+  id: ADTuplinkMuteToxin
+  name: uplink-mute-toxin-name
+  description: uplink-mute-toxin-desc
+  productEntity: MuteToxinChemistryBottle
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+
+- type: listing
+  id: ADTuplinkBartenderToxinsPack
+  name: uplink-bar-toxins-name
+  description: uplink-bar-toxins-desc
+  productEntity: BartenderToxinsPack
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Bartender
+
+- type: listing
+  id: ADTHighVoltageDefibrillatorFake
+  name: uplink-fake-defib-name
+  description: uplink-fake-defib-desc
+  productEntity: ADTHighVoltageDefibrillatorFake
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+    - !type:BuyerDepartmentCondition
+      whitelist:
+      - Medical
+
+- type: listing
+  id: ADTUplinkThiefBundle
+  name: uplink-thief-bundle-name
+  description: uplink-thief-bundle-desc
+  productEntity: ADTToolboxSyndicateFilledThief
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: ADTUplinkEscapistBundle
+  name: uplink-escapist-bundle-name
+  description: uplink-escapist-bundle-desc
+  productEntity: ADTBoxSyndicateFilledEscapist
+  cost:
+    Telecrystal: 15
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: ADTUplinkMaidBundle
+  name: uplink-maid-bundle-name
+  description: uplink-maid-bundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledMaid
+  cost:
+    Telecrystal: 20
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: ADTUplinkStealthBundle
+  name: uplink-stealth-bundle-name
+  description: uplink-stealth-bundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledStealth
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: ADTUplinkIntruderBundle
+  name: uplink-intruder-bundle-name
+  description: uplink-intruder-bundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledIntruder
+  cost:
+    Telecrystal: 20
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: ADTUplinkBlackmailBundle
+  name: uplink-blackmail-bundle-name
+  description: uplink-blackmail-bundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledBlackmail
+  cost:
+    Telecrystal: 15
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: ADTuplinkExplosivePizzabox
+  name: uplink-explosive-pizzabox-name
+  description: uplink-explosive-pizzabox-desc
+  productEntity: ADTExplosivePizzabox
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+      - Chef
+      - ServiceWorker
+
+- type: listing
+  id: ADTUplinkNukeSyndiHoloprojectorField
+  name: uplink-syndiholoprojectorfield-name
+  description: uplink-syndiholoprojectorfield-desc
+  productEntity: ADTSyndiHoloprojectorField
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkSyndieSyndiHoloprojectorField
+  name: uplink-syndiholoprojectorfield-name
+  description: uplink-syndiholoprojectorfield-desc
+  productEntity: ADTSyndiHoloprojectorField
+  cost:
+    Telecrystal: 6
+  categories:
+    - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+
+- type: listing
+  id: ADTUplinkCodetalkImplanter
+  name: uplink-codetalk-implanter-name
+  description: uplink-codetalk-implanter-desc
+  icon: { sprite: Objects/Specific/Medical/implanter.rsi, state: implanter0 }
+  productEntity: CodeSpeakImplanter
+  cost:
+    Telecrystal: 2
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkUnilangImplanter
+  name: uplink-unilang-implanter-name
+  description: uplink-unilang-implanter-desc
+  icon: { sprite: Objects/Specific/Medical/implanter.rsi, state: implanter0 }
+  productEntity: SyndUniversalTranslatorImplanter
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkJumpboots
+  name: uplink-jumpboots-name
+  description: uplink-jumpboots-desc
+  icon: { sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi, state: icon }
+  productEntity: ADTClothingJumpBootsSynd
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTuplinkHtrayknife
+  name: uplink-tray-knife-name
+  description: uplink-tray-knife-desc
+  productEntity: ADTIronTrayKnife
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+    - Botanist
+    - Clown
+    - Mime

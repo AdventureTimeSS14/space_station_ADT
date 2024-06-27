@@ -1,0 +1,30 @@
+- type: entity
+  id: ADTFTLPointWinterMap
+  parent: MarkerBase
+  name: Winter Planet
+  components:
+    #- type: FTLDestination   #пока закомментировано, будущем можно открыть, а ниже вайт лист убрать
+    #start-whitelist-for-winter-planet    В будущем можно будет убрать
+    - whitelist:
+        tags:
+          - ADTWinterPlanet
+      type: FTLDestination
+    #end-whitelist-for-winter-planet=
+    - type: Sprite
+      state: pink
+
+- type: entity
+  id: ADTFTLPointCentCom
+  parent: MarkerBase
+  name: Central Command FTL point
+  components:
+    # - whitelist:
+    #     tags:
+    #     - ADTNanoTrasen
+    - whitelist:
+        tags:
+          - ADTNanoTrasen
+      type: FTLDestination
+    #- type: FTLDestination
+    - type: Sprite
+      state: pink

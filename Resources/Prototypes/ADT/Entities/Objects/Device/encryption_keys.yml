@@ -1,0 +1,157 @@
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyDroneAntag
+  name: Ключ к каналу дронов
+  description: Ключ к доступу каналов дронов.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTDroneAntagChannel
+    - Common
+    defaultChannel: ADTDroneAntagChannel
+  - type: Sprite
+    layers:
+    - state: crypt_silver
+    - state: rd_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyBotic
+  name: Ключ к каналу ботов
+  description: Ключ к доступу каналов ботов.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTSilicon
+    defaultChannel: ADTSilicon
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: robotics_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyCybSecurity
+  name: security encryption key
+  description: An encryption key used by security.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Security
+    - Common
+    - Science
+    - Binary
+    defaultChannel: Security
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: sec_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyLawyer
+  name: law department encryption key
+  description: The encryption key used by the most hated person (after the clown).
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTLawyerChannel
+      defaultChannel: ADTLawyerChannel
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyTrader
+  name: trader encryption key
+  description: An encryption key used by trader.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Trader
+    defaultChannel: Trader
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: cargo_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyMerc
+  name: Merc encryption key
+  description: The encryption key of the mercenaries radio channel.
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTMercChannel
+      defaultChannel: ADTMercChannel
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeySpec
+  name: Spec encryption key
+  description: Special Forces radio channel encryption key.
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTSpecChannel
+      defaultChannel: ADTSpecChannel
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyUSSP
+  name: USSP encryption key
+  description: USSP Forces radio channel encryption key.
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTUSSPChannel
+      - Common
+      defaultChannel: ADTUSSPChannel
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyTSF
+  name: Ключ шифрования ТСФ
+  description: Ключ шифрования войск ТСФ с доступом к их стандартным частотам.
+  suffix: TSF
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTTransSolar19482Channel
+      - ADTTransSolar19487Channel
+      - ADTTransSolar19489Channel
+      - Common
+      defaultChannel: Common
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTWiretappingEncryptionKey
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTWiretapping
+    defaultChannel: ADTWiretapping
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: sec_label

@@ -1,0 +1,9 @@
+- type: guideEntry
+  id: ADTPathologist
+  name: guide-pathologist-ADT
+  text: "/ServerInfo/ADT/Pathologist.xml"
+
+- type: guideEntry
+  id: ADTChemicals
+  name: guide-chemicals-ADT
+  text: "/ServerInfo/ADT/Chemicals.xml"

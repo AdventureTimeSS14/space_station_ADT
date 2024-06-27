@@ -1,0 +1,149 @@
+- type: soundCollection
+  id: UrsusCry
+  files:
+  - /Audio/ADT/Ursus/cry1.ogg
+  - /Audio/ADT/Ursus/cry2.ogg
+
+- type: soundCollection
+  id: UrsusLaugh
+  files:
+  - /Audio/ADT/Ursus/laugh1.ogg
+  - /Audio/ADT/Ursus/laugh2.ogg
+
+- type: soundCollection
+  id: TajaranHisses
+  files:
+  - /Audio/ADT/Felinid/cat_hiss1.ogg
+  - /Audio/ADT/Felinid/cat_hiss2.ogg
+
+- type: soundCollection
+  id: TajaranMeows
+  files:
+  - /Audio/ADT/Felinid/cat_meow1.ogg
+  - /Audio/ADT/Felinid/cat_meow2.ogg
+  - /Audio/ADT/Felinid/cat_meow3.ogg
+
+- type: soundCollection
+  id: TajaranMews
+  files:
+  - /Audio/ADT/Felinid/cat_mew1.ogg
+  - /Audio/ADT/Felinid/cat_mew2.ogg
+
+- type: soundCollection
+  id: TajaranGrowls
+  files:
+  - /Audio/ADT/Felinid/cat_growl1.ogg
+
+- type: soundCollection
+  id: TajaranPurrs
+  files:
+  - /Audio/ADT/Felinid/cat_purr1.ogg
+
+- type: soundCollection
+  id: NovakidLaugh
+  files:
+    - /Audio/ADT/Novakid/novakid_laugh01.ogg
+    - /Audio/ADT/Novakid/novakid_laugh02.ogg
+    - /Audio/ADT/Novakid/novakid_laugh03.ogg
+    - /Audio/ADT/Novakid/novakid_laugh04.ogg
+    - /Audio/ADT/Novakid/novakid_laugh05.ogg
+
+
+- type: soundCollection
+  id: SynthYes
+  files:
+    - /Audio/ADT/IPC/synth_yes.ogg
+
+- type: soundCollection
+  id: SynthNo
+  files:
+    - /Audio/ADT/IPC/synth_no.ogg
+
+- type: soundCollection
+  id: Ping
+  files:
+    - /Audio/ADT/IPC/ping.ogg
+
+- type: soundCollection
+  id: Buzz
+  files:
+    - /Audio/ADT/IPC/buzz-sigh.ogg
+
+- type: soundCollection
+  id: SighBuzz
+  files:
+    - /Audio/ADT/IPC/buzz-two.ogg
+
+
+- type: soundCollection
+  id: FelinidHisses
+  files:
+  - /Audio/ADT/Felinid/cat_hiss1.ogg
+  - /Audio/ADT/Felinid/cat_hiss2.ogg
+
+- type: soundCollection
+  id: FelinidMeows
+  files:
+  - /Audio/ADT/Felinid/cat_meow1.ogg
+  - /Audio/ADT/Felinid/cat_meow2.ogg
+  - /Audio/ADT/Felinid/cat_meow3.ogg
+
+- type: soundCollection
+  id: FelinidMews
+  files:
+  - /Audio/ADT/Felinid/cat_mew1.ogg
+  - /Audio/ADT/Felinid/cat_mew2.ogg
+
+- type: soundCollection
+  id: FelinidGrowls
+  files:
+  - /Audio/ADT/Felinid/cat_growl1.ogg
+
+- type: soundCollection
+  id: FelinidPurrs
+  files:
+  - /Audio/ADT/Felinid/cat_purr1.ogg
+
+- type: speechSounds
+  id: Metrocop
+  saySound:
+    path: /Audio/ADT/Footsteps/say/off2.ogg
+  askSound:
+    path: /Audio/ADT/Footsteps/say/off1.ogg
+  exclaimSound:
+    path: /Audio/ADT/Footsteps/say/off3.ogg
+
+- type: speechSounds
+  id: Combine
+  saySound:
+    path: /Audio/ADT/Footsteps/off2.ogg
+  askSound:
+    path: /Audio/ADT/Footsteps/off3.ogg
+  exclaimSound:
+    path: /Audio/ADT/Footsteps/off1.ogg
+
+- type: soundCollection
+  id: Metrocop
+  files:
+  - /Audio/ADT/Footsteps/say/off1.ogg
+  - /Audio/ADT/Footsteps/say/off2.ogg
+  - /Audio/ADT/Footsteps/say/off3.ogg
+  - /Audio/ADT/Footsteps/say/off4.ogg
+
+- type: soundCollection
+  id: SoldierDeath
+  files:
+  - /Audio/ADT/Footsteps/combine/die1.ogg
+  - /Audio/ADT/Footsteps/combine/die2.ogg
+  - /Audio/ADT/Footsteps/combine/die3.ogg
+  - /Audio/ADT/Footsteps/combine/die4.ogg
+
+- type: soundCollection
+  id: FootstepSoldier
+  files:
+  - /Audio/ADT/Footsteps/gear1.ogg
+  - /Audio/ADT/Footsteps/gear2.ogg
+  - /Audio/ADT/Footsteps/gear3.ogg
+  - /Audio/ADT/Footsteps/gear4.ogg
+  - /Audio/ADT/Footsteps/gear5.ogg
+  - /Audio/ADT/Footsteps/gear6.ogg

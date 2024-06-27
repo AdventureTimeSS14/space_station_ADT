@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesEyepatchTretyakova
+  name: white eyepatch of Tretyakova
+  description: A white eyepatch created by a little-known atelier for Ksenia Tretyakova's right eye.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Misc/eyepatch_tretyakova.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Misc/eyepatch_tretyakova.rsi
+  - type: EyeProtection
+    protectionTime: 5

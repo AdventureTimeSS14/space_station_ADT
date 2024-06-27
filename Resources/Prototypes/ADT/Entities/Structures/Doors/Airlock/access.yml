@@ -1,0 +1,50 @@
+# Airlocks
+- type: entity
+  parent: AirlockCommand
+  id: AirlockIAALocked
+  suffix: IAA, Locked
+  components:
+  - type: AccessReader
+    access: [["IAA"]]
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockMagistrateLocked
+  suffix: Magistrate, Locked
+  components:
+  - type: AccessReader
+    access: [["Magistrate"]]
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockBlueShieldLocked
+  suffix: BlueShield, Locked
+  components:
+  - type: AccessReader
+    access: [["BlueShield"]]
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockInvestigatorLocked
+  suffix: Investigator, Locked
+  components:
+  - type: AccessReader
+    access: [["Investigator"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockGlassTraderLocked
+  suffix: Trader, Locked
+  components:
+  - type: AccessReader
+    access: [["Trader"]]
+
+#Windoors
+
+- type: entity
+  parent: BaseSecureWindoor
+  id: SecureWindoorTraderLocked
+  suffix: Trader, Locked
+  components:
+  - type: AccessReader
+    access: [["Trader"]]

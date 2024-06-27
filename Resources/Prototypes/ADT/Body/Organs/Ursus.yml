@@ -1,0 +1,11 @@
+- type: entity
+  id: OrganUrsusHeart
+  parent: OrganAnimalHeart
+  components:
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Ursus, Animal ] #надо для того, чтобы и травил шоколад, и работал полиморфин.
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic

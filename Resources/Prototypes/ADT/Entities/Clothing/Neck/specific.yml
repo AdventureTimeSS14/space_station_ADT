@@ -1,0 +1,61 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckJeton
+  name: Jeton
+  description: 
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/armytoken.rsi
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - idcard
+      - neck
+    # - type: IdCard
+    # - type: StationRecordKeyStorage
+    - type: Tag
+      tags:
+      - DoorBumpOpener
+    - type: Access
+      tags:
+      - Maintenance
+      - External
+      - Medical
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSecBadge
+  name: sec badge
+  description: sec badge
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/secbadge.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckTSFPatch
+  name: TSF patch
+  description: TSF patch
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/tsf_patch.rsi
+
+#Нагрудная камера
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSecCam
+  name: security chest camera
+  description: security chest camera
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/sec_camera.rsi 
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/sec_camera.rsi
+    - type: DeviceNetwork
+      deviceNetId: Wired
+      receiveFrequencyId: SurveillanceCameraSecurity
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+    - type: Eye
+    - type: WiredNetworkConnection

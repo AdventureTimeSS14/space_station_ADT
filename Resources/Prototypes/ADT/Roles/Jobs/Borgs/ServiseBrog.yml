@@ -1,0 +1,16 @@
+- type: job
+  id: ADTServiseBorg
+  name: JobADTServiseBorg 
+  description: job-description-borg
+  playTimeTracker: JobServiseBorg
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cyborgs
+      time: 18000 #5 hr
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 54000 #15 hr
+  canBeAntag: false
+  icon: JobIconBorg
+  supervisors: job-supervisors-rd
+  jobEntity: ADTPlayerBorgService

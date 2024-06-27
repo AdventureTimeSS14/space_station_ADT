@@ -1,0 +1,117 @@
+- type: entity
+  name: RPM-40
+  id: ADTWeaponLightMachineGunRPM40
+  parent: BaseWeaponLightMachineGun
+  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/LMG/RPM40.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-2
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineUSSPLMG
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazineUSSPLMG
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+  - type: Gun
+    fireRate: 6
+
+- type: entity
+  name: PKP-60
+  id: ADTWeaponLightMachineGunPKP60
+  parent: ADTWeaponLightMachineGunRPM40
+  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/LMG/PKP60.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -8
+  - type: Gun
+    minAngle: 5
+    maxAngle: 10
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 7
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+
+- type: entity
+  name: RPK
+  id: ADTWeaponLightMachineGunPRK
+  parent: WeaponRifleLecter
+  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/LMG/RPK.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineUSSPLMGDrum
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazineUSSPLMGDrum
+            - ADTMagazineUSSPAK74
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: Gun
+    fireRate: 7.5
+

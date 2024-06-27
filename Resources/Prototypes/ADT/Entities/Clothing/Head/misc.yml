@@ -1,0 +1,246 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetHardsuitKiravaHoodsec
+  noSpawn: true
+  name: Kirava Hoodsec
+  description: beautiful kapeshon u Kirava
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/kirava_hoodsec.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/kirava_hoodsec.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 50
+  - type: TemperatureProtection
+    coefficient: 0.005
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatRacoon
+  name: racoon head
+  description: "It's a racoon head. Snort snort snort!"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/racoonhead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/racoonhead.rsi
+  - type: IngestionBlocker
+  
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatFox
+  name: fox head
+  description: "It's a fox head. Snort snort snort!"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/foxhead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/foxhead.rsi
+  - type: IngestionBlocker
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatChainSaw
+  name: fox head
+  description: "It's a fox head. Snort snort snort!"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: IngestionBlocker
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHairPin
+  name: hair pin
+  description: hair pin
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/hairpin.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/hairpin.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatDedMoroz
+  suffix: New Year
+  name: hat ded moroz
+  description: "It is hat ded moroz"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/ded_morozhat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/ded_morozhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTFlowerCrownBlue
+  name: flower wreath
+  description: A neat wreath of luxurious flowers in turquoise, blue and blue shades, exuding a pleasant, soothing fragrance. It perfectly complements the elegant hair of a similar color.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/flower_crown_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/flower_crown_blue.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadVyasovHat
+  name: shabby fedora
+  description: It looks very shabby brown in color, it smells like a nightmare straight from Vyazova Street
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Halloween/vyazovhat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Halloween/vyazovhat.rsi
+
+- type: entity
+  parent: ADTClothingHeadUSSPjuggernautHelmetArmored
+  id: ADTClothingHeadKillaHelmet
+  name: Killa helmet
+  description: Killa helmet
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Halloween/killahelmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Halloween/killahelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95
+        Heat: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadSquidGame
+  name: squid game head
+  description: squid game head
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Halloween/squidgame.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Halloween/squidgame.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadXenomorph
+  name: Xenomorph head
+  description: Xenomorph head
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Halloween/xeno_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Halloween/xeno_head.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadZombie
+  name: zombie head
+  description: zombie head
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/Halloween/zombie_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/Halloween/zombie_head.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBlackOrientalEars
+  name: oriental ears
+  description: "NYAH!"
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/orientalears.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/orientalears.rsi
+  - type: AddAccentClothing
+    accent: NyaAccent
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatOktyabrinaOrientalEars
+  name: gift for October
+  description: "On the inside is scrawled 'For the one whose hair is the color of lilac'. This smells like a joy and happy"
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/orientalears.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/orientalears.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBlackVeil
+  name: Black veil
+  description: Gothic, nice. For those who destroy traditions but not much
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/black_veil.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/black_veil.rsi
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 15
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsWhiteVeil
+  name: White veil
+  description: For those who follow tradition
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/white_veil.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/white_veil.rsi
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 15
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatWeddingPriestHat
+  name: Priest hat
+  description: "to do"
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/priest_weddind_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/priest_weddind_hat.rsi

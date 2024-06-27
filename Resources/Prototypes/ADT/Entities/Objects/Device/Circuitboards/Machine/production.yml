@@ -1,0 +1,86 @@
+- type: entity
+  id: ADTPortableGeneratorSuperPacmanMachineCircuitboardHard
+  parent: BaseMachineCircuitboard
+  name: S.U.P.E.R.P.A.C.M.A.N.-type portable generator machine board
+  suffix: Hard
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: ADTPortableGeneratorSuperPacman
+      requirements:
+        Capacitor: 20
+      materialRequirements:
+        CableHV: 100
+
+- type: entity
+  id: ADTIndustrialSMESMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: Industrial SMES machine board
+  description: A machine printed circuit board for a SMES.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: ind_smes_circuit
+    - type: MachineBoard
+      prototype: ADTSMESIndustrialEmpty
+      requirements:
+        Capacitor: 4
+        PowerCell: 16
+      materialRequirements:
+        CableHV: 30
+
+    #плата принтера
+- type: entity
+  id: ADTFormPrinterMachineCircuitboard
+  parent: BaseItem
+  name: form printer machine board
+  components:
+  - type: MachineBoard
+    prototype: PrinterDoc
+    requirements:
+      MatterBin: 1
+      Manipulator: 2
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: generic
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 400
+    chemicalComposition:
+      Silicon: 20
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ADTFurnanceMachineCircuitboard
+  name: ore furnance machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTFurnance
+    requirements:
+      MatterBin: 1
+      Manipulator: 3
+    materialRequirements:
+      Glass: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ADTFoodFurnanceMachineCircuitboard
+  name: food furnance machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTFoodFurnance
+    requirements:
+      MatterBin: 1
+      Manipulator: 3
+    materialRequirements:
+      Glass: 1

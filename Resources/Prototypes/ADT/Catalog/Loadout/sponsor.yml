@@ -1,0 +1,57 @@
+- type: loadout
+  id: LixonLoadout
+  entity: ADTWeaponMinigunL
+  sponsorOnly: true
+
+- type: loadout
+  id: ADTHolographicMonoclineInsulgonLoadout
+  entity: ADTHolographicMonoclineL
+  sponsorOnly: true
+
+- type: loadout
+  id: ADTClothingUniformsJumpsuitInsulgonLoadout
+  entity: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+  sponsorOnly: true
+
+- type: loadout
+  id: GoldStanerLoadout
+  entity: WeaponDisablerIdan
+  sponsorOnly: true
+
+- type: loadout
+  id: OktyabrinaLoadout
+  entity: ADTClothingHeadHatOktyabrinaOrientalEars
+  sponsorOnly: true
+
+#Chu-See
+
+- type: loadout
+  id: TrueDetectiveCoat
+  entity: ADTClothingOuterCoatTrueDetectivesCoat
+  sponsorOnly: true
+  whitelistJobs: [Detective]
+
+- type: loadout
+  id: TrueDetectiveJumpskirt
+  entity: ADTClothingUniformTrueDetectiveJumpskirt
+  sponsorOnly: true
+  whitelistJobs: [Detective]
+
+- type: loadout
+  id: TrueDetectiveHat
+  entity: ADTClothingHeadHatsTrueDetectiveHat
+  sponsorOnly: true
+  whitelistJobs: [Detective]
+
+
+#Nova
+
+- type: loadout
+  id: NovaGloves
+  entity: ADTClothingHandsNovaGloves
+  sponsorOnly: true
+
+- type: loadout
+  id: AstraKnifeLoadout
+  entity: ADTAstraKnife
+  sponsorOnly: true

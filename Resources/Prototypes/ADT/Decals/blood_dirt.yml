@@ -1,0 +1,31 @@
+- type: decal
+  id: ADTFloorBlood1
+  tags: ["station", "dirty"]
+  defaultCleanable: true
+  sprite:
+    sprite: ADT/Decals/floor_blood.rsi
+    state: blood1
+
+- type: decal
+  id: ADTFloorBlood2
+  tags: ["station", "dirty"]
+  defaultCleanable: true
+  sprite:
+    sprite: ADT/Decals/floor_blood.rsi
+    state: blood2
+
+- type: decal
+  id: ADTFloorBlood3
+  tags: ["station", "dirty"]
+  defaultCleanable: true
+  sprite:
+    sprite: ADT/Decals/floor_blood.rsi
+    state: blood3
+
+- type: decal
+  id: ADTFloorBlood4
+  tags: ["station", "dirty"]
+  defaultCleanable: true
+  sprite:
+    sprite: ADT/Decals/floor_blood.rsi
+    state: blood4

@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseItem
+  id: ADTStealthBoxBox
+  name: stealth box box
+  description: A bigger box in smaller box.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    state: box
+  - type: SpawnItemsOnUse
+    items:
+    - id: StealthBox
+    sound:
+      path: /Audio/Effects/unwrap.ogg

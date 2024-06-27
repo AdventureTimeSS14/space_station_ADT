@@ -1,0 +1,11 @@
+- type: technology
+  id: IndustrialChargerCircuitboard
+  name: research-technology-ind-charger
+  icon:
+    sprite: SimpleStation14/Structures/Machines/borgcharger.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - IndustrialChargerCircuitboard

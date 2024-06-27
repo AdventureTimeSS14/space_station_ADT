@@ -1,0 +1,50 @@
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconMagistrat
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Magistrat
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTBlueShieldOfficer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ADTBlueShieldOfficer
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTInvestigator
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ADTInvestigator
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTPathologist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ADTPathologist
+
+- type: statusIcon
+  parent: JobIcon
+  id: jobADTIconSecurityCyborg
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: JobADTIconSecurityCyborg
+
+#СССП штуки 
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconUSSPArmyPrivate
+  icon:
+    sprite: ADT/Interface/Misc/job_icons.rsi
+    state: JobIconUSSPArmyPrivate
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconUSSPArmyOfficer
+  icon:
+    sprite: ADT/Interface/Misc/job_icons.rsi
+    state: JobIconUSSPArmyOfficer

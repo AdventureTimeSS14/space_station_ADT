@@ -1,0 +1,9 @@
+
+    ## рандомизатор звуков для разнообразия звуков выстрела
+- type: soundCollection
+  id: FN_Fal_choot
+  files:
+    - /Audio/ADT/Weapons/fnfal/FN-FAL_shoot1.ogg
+    - /Audio/ADT/Weapons/fnfal/FN-FAL_shoot2.ogg
+    - /Audio/ADT/Weapons/fnfal/FN-FAL_shoot3.ogg
+    - /Audio/ADT/Weapons/fnfal/FN-FAL_shoot4.ogg

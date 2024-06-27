@@ -1,0 +1,36 @@
+- type: entity
+  id: ADTAnomalyAbomination
+  name: abomination anomaly
+  description: An impossible object. Should you be standing this close to it?
+  parent: BaseAnomaly
+  suffix: Abomination, DO NOT MAP
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: ADT/Structures/Specific/abomination_anomaly.rsi
+    layers:
+    - state: anom_base
+      map: ["enum.AnomalyVisualLayers.Base"]
+    - state: anom_pulse
+      map: ["enum.AnomalyVisualLayers.Animated"]
+      visible: false
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#cb5b7e"
+    castShadows: false
+  #- type: TileSpawnAnomaly
+  #  floorTileId: FloorChromite
+  #- type: EntitySpawnAnomaly
+  #  superCriticalSpawns:
+  #   - ADTMobWrecker
+  #  spawns:
+  #  - ADTMobDistorted
+  #  - ADTMobEcho
+  #  - ADTMobGrant
+  #  - ADTMobHunter
+  #  - ADTMobSoldier
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Voice/Human/femalescream_1.ogg

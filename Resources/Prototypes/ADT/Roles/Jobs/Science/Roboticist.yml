@@ -1,0 +1,35 @@
+- type: job
+  id: ADTRoboticist
+  name: JobADTRoboticist
+  description: job-description-roboticist
+  playTimeTracker: JobRoboticist
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobScientist
+      time: 25200 #7 hrs
+  startingGear: ADTRoboticistGear
+  icon: "JobIconRoboticist"
+  supervisors: job-supervisors-rd
+  access:
+  - Research
+  - Maintenance
+
+- type: startingGear
+  id: ADTRoboticistGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRoboticist
+    back: ClothingBackpackScienceFilled
+    shoes: ClothingShoesColorBlack
+    outerClothing: ClothingOuterCoatRobo
+    id: ADTRoboticistPDA
+    ears: ClothingHeadsetRobotics
+    belt: ClothingBeltUtilityEngineering
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+    pocket2: BorgTranslatorImplanter # Для двоичного языка
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+  innerClothingSkirt: ClothingUniformJumpskirtRoboticist
+  satchel: ClothingBackpackSatchelScienceFilled
+  duffelbag: ClothingBackpackDuffelScienceFilled
+

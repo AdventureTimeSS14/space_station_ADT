@@ -1,0 +1,37 @@
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: HosWeaponGunStealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    prototype: ADTWeaponPistolX01
+    stealGroup: WeaponAntiqueLaser
+    owner: job-name-hos
+
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: HopIdCardStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    stealGroup: CaptainIDCard
+    prototype: HoPIDCard
+    owner: job-name-hop
+
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: ADTCMODefibrillatorStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ChiefMedicalOfficer
+  - type: StealCondition
+    stealGroup: MobileDefibrillator
+    prototype: ADTMobileDefibrillator
+    owner: job-name-cmo

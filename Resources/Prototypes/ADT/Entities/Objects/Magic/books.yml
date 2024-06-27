@@ -1,0 +1,19 @@
+- type: entity
+  id: ArchmageSpellbook
+  name: spellbook
+  parent: BaseUplinkRadio
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/wizardbook.rsi
+      layers:
+        - state: magic_book_red
+    - type: Item
+      sprite: ADT/Objects/Misc/wizardbook.rsi
+      heldPrefix: magic_book_red
+    - type: Tag
+      tags:
+      - Spellbook
+    - type: Store
+      preset: StorePresetWizard
+      balance:
+        SpellPoints: 15

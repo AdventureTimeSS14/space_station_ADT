@@ -1,0 +1,20 @@
+- type: vendingMachineInventory
+  id: ADTMasterSportDrobeInventory
+  startingInventory:
+    ADTClothingHeadSportHat: 5
+    ADTClothingHeadSportRoseCap: 5
+    ADTClothingHeadSportHatStep: 5
+    ADTClothingOuterCoatSportJacket: 5
+    ADTClothingOuterCoatSportStepHoodie: 5
+    ADTClothingOuterCoatSportZetaBlouse: 5
+    ADTClothingUniformSportSuit: 5
+    ADTClothingUniformSportRoseSuit: 5
+    ADTClothingUniformSportStepSuit: 5
+    ADTClothingUniformSportZetaSuit: 5
+    ADTClothingHandsGlovesSport: 5
+    ADTClothingHandsGlovesSportStep: 5
+    ADTClothingFootSportBoots: 5
+    ADTClothingFootSportRoseShoes: 5
+    ADTClothingFootSportStepSneakers: 5
+    ADTClothingFootSportZetaCrocs: 5
+

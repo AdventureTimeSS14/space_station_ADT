@@ -1,0 +1,190 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartNovakid
+  parent: BaseItem
+  name: "novakid body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+
+- type: entity
+  id: TorsoNovakid
+  name: "novakid torso"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "torso_m"
+  - type: BodyPart
+    partType: Torso
+
+- type: entity
+  id: HeadNovakid
+  name: "novakid head"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "head_m"
+  - type: BodyPart
+    partType: Head
+    vital: true
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: InputMover
+  - type: GhostOnMove
+  - type: Tag
+    tags:
+      - Head
+
+- type: entity
+  id: LeftArmNovakid
+  name: "left novakid arm"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+
+- type: entity
+  id: RightArmNovakid
+  name: "right novakid arm"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+
+- type: entity
+  id: LeftHandNovakid
+  name: "left novakid hand"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: entity
+  id: RightHandNovakid
+  name: "right novakid hand"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  id: LeftLegNovakid
+  name: "left novakid leg"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: MovementBodyPart
+    walkSpeed : 2.5
+    sprintSpeed : 4.5
+
+- type: entity
+  id: RightLegNovakid
+  name: "right novakid leg"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: MovementBodyPart
+    walkSpeed : 2.5
+    sprintSpeed : 4.5
+
+- type: entity
+  id: LeftFootNovakid
+  name: "left novakid foot"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "l_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
+
+- type: entity
+  id: RightFootNovakid
+  name: "right novakid foot"
+  parent: PartNovakid
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: "r_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right

@@ -1,0 +1,13 @@
+- type: startingGear
+  id: ADTCentComRepresentativeL
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    back: ClothingBackpackFilled_CC_R
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: ClothingOuterVest
+    eyes: ClothingEyesGlassesSunglasses
+    head: ClothingHeadHatBeretCentcomNaval
+    id: CentcomPDA
+    gloves: ClothingHandsGlovesColorGray
+    ears: ClothingHeadsetCentCom
+    #pocket2: MicroBombImpanter - Протатип не найден

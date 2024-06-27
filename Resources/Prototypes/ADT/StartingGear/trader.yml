@@ -1,0 +1,15 @@
+- type: startingGear
+  id: Trader
+  equipment:
+    head: ADTClothingHeadHatTrader
+    jumpsuit: ADTClothingUniformTrader
+    back: ClothingBackpackTraderFilled
+    shoes: ClothingShoesColorBlack
+    id: TraderPDA
+    ears: ClothingHeadsetTrader
+    belt: ClothingBeltUtilityFilled
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+  innerClothingSkirt: ADTClothingUniformTrader

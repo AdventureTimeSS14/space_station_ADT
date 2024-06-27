@@ -1,0 +1,18 @@
+- type: startingGear
+  id: FieldOfficerCentComGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficerBlack
+    back: ClothingBackpackFilled_CC_FO
+    #shoes: ClothingShoesBootsCentcomBlack - портатип не найден
+    head: ClothingHeadCapCentcomBlack
+    eyes: ClothingEyesGlassesSunglasses
+    #gloves: ClothingHandsGlovesIhscombat - портатип не найден
+    outerClothing: ClothingOuterArmorBulletproof
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilled
+    mask: ClothingMaskGasCentcom
+    Neck: ClothingNeckCloakCentcomBlack
+    pocket1: MacroBombImplanter
+    pocket2: WeaponPulsePistol
+

@@ -1,0 +1,949 @@
+# The universal language, assumed if the entity has a UniversalLanguageSpeakerComponent.
+# Do not use otherwise. Try to use the respective component instead of this language.
+- type: language
+  id: Universal
+  obfuscateSyllables: false
+  replacement:
+  - "*incomprehensible*"
+
+# The common galactic tongue.
+- type: language
+  id: GalacticCommon
+  obfuscateSyllables: true
+  replacement:
+  - Бла
+  - Бла
+  - Бла
+  - динг-донг
+  - динг
+  - донг
+  - жиббер-жаббер
+  - жуббр
+  - бле
+  - зиппти
+  - зуп
+  - виббл
+  - воббл
+  - виггл
+  - яда
+  - мех
+  - нех
+  - нах
+  - вах
+
+# Spoken by slimes.
+- type: language
+  id: Bubblish
+  obfuscateSyllables: true
+  replacement:
+  - блоб
+  - плоп
+  - поп
+  - боп
+  - буп
+  - блюп
+  - бульп
+  - блеб
+
+# Spoken by moths.
+- type: language
+  id: Moffic
+  obfuscateSyllables: true
+  replacement:
+  - år
+  - i
+  - går
+  - sek
+  - mo
+  - ff
+  - ok
+  - gj
+  - ø
+  - gå
+  - la
+  - le
+  - lit
+  - ygg
+  - van
+  - dår
+  - næ
+  - møt
+  - idd
+  - hvo
+  - ja
+  - på
+  - han
+  - så
+  - ån
+  - det
+  - att
+  - nå
+  - gö
+  - bra
+  - int
+  - tyc
+  - om
+  - när
+  - två
+  - må
+  - dag
+  - sjä
+  - vii
+  - vuo
+  - eil
+  - tun
+  - käyt
+  - teh
+  - vä
+  - hei
+  - huo
+  - suo
+  - ää
+  - ten
+  - ja
+  - heu
+  - stu
+  - uhr
+  - kön
+  - we
+  - hön
+
+  # Spoken by dionas.
+- type: language
+  id: RootSpeak
+  obfuscateSyllables: true
+  replacement:
+  - хс
+  - зт
+  - кр
+  - ст
+  - ш
+  - шш
+
+# Syndicate operatives can use a series of codewords to convey complex information.
+- type: language
+  id: CodeSpeak
+  obfuscateSyllables: true
+  replacement:
+  - Белый русский
+  - Представитель станции
+  - Шериф
+  - Депутат
+  - Хранилище
+  - Фронтир
+  - Станция
+  - Безопасность
+  - Кофе
+  - Кола
+  - Вода
+  - Инженерный
+  - Капитан
+  - Вызываю друга
+  - Атмос
+  - Робототехника
+  - Медицинский
+  - ИИ
+  - Человек
+  - Вульпканин
+  - Унатх
+  - Ниан
+  - Чай
+  - Стул
+  - Кресло
+  - Корабль
+  - Шаттл
+  - Оружие
+  - Пушки
+  - Лазер
+  - Карп
+  - Космический Карп
+  - Ксено
+  - Ксеноморф
+  - Биоугроза
+  - Деньги
+  - Космос
+  - Опасность
+  - Обезьяна
+  - Пун-пун
+  - Внутри
+  - Бежит
+  - Убивает
+  - Убить
+  - Спасти
+  - Жизнь
+  - Дракон
+  - Ниндзя
+  - Секрет
+
+# A mess of broken Japanese, spoken by Felinds and Oni
+- type: language
+  id: Nekomimetic
+  obfuscateSyllables: true
+  replacement:
+  - неко
+  - нян
+  - мими
+  - ми
+  - мофу
+  - фува
+  - кьяя
+  - кавай
+  - пока
+  - муня
+  - пуни
+  - мунью
+  - уфуфу
+  - ича
+  - доки
+  - кьюн
+  - кусу
+  - ня
+  - няя
+  - десу
+  - кис
+  - ама
+  - чуу
+  - бака
+  - хево
+  - буп
+  - гато
+  - кит
+  - сюн
+  - йори
+  - соу
+  - бака
+  - чан
+  - сан
+  - кун
+  - махо
+  - йатта
+  - сукки
+  - усаги
+  - домо
+  - ори
+  - ува
+  - заазаа
+  - шику
+  - пуру
+  - ира
+  - хето
+  - етто
+
+# Spoken by the Lizard race.
+- type: language
+  id: Draconic
+  obfuscateSyllables: true
+  replacement:
+  - za
+  - az
+  - ze
+  - ez
+  - zi
+  - iz
+  - zo
+  - oz
+  - zu
+  - uz
+  - zs
+  - sz
+  - ha
+  - ah
+  - he
+  - eh
+  - hi
+  - ih
+  - ho
+  - oh
+  - hu
+  - uh
+  - hs
+  - sh
+  - la
+  - al
+  - le
+  - el
+  - li
+  - il
+  - lo
+  - ol
+  - lu
+  - ul
+  - ls
+  - sl
+  - ka
+  - ak
+  - ke
+  - ek
+  - ki
+  - ik
+  - ko
+  - ok
+  - ku
+  - uk
+  - ks
+  - sk
+  - sa
+  - as
+  - se
+  - es
+  - si
+  - is
+  - so
+  - os
+  - su
+  - us
+  - ss
+  - ss
+  - ra
+  - ar
+  - re
+  - er
+  - ri
+  - ir
+  - ro
+  - or
+  - ru
+  - ur
+  - rs
+  - sr
+  - a
+  - a
+  - e
+  - e
+  - i
+  - i
+  - o
+  - o
+  - u
+  - u
+  - s
+  - s
+
+# Spoken by the Vulpkanin race.
+- type: language
+  id: Canilunzt
+  obfuscateSyllables: true
+  replacement:
+  - rur
+  - ya
+  - cen
+  - rawr
+  - bar
+  - kuk
+  - tek
+  - qat
+  - uk
+  - wu
+  - vuh
+  - tah
+  - tch
+  - schz
+  - auch
+  - ist
+  - ein
+  - entch
+  - zwichs
+  - tut
+  - mir
+  - wo
+  - bis
+  - es
+  - vor
+  - nic
+  - gro
+  - lll
+  - enem
+  - zandt
+  - tzch
+  - noch
+  - hel
+  - ischt
+  - far
+  - wa
+  - baram
+  - iereng
+  - tech
+  - lach
+  - sam
+  - mak
+  - lich
+  - gen
+  - or
+  - ag
+  - eck
+  - gec
+  - stag
+  - onn
+  - bin
+  - ket
+  - jarl
+  - vulf
+  - einech
+  - cresthz
+  - azunein
+  - ghzth
+
+# Spoken by the Tajaran race.
+- type: language
+  id: SikTaj
+  obfuscateSyllables: true
+  replacement:
+  - rae
+  - ye
+  - cen
+  - prr
+  - mer
+  - kuk
+  - tek
+  - qar
+  - ud
+  - wu
+  - wuh
+  - "taj'"
+  - tch
+  - ser
+  - "'aerch"
+  - it
+  - ei
+  - endr
+  - zeihs
+  - tet
+  - mir
+  - wo
+  - bis
+  - es
+  - voj
+  - jic
+  - fro
+  - rrr
+  - ener
+  - zajet
+  - th
+  - nort
+  - hel
+  - ist
+  - far
+  - wa
+  - bara
+  - ierg
+  - tech
+  - lach
+  - sam
+  - mak
+  - "'lirch"
+  - get
+  - or
+  - "jag'"
+  - eck
+  - gec
+  - stag
+  - "'onn"
+  - bin
+  - ket
+  - "jart'"
+  - vul
+  - einech
+  - cres
+  - "'eirr"
+  - ghh
+
+# Spoken by the Nian race.
+- type: language
+  id: Nian
+  obfuscateSyllables: true
+  replacement:
+  - жз
+  - эзз
+  - ззе
+  - ржез
+  - зшусж
+  - жсса
+  - жж
+  - жжс
+  - еж
+  - шшз
+  - ззуш
+  - жашшз
+  - ззис
+  - ссж
+  - ужжс
+  - сз
+  - жш
+  - эшзз
+  - жесш
+  - шжш
+  - жуж
+  - ж
+  - ш
+  - з
+  - ззз
+  - зсе
+  - фжж
+  - зсжу
+
+# Spoken by the Novakid race.
+- type: language
+  id: Fire
+  obfuscateSyllables: true
+  replacement:
+  - шш
+  - вшш
+  - шжшш
+  - сшшшс
+  - шсжсс
+  - ссш
+  - сс
+  - жжс
+  - жшж
+
+
+# The common language of the Sol system.
+- type: language
+  id: SolCommon
+  obfuscateSyllables: true
+  replacement:
+  - тао
+  - ши
+  - тзу
+  - йи
+  - ком
+  - би
+  - ис
+  - я
+  - оп
+  - ви
+  - эд
+  - лек
+  - мо
+  - кле
+  - те
+  - дис
+  - ее
+
+# Languages spoken by various critters.
+- type: language
+  id: Cat
+  obfuscateSyllables: true
+  replacement:
+  - мурр
+  - мяу
+  - мурр
+  - мрау
+
+- type: language
+  id: Dog
+  obfuscateSyllables: true
+  replacement:
+  - вуф
+  - гав
+  - гаф
+  - рафф
+  - гарр
+
+- type: language
+  id: Mothroach
+  obfuscateSyllables: false
+  replacement:
+  - Бзз
+  - Чрик
+  - Скуик
+  - Пип
+  - Ииии
+  - Иип
+
+- type: language
+  id: Xeno
+  obfuscateSyllables: true
+  replacement:
+  - ссс
+  - сСс
+  - ССС
+# IPC
+- type: language
+  id: RobotTalk
+  obfuscateSyllables: true
+  replacement:
+  - "0"
+  - "1"
+  - "2"
+# Borgs
+- type: language
+  id: BorgTalk
+  obfuscateSyllables: true
+  replacement:
+  - "0"
+  - "1"
+
+- type: language
+  id: Monkey
+  obfuscateSyllables: true
+  replacement:
+  - аг
+  - ааг
+  - аааг
+  - ааааг
+  - аааааг
+
+- type: language
+  id: Bee
+  obfuscateSyllables: false
+  replacement:
+  - Бз
+  - Бзз
+  - Бззз
+  - Бзззз
+  - Бззззз
+
+- type: language
+  id: Mouse
+  obfuscateSyllables: false
+  replacement:
+  - Скуик
+  - Пип
+  - Чуу
+  - Ииии
+  - Пип
+
+- type: language
+  id: Chicken
+  obfuscateSyllables: false
+  replacement:
+  - Coo
+  - Coot
+  - Cooot
+
+- type: language
+  id: Duck
+  obfuscateSyllables: false
+  replacement:
+  - Quack
+
+- type: language
+  id: Cow
+  obfuscateSyllables: false
+  replacement:
+  - Moo
+  - Mooo
+
+- type: language
+  id: Sheep
+  obfuscateSyllables: false
+  replacement:
+  - Ba
+  - Baa
+  - Baaa
+
+- type: language
+  id: Kangaroo
+  obfuscateSyllables: false
+  replacement:
+  - Shreak
+  - Chuu
+
+- type: language
+  id: Pig
+  obfuscateSyllables: false
+  replacement:
+  - Oink
+
+# Spoken by the Drask race.
+- type: language
+  id: Drask
+  obfuscateSyllables: true
+  replacement:
+  - овв
+  - оумн
+  - мноо
+  - румум
+  - ваар
+  - дромнн
+  - руум
+  - гоом
+  - фмонг
+  - оорм
+  - гаар
+  - хоорб
+  - саар
+  - ссооумн
+  - гнии
+  - вииск
+  - вррм
+
+# Spoken by the Ursus race.
+- type: language
+  id: Urs
+  obfuscateSyllables: true
+  replacement:
+  - раа
+  - ишш
+  - тзуур
+  - арр
+  - кромм
+  - би
+  - инн
+  - рр
+  - оот
+  - вирр
+  - эк
+  - лерр
+  - мои
+  - крр
+  - тее
+  - ррс
+  - аа
+  - ир
+  - ррэк
+  - ер
+  - маа
+  - ке
+  - етт
+
+# Spoken by the Arkane race.
+- type: language
+  id: Arkane
+  obfuscateSyllables: true
+  replacement:
+  - рииа
+  - инн
+  - тлаа
+  - айр
+  - коо
+  - бии
+  - иинта
+  - реаа
+  - онт
+  - виер
+  - энк
+  - лааир
+  - оии
+  - кееа
+  - теу
+  - риина
+  - ин
+
+# Spoken by the Shadowkin race.
+- type: language
+  id: Shadowkin
+  obfuscateSyllables: true
+  replacement:
+  - mia
+  - ar
+  - ren
+  - naar
+  - mae
+  - tre
+  - ien
+  - trr
+  - ou
+  - rin
+  - nae
+  - ena
+  - oi
+  - kerr
+  - que
+  - uoh
+  - een
+
+# Spoken by the Dwarf race.
+- type: language
+  id: Dwarf
+  obfuscateSyllables: true
+  replacement:
+  - арр
+  - рок
+  - стн
+  - шахт
+  - руд
+  - трэ
+  - кирк
+  - диг
+  - йи
+  - мыэ
+  - молл
+  - бур
+  - пив
+  - стн
+  - дрг
+  - эйе
+
+# Spoken by the Dwarf race.
+- type: language
+  id: CintaTaj
+  obfuscateSyllables: true
+  replacement:
+  - za
+  - az
+  - ze
+  - ez
+  - zi
+  - iz
+  - zo
+  - oz
+  - zu
+  - uz
+  - zs
+  - sz
+  - ha
+  - ah
+  - he
+  - eh
+  - hi
+  - ih
+  - ho
+  - oh
+  - hu
+  - uh
+  - hs
+  - sh
+  - la
+  - al
+  - le
+  - el
+  - li
+  - il
+  - lo
+  - ol
+  - lu
+  - ul
+  - ls
+  - sl
+  - ka
+  - ak
+  - ke
+  - ek
+  - ki
+  - ik
+  - ko
+  - ok
+  - ku
+  - uk
+  - ks
+  - sk
+  - sa
+  - as
+  - se
+  - es
+  - si
+  - is
+  - so
+  - os
+  - su
+  - us
+  - ss
+  - ss
+  - ra
+  - ar
+  - re
+  - er
+  - ri
+  - ir
+  - ro
+  - or
+  - ru
+  - ur
+  - rs
+  - sr
+  - a
+  - a
+  - e
+  - e
+  - i
+  - i
+  - o
+  - o
+  - u
+  - u
+  - s
+  - s
+  - rae
+  - ye
+  - cen
+  - prr
+  - mer
+  - kuk
+  - tek
+  - qar
+  - ud
+  - wu
+  - wuh
+  - "taj'"
+  - tch
+  - ser
+  - "'aerch"
+  - it
+  - ei
+  - endr
+  - zeihs
+  - tet
+  - mir
+  - wo
+  - bis
+  - es
+  - voj
+  - jic
+  - fro
+  - rrr
+  - ener
+  - zajet
+  - th
+  - nort
+  - hel
+  - ist
+  - far
+  - wa
+  - bara
+  - ierg
+  - tech
+  - lach
+  - sam
+  - mak
+  - "'lirch"
+  - get
+  - or
+  - "jag'"
+  - eck
+  - gec
+  - stag
+  - "'onn"
+  - bin
+  - ket
+  - "jart'"
+  - vul
+  - einech
+  - cres
+  - "'eirr"
+  - ghh
+
+# Here goes admeme languages.
+- type: language
+  id: Dev
+  obfuscateSyllables: true
+  replacement:
+  - су
+  - ка
+  - офф
+  - ямл
+  - бл
+  - пид
+  - рас
+  - о
+  - виз
+  - код
+  - с#
+  - мета
+  - билд
+  - сук
+  - гни
+  - эмис
+  - баг
+  - да
+  - бля
+  - гит
+  - мердж
+  - пулл
+  - ПР
+  - огг
+  - пнг
+  - робст
+  - релз
+  - дебаг

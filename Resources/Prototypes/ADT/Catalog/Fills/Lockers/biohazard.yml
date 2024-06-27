@@ -1,0 +1,19 @@
+ - type: entity
+   id: ADTClosetL3PathologistFilled
+   suffix: Filled, Pathologist
+   parent: ADTClosetL3Pathologist
+   components:
+   - type: StorageFill
+     contents:
+       - id: ADTClothingOuterBioPathologist
+       - id: ADTClothingHeadHatHoodBioPathologist
+ 
+ - type: entity
+   id: ADTClosetL3ParamedicFilled
+   suffix: Filled, Paramedic
+   parent: ADTClosetL3Paramedic
+   components:
+   - type: StorageFill
+     contents:
+       - id: ADTClothingOuterBioParamedic
+       - id: ADTClothingHeadHatHoodBioParamedic

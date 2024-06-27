@@ -1,0 +1,42 @@
+- type: entity
+  id: BaseSyringeGunMagazine
+  name: Syringe cartrige
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - SyringeGunMagazine
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Syringecartridge
+    proto: Syringecartridge
+    capacity: 8
+  - type: Item
+    size: Tiny
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Dartgun/dartgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id:   SyringeGunMagazine
+  name: Syringe Gun Magazine
+  parent: BaseSyringeGunMagazine
+  components:
+  - type: BallisticAmmoProvider
+    proto: Syringecartridge

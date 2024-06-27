@@ -1,0 +1,15 @@
+- type: decal
+  id: ADTOpenFire
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: open_fire
+
+- type: decal
+  id: ADTOpenBlastDoor
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: open_blastdoor

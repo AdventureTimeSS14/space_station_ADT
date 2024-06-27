@@ -1,0 +1,135 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterBaseChaplainRasy
+  name: OuterBaseChaplain
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/rasy_chaplain.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/rasy_chaplain.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterPonchoSindi
+  name: Sindi poncho
+  description: Sindicat poncho.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/poncho_sindi.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/poncho_sindi.rsi
+  - type: AddAccentClothing
+    accent: SpanishAccent
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronBar
+  name: bartender apron
+  description: An apron-jacket used by a bartender.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/apronbar.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/apronbar.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronPathologist
+  name: pathologist's apron
+  description: An apron used by pathologists.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_pathologist.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterJacketBartender
+  name: Bar jacket
+  description: stylish jacket for bear holding.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/barjacket.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/barjacket.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterSuitRacoon
+  name: racoon suit
+  description: Snort snort snort!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/racoon.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/racoon.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterSuitFox
+  name: fox suit
+  description: Snort snort snort!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/fox.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/fox.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterSuitChefPovar
+  name: fox suit
+  description: Snort snort snort!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/chefpovar_outer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/chefpovar_outer.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterDedMoroz
+  suffix: New Year
+  name: Ded Moroz suit
+  description: Suit clothing ded moroz
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
+
+#толстовки-топки от Празата
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterGraySweatshirtTop
+  name: gray sweatshirt-top
+  description: gray sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterBlackSweatshirtTop
+  name: black sweatshirt-top
+  description: black sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterCupidonWings
+  name: cupidon wings
+  description: cupidon wings
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/cupidon_wings.rsi #спрайты от @lunalita
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/cupidon_wings.rsi

@@ -1,0 +1,11 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseChangelingObjective
+  components:
+  - type: Objective
+    issuer: changeling-issuer
+  - type: RoleRequirement
+    roles:
+      components:
+      - ChangelingRole

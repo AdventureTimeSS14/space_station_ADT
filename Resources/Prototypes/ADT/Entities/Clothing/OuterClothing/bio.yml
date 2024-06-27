@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingOuterBioGeneral
+  id: ADTClothingOuterBioPathologist
+  name: pathologist's bio suit
+  description: A suit that protects against biological contamination while working with dead bodies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/bio_pathologist.rsi 
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/bio_pathologist.rsi
+
+- type: entity
+  parent: ClothingOuterBioGeneral
+  id: ADTClothingOuterBioParamedic
+  name: paramedic's bio suit
+  description: A suit for paramedics that protects against biological contamination.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/bio_paramedic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/bio_paramedic.rsi

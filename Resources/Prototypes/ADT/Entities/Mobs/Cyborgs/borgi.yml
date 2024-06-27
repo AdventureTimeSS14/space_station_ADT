@@ -1,0 +1,93 @@
+- type: entity
+  name: I-n
+  parent:
+  - MobSiliconBase
+  - MobCombat
+  id: ADTMobBorgi
+  description: It's a borgi.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Pets/borgi.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: borgi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: borgi
+      Critical:
+        Base: borgi_dead
+      Dead:
+        Base: borgi_dead
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: ReplacementAccent
+    accent: dog
+  - type: InteractionPopup
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Critical
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      140: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:TriggerBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 140
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 5
+          FoodBurgerRobot:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+        Slash: 2.5
+  - type: StaticPrice
+    price: 2000
+  - type: RotationVisuals
+  - type: Examiner
+  - type: Alerts

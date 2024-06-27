@@ -1,0 +1,19 @@
+
+#ОБС-7
+- type: startingGear
+  id: ADTUSSPArmyOBS7Gear
+  equipment:
+    jumpsuit: ADTFlotUSSPUniform
+    back: ADTClothingBackpackOR80L_OBS7Gear
+    shoes: ADTClothingShoesBootsUSSPArmy
+    mask: ADTClothingMaskGasUSSP
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterHardsuitOBS7USSP
+    id: ADTUSSPArmyOfficerCard
+    ears: ADTClothingHeadsetUSSPSpetznaz
+    belt: ADTClothingBeltOfficersbeltwithholster
+    underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear

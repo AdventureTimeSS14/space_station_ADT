@@ -1,0 +1,26 @@
+- type: entity
+  id: SyringeGunProject
+  name: Syrgine
+  noSpawn: true
+  parent: syringeprojctile
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: syringeproj
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 0  # Should have the same or less damage than a regular pellet
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 7.5
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnCollide
+    transferAmount: 7.5
+    blockSlots: NONE #tranquillizer darts shouldn't be blocked by a mask
+  - type: InjectableSolution
+    solution: ammo

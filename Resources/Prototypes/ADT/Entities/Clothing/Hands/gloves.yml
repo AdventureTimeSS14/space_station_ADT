@@ -1,0 +1,482 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsLongRedGloves
+  name: Long Red Gloves
+  description: Silk, soft gloves. Your touch will be remembered by everyone.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/long-red-gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/long-red-gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsNovaGloves
+  name: Nova's Gloves
+  description: Silk, soft gloves. Your touch will be remembered by everyone.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/nova_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/nova_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: FingerprintMask
+
+#nope_ingeneer
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRedjiGloves
+  name: Redji gloves
+  description: Old pair of gloves without fingers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/redji_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/redji_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRabbitGloves
+  name: Rabbit Gloves
+  description: Shhh. Furry.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/rabbit_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/rabbit_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTBioMercGloves
+  name: fingerless tactical bio-fabric gloves
+  description: If you thought that this glove is environmentally friendly, then you are very mistaken. This glove is made of a fabric with an admixture of biomass, which strongly resembles leather. Moreover, this "skin" is unnaturally warm...
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/Halloween/biomerc_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/Halloween/biomerc_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsFingerlessCombat
+  name: fingerless combat gloves
+  description: These tactical gloves are fireproof and shockproof, and have become much cooler.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTVyazovGloves
+  name: gloves from the dimension of nightmares
+  description: The right glove has blades, it seems, with which its former owner dealt with his victims.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/Halloween/vyazov_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/Halloween/vyazov_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 8
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    animation: WeaponArcFist
+
+- type: entity
+  parent: ClothingHandsGlovesBoxingRed
+  id: ADTRedMartialArtsGloves
+  name: red gloves for martial arts
+  description: red gloves for martial arts
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/Halloween/red_martial_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/Halloween/red_martial_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTBrassKnucklesGloves
+  name: gloves from the dimension of nightmares
+  description: The right glove has blades, it seems, with which its former owner dealt with his victims.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/brassknuckles_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/brassknuckles_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: /Audio/Weapons/genhit2.ogg
+    animation: WeaponArcFist
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsBlackLongGloves
+  name: long black gloves
+  description: long black gloves
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/long-black-gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/long-black-gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: FingerprintMask
+
+ # Перчатки уборщика
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesJanitor
+  name: latex gloves
+  description: Thin sterile latex gloves. Basic PPE for any doctor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/janitor_groves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/janitor_groves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase 
+  id: ADTClothingHandsGlovesLapkee
+  name: white combat gloves
+  description: white combat gloves
+  suffix: Personal, Lapkee
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/white_lapkee.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/white_lapkee.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+
+#New Year
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensRed
+  name: red mittens
+  description: Red, warm, festive.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_red.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensBlue
+  name: blue mittens
+  description: One touch and you will freeze someone.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_blue.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensGreen
+  name: green mittens
+  description: The winter is long, we have a lot of work. Let's go to the toy factory!
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_green.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesSnowMaiden
+  name: snow maiden's gloves
+  description: A gloves of Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/gloves_snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/gloves_snow_maiden.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensRedGreen
+  name: red mittens
+  description: A red mittens with green stripes.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_red_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/mittens_red_green.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesRed
+  name: red gloves
+  description: A red warm gloves.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/gloves_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/gloves_red.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesRed2 #я честно без понятия, в чём разница между ними.
+  name: red gloves
+  description: A red warm gloves.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/gloves_red2.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/New-Year/gloves_red2.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesSport
+  name: sport winter gloves
+  description: A stylish sport gloves designed specifically for winter weather.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/gloves_sport.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/gloves_sport.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesSportStep
+  name: gloves by STEP series "Ultra"
+  description: A gloves "Ultra" by STEP series fingerless with soft lining, making them ideal for walking on or picking up weights.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/gloves_sport_step.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/gloves_sport_step.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsCrusherGauntlets
+  name: crusher gauntlets
+  description: lil miners' friend.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/crusher_gauntlets.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/crusher_gauntlets.rsi
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 1.5
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -5
+        Burn: -5
+        Airloss: -5
+  - type: Gun
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1.5
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.75
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletCharge
+    capacity: 1
+    count: 1
+  - type: MeleeWeapon
+    attackRate: 2.5
+    wideAnimationRotation: -135
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 8
+        Structural: 25
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    color: "#ffeead"
+    enabled: false
+    radius: 6
+  - type: Tool
+    qualities:
+      - Prying
+    speed: 0.25
+  - type: Prying
+    pryPowered: true
+  - type: Fiber
+    fiberMaterial: fibers-crusher
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsRingBlood
+  name: blood ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/KD/RingBlood.rsi
+  - type: Clothing
+    sprite: ADT/KD/RingBlood.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+    
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsRingEmerald
+  name: emerald ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/KD/RingEmerald.rsi
+  - type: Clothing
+    sprite: ADT/KD/RingEmerald.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsRingPlazma
+  name: plazma ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/KD/RingPlazma.rsi
+  - type: Clothing
+    sprite: ADT/KD/RingPlazma.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsRingTurk
+  name: turk ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/KD/RingTurk.rsi
+  - type: Clothing
+    sprite: ADT/KD/RingTurk.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+
+
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ADTClothingHandsGlovesRavenFriskis
+  suffix: Only Friskis
+  name: Raven gloves
+  description: No English
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/raven_groves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/raven_groves.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+      - state: equipped-HAND-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsSupremeCommanderGloves
+  name: supreme commander's gloves
+  description: These gloves decorated bluespace sewing cost as much as 10 similar station. These gloves are one of a kind.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/supreme-commander-gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/supreme-commander-gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nanomachines
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRingUrog
+  name: wedding ring of Urog-Djah
+  description: the ring is engraved with "Yuna"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/ring_urog.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/ring_urog.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRingYuna
+  name: wedding ring of Yuna-Djah
+  description: the ring is engraved with "Urog"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/ring_yuna.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/ring_yuna.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsKivchikGloves
+  suffix: Kivchik
+  name: black gloves of retribution
+  description: 'Beautiful black gloves with a gold stripe and red inscription: "ALMD"'
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/kivchikset_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/kivchikset_gloves.rsi
+  - type: Fiber
+    fiberColor: fibers-black

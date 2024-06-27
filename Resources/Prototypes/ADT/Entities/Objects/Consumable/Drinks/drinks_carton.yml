@@ -1,0 +1,34 @@
+- type: entity
+  parent: DrinkBottleGlassBaseFull
+  id: ADTDrinkJuiceBerryCarton
+  name: berry juice
+  description: juice mix from many berries.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: JuiceBerry
+          Quantity: 50
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/berryjuice.rsi
+
+- type: entity
+  parent: DrinkBottleGlassBaseFull
+  id: ADTDrinkJuiceLemonCarton
+  name: lemon juice
+  description: juice from lemon.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: JuiceLemon
+          Quantity: 50
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/lemonjuice.rsi
+

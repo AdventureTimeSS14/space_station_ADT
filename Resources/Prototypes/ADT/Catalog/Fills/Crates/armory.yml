@@ -1,0 +1,36 @@
+#- type: entity
+#  id: ADTCrateMindshieldImplants
+#  parent: CrateCommandSecure
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: ADTMindShieldImplanter
+#        amount: 2
+
+- type: entity
+  id: ADTCrateArmoryUSSPPistols
+  parent: CrateWeaponSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponPistolPMM
+        amount: 2
+      - id: ADTWeaponPistolPM9
+        amount: 1
+      - id: ADTWeaponRevolverNagant
+        amount: 1
+      - id: ADTMagazinePistolPMM
+        amount: 6
+      - id: MagazineBoxLightRifle
+        amount: 1
+
+- type: entity
+  id: ADTCrateArmorySALR36
+  parent: CrateWeaponSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponLasgunSALR36
+        amount: 2
+      - id: ADTPowerCellLasgun
+        amount: 4

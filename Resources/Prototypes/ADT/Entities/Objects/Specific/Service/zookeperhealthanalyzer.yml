@@ -1,0 +1,54 @@
+- type: entity
+  name: Zookeper health analyzer
+  parent:
+    - BaseItem
+    - PowerCellSlotSmallItem
+  id: ADTZookeperHandheldHealthAnalyzer
+  description: A hand-held body scanner capable of distinguishing vital signs of the subject. This one is zookeper's one
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/zookeperhealthanalyzer.rsi
+    state: icon
+    layers:
+    - state: icon
+    - state: analyzer
+      shader: unshaded
+      visible: true
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: PowerCellDraw
+    drawRate: 0
+    useRate: 20
+  - type: ActivatableUIRequiresPowerCell
+  - type: ActivatableUI
+    key: enum.HealthAnalyzerUiKey.Key
+    closeOnHandDeselect: false
+  - type: UserInterface
+    interfaces:
+      - key: enum.HealthAnalyzerUiKey.Key
+        type: HealthAnalyzerBoundUserInterface
+  - type: HealthAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: Tag
+    tags:
+    - DiscreteHealthAnalyzer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: GuideHelp
+    guides:
+    - Medical Doctor
+
+- type: entity
+  id: ZookeperHandheldHealthAnalyzerEmpty
+  parent: ADTZookeperHandheldHealthAnalyzer
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

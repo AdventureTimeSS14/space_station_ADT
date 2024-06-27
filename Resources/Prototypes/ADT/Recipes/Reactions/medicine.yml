@@ -1,0 +1,200 @@
+# новые доп. препараты.
+
+
+
+#bicaridine
+- type: reaction
+  id: ADTMSodiumizole
+  reactants:
+    Bicaridine:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Sodium:
+      amount: 1
+  products:
+    ADTMSodiumizole: 2
+
+- type: reaction
+  id: ADTMNitrofurfoll
+  reactants:
+    Bicaridine:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTMNitrofurfoll: 2
+
+- type: reaction
+  id: ADTMPeroHydrogen
+  reactants:
+    Bicaridine:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Hydrogen:
+      amount: 1
+  products:
+    ADTMPeroHydrogen: 2
+
+#Dermaline
+- type: reaction
+  id: ADTMAnelgesin
+  reactants:
+    Dermaline:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTMAnelgesin: 2
+
+- type: reaction
+  id: ADTMMinoxide
+  reactants:
+    Dermaline:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Hydrogen:
+      amount: 1
+  products:
+    ADTMMinoxide: 2
+
+#Dylovene
+- type: reaction
+  id: ADTMBiomicine
+  reactants:
+    Dylovene:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTMBiomicine: 2
+
+#DexalinPlus
+- type: reaction
+  id: ADTMNikematide
+  reactants:
+    DexalinPlus:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Hydrogen:
+      amount: 1
+  products:
+    ADTMNikematide: 2
+
+- type: reaction
+  id: ADTMDiethamilate
+  reactants:
+    DexalinPlus:
+      amount: 1
+    ADTCopperNitride:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTMDiethamilate: 2
+
+# Дополнения
+- type: reaction
+  id: ADTMAgolatine
+  minTemp: 370
+  reactants:
+    Carbon:
+      amount: 1
+    Ammonia:
+      amount: 2
+    Oxygen:
+      amount: 1
+  products:
+    ADTMAgolatine: 4
+
+- type: reaction
+  id: ADTMHaloperidol
+  reactants:
+    ADTMAgolatine:
+      amount: 2
+    Chlorine:
+      amount: 1
+  products:
+    ADTMHaloperidol: 3
+
+- type: reaction
+  id: Vitamin
+  reactants:
+    Carbon:
+      amount: 1
+    Hydrogen:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Sodium:
+      amount: 1
+  products:
+    Vitamin: 3
+
+- type: reaction
+  id: ADTMMorphine
+  minTemp: 370
+  reactants:
+    ADTMOpium:
+      amount: 1
+    Water:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    ADTMMorphine: 3
+
+- type: reaction
+  id: ADTMFormalin
+  minTemp: 370
+  reactants:
+    Water:
+      amount: 2
+    Vinegar: #тут не совсем должен быть уксус, а формальдегит. Но в таком случае придётся делать ещё один препарат от гниения.
+      amount: 1
+    Iron:
+      amount: 1
+      catalyst: true
+  products:
+    ADTMFormalin: 3
+
+#Кровоостанавливающая пудра
+- type: reaction
+  id: ADTStypticPowder
+  reactants:
+    Aluminium:
+      amount: 1
+    Hydrogen:
+      amount: 1
+    Oxygen:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    ADTStypticPowder: 4
+#Сульфадиазин серебра
+- type: reaction
+  id: ADTSilverSulfadiazine
+  reactants:
+    Ammonia:
+      amount: 1
+    Silver:
+      amount: 1
+    Sulfur:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Chlorine:
+      amount: 1
+  products:
+    ADTSilverSulfadiazine: 5
+

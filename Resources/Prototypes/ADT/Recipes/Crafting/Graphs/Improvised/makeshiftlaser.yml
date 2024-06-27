@@ -1,0 +1,37 @@
+- type: constructionGraph
+  id: makeshiftlaser
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: makeshiftlaser
+          steps:
+            - material: MetalRod
+              amount: 5
+            - material: Cable
+              amount: 15
+            - material: Glass
+              amount: 10
+            - tag: PowerCellMedium
+              name: Power Cell Medium
+              icon:
+                sprite: Objects/Power/power_cells.rsi
+                state: medium
+            - tag: CapacitorStockPart
+              name: Capacitor Stock Part
+              icon:
+                sprite: Objects/Misc/stock_parts.rsi
+                state: capacitor
+            - tag: CapacitorStockPart
+              name: capacitor
+              icon:
+                sprite: Objects/Misc/stock_parts.rsi
+                state: capacitor
+            - tag: CapacitorStockPart
+              name: capacitor
+              icon:
+                sprite: Objects/Misc/stock_parts.rsi
+                state: capacitor
+              doAfter: 20
+    - node: makeshiftlaser
+      entity: WeaponMakeshiftLaser

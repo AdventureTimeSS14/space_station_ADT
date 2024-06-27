@@ -1,0 +1,105 @@
+#Посуда, всякие стаканы и столовые приборы
+- type: entity
+  name: mixing-glass-name
+  parent: BaseBeaker
+  description: mixing-glass-desc
+  id: ADTMixingGlass
+  components:
+  - type: Spillable
+    solution: beaker
+  - type: Sprite
+    sprite: ADT/Objects/Misc/mixing_glass.rsi
+    layers:
+      - state: mixing_glass
+      - state: mixing_glass1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: mixing_glass-front
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Misc/mixing_glass.rsi
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 90
+        canMix: true
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 9
+    fillBaseName: mixing_glass
+  - type: StaticPrice
+    price: 30
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+    minTransferAmount: 1
+    maxTransferAmount: 50
+    transferAmount: 1
+    #toggleState: 1 # draw
+
+- type: entity
+  parent: BaseItem
+  id: ADTJigger
+  name: jigger
+  description: a little cup.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+  - type: Drink
+    isOpen: true
+  - type: Item
+    size: Small
+  - type: FitsInDispenser
+    solution: drink
+  - type: DrawableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+    minTransferAmount: 1
+    maxTransferAmount: 5
+    transferAmount: 1
+    #toggleState: 1 # draw
+  - type: Spillable
+    solution: drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/jigger.rsi
+    state: icon
+  - type: UserInterface
+    interfaces:
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+
+- type: entity
+  name: Glass jug
+  description: A glass jug. Perfect container for lemonade
+  parent: DrinkGlassBase
+  id: ADTDrinkGlassJug
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/glass_jug.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Item
+    size: Normal
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 150
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill

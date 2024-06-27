@@ -1,0 +1,133 @@
+- type: entity
+  name: underwear box
+  parent: BoxCardboard
+  id: ADTUnderwearBox
+  description: A cardboard box with underwear.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/underwear_boxes.rsi
+    state: box
+  - type: Item
+    sprite: ADT/Objects/Storage/underwear_boxes.rsi
+    size: Normal
+  - type: Storage
+    maxItemSize: Normal
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersWhite
+      - id: ClothingUnderwearBottomPantiesWhite
+      - id: ClothingUnderwearTopBraWhite
+
+- type: entity
+  name: captain's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxCap
+  description: A cardboard box with captain's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersCap
+      - id: ClothingUnderwearBottomPantiesCap
+      - id: ClothingUnderwearTopBraCap
+  - type: Sprite
+    state: cap
+
+- type: entity
+  name: blueshield's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxBlueshield
+  description: A cardboard box with blueshield's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingUnderwearBottomBoxersBlueshield
+      - id: ADTClothingUnderwearTopBraBlueshield
+      - id: ADTClothingUnderwearBottomPantiesBlueshield
+      - id: ADTClothingUnderwearSocksBlueshield
+      - id: ADTClothingUnderwearStockingsBlueshield
+  - type: Sprite
+    state: bsh
+
+- type: entity
+  name: chief engineer's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxCE
+  description: A cardboard box with chief engineer's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersCE
+      - id: ClothingUnderwearBottomPantiesCE
+      - id: ClothingUnderwearTopBraCE
+  - type: Sprite
+    state: ce
+
+- type: entity
+  name: chief medical officer's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxCMO
+  description: A cardboard box with chief medical officer's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersCMO
+      - id: ClothingUnderwearBottomPantiesCMO
+      - id: ClothingUnderwearTopBraCMO
+  - type: Sprite
+    state: cmo
+
+- type: entity
+  name: head of personnel's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxHOP
+  description: A cardboard box with head of personnel's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersHOP
+      - id: ClothingUnderwearBottomPantiesHOP
+      - id: ClothingUnderwearTopBraHOP
+  - type: Sprite
+    state: hop
+
+- type: entity
+  name: head of security's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxHOS
+  description: A cardboard box with head of security's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersHOS
+      - id: ClothingUnderwearBottomPantiesHOS
+      - id: ClothingUnderwearTopBraHOS
+  - type: Sprite
+    state: hos
+
+- type: entity
+  name: quartermaster's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxQM
+  description: A cardboard box with quartermaster's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersQM
+      - id: ClothingUnderwearBottomPantiesQM
+      - id: ClothingUnderwearTopBraQM
+  - type: Sprite
+    state: qm
+
+- type: entity
+  name: research director's underwear box
+  parent: ADTUnderwearBox
+  id: ADTUnderwearBoxRD
+  description: A cardboard box with research director's underwear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearBottomBoxersRD
+      - id: ClothingUnderwearBottomPantiesRD
+      - id: ClothingUnderwearTopBraRD
+  - type: Sprite
+    state: rd

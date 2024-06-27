@@ -1,0 +1,66 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckScarfWindy
+  name:  a windy scarf
+  description: It's don't seem to be a wind here...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/windyscarf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/windyscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBlueFur
+  name:  blue fur tape
+  description: This fur tape ideal set in your garderobe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/bluefurtape.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/bluefurtape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckPinkFur
+  name:  pink fur tape
+  description: This fur tape ideal set in your garderobe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/pinkfurtape.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/pinkfurtape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBlackFur
+  name:  black fur tape
+  description: This fur tape ideal set in your garderobe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/blackfurtape.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/blackfurtape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckChefPovarFio
+  name:  pink fur tape
+  description: This fur tape ideal set in your garderobe
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/chefpovarfio.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/chefpovarfio.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckScarfUnrobust
+  name:  unrobust scarf
+  description: A scarf confirming that its wearer is worthy of the title of the chief unrobust in the galaxy, who has not won a single battle. The scarf is a stigma that its wearer will always be doomed to failure and ridicule from others. However, he will wear it with pride and dignity, ready for the next failure.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/unrobust_scarf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/unrobust_scarf.rsi
+

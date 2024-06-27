@@ -1,0 +1,25 @@
+- type: entity
+  id: ADTCigarNe4toCase
+  parent: CigarCase
+  name: case Melnicov
+  description: Case
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTMelnikovCigar
+      amount: 8
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/melnikov_case.rsi
+
+- type: entity
+  id: ADTCigarSchrodingerCase
+  parent: CigarCase
+  name: case Melnicov
+  description: Case
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTSchrodingerCigar
+      amount: 8
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/melnikov_case.rsi

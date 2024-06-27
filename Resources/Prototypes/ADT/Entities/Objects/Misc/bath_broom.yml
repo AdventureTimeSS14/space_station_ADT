@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseItem
+  id: ADTBathBroom
+  name: bath broom
+  description: A broom made of dried leaves.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/bathbroom.rsi
+      state: icon
+    - type: StaminaDamageOnHit
+      damage: 10
+    - type: Item
+      size: Small
+      sprite: ADT/Objects/Misc/bathbroom.rsi
+    - type: MeleeWeapon
+      damage:
+        types:
+          Heat: 3

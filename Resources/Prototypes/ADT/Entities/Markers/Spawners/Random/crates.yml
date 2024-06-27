@@ -1,0 +1,232 @@
+- type: entity
+  name: RandomTraderProduct
+  id: RandomTraderProduct
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - AirCanister
+      - OxygenCanister
+      - LiquidOxygenCanister
+      - NitrogenCanister
+      - LiquidNitrogenCanister
+      - CarbonDioxideCanister
+      - LiquidCarbonDioxideCanister
+      - StorageCanister
+      - PlasmaCanister
+      - CrateHydroponicsSeedsExotic
+      - CrateHydroponicsSeedsMedicinal
+      - CrateHydroponicsTools
+      - CrateHydroponicsSeeds
+      - CratePlantBGone
+      - OreBox
+      - CrateCargoLuxuryHardsuit
+      - ADTCargoUtilisatorComplectCrate
+      - CrateCrewMonitoringBoards
+      - CrateEmergencyExplosive
+      - CrateEmergencyFire
+      - CrateEmergencyInternals
+      - CrateEmergencyInternalsLarge
+      - CrateEmergencyRadiation
+      - CrateEmergencyInflatablewall
+      - CrateSlimepersonLifeSupport
+      - CrateGenericBiosuit
+      - CrateEngineeringCableLV
+      - CrateEngineeringCableMV
+      - CrateEngineeringCableHV
+      - CrateEngineeringCableBulk
+      - CrateEngineeringElectricalSupplies
+      - CrateEngineeringStationBeaconBundle
+      - CrateEngineeringJetpack
+      - CrateEngineeringMiniJetpack
+      - CrateAirlockKit
+      - CrateEvaKit
+      - CrateRCDAmmo
+      - CrateRCD
+      - CrateParticleDecelerators
+      - CrateEngineeringVoidJetpack
+      - CrateEngineeringAMEJar
+      - CrateEngineeringSingularityGenerator
+      - CrateEngineeringSingularityContainment
+      - CrateEngineeringSingularityCollector
+      - CrateEngineeringParticleAccelerator
+      - CrateEngineeringSolar
+      - CrateEngineeringTeslaGenerator
+      - CrateEngineeringTeslaCoil
+      - CrateEngineeringTeslaGroundingRod
+      - CrateFoodPizza
+      - CrateFoodPizzaLarge
+      - CrateFoodMRE
+      - CrateFoodCooking
+      - CrateFoodDinnerware
+      - CrateFoodBarSupply
+      - CrateFoodSoftdrinks
+      - CrateFoodSoftdrinksLarge
+      - CrateFunInstrumentsVariety
+      - CrateFunInstrumentsBrass
+      - CrateFunInstrumentsString
+      - CrateFunInstrumentsWoodwind
+      - CrateFunInstrumentsKeyedPercussion
+      - CrateFunInstrumentsSpecial
+      - CrateFunArtSupplies
+      - CrateFunParty
+      - CrateFunWaterGuns
+      - CrateFunPlushie
+      - CrateFunLizardPlushieBulk
+      - CrateFunLightImplants
+      - CrateFunSadTromboneImplants
+      - CrateFunBoxing
+      - CrateFunPirate
+      - CrateFunToyBox
+      - CrateFunBikeHornImplants
+      - CrateFunMysteryFigurines
+      - CrateFunDartsSet
+      - CrateNPCBee
+      - CrateNPCButterflies
+      - CrateNPCCat
+      - CrateNPCChicken
+      - CrateNPCCrab
+      - CrateNPCDuck
+      - CrateNPCPuppyCorgi
+      - CrateNPCCow
+      - CrateNPCGoat
+      - CrateNPCGoose
+      - CrateNPCGorilla
+      - CrateNPCMonkeyCube
+      - CrateNPCKoboldCube
+      - CrateNPCMouse
+      - CrateNPCParrot
+      - CrateNPCPenguin
+      - CrateNPCPig
+      - CrateNPCSnake
+      - CrateNPCHamster
+      - CrateNPCLizard
+      - CrateNPCKangaroo
+      - CrateNPCMothroach
+      - CrateNPCCorgi
+      - CrateMaterialGlass
+      - CrateMaterialSteel
+      - CrateMaterialPlastic
+      - CrateMaterialPlasteel
+      - CrateMaterialTextiles
+      - CrateMaterialPlasma
+      - CrateMaterialCardboard
+      - CrateMaterialPaper
+      - WeldingFuelTankFull
+      - WaterTankFull
+      - CrateMedicalSupplies
+      - CrateChemistrySupplies
+      - CrateChemistryVials
+      - CrateEmergencyBurnKit
+      - CrateEmergencyToxinKit
+      - CrateEmergencyO2Kit
+      - CrateEmergencyBruteKit
+      - CrateEmergencyAdvancedKit
+      - CrateEmergencyRadiationKit
+      - CrateBodyBags
+      - CrateVirologyBiosuit
+      - CrateMindShieldImplants
+      - CrateChemistryP
+      - CrateChemistryS
+      - CrateChemistryD
+      - CrateArtifactContainer
+      - RandomArtifactSpawner
+      - CrateScienceBiosuit
+      - Thruster
+      - Gyroscope
+      - CrateServiceJanitorialSupplies
+      - CrateServiceReplacementLights
+      - CrateMousetrapBoxes
+      - CrateServiceTheatre
+      - CrateServiceSmokeables
+      - CrateServiceCustomSmokable
+      - CrateServiceBureaucracy
+      - CrateServicePersonnel
+      - CrateServiceBooks
+      - CrateServiceGuidebooks
+      - CrateServiceSodaDispenser
+      - CrateServiceBoozeDispenser
+      - CrateServiceBox
+      - CrateJanitorBiosuit
+      - FoodCartHot
+      - FoodCartCold
+      - PetCarrier
+      - CrateJanitorExplosive
+
+- type: entity
+  name: RandomTraderRareProduct
+  id: RandomTraderRareProduct
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - WelderExperimental
+      - JawsOfLife
+      - RPED
+      - RCDEmpty
+      - RCDAmmo
+      - ClothingShoesBootsSpeed
+      - ClothingShoesBootsMagSci
+      - WeaponGauntletGorilla
+      - WeaponPistolCHIMP
+      - DeviceQuantumSpinInverter
+      - WeaponProtoKineticAccelerator
+      - WeaponTetherGun
+      - WeaponGrapplingGun
+      - WeaponForceGun
+      - MiningDrill
+      - PowerCellMicroreactor
+      - CrateCargoGambling
+
+- type: entity
+  name: RandomTraderArmory
+  id: RandomTraderArmory
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - CrateArmorySMG
+      - CrateArmoryShotgun
+      - CrateTrackingImplants
+      - CrateTrainingBombs
+      - CrateArmoryLaser
+      - CrateArmoryPistols
+      - CrateSecurityArmor
+      - CrateSecurityHelmet
+      - CrateSecurityNonlethal
+      - CrateSecurityRiot
+      - CrateSecuritySupplies
+      - CrateRestraints
+      - CrateSecurityBiosuit
+      - CrateSecurityHardsuit
+      - CrateSecurityUSSPjuggernaut
+
+- type: entity
+  name: RandomTraderLoot
+  id: RandomTraderLoot
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTTallRobotFMekaCargo
+      - ADTTallRobotFMekaEng
+      - ADTTallRobotFMekaJani
+      - ADTTallRobotFMekaMed
+      - ADTTallRobotFMekaServe
+      - ADTTallRobotMekaCargo
+      - ADTTallRobotMekaEng
+      - ADTTallRobotMekaJani
+      - ADTTallRobotMekaMed
+      - ADTTallRobotMekaServe

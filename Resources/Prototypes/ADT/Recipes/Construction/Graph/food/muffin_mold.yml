@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: ADTMuffinMold
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: batter
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTMuffinMoldBatter
+            - !type:DeleteEntity
+          steps:
+            - tag: ADTCakeBatter
+              store: batterSlot #storagebase
+              doAfter: 1
+    - node: batter
+      entity: ADTMuffinMoldBatter

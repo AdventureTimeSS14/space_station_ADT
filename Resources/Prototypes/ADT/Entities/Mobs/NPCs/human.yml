@@ -1,0 +1,163 @@
+- type: entity
+  noSpawn: true
+  name: Hermit
+  description: He looks shabby.
+  parent: MobHuman
+  id: MobHermit
+  components:
+    - type: GhostRole
+      name: ghost-role-information-hermit-name
+      description: ghost-role-information-hermit-description
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ ADTHemritEquipment ]
+    - type: Icon
+      sprite: ADT/Mobs/Lavaland/hermit.rsi
+      state: fulls
+
+- type: entity
+  name: Hermit spawner
+  id: MobHermitSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Mobs/Lavaland/hermit.rsi
+          state: fulls
+    - type: ConditionalSpawner
+      prototypes:
+        - MobHermit
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobHermitDummy
+  noSpawn: true
+  description: A dummy hermit.
+  components:
+  - type: HumanoidAppearance
+    species: Human
+
+- type: entity
+  save: false
+  name: Ash walker
+  parent: BaseHumLavalandMob
+  id: BaseMobAshWalker
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: Reptilian
+  - type: Body
+    prototype: Human
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5.5
+  - type: RandomMetadata
+    nameSegments:
+      - names_reptilian_male
+  - type: Loadout
+    prototypes: [ ADTAshWalkerEquipment ]
+  - type: Hunger
+    starvationDamage:
+      types:
+        Cold: 0.05
+        Bloodloss: 0.05
+  - type: Puller
+    needsHands: false
+  - type: Thirst
+  - type: Icon
+    sprite: ADT/Mobs/Lavaland/ashwalker.rsi
+    state: ash
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-ashwalker-name
+    description: ghost-role-information-ashwalker-description
+  - type: GhostTakeoverAvailable
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatLizard
+      amount: 5
+  - type: Inventory
+    speciesId: reptilian
+  - type: LizardAccent
+  #- type: LizardBlood
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+  - type: TypingIndicator
+    proto: lizard
+  - type: Vocal
+    sounds:
+      Male: UnisexReptilian
+      Female: UnisexReptilian
+      Unsexed: UnisexReptilian
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: AshWalker
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Temperature
+    heatDamageThreshold: 400
+    coldDamageThreshold: 260  #starting temperature damage treshold
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold : 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.5 #per second, scales with temperature & other constants
+  - type: Wagging
+  # Frontier - languages mechanic
+  - type: LanguageSpeaker
+    speaks:
+    - CintaTaj
+    understands:
+    - CintaTaj
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.12
+    short: true
+    shortscale: 0.9
+
+- type: entity
+  save: false
+  name: Ash walker
+  description: Aboriginal, extremely aggressive.
+  parent: BaseMobAshWalker
+  id: MobAshWalker
+
+- type: entity
+  name: Ash walker spawner
+  id: MobAshWalkerSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/job.rsi
+          state: green
+        - sprite: ADT/Mobs/Lavaland/ashwalker.rsi
+          state: ash
+    - type: ConditionalSpawner
+      prototypes:
+        - MobAshWalker
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAshWalkerDummy
+  noSpawn: true
+  description: A dummy ashwalker.
+  components:
+  - type: HumanoidAppearance
+    species: Reptilian

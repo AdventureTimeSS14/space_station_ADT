@@ -1,0 +1,34 @@
+- type: storeCategory
+  id: ADTUplinkShuttle
+  name: store-category-shuttle
+  priority: 9
+
+- type: listing
+  id: ADTUplinkCombatEmitterSmall
+  name: uplink-comb-emi-name
+  description: uplink-comb-emi-desc
+  productEntity: NesCombatEmitterSmall
+  cost:
+    Telecrystal: 30
+  categories:
+  - ADTUplinkShuttle
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkCombatEmitter
+  name: uplink-comb-emi2-name
+  description: uplink-comb-emi2-desc
+  productEntity: NesCombatEmitter
+  cost:
+    Telecrystal: 60
+  categories:
+  - ADTUplinkShuttle
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

@@ -1,0 +1,31 @@
+- type: entity
+  id: ADTMelnikovCigar
+  parent: CigarGold
+  name: Sigar Melnikov
+  description: Sigar
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 45
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 40
+          - ReagentId: Omnizine
+            Quantity: 5
+
+- type: entity
+  id: ADTSchrodingerCigar
+  parent: CigarGold
+  name: Sigar Gold
+  description: Sigar
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 45
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 40
+          - ReagentId: Omnizine
+            Quantity: 5

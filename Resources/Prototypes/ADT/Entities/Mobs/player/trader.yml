@@ -1,0 +1,17 @@
+- type: entity
+  noSpawn: true
+  parent: MobHuman
+  id: Trader
+  name: Trader
+  components:
+    - type: MindShield
+    - type: GhostRole
+      name: ghost-role-information-trader
+      description: ghost-role-information-trader-description
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 162000 # 45h overall
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ Trader ]

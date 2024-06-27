@@ -1,0 +1,8 @@
+- type: startingGear
+  id: ADTAshWalkerEquipment
+  equipment:
+    shoes: ClothingShoesCult 
+    head: ClothingHeadHelmetBone 
+    outerClothing: ClothingOuterArmorBone 
+    back: SpearBone
+

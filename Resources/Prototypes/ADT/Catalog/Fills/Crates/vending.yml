@@ -1,0 +1,8 @@
+- type: entity
+  id: ADTCrateVendingMachineRestockStyleoMatFilled
+  name: Style-o-Mat restock crate
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTVendingMachineRestockStyle

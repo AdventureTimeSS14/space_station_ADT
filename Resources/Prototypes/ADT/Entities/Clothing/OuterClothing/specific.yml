@@ -1,0 +1,58 @@
+## Бронижилет с возможностью подрыва
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTOuterClothingShahid
+  name: ShahidBelt
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Fun/ShahidBelt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Fun/ShahidBelt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.8
+        Piercing: 0.6
+        Heat: 0.9
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,3
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  # to prevent bag open/honk spam
+  - type: UseDelay
+    delay: 0.5
+  - type: StorageFill
+    contents:
+      - id: RemoteSignaller
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
+    explosionType: DemolitionCharge
+    totalIntensity: 80
+    intensitySlope: 7
+    maxIntensity: 30
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 500
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:ExplodeBehavior
+

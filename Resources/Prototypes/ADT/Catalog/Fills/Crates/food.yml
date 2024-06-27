@@ -1,0 +1,68 @@
+- type: entity
+  id: ADTCrateFishFreezer
+  parent: CrateFreezer
+  name: Crate of fillet of fish
+  description: Crate with 6 fillet of fish and 3 fish cutlet.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodFish
+      amount: 6
+    - id: ADTFoodFishCutlet
+      amount: 3
+
+- type: entity
+  id: ADTCrateChocolateGorilla
+  parent: CratePlastic
+  name: chocolate gorilla crate
+  description: chocolate gorilla crate
+  suffix: New Year
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTChocolateGorillaLarge
+      amount: 1
+    
+- type: entity
+  id: ADTCrateHalloweenFood
+  parent: CratePlastic
+  name: halloween candy crate
+  description: halloween candy crate
+  suffix: Halloween
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoxHalloweenCandy
+      amount: 4
+    - id: ADTHalloweenCandyBowl
+    - id: ADTHalloweenSmileCandyBowl
+    - id: ADTHalloweenNTCandyBowl
+    - id: ADTHalloweenSyndieCandyBowl
+    - id: ADTHalloweenZombieCandyBowl
+    - id: ADTHalloweenSealCandyBowl
+
+
+
+- type: entity
+  id: ADTCrateOktoberfestSnack
+  parent: CratePlastic
+  name: oktoberfest snack crate
+  description: oktoberfest snack crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodWeissWurst
+      amount: 6
+    - id: ADTFoodBratWurst
+      amount: 6
+    - id: ADTFoodBreadBrezel
+      amount: 4
+    - id: ADTFoodBreadBrezelPoppySeeds
+      amount: 4
+    - id: ADTFoodBreadBrezelSalt
+      amount: 4
+    - id: ADTFoodBreadBrezelChocolate
+      amount: 4
+    - id: ADTFoodBreadBrezelVanilla
+      amount: 4

@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseItem
+  id: ADTWiretappingToy
+  name: WiretappingToy
+  abstract: true
+  components:
+  - type: Matchbox
+  - type: StorageFill
+    contents:
+      - id: ADTWiretapping
+  - type: Storage
+    grid:
+    - 0,0,1,0
+    maxItemSize: Small
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+
+
+- type: entity
+  parent: [ PlushieBee, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieBee
+  name: bee plushie
+  description: A cute toy that resembles an even cuter programmer. You'd have to be a monster to grind this up.
+
+- type: entity
+  parent: [ PlushieSharkPink, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieSharkPink
+  name: pink shark soft toy
+  description: Hehe shonk :)
+
+- type: entity
+  parent: [ PlushieCarp, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieCarp
+  name: carp plushie
+  description: An adorable stuffed toy that resembles the monstrous space carp.
+
+- type: entity
+  parent: [ PlushieSlime, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieSlime
+  name: slime plushie
+  description: An adorable stuffed toy that resembles a slime. It's basically a hacky sack.

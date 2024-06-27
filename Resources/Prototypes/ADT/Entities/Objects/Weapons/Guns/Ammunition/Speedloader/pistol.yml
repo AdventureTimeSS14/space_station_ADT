@@ -1,0 +1,82 @@
+- type: entity
+  id: BaseSpeedLoader357
+  name: "speed loader (.357 magnum)"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - SpeedLoader357
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Cartridge357
+    capacity: 7
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Item
+    size: Small
+
+- type: entity
+  id: SpeedLoader357
+  name: "speed loader (.357 magnum)"
+  parent: BaseSpeedLoader357
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/muchhurt_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-7
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader357Rubber
+  name: "speed loader (.357 magnum rubber)"
+  parent: BaseSpeedLoader357
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357Rubber
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/muchhurt_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: rubber-7
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: rubber
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader357AP
+  name: "speed loader (.357 magnum armor-piercing)"
+  parent: BaseSpeedLoader357
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357AP
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/muchhurt_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-7
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 8
+    zeroVisible: false
+  - type: Appearance

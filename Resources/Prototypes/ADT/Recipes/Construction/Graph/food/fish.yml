@@ -1,0 +1,33 @@
+- type: constructionGraph
+  id: FilletFish
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: fish fillet
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 305
+
+  - node: fish fillet
+    entity: ADTFoodFishCooked
+
+- type: constructionGraph
+  id: FishCutlet
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: fish cutlet
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 305
+
+  - node: fish cutlet
+    entity: ADTFoodFishCutletCooked

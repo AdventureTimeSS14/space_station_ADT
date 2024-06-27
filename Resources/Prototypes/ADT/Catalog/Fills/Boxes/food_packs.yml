@@ -1,0 +1,69 @@
+#New Year
+- type: entity
+  name: carnation pack
+  parent: BoxCardboard
+  id: ADTCarnationPack
+  description: Just a usual pack of an usual carnation.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/carnation_pack.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Storage/carnation_pack.rsi
+    size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,10,7
+    maxItemSize: Tiny
+  - type: StorageFill
+    contents:
+      - id: ADTFoodCarnation
+        amount: 3
+
+- type: entity
+  name: cinnamon pack
+  parent: BoxCardboard
+  id: ADTCinnamonPack
+  description: A pack of cinnamon.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/cinnamon_pack.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Storage/cinnamon_pack.rsi
+    size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,10,7
+    maxItemSize: Tiny
+  - type: StorageFill
+    contents:
+      - id: ADTFoodCinnamon
+        amount: 5
+
+#сухой паек римворлд
+
+- type: entity
+  name: M.R.E.
+  parent: BoxCardboard
+  id: ADTBoxMRERimworld
+  description: A box of decades old military surplus rations. It is surprisingly not rotten.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,1
+  - type: StorageFill
+    contents:
+      - id: FoodTinMRE
+      - id: FoodTinPeaches
+      - id: FoodSnackMREBrownie
+      - id: FoodTinBeans
+      - id: ADTMVitaminCanister
+      - id: DrinkWaterBottleFull
+      - id: MaterialCloth
+  - type: Sprite
+    sprite: ADT/Objects/Storage/rimworld_mre.rsi
+    state: icon

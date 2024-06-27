@@ -1,0 +1,44 @@
+#КЗС-1
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterVestUSSPKZS1
+  name: KZS-1 vest
+  description: A synthetic armor vest. This one has added webbing and ballistic plates.
+  suffix: USSP
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.6
+          Heat: 0.7
+    - type: ExplosionResistance
+      damageCoefficient: 0.7
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingTSFArmor
+  name: TSF bulletproof vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/tsf_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/tsf_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+  - type: Item
+    size: Large

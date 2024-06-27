@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ADTCentComShuttleConsoleCircuitboard
+  name: консоль управления шаттлом ЦК
+  description: Плата консоли, используемая для постройки консоли управления ЦК шаттлом.
+  components:
+    - type: ComputerBoard
+      prototype: ADTComputerShuttleCentCom

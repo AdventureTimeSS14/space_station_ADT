@@ -1,0 +1,19 @@
+#Пилот СССП
+- type: startingGear
+  id: ADTUSSPArmyPilotGear
+  equipment:
+    jumpsuit: ADTPilotUSSPUniform 
+    back: ADTClothingBackpackOR40L_PilotGear
+    shoes: ADTClothingShoesBootsUSSPArmy
+    mask: ADTClothingMaskGasUSSP
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterHardsuitSL5USSP
+    id: ADTUSSPArmyOfficerCard
+    ears: ADTClothingHeadsetUSSPSpetznaz
+    pocket1: ADTWeaponSMGSR2M
+    belt: ADTClothingBeltOfficersbeltwithholster
+    underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear

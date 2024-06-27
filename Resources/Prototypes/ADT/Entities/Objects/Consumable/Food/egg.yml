@@ -1,0 +1,60 @@
+- type: entity
+  name: fried-egg-name
+  parent: FoodInjectableBase
+  id: ADTFriedEggSausage
+  description: fried-egg-desc
+  components:
+  - type: FlavorProfile
+    flavors:
+      - egg
+      - meaty
+  - type: Food
+    transferAmount: 3
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/fried_egg.rsi
+    state: fried_egg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTCarnivoreFriendlyFood
+
+- type: entity
+  parent: FoodEggBase
+  id: ADTFoodEggBoiledEaster
+  name: easter egg
+  description: easter egg
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: EggCooked
+          Quantity: 6
+  - type: Temperature
+    # preserve temperature from the boiling step
+    currentTemperature: 344
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          blue: ""
+          green: ""
+          orange: ""
+          purple: ""
+          rainbow: ""
+          red: ""
+          yellow: ""

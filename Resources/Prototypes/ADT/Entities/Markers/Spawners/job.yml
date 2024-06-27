@@ -1,0 +1,196 @@
+- type: entity
+  id: ADTSpawnPointJobBase
+  parent: MarkerBase
+  abstract: true
+  suffix: Job Spawn ADT
+  components:
+  - type: SpawnPoint
+    spawn_type: Job
+  - type: Sprite
+    sprite: ADT/Markers/job.rsi
+
+- type: entity
+  id: ADTSpawnPointInvestigator
+  parent: ADTSpawnPointJobBase
+  name: Investigator
+  components:
+  - type: SpawnPoint
+    job_id: ADTInvestigator
+  - type: Sprite
+    layers:
+      - state: green
+      - state: investigator
+
+- type: entity
+  id: ADTSpawnPointMagistrat
+  parent: ADTSpawnPointJobBase
+  name: Magistrat
+  components:
+  - type: SpawnPoint
+    job_id: Magistrat
+  - type: Sprite
+    layers:
+      - state: green
+      - state: magistrat
+
+- type: entity
+  id: ADTSpawnPointLawyer
+  parent: ADTSpawnPointJobBase
+  name: Lawyer
+  components:
+  - type: SpawnPoint
+    job_id: Lawyer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: urist
+
+- type: entity
+  id: ADTSpawnPointIAA
+  parent: ADTSpawnPointJobBase
+  name: IAA
+  components:
+  - type: SpawnPoint
+    job_id: IAA
+  - type: Sprite
+    layers:
+      - state: green
+      - state: iaa
+
+- type: entity
+  id: ADTSpawnPointEngiBorg
+  parent: ADTSpawnPointJobBase
+  name: EngiBorg
+  components:
+  - type: SpawnPoint
+    job_id: ADTEngiBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: engineer
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: engineer_e
+
+- type: entity
+  id: ADTSpawnPointJanitorBorg
+  parent: ADTSpawnPointJobBase
+  name: JanitorBorg
+  components:
+  - type: SpawnPoint
+    job_id: ADTJanitorBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: janitor
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: janitor_e
+
+- type: entity
+  id: ADTSpawnPointMedicalBorg
+  parent: ADTSpawnPointJobBase
+  name: MedicalBorg
+  components:
+  - type: SpawnPoint
+    job_id: ADTMedicalBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: medical
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: medical_e
+
+- type: entity
+  id: ADTSpawnPointServiseBorg
+  parent: ADTSpawnPointJobBase
+  name: ServiseBorg
+  components:
+  - type: SpawnPoint
+    job_id: ADTServiseBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: service
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: service_e
+
+- type: entity
+  id: ADTSpawnPointADTSupplyBorg
+  parent: ADTSpawnPointJobBase
+  name: SupplyBorg
+  components:
+  - type: SpawnPoint
+    job_id: ADTSupplyBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: miner
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: miner_e
+
+- type: entity
+  id: SpawnPointADTPathologist
+  parent: ADTSpawnPointJobBase
+  name: pathologist
+  components:
+  - type: SpawnPoint
+    job_id: ADTPathologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: pathologist
+
+- type: entity
+  id: ADTSpawnPointSecurityCyborg
+  parent: ADTSpawnPointJobBase
+  name: SecurityCyborg
+  components:
+  - type: SpawnPoint
+    job_id: ADTSecurityCyborg
+  - type: Sprite       # Потом подправить
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: engineer
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: engineer_e
+
+- type: entity
+  id: SpawnMagistrat
+  parent: SpawnPointJobBase
+  name: magistrat spawn
+  components:
+    - type: SpawnPoint
+      job_id: Magistrat
+    - type: Sprite
+      layers:
+        - state: green
+        - state: hop
+
+- type: entity
+  id: SpawnADTBlueShieldOfficer
+  parent: SpawnPointJobBase
+  name: ADTBlueShieldOfficer
+  components:
+    - type: SpawnPoint
+      job_id: ADTBlueShieldOfficer
+    - type: Sprite
+      layers:
+        - state: green
+        - state: blueshield
+
+- type: entity
+  id: ADTSpawnPointRoboticist
+  parent: SpawnPointJobBase
+  name: roboticist
+  components:
+  - type: SpawnPoint
+    job_id: ADTRoboticist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scientist

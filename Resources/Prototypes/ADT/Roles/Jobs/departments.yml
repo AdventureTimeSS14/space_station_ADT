@@ -1,0 +1,13 @@
+- type: department
+  id: Cyborgs
+  description: department-Cyborgs-description
+  color: "#283747"
+  roles:
+  - ADTSupplyBorg
+  - ADTServiseBorg
+  - ADTJanitorBorg
+  - ADTEngiBorg
+  - ADTMedicalBorg
+  - ADTSecurityCyborg
+  - Borg
+  primary: false

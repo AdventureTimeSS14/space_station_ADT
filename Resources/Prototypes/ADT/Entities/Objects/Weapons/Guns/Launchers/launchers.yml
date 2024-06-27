@@ -1,0 +1,54 @@
+- type: entity
+  name: schmel
+  parent: BaseWeaponLauncher
+  id: ADTWeaponLauncherSchmel
+  description: A modified ancient rocket-propelled grenade launcher.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Launchers/schmel.rsi
+    layers:
+      - state: base
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Launchers/schmel.rsi
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ADTCartridgeRocketSchmelTermobar
+    proto: ADTCartridgeRocketSchmelTermobar
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: Appearance
+
+- type: entity
+  name: sapog
+  parent: BaseWeaponLauncher
+  id: ADTWeaponLauncherSapog
+  description: A modified ancient rocket-propelled grenade launcher.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Launchers/sapog.rsi
+    layers:
+      - state: base
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Launchers/sapog.rsi
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ADTCartridgeRocketSchmelTermobar
+        - ADTCartridgeRocketSapogHEAT
+    proto: ADTCartridgeRocketSapogHEAT
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: Appearance

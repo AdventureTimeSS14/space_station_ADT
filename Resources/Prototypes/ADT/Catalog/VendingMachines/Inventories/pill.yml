@@ -1,0 +1,18 @@
+- type: vendingMachineInventory
+  id: PillInventory
+  startingInventory:
+    ADTMSodiumizolePack: 5
+    ADTMNitrofurfollPack: 5
+    ADTMPeroHydrogenBottle: 5
+    ADTMAnelgesinPack: 5
+    ADTMMinoxidePack: 5
+    ADTMNikematideBottle: 5 
+    ADTMDiethamilateBottle: 5
+    ADTMAgolatineCanister: 5
+    ADTMHaloperidolPack: 5
+    ADTMVitaminCanister: 5
+    ADTMCharcoalPack: 5
+    ADTMEthylredoxrazinePack: 5
+  emaggedInventory:
+    ADTMMorphineBottle: 5
+    ADTMOpiumBottle: 5

@@ -1,0 +1,10 @@
+- type: construction
+  name: makeshift laser pistol
+  id: makeshiftlaser
+  graph: makeshiftlaser
+  startNode: start
+  targetNode: makeshiftlaser
+  category: construction-category-weapons
+  description: "Homemade laser pistol."
+  icon: { sprite: Objects/Weapons/Guns/Battery/makeshift.rsi, state: base }
+  objectType: Item

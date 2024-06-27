@@ -1,0 +1,72 @@
+- type: entity
+  parent: Airlock
+  id: AirlockCorporate
+  suffix: Corporate
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/corporate.rsi
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+
+- type: entity
+  parent: Airlock
+  id: AirlockCentcomHatch
+  suffix: Centcom, Hatch
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/centcom_hatch.rsi
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+    securityLevel: maxSecurity
+  - type: Wires
+    boardName: wires-board-name-highsec
+    layoutId: HighSec
+
+- type: entity
+  parent: Airlock
+  id: AirlockCentcomClassic
+  suffix: Centcom, Classic
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/centcom_classic.rsi
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+    securityLevel: maxSecurity
+  - type: Wires
+    boardName: wires-board-name-highsec
+    layoutId: HighSec
+
+- type: entity
+  parent: Airlock
+  id: AirlockCentcom
+  suffix: Centcom
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/centcom.rsi
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+
+#Glass
+- type: entity
+  parent: AirlockGlass
+  id: AirlockCorporateGlass
+  suffix: Corporate
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/corporate.rsi
+  - type: PaintableAirlock
+    group: Glass
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockCentcomGlass
+  suffix: Centcom
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/centcom.rsi
+  - type: PaintableAirlock
+    group: Glass
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity

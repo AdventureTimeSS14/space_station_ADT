@@ -1,0 +1,43 @@
+#Банки. На случай, если когда-нибудь кто-нибудь решит добавить больше.
+
+- type: entity
+  parent: DrinkCanBaseFull
+  id: ADTDrinkNoStopCan
+  name: No Stop Can
+  description: No Stop Can
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: EnergyDrink
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/nostop.rsi
+
+#Хеллоуин
+- type: entity
+  parent: DrinkCanBaseFull
+  id: ADTDrinkHellEnergy
+  name: hell enery
+  description: A special series of 14 Loko and enery drink for a Halloween. Not recommended by doctors.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 10
+        - ReagentId: FourteenLoko
+          Quantity: 15
+        - ReagentId: Ice
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Recyclable
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/hell_energy.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Drinks/hell_energy.rsi

@@ -1,0 +1,30 @@
+- type: entity
+  id: ADTBaseCartridgeStrikeball
+  name: bibis
+  parent: BaseCartridge
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgeBibis
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: Sprite
+    noRot: false
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/airsoft_bibis.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: ADTCartridgeStrikeballBibis
+  name: bibis
+  parent: ADTBaseCartridgeStrikeball
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletBibis

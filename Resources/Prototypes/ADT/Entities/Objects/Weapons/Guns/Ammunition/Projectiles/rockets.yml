@@ -1,0 +1,102 @@
+#продежктайлы для зарядов к "Сапогу" и "Шмелю"
+
+- type: entity
+  id: ADTBulletRocketSchmelTermobar
+  name: termobar rocket
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/ussp_rocketlauncher.rsi
+    layers:
+      - state: schmel
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 80
+    canCreateVacuum: false
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 35
+    solution:
+      reagents:
+      - ReagentId: Phlogiston
+        Quantity: 250
+      - ReagentId: Plasma
+        Quantity: 100
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+- type: entity
+  id: ADTBulletRocketSapog
+  name: HEAT rocket
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/ussp_rocketlauncher.rsi
+    layers:
+      - state: heat
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 8
+    intensitySlope: 3
+    totalIntensity: 120
+    canCreateVacuum: false
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Heat: 125
+        Structural: 600
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+#ракета для Шмеля
+
+- type: entity
+  id: ADTCartridgeRocketSchmelTermobar
+  name: Schmel Termobar Rocket
+  parent: BaseItem
+  description: A 1.5 warhead designed for the RPG-7 launcher. It's unusually slow.
+  components:
+    - type: Tag
+      tags:
+        - ADTCartridgeRocketSchmelTermobar
+    - type: Item
+      size: Small
+    - type: CartridgeAmmo
+      proto: ADTBulletRocketSchmelTermobar
+      deleteOnSpawn: true
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/ussp_rocketlauncher.rsi
+      state: schmel2
+    - type: StaticPrice
+      price: 20
+
+- type: entity
+  id: ADTCartridgeRocketSapogHEAT
+  name: Sapog HEAT Rocket
+  parent: BaseItem
+  description: A 1.5 warhead designed for the RPG-7 launcher. It's unusually slow.
+  components:
+    - type: Tag
+      tags:
+        - ADTCartridgeRocketSapogHEAT
+    - type: Item
+      size: Small
+    - type: CartridgeAmmo
+      proto: ADTBulletRocketSapog
+      deleteOnSpawn: true
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/ussp_rocketlauncher.rsi
+      state: heat2
+    - type: StaticPrice
+      price: 20

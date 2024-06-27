@@ -1,0 +1,56 @@
+- type: entity
+  parent: ReagentContainerBase
+  id: ADTReagentContainerBuckwheat
+  name: buckwheat bag
+  description: A big bag of buckwheat.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTBuckwheatSolids
+          Quantity: 50
+  - type: TrashOnSolutionEmpty
+    solution: food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/buckwheat_pack.rsi
+    state: icon
+
+- type: entity
+  parent: ReagentContainerBase
+  id: ADTReagentContainerCocoaSolid
+  name: cocoa solid bag
+  description: A big bag of cocoa solid. Use water before consumption!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: CocoaPowder
+          Quantity: 30
+  - type: TrashOnSolutionEmpty
+    solution: food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cocoa_pack.rsi
+    state: icon
+
+- type: entity
+  parent: ReagentContainerBase
+  id: ADTIcePacket
+  name: ice-packet-name
+  description: ice packet-desc
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Ice
+          Quantity: 50
+  - type: TrashOnSolutionEmpty
+    solution: food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/ice_pack.rsi
+    state: icon

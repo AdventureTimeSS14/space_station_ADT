@@ -1,0 +1,50 @@
+- type: entity
+  id: WizardActionTeleport
+  name: action-teleport
+  description: action-teleport-desc
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    useDelay: 15
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    event: !type:WizardTeleportActionEvent
+
+- type: entity
+  id: WizardActionShoot
+  name: action-shoot
+  description: action-shoot-desc
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    useDelay: 3
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+      state: icon
+    event: !type:WizardProjectileActionEvent
+
+- type: entity
+  id: WizardActionHeal
+  name: action-heal
+  description: action-heal-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:WizardHealActionEvent
+    useDelay: 5

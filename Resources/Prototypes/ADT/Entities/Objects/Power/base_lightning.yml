@@ -1,0 +1,121 @@
+# licence: cc-by-4.0
+# copyright: modern-nm, modern-nm@yandex.by
+# summary: Здесь описаны лампы для ивентов. Они не требуют энергии, могут управляться через беспроводной канал связи и светят конусом, как EmergencyLight.
+- type: entity
+  name: emergency light
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  id: EmergencyLightRed
+  suffix: red, do not map
+  parent: Poweredlight
+  components:
+  - type: RotatingLight
+  - type: PointLight
+    radius: 12
+    energy: 4.5
+    softness: 0.5
+    offset: "0, 0.2"
+    color: "#B4FCF0"
+    mask: /Textures/Effects/LightMasks/cone.png
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: on
+    color: "#FF4020"
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SmartLight
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - On
+      - Off
+      - Toggle
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTubeRed
+    ejectBulbDelay: 3600
+    damage:
+      types:
+        Heat: 5
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -7
+    range: 5
+    sound:
+      path: /Audio/ADT/Ambience/Objects/warning-buzzer-alarm-fascinatedsound.ogg
+
+- type: entity
+  name: emergency light
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  id: emergencyLightGreen
+  suffix: Green, do not map
+  parent: EmergencyLightRed
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: on
+    color: "#00FF00"
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTubeGreen
+    ejectBulbDelay: 3600
+    damage:
+      types:
+        Heat: 5
+
+- type: entity
+  name: emergency light
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  id: emergencyLightBlue
+  suffix: Blue, do not map
+  parent: EmergencyLightRed
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: on
+    color: "#0000FF"
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTubeBlue
+    ejectBulbDelay: 3600
+    damage:
+      types:
+        Heat: 5
+
+- type: entity
+  name: emergency light
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  id: emergencyLightViolet
+  suffix: Violet, do not map
+  parent: EmergencyLightRed
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: on
+    color: "#EE82EE"
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTubeViolet
+    ejectBulbDelay: 3600
+    damage:
+      types:
+        Heat: 5
+
+- type: entity
+  name: emergency light
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  id: emergencyLightYellow
+  suffix: Yellow, do not map
+  parent: EmergencyLightRed
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: on
+    color: "#FFE400"
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTubeYellow
+    ejectBulbDelay: 3600
+    damage:
+      types:
+        Heat: 5
+
+

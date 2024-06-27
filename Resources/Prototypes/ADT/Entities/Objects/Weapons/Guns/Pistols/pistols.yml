@@ -1,0 +1,202 @@
+- type: entity
+  name: PMM
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolPMM
+  description: PMM pistol
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/pmm.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/pmm.rsi
+  - type: Gun
+    fireRate: 6
+    minAngle: 5
+    maxAngle: 10
+    angleIncrease: 1
+    angleDecay: 10
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/pmm.ogg
+  - type: StaticPrice
+    price: 350
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazinePistolPMM
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazinePistolPMM
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+
+- type: entity
+  name: PM-9
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolPM9
+  description: PM-9 pistol
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/pm9.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/pm9.rsi
+  - type: Gun
+    fireRate: 7.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/pm9.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Weapons/Guns/Cock/pm9_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazinePistolPMM
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+            - ADTMagazinePistolPMM
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+
+
+- type: entity
+  name: Glock 19
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolGlock19
+  description: Glock 19
+  suffix: Lapkee
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/glock19.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/glock19.rsi
+    quickEquip: true
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    minAngle: 0
+    maxAngle: 4
+    fireRate: 5.3
+    angleIncrease: 0
+    angleDecay: 0
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/glock19.ogg
+      params:
+        volume: -5
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Weapons/Guns/Cock/glock19rack.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        #insertSound: /Audio/ADT/Weapons/Guns/MagIn/glock19in.ogg
+        #ejectSound: /Audio/ADT/Weapons/Guns/MagOut/glock19out.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazinePistolHighCapacity
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 900
+
+- type: entity
+  name: DesertEagle
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolDesertEagle
+  description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/deser_eagle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/deser_eagle.rsi
+  - type: Gun
+    minAngle: 10
+    maxAngle: 10
+    angleIncrease: 5
+    angleDecay: 5
+    fireRate: 4.1
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/50_deagle.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum

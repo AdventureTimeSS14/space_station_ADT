@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTRobotEars
+  name: Robot ears
+  description: Edited by one businessman.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/robot_ears.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/robot_ears.rsi
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 15
+  - type: Item
+    size: Normal
+
+#nano scale chameleon
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ADTClothingClothingHeadHelmetNanoScaleChameleon
+  name: Nano scale chameleon helmet
+  description: Very secretive and smells very sugary
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/nano_scale_armor_chameleon_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/nano_scale_armor_chameleon_head.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+  - type: IdentityBlocker

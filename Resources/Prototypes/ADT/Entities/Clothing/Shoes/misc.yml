@@ -1,0 +1,252 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingHandsWhiteHeels
+  name: White heels
+  description: Specially for your dress!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/white_heels.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/white_heels.rsi
+  - type: NoSlip
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingHandsGoldHeels
+  name: Gold heels
+  description: Gold plated heels. How much does it cost?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/gold_heels.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/gold_heels.rsi
+  - type: NoSlip
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClownNightmareShoes
+  name: clown nightmare shoes
+  description: No way.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Halloween/clownnightmareshoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Halloween/clownnightmareshoes.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTGreyClownPsyhoShoes
+  name: grey clown psyho shoes
+  description: grey clown psyho shoes
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Halloween/greyclownshoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Halloween/greyclownshoes.rsi
+
+#Pyotr
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingSandals
+  name: Sandals
+  description: pair of sandals
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsWhite
+  name: white footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/white_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/white_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsBlack
+  name: black footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/black_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/black_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsHighBlack
+  name: high black footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/blackhigh_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/blackhigh_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsHighWhite
+  name: high white footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/whitehigh_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/whitehigh_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsBrown
+  name: brown footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/brown_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/brown_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsHighBrown
+  name: brown white footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/brownhigh_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/brownhigh_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingAidanShoes
+  name: Aidan shoes
+  description: Aidan shoes
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/aidan_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/aidan_shoes.rsi
+
+#туфли и не только от Празата
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootGoldenHeels
+  name: golden heels
+  description: Specially for your dress!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/golden_heels.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/golden_heels.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootLightShoes
+  name: light shoes
+  description: Elegant shoes on a high heels. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/light_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/light_shoes.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWhiteSandals
+  name: white sandals
+  description: White sandals. #кто бы мог подумать.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/white_sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/white_sandals.rsi  #спрайты от dion_clawed
+
+#Вот это да, спортивные ботинки от @prazat911
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ADTClothingFootSportBoots
+  name: sport high boots
+  description: A boots to sport in cold seasons.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sport_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sport_boots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSportRoseShoes
+  name: sport rose shoes
+  description: A pink sport shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sport_rose_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sport_rose_shoes.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSportStepSneakers
+  name: STEP sneakers "Ultra"
+  description: Mucho texto. #извините, час ночи, всё равно всё перепишется ftl файлом.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sport_step_sneakers.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sport_step_sneakers.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootSportZetaCrocs #я полагаю, что это кроксы. 
+  name: sport Zeta crocs 
+  description: A green crocs by clothing series "Zeta"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sport_zeta_crocs.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sport_zeta_crocs.rsi
+
+#New Year
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootElfBoots
+  name: elf boots
+  description: Warm boots to work in a house on north.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/elf_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/elf_boots.rsi  #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootBootsSnowMaiden
+  name: snow maiden's boots
+  description: Warm boots of Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/snow_maiden.rsi  #спрайты от prazat911
+
+

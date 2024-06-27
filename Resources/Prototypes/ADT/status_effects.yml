@@ -1,0 +1,10 @@
+- type: statusEffect
+  id: PainKiller
+  alert: PainKiller
+
+- type: statusEffect
+  id: ADTApathy
+  alert: ADTAlertApathy
+
+- type: statusEffect
+  id: ADTHallucinations

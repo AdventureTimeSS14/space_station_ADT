@@ -1,0 +1,139 @@
+- type: entity
+  id: ADTBookBaseGuide
+  parent: BaseItem
+  name: BaseBook
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: srp-operatorcentcomm-book
+  - type: Tag
+    tags:
+    - Book
+  - type: Item
+    size: Small
+
+- type: entity
+  id: ADTBookSrpOperatorCentComm
+  parent: ADTBookBaseGuide
+  name: SRP Operator CentComm
+  description: A book about cooking new recipe on NT station.
+  components:
+  - type: Sprite
+    layers:
+    - state: srp-operatorcentcomm-book
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - ADTSrpOperatorCentCommGuide
+  - type: Construction
+    graph: SecretBook
+    node: startsrpoperatorcentcomm
+
+- type: entity
+  id: ADTBookNewRecipes
+  parent: ADTBookBaseGuide
+  name: new recipe book
+  description: A book about cooking new recipe on NT station. 
+  components:
+  - type: Sprite
+    layers:
+    - state: new-recipe-book
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - ADTNewRecipes
+  - type: Construction
+    graph: SecretBook
+    node: startcooking
+
+- type: entity
+  id: ADTBookNewCocktails
+  parent: ADTBookBaseGuide
+  name: new coctails note
+  description: Red note with a recipes of new cocktails. Writen by R.S. 
+  components:
+  - type: Sprite
+    layers:
+    - state: new-cocktail-book
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - ADTNewCocktails
+  - type: Construction
+    graph: SecretBook
+    node: startnewcocktails
+
+- type: entity
+  id: ADTBookNewChemicals
+  parent: ADTBookBaseGuide
+  name: magazine about new medication
+  description: A magazine, which consists information about chemicals.
+  components:
+  - type: Sprite
+    layers:
+    - state: chem-book
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - ADTChemicals
+  - type: Construction
+    graph: SecretBook
+    node: startnewchemicals
+
+- type: entity
+  id: ADTSpaceLaw
+  parent: ADTBookBaseGuide
+  name: Корпоративный закон, издание редакции 2568 года
+  description: На страже порядка
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: book_space_law
+  - type: Item
+    size: Tiny
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 6
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+      - KorporateZakon
+  - type: Construction
+    graph: SecretBook
+    node: startspacelaw
+
+- type: entity
+  parent: BookBase
+  id: ADTBookInvestigator
+  name: Investigator. Standart Job Procedures
+  description: This big and very heavy book contain a SJP of Investigator.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+        - state: book_space_law
+    - type: Paper
+      content: book-text-investigator
+    - type: MeleeWeapon
+      attackRate: 1
+      damage:
+        types:
+          Blunt: 5
+
+- type: entity
+  parent: BookBase
+  id: ADTBookPhilosophyArtifact
+  name: The philosophy of the Artifact
+  description: The book is in new condition, the cover depicts an artifact in the depths of space debris.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+        - state: book_science
+    - type: Paper
+      content: book-text-philosophy-artifact

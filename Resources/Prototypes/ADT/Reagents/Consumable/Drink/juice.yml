@@ -1,0 +1,18 @@
+- type: reagent
+  id: ADTJuicePumpkin
+  name: reagent-name-juice-pumpkin
+  parent: BaseDrink
+  desc: reagent-desc-juice-pumpkin
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: adt_pumpkin
+  color: "#e08f0a"
+
+#сок
+- type: reagent
+  id: ADTJuiceMandarin
+  name: reagent-name-juice-mandarin
+  parent: BaseDrink
+  desc: reagent-desc-juice-mandarin
+  physicalDesc: reagent-physical-desc-citric
+  flavor: ADTmandarin
+  color: "#E78108"

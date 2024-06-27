@@ -1,0 +1,173 @@
+#Здесь не вижу смысла сортировки так как у визардов тут скудно и тоже не сильно категорично
+- type: entity
+  parent: BaseSign
+  id: NewYearDecorationBase
+  abstract: true
+  suffix: New Year
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/Objects/Decoration/cristmas_wreaths.rsi
+    snapCardinals: true
+
+#Венки и омелы от lunalita
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasWreath
+  name: christmas wreath
+  description: A typical decoration in houses on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmaswreath_01
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasWreath2
+  name: christmas wreath
+  description: A typical decoration in houses on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmaswreath_02
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasWreath3
+  name: christmas wreath
+  description: A typical decoration in houses on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmaswreath_03
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasMistletoe
+  name: christmas wmistletoe
+  description: A main decoration in houses in England on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmasmistletoe_01
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasMistletoe2
+  name: christmas wmistletoe
+  description: A main decoration in houses in England on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmasmistletoe_02
+
+#Мишура от auriss093
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTTinselRed
+  name: red tinsel
+  description: Simple, yet effective decoration for holidays.
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/Objects/Decoration/tinsel.rsi
+    state: redtinsel
+    snapCardinals: true
+
+- type: entity
+  parent: ADTTinselRed
+  id: ADTTinselGold
+  name: gold tinsel
+  description: Simple, yet effective decoration for holidays. Painted in gold.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/tinsel.rsi
+    state: goldtinsel
+
+- type: entity
+  parent: ADTTinselRed
+  id: ADTTinselSilver
+  name: silver tinsel
+  description: Simple, yet effective decoration for holidays. Painted in silver.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/tinsel.rsi
+    state: silvertinsel
+
+#подарки от Празата
+
+- type: entity
+  id: ADTPresentRandomBlue
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/new_year_present.rsi
+    layers:
+      - state: blue
+
+- type: entity
+  id: ADTPresentRandomGreen
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/new_year_present.rsi
+    layers:
+      - state: green
+
+- type: entity
+  id: ADTPresentRandomPurple
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/new_year_present.rsi
+    layers:
+      - state: purple
+
+- type: entity
+  id: ADTPresentRandomRed
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/new_year_present.rsi
+    layers:
+      - state: red
+
+- type: entity
+  id: ADTPresentRandomInsaneSyndicate
+  parent: PresentRandomInsane
+  suffix: Filled Insane, New Year
+  components:
+  - type: RandomGift
+    insaneMode: true
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/new_year_present.rsi
+    layers:
+      - state: syndicate
+
+#спавнер подарков
+
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomNewYearGiftSpawner
+  name: random new year gift spawner
+  suffix: New Year
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Objects/Decoration/new_year_present.rsi
+        state: red
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - ADTPresentRandomRed
+      - ADTPresentRandomPurple
+      - ADTPresentRandomGreen
+      - ADTPresentRandomBlue
+      - cardboardGift
+    #chance: 0.7
+    rarePrototypes: #временный прикол, который стоит потом убрать.
+      - toyC4Package
+      - ADTPresentRandomInsaneSyndicate
+    rareChance: 0.25

@@ -1,0 +1,16 @@
+- type: job
+  id: ADTJanitorBorg
+  name: JobADTJanitorBorg 
+  description: job-description-borg
+  playTimeTracker: JobJanitorBorg
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cyborgs
+      time: 18000 #5 hr
+    - !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 18000 #5 hrs
+  canBeAntag: false
+  icon: JobIconBorg
+  supervisors: job-supervisors-rd
+  jobEntity: ADTPlayerBorgJanitor

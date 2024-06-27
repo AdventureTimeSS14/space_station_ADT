@@ -1,0 +1,29 @@
+#- type: cargoProduct
+#  id: ADTMindShieldImplantCargo
+#  icon:
+#    sprite: Objects/Specific/Chemistry/syringe.rsi
+#    state: syringe_base0
+#  product: ADTCrateMindshieldImplants
+#  cost: 3000
+#  category: cargoproduct-category-name-armory
+#  group: market
+
+- type: cargoProduct
+  id: ADTArmoryPistolUSSP
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Pistols/pmm.rsi
+    state: icon
+  product: ADTCrateArmoryUSSPPistols
+  cost: 3500
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: ADTArmoryLasgunSALR36
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/salr36.rsi
+    state: icon
+  product: ADTCrateArmorySALR36
+  cost: 29000
+  category: cargoproduct-category-name-armory
+  group: market

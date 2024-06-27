@@ -1,0 +1,29 @@
+- type: entity
+  name: Karpkat
+  parent: BaseMobCarp
+  id: MobCarpNukie
+  description: This poor carp is homestucked.
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: ADT/Mobs/Aliens/CarpCat.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+
+- type: entity
+  name: CarpCat Spawner
+  id: SpawnMobCarpCat
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: icon
+      sprite: Mobs/Aliens/Carps/magic.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCarpNukie

@@ -1,0 +1,279 @@
+- type: entity
+  id: ADTTallRobotMekaCargo
+  parent: ADTTallRobotMekaBase
+  name: cargo cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Bots/tallrobot/mekacargo.rsi
+    layers:
+    - state: mekacargo
+      map: ["enum.DamageStateVisualLayers.Base"]
+    - state: mekacargo_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: mekacargo_e_r
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleCargo
+    hasMindState: mekacargo_e
+    noMindState: mekacargo_e_r
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mekacargo
+      Critical:
+        Base: mekacargo-tipped
+      Dead:
+        Base: mekacargo-tipped
+  - type: Construction
+    node: mining
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Supply
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Supply
+    - Binary
+    - Common
+    - Science
+  - type: AccessReader
+    access: [["Cargo"], ["Salvage"], ["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall
+
+- type: entity
+  id: ADTTallRobotMekaEng
+  parent: ADTTallRobotMekaBase
+  name: eng cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Bots/tallrobot/mekaeng.rsi
+    layers:
+    - state: mekaengi
+      map: ["enum.DamageStateVisualLayers.Base"]
+    - state: mekaengi_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: mekaengi_e_r
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleEngineering
+    hasMindState: mekaengi_e
+    noMindState: mekaengi_e_r
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mekaengi
+      Critical:
+        Base: mekaengi-tipped
+      Dead:
+        Base: mekaengi-tipped
+  - type: Construction
+    node: engineer
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Engineering
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Engineering
+    - Binary
+    - Common
+    - Science
+  - type: AccessReader
+    access: [["Engineering"], ["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall
+
+- type: entity
+  id: ADTTallRobotMekaJani
+  parent: ADTTallRobotMekaBase
+  name: service cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Bots/tallrobot/mekajani.rsi
+    layers:
+    - state: mekajani
+      map: ["enum.DamageStateVisualLayers.Base"]
+    - state: mekajanitipped
+      visible: false
+    - state: mekajanie
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: mekajanier
+      shader: unshaded
+      visible: false
+    - state: mekajanirest
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleService
+      - BorgModuleJanitor
+    hasMindState: mekajanie
+    noMindState: mekajanier
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mekajani
+      Critical:
+        Base: mekajanitipped
+      Dead:
+        Base: mekajanitipped
+  - type: Construction
+    node: service
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Service
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Service
+    - Binary
+    - Common
+    - Science
+  - type: AccessReader
+    access: [["Service"], ["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall
+
+- type: entity
+  id: ADTTallRobotMekaMed
+  parent: ADTTallRobotMekaBase
+  name: med cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Bots/tallrobot/mekamed.rsi
+    layers:
+    - state: mekamed
+      map: ["enum.DamageStateVisualLayers.Base"]
+    - state: mekamed_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: mekamed_e_r
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleMedical
+    hasMindState: mekamed_e
+    noMindState: mekamed_e_r
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mekamed
+      Critical:
+        Base: mekamed-tipped
+      Dead:
+        Base: mekamed-tipped
+  - type: Construction
+    node: service
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Medical
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Medical
+    - Binary
+    - Common
+    - Science
+  - type: AccessReader
+    access: [["Medical"], ["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall
+
+- type: entity
+  id: ADTTallRobotMekaServe
+  parent: ADTTallRobotMekaBase
+  name: service cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Bots/tallrobot/mekaserve.rsi
+    layers:
+    - state: mekaserve
+      map: ["enum.DamageStateVisualLayers.Base"]
+    - state: mekaserve_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: mekaserve_e_r
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleService
+    hasMindState: mekaserve_e
+    noMindState: mekaserve_e_r
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mekaserve
+      Critical:
+        Base: mekaserve-tipped
+      Dead:
+        Base: mekaserve-tipped
+  - type: Construction
+    node: service
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Service
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Service
+    - Binary
+    - Common
+    - Science
+  - type: AccessReader
+    access: [["Service"], ["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall

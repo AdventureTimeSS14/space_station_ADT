@@ -1,0 +1,20 @@
+#Боец спецназа с пулеметом
+- type: startingGear
+  id: ADTUSSPArmySpetsnazLMGGear
+  equipment:
+    jumpsuit: ADTFlotUSSPUniform
+    back: ADTClothingBackpackOR80L_SpetsnazLMGGear
+    shoes: ADTClothingShoesBootsUSSPArmy
+    mask: ADTClothingMaskGasUSSP
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ADTClothingHandsFingerlessCombat
+    outerClothing: ADTClothingOuterHardsuitTacticalExocosuit
+    id: ADTUSSPArmyOfficerCard
+    ears: ADTClothingHeadsetUSSPSpetznaz
+    belt: ADTClothingRPSTacticalUSSP
+    pocket1: ADTWeaponSMGSR2M
+    pocket2: ADTMagazineSR2M
+    underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear

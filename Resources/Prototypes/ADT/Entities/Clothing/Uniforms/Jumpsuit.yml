@@ -1,0 +1,1699 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSupremeCommanderJumpsuit
+  name: supreme comander's jumpsuit
+  description: Suitable for situations on a supergalactic scale.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/supreme-commander-uniform.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/supreme-commander-uniform.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlackWeddingSuit
+  name: Black Wedding Suit
+  description: Made in USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_wedding_suit_male.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_wedding_suit_male.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlueWeddingSuit
+  name: Blue Wedding suit
+  description: Made in USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_wedding_suit_male.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_wedding_suit_male.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBrownWeddingSuit
+  name: Brown Wedding suit
+  description: Made in USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/brown_wedding_suit_male.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/brown_wedding_suit_male.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPriestPrimalSuit
+  name: Priest's primal suit
+  description: Primal suit for primal rituals
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/priest_primal_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/priest_primal_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCyberSun
+  name: костюм Киберсан
+  description: Костюм Киберсан, стильно и практично !
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/suitcyber.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/suitcyber.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformDungeonMasterSuit
+  name: Dungeon Master Suit
+  description: Dungeon Master Suit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dungeon_master_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dungeon_master_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitMaugly
+  name: Stormer maugly
+  description: A jumpsuit made of strong material, providing robust protection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/stormer_maugly.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/stormer_maugly.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.8
+
+ #nope_ingeneer
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformRedjiSuit
+  name: Redji suit
+  description: An old and stylish suit that old man Redji used to wear. No one really knows him, but his uniform became popular, especially with Pun Puns.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/redji_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/redji_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformNewBarmanSuit
+  name: New barman suit
+  description: New uniform for barmen by NT.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/new_barman_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/new_barman_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformNewServiceSuit
+  name: New sevice suit
+  description: New uniform for serviceworker by NT.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/new_service_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/new_service_suit.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: equipped-INNERCLOTHING-apron
+
+#Pyotr
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPyotrUniform
+  name: Pyotr`s uniform
+  description: Dark green uniform, own by Pyotr Shahin.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pyotr_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pyotr_uniform.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPyotrJumpsuit
+  name: Pyotr`s jumpsuit
+  description: Dark green sweater, good for sitting in a cold bunker.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pyotr_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pyotr_jumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPyotrOfficialSuit
+  name: Pyotr`s official suit
+  description: Dark green jacket with white shirt, for social events.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pyotr_officialsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pyotr_officialsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAbibasBlackSuit
+  name: black sport suit
+  description: Sportsuit for real buddies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_abibas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_abibas.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAbibasWhiteSuit
+  name: white sport suit
+  description: Sportsuit for respectful buddies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_abibas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_abibas.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAbibasRedSuit
+  name: red sport suit
+  description: Sportsuit for respectful buddies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_abibas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_abibas.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAbibasBlueSuit
+  name: blue sport suit
+  description: Sportsuit for respectful buddies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_abibas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_abibas.rsi
+
+#Conjurer
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAJohanPants
+  name: Johan`s pants
+  description: Just pants, right.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/johan_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/johan_pants.rsi
+
+#Комбинезон следователя
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformInvestigatorSuit
+  name: investigator suit
+  description: The costume of the one who will get to the bottom of all the secrets.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
+
+#вещи Урога
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformWhiteShorts
+  name: white shorts
+  description: White shorts for the chill. Please don't spill anything on them.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shorts.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shorts.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlackShorts
+  name: black shorts
+  description: black shorts for the chill.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shorts.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shorts.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformWhiteBreeches
+  name: white breeches
+  description: white breeches for the chill. Please don't spill anything on them.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_breeches.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_breeches.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlackBreeches
+  name: black breeches
+  description: black breeches for the chill.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_breeches.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_breeches.rsi
+
+#октоберфест
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestWhite
+  name: oktoberfest white suit
+  description: Traditional Bavarian men's suit with short trousers and a white shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_white.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_white.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestBlueCheckered
+  name: oktoberfest blue checkered suit
+  description: Traditional Bavarian men's suit with short trousers and a blue checkered shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_bluecheck.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_bluecheck.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestGreenVest
+  name: oktoberfest suit with a green vest
+  description: Traditional Bavarian men's suit with short trousers and a green vest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_greenvest.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_greenvest.rsi #спрайты от SHIONE
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestRedCheckered
+  name: oktoberfest red checkered suit
+  description: Traditional Bavarian men's suit with short trousers and a red checkered shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_redcheck.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_redcheck.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestGreenCheckered
+  name: oktoberfest green checkered suit
+  description: Traditional Bavarian men's suit with short trousers and a green checkered shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_greencheck.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_greencheck.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestBlueVest
+  name: oktoberfest suit with a blue vest
+  description: Traditional Bavarian men's suit with short trousers and a blue vest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_bluevest.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_bluevest.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestRedVest
+  name: oktoberfest suit with a red vest
+  description: Traditional Bavarian men's suit with short trousers and a red vest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_redvest.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Oktoberfest/oktoberfest_male_redvest.rsi #спрайты от SHIONE
+
+#костюмы от Празата
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTCEJumpsuitWarm
+  name: ce jumpsuit warm
+  description: It's a high visibility jumpskirt given to those engineers insane enough to achieve the rank of Chief Engineer. It has minor radiation shielding.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_ce.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_ce.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTCMOJumpsuitWarm
+  name: cmo jumpsuit warm
+  description: It's a jumpsuit worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_cmo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_cmo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHOPJumpsuitWarm
+  name: hop jumpsuit warm
+  description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hop.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTQMJumpsuitWarm
+  name: qm jumpsuit warm
+  description: A sharp turtleneck made for the hardy work environment of supply.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_qm.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_qm.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitHunterDemon
+  name: qm jumpsuit warm
+  description: A sharp turtleneck made for the hardy work environment of supply.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/suit_hunterdemon.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/suit_hunterdemon.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHOSJumpsuitWarm
+  name: hos jumpsuit warm
+  description: A turtleneck for someone domineering.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hos.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hos.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTRDJumpsuitWarm
+  name: rd jumpsuit warm
+  description: A purple turtleneck to wear stylishly with labcoat.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_rd.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_rd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTCapJumpsuitWarm
+  name: cap jumpsuit warm
+  description: A blue turtleneck for the head of the station.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_cap.rsi
+
+
+#костюм Эйдана
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitAidan
+  name: Aidan suit
+  description: Aidan suit
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/suit_aidan.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/suit_aidan.rsi
+
+#одежда стильномата
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitAnarchyTshirt
+  name: black anarchy t-shirt
+  description: black anarchy t-shirt
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_anarchy.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_anarchy.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitDenimPants
+  name: denim pants
+  description: denim pants
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_pants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitDenim
+  name: denim jumpsuit
+  description: denim jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_jumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitCamouflageTshirt
+  name: camouflage suit
+  description: camouflage suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/camo_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/camo_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitCamouflageTshirtDesert
+  name: desert camouflage suit
+  description: desert camouflage suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/desert_camo_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/desert_camo_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitSerious
+  name: serious suit
+  description: serious suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/serious_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/serious_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitHungerGames
+  name: jumpsuit Capitols
+  description: A stately blue jumpsuit to represent Capitols
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_capitols.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_capitols.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlackShirt
+  name: black shirt
+  description: An usual black shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlueShirt
+  name: blue shirt
+  description: An usual blue shirt with brown pants. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitGothicAttire
+  name: gothic attire
+  description: For those, who don't like bright colors.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gothic_attire.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gothic_attire.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweatshirtBright
+  name: sweatshirt of bright personality
+  description: For those, who like bright colors.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sweatshirt_bright.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sweatshirt_bright.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitFancyShirt
+  name: fancy shirt
+  description: I don't know how he got there...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldGreySuit
+  name: old grey suit
+  description: The suit is new, but the design is outdated, considering other clothes of company "Modeling Agency Dar-Vaxed". Pretty suprising, that this suit still on sale.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_suit.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitHawaiiShirt
+  name: hawaiian shirt
+  description: An ideal variant for those, who wants to look serious, but still lively as a cricket. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hawaiian_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hawaiian_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldBrownSuit
+  name: old brown suit
+  description: A carefully groomed suit. Maybe it had bright brown colours, until they came out. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_brown_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_brown_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitPurpleShirt
+  name: purple shirt
+  description: An usual purple shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitRedShirt
+  name: red shirt
+  description: An usual red shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitRedPlaidShirt
+  name: red plaid shirt
+  description: Smells like barbecue... Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldDarkSuit
+  name: old dark suit
+  description: The label is visible on it... it seems that someone overwritten the inscription on it "It seems you really like the letter X ..."
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitLapkeeSet
+  name: dark security turtleneck
+  description: Perhaps a custom-made durable turtleneck, with obviously having a place to be armored, for heavy work in the harsh conditions of deep space. She smells pleasantly of tangerines and war crimes.
+  suffix: Personal, Lapkee
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lapkee_turtleneck.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lapkee_turtleneck.rsi
+
+# Водолазки. От prazat911, конечно же.
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckAquamarine
+  name: aquamarine turtleneck
+  description: Too bright!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckWhite
+  name: white turtleneck
+  description: Warm and comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckAzure
+  name: azure turtleneck
+  description: Brighter shade of blue.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckYellow
+  name: yellow turtleneck
+  description: Filled with happines.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckGreen
+  name: green turtleneck
+  description: Cheaper analog of CentComm turtleneck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBrown
+  name: brown turtleneck
+  description: -Ya know why i wear red? It hides blood well! -But that's brown color...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckRed
+  name: red turtleneck
+  description: Hides blood of clowns well!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckOrange
+  name: orange turtleneck
+  description: I don't want to talk about it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckPink
+  name: pink turtleneck
+  description: Who would wear this?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckGrey
+  name: grey turtleneck
+  description: Grey style?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBlue
+  name: blue turtleneck
+  description: Darker shade of azure.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckPurple
+  name: purple turtleneck
+  description: Feel yourself like a real scientist.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBlack
+  name: black turtleneck
+  description: Favourite clothes of bookworms.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckBlackSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_blacksleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_blacksleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckWhiteSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whitesleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whitesleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckWhiteBlackSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whiteblacksleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whiteblacksleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformNewMekka
+  name: New Mekka jumpsuit
+  description: New Mekka jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+#далее идут водолазки, которые Празат попросил вырезать на время их доделывания. Потом их переделать и закинуть по йамлам.
+#- type: entity
+#  parent: ClothingUniformBase
+#  id: ADTClothingUniformTurleneckTactick
+#  name: ancient jumpsuit
+#  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_tactick.rsi
+#  - type: Clothing
+#    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_tactick.rsi
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.8
+#        Slash: 0.9
+#        Piercing: 0.85
+#        Heat: 0.8
+
+#- type: entity
+#  parent: ClothingUniformBase
+#  id: ADTClothingUniformTurleneckAmerc
+#  name: ancient jumpsuit
+#  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_amerc.rsi
+#  - type: Clothing
+#    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_amerc.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSchool
+  name: school uniform
+  description: Japan uniform fron Earth. It reminds me something...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_school.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_school.rsi #спрайты от Умы
+
+#New Year
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayBeige
+  name: beige sweater
+  description: A real star of the show is wearing this sweater.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_beige.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_beige.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayBlue
+  name: blue sweater
+  description: A real Santa's raindeer is on this sweater.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_blue.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayRedDark
+  name: red sweater with black pants
+  description: Red, bright, warm, festive and most important - stylish.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_red_dark.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_red_dark.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHolidayRedWhite
+  name: red sweater with white pants
+  description: Red, bright, warm, festive.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_red_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_red_white.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitElf
+  name: elf costume
+  description: Smells like wood, spruce and holidays.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/elf_costume.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/elf_costume.rsi #спрайты от dion_clawed
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformMonkeyHolidaySuit
+  name: monkey holiday costume
+  description: Holiday suit for monkeys.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/monkey_holiday_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/monkey_holiday_suit.rsi #спрайты от Умы
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformRollNeckSnowman
+  name: snowman roll-neck
+  description: A roll-neck with a mister snowman!
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/roll-neck_snowman.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/roll-neck_snowman.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtSpruce
+  name: shirt with a spruce
+  description: A grey shirt with a picture of a Christmas tree.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_spruce.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_spruce.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtDeer
+  name: shirt with a deer
+  description: A green shirt with a picture of a deer.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_deer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_deer.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweaterHoliday
+  name: holiday sweater
+  description: A green sweater with gift-like print.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_holiday.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/sweater_holiday.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtSnowflake
+  name: shirt with a snowflake
+  description: A green shirt with a picture of a snowflake.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_snowflake.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_snowflake.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShirtSnowman
+  name: shirt with a snowman
+  description: A red shirt with a picture of a snowman.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_snowman.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/New-Year/shirt_snowman.rsi #спрайты от prazat911
+
+#Одежда от Тимрики
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCasimaCorsete
+  name: камиза с корсетом #Именная одежда Pangaari
+  description: Этот образ кажется вам очередным урывком прошлого. Выглядит просто, но от чего-то загадочно.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/casima_corsete.rsi #спрайты от тимрики
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/casima_corsete.rsi #спрайты от тимрики
+
+#Карсет, который лифчик. Потому что нижнее бельё находится ниже по слою, чем внешние черты. 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformChristmasCorset
+  name: christmas corset
+  description: A questionable corset for christmas...
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/christmas_bra.rsi #спрайты от prazat911
+
+#униформа проверяющего СБ
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSecAuditor
+  name: uniform of sec auditor
+  description: uniform of sec auditor
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sec_auditor.rsi #спрайты от КомбатБибиса
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sec_auditor.rsi #спрайты от КомбатБибиса
+
+#Спорт одёжка от @prazat911
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSportSuit
+  name: winter sport suit
+  description: A warm suit for a scamper by winter breeze.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSportRoseSuit
+  name: rose sport suit
+  description: A pink suit for sport.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_rose_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_rose_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSportStepSuit
+  name: STEP sport suit
+  description: A suit from sport series "STEP".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_step_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_step_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSportZetaSuit
+  name: zeta sport suit
+  description: A green suit for a scamper.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_zeta_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sport_zeta_suit.rsi
+
+#День Святого Валентина
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformDarkManSuit
+  name: dark man suit
+  description: dark man suit
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dark_man_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dark_man_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBrightManSuit
+  name: bright man suit
+  description: bright man suit
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bright_man_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bright_man_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCupidonSuit
+  name: cupidon suit
+  description: cupidon suit
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cupidon_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cupidon_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformRedSweaterHeart
+  name: red sweater with heart
+  description: red sweater with heart
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/redsweaterheart_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/redsweaterheart_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformWhiteSweaterHeart
+  name: white sweater with heart
+  description: white sweater with heart
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/whitesweaterheart_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/whitesweaterheart_suit.rsi
+
+#вещи Выживалово
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformVizhivalovo
+  name: vishivalovo suit
+  description: vishivalovo suit
+  suffix: Vishivalovo
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vishivalovo_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vishivalovo_suit.rsi
+
+#Medical
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformHikeformCmo
+  name: chief medical officer's hiking uniform
+  description: Shirt and baggy pants. Perfect for working in and out of medical departament.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hike_uniform_cmo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hike_uniform_cmo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSuit
+  name: pathologist jumpsuit
+  description: A lightweight jumpsuit for a morgue worker
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSuitAlt
+  name: pathologist jumpsuit
+  description: A lightweight jumpsuit for a morgue worker. A darker version.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTrader
+  name: trader jumpsuit
+  description: trader.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
+
+# Blueshield
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueshield
+  name: blueshield's jumpsuit
+  description: blueshield's jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueshieldTurtleneck
+  name: blueshield's turtleneck
+  description: blueshield's turtleneck
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blueshield.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blueshield.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseFoldable ]
+  id: ADTClothingUniformCroupier
+  name: crupier jumpsuit
+  description: Fancy.
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-put-on-verb
+    foldVerbText: fold-pull-off-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: vest
+    foldedHeldPrefix: vest
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_croupier.rsi
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_croupier.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_vest
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseFoldable ]
+  id: ADTClothingJumpsuitHopAlt
+  name: head of personell's business suit
+  description: Fancy.
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-put-on-verb
+    foldVerbText: fold-pull-off-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: vest
+    foldedHeldPrefix: vest
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_vest
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: ClothingUniformJumpsuitSec
+  id: ADTClothingUniformJumpsuitRavenFriskis
+  suffix: Only Friskis
+  name: security raven jumpsuit
+  description: A jumpsuit made of strong material, providing robust protection.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/raven_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/raven_suit.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: equipped-INNERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformIlisium
+  name: Suit Ilisiom
+  description: Suit Ilisiom
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_ili.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformKivchikJumpskirt
+  suffix: Kivchik
+  name: black jumpsuit of retribution
+  description: Black jumpsuit with golden stripes and red bandage.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kivchikset_skirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kivchikset_skirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingGorkaset
+  name: Gorkaset
+  description: ""
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Gorka_Clothing_set.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Gorka_Clothing_set.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.8
+  - type: GroupExamine
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTCapitanUSSPUniform
+  name: the uniform of the captain of the SSS fleet
+  description: The standard casual uniform of a captain of the USSP Space Fleet. YOU'RE IN CHARGE HERE! unless, of course, there are people with a rank higher than you nearby...
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/capitan_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/capitan_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTAdmiralUSSPUniform
+  name: the uniform of the admiral of the SSS fleet
+  description: The standard casual uniform of a admiral of the USSP Space Fleet.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/admiral_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/admiral_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTFlotUSSPUniform
+  name: uniform of an officer of the SSS Fleet
+  description: The standard uniform of a field and staff officer of the Space Fleet of the USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/flot_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/flot_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTPilotUSSPUniform
+  name: USSP pilot's uniform
+  description: Personal protective equipment for the pilot to counteract low pressure in case of cabin depressurization.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/pilot_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/pilot_USSP.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSeniorUSSPUniform
+  name: the uniform of the petty officer of the USSP fleet
+  description: The standard daily uniform of senior officers of the USSP space Fleet, they mostly do not take part in combat operations, most often sit in headquarters and command junior officers.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/senior_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/senior_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTParatrooperUSSPUniform
+  name: the uniform of the USSP paratrooper
+  description: A set of clothes for Space Marines of the USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/paratrooper_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/paratrooper_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTInfantrymanTUSSPUniform
+  name: the uniform of the SSP infantryman
+  description: A set of clothes for a Space marine USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+
+#halloween
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTOtherworldClownCostume
+  name: otherworldly clown costume
+  description: A costume of an ancient being who came from another dimension to frighten people and feed on their fears... sounds like the work of a clown!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/otherworld_clown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/otherworld_clown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTBioMercUniform
+  name: bio-mercenary uniform
+  description: Congratulations, you were born in this world where the value of life is zero. In this world, everything is already rotten, and everything is in eternal stagnation, and there is no need to hurry and make the world better or worse. You can only exist in this world, saturated with hatred for everything. You are just a biomass among other biomass.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/bio_merc.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/bio_merc.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJasonCostume
+  name: maniac costume
+  description: Wear a hockey player mask and kill the victims with a machete.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/jason.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/jason.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTVyasovCostume
+  name: Vyasov costume
+  description: A nightmate on the Vyasov station!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/vyasov.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/vyasov.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHotlineMiamiUniform
+  name: student uniform
+  description: A legend told, that this uniform wear a Miami killer
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/hotlinemiami.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/hotlinemiami.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTServantOfEvilUniform
+  name: suit of the servant of evil
+  description: suit of the servant of evil
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/servant_evil.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/servant_evil.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTDudeShirt
+  name: dude's t-shirt
+  description: dude's t-shirt
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/dude_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/dude_shirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSquidGameOrganizerSuit
+  name: squid game organizer suit
+  description: squid game organizer suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/squid_org.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/squid_org.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSquidGamePlayerSuit
+  name: squid game player suit
+  description: squid game player suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/squid_player.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/squid_player.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTTagillaSuit
+  name: Tagilla pants
+  description: Tagilla pants
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/tagilla_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/tagilla_pants.rsi
+  #- type: Storage
+  #  capacity: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTDJClownSuit
+  name: DJ clown suit
+  description: DJ clown suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/djclown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/djclown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTVampireSuit
+  name: vampire suit
+  description: vampire suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/vampire_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/vampire_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTVergileSuit
+  name: Vergile suit
+  description: Vergile suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/vergile_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/vergile_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTXenomorphSuit
+  name: xenomorph suit
+  description: xenomorph suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/xenomorph_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/xenomorph_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenMichaelMyersSuit
+  name: Michael Myers suit
+  description: Michael Myers suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/michael_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/Halloween/michael_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBrigmedicTurtleneck
+  name: brigmedic turtleneck
+  description: Comfortable and warm turtleneck. Especially for the guardian angel.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brigmed.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brigmed.rsi

@@ -1,0 +1,268 @@
+- type: entity
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  id: ADTFoodBoxEclairs
+  name: eclairs obx
+  description: Mmm, Eclairs.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    state: box
+    layers:
+    - state: box
+    - state: box-open
+      map: ["openLayer"]
+      visible: false
+    - state: eclairs_1
+      map: ["eclairs_1"]
+      visible: false
+    - state: eclairs_2
+      map: ["eclairs_2"]
+      visible: false
+    - state: eclairs_3
+      map: ["eclairs_3"]
+      visible: false
+    - state: eclairs_4
+      map: ["eclairs_4"]
+      visible: false
+  - type: Storage
+    grid:
+    - 0,0,3,0
+    whitelist:
+      tags:
+      - Donut
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    size: Small
+    # heldPrefix: box
+  - type: StorageFill
+    contents:
+    - id: ADTFoodEclairBrown
+      amount: 1
+    - id: ADTFoodEclairChocolate
+      amount: 1
+    - id: ADTFoodEclairWhite
+      amount: 1
+    - id: ADTFoodEclairPink
+      amount: 1
+  - type: ItemCounter
+    count:
+      tags: [Donut]
+    composite: true
+    layerStates:
+    - eclairs_1
+    - eclairs_2
+    - eclairs_3
+    - eclairs_4
+  - type: Appearance
+
+#Коробки со сладостями
+
+- type: entity
+  id: ADTBoxNewYearSnack1
+  parent: BaseStorageItem
+  name: new year snackbox 1
+  description: new year snackbox 1
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/new-year/newyearsnack.rsi
+    state: box1
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,3
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackAtmosCake
+      amount: 1
+    - id: ADTFoodSnackBotanicCake
+      amount: 1
+    - id: ADTFoodSnackCargoCake
+      amount: 2
+    - id: ADTFoodSnackChefCake
+      amount: 1
+    - id: ADTFoodSnackDoctorCake
+      amount: 2
+    - id: ADTFoodSnackJanitoryCake
+      amount: 1
+    - id: ADTFoodSnackScientistCake
+      amount: 1
+    - id: ADTFoodSnackSecurityCake
+      amount: 1
+    - id: ADTFoodSnackYellowCandies
+      amount: 1
+    - id: ADTFoodSnackBunnyCandies
+      amount: 1
+
+- type: entity
+  name: new year snackbox 2
+  description: new year snackbox 2
+  parent: ADTBoxNewYearSnack1
+  id: ADTBoxNewYearSnack2
+  components:
+  - type: Sprite
+    state: box2
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackCandyStick
+      amount: 3
+    - id: ADTFoodSnackCookieMan
+      amount: 2
+    - id: ADTFoodSnackGiftCake
+      amount: 1
+    - id: ADTFoodSnackGloveCake
+      amount: 1
+    - id: ADTFoodSnackSnowflakeCake
+      amount: 1
+    - id: ADTFoodSnackSnowmanCake
+      amount: 1
+    - id: ADTFoodSnackSocksCake
+      amount: 1
+    - id: ADTFoodSnackTreeCake
+      amount: 1
+    - id: ADTFoodSnackCoinCandies
+      amount: 1
+
+- type: entity
+  name: new year snackbox 3
+  description: new year snackbox 3
+  parent: ADTBoxNewYearSnack1
+  id: ADTBoxNewYearSnack3
+  components:
+  - type: Sprite
+    state: box3
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackMimeCake
+      amount: 1
+    - id: ADTFoodSnackNukieCake
+      amount: 3
+    - id: ADTFoodSnackClownCake
+      amount: 2
+    - id: ADTFoodSnackGreytideCake
+      amount: 3
+    - id: ADTFoodSnackCoinCandies
+      amount: 2
+    - id: ADTFoodSnackBlackCandies
+      amount: 1
+
+#Технически не box, но создавать отдельный yml файл под это - такое себе. Ирония.
+- type: entity
+  id: ADTMuffinMold
+  parent: BaseItem
+  name: muffin mold
+  description: A mold that holds muffins.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/muffin_mold.rsi
+    layers:
+    - state: icon
+    - state: muffin-0
+      map: ["enum.StorageFillLayers.Fill"]
+    - state: kekc
+      map: ["kekc"]
+      visible: false
+  - type: StorageFillVisualizer
+    maxFillLevels: 7
+    fillBaseName: muffin
+  - type: Appearance
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    whitelist:
+      tags:
+        - ADTMuffin
+        - ADTMuffinKekc
+  - type: Item
+    sprite: ADT/Objects/Specific/Service/muffin_mold.rsi
+    size: Normal
+  - type: ItemMapper
+    mapLayers:
+      kekc:
+        whitelist:
+          tags:
+          - ADTMuffinKekc
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      batterSlot: !type:Container  # Исправление: определение типа контейнера
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        ents: []
+  - type: Construction
+    graph: ADTMuffinMold
+    node: start
+
+#Костыли, еееееееееееееееееееееееееее
+- type: entity
+  id: ADTMuffinMoldMuffin
+  parent: ADTMuffinMold
+  suffix: Muffin
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodBakedMuffin
+      amount: 6
+
+- type: entity
+  id: ADTMuffinMoldMuffinBerry
+  parent: ADTMuffinMold
+  suffix: Berry muffin
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodBakedMuffinBerry
+      amount: 6
+
+- type: entity
+  id: ADTMuffinMoldChocolate
+  parent: ADTMuffinMold
+  suffix: Chocolate muffin
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodBakedMuffinChocolate
+      amount: 6
+
+- type: entity
+  id: ADTMuffinMoldParty
+  parent: ADTMuffinMold
+  suffix: Party muffin
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodBakedMuffinParty
+      amount: 5
+    - id: ADTFoodBakedMuffinParty
+      prob: 0.85
+      orGroup: Kekc
+    - id: ADTFoodBakedMuffinJustKekc
+      prob: 0.15
+      orGroup: Kekc
+
+#пустышка, что не вмещает в себя ничего. Нужна лишь для необычного (по рамкам игры) рецепта.
+- type: entity
+  id: ADTMuffinMoldBatter
+  parent: BaseItem
+  name: muffin mold
+  description: A mold that holds muffins.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/muffin_mold.rsi
+    state: icon_batter
+  - type: Construction
+    graph: ADTMuffinMold
+    node: batter

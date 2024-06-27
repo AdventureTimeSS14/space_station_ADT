@@ -1,0 +1,12 @@
+- type: entity
+  name: Manul Spawner
+  id: SpawnMobCatManul
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobCatManul

@@ -1,0 +1,514 @@
+- type: entity
+  name: Sashimi
+  parent: FoodMealSashimi
+  id: ADTFoodMealSashimi
+  description: Its taste can only be described as "Exotic". The poisoning though? That's pretty common.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 31
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Fish
+    - ADTCarnivoreFriendlyFood
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTShawermaBase
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vegetables
+      - meaty
+      - magical
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/shawerma.rsi
+    state: shawerma
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 3
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/shawerma.rsi
+  - type: Tag
+    tags:
+    - Cooked
+    - ADTCarnivoreFriendlyFood
+
+- type: entity
+  name: shawerma-default-name
+  parent: ADTShawermaBase
+  id: ADTShawermaDefault
+  description: shawerma-default-desc
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vegetables
+      - meaty
+      - magical
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/shawerma.rsi
+    state: shawerma
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 3
+
+- type: entity
+  name: shawerma-cheese-name
+  parent: ADTShawermaBase
+  id: ADTShawermaCheese
+  description: shawerma-cheese-desc
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vegetables
+      - meaty
+      - cheesy
+      - magical
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/shawerma.rsi
+    state: cheese_shawerma
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 4
+
+- type: entity
+  name: shawerma-meat-name
+  parent: ADTShawermaBase
+  id: ADTShawermaMeat
+  description: shawerma-meat-desc
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bacon
+      - egg
+      - meaty 
+      - magical
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/shawerma.rsi
+    state: meat_shawerma
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Protein
+          Quantity: 6
+
+- type: entity
+  name: Вульпикс
+  parent: ADTFoodSausageRaw
+  id: ADTFoodVulpix
+  suffix: Еда
+  description: Аппетитное блюдо,с плавленным сыром.
+  components:
+  - type: Food
+    transferAmount: 6
+    trash: FoodPlateSmall
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/vulpix.rsi
+    state: icon
+  - type: FlavorProfile
+    flavors:
+      - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Cooked
+    - ADTCarnivoreFriendlyFood
+
+- type: entity
+  name: croissant-cream-name
+  parent: FoodBakedBase
+  id: ADTFoodCroissantCream
+  description: croissant-cream-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/croissant.rsi
+    state: cream
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: croissant-choco-name
+  parent: FoodBakedBase
+  id: ADTFoodCroissantChocolate
+  description: croissant-choco-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/croissant.rsi
+    state: chocolate
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - nutty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: croissant-cheese-name
+  parent: FoodBakedBase
+  id: ADTFoodCroissantCheese
+  description: croissant-cheese-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/croissant.rsi
+    state: cheese
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - cheesy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: hot-dog-name
+  parent: FoodInjectableBase
+  id: ADTFoodHotDog
+  description: hot-dog-desc
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - meaty
+      - spicy
+  - type: Food
+    transferAmount: 3
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/croissant.rsi
+    state: hotdog
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Protein
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTCarnivoreFriendlyFood
+
+# Кулич все таки не торт 
+
+- type: entity
+  name: kulich small
+  parent: FoodBakedBase
+  id: ADTFoodKulichSmall
+  description: kulich small
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/easter.rsi
+    state: small
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: kulich big
+  parent: FoodBakedBase
+  id: ADTFoodKulichBig
+  description: kulich big
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/easter.rsi
+    state: big
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: kulich cheesy
+  parent: FoodBakedBase
+  id: ADTFoodKulichCheesy
+  description: kulich cheesy
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/easter.rsi
+    state: cheesy
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+    - ADTCarnivoreFriendlyFood
+  - type: Item
+    size: Small
+
+- type: entity
+  name: sweet roll
+  parent: FoodBakedBase
+  id: ADTFoodSweetRoll
+  description: sweet roll
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/easter.rsi
+    state: sweetroll
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+  - type: Item
+    size: Small
+
+
+- type: entity
+  name: jellied meat
+  parent: FoodMeatBase
+  id: ADTFoodJelliedMeat
+  description: jellied meat
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/new-year/newyearfood.rsi
+    layers:
+    #- state: plate_small
+    - state: jellymeat
+  - type: FlavorProfile
+    flavors:
+      - ADTJellymeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 8
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 5
+    trash: FoodPlateSmall
+
+- type: entity
+  name: herring under furcoat
+  parent: FoodMeatBase
+  id: ADTFoodHerringUnderFurcoat
+  description: herring under furcoat
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/new-year/newyearfood.rsi
+    layers:
+    - state: plate_small
+    - state: herring
+  - type: FlavorProfile
+    flavors:
+      - ADTHerringUnderFurcoat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 6
+    trash: FoodPlateSmall
+
+- type: entity
+  name: pudding
+  parent: FoodCakeBase
+  id: ADTFoodCakePudding
+  description: pudding
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/new-year/newyearfood.rsi
+    layers:
+    #- state: plate_small
+    - state: pudding
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 6
+    trash: FoodPlateSmall
+
+- type: entity
+  name: christmas pudding
+  parent: FoodCakeBase
+  id: ADTFoodCakePuddingChristmas
+  description: christmas pudding
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/new-year/newyearfood.rsi
+    layers:
+    #- state: plate_small
+    - state: christmaspudding
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 6
+    trash: FoodPlateSmall
