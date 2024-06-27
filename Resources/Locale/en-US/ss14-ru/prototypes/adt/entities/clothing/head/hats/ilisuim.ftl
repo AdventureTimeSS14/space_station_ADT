@@ -1,0 +1,14 @@
+ent-ADTClothingHeadHuraskaIlisium = Huraska
+    .desc = Ilisium
+ent-ADTClothingHeadHelmetSolderIlisium = Helmet
+    .desc = Ilisium
+ent-ADTClothingHeadHelmetIlisium = helmet
+    .desc = Ilisium
+ent-ADTClothingMaskGasIlisium = gas mask
+    .desc = A close-fitting tactical mask that can be connected to an air supply.
+ent-ADTClothingOuterHardsuitIlisium = hardsuit ilisium
+    .desc = hardsuit ilisium
+ent-ADTClothingOuterCoatIlisium = Raincoat Ilisium
+    .desc = Ilisium
+ent-ADTClothingUniformIlisium = Suit Ilisiom
+    .desc = Suit Ilisiom

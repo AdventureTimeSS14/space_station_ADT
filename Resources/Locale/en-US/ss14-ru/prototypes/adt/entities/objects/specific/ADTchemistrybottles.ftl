@@ -1,0 +1,12 @@
+ent-ADTObjectsSpecificArithrazineChemistryBottle = Arithrazine bottle
+    .desc = { ent-BaseChemistryEmptyBottle.desc }
+ent-ADTObjectsSpecificBicaridineChemistryBottle = Bicaridine bottle
+    .desc = { ent-BaseChemistryEmptyBottle.desc }
+ent-ADTObjectsSpecificDexalinPlusChemistryBottle = DexalinPlus bottle
+    .desc = { ent-BaseChemistryEmptyBottle.desc }
+ent-ADTObjectsSpecificDermalineChemistryBottle = Dermaline bottle
+    .desc = { ent-BaseChemistryEmptyBottle.desc }
+ent-ADTObjectsSpecificDexalinChemistryBottle = Dexalin bottle
+    .desc = { ent-BaseChemistryEmptyBottle.desc }
+ent-ADTObjectsSpecificLeporazineChemistryBottle = Leporazine bottle
+    .desc = { ent-BaseChemistryEmptyBottle.desc }
