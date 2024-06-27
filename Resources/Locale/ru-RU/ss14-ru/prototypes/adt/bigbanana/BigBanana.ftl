@@ -1,0 +1,16 @@
+ent-BigBanana1 = большой банан
+    .desc = Это большой банан
+ent-TrashBananaPeelBig1 = большая банановая кожура
+    .desc = Это большая банановая кожура.
+ent-BigBanana2 = большой банан
+    .desc = Это большой банан
+    .suffix = 2
+ent-TrashBananaPeelBig2 = большая банановая кожура
+    .desc = Это большая банановая кожура.
+    .suffix = 2
+ent-BigBanana3 = большой банан
+    .desc = Это большой банан
+    .suffix = 3
+ent-TrashBananaPeelBig3 = Большая банановая кожура
+    .desc = Это большая банановая кожура.
+    .suffix = 3

@@ -1,0 +1,14 @@
+ent-ADTClothingHeadHuraskaIlisium = фуражка
+    .desc = Тёмная фуражка офицера Иллизиума.
+ent-ADTClothingHeadHelmetSolderIlisium = шлем
+    .desc = Шлем бойца Иллизиума
+ent-ADTClothingHeadHelmetIlisium = шлем
+    .desc = Шлем бойца Иллизиума
+ent-ADTClothingMaskGasIlisium = дыхательная маска
+    .desc = Плотно прилегающая тактическая маска, которую можно подсоединить к системе подачи воздуха.
+ent-ADTClothingOuterHardsuitIlisium = скафандр Иллизиума
+    .desc = Боевой скафандр бойца Иллизиума. Обеспечен встроенными керамическими пластинами.
+ent-ADTClothingOuterCoatIlisium = плащ Иллизиума
+    .desc = Тёмный плащ Иллизиума
+ent-ADTClothingUniformIlisium = костюм Иллизиума
+    .desc = Тёмный костюм Иллизиума.

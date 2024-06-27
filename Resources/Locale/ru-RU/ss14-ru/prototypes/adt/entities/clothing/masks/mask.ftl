@@ -1,0 +1,12 @@
+ent-ADTClothingMaskGasDarkRavenFriskis = Маска ворона
+    .desc = Вещи сотрудников бывают странные, да ?
+ent-ADTClothingHeadHatsRavenHatFriskis = охранная фуражка ворона
+    .desc = Особое охранное обмундирование.
+ent-ADTClothingHandsGlovesRavenFriskis = охранные перчатки ворона
+    .desc = Особое охранное обмундирование.
+ent-ADTClothingShoesBootsRavenFriskis = охранные ботинки ворона
+    .desc = Особое охранное обмундирование.
+ent-ADTClothingUniformJumpsuitRavenFriskis = охранный костюм ворона
+    .desc = Особое охранное обмундирование. На плечах видно значок "NT".
+ent-ADTClothingOuterCoatRavenOvercoatFriskis = охранная шинель ворона
+    .desc = Особое охранное обмундирование. На плечах видно значок "NT".
