@@ -1,0 +1,12 @@
+ent-ADTBulletMagnumHighVelocityTranquilizer = пуля (.44 магнум высокоскоростная, транквилизатор)
+    .desc = { ent-BaseBulletHighVelocity.desc }
+ent-ADTCartridgeMagnumHighVelocityTranquilizer = патрон (.44 магнум высокоскоростной, транквилизатор)
+    .desc = { ent-BaseCartridgeMagnum.desc }
+ent-ADTMagazineBoxMagnumHighVelocityTranquilizer = коробка патронов (.44 магнум высокоскоростные, транквилизатор)
+    .desc = { ent-BaseMagazineBoxMagnum.desc }
+ent-ADTMagazineMagnumSubMachineGunHighVelocityTranquilizer = магазин Вектора (.44 магнум высокоскоростные, транквилизатор)
+    .desc = { ent-BaseMagazineMagnumSubMachineGun.desc }
+ent-BoxMagazineMagnumSubMachineGunPractice = ящик магазинов для вектора (высокоскоростные, транквилизатор)
+    .desc = Ящик, полный магазинов для Вектора (высокоскоростные, транквилизатор)
+ent-ADTBoxMagazineMagnumSubMachineGunHighVelocityTranquilizer = ящик магазинов для вектора (высокоскоростные)
+    .desc = Ящик, полный магазинов для Вектора (высокоскоростные)
