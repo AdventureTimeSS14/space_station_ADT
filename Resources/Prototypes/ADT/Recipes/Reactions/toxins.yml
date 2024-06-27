@@ -1,0 +1,25 @@
+- type: reaction
+  id: ADTPhronidolepaxorine
+  reactants:
+    Plasma:
+      amount: 2
+    Leporazine:
+      amount: 2
+    Lexorin:
+      amount: 1
+  products:
+    ADTPhronidolepaxorine: 3
+
+- type: reaction
+  id: ADTLingLarva #без понятия, как там у тебя личинка называется
+  quantized: true
+  reactants:
+    ADTMPolymorphine:
+      amount: 15
+    Nutriment: #ну, раз мы создаём что-то биологическое, то пусть будут ещё и биологические приколы.
+      amount: 3
+    Stimulants:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: ADTLingLarva #сам подставишь id сущности.

@@ -1,0 +1,116 @@
+- type: entity
+  noSpawn: true
+  parent: ADTClothingSatchelParamedic
+  id: ADTClothingBackpackSatchelParamedicalFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: JawsOfLife
+      - id: SpaceCash500
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackSatchelBlueshield
+  id: ADTClothingBackpackSatchelBlueshieldFilled
+  suffix: filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: SpaceCash500
+      - id: Flash
+
+- type: entity
+  #noSpawn: true
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelInvestigatorFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: Flash
+      - id: Pen
+        amount: 2
+      #- id: PaperOffice
+      #  amount: 20
+      #- id: MaterialCardboard1
+      #  amount: 2
+      - id: ADTInvestigatorBoxFolderBase
+        amount: 1
+      - id: ADTInvestigatorBoxFolderRed
+        amount: 2
+      - id: ADTInvestigatorBoxFolderBlue
+        amount: 1
+      - id: ADTBookInvestigator
+      - id: ADTRubberStampinvestigator
+      - id: SpaceCash500
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackSatchelPathologist
+  id: ADTClothingBackpackSatchelPathologistFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: BodyBag_Folded
+      - id: ADTFootTag
+      - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelLapkee
+  name: lapkee satchel
+  description: lapkee satchel
+  suffix: Personal, Lapkee
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: Flash
+      - id: MagazinePistol
+      - id: ADTSpaceLaw
+  - type: Sprite
+    sprite: ADT/Clothing/Back/lapkee_satchel.rsi
+
+- type: entity
+  parent: ADTClothingBackpackSatchelninja
+  id: ADTClothingBackpackSatchelninjaTools
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: Multitool
+
+- type: entity
+  parent: ClothingBackpackMilitarySatchel
+  id: ADTClothingBackpackMilitarySatchelFleetPilot
+  name: paramedical satchel
+  description: A satchel to store some paramedical equipment.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpaceMedipen
+        amount: 2
+      - id: OxygenTankFilled
+      - id: BoxSurvivalSecurity
+      - id: SheetPlasma
+
+- type: entity
+  parent: ClothingBackpackMilitarySatchel
+  id: ClothingBackpackMilitarySatchelEngineer
+  name: paramedical satchel
+  description: A satchel to store some paramedical equipment.
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: RCD
+      - id: RCDAmmo
+        amount: 6

@@ -1,0 +1,16 @@
+- type: startingGear
+  id: ADTMilitarySpaceNaviRepresentativeL
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    back: ClothingBackpackFilled_VKF_R
+    #shoes: ClothingShoesBootCombatFilled - портатип не найден
+    mask: ClothingMaskGasCentcom
+    outerClothing: ClothingOuterVestWeb
+    eyes: ClothingEyesGlassesSecurity
+    #head: ClothingHeadHatBeretHos - портатип не найден
+    id: CentcomPDA
+    gloves: ClothingHandsGlovesColorWhite
+    ears: ClothingHeadsetCentCom
+    #belt: SecurityFilled - портатип не найден
+    pocket1: FlashlightSeclite
+    #pocket2: MicroBombImpanter  - портатип не найден

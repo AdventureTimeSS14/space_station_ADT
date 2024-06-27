@@ -1,0 +1,8 @@
+#плата принтера рецепт в протолате
+- type: latheRecipe
+  id: ADTFormPrinterMachineCircuitboard
+  result: ADTFormPrinterMachineCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900

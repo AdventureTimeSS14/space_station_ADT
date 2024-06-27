@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBlueTie
+  name: blue tie
+  description: Have a CEO MINDSET
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/blue_tie.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/blue_tie.rsi #спрайты от prazat911
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckGoldTie
+  name: golden tie
+  description: Expencive.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/gold_tie.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/gold_tie.rsi #спрайты от prazat911

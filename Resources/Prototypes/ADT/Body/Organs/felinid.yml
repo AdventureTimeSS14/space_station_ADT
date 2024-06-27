@@ -1,0 +1,13 @@
+- type: entity
+  id: ADTOrganFelinidHeart
+  parent: OrganHumanHeart
+  name: felinid heart
+  description: "I feel bad for the heartless bastard who lost this."
+  components:
+  - type: Metabolizer
+    maxReagents: 4
+    metabolizerTypes: [Felinid, Animal]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic

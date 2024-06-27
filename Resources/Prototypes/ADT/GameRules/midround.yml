@@ -1,0 +1,9 @@
+- type: entity
+  noSpawn: true
+  parent: BaseGameRule
+  id: LingMidround
+  components:
+  - type: GenericAntagRule
+    agentName: ling-round-end-agent-name  
+    objectives:
+    - EscapeLingShuttleObjective

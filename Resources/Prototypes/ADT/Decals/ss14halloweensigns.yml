@@ -1,0 +1,48 @@
+- type: decal
+  id: ADTHalloweenSpaceStationSign1
+  tags: ["station"]
+  sprite:
+    sprite: ADT/Decals/halloween_ss14sign.rsi
+    state: ss14sign1
+
+- type: decal
+  id: ADTHalloweenSpaceStationSign2
+  tags: ["station"]
+  sprite:
+    sprite: ADT/Decals/halloween_ss14sign.rsi
+    state: ss14sign2
+
+- type: decal
+  id: ADTHalloweenSpaceStationSign3
+  tags: ["station"]
+  sprite:
+    sprite: ADT/Decals/halloween_ss14sign.rsi
+    state: ss14sign3
+
+- type: decal
+  id: ADTHalloweenSpaceStationSign4
+  tags: ["station"]
+  sprite:
+    sprite: ADT/Decals/halloween_ss14sign.rsi
+    state: ss14sign4
+
+- type: decal
+  id: ADTHalloweenSpaceStationSign5
+  tags: ["station"]
+  sprite:
+    sprite: ADT/Decals/halloween_ss14sign.rsi
+    state: ss14sign5
+
+- type: decal
+  id: ADTHalloweenSpaceStationSign6
+  tags: ["station"]
+  sprite:
+    sprite: ADT/Decals/halloween_ss14sign.rsi
+    state: ss14sign6
+
+- type: decal
+  id: ADTHalloweenSpaceStationSign7
+  tags: ["station"]
+  sprite:
+    sprite: ADT/Decals/halloween_ss14sign.rsi
+    state: ss14sign7

@@ -1,0 +1,18 @@
+
+- type: entity
+  id: ADTCartridgeMinigun
+  name: cartridge (.10 rifle)
+  parent: BaseCartridgeHeavyRifle
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletMinigun
+    deleteOnSpawn: true
+
+- type: entity
+  id: ADTCartridgeWand
+  name: cartridge (.10 rifle)
+  parent: BaseCartridgeHeavyRifle
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletWand
+    deleteOnSpawn: true

@@ -1,0 +1,20 @@
+- type: inventoryTemplate
+  id: foodDistributorBots
+  slots:
+    - name: outerClothing
+      slotTexture: suit
+      slotFlags: OUTERCLOTHING
+      slotGroup: MainHotbar
+      stripTime: 6
+      uiWindowPos: 1,2
+      strippingWindowPos: 1,2
+      displayName: Suit
+
+    - name: back
+      slotTexture: back
+      slotFlags: BACK
+      slotGroup: MainHotbar
+      stripTime: 6
+      uiWindowPos: 3,0
+      strippingWindowPos: 0,5
+      displayName: Back

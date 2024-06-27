@@ -1,0 +1,49 @@
+- type: entity
+  name: ert bullet shield
+  parent: BaseShield
+  id: ADTERTShield
+  description: A ballistic riot shield built for withstanding bullets, but not much else.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/ert_heavy_shield.rsi
+      state: ert-icon
+    - type: Item
+      sprite: ADT/Objects/Weapons/Melee/ert_heavy_shield.rsi
+      size: Ginormous
+      heldPrefix: ert
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.5
+          Piercing: 0.35
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.4
+          Piercing: 0.2
+        flatReductions:
+          Blunt: 1.5
+          Piercing: 1.5
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 401
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 400 #This is probably enough damage before it breaks
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound: /Audio/Effects/metal_break1.ogg
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel:
+                  min: 2
+                  max: 2
+                SheetGlass:
+                  min: 2
+                  max: 2

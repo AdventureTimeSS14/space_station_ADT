@@ -1,0 +1,14 @@
+- type: hitscan
+  id: ADTBlueLightLaser
+  damage:
+    types:
+      Heat: 15
+  muzzleFlash:
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/bluelaser.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/bluelaser.rsi
+    state: beam
+  impactFlash:
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/bluelaser.rsi
+    state: impact_laser

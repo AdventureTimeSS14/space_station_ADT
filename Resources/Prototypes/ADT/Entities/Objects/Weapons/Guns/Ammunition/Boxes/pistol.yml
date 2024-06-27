@@ -1,0 +1,84 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox357
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge357
+    proto: Cartridge357
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBox357
+  id: MagazineBox357
+  name: ammunition box (.357 magnum)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBox357
+  id: MagazineBox357Practice
+  name: ammunition box (.357 magnum practice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357Practice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  parent: BaseMagazineBox357
+  id: MagazineBox357Rubber
+  name: ammunition box (.357 magnum rubber)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357Rubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: rubber
+
+- type: entity
+  id: MagazineBox357Incendiary
+  parent: BaseMagazineBox357
+  name: ammunition box (.357 magnum incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357Incendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary

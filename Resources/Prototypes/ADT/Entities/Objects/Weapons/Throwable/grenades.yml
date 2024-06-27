@@ -1,0 +1,118 @@
+- type: entity
+  name: Smoke Grenade
+  description: 
+  parent: GrenadeBase
+  id: ADTSmokeGrenade
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Grenades/smokegrenades.rsi
+    - type: SmokeOnTrigger
+      spreadAmount: 70
+      #time: 40
+      #sound: /Audio/Effects/smoke.ogg
+    - type: DeleteOnTrigger
+    - type: Appearance
+    - type: OnUseTimerTrigger
+      delay: 2.5
+      beepSound:
+        path: "/Audio/Effects/beep1.ogg"
+        params:
+          volume: 5
+      initialBeepDelay: 0
+      beepInterval: 2
+
+- type: entity
+  name: Syndicate Smoke Grenade
+  description: 
+  parent: GrenadeBase
+  id: ADTSSmokeGrenade
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Grenades/ssmokegreandes.rsi
+    - type: SmokeOnTrigger
+      spreadAmount: 120
+      #time: 60
+      #sound: /Audio/Effects/smoke.ogg
+    - type: DeleteOnTrigger
+    - type: Appearance
+    - type: OnUseTimerTrigger
+      delay: 2.5
+      beepSound:
+        path: "/Audio/Effects/beep1.ogg"
+        params:
+          volume: 5
+      initialBeepDelay: 0
+      beepInterval: 2
+
+- type: entity
+  name: TritiumGrenades
+  description: Tritium Grenades
+  parent: GrenadeBase
+  id: ADTTritiumGrenades
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Grenades/tritiumgrenad/tritiumgrenades.rsi
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Effects/falling.ogg"
+  - type: DeleteOnTrigger
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Radioactive
+    totalIntensity: 150
+    intensitySlope: 1
+    maxIntensity: 100
+  - type: SpawnOnTrigger
+    proto: ADTTritiumGasSpawner
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/glass_break1.ogg
+
+- type: entity
+  name: ADTGasSpawnerTritiumEffect
+  description: Gas Spawner Tritium
+  id: ADTTritiumGasSpawner
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      canCollide: false
+    - type: Fixtures
+    - type: Transform
+      anchored: true
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Grenades/tritiumgrenad/effect.rsi
+      state: miner
+    - type: AtmosDevice
+    - type: GasMiner
+      spawnGas: Tritium
+      maxExternalPressure: 300
+      spawnAmount: 200
+    - type: TimedDespawn
+      lifetime: 0.5
+    - type: Tag
+      tags:
+      - HideContextMenu
+
+- type: entity
+  name: Pizza box
+  parent: BaseItem
+  id: ADTExplosivePizzabox
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Grenades/explosivepizzabox.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 120 
+    canCreateVacuum: false
+  - type: OnUseTimerTrigger
+    delay: 0.1 

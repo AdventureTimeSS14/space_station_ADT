@@ -1,0 +1,18 @@
+#Боевой медик
+- type: startingGear
+  id: ADTUSSPArmyMedicGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    back: ADTClothingBackpackOR40L_MedicGear
+    shoes: ADTClothingShoesBootsUSSPArmy
+    mask: ClothingMaskBreathMedicalSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesNitrile
+    outerClothing: ADTClothingOuterHardsuitOBS5USSP
+    id: ADTUSSPArmyCard
+    ears: ADTClothingHeadsetUSSP
+    belt: ClothingBeltMedicalFilled
+    underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear

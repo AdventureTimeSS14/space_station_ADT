@@ -1,0 +1,497 @@
+#chu-see
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatTrueDetectivesCoat
+  name: True detective coat
+  description: This leather coat is worn by someone who has seen some crap
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/true_detective_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/true_detective_coat.rsi
+  - type: StorageFill
+    contents:
+    - id: SmokingPipeFilledTobacco
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.6
+        Heat: 0.9
+
+#бушлат следователя
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatInvestigator
+  name: investigator bushlat
+  description: This pea jacket increases the chance of a suspect's confession by half.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/investigator_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/investigator_coat.rsi
+  - type: StorageFill
+    contents:
+    - id: CigarGoldCase
+    - id: Lighter
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatAidan
+  name: Aidan coat
+  description: Aidan coat.
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/aidan_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/aidan_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+
+#Выживалово
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterVizhivalovo
+  name: vizhivalovo jacket
+  description: vizhivalovo jacket
+  suffix: Vishivalovo
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/vizhivalovo_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/vizhivalovo_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.9
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatUrs
+  name: Aidan coat
+  description: Aidan coat.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatTrader
+  name: trader
+  description: trader.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/bomber_tsf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/bomber_tsf.rsi
+  - type: TemperatureProtection
+    coefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: ClothingOuterCoatSecurityOvercoat
+  id: ADTClothingOuterCoatRavenOvercoatFriskis
+  suffix: Only Friskis
+  name: security raven overcoat
+  description: Lightly armored leather overcoat meant as casual wear for high-ranking officers. Bears the crest of Nanotrasen Security.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/raven_overcoat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/raven_overcoat.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatIlisium
+  name: Raincoat Ilisium
+  description: Ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/plash_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/plash_ili.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatPyotrCoat
+  name: Pyotr`s Coat
+  description: This dark coat is heavier than look
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/pyotr_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/pyotr_coat.rsi
+  - type: StorageFill
+    contents:
+    - id: CigarGoldCase
+    - id: Lighter
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatOctyabrinaCoat
+  name: Octyabrina`s Coat
+  description: This red coat is heavier than look
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/oktyabrina_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/oktyabrina_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatJohanCoat
+  name: Johans`s Coat
+  description: White coat with blue strips? YOS.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/johan_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/johan_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatXCoat
+  name: X`s Coat
+  description: X`s Coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/x_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/x_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ADTClothingOuterCoatPyotrCoat
+  id: ADTClothingOuterCoatSecAuditor
+  name: sec auditor coat
+  description: sec auditor coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/sec_auditor_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/sec_auditor_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatCyberSun
+  name: лабораторный халат Киберсан
+  description: Лабораторный халат Киберсан, предоставляющий минимальную защиту от вредного воздействия
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcyber.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcyber.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterBrownFurCoat
+  name: brown fur coat
+  description: This brown fur coat made from elite skin of brown bear
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/brown_furcoat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/brown_furcoat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterBlackFurCoat
+  name: black fur coat
+  description: This black fur coat made from skin of black bear
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/black_furcoat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/black_furcoat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTJasonBomber
+  name: maniac bomber
+  description: maniac bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/Halloween/jason.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/Halloween/jason.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTStudentBomber
+  name: student bomber
+  description: student bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Suits/Halloween/hotline_student.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Suits/Halloween/hotline_student.rsi
+
+- type: entity
+  parent: ClothingOuterBaseLarge
+  id: ADTClothingSyndicateJacket
+  name: Syndicate jacket
+  description: An upgraded version of the blood red hardsuit that features enhanced fireproofing, pressure resist, and superior armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/Syndicate_jacket.rsi
+  - type: Clothing 
+    sprite: ADT/Clothing/OuterClothing/Coats/Syndicate_jacket.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier 
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.2
+        Radiation: 0.20
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatSportJacket
+  name: sport bomber jacket
+  description: A thick, stylish bomber jacket for cold temperature.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/sport_jacket.rsi #спрайты от @prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/sport_jacket.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatSportStepHoodie
+  name: STEP hoodie
+  description: This hoodie is like a cocoon, that places it's owner into another universe, where water, wind, mud and fire is no match for him. Mucho texto, really. But looks good.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/sport_step_hoodie.rsi #спрайты от @prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/sport_step_hoodie.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatSportZetaBlouse
+  name: Zeta green blouse
+  description: A green blouse from series "Zeta".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/sport_zeta_blouse.rsi #спрайты от @prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/sport_zeta_blouse.rsi
+
+#День Святого Валентина
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterRedCardigan
+  name: red cardigan
+  description: red cardigan
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/red_cardigan.rsi #спрайты от @lunalita
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/red_cardigan.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterBlackCardigan
+  name: black cardigan
+  description: black cardigan
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Jackets/black_cardigan.rsi #спрайты от @lunalita
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Jackets/black_cardigan.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTJayBomber
+  name: jaybomber
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/jaybomber.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/jaybomber.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatLabSec
+  name: lab coat (sec)
+  description: A suit that protects against minor chemical spills. Has an red stripe on the shoulder.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_sec.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_sec.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabParamedic
+  name: paramedic's lab coat
+  description: A suit that protects against minor chemical spills.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_paramedic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_paramedic.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatHikeLabcoatCmo
+  name: chief medical officer's hiking lab coat
+  description: Partially open labcoat. Does not hinder movement.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/hike_labcoat_cmo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/hike_labcoat_cmo.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabPathologist
+  name: pathologist's lab coat
+  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatSchroCoat
+  name: Schrodinger`s Coat
+  description: This dark coat is heavier than look
+  components:
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/schrodinger_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/schrodinger_coat.rsi
+  - type: StorageFill
+    contents:
+    - id: ADTCigarSchrodingerCase
+    - id: FlippoSchrodingerLighter
+    - id: SpeedLoaderMagnum
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatBrigmedicWB
+  name: brigmedic windbreaker
+  description: A brigmedic's trusty windbreaker, for all the space wind.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Coats/brigmedicWB.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Coats/brigmedicWB.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Caustic: 0.75

@@ -1,0 +1,367 @@
+- type: entity
+  name: chair
+  id: ADTMannequinBase
+  abstract: true
+  description: A base of a mannequin
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static #меняем на статик, как у стульев
+  - type: Inventory
+    templateId: human
+  - type: InventorySlots
+  - type: Hands
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      shoes: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      socks: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      underwearb: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      underweart: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      jumpsuit: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      outerClothing: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      gloves: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      neck: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      mask: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      eyes: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      ears: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      head: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      pocket1: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      pocket2: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      suitstorage: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      id: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      belt: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      back: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      body_root_part: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: Stripping
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      - key: enum.HumanoidMarkingModifierKey.Key
+        type: HumanoidMarkingModifierBoundUserInterface
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+      - key: enum.StoreUiKey.Key
+        type: StoreBoundUserInterface
+  - type: Pullable
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: Body
+    prototype: Human
+    requiredLegs: 2
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 200
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlastic:
+            min: 3
+            max: 6
+  - type: Tag
+    tags:
+    - Plastic
+  - type: StaticPrice
+    price: 75
+
+
+
+
+
+
+
+
+
+
+
+
+      # - type: Sprite
+  #   noRot: true
+  #   drawdepth: Mobs
+  #   layers:
+  #     - map: ["enum.DamageStateVisualLayers.Base"]
+  #       sprite: ADT/Structures/Mannequin.rsi
+  #       state: full_human
+  #   - map: [ "enum.HumanoidVisualLayers.Chest" ]
+  #   - map: [ "enum.HumanoidVisualLayers.Head" ]
+  #   - map: [ "enum.HumanoidVisualLayers.Snout" ]
+  #   - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+  #   - map: [ "enum.HumanoidVisualLayers.RArm" ]
+  #   - map: [ "enum.HumanoidVisualLayers.LArm" ]
+  #   - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+  #   - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+  #   - shader: StencilClear
+  #     sprite: ADT/Structures/Mannequin.rsi
+  #     state: full_human
+  #   - shader: StencilMask
+  #     map: ["enum.HumanoidVisualLayers.StencilMask"]
+  #     sprite: Mobs/Customization/masking_helpers.rsi
+  #     state: unisex_full
+  #     visible: false
+  #   - map: [ "underwearb" ] #Sirena
+  #   - map: [ "underweart" ] #Sirena
+  #   - map: ["enum.HumanoidVisualLayers.LFoot"]
+  #   - map: ["enum.HumanoidVisualLayers.RFoot"]
+  #   - map: [ "socks" ] #Sirena
+  #   - map: ["jumpsuit"]
+  #   - map: ["enum.HumanoidVisualLayers.LHand"]
+  #   - map: ["enum.HumanoidVisualLayers.RHand"]
+  #   - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+  #     color: "#ffffff"
+  #     sprite: Objects/Misc/handcuffs.rsi
+  #     state: body-overlay-2
+  #     visible: false
+  #   - map: [ "gloves" ]
+  #   - map: [ "shoes" ]
+  #   - map: [ "ears" ]
+  #   - map: [ "outerClothing" ]
+  #   - map: [ "eyes" ]
+  #   - map: [ "belt" ]
+  #   - map: [ "id" ]
+  #   - map: [ "neck" ]
+  #   - map: [ "back" ]
+  #   - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+  #   - map: [ "enum.HumanoidVisualLayers.Hair" ]
+  #   - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+  #   - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+  #   - map: [ "enum.HumanoidVisualLayers.Tail" ]
+  #   - map: [ "mask" ]
+  #   - map: [ "head" ]
+  #   - map: [ "pocket1" ]
+  #   - map: [ "pocket2" ]
+
+- type: entity
+  name: Female Mannequin
+  description: A female doll for your clothes.
+  id: ADTMannequinFemale
+  parent: ADTMannequinBase
+  components:
+  - type: Icon
+    sprite: ADT/Structures/Mannequin/MannequinFemale.rsi  ##########################3
+    state: full_mannequin_female
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        sprite: ADT/Structures/Mannequin/MannequinFemale.rsi
+        state: full_mannequin_female
+      - map: ["enum.HumanoidVisualLayers.Chest"]
+      - map: ["enum.HumanoidVisualLayers.Head"]
+      - map: ["enum.HumanoidVisualLayers.Snout"]
+      - map: ["enum.HumanoidVisualLayers.Eyes"]
+      - map: ["enum.HumanoidVisualLayers.RArm"]
+      - map: ["enum.HumanoidVisualLayers.LArm"]
+      - map: ["enum.HumanoidVisualLayers.RLeg"]
+      - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: [ "underwearb" ] #Sirena
+      - map: [ "underweart" ] #Sirena
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+      # - map: ["enum.HumanoidVisualLayers.Wings"]
+      - map: ["clownedon"] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+        
+- type: entity
+  name: Male Mannequin
+  description: A male doll for your clothes.
+  id: ADTMannequinMale
+  parent: ADTMannequinBase
+  components:
+  - type: Icon
+    sprite: ADT/Structures/Mannequin/MannequinMale.rsi
+    state: full_mannequin_male
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        sprite: ADT/Structures/Mannequin/MannequinMale.rsi
+        state: full_mannequin_male
+      - map: ["enum.HumanoidVisualLayers.Chest"]
+      - map: ["enum.HumanoidVisualLayers.Head"]
+      - map: ["enum.HumanoidVisualLayers.Snout"]
+      - map: ["enum.HumanoidVisualLayers.Eyes"]
+      - map: ["enum.HumanoidVisualLayers.RArm"]
+      - map: ["enum.HumanoidVisualLayers.LArm"]
+      - map: ["enum.HumanoidVisualLayers.RLeg"]
+      - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: [ "underwearb" ] #Sirena
+      - map: [ "underweart" ] #Sirena
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+      # - map: ["enum.HumanoidVisualLayers.Wings"]
+      - map: ["clownedon"] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false

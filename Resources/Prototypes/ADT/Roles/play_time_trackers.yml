@@ -1,0 +1,40 @@
+- type: playTimeTracker
+  id: JobMagistrat
+
+- type: playTimeTracker
+  id: JobADTInvestigator
+
+- type: playTimeTracker
+  id: JobADTPathologist
+
+- type: playTimeTracker
+  id: JobSecurityCyborg
+
+- type: playTimeTracker
+  id: JobADTBlueShieldOfficer
+
+- type: playTimeTracker
+  id: JobMedicalBorg
+
+- type: playTimeTracker
+  id: JobSupplyBorg
+
+- type: playTimeTracker
+  id: JobServiseBorg
+
+- type: playTimeTracker
+  id: JobJanitorBorg
+
+- type: playTimeTracker
+  id: JobEngiBorg
+
+- type: playTimeTracker
+  id: JobRoboticist
+  
+#СССП Штуки
+
+- type: playTimeTracker
+  id: JobUSSPArmyPrivate
+
+- type: playTimeTracker
+  id: JobUSSPArmyOfficer

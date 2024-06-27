@@ -1,0 +1,263 @@
+- type: entity
+  id: MobMonkeyChangeling
+  parent: MobMonkey
+  suffix: changeling
+  noSpawn: true
+  components:
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Monkey
+    understands:
+    - GalacticCommon
+    - Monkey
+
+- type: polymorph
+  id: ChangelingLesserForm
+  configuration:
+    entity: MobMonkeyChangeling
+    forced: true
+    inventory: Drop
+    allowRepeatedMorphs: true
+
+- type: entity
+  name: changeling slug
+  parent: SimpleMobBase
+  id: ChangelingHeadslug
+  description: e
+  components:
+  - type: Body
+    prototype: Mouse
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: SmallMob
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: ADT/Mobs/Aliens/headslug.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: headslug
+  - type: Item
+    size: Tiny
+  - type: NpcFactionMember
+    factions:
+      - Mouse
+  - type: HTN
+    rootTask:
+      task: MouseCompound
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: Deathgasp
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      69: Critical
+      70: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: headslug
+      Critical:
+        Base: headslug_dead
+      Dead:
+        Base: headslug_dead
+  - type: Food
+  - type: Tag
+    tags:
+    - ShoesRequiredStepTriggerImmune
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0.001
+  # TODO: Remove CombatMode when Prototype Composition is added
+  - type: CombatMode
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: CanEscapeInventory
+  - type: MobPrice
+    price: 5000
+  - type: BadFood
+  - type: NonSpreaderZombie
+  - type: PreventSpiller
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Piercing: 10
+  - type: LingSlug
+
+- type: entity
+  name: changeling slug
+  parent: SimpleMobBase
+  id: ChangelingHeadslugSpread
+  suffix: Spreader
+  description: e
+  components:
+  - type: Body
+    prototype: Mouse
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: SmallMob
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: ADT/Mobs/Aliens/headslug.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: headslug
+  - type: Item
+    size: Tiny
+  - type: NpcFactionMember
+    factions:
+      - Mouse
+  - type: HTN
+    rootTask:
+      task: MouseCompound
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: Deathgasp
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      69: Critical
+      70: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: headslug
+      Critical:
+        Base: headslug_dead
+      Dead:
+        Base: headslug_dead
+  - type: Food
+  - type: Tag
+    tags:
+    - ShoesRequiredStepTriggerImmune
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0.001
+  # TODO: Remove CombatMode when Prototype Composition is added
+  - type: CombatMode
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: CanEscapeInventory
+  - type: MobPrice
+    price: 5000
+  - type: BadFood
+  - type: NonSpreaderZombie
+  - type: PreventSpiller
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Piercing: 10
+  - type: LingSlug
+    spread: true
+    eggsAction: ActionLingHatchFast
+
+
+
+
+#Котя это что вообще такое
+- type: entity  # Как будут спрайты доделаю. 
+  name: Urist McWeb
+  parent: BaseMobArachnid
+  id: ADTMobLingUnt
+  components:
+  - type: InvisibilityAct
+    minVisibility: 0
+  - type: JumpAct
+    jumpAction: LingUntActionJump
+  - type: ProjectileAct
+    projAction: LingUntActionShoot
+    prototype: ADTBulletLingGas
+
+- type: entity
+  parent: ChangelingHeadslug
+  id: ChangelingHeadslugMidround
+  suffix: Ghost role
+  components:
+  - type: GenericAntag
+    rule: LingMidround
+

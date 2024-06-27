@@ -1,0 +1,287 @@
+- type: entity
+  id: BaseTranslatorImplanter
+  parent: [ BaseItem ]
+  name: Basic translator implant
+  description: "Translates speech."
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+    layers:
+    - state: implanter1
+      map: [ "implantFull" ]
+      visible: true
+    - state: implanter0
+      map: [ "implantBroken" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+        implantBroken:
+          True: {visible: false}
+          False: {visible: true}
+
+- type: entity
+  id: BasicGalaticCommonTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Basic Galatic Common translator implant
+  description: "An implant giving the ability to understand Galatic Common."
+  components:
+  - type: TranslatorImplanter
+    understood:
+    - GalacticCommon
+
+- type: entity
+  id: AdvancedGalaticCommonTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Advanced Galatic Common translator implant
+  description: "An implant giving the ability to understand and speak Galatic Common."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - GalacticCommon
+    understood:
+    - GalacticCommon
+
+- type: entity
+  id: BubblishTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Bubblish translator implant
+  description: "An implant giving the ability to understand and speak Bubblish."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Bubblish
+    understood:
+    - Bubblish
+
+- type: entity
+  id: NekomimeticTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Nekomimetic translator implant
+  description: "An implant giving the ability to understand and speak Nekomimetic, Nya~!"
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Nekomimetic
+    understood:
+    - Nekomimetic
+
+- type: entity
+  id: DraconicTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Draconic translator implant
+  description: "An implant giving the ability to understand and speak Draconic."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Draconic
+    understood:
+    - Draconic
+
+- type: entity
+  id: CanilunztTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Canilunzt translator implant
+  description: "An implant giving the ability to understand and speak Canilunzt, Yeeps!"
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Canilunzt
+    understood:
+    - Canilunzt
+
+- type: entity
+  id: SolCommonTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: SolCommon translator implant
+  description: "An implant giving the ability to understand and speak SolCommon, raaagh!"
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - SolCommon
+    understood:
+    - SolCommon
+
+- type: entity
+  id: RootSpeakTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: RootSpeak translator implant
+  description: "An implant giving the ability to understand and speak RootSpeak."
+  components:
+  - type: TranslatorImplanter
+    understood:
+    - RootSpeak
+
+- type: entity
+  id: MofficTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Moffic translator implant
+  description: "An implant giving the ability to understand and speak Moffic."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Moffic
+    understood:
+    - Moffic
+
+- type: entity
+  id: CodeSpeakImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: CodeSpeak Implanter
+  description: "\"CodeSpeak(tm) - Secure your communication with metaphors so elaborate, they seem randomly generated!\""
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - CodeSpeak
+    understood:
+    - CodeSpeak
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  id: SikTajTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: SikTaj translator implant
+  description: "An implant giving the ability to understand and speak SikTaj."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - SikTaj
+    understood:
+    - SikTaj
+
+- type: entity
+  id: NianTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Nian translator implant
+  description: "An implant giving the ability to understand and speak Nian."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Nian
+    understood:
+    - Nian
+
+- type: entity
+  id: FireTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Nian translator implant
+  description: "An implant giving the ability to understand and speak Nian."
+  components:
+  - type: TranslatorImplanter
+    understood:
+    - Fire
+
+- type: entity
+  id: DraskTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Orluum translator implant
+  description: "An implant giving the ability to understand and speak Orluum."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Drask
+    understood:
+    - Drask
+
+- type: entity
+  id: UrsTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Urs translator implant
+  description: "An implant giving the ability to understand and speak Ursus language."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Urs
+    understood:
+    - Urs
+
+- type: entity
+  id: ArkaneTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Arkane translator implant
+  description: "An implant giving the ability to understand and speak Arcane language."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Arkane
+    understood:
+    - Arkane
+
+- type: entity
+  id: ShadowkinTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Shadowkin translator implant
+  description: "An implant giving the ability to understand and speak Shadowkin language."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Shadowkin
+    understood:
+    - Shadowkin
+
+- type: entity
+  id: BorgTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Borg translator implant
+  description: "An implant giving the ability to understand and speak Binary."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - BorgTalk
+    understood:
+    - BorgTalk
+
+- type: entity
+  id: CintaTajTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: CintaTaj translator implant
+  description: "An implant giving the ability to understand and speak CintaTaj."
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - CintaTaj
+    understood:
+    - CintaTaj
+
+
+- type: entity
+  id: SyndUniversalTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: universal translator implant
+  description: "An implant giving the ability to understand any racial language."
+  components:
+  - type: TranslatorImplanter
+    understood:
+    - RobotTalk
+    - Shadowkin
+    - Arkane
+    - Urs
+    - Drask
+    - Fire
+    - Nian
+    - SikTaj
+    - Moffic
+    - RootSpeak
+    - SolCommon
+    - Canilunzt
+    - Draconic
+    - Bubblish
+    - Nekomimetic
+
+- type: entity
+  id: DevTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Dev translator implant
+  description: "e"
+  components:
+  - type: TranslatorImplanter
+    spoken:
+    - Dev
+    understood:
+    - Dev

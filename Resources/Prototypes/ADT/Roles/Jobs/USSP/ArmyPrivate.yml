@@ -1,0 +1,34 @@
+- type: job
+  id: ADTJobUSSPArmyPrivate
+  name: job-name-ussp-army-private
+  description: job-description-ussp-army-private
+  playTimeTracker: JobUSSPArmyPrivate
+  setPreference: false
+  startingGear: ADTUSSPArmyPrivateGear
+  icon: "JobIconUSSPArmyPrivate"
+  supervisors: job-supervisors-ussp-centcom
+  access:
+  - Maintenance
+  - External
+  canBeAntag: false
+
+- type: startingGear
+  id: ADTUSSPArmyPrivateGear
+  equipment:
+    jumpsuit: ADTParatrooperUSSPUniform
+    # back: ClothingBackpackERTLeaderFilled
+    shoes: ADTClothingShoesBootsUSSPArmy
+    mask: ADTClothingMaskGasUSSP
+    head: ADTClothingHeadHatBeretParatrooperUSSP
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    neck: ClothingNeckUSSPPin
+    # outerClothing: ClothingOuterArmorBulletproof
+    id: ADTUSSPArmyCard
+    ears: ADTClothingHeadsetUSSP
+    # belt: ADTClothingBeltMilitaryWebbingRPSL
+    # pocket1: PinpointerNuclear
+    underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ADTTelnyachkaUSSPUniform # Sirena-Underwear

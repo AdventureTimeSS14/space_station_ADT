@@ -1,0 +1,647 @@
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieResomiBlue #molochko!
+  name: resomi plushie blue
+  description: Little cute Resomi! UwU
+  components:
+  - type: Sprite
+    state: plushie_resomi_blue
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieResomiGreen #molochko!
+  name: resomi plushie green
+  description: Little cute Resomi! UwU
+  components:
+  - type: Sprite
+    state: plushie_resomi_green
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieResomiYellow #molochko!
+  name: resomi plushie yellow
+  description: Little cute Resomi! UwU
+  components:
+  - type: Sprite
+    state: plushie_resomi_yellow
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/Toys/toysqueak2.ogg
+
+- type: entity
+  parent: BaseItem
+  id: ADTGarbagerama
+  name: Garbagerama
+  description: Someone forgot it here.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toys.rsi
+    state: garbagerama
+  - type: MeleeWeapon
+    attackRate: 1.5
+    angle: 0
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Blunt: 0
+  - type: Item
+    size: Small
+    sprite: Objects/Fun/toys.rsi
+    heldPrefix: garbagerama
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMiniPinkShark
+  name: mini shark plushie
+  description: A pretty old plushie, that got a refresh. Looks well-groomed and washed. There is a label on it that says "My luck will be always with you. Timri.K."
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: shark_mini_pink
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Fun/toys.rsi
+    heldPrefix: shark
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Items/Toys/soundshark.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Items/Toys/soundshark.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/ADT/Items/Toys/soundshark.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Toys/soundshark.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Items/Toys/soundshark.ogg
+    damage:
+      types:
+        Blunt: 0
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAidan
+  name: Aidan Simp
+  description: Very very good moderator.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/plushie_aidan.rsi
+    state: plushie_aidan
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJessie
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_jessie
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAbigail
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_abigail
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAyus
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ayus
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieBob
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_bob
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEvgeniy
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_evgeniy
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieFries
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_fries
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieIlumi
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ilumi
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJan
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_jan
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJason
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_jason
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKus
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_kus
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLilit
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_lilit
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLuke
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_luke
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLya
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_lya
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNova
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_nova
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePeter
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_peter
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRebecca
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_rebecca
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSchrodinger
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_schrodinger
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTerenty
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_terenty
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieUvarov
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_uvarov
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieValtor
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_valtor
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieWalter
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_walter
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieIohan
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_iohan
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDarina
+  name: Darina plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_darina
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAkula
+  name: Darina plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_akula
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePrazat
+  name: Prazat Dar Vahed plushie
+  description: It looks like a cute little human doll... But in fact, this is a doll of a man who has done a lot of terrible things, who regrets and reproaches himself for it every day...
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_prazat
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLo
+  name: Lo Vud plushie
+  description: A plush version of a once-living mime. It seems the toy got wet, as if someone was crying into it. She looks unhappy. It smells like space drugs.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_lo
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSati
+  name: Sati plushie
+  description: Arcana's toy, looks tired... And hey, what kind of clothes is she wearing? If you look closely, you will notice that a tag is sewn to the strange black and scarlet robe "Remember that your lives are worth more than a couple of credits!"
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_sati
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieUma
+  name: Uma plushie
+  description: Soft and so cute!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_uma
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTimrika
+  name: Timrika plushie
+  description: It looks like a soft, cute and woolly tyaranka! However, bone drawings have their own history.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_timrika
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAmira
+  name: Amira plushie
+  description: It looks like a soft and cute research director.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_amira
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieOvai
+  name: Ovai plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ovai
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieFritz
+  name: Ellis plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ellis
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAzalia
+  name: Azalia plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_azalia
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSofy
+  name: Sofy plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_sofy
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLiexer
+  name: Ketua
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_liexer
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMa
+  name: Ma
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ma
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJungar
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_jungar
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMigel
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_migel
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTeo
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_teo
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDekus
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_dekus
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAfi
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_afi
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRicker
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_riker
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKoff
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_koff
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieUrs
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ursus
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMio
+  name: Plusie Mio
+  description: Incredibly cute Mio, so soft and little shadowkin.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plusie_mio
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePochita
+  name: Plush pochita
+  description: A plush dog toy with a chainsaw blade sticking out of its head
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_pochita
+  - type: Item
+    sprite: ADT/Objects/Fun/toys.rsi
+    inhandVisuals:
+      left:
+      - state: pochita-inhand-left
+      right:
+      - state: pochita-inhand-right
+
+- type: entity
+  name: Suspicious gift
+  description: A gift of suspicious appearance. A barely audible beeping sound comes from it.
+  parent: BaseItem
+  id: toyC4Package
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/c4toyPackage.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: Item
+    sprite: ADT/Objects/Fun/c4toyPackage.rsi
+    size: Small
+  - type: SpawnItemsOnUse
+    items:
+    - id: toyC4
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: toyC4
+  name: toy c4
+  description: A toy that will help you EXPLODE with laughter.
+  suffix: Новый год
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/c4toy.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Fun/c4toy.rsi
+    size: Tiny
+  #- type: ItemCooldown
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Fun/c4NY_music.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Fun/bell.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Fun/bell.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    soundHit:
+      path: /Audio/ADT/Fun/bell.ogg
+    damage:
+      types:
+        Blunt: 0
+  - type: UseDelay
+    delay: 28

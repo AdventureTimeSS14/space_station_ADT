@@ -1,0 +1,131 @@
+#ADT Октоберфест
+
+- type: cargoProduct
+  id: ADTCargoOktoberfestSnack
+  icon:
+    sprite: ADT/Objects/Consumable/Food/oktoberfest.rsi
+    state: brezel_salt
+  product: ADTCrateOktoberfestSnack
+  cost: 650
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoBeerTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: beer
+  product: ADTBeerTank
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoGoldenAleTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: goldenale
+  product: ADTBeerTankGoldenAle
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoSausageBeerTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: sausagebeer
+  product: ADTBeerTankSausage
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoTechnoBeerTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: technobeer
+  product: ADTBeerTankTechno
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoPaulanerTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: paulanerbeer
+  product: ADTBeerTankClassicPaulaner
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoLivseyBeerTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: livseybeer
+  product: ADTBeerTankLivsey
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoLuckyJonnyBeerTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: luckyjonnybeer
+  product: ADTBeerTankLuckyJonny
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoSecUnfilteredBeerTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: secunfilteredbeer
+  product: ADTBeerTankSecUnfiltered
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoGlyphidStoutTank
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: glyphidstout
+  product: ADTBeerTankGlyphidStout
+  cost: 150
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoHalloweenSnack
+  icon:
+    sprite: ADT/Objects/Misc/halloween_smilecandy_bowl.rsi
+    state: icon-0
+  product: ADTCrateHalloweenFood
+  cost: 1200
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoChocolateGorilla
+  icon:
+    sprite: ADT/Objects/Consumable/Food/new-year/chocogorilla.rsi
+    state: chocogorilla
+  product: ADTCrateChocolateGorilla
+  cost: 1000
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoFishCrate
+  icon:
+    sprite: ADT/Objects/Consumable/Food/fish.rsi
+    state: fish
+  product: ADTCrateFishFreezer
+  cost: 1000
+  category: cargoproduct-category-name-food
+  group: market

@@ -1,0 +1,16 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostLing
+  name: changeling spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ling-name
+    description: ghost-role-information-ling-description
+    rules: ghost-role-information-ling-rules
+  - type: GhostRoleMobSpawner
+    prototype: ChangelingHeadslugMidround
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/headslug.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: headslug

@@ -1,0 +1,52 @@
+- type: entity
+  name: perfume Fleur de Mai
+  id: ADTSprayBottlePerfumeLilac
+  description: Very expensive perfume. Smell like a lilac.
+  suffix: Filled
+  parent: SprayBottle
+  components:
+  - type: Tag
+    tags:
+    - Spray
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTFleurdeMaiReagent
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Specific/perfume_lilac.rsi
+    state: perfume
+  - type: Item
+    sprite: ADT/Objects/Specific/perfume_lilac.rsi
+    size: Small
+  - type: Spray
+    transferAmount: 3
+
+- type: entity
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  id: ADTPerfumeBox
+  name: perfume box
+  description: Box with a very expensive perfume.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Objects/Specific/perfume_lilac_box.rsi
+    state: box
+    layers:
+    - state: box
+    - state: box-open
+      map: ["openLayer"]
+  - type: Storage
+    maxItemSize: Small
+  - type: Item
+    sprite: ADT/Objects/Specific/perfume_lilac_box.rsi
+    size: Normal
+    heldPrefix: box
+  - type: StorageFill
+    contents:
+    - id: ADTSprayBottlePerfumeLilac
+      amount: 1
+  - type: StaticPrice
+    price: 500

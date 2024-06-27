@@ -1,0 +1,445 @@
+# баночка
+- type: entity
+  name: pill canister
+  id: ADTPillCanister
+  parent: PillCanister
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/pills.rsi
+    state: pill-canister
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Chemistry/pills.rsi
+
+# бутылочки
+##пластиковая
+- type: entity
+  name: bottle
+  parent: BaseItem
+  id: ADTBaseChemistryEmptyPlasticBottle
+  abstract: true
+  description: A small plastic bottle.
+  components:
+  - type: Tag
+    tags:
+    - Bottle
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+  - type: SpaceGarbage
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 7
+    fillBaseName: fill
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        canMix: true
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: ExaminableSolution
+    solution: drink
+  - type: DrawableSolution
+    solution: drink
+  - type: SolutionTransfer
+    maxTransferAmount: 30
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Medical/Chemistry/plastic-bottle.rsi
+  - type: Spillable
+    solution: drink
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Openable
+    sound:
+      path: /Audio/Items/pop.ogg
+  - type: StaticPrice
+    price: 0
+  - type: GuideHelp
+    guides: 
+    - Medical Doctor
+
+- type: entity
+  id: ADTPlasticBottle
+  name: plastic bottle
+  parent: ADTBaseChemistryEmptyPlasticBottle
+
+##стеклянная
+- type: entity
+  name: bottle
+  parent: BaseChemistryEmptyBottle
+  id: ADTBaseChemistryEmptyBottle
+  abstract: true
+  description: A small plastic bottle.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 25
+  - type: SpaceGarbage
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/glass-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Appearance
+  - type: SolutionTransfer
+    minTransferAmount: 1
+    transferAmount: 5
+    maxTransferAmount: 30
+    canChangeTransferAmount: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Medical/Chemistry/glass-bottle.rsi
+  - type: Openable
+    sound:
+      path: /Audio/Items/pop.ogg
+  - type: StaticPrice
+    price: 0
+  - type: GuideHelp
+    guides: 
+    - Medical Doctor
+
+- type: entity
+  id: ADTGlassBottle
+  name: glass bottle
+  parent: ADTBaseChemistryEmptyBottle
+
+# Упаковки
+- type: entity
+  id: ADTBasePack
+  parent: BaseStorageItem
+  description: Holds up to 10 pills.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/packs.rsi
+    state: pack
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Chemistry/packs.rsi
+    size: Tiny
+  - type: Tag
+    tags:
+      - PillCanister
+  - type: Storage
+    grid:
+    - 0,0,4,1
+    whitelist:
+      components:
+      - Pill
+  - type: GuideHelp
+    guides: 
+    - Medical Doctor 
+
+- type: entity
+  id: ADTPillPack
+  name: pill pack
+  parent: ADTBasePack
+
+#всякие ящики
+- type: entity
+  name: box of small syringes
+  parent: BoxCardboard
+  id: ADTSmallSyringeBox
+  description: It's plastic a box with small syringes inside.
+  components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,1
+  - type: StorageFill
+    contents:
+      - id: ADTSmallSyringe
+        amount: 6
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/syringe.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Chemistry/syringe.rsi
+    size: Normal 
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50
+
+# Патологоанатомические приколы
+- type: entity
+  name: small syringe
+  description: A small syringe to take.. you guessed it, small samples of liquid.
+  parent: BaseItem
+  id: ADTSmallSyringe
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/syringe.rsi
+    layers:
+      - state: fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: syringe_base
+        map: ["enum.SolutionContainerLayers.Base"]
+  - type: Icon
+    sprite: ADT/Objects/Specific/Medical/Chemistry/syringe.rsi
+    state: "syringe_base"
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Medical/Chemistry/syringe.rsi
+    heldPrefix: 0
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 5
+  - type: FitsInDispenser
+    solution: injector
+  - type: Injector
+    minTransferAmount: 1
+    maxTransferAmount: 5
+    delay: 3
+    transferAmount: 1
+    toggleState: Draw
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill
+  - type: Tag
+    tags:
+    - Syringe
+    - Trash
+  - type: UserInterface
+    interfaces:
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+
+- type: entity
+  name: reagent analyzer
+  description: Your pocket helper of destinguishing strange chemicals.
+  parent: BaseItem
+  id: ADTReagentAnalyzer
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
+    layers:
+      - state: icon
+      - state: screen
+        shader: unshaded
+      - state: content
+        shader: unshaded
+        visible: false
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
+  - type: ActivatableUI
+    key: enum.ReagentAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+    - key: enum.ReagentAnalyzerUiKey.Key
+      type: ReagentAnalyzerBoundUserInterface
+  - type: ReagentAnalyzer
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+  - type: ItemMapper
+    mapLayers:
+      content:
+        whitelist:
+          components:
+          - FitsInDispenser
+    sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
+  - type: Appearance
+
+#гипсоспреи.
+
+- type: entity
+  name: Hypospray
+  suffix: "TESTPURPOSES"
+  parent: BaseItem
+  description: A hypospray model designed by NT for use in a combat situation - with increased capacity at the expense of speed.
+  id: ADMINHYPO
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/adt_combathypo.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Chemistry/adt_combathypo.rsi
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 5000
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    transferAmount: 30
+    
+- type: entity
+  name: combat hypospray
+  parent: BaseItem
+  description: A hypospray model designed by NT for use in a combat situation - with increased capacity at the expense of speed.
+  id: ADTCombatHypo
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/adt_combathypo.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/Chemistry/adt_combathypo.rsi
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 45
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+  - type: UseDelay
+    delay: 1.0
+
+- type: entity
+  name: Jana
+  parent: BaseItem
+  description: A sterile injector for rapid administration of drugs to patients.
+  id: JanaHypo
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/Hyppo.rsi
+    state: hypo
+  - type: Item
+    sprite: ADT/Objects/Misc/Hyppo.rsi
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 50
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+  - type: UseDelay
+    delay: 0
+  - type: StaticPrice
+    price: 750
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    softness: 5
+    autoRot: true
+    color: "#be090e"
+    energy: 3
+
+- type: entity
+  name: гипоспрей Киберсан
+  parent: BaseItem
+  description: Великолепный медицинский девайс в удобном дизайне от Киберсан !
+  id: ADTCyberHypospray
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/cyberhypo.rsi
+    state: hypo
+  - type: Item
+    sprite: ADT/Objects/Specific/cyberhypo.rsi
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+  - type: UseDelay
+    delay: 0.5
+
+
+- type: entity
+  name: pill
+  parent: FoodInjectableBase
+  id: ADTPillExperimental
+  description: It's not a suppository.
+  components:
+  - type: SliceableFood
+    count: 2
+  - type: Sprite
+    sprite: ADT/Objects/Misc/pill_ex.rsi
+    state: trava_ent
+    scale: 0.6, 0.6
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTPillExperimental
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: SpaceDrugs
+            Quantity: 15
+          - ReagentId: Nocturine
+            Quantity: 15
+
+- type: entity
+  name: pill
+  parent: FoodInjectableBase
+  id: ADTPillExter
+  description: It's not a suppository.
+  components:
+  - type: SliceableFood
+    count: 2
+  - type: Sprite
+    sprite: ADT/Objects/Misc/pill_ex.rsi
+    state: extezi_ent
+    scale: 0.6, 0.6
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTPillExter
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: Stimulants
+            Quantity: 15
+          - ReagentId: SpaceDrugs
+            Quantity: 15

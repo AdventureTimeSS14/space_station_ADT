@@ -1,0 +1,41 @@
+- type: entity
+  parent: SeedBase
+  name: packet of pumpkin seeds
+  id: ADTPumpkinSeeds
+  components:
+    - type: Seed
+      seedId: adt_pumpkin
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/pumpkin.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of papaver somniferum seeds
+  id: ADTPapaverSomniferumSeeds
+  components:
+    - type: Seed
+      seedId: ADTPapaverSomniferum
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
+
+# пакет семян
+- type: entity
+  parent: SeedBase
+  name: packet of mandarin seeds
+  id: ADTMandarinSeeds
+  suffix: NewYear
+  components:
+    - type: Seed
+      seedId: ADTmandarin
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of buckwheat seed 
+  id: ADTBuckwheatSeeds
+  components:
+    - type: Seed
+      seedId: ADTbuckwheatplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/buckwheat.rsi

@@ -1,0 +1,47 @@
+- type: entity
+  id: ADTDecorationTankETP145
+  name: ETP-145
+  description: Heavy as a really heavy thing.
+  suffix: USSP
+  components:
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Objects/Decoration/tank_etp145.rsi
+    state: etp145
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 5000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Climbable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 9000
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 10
+                max: 30

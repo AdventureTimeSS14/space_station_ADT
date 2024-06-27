@@ -1,0 +1,39 @@
+- type: alert
+  id: ADTAlertPolymorph
+  icons:
+    - sprite: /Textures/ADT/Interface/alerts.rsi
+      state: polymorph
+  name: alerts-polymorph-name
+  description: alerts-polymorph-desc
+
+- type: alert
+  id: PainKiller
+  icons:
+    - sprite: /Textures/ADT/Interface/alerts.rsi
+      state: painkiller
+  name: alerts-painkiller-name
+  description: alerts-painkiller-desc
+# иконку сделал LogDog из GG
+
+- type: alert
+  id: ADTAlertApathy
+  icons:
+    - sprite: /Textures/ADT/Interface/alerts.rsi
+      state: apathy
+  name: alerts-apathy-name
+  description: alerts-apathy-desc
+
+- type: alert
+  id: ADTAlertLingRefresh
+  icons: [ /Textures/Interface/Alerts/ling-refresh.png ]
+  name: alerts-ling-refresh-name
+  onClick: !type:DNARefresh  { }
+  description: alerts-ling-refresh-desc
+
+- type: alert
+  id: ADTLevitation
+  icons:
+    - sprite: /Textures/ADT/Interface/alerts.rsi
+      state: levitation
+  name: alerts-levitation-name
+  description: alerts-levitation-desc

@@ -1,0 +1,593 @@
+- type: entity
+  name: AR-12
+  parent: WeaponRifleLecter
+  id: ADTWeaponRifleAR12
+  description: AR-12
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/ar12_shoot.ogg
+      params:
+        volume: -4
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Empty/ar12_empty.ogg
+    fireRate: 6
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleAR12
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+            - ADTMagazineRifleAR12
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+
+- type: entity
+  name: AK-55
+  id: ADTWeaponRifleAK55
+  parent: WeaponRifleLecter
+  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/ak55.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineUSSPAK74
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazineUSSPLMGDrum
+            - ADTMagazineUSSPAK74
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: Gun
+    fireRate: 6
+
+- type: entity
+  name: TAR-60SF
+  parent: ADTWeaponRifleAR12
+  id: ADTWeaponRifleTAR60SF
+  description: TAR-60SF
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/tar60sf.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/tar60sf.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/ar12_shoot.ogg
+      params:
+        volume: -4
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Empty/ar12_empty.ogg
+    fireRate: 5.5
+
+- type: entity
+  name: Lecter Strikeball
+  parent: BaseWeaponRifle
+  id: ADTWeaponRifleLecterBibis
+  description: A high end military grade assault rifle. Uses .20 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+  - type: Gun
+    fireRate: 10
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/airsoft.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibis
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibis
+      gun_chamber:
+        name: Chamber
+        startingItem: ADTCartridgeStrikeballBibis
+        priority: 1
+        whitelist:
+          tags:
+            - ADTCartridgeBibis
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: AEK-974
+  parent: BaseItem
+  id: ADTAbakanRifleAEK
+  description: Rifles
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/abakan.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/abakan.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      #- SemiAuto
+      #- Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: Item
+    size: Large
+
+- type: entity
+  name: AN-97
+  parent: BaseItem
+  id: ADTGunRifleAN
+  description: Rifles
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/an_97.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/an_97.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 6
+    selectedMode: Burst
+    availableModes:
+      #- FullAuto
+      #- SemiAuto
+      - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: Item
+    size: Large
+
+- type: entity
+  name: АКSy-74
+  parent: BaseItem
+  id: ADTRifleAKsy
+  description: Rifles
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/aksy.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/aksy.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: AmmoCounter
+  - type: Gun
+    minAngle: 5
+    maxAngle: 7
+    angleIncrease: 2
+    angleDecay: 4
+    fireRate: 5.2
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      - SemiAuto
+      #- Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: Item
+    size: Large
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -15
+
+- type: entity
+  name: АКSy-74
+  parent: BaseItem
+  id: ADTRifleAKsyIohana
+  description: Rifles
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/aksy_iohana.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/aksy_iohana.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: AmmoCounter
+  - type: Gun
+    minAngle: 5
+    maxAngle: 7
+    angleIncrease: 2
+    angleDecay: 4
+    fireRate: 5.7
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      - SemiAuto
+      #- Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: Item
+    size: Large
+  - type: GunWieldBonus
+    minAngle: -13
+    maxAngle: -13
+
+#Фактически тот же парент винтовок, но убрал фулл авто и добавил полуавто и очереди
+- type: entity
+  name: BaseWeaponBurstRifle
+  parent: BaseItem
+  id: BaseWeaponBurstRifle
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/BurstRifles/abakan.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 10
+    selectedMode: Burst
+    availableModes:
+      - SemiAuto
+      - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: xC67
+  parent: BaseWeaponRifle
+  id: ADTWeaponRifleXC67
+  description: A high end prototipe assault rifle. Uses .20 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/xc67.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/xc67.rsi
+  - type: Gun
+    #minAngle: 2
+    #maxAngle: 8
+    fireRate: 6.5
+    #angleIncrease: 1
+    #angleDecay: 12
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTExtMagazineRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifle
+            - ADTExtMagazineRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: FN FAL
+  parent: BaseItem
+  id: ADTGunRifleFNFAL
+  description: Rifles
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/fn_fal.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/fn_fal.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleFNFAL
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 1
+        whitelist:
+          tags:
+            - ADTMagazineRifleFNFAL
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 4.7
+    minAngle: 5
+    maxAngle: 7
+    angleIncrease: 2
+    angleDecay: 4
+    selectedMode: Burst
+    availableModes:
+      #- FullAuto
+      - SemiAuto
+      - Burst
+    soundGunshot:
+      collection: FN_Fal_choot
+  - type: Item
+    size: Large
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -5

@@ -1,0 +1,61 @@
+# Anything human specific (e.g. UI, input) goes under MobHuman
+- type: entity
+  save: false
+  parent:
+  - MobBloodstream
+  - MobFlammable
+  - BaseMobSpecies
+  id: BaseHumLavalandMob
+  abstract: true
+  components:
+  - type: Flashable
+  # Organs
+  - type: StatusEffects
+    allowed:
+    - PainKiller
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - SeeingRainbows
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Drunk
+    - SlurredSpeech
+    - RatvarianLanguage
+    - PressureImmunity
+    - Muted
+    - Pacified
+    - StaminaModifier
+  - type: Blindable
+  # Other
+  - type: Body
+    prototype: Human
+    requiredLegs: 0
+  - type: Temperature
+    heatDamageThreshold: 325
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.2 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 25
+  - type: Perishable
+  - type: Butcherable
+    butcheringType: Spike # TODO human.
+    spawned:
+      - id: FoodMeat
+        amount: 5
+  - type: FireVisuals
+    alternateState: Standing

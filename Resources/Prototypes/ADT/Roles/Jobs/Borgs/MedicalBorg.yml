@@ -1,0 +1,16 @@
+- type: job
+  id: ADTMedicalBorg
+  name: JobADTMedicalBorg
+  description: job-description-borg
+  playTimeTracker: JobMedicalBorg
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cyborgs
+      time: 18000 #5 hr
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 54000 #15 hr
+  canBeAntag: false
+  icon: JobIconBorg
+  supervisors: job-supervisors-rd
+  jobEntity: ADTPlayerBorgMedical

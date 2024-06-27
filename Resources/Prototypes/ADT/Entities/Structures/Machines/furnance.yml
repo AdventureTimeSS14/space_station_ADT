@@ -1,0 +1,218 @@
+- type: entity
+  parent: OreProcessor
+  id: ADTFurnance
+  name: Furnance
+  description: Furnance
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/furnance.rsi
+    layers:
+      - state: icon
+        map: ["enum.LatheVisualLayers.IsRunning"]
+      - state: icon
+        shader: unshaded
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: icon
+        map: ["enum.MaterialStorageVisualLayers.Inserting"]
+      - state: icon
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ADTFurnanceMachineCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    materialUseMultiplier: 1.25
+    timeMultiplier: 2.0
+    staticRecipes:
+      - SheetSteel30
+      - SheetGlass30
+      - SheetRGlass30
+      - SheetPlasma30
+      - SheetPGlass30
+      - SheetRPGlass30
+      - SheetPlasteel30
+      - SheetUranium30
+      - SheetUGlass30
+      - SheetRUGlass30
+      - IngotGold30
+      - IngotSilver30
+      - MaterialBananium10
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+
+- type: entity
+  name: water well
+  id: ADTWaterWell
+  parent: SinkEmpty
+  suffix: Water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drainBuffer:
+        maxVol: 200
+      tank:
+        reagents:
+        - ReagentId: Water
+          Quantity: 2000
+  - type: SolutionRegeneration
+    solution: tank
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 10
+  - type: Sprite
+    sprite: ADT/Structures/Machines/water_well.rsi
+    layers:
+      - state: icon
+      - map: [ "enum.SolutionContainerLayers.Fill" ]
+        state: icon
+        visible: false
+
+- type: entity
+  id: ADTFoodFurnance
+  parent: KitchenMicrowave
+  name: Food Furnance
+  description: It's magic.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: ADT/Structures/Machines/food_furnance.rsi
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+  - type: Machine
+    board: ADTFoodFurnanceMachineCircuitboard
+
+- type: entity
+  id: ADTForerunnersSphere
+  name: Forerunners Sphere
+  description: Forerunners Sphere
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: SpriteFade
+  - type: Clickable
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/forerunners_sphere.rsi
+    drawdepth: Overdoors
+    state: icon
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0,0.5,-0.5"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel:
+                min: 10
+                max: 20
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/metal_break1.ogg
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: PointLight
+    radius: 4.8
+    energy: 2.6
+    color: "#28b85f"
+
+- type: entity
+  id: ADTForerunnersComputer
+  name: Forerunners Computer
+  description: Forerunners Computer
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: SpriteFade
+  - type: Clickable
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/forerunners_computer.rsi
+    drawdepth: Overdoors
+    state: icon
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel:
+                min: 10
+                max: 20
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/metal_break1.ogg
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: PointLight
+    radius: 2.8
+    energy: 1.6
+    color: "#28b85f"
+
+- type: entity
+  id: ADTForerunnersDoor
+  name: forerunners door
+  parent: BaseMaterialDoorNavMap
+  description: A door, where will it lead?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/forerunners_door.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: PointLight
+    radius: 2.8
+    energy: 1.6
+    color: "#28b85f"

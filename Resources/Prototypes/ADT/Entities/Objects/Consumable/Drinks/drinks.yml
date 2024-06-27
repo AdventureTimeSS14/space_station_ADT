@@ -1,0 +1,735 @@
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSummerShadeGlass
+  name: summer-shade-name
+  description: summer-shade-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSummerShade
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/summershade.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTWinterSunGlass
+  name: winter-sun-name
+  description: winter-sun-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTWinterSun
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/wintersun.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTHungoverAngelGlass
+  name: hungover-angel-name
+  description: hungover-angel-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTHungoverAngel
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/hungoverangel.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTCitrusBalanceGlass
+  name: citrus-balance-name
+  description: citrus-balance-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTCitrusBalance
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/citrucbalance.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTDobryiDrinkGlass
+  name: dobryi-drink-name
+  description: dobryi-drink-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTDobryiDrink
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/dobryi.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTMilkEclipseGlass
+  name: milk-eclipse-name
+  description: milk-eclipse-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTMilkEclipse
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/milkeclipse.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTArcticExplosionGlass
+  name: arctic-explosion-name
+  description: arctic-explosion-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTArcticExplosion
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/arcticexplosion.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSugarKnightGlass
+  name: sugar-knight-name
+  description: sugar-knight-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSugarKnight
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/sugarknight.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTGrapeLadyGlass
+  name: grape-lady-name
+  description: grape-lady-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTGrapeLady
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/grapelady.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSaturdayBaronGlass
+  name: saturday-baron-name
+  description: saturday-baron-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSaturdayBaron
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/saturdaybaron.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTArcticLatteGlass
+  name: artic-latte-name
+  description: artic-latte-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTArcticLatte
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/arcticlatte.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSpecialTeaOolongGlass
+  name: special-teaoolong-name
+  description: special-teaoolong-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSpecialTeaOolong
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/teaoolong.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTAzureBlueGlass
+  name: azure-blue-name
+  description: azure-blue-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTAzureBlue
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/azureblue.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTPenetrationDrinkGlass
+  name: penetration-drink-name
+  description: penetration-drink-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTPenetrationDrink
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/penetration.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTEclipsedEclispeGlass
+  name: eclipsed-eclipse-name
+  description: eclipsed-eclipse-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTEclipsedEclispe
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/eclipsedeclipse.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSpaceBushGlass
+  name: space-bush-name
+  description: space-bush-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSpaceBush
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/spacebush.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTBusinessConversationGlass
+  name: business-conversation-name
+  description: business-conversation-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTBusinessConversation
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/buisinessconservation.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTAppleLiqueurGlass
+  name: apple-liqueur-name
+  description: apple-liqueur-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTAppleLiqueur
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_glass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTAppleMartiniGlass
+  name: apple-martini-name
+  description: apple-martini-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTAppleMartini
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/applemartini.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTBacardiAppleGlass
+  name: bacardi-apple-name
+  description: bacardi-apple-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTBacardiApple
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/bacardiapple.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTElderGuardsGlass
+  name: elder-guards-name
+  description: elder-guards-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTElderGuards
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/justkekc_cocktails/elderguards.rsi
+    state: icon
+
+#День Святого Валентина
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSerumLoveGlass
+  name: reagent-name-serum-love
+  description: reagent-desc-serum-love
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Wine
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/serumlove.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTRossiniGlass
+  name: reagent-name-rossini
+  description: reagent-desc-rossini
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Wine
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/rossini.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTKirRoyalGlass
+  name: reagent-name-kirroyal
+  description: reagent-desc-kirroyal
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Wine
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/kirroyal.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTCosmopolitanGlass
+  name: reagent-name-cosmopolitan
+  description: reagent-desc-cosmopolitan
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Wine
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/cosmopolitan.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTMulledWineGlass
+  name: mulled-wine-name
+  description: mulled-wine-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTMulledWine
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: mulled_wine
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTMulledWineColdGlass
+  name: mulled-wine-cold-name
+  description: mulled-wine-cold-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTMulledWineCold
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: mulled_wine_cold
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTChampagneMandarinGlass
+  name: champagne-mandarin-name
+  description: champagne-mandarin-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTChampagneMandarin
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: champagne_mandarin
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTChristmasMilkshakeGlass
+  name: christmas-milkshake-name
+  description: christmas-milkshake-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTChristmasMilkshake
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: christmas_milkshake
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTTeaCinnamonLemonGlass
+  name: tea-cinnamon-lemon-name
+  description: tea-cinnamon-lemon-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTTeaCinnamonLemon
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: warm_tea_cinnamon_lemon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSbitenCinnamonLemonGlass
+  name: sbiten-cinnamon-lemon-name
+  description: sbiten-cinnamon-lemon-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSbitenCinnamonLemon
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: sbiten_cinnamon_lemon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTHotCocoaGlass
+  name: hot-cocoa-name
+  description: hot-cocoa-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTHotCocoa
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: hot_cocoa
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTHotChocolateGlass
+  name: hot-chocolate-name
+  description: hot-chocolate-desc
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTHotChocolate
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: hot_chocolate
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTHotChocolateAllergicGlass
+  name: hot-chocolate-name-allergic
+  description: hot-chocolate-desc-allergic
+  suffix: New Year
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTHotChocolateAllergic
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/new_year.rsi
+    state: hot_chocolate
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTVodkaAntivirusGlass
+  name: vodka-antivirus-name
+  description: vodka-antivirus-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTVodkaAntivirus
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/vodka_antivirusglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTCherryExquisiteWine
+  name: cherry-exq-wine-name
+  description: cherry-exq-wine-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTCherryExquisiteWine
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/cherryexquisitewineglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTChocolateGlass
+  name: hot choco
+  description: A heated drink consisting chocolate.
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTChocolateDrink
+          Quantity: 30
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/chocolateglass.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTDrinkCocoaGlass
+  name: hot cocoa
+  description: A heated drink consisting cocoa powder.
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTCocoaDrink
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+
+# короче, в игре есть вот это всё, но оно изначально с чаем.
+# чтобы не обломать автомат по разлитию кофе и некоторые карты, на которых спавнится чайник, я делаю это.
+
+- type: entity
+  parent: DrinkBaseCup
+  id: ADTDrinkTeacup
+  name: Teacup
+  description: A plain white porcelain teacup.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 20
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teacup.rsi
+    layers:
+      - state: icon-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: icon-4
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: icon-
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTDrinkTeapot
+  name: teapot 
+  description: An elegant teapot. It simply oozes class.
+  suffix: Пустой
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teapot.rsi
+

@@ -1,0 +1,23 @@
+
+- type: entity
+  id: ADTBulletMinigun
+  name: minigun bullet (.10 rifle)
+  parent: BulletHeavyRifle
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 6
+        Poison: 1
+
+- type: entity
+  id: ADTBulletWand
+  name: minigun bullet (.10 rifle)
+  parent: BulletHeavyRifle
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 50

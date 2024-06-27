@@ -1,0 +1,123 @@
+- type: entity
+  name: semi-aito Hristov
+  parent: BaseItem
+  id: ADTWeaponSniperHristovII
+  description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo upgraded by gorlax marodeurs.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/new_hristov.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/new_hristov.rsi
+    slots:
+    - Back
+    quickEquip: false
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -44
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    fireRate: 0.7
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineHriII
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineHristov
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  name: SVCh Igla
+  parent: BaseWeaponRifle
+  id: ADTWeaponSniperSVChIgla
+  description: A rooty tooty point and shooty.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Snipers/svch_igla.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Snipers/svch_igla.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    minAngle: 3
+    maxAngle: 7
+    angleIncrease: 2
+    angleDecay: 4
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineSniperSVCH
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ADTMagazineSniperSVCH
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: StaticPrice
+    price: 500
+  - type: Item
+    size: Large
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -3
+    maxAngle: -7
+  - type: Appearance

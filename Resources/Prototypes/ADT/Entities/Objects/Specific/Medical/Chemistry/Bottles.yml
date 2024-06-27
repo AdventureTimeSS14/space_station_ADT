@@ -1,0 +1,278 @@
+#пластиковые
+- type: entity
+  id: ADTMPeroHydrogenBottle
+  name: perohydrogen bottle
+  parent: ADTPlasticBottle
+  description: A small plastic bottle. The letters on the label so small that they form a funny face.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-perohydrogen
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink: 
+        reagents:
+        - ReagentId: ADTMPeroHydrogen
+          Quantity: 30
+
+- type: entity
+  id: ADTMNikematideBottle
+  name: nikematide bottle
+  description: A small plastic bottle. The letters on the label so small that they form a funny face.
+  parent: ADTPlasticBottle
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-nikematide
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink: 
+        reagents:
+        - ReagentId: ADTMNikematide
+          Quantity: 30
+
+- type: entity
+  id: ADTMDiethamilateBottle
+  name: diethamilate bottle
+  description: A small plastic bottle. The letters on the label so small that they form a funny face.
+  parent: ADTPlasticBottle
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-diethamilate
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink: 
+        reagents:
+        - ReagentId: ADTMDiethamilate
+          Quantity: 30
+
+- type: entity
+  id: ADTDyloveneBiomicineBottle
+  name: dylovene & biomicine bottle
+  parent: ADTPlasticBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dylovene
+          Quantity: 15
+        - ReagentId: ADTMBiomicine
+          Quantity: 15
+
+
+#стеклянные ADT
+- type: entity
+  id: ADTMMorphineBottle
+  name: morphine bottle
+  parent: ADTGlassBottle
+  description: A small bottle with morphine. 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/glass-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-morphine
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink: 
+        reagents:
+        - ReagentId: ADTMMorphine
+          Quantity: 30
+
+- type: entity
+  id: ADTMOpiumBottle
+  name: opium bottle
+  parent: ADTMMorphineBottle
+  description: A small bottle with opium. 
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink: 
+        reagents:
+        - ReagentId: ADTMOpium
+          Quantity: 30
+
+- type: entity
+  id: ADTMFormalinBottle
+  name: Formalin bottle
+  parent: ADTGlassBottle
+  description: A basis of pathologist's work.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/glass-bottle.rsi
+    layers:
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon_formalin
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: fill
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15
+        reagents:
+        - ReagentId: ADTMFormalin
+          Quantity: 15
+
+#стеклянные обычные
+- type: entity
+  id: ADTObjectsSpecificArithrazineChemistryBottle
+  name: Arithrazine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Arithrazine
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificBicaridineChemistryBottle
+  name: Bicaridine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificDexalinPlusChemistryBottle
+  name: DexalinPlus bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DexalinPlus
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificDermalineChemistryBottle
+  name: Dermaline bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificDexalinChemistryBottle
+  name: Dexalin bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dexalin
+          Quantity: 30
+
+- type: entity
+  id:  ADTObjectsSpecificLeporazineChemistryBottle
+  name: Leporazine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Leporazine
+          Quantity: 30
+
+- type: entity
+  id: ADTOmnizineBottle
+  name: omnizine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 30
+
+- type: entity
+  id: ADTAmatoxinChemistryBottle
+  name: amatoxin bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Amatoxin
+              Quantity: 30
+
+- type: entity
+  id: ADTLicoxideChemistryBottle
+  name: licoxide bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Licoxide
+              Quantity: 30
+
+- type: entity
+  id: ADTLexorinChemistryBottle
+  name: licoxide bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Lexorin
+              Quantity: 30

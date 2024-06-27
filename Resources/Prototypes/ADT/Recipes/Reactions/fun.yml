@@ -1,0 +1,27 @@
+- type: reaction
+  id: ADTMChaoticPolymorphine
+  reactants:
+    Uranium:
+      amount: 4
+    UnstableMutagen:
+      amount: 4
+    Phalanximine:
+      amount: 2
+    SulfuricAcid:
+      amount: 1
+  products:
+    ADTMChaoticPolymorphine: 3
+
+- type: reaction
+  id: ADTMPolymorphine
+  reactants:
+    ADTMChaoticPolymorphine:
+      amount: 1
+    DexalinPlus:
+      amount: 1
+    Phalanximine:
+      amount: 1
+    Plasma:
+      amount: 1
+  products:
+    ADTMPolymorphine: 4

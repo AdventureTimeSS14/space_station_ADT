@@ -1,0 +1,53 @@
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelDurathead
+  name: Durathead Duffel bag
+  description: A large duffel bag for holding extra tools and supplies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Duffel_Durathead.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Construction
+    graph: DuffelDurathead
+    node: DuffelDurathead
+
+#медики
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelMedical
+  name: medical duffel bag
+  description: A large duffel bag to hold medical equipment
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/genetics.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelParamedic
+  name: parsmedical duffel bag
+  description: A large duffel bag to hold paramedical equipment
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/paramedic_duffel.rsi
+  - type: StorageFill
+    contents:
+      - id: SpaceCash500
+
+#ОСЩ
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ADTClothingBackpackDuffelBlueshield
+  name: blueshield duffel bag
+  description: A large duffel bag to hold medical and security equipment.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/blueshield_duffel.rsi
+

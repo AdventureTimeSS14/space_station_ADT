@@ -1,0 +1,46 @@
+- type: entity
+  name: stun baguette
+  parent: BaseItem
+  id: ADTStunbaguette
+  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/bread.rsi
+    state: baguette
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 2
+    bluntStaminaDamageFactor: 2.0
+    angle: 60
+    animation: WeaponArcSlash
+  - type: StaminaDamageOnHit
+    damage: 30
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 30
+    sound: /Audio/Weapons/egloves.ogg
+  #- type: ItemCooldown
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: StaticPrice
+    price: 100
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - shocking
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Licoxide
+          Quantity: 15

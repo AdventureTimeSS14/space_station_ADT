@@ -1,0 +1,135 @@
+- type: entity
+  parent: BasePDA
+  id: MagistratPDA
+  name: magistrat PDA
+  description: magistrat PDA
+  components:
+  - type: Pda
+    id: MagistratIDCard
+    state: pda-lawyer
+  - type: Icon
+    state: pda-lawyer
+
+- type: entity
+  parent: BasePDA
+  id: VirusologPDA
+  name: Virusolog PDA
+  description: Shiny and sterile. Has a built-in health analyzer.
+  components:
+    - type: Pda
+      id: VirusologIDCard
+      state: pda-medical
+    - type: Icon
+      state: pda-medical
+    - type: HealthAnalyzer
+      scanDelay: 1.2
+      scanningEndSound:
+        path: "/Audio/Items/Medical/healthscanner.ogg"
+    - type: CrewMonitoringConsole
+
+- type: entity
+  parent: MedicalPDA
+  id: ADTPathologistPDA
+  name: pathologist's PDA
+  description: It breezes chill.
+  components:
+  - type: Pda
+    id: ADTPathologistIDCard
+    state: pda-pathologist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#15616b"
+
+- type: entity
+  parent: BasePDA
+  id: ADTBlueshieldOfficerPDA
+  name: BlueShield PDA
+  description: Smells like protection.
+  components:
+    - type: Pda
+      id: ADTBlueShieldOfficerIDCard
+      state: pda-blueshield
+    - type: PdaBorderColor
+      borderColor: "#424248"
+      accentHColor: "#2851a4"
+      accentVColor: "#e1e1e1"
+    - type: Icon
+      state: pda-blueshield
+    - type: HealthAnalyzer
+      scanDelay: 1.2
+
+- type: entity
+  parent: BasePDA
+  id: ADTRoboticistPDA
+  name: roboticist PDA
+  description: It's covered with an unknown gooey substance.
+  components:
+  - type: Pda
+    id: ResearchIDCard
+    state: pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#171716"
+    accentVColor: "#d90000"
+  - type: Icon
+    state: pda-roboticist
+
+
+- type: entity
+  parent: BasePDA
+  id: ADTInvestigatorPDA
+  name: investigator PDA
+  description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
+  components:
+  - type: Pda
+    id: ADTInvestigatorIDCard
+    state: pda-investigator
+  - type: PdaBorderColor
+    borderColor: "#774705"
+  - type: Icon
+    state: pda-investigator
+
+
+- type: entity
+  parent: BasePDA
+  id: ADTCriminalistPDA
+  name: Criminalist PDA
+  suffix: Criminalist
+  description: Criminalist PDA
+  components:
+  - type: Pda
+    id: ADTInvestigatorIDCard
+    state: pda-criminalist
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-criminalist
+  - type: ForensicScanner
+
+- type: entity
+  parent: BasePDA
+  id: ADTSecurityCybPDA
+  name: security PDA
+  description: Red to hide the stains of passenger blood.
+  components:
+  #- type: Unremoveable
+  - type: Pda
+    id: ADTSecurityCybIDCard
+    state: pda-security
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+  - type: Icon
+    state: pda-security
+
+- type: entity
+  parent: BasePDA
+  id: TraderPDA
+  name: trader PDA
+  description: trader PDA
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/trader_pda.rsi
+  - type: Pda
+    id: TraderIDCard
+    state: pda-tradertsf

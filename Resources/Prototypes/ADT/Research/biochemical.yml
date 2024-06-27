@@ -1,0 +1,12 @@
+# Tier 2.
+- type: technology
+  id: ADTHighVoltageDefibrillator
+  name: research-technology-highvolt-defib
+  icon:
+    sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ADTHighVoltageDefibrillator

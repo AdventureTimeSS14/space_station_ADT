@@ -1,0 +1,103 @@
+- type: seed
+  id: ADTPapaverSomniferum
+  name: seeds-papaver-somniferum-name
+  noun: seeds-noun-seeds
+  displayName: seeds-papaver-somniferum-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
+  packetPrototype: ADTPapaverSomniferumSeeds
+  productPrototypes: 
+    - ADTFoodPapaverSomniferum
+  lifespan: 25
+  maturation: 10
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 0.60
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      Potencydivisor: 50
+    Toxin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 5
+    ADTMOpium:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 5
+
+- type: seed
+  id: ADTbuckwheatplant
+  name: seeds-buckwheat-name
+  noun: seeds-noun-seeds
+  displayName: seeds-buckwheat-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/buckwheat.rsi
+  packetPrototype: ADTBuckwheatSeeds
+  productPrototypes:
+    - ADTBuckwheatFood
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 9
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    ADTBuckwheatSolids:
+      Min: 2
+      Max: 10
+      PotencyDivisor: 10
+
+- type: seed
+  id: adt_pumpkin
+  name: seeds-pumpkin-name
+  noun: seeds-noun-seeds
+  displayName: seeds-pumpkin-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/pumpkin.rsi
+  packetPrototype: ADTPumpkinSeeds
+  productPrototypes:
+    - ADTFoodPumpkin
+  lifespan: 45
+  maturation: 8
+  production: 6
+  yield: 2
+  potency: 1
+  idealLight: 8
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+
+- type: seed
+  id: ADTmandarin
+  name: seeds-mandarin-name
+  noun: seeds-noun-seeds
+  displayName: seeds-mandarin-display-name
+  suffix: NewYear
+  plantRsi: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+  packetPrototype: ADTMandarinSeeds
+  productPrototypes:
+    - ADTFoodMandarin
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 8
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25

@@ -1,0 +1,9 @@
+- type: guideEntry
+  id: ADTNewRecipes
+  name: guide-new-recipes-ADT
+  text: "/ServerInfo/ADT/NewRecipes.xml"
+
+- type: guideEntry
+  id: ADTNewCocktails
+  name: guide-new-cocktails-ADT
+  text: "/ServerInfo/ADT/NewCocktails.xml"

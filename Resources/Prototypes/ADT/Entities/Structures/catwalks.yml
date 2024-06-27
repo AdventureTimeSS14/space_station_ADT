@@ -1,0 +1,123 @@
+- type: entity
+  id: DarkIronCatwalk
+  name: dark iron catwalk
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/catwalk.rsi
+    state: darkiron
+    drawdepth: FloorTiles
+  - type: Appearance
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: IronCatwalk
+  name: iron catwalk
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  parent: DarkIronCatwalk
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/catwalk.rsi
+    state: iron
+    drawdepth: FloorTiles
+
+- type: entity
+  id: PlatiumironCatwalk
+  name: platium iron catwalk
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  parent: DarkIronCatwalk
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/catwalk.rsi
+    state: platiumiron
+    drawdepth: FloorTiles
+
+- type: entity
+  id: SmoothIronCatwalk
+  name: smooth iron catwalk
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  parent: DarkIronCatwalk
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/catwalk.rsi
+    state: smoothiron
+    drawdepth: FloorTiles
+
+- type: entity
+  id: TitamiumCatwalk
+  name: titamium catwalk
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  parent: DarkIronCatwalk
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/catwalk.rsi
+    state: titamiumiron
+    drawdepth: FloorTiles
+
+- type: entity
+  id: WhiteIronCatwalk
+  name: white iron catwalk
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  parent: DarkIronCatwalk
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/catwalk.rsi
+    state: whiteiron
+    drawdepth: FloorTiles

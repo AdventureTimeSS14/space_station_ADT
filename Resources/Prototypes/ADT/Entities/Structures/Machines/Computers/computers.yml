@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseComputerShuttle
+  id: ADTComputerShuttleCentCom
+  name: консоль управления шаттлом ЦК
+  description: Управляйте шаттлом ЦК не выходя из дома!
+  components:
+    - type: Sprite
+      layers:
+        - map: ["computerLayerBody"]
+          state: computer
+        - map: ["computerLayerKeyboard"]
+          state: generic_keyboard
+        - map: ["computerLayerScreen"]
+          state: shuttle
+        - map: ["computerLayerKeys"]
+          state: generic_keys
+    - type: Tag
+      tags:
+        - ADTNanoTrasen
+    # - type: DroneConsole
+    #   components:
+    #     - type: CentComShuttle
+    # - type: RadarConsole
+    #   maxRange: 300
+    - type: PointLight
+      radius: 1.5
+      energy: 1.6
+      color: "#c94242"
+    - type: Computer
+      board: ADTCentComShuttleConsoleCircuitboard

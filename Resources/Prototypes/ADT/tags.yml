@@ -1,0 +1,198 @@
+- type: Tag
+  id: socks
+
+- type: Tag
+  id: underwearb
+
+- type: Tag
+  id: underweart
+
+- type: Tag
+  id: MagazineHristov
+
+- type: Tag
+  id: Syringecartridge
+
+- type: Tag
+  id: SyringeGunMagazine
+
+- type: Tag
+  id: Cartridge357
+
+- type: Tag
+  id: SpeedLoader357
+
+- type: Tag
+  id: Patch
+
+- type: Tag
+  id: ADTSparkler
+
+- type: Tag
+  id: CatWearable
+
+- type: Tag
+  id: Defibrillator
+
+- type: Tag
+  id: PowerCellMedium
+
+- type: Tag
+  id: Fish
+
+- type: Tag
+  id: ChangelingBlacklist
+
+- type: Tag
+  id: BoomBoxTape
+
+- type: Tag
+  id: MobileDefibrillator
+
+- type: Tag
+  id: HighVoltageDefibrillator
+
+- type: Tag
+  id: Trader
+
+- type: Tag
+  id: MaskBlocker
+
+- type: Tag
+  id: GlassesBlocker
+
+- type: Tag
+  id: Medipen
+
+- type: Tag
+  id: ADTHardsuitSalvage
+
+- type: Tag
+  id: ADTBluespaceAnomalyCore
+
+- type: Tag
+  id: ADTMechEquipmentGeneral
+
+- type: Tag
+  id: ADTMechEquipmentMed
+
+- type: Tag
+  id: ADTMechEquipmentService
+
+- type: Tag
+  id: ADTMechEquipmentIndustrial
+
+- type: Tag
+  id: ADTMechEquipmentSec
+
+- type: Tag
+  id: ADTCardPlay
+
+- type: Tag
+  id: ADTPillExperimental
+
+- type: Tag
+  id: ADTPillExter
+
+- type: Tag
+  id: ADTWinterPlanet
+
+- type: Tag
+  id: ADTCartridgeBibis
+
+- type: Tag
+  id: ADTMagazineRifleBibis
+
+- type: Tag
+  id: ADTMagazineSR3M
+
+- type: Tag
+  id: ADTMagazineSR2M
+
+- type: Tag
+  id: ADTMagazineBizon
+
+- type: Tag
+  id: ADTMagazineUSSPLMG
+
+- type: Tag
+  id: ADTMagazineUSSPLMGDrum
+
+- type: Tag
+  id: ADTMagazineUSSPAK74
+
+- type: Tag
+  id: ADTMagazineUSSPAKM
+
+- type: Tag
+  id: MiniFireExtinguisher
+
+- type: Tag
+  id: ADTMagazinePistolPMM
+
+- type: Tag
+  id: ADTGoldenStarGarland
+
+- type: Tag
+  id: ADTSilverStarGarland
+
+- type: Tag
+  id: ADTBaseStarGarland
+
+- type: Tag
+  id: ADTShinyGarland
+
+- type: Tag
+  id: ADTTreeGoldenStar
+
+- type: Tag
+  id: ADTTreeRedStar
+
+- type: Tag
+  id: ADTTreeSilverStar
+
+- type: Tag
+  id: ADTTreeRedBalls
+
+- type: Tag
+  id: ADTTreeGoldenBalls
+
+- type: Tag
+  id: ADTTreeSilverBalls
+
+- type: Tag
+  id: ADTTreeRedMishura
+
+- type: Tag
+  id: ADTTreeGoldenMishura
+
+- type: Tag
+  id: ADTTreeSilverMishura
+
+#тэг для магазина лазгана
+- type: Tag
+  id: ADTLasgunPowerCell
+
+- type: Tag
+  id: ADTLasgunRevolverCell
+
+- type: Tag
+  id: ADTMagazineSniperSVCH
+
+- type: Tag
+  id: ADTMagazineRifleAR12
+
+- type: Tag
+  id: ADTCartridgeRocketSchmelTermobar
+
+- type: Tag
+  id: ADTCartridgeRocketSapogHEAT
+
+- type: Tag
+  id: ADTMuffin
+  
+- type: Tag
+  id: ADTMuffinKekc
+  
+- type: Tag
+  id: ADTCakeBatter

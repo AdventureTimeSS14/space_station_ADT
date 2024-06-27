@@ -1,0 +1,266 @@
+- type: entity
+  id: ADTCrateFunAdminPlushie
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTPlushieAidan
+      - id: ADTPlushieJessie
+      - id: ADTPlushieAbigail
+      - id: ADTPlushieAyus
+      - id: ADTPlushieBob
+      - id: ADTPlushieEvgeniy
+      - id: ADTPlushieFries
+      - id: ADTPlushieIlumi
+      - id: ADTPlushieJan
+      - id: ADTPlushieJason
+      - id: ADTPlushieKus
+      - id: ADTPlushieLilit
+      - id: ADTPlushieLuke
+      - id: ADTPlushieLya
+      - id: ADTPlushieNova
+      - id: ADTPlushiePeter
+      - id: ADTPlushieRebecca
+      - id: ADTPlushieSchrodinger
+      - id: ADTPlushieTerenty
+      - id: ADTPlushieUvarov
+      - id: ADTPlushieValtor
+      - id: ADTPlushieWalter
+      - id: ADTPlushieIohan
+      - id: ADTPlushieDarina
+      - id: ADTPlushieAkula
+      - id: ADTPlushiePrazat
+      - id: ADTPlushieLo
+      - id: ADTPlushieFritz
+
+- type: entity
+  id: ADTCrateBirthdayParty
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: GlowstickBase
+        amount: 2
+      - id: GlowstickBlue
+        amount: 2
+      - id: GlowstickPurple
+        amount: 2
+      - id: GlowstickRed
+        amount: 2
+      - id: GlowstickYellow
+        amount: 2
+      - id: FoodCakeBirthday
+        amount: 4
+      - id: DrinkLean
+        amount: 4
+      - id: KnifePlastic
+        amount: 2
+      - id: ADTClothingHeadHatsNTCap
+        amount: 4
+      - id: ADTClothingHeadHatsBlueCap
+        amount: 1
+      - id: ADTClothingHeadHatsGrayCap
+        amount: 1
+      - id: ADTClothingHeadHatsPinkCap
+        amount: 1
+      - id: ADTClothingHeadHatsSyndieCap
+        amount: 1
+      - id: ADTBirthDayBalloon1
+        amount: 2
+      - id: ADTBirthDayBalloon2
+        amount: 2
+      - id: ADTBirthDayBalloon3
+        amount: 2
+      - id: ADTBirthDayBalloon4
+        amount: 2
+      - id: ADTBirthDayBalloon5
+        amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelChristmasToys
+  name: bag of christmas toys
+  description: bag of christmas toys
+  suffix: New Year
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTGoldenStarGarland
+        - id: ADTSilverStarGarland
+        - id: ADTBaseStarGarland
+        - id: ADTShinyGarland
+        - id: ADTTreeRedBalls
+        - id: ADTTreeSilverBalls
+        - id: ADTTreeGoldenBalls
+        - id: ADTTreeGoldenStar
+        - id: ADTTreeRedStar
+        - id: ADTTreeSilverStar
+        - id: ADTTreeSilverMishura
+        - id: ADTTreeGoldenMishura
+        - id: ADTTreeRedMishura
+
+- type: entity
+  id: ADTCrateChristmasTree
+  parent: CrateGenericSteel
+  name: crate of christmas tree
+  description: crate of christmas tree
+  suffix: New Year
+  components:
+  - type: StorageFill
+    contents:
+        - id: ADTChristmasPlasticTree
+        - id: ADTClothingBackpackDuffelChristmasToys
+
+- type: entity
+  parent: CrateGenericSteel
+  id: ADTCrateFunBoomBoxTapes1
+  name: "Ящик кассет классики"
+  description: "Ящик с (относительно) классическими произведениями для бумбокса."
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoomBoxTapeTheWizardPacked
+      - id: BoomBoxTapeAssHolePacked
+      - id: BoomBoxTapeTEOTEPacked
+      - id: BoomBoxTapeTearsOfVeilPacked
+      - id: BoomBoxTapeRunningOutPacked
+      - id: BoomBoxTapeTenebreRossoSanguePacked
+
+- type: entity
+  parent: CrateGenericSteel
+  id: ADTCrateFunBoomBoxTapes2
+  name: "Ящик кассет Undertale"
+  description: "Ящик с музыкой из одной старинной игры для бумбокса."
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoomBoxTapeHopesAndDreamsPacked
+      - id: BoomBoxTapeNewOldHomePacked
+      - id: BoomBoxTapeOnceUponATimePacked
+      - id: BoomBoxTapeSnowdinPacked
+      - id: BoomBoxTapeWaterfallPacked
+
+- type: entity
+  parent: CrateGenericSteel
+  id: ADTCrateFunBoomBoxTapesHotline
+  name: "Ящик кассет Hotline Moges"
+  description: "Ящик с музыкой из нового альбома - Hotline Moges."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTBoomBoxTapeHotlineCrystals
+      - id: ADTBoomBoxTapeHotlineDaisuke
+      - id: ADTBoomBoxTapeHotlineHydrogen
+      - id: ADTBoomBoxTapeHotlineItsSafe
+      - id: ADTBoomBoxTapeHotlineMoges
+      - id: ADTBoomBoxTapeHotlineMogesDisco
+      - id: ADTBoomBoxTapeHotlineMusik
+      - id: ADTBoomBoxTapeHotlineParis
+
+- type: entity
+  id: ADTCrateHalloweenCloth
+  parent: CratePlastic
+  name: halloween clothing crate
+  description: halloween clothing crate
+  suffix: Halloween
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoxHalloweenCandy
+      amount: 4
+    - id: ADTBoxNightmareClown
+    - id: ADTBoxCrueltySquad
+    - id: ADTBoxJason
+    - id: ADTBoxVyazov
+    - id: ADTBoxHotlineMiami
+    - id: ADTBoxKilla
+    - id: ADTBoxServantOfEvil
+    - id: ADTBoxDude
+    - id: ADTBoxSquidPlayers
+    - id: ADTBoxSquidOrganizer
+    - id: ADTBoxTagilla
+    - id: ADTBoxNevadaClown
+    - id: ADTBoxTransilvania
+    - id: ADTBoxVergile
+    - id: ADTXenoBox
+    - id: ADTSuperstarPoliceBox
+    - id: ADTSuperstarPoliceWingmanBox
+    - id: ADTBunnyDancerBox
+    - id: ADTPayDayBox
+    - id: ADTChainSawManBox
+
+- type: entity
+  id: ADTCrateOktoberfestCloth
+  parent: CratePlastic
+  name: oktoberfest clothing crate
+  description: oktoberfest clothing crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTClothingUniformOktoberfestWhite
+      amount: 2
+    - id: ADTClothingUniformOktoberfestBlueCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestGreenVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestRedCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestGreenCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestBlueVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestRedVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShort
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortGreen
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortRed
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortBlue
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlBlue
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlRed
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlGreen
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHat
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatBlueBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatRedBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatGreenBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatBlue
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatGreen
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatRed
+      amount: 2
+
+- type: entity
+  id: ADTCrateOktoberfestMug
+  parent: CratePlastic
+  name: oktoberfest mug crate
+  description: oktoberfest mug crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTGoldenAleMug
+      amount: 4
+    - id: ADTTechnoBeerMug
+      amount: 2
+    - id: ADTClassicPaulanerBeerMug
+      amount: 2
+    - id: ADTLivseyBeerMug
+      amount: 2
+    - id: ADTLuckyJonnyMug
+      amount: 2
+    - id: ADTSecUnfilteredMug
+      amount: 2
+    - id: ADTGlyphidStoutBeerMug
+      amount: 2

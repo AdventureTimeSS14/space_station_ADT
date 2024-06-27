@@ -1,0 +1,38 @@
+- type: job
+  id: Virusolog
+  name: job-name-virusolog
+  description: job-description-virusolog
+  playTimeTracker: JobVirusolog
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 3600
+  startingGear: VirusologGear
+  icon: "JobIconVirologist"
+  supervisors: job-supervisors-cmo
+  canBeAntag: true
+  access:
+    - Medical
+    - Chemistry
+    - Maintenance
+
+- type: playTimeTracker
+  id: JobVirusolog
+
+- type: startingGear
+  id: VirusologGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    back: ClothingBackpackVirology
+    shoes: ClothingShoesColorWhite
+    id: VirusologPDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedical
+    # the purple glasses?
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+  innerClothingSkirt: ClothingUniformJumpskirtColorWhite
+  satchel: ClothingBackpackSatchelMedicalFilled
+  duffelbag: ClothingBackpackDuffelMedicalFilled

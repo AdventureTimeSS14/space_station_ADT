@@ -1,0 +1,118 @@
+- type: radioChannel
+  id: ADTSilicon
+  name: Синтетики
+  keycode: 'б'
+  frequency: 1300
+  color: "#7df9ff"
+
+- type: radioChannel
+  id: ADTDroneAntagChannel
+  name: Дроны
+  keycode: 'й'
+  frequency: 1301
+  color: "#c21919"
+  longRange: true
+
+- type: radioChannel
+  id: DionsCollectiveMind
+  name: collective-mind-dionas
+  frequency: 1331
+  keycode: 't'
+  color: "#3de500"
+  longRange: true
+
+- type: radioChannel
+  id: CarpCollectiveMind
+  name: collective-mind-carp
+  frequency: 1332
+  keycode: 'q'
+  color: "#ba66ff"
+  longRange: true
+
+- type: radioChannel
+  id: XenoCollectiveMind
+  name: collective-mind-xeno
+  frequency: 1333
+  keycode: 'e'
+  color: "#ba66ff"
+  longRange: true
+
+- type: radioChannel
+  id: ChangelingCollectiveMind
+  name: collective-mind-ling
+  frequency: 1334
+  keycode: 'x'
+  color: "#e56000"
+  longRange: true
+
+- type: radioChannel
+  id: Trader
+  name: chat-radio-trader
+  keycode: 'ф'
+  frequency: 1673
+  color: "#b88646"
+  longRange: true
+
+- type: radioChannel
+  id: ADTWiretapping
+  name: Засекреченная линия
+  keycode: '\'
+  frequency: 1672
+  color: "#ff144b"
+  longRange: true
+
+- type: radioChannel
+  id: ADTLawyerChannel
+  name: Юридический
+  keycode: 'ю'
+  frequency: 1305
+  color: "#c6d2f5"
+  longRange: true
+
+- type: radioChannel
+  id: ADTMercChannel
+  name: Наёмнический
+  keycode: 'ч'
+  frequency: 1306
+  color: "#ff144b"
+  longRange: true
+
+- type: radioChannel
+  id: ADTSpecChannel
+  name: Спецназовский
+  keycode: 'е'
+  frequency: 1307
+  color: "#00fa9a"
+  longRange: true
+
+- type: radioChannel
+  id: ADTUSSPChannel
+  name: СССП
+  keycode: 'я'
+  frequency: 1304
+  color: "#7ecc8e"
+  longRange: true
+
+- type: radioChannel
+  id: ADTTransSolar19482Channel
+  name: ТСФ 1948.2
+  keycode: '2'
+  frequency: 1947
+  color: "#75c1ff"
+  longRange: true
+
+- type: radioChannel
+  id: ADTTransSolar19487Channel
+  name: ТСФ 1948.7
+  keycode: '7'
+  frequency: 1948
+  color: "#75c1ff"
+  longRange: true
+
+- type: radioChannel
+  id: ADTTransSolar19489Channel
+  name: ТСФ 1948.9
+  keycode: '9'
+  frequency: 1949
+  color: "#75c1ff"
+  longRange: true

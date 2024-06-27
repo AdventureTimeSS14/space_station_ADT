@@ -1,0 +1,114 @@
+#База.
+#Это нужно для того, чтобы в будущем, если кто-то решит добавить ещё наших шкафов, то их текстурки хранились в отдельной папке.
+- type: entity
+  id: ADTClosetBase
+  parent: ClosetBase
+  name: closet
+  description: A standard-issue Nanotrasen storage unit.
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Storage/closet.rsi
+    layers:
+    - state: generic
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: generic_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: generic_door
+
+# Шкафы но которые можно закрыть.
+- type: entity
+  id: ADTLockerBaseSecure
+  parent: ADTClosetBase
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+# шкафы, которые можно разобрать и прочее.
+- type: entity
+  id: ADTClosetSteelBase
+  parent: ADTClosetBase
+  components:
+  - type: Construction
+    graph: ClosetSteel
+    node: done
+    containers:
+    - entity_storage
+  - type: StaticPrice
+    price: 20
+
+# Biohazard
+- type: entity
+  id: ADTClosetL3
+  parent: ADTClosetSteelBase
+  name: level 3 biohazard gear closet
+  description: It's a storage unit for level 3 biohazard gear.
+  components:
+  - type: Appearance
+
+# Патолог.
+- type: entity
+  id: ADTClosetL3Pathologist
+  parent: ADTClosetL3
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio_pathologist
+    stateDoorOpen: bio_pathologist_open
+    stateDoorClosed: bio_pathologist_door
+
+#парамед
+- type: entity
+  id: ADTClosetL3Paramedic
+  parent: ADTClosetL3
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio_paramedic
+    stateDoorOpen: bio_paramedic_open
+    stateDoorClosed: bio_paramedic_door
+
+# Centcom
+- type: entity
+  id: LockerCentcom
+  name: CentCom locker
+  parent: ADTLockerBaseSecure
+  components:
+  - type: Appearance
+  - type: AccessReader
+    access: [["Centcom"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: cc
+    stateDoorOpen: cc_open
+    stateDoorClosed: cc_door
+
+
+- type: entity
+  id: LockerBlueshield
+  parent: ADTLockerBaseSecure
+  name: blueshield's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: blueshield
+    stateDoorOpen: blueshield_open
+    stateDoorClosed: blueshield_door
+  - type: AccessReader
+    access: [["BlueShield"]]

@@ -1,0 +1,379 @@
+- type: entity
+  parent: DrinkBaseCup
+  id: ADTDrinkChamotea
+  name: chamomile tea
+  description: Soothing tea.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Chamotea
+          Quantity: 20
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/chamomile-tea.rsi
+    layers:
+      - state: icon-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: icon-4
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: icon-
+  - type: TrashOnSolutionEmpty
+    solution: drink
+
+- type: entity
+  parent: DrinkBaseCup
+  id: ADTDrinkKarkadetea
+  name: karkade tea
+  description: Karkade tea will help calm the nervous system, as well as activate brain activity.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Karkadetea
+          Quantity: 20
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/karkade-tea.rsi
+    layers:
+      - state: icon-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: icon-4
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: icon-
+  - type: TrashOnSolutionEmpty
+    solution: drink
+
+- type: entity
+  parent: DrinkBaseCup
+  id: ADTDrinkLemontea
+  name: lemon tea
+  description: Tea with lemon, literally hot water with lemon.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Lemontea
+          Quantity: 20
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/lemon-tea.rsi
+    layers:
+      - state: icon-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: icon-4
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: icon-
+  - type: TrashOnSolutionEmpty
+    solution: drink
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTGoldenAleGlass
+  name: golden-ale-name
+  description: golden-ale-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTGoldenAle
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: goldenale
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSausageBeerGlass
+  name: sausage-beer-name
+  description: sausage-beer-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTSausageBeer
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: sausagebeer
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTTechnoBeerGlass
+  name: techo-beer-name
+  description: techo-beer-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTTechnoBeer
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: technobeer
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTClassicPaulanerBeerGlass
+  name: classic-paulaner-name
+  description: classic-paulaner-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTClassicPaulanerBeer
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: classicpaulaner
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTLivseyBeerGlass
+  name: livsey-beer-name
+  description: livsey-beer-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTLivseyBeer
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: livseybeer
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTLuckyJonnyGlass
+  name: lucky-jonny-name
+  description: lucky-jonny-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTLuckyJonnyBeer
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: luckyjonny
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSecUnfilteredGlass
+  name: sec-unfiltered-name
+  description: sec-unfiltered-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTSecUnfilteredBeer
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: secunfiltered
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTGlyphidStoutBeerGlass
+  name: glyphid-stout-name
+  description: glyphid-stout-desc
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTGlyphidStoutBeer
+          Quantity: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: glyphidstout
+
+#коллекционные кружки
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTGoldenAleMug
+  name: wood beer mug
+  description: wood beer mug
+  suffix: Oktoberfest
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: goldenale_mug
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Blunt: 10
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTTechnoBeerMug
+  name: techo beer mug
+  description: techo beer mug
+  suffix: Oktoberfest
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: technobeer_mug
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Blunt: 10
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTClassicPaulanerBeerMug
+  name: classic paulaner mug
+  description: classic paulaner mug
+  suffix: Oktoberfest
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: classicpaulaner_mug
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Blunt: 10
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTLivseyBeerMug
+  name: livsey beer mug
+  description: livsey beer mug
+  suffix: Oktoberfest
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: livseybeer_mug
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Blunt: 10
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTLuckyJonnyMug
+  name: lucky jonny mug
+  description: lucky jonny mug
+  suffix: Oktoberfest
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: luckyjonny_mug
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Blunt: 10
+
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTSecUnfilteredMug
+  name: sec unfiltered mug
+  description: sec unfiltered mug
+  suffix: Oktoberfest
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: secunfiltered_mug
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Blunt: 10
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTGlyphidStoutBeerMug
+  name: glyphid stout mug
+  description: glyphid stout mug
+  suffix: Oktoberfest
+  components:
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: glyphidstout_mug
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Blunt: 10
+
+- type: entity
+  parent: DrinkBaseMug
+  id: ADTUSSPMug
+  name: ussp mug
+  description: A metal mug. You're not sure which metal.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/ussp_cup.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25

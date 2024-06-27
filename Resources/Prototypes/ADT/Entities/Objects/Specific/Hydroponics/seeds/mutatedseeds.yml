@@ -1,0 +1,10 @@
+- type: entity
+  parent: SeedBase
+  name: packet of cannabis white seeds
+  description: "Sweet."
+  id: ADTcannabiswhiteSeeds
+  components:
+    - type: Seed
+      seedId: ADTCannabisWhite
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi

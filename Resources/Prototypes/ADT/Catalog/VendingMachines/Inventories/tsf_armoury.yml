@@ -1,0 +1,38 @@
+- type: vendingMachineInventory
+  id: ADTTSFArmouryInventory
+  startingInventory:
+    ADTWeaponRifleTAR60SF: 10
+    ADTWeaponRifleAR12: 5
+    ADTMagazineRifleAR12: 60
+    MagazineBoxRifle: 20
+    ADTClothingNeckTSFPatch: 20
+    ADTClothingWarbeltTSF: 15
+    ADTClothingTSFMagBelt: 15
+    ADTClothingTSFMedBelt: 15
+    ADTClothingTSFArmor: 15
+    ADTClothingHeadHelmetTSF: 15
+    ADTClothingNeckJeton: 15
+    ADTClothingUniformTrader: 15
+    ADTRadioHandheldTSF: 15
+    ADTRadioHandheldTSFBackpack: 2
+    ClothingHandsGlovesCombat: 15
+    ClothingShoesBootsJack: 15
+
+
+- type: vendingMachineInventory
+  id: ADTShellDispenserInventory
+  startingInventory:
+    GrenadeBlast: 50
+    GrenadeFrag: 30
+    GrenadeEMP: 30
+    GrenadeFlash: 15
+
+- type: vendingMachineInventory
+  id: ADTFleetGunDispenserInventory
+  startingInventory:
+    ADTWeaponRifleTAR60SF: 15
+    ADTMagazineRifleAR12: 60
+    MagazineBoxRifle: 30
+    ADTClothingWarbeltTSF: 15
+    ADTClothingTSFMagBelt: 15
+    ADTClothingTSFMedBelt: 15

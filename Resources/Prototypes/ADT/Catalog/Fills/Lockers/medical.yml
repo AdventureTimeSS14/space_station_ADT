@@ -1,0 +1,22 @@
+- type: entity
+  id: ADTLockerPathologistFilled
+  name: pathologist's locker
+  description: All the needed for work on dead ones.
+  suffix: Filled
+  parent: LockerMedicine
+  components:
+  - type: StorageFill
+    contents:
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
+        amount: 2
+      - id: ADTAntibioticOintment
+        amount: 2
+      - id: ADTFootTagBox
+      - id: ADTSmallSyringeBox
+      - id: BoxBodyBag
+      - id: BoxSyringe
+      - id: BoxFolderGreen
+      - id: ADTMFormalinBottle
+      - id: ADTReagentAnalyzer

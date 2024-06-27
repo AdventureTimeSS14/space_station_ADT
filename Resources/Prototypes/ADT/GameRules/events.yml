@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseGameRule
+  id: MidroundChangelingSpawn
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 10
+    duration: 1
+    earliestStart: 30
+    minimumPlayers: 40
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostLing

@@ -1,0 +1,9 @@
+- type: entity
+  id: ADTMiningGirder
+  parent: Girder
+  name: girder
+  description: A large structural assembly made out of metal; It requires a layer of metal before it can be considered a wall.
+  components:
+  - type: Construction
+    graph: MiningGirder
+    node: mining_girder

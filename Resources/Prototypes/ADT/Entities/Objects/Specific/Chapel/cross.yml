@@ -1,0 +1,66 @@
+- type: entity
+  name: wooden cross
+  description: simple and ascetic
+  parent: BaseItem
+  id: ADTWoodenCross
+  components:
+  - type: UseDelay
+    delay: 3.0
+  - type: Bible
+    damage:
+      groups:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 8
+        Airloss: 15
+    damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
+      groups:
+        Burn: 5
+  - type: Prayable
+    bibleUserOnly: true
+  - type: ReactionMixer
+    mixMessage: "bible-mixing-success"
+    reactionTypes:
+    - Holy
+  #- type: ItemCooldown
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/woodencross.rsi
+    state: icon
+    scale: 0.5 , 0.5
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/woodencross.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+
+- type: entity
+  name: silver cross
+  description: use it if monsters are around you
+  parent: ADTWoodenCross
+  id: ADTSilverCross
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/silvercross.rsi
+    state: icon
+    scale: 0.5 , 0.5
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/silvercross.rsi
+
+- type: entity
+  name: golden cross
+  description: for praying with command stuff
+  parent: ADTWoodenCross
+  id: ADTGoldenCross
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/goldencross.rsi
+    state: icon
+    scale: 0.5 , 0.5
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/goldencross.rsi

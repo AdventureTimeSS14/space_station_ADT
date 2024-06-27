@@ -1,0 +1,45 @@
+- type: body
+  id: ADTBodyCyborgSec
+  name: "ipc"
+  root: torso
+  slots:
+    head:
+      part: ADTHeadCyborgSec
+      connections:
+      - torso
+      organs:
+        eyes: OrganIPCEyes
+    torso:
+      part: ADTTorsolCyborgSec
+      connections:
+      - left arm
+      - right arm
+      - left leg
+      - right leg
+      organs:
+        brain: OrganIPCBrain
+        heart: OrganIPCPump
+    right arm:
+      part: ADTRightArmCyborgSec
+      connections:
+      - right hand
+    left arm:
+      part: ADTLeftArmCyborgSec
+      connections:
+      - left hand
+    right hand:
+      part: ADTRightHandCyborgSec
+    left hand:
+      part: ADTLeftHandCyborgSec
+    right leg:
+      part: ADTRightLegCyborgSec
+      connections:
+      - right foot
+    left leg:
+      part: ADTLeftLegCyborgSec
+      connections:
+      - left foot
+    right foot:
+      part: ADTRightFootCyborgSec
+    left foot:
+      part: ADTLeftFootCyborgSec

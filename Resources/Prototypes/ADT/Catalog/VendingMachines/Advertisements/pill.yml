@@ -1,0 +1,7 @@
+- type: advertisementsPack
+  id: PillAds
+  advertisements:
+    - advertisement-pill-1
+    - advertisement-pill-2
+    - advertisement-pill-3
+    - advertisement-pill-4

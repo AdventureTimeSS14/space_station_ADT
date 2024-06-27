@@ -1,0 +1,283 @@
+# Разбирайтесь сами что и какие патроны куда,я без понятия
+
+#Магазин для СВЧ
+
+- type: entity
+  id: ADTMagazineSniperSVCH
+  name: magazine SVCH
+  parent: BaseMagazineLightRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineSniperSVCH
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 10
+  - type: Item
+    size: Tiny
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Sniper/svch_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+#Магазины для ПП
+
+- type: entity
+  id: ADTMagazineSR3M
+  name: magazine SR3m
+  parent: BaseMagazineLightRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineSR3M
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 20
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/SMG/sr3m_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: ADTMagazineBizon
+  name: magazine SR2m
+  parent: BaseMagazineLightRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineBizon
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+    proto: CartridgePistol
+    capacity: 64
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/SMG/bizon_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: ADTMagazineSR2M
+  name: magazine SR2m
+  parent: BaseMagazineLightRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineSR2M
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+    proto: CartridgePistol
+    capacity: 20
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/SMG/sr2m_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+#Магазины для пулеметов
+
+- type: entity
+  id: ADTMagazineUSSPLMG
+  name: box of 7.62 for LMG
+  parent: BaseMagazineLightRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineUSSPLMG
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 100
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/LMG/ussp_lmg_box.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-5
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: ADTMagazineUSSPLMGDrum
+  name: magazine RPK
+  parent: BaseMagazineRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineUSSPLMGDrum
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeRifle
+    proto: CartridgeRifle
+    capacity: 75
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/LMG/rpkdrum_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+#Магазин 6.5 мм под АК
+
+- type: entity
+  id: ADTMagazineUSSPAK74
+  name: magazine ak74
+  parent: BaseMagazineRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineUSSPAK74
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeRifle
+    proto: CartridgeRifle
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/ak74_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+#Бакелитовый под 7.62
+
+- type: entity
+  id: ADTMagazineUSSPAKM
+  name: magazine AKM bacelite
+  parent: BaseMagazineLightRifle
+  suffix: USSP
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineUSSPAKM
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/akmbacelite_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

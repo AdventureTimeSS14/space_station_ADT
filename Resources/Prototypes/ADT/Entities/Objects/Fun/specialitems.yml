@@ -1,0 +1,185 @@
+
+# Сборище чего-то у чего трудно определить категорию так как являются имеными предметами
+- type: entity
+  name: Yumi Degurshav's tail.
+  id: ADTWeaponMinigunL
+  parent: BaseWeaponHeavyMachineGun
+  description: "Improved minigun model with reduced magazine, increased damage and toxic effect. Made by a brilliant beastman girl. P.S. This weapon saved her life when escaping from the captivity of the cultists."
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/HMGs/yumidegurshavstail.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Weapons/Guns/HMGs/yumidegurshavstail.rsi
+  - type: Gun
+    fireRate: 30
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMinigun
+    capacity: 150
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  name: Kiirava magic wand.
+  id: ADTKiiravamagicwand
+  parent: BaseWeaponHeavyMachineGun
+  description: "Improved minigun model with reduced magazine, increased damage and toxic effect. Made by a brilliant beastman girl. P.S. This weapon saved her life when escaping from the captivity of the cultists."
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/kiiravamagicwand.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Weapons/Guns/kiiravamagicwand.rsi
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMinigun
+    capacity: 1500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  name: Holographic monocline
+  parent: BaseItem
+  id: ADTHolographicMonoclineL
+  description: This device was implanted in Inna from birth, has amazing sharpness and ephemeral pain.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/holographic-monocline.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 10
+        Piercing: 5
+        Radiation: 10
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Weapons/Melee/holographic-monocline.rsi
+  - type: Tool
+    qualities:
+      - Prying
+  - type: IgniteOnMeleeHit
+    fireStacks: 1
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+  name: White diplomat suit
+  description: Exquisite white suit worn by NanoTrasen diplomats.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white-diplomat-suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white-diplomat-suit.rsi
+
+- type: entity
+  name: станнер Эйдана
+  parent: BaseWeaponBatterySmall
+  id: WeaponDisablerIdan
+  description: На вкус как бикаридин.
+  components:
+    - type: Tag
+      tags:
+        - Taser
+    - type: Sprite
+      sprite: ADT/Memes/gold-staner.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: ADT/Memes/gold-staner.rsi
+      quickEquip: false
+      slots:
+        - Belt
+    - type: Gun
+      fireRate: 2
+      soundGunshot:
+        path: /Audio/Animals/cat_meow.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletDisabler
+      fireCost: 100
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
+    - type: Appearance
+
+# Очень странный предмет,ума не приложу когда его запихнуть
+- type: entity
+  name: fire born
+  parent: BaseItem
+  id: FireBorn
+  description: born fire
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/KD/fireborn.rsi
+    layers:
+        - state: fire_extinguisher_closed
+          map: [ "enabled" ]
+  - type: Item
+    sprite: ADT/KD/fireborn.rsi
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Phlogiston
+          Quantity: 100
+        - ReagentId: Napalm
+          Quantity: 900
+  - type: RefillableSolution
+    solution: spray
+  - type: DrainableSolution
+    solution: spray
+  #- type: ItemCooldown
+  - type: Spray
+    spraySound:
+      path: /Audio/Effects/extinguish.ogg
+    sprayedPrototype: ExtinguisherSpray
+    vaporAmount: 3
+    vaporSpread: 90
+    sprayVelocity: 2.0
+    sprayTimeAlive: 1.5
+    transferAmount: 5
+    impulse: 50.0
+  - type: FireExtinguisher
+    hasSafety: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FireExtinguisherVisuals.Safety:
+        enabled:
+          True: { state: fire_extinguisher_closed }
+          False: { state: fire_extinguisher_open }

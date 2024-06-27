@@ -1,0 +1,26 @@
+- type: body
+  id: ADTChicken
+  name: "chicken"
+  root: torso
+  slots:
+    torso:
+      part: ADTChickenBody
+      #connections:
+      #- left hand
+      #- right hand
+      #- left leg
+      #- right leg
+      organs:
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        heart: OrganAnimalHeart
+        kidneys: OrganAnimalKidneys
+    #right hand:
+    #  part: ADTChickenWing
+    #left hand:
+    #  part: ADTChickenWing
+    #right leg:
+    #  part: ADTChickenLeg
+    #left leg:
+    #  part: ADTChickenLeg

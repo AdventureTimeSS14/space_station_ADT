@@ -1,0 +1,143 @@
+- type: entity
+  parent: BaseItem
+  id: ADTBirthDayBalloon1
+  name: birthday balloon 1
+  description: birthday balloon 1
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    state: balloon1
+  - type: Item
+    heldPrefix: bal1
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    size: Small
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: BaseItem
+  id: ADTBirthDayBalloon2
+  name: birthday balloon 2
+  description: birthday balloon 2
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    state: balloon2
+  - type: Item
+    heldPrefix: bal2
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    size: Small
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: BaseItem
+  id: ADTBirthDayBalloon3
+  name: birthday balloon 3
+  description: birthday balloon 3
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    state: balloon3
+  - type: Item
+    heldPrefix: bal3
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    size: Small
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: BaseItem
+  id: ADTBirthDayBalloon4
+  name: birthday balloon 4
+  description: birthday balloon 4
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    state: balloon4
+  - type: Item
+    heldPrefix: bal4
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    size: Small
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: BaseItem
+  id: ADTBirthDayBalloon5
+  name: birthday balloon 5
+  description: birthday balloon 5
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    state: balloon5
+  - type: Item
+    heldPrefix: bal5
+    sprite: ADT/Structures/Decoration/birthday_balloon.rsi
+    size: Small
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  id: ADTDiscoBall
+  parent: BaseStructureDynamic
+  name: disco ball
+  description: disco ball
+  suffix: One Year
+  #abstract: true
+  components:
+  - type: Transform
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 190
+        mask:
+        - Impassable
+  - type: Sprite
+    drawdepth: Overdoors
+    #offset: "0.0,0.3"
+    sprite: ADT/Structures/Decoration/discoball.rsi
+    state: discoball
+    noRot: true
+  - type: Anchorable
+  - type: PointLight
+    radius: 8
+    energy: 4
+  - type: RgbLightController
+    layers: [ 0 ]
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic # The pot. Not the plant. Or is it plastic?
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: ADTDiscoBallGraph
+    node: discoBall

@@ -1,0 +1,95 @@
+
+#технически не совсем приготовление напитка, но всё же
+- type: microwaveMealRecipe
+  id: RecipeMulledWineWarm
+  name: warm mulled wine recipe
+  result: ADTMulledWineGlass
+  time: 10
+  reagents:
+    ADTMulledWineCold: 30
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMulledWineWarm2
+  name: warm mulled wine recipe
+  result: ADTMulledWineGlass
+  time: 10
+  reagents:
+    ADTMulledWineCold: 30
+  solids:
+    ADTMulledWineGlass: 1 #Костыли, но по-другому я никак не могу придумать.
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolate
+  name: hot chocolate recipe
+  result: ADTHotChocolateGlass
+  time: 10
+  solids:
+    DrinkGlass: 1
+    FoodSnackChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolate2
+  name: hot chocolate recipe
+  result: ADTHotChocolateGlass
+  time: 10
+  solids:
+    ADTHotChocolateGlass: 1
+    FoodSnackChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolateAllergic
+  name: hot hypoallergen chocolate recipe
+  result: ADTHotChocolateAllergicGlass
+  time: 10
+  solids:
+    DrinkGlass: 1
+    ADTHypoAllergenChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolateAllergic2
+  name: hot hypoallergen chocolate recipe
+  result: ADTHotChocolateAllergicGlass
+  time: 10
+  solids:
+    ADTHotChocolateAllergicGlass: 1
+    ADTHypoAllergenChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotCocoa
+  name: hot cocoa recipe
+  result: ADTHotCocoaGlass
+  time: 10
+  reagents:
+    ADTCocoaDrink: 30
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotCocoa2
+  name: hot cocoa recipe
+  result: ADTHotCocoaGlass
+  time: 10
+  reagents:
+    ADTCocoaDrink: 30
+  solids:
+    ADTHotCocoaGlass: 1
+
+- type: microwaveMealRecipe
+  id: ADTRecipeChocolateDrink
+  name: chocolate drink recipe
+  result: ADTChocolateGlass
+  time: 10
+  solids:
+    FoodSnackChocolateBar: 1
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: ADTRecipeHypoallergenChocolateDrink
+  name: chocolate drink recipe
+  result: ADTChocolateGlass
+  time: 10
+  solids:
+    ADTHypoAllergenChocolateBar: 1
+    DrinkGlass: 1

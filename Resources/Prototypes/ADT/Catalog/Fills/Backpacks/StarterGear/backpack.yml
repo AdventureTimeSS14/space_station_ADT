@@ -1,0 +1,410 @@
+
+#ERT
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTMedical
+  id: ADTClothingBackpackERTMedicalFilledL
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: MedkitAdvancedFilled
+        - id: WeaponShotgunEnforcer
+        - id: WeaponPulsePistol
+        - id: BoxLethalshot
+        - id: BoxShotgunSlug
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTSecurity
+  id: ADTClothingBackpackERTSecurityFilledL
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: WeaponPulseCarbine
+        - id: Handcuffs
+        - id: Handcuffs
+        - id: WeaponSubMachineGunAtreides
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTLeader
+  id: ADTClothingBackpackERTLeaderFilledL
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: WeaponPulsePistol
+        - id: WeaponPistolMk58
+        - id: EmergencyMedipen
+
+
+#Paramedic
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackParamedic
+  id: ADTClothingBackpackParamedicalMedicalFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: JawsOfLife
+      - id: SpaceCash500
+
+#Blueshield
+- type: entity
+  parent: ADTClothingBlueshieldBackpack
+  id: ADTClothingBlueshieldBackpackFilled
+  suffix: filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: SpaceCash500
+      - id: Flash
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackFilled_VKF_R
+  noSpawn: true
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: RubberStampCentcom
+      - id: BoxFolderGreyFilled
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackERTLeaderFilled_SOO
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: RubberStampCentcom
+        #- id: BoxMagazineMagnumSubMachineGunHighVelocity
+        - id: WeaponSubMachineGunVector
+
+
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackFilled_CC_R
+  noSpawn: true
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: RubberStampIAA
+      - id: BoxFolderRedFilled
+
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackFilled_CC_FO
+  noSpawn: true
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: RubberStampCentcom
+      - id: BoxFolderRedFilled
+
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAntagDroneMiner
+  name: backpack antag drone miner
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi # invisible sprite
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: MiningDrill
+        - id: WeaponProtoKineticAccelerator
+        - id: JawsOfLife
+        - id: PowerDrill
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAntagDroneEngineer
+  name: backpack antag drone engineer
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi # invisible sprite
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: WelderIndustrial
+        - id: JawsOfLife
+        - id: PowerDrill
+        - id: Multitool
+        - id: trayScanner
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAntagDroneCharger
+  name: backpack antag drone charger
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi # invisible sprite
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: JawsOfLife
+        - id: WeaponLaserGun
+
+#рюкзак следователя
+
+- type: entity
+  #noSpawn: true
+  parent: ClothingBackpackSecurity
+  id: ADTClothingBackpackInvestigatorFilled
+  components:
+  #- type: Storage
+  #  maxItemSize: Huge
+  #  maxTotalWeight: 0
+  #  maxSlots: 50 #By this ignore maxTotalWeight
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: Flash
+      - id: Pen
+        amount: 2
+      #- id: PaperOffice
+      #  amount: 20
+      - id: ADTInvestigatorBoxFolderBase
+        amount: 1
+      - id: ADTInvestigatorBoxFolderRed
+        amount: 2
+      - id: ADTInvestigatorBoxFolderBlue
+        amount: 1
+      - id: ADTBookInvestigator
+      - id: ADTRubberStampinvestigator
+      - id: SpaceCash500
+
+- type: entity
+  #noSpawn: true
+  parent: ClothingBackpackDuffelSecurity
+  id: ADTClothingBackpackDuffelInvestigatorFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: Flash
+      - id: Pen
+        amount: 2
+      #- id: PaperOffice
+      #  amount: 20
+      - id: ADTInvestigatorBoxFolderBase
+        amount: 1
+      - id: ADTInvestigatorBoxFolderRed
+        amount: 2
+      - id: ADTInvestigatorBoxFolderBlue
+        amount: 1
+      - id: ADTBookInvestigator
+      - id: ADTRubberStampinvestigator
+      - id: SpaceCash500
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackPathologist
+  id: ADTClothingBackpackPathologistFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: BodyBag_Folded
+      - id: ADTFootTag
+      - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackADTBlueShieldOfficerFilled
+  components:
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+      - 0,0,9,5
+    - type: StorageFill
+      contents:
+        - id: Zipties
+          amount: 3
+        - id: ADTPowerCellLasgunRevolver
+          amount: 2
+        - id: WeaponDisabler
+        - id: Stunbaton
+        - id: BoxSurvivalSecurity
+        - id: BlueshieldSuit
+        - id: SpaceCash1000
+        - id: OxygenTankFilled
+    - type: Sprite
+      sprite: ADT/Clothing/Back/blueshield_backpack.rsi
+
+#СССП штуки
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackOR40L
+  id: ADTClothingBackpackOR40L_OBS5Gear
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTWeaponRifleAK55
+        - id: MedkitCombatFilled
+        - id: OxygenTankFilled
+        - id: Zipties
+          amount: 2
+        - id: ADTMagazineUSSPAK74
+          amount: 4
+        - id: MagazineBoxRifleRubber
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackOR80L
+  id: ADTClothingBackpackOR80L_OBS7Gear
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTWeaponSMGBizon
+        - id: MedkitCombatFilled
+        - id: JawsOfLife
+        - id: CombatMedipen
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: Zipties
+          amount: 2
+        - id: ADTMagazineBizon
+          amount: 4
+        - id: MagazineBoxPistolRubber
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackOR40L
+  id: ADTClothingBackpackOR40L_PilotGear
+  components:
+    - type: StorageFill
+      contents:
+        - id: MedkitCombatFilled
+        - id: JawsOfLife
+        - id: CombatMedipen
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: ADTMagazineSR2M
+          amount: 3
+        - id: MagazineBoxPistolRubber
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackOR80L
+  id: ADTClothingBackpackOR80L_SpetsnazGear
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTWeaponSMGSR3M
+        - id: MedkitCombatFilled
+        - id: JawsOfLife
+        - id: CombatMedipen
+          amount: 3
+        - id: OmnizineChemistryBottle
+        - id: EphedrineChemistryBottle
+        - id: ADTCombatHypo
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: Zipties
+          amount: 2
+        - id: ADTMagazineSR3M
+          amount: 3
+        - id: MagazineBoxLightRifleRubber
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackOR80L
+  id: ADTClothingBackpackOR80L_SpetsnazLMGGear
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTWeaponLightMachineGunPKP60
+        - id: MedkitCombatFilled
+        - id: JawsOfLife
+        - id: CombatMedipen
+          amount: 2
+        - id: OmnizineChemistryBottle
+        - id: EphedrineChemistryBottle
+        - id: ADTCombatHypo
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: Zipties
+          amount: 2
+        - id: ADTMagazineUSSPLMG
+          amount: 2
+
+
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackOR40L
+  id: ADTClothingBackpackOR40L_MedicGear
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTWeaponPistolPMM
+        - id: MedkitCombatFilled
+          amount: 2
+        - id: MedkitAdvancedFilled
+        - id: OxygenTankFilled
+        - id: ADTMagazinePistolPMM
+          amount: 2
+        - id: SyndiHypo
+        - id: OmnizineChemistryBottle
+          amount: 4
+
+- type: entity
+  id: ADTWardrobeKBSFilled
+  parent: WardrobeSecurity
+  name: USSP Wardrobe
+  description: "Cross the thin red line."
+  suffix: USSP
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingRPSUSSP
+      - id: ADTClothingBackpackOR40L
+      - id: ADTClothingOuterHardsuitOBS5USSP
+      - id: MedkitCombatFilled
+      - id: ADTClothingMaskGasUSSP
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ADTWeaponRifleAK55
+        prob: 0.5
+        orGroup: USSPInfantryWeapon
+      - id: ADTWeaponLightMachineGunPRK
+        prob: 0.25
+        orGroup: USSPInfantryWeapon
+      - id: ADTWeaponSMGBizon
+        prob: 0.25
+        orGroup: USSPInfantryWeapon
+
+- type: entity
+  parent: ClothingBackpackERTLeader # ADTADTClothingBackpackSecurityCybBase
+  id: ADTClothingBackpackSecurityCyb
+  name: backpack cyborg
+  description: desc
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: ADTMagazineRifleFNFAL
+        - id: ADTMagazineRifleFNFAL
+        - id: ADTMagazineRifleFNFAL
+        - id: Flash
+        - id: JawsOfLife
+        - id: CombatKnife
+        - id: FlashlightSeclite
+        - id: GrenadeStinger
+        - id: GrenadeStinger
+        - id: GrenadeFlashBang
+        - id: GrenadeFlashBang
+        - id: ADTSecurityCybPDA
+        #- id: WelderIndustrialAdvanced

@@ -1,0 +1,28 @@
+- type: entity
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  id: ADTDjahRingBox
+  name: ring box of Urog and Yuna
+  description: Live in love and harmony.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/KD/RingBox.rsi
+    state: box
+    layers:
+    - state: box
+    - state: box-open
+      map: ["openLayer"]
+  - type: Storage
+    maxItemSize: Small
+  - type: Item
+    sprite: ADT/KD/RingBox.rsi
+    size: Small
+    heldPrefix: box
+  - type: StorageFill
+    contents:
+    - id: ADTClothingHandsRingUrog
+      amount: 1
+    - id: ADTClothingHandsRingYuna
+      amount: 1
+  - type: StaticPrice
+    price: 500

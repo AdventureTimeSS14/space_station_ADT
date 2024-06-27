@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseItem
+  id: coal
+  name: coal
+  description: For the naughtiest ones.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/coal.rsi
+    state: icon
+  - type: Item
+    size: Tiny

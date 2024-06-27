@@ -1,0 +1,16 @@
+- type: job
+  id: ADTEngiBorg
+  name: JobADTEngiBorg
+  description: job-description-borg
+  playTimeTracker: JobEngiBorg
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cyborgs
+      time: 18000 #5 hr
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 54000 # 15 hrs
+  canBeAntag: false
+  icon: JobIconBorg
+  supervisors: job-supervisors-rd
+  jobEntity: ADTPlayerBorgEngineer

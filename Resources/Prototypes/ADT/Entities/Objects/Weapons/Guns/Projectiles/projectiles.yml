@@ -1,0 +1,48 @@
+- type: entity
+  id: syringeprojctile
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: syringeproj
+
+- type: entity
+  id: ADTBulletLingGas
+  name: acid spit
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Projectile
+      damage:
+        types:
+          Caustic: 5
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+      layers:
+        - state: xeno_toxic
+    - type: SmokeOnTrigger
+      duration: 15
+      spreadAmount: 50
+      solution:
+        reagents:
+        - ReagentId: TearGas
+          Quantity: 50
+
+- type: entity
+  id: ADTBulletBibis
+  name: bibis ball
+  parent: BaseBulletRubber
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0.1
+  - type: StaminaDamageOnCollide
+    damage: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: depleted-uranium

@@ -1,0 +1,119 @@
+- type: entity
+  name: chocolate cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeChocolateHeart
+  description: A cake with added chocolate.
+  components:
+  - type: Sprite
+    state: chocolate_heart
+  - type: SliceableFood
+    slice: ADTFoodCakeChocolateHeartSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: slice of chocolate cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeChocolateHeartSlice
+  components:
+  - type: Sprite
+    state: chocolate-slice-heart
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Theobromine
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1
+
+#Маффины
+- type: entity
+  id: ADTFoodBakedMuffinChocolate
+  parent: FoodBakedBase
+  name: chocolate muffin
+  description: A delicious and spongy little chocolate cake.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/muffins.rsi
+    state: muffin_chocolate
+  - type: Tag
+    tags:
+    - ADTMuffin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 1
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+
+- type: entity
+  id: ADTFoodBakedMuffinParty
+  parent: FoodBakedBase
+  name: party muffin
+  description: A delicious and spongy little party cake.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/muffins.rsi
+    state: muffin_party
+  - type: Tag
+    tags:
+    - ADTMuffin
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - ADTParty
+
+- type: entity
+  id: ADTFoodBakedMuffinJustKekc
+  parent: ADTFoodBakedMuffinParty
+  name: party muffin
+  description: Self insert. 
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: ADT/Objects/Consumable/Food/muffins.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: justkekc
+  - type: Tag
+    tags:
+    - ADTMuffinKekc
+  - type: Food
+    useSound:
+      path: /Audio/ADT/kekc_scream.ogg
+  - type: GhostRole
+    prob: 1
+    name: ghost-role-information-Kekc-name
+    allowMovement: true
+    description: ghost-role-information-Kekc-description
+    rules: ghost-role-information-Kekc-rules
+  - type: GhostTakeoverAvailable
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5
+  - type: CanEscapeInventory
+    baseResistTime: 3
+  - type: Examiner
+  - type: Speech
+    speechVerb: SmallMob

@@ -1,0 +1,41 @@
+- type: listing
+  id: WizardTeleport
+  name: teleport-act
+  description: teleport-act-desc
+  productAction: WizardActionTeleport
+  mindAction: false
+  cost:
+    SpellPoints: 2
+  categories:
+  - WizardAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: WizardShoot
+  name: shoot-act
+  description: shoot-act-desc
+  productAction: WizardActionShoot
+  mindAction: false
+  cost:
+    SpellPoints: 2
+  categories:
+  - WizardAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: WizardHeal
+  name: heal-act
+  description: heal-act-desc
+  productAction: WizardActionHeal
+  mindAction: false
+  cost:
+    SpellPoints: 2
+  categories:
+  - WizardAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

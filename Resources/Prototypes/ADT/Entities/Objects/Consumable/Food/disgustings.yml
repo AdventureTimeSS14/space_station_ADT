@@ -1,0 +1,32 @@
+# Данной категории нету у визардов, но куда определить ЭТО я без понятия, так же возможно будущее применение 
+- type: entity
+  name: synthetic changeling larva
+  parent: FoodBreadSliceBase
+  id: ADTLingLarva
+  description: No... Don't do it...
+  components:
+  - type: Food
+  - type: Item
+    sprite: ADT/Objects/Specific/genо_larva_white.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: ADT/Objects/Specific/genо_larva_white.rsi
+    layers:
+    - state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: ADTLingEggs
+          Quantity: 4 # Just using the same values as the bun values, since the recipe for taco shells is roughly the same as buns.
+  - type: Tag
+    tags:
+    - ADTCarnivoreFriendlyFood
+  - type: FlavorProfile
+    flavors:
+      - terrible

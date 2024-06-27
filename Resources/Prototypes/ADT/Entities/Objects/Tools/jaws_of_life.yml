@@ -1,0 +1,39 @@
+- type: entity
+  name: pirate jaws of life
+  parent: JawsOfLife
+  id: ADTPirateJawsOfLife
+  description: Useful for entering the station or its departments.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/pirate_jaws_of_life.rsi
+    state: jaws_pirate_pry
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand_pirate_left
+      right:
+      - state: inhand_pirate_right
+    size: Normal
+  - type: Tool
+    qualities:
+      - Prying
+    speed: 2.0
+  - type: MultipleTool
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: ADT/Objects/Tools/pirate_jaws_of_life.rsi
+          state: jaws_pirate_pry
+        useSound: /Audio/Items/jaws_pry.ogg
+        changeSound: /Audio/Items/change_jaws.ogg
+      - behavior: Cutting
+        sprite:
+          sprite: ADT/Objects/Tools/pirate_jaws_of_life.rsi
+          state: jaws_pirate_cutter
+        useSound: /Audio/Items/jaws_cut.ogg
+        changeSound: /Audio/Items/change_jaws.ogg
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 12

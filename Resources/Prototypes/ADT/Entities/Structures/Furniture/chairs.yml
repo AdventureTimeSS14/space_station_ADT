@@ -1,0 +1,301 @@
+- type: entity
+  name: black chair
+  id: ADTBlackChair
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/black_chair.rsi
+    state: armchair
+  - type: Construction
+    graph: Seat
+    node: adtblackchair
+
+#кресла от Юны
+- type: entity
+  name: violet chair
+  id: ADTVioletChair
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/yuna_chairs.rsi #спрайт от yunachka
+    state: kreslo_fiol
+  - type: Construction
+    graph: Seat
+    node: adtvioletchair
+
+#кресла от Юны
+- type: entity
+  name: red chair
+  id: ADTRedChair
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/yuna_chairs.rsi #спрайт от yunachka
+    state: kreslo_red
+  - type: Construction
+    graph: Seat
+    node: adtredchair
+
+  #кресла от Юны
+- type: entity
+  name: leather chair
+  id: ADTLeatherChair
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/yuna_chairs.rsi #спрайт от yunachka
+    state: kreslo_kor
+  - type: Construction
+    graph: Seat
+    node: adtleatherchair
+
+#хеллоуинский стул
+- type: entity
+  name: spider stool
+  id: ADTSpiderStool
+  parent: SeatBase
+  description: It looks spooky.
+  suffix: Halloween
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/spider_stool.rsi #спрайт от Умы
+    state: icon
+
+- type: entity
+  name: pizzeria chair
+  id: ADTPizzeriaStool
+  parent: SeatBase
+  description: It looks spooky.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/pizzeria_stool.rsi #спрайт от Иллюми
+    state: icon
+  - type: Construction
+    graph: ADTStool
+    node: pizzeriaStool
+
+- type: entity
+  name: red stool
+  id: ADTRedStool
+  parent: SeatBase
+  description: It looks spooky.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/red_stool.rsi #спрайт от Овая
+    state: icon
+  - type: Construction
+    graph: ADTStool
+    node: redStool
+
+- type: entity
+  name: white stool
+  id: ADTWhiteStool
+  parent: SeatBase
+  description: It looks spooky.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/white_stool.rsi #спрайт от Овая
+    state: icon
+  - type: Construction
+    graph: ADTStool
+    node: whiteStool
+
+#New Year
+- type: entity
+  name: white armchair
+  id: ADTArmchairWhite
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Armchair/armchair_white.rsi #спрайт от lunalita
+    state: whitearmchair
+  - type: Construction
+    graph: Seat
+    node: adtarmchairwhite
+
+- type: entity
+  name: white armchair
+  id: ADTArmchairWhite2
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Armchair/armchair_white.rsi #спрайт от lunalita
+    state: whitearmchair_02
+  - type: Construction
+    graph: Seat
+    node: adtarmchairwhite2
+
+- type: entity
+  name: brown armchair
+  id: ADTArmchairBrown
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Armchair/armchair_brown.rsi #спрайт от lunalita
+    state: brownarmchair
+  - type: Construction
+    graph: Seat
+    node: adtarmchairbrown
+
+- type: entity
+  name: brown armchair
+  id: ADTArmchairBrown2
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Armchair/armchair_brown.rsi #спрайт от lunalita
+    state: brownarmchair_02
+  - type: Construction
+    graph: Seat
+    node: adtarmchairbrown2
+
+- type: entity
+  name: blue armchair
+  id: ADTArmchairBlue
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Armchair/armchair_blue.rsi #спрайт от lunalita
+    state: bluearmchair
+  - type: Construction
+    graph: Seat
+    node: adtarmchairblue
+
+- type: entity
+  name: blue armchair
+  id: ADTArmchairBlue2
+  parent: SeatBase
+  description: It looks comfy.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Armchair/armchair_blue.rsi #спрайт от lunalita
+    state: bluearmchair_02
+  - type: Construction
+    graph: Seat
+    node: adtarmchairblue2
+
+- type: entity
+  parent: Bed
+  id: ADTDeckChair
+  name: deckchair
+  description: A deckchair for the acquisition of an even tan under the light of the nearest star.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/deckchair.rsi
+    state: deckchair
+  - type: Construction
+    graph: bed
+    node: adtdeckchair
+  #- type: GuideHelp
+  #  guides:
+  #  - Medical Doctor
+
+- type: entity
+  name: oktoberfest chair
+  id: ADTOktoberfestChair
+  parent: SeatBase
+  description: It looks comfy.
+  suffix: Oktoberfest
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/oktoberfest_chair.rsi
+    state: oct_chair_orange

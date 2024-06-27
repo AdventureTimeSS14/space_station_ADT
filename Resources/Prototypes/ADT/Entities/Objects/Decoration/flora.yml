@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseTree
+  id: FloraPalmTree1
+  name: palm tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/palm_tree.rsi
+    state: palm1
+
+- type: entity
+  parent: BaseTree
+  id: FloraPalmTree2
+  name: palm tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/palm_tree.rsi
+    state: palm2

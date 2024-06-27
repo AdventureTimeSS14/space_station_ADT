@@ -1,0 +1,27 @@
+#Brigmedic hardsuit
+- type: entity
+  id: SuitStorageBrigmedic
+  parent: SuitStorageBase
+  suffix: Brigmedic
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitBrigmedic
+        - id: ClothingMaskBreath
+  - type: AccessReader
+    access: [["Medical"]]
+
+#Blueshield's hardsuit
+- type: entity
+  id: SuitStorageBlueshield
+  parent: SuitStorageBase
+  suffix: Blueshield
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: BlueshieldSuit
+        - id: ClothingMaskBreath
+  - type: AccessReader
+    access: [["BlueShield"]]

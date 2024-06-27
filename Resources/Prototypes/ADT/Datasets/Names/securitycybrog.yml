@@ -1,0 +1,37 @@
+# - type: dataset
+#   id: names_sec_cyb
+#   values:
+#   - Cyber-653
+#   - Steelbot-057
+#   - TechnoGuard-435
+#   - RoboShield-452
+#   - MechSec-453
+#   - CircuitDefender-856
+#   - CyberSentry-469
+#   - SteelSafeguard-347
+#   - MechProtector-231
+#   - TechnoWarden-467
+
+- type: dataset
+  id: names_sec_cyb
+  values:
+  - КИБР-653
+  - КИБР-457
+  - СТАБОТ-057
+  - СТАБОТ-945
+  - ТГ-435
+  - ТГ-354
+  - РЩ-452
+  - РЩ-254
+  - МС-453
+  - МС-774
+  - ЦД-856
+  - ЦД-632
+  - САЙБСЕНТРИ-469
+  - САЙБСЕНТРИ-124
+  - СТИЛСЕЙФ-347
+  - СТИЛСЕЙФ-210
+  - МЕХПРО-231
+  - МЕХПРО-850
+  - ТЕХВАРД-467
+  - ТЕХВАРД-391

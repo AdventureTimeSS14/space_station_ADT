@@ -1,0 +1,320 @@
+- type: entity
+  name: Papaver somniferum
+  parent: FoodProduceBase
+  id: ADTFoodPapaverSomniferum
+  description: A flower which extracts used in making medicine. And narcotics.
+  components:
+  - type: FlavorProfile
+    flavors: 
+      - Bitter
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 16
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Toxin
+          Quantity: 4
+        - ReagentId: ADTMOpium
+          Quantity: 10
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
+  - type: Produce
+    seedId: ADTPapaverSomniferum
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Flower
+
+- type: entity
+  name: buckwheat bushel
+  description: buckwheat bushel
+  id: ADTBuckwheatFood
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/buckwheat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: ADTBuckwheatSolids
+          Quantity: 5
+  - type: Produce
+    seedId: ADTbuckwheatplant
+
+- type: entity
+  name: pumpkin
+  parent: [FoodProduceBase, ItemHeftyBase]
+  id: ADTFoodPumpkin
+  description: Round orange object that you can slice and eat.
+  components:
+  - type: Item
+    size: Normal
+  - type: FlavorProfile
+    flavors:
+      - adt_pumpkin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 5
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/pumpkin.rsi
+  - type: Produce
+    seedId: adt_pumpkin
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuicePumpkin
+        Quantity: 20
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SliceableFood
+    count: 3
+    slice: ADTFoodPumkinSlice
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingHeadHatPumpkin
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: pumpkin slice
+  parent: ProduceSliceBase
+  id: ADTFoodPumkinSlice
+  description: Juicy orange slice.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+      - adt_pumpkin
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/pumpkin.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuicePumpkin
+        Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+
+#by ModerN for Adventure Time project
+# плод
+- type: entity
+  name: mandarin
+  parent: FoodProduceBase
+  id: ADTFoodMandarin
+  description: Healthy, very orange.
+  suffix: NewYear
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+  - type: Produce
+    seedId: ADTmandarin
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuiceMandarin
+        Quantity: 10
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTTrashMandarinPeel  
+      - id: ADTFoodMandarinPeeled
+  - type: Tag
+    tags:
+    - Fruit
+ 
+ #очищенный плод.
+- type: entity
+  name: mandarin
+  parent: BaseItem
+  id: ADTFoodMandarinPeeled
+  description: Peeled mandarin. Is it holidays already?
+  suffix: NewYear
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+    state: peeledprod
+  - type: Produce
+    seedId: ADTmandarin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuiceMandarin
+        Quantity: 10
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodMandarinSlice
+    uses: 8
+  - type: Tag
+    tags:
+    - Fruit
+
+# кожура
+- type: entity
+  name: mandarin peel
+  parent: BaseItem
+  id: ADTTrashMandarinPeel
+  suffix: NewYear
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+    state: peel
+  - type: Item
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+    heldPrefix: peel
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+
+# долька
+- type: entity
+  name: mandarin slice
+  parent: ProduceSliceBase
+  id: ADTFoodMandarinSlice
+  description: Mmm, tropical.
+  suffix: NewYear
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTmandarin
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuiceMandarin
+        Quantity: 2
+  - type: Tag
+    tags:
+    - Fruit
+
+#Гвоздика
+- type: entity
+  name: carnation
+  parent: FoodProduceBase
+  id: ADTFoodCarnation
+  description: Is that really IS a carnation?
+  suffix: New Year
+  components:
+  - type: FlavorProfile
+    flavors:
+      - savory
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ADTCarnation
+          Quantity: 5
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/new-year/carnation.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/new-year/carnation.rsi #спрайты от Умы.
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTCarnation
+        Quantity: 5
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+    popup: adt-spike-solution-put
+  - type: Appearance
+  - type: DeleteOnTrigger
+
+#Не совсем уверен про этих двоих ниже
+#Корица
+- type: entity
+  name: cinnamon
+  parent: FoodProduceBase
+  id: ADTFoodCinnamon
+  description: Fragrant cinnamon sticks.
+  suffix: New Year
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ADTСinnamon
+          Quantity: 5
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/new-year/cinnamon.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/new-year/cinnamon.rsi #спрайты от Умы.
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTСinnamon
+        Quantity: 5
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+    popup: adt-spike-solution-put
+  - type: Appearance
+  - type: DeleteOnTrigger

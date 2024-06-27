@@ -1,0 +1,15 @@
+- type: startingGear
+  id: SpecialOperationsOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomFormal
+    back: ClothingBackpackERTLeaderFilled_SOO
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatCentcom
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCentcomNaval
+    outerClothing: ClothingOuterVestKevlar
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    #belt: SecurityFilled - Портатип не нейден
+    mask: ClothingMaskGasCentcom
+    pocket1: MacroBombImplanter

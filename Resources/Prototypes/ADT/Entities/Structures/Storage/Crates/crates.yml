@@ -1,0 +1,15 @@
+- type: entity
+  parent: CrateGeneric
+  id: LavalendChest
+  name: Spooky chest
+  description: An old, scary chest with pulsating meat on it.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/Crates/lavalend.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Icon
+    sprite: ADT/Structures/Storage/Crates/lavalend.rsi
+    state: base

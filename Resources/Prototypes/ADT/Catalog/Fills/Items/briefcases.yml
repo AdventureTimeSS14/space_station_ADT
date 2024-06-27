@@ -1,0 +1,77 @@
+- type: entity
+  id: ADTBriefcaseBrownPyotr
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  #- type: Storage
+  #  maxItemSize: Ginormous
+  #  maxTotalWeight: 0
+  #  maxSlots: 50 #By this ignore maxTotalWeight
+  - type: StorageFill
+    contents:
+      #- id: ADTClothingBeltPyotrSheath
+      - id: ADTClothingHeadHatsPyotrCap
+      - id: ADTClothingNeckPyotrCloak
+      - id: ADTClothingOuterCoatPyotrCoat
+      - id: ADTClothingUniformPyotrOfficialSuit
+
+- type: entity
+  id: ADTBriefcaseBrownHikingCmo
+  name: Chief medical officer's hiking briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingOuterCoatHikeLabcoatCmo
+      - id: ADTClothingUniformHikeJumpskirtCmo
+      - id: ADTClothingUniformHikeformCmo
+      - id: ADTClothingHighboots
+
+
+- type: entity
+  id: ADTBriefcaseCentcomm
+  name: Centcomm briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/sec_auditor_briefcase.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Misc/sec_auditor_briefcase.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+#у меня почему-то не хочет добавляться чемодан ЦК.
+
+- type: entity
+  id: ADTBriefcaseBrownSchrodinger
+  name: Schrodinger`s briefcase
+  parent: ADTBriefcaseCentcomm
+  suffix: Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,5
+  #- type: Storage
+  #  maxItemSize: Ginormous
+  #  maxTotalWeight: 0
+  #  maxSlots: 50 #By this ignore maxTotalWeight
+  - type: StorageFill
+    contents:
+      - id: ClothingShoesBootsLaceup
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingMaskGasCentcom
+      - id: ClothingUniformJumpsuitCentcomAgent
+      - id: ADTWeaponRevolverDeckardGold
+      - id: CentcomPDA
+      - id: ADTClothingNeckMantleCentComm
+      - id: ClothingHeadsetAltCentCom
+      - id: ADTClothingOuterCoatSchroCoat
+      - id: ADTClothingNeckNanoTrasenPinSchrodinger

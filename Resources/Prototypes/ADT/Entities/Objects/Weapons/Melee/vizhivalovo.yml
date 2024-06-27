@@ -1,0 +1,107 @@
+#Хер его знает что это
+- type: entity
+  name: volkoboi
+  parent: BaseItem
+  id: ADTVolkoboi
+  description: volkoboi
+  suffix: Vishivalovo
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/volkoboi.rsi
+    state: icon
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: /Audio/Weapons/slash.ogg
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/volkoboi.rsi
+  - type: DisarmMalus
+    malus: 1
+  - type: Appearance
+
+- type: entity
+  name: pila-struna
+  parent: BaseItem
+  id: ADTPilaStruna
+  description: pila-struna
+  suffix: Vishivalovo
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/pilastruna.rsi
+    state: icon
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      path: /Audio/Weapons/slash.ogg
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/pilastruna.rsi
+  - type: DisarmMalus
+    malus: 1
+  - type: Appearance
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 8
+
+- type: entity
+  name: pylesos Vishivalova
+  parent: BaseItem
+  id: ADTPylesosVishivalova
+  description: pylesos Vishivalova
+  suffix: Vishivalovo
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/pylesos_vishivalova.rsi
+    state: icon
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/pylesos_vishivalova.rsi
+  - type: DisarmMalus
+    malus: 1
+  - type: Appearance
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 8
+  - type: Spillable
+    solution: absorbed
+  - type: Absorbent
+    pickupAmount: 100
+  - type: SolutionRegeneration
+    solution: absorbed
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 5
+  - type: SolutionPurge
+    solution: absorbed
+    preserve:
+    - Water
+    quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 100

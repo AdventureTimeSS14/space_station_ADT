@@ -1,0 +1,72 @@
+- type: constructionGraph
+  id: MiningGirder
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: mining_girder
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+
+    - node: mining_girder
+      entity: ADTMiningGirder
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: false
+          steps:
+            - tool: Screwing
+              doAfter: 4
+
+        - to: mining_wall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Plasteel
+              amount: 3
+              doAfter: 2
+
+    - node: mining_wall
+      entity: WallMining
+      edges:
+        - to: mining_girder
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 3
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+
+
+- type: construction
+  name: mining wall
+  id: ADTMiningWallRecipe
+  graph: MiningGirder
+  startNode: start
+  targetNode: mining_wall
+  category: construction-category-structures
+  description: A large structural assembly made out of metal and plasteel.
+  icon:
+    sprite: /Textures/Structures/Walls/mining.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

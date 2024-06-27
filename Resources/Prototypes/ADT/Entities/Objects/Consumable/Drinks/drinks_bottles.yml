@@ -1,0 +1,59 @@
+- type: entity
+  parent: DrinkBottleGlassBaseFull
+  id: ADTDrinkVodkaAntivirusBottleFull
+  name: vodka "antivirus"
+  description: heady drink, that is more usifull in making fire bombs, rather in drinking.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: ADTVodkaAntivirus
+          Quantity: 100
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/vodka_antivirusbottle.rsi
+    state: icon
+  - type: Label
+    currentLabel: vodka-antivirus-name
+
+- type: entity
+  parent: DrinkBottleGlassBaseFull
+  id: ADTDrinkAppleLiqueurBottleFull
+  name: apple liquer
+  description: fruit, dessert alcoholic drink.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: ADTAppleLiqueur
+          Quantity: 100
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_bottle.rsi
+    state: icon
+  - type: Label
+    currentLabel: apple-liqueur-name
+
+- type: entity
+  parent: DrinkBottleGlassBaseFull
+  id: ADTDrinkCherryExquisiteWineBottleFull
+  name: cherry exquisite wine
+  description: a bottle of cherry wine by Nestrof company
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: ADTCherryExquisiteWine
+          Quantity: 100
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/cherryexquisitewinebottle.rsi
+    state: icon
+  - type: Label
+    currentLabel: cherry-exq-wine-name

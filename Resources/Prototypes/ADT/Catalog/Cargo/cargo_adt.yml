@@ -1,0 +1,103 @@
+#medicine
+- type: cargoProduct
+  id: ADTCratePatchPack
+  icon:
+    sprite: ADT/Objects/Specific/Medical/patch.rsi
+    state: patchpack
+  product: ADTCratePatchPackFilled
+  cost: 1600
+  category: cargoproduct-category-name-medical
+  group: market
+
+#engineering
+- type: cargoProduct
+  id: ADTEngineeringAMEController
+  icon:
+    sprite: Structures/Power/Generation/ame.rsi
+    state: static
+  product: CrateEngineeringAMEControl
+  cost: 4000
+  category: cargoproduct-category-name-engineering
+  group: market
+
+- type: cargoProduct
+  id: ADTEngineeringAMEComponent
+  icon:
+    sprite: Objects/Devices/flatpack.rsi
+    state: ame-part
+  product: CrateEngineeringAMEShielding
+  cost: 5000
+  category: cargoproduct-category-name-engineering
+  group: market
+
+#service
+- type: cargoProduct
+  id: ADTCrateVendingMachineRestockPill
+  icon:
+    sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: ADTCrateVendingMachineRestockPillFilled
+  cost: 1200
+  category: cargoproduct-category-name-medical
+  group: market
+
+#crates
+- type: entity
+  id: ADTCrateVendingMachineRestockPillFilled
+  name: Pill-O-Mat restock crate
+  parent: CrateMedical
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTVendingMachineRestockPill
+
+- type: entity
+  id: ADTCratePatchPackFilled
+  parent: CrateMedical
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTPatchPackFilled
+        amount: 4
+
+- type: entity
+  id: CrateArmoryVector
+  name: vector crate (rubber)
+  parent: CrateWeaponSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunVectorRubber
+        amount: 2
+      - id: MagazineMagnumSubMachineGunRubber
+        amount: 6
+
+- type: cargoProduct
+  id: GravityGeneratorMini
+  icon:
+    sprite: Structures/Machines/gravity_generator_mini.rsi
+    state: on
+  product: GravityGeneratorMini
+  cost: 4000
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: cargoProduct
+  id: CargoGravityGenerator
+  icon:
+    sprite: Structures/Machines/gravity_generator.rsi
+    state: on
+  product: CrateEngineeringGravityGenerator
+  cost: 20000
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: cargoProduct
+  id: FunRingBox
+  icon:
+    sprite: ADT/KD/RingBox.rsi
+    state: box
+  product: RingBox
+  cost: 8000
+  category: cargoproduct-category-name-fun
+  group: market

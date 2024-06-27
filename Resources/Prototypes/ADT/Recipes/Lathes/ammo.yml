@@ -1,0 +1,20 @@
+﻿- type: latheRecipe
+  id: SpeedLoader357
+  result: SpeedLoader357
+  completetime: 5
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: SpeedLoader357Rubber
+  result: SpeedLoader357Rubber
+  completetime: 5
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: MagazineShotgun
+  result: MagazineShotgun
+  completetime: 5
+  materials:
+    Steel: 300

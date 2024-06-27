@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: DuffelDurathead
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: DuffelDurathead
+          steps:
+            - material: Cloth
+              amount: 5
+              doAfter: 1
+            - material: Durathread
+              amount: 15
+              doAfter: 1
+    - node: DuffelDurathead
+      entity: ADTClothingBackpackDuffelDurathead

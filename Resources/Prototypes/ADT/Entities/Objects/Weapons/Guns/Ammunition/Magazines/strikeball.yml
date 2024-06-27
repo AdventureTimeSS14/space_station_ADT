@@ -1,0 +1,48 @@
+# Empty mags
+- type: entity
+  id: ADTBaseMagazineBibis
+  name: "magazine bibis"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - ADTMagazineRifleBibis
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgeBibis
+    capacity: 200
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+# Magazines
+- type: entity
+  id: ADTMagazineRifleBibis
+  name: "magazine bibis"
+  parent: ADTBaseMagazineBibis
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeStrikeballBibis
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

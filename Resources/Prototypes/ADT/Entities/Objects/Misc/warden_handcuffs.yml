@@ -1,0 +1,27 @@
+- type: entity
+  name: Warden Handcuffs
+  description: Used to detain criminals and other assholes.
+  id: ADTWardenHandsCuffs
+  parent: BaseItem
+  components:
+  - type: Item
+    size: Small
+    storedRotation: 90
+  - type: Handcuff
+    cuffedRSI: ADT/Objects/Misc/warden_handcuffs.rsi
+    bodyIconState: body-overlay
+  - type: Sprite
+    sprite: ADT/Objects/Misc/warden_handcuffs.rsi
+    state: handcuff
+  - type: Tag
+    tags:
+    - Handcuffs
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    animation: WeaponArcDisarm
+    damage:
+      types:
+        Blunt: 0
+  - type: GuideHelp
+    guides:
+    - Security

@@ -1,0 +1,221 @@
+- type: entity
+  name: Daniel'
+  parent: MobCat
+  id: ADTMobCatDaniel
+  description: A very important person in the legal department.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: daniel
+      sprite: ADT/Mobs/Animals/daniel.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: daniel
+      Critical:
+        Base: daniel_dead
+      Dead:
+        Base: daniel_dead
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
+
+- type: entity
+  name: New Year Gorilla
+  parent: [ SimpleMobBase, MobCombat ]
+  id: ADTMobGorillaNewYear
+  description: New Year Gorilla
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      layers:
+        - map: ["enum.DamageStateVisualLayers.Base"]
+          state: newyeargorilla
+          sprite: ADT/Mobs/Animals/newyeargorilla.rsi
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.48
+          density: 200
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: newyeargorilla
+        Dead:
+          Base: dead
+    - type: Butcherable
+      spawned:
+        - id: FoodMeat
+          amount: 4
+        - id: ClothingHeadHatCargosoft
+          amount: 1
+    - type: Bloodstream
+      bloodMaxVolume: 600
+    - type: Puller
+    - type: InteractionPopup
+      successChance: 1
+      interactSuccessString: petting-success-gorilla
+      interactFailureString: petting-failure-gorilla
+    - type: Tag
+      tags:
+        - CannotSuicide
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        900: Dead
+    - type: MeleeWeapon
+      soundHit:
+          path: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
+      angle: 100
+      attackRate: 1.2
+      animation: WeaponArcFist
+      damage:
+        types:
+          Blunt: 15
+    - type: StaminaDamageOnHit
+      damage: 100 
+    - type: Inventory
+      templateId: monkey
+      speciesId: monkey
+    - type: InventorySlots
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 3.5
+      baseSprintSpeed : 4.8
+    - type: NoSlip
+    - type: Speech
+      speechVerb: SmallMob
+    - type: TTS # Corvax-TTS
+      voice: Eugene
+    - type: UserInterface
+      interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+    - type: Hands
+    - type: Body
+      prototype: Primate
+      requiredLegs: 1 # TODO: More than 1 leg
+
+- type: entity
+  name: New Year Buffrat
+  parent: ADTMobGorillaNewYear
+  id: ADTMobBuffratNewYear
+  description: New Year Buffrat
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      layers:
+        - map: ["enum.DamageStateVisualLayers.Base"]
+          state: newyeargigarat
+          sprite: ADT/Mobs/Animals/newyeargigarat.rsi
+      scale: 1.2, 1.2
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: newyeargigarat
+        Dead:
+          Base: dead
+
+- type: entity
+  name: manul
+  id: MobCatManul
+  parent: MobCat
+  description: It looks cute and fluffy manul. But it only looks..
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Animals/manul.rsi 
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: manul_state 
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: manul_state 
+      Dead:
+        Base: manul_dead 
+  - type: InteractionPopup
+    successChance: 0.9
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/ADT/carakal_purr.ogg
+    interactFailureSound:
+      path: /Audio/ADT/carakal_hiss.ogg
+  - type: LanguageSpeaker
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
+
+- type: entity
+  name: wild pig
+  parent: MobPig
+  id: ADTMobWildPig
+  description: Oink.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pig
+      sprite: ADT/Mobs/Animals/wild_pig.rsi
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBacon
+      amount: 3
+    - id: FoodMeat
+      amount: 3
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: CanHostGuardian
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
+    angle: 100
+    attackRate: 1.1
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 15
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.8

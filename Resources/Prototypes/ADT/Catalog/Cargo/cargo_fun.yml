@@ -1,0 +1,71 @@
+- type: cargoProduct
+  id: ADTFunOktoberfestCloth
+  icon:
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/Oktoberfest/oktoberfest_dirndlshortgreen.rsi
+    state: icon
+  product: ADTCrateOktoberfestCloth
+  cost: 750
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTFunOktoberFestMug
+  icon:
+    sprite: ADT/Objects/Consumable/Drinks/oktoberfest_beer.rsi
+    state: classicpaulaner_mug
+  product: ADTCrateOktoberfestMug
+  cost: 200
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTFunHalloweenCloth
+  icon:
+    sprite: ADT/Objects/Storage/halloween_box.rsi
+    state: pennywise
+  product: ADTCrateHalloweenCloth
+  cost: 4250
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTFunChristmasTree
+  #name: crate of christmas tree
+  #description: crate of christmas tree
+  icon:
+    sprite: ADT/Structures/Furniture/christmas_tree.rsi
+    state: christmas_tree
+  product: ADTCrateChristmasTree
+  cost: 250
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTClassicTapes
+  icon:
+    sprite: Objects/Devices/boomboxtape.rsi
+    state: tape
+  product: ADTCrateFunBoomBoxTapes1
+  cost: 5000
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTUTTapes
+  icon:
+    sprite: Objects/Devices/boomboxtape.rsi
+    state: tape
+  product: ADTCrateFunBoomBoxTapes2
+  cost: 5000
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTHotlineTapes
+  icon:
+    sprite: Objects/Devices/boomboxtape.rsi
+    state: tape
+  product: ADTCrateFunBoomBoxTapesHotline
+  cost: 5000
+  category: cargoproduct-category-name-fun
+  group: market

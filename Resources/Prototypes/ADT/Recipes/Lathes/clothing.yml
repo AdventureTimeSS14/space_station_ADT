@@ -1,0 +1,112 @@
+#Ce
+- type: latheRecipe
+  id: ADTCEJumpsuitWarm
+  result: ADTCEJumpsuitWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTCEJumpskirtWarm
+  result: ADTCEJumpskirtWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+#Cmo
+- type: latheRecipe
+  id: ADTCMOJumpsuitWarm
+  result: ADTCMOJumpsuitWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTCMOJumpskirtWarm
+  result: ADTCMOJumpskirtWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+#Hop
+- type: latheRecipe
+  id: ADTHOPJumpsuitWarm
+  result: ADTHOPJumpsuitWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTHOPJumpskirtWarm
+  result: ADTHOPJumpskirtWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+#QM
+- type: latheRecipe
+  id: ADTQMJumpsuitWarm
+  result: ADTQMJumpsuitWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTQMJumpskirtWarm
+  result: ADTQMJumpskirtWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+#Hos
+- type: latheRecipe
+  id: ADTHOSJumpsuitWarm
+  result: ADTHOSJumpsuitWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTHOSJumpskirtWarm
+  result: ADTHOSJumpskirtWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+#RD
+- type: latheRecipe
+  id: ADTRDJumpsuitWarm
+  result: ADTRDJumpsuitWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTRDJumpskirtWarm
+  result: ADTRDJumpskirtWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+#Cap
+- type: latheRecipe
+  id: ADTCapJumpsuitWarm
+  result: ADTCapJumpsuitWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTCapJumpskirtWarm
+  result: ADTCapJumpskirtWarm
+  completetime: 4
+  materials:
+    Cloth: 300
+#Bartender
+- type: latheRecipe
+  id: ADTClothingUniformNewBarmanSuit
+  result: ADTClothingUniformNewBarmanSuit
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ADTClothingUniformNewBarmanSkirt
+  result: ADTClothingUniformNewBarmanSkirt
+  completetime: 4
+  materials:
+    Cloth: 300
