@@ -1,0 +1,10 @@
+ent-ADTClothingUniformSupremeCommanderJumpsuit = supreme comander's jumpsuit
+    .desc = Suitable for situations on a supergalactic scale.
+ent-ADTClothingUniformBlackWeddingSuit = Black Wedding Suit
+    .desc = Made in USSP
+ent-ADTClothingUniformBlueWeddingSuit = Blue Wedding suit
+    .desc = Made in USSP
+ent-ADTClothingUniformBrownWeddingSuit = Brown Wedding suit
+    .desc = Made in USSP
+ent-ADTClothingUniformPriestPrimalSuit = Priest's primal suit
+    .desc = Primal suit for primal rituals

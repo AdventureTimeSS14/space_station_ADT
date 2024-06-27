@@ -1,0 +1,12 @@
+ent-ADTMuffinMold = формочка для маффинов
+    .desc = Железная формочка для запекания кексов.
+ent-ADTMuffinMoldMuffin = {ent-ADTMuffinMold}
+    .desc = {ent-ADTMuffinMold.desc}
+ent-ADTMuffinMoldChocolate = {ent-ADTMuffinMold}
+    .desc = {ent-ADTMuffinMold.desc}
+ent-ADTMuffinMoldParty = {ent-ADTMuffinMold}
+    .desc = {ent-ADTMuffinMold.desc}
+ent-ADTMuffinMoldMuffinBerry = {ent-ADTMuffinMold}
+    .desc = {ent-ADTMuffinMold.desc}
+ent-ADTMuffinMoldBatter = {ent-ADTMuffinMold}
+    .desc = Железная формочка, заполненная тестом и готовая к духовке.

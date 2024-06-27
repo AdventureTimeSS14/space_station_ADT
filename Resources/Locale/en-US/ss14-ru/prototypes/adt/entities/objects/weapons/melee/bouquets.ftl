@@ -1,0 +1,10 @@
+ent-ADTObjectWeaponsMeleeWhiteBouquet = White bouquet
+    .desc = Bouquet of white roses. Classic!
+ent-ADTObjectWeaponsMeleeRoseBouquet = Rose bouquet
+    .desc = Delicate bouquet of pink hibiscus flowers. Especialy for her!
+ent-ADTObjectWeaponsMeleeYellowBouquet = Yellow bouquet
+    .desc = This is a bouquet of yellow peonies. Especially for connoisseurs of peonies
+ent-ADTObjectWeaponsMeleeBouquetWithBeer = Bouquet with beer
+    .desc = Be unique! GIve a bouquet that you can eat, at the same time knocking over a bottle of beer
+ent-ADTObjectWeaponsMeleeBlackBouquet = Black bouquet
+    .desc = This roses are difinietly not colored, thay have always been like thah
