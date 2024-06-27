@@ -18,6 +18,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3.6.0
 
+    - name: Pull latest changes for update-changelog branch
+      run: |
+        git fetch origin
+        git checkout -B update-changelog origin/update-changelog || git checkout -b update-changelog
+        git pull origin update-changelog --rebase
+
     - name: Setup Python
       uses: actions/setup-python@v3
       with:
@@ -43,11 +49,9 @@ jobs:
         git diff-index --quiet HEAD || git commit -m "Auto cl update"
       continue-on-error: true
 
-    - name: Pull latest changes for update-changelog branch
+    - name: Merge changes with ours strategy
       if: steps.commit-changes.outcome == 'success'
       run: |
-        git fetch origin
-        git checkout -B update-changelog origin/update-changelog || git checkout -b update-changelog
         git merge -X ours origin/update-changelog || echo "No changes to merge"
 
     - name: Push changes to a new branch
@@ -61,6 +65,7 @@ jobs:
       id: pr-check
       uses: actions/github-script@v6
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const { data: pullRequests } = await github.pulls.list({
             owner: context.repo.owner,
@@ -68,10 +73,10 @@ jobs:
             state: 'open',
             head: `${context.repo.owner}:update-changelog`
           });
-          return pullRequests.length > 0;
+          core.setOutput('pr_exists', pullRequests.length > 0 ? 'true' : 'false');
 
     - name: Create Pull Request
-      if: steps.commit-changes.outcome == 'success' && steps.pr-check.outputs.result == 'false'
+      if: steps.commit-changes.outcome == 'success' && steps.pr-check.outputs.pr_exists == 'false'
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
