@@ -49,11 +49,6 @@ jobs:
         git diff-index --quiet HEAD || git commit -m "Auto cl update"
       continue-on-error: true
 
-    - name: Merge changes with ours strategy
-      if: steps.commit-changes.outcome == 'success'
-      run: |
-        git merge -X ours origin/update-changelog || echo "No changes to merge"
-
     - name: Push changes to a new branch
       if: steps.commit-changes.outcome == 'success'
       env:
