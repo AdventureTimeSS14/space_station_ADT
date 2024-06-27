@@ -91,7 +91,7 @@ def fetch_pr_data(token, repo, pr_number):
     def fetch_single_pr(number):
         try:
             pr_info = get_pr_info(token, repo, number)
-            
+            print(pr_info)
             # Проверяем, что PR был замержен
             if not pr_info.get('merged_at'):
                 return None
