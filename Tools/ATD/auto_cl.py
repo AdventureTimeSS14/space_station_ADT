@@ -97,12 +97,12 @@ def fetch_pr_data(token, repo, pr_number):
                 return None
 
             body = pr_info.get('body', '')
-            cl_match = re.search(r':cl:\s*(.*)', body)
+            cl_match = re.search(r':cl:\s*(.*?)(?:\r?\n|$)', body)
             if not cl_match:
                 return None
 
             # Извлекаем автора до конца строки
-            author = cl_match.group(1).split('\n')[0].strip() or pr_info['user']['login']
+            author = cl_match.group(1).strip() or pr_info['user']['login']
 
             changes = []
             for line in body.splitlines():
@@ -139,6 +139,9 @@ def fetch_pr_data(token, repo, pr_number):
     return pr_data
 
 def update_cl_file(file_path, new_data):
+    if os.path.exists(file_path):
+        os.remove(file_path)
+
     old_entries = load_yaml(OLD_CHANGELOG_PATH).get("Entries", [])
 
     # Calculate the next ID based on existing entries
