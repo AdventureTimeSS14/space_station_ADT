@@ -1,3 +1,7 @@
+-------------------
+### Tests:
+[![Build & Test Debug](https://github.com/AdventureTimeSS14/space_station_ADT/actions/workflows/build-test-debug.yml/badge.svg?branch=master)](https://github.com/AdventureTimeSS14/space_station_ADT/actions/workflows/build-test-debug.yml)
+------------------
 <p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg" /></p>
 
 # Adventure Time: Space Station 14
