@@ -21,12 +21,7 @@ jobs:
     - name: Pull latest changes for update-changelog branch
       run: |
         git fetch origin
-        if git show-ref --verify --quiet refs/remotes/origin/update-changelog; then
-          git checkout update-changelog
-          git pull origin update-changelog --rebase
-        else
-          git checkout -b update-changelog
-        fi
+        git checkout -b update-changelog || git checkout update-changelog
 
     - name: Setup Python
       uses: actions/setup-python@v3
