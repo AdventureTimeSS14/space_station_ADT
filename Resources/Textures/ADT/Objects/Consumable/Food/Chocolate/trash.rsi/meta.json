@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "choco-trash"
+        },
+        {
+            "name": "coconut-trash"
+        },
+        {
+            "name": "energy-trash"
+        },
+        {
+            "name": "nuts-trash"
+        },
+        {
+            "name": "pink-trash"
+        },
+        {
+            "name": "two-trash"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/2f8d21c269208ddb977f944bde3da96a72bdb155/icons/obj/mining.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-lit"
+    },
+    {
+      "name": "icon-uncharged",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HAND",
+      "directions": 4
+    }
+  ]
+}

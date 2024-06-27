@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TGstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "platiumiron"
+    },
+    {
+      "name": "smoothiron"
+    },
+    {
+      "name": "titamiumiron"
+    },
+    {
+      "name": "whiteiron"
+    },
+    {
+      "name": "darkiron"
+    },
+    {
+      "name": "iron"
+    }
+  ]
+}

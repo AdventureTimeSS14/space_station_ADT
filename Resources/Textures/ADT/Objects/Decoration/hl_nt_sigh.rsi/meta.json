@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:m1and1b для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "nanotrasen_sign1"
+        },
+        {
+            "name": "nanotrasen_sign2"
+        },
+        {
+            "name": "nanotrasen_sign3"
+        },
+        {
+            "name": "nanotrasen_sign4"
+        },
+        {
+            "name": "nanotrasen_sign5"
+        }
+    ]
+}

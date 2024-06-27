@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-SOCKS",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SOCKS-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SOCKS-furry",
+            "directions": 4
+        }
+    ]
+}

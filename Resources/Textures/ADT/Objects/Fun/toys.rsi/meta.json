@@ -1,0 +1,186 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created ADT team",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "plushie_jessie"
+        },
+        {
+            "name": "plushie_akula"
+        },
+        {
+            "name": "plushie_darina"
+        },
+        {
+            "name": "plusie_mio"
+        },
+        {
+            "name": "plushie_iohan"
+        },
+        {
+            "name": "plushie_abigail"
+        },
+        {
+            "name": "plushie_ayus"
+        },
+        {
+            "name": "plushie_bob"
+        },
+        {
+            "name": "plushie_evgeniy"
+        },
+        {
+            "name": "plushie_fries"
+        },
+        {
+            "name": "plushie_ilumi"
+        },
+        {
+            "name": "plushie_jan"
+        },
+        {
+            "name": "plushie_jason"
+        },
+        {
+            "name": "plushie_kus"
+        },
+        {
+            "name": "plushie_lilit"
+        },
+        {
+            "name": "plushie_luke"
+        },
+        {
+            "name": "plushie_lya"
+        },
+        {
+            "name": "plushie_nova"
+        },
+        {
+            "name": "plushie_peter"
+        },
+        {
+            "name": "plushie_rebecca"
+        },
+        {
+            "name": "plushie_schrodinger"
+        },
+        {
+            "name": "plushie_terenty"
+        },
+        {
+            "name": "plushie_uvarov"
+        },
+        {
+            "name": "plushie_valtor"
+        },
+        {
+            "name": "plushie_walter"
+        },
+        {
+            "name": "plushie_prazat"
+        },
+        {
+            "name": "plushie_lo"
+        },
+        {
+            "name": "plushie_sati"
+        },
+        {
+            "name": "plushie_uma"
+        },
+        {
+            "name": "plushie_timrika"
+        },
+        {
+            "name": "plushie_amira"
+        },
+        {
+            "name": "plushie_ovai"
+        },
+        {
+            "name": "plushie_ellis"
+        },
+        {
+            "name": "plushie_azalia"
+        },
+        {
+            "name": "plushie_sofy"
+        },
+        {
+            "name": "plushie_liexer"
+        },
+        {
+            "name": "plushie_ma"
+        },
+        {
+            "name": "shark_mini_pink"
+        },
+        {
+            "name": "shark_inhand-left"
+        },
+        {
+            "name": "shark_inhand-right"
+        },
+        {
+            "name": "plushie_jungar"
+        },
+        {
+            "name": "plushie_migel"
+        },
+        {
+            "name": "plushie_teo"
+        },
+        {
+            "name": "plushie_dekus"
+        },
+        {
+            "name": "plushie_afi"
+        },
+        {
+            "name": "plushie_riker"
+        },
+        {
+            "name": "plushie_koff"
+        },
+        {
+            "name": "plushie_ursus"
+        },
+        {
+            "name": "ntb"
+        },
+        {
+            "name": "holoplush"
+        },
+        {
+            "name": "magicplush"
+        },
+        {
+            "name": "ntb-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "ntb-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "rainbowcarpplush"
+        },
+        {
+            "name": "plushie_pochita"
+        },
+        {
+            "name": "pochita-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "pochita-inhand-left",
+            "directions": 4
+        }
+    ]
+}

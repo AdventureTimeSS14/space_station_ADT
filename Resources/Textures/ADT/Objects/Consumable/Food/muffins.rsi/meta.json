@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by JustKekc.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "muffin_chocolate"
+    },
+    {
+      "name": "muffin_party"
+    },
+    {
+      "name": "justkekc",
+      "directions": 4,
+      "delays": [[10, 0.4, 0.2, 0.4, 10, 0.2, 10, 6], [10, 0.4, 0.2, 0.4, 10, 0.2, 10, 6], [10, 0.4, 0.2, 0.4, 10, 0.2, 10, 6], [10, 0.4, 0.2, 0.4, 10, 0.2, 10, 6]]
+    }
+  ]
+}

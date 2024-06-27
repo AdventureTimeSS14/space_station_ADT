@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bananafruitIce"
+    },
+    {
+      "name": "berryfruitIce"
+    },
+    {
+      "name": "chocolatefreezy"
+    },
+    {
+      "name": "chocolatefreezy_caramel"
+    },
+    {
+      "name": "chocolateicecream"
+    },
+    {
+      "name": "chocolatepopsicle"
+    },
+    {
+      "name": "chocolatepopsiclewithnuts"
+    },
+    {
+      "name": "grapefruitIce"
+    },
+    {
+      "name": "honkdae"
+    },
+    {
+      "name": "icecreamcone"
+    },
+    {
+      "name": "IceCreamStick"
+    },
+    {
+      "name": "icecreamwafflecone"
+    },
+    {
+      "name": "icecreamwaffleconenuts"
+    },
+    {
+      "name": "jumbopopsicle"
+    },
+    {
+      "name": "mangofruitIce"
+    },
+    {
+      "name": "melonpopsicle"
+    },
+    {
+      "name": "orangepopsicle"
+    },
+    {
+      "name": "pineapplechocolate"
+    },
+    {
+      "name": "popsicleapple"
+    },
+    {
+      "name": "popsiclebanana"
+    },
+    {
+      "name": "popsiclemole"
+    },
+    {
+      "name": "seasaltppopsicle"
+    },
+    {
+      "name": "spacefreezy"
+    },
+    {
+      "name": "spacefreezy_caramel"
+    },
+    {
+      "name": "spaceicecream"
+    },
+    {
+      "name": "strawberryfruitIce"
+    },
+    {
+      "name": "strawberryicecream"
+    },
+    {
+      "name": "sundae"
+    },
+    {
+      "name": "threeflavorsfreezy"
+    },
+    {
+      "name": "threeflavorsfreezy_caramel"
+    },
+    {
+      "name": "threeflavorspopsicle"
+    },
+    {
+      "name": "vanillafreezy"
+    },
+    {
+      "name": "vanillafreezy_caramel"
+    },
+    {
+      "name": "vanillaicecream"
+    },
+    {
+      "name": "wafflecone"
+    },
+    {
+      "name": "watermelonpopsicle"
+    }
+  ]
+}

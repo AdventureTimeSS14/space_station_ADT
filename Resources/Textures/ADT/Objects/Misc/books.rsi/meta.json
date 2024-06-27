@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by Adventure Times MRP",
+    "states": [
+        {
+            "name": "chem-book"
+        },
+        {
+            "name": "new-cocktail-book"
+        },
+        {
+            "name": "new-recipe-book"
+        },
+        {
+            "name": "srp-operatorcentcomm-book"
+        }
+
+    ]
+}

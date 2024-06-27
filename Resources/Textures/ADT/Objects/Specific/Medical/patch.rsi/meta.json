@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "ADT Team",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "patchpack"
+    },
+    {
+      "name": "patchused"
+    },
+    {
+      "name": "patch0"
+    },
+    {
+      "name": "patch1"
+    },
+    {
+      "name": "patch2"
+    },
+    {
+      "name": "patch3"
+    },
+    {
+      "name": "patch4"
+    },
+    {
+      "name": "patch5"
+    },
+    {
+      "name": "patch6"
+    },
+    {
+      "name": "patch7"
+    },
+    {
+      "name": "patch8"
+    },
+    {
+      "name": "patch9"
+    },
+    {
+      "name": "patch10"
+    },
+    {
+      "name": "patch11"
+    },
+    {
+      "name": "patch12"
+    },
+    {
+      "name": "patch13"
+    },
+    {
+      "name": "patch14"
+    },
+    {
+      "name": "patch15"
+    },
+    {
+      "name": "patch16"
+    },
+    {
+      "name": "patch17"
+    },
+    {
+      "name": "patch18"
+    },
+    {
+      "name": "patch19"
+    },
+    {
+      "name": "patch20"
+    }
+  ]
+}

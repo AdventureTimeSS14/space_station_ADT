@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:m1and1b для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ss14sign1"
+        },
+        {
+            "name": "ss14sign2"
+        },
+        {
+            "name": "ss14sign3"
+        },
+        {
+            "name": "ss14sign4"
+        },
+        {
+            "name": "ss14sign5"
+        },
+        {
+            "name": "ss14sign6"
+        },
+        {
+            "name": "ss14sign7"
+        }
+    ]
+}

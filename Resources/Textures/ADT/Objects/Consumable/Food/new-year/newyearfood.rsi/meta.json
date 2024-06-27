@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Создано prazat911 для Времени Приключений МРП сервер",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bowl"
+        },
+        {
+            "name": "olivier"
+        },
+        {
+            "name": "plate_small"
+        },
+        {
+            "name": "jellymeat"
+        },
+        {
+            "name": "herring"
+        },
+        {
+            "name": "plate"
+        },
+        {
+            "name": "ham"
+        },
+        {
+            "name": "hampiece"
+        },
+        {
+            "name": "pudding"
+        },
+        {
+            "name": "christmaspudding"
+        }
+    ]
+}

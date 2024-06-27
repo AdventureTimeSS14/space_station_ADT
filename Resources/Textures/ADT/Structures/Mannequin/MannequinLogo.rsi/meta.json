@@ -1,0 +1,16 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "done by discord: prazat911, a spriter from Adventure Time SS14 Server",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+    {
+        "name": "icon_full",
+        "directions": 1
+    }
+    ]
+  }
+  

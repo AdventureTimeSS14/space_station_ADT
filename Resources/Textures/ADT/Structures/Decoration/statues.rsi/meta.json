@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made from author of discord:digimortal для Время Приключений MRP",
+    "size": {
+        "x": 80,
+        "y": 80
+    },
+    "states": [
+        {
+            "name": "icon"
+        }
+    ]
+}

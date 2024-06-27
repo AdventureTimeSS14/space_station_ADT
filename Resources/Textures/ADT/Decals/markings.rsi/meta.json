@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:not_so_big_chungus для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "open_fire"
+        },
+        {
+            "name": "open_blastdoor"
+        }
+    ]
+}

@@ -1,0 +1,287 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:lunalita",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "arrow",
+            "directions": 4
+        },
+        {
+            "name": "big_heart",
+            "directions": 4
+        },
+        {
+            "name": "braided_cone",
+            "directions": 4
+        },
+        {
+            "name": "braided_side",
+            "directions": 4
+        },
+        {
+            "name": "braided_side2",
+            "directions": 4
+        },
+        {
+            "name": "braids_on_the_side",
+            "directions": 4
+        },
+        {
+            "name": "braids_on_the_side2",
+            "directions": 4
+        },
+        {
+            "name": "breadwinner",
+            "directions": 4
+        },
+        {
+            "name": "cardigan",
+            "directions": 4
+        },
+        {
+            "name": "cardigan2",
+            "directions": 4
+        },
+        {
+            "name": "collector",
+            "directions": 4
+        },
+        {
+            "name": "cone",
+            "directions": 4
+        },
+        {
+            "name": "ears",
+            "directions": 4
+        },
+        {
+            "name": "ears2",
+            "directions": 4
+        },
+        {
+            "name": "embarrassment",
+            "directions": 4
+        },
+        {
+            "name": "eyeliner",
+            "directions": 4
+        },
+        {
+            "name": "fallen_cone",
+            "directions": 4
+        },
+        {
+            "name": "fluffiness",
+            "directions": 4
+        },
+        {
+            "name": "fluffiness2",
+            "directions": 4
+        },
+        {
+            "name": "fluffiness3",
+            "directions": 4
+        },
+        {
+            "name": "forest_style",
+            "directions": 4
+        },
+        {
+            "name": "forest_style2",
+            "directions": 4
+        },
+        {
+            "name": "gorgon",
+            "directions": 4
+        },
+        {
+            "name": "gradientfoot_left",
+            "directions": 4
+        },
+        {
+            "name": "gradientfoot_left2",
+            "directions": 4
+        },
+        {
+            "name": "gradientfoot_right",
+            "directions": 4
+        },
+        {
+            "name": "gradientfoot_right2",
+            "directions": 4
+        },
+        {
+            "name": "gradienthand_left",
+            "directions": 4
+        },
+        {
+            "name": "gradienthand_left2",
+            "directions": 4
+        },
+        {
+            "name": "gradienthand_right",
+            "directions": 4
+        },
+        {
+            "name": "gradienthand_right2",
+            "directions": 4
+        },
+        {
+            "name": "grizzly_necklace",
+            "directions": 4
+        },
+        {
+            "name": "grizzly_necklace2",
+            "directions": 4
+        },
+        {
+            "name": "grizzly_necklace3",
+            "directions": 4
+        },
+        {
+            "name": "kiss",
+            "directions": 4
+        },
+        {
+            "name": "left_eye",
+            "directions": 4
+        },
+        {
+            "name": "Muzzle",
+            "directions": 4
+        },
+        {
+            "name": "Muzzle2",
+            "directions": 4
+        },
+        {
+            "name": "neat",
+            "directions": 4
+        },
+        {
+            "name": "nose",
+            "directions": 4
+        },
+        {
+            "name": "panda",
+            "directions": 4
+        },
+        {
+            "name": "rigth_eye",
+            "directions": 4
+        },
+        {
+            "name": "short_hedgehog",
+            "directions": 4
+        },
+        {
+            "name": "short_hedgehog2",
+            "directions": 4
+        },
+        {
+            "name": "soft_belly",
+            "directions": 4
+        },
+        {
+            "name": "soft_belly2",
+            "directions": 4
+        },
+        {
+            "name": "soft_waves",
+            "directions": 4
+        },
+        {
+            "name": "soft_waves2",
+            "directions": 4
+        },
+        {
+            "name": "space_bear",
+            "directions": 4
+        },
+        {
+            "name": "spots",
+            "directions": 4
+        },
+        {
+            "name": "spots_left",
+            "directions": 4
+        },
+        {
+            "name": "spots_right",
+            "directions": 4
+        },
+        {
+            "name": "star",
+            "directions": 4
+        },
+        {
+            "name": "surface_river",
+            "directions": 4
+        },
+        {
+            "name": "tail_big_dipper",
+            "directions": 4
+        },
+        {
+            "name": "tattoo_leader",
+            "directions": 4
+        },
+        {
+            "name": "third_eye",
+            "directions": 4
+        },
+        {
+            "name": "valkyries_scythe",
+            "directions": 4
+        },
+        {
+            "name": "valkyries_scythe2",
+            "directions": 4
+        },
+        {
+            "name": "warrior",
+            "directions": 4
+        },
+        {
+            "name": "warrior2",
+            "directions": 4
+        },
+        {
+            "name": "warriors_scythe",
+            "directions": 4
+        },
+        {
+            "name": "whip",
+            "directions": 4
+        },
+        {
+            "name": "whip2",
+            "directions": 4
+        },
+        {
+            "name": "young_boy",
+            "directions": 4
+        },
+        {
+            "name": "foot_left",
+            "directions": 4
+        },
+        {
+            "name": "foot_right",
+            "directions": 4
+        },
+        {
+            "name": "hand_left",
+            "directions": 4
+        },
+        {
+            "name": "hand_right",
+            "directions": 4
+        }
+    ]
+}

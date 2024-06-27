@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:uma_eso_stabler для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "poster1"
+        },
+        {
+            "name": "poster2"
+        },
+        {
+            "name": "poster3"
+        },
+        {
+            "name": "poster4"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by JustKekc.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon_batter"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "muffin-0"
+    },
+    {
+      "name": "muffin-1"
+    },
+    {
+      "name": "muffin-2"
+    },
+    {
+      "name": "muffin-3"
+    },
+    {
+      "name": "muffin-4"
+    },
+    {
+      "name": "muffin-5"
+    },
+    {
+      "name": "muffin-6"
+    },
+    {
+      "name": "kekc"
+    }
+  ]
+}
