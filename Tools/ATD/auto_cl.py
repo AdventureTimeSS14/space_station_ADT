@@ -10,6 +10,7 @@ import yaml
 
 MAX_ENTRIES = 500
 CHANGELOG_PATH = os.path.join(os.path.dirname(__file__), '../../Resources/Changelog/ChangelogADT.yml')
+OLD_CHANGELOG_PATH = os.path.join(os.path.dirname(__file__), 'cl_old.yml')
 
 class NoDatesSafeLoader(yaml.SafeLoader):
     @classmethod
@@ -100,7 +101,8 @@ def fetch_pr_data(token, repo, pr_number):
             if not cl_match:
                 return None
 
-            author = cl_match.group(1).strip() or pr_info['user']['login']
+            # Извлекаем автора до конца строки
+            author = cl_match.group(1).split('\n')[0].strip() or pr_info['user']['login']
 
             changes = []
             for line in body.splitlines():
@@ -137,12 +139,11 @@ def fetch_pr_data(token, repo, pr_number):
     return pr_data
 
 def update_cl_file(file_path, new_data):
-    cl_old_data = load_yaml(file_path)
-    existing_entries = cl_old_data.get("Entries", [])
+    old_entries = load_yaml(OLD_CHANGELOG_PATH).get("Entries", [])
 
     # Calculate the next ID based on existing entries
-    if existing_entries:
-        next_id = max(entry['id'] for entry in existing_entries) + 1
+    if old_entries:
+        next_id = max(entry['id'] for entry in old_entries) + 1
     else:
         next_id = 1
 
@@ -151,8 +152,8 @@ def update_cl_file(file_path, new_data):
         entry['id'] = next_id
         next_id += 1
 
-    # Combine and reorder entries
-    combined_data = existing_entries + new_data
+    # Combine old entries and new data
+    combined_data = old_entries + new_data
 
     # Ensure we do not exceed MAX_ENTRIES
     if len(combined_data) > MAX_ENTRIES:
@@ -162,8 +163,7 @@ def update_cl_file(file_path, new_data):
     combined_data = strip_newlines(combined_data)
 
     # Save the updated data back to ChangelogADT.yml
-    cl_old_data["Entries"] = combined_data
-    save_yaml(cl_old_data, file_path)
+    save_yaml({"Entries": combined_data}, file_path)
 
     logging.info("Updated PR data saved to ChangelogADT.yml")
 
@@ -174,7 +174,6 @@ def main():
 
     github_token = sys.argv[1]
     repo = sys.argv[2]
-
 
     pr_number = get_latest_pr_number(github_token, repo)
     if pr_number is None:
