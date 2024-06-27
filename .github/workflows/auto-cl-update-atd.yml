@@ -69,5 +69,5 @@ jobs:
         branch: update-changelog
         commit-message: "Auto cl update"
         title: "Auto CL update"
-        body: "This PR updates the changelog."
-        labels: "auto-update, changelog"
+        body: "No cl, no fun"
+        labels: "auto-update changelog"
