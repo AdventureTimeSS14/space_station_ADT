@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:Skilets#5770",
+    "states": [
+        {
+            "name": "robot_food_distributor_bot",
+            "directions": 4,
+            "delays": [
+                [
+                    0.5,
+                    0.2
+                ],
+                [
+                    0.5,
+                    0.2
+                ],
+                [
+                    0.5,
+                    0.2
+                ],
+                [
+                    0.5,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "dead_bot"
+        }
+    ]
+}

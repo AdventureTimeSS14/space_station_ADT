@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Created by discord: unlumy для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "anom_base",
+            "delays": [
+                [
+                    0.25,
+                    0.25,
+                    0.25,
+                    0.25
+                ]
+            ]
+        },
+        {
+            "name": "anom_pulse",
+            "delays": [
+                [
+                    0.25,
+                    0.25
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "JustKekc",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "normal-unshaded",
+            "delays": [
+                [
+                    2,
+                    2,
+                    0.15,
+                    0.15,
+                    1.5,
+                    1.5,
+                    0.15,
+                    0.15,
+                    1.5,
+                    1.5,
+                    0.15,
+                    0.15,
+                    1.5,
+                    1.5,
+                    0.15,
+                    0.15
+                ]
+            ]
+        },
+        {
+            "name": "deny-unshaded",
+            "delays": [
+                [
+                    1,
+                    0.1
+                ]
+            ]
+        },
+        {
+          "name": "eject-unshaded",
+          "delays": [
+            [
+              0.1,
+              0.4,
+              0.1
+            ]
+          ]
+        },
+        {
+            "name": "off"
+        },
+        {
+            "name": "broken"
+        },
+        {
+            "name": "panel"
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat for Adventure Time MRP Server",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "goldenale"
+        },
+        {
+            "name": "goldenale_mug"
+        },
+        {
+            "name": "sausagebeer"
+        },
+        {
+            "name": "technobeer"
+        },
+        {
+            "name": "technobeer_mug"
+        },
+        {
+            "name": "classicpaulaner"
+        },
+        {
+            "name": "classicpaulaner_mug"
+        },
+        {
+            "name": "livseybeer"
+        },
+        {
+            "name": "livseybeer_mug"
+        },
+        {
+            "name": "luckyjonny"
+        },
+        {
+            "name": "luckyjonny_mug"
+        },
+        {
+            "name": "secunfiltered"
+        },
+        {
+            "name": "secunfiltered_mug"
+        },
+        {
+            "name": "glyphidstout"
+        },
+        {
+            "name": "glyphidstout_mug"
+        }
+    ]
+}

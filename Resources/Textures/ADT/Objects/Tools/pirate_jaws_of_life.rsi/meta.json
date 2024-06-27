@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Username228 (#serj3428 discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "inhand_pirate_left",
+            "directions": 4
+        },
+        {
+            "name": "inhand_pirate_right",
+            "directions": 4
+        },
+        {
+            "name": "jaws_pirate_cutter"
+        },
+        {
+            "name": "jaws_pirate_pry"
+        },
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        }
+    ]
+}

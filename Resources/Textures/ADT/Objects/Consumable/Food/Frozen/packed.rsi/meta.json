@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chocolatefreezy_packing"
+    },
+    {
+      "name": "chocolateicecream_packing"
+    },
+    {
+      "name": "chocolatepopsicle_packing"
+    },
+    {
+      "name": "chocolatepopsiclewithnuts_packing"
+    },
+    {
+      "name": "icecreamwafflecone_packing"
+    },
+    {
+      "name": "icecreamwaffleconenuts_packing"
+    },
+    {
+      "name": "jumbopopsicle_packing"
+    },
+    {
+      "name": "melonpopsicle_packing"
+    },
+    {
+      "name": "orangepopsicle_packing"
+    },
+    {
+      "name": "pineapplechocolate_packing"
+    },
+    {
+      "name": "popsicleapple_packing"
+    },
+    {
+      "name": "popsiclebanana_packing"
+    },
+    {
+      "name": "popsiclemole_packing"
+    },
+    {
+      "name": "randomfruitIce"
+    },
+    {
+      "name": "seasaltppopsicle_packing"
+    },
+    {
+      "name": "spacefreezy_packing"
+    },
+    {
+      "name": "spaceicecream_packing"
+    },
+    {
+      "name": "strawberryicecream_packing"
+    },
+    {
+      "name": "threeflavorsfreezy_packing"
+    },
+    {
+      "name": "threeflavorspopsicle_packing"
+    },
+    {
+      "name": "vanillafreezy_packing"
+    },
+    {
+      "name": "vanillaicecream_packing"
+    },
+    {
+      "name": "watermelonpopsicle_packing"
+    }
+  ]
+}

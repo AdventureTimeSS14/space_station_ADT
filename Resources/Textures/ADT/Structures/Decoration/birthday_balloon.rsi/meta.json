@@ -1,0 +1,56 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by sugoma093 for Adventure Time MRP Server",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "balloon1"
+        },
+        {
+            "name": "balloon2"
+        },
+        {
+            "name": "balloon3"
+        },
+        {
+            "name": "balloon4"
+        },
+        {
+            "name": "balloon5"
+        },
+        {
+            "name": "bal1-inhand-left"
+        },
+        {
+            "name": "bal1-inhand-right"
+        },
+        {
+            "name": "bal2-inhand-left"
+        },
+        {
+            "name": "bal2-inhand-right"
+        },
+        {
+            "name": "bal3-inhand-left"
+        },
+        {
+            "name": "bal3-inhand-right"
+        },
+        {
+            "name": "bal4-inhand-left"
+        },
+        {
+            "name": "bal4-inhand-right"
+        },
+        {
+            "name": "bal5-inhand-left"
+        },
+        {
+            "name": "bal5-inhand-right"
+        }
+    ]
+}

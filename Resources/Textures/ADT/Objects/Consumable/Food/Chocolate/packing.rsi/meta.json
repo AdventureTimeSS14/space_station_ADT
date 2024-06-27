@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "choco-packed"
+        },
+        {
+            "name": "coconut-packed"
+        },
+        {
+            "name": "energy-packed"
+        },
+        {
+            "name": "nuts-packed"
+        },
+        {
+            "name": "pink-packed"
+        },
+        {
+            "name": "two-packed"
+        }
+    ]
+}

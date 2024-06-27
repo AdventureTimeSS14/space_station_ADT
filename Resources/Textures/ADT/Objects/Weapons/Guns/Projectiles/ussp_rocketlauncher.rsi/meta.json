@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "Custom",
+    "copyright": "Create by not_so_big_chungus only for Adventure Time MRP Server",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "schmel"
+        },
+        {
+            "name": "schmel2"
+        },
+        {
+            "name": "heat"
+        },
+        {
+            "name": "heat2"
+        }
+    ]
+}
