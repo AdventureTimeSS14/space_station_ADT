@@ -91,34 +91,38 @@ def fetch_pr_data(token, repo, pr_number):
     def fetch_single_pr(number):
         try:
             pr_info = get_pr_info(token, repo, number)
-    
+
             # Проверяем, что PR был замержен
             if not pr_info.get('merged_at'):
                 return None
-    
+
             body = pr_info.get('body', '')
-            
-            # Находим строку, которая начинается с :cl:
             author = pr_info['user']['login']
-            for line in body.splitlines():
-                if line.strip().startswith(':cl:'):
-                    potential_author = line.strip()[4:].strip()  # Убираем :cl: и пробелы
+            changes = []
+
+            lines = [line.strip() for line in body.splitlines()]
+            for line in lines:
+                if line.lower().startswith('no cl'):
+                    return None
+
+                if line.startswith(':cl:'):
+                    potential_author = line[4:].strip()
                     if potential_author:
                         author = potential_author
-                    break
-    
-            changes = []
-            for line in body.splitlines():
-                line = line.strip()
-                if line.startswith('- add:'):
-                    changes.append({"message": line[len('- add:'):].strip(), "type": "Add"})
-                elif line.startswith('- remove:'):
-                    changes.append({"message": line[len('- remove:'):].strip(), "type": "Remove"})
-                elif line.startswith('- tweak:'):
-                    changes.append({"message": line[len('- tweak:'):].strip(), "type": "Tweak"})
-                elif line.startswith('- fix:'):
-                    changes.append({"message": line[len('- fix:'):].strip(), "type": "Fix"})
-    
+                    continue
+
+                change_types = {
+                    '- add:': "Add",
+                    '- remove:': "Remove",
+                    '- tweak:': "Tweak",
+                    '- fix:': "Fix"
+                }
+
+                for prefix, change_type in change_types.items():
+                    if line.startswith(prefix):
+                        changes.append({"message": line[len(prefix):].strip(), "type": change_type})
+                        break
+
             if changes:
                 return {
                     "author": author,
@@ -127,6 +131,7 @@ def fetch_pr_data(token, repo, pr_number):
                 }
         except requests.exceptions.RequestException as e:
             logging.error(f"Failed to fetch PR #{number}: {e}")
+
         return None
 
     with ThreadPoolExecutor(max_workers=10) as executor:
