@@ -6,7 +6,7 @@ namespace Content.Shared.Traits.Assorted;
 /// This is used for making something blind forever.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class MyiopiaComponent : Component
+public sealed partial class MyopiaComponent : Component
 {
     [DataField]
     public int EyeDamage = 3;

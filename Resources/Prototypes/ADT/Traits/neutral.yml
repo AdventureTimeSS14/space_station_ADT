@@ -6,8 +6,8 @@
     - type: MothAccent
 
 - type: trait
-  id: ADTMyiopia
+  id: ADTMyopia
   name: trait-nearsighted-name
   description: trait-nearsighted-description
   components:
-    - type: Myiopia
+    - type: Myopia

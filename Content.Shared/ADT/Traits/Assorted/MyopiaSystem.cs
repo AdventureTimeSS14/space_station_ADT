@@ -10,7 +10,7 @@ namespace Content.Shared.Traits.Assorted;
 /// <summary>
 /// This handles permanent blindness, both the examine and the actual effect.
 /// </summary>
-public sealed class MyiopiaSystem : EntitySystem
+public sealed class MyopiaSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -19,27 +19,27 @@ public sealed class MyiopiaSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<MyiopiaComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MyiopiaComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<MyiopiaComponent, EyeDamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<MyopiaComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MyopiaComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MyopiaComponent, EyeDamageChangedEvent>(OnDamageChanged);
 
     }
 
-    private void OnStartup(EntityUid uid, MyiopiaComponent component, ComponentStartup args)
+    private void OnStartup(EntityUid uid, MyopiaComponent component, ComponentStartup args)
     {
         if (!TryComp<BlindableComponent>(uid, out var blindable))
             return;
         _blinding.AdjustEyeDamage((uid, blindable), component.EyeDamage);
     }
 
-    private void OnShutdown(EntityUid uid, MyiopiaComponent component, ComponentShutdown args)
+    private void OnShutdown(EntityUid uid, MyopiaComponent component, ComponentShutdown args)
     {
         if (!TryComp<BlindableComponent>(uid, out var blindable))
             return;
         _blinding.AdjustEyeDamage((uid, blindable), -component.EyeDamage);
     }
 
-    private void OnDamageChanged(EntityUid uid, MyiopiaComponent component, ref EyeDamageChangedEvent args)
+    private void OnDamageChanged(EntityUid uid, MyopiaComponent component, ref EyeDamageChangedEvent args)
     {
         if (!TryComp<BlindableComponent>(uid, out var blindable))
             return;
