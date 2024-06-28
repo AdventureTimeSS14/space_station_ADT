@@ -9,8 +9,7 @@ namespace Content.Shared.Stealth.Components;
 /// It also turns the entity invisible.
 /// Use other components (like StealthOnMove) to modify this component's visibility based on certain conditions.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedStealthSystem))]
+[RegisterComponent, NetworkedComponent] //ADT BoomBox System Удалили доступы
 public sealed partial class StealthComponent : Component
 {
     /// <summary>

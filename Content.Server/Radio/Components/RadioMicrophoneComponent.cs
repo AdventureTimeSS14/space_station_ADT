@@ -3,14 +3,14 @@ using Content.Shared.Chat;
 using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Content.Server.ComponentalActions.EntitySystems;
 
 namespace Content.Server.Radio.Components;
 
 /// <summary>
 ///     Listens for local chat messages and relays them to some radio frequency
 /// </summary>
-[RegisterComponent]
-[Access(typeof(RadioDeviceSystem))]
+[RegisterComponent] //ADT BoomBox System убрал доступы
 public sealed partial class RadioMicrophoneComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]

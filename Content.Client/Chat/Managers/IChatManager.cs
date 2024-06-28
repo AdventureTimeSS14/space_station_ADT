@@ -7,6 +7,6 @@ namespace Content.Client.Chat.Managers
         void Initialize();
 
         public void SendMessage(string text, ChatSelectChannel channel);
-        public void UpdatePermissions();//ADT HiveMind
+        //public void UpdatePermissions();//ADT HiveMind
     }
 }

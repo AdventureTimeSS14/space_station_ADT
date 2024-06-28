@@ -24,6 +24,7 @@ using Content.Server.Speech.Components;
 using Content.Server.Radio.Components;
 using Content.Server.DeviceLinking.Components;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.Radio.Components;
 
 namespace Content.Server.BoomBox;
 
