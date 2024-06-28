@@ -70,6 +70,7 @@
   name: glasses
   description: A pair of spectacular spectacles with prescription lenses.
   components:
+  - type: Glasses
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/glasses.rsi
   - type: Clothing
