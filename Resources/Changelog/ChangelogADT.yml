@@ -2051,3 +2051,8 @@ Entries:
       - {message: 'Upstream 27.06.24, подтянуты коммиты с корвакса.', type: Tweak}
     time: '2024-06-27T17:32:38Z'
     id: 214
+  - author: nixsilvam404
+    changes:
+      - {message: 'string "sponsorOnly: true" in Corvax sponsor content', type: Remove}
+    time: '2024-06-28T17:53:02Z'
+    id: 215
