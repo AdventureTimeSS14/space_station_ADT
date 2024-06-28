@@ -1,0 +1,13 @@
+- type: trait
+  id: ADTMothAccent
+  name: trait-moth-accent-name
+  description: trait-moth-accent-desc
+  components:
+    - type: MothAccent
+
+- type: trait
+  id: ADTMyiopia
+  name: trait-nearsighted-name
+  description: trait-nearsighted-description
+  components:
+    - type: Myiopia
