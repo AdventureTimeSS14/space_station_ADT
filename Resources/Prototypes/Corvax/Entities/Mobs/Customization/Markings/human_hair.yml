@@ -178,7 +178,6 @@
   id: HumanHairFortunetellerAlt
   bodyPart: Hair
   markingCategory: Hair
-
   sprites:
     - sprite: Corvax/Mobs/Customization/human_hair.rsi
       state: fortuneteller_alt
