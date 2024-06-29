@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: ADTPathologist
+  name: guide-pathologist-ADT
+  text: "/ServerInfo/ADT/Pathologist.xml"
