@@ -57,5 +57,8 @@
       - id: ClothingEyesGlassesSunglasses
       - id: SpaceCash20000
         amount: 1
+      - id: ClothingUniformJumpsuitTacticool
       - id: ClothingOuterCoatJensen
-      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingMaskNeckGaiter
+      - id: ToyFigurineThief

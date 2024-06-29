@@ -5,6 +5,7 @@ using Content.Shared.Examine;
 using Content.Shared.Labels;
 using Content.Shared.Labels.Components;
 using Content.Shared.Labels.EntitySystems;
+using Content.Shared.NameModifier.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 
@@ -18,6 +19,7 @@ namespace Content.Server.Labels
     {
         [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly NameModifierSystem _nameMod = default!;
 
         public const string ContainerName = "paper_label";
 
@@ -25,11 +27,23 @@ namespace Content.Server.Labels
         {
             base.Initialize();
 
+            SubscribeLocalEvent<LabelComponent, MapInitEvent>(OnLabelCompMapInit);
             SubscribeLocalEvent<PaperLabelComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<PaperLabelComponent, ComponentRemove>(OnComponentRemove);
             SubscribeLocalEvent<PaperLabelComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
             SubscribeLocalEvent<PaperLabelComponent, EntRemovedFromContainerMessage>(OnContainerModified);
             SubscribeLocalEvent<PaperLabelComponent, ExaminedEvent>(OnExamined);
+        }
+
+        private void OnLabelCompMapInit(EntityUid uid, LabelComponent component, MapInitEvent args)
+        {
+            if (!string.IsNullOrEmpty(component.CurrentLabel))
+            {
+                component.CurrentLabel = Loc.GetString(component.CurrentLabel);
+                Dirty(uid, component);
+            }
+
+            _nameMod.RefreshNameModifiers(uid);
         }
 
         /// <summary>
@@ -45,7 +59,7 @@ namespace Content.Server.Labels
                 label = EnsureComp<LabelComponent>(uid);
 
             label.CurrentLabel = text;
-            NameMod.RefreshNameModifiers(uid);
+            _nameMod.RefreshNameModifiers(uid);
 
             Dirty(uid, label);
         }

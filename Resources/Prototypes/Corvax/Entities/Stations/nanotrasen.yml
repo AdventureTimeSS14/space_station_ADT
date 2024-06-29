@@ -3,7 +3,6 @@
   id: NanotrasenStationNoArrivals
   parent:
     - BaseStation
-    - BaseStationGoal
     - BaseStationNews
     - BaseStationCargo
     - BaseStationJobsSpawning

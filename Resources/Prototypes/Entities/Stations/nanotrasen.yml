@@ -10,7 +10,6 @@
   id: StandardNanotrasenStation
   parent:
     - BaseStation
-    - BaseStationGoal # Corvax
     - BaseStationNews
     - BaseStationCargo
     - BaseStationJobsSpawning

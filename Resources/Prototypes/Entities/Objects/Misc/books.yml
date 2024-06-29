@@ -110,10 +110,10 @@
     - Bartender
 
 - type: entity
-  id: BookHowToCookForFortySpaceman
+  id: BookChefGaming
   parent: BaseItem
-  name: How To Cook For Forty Spacemen
-  description: A book about cooking written by a space chef.
+  name: chef gaming
+  description: A book about cooking written by a gamer chef.
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

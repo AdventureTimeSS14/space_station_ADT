@@ -21,5 +21,3 @@ ent-DrinkSoyMilkCarton = соевое молоко
     .desc = Белое и питательное соевое удовольствие!
 ent-DrinkOatMilkCarton = овсяное молоко
     .desc = Бежевое и питательное удовольствие!
-ent-DrinkJuiceLemonCarton = lemon juice
-    .desc = First it's sour, then it's still sour.

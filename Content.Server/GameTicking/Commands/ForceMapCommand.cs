@@ -29,19 +29,8 @@ namespace Content.Server.GameTicking.Commands
             var gameMap = IoCManager.Resolve<IGameMapManager>();
             var name = args[0];
 
-            // An empty string clears the forced map
-            if (!string.IsNullOrEmpty(name) && !gameMap.CheckMapExists(name))
-            {
-                shell.WriteLine(Loc.GetString("forcemap-command-map-not-found", ("map", name)));
-                return;
-            }
-
             _configurationManager.SetCVar(CCVars.GameMap, name);
-
-            if (string.IsNullOrEmpty(name))
-                shell.WriteLine(Loc.GetString("forcemap-command-cleared"));
-            else
-                shell.WriteLine(Loc.GetString("forcemap-command-success", ("map", name)));
+            shell.WriteLine(Loc.GetString("forcemap-command-success", ("map", name)));
         }
 
         public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

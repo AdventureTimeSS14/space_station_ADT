@@ -36,9 +36,6 @@
     - Status
     lastSignals:
       Status: false
-  - type: Tag
-    tags:
-    - Structure
 
 - type: entity
   id: SignalButton
@@ -99,9 +96,6 @@
               collection: MetalBreak
               params:
                 volume: -8
-  - type: Tag
-    tags:
-    - Structure
 
 - type: entity
   id: ApcNetSwitch
@@ -135,9 +129,6 @@
       graph: LightSwitchGraph
       node: LightSwitchNode
     - type: Fixtures
-    - type: Tag
-      tags:
-      - Structure
 
 - type: entity
   id: TwoWayLever
@@ -188,9 +179,6 @@
         - Left
         - Right
         - Middle
-    - type: Tag
-      tags:
-      - Structure
 
 #directional
 

@@ -18,10 +18,4 @@ public sealed partial class ContainmentFieldComponent : Component
     /// </summary>
     [DataField("maxMass")]
     public float MaxMass = 10000f;
-
-    /// <summary>
-    /// Should field vaporize garbage that collides with it?
-    /// </summary>
-    [DataField]
-    public bool DestroyGarbage = true;
 }

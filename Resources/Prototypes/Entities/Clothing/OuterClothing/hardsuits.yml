@@ -44,8 +44,6 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
     coefficient: 0.001
-  - type: FireProtection
-    reduction: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -545,7 +543,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection
-    reduction: 0.8
+    reduction: 0.8 # perfect protection like atmos firesuit for pyro tf2 ops
   - type: Armor
     modifiers:
       coefficients:
@@ -862,8 +860,6 @@
     coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
-  - type: FireProtection
-    reduction: 0.8
   - type: Armor
     modifiers:
       coefficients:

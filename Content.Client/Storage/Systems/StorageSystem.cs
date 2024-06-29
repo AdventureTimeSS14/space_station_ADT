@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Numerics;
 using Content.Client.Animations;
 using Content.Shared.Hands;
@@ -69,7 +69,7 @@ public sealed class StorageSystem : SharedStorageSystem
 
     public void CloseStorageWindow(Entity<StorageComponent?> entity)
     {
-        if (!Resolve(entity, ref entity.Comp, false))
+        if (!Resolve(entity, ref entity.Comp))
             return;
 
         if (!_openStorages.Contains((entity, entity.Comp)))
