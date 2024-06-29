@@ -3,7 +3,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: false # secret
+  showInVote: true
   description: survival-description
   rules:
     - RampingStationEventScheduler
@@ -35,6 +35,7 @@
   - BasicStationEventScheduler
   - GameRuleMeteorScheduler
   - BasicRoundstartVariation
+  maxPlayers: 30
 
 - type: gamePreset
   id: Greenshift

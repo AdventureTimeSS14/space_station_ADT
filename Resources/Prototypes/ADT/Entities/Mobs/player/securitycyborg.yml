@@ -109,6 +109,7 @@
     nameSegments: [names_sec_cyb]
   - type: Damageable
     damageModifierSet: ADTSecurityCybDamagModSet
+    damageContainer: Silicon
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
@@ -146,7 +147,6 @@
     tallscale: 1.1
   - type: SizeAttribute # Frontier
     tall: true
-
 
 
 - type: entity
