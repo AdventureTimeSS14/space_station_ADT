@@ -7,5 +7,5 @@
   components:
   - type: StorageFill
     contents:
-        - id: WeaponPistolMk58Nonlethal
+        - id: WeaponPistolMk58
         - id: MagazinePistol

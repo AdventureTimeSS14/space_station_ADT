@@ -1,0 +1,13 @@
+# Айди карта следователя СБ
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTInvestigatorIDCard
+  name: investigator ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idinvestigator
+  - type: PresetIdCard
+    job: ADTInvestigator
