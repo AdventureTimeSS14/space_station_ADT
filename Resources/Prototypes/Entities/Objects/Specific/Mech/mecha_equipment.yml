@@ -12,6 +12,9 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: Tag
+    tags:
+      - ADTMechEquipmentGeneral
 
 - type: entity
   id: MechEquipmentGrabber
@@ -27,6 +30,9 @@
   - type: ContainerContainer
     containers:
       item-container: !type:Container
+  - type: Tag
+    tags:
+      - ADTMechEquipmentIndustrial
 
 - type: entity
   id: MechEquipmentGrabberSmall
@@ -70,3 +76,6 @@
   - type: UseDelay
     delay: 0.5
   # TODO: tag as being for H.O.N.K. only!!!
+  - type: Tag
+    tags:
+      - ADTMechEquipmentService

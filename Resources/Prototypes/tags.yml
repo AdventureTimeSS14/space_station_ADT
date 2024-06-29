@@ -1372,3 +1372,18 @@
 
 - type: Tag
   id: Welder
+
+- type: Tag
+  id: ADTMechEquipmentGeneral
+
+- type: Tag
+  id: ADTMechEquipmentMed
+
+- type: Tag
+  id: ADTMechEquipmentService
+
+- type: Tag
+  id: ADTMechEquipmentIndustrial
+
+- type: Tag
+  id: ADTMechEquipmentSec
