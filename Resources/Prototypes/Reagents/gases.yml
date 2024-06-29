@@ -17,6 +17,10 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
+          type: Drask     #ADT
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
           type: Animal
       - !type:Oxygenate
         conditions:

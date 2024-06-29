@@ -44,3 +44,8 @@
 - type: metabolizerType
   id: Arachnid
   name: metabolizer-type-arachnid
+
+  #ADT
+- type: metabolizerType
+  id: Drask
+  name: drask
