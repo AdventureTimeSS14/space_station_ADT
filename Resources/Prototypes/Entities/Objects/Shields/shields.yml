@@ -17,14 +17,14 @@
         coefficients:
           Blunt: 0.9
           Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
+          Piercing: 0.1
+          Heat: 0.1
       activeBlockModifier:
         coefficients:
           Blunt: 0.8
           Slash: 0.8
-          Piercing: 0.8
-          Heat: 0.8
+          Piercing: 0.1
+          Heat: 0.1
         flatReductions:
           Blunt: 1
           Slash: 1
@@ -482,7 +482,7 @@
         jobRequired:
           - SalvageSpecialist
 # Corvax-HiddenDesc-End
-        
+
 - type: entity
   name: broken energy shield
   parent: BaseItem
