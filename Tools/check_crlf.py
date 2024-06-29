@@ -28,7 +28,7 @@ def is_file_crlf(path: str) -> bool:
     # https://stackoverflow.com/a/29697732/4678631
     with open(path, "rb") as f:
         for line in f:
-            if line.endswith(b"\n"):
+            if line.endswith(b"\n"): # fix ADT
                 return True
 
     return False
