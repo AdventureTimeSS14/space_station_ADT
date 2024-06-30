@@ -280,9 +280,10 @@ namespace Content.Server.Chat.Managers
             }
 
             var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
+            var senderName = player.Name + (string.IsNullOrEmpty(senderAdmin?.Title) ? "" : $" \\[{senderAdmin.Title}\\]"); // Добавил переменную senderName, в ней содержиться player.Name и условие на добавление префикса в админ чате. Tweak ADT Schrodinger
             var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
                                             ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
-                                            ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+                                            ("playerName", senderName), ("message", FormattedMessage.EscapeText(message))); // ADT Tweak тут заменил player.Name на senderName
 
             foreach (var client in clients)
             {
