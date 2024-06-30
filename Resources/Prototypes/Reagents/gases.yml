@@ -14,10 +14,10 @@
         conditions:
         - !type:OrganType
           type: Human
-      - !type:Oxygenate
+      - !type:Oxygenate  #Start-ADT
         conditions:
         - !type:OrganType
-          type: Drask     #ADT
+          type: Drask    #End-ADT
       - !type:Oxygenate
         conditions:
         - !type:OrganType
