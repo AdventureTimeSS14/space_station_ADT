@@ -428,7 +428,7 @@ namespace Content.Server.Administration.Systems
             }
             else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp))
             {
-                bwoinkText = $"[color=red]{senderSession.Name}[/color]";
+                bwoinkText = $"\\[{senderAdmin.Title}\\][color=red]{senderSession.Name}[/color]"; //сообщение админа. тут подставляется префикс звания админа в сообщение. Tweak ADT
             }
             else
             {
