@@ -1,0 +1,7 @@
+
+- type: entity
+  parent: ClothingBackpackDuffelMedical
+  id: ADTClothingBackpackDuffelPathologist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/pathologist_duffel.rsi
