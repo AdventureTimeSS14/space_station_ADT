@@ -1,7 +1,7 @@
 - type: entity
   id: ADTBulletMagnumHighVelocityTranquilizer
   name: bullet (.45 magnum high-velocity)
-  parent: BaseBulletHighVelocity
+  parent: BaseBullet
   noSpawn: true
   components:
   - type: Projectile

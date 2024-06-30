@@ -45,6 +45,13 @@
           path: /Audio/Effects/break_stone.ogg
           params:
             volume: -6
+  - type: SoundOnGather
+  - type: Gatherable
+    whitelist:
+      tags:
+        - Pickaxe
+  - type: OreVein
+    oreChance: 0.01
 
 # Ore veins
 - type: entity
