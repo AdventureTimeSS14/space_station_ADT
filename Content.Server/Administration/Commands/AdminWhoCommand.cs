@@ -7,7 +7,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
-[AnyCommand] // Corvax: Allow use to everyone
+[AdminCommand(AdminFlags.AdminChat)] // Use only administration with flag AdminChat, eddit ADT
 public sealed class AdminWhoCommand : IConsoleCommand
 {
     public string Command => "adminwho";
