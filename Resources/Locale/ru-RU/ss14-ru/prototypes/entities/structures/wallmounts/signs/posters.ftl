@@ -248,3 +248,23 @@ ent-PosterMapWaystation = карта Waystation
     .desc = Карта станции Waystation... подожди, разве это не перевёрнутая Packed??
 ent-PosterMapOrigin = карта Origin
     .desc = Карта станции Origin.
+<<<<<<< HEAD
+=======
+    .suffix = { "" }
+ent-ADTPosterQuadroElectronics = Quadro Electronics
+    .desc = При виде него хочется надеть маску животного..
+    .suffix = { "" }
+ent-ADTPosterLegitGreatFood = Шикарная еда!
+    .desc = Постер, рекламирующий высококачественную еду из станционной кухни.
+ent-ADTPosterLegitTurnOnSensors = Включи координаты!
+    .desc = Напоминание от парамедиков - включите датчики в режим координат, чтобы если вы в беде - вас быстро нашли.
+ent-ADTPosterLegitOktoberfest = Октоберфест!
+    .desc = Плакат с таяранкой, рекламирующий традиционный октябрьский праздник пива.
+ent-ADTPosterContrabandLustTayaran = Похотливая таяранка
+    .desc = Плакат с таяранкой привлекательной внешности и в вызывающем костюме. Быть красивыми могут и таяры.
+ent-ADTPosterContrabandFearThem = Бойтесь их!
+    .desc = Элитный отряд ядерных оперативников сожжёт вас до тла. Покинь NanoTrasen, пока не стало слишком поздно!
+ent-ADTPosterContrabandSilence = Не болтай!
+    .desc = Синдикат предупреждает агентов-мимов, что за разглашение секретов вас будут жутко пытать.
+
+>>>>>>> d06f4b2bbf (Плакаты)
