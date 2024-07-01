@@ -3,3 +3,6 @@ ent-ADTClothingOuterApronPathologist = фартук патологоанатом
 
 ent-ADTClothingOuterCoatLabPathologist = халат патологоанатома
     .desc = { ent-ClothingOuterCoatLab.desc }
+
+ent-ADTClothingOuterBioPathologist = защитный костюм патологоанатома
+    .desc = Костюм, защищающий от биологического заражения во время работы с трупами.
