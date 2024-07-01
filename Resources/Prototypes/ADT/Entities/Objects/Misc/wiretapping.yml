@@ -1,0 +1,103 @@
+- type: radioChannel
+  id: ADTWiretapping
+  name: Засекреченная линия
+  keycode: '\'
+  frequency: 1672
+  color: "#ff144b"
+  longRange: true
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTWiretappingEncryptionKey
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTWiretapping
+    defaultChannel: ADTWiretapping
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: sec_label
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTWiretappingClothingHeadset
+  name: cargo headset
+  description: A headset used by supply employees.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTWiretappingEncryptionKey
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+    state: icon_alt
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi
+
+- type: entity
+  name: handheld radio
+  description: A handy handheld radio.
+  parent: BaseItem
+  id: ADTWiretapping
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: ADTWiretapping
+    listenRange: 8
+    enabled: false
+    toggleOnInteract: true
+  - type: Sprite
+    sprite: ADT/Objects/Misc/wiretapping.rsi
+    layers:
+    - state: wiretapping
+  - type: Item
+    sprite: ADT/Objects/Misc/wiretapping.rsi
+
+- type: entity
+  parent: BaseItem
+  id: ADTWiretappingToy
+  name: WiretappingToy
+  abstract: true
+  components:
+  - type: Matchbox
+  - type: StorageFill
+    contents:
+      - id: ADTWiretapping
+  - type: Storage
+    maxSlots: 1
+    maxItemSize: Small
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+
+
+- type: entity
+  parent: [ PlushieBee, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieBee
+  name: bee plushie
+  description: A cute toy that resembles an even cuter programmer. You'd have to be a monster to grind this up.
+
+- type: entity
+  parent: [ PlushieSharkPink, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieSharkPink
+  name: pink shark soft toy
+  description: Hehe shonk :)
+
+- type: entity
+  parent: [ PlushieCarp, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieCarp
+  name: carp plushie
+  description: An adorable stuffed toy that resembles the monstrous space carp.
+
+- type: entity
+  parent: [ PlushieSlime, ADTWiretappingToy ]
+  id: ADTWiretappingPlushieSlime
+  name: slime plushie
+  description: An adorable stuffed toy that resembles a slime. It's basically a hacky sack.
