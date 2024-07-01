@@ -87,8 +87,60 @@
     ClothingHandsGlovesColorGreen: 2
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
+<<<<<<< HEAD
     ClothingEyesGlassesCheapSunglasses: 3
     # DO NOT ADD MORE, USE UNIFORM DYING
+=======
+    ADTClothingUnderwearRedLacePanties: 3
+    ADTClothingUnderwearTopLaceBraRed: 3
+    ADTClothingUnderwearBlackLacePanties: 3
+    ADTClothingUnderwearTopLaceBraBlack: 3
+    ADTClothingUnderwearWhiteComfyPanties: 3
+    ADTClothingUnderwearTopComfyWhiteBra: 3
+    ADTClothingNeckDarkGreyCloak: 1
+    ADTClothingSandals: 3
+    ADTClothingFootWrapsWhite: 3
+    ADTClothingFootWrapsBlack: 3
+    ADTClothingFootWrapsBrown: 3
+    ADTClothingFootWrapsHighWhite: 3
+    ADTClothingFootWrapsHighBlack: 3
+    ADTClothingFootWrapsHighBrown: 3
+    ADTClothingUniformTurtleneckBlack: 2
+    ADTClothingUniformTurtleneckBlackWomen: 2
+    ADTClothingUniformTurtleneckGrey: 2
+    ADTClothingUniformTurtleneckGreyWomen: 2
+    ADTClothingUniformTurtleneckBrown: 2
+    ADTClothingUniformTurtleneckBrownWomen: 2
+    ADTClothingUniformTurtleneckBlue: 2
+    ADTClothingUniformTurtleneckBlueWomen: 2
+    ADTClothingUniformTurtleneckAzure: 2
+    ADTClothingUniformTurtleneckAzureWomen: 2
+    ADTClothingUniformTurtleneckAquamarine: 2
+    ADTClothingUniformTurtleneckAquamarineWomen: 2
+    ADTClothingUniformTurtleneckGreen: 2
+    ADTClothingUniformTurtleneckGreenWomen: 2
+    ADTClothingUniformTurtleneckOrange: 2
+    ADTClothingUniformTurtleneckOrangeWomen: 2
+    ADTClothingUniformTurtleneckYellow: 2
+    ADTClothingUniformTurtleneckYellowWomen: 2
+    ADTClothingUniformTurtleneckPurple: 2
+    ADTClothingUniformTurtleneckPurpleWomen: 2
+    ADTClothingUniformTurtleneckPink: 2
+    ADTClothingUniformTurtleneckPinkWomen: 2
+    ADTClothingUniformTurtleneckRed: 2
+    ADTClothingUniformTurtleneckRedWomen: 2
+    #ADTClothingUniformTurleneckSalat: 2
+    #ADTClothingUniformTurleneckSalatBlack: 2
+    #ADTClothingUniformTurleneckSalatWomen: 2
+    ADTClothingUniformTurtleneckWhite: 2
+    ADTClothingUniformTurtleneckWhiteWomen: 2
+    ADTClothingUniformTurleneckBlackSleeveless: 2
+    ADTClothingUniformTurleneckBlackWomenSleeveless: 2
+    ADTClothingUniformTurleneckWhiteSleeveless: 2
+    ADTClothingUniformTurleneckWhiteBlackSleeveless: 2
+    ADTClothingUniformTurleneckWhiteWomenSleeveless: 2
+    ADTClothingNeckGothicCloak: 1
+>>>>>>> 386d12e181 (обмотки для ног)
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
