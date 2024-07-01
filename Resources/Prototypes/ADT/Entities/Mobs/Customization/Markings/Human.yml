@@ -72,8 +72,8 @@
 
 - type: marking
   id: HumanForeheadBindi
-  bodyPart: Forehead
-  markingCategory: Forehead
+  bodyPart: Head
+  markingCategory: Snout
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -81,8 +81,8 @@
 
 - type: marking
   id: HumanForeheadFathereyebrows
-  bodyPart: Forehead
-  markingCategory: Forehead
+  bodyPart: Head
+  markingCategory: Snout
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -172,7 +172,7 @@
 - type: marking
   id: HumanPiercingBrowL
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -181,7 +181,7 @@
 - type: marking
   id: HumanPiercingBrowR
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -190,7 +190,7 @@
 - type: marking
   id: HumanPiercingEarL
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -199,7 +199,7 @@
 - type: marking
   id: HumanPiercingEarR
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -208,7 +208,7 @@
 - type: marking
   id: HumanPiercingNavel
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -217,7 +217,7 @@
 - type: marking
   id: HumanPiercingNippleL
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -226,7 +226,7 @@
 - type: marking
   id: HumanPiercingNippleR
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
@@ -235,7 +235,7 @@
 - type: marking
   id: HumanPiercingNipple
   bodyPart: Head
-  markingCategory: Piercing
+  markingCategory: HeadSide
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
