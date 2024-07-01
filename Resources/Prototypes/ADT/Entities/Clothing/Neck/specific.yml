@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSecBadge
+  name: sec badge
+  description: sec badge
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/secbadge.rsi
