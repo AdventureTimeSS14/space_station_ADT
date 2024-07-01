@@ -31,15 +31,16 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
-    - type: LanguageSpeaker
-      speaks:
-      - GalacticCommon
-      - Drask
-      understands:
-      - GalacticCommon
-      - Drask
-    - type: SizeAttributeWhitelist # Frontier
-      tall: true
-      tallscale: 1.15
-      short: true
-      shortscale: 1
+# ОТКОММЕНТИТЬ ПРИ ПЕРЕНОСЕ ЯЗЫКОВ И РАЗМЕРОВ
+    # - type: LanguageSpeaker
+    #   speaks:
+    #   - GalacticCommon
+    #   - Drask
+    #   understands:
+    #   - GalacticCommon
+    #   - Drask
+    # - type: SizeAttributeWhitelist # Frontier
+    #   tall: true
+    #   tallscale: 1.15
+    #   short: true
+    #   shortscale: 1
