@@ -1,0 +1,13 @@
+species-name-drask = Драск
+marking-DraskArmRight = правая рука
+marking-DraskArmLeft = левая рука
+ent-OrganDraskEyes = глаза
+    .desc = Я тебя вижу!
+ent-OrganDraskLungs = лёгкие
+    .desc = Фильтрует кислород из атмосферы, который затем поступает в кровь для использования в качестве переносчика электронов.
+ent-OrganDraskHeart = сердце
+    .desc = Мне жаль того бессердечного ублюдка, который его потерял.
+ent-OrganDraskInnards = внутренности
+    .desc = Мерзость.
+ent-OrganDraskKidneys = почки
+    .desc = Выводят токсины из кровеносной системы.
