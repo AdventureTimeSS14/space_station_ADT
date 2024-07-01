@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Malanisa (discord: ✦\uD835\uDD78\uD835\uDD86\uD835\uDD91\uD835\uDD86\uD835\uDD93\uD835\uDD8E\uD835\uDD98\uD835\uDD86✦#5800)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "stalagmite1"
+    },
+    {
+      "name": "stalagmite2"
+    },
+    {
+      "name": "stalagmite3"
+    },
+    {
+      "name": "stalagmite4"
+    },
+    {
+      "name": "stalagmite5"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+# by Malanisa :р
+- type: constructionGraph
+  id: CheapPendantGreen
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pendantgreen
+      steps:
+      - tag: CrystalShardGreen
+        name: A shard of green crystal
+        icon:
+          sprite: Sirena/Structures/Decoration/crystal.rsi
+          state: crystalshard_green
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 1
+  - node: pendantgreen
+    entity: ClothingCheapPendantGreen
+
+- type: constructionGraph
+  id: CheapPendantOrange
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pendantorange
+      steps:
+      - tag: CrystalShardOrange
+        name: A shard of orange crystal
+        icon:
+          sprite: Sirena/Structures/Decoration/crystal.rsi
+          state: crystalshard_orange
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 1
+  - node: pendantorange
+    entity: ClothingCheapPendantOrange
+
+- type: constructionGraph
+  id: CheapPendantPink
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pendantpink
+      steps:
+      - tag: CrystalShardPink
+        name: A shard of pink crystal
+        icon:
+          sprite: Sirena/Structures/Decoration/crystal.rsi
+          state: crystalshard_pink
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 1
+  - node: pendantpink
+    entity: ClothingCheapPendantPink
+
+- type: constructionGraph
+  id: CheapPendantCyan
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pendantcyan
+      steps:
+      - tag: CrystalShardCyan
+        name: A shard of cyan crystal
+        icon:
+          sprite: Sirena/Structures/Decoration/crystal.rsi
+          state: crystalshard_cyan
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 1
+  - node: pendantcyan
+    entity: ClothingCheapPendantCyan
+
+- type: constructionGraph
+  id: CheapPendantBlue
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pendantblue
+      steps:
+      - tag: CrystalShardBlue
+        name: A shard of blue crystal
+        icon:
+          sprite: Sirena/Structures/Decoration/crystal.rsi
+          state: crystalshard_blue
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 1
+  - node: pendantblue
+    entity: ClothingCheapPendantBlue
+
+- type: constructionGraph
+  id: CheapPendantGrey
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pendantgrey
+      steps:
+      - tag: CrystalShardGrey
+        name: A shard of grey crystal
+        icon:
+          sprite: Sirena/Structures/Decoration/crystal.rsi
+          state: crystalshard_grey
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 1
+  - node: pendantgrey
+    entity: ClothingCheapPendantGrey
+
+- type: constructionGraph
+  id: CheapPendantRed
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pendantred
+      steps:
+      - tag: CrystalShardRed
+        name: A shard of red crystal
+        icon:
+          sprite: Sirena/Structures/Decoration/crystal.rsi
+          state: crystalshard_red
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 1
+  - node: pendantred
+    entity: ClothingCheapPendantRed
+
