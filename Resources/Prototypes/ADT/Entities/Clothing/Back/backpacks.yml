@@ -12,3 +12,10 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/pathologist_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchelMedical
+  id: ADTClothingBackpackSatchelPathologist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/pathologist_satchel.rsi
