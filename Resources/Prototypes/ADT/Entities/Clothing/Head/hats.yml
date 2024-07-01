@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadHatHoodBioGeneral
+  id: ADTClothingHeadHatHoodBioPathologist
+  name: bio hood
+  suffix: pathologist
+  description: An hood for pathologists that protects the head and face from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/hood_pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/hood_pathologist.rsi

@@ -73,6 +73,9 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
+  - type: GuideHelp
+    guides: 
+    - ADTPathologist
 
 - type: entity
   id: Crematorium
