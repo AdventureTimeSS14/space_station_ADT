@@ -1,0 +1,13 @@
+- type: startingGear
+  id: SpaceSecService
+  equipment:
+    jumpsuit: ADTSpaceSecUniformService
+    back: ClothingBackpackSatchelFilled
+    shoes: ClothingShoesColorBlack
+    id: ADTSpaceSecServiceIDCard
+    ears: ADTSpaceSecClothingHeadset
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+    neck: ADTSpaceSecToken
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear

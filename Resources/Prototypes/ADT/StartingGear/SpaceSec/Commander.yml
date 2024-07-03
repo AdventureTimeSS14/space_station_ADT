@@ -1,0 +1,16 @@
+- type: startingGear
+  id: SpaceSecCommander
+  equipment:
+    jumpsuit: ADTSpaceSecUniformCommander
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    id: ADTSpaceSecCommanderIDCard
+    ears: ADTSpaceSecClothingHeadsetFull
+    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    socks: ClothingUnderwearSocksNormal
+    neck: ADTSpaceSecToken
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasic
+  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear

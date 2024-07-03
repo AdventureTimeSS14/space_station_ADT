@@ -45,3 +45,38 @@
       - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/servicesecurity.rsi
+
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTSpaceSecClothingHeadset
+  name: space sec headset
+  description: A standart headset for space sec corporation.
+  suffix: Space Sec
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+        - ADTEncryptionKeySpaceSec
+        - EncryptionKeyCommon
+    - type: Sprite
+      sprite: ADT/Clothing/Ears/Headsets/space_sec_headset.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Ears/Headsets/space_sec_headset.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTSpaceSecClothingHeadsetFull
+  name: space sec full headset
+  description: A standart headset for space sec corporation.
+  suffix: Space Sec
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+        - ADTEncryptionKeySpaceSec
+        - EncryptionKeyCommon
+    - type: Sprite
+      sprite: ADT/Clothing/Ears/Headsets/space_sec_headset_full.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Ears/Headsets/space_sec_headset_full.rsi

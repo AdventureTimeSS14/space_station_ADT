@@ -35,3 +35,104 @@
     - state: idroboticist
   - type: PresetIdCard
     job: ADTRoboticist
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTSpaceSecCadetIDCard
+  name: space sec cadet ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    layers:
+    - state: default
+    - state: id-cadet
+  - type: IdCard
+    jobIcon: JobIconADTSpaceSecCadet
+    jobTitle: Кадет SPACE SEC
+  - type: Access
+    tags:
+    - SpaceSecOfficial
+    - SpaceSecMaintenance
+    - SpaceSecSecurity 
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTSpaceSecOfficerIDCard
+  name: space sec officer ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    layers:
+    - state: default
+    - state: id-officer
+  - type: IdCard
+    jobIcon: JobIconADTSpaceSecOfficer
+    jobTitle: Офицер SPACE SEC
+  - type: Access
+    tags:
+    - SpaceSecOfficial
+    - SpaceSecMaintenance
+    - SpaceSecSecurity
+    - SpaceSecArmory
+    - SpaceSecExternal
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTSpaceSecPilotIDCard
+  name: space sec pilot ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    layers:
+    - state: default
+    - state: id-pilot
+  - type: IdCard
+    jobIcon: JobIconADTSpaceSecPilot
+    jobTitle: Пилот SPACE SEC
+  - type: Access
+    tags:
+    - SpaceSecOfficial
+    - SpaceSecMaintenance
+    - SpaceSecSecurity
+    - SpaceSecArmory
+    - SpaceSecExternal
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTSpaceSecCommanderIDCard
+  name: space sec commander ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    layers:
+    - state: default
+    - state: id-commander
+  - type: IdCard
+    jobIcon: JobIconADTSpaceSecCommander
+    jobTitle: Командир SPACE SEC
+  - type: Access
+    tags:
+    - SpaceSecOfficial
+    - SpaceSecMaintenance
+    - SpaceSecSecurity
+    - SpaceSecArmory
+    - SpaceSecExternal
+    - SpaceSecCommand
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTSpaceSecServiceIDCard
+  name: space sec service ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    layers:
+    - state: default
+    - state: id-service
+  - type: IdCard
+    jobIcon: JobIconADTSpaceSecService
+    jobTitle: Сотрудник SPACE SEC
+  - type: Access
+    tags:
+    - SpaceSecOfficial
+    - SpaceSecMaintenance
