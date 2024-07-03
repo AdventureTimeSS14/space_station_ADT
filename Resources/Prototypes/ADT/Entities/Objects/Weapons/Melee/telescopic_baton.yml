@@ -56,8 +56,8 @@
     - state: telescope_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: SwitchableWeapon
-    openSound: "/Audio/ADT/open_telescopichka.ogg"
-    closeSound: "/Audio/ADT/close_telescopichka.ogg"
+    openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
+    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
     #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
     damageOpen:
       types:
@@ -102,7 +102,7 @@
     - state: telescope_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: SwitchableWeapon
-    openSound: "/Audio/ADT/open_telescopichka.ogg"
+    openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
     closeSound: "/Audio/ADT/close_telescopichka.ogg"
     #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
     damageOpen:
