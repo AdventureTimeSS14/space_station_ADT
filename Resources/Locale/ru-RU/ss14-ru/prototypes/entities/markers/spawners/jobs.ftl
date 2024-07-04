@@ -99,4 +99,4 @@ ent-SpawnPointZookeeper = зоотехник
     .desc = { ent-SpawnPointJobBase.desc }
 # ADT
 ent-ADTSpawnPointJobBase = патологоанатом
-    .desc = { ent-ADTSpawnPointJobBase.desc }
+    .desc = { ent-SpawnPointJobBase.desc }
