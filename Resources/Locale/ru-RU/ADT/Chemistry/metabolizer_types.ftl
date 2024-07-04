@@ -1,0 +1,1 @@
+metabolizer-type-tajaran = Таяр
