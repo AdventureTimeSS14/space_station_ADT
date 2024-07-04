@@ -1,0 +1,19 @@
+# Biohazard
+- type: entity
+  id: ADTClosetL3
+  parent: ADTClosetSteelBase
+  name: level 3 biohazard gear closet
+  description: It's a storage unit for level 3 biohazard gear.
+  components:
+  - type: Appearance
+
+# Патолог.
+- type: entity
+  id: ADTClosetL3Pathologist
+  parent: ADTClosetL3
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio_pathologist
+    stateDoorOpen: bio_pathologist_open
+    stateDoorClosed: bio_pathologist_door
