@@ -44,3 +44,13 @@
 - type: metabolizerType
   id: Arachnid
   name: metabolizer-type-arachnid
+
+ # Start ADT tweaks: Drask, Demon
+- type: metabolizerType
+  id: Drask
+  name: metabolizer-type-drask
+
+  - type: metabolizerType
+  id: Demon
+  name: demon
+  # End ADT tweaks
