@@ -1,3 +1,40 @@
+#Это нужно для того, чтобы в будущем, если кто-то решит добавить ещё наших шкафов, то их текстурки хранились в отдельной папке.
+- type: entity
+  id: ADTClosetBase
+  parent: ClosetBase
+  name: closet
+  description: A standard-issue Nanotrasen storage unit.
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Storage/closet.rsi
+    layers:
+    - state: generic
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: generic_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: generic_door
+
+# шкафы, которые можно разобрать и прочее.
+- type: entity
+  id: ADTClosetSteelBase
+  parent: ADTClosetBase
+  components:
+  - type: Construction
+    graph: ClosetSteel
+    node: done
+    containers:
+    - entity_storage
+  - type: StaticPrice
+    price: 20
+
 # Biohazard
 - type: entity
   id: ADTClosetL3
