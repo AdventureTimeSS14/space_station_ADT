@@ -25,26 +25,28 @@
   - завывает.
   - завывает!
 
-- type: emote
-  id: Growl
-  name: chat-emote-name-growl
-  category: Vocal
-  available: false
-  icon: Interface/Actions/scream.png
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-growl"]
-  chatTriggers:
-  - growl
-  - growl.
-  - growl!
-  - growls
-  - growls.
-  - growls!
-  - рычит
-  - рычит.
-  - рычит!
+# the same id "Growl" in ADT/Voice/speech_emotes
+#
+#- type: emote
+#  id: Growl
+#  name: chat-emote-name-growl
+#  category: Vocal
+#  available: false
+#  icon: Interface/Actions/scream.png
+#  whitelist:
+#    components:
+#    - Vocal
+#  blacklist:
+#    components:
+#    - BorgChassis
+#  chatMessages: ["chat-emote-msg-growl"]
+#  chatTriggers:
+#  - growl
+#  - growl.
+#  - growl!
+#  - growls
+#  - growls.
+#  - growls!
+#  - рычит
+#  - рычит.
+#  - рычит!

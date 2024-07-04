@@ -14,7 +14,7 @@
     - type: Hunger
     - type: Thirst
     - type: Icon
-      sprite: Mobs/Species/CatSkin/parts.rsi
+      sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tajaran_m
     - type: Damageable
       damageContainer: Biological
