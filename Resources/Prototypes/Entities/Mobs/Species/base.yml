@@ -221,6 +221,12 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+  # Frontier - languages mechanic
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
 
 - type: entity
   save: false
