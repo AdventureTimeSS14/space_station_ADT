@@ -1,0 +1,153 @@
+- type: species
+  id: NovakidSpecies
+  name: species-name-novakid
+  roundStart: true
+  prototype: MobNovakid
+  sprites: MobNovakidSprites
+  defaultSkinTone: "#34a223"
+  markingLimits: MobNovakidMarkingLimits
+  dollPrototype: MobNovakidDummy
+  skinColoration: Hues
+  maleFirstNames: firstNovakid
+  femaleFirstNames: firstNovakid
+  maleLastNames: NovakidLast
+  femaleLastNames: NovakidLast
+  naming: firstlast
+
+- type: speciesBaseSprites
+  id: MobNovakidSprites
+  sprites:
+    Head: MobNovakidHead
+    Hair: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobNovakidTorso
+    LArm: MobNovakidLArm
+    RArm: MobNovakidRArm
+    LHand: MobNovakidLHand
+    RHand: MobNovakidRHand
+    LLeg: MobNovakidLLeg
+    RLeg: MobNovakidRLeg
+    LFoot: MobNovakidLFoot
+    RFoot: MobNovakidRFoot
+
+- type: markingPoints
+  id: MobNovakidMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Head:
+      points: 1
+      required: false
+    Hair:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [HeadNovakidDefolt]
+    HeadSide:
+      points: 1
+      required: true
+      defaultMarkings: [ NovakidFace1 ]
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [ TorsoNovakidDefolt ]
+    Tail:
+      points: 1
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+
+- type: humanoidBaseSprite
+  id: MobNovakidHead
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobNovakidHeadMale
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobNovakidHeadFemale
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobNovakidTorso
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobNovakidTorsoMale
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobNovakidTorsoFemale
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobNovakidLLeg
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobNovakidLHand
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobNovakidLArm
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobNovakidLFoot
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobNovakidRLeg
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobNovakidRHand
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobNovakidRArm
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobNovakidRFoot
+  baseSprite:
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: r_foot

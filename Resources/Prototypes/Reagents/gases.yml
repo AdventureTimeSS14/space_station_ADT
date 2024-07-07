@@ -4,7 +4,7 @@
   desc: reagent-desc-oxygen
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
-  color: "#c4f5ff"
+  color: "#808080"
   boilingPoint: -183.0
   meltingPoint: -218.4
   metabolisms:
@@ -14,6 +14,14 @@
         conditions:
         - !type:OrganType
           type: Human
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Drask
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Novakid
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -35,25 +43,6 @@
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
-        ignoreResistances: true
-        damage:
-          types:
-            Poison:
-              7
-      - !type:AdjustAlert
-        alertType: Toxins
-        conditions:
-          - !type:ReagentThreshold
-            min: 0.5
-          - !type:OrganType
-            type: Vox
-        clear: true
-        time: 5
 
 - type: reagent
   id: Plasma
@@ -72,6 +61,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Poison: 3
@@ -81,18 +74,70 @@
     Gas:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 1
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 1
+      - !type:ChemVomit
+        probability: 0.12
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 0.8
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 0.6
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              1
-      # We need a metabolism effect on reagent removal
+            Blunt: -0.015
+            Slash: -0.015
+            Piercing: -0.015
+            Brute: -0.015
+            Burn: -0.015
+            Heat: -0.015
+            Poison: -0.012
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Novakid
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 1
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 1
+      # Cant be added until I add metabolism effects on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
-          - !type:ReagentThreshold
-            min: 1.5
+        - !type:ReagentThreshold
+          min: 1.5
         clear: True
         time: 5
   reactiveEffects:
