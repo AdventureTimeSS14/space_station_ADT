@@ -80,7 +80,6 @@
   name: Product unit
   icon: ADT/Objects/Specific/tradeunit.rsi
   spawn: Productunit1
-  itemSize: 1
 
 - type: entity
   parent: Productunit
