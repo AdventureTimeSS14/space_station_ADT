@@ -385,7 +385,7 @@
   description: job-description-ertleader
   playTimeTracker: JobERTLeader
   setPreference: false
-  startingGear: ERTLeaderGearEVA
+  startingGear: ADTERTLeaderGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -394,24 +394,6 @@
   access:
   - CentralCommand
 
-- type: job
-  id: ERTChaplain
-  name: job-name-ertchaplain
-  description: job-description-ertchaplain
-  playTimeTracker: JobERTChaplain
-  setPreference: false
-  startingGear: ERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: BibleUser #Lets them heal with bibles
 
 - type: job
   id: ERTEngineer
@@ -419,7 +401,7 @@
   description: job-description-ertengineer
   playTimeTracker: JobERTEngineer
   setPreference: false
-  startingGear: ERTEngineerGearEVA
+  startingGear: ADTERTEngineerGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -434,7 +416,7 @@
   description: job-description-ertsecurity
   playTimeTracker: JobERTSecurity
   setPreference: false
-  startingGear: ERTEngineerGearEVA
+  startingGear: ADTERTEngineerGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -449,7 +431,7 @@
   description: job-description-ertmedic
   playTimeTracker: JobERTMedical
   setPreference: false
-  startingGear: ERTMedicalGearEVA
+  startingGear: ADTERTMedicalGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -464,7 +446,7 @@
   description: job-description-ertjanitor
   playTimeTracker: JobERTJanitor
   setPreference: false
-  startingGear: ERTJanitorGearEVA
+  startingGear: ADTERTJanitorGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
