@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<<< HEAD:Resources/Textures/Clothing/Uniforms/Jumpskirt/olddress.rsi/meta.json
-  "copyright": "fujiwaranao",
-========
   "copyright": "Taken from Skyrat-TG at https://github.com/Skyrat-SS13/Skyrat-tg",
->>>>>>>> 9a95663cd9 (Merge pull request #705 from ITamiokiI/BSH):Resources/Textures/ADT/Clothing/Belt/medical_security_belt.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32

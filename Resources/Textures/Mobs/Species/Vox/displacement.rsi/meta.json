@@ -1,11 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD:Resources/Textures/Mobs/Species/Vox/displacement.rsi/meta.json
-    "copyright": "Made by PJB3005",
-=======
     "copyright": "Taken from Skyrat-TG at https://github.com/Skyrat-SS13/Skyrat-tg",
->>>>>>> 9a95663cd9 (Merge pull request #705 from ITamiokiI/BSH):Resources/Textures/ADT/Clothing/Neck/Cloaks/blueshield_neck.rsi/meta.json
     "size": {
         "x": 32,
         "y": 32

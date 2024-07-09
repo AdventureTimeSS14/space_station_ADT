@@ -7,14 +7,6 @@
         "y": 32
     },
     "states": [
-        { "name": "box" },
-        { "name": "cap" },
-        { "name": "ce" },
-        { "name": "cmo" },
-        { "name": "hop" },
-        { "name": "hos" },
-        { "name": "qm" },
-        { "name": "rd" },
         { "name": "bsh" }
     ]
 }
