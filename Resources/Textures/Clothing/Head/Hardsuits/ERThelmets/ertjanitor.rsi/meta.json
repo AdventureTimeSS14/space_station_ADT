@@ -25,6 +25,10 @@
     {
       "name": "equipped-HELMET-light",
       "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-vulp",
+      "directions": 4
     }
   ]
 }
