@@ -92033,7 +92033,7 @@ entities:
     - type: Transform
       pos: 17.204914,19.78829
       parent: 2
-- proto: ERTSpawnerEngineering
+- proto: Ash
   entities:
   - uid: 28060
     components:

@@ -60,7 +60,7 @@
   - type: Stack
     count: 20
     stackType: Productunit
-  - type: StaticPrice
+  - type: StackPrice
     price: 200
   - type: Currency
     price:

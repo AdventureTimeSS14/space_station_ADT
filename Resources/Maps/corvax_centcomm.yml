@@ -23508,7 +23508,7 @@ entities:
     - type: Transform
       pos: -18.524479,11.549602
       parent: 2
-- proto: ERTSpawnerCBURN
+- proto: Ash
   entities:
   - uid: 8359
     components:
@@ -23550,7 +23550,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 8160
-- proto: ERTSpawnerEngineering
+- proto: Ash
   entities:
   - uid: 8353
     components:
@@ -23584,7 +23584,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 8161
-- proto: ERTSpawnerJanitor
+- proto: Ash
   entities:
   - uid: 8358
     components:
@@ -23594,7 +23594,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 8207
-- proto: ERTSpawnerLeader
+- proto: Ash
   entities:
   - uid: 8366
     components:
@@ -23604,7 +23604,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 8161
-- proto: ERTSpawnerMedical
+- proto: Ash
   entities:
   - uid: 8364
     components:
@@ -23614,7 +23614,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 8161
-- proto: ERTSpawnerSrcurity
+- proto: Ash
   entities:
   - uid: 8356
     components:
