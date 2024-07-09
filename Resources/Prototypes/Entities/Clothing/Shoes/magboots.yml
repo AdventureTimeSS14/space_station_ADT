@@ -150,3 +150,12 @@
   - type: InstantAction
     icon: { sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi, state: icon }
     iconOn: Clothing/Shoes/Boots/magboots-syndicate.rsi/icon-on.png
+
+- type: entity
+  id: ActionToggleMagbootsERT
+  parent: ActionBaseToggleMagboots
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }
+    iconOn: ADT/Clothing/Shoes/Boots/magboots-ert.rsi/icon-on.png

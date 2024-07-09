@@ -1,0 +1,32 @@
+
+- type: entity
+  id: ADTProjectileIonRifle
+  parent: BulletDisabler
+  name: ion bolt
+  description: No energy
+  noSpawn: true
+  components:
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Ammo
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 2
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+    forceSound: true
+  - type: EmpOnCollide
+    energyConsumption: 80000

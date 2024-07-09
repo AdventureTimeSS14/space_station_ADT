@@ -1,0 +1,91 @@
+- type: storeCategory
+  id: ADTUplinkERTWeapon
+  name: вооружение
+  priority: 1
+
+- type: storeCategory
+  id: ADTUplinkERTMisc
+  name: прочее
+  priority: 2
+
+- type: entity
+  id: ADTStorePresetUplinkERT
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkERTWeapon
+    - ADTUplinkERTMisc
+    currencyWhitelist:
+    - Productunit
+
+- type: entity
+  parent: [BaseItem,  ADTStorePresetUplinkERT]
+  id: ADTBaseUplinkBOBERT
+  name: Б.О.О.Б.Р.
+  description: Блюспейс оружейная отряда быстрого реагирования.
+  suffix: 35 PU
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/bobert.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/bobert.rsi
+    heldPrefix: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Productunit: 35
+
+- type: entity
+  name: product unit
+  parent: BaseItem
+  id: Productunit
+  suffix: 20 PU
+  description: It seems to be pulsing with suspiciously enticing energies.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/tradeunit.rsi
+    state: tradeunit
+  - type: Item
+    sprite: ADT/Objects/Specific/tradeunit.rsi
+    size: Tiny
+  - type: Stack
+    count: 20
+    stackType: Productunit
+  - type: StaticPrice
+    price: 200
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      Productunit: 1
+
+- type: currency
+  id: Productunit
+  displayName: store-currency-display-tradeunit
+  cash:
+    1: Productunit1
+  canWithdraw: true
+
+- type: stack
+  id: Productunit
+  name: Product unit
+  icon: ADT/Objects/Specific/tradeunit.rsi
+  spawn: Productunit1
+  itemSize: 1
+
+- type: entity
+  parent: Productunit
+  id: Productunit1
+  suffix: 1 PU
+  components:
+  - type: Stack
+    count: 1

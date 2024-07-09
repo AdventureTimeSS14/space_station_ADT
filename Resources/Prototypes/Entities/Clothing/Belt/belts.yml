@@ -161,7 +161,7 @@
   - type: Appearance
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: ClothingBeltMilitaryWebbing # ADT Nukebuff
   id: ClothingBeltAssault
   name: assault belt
   description: A tactical assault belt.
@@ -170,19 +170,19 @@
     sprite: Clothing/Belt/assault.rsi
   - type: Clothing
     sprite: Clothing/Belt/assault.rsi
-  - type: Storage
-    whitelist:
-      tags:
-        - CigPack
-        - Taser
-      components:
-        - Stunbaton
-        - FlashOnTrigger
-        - SmokeOnTrigger
-        - Flash
-        - Handcuff
-        - BallisticAmmoProvider
-        - Ammo
+  # - type: Storage ADT nukebuff
+  #   whitelist:
+  #     tags:
+  #       - CigPack
+  #       - Taser
+  #     components:
+  #       - Stunbaton
+  #       - FlashOnTrigger
+  #       - SmokeOnTrigger
+  #       - Flash
+  #       - Handcuff
+  #       - BallisticAmmoProvider
+  #       - Ammo
   - type: ItemMapper
     mapLayers:
       flashbang:
