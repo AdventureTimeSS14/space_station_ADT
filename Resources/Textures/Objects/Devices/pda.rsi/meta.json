@@ -239,16 +239,7 @@
             "name": "pda-seniorofficer"
         },
         {
-            "name": "pda-investigator"
-        },
-        {
             "name": "pda-syndi-agent"
-        },
-        {
-            "name": "pda-pathologist"
-        },
-        {
-            "name": "pda-criminalist"
         }
     ]
 }
