@@ -7312,7 +7312,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ERTSpawnerJanitor
+- proto: Ash
   entities:
   - uid: 625
     components:
