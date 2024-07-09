@@ -62,8 +62,6 @@
     stackType: Productunit
   - type: StaticPrice
     price: 200
-  - type: StackPrice
-    price: 200
   - type: Currency
     price:
       Productunit: 1
