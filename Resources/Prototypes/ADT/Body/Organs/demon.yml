@@ -3,8 +3,10 @@
   parent: OrganAnimalStomach
   noSpawn: true
   components:
-  - type: Stomach
-    maxVol: 50
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
 
 - type: entity
   id: OrganDemonHeart
