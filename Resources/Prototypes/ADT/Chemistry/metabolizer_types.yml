@@ -1,82 +1,82 @@
-# If your species wants to metabolize stuff differently,
+﻿# If your species wants to metabolize stuff differently,
 # you'll likely have to tag its metabolizers with something other than Human.
 
 - type: metabolizerType
   id: Animal
-  name: animal
+  name: metabolizer-type-animal
 
 - type: metabolizerType
   id: Bloodsucker
-  name: bloodsucker
+  name: metabolizer-type-bloodsucker
 
 - type: metabolizerType
   id: Dragon
-  name: dragon
+  name: metabolizer-type-dragon
 
 - type: metabolizerType
   id: Human
-  name: human
+  name: metabolizer-type-human
 
 - type: metabolizerType
   id: Slime
-  name: slime
+  name: metabolizer-type-slime
 
 - type: metabolizerType
   id: Vox
-  name: vox
+  name: metabolizer-type-vox
 
 - type: metabolizerType
   id: Rat
-  name: rat
+  name: metabolizer-type-rat
 
 - type: metabolizerType
   id: Plant
-  name: plant
+  name: metabolizer-type-plant
 
 - type: metabolizerType
   id: Dwarf
-  name: dwarf
+  name: metabolizer-type-dwarf
 
 - type: metabolizerType
   id: Moth
-  name: moth
+  name: metabolizer-type-moth
 
 - type: metabolizerType
   id: Arachnid
-  name: arachnid
+  name: metabolizer-type-arachnid
 
 - type: metabolizerType
   id: Novakid
-  name: novakid
+  name: metabolizer-type-novakid
 
 - type: metabolizerType
   id: Demon
-  name: demon
+  name: metabolizer-type-demon
 
 - type: metabolizerType
   id: Shark
-  name: shark
+  name: metabolizer-type-shark
 
 - type: metabolizerType
   id: Vulpkanin
-  name: vulpkanin
+  name: metabolizer-type-vulpkanin
 
 - type: metabolizerType
   id: Tajaran
-  name: tajaran
+  name: metabolizer-type-tajaran
 
 - type: metabolizerType
   id: Reptilian
-  name: reptilian
+  name: metabolizer-type-reptilian
 
 - type: metabolizerType
   id: Ursus
-  name: ursus
+  name: metabolizer-type-ursus
 
 - type: metabolizerType
   id: Drask
-  name: drask
+  name: metabolizer-type-drask
 
 - type: metabolizerType
   id: Felinid
-  name: felinid
+  name: metabolizer-type-felinid
