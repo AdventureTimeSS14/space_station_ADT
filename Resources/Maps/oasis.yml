@@ -8116,10 +8116,8 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.14975
+          temperature: 293.15
           moles:
-          - 20.078888
-          - 75.53487
           - 0
           - 6666.982
           - 0
@@ -12444,12 +12442,12 @@ entities:
   - uid: 11331
     components:
     - type: Transform
-      pos: -58.5,-19.5
+      pos: -58.5,-2.5
       parent: 2
-  - uid: 28495
+  - uid: 11332
     components:
     - type: Transform
-      pos: -58.5,-17.5
+      pos: -58.5,-4.5
       parent: 2
   - uid: 28494
     components:
@@ -34622,12 +34620,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-68.5
-      parent: 2
-  - uid: 10848
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,-82.5
       parent: 2
   - uid: 10848
     components:
@@ -70678,23 +70670,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,-57.5
       parent: 2
-  - uid: 9935
-    components:
-    - type: Transform
-      pos: 50.5,20.5
-      parent: 2
-  - uid: 9945
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,-47.5
-      parent: 2
-  - uid: 11974
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-57.5
-      parent: 2
   - uid: 11991
     components:
     - type: Transform
@@ -71912,17 +71887,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -26.5,28.5
-      parent: 2
-  - uid: 13938
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 58.5,9.5
-      parent: 2
-  - uid: 15443
-    components:
-    - type: Transform
-      pos: 51.5,20.5
       parent: 2
   - uid: 13938
     components:
@@ -123337,14 +123301,6 @@ entities:
     - type: Transform
       pos: 6.5,-33.5
       parent: 2
-  - uid: 12820
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -28.5,13.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
   - uid: 23065
     components:
     - type: Transform
