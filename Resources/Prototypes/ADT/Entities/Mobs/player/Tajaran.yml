@@ -49,16 +49,15 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
-    # Comment until not added LanguageSystem
-    #- type: LanguageSpeaker
-    #  speaks:
-    #  - GalacticCommon
-    #  - SikTaj
-    #  - CintaTaj
-    #  understands:
-    #  - GalacticCommon
-    #  - SikTaj
-    #  - CintaTaj
+    - type: LanguageSpeaker
+      speaks:
+      - GalacticCommon
+      - SikTaj
+      - CintaTaj
+      understands:
+      - GalacticCommon
+      - SikTaj
+      - CintaTaj
     # Comment until not added SizeAttributeSystem
     #- type: SizeAttributeWhitelist # Frontier
     #  tall: true
