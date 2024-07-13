@@ -1,25 +1,25 @@
 #Для звуков и голосов вульпочек
 
-- type: emote
-  id: VulpHeckaet
-  category: Vocal
-  chatMessages: [хекает]
-  chatTriggers:
-    - кхе
-    - кхе.
-    - хекает
-    - хекает.
-    - отдышка
-    - отдышка.
+#- type: emote
+#  id: VulpHeckaet
+#  category: Vocal
+#  chatMessages: [хекает]
+#  chatTriggers:
+#    - кхе
+#    - кхе.
+#    - хекает
+#    - хекает.
+#    - отдышка
+#    - отдышка.
 
-- type: emote
-  id: VulpHowl
-  category: Vocal
-  chatMessages: [воет]
-  chatTriggers:
-    - воет
-    - воет.
-    - воет!
+#- type: emote
+#  id: VulpHowl
+#  category: Vocal
+#  chatMessages: [воет]
+#  chatTriggers:
+#    - воет
+#    - воет.
+#    - воет!
 
 - type: emote
   id: VulpWhine
