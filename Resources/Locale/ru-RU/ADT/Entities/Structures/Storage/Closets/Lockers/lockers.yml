@@ -1,7 +1,7 @@
 #Это нужно для того, чтобы в будущем, если кто-то решит добавить ещё наших шкафов, то их текстурки хранились в отдельной папке.
 - type: entity
-  id: ADTClosetBase
   parent: ClosetBase
+  id: ADTClosetBase
   name: closet
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
@@ -24,8 +24,8 @@
 
 # шкафы, которые можно разобрать и прочее.
 - type: entity
-  id: ADTClosetSteelBase
   parent: ADTClosetBase
+  id: ADTClosetSteelBase
   components:
   - type: Construction
     graph: ClosetSteel
@@ -37,8 +37,8 @@
 
 # Biohazard
 - type: entity
-  id: ADTClosetL3
   parent: ADTClosetSteelBase
+  id: ADTClosetL3
   name: level 3 biohazard gear closet
   description: It's a storage unit for level 3 biohazard gear.
   components:
@@ -46,8 +46,8 @@
 
 # Патолог.
 - type: entity
-  id: ADTClosetLPathologist
   parent: ADTClosetL3
+  id: ADTClosetLPathologist
   components:
   - type: Appearance
   - type: EntityStorageVisuals
