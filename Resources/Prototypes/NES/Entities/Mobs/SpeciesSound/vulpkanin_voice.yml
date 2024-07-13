@@ -60,144 +60,144 @@
 #    - рычит.
 #    - рычит!
 
-- type: soundCollection
-  id: NesMaleVulpaScreams
-  files:
-    - /Audio/NES/Voice/Vulpkanin/growl1.ogg
-    - /Audio/NES/Voice/Vulpkanin/growl2.ogg
-    - /Audio/NES/Voice/Vulpkanin/growl3.ogg
+#- type: soundCollection
+#  id: NesMaleVulpaScreams
+#  files:
+#    - /Audio/NES/Voice/Vulpkanin/growl1.ogg
+#    - /Audio/NES/Voice/Vulpkanin/growl2.ogg
+#    - /Audio/NES/Voice/Vulpkanin/growl3.ogg
 
-- type: soundCollection
-  id: NesFemaleVulpaScreams
-  files:
-    - /Audio/NES/Voice/Vulpkanin/scream1.ogg
-    - /Audio/NES/Voice/Vulpkanin/scream2.ogg
+#- type: soundCollection
+#  id: NesFemaleVulpaScreams
+#  files:
+#    - /Audio/NES/Voice/Vulpkanin/scream1.ogg
+#    - /Audio/NES/Voice/Vulpkanin/scream2.ogg
 
-- type: soundCollection
-  id: VulpHowls
-  files:
-  - /Audio/NES/Voice/Vulpkanin/howl.ogg
+#- type: soundCollection
+#  id: VulpHowls
+#  files:
+#  - /Audio/NES/Voice/Vulpkanin/howl.ogg
 
-- type: soundCollection
-  id: VulpBarks
-  files:
-  - /Audio/NES/Voice/Vulpkanin/bark.ogg
-  - /Audio/NES/Voice/Doge/dog_bark1.ogg
-  - /Audio/NES/Voice/Doge/dog_bark2.ogg
-  - /Audio/NES/Voice/Doge/dog_bark3.ogg
+#- type: soundCollection
+#  id: VulpBarks
+#  files:
+#  - /Audio/NES/Voice/Vulpkanin/bark.ogg
+#  - /Audio/NES/Voice/Doge/dog_bark1.ogg
+#  - /Audio/NES/Voice/Doge/dog_bark2.ogg
+#  - /Audio/NES/Voice/Doge/dog_bark3.ogg
 
-- type: soundCollection
-  id: VulpWhines
-  files:
-  - /Audio/NES/Voice/Doge/dog_whine.ogg
+#- type: soundCollection
+#  id: VulpWhines
+#  files:
+#  - /Audio/NES/Voice/Doge/dog_whine.ogg
 
-- type: soundCollection
-  id: VulpGrowls
-  files:
-  - /Audio/NES/Voice/Doge/dog_growl1.ogg
-  - /Audio/NES/Voice/Doge/dog_growl2.ogg
-  - /Audio/NES/Voice/Doge/dog_growl3.ogg
+# - type: soundCollection
+#  id: VulpGrowls
+#  files:
+#  - /Audio/NES/Voice/Doge/dog_growl1.ogg
+#  - /Audio/NES/Voice/Doge/dog_growl2.ogg
+#  - /Audio/NES/Voice/Doge/dog_growl3.ogg
 
-- type: soundCollection
-  id: VulpHeckaetSound
-  files:
-    - /Audio/ADT/Voice/Vulpkanin/vulpkanin_hekaet1.ogg
+#- type: soundCollection
+#  id: VulpHeckaetSound
+#  files:
+#    - /Audio/ADT/Voice/Vulpkanin/vulpkanin_hekaet1.ogg
 
-- type: speechSounds
-  id: Vulpa
-  saySound:
-    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp.ogg
-  askSound:
-    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp_ask.ogg
-  exclaimSound:
-    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp_exclaim.ogg
+#- type: speechSounds
+#  id: Vulpa
+#  saySound:
+#    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp.ogg
+#  askSound:
+#    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp_ask.ogg
+#  exclaimSound:
+#    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp_exclaim.ogg
 
 # Спишс блядь
 
-- type: emoteSounds
-  id: NesMaleVulpa
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: NesMaleVulpaScreams
-    Laugh:
-      collection: MaleLaugh
-    Sneeze:
-      collection: MaleSneezes
-    Cough:
-      collection: MaleCoughs
-    CatMeow:
-      collection: CatMeows
-    CatHisses:
-      collection: CatHisses
-    MonkeyScreeches:
-      collection: MonkeyScreeches
-    RobotBeep:
-      collection: RobotBeeps
-    Yawn:
-      collection: MaleYawn
-    Snore:
-      collection: Snores
-    Honk:
-      collection: BikeHorn
-    Sigh:
-      collection: MaleSigh
-    Crying:
-      collection: MaleCry
-    VulpHowl:
-      collection: VulpHowls
-    VulpBark:
-      collection: VulpBarks
-    Growl:
-      collection: VulpGrowls
-    VulpWhine:
-      collection: VulpWhines
-    Whistle:
-      collection: Whistles
-    VulpHeckaet:
-      collection: VulpHeckaetSound
-
-- type: emoteSounds
-  id: NesFemaleVulpa
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: NesFemaleVulpaScreams
-    Laugh:
-      collection: FemaleLaugh
-    Sneeze:
-      collection: FemaleSneezes
-    Cough:
-      collection: FemaleCoughs
-    CatMeow:
-      collection: CatMeows
-    CatHisses:
-      collection: CatHisses
-    MonkeyScreeches:
-      collection: MonkeyScreeches
-    RobotBeep:
-      collection: RobotBeeps
-    Yawn:
-      collection: FemaleYawn
-    Snore:
-      collection: Snores
-    Honk:
-      collection: CluwneHorn
-    Sigh:
-      collection: FemaleSigh
-    Crying:
-      collection: FemaleCry
-    VulpHowl:
-      collection: VulpHowls
-    VulpBark:
-      collection: VulpBarks
-    Growl:
-      collection: VulpGrowls
-    VulpWhine:
-      collection: VulpWhines
-    Whistle:
-      collection: Whistles
-    VulpHeckaet:
-      collection: VulpHeckaetSound
+#- type: emoteSounds
+#  id: NesMaleVulpa
+#  params:
+#    variation: 0.125
+#  sounds:
+#    Scream:
+#      collection: NesMaleVulpaScreams
+#    Laugh:
+#      collection: MaleLaugh
+#    Sneeze:
+#      collection: MaleSneezes
+#    Cough:
+#      collection: MaleCoughs
+#    CatMeow:
+#      collection: CatMeows
+#    CatHisses:
+#      collection: CatHisses
+#    MonkeyScreeches:
+#      collection: MonkeyScreeches
+#    RobotBeep:
+#      collection: RobotBeeps
+#    Yawn:
+#      collection: MaleYawn
+#    Snore:
+#      collection: Snores
+#    Honk:
+#      collection: BikeHorn
+#    Sigh:
+#      collection: MaleSigh
+#    Crying:
+#      collection: MaleCry
+#    VulpHowl:
+#      collection: VulpHowls
+#    VulpBark:
+#      collection: VulpBarks
+#    Growl:
+#      collection: VulpGrowls
+#    VulpWhine:
+#      collection: VulpWhines
+#    Whistle:
+#      collection: Whistles
+#    VulpHeckaet:
+#      collection: VulpHeckaetSound
+#
+#- type: emoteSounds
+#  id: NesFemaleVulpa
+#  params:
+#    variation: 0.125
+#  sounds:
+#    Scream:
+#      collection: NesFemaleVulpaScreams
+#    Laugh:
+#      collection: FemaleLaugh
+#    Sneeze:
+#      collection: FemaleSneezes
+#    Cough:
+#      collection: FemaleCoughs
+#    CatMeow:
+#      collection: CatMeows
+#    CatHisses:
+#      collection: CatHisses
+#    MonkeyScreeches:
+#      collection: MonkeyScreeches
+#    RobotBeep:
+#      collection: RobotBeeps
+#    Yawn:
+#      collection: FemaleYawn
+#    Snore:
+#      collection: Snores
+#    Honk:
+#      collection: CluwneHorn
+#    Sigh:
+#      collection: FemaleSigh
+#    Crying:
+#      collection: FemaleCry
+#    VulpHowl:
+#      collection: VulpHowls
+#    VulpBark:
+#      collection: VulpBarks
+#    Growl:
+#      collection: VulpGrowls
+#    VulpWhine:
+#      collection: VulpWhines
+#    Whistle:
+#      collection: Whistles
+#    VulpHeckaet:
+#      collection: VulpHeckaetSound
