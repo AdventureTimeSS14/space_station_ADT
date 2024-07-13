@@ -21,17 +21,17 @@
 #    - воет.
 #    - воет!
 
-- type: emote
-  id: VulpWhine
-  category: Vocal
-  chatMessages: [скулит]
-  chatTriggers:
-    - скул
-    - скул.
-    - скул!
-    - скулит
-    - скулит.
-    - скулит!
+#- type: emote
+#  id: VulpWhine
+#  category: Vocal
+#  chatMessages: [скулит]
+#  chatTriggers:
+#    - скул
+#    - скул.
+#    - скул!
+#    - скулит
+#    - скулит.
+#    - скулит!
 
 #- type: emote
 #  id: VulpBark
