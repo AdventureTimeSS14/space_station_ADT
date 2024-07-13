@@ -118,6 +118,13 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    - Nian
+    understands:
+    - GalacticCommon
+    - Nian
 
 - type: entity
   parent: BaseSpeciesDummy
