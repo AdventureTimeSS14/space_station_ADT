@@ -51,14 +51,14 @@
 #    - рявкает.
 #    - рявкает!
 
-- type: emote
-  id: VulpGrowl
-  category: Vocal
-  chatMessages: [воет]
-  chatTriggers:
-    - рычит
-    - рычит.
-    - рычит!
+# - type: emote
+#  id: VulpGrowl
+#  category: Vocal
+#  chatMessages: [воет]
+#  chatTriggers:
+#    - рычит
+#    - рычит.
+#    - рычит!
 
 - type: soundCollection
   id: NesMaleVulpaScreams
