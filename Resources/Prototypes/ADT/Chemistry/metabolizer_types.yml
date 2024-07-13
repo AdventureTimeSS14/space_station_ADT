@@ -1,4 +1,4 @@
-# If your species wants to metabolize stuff differently,
+﻿# If your species wants to metabolize stuff differently,
 # you'll likely have to tag its metabolizers with something other than Human.
 
 - type: metabolizerType
@@ -45,8 +45,38 @@
   id: Arachnid
   name: metabolizer-type-arachnid
 
- # Start ADT tweak: Drask
+- type: metabolizerType
+  id: Novakid
+  name: metabolizer-type-novakid
+
+- type: metabolizerType
+  id: Demon
+  name: metabolizer-type-demon
+
+- type: metabolizerType
+  id: Shark
+  name: metabolizer-type-shark
+
+- type: metabolizerType
+  id: Vulpkanin
+  name: metabolizer-type-vulpkanin
+
+- type: metabolizerType
+  id: Tajaran
+  name: metabolizer-type-tajaran
+
+- type: metabolizerType
+  id: Reptilian
+  name: metabolizer-type-reptilian
+
+- type: metabolizerType
+  id: Ursus
+  name: metabolizer-type-ursus
+
 - type: metabolizerType
   id: Drask
   name: metabolizer-type-drask
-  # End ADT tweak
+
+- type: metabolizerType
+  id: Felinid
+  name: metabolizer-type-felinid
