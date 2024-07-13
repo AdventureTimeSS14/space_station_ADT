@@ -12,14 +12,14 @@
     - отдышка
     - отдышка.
 
-- type: emote
-  id: VulpHowl
-  category: Vocal
-  chatMessages: [воет]
-  chatTriggers:
-    - воет
-    - воет.
-    - воет!
+#- type: emote
+#  id: VulpHowl
+#  category: Vocal
+#  chatMessages: [воет]
+#  chatTriggers:
+#    - воет
+#    - воет.
+#    - воет!
 
 - type: emote
   id: VulpWhine
