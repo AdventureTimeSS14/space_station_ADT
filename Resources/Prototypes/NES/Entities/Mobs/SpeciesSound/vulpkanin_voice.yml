@@ -96,7 +96,7 @@
   files:
   - /Audio/NES/Voice/Doge/dog_whine.ogg
 
- - type: soundCollection
+- type: soundCollection
   id: VulpGrowls
   files:
   - /Audio/NES/Voice/Doge/dog_growl1.ogg
@@ -117,7 +117,7 @@
   exclaimSound:
     path: /Audio/NES/Voice/Vulpkanin_Talk/vulp_exclaim.ogg
 
- Спишс блядь
+#Спишс блядь
 
 - type: emoteSounds
   id: NesMaleVulpa
