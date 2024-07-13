@@ -33,32 +33,32 @@
     - скулит.
     - скулит!
 
-- type: emote
-  id: VulpBark
-  category: Vocal
-  chatMessages: [лает]
-  chatTriggers:
-    - лает
-    - лает.
-    - лает!
-    - гавкает
-    - гавкает.
-    - гавкает!
-    - гав
-    - гав.
-    - гав!
-    - рявкает
-    - рявкает.
-    - рявкает!
+#- type: emote
+#  id: VulpBark
+#  category: Vocal
+#  chatMessages: [лает]
+#  chatTriggers:
+#    - лает
+#    - лает.
+#    - лает!
+#    - гавкает
+#    - гавкает.
+#    - гавкает!
+#    - гав
+#    - гав.
+#    - гав!
+#    - рявкает
+#    - рявкает.
+#    - рявкает!
 
-# - type: emote
-#   id: VulpGrowl
-#   category: Vocal
-#   chatMessages: [воет]
-#   chatTriggers:
-#     - рычит
-#     - рычит.
-#     - рычит!
+ - type: emote
+   id: VulpGrowl
+   category: Vocal
+   chatMessages: [воет]
+   chatTriggers:
+     - рычит
+     - рычит.
+     - рычит!
 
 - type: soundCollection
   id: NesMaleVulpaScreams
