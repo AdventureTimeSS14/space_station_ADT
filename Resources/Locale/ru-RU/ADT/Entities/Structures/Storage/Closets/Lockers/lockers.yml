@@ -46,7 +46,7 @@
 
 # Патолог.
 - type: entity
-  id: ADTClosetL3Pathologist
+  id: ADTClosetLPathologist
   parent: ADTClosetL3
   components:
   - type: Appearance
