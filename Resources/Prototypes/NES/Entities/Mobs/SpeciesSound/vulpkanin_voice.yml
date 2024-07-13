@@ -55,7 +55,7 @@
     - рявкает.
     - рявкает!
 
- - type: emote
+- type: emote
   id: VulpGrowl
   name: chat-emote-name-growl
   category: Vocal
