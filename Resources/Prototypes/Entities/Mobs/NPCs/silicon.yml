@@ -109,6 +109,13 @@
   - type: StepTriggerImmune
   - type: NoSlip
   - type: Insulated
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
 
 - type: entity
   parent: MobSiliconBase

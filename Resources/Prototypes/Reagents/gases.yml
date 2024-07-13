@@ -14,6 +14,12 @@
         conditions:
         - !type:OrganType
           type: Human
+      # Start ADT tweak: Drask
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Drask
+      # End ADT tweak
       - !type:Oxygenate
         conditions:
         - !type:OrganType

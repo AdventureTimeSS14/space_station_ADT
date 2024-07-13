@@ -46,6 +46,11 @@
   - type: TTS # Corvax-TTS
   - type: RequireProjectileTarget
     active: False
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
 
 # Used for mobs that have health and can take damage.
 - type: entity
