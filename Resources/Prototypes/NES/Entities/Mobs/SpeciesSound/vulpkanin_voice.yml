@@ -12,14 +12,14 @@
     - отдышка
     - отдышка.
 
-#- type: emote
-#  id: VulpHowl
-#  category: Vocal
-#  chatMessages: [воет]
-#  chatTriggers:
-#    - воет
-#    - воет.
-#    - воет!
+- type: emote
+  id: VulpHowl
+  category: Vocal
+  chatMessages: [воет]
+  chatTriggers:
+    - воет
+    - воет.
+    - воет!
 
 - type: emote
   id: VulpWhine
@@ -63,25 +63,25 @@
 - type: soundCollection
   id: NesMaleVulpaScreams
   files:
-    - /Audio/NES/Voice/Vulpakanin/growl1.ogg
-    - /Audio/NES/Voice/Vulpakanin/growl2.ogg
-    - /Audio/NES/Voice/Vulpakanin/growl3.ogg
+    - /Audio/NES/Voice/Vulpkanin/growl1.ogg
+    - /Audio/NES/Voice/Vulpkanin/growl2.ogg
+    - /Audio/NES/Voice/Vulpkanin/growl3.ogg
 
 - type: soundCollection
   id: NesFemaleVulpaScreams
   files:
-    - /Audio/NES/Voice/Vulpakanin/scream1.ogg
-    - /Audio/NES/Voice/Vulpakanin/scream2.ogg
+    - /Audio/NES/Voice/Vulpkanin/scream1.ogg
+    - /Audio/NES/Voice/Vulpkanin/scream2.ogg
 
 - type: soundCollection
   id: VulpHowls
   files:
-  - /Audio/NES/Voice/Vulpakanin/howl.ogg
+  - /Audio/NES/Voice/Vulpkanin/howl.ogg
 
 - type: soundCollection
   id: VulpBarks
   files:
-  - /Audio/NES/Voice/Vulpakanin/bark.ogg
+  - /Audio/NES/Voice/Vulpkanin/bark.ogg
   - /Audio/NES/Voice/Doge/dog_bark1.ogg
   - /Audio/NES/Voice/Doge/dog_bark2.ogg
   - /Audio/NES/Voice/Doge/dog_bark3.ogg
@@ -101,7 +101,7 @@
 - type: soundCollection
   id: VulpHeckaetSound
   files:
-    - /Audio/ADT/Voice/Vulpakanin/vulpkanin_hekaet1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/vulpkanin_hekaet1.ogg
 
 - type: speechSounds
   id: Vulpa
