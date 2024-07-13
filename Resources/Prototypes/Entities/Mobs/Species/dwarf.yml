@@ -56,6 +56,13 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    - Dwarf
+    understands:
+    - GalacticCommon
+    - Dwarf
 
 - type: entity
   parent: BaseSpeciesDummy

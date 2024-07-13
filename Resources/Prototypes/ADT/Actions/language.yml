@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionLanguageMenu
+  name: language-menu-action
+  description: language-menu-action-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: _NF/Interface/Actions/language.png
+    event: !type:LanguageMenuActionEvent
+    useDelay: 2
+    priority: -97
