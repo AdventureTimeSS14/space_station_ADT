@@ -1,4 +1,21 @@
 - type: soundCollection
+  id: DraskCough
+  files:
+    - /Audio/ADT/Drask/draskcough.ogg
+- type: soundCollection
+  id: DraskScream
+  files:
+    - /Audio/ADT/Drask/draskscream.ogg
+- type: soundCollection
+  id: DraskSneeze
+  files:
+    - /Audio/ADT/Drask/drasksneeze.ogg
+- type: soundCollection
+  id: DraskTalk
+  files:
+    - /Audio/ADT/Drask/drasktalk.ogg
+
+- type: soundCollection
   id: TajaranHisses
   files:
   - /Audio/ADT/Felinid/cat_hiss1.ogg
