@@ -1,7 +1,7 @@
  - type: entity
-   id: ADTClosetL3PathologistFilled
+ 
    suffix: Filled, Pathologist
-   parent: ADTClosetL3Pathologist
+ 
    components:
    - type: StorageFill
      contents:
