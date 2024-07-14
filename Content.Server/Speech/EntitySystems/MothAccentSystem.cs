@@ -21,7 +21,7 @@ public sealed class MothAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        // Changed By 1Stepka1 Moth_speech start
+        // Changed By 1Stepka1 Moth_speech_ADT start
         
         message = Regex.Replace(message, "з{1,3}", "ззз");
 
@@ -39,7 +39,7 @@ public sealed class MothAccentSystem : EntitySystem
 
         message = Regex.Replace(message, "Ж{1,3}", "ЖЗЖ");
 
-        // Changed By 1Stepka1 Moth_speech end
+        // Changed By 1Stepka1 Moth_speech_ADT end
         
         args.Message = message;
     }
