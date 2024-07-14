@@ -154,7 +154,7 @@
       collection: VulpHowls
     VulpBark:
       collection: VulpBarks
-    Growl:
+    VulpGrowl:
       collection: VulpGrowls
     VulpWhine:
       collection: VulpWhines
@@ -198,7 +198,7 @@
       collection: VulpHowls
     VulpBark:
       collection: VulpBarks
-    Growl:
+    VulpGrowl:
       collection: VulpGrowls
     VulpWhine:
       collection: VulpWhines
