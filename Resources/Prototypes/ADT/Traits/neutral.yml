@@ -1,0 +1,6 @@
+- type: trait
+  id: ADTGermanAccent
+  name: trait-deutsch-name 
+  description: trait-deutsch-desc 
+  components:
+    - type: DeutschAccent
