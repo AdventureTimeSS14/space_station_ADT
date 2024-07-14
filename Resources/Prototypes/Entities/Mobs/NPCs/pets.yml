@@ -36,6 +36,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalIan
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Dog
+    understands:
+    - GalacticCommon
+    - Dog
 
 - type: entity
   name: Old Ian
@@ -121,6 +127,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
 
 - type: entity
   name: Exception
@@ -139,6 +151,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
 
 - type: entity
   name: Floppa
@@ -164,6 +182,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
 
 - type: entity
   name: Bandito
@@ -182,7 +206,7 @@
 
 - type: entity
   name: Bingus
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, StripableInventoryBase]
   id: MobBingus
   description: Bingus my beloved...
   components:
@@ -207,12 +231,6 @@
   - type: Inventory
     speciesId: cat
     templateId: pet
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -245,7 +263,7 @@
 
 - type: entity
   name: McGriff
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, StripableInventoryBase]
   id: MobMcGriff
   description: This dog can tell something smells around here, and that something is CRIME!
   components:
@@ -270,12 +288,6 @@
   - type: Inventory
     speciesId: puppy
     templateId: pet
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -307,6 +319,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMcGriff
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Dog
+    understands:
+    - GalacticCommon
+    - Dog
 
 - type: entity
   name: Paperwork
@@ -344,7 +362,7 @@
 
 - type: entity
   name: Walter
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, StripableInventoryBase]
   id: MobWalter
   description: He likes chems and treats. Walter.
   components:
@@ -369,12 +387,6 @@
   - type: Inventory
     speciesId: dog
     templateId: pet
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -406,6 +418,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalWalter
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Dog
+    understands:
+    - GalacticCommon
+    - Dog
 
 - type: entity
   name: Morty
@@ -595,6 +613,12 @@
     - Hamster
     - VimPilot
     - ChefPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
 
 - type: entity
   name: Shiva
@@ -799,6 +823,12 @@
     attributes:
       proper: true
       gender: male
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Monkey
+    understands:
+    - GalacticCommon
+    - Monkey
 
 - type: entity
   name: Tropico
