@@ -2,12 +2,16 @@
   id: ADTMothAccent
   name: trait-moth-accent-name
   description: trait-moth-accent-desc
+  category: SpeechTraits
+  cost: 1
   components:
     - type: MothAccent
-    
+
 - type: trait
-  id: ADTGermanAccent
-  name: trait-deutsch-accent-name
-  description: trait-deutsch-accent-desc
+  id: ADTDeutscAccent 
+  name: trait-deutsch-name
+  description: trait-deutsch-desc
+  category: SpeechTraits
+  cost: 1
   components:
     - type: DeutschAccent
