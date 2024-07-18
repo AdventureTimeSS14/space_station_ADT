@@ -6,7 +6,7 @@
     - type: MothAccent
 
 - type: trait
-  id: ADTDeutschAccent 
+  id: ADTDeutscAccent 
   name: trait-deutsch-name
   description: trait-deutsch-desc
   category: SpeechTraits
