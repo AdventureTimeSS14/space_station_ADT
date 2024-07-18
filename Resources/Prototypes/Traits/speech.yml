@@ -44,7 +44,7 @@
       accent: cowboy
 
 - type: trait
-  id: DeutschAccent
+  id: ADTDeutschAccent # пртототип с ВП
   name: trait-deutsch-name
   description: trait-deutsch-desc
   category: SpeechTraits
