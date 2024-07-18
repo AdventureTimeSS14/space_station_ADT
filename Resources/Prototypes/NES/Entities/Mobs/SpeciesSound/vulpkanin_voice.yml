@@ -68,40 +68,40 @@
 - type: soundCollection
   id: NesMaleVulpaScreams
   files:
-    - /Audio/NES/Voice/Vulpkanin/growl1.ogg
-    - /Audio/NES/Voice/Vulpkanin/growl2.ogg
-    - /Audio/NES/Voice/Vulpkanin/growl3.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl2.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl3.ogg
 
 - type: soundCollection
   id: NesFemaleVulpaScreams
   files:
-    - /Audio/NES/Voice/Vulpkanin/scream1.ogg
-    - /Audio/NES/Voice/Vulpkanin/scream2.ogg
+    - /Audio/ADT/Voice/Vulpkanin/scream1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/scream2.ogg
 
 - type: soundCollection
   id: VulpHowls
   files:
-  - /Audio/NES/Voice/Vulpkanin/howl.ogg
+  - /Audio/ADT/Voice/Vulpkanin/howl.ogg
 
 - type: soundCollection
   id: VulpBarks
   files:
-  - /Audio/NES/Voice/Vulpkanin/bark.ogg
-  - /Audio/NES/Voice/Doge/dog_bark1.ogg
-  - /Audio/NES/Voice/Doge/dog_bark2.ogg
-  - /Audio/NES/Voice/Doge/dog_bark3.ogg
+  - /Audio/ADT/Voice/Vulpkanin/bark.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark1.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark2.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark3.ogg
 
 - type: soundCollection
   id: VulpWhines
   files:
-  - /Audio/NES/Voice/Doge/dog_whine.ogg
+  - /Audio/ADT/Voice/Doge/dog_whine.ogg
 
 - type: soundCollection
   id: VulpGrowls
   files:
-  - /Audio/NES/Voice/Doge/dog_growl1.ogg
-  - /Audio/NES/Voice/Doge/dog_growl2.ogg
-  - /Audio/NES/Voice/Doge/dog_growl3.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl1.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl2.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl3.ogg
 
 - type: soundCollection
   id: VulpHeckaetSound
@@ -111,11 +111,11 @@
 - type: speechSounds
   id: Vulpa
   saySound:
-    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp.ogg
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp.ogg
   askSound:
-    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp_ask.ogg
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp_ask.ogg
   exclaimSound:
-    path: /Audio/NES/Voice/Vulpkanin_Talk/vulp_exclaim.ogg
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp_exclaim.ogg
 
 #Спишс блядь
 
