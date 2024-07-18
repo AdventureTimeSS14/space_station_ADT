@@ -112,6 +112,11 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Bubblish
+    understands:
+    - Bubblish
 
 - type: entity
   name: basic slime

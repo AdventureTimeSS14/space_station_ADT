@@ -1,0 +1,13 @@
+- type: trait
+  id: ADTMothAccent
+  name: trait-moth-accent-name
+  description: trait-moth-accent-desc
+  components:
+    - type: MothAccent
+    
+- type: trait
+  id: ADTGermanAccent
+  name: trait-deutsch-accent-name
+  description: trait-deutsch-accent-desc
+  components:
+    - type: DeutschAccent
