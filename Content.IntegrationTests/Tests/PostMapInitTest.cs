@@ -94,14 +94,13 @@ namespace Content.IntegrationTests.Tests
 
             var entManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entManager.System<MapLoaderSystem>();
-            var mapSystem = entManager.System<SharedMapSystem>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var cfg = server.ResolveDependency<IConfigurationManager>();
             Assert.That(cfg.GetCVar(CCVars.GridFill), Is.False);
 
             await server.WaitPost(() =>
             {
-                mapSystem.CreateMap(out var mapId);
+                var mapId = mapManager.CreateMap();
                 try
                 {
 #pragma warning disable NUnit2045
@@ -182,7 +181,6 @@ namespace Content.IntegrationTests.Tests
             var mapManager = server.ResolveDependency<IMapManager>();
             var entManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entManager.System<MapLoaderSystem>();
-            var mapSystem = entManager.System<SharedMapSystem>();
             var protoManager = server.ResolveDependency<IPrototypeManager>();
             var ticker = entManager.EntitySysManager.GetEntitySystem<GameTicker>();
             var shuttleSystem = entManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
@@ -192,7 +190,7 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                mapSystem.CreateMap(out var mapId);
+                var mapId = mapManager.CreateMap();
                 try
                 {
                     ticker.LoadGameMap(protoManager.Index<GameMapPrototype>(mapProto), mapId, null);
@@ -202,7 +200,7 @@ namespace Content.IntegrationTests.Tests
                     throw new Exception($"Failed to load map {mapProto}", ex);
                 }
 
-                mapSystem.CreateMap(out var shuttleMap);
+                var shuttleMap = mapManager.CreateMap();
                 var largest = 0f;
                 EntityUid? targetGrid = null;
                 var memberQuery = entManager.GetEntityQuery<StationMemberComponent>();
@@ -271,7 +269,7 @@ namespace Content.IntegrationTests.Tests
                         .Select(x => x.Job!.Value);
 
                     jobs.ExceptWith(spawnPoints);
-                    Assert.That(jobs, Is.Empty, $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
+                    Assert.That(jobs, Is.Empty,$"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
                 }
 
                 try
@@ -344,7 +342,6 @@ namespace Content.IntegrationTests.Tests
             var resourceManager = server.ResolveDependency<IResourceManager>();
             var protoManager = server.ResolveDependency<IPrototypeManager>();
             var cfg = server.ResolveDependency<IConfigurationManager>();
-            var mapSystem = server.System<SharedMapSystem>();
             Assert.That(cfg.GetCVar(CCVars.GridFill), Is.False);
 
             var gameMaps = protoManager.EnumeratePrototypes<GameMapPrototype>().Select(o => o.MapPath).ToHashSet();
@@ -375,7 +372,7 @@ namespace Content.IntegrationTests.Tests
                 {
                     foreach (var mapName in mapNames)
                     {
-                        mapSystem.CreateMap(out var mapId);
+                        var mapId = mapManager.CreateMap();
                         try
                         {
                             Assert.That(mapLoader.TryLoad(mapId, mapName, out _));

@@ -113,9 +113,7 @@ namespace Content.Client.Communications.UI
             }
 
             EmergencyShuttleButton.Text = Loc.GetString("comms-console-menu-recall-shuttle");
-            var infoText = Loc.GetString($"comms-console-menu-time-remaining",
-            ("time", Owner.Countdown.ToString()));
-            CountdownLabel.SetMessage(infoText);
+            CountdownLabel.SetMessage($"Time remaining\n{Owner.Countdown.ToString()}s");
         }
 
         public override void Close()

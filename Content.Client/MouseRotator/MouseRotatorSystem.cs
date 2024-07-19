@@ -2,6 +2,7 @@
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.Replays.Loading;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -45,19 +46,13 @@ public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
         // only raise event if the cardinal direction has changed
         if (rotator.Simple4DirMode)
         {
-            var eyeRot = _eye.CurrentEye.Rotation; // camera rotation
-            var angleDir = (angle + eyeRot).GetCardinalDir(); // apply GetCardinalDir in the camera frame, not in the world frame
-            if (angleDir == (curRot + eyeRot).GetCardinalDir())
+            var angleDir = angle.GetCardinalDir();
+            if (angleDir == curRot.GetCardinalDir())
                 return;
 
-            var rotation = angleDir.ToAngle() - eyeRot; // convert back to world frame
-            if (rotation >= Math.PI) // convert to [-PI, +PI)
-                rotation -= 2 * Math.PI;
-            else if (rotation < -Math.PI)
-                rotation += 2 * Math.PI;
-            RaisePredictiveEvent(new RequestMouseRotatorRotationEvent
+            RaisePredictiveEvent(new RequestMouseRotatorRotationSimpleEvent()
             {
-                Rotation = rotation
+                Direction = angleDir,
             });
 
             return;

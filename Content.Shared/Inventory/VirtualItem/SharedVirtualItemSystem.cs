@@ -99,7 +99,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
                 if (hand.HeldEntity is not { } held)
                     continue;
 
-                if (held == blockingEnt)
+                if (held == blockingEnt || HasComp<VirtualItemComponent>(held))
                     continue;
 
                 if (!_handsSystem.TryDrop(user, hand))

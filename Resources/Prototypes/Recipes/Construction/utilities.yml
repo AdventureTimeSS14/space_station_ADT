@@ -489,12 +489,12 @@
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/vent.rsi
-    state: vent_passive
+    state: vent_off
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
   - sprite: Structures/Piping/Atmospherics/vent.rsi
-    state: vent_passive
+    state: vent_off
   conditions:
     - !type:NoUnstackableInTile
 
@@ -790,7 +790,7 @@
 # INTERCOM
 - type: construction
   name: intercom
-  id: IntercomAssembly
+  id: IntercomAssesmbly
   graph: Intercom
   startNode: start
   targetNode: intercom

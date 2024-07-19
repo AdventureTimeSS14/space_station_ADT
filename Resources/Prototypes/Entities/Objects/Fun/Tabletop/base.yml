@@ -10,9 +10,6 @@
       setup:
         !type:TabletopEmptySetup
         boardPrototype: Crowbar
-    - type: Tag
-      tags:
-        - TabletopBoard
 
 - type: entity
   id: BaseTabletopPiece # Board piece

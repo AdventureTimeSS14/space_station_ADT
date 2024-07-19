@@ -21,17 +21,17 @@
           path: /Maps/Shuttles/cargo_mayhen.yml
         - type: GridSpawn
           groups:
-            trade: !type:GridSpawnGroup
+            trade:
               addComponents:
                 - type: ProtectedGrid
                 - type: TradeStation
               paths:
                 - /Maps/Shuttles/trading_outpost.yml
-            mining: !type:GridSpawnGroup
+            mining:
               paths:
               - /Maps/Shuttles/corvax_mining.yml
             # Spawn last
-            ruins: !type:GridSpawnGroup
+            ruins:
               hide: true
               nameGrid: true
               minCount: 10

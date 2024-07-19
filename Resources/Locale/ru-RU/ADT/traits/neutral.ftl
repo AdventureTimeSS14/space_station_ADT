@@ -1,5 +1,2 @@
-trait-deutsch-name = Немецкий акцент
-trait-deutsch-desc = Вы говорите как настоящий австрийский художник!
-
-trait-moth-accent-name = Жужащий акцент
-trait-moth-accent-desc = Вам либо нравятся моли, либо вы ботаник
+trait-deutsch-accent-name = Немецкий акцент
+trait-deutsch-accent-desc = Неизвестно, как вы получили этот акцент. Может быть, вы пересмотрели слишком много фильмов о Второй мировой войне?

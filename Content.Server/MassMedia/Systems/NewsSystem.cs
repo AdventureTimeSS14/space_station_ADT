@@ -20,7 +20,6 @@ using Content.Server.Station.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StationRecords;
 using Robust.Shared.Audio.Systems;
-using Content.Server.Chat.Managers;
 
 namespace Content.Server.MassMedia.Systems;
 
@@ -36,7 +35,6 @@ public sealed class NewsSystem : SharedNewsSystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
 
     public override void Initialize()
     {
@@ -162,12 +160,6 @@ public sealed class NewsSystem : SharedNewsSystem
             LogImpact.Medium,
             $"{ToPrettyString(msg.Actor):actor} created news article {article.Title} by {article.Author}: {article.Content}"
             );
-
-        _chatManager.SendAdminAnnouncement(Loc.GetString("news-publish-admin-announcement",
-            ("actor", msg.Actor),
-            ("title", article.Title),
-            ("author", article.Author ?? Loc.GetString("news-read-ui-no-author"))
-            ));
 
         articles.Add(article);
 

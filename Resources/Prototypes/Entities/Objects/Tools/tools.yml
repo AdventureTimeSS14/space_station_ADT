@@ -92,7 +92,7 @@
   name: wrench
   parent: BaseItem
   id: Wrench
-  description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
+  description: 'A common tool for assembly and disassembly. Remember: righty tighty, lefty loosey.'
   components:
   - type: EmitSoundOnLand
     sound:

@@ -19,23 +19,16 @@ public sealed class IgnitionSourceSystem : EntitySystem
 
         SubscribeLocalEvent<IgnitionSourceComponent, IsHotEvent>(OnIsHot);
         SubscribeLocalEvent<ItemToggleHotComponent, ItemToggledEvent>(OnItemToggle);
-        SubscribeLocalEvent<IgnitionSourceComponent, IgnitionEvent>(OnIgnitionEvent);
     }
 
     private void OnIsHot(Entity<IgnitionSourceComponent> ent, ref IsHotEvent args)
     {
-        args.IsHot = ent.Comp.Ignited;
+        SetIgnited((ent.Owner, ent.Comp), args.IsHot);
     }
-
     private void OnItemToggle(Entity<ItemToggleHotComponent> ent, ref ItemToggledEvent args)
     {
         if (TryComp<IgnitionSourceComponent>(ent, out var comp))
             SetIgnited((ent.Owner, comp), args.Activated);
-    }
-
-    private void OnIgnitionEvent(Entity<IgnitionSourceComponent> ent, ref IgnitionEvent args)
-    {
-        SetIgnited((ent.Owner, ent.Comp), args.Ignite);
     }
 
     /// <summary>

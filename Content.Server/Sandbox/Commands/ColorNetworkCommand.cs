@@ -9,19 +9,21 @@ using Robust.Shared.Console;
 namespace Content.Server.Sandbox.Commands
 {
     [AnyCommand]
-    public sealed class ColorNetworkCommand : LocalizedCommands
+    public sealed class ColorNetworkCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entManager = default!;
 
-        public override string Command => "colornetwork";
+        public string Command => "colornetwork";
+        public string Description => Loc.GetString("color-network-command-description");
+        public string Help => Loc.GetString("color-network-command-help-text", ("command",Command));
 
-        public override void Execute(IConsoleShell shell, string argStr, string[] args)
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             var sandboxManager = _entManager.System<SandboxSystem>();
             var adminManager = IoCManager.Resolve<IAdminManager>();
             if (shell.IsClient && (!sandboxManager.IsSandboxEnabled && !adminManager.HasAdminFlag(shell.Player!, AdminFlags.Mapping)))
             {
-                shell.WriteError(Loc.GetString("cmd-colornetwork-no-access"));
+                shell.WriteError("You are not currently able to use mapping commands.");
             }
 
             if (args.Length != 3)

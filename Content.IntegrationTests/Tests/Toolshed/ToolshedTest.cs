@@ -36,18 +36,16 @@ public abstract class ToolshedTest : IInvocationContext
         await TearDown();
     }
 
-    protected virtual Task TearDown()
+    protected virtual async Task TearDown()
     {
         Assert.That(_expectedErrors, Is.Empty);
         ClearErrors();
-
-        return Task.CompletedTask;
     }
 
     [SetUp]
     public virtual async Task Setup()
     {
-        Pair = await PoolManager.GetServerClient(new PoolSettings { Connected = Connected });
+        Pair = await PoolManager.GetServerClient(new PoolSettings {Connected = Connected});
         Server = Pair.Server;
 
         if (Connected)
@@ -144,7 +142,7 @@ public abstract class ToolshedTest : IInvocationContext
                 );
         }
 
-    done:
+        done:
         _errors.Add(err);
     }
 

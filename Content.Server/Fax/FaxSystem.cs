@@ -300,9 +300,8 @@ public sealed class FaxSystem : EntitySystem
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampStateData, out string? stampState);
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampedByData, out List<StampDisplayInfo>? stampedBy);
                     args.Data.TryGetValue(FaxConstants.FaxPaperPrototypeData, out string? prototypeId);
-                    args.Data.TryGetValue(FaxConstants.FaxPaperLockedData, out bool? locked);
 
-                    var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false);
+                    var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy);
                     Receive(uid, printout, args.SenderAddress);
 
                     break;
@@ -474,8 +473,7 @@ public sealed class FaxSystem : EntitySystem
                                        labelComponent?.CurrentLabel,
                                        metadata.EntityPrototype?.ID ?? DefaultPaperPrototypeId,
                                        paper.StampState,
-                                       paper.StampedBy,
-                                       paper.EditingDisabled);
+                                       paper.StampedBy);
 
         component.PrintingQueue.Enqueue(printout);
         component.SendTimeoutRemaining += component.SendTimeout;
@@ -524,7 +522,6 @@ public sealed class FaxSystem : EntitySystem
             { FaxConstants.FaxPaperNameData, nameMod?.BaseName ?? metadata.EntityName },
             { FaxConstants.FaxPaperLabelData, labelComponent?.CurrentLabel },
             { FaxConstants.FaxPaperContentData, paper.Content },
-            { FaxConstants.FaxPaperLockedData, paper.EditingDisabled },
         };
 
         if (metadata.EntityPrototype != null)
@@ -601,8 +598,6 @@ public sealed class FaxSystem : EntitySystem
                     _paperSystem.TryStamp(printed, stamp, printout.StampState);
                 }
             }
-
-            paper.EditingDisabled = printout.Locked;
         }
 
         _metaData.SetEntityName(printed, printout.Name);

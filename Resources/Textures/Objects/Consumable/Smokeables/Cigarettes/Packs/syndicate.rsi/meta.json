@@ -1,7 +1,7 @@
-﻿{
+{
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TGstation at commit https://github.com/tgstation/tgstation/commit/35484728f1fd4217fba7f9c8a6fcf2283212e014",
+  "copyright": "Modified from sprite taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/f18aa05685f13c8b424867e4219a1e727019c026",
   "size": {
     "x": 32,
     "y": 32

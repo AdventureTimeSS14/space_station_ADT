@@ -26,7 +26,7 @@ namespace Content.IntegrationTests.Tests.Commands
 
             var configManager = server.ResolveDependency<IConfigurationManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
-            var gameTicker = entityManager.System<GameTicker>();
+            var gameTicker = entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
 
             await pair.RunTicksSync(5);
 

@@ -1,7 +1,6 @@
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using System.Text.Json.Serialization;
-using Content.Shared.EntityEffects;
 
 namespace Content.Server.Corvax.GuideGenerator;
 public sealed class ReagentEffectEntry
@@ -12,7 +11,7 @@ public sealed class ReagentEffectEntry
     [JsonPropertyName("description")]
     public string Description { get; }
 
-    public ReagentEffectEntry(EntityEffect proto)
+    public ReagentEffectEntry(ReagentEffect proto)
     {
         var prototype = IoCManager.Resolve<IPrototypeManager>();
         var entSys = IoCManager.Resolve<IEntitySystemManager>();

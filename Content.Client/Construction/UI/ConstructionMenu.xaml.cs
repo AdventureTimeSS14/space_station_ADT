@@ -22,7 +22,7 @@ namespace Content.Client.Construction.UI
         // It isn't optimal to expose UI controls like this, but the UI control design is
         // questionable so it can't be helped.
         string[] Categories { get; set; }
-        OptionButton OptionCategories { get; }
+        OptionButton Category { get; }
 
         bool EraseButtonPressed { get; set; }
         bool BuildButtonPressed { get; set; }
@@ -32,13 +32,12 @@ namespace Content.Client.Construction.UI
 
         event EventHandler<(string search, string catagory)> PopulateRecipes;
         event EventHandler<ItemList.Item?> RecipeSelected;
-        event EventHandler RecipeFavorited;
         event EventHandler<bool> BuildButtonToggled;
         event EventHandler<bool> EraseButtonToggled;
         event EventHandler ClearAllGhosts;
 
         void ClearRecipeInfo();
-        void SetRecipeInfo(string name, string description, Texture iconTexture, bool isItem, bool isFavorite);
+        void SetRecipeInfo(string name, string description, Texture iconTexture, bool isItem);
         void ResetPlacement();
 
         #region Window Control
@@ -85,12 +84,10 @@ namespace Content.Client.Construction.UI
             Recipes.OnItemSelected += obj => RecipeSelected?.Invoke(this, obj.ItemList[obj.ItemIndex]);
             Recipes.OnItemDeselected += _ => RecipeSelected?.Invoke(this, null);
 
-            SearchBar.OnTextChanged += _ =>
-                PopulateRecipes?.Invoke(this, (SearchBar.Text, Categories[OptionCategories.SelectedId]));
-            OptionCategories.OnItemSelected += obj =>
+            SearchBar.OnTextChanged += _ => PopulateRecipes?.Invoke(this, (SearchBar.Text, Categories[Category.SelectedId]));
+            Category.OnItemSelected += obj =>
             {
-                OptionCategories.SelectId(obj.Id);
-                SearchBar.SetText(string.Empty);
+                Category.SelectId(obj.Id);
                 PopulateRecipes?.Invoke(this, (SearchBar.Text, Categories[obj.Id]));
             };
 
@@ -100,14 +97,12 @@ namespace Content.Client.Construction.UI
             ClearButton.OnPressed += _ => ClearAllGhosts?.Invoke(this, EventArgs.Empty);
             EraseButton.Text = Loc.GetString("construction-menu-eraser-mode");
             EraseButton.OnToggled += args => EraseButtonToggled?.Invoke(this, args.Pressed);
-
-            FavoriteButton.OnPressed += args => RecipeFavorited?.Invoke(this, EventArgs.Empty);
         }
 
         public event EventHandler? ClearAllGhosts;
+
         public event EventHandler<(string search, string catagory)>? PopulateRecipes;
         public event EventHandler<ItemList.Item?>? RecipeSelected;
-        public event EventHandler? RecipeFavorited;
         public event EventHandler<bool>? BuildButtonToggled;
         public event EventHandler<bool>? EraseButtonToggled;
 
@@ -117,17 +112,13 @@ namespace Content.Client.Construction.UI
             EraseButton.Pressed = false;
         }
 
-        public void SetRecipeInfo(
-            string name, string description, Texture iconTexture, bool isItem, bool isFavorite)
+        public void SetRecipeInfo(string name, string description, Texture iconTexture, bool isItem)
         {
             BuildButton.Disabled = false;
             BuildButton.Text = Loc.GetString(isItem ? "construction-menu-place-ghost" : "construction-menu-craft");
             TargetName.SetMessage(name);
             TargetDesc.SetMessage(description);
             TargetTexture.Texture = iconTexture;
-            FavoriteButton.Visible = true;
-            FavoriteButton.Text = Loc.GetString(
-                            isFavorite ? "construction-add-favorite-button" : "construction-remove-from-favorite-button");
         }
 
         public void ClearRecipeInfo()
@@ -136,7 +127,6 @@ namespace Content.Client.Construction.UI
             TargetName.SetMessage(string.Empty);
             TargetDesc.SetMessage(string.Empty);
             TargetTexture.Texture = null;
-            FavoriteButton.Visible = false;
             RecipeStepList.Clear();
         }
     }

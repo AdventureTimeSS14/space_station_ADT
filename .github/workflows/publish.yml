@@ -31,7 +31,7 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         echo "HOST *" > ~/.ssh/config
         echo "StrictHostKeyChecking no" >> ~/.ssh/config
-        git clone git@github.com:corvax-nexus/secrets.git Secrets
+        git -c submodule.Secrets.update=checkout submodule update --init
         cp -R Secrets/Resources/Prototypes Resources/Prototypes/CorvaxSecrets
         cp -R Secrets/Resources/ServerPrototypes Resources/Prototypes/CorvaxSecretsServer
         cp -R Secrets/Resources/Locale Resources/Locale/ru-RU/corvax-secrets

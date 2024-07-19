@@ -93,7 +93,6 @@
   components:
   - type: ImmovableRod
     randomizeVelocity: false
-    maxSpeed: 0
 
 - type: entity
   parent: ImmovableRodKeepTilesStill

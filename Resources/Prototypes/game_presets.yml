@@ -46,6 +46,7 @@
   description: greenshift-description
   rules:
   - BasicRoundstartVariation
+  - GameRuleMeteorScheduler
 
 - type: gamePreset
   id: Secret

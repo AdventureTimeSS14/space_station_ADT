@@ -38,15 +38,14 @@ public sealed class MaterialArbitrageTest
         await server.WaitIdleAsync();
 
         var entManager = server.ResolveDependency<IEntityManager>();
+        var sysManager = server.ResolveDependency<IEntitySystemManager>();
         var mapManager = server.ResolveDependency<IMapManager>();
+        Assert.That(mapManager.IsMapInitialized(testMap.MapId));
+
         var protoManager = server.ResolveDependency<IPrototypeManager>();
-
-        var pricing = entManager.System<PricingSystem>();
-        var stackSys = entManager.System<StackSystem>();
-        var mapSystem = server.System<SharedMapSystem>();
+        var pricing = sysManager.GetEntitySystem<PricingSystem>();
+        var stackSys = sysManager.GetEntitySystem<StackSystem>();
         var compFact = server.ResolveDependency<IComponentFactory>();
-
-        Assert.That(mapSystem.IsInitialized(testMap.MapId));
 
         var constructionName = compFact.GetComponentName(typeof(ConstructionComponent));
         var compositionName = compFact.GetComponentName(typeof(PhysicalCompositionComponent));
@@ -68,7 +67,7 @@ public sealed class MaterialArbitrageTest
         Dictionary<string, ConstructionComponent> constructionRecipes = new();
         foreach (var proto in protoManager.EnumeratePrototypes<EntityPrototype>())
         {
-            if (proto.HideSpawnMenu || proto.Abstract || pair.IsTestPrototype(proto))
+            if (proto.NoSpawn || proto.Abstract || pair.IsTestPrototype(proto))
                 continue;
 
             if (!proto.Components.TryGetValue(constructionName, out var destructible))
@@ -128,7 +127,7 @@ public sealed class MaterialArbitrageTest
         // Here we get the set of entities/materials spawned when destroying an entity.
         foreach (var proto in protoManager.EnumeratePrototypes<EntityPrototype>())
         {
-            if (proto.HideSpawnMenu || proto.Abstract || pair.IsTestPrototype(proto))
+            if (proto.NoSpawn || proto.Abstract || pair.IsTestPrototype(proto))
                 continue;
 
             if (!proto.Components.TryGetValue(destructibleName, out var destructible))
@@ -299,7 +298,7 @@ public sealed class MaterialArbitrageTest
         Dictionary<string, PhysicalCompositionComponent> physicalCompositions = new();
         foreach (var proto in protoManager.EnumeratePrototypes<EntityPrototype>())
         {
-            if (proto.HideSpawnMenu || proto.Abstract || pair.IsTestPrototype(proto))
+            if (proto.NoSpawn || proto.Abstract || pair.IsTestPrototype(proto))
                 continue;
 
             if (!proto.Components.TryGetValue(compositionName, out var composition))

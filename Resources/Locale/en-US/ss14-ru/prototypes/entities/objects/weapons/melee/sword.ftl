@@ -1,5 +1,3 @@
-ent-BaseSword = { ent-BaseItem }
-    .desc = { ent-BaseItem.desc }
 ent-CaptainSabre = captain's sabre
     .desc = A ceremonial weapon belonging to the captain of the station.
 ent-Katana = katana

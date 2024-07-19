@@ -8,8 +8,6 @@ namespace Content.Shared.Traits;
 [Prototype]
 public sealed partial class TraitCategoryPrototype : IPrototype
 {
-    public const string Default = "Default";
-
     [ViewVariables]
     [IdDataField]
     public string ID { get; private set; } = default!;
@@ -21,8 +19,8 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     public LocId Name { get; private set; } = string.Empty;
 
     /// <summary>
-    ///     The maximum number of traits that can be taken in this category.
+    ///     The maximum number of traits that can be taken in this category. If -1, you can take as many traits as you like.
     /// </summary>
     [DataField]
-    public int? MaxTraitPoints;
+    public int MaxTraitPoints = -1;
 }

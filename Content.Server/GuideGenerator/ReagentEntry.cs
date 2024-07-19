@@ -3,8 +3,6 @@ using System.Text.Json.Serialization;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Corvax.GuideGenerator;
-using Content.Shared.EntityEffects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.GuideGenerator;
 
@@ -91,7 +89,7 @@ public sealed class ReactionEntry
 
     [JsonIgnore]
     // Corvax-Wiki-End
-    public List<EntityEffect> Effects { get; }
+    public List<ReagentEffect> Effects { get; }
 
     public ReactionEntry(ReactionPrototype proto)
     {
@@ -107,7 +105,7 @@ public sealed class ReactionEntry
                 .ToDictionary(x => x.Key, x => x.Value);
         Effects = proto.Effects;
 
-        // Corvax-Wiki-Start
+        // Corvax-Wiki-Start    
         ExportEffects = proto.Effects.Select(x => new ReagentEffectEntry(x)).ToList();
         MinTemp = proto.MinimumTemperature;
         MaxTemp = proto.MaximumTemperature;

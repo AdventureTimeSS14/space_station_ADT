@@ -1,9 +1,10 @@
+using Content.Server.Chemistry.ReagentEffects;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using Content.Server.EntityEffects.Effects;
+using static Content.Server.GuideGenerator.ChemistryJsonGenerator;
 
 namespace Content.Server.Corvax.GuideGenerator;
 public sealed class HealthChangeReagentsJsonGenerator

@@ -38,11 +38,11 @@ public sealed partial class HandsComponent : Component
     public bool DisableExplosionRecursion = false;
 
     /// <summary>
-    ///     Modifies the speed at which items are thrown.
+    ///     The amount of throw impulse per distance the player is from the throw target.
     /// </summary>
-    [DataField]
+    [DataField("throwForceMultiplier")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseThrowspeed { get; set; } = 10f;
+    public float ThrowForceMultiplier { get; set; } = 10f; //should be tuned so that a thrown item lands about under the player's cursor
 
     /// <summary>
     ///     Distance after which longer throw targets stop increasing throw impulse.

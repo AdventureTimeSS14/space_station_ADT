@@ -1,11 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Humanoid.Components;
+using Content.Shared.Coordinates;
+using Content.Shared.Prototypes;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Log;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 
@@ -43,7 +47,7 @@ namespace Content.IntegrationTests.Tests
 
                 foreach (var protoId in protoIds)
                 {
-                    mapSystem.CreateMap(out var mapId);
+                    var mapId = mapManager.CreateMap();
                     var grid = mapManager.CreateGridEntity(mapId);
                     // TODO: Fix this better in engine.
                     mapSystem.SetTile(grid.Owner, grid.Comp, Vector2i.Zero, new Tile(1));
@@ -151,7 +155,6 @@ namespace Content.IntegrationTests.Tests
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var sEntMan = server.ResolveDependency<IEntityManager>();
-            var mapSys = server.System<SharedMapSystem>();
 
             Assert.That(cfg.GetCVar(CVars.NetPVS), Is.False);
 
@@ -167,7 +170,7 @@ namespace Content.IntegrationTests.Tests
             {
                 foreach (var protoId in protoIds)
                 {
-                    mapSys.CreateMap(out var mapId);
+                    var mapId = mapManager.CreateMap();
                     var grid = mapManager.CreateGridEntity(mapId);
                     var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
                     foreach (var (_, component) in sEntMan.GetNetComponents(ent))
@@ -224,7 +227,6 @@ namespace Content.IntegrationTests.Tests
             var settings = new PoolSettings { Connected = true, Dirty = true };
             await using var pair = await PoolManager.GetServerClient(settings);
             var mapManager = pair.Server.ResolveDependency<IMapManager>();
-            var mapSys = pair.Server.System<SharedMapSystem>();
             var server = pair.Server;
             var client = pair.Client;
 
@@ -254,7 +256,7 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                mapSys.CreateMap(out mapId);
+               mapId = mapManager.CreateMap();
             });
 
             var coords = new MapCoordinates(Vector2.Zero, mapId);

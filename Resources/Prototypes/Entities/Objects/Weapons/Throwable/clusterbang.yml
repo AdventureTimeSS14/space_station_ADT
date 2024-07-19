@@ -96,7 +96,6 @@
     damage:
       types:
         Blunt: 10
-  - type: LandAtCursor
   - type: Damageable
     damageContainer: Inorganic
   - type: EmitSoundOnTrigger
@@ -225,7 +224,6 @@
     damage:
       types:
         Blunt: 10
-  - type: LandAtCursor
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"

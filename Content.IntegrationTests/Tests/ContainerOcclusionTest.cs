@@ -43,11 +43,11 @@ namespace Content.IntegrationTests.Tests
 
             EntityUid dummy = default;
             var mapManager = server.ResolveDependency<IMapManager>();
-            var map = await pair.CreateTestMap();
+            var mapId = mapManager.CreateMap();
 
             await server.WaitPost(() =>
             {
-                var pos = new MapCoordinates(Vector2.Zero, map.MapId);
+                var pos = new MapCoordinates(Vector2.Zero, mapId);
                 var entStorage = serverEntManager.EntitySysManager.GetEntitySystem<EntityStorageSystem>();
                 var container = serverEntManager.SpawnEntity("ContainerOcclusionA", pos);
                 dummy = serverEntManager.SpawnEntity("ContainerOcclusionDummy", pos);
@@ -85,12 +85,11 @@ namespace Content.IntegrationTests.Tests
 
             EntityUid dummy = default;
             var mapManager = server.ResolveDependency<IMapManager>();
-
-            var map = await pair.CreateTestMap();
+            var mapId = mapManager.CreateMap();
 
             await server.WaitPost(() =>
             {
-                var pos = new MapCoordinates(Vector2.Zero, map.MapId);
+                var pos = new MapCoordinates(Vector2.Zero, mapId);
                 var entStorage = serverEntManager.EntitySysManager.GetEntitySystem<EntityStorageSystem>();
                 var container = serverEntManager.SpawnEntity("ContainerOcclusionB", pos);
                 dummy = serverEntManager.SpawnEntity("ContainerOcclusionDummy", pos);
@@ -128,12 +127,11 @@ namespace Content.IntegrationTests.Tests
 
             EntityUid dummy = default;
             var mapManager = server.ResolveDependency<IMapManager>();
-
-            var map = await pair.CreateTestMap();
+            var mapId = mapManager.CreateMap();
 
             await server.WaitPost(() =>
             {
-                var pos = new MapCoordinates(Vector2.Zero, map.MapId);
+                var pos = new MapCoordinates(Vector2.Zero, mapId);
                 var entStorage = serverEntManager.EntitySysManager.GetEntitySystem<EntityStorageSystem>();
                 var containerA = serverEntManager.SpawnEntity("ContainerOcclusionA", pos);
                 var containerB = serverEntManager.SpawnEntity("ContainerOcclusionB", pos);

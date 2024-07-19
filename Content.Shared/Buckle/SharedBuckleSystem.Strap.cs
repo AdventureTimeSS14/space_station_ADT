@@ -57,7 +57,7 @@ public abstract partial class SharedBuckleSystem
     {
         foreach (var entity in strapComp.BuckledEntities.ToArray())
         {
-            Unbuckle(entity, entity);
+            TryUnbuckle(entity, entity, true);
         }
     }
 

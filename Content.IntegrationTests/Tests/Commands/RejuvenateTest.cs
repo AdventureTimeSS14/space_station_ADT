@@ -37,9 +37,9 @@ namespace Content.IntegrationTests.Tests.Commands
             var server = pair.Server;
             var entManager = server.ResolveDependency<IEntityManager>();
             var prototypeManager = server.ResolveDependency<IPrototypeManager>();
-            var mobStateSystem = entManager.System<MobStateSystem>();
-            var damSystem = entManager.System<DamageableSystem>();
-            var rejuvenateSystem = entManager.System<RejuvenateSystem>();
+            var mobStateSystem = entManager.EntitySysManager.GetEntitySystem<MobStateSystem>();
+            var damSystem = entManager.EntitySysManager.GetEntitySystem<DamageableSystem>();
+            var rejuvenateSystem = entManager.EntitySysManager.GetEntitySystem<RejuvenateSystem>();
 
             await server.WaitAssertion(() =>
             {

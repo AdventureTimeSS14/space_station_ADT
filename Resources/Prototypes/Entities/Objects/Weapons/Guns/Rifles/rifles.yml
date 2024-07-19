@@ -217,4 +217,3 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
-  - type: PacifismAllowedGun

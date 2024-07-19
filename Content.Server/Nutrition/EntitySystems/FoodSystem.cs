@@ -99,9 +99,6 @@ public sealed class FoodSystem : EntitySystem
         args.Handled = result.Handled;
     }
 
-    /// <summary>
-    /// Tries to feed the food item to the target entity
-    /// </summary>
     public (bool Success, bool Handled) TryFeed(EntityUid user, EntityUid target, EntityUid food, FoodComponent foodComp)
     {
         //Suppresses eating yourself and alive mobs
@@ -192,9 +189,9 @@ public sealed class FoodSystem : EntitySystem
             BreakOnDamage = true,
             MovementThreshold = 0.01f,
             DistanceThreshold = MaxFeedDistance,
-            // do-after will stop if item is dropped when trying to feed someone else
-            // or if the item started out in the user's own hands
-            NeedHand = forceFeed || _hands.IsHolding(user, food),
+            // Mice and the like can eat without hands.
+            // TODO maybe set this based on some CanEatWithoutHands event or component?
+            NeedHand = forceFeed,
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);

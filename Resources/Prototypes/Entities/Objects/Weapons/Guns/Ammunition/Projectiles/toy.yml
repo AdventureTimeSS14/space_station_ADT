@@ -31,4 +31,3 @@
     removalTime: .2
   - type: ThrowingAngle
     angle: 180
-  - type: LandAtCursor

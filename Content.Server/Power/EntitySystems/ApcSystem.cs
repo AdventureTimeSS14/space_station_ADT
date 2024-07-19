@@ -32,7 +32,7 @@ public sealed class ApcSystem : EntitySystem
         UpdatesAfter.Add(typeof(PowerNetSystem));
 
         SubscribeLocalEvent<ApcComponent, BoundUIOpenedEvent>(OnBoundUiOpen);
-        SubscribeLocalEvent<ApcComponent, ComponentStartup>(OnApcStartup);
+        SubscribeLocalEvent<ApcComponent, MapInitEvent>(OnApcInit);
         SubscribeLocalEvent<ApcComponent, ChargeChangedEvent>(OnBatteryChargeChanged);
         SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerMessage>(OnToggleMainBreaker);
         SubscribeLocalEvent<ApcComponent, GotEmaggedEvent>(OnEmagged);
@@ -50,11 +50,6 @@ public sealed class ApcSystem : EntitySystem
                 apc.LastUiUpdate = _gameTiming.CurTime;
                 UpdateUIState(uid, apc, battery);
             }
-
-            if (apc.NeedStateUpdate)
-            {
-                UpdateApcState(uid, apc, battery);
-            }
         }
     }
 
@@ -64,11 +59,9 @@ public sealed class ApcSystem : EntitySystem
         UpdateApcState(uid, component);
     }
 
-    private static void OnApcStartup(EntityUid uid, ApcComponent component, ComponentStartup args)
+    private void OnApcInit(EntityUid uid, ApcComponent component, MapInitEvent args)
     {
-        // We cannot update immediately, as various network/battery state is not valid yet.
-        // Defer until the next tick.
-        component.NeedStateUpdate = true;
+        UpdateApcState(uid, component);
     }
 
     //Update the HasAccess var for UI to read
@@ -126,18 +119,15 @@ public sealed class ApcSystem : EntitySystem
         if (!Resolve(uid, ref apc, ref battery, false))
             return;
 
-        if (apc.LastChargeStateTime == null || apc.LastChargeStateTime + ApcComponent.VisualsChangeDelay < _gameTiming.CurTime)
+        var newState = CalcChargeState(uid, battery.NetworkBattery);
+        if (newState != apc.LastChargeState && apc.LastChargeStateTime + ApcComponent.VisualsChangeDelay < _gameTiming.CurTime)
         {
-            var newState = CalcChargeState(uid, battery.NetworkBattery);
-            if (newState != apc.LastChargeState)
-            {
-                apc.LastChargeState = newState;
-                apc.LastChargeStateTime = _gameTiming.CurTime;
+            apc.LastChargeState = newState;
+            apc.LastChargeStateTime = _gameTiming.CurTime;
 
-                if (TryComp(uid, out AppearanceComponent? appearance))
-                {
-                    _appearance.SetData(uid, ApcVisuals.ChargeState, newState, appearance);
-                }
+            if (TryComp(uid, out AppearanceComponent? appearance))
+            {
+                _appearance.SetData(uid, ApcVisuals.ChargeState, newState, appearance);
             }
         }
 
@@ -147,8 +137,6 @@ public sealed class ApcSystem : EntitySystem
             apc.LastExternalState = extPowerState;
             UpdateUIState(uid, apc, battery);
         }
-
-        apc.NeedStateUpdate = false;
     }
 
     public void UpdateUIState(EntityUid uid,

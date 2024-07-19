@@ -32,7 +32,7 @@ public abstract class MovementTest : InteractionTest
 
         for (var i = -Tiles; i <= Tiles; i++)
         {
-            await SetTile(Plating, SEntMan.GetNetCoordinates(pCoords.Offset(new Vector2(i, 0))), MapData.Grid);
+            await SetTile(Plating, SEntMan.GetNetCoordinates(pCoords.Offset(new Vector2(i, 0))), MapData.Grid.Comp);
         }
         AssertGridCount(1);
 

@@ -5,7 +5,6 @@ using System.Text.Json.Serialization;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
-using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
@@ -42,8 +41,8 @@ public sealed class ChemistryJsonGenerator
             NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals, // Corvax-Wiki
             Converters =
             {
-                new UniversalJsonConverter<EntityEffect>(),
-                new UniversalJsonConverter<EntityEffectCondition>(),
+                new UniversalJsonConverter<ReagentEffect>(),
+                new UniversalJsonConverter<ReagentEffectCondition>(),
                 new UniversalJsonConverter<ReagentEffectsEntry>(),
                 new UniversalJsonConverter<DamageSpecifier>(),
                 new FixedPointJsonConverter()

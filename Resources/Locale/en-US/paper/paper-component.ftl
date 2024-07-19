@@ -12,5 +12,3 @@ paper-component-action-stamp-paper-other = {CAPITALIZE(THE($user))} stamps {THE(
 paper-component-action-stamp-paper-self = You stamp {THE($target)} with {THE($stamp)}.
 
 paper-ui-save-button = Save ({$keybind})
-
-paper-tamper-proof-modified-message = This page was written using tamper-proof ink.

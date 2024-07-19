@@ -153,7 +153,7 @@ namespace Content.Shared.Throwing
                     LandComponent(uid, thrown, physics, thrown.PlayLandSound);
                 }
 
-                var stopThrowTime = thrown.LandTime ?? thrown.ThrownTime;
+                var stopThrowTime = (thrown.LandTime ?? thrown.ThrownTime) + TimeSpan.FromSeconds(ThrowingSystem.FlyTime);
                 if (stopThrowTime <= _gameTiming.CurTime)
                 {
                     StopThrow(uid, thrown);

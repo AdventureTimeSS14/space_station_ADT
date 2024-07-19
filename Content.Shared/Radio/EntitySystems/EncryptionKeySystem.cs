@@ -31,7 +31,6 @@ public sealed partial class EncryptionKeySystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedWiresSystem _wires = default!;
 
     public override void Initialize()
     {
@@ -151,7 +150,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             return;
         }
 
-        if (!_wires.IsPanelOpen(uid))
+        if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
         {
             _popup.PopupClient(Loc.GetString("encryption-keys-panel-locked"), uid, args.User);
             return;
@@ -185,15 +184,8 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
         if (component.Channels.Count > 0)
         {
-            using (args.PushGroup(nameof(EncryptionKeyComponent)))
-            {
-                args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
-                AddChannelsExamine(component.Channels,
-                    component.DefaultChannel,
-                    args,
-                    _protoManager,
-                    "examine-encryption-channel");
-            }
+            args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
+            AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
         }
     }
 

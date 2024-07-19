@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server.Salvage;
 using Content.Shared.CCVar;
 using Content.Shared.Salvage;
 using Robust.Server.GameObjects;
@@ -27,7 +28,6 @@ public sealed class SalvageTest
         var mapManager = server.ResolveDependency<IMapManager>();
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
         var cfg = server.ResolveDependency<IConfigurationManager>();
-        var mapSystem = entManager.System<SharedMapSystem>();
         Assert.That(cfg.GetCVar(CCVars.GridFill), Is.False);
 
         await server.WaitPost(() =>
@@ -36,7 +36,7 @@ public sealed class SalvageTest
             {
                 var mapFile = salvage.MapPath;
 
-                mapSystem.CreateMap(out var mapId);
+                var mapId = mapManager.CreateMap();
                 try
                 {
                     Assert.That(mapLoader.TryLoad(mapId, mapFile.ToString(), out var roots));

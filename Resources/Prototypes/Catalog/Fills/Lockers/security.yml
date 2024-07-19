@@ -19,7 +19,6 @@
       - id: DoorRemoteArmory
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
-      - id: BookSpaceLaw
 
 - type: entity
   id: LockerWardenFilled
@@ -43,7 +42,6 @@
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
-      - id: BookSpaceLaw
 
 - type: entity
   id: LockerSecurityFilled
@@ -72,8 +70,6 @@
         prob: 0.2
       - id: HoloprojectorSecurity
         prob: 0.6
-      - id: BookSpaceLaw
-        prob: 0.5
 
 - type: entity
   id: LockerBrigmedicFilled

@@ -1,5 +1,5 @@
 ﻿using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Chat.TypingIndicator;
 
@@ -14,6 +14,7 @@ public sealed partial class TypingIndicatorComponent : Component
     /// <summary>
     ///     Prototype id that store all visual info about typing indicator.
     /// </summary>
-    [DataField("proto")]
-    public ProtoId<TypingIndicatorPrototype> TypingIndicatorPrototype = "default";
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("proto", customTypeSerializer: typeof(PrototypeIdSerializer<TypingIndicatorPrototype>))]
+    public string Prototype = SharedTypingIndicatorSystem.InitialIndicatorId;
 }

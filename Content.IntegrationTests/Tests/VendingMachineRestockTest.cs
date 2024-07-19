@@ -111,7 +111,6 @@ namespace Content.IntegrationTests.Tests
             await server.WaitIdleAsync();
 
             var prototypeManager = server.ResolveDependency<IPrototypeManager>();
-            var compFact = server.ResolveDependency<IComponentFactory>();
 
             await server.WaitAssertion(() =>
             {
@@ -134,7 +133,7 @@ namespace Content.IntegrationTests.Tests
                 // Collect all the prototypes with StorageFills referencing those entities.
                 foreach (var proto in prototypeManager.EnumeratePrototypes<EntityPrototype>())
                 {
-                    if (!proto.TryGetComponent<StorageFillComponent>(out var storage, compFact))
+                    if (!proto.TryGetComponent<StorageFillComponent>(out var storage))
                         continue;
 
                     List<string> restockStore = new();

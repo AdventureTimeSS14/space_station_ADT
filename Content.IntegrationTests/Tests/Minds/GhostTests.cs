@@ -14,7 +14,7 @@ namespace Content.IntegrationTests.Tests.Minds;
 [TestFixture]
 public sealed class GhostTests
 {
-    private struct GhostTestData
+    struct GhostTestData
     {
         public IEntityManager SEntMan;
         public Robust.Server.Player.IPlayerManager SPlayerMan;
@@ -23,10 +23,10 @@ public sealed class GhostTests
 
         public TestPair Pair = default!;
 
-        public readonly TestMapData MapData => Pair.TestMap!;
+        public TestMapData MapData => Pair.TestMap!;
 
-        public readonly RobustIntegrationTest.ServerIntegrationInstance Server => Pair.Server;
-        public readonly RobustIntegrationTest.ClientIntegrationInstance Client => Pair.Client;
+        public RobustIntegrationTest.ServerIntegrationInstance Server => Pair.Server;
+        public RobustIntegrationTest.ClientIntegrationInstance Client => Pair.Client;
 
         /// <summary>
         /// Initial player coordinates. Note that this does not necessarily correspond to the position of the
@@ -47,16 +47,15 @@ public sealed class GhostTests
 
     private async Task<GhostTestData> SetupData()
     {
-        var data = new GhostTestData
+        var data = new GhostTestData();
+
+        // Client is needed to create a session for the ghost system. Creating a dummy session was too difficult.
+        data.Pair = await PoolManager.GetServerClient(new PoolSettings
         {
-            // Client is needed to create a session for the ghost system. Creating a dummy session was too difficult.
-            Pair = await PoolManager.GetServerClient(new PoolSettings
-            {
-                DummyTicker = false,
-                Connected = true,
-                Dirty = true
-            })
-        };
+            DummyTicker = false,
+            Connected = true,
+            Dirty = true
+        });
 
         data.SEntMan = data.Pair.Server.ResolveDependency<IServerEntityManager>();
         data.SPlayerMan = data.Pair.Server.ResolveDependency<Robust.Server.Player.IPlayerManager>();
@@ -65,8 +64,7 @@ public sealed class GhostTests
 
         // Setup map.
         await data.Pair.CreateTestMap();
-        var test = data.MapData.GridCoords.Offset(new Vector2(0.5f, 0.5f));
-        data.PlayerCoords = data.SEntMan.GetNetCoordinates(data.STransformSys.WithEntityId(data.MapData.GridCoords.Offset(new Vector2(0.5f, 0.5f)), data.MapData.MapUid));
+        data.PlayerCoords = data.SEntMan.GetNetCoordinates(data.MapData.GridCoords.Offset(new Vector2(0.5f, 0.5f)).WithEntityId(data.MapData.MapUid, data.STransformSys, data.SEntMan));
 
         if (data.Client.Session == null)
             Assert.Fail("No player");
