@@ -2392,9 +2392,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,0.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 432
     components:
     - type: Transform
@@ -2797,9 +2794,6 @@ entities:
     - type: Transform
       pos: -2.5,12.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
 - proto: CrateChemistrySupplies
   entities:
   - uid: 980
@@ -3151,9 +3145,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,6.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 99
     components:
     - type: Transform
@@ -4964,9 +4955,6 @@ entities:
     - type: Transform
       pos: -4.5,12.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 439
     components:
     - type: Transform
@@ -5558,9 +5546,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,9.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 51
     components:
     - type: Transform
@@ -5589,9 +5574,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-8.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 71
     components:
     - type: Transform
@@ -5701,9 +5683,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-2.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 158
     components:
     - type: Transform
@@ -5755,9 +5734,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-4.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 200
     components:
     - type: Transform
@@ -5881,9 +5857,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-4.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 353
     components:
     - type: Transform
@@ -5956,9 +5929,6 @@ entities:
     - type: Transform
       pos: -0.5,-5.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 452
     components:
     - type: Transform
@@ -6067,18 +6037,12 @@ entities:
     - type: Transform
       pos: 1.5,10.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 603
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,-9.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 608
     components:
     - type: Transform
@@ -6132,9 +6096,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,-4.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 725
     components:
     - type: Transform
@@ -6208,9 +6169,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-5.5
       parent: 732
-    - type: Followed
-      following:
-      - invalid
   - uid: 382
     components:
     - type: Transform
