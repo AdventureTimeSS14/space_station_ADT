@@ -14,6 +14,8 @@ ERTSpawnerLeader: null
 ERTSpawnerMedical: null
 ERTSpawnerSrcurity: null
 ERTSpawnerJanitor: null
+ERTSpawnerCBURN: null
+
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
 ClothingHeadHelmetHelmetOld: ClothingHeadHelmetBasic
