@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingOuterHardsuitBasic
+  id: ADTClothingOuterERTRiotHardsuit
+  name: riot ERT helmet
+  description: The cheapest ERT hardsuit choice, designed especially for economy and anti-riot actions
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/riotert.yml
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/riotert.yml
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitRiotERT
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9

@@ -92033,7 +92033,7 @@ entities:
     - type: Transform
       pos: 17.204914,19.78829
       parent: 2
-- proto: ERTSpawnerEngineering
+- proto: Ash
   entities:
   - uid: 28060
     components:
@@ -92042,7 +92042,7 @@ entities:
       parent: 27712
     - type: DeviceLinkSink
       invokeCounter: 1
-- proto: ERTSpawnerLeader
+- proto: Ash
   entities:
   - uid: 28061
     components:
@@ -92051,7 +92051,7 @@ entities:
       parent: 27712
     - type: DeviceLinkSink
       invokeCounter: 1
-- proto: ERTSpawnerMedical
+- proto: Ash
   entities:
   - uid: 28062
     components:
@@ -92060,7 +92060,7 @@ entities:
       parent: 27712
     - type: DeviceLinkSink
       invokeCounter: 1
-- proto: ERTSpawnerSrcurity
+- proto: Ash
   entities:
   - uid: 28063
     components:
