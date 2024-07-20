@@ -36,6 +36,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalIan
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Dog
+    understands:
+    - GalacticCommon
+    - Dog
 
 - type: entity
   name: Old Ian
@@ -121,6 +127,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
 
 - type: entity
   name: Exception
@@ -139,6 +151,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
 
 - type: entity
   name: Floppa
@@ -164,6 +182,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - GalacticCommon
+    - Cat
 
 - type: entity
   name: Bandito
@@ -295,6 +319,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMcGriff
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Dog
+    understands:
+    - GalacticCommon
+    - Dog
 
 - type: entity
   name: Paperwork
@@ -388,6 +418,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalWalter
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Dog
+    understands:
+    - GalacticCommon
+    - Dog
 
 - type: entity
   name: Morty
@@ -577,6 +613,12 @@
     - Hamster
     - VimPilot
     - ChefPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
 
 - type: entity
   name: Shiva
@@ -781,6 +823,12 @@
     attributes:
       proper: true
       gender: male
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Monkey
+    understands:
+    - GalacticCommon
+    - Monkey
 
 - type: entity
   name: Tropico
