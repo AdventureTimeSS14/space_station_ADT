@@ -119,6 +119,11 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
 
 - type: entity
   name: Praetorian
