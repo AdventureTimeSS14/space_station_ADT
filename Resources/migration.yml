@@ -8,6 +8,12 @@
 # WallSolid: Window
 # Table: null
 
+# ADT ERT 2024-07-20
+ERTSpawnerEngineering: null
+ERTSpawnerLeader: null
+ERTSpawnerMedical: null
+ERTSpawnerSrcurity: null
+ERTSpawnerJanitor: null
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
 ClothingHeadHelmetHelmetOld: ClothingHeadHelmetBasic
