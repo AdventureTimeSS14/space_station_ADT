@@ -56,91 +56,91 @@
 - type: humanoidBaseSprite
   id: MobVulpkaninTail
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: tail_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHead
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadMale
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadFemale
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorso
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorsoMale
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorsoFemale
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: torso_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLLeg
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLArm
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLHand
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLFoot
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRLeg
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRArm
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRHand
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRFoot
   baseSprite:
-    sprite: ADT/Mobs/Species/parts.rsi
+    sprite: Mobs/Species/Vulpkanin/parts.rsi
     state: r_foot
 
 #
