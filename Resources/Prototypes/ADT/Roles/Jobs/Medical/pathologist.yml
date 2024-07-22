@@ -25,7 +25,7 @@
     ears: ClothingHeadsetMedical
     belt: BoxFolderClipboard
     underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
-    socks: ClothingUnderwearSocksNormal
+   # socks: ClothingUnderwearSocksNormal # До добавления слота носков
   underweart: ClothingUnderwearTopBraSportsAlternative # Sirena-Underwear
   underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
   innerClothingSkirt: ADTClothingUniformPathologistSkirt
