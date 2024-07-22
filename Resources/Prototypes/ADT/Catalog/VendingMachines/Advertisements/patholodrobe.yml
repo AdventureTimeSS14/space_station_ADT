@@ -1,0 +1,5 @@
+- type: advertisementsPack
+  id: PatholodrobeAds
+  advertisements:
+    - advertisement-patholog-1
+    - advertisement-patholog-2
