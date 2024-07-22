@@ -24,10 +24,10 @@
     id: ADTPathologistPDA
     ears: ClothingHeadsetMedical
     belt: BoxFolderClipboard
-    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
-    socks: ClothingUnderwearSocksNormal
-  underweart: ClothingUnderwearTopBraSportsAlternative # Sirena-Underwear
-  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+   # До добавления трусов underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+   # До добавления носков socks: ClothingUnderwearSocksNormal
+ # До добавления лифчика underweart: ClothingUnderwearTopBraSportsAlternative # Sirena-Underwear
+ # До добавления трусов ж underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
   innerClothingSkirt: ADTClothingUniformPathologistSkirt
   satchel: ADTClothingBackpackSatchelPathologistFilled
   duffelbag: ADTClothingBackpackDuffelPathologistFilled

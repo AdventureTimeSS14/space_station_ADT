@@ -193,6 +193,9 @@
             "name": "InitialInfected"
         },
         {
+            "name": "ADTPathologist"
+        },
+        {
             "name": "Admin"
         }
     ]
