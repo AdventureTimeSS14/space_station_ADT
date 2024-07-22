@@ -29,6 +29,7 @@
     tags:
     - Document
     - Trash
+    # - socks
   - type: Appearance
   - type: PaperVisuals
   - type: GuideHelp
