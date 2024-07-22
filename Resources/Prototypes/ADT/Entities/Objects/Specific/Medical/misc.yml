@@ -1,64 +1,64 @@
-- type: entity
-  name: foot tag
-  parent: BaseItem
-  id: ADTFootTag
-  description: A piece of paper for dead.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/foot_tag
-    layers:
-    - state: paper
-    - state: paper_words
-      map: ["enum.PaperVisualLayers.Writing"]
-      visible: false
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Boots/foot_tag
-    slots: [socks]
-    quickEquip: false
-  - type: Paper
-  - type: ActivatableUI
-    key: enum.PaperUiKey.Key
-    closeOnHandDeselect: false
-  - type: UserInterface
-    interfaces:
-    - key: enum.PaperUiKey.Key
-      type: PaperBoundUserInterface
-  - type: Item
-    size: Tiny
-  - type: Tag
-    tags:
-    - Document
-    - Trash
-    # - socks
-  - type: Appearance
-  - type: PaperVisuals
-  - type: GuideHelp
-    guides: 
-    - ADTPathologist
+#- type: entity
+#  name: foot tag
+#  parent: BaseItem
+#  id: ADTFootTag
+#  description: A piece of paper for dead.
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Clothing/Shoes/Boots/foot_tag
+#    layers:
+#    - state: paper
+#    - state: paper_words
+#      map: ["enum.PaperVisualLayers.Writing"]
+#      visible: false
+#  - type: Clothing
+#    sprite: ADT/Clothing/Shoes/Boots/foot_tag
+#    slots: [socks]
+#    quickEquip: false
+#  - type: Paper
+#  - type: ActivatableUI
+#    key: enum.PaperUiKey.Key
+#    closeOnHandDeselect: false
+#  - type: UserInterface
+#    interfaces:
+#    - key: enum.PaperUiKey.Key
+#      type: PaperBoundUserInterface
+#  - type: Item
+#    size: Tiny
+#  - type: Tag
+#    tags:
+#    - Document
+#    - Trash
+#    # - socks
+#  - type: Appearance
+#  - type: PaperVisuals
+#  - type: GuideHelp
+#    guides: 
+#    - ADTPathologist
 
-- type: entity
-  name: box of foot tags
-  parent: BoxCardboard
-  id: ADTFootTagBox
-  description: It's plastic a box with foot tags inside.
-  components:
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,2,1
-  - type: StorageFill
-    contents:
-      - id: ADTFootTag
-        amount: 6
-  - type: Sprite
-    sprite: ADT/Objects/Specific/Medical/foot-tag-box.rsi
-    state: icon
-  - type: Item
-    sprite: ADT/Objects/Specific/Medical/foot-tag-box.rsi 
-    size: Normal 
-  - type: PhysicalComposition
-    materialComposition:
-      Cardboard: 50
-  - type: GuideHelp
-    guides: 
-    - ADTPathologist
+#- type: entity
+#  name: box of foot tags
+#  parent: BoxCardboard
+#  id: ADTFootTagBox
+#  description: It's plastic a box with foot tags inside.
+#  components:
+#  - type: Storage
+#    maxItemSize: Small
+#    grid:
+#    - 0,0,2,1
+#  - type: StorageFill
+#    contents:
+#      - id: ADTFootTag
+#        amount: 6
+#  - type: Sprite
+#    sprite: ADT/Objects/Specific/Medical/foot-tag-box.rsi
+#    state: icon
+#  - type: Item
+#    sprite: ADT/Objects/Specific/Medical/foot-tag-box.rsi 
+#    size: Normal 
+#  - type: PhysicalComposition
+#    materialComposition:
+#      Cardboard: 50
+#  - type: GuideHelp
+#    guides: 
+#    - ADTPathologist
