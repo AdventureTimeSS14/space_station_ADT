@@ -29,7 +29,7 @@
     tags:
     - Document
     - Trash
-    - socks
+    #- socks До добавления носков
   - type: Appearance
   - type: PaperVisuals
   - type: GuideHelp
