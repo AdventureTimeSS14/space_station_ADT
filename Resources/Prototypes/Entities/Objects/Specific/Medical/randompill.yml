@@ -89,19 +89,19 @@
           pill19: ""
           pill20: ""
 
-- type: entity
-  id: BodyBag_Folded
-  name: body bag
-  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
-  parent: BodyBag_Container
-  suffix: folded
-  components:
-  - type: Foldable
-    folded: true
+#- type: entity
+#  id: BodyBag_Folded
+#  name: body bag
+#  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
+#  parent: BodyBag_Container
+#  suffix: folded
+#  components:
+#  - type: Foldable
+#    folded: true
 #  - type: BodyBagItem #TODO: we need some kind of generic placable, like thus:
 # - type: Placeable
 #   prototype: someId
 #   snap: Center
-  - type: GuideHelp
-    guides: 
-    - ADTPathologist
+#  - type: GuideHelp
+#    guides: 
+#    - ADTPathologist
