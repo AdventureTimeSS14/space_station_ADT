@@ -9,8 +9,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: Advertise
-    pack: PatholodrobeAds
+  #- type: Advertise
+  #  pack: PatholodrobeAds
   - type: Sprite
     sprite: ADT/Structures/Machines/VendingMachines/patholodrobe.rsi
     layers:
