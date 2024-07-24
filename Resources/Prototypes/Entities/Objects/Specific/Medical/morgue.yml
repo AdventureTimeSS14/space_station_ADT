@@ -95,7 +95,7 @@
   id: BodyBag_Folded
   name: body bag
   description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
-  parent: BodyBag
+  parent: BodyBag_Container
   suffix: folded
   components:
   - type: Foldable
