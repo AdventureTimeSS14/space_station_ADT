@@ -1,5 +1,5 @@
 - type: entity
-  id: BodyBag
+  id: BodyBag_Container
   parent: BaseFoldable
   name: body bag
   description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
@@ -92,7 +92,7 @@
     - ADTPathologist
 
 - type: entity
-  id: BodyBagFolded
+  id: BodyBag_Folded
   name: body bag
   description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
   parent: BodyBag
