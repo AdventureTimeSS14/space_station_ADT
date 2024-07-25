@@ -155,11 +155,12 @@ public abstract class SharedItemToggleSystem : EntitySystem
             _audio.PlayPredicted(soundToPlay, uid, user);
         else
             _audio.PlayPvs(soundToPlay, uid);
-
+///and adt chainsaw start
         if (TryComp<AmbientSoundComponent>(uid, out _))
         {
             _ambientSound.SetAmbience(uid, true);
         }
+///and adt chainsaw end
         // END FIX HARDCODING
 
         var toggleUsed = new ItemToggledEvent(predicted, Activated: true, user);
