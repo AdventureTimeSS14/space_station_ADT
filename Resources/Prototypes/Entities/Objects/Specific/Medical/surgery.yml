@@ -223,7 +223,6 @@
     qualities:
       - Sawing
     speedModifier: 1.5
-    speed: 1.5
 #ADT chainsaw
   - type: Tag
     tags:
