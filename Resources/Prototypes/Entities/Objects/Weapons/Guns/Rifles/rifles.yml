@@ -131,6 +131,7 @@
         whitelist:
           tags:
             - CartridgeRifle
+            - Grenade
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
