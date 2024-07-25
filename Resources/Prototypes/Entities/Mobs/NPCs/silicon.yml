@@ -109,6 +109,13 @@
   - type: StepTriggerImmune
   - type: NoSlip
   - type: Insulated
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
 
 - type: entity
   parent: MobSiliconBase
@@ -338,6 +345,13 @@
     sprite: Mobs/Silicon/Bots/supplybot.rsi
     layers:
     - state: supplybot
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: supplybot-moving
+    noMovementLayers:
+      movement:
+        state: supplybot
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-supplybot-name

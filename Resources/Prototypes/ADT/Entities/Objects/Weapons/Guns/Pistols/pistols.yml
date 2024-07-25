@@ -1,0 +1,43 @@
+- type: entity
+  name: DesertEagle
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolDesertEagle
+  description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/deser_eagle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/deser_eagle.rsi
+  - type: Gun
+    minAngle: 10
+    maxAngle: 10
+    angleIncrease: 5
+    angleDecay: 5
+    fireRate: 4.1
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/50_deagle.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
