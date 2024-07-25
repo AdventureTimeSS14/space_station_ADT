@@ -491,16 +491,16 @@
     damageCoefficient: 0.5
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+      coefficients: #ADT Nukiebuff
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.6
+        Radiation: 0.3
+        Caustic: 0.3
+  - type: ClothingSpeedModifier #ADT Nukiebuff
+    walkModifier: 1
+    sprintModifier: 1
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
@@ -550,10 +550,10 @@
     reduction: 0.8
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
+      coefficients: #ADT nukebuff
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
