@@ -7,6 +7,7 @@ using Content.Shared.Wieldable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Content.Shared.Audio;
 
 namespace Content.Shared.Item.ItemToggle;
 /// <summary>
@@ -17,6 +18,7 @@ namespace Content.Shared.Item.ItemToggle;
 /// </remarks>
 public abstract class SharedItemToggleSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
@@ -154,6 +156,10 @@ public abstract class SharedItemToggleSystem : EntitySystem
         else
             _audio.PlayPvs(soundToPlay, uid);
 
+        if (TryComp<AmbientSoundComponent>(uid, out _))
+        {
+            _ambientSound.SetAmbience(uid, true);
+        }
         // END FIX HARDCODING
 
         var toggleUsed = new ItemToggledEvent(predicted, Activated: true, user);
@@ -174,6 +180,12 @@ public abstract class SharedItemToggleSystem : EntitySystem
             _audio.PlayPredicted(soundToPlay, uid, user);
         else
             _audio.PlayPvs(soundToPlay, uid);
+///ADT chainsaw start
+        if (TryComp<AmbientSoundComponent>(uid, out _))
+        {
+            _ambientSound.SetAmbience(uid, false);
+        }
+///ADT chainsaw end
         // END FIX HARDCODING
 
         var toggleUsed = new ItemToggledEvent(predicted, Activated: false, user);

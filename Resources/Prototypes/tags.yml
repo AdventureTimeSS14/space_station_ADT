@@ -1350,4 +1350,34 @@
 - type: Tag
   id: WriteIgnoreStamps
 
-# ALPHABETICAL
+#ADTTags
+
+- type: Tag
+  id: ADTExtMagazineRifle
+
+- type: Tag
+  id: ADTMagazineRifleFNFAL
+
+- type: Tag
+  id:  boots
+
+- type: Tag
+  id: CleansForensics
+
+- type: Tag
+  id: ADTNanoTrasen
+
+- type: Tag
+  id: ADTMothFriendlyFood
+
+- type: Tag
+  id: ADTCarnivoreFriendlyFood
+
+- type: Tag
+  id: Microreactor
+
+- type: Tag
+  id: SawElectric
+
+- type: Tag
+  id: Welder
