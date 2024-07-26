@@ -30,16 +30,8 @@
     suitstorage: OxygenTankFilled
     belt: ClothingBeltBandolier
     underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
-<<<<<<< HEAD
   underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
   underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
   innerClothingSkirt: ClothingUniformJumpsuitColorBrown
   satchel: ClothingBackpackDuffelCBURN
   duffelbag: ClothingBackpackDuffelCBURN
-=======
-    underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
-    underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
-    innerClothingSkirt: ClothingUniformJumpsuitColorBrown
-    satchel: ClothingBackpackDuffelCBURN
-    duffelbag: ClothingBackpackDuffelCBURN
->>>>>>> 30cd30aca5 (немного переместил лодаут)
