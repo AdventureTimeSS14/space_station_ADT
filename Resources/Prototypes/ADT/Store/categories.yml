@@ -1,0 +1,9 @@
+- type: storeCategory
+  id: ADTUplinkERTWeapon
+  name: вооружение
+  priority: 1
+
+- type: storeCategory
+  id: ADTUplinkERTMisc
+  name: прочее
+  priority: 2
