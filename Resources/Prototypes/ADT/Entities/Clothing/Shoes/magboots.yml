@@ -16,11 +16,12 @@
   - type: StaticPrice
     price: 2000
   - type: Magboots
-    toggleAction: ActionToggleMagbootsERT
+  - type: ToggleClothing
+    action: ActionToggleMagbootsERT
 
 - type: entity
   id: ActionToggleMagbootsERT
-  parent: ActionBaseToggleMagboots
+  parent: ActionToggleMagboots
   noSpawn: true
   components:
   - type: InstantAction
