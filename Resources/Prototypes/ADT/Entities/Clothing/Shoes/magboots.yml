@@ -16,7 +16,8 @@
   - type: StaticPrice
     price: 2000
   - type: Magboots
-    toggleAction: ActionToggleMagbootsERT
+  - type: ToggleClothing
+    action: ActionToggleMagbootsERT
 
 - type: entity
   id: ActionToggleMagbootsERT
