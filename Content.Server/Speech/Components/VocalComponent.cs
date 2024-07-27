@@ -2,17 +2,18 @@ using Content.Server.Speech.EntitySystems;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Humanoid;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
-namespace Content.Server.Speech.Components;
+namespace Content.Server.Speech.Components; //ADT Tweak
 
 /// <summary>
 ///     Component required for entities to be able to do vocal emotions.
 /// </summary>
-[RegisterComponent]
-[Access(typeof(VocalSystem))]
+[RegisterComponent] //ADT Tweak
+[Access(typeof(VocalSystem))] //ADT Tweak
 public sealed partial class VocalComponent : Component
 {
     /// <summary>
