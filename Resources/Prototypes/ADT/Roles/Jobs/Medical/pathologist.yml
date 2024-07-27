@@ -28,6 +28,6 @@
    # До добавления носков socks: ClothingUnderwearSocksNormal
  # До добавления лифчика underweart: ClothingUnderwearTopBraSportsAlternative # Sirena-Underwear
  # До добавления трусов ж underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
-  innerClothingSkirt: ADTClothingUniformPathologistSkirt
-  satchel: ADTClothingBackpackSatchelPathologistFilled
-  duffelbag: ADTClothingBackpackDuffelPathologistFilled
+ # Разкоментить после добавления системы рюкзаков при старте innerClothingSkirt: ADTClothingUniformPathologistSkirt
+ # Разкоментить после добавления системы рюкзаков при старте satchel: ADTClothingBackpackSatchelPathologistFilled
+ # Разкоментить после добавления системы рюкзаков при старте duffelbag: ADTClothingBackpackDuffelPathologistFilled
