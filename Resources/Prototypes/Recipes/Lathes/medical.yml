@@ -48,7 +48,7 @@
     Steel: 200
 
 - type: latheRecipe
-  id: BodyBags
+  id: BodyBag
   result: BodyBag_Folded
   completetime: 2
   materials:
