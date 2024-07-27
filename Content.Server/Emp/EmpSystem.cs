@@ -6,6 +6,7 @@ using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Content.Shared.Projectiles;
 
 namespace Content.Server.Emp;
 
@@ -26,6 +27,8 @@ public sealed class EmpSystem : SharedEmpSystem
         SubscribeLocalEvent<EmpDisabledComponent, RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
         SubscribeLocalEvent<EmpDisabledComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreaker);
         SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
+
+        SubscribeLocalEvent<EmpOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); ///ADT ion
     }
 
     /// <summary>
@@ -127,6 +130,14 @@ public sealed class EmpSystem : SharedEmpSystem
     {
         args.Cancelled = true;
     }
+
+
+///ADT ion start
+    private void OnProjectileHit(EntityUid uid, EmpOnCollideComponent component, ref ProjectileHitEvent args)
+    {
+        TryEmpEffects(args.Target, component.EnergyConsumption, component.DisableDuration);
+    }
+///ADT ion end
 }
 
 /// <summary>

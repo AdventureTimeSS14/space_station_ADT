@@ -142,9 +142,6 @@
     - Pacified
     - StaminaModifier
     - Flashed
-  - type: Reflect
-    enabled: false
-    reflectProb: 0
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -221,6 +218,12 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+  # Frontier - languages mechanic
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
 
 - type: entity
   save: false

@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Drask
+  saySound:
+    path: /Audio/ADT/Drask/drasktalk.ogg
+  askSound:
+    path: /Audio/ADT/Drask/drasktalk.ogg
+  exclaimSound:
+    path: /Audio/ADT/Drask/drasktalk.ogg
