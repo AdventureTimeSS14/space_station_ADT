@@ -9,4 +9,3 @@
     state: icon-open
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
-    state: equipped-OUTERCLOTHING

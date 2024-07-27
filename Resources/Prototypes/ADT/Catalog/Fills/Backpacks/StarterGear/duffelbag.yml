@@ -7,5 +7,5 @@
     contents:
       - id: BoxSurvivalMedical
       - id: BodyBag_Folded
-      - id: ADTFootTag
+      #- id: ADTFootTag Разкоментить после добавления слота для носков
       - id: SpaceCash500
