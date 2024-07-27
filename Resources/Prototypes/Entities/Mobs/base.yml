@@ -105,6 +105,8 @@
     - Piercing
     - Heat
     - Shock
+    - Cold
+    - Caustic
   - type: DamageOnHighSpeedImpact
     damage:
       types:

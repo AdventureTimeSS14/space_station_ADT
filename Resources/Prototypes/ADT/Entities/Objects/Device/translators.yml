@@ -46,6 +46,8 @@
   components:
   - type: PowerCellDraw
     drawRate: 1
+  - type: ItemToggle
+    onUse: false # above component does the toggling
 
 - type: entity
   id: TranslatorEmtpy

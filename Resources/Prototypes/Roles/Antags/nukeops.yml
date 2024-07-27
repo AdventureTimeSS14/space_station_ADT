@@ -59,7 +59,7 @@
     id: SyndiPDA
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: BaseUplinkRadio40TC
-    belt: ClothingBeltMilitaryWebbing
+    belt: ClothingBeltAssault #ADT nukebuff
   storage:
     back:
     - BoxSurvivalSyndicate
