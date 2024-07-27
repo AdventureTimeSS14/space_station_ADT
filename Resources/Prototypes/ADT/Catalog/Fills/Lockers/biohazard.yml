@@ -1,10 +1,10 @@
- - type: entity
-   parent: ADTClosetLPathologist
-   id: ADTClosetLPathologistFilled
-   suffix: Filled, Pathologist
-   components:
-   - type: StorageFill
-     contents:
-       - id: ADTClothingOuterBioPathologist
-       - id: ADTClothingHeadHatHoodBioPathologist
+ #- type: entity
+ #  parent: ADTClosetLPathologist
+ #  id: ADTClosetLPathologistFilled
+ #  suffix: Filled, Pathologist
+ #  components:
+ #  - type: StorageFill
+ #    contents:
+ #      - id: ADTClothingOuterBioPathologist
+ #      - id: ADTClothingHeadHatHoodBioPathologist
        

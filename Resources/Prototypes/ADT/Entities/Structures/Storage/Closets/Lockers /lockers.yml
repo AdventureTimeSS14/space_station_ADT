@@ -45,12 +45,12 @@
   - type: Appearance
 
 # Патолог.
-- type: entity
-  parent: ADTClosetL3
-  id: ADTClosetLPathologist
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: bio_pathologist
-    stateDoorOpen: bio_pathologist_open
-    stateDoorClosed: bio_pathologist_door
+#- type: entity
+#  parent: ADTClosetL3
+#  id: ADTClosetLPathologist
+#  components:
+#  - type: Appearance
+#  - type: EntityStorageVisuals
+#    stateBaseClosed: bio_pathologist
+#    stateDoorOpen: bio_pathologist_open
+#    stateDoorClosed: bio_pathologist_door
