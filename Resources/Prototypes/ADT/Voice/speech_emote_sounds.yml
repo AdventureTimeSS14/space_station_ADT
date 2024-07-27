@@ -84,7 +84,7 @@
     Crying-apathy:
       collection: FemaleCry
 
-      - type: emoteSounds
+- type: emoteSounds
   id: UnisexNovakid
   params:
     variation: 0.125
