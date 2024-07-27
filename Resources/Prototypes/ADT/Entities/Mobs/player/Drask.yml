@@ -31,15 +31,14 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
-# ОТКОММЕНТИТЬ ПРИ ПЕРЕНОСЕ ЯЗЫКОВ И РАЗМЕРОВ
-    # - type: LanguageSpeaker
-    #   speaks:
-    #   - GalacticCommon
-    #   - Drask
-    #   understands:
-    #   - GalacticCommon
-    #   - Drask
-    # - type: SizeAttributeWhitelist # Frontier
+    - type: LanguageSpeaker
+      speaks:
+      - GalacticCommon
+      - Drask
+      understands:
+      - GalacticCommon
+      - Drask
+    # - type: SizeAttributeWhitelist # Frontier TODO: нет такого компонента..
     #   tall: true
     #   tallscale: 1.15
     #   short: true
