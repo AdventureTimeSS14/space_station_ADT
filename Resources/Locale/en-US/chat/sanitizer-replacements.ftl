@@ -21,3 +21,9 @@ chatsan-tearfully-salutes = tearfully salutes
 chatsan-shrugs = shrugs
 chatsan-tearfully-smiles = tearfully smiles
 chatsan-winks = winks
+<<<<<<< HEAD
+=======
+chatsan-claps = claps
+chatsan-snaps = snaps
+chatsan-questioned = gazes questioningly
+>>>>>>> 8ad9b1e33b (микро-макро добавка замены "??" на "вопросительно смотрит".)
