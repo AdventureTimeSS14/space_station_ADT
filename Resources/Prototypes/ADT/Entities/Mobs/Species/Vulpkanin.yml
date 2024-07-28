@@ -21,7 +21,7 @@
         Female: NesFemaleVulpa
         Unsexed: NesFemaleVulpa
     - type: Icon
-      sprite: Mobs/Species/Vulpkanin/parts.rsi
+      sprite: ADT/Mobs/Species/Vulpkanin/parts.rsi
       state: vulpkanin_m
     - type: Damageable
       damageContainer: Biological
