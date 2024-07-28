@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/pull/78007/commits/3e58e726d821118ecf098fe447ff9549d0ca7419, edited by ratyyy, reptilian made by kuro(388673708753027083)",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/pull/78007/commits/3e58e726d821118ecf098fe447ff9549d0ca7419, edited by ratyyy",
   "size": {
     "x": 32,
     "y": 32
@@ -12,10 +12,6 @@
     },
     {
       "name": "equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-reptilian",
       "directions": 4
     },
     {

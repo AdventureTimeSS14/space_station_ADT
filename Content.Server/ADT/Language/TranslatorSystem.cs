@@ -162,7 +162,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
             isEnabled &= hasPower;
             UpdateBoundIntrinsicComp(component, intrinsic, isEnabled);
             component.Enabled = isEnabled;
-            _powerCell.SetPowerCellDrawEnabled(translator, isEnabled);
+            _powerCell.SetDrawEnabled(translator, isEnabled);  
 
             _language.EnsureValidLanguage(holder);
             UpdatedLanguages(holder);
@@ -171,7 +171,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         {
             // This is a standalone translator (e.g. lying on the ground). Simply toggle its state.
             component.Enabled = !component.Enabled && hasPower;
-            _powerCell.SetPowerCellDrawEnabled(translator, !component.Enabled && hasPower);
+            _powerCell.SetDrawEnabled(translator, !component.Enabled && hasPower);
         }
 
         OnAppearanceChange(translator, component);
@@ -188,7 +188,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
     private void OnPowerCellSlotEmpty(EntityUid translator, HandheldTranslatorComponent component, PowerCellSlotEmptyEvent args)
     {
         component.Enabled = false;
-        _powerCell.SetPowerCellDrawEnabled(translator, false);
+        _powerCell.SetDrawEnabled(translator, false);
         OnAppearanceChange(translator, component);
 
         if (Transform(translator).ParentUid is { Valid: true } holder && EntityManager.HasComponent<LanguageSpeakerComponent>(holder))
