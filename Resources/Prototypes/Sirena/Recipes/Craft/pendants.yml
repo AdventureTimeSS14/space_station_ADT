@@ -1,0 +1,91 @@
+# by Malanisa :р
+- type: construction
+  name: Green crystal pendant
+  id: CheapPendantGreen
+  graph: CheapPendantGreen
+  startNode: start
+  targetNode: pendantgreen
+  category: construction-category-misc
+  objectType: Item
+  description: Pendant made of shining crystal and thin wire.
+  icon:
+    sprite: Sirena/Clothing/Neck/Pendants/green.rsi
+    state: icon
+
+- type: construction
+  name: Orange crystal pendant
+  id: CheapPendantOrange
+  graph: CheapPendantOrange
+  startNode: start
+  targetNode: pendantorange
+  category: construction-category-misc
+  objectType: Item
+  description: Pendant made of shining crystal and thin wire.
+  icon:
+    sprite: Sirena/Clothing/Neck/Pendants/orange.rsi
+    state: icon
+
+- type: construction
+  name: Pink crystal pendant
+  id: CheapPendantPink
+  graph: CheapPendantPink
+  startNode: start
+  targetNode: pendantpink
+  category: construction-category-misc
+  objectType: Item
+  description: Pendant made of shining crystal and thin wire.
+  icon:
+    sprite: Sirena/Clothing/Neck/Pendants/pink.rsi
+    state: icon
+
+- type: construction
+  name: Cyan crystal pendant
+  id: CheapPendantCyan
+  graph: CheapPendantCyan
+  startNode: start
+  targetNode: pendantcyan
+  category: construction-category-misc
+  objectType: Item
+  description: Pendant made of shining crystal and thin wire.
+  icon:
+    sprite: Sirena/Clothing/Neck/Pendants/cyan.rsi
+    state: icon
+
+- type: construction
+  name: Blue crystal pendant
+  id: CheapPendantBlue
+  graph: CheapPendantBlue
+  startNode: start
+  targetNode: pendantblue
+  category: construction-category-misc
+  objectType: Item
+  description: Pendant made of shining crystal and thin wire.
+  icon:
+    sprite: Sirena/Clothing/Neck/Pendants/blue.rsi
+    state: icon
+
+- type: construction
+  name: Grey crystal pendant
+  id: CheapPendantGrey
+  graph: CheapPendantGrey
+  startNode: start
+  targetNode: pendantgrey
+  category: construction-category-misc
+  objectType: Item
+  description: Pendant made of shining crystal and thin wire.
+  icon:
+    sprite: Sirena/Clothing/Neck/Pendants/grey.rsi
+    state: icon
+
+- type: construction
+  name: Red crystal pendant
+  id: CheapPendantRed
+  graph: CheapPendantRed
+  startNode: start
+  targetNode: pendantred
+  category: construction-category-misc
+  objectType: Item
+  description: Pendant made of shining crystal and thin wire.
+  icon:
+    sprite: Sirena/Clothing/Neck/Pendants/red.rsi
+    state: icon

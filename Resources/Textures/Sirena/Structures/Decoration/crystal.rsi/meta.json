@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Malanisa (discord: ✦\uD835\uDD78\uD835\uDD86\uD835\uDD91\uD835\uDD86\uD835\uDD93\uD835\uDD8E\uD835\uDD98\uD835\uDD86✦#5800)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "crystal_green"
+    },
+    {
+      "name": "crystal_pink"
+    },
+    {
+      "name": "crystal_orange"
+    },
+    {
+      "name": "crystal_blue"
+    },
+    {
+      "name": "crystal_cyan"
+    },
+    {
+      "name": "crystal_grey"
+    },
+    {
+      "name": "crystal_red"
+    },
+    {
+      "name": "crystal_green_medium"
+    },
+    {
+      "name": "crystal_pink_medium"
+    },
+    {
+      "name": "crystal_orange_medium"
+    },
+    {
+      "name": "crystal_blue_medium"
+    },
+    {
+      "name": "crystal_cyan_medium"
+    },
+    {
+      "name": "crystal_grey_medium"
+    },
+    {
+    "name": "crystal_red_medium"
+    },
+    {
+      "name": "crystal_green_small"
+    },
+    {
+      "name": "crystal_pink_small"
+    },
+    {
+      "name": "crystal_orange_small"
+    },
+    {
+      "name": "crystal_blue_small"
+    },
+    {
+      "name": "crystal_cyan_small"
+    },
+    {
+      "name": "crystal_grey_small"
+    },
+    {
+    "name": "crystal_red_small"
+    },
+    {
+      "name": "crystalshard_green"
+    },
+    {
+      "name": "crystalshard_pink"
+    },
+    {
+      "name": "crystalshard_orange"
+    },
+    {
+      "name": "crystalshard_blue"
+    },
+    {
+      "name": "crystalshard_cyan"
+    },
+    {
+      "name": "crystalshard_grey"
+    },
+    {
+      "name": "crystalshard_red"
+    }
+  ]
+}
