@@ -46,8 +46,6 @@ job-name-ertjanitor = уборщик ОБР
 job-name-boxer = боксёр
 job-name-zookeeper = зоотехник
 job-name-visitor = посетитель
-# ADT
-job-name-ADTPathologist = Патологоанатом
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = атмосферный техник
@@ -98,5 +96,3 @@ JobWarden = смотритель
 JobVisitor = посетитель
 JobBoxer = боксёр
 JobZookeeper = зоотехник
-# ADT
-JobADTPathologist = Патологоанатом
