@@ -1,0 +1,208 @@
+#Для звуков и голосов вульпочек
+
+- type: emote
+  id: VulpHeckaet
+  name: chat-emote-name-heck
+  category: Vocal
+  chatMessages: [хекает]
+  chatTriggers:
+    - кхе
+    - кхе.
+    - хекает
+    - хекает.
+    - отдышка
+    - отдышка.
+
+- type: emote
+  id: VulpHowl
+  name: chat-emote-name-howl
+  category: Vocal
+  chatMessages: [воет]
+  chatTriggers:
+    - воет
+    - воет.
+    - воет!
+
+- type: emote
+  id: VulpWhine
+  name: chat-emote-name-whine
+  category: Vocal
+  chatMessages: [скулит]
+  chatTriggers:
+    - скул
+    - скул.
+    - скул!
+    - скулит
+    - скулит.
+    - скулит!
+
+- type: emote
+  id: VulpBark
+  name: chat-emote-name-bark
+  category: Vocal
+  chatMessages: [лает]
+  chatTriggers:
+    - лает
+    - лает.
+    - лает!
+    - гавкает
+    - гавкает.
+    - гавкает!
+    - гав
+    - гав.
+    - гав!
+    - рявкает
+    - рявкает.
+    - рявкает!
+
+- type: emote
+  id: VulpGrowl
+  name: chat-emote-name-growl
+  category: Vocal
+  chatMessages: [воет]
+  chatTriggers:
+    - рычит
+    - рычит.
+    - рычит!
+
+- type: soundCollection
+  id: NesMaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/growl1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl2.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl3.ogg
+
+- type: soundCollection
+  id: NesFemaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/scream1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/scream2.ogg
+
+- type: soundCollection
+  id: VulpHowls
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/howl.ogg
+
+- type: soundCollection
+  id: VulpBarks
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/bark.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark1.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark2.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark3.ogg
+
+- type: soundCollection
+  id: VulpWhines
+  files:
+  - /Audio/ADT/Voice/Doge/dog_whine.ogg
+
+- type: soundCollection
+  id: VulpGrowls
+  files:
+  - /Audio/ADT/Voice/Doge/dog_growl1.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl2.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl3.ogg
+
+- type: soundCollection
+  id: VulpHeckaetSound
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/vulpkanin_hekaet1.ogg
+
+- type: speechSounds
+  id: Vulpa
+  saySound:
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp.ogg
+  askSound:
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp_ask.ogg
+  exclaimSound:
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp_exclaim.ogg
+
+#Спишс блядь
+
+- type: emoteSounds
+  id: NesMaleVulpa
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: NesMaleVulpaScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    VulpHowl:
+      collection: VulpHowls
+    VulpBark:
+      collection: VulpBarks
+    VulpGrowl:
+      collection: VulpGrowls
+    VulpWhine:
+      collection: VulpWhines
+    Whistle:
+      collection: Whistles
+    VulpHeckaet:
+      collection: VulpHeckaetSound
+
+- type: emoteSounds
+  id: NesFemaleVulpa
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: NesFemaleVulpaScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    VulpHowl:
+      collection: VulpHowls
+    VulpBark:
+      collection: VulpBarks
+    VulpGrowl:
+      collection: VulpGrowls
+    VulpWhine:
+      collection: VulpWhines
+    Whistle:
+      collection: Whistles
+    VulpHeckaet:
+      collection: VulpHeckaetSound
