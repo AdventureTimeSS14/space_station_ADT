@@ -26,6 +26,8 @@
       - PaintingSleepingGypsy
       - PaintingRedBlueYellow
       - PaintingHelloWorld
+      - ADTPaintingSomewhereElse
+      - ADTPaintingGagarin
     chance: 1
     rarePrototypes:
       - PaintingSkeletonBoof

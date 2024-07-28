@@ -1,0 +1,77 @@
+#легальные постеры
+
+- type: entity
+  parent: PosterBase
+  id: ADTPosterLegitGreatFood
+  name: "Great Food"
+  description: "A poster advertising high-quality food from the station's kitchen."
+  components:
+  - type: Sprite
+    state: poster_adtgreatfood_legit #Спрайт от Празата
+
+- type: entity
+  parent: PosterBase
+  id: ADTPosterLegitTurnOnSensors
+  name: "Turn on the sensors"
+  description: "A reminder from the paramedic to everyone at the station - turn on the sensors so that you are quickly found in case of trouble."
+  components:
+  - type: Sprite
+    state: poster_adtturnonsensors_legit #Спрайт от Празата
+
+- type: entity
+  parent: PosterBase
+  id: ADTPosterLegitOktoberfest
+  name: "Oktoberfest!"
+  description: "A poster with a tayaran advertising the traditional October beer festival."
+  components:
+  - type: Sprite
+    state: poster_adtoktoberfest_legit #Спрайт от Празата
+
+#контрабандные постеры
+
+- type: entity
+  parent: PosterBase
+  id: ADTPosterContrabandLustTayaran
+  name: "Lusty Tayaran"
+  description: "A poster with tayaran women of attractive appearance and in a provocative suit. Tayarans can also be beautiful!"
+  components:
+  - type: Sprite
+    state: poster_adtlusttayaran_contraband #Спрайт от Празата
+
+- type: entity
+  parent: PosterBase
+  id: ADTPosterContrabandFearThem
+  name: "Fear Them!"
+  description: "An elite squad of nuclear operatives will burn you to the ground. Leave NanoTrasen before it's too late!"
+  components:
+  - type: Sprite
+    state: poster_adtfearthem_contraband #Спрайт от Иллюми
+
+- type: entity
+  parent: PosterBase
+  id: ADTPosterContrabandSilence
+  name: "Don`t takl!"
+  description: "The Syndicate warns mime agents that you can be terribly tortured for divulging secrets."
+  components:
+  - type: Sprite
+    state: poster_adtsilence_contraband #Спрайт от Иллюми
+
+#картины
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingSomewhereElse
+  name: Somewhere else...
+  description: You could have been there somewhere, but unfortunately you are here now.
+  components:
+  - type: Sprite
+    state: painting_somewhereelse
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingGagarin
+  name: portrait of Yuri Alekseevich Gagarin
+  description: The first cosmonaut to fly into space. His historic flight took place on April 12, 1961 on the Vostok-1 spacecraft. Gagarin became the first person to successfully make a single near-Earth space trip, making one revolution around the Earth. This feat brought him worldwide fame and the status of a national hero in the USSR. It's a shame not to know about it while working in the Space Station.
+  components:
+  - type: Sprite
+    state: painting_gagarin
