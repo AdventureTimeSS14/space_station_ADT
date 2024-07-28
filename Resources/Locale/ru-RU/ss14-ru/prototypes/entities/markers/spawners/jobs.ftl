@@ -97,6 +97,3 @@ ent-SpawnPointPsychologist = психолог
     .desc = { ent-SpawnPointJobBase.desc }
 ent-SpawnPointZookeeper = зоотехник
     .desc = { ent-SpawnPointJobBase.desc }
-# ADT
-ent-ADTSpawnPointJobBase = патологоанатом
-    .desc = { ent-SpawnPointJobBase.desc }
