@@ -50,7 +50,7 @@
 - type: humanoidBaseSprite
   id: MobVulpkaninEyes
   baseSprite:
-    sprite: ADT/Mobs/Customization/eyes.rsi
+    sprite: ADT/Mobs/Customization/Vulpkanin/vulp_eyes.rsi
     state: vulpkanin_eyes_s
 
 - type: humanoidBaseSprite
