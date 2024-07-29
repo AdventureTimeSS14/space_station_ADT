@@ -1,5 +1,5 @@
-- type: advertisementsPack
+- type: localizedDataset
   id: PatholodrobeAds
-  advertisements:
-    - advertisement-patholog-1
-    - advertisement-patholog-2
+  values:
+    prefix: advertisement-patholog-
+    count: 2
