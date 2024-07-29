@@ -1,4 +1,15 @@
 - type: entity
+  id: ADTSpawnPointJobBase
+  parent: MarkerBase
+  abstract: true
+  suffix: Job Spawn ADT
+  components:
+  - type: SpawnPoint
+    spawn_type: Job
+  - type: Sprite
+    sprite: ADT/Markers/job.rsi
+    
+- type: entity
   id: SpawnPointADTPathologist
   parent: ADTSpawnPointJobBase
   name: pathologist
