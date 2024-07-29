@@ -6,6 +6,6 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
-    state: icon
+    state: icon-open
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
