@@ -92,6 +92,7 @@
   - ResearchDirector
   - Scientist
   - ResearchAssistant
+  - ADTRoboticist
 
 - type: department
   id: Specific

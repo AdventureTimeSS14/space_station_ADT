@@ -1,4 +1,4 @@
-﻿- type: gameMap
+- type: gameMap
   id: Cluster
   mapName: 'Cluster'
   mapPath: /Maps/cluster.yml
@@ -44,6 +44,7 @@
             Scientist: [ 3, 3 ]
             ResearchAssistant: [ 2, 2 ]
             Borg: [ 1, 1 ]
+            ADTRoboticist: [ 1, 1 ] #ADT
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]

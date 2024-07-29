@@ -1,0 +1,10 @@
+- type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - Inventory # Corvax-Loadouts
+  - LawyerNeck
+  - LawyerJumpsuit
+  - CommonBackpack
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
