@@ -29,5 +29,5 @@
  # До добавления слота underweart: ClothingUnderwearTopBraSportsAlternative # Sirena-Underwear
  # До добавления слота underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
  # До добавления слота innerClothingSkirt: ADTClothingUniformPathologistSkirt
-  satchel: ADTClothingBackpackSatchelPathologistFilled
-  duffelbag: ADTClothingBackpackDuffelPathologistFilled
+ # до добавления выбора рюкзака при старте satchel: ADTClothingBackpackSatchelPathologistFilled
+  # до добавления выбора рюкзака при старте duffelbag: ADTClothingBackpackDuffelPathologistFilled
