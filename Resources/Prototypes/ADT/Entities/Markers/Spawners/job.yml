@@ -1,0 +1,11 @@
+- type: entity
+  id: SpawnPointADTPathologist
+  parent: ADTSpawnPointJobBase
+  name: pathologist
+  components:
+  - type: SpawnPoint
+    job_id: ADTPathologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: pathologist

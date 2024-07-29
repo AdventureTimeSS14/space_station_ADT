@@ -1,0 +1,33 @@
+- type: job
+  id: ADTPathologist
+  name: job-name-ADTPathologist
+  description: job-description-ADTPathologist
+  playTimeTracker: JobADTPathologist
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 21600 #6 hrs
+  startingGear: ADTPathologistGear
+  icon: "JobIconADTPathologist"
+  supervisors: job-supervisors-cmo
+  canBeAntag: true
+  access:
+    - Medical
+    - Maintenance
+
+- type: startingGear
+  id: ADTPathologistGear
+  equipment:
+    jumpsuit: ADTClothingUniformPathologistSuit
+    back: ADTClothingBackpackPathologistFilled
+    shoes: ClothingShoesColorWhite
+    id: ADTPathologistPDA
+    ears: ClothingHeadsetMedical
+    belt: BoxFolderClipboard
+   # До добавления слота underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+  # До добавления слота  socks: ClothingUnderwearSocksNormal
+ # До добавления слота underweart: ClothingUnderwearTopBraSportsAlternative # Sirena-Underwear
+ # До добавления слота underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+ # До добавления слота innerClothingSkirt: ADTClothingUniformPathologistSkirt
+  satchel: ADTClothingBackpackSatchelPathologistFilled
+  duffelbag: ADTClothingBackpackDuffelPathologistFilled
