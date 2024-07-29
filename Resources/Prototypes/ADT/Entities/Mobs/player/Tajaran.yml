@@ -58,9 +58,8 @@
       - GalacticCommon
       - SikTaj
       - CintaTaj
-    # Comment until not added SizeAttributeSystem
-    #- type: SizeAttributeWhitelist # Frontier
-    #  tall: true
-    #  tallscale: 1
-    #  short: true
-    #  shortscale: 0.85
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 1
+      short: true
+      shortscale: 0.85
