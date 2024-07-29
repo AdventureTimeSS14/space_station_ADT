@@ -1,32 +1,30 @@
-- type: emote
-  id: Howl
-  name: chat-emote-name-howl
-  category: Vocal
-  available: false
-  icon: Interface/Actions/scream.png
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-howl"]
-  chatTriggers:
-  - howl
-  - howl.
-  - howl!
-  - howls
-  - howls.
-  - howls!
-  - воет
-  - воет.
-  - воет!
-  - завывает
-  - завывает.
-  - завывает!
+#- type: emote
+#  id: Howl
+#  name: chat-emote-name-howl
+#  category: Vocal
+#  available: false
+#  icon: Interface/Actions/scream.png
+#  whitelist:
+#    components:
+#    - Vocal
+#  blacklist:
+#    components:
+#    - BorgChassis
+#  chatMessages: ["chat-emote-msg-howl"]
+#  chatTriggers:
+#  - howl
+#  - howl.
+#  - howl!
+#  - howls
+#  - howls.
+#  - howls!
+#  - воет
+#  - воет.
+#  - воет!
+#  - завывает
+#  - завывает.
+#  - завывает!
 
-# the same id "Growl" in ADT/Voice/speech_emotes
-#
 #- type: emote
 #  id: Growl
 #  name: chat-emote-name-growl

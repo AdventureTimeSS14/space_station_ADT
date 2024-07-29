@@ -21,15 +21,13 @@
     - type: CameraRecoil
     - type: Examiner
     - type: CanHostGuardian
-
-    # ОТКОММЕНТИТЬ ПРИ ПЕРЕНОСЕ ЯЗЫКОВ И РАЗМЕРОВ
-    # - type: LanguageSpeaker
-    #   speaks:
-    #   - GalacticCommon
-    #   - Arkane
-    #   understands:
-    #   - GalacticCommon
-    #   - Arkane
+    - type: LanguageSpeaker
+      speaks:
+      - GalacticCommon
+      - Arkane
+      understands:
+      - GalacticCommon
+      - Arkane
 
     - type: NpcFactionMember
       factions:
@@ -41,7 +39,7 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
-    # - type: SizeAttributeWhitelist # Frontier
+    # - type: SizeAttributeWhitelist # Frontier  TODO: нет такого компонента..
     #   tall: true
     #   tallscale: 1.1
     #   short: true

@@ -1,0 +1,200 @@
+- type: listing
+  id: ADTBoberM90
+  name: boobr-m90-name
+  description: boobr-m90-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
+  productEntity: WeaponCaseNTM90
+  cost:
+    Productunit: 30
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberLecter
+  name: boobr-lecter-name
+  description: boobr-lecter-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/lecter.rsi, state: icon }
+  productEntity: WeaponCaseNTLecter
+  cost:
+    Productunit: 22
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberPulse
+  name: boobr-pulse-name
+  description: boobr-pulse-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/pulse_carbine.rsi, state: icon }
+  productEntity: WeaponCaseNTnPulseCarbine
+  cost:
+    Productunit: 27
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberMateba
+  name: boobr-mateba-name
+  description: boobr-mateba-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
+  productEntity: WeaponCaseNTMateba
+  cost:
+    Productunit: 10
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberAP
+  name: boobr-ap-name
+  description: boobr-ap-desc
+  productEntity: WeaponCaseNTAPAmmo
+  cost:
+    Productunit: 10
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberDisabler
+  name: boobr-disabler-name
+  description: boobr-disabler-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/disabler.rsi, state: base }
+  productEntity: WeaponCaseNTDisabler
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberDeagle
+  name: boobr-deagle-name
+  description: boobr-deagle-desc
+  icon: { sprite: ADT/Objects/Weapons/Guns/Pistols/deser_eagle.rsi, state: base }
+  productEntity: WeaponCaseNTDeagle
+  cost:
+    Productunit: 8
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberIonRifle
+  name: boobr-ion-name
+  description: boobr-ion-desc
+  icon: { sprite: ADT/Objects/Weapons/Guns/Battery/ion_rifle.rsi, state: base }
+  productEntity: WeaponCaseNTIonRifle
+  cost:
+    Productunit: 10
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberDrozd
+  name: boobr-drozd-name
+  description: boobr-drozd-desc
+  icon: { sprite: Objects/Weapons/Guns/SMGs/drozd.rsi, state: base }
+  productEntity: WeaponCaseNTDrozd
+  cost:
+    Productunit: 15
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberBulldog
+  name: boobr-bulldog-name
+  description: boobr-bulldog-desc
+  icon: { sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: base }
+  productEntity: WeaponCaseBulldog
+  cost:
+    Productunit: 25
+  categories:
+  - ADTUplinkERTWeapon
+
+# misc
+
+- type: listing
+  id: ADTBoberShieldPunch
+  name: boobr-riot-shield-name
+  description:  boobr-riot-shield-desc
+  productEntity: RiotShield
+  cost:
+    Productunit: 10
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberShieldBullet
+  name: boobr-bullet-shield-name
+  description:  boobr-bullet-shield-desc
+  productEntity: RiotBulletShield
+  cost:
+    Productunit: 15
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberMagboots
+  name: boobr-mag-boots-name
+  description:  boobr-mag-boots-desc
+  productEntity: ADTClothingShoesBootsMagERT
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberJawOfLife
+  name: boobr-JawsOfLife-name
+  description:  boobr-JawsOfLife-desc
+  productEntity: JawsOfLife
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberGrenadeShrapnel
+  name: boobr-granade-nameboobr-granade
+  description:  boobr-JawsOfLife-desc
+  productEntity: GrenadeShrapnel
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberc4
+  name: boobr-c4-name
+  productEntity: C4
+  description:  boobr-c4-desc
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberJetPack
+  name: boobr-jetpack-name
+  productEntity: JetpackBlackFilled
+  description:  boobr-jetpack-desc
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberGrapplingGun
+  name: boobr-grappling-gun-name
+  productEntity: WeaponGrapplingGun
+  description:  boobr-grappling-gun-desc
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberMediKit
+  name: boobr-medikit-name
+  productEntity: MedkitAdvancedFilled
+  description:  boobr-medikit-desc
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMisc
