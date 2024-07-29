@@ -89,9 +89,11 @@
   id: Growl
   name: chat-emote-name-growl
   category: Vocal
-  chatMessages: [growls]
+  chatMessages: [рычит]
   chatTriggers:
     - рычит
+    - рычит.
+    - рычит!
     - ррр
     - growl
     - growls
@@ -110,3 +112,58 @@
     - мурчит
     - мурчит.
     - мурчит!
+
+- type: emote
+  id: Heckaet
+  name: chat-emote-name-heck
+  category: Vocal
+  chatMessages: [хекает]
+  chatTriggers:
+    - кхе
+    - кхе.
+    - хекает
+    - хекает.
+    - отдышка
+    - отдышка.
+
+- type: emote
+  id: Howl
+  name: chat-emote-name-howl
+  category: Vocal
+  chatMessages: [воет]
+  chatTriggers:
+    - воет
+    - воет.
+    - воет!
+
+- type: emote
+  id: Whine
+  name: chat-emote-name-whine
+  category: Vocal
+  chatMessages: [скулит]
+  chatTriggers:
+    - скул
+    - скул.
+    - скул!
+    - скулит
+    - скулит.
+    - скулит!
+
+- type: emote
+  id: Bark
+  name: chat-emote-name-bark
+  category: Vocal
+  chatMessages: [лает]
+  chatTriggers:
+    - лает
+    - лает.
+    - лает!
+    - гавкает
+    - гавкает.
+    - гавкает!
+    - гав
+    - гав.
+    - гав!
+    - рявкает
+    - рявкает.
+    - рявкает!
