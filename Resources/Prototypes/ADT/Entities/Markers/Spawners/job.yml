@@ -8,6 +8,7 @@
     spawn_type: Job
   - type: Sprite
     sprite: ADT/Markers/job.rsi
+    state: green
     
 - type: entity
   id: SpawnPointADTPathologist
