@@ -191,7 +191,7 @@
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/rd/panties.rsi
     state: icon
-    
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ADTClothingUnderwearBottomMonokiniWhite
@@ -200,6 +200,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/monokini_bottom_white.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -209,6 +210,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/monokini_bottom_black.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -218,7 +220,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/lace_panties.rsi #спрайты от prazat911
-
+    state: icon
+    
 #New Year.
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -229,6 +232,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/panties_christmas.rsi #спрайты от prazat911
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -238,6 +242,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/muns_panties_blue.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -247,6 +252,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/muns_panties_red.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -256,6 +262,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Under/red_panties.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -265,6 +272,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Under/black_panties.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -274,6 +282,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Under/whitecomfy_panties.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -283,6 +292,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/blueshield_boxers.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -292,3 +302,4 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/blueshield_panties.rsi
+    state: icon
