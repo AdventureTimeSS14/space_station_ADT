@@ -70,15 +70,15 @@
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/ce/boxers.rsi
 
-- type: entity
-  parent: ClothingUnderwearBottomBase
-  id: ClothingUnderwearBottomBoxersCMO
-  name: chief medical officer's boxers
-  description: Standard station chief physician's underwear. For some reason they smell like chloral hydrate...
-  components:
-  - type: Sprite
-    sprite: Sirena/Clothing/Underwear/Bottom/heads/cmo/boxers.rsi
-    state: icon
+#- type: entity
+#  parent: ClothingUnderwearBottomBase
+#  id: ClothingUnderwearBottomBoxersCMO
+#  name: chief medical officer's boxers
+#  description: Standard station chief physician's underwear. For some reason they smell like chloral hydrate...
+#  components:
+#  - type: Sprite
+#    sprite: Sirena/Clothing/Underwear/Bottom/heads/cmo/boxers.rsi
+#    state: icon
     
 - type: entity
   parent: ClothingUnderwearBottomBase
