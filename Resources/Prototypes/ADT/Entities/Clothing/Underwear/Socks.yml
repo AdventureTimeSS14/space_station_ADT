@@ -42,14 +42,14 @@
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Socks/socksknee.rsi
 
-- type: entity
-  parent: ClothingUnderwearSocksBase
-  id: ClothingUnderSocksBee # HACK
-  name: bee socks
-  description: Make them loins buzz!
-  components:
-  - type: Sprite
-    sprite: Clothing/Under/Socks/bee.rsi
+#- type: entity
+#  parent: ClothingUnderwearSocksBase
+#  id: ClothingUnderSocksBee # HACK
+#  name: bee socks
+#  description: Make them loins buzz!
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/Under/Socks/bee.rsi
 
 - type: entity
   parent: ClothingUnderwearSocksBase
