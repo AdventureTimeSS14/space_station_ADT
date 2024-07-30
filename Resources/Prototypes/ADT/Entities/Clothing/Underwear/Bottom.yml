@@ -60,6 +60,7 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/capitan/boxers.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -69,6 +70,7 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/ce/boxers.rsi
+    state: icon
 
 #- type: entity
 #  parent: ClothingUnderwearBottomBase
@@ -98,7 +100,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/hos/boxers.rsi
-    
+    state: icon
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomBoxersQM
@@ -107,7 +110,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/qm/boxers.rsi
-    
+    state: icon
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomBoxersRD
@@ -116,7 +120,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/rd/boxers.rsi
-    
+    state: icon
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesCap
@@ -125,6 +130,7 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/capitan/panties.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -134,7 +140,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/ce/panties.rsi
-    
+    state: icon
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesCMO
@@ -143,7 +150,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/cmo/panties.rsi
-    
+    state: icon
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesHOP
@@ -152,6 +160,7 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/hop/panties.rsi
+    state: icon
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -161,7 +170,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/hos/panties.rsi
-    
+    state: icon
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesQM
@@ -170,7 +180,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/qm/panties.rsi
-    
+    state: icon
+
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesRD
@@ -179,7 +190,8 @@
   components:
   - type: Sprite
     sprite: Sirena/Clothing/Underwear/Bottom/heads/rd/panties.rsi
-
+    state: icon
+    
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ADTClothingUnderwearBottomMonokiniWhite
