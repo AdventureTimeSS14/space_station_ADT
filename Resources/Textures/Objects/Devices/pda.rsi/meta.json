@@ -106,6 +106,9 @@
       "name": "pda-medical"
     },
     {
+      "name": "pda-pathologist"
+    },
+    {
       "name": "pda-paramedic"
     },
     {
