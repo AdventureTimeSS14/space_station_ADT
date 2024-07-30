@@ -103,11 +103,11 @@
 
 # Shoes
 - type: loadout
-  id: BlueShoes
-  equipment: BlueShoes
+  id: PathologShoes
+  equipment: PathologShoes
 
 - type: startingGear
-  id: BlueShoes
+  id: PathologShoes
   equipment:
     shoes: ClothingShoesColorBlue
 
