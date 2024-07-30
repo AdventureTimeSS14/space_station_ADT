@@ -10,7 +10,7 @@
   - type: Item
     size: Tiny
   - type: Clothing
-    slots: [underwearb]
+   # До добавления слота slots: [underwearb]
   # - type: Tag
   #   tags:
   #     - underwearb
