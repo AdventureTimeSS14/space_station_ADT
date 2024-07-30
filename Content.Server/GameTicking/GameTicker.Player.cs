@@ -70,7 +70,7 @@ namespace Content.Server.GameTicking
 
                     var record = await _dbManager.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
-                                          Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 1;
+                                          Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 600; //пока у игрока не будет наиграно 10ч, будет высвечиваться надпись что он новичок, для облегчении слежки модерации, ADT
 
                     _chatManager.SendAdminAnnouncement(firstConnection
                         ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
