@@ -1,0 +1,7 @@
+- type: radioChannel
+  id: ADTLawyerChannel
+  name: Юридический
+  keycode: 'ю'
+  frequency: 1305
+  color: "#c6d2f5"
+  longRange: true
