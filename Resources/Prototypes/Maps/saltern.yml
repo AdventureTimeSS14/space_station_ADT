@@ -44,7 +44,6 @@
             Scientist: [ 4, 4 ]
             ResearchAssistant: [ 2, 2 ]
             Borg: [ 2, 2 ]
-            ADTRoboticist: [ 1, 1 ] #ADT
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]

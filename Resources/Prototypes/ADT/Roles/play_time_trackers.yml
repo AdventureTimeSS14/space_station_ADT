@@ -1,2 +1,2 @@
-# - type: playTimeTracker
-#   id: JobRoboticist
+- type: playTimeTracker
+  id: JobRoboticist

@@ -1,0 +1,17 @@
+#Science
+
+- type: loadoutGroup
+  id: ADTRobotocistPDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - ScientistPDA
+  - SeniorResearcherPDA
+  - ADTRoboticistPDA
+
+- type: loadoutGroup
+  id: ADTRobotocistImplanters
+  name: loadout-group-roboticist-implanters
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - BorgTranslatorImplanter

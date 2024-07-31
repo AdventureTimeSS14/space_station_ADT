@@ -1,10 +1,18 @@
 - type: roleLoadout
-  id: JobRoboticist
+  id: JobADTRoboticist
   groups:
   - Inventory # Corvax-Loadouts
-  - LawyerNeck
-  - LawyerJumpsuit
-  - CommonBackpack
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistBackpack
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - ADTRobotocistPDA
+  - ADTRobotocistImplanters
+  - Glasses
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool

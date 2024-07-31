@@ -95,3 +95,8 @@ JobWarden = смотритель
 JobVisitor = посетитель
 JobBoxer = боксёр
 JobZookeeper = зоотехник
+
+#ADT Jobs
+job-name-roboticist = робототехник
+# Role timers
+JobRoboticist = робототехник
