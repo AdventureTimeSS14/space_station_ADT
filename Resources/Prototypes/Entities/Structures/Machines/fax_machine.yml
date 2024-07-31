@@ -83,6 +83,7 @@
   - type: FaxMachine
     name: "Central Command"
     notifyAdmins: true
+    receiveNukeCodes: true # ADT-NukeCodes
     receiveStationGoal: true # Corvax-StationGoal
 
 - type: entity
