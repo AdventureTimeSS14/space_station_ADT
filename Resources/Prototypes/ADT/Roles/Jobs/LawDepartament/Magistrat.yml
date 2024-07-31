@@ -1,0 +1,30 @@
+- type: job
+  id: Magistrat
+  name: job-name-magistrat
+  description: job-description-magistrat
+  playTimeTracker: JobMagistrat
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 600000
+    # - !type:DepartmentTimeRequirement
+    #   department: Sponsor
+    #   time: 10
+#  startingGear: MagistratGear
+  icon: "JobIconMagistrat"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+    - Command
+    - Brig
+    - Maintenance
+    - Service
+    - Security
+    - Magistrate
+    - Lawyer
+    - IAA 
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
