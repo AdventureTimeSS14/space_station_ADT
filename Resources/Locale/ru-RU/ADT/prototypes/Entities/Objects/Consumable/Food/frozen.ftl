@@ -163,74 +163,74 @@ ent-ADTFoodFrozenPopsicleStrawberryFruitIce = клубничный фрукто�
 #=======
 
 
-ent-ADTFoodFrozenPackedChocolateFreezy = { ADTFoodFrozenChocolateFreezy }
-    .desc = { ADTFoodFrozenChocolateFreezy.desc }
+ent-ADTFoodFrozenPackedChocolateFreezy = { ent-ADTFoodFrozenChocolateFreezy }
+    .desc = { ent-ADTFoodFrozenChocolateFreezy.desc }
 
-ent-ADTFoodFrozenPackedChocolateIceCream = { ADTFoodFrozenChocolateIceCream }
-    .desc = { ADTFoodFrozenChocolateIceCream.desc }
+ent-ADTFoodFrozenPackedChocolateIceCream = { ent-ADTFoodFrozenChocolateIceCream }
+    .desc = { ent-ADTFoodFrozenChocolateIceCream.desc }
 
-ent-ADTFoodFrozenPackedChocolatePopsicle = { ADTFoodFrozenChocolatePopsicle }
-    .desc = { ADTFoodFrozenChocolatePopsicle.desc }
+ent-ADTFoodFrozenPackedChocolatePopsicle = { ent-ADTFoodFrozenChocolatePopsicle }
+    .desc = { ent-ADTFoodFrozenChocolatePopsicle.desc }
 
-ent-ADTFoodFrozenPackedChocolatePopsicleWithNuts = { ADTFoodFrozenChocolatePopsicleWithNuts }
-    .desc = { ADTFoodFrozenChocolatePopsicleWithNuts.desc }
+ent-ADTFoodFrozenPackedChocolatePopsicleWithNuts = { ent-ADTFoodFrozenChocolatePopsicleWithNuts }
+    .desc = { ent-ADTFoodFrozenChocolatePopsicleWithNuts.desc }
 
-ent-ADTFoodFrozenPackedIceCreamWafflecone = { ADTFoodFrozenIceCreamWafflecone }
-    .desc = { ADTFoodFrozenIceCreamWafflecone.desc }
+ent-ADTFoodFrozenPackedIceCreamWafflecone = { ent-ADTFoodFrozenIceCreamWafflecone }
+    .desc = { ent-ADTFoodFrozenIceCreamWafflecone.desc }
 
-ent-ADTFoodFrozenPackedIceCreamWaffleconeNuts = { ADTFoodFrozenIceCreamWaffleconeNuts }
-    .desc = { ADTFoodFrozenIceCreamWaffleconeNuts.desc }
+ent-ADTFoodFrozenPackedIceCreamWaffleconeNuts = { ent-ADTFoodFrozenIceCreamWaffleconeNuts }
+    .desc = { ent-ADTFoodFrozenIceCreamWaffleconeNuts.desc }
 
-ent-ADTFoodFrozenPackedJumboPopsicle = { ADTFoodFrozenPopsicleJumbo }
-    .desc = { ADTFoodFrozenPopsicleJumbo.desc }
+ent-ADTFoodFrozenPackedJumboPopsicle = { ent-ADTFoodFrozenPopsicleJumbo }
+    .desc = { ent-ADTFoodFrozenPopsicleJumbo.desc }
 
-ent-ADTFoodFrozenPackedMelonPopsicle = { ADTFoodFrozenMelonPopsicle }
-    .desc = { ADTFoodFrozenMelonPopsicle.desc }
+ent-ADTFoodFrozenPackedMelonPopsicle = { ent-ADTFoodFrozenMelonPopsicle }
+    .desc = { ent-ADTFoodFrozenMelonPopsicle.desc }
 
-ent-ADTFoodFrozenPackedOrangePopsicle = { ADTFoodFrozenOrangePopsicle }
-    .desc = { ADTFoodFrozenOrangePopsicle.desc }
+ent-ADTFoodFrozenPackedOrangePopsicle = { ent-ADTFoodFrozenOrangePopsicle }
+    .desc = { ent-ADTFoodFrozenOrangePopsicle.desc }
 
-ent-ADTFoodFrozenPackedPineappleChocolate = { ADTFoodFrozenPineappleChocolate }
-    .desc = { ADTFoodFrozenPineappleChocolate.desc }
+ent-ADTFoodFrozenPackedPineappleChocolate = { ent-ADTFoodFrozenPineappleChocolate }
+    .desc = { ent-ADTFoodFrozenPineappleChocolate.desc }
 
-ent-ADTFoodFrozenPackedPopsicleApple = { ADTFoodFrozenPopsicleApple }
-    .desc = { ADTFoodFrozenPopsicleApple.desc }
+ent-ADTFoodFrozenPackedPopsicleApple = { ent-ADTFoodFrozenPopsicleApple }
+    .desc = { ent-ADTFoodFrozenPopsicleApple.desc }
 
-ent-ADTFoodFrozenPackedPopsicleBanana = { ADTFoodFrozenPopsicleBanana }
-    .desc = { ADTFoodFrozenPopsicleBanana.desc }
+ent-ADTFoodFrozenPackedPopsicleBanana = { ent-ADTFoodFrozenPopsicleBanana }
+    .desc = { ent-ADTFoodFrozenPopsicleBanana.desc }
 
-ent-ADTFoodFrozenPackedPopsicleMole = { ADTFoodFrozenPopsicleMole }
-    .desc = { ADTFoodFrozenPopsicleMole.desc }
+ent-ADTFoodFrozenPackedPopsicleMole = { ent-ADTFoodFrozenPopsicleMole }
+    .desc = { ent-ADTFoodFrozenPopsicleMole.desc }
 
 ent-ADTFoodFrozenPackedRandomFruitIce = смешенный фруктовый лёд
     .desc = Who's that fruitIce?
 
-ent-ADTFoodFrozenPackedPopsicleSeaSalt = { ADTFoodFrozenPopsicleSeaSalt }
-    .desc = { ADTFoodFrozenPopsicleSeaSalt.desc }
+ent-ADTFoodFrozenPackedPopsicleSeaSalt = { ent-ADTFoodFrozenPopsicleSeaSalt }
+    .desc = { ent-ADTFoodFrozenPopsicleSeaSalt.desc }
 
-ent-ADTFoodFrozenPackedSpaceFreezy = { ADTFoodFrozenSpaceFreezy }
-    .desc = { ADTFoodFrozenSpaceFreezy.desc }
+ent-ADTFoodFrozenPackedSpaceFreezy = { ent-ADTFoodFrozenSpaceFreezy }
+    .desc = { ent-ADTFoodFrozenSpaceFreezy.desc }
 
-ent-ADTFoodFrozenPackedSpaceIceCream = { ADTFoodFrozenSpaceIceCream }
-    .desc = { ADTFoodFrozenSpaceIceCream.desc }
+ent-ADTFoodFrozenPackedSpaceIceCream = { ent-ADTFoodFrozenSpaceIceCream }
+    .desc = { ent-ADTFoodFrozenSpaceIceCream.desc }
 
-ent-ADTFoodFrozenPackedStrawberryIceCream = { ADTFoodFrozenStrawberryIceCream }
-    .desc = { ADTFoodFrozenStrawberryIceCream.desc }
+ent-ADTFoodFrozenPackedStrawberryIceCream = { ent-ADTFoodFrozenStrawberryIceCream }
+    .desc = { ent-ADTFoodFrozenStrawberryIceCream.desc }
 
-ent-ADTFoodFrozenPackedThreeFlavorsFreezy = { ADTFoodFrozenVanillaFreezyCaramel }
-    .desc = { ADTFoodFrozenVanillaFreezyCaramel.desc }
+ent-ADTFoodFrozenPackedThreeFlavorsFreezy = { ent-ADTFoodFrozenVanillaFreezyCaramel }
+    .desc = { ent-ADTFoodFrozenVanillaFreezyCaramel.desc }
 
-ent-ADTFoodFrozenPackedThreeFlavorsPopsicle = { ADTFoodFrozenThreeFlavorsPopsicle }
-    .desc = { ADTFoodFrozenThreeFlavorsPopsicle.desc }
+ent-ADTFoodFrozenPackedThreeFlavorsPopsicle = { ent-ADTFoodFrozenThreeFlavorsPopsicle }
+    .desc = { ent-ADTFoodFrozenThreeFlavorsPopsicle.desc }
 
-ent-ADTFoodFrozenPackedVanillaFreezy = { ADTFoodFrozenVanillaFreezy }
-    .desc = { ADTFoodFrozenVanillaFreezy.desc }
+ent-ADTFoodFrozenPackedVanillaFreezy = { ent-ADTFoodFrozenVanillaFreezy }
+    .desc = { ent-ADTFoodFrozenVanillaFreezy.desc }
 
-ent-ADTFoodFrozenPackedVanillaIceCream = { ADTFoodFrozenVanillaIceCream }
-    .desc = { ADTFoodFrozenVanillaIceCream.desc }
+ent-ADTFoodFrozenPackedVanillaIceCream = { ent-ADTFoodFrozenVanillaIceCream }
+    .desc = { ent-ADTFoodFrozenVanillaIceCream.desc }
 
-ent-ADTFoodFrozenPackedWatermelonPopsicle = { ADTFoodFrozenWatermelonPopsicle }
-    .desc = { ADTFoodFrozenWatermelonPopsicle.desc }
+ent-ADTFoodFrozenPackedWatermelonPopsicle = { ent-ADTFoodFrozenWatermelonPopsicle }
+    .desc = { ent-ADTFoodFrozenWatermelonPopsicle.desc }
 
 
 #=======
