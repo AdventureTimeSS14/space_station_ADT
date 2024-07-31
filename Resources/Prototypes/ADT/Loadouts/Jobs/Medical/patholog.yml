@@ -1,0 +1,113 @@
+# Head
+- type: loadout
+  id: PathologHead
+  equipment: PathologHead
+
+- type: startingGear
+  id: PathologHead
+  equipment:
+    head: ClothingHeadHatSurgcapBlue
+
+# Jumpsuit
+- type: loadout
+  id: PathologJumpsuit
+  equipment: PathologJumpsuit
+
+- type: startingGear
+  id: PathologJumpsuit
+  equipment:
+    jumpsuit: ADTClothingUniformPathologistSuit
+
+- type: loadout
+  id: PathologJumpskirt
+  equipment: PathologJumpskirt
+
+- type: startingGear
+  id: PathologJumpskirt
+  equipment:
+    jumpsuit: ADTClothingUniformPathologistSkirt
+
+- type: loadout
+  id: PathologJumpsuitAlt
+  equipment: PathologJumpsuitAlt
+
+- type: startingGear
+  id: PathologJumpsuitAlt
+  equipment:
+    jumpsuit: ADTClothingUniformPathologistSuitAlt
+
+- type: loadout
+  id: PathologJumpskirtAlt
+  equipment: PathologJumpskirtAlt
+
+- type: startingGear
+  id: PathologJumpskirtAlt
+  equipment:
+    jumpsuit: ADTClothingUniformPathologistSkirtAlt
+
+# Outer clothing
+- type: loadout
+  id: PathologWindbreaker
+  equipment: PathologWindbreaker
+
+- type: startingGear
+  id: PathologWindbreaker
+  equipment:
+    outerClothing: ADTClothingOuterCoatLabPathologist
+
+- type: loadout
+  id: PathologApron
+  equipment: PathologApron
+
+- type: startingGear
+  id: PathologApron
+  equipment:
+    outerClothing: ADTClothingOuterApronPathologist
+
+- type: loadout
+  id: PathologWintercoat
+  equipment: PathologWintercoat
+
+- type: startingGear
+  id: PathologWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterMed
+
+# Back
+- type: loadout
+  id: PathologBackpack
+  equipment: PathologBackpack
+
+- type: startingGear
+  id: PathologBackpack
+  equipment:
+    back: ADTClothingBackpackPathologistFilled
+
+- type: loadout
+  id: PathologSatchel
+  equipment: PathologSatchel
+
+- type: startingGear
+  id: PathologSatchel
+  equipment:
+    back: ADTClothingBackpackSatchelPathologistFilled
+
+- type: loadout
+  id: PathologDuffel
+  equipment: PathologDuffel
+
+- type: startingGear
+  id: PathologDuffel
+  equipment:
+    back: ADTClothingBackpackDuffelPathologistFilled
+
+# Shoes
+- type: loadout
+  id: PathologShoes
+  equipment: PathologShoes
+
+- type: startingGear
+  id: PathologShoes
+  equipment:
+    shoes: ClothingShoesColorBlue
+
