@@ -1,0 +1,233 @@
+# Чипсеки 
+
+- type: entity
+  name: chips
+  parent: FoodSnackBase
+  id: ADTFoodSnackChipsBase
+  description: chips
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Chips/chips.rsi
+    state: onion-and-sourcream
+  - type: Item
+  - type: Food
+    trash: ADTFoodPacketChipsTrash
+
+- type: entity
+  name: chips
+  parent: ADTFoodSnackChipsBase
+  id: ADTFoodSnackChipsOnionAndSourcream
+  description: chips
+  components:
+  - type: Sprite
+    state: onion-and-sourcream
+  - type: Food
+    trash: ADTFoodPacketChipsOnionAndSourcreamTrash
+
+- type: entity
+  name: chips
+  parent: ADTFoodSnackChipsBase
+  id: ADTFoodSnackChipsShrimp
+  description: chips
+  components:
+  - type: Sprite
+    state: shrimp
+  - type: Food
+    trash: ADTFoodPacketChipsShrimpTrash
+
+- type: entity
+  name: chips
+  parent: ADTFoodSnackChipsBase
+  id: ADTFoodSnackChipsSpace
+  description: chips
+  components:
+  - type: Sprite
+    state: space
+  - type: Food
+    trash: ADTFoodPacketChipsSpaceTrash
+
+- type: entity
+  name: chips
+  parent: ADTFoodSnackChipsBase
+  id: ADTFoodSnackChipsSpicy
+  description: chips
+  components:
+  - type: Sprite
+    state: spicy
+  - type: Food
+    trash: ADTFoodPacketSpicyTrash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: CapsaicinOil
+          Quantity: 5
+
+# Сушеное мясо
+
+- type: entity
+  name: Dried meat
+  parent: FoodSnackBase
+  id: ADTFoodSnackDriedBase
+  description: Dried meat
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Dried/meat.rsi
+    state: beef
+  - type: Item
+  - type: Food
+    trash: ADTFoodPacketBeefTrash
+# Я однако не знаю какое им делать наполнение,по дефолту у них 10 питательных веществ, если нужно то заполните в base свои значения
+
+- type: entity
+  name: Dried meat
+  parent: ADTFoodSnackDriedBase
+  id: ADTFoodSnackDriedBeef
+  description: Dried meat
+  components:
+  - type: Sprite
+    state: beef
+  - type: Item
+  - type: Food
+    trash: ADTFoodPacketBeefTrash
+
+- type: entity
+  name: Dried meat
+  parent: ADTFoodSnackDriedBase
+  id: ADTFoodSnackDriedChicken
+  description: Dried meat
+  components:
+  - type: Sprite
+    state: chicken
+  - type: Item
+  - type: Food
+    trash: ADTFoodPacketChickenTrash
+
+- type: entity
+  name: Dried meat
+  parent: ADTFoodSnackDriedBase
+  id: ADTFoodSnackDriedHorse
+  description: Dried meat
+  components:
+  - type: Sprite
+    state: horse
+  - type: Item
+  - type: Food
+    trash: ADTFoodPacketHorseTrash
+
+- type: entity
+  name: Dried meat
+  parent: ADTFoodSnackDriedBase
+  id: ADTFoodSnackDriedPig
+  description: Dried meat
+  components:
+  - type: Sprite
+    state: pig
+  - type: Item
+  - type: Food
+    trash: ADTFoodPacketPigTrash
+
+# Мусор
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketTrash
+  id: ADTFoodPacketChipsTrashBase
+  description: This is rubbish.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Chips/trash.rsi
+    state: onion-and-sourcream-trash
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketTrash
+  id: ADTFoodDriedPacketTrashBase
+  description: This is rubbish.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Dried/trash.rsi
+    state: beef-trash
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChipsTrashBase
+  id: ADTFoodPacketChipsOnionAndSourcreamTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: onion-and-sourcream-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChipsTrashBase
+  id: ADTFoodPacketChipsShrimpTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: shrimp-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChipsTrashBase
+  id: ADTFoodPacketChipsSpaceTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: space-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodPacketChipsTrashBase
+  id: ADTFoodPacketSpicyTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: spicy-trash
+
+# разделитель
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodDriedPacketTrashBase
+  id: ADTFoodPacketBeefTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: beef-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodDriedPacketTrashBase
+  id: ADTFoodPacketChickenTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: chicken-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodDriedPacketTrashBase
+  id: ADTFoodPacketHorseTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: horse-trash
+
+- type: entity
+  noSpawn: true
+  parent: ADTFoodDriedPacketTrashBase
+  id: ADTFoodPacketPigTrash
+  description: This is rubbish.
+  components:
+  - type: Sprite
+    state: pig-trash
