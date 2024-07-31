@@ -3,7 +3,6 @@ marking-ADTVulpkaninAnite = Анита
 marking-ADTVulpkaninApollo = Аполло
 marking-ADTVulpkaninBelle = Белль
 marking-ADTVulpkaninBraided = Плетённая
-marking-ADTVulpkaninBun = Булочка
 marking-ADTVulpkaninCurl = Завиток
 marking-ADTVulpkaninHair_sponsor = Хаер
 marking-ADTVulpkaninHawk = Ястреб
