@@ -39,7 +39,6 @@ marking-ADTVulpkaninBoddicker = Боддикер
 marking-ADTVulpkaninBowlcut = Горшок
 marking-ADTVulpkaninBowlcut2 = Горшок 2
 marking-ADTVulpkaninBraid = Плетение (До пола)
-marking-ADTVulpkaninBraided = Плетение
 marking-ADTVulpkaninBraidfront = Плетение (Спереди)
 marking-ADTVulpkaninBraid2 = Плетение (Высокое)
 marking-ADTVulpkaninHbraid = Плетение (Низкое)
