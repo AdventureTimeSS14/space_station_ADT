@@ -10,7 +10,7 @@
     # - !type:DepartmentTimeRequirement
     #   department: Sponsor
     #   time: 10
-#  startingGear: MagistratGear
+  startingGear: MagistratGear
   icon: "JobIconMagistrat"
   requireAdminNotify: true
   joinNotifyCrew: true
@@ -28,3 +28,28 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: MagistratGear
+  equipment:
+    jumpsuit: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+#    back: ClothingBackpackIAAFilled
+    shoes: ClothingShoesBootsLaceup
+    #mask: Ну что за косипор оставляет пустуе значения?
+    #outerClothing: ClothingOuterRobesJudge
+    eyes: ClothingEyesGlassesSunglasses
+    #head: ClothingHeadHatPwig
+    id: MagistratPDA
+    #gloves:
+    ears: ClothingHeadsetMagistrat
+    #belt:
+    neck: ClothingNeckLawyerbadge
+    pocket1: RubberStampMagisrat
+#    pocket2: ADTtelescopicBaton
+#    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+#    socks: ClothingUnderwearSocksNormal
+#  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+#  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+#  innerClothingSkirt: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+#  satchel: ClothingBackpackSatchelIAAFilled
+#  duffelbag: ClothingBackpackDuffelIAAFilled

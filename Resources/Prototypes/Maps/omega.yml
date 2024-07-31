@@ -19,7 +19,6 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ] # Corvax-IAA
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
@@ -59,3 +58,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Borg: [ 2, 2 ]
+            # Юрдеп
+            Magistrat: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]

@@ -61,3 +61,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
+            # Юрдеп
+            Magistrat: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
