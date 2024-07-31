@@ -27,7 +27,7 @@
   name: IAA
   components:
   - type: SpawnPoint
-    job_id: Magistrat 
+    job_id: IAA 
   - type: Sprite
     layers:
       - state: green
