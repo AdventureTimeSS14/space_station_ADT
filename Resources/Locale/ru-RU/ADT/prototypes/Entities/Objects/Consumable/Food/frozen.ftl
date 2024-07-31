@@ -202,7 +202,7 @@ ent-ADTFoodFrozenPackedPopsicleBanana = { ent-ADTFoodFrozenPopsicleBanana }
 ent-ADTFoodFrozenPackedPopsicleMole = { ent-ADTFoodFrozenPopsicleMole }
     .desc = { ent-ADTFoodFrozenPopsicleMole.desc }
 
-ent-ADTFoodFrozenPackedRandomFruitIce = смешенный фруктовый лёд
+ent-ADTFoodFrozenPackedRandomFruitIce = смешанный фруктовый лёд
     .desc = Who's that fruitIce?
 
 ent-ADTFoodFrozenPackedPopsicleSeaSalt = { ent-ADTFoodFrozenPopsicleSeaSalt }
