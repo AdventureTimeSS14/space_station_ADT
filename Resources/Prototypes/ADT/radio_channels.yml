@@ -1,6 +1,6 @@
 - type: radioChannel
   id: ADTLawyerChannel
-  name: Юридический
+  name: ADT-Lawyer-Channel-name
   keycode: 'ю'
   frequency: 1305
   color: "#c6d2f5"
