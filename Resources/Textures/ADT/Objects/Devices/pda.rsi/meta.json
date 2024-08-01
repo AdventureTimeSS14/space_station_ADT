@@ -11,9 +11,6 @@
 
         {
             "name": "pda-pathologist"
-        },
-        {
-            "name": "pda"
         }
     ]
 }

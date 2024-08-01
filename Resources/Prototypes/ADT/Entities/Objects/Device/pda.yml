@@ -3,8 +3,6 @@
   id: ADTBaseMedicalPDA
   abstract: true
   components:
-  - type: Sprite
-    sprite: ADT/Objects/Devices/pda.rsi
   - type: ItemToggle
     toggleLight: false
     onUse: false
