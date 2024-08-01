@@ -16,11 +16,3 @@
   components:
     - type: DeutschAccent
 
-- type: trait
-  id: ADTHemophilia
-  name: trait-hemophilia-name
-  description: trait-hemophilia-desc
-  category: Disabilities
-  components:
-    - type: Hemophilia
-      modifier: 0.01

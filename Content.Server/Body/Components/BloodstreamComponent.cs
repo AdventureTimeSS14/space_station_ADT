@@ -13,7 +13,7 @@ using Content.Server.Hemophilia;
 
 namespace Content.Server.Body.Components
 {
-    [RegisterComponent, Access(typeof(BloodstreamSystem), typeof(ReactionMixerSystem), (typeof(HemophiliaSystem)))]
+    [RegisterComponent, Access(typeof(BloodstreamSystem), typeof(ReactionMixerSystem), (typeof(HemophiliaSystem)))]  // ADThemophilia 
     public sealed partial class BloodstreamComponent : Component
     {
         public static string DefaultChemicalsSolutionName = "chemicals";
