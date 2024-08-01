@@ -5,6 +5,7 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Devices/pda.rsi
+    state: pda
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
