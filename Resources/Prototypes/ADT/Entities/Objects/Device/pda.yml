@@ -16,6 +16,10 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
+  - type: Icon
+    sprite: ADT/Objects/Devices/pda.rsi
+    state: pda
+    visible: true
   - type: ItemToggle
     toggleLight: false
     onUse: false
