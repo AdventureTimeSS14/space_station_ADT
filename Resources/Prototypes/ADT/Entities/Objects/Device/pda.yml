@@ -23,3 +23,5 @@
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#15616b"
+  - type: Icon
+    state: pda-pathologist
