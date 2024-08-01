@@ -1,13 +1,11 @@
 - type: entity
+  parent: BasePDA
+  id: ADTBaseMedicalPDA
   abstract: true
-  parent: [ BaseItem, StorePresetUplink ] #PDA's have uplinks so they have to inherit the data.
-  id: ADTBasePDA
-  name: PDA
-  description: Personal Data Assistant.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: ADT/Objects/Devices/pda.rsi
+    state: pda
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -21,94 +19,7 @@
   - type: Icon
     sprite: ADT/Objects/Devices/pda.rsi
     state: pda
-  - type: Pda
-    state: pda
-    paiSlot:
-      priority: -2
-      whitelist:
-        components:
-        - PAI
-    penSlot:
-      startingItem: Pen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
-    idSlot:
-      name: access-id-card-component-default
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-        - IdCard
-  - type: Item
-    size: Small
-  - type: ContainerContainer
-    containers:
-      PDA-id: !type:ContainerSlot {}
-      PDA-pen: !type:ContainerSlot {}
-      PDA-pai: !type:ContainerSlot {}
-      Cartridge-Slot: !type:ContainerSlot {}
-      program-container: !type:Container
-  - type: ItemSlots
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - idcard
-    - Belt
-  - type: UnpoweredFlashlight
-  - type: PointLight
-    enabled: false
-    radius: 1.5
-    softness: 5
-    autoRot: true
-  - type: Ringer
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: PDA
-    prefix: device-address-prefix-console
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-    cartridgeSlot:
-      priority: -1
-      name: device-pda-slot-component-slot-name-cartridge
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-          - Cartridge
-  - type: ActivatableUI
-    key: enum.PdaUiKey.Key
-    singleUser: true
-  - type: UserInterface
-    interfaces:
-      enum.PdaUiKey.Key:
-        type: PdaBoundUserInterface
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-      enum.RingerUiKey.Key:
-        type: RingerBoundUserInterface
-      enum.InstrumentUiKey.Key:
-        type: InstrumentBoundUserInterface
-      enum.HealthAnalyzerUiKey.Key:
-        type: HealthAnalyzerBoundUserInterface
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-  - type: Input
-    context: "human"
-
-- type: entity
-  parent: ADTBasePDA
-  id: ADTBaseMedicalPDA
-  abstract: true
-  components:
+    visible: true
   - type: ItemToggle
     toggleLight: false
     onUse: false
