@@ -32,7 +32,7 @@
 - type: startingGear
   id: MagistratGear
   equipment:
-    jumpsuit: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+#    jumpsuit: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
 #    back: ClothingBackpackIAAFilled
     shoes: ClothingShoesBootsLaceup
     #mask: Ну что за косипор оставляет пустуе значения?
@@ -44,8 +44,8 @@
     ears: ClothingHeadsetMagistrat
     #belt:
     neck: ClothingNeckLawyerbadge
-    pocket1: RubberStampMagisrat
-#    pocket2: ADTtelescopicBaton
+    pocket2: RubberStampMagisrat
+#    pocket1: ADTtelescopicBaton
 #    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
 #    socks: ClothingUnderwearSocksNormal
 #  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear

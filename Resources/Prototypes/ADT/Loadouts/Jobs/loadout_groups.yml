@@ -1,0 +1,22 @@
+- type: loadoutGroup
+  id: MagistratJumpsuit
+  name: loadout-group-lawyer-jumpsuit
+  loadouts:
+  - MagistratJumpsuit
+  - LawyerJumpsuit
+  - LawyerJumpskirt
+  - LawyerJumpsuitBlue
+  - LawyerJumpskirtBlue
+  - LawyerJumpsuitPurple
+  - LawyerJumpskirtPurple
+  - LawyerJumpsuitRed
+  - LawyerJumpskirtRed
+  - LawyerJumpsuitGood
+  - LawyerJumpskirtGood
+
+- type: loadoutGroup
+  id: MagistratNeck
+  name: loadout-group-lawyer-neck
+  minLimit: 0
+  loadouts:
+  - LawyerNeck
