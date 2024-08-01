@@ -10,3 +10,18 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  id: JobADTPathologist 
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - PathologHead
+  - MedicalMask
+  - PathologJumpsuit
+  - MedicalGloves
+  - PathologBackpack
+  - PathologWindbreaker
+  - PathologShoes
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical

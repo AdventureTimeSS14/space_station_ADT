@@ -68,6 +68,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - ADTPathologist
 
 - type: department
   id: Security
