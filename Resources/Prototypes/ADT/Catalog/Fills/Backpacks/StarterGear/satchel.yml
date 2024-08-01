@@ -1,0 +1,11 @@
+- type: entity
+  noSpawn: true
+  parent: ADTClothingBackpackSatchelPathologist
+  id: ADTClothingBackpackSatchelPathologistFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: BodyBagFolded
+     # До добавления слота носков - id: ADTFootTag
+      - id: SpaceCash500
