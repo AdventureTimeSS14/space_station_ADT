@@ -1,18 +1,5 @@
 - type: entity
-  parent: BasePDA
-  id: ADTBaseMedicalPDA
-  abstract: true
-  components:
-  - type: ItemToggle
-    toggleLight: false
-    onUse: false
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
-
-- type: entity
-  parent: ADTBaseMedicalPDA
+  parent: MedicalPDA
   id: ADTPathologistPDA
   name: pathologist's PDA
   description: It breezes chill.
