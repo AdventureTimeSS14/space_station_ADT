@@ -14,3 +14,12 @@
   id: DraskTalk
   files:
     - /Audio/ADT/Drask/drasktalk.ogg
+
+- type: soundCollection
+  id: NovakidLaugh
+  files:
+    - /Audio/ADT/Novakid/novakid_laugh01.ogg
+    - /Audio/ADT/Novakid/novakid_laugh02.ogg
+    - /Audio/ADT/Novakid/novakid_laugh03.ogg
+    - /Audio/ADT/Novakid/novakid_laugh04.ogg
+    - /Audio/ADT/Novakid/novakid_laugh05.ogg

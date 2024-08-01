@@ -1,0 +1,135 @@
+- type: entity
+  save: false
+  name: Urisst' Mzhand Novakid
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobNovakid
+  abstract: true
+  components:
+  - type: Hunger
+    baseDecayRate: 0.025
+    currentHunger: 400
+    thresholds:
+      Overfed: 400
+      Okay: 300
+      Peckish: 200
+      Starving: 100
+      Dead: 0
+    starvationDamage:
+      types:
+        Cold: 0.12
+        Caustic: 0.08
+  - type: HumanoidAppearance
+    species: NovakidSpecies
+  - type: Bloodstream
+    bloodReagent: Plasma
+  - type: ZombieImmune
+  - type: NovakidGlowing # see NovakidFeaturesSystem.cs
+  - type: PointLight
+    color: "#ffffff"
+    energy: 0.6
+  - type: Icon
+    sprite: ADT/Mobs/Novakid/parts.rsi
+    state: full_m
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+  - type: Body
+    prototype: Novakid
+    requiredLegs: 2
+  - type: Speech
+    speechSounds: Lizard
+  - type: Vocal
+    sounds:
+      Male: MaleNovakid
+      Female: FemaleNovakid
+      Unsexed: UnisexNovakid
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Demon # Потому что. Я зол, эта штука ломала мне мозг на протяжении двух часов, пока я искал ошибку >:c
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Heat: 5
+  - type: Temperature
+    heatDamageThreshold: 450
+    coldDamageThreshold: 193  #starting temperature damage treshold
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.5 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.2 #per second, scales with temperature & other constants.
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: Perishable
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.01 # Супер пониженный дамаг от давления
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 4 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "novakid-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      300: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+            Ash:
+              min: 1
+              max: 1
+      - !type:GibBehavior { }
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+
+
+- type: entity
+  save: false
+  name: Urist McHands
+  parent: MobHumanDummy
+  id: MobNovakidDummy
+  noSpawn: true
+  description: A dummy reptilian meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: NovakidSpecies
