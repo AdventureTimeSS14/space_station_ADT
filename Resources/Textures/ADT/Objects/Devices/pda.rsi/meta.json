@@ -14,6 +14,12 @@
         },
         {
             "name": "pda"
+        },
+        {
+            "name": "light_overlay"
+        },
+        {
+            "name": "id_overlay"
         }
     ]
 }
