@@ -26,6 +26,6 @@ public sealed partial class NovakidFeaturesSystem : EntitySystem
         if (layer == null) return;
         _lights.SetColor(uid, layer.Color);
         //_lights.SetEnergy(uid, 0.6f);
-        _entityManager.Dirty(_entityManager.GetComponent<SpriteComponent>(uid));
+        _entityManager.Dirty(uid, _entityManager.GetComponent<SpriteComponent>(uid));
     }
 }
