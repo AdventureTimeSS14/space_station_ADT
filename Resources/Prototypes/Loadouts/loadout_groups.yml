@@ -830,8 +830,6 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-  - RoboticistJumpsuit
-  - RoboticistJumpskirt
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
@@ -851,8 +849,6 @@
   - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
-  - RoboticistLabCoat
-  - RoboticistWintercoat
   - SeniorResearcherLabCoat
 
 - type: loadoutGroup
@@ -870,7 +866,6 @@
   loadouts:
   - LatexGloves
   - PurpleGloves
-  - RobohandsGloves
 
 - type: loadoutGroup
   id: ScientistPDA

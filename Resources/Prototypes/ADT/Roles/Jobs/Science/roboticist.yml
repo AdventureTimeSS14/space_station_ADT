@@ -18,4 +18,5 @@
   id: ADTRoboticistGear
   equipment:
     ears: ClothingHeadsetRobotics
-    # id: ADTRoboticistPDA
+    id: ADTRoboticistPDA
+    pocket1: BorgTranslatorImplanter

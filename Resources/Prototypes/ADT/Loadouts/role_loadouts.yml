@@ -5,13 +5,11 @@
   - GroupTankHarness
   - ScientistHead
   - ScientistNeck
-  - ScientistJumpsuit
+  - RoboticistJumpsuit
   - ScientistBackpack
-  - ScientistOuterClothing
-  - ScientistGloves
+  - RoboticistOuterClothing
+  - RobohandsGloves
   - ScientistShoes
-  - ADTRobotocistPDA
-  - ADTRobotocistImplanters
   - Glasses
   - Survival
   - Trinkets

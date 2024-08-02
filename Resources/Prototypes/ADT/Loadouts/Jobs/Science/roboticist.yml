@@ -1,20 +1,104 @@
-# ID
+# Jumpsuit
+
 - type: loadout
-  id: ADTRoboticistPDA
-  equipment: ADTRoboticistPDA
+  id: ScientistJumpsuit
+  equipment: ScientistJumpsuit
 
 - type: startingGear
-  id: ADTRoboticistPDA
+  id: ScientistJumpsuit
   equipment:
-    id: ADTRoboticistPDA
+    jumpsuit: ClothingUniformJumpsuitScientist
 
-# Implanters
 - type: loadout
-  id: BorgTranslatorImplanter
-  equipment: BorgTranslatorImplanter
+  id: ScientistJumpskirt
+  equipment: ScientistJumpskirt
 
 - type: startingGear
-  id: BorgTranslatorImplanter
-  storage:
-    back:
-    - BorgTranslatorImplanter
+  id: ScientistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtScientist
+
+- type: loadout
+  id: RoboticistJumpsuit
+  equipment: RoboticistJumpsuit
+
+- type: startingGear
+  id: RoboticistJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRoboticist
+
+- type: loadout
+  id: RoboticistJumpskirt
+  equipment: RoboticistJumpskirt
+
+- type: startingGear
+  id: RoboticistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRoboticist
+    
+# OuterClothing
+
+- type: loadout
+  id: RegularLabCoat
+  equipment: RegularLabCoat
+
+- type: startingGear
+  id: RegularLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLab
+
+- type: loadout
+  id: ScienceLabCoat
+  equipment: ScienceLabCoat
+
+- type: startingGear
+  id: ScienceLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRnd
+
+- type: loadout
+  id: ScienceWintercoat
+  equipment: ScienceWintercoat
+
+- type: startingGear
+  id: ScienceWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterSci
+
+- type: loadout
+  id: RoboticistLabCoat
+  equipment: RoboticistLabCoat
+
+- type: startingGear
+  id: RoboticistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRobo
+
+- type: loadout
+  id: RoboticistWintercoat
+  equipment: RoboticistWintercoat
+
+- type: startingGear
+  id: RoboticistWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterRobo
+
+# Gloves
+
+- type: loadout
+  id: LatexGloves
+  equipment: LatexGloves
+
+- type: startingGear
+  id: LatexGloves
+  equipment:
+    gloves: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: RobohandsGloves
+  equipment: RobohandsGloves
+
+- type: startingGear
+  id: RobohandsGloves
+  equipment:
+    gloves: ClothingHandsGlovesRobohands

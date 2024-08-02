@@ -208,15 +208,6 @@
   equipment:
     gloves: ClothingHandsGlovesLatex
 
-- type: loadout
-  id: RobohandsGloves
-  equipment: RobohandsGloves
-
-- type: startingGear
-  id: RobohandsGloves
-  equipment:
-    gloves: ClothingHandsGlovesRobohands
-
 # Shoes
 - type: loadout
   id: ScienceWinterBoots

@@ -1,20 +1,35 @@
 #Science
 
 - type: loadoutGroup
-  id: ADTRobotocistPDA
-  name: loadout-group-roboticist-id
+  id: RoboticistJumpsuit
+  name: loadout-group-roboticist-jumpsuit
+  minLimit: 0
   loadouts:
-  - ScientistPDA
-  - SeniorResearcherPDA
-  - ADTRoboticistPDA
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
 
 - type: loadoutGroup
-  id: ADTRobotocistImplanters
-  name: loadout-group-roboticist-implanters
+  id: RoboticistOuterClothing
+  name: loadout-group-roboticist-outerclothing
   minLimit: 0
-  maxLimit: 1
   loadouts:
-  - BorgTranslatorImplanter
+  - RegularLabCoat
+  - ScienceLabCoat
+  - ScienceWintercoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: RobohandsGloves
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves
+
+# Medical
 
 - type: loadoutGroup
   id: PathologHead
