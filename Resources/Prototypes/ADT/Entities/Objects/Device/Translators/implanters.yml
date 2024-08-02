@@ -159,6 +159,22 @@
     implant: SyndUniversalTranslatorImplant
 
 - type: entity
+  id: SikTajTranslatorImplanter
+  name: Universal Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: SikTajTranslatorImplant
+
+- type: entity
+  id: NianTranslatorImplanter
+  name: Universal Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: NianTranslatorImplant
+
+- type: entity
   id: DevTranslatorImplanter
   name: Dev Translator implanter
   parent: BaseImplantOnlyImplanter

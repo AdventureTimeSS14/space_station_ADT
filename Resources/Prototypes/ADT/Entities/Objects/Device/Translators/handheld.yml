@@ -26,7 +26,8 @@
     toUnderstand:
     - GalacticCommon
     enabled: false
-
+  - type: ItemToggle
+        
 - type: entity
   id: Translator
   parent: [ TranslatorUnpowered, PowerCellSlotMediumItem ]
@@ -298,6 +299,38 @@
     toUnderstand:
     - GalacticCommon
     - CintaTaj
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: NianTranslator
+  parent: [ Translator ]
+  name: Nian translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Nian
+    toUnderstand:
+    - GalacticCommon
+    - Nian
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: SikTajTranslator
+  parent: [ Translator ]
+  name: SikTaj translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - SikTaj
+    toUnderstand:
+    - GalacticCommon
+    - SikTaj
   - type: StaticPrice
     price: 1500
 

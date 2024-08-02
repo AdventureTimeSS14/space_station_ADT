@@ -13,9 +13,6 @@ public sealed class LanguagePrototype : IPrototype
     [DataField("obfuscateSyllables")]
     public bool ObfuscateSyllables { get; private set; } = false;
 
-    [DataField("show")]
-    public bool ShowName { get; private set; } = true;
-
     [DataField]
     public Color? Color;
 

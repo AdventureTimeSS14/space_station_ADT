@@ -285,6 +285,32 @@
 
 - type: entity
   parent: BaseTranslatorImplant
+  id: SikTajTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  noSpawn: true
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - SikTaj
+    toUnderstand:
+    - SikTaj
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: NianTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  noSpawn: true
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Nian
+    toUnderstand:
+    - Nian
+
+- type: entity
+  parent: BaseTranslatorImplant
   id: DevTranslatorImplant
   name: translator implant
   description: This implant grants language knowledge.

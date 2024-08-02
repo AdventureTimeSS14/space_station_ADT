@@ -168,6 +168,39 @@
     Silver: 50
 
 - type: latheRecipe
+  id: IPCTranslatorImplanter
+  result: IPCTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: BorgTranslatorImplanter
+  result: BorgTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: DwarfTranslatorImplanter
+  result: DwarfTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
   id: AnimalTranslator
   result: AnimalTranslator
   completetime: 2
