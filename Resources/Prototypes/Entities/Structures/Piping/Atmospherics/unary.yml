@@ -19,6 +19,12 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: CollideOnAnchor
+    # ADT-RPD-Start
+    - type: RPDDeconstructable
+      cost: 4
+      delay: 2
+      fx: EffectRCDDeconstruct2
+    # ADT-RPD-End
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]

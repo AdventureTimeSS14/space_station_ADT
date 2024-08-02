@@ -80,7 +80,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-
+  - type: CanBuildWindowOnTopRPD # ADT-RPD
   - type: IconSmooth
     key: bricks
     base: brick

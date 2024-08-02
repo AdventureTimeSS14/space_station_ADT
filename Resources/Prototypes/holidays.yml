@@ -265,11 +265,13 @@
     !type:DayOfYear
     dayOfYear: 256
 
-- type: holiday
-  id: BisexualPrideDay
-  name: holiday-name-bisexual-pride-day
-  beginDay: 23
-  beginMonth: September
+# ADT-Holidays-Start
+# - type: holiday
+#   id: BisexualPrideDay
+#   name: holiday-name-bisexual-pride-day
+#   beginDay: 23
+#   beginMonth: September
+# ADT-Holidays-End
 
 - type: holiday
   id: StupidQuestionsDay
@@ -361,11 +363,13 @@
   beginDay: 19
   beginMonth: November
 
-- type: holiday
-  id: TransgenderRemembranceDay
-  name: holiday-name-transgender-remembrance-day
-  beginDay: 20
-  beginMonth: November
+# ADT-Holidays-Start
+# - type: holiday
+#   id: TransgenderRemembranceDay
+#   name: holiday-name-transgender-remembrance-day
+#   beginDay: 20
+#   beginMonth: November
+# ADT-Holidays-End
 
 - type: holiday
   id: SayingHelloDay
@@ -438,9 +442,11 @@
   shouldCelebrate:
     !type:FridayThirteenth { }
 
-- type: holiday
-  id: PrideMonth
-  name: holiday-name-pride-month
-  beginDay: 1
-  endDay: 31
-  beginMonth: June
+# ADT-Holidays-Start
+# - type: holiday
+#   id: PrideMonth
+#   name: holiday-name-pride-month
+#   beginDay: 1
+#   endDay: 31
+#   beginMonth: June
+# ADT-Holidays-End
