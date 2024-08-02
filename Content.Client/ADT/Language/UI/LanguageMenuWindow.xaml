@@ -1,7 +1,7 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
+<DefaultWindow xmlns="https://spacestation14.io"
                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                Title="a"
-               SetSize="300 200">
+               SetSize="400 450">
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
         <PanelContainer Name="CurrentLanguageContainer" Access="Public" StyleClasses="PdaBorderRect">
             <Label Name="CurrentLanguageLabel" Access="Public" Text="Current Language:" HorizontalExpand="True"></Label>

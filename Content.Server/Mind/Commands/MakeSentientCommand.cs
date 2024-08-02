@@ -6,6 +6,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Console;
+using Content.Shared.Language;
 
 namespace Content.Server.Mind.Commands
 {
@@ -55,6 +56,18 @@ namespace Content.Server.Mind.Commands
             {
                 entityManager.EnsureComponent<SpeechComponent>(uid);
                 entityManager.EnsureComponent<EmotingComponent>(uid);
+
+                // Lang start
+                var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+                if (!lang.SpokenLanguages.Contains("GalacticCommon"))
+                {
+                    lang.SpokenLanguages.Add("GalacticCommon");
+                }
+                if (!lang.UnderstoodLanguages.Contains("GalacticCommon"))
+                {
+                    lang.UnderstoodLanguages.Add("GalacticCommon");
+                }
+                // Lang end
             }
 
             entityManager.EnsureComponent<ExaminerComponent>(uid);

@@ -3,6 +3,7 @@ using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Language;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -22,6 +23,18 @@ public sealed partial class MakeSentient : EntityEffect
         entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
 
+        // Lang start
+        var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+        if (!lang.SpokenLanguages.Contains("GalacticCommon"))
+        {
+            lang.SpokenLanguages.Add("GalacticCommon");
+        }
+        if (!lang.UnderstoodLanguages.Contains("GalacticCommon"))
+        {
+            lang.UnderstoodLanguages.Add("GalacticCommon");
+        }
+        // Lang end
+
         // Stops from adding a ghost role to things like people who already have a mind
         if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
         {
@@ -33,6 +46,7 @@ public sealed partial class MakeSentient : EntityEffect
         {
             return;
         }
+
 
         ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
         entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);

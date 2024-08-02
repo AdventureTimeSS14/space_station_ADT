@@ -15,17 +15,18 @@
   - DraconicTranslator
   - SolCommonTranslator
   - RootSpeakTranslator
-  - BasicGalaticCommonTranslatorImplanter
+  - GalaticCommonTranslatorImplanter
   - MofficTranslator
   - DraskTranslator
-#  - UrsTranslator # Закомменчено до раундстарт урсов
+  - UrsTranslator # Закомменчено до раундстарт урсов  # И никто не раскомментил, молодцы
   - ArkaneTranslator
   - ShadowkinTranslator
   - NianTranslator
   - FireTranslator
   - SikTajTranslator
   - CintaTajTranslator
-
+  - IPCTranslator
+  - DwarfTranslator
 
 # Frontier - languages mechanic
 - type: technology
@@ -38,8 +39,8 @@
   tier: 3
   cost: 15000
   recipeUnlocks:
-  - XenoTranslator
-  - AdvancedGalaticCommonTranslatorImplanter
+#  - XenoTranslator
+#  - AdvancedGalaticCommonTranslatorImplanter
   - BubblishTranslatorImplanter
   - NekomimeticTranslatorImplanter
   - DraconicTranslatorImplanter
@@ -53,7 +54,10 @@
   - NianTranslatorImplanter
   - FireTranslatorImplanter
   - DraskTranslatorImplanter
-#  - UrsTranslatorImplanter # Закомменчено до раундстарт урсов
+  - UrsTranslatorImplanter # Закомменчено до раундстарт урсов   # И никто не раскомментил, молодцы
   - ArkaneTranslatorImplanter
   - ShadowkinTranslatorImplanter
   - CintaTajTranslatorImplanter
+  - IPCTranslatorImplanter
+  - BorgTranslatorImplanter
+  - DwarfTranslatorImplanter

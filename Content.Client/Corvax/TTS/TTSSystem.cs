@@ -1,4 +1,4 @@
-﻿using Content.Shared.Chat;
+using Content.Shared.Chat;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
 using Robust.Client.Audio;
@@ -8,6 +8,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
+using Content.Shared.Language;
+using Robust.Shared.Player;
 
 namespace Content.Client.Corvax.TTS;
 
@@ -20,6 +22,8 @@ public sealed class TTSSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;
 
     private ISawmill _sawmill = default!;
     private readonly MemoryContentRoot _contentRoot = new();
@@ -68,7 +72,17 @@ public sealed class TTSSystem : EntitySystem
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
         var filePath = new ResPath($"{_fileIdx++}.ogg");
-        _contentRoot.AddOrUpdateFile(filePath, ev.Data);
+
+        var player = _playerManager.LocalSession?.AttachedEntity;
+        if (player != null)
+        {
+            if (_language.CanUnderstand(player.Value, ev.LanguageProtoId))
+                _contentRoot.AddOrUpdateFile(filePath, ev.Data);
+            else
+                _contentRoot.AddOrUpdateFile(filePath, ev.LanguageData);
+        }
+        else
+            _contentRoot.AddOrUpdateFile(filePath, ev.Data);
 
         var audioResource = new AudioResource();
         audioResource.Load(IoCManager.Instance!, Prefix / filePath);
