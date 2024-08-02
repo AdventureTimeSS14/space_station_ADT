@@ -16,9 +16,11 @@
       map: ["enum.NukeVisualLayers.Unlit"]
       shader: unshaded
       visible: false
-    - state: nuclearbomb_gay
-      map: ["pride"]
-      visible: false
+# ADT-Holidays-Start
+    # - state: nuclearbomb_gay
+    #   map: ["pride"]
+    #   visible: false
+# ADT-Holidays-End
     - state: nukefestive
       map: ["christmas"]
       visible: false
@@ -27,15 +29,19 @@
     holidays:
       festive:
       - FestiveSeason
-      pride:
-      - PrideMonth
+# ADT-Holidays-Start
+      # pride:
+      # - PrideMonth
+# ADT-Holidays-End
   - type: GenericVisualizer
     visuals:
       enum.HolidayVisuals.Holiday:
         christmas:
           festive: { visible: true }
-        pride:
-          pride: { visible: true }
+# ADT-Holidays-Start
+        # pride:
+        #   pride: { visible: true }
+# ADT-Holidays-End
       enum.NukeVisuals.Deployed:
         enum.NukeVisualLayers.Base:
           False: { state: nuclearbomb_base }
@@ -136,23 +142,29 @@
     - state: nukefestive
       map: ["christmas"]
       visible: false
-    - state: nuclearbomb_gay
-      map: [ "pride" ]
-      visible: false
+# ADT-Holidays-Start
+    # - state: nuclearbomb_gay
+    #   map: [ "pride" ]
+    #   visible: false
+# ADT-Holidays-End
   - type: Appearance
   - type: HolidayVisuals
     holidays:
       festive:
       - FestiveSeason
-      pride:
-      - PrideMonth
+# ADT-Holidays-Start
+      # pride:
+      # - PrideMonth
+# ADT-Holidays-End
   - type: GenericVisualizer
     visuals:
       enum.HolidayVisuals.Holiday:
         christmas:
           festive: { visible: true }
-        pride:
-          pride: { visible: true }
+# ADT-Holidays-Start
+        # pride:
+        #   pride: { visible: true }
+# ADT-Holidays-End
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

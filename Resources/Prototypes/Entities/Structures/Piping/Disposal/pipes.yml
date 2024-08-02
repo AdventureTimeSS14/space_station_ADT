@@ -58,6 +58,12 @@
       DisposalTube: !type:Container
   - type: StaticPrice
     price: 22
+  # ADT-RPD-Start
+  - type: RPDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  # ADT-RPD-End
 
 - type: entity
   id: DisposalHolder
