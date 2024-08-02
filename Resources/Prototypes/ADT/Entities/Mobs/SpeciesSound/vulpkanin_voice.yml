@@ -1,70 +1,5 @@
 #Для звуков и голосов вульпочек
 
-- type: emote
-  id: VulpHeckaet
-  name: chat-emote-name-heck
-  category: Vocal
-  chatMessages: [хекает]
-  chatTriggers:
-    - кхе
-    - кхе.
-    - хекает
-    - хекает.
-    - отдышка
-    - отдышка.
-
-- type: emote
-  id: VulpHowl
-  name: chat-emote-name-howl
-  category: Vocal
-  chatMessages: [воет]
-  chatTriggers:
-    - воет
-    - воет.
-    - воет!
-
-- type: emote
-  id: VulpWhine
-  name: chat-emote-name-whine
-  category: Vocal
-  chatMessages: [скулит]
-  chatTriggers:
-    - скул
-    - скул.
-    - скул!
-    - скулит
-    - скулит.
-    - скулит!
-
-- type: emote
-  id: VulpBark
-  name: chat-emote-name-bark
-  category: Vocal
-  chatMessages: [лает]
-  chatTriggers:
-    - лает
-    - лает.
-    - лает!
-    - гавкает
-    - гавкает.
-    - гавкает!
-    - гав
-    - гав.
-    - гав!
-    - рявкает
-    - рявкает.
-    - рявкает!
-
-- type: emote
-  id: VulpGrowl
-  name: chat-emote-name-growl
-  category: Vocal
-  chatMessages: [воет]
-  chatTriggers:
-    - рычит
-    - рычит.
-    - рычит!
-
 - type: soundCollection
   id: NesMaleVulpaScreams
   files:
@@ -150,17 +85,17 @@
       collection: MaleSigh
     Crying:
       collection: MaleCry
-    VulpHowl:
+    Howl:
       collection: VulpHowls
-    VulpBark:
+    Bark:
       collection: VulpBarks
-    VulpGrowl:
+    Growl:
       collection: VulpGrowls
-    VulpWhine:
+    Whine:
       collection: VulpWhines
     Whistle:
       collection: Whistles
-    VulpHeckaet:
+    Heckaet:
       collection: VulpHeckaetSound
 
 - type: emoteSounds
@@ -194,15 +129,15 @@
       collection: FemaleSigh
     Crying:
       collection: FemaleCry
-    VulpHowl:
+    Howl:
       collection: VulpHowls
-    VulpBark:
+    Bark:
       collection: VulpBarks
-    VulpGrowl:
+    Growl:
       collection: VulpGrowls
-    VulpWhine:
+    Whine:
       collection: VulpWhines
     Whistle:
       collection: Whistles
-    VulpHeckaet:
+    Heckaet:
       collection: VulpHeckaetSound
