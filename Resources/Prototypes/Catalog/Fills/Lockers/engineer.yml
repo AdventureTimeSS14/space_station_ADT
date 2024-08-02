@@ -94,8 +94,10 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RCD
-      - id: RCDAmmo
+  # ADT-RPD-Start
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+  # ADT-RPD-End
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -110,8 +112,10 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RCD
-      - id: RCDAmmo
+  # ADT-RPD-Start
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+  # ADT-RPD-End
 
 - type: entity
   id: LockerEngineerFilledHardsuit

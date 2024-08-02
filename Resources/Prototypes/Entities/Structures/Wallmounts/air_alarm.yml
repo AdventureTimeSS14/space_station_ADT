@@ -109,6 +109,12 @@
               collection: MetalGlassBreak
               params:
                 volume: -4
+  # ADT-RPD-Start
+  - type: RPDDeconstructable
+    cost: 5
+    delay: 6
+    fx: EffectRCDDeconstruct6
+  # ADT-RPD-Start
 
 - type: entity
   id: AirAlarmAssembly
@@ -139,3 +145,9 @@
     node: assembly
   - type: Transform
     anchored: true
+  # ADT-RPD-Start
+  - type: RPDDeconstructable
+    cost: 5
+    delay: 6
+    fx: EffectRCDDeconstruct6
+  # ADT-RPD-Start
