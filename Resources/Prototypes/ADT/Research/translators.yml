@@ -33,7 +33,7 @@
   id: AdvancedTranslation
   name: research-technology-advanced-translation
   icon:
-    sprite: _NF/Objects/Devices/translator.rsi
+    sprite: ADT/Objects/Devices/translator.rsi
     state: icon
   discipline: CivilianServices
   tier: 3

@@ -69,8 +69,8 @@
     Gold: 50
 
 - type: latheRecipe
-  id: GalaticCommonTranslatorImplanter
-  result: GalaticCommonTranslatorImplanter
+  id: GalacticCommonTranslatorImplanter
+  result: GalacticCommonTranslatorImplanter
   completetime: 2
   materials:
     Steel: 500
