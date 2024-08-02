@@ -1,0 +1,40 @@
+- type: loadoutGroup
+  id: PathologHead
+  name: loadout-group-patholog-head
+  minLimit: 0
+  loadouts:
+  - PathologHead
+
+- type: loadoutGroup
+  id: PathologJumpsuit
+  name: loadout-group-patholog-jumpsuit
+  loadouts:
+  - PathologJumpsuit
+  - PathologJumpskirt
+  - PathologJumpsuitAlt
+  - PathologJumpskirtAlt
+
+- type: loadoutGroup
+  id: PathologBackpack
+  name: loadout-group-patholog-backpack
+  minLimit: 0
+  loadouts:
+  - PathologBackpack
+  - PathologSatchel
+  - PathologDuffel
+
+- type: loadoutGroup
+  id: PathologWindbreaker
+  name: loadout-group-patholog-outerclothing
+  minLimit: 0
+  loadouts:
+  - PathologWindbreaker
+  - PathologWintercoat
+  - PathologApron
+
+- type: loadoutGroup
+  id: PathologShoes
+  name: loadout-group-patholog-shoes
+  loadouts:
+  - BlueShoes
+  - MedicalWinterBoots

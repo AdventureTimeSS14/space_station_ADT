@@ -12,7 +12,8 @@
     - type: RCDDeconstructable
       cost: 6
       delay: 4
-      fx: EffectRCDDeconstruct4  
+      fx: EffectRCDDeconstruct4
+    - type: CanBuildWindowOnTopRPD # ADT-RPD
     - type: CanBuildWindowOnTop
     - type: Sprite
       drawdepth: Walls
@@ -233,4 +234,4 @@
     - type: Construction
       graph: GrilleDiagonal
       node: clockworkGrilleDiagonal
-      
+
