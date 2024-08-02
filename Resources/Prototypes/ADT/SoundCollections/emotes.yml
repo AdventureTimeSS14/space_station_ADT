@@ -36,6 +36,16 @@
     - /Audio/ADT/IPC/buzz-sigh.ogg
 
 - type: soundCollection
+  id: SighIPC
+  files:
+    - /Audio/ADT/IPC/buzz-two.ogg
+
+- type: soundCollection
+  id: ScreamIPC
+  files:
+    - /Audio/ADT/IPC/synth_scream.ogg
+
+- type: soundCollection
   id: SighBuzz
   files:
     - /Audio/ADT/IPC/buzz-two.ogg

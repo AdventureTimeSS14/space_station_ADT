@@ -8,10 +8,10 @@
       state: engineering
     - type: MachineBoard
       prototype: SiliconChargerIndustrial
-      requirements:
+      componentRequirements:
         Capacitor: 8
         Manipulator: 2
-      materialRequirements:
+      stackRequirements:
         Plastic: 6
         CableHV: 4
         CableMV: 8
