@@ -342,7 +342,7 @@
       - RootSpeakTranslator
       #- XenoTranslator
       - DraskTranslator
-      - GalaticCommonTranslatorImplanter
+      - GalacticCommonTranslatorImplanter
       - BubblishTranslatorImplanter
       - NekomimeticTranslatorImplanter
       - DraconicTranslatorImplanter
