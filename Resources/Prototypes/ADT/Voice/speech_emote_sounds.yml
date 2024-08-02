@@ -68,6 +68,9 @@
 
 - type: emoteSounds
   id: UnisexNovakid
+
+  id: ADTMaleTajaran
+
   params:
     variation: 0.125
   sounds:
@@ -75,10 +78,26 @@
       collection: NovakidScreams
     Laugh:
       collection: NovakidLaugh
+      
+      collection: TajaranMaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Hiss:
+      collection: TajaranHisses
+    Meow:
+      collection: TajaranMeows
+    Mew:
+      collection: TajaranMews
+    Growl:
+      collection: TajaranGrowls
+    Purr:
+      collection: TajaranPurrs
+
     Sneeze:
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
+
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -138,6 +157,10 @@
       collection: NovakidScreams
     Laugh-apathy:
       collection: NovakidLaugh 
+
+      collection: TajaranMaleScreams
+    Laugh-apathy:
+      collection: MaleLaugh 
     Sigh-apathy:
       collection: MaleSigh
     Crying-apathy:
@@ -145,6 +168,9 @@
 
 - type: emoteSounds
   id: FemaleNovakid
+
+  id: ADTFemaleTajaran
+
   params:
     variation: 0.125
   sounds:
@@ -152,14 +178,32 @@
       collection: NovakidScreams
     Laugh:
       collection: NovakidLaugh
+
+      collection: TajaranFemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+
     Sneeze:
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
+
     CatMeow:
       collection: CatMeows
     CatHisses:
       collection: CatHisses
+
+    Hiss:
+      collection: TajaranHisses
+    Meow:
+      collection: TajaranMeows
+    Mew:
+      collection: TajaranMews
+    Growl:
+      collection: TajaranGrowls
+    Purr:
+      collection: TajaranPurrs
+
     MonkeyScreeches:
       collection: MonkeyScreeches
     RobotBeep:
@@ -181,7 +225,12 @@
       collection: NovakidScreams
     Laugh-apathy:
       collection: NovakidLaugh 
+      collection: TajaranFemaleScreams
+    Laugh-apathy:
+      collection: FemaleLaugh 
     Sigh-apathy:
       collection: FemaleSigh
     Crying-apathy:
       collection: FemaleCry
+
+
