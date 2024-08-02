@@ -37,8 +37,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Shared.Language;  // Lang affected
-using Content.Server.Language;  // Lang affected
+using Content.Shared.ADT.Language;  // ADT Languages
+using Content.Server.ADT.Language;  // ADT Languages
 
 namespace Content.Server.Chat.Systems;
 
@@ -66,7 +66,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;  // Lang affected
+    [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
 
 
     public const int VoiceRange = 10; // how far voice goes in world units
@@ -153,9 +153,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        LanguagePrototype? language = null) // Lang affected
+        LanguagePrototype? language = null) // ADT Languages
     {
-        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, language);  // Lang affected
+        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, language);  // ADT Languages
     }
 
     /// <summary>
@@ -180,7 +180,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        LanguagePrototype? language = null  // Lang affected
+        LanguagePrototype? language = null  // ADT Languages
         )
     {
         if (HasComp<GhostComponent>(source))
@@ -224,7 +224,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
-        // Lang start
+        // ADT Languages start
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
@@ -234,7 +234,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         string sanitizedMessage = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
-        // Lang end
+        // ADT Languages end
 
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
@@ -260,13 +260,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         switch (desiredType)
         {
             case InGameICChatType.Speak:
-                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker, language);  // Lang affected
+                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker, language);  // ADT Languages
                 break;
             case InGameICChatType.Whisper:
-                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker, language);  // Lang affected
+                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker, language);  // ADT Languages
                 break;
             case InGameICChatType.Emote:
-                SendEntityEmote(source, sanitizedMessage, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker); // Accent fix
+                SendEntityEmote(source, sanitizedMessage, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);     // ADT Languages
                 break;
         }
     }
@@ -394,7 +394,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride,
         bool hideLog = false,
         bool ignoreActionBlocker = false,
-        LanguagePrototype? language = null  // Lang affected
+        LanguagePrototype? language = null  // ADT Languages
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -405,10 +405,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (message.Length == 0)
             return;
 
-        // Lang start
+        // ADT Languages start
         if (language == null)
             language = _language.GetCurrentLanguage(source);
-        // Lang end
+        // ADT Languages end
 
         var speech = GetSpeechVerb(source, message);
 
@@ -427,16 +427,14 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (nameEv.SpeechVerb != null && _prototypeManager.TryIndex<SpeechVerbPrototype>(nameEv.SpeechVerb, out var proto))
                 speech = proto;
         }
-        // Lang start
 
-        // Accent fix start
+        // ADT Languages start
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
         string coloredMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-        // Accent fix end
 
         string coloredLanguageMessage = SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, FormattedMessage.EscapeText(message), language), out _);
 
@@ -448,7 +446,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             coloredMessage = "[color=" + language.Color.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
             coloredLanguageMessage = "[color=" + language.Color.Value.ToHex().ToString() + "]" + coloredLanguageMessage + "[/color]";
         }
-        // Lang end
+        // ADT Languages end
 
         name = FormattedMessage.EscapeText(name);
         var wrappedMessage = Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
@@ -456,17 +454,18 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("fontType", speech.FontId),
             ("fontSize", speech.FontSize),
-            ("message", coloredMessage));   // Lang affected
+            ("message", coloredMessage));   // ADT Language colored msg
 
-        // Lang start
+        // ADT Languages start
         var wrappedLanguageMessage = Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
             ("entityName", name),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("fontType", speech.FontId),
             ("fontSize", speech.FontSize),
             ("message", coloredLanguageMessage));
-        // Lang end
-        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, source, range, language: language);    // Lang affected
+        // ADT Languages end
+
+        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, source, range, language: language);    // ADT Languages
 
         var ev = new EntitySpokeEvent(source, message, language, null, null);
         RaiseLocalEvent(source, ev, true);
@@ -502,7 +501,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride,
         bool hideLog = false,
         bool ignoreActionBlocker = false,
-        LanguagePrototype? language = null  // Lang affected
+        LanguagePrototype? language = null  // ADT Languages
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -514,13 +513,13 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var obfuscatedMessage = ObfuscateMessageReadability(message, 0.2f);
 
-        // Lang start
+        // ADT Languages start
         if (language == null)
             language = _language.GetCurrentLanguage(source);
 
         var languageMessage = SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, message, language), out _);
         var obfuscatedLanguageMessage = ObfuscateMessageReadability(SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, message, language), out _), 0.2f);
-        // Lang end
+        // ADT Languages end
 
         // get the entity's name by visual identity (if no override provided).
         string nameIdentity = FormattedMessage.EscapeText(nameOverride ?? Identity.Name(source, EntityManager));
@@ -536,9 +535,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             RaiseLocalEvent(source, nameEv);
             name = nameEv.Name;
         }
-        // Lang start
+        // ADT Languages start
 
-        // Accent fix start
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
@@ -546,7 +544,6 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         string coloredMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
         string coloredObfuscatedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(obfuscatedMessage), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-        // Accent fix end
 
         string coloredObfuscatedLanguageMessage = FormattedMessage.EscapeText(obfuscatedLanguageMessage);
         string coloredLanguageMessage = FormattedMessage.EscapeText(languageMessage);
@@ -586,7 +583,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (language == null)
             language = _language.GetCurrentLanguage(source);
-        // Lang end
+        // ADT Languages end
+
         foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
         {
             EntityUid listener;
@@ -598,7 +596,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
-            // Lang start
+            // ADT Languages start
             if (!_language.CanUnderstand(source, language) && !_language.CheckTranslators(listener, source, language))
             {
                 if (data.Range <= WhisperClearRange)
@@ -621,7 +619,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 else
                     _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownMessage, source, false, session.Channel);
             }
-            // Lang end
+            // ADT Languages end
         }
 
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
@@ -673,7 +671,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (checkEmote)
             TryEmoteChatInput(source, action);
-        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, wrappedMessage, source, range, author, ignoreLanguage: true);  // Lang affected
+        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, wrappedMessage, source, range, author, ignoreLanguage: true);  // ADT Languages
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user} as {name}: {action}");
@@ -700,7 +698,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("entityName", name),
             ("message", FormattedMessage.EscapeText(message)));
 
-        SendInVoiceRange(ChatChannel.LOOC, message, wrappedMessage, wrappedMessage, source, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, player.UserId, ignoreLanguage: true); // Lang affected
+        SendInVoiceRange(ChatChannel.LOOC, message, wrappedMessage, wrappedMessage, source, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, player.UserId, ignoreLanguage: true); // ADT Languages
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"LOOC from {player:Player}: {message}");
     }
 
@@ -781,9 +779,9 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, LanguagePrototype? language = null, bool ignoreLanguage = false)  // Lang affected
+    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, LanguagePrototype? language = null, bool ignoreLanguage = false)  // ADT Languages
     {
-        // Lang start
+        // ADT Languages start
         if (language == null)
             language = _language.GetCurrentLanguage(source);
 
@@ -810,7 +808,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             else
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
         }
-        // Lang end
+        // ADT Languages end
 
         _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
     }

@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Language;
+namespace Content.Shared.ADT.Language;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LanguageSpeakerComponent : Component

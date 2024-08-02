@@ -7,7 +7,7 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Content.Server.Language;
+using Content.Server.ADT.Language;  // ADT Languages
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -15,7 +15,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
 
     public override void Initialize()
     {
@@ -103,10 +103,12 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     {
         if (TryComp(Transform(uid).ParentUid, out ActorComponent? actor))
         {
+            // ADT Languages start
             if (_language.CanUnderstand(Transform(uid).ParentUid, args.Language))
                 _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
             else
                 _netMan.ServerSendMessage(args.UnknownLanguageChatMsg, actor.PlayerSession.Channel);
+            // ADT Languages end
         }
     }
 

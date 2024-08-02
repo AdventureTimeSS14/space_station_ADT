@@ -6,7 +6,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Console;
-using Content.Shared.Language;
+using Content.Shared.ADT.Language;
 
 namespace Content.Server.Mind.Commands
 {

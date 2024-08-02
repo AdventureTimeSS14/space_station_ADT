@@ -360,6 +360,9 @@
       - ArkaneTranslatorImplanter
       - ShadowkinTranslatorImplanter
       - CintaTajTranslatorImplanter
+      - IPCTranslatorImplanter
+      - BorgTranslatorImplanter
+      - DwarfTranslatorImplanter
       - UrsTranslator
       - ArkaneTranslator
       - ShadowkinTranslator

@@ -1,5 +1,5 @@
 using Content.Client.Gameplay;
-using Content.Shared.Language;
+using Content.Shared.ADT.Language;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Content.Client.Chat.UI;
@@ -11,7 +11,7 @@ using Content.Shared.Input;
 using Content.Client.ADT.Language.UI;
 using Robust.Shared.Input.Binding;
 
-namespace Content.Client.UserInterface.Systems.Language;
+namespace Content.Client.UserInterface.Systems.Language;    // ADT Languages
 
 public sealed class LanguageMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
 {

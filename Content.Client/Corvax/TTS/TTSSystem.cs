@@ -8,7 +8,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
-using Content.Shared.Language;
+using Content.Shared.ADT.Language;
 using Robust.Shared.Player;
 
 namespace Content.Client.Corvax.TTS;
@@ -73,6 +73,7 @@ public sealed class TTSSystem : EntitySystem
 
         var filePath = new ResPath($"{_fileIdx++}.ogg");
 
+        // Languages TTS support start
         var player = _playerManager.LocalSession?.AttachedEntity;
         if (player != null)
         {
@@ -83,6 +84,7 @@ public sealed class TTSSystem : EntitySystem
         }
         else
             _contentRoot.AddOrUpdateFile(filePath, ev.Data);
+        // Languages TTS support end
 
         var audioResource = new AudioResource();
         audioResource.Load(IoCManager.Instance!, Prefix / filePath);

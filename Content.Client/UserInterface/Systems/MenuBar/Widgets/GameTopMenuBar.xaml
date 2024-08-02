@@ -53,6 +53,7 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!--ADT Languages start-->
     <ui:MenuButton
         Name="LanguagesButton"
         Access="Internal"
@@ -63,6 +64,7 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!--ADT Languages end-->
     <ui:MenuButton
         Name="CraftingButton"
         Access="Internal"

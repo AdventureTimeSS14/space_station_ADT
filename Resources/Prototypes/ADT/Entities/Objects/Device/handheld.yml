@@ -1,3 +1,4 @@
+# Translators
 - type: entity
   id: TranslatorUnpowered
   parent: [ BaseItem ]

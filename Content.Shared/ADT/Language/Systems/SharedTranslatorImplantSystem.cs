@@ -8,7 +8,7 @@ using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
-using Content.Shared.Language;
+using Content.Shared.ADT.Language;
 
 namespace Content.Shared.Implants;
 

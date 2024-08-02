@@ -6,7 +6,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Ghost;
 using Robust.Shared.Network;
 
-namespace Content.Shared.Language;
+namespace Content.Shared.ADT.Language;
 
 public abstract class SharedLanguageSystem : EntitySystem
 {

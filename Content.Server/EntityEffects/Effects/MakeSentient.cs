@@ -3,7 +3,7 @@ using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Prototypes;
-using Content.Shared.Language;
+using Content.Shared.ADT.Language;
 
 namespace Content.Server.EntityEffects.Effects;
 

@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Language;
+namespace Content.Shared.ADT.Language;
 
 [Prototype("language")]
 public sealed class LanguagePrototype : IPrototype

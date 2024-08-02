@@ -1,10 +1,10 @@
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Shared.Interaction;
-using Content.Shared.Language;
+using Content.Shared.ADT.Language;
 using Content.Shared.PowerCell;
 
-namespace Content.Server.Language;
+namespace Content.Server.ADT.Language;
 
 public sealed class TranslatorSystem : SharedTranslatorSystem
 {

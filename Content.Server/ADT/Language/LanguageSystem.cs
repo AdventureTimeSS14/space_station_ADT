@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Text;
 using Content.Shared.GameTicking;
-using Content.Shared.Language;
+using Content.Shared.ADT.Language;
 //using Content.Shared.Language.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
@@ -12,7 +12,7 @@ using Content.Server.Station.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Chat.Systems;
 
-namespace Content.Server.Language;
+namespace Content.Server.ADT.Language;
 
 public sealed partial class LanguageSystem : SharedLanguageSystem
 {

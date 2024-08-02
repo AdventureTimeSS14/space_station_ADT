@@ -1,7 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Toggleable;
 
-namespace Content.Shared.Language;
+namespace Content.Shared.ADT.Language;
 
 public abstract class SharedTranslatorSystem : EntitySystem
 {
