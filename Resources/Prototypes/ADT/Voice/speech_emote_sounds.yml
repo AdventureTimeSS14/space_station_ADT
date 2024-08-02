@@ -65,3 +65,25 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
+
+- type: emoteSounds
+  id: UnisexIPC
+  sounds:
+    RobotBeep:
+      collection: RobotBeeps
+    SynthYes:
+      path: /Audio/ADT/IPC/synth_yes.ogg
+    SynthNo:
+      path: /Audio/ADT/IPC/synth_no.ogg
+    Ping:
+      path: /Audio/ADT/IPC/ping.ogg
+    Buzz:
+      path: /Audio/ADT/IPC/buzz-sigh.ogg
+    SighBuzz:
+      path: /Audio/ADT/IPC/buzz-two.ogg
+    Sigh:
+      path: /Audio/ADT/IPC/buzz-two.ogg
+    Scream:
+      path: /Audio/ADT/IPC/synth_scream.ogg
+  params:
+    variation: 0.125

@@ -42,6 +42,7 @@ public sealed class EmpSystem : SharedEmpSystem
     {
         foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
         {
+            var ev = new EmpPulseEvent(energyConsumption, false, false, TimeSpan.FromSeconds(duration)); // Parkstation-IPCs
             TryEmpEffects(uid, energyConsumption, duration);
         }
         Spawn(EmpPulseEffectPrototype, coordinates);
