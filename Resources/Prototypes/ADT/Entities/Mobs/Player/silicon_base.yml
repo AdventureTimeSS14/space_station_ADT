@@ -88,6 +88,7 @@
       shiveringHeatRegulation: 1200
       normalBodyTemperature: 400
       thermalRegulationTemperatureThreshold: 125
+    - type: ComplexInteraction
 
 - type: entity
   parent: ADTPlayerSiliconBase
@@ -282,11 +283,11 @@
     - type: Strippable
     - type: UserInterface
       interfaces:
-        - key: enum.VoiceMaskUIKey.Key
+        enum.VoiceMaskUIKey.Key:
           type: VoiceMaskBoundUserInterface
-        - key: enum.HumanoidMarkingModifierKey.Key
+        enum.HumanoidMarkingModifierKey.Key:
           type: HumanoidMarkingModifierBoundUserInterface
-        - key: enum.StrippingUiKey.Key
+        enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
     - type: Emoting
     - type: Grammar

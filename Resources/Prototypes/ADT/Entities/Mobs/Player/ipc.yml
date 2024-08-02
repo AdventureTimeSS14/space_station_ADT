@@ -121,8 +121,8 @@
     - RobotTalk
   - type: Tag
     tags:
-    - ChangelingBlacklist
-    - ShoesRequiredStepTriggerImmune
+    # - ChangelingBlacklist
+    # - ShoesRequiredStepTriggerImmune
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
