@@ -8,7 +8,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.Language;
+using Content.Shared.ADT.Language;  // ADT Languages
 using Robust.Shared.Player;
 
 namespace Content.Client.Corvax.TTS;
@@ -23,7 +23,7 @@ public sealed class TTSSystem : EntitySystem
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly SharedLanguageSystem _language = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;    // ADT Languages
 
     private ISawmill _sawmill = default!;
     private readonly MemoryContentRoot _contentRoot = new();
