@@ -20,6 +20,8 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
+
+- type: loadoutGroup
   id: PathologHead
   name: loadout-group-patholog-head
   minLimit: 0

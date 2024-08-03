@@ -10,6 +10,8 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
   id: JobADTPathologist 
   groups:
   - Inventory # Corvax-Loadouts
