@@ -19,6 +19,7 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
     private readonly SharedLanguageSystem _language;
 
     private readonly List<EntryState> _entries = new();
+    private readonly List<Option> _optionLists = new();
 
     public LanguageMenuWindow()
     {
@@ -41,12 +42,37 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
     {
         CurrentLanguageLabel.Text = Loc.GetString("language-menu-current-language", ("language", _language.GetLanguage(state.CurrentLanguage).LocalizedName));
 
-        OptionsList.RemoveAllChildren();
-        _entries.Clear();
-
-        foreach (var language in state.Options)
+        //OptionsList.RemoveAllChildren();
+        List<string> options = state.Options;
+        List<Option> optionList = _optionLists;
+        foreach (var entry in _entries)
         {
-            AddLanguageEntry(language);
+            if (state.Options.Contains(entry.Language))
+            {
+                options.Remove(entry.Language);
+                continue;
+            }
+            else
+            {
+                _entries.Remove(entry);
+                
+                foreach (var item in optionList)
+                {
+                    if (item.LanguageId == entry.Language)
+                    {
+                        _optionLists.Remove(item);
+                        OptionsList.RemoveChild(item.PanelContainer);
+                    }
+                }
+            }
+        }
+
+        if (options.Count > 0)
+        {
+            foreach (var language in options)
+            {
+                AddLanguageEntry(language);
+            }
         }
 
         // Disable the button for the currently chosen language
@@ -124,6 +150,12 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
         OptionsList.AddChild(wrapper);
 
         _entries.Add(state);
+
+        var option = new Option();
+        option.LanguageId = state.Language;
+        option.PanelContainer = wrapper;
+
+        _optionLists.Add(option);
     }
 
     private void OnLanguageChosen(string id)
@@ -140,4 +172,11 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
         public string Language;
         public Button? Button;
     }
+
+    private struct Option
+    {
+        public string LanguageId;
+        public PanelContainer PanelContainer;
+    }
+
 }
