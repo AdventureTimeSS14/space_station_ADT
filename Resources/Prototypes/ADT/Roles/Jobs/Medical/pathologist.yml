@@ -1,0 +1,23 @@
+- type: job
+  id: ADTPathologist
+  name: job-name-ADTPathologist
+  description: job-description-ADTPathologist
+  playTimeTracker: JobADTPathologist
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 21600 #6 hrs
+  startingGear: ADTPathologistGear
+  icon: "JobIconADTPathologist"
+  supervisors: job-supervisors-cmo
+  canBeAntag: true
+  access:
+    - Medical
+    - Maintenance
+
+- type: startingGear
+  id: ADTPathologistGear
+  equipment:
+    id: ADTPathologistPDA
+    ears: ClothingHeadsetMedical
+    belt: BoxFolderClipboard

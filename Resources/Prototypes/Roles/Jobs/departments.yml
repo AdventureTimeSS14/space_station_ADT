@@ -22,7 +22,6 @@
   - Clown
   - HeadOfPersonnel
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
@@ -38,7 +37,6 @@
   color: "#334E6D"
   roles:
   - Captain
-  - IAA # Corvax-IAA
   - CentralCommandOfficial
   - ChiefEngineer
   - ChiefMedicalOfficer
@@ -70,6 +68,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - ADTPathologist
 
 - type: department
   id: Security

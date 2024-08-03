@@ -97,3 +97,8 @@
     - RevenantTheme
   - type: Speech
     speechVerb: Ghost
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon

@@ -1,0 +1,25 @@
+- type: entity
+  parent: IDCardStandard
+  id: MagistratIDCard
+  name: magistrat ID card
+  description: magistrat ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: silver
+        - state: idlawyer
+    - type: PresetIdCard
+      job: Magistrat
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTPathologistIDCard
+  name: pathologist's ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: id-pathologist
+  - type: PresetIdCard
+    job: ADTPathologist

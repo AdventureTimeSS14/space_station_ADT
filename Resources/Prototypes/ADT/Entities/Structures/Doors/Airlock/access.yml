@@ -1,0 +1,17 @@
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockMagistrateGlassLocked
+  suffix: Magistrate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMagistrate ]
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockIAAGlassLocked
+  suffix: IAA, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIAA ]

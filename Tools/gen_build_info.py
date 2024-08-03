@@ -14,16 +14,15 @@ FILE = "SS14.Client.zip"
 
 SERVER_FILES = [
     "SS14.Server_linux-x64.zip",
-    "SS14.Server_linux-arm64.zip",
-    "SS14.Server_win-x64.zip",
-    "SS14.Server_osx-x64.zip"
+    "SS14.Server_win-x64.zip"
 ]
 
 VERSION = os.environ['GITHUB_SHA']
-FORK_ID = os.environ.get('FORK_ID', "custom")
-BUILD_URL = f"https://builds.station14.ru/{{FORK_ID}}/builds/{{FORK_VERSION}}/{FILE}"
-MANIFEST_URL = f"https://cdn.station14.ru/{{FORK_ID}}/version/{{FORK_VERSION}}/manifest"
-MANIFEST_DOWNLOAD_URL = f"https://cdn.station14.ru/{{FORK_ID}}/version/{{FORK_VERSION}}/download"
+print(VERSION)
+FORK_ID = "ADT"
+BUILD_URL = f"http://builds.adventurestation.space/builds/{{FORK_VERSION}}/{FILE}"
+MANIFEST_URL = f"http://builds.adventurestation.space/version/{{FORK_VERSION}}/manifest"
+MANIFEST_DOWNLOAD_URL = f"http://builds.adventurestation.space/version/{{FORK_VERSION}}/download"
 
 def main() -> None:
     client_file = os.path.join("release", FILE)
@@ -35,6 +34,7 @@ def main() -> None:
 
 def inject_manifest(zip_path: str, manifest: str) -> None:
     with ZipFile(zip_path, "a", compression=ZIP_DEFLATED) as z:
+        print(manifest)
         z.writestr("build.json", manifest)
 
 

@@ -140,5 +140,8 @@ public enum SpeciesNaming : byte
     First,
     FirstLast,
     FirstDashFirst,
+    // ADT Start tweak: Drask naming
+    FirstDashFirstDashFirst,
+    // ADT End tweak
     TheFirstofLast,
 }

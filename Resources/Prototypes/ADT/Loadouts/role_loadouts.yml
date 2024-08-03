@@ -1,0 +1,29 @@
+- type: roleLoadout
+  id: JobMagistrat
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MagistratNeck
+  - MagistratJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobADTPathologist 
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - PathologHead
+  - MedicalMask
+  - PathologJumpsuit
+  - MedicalGloves
+  - PathologBackpack
+  - PathologWindbreaker
+  - PathologShoes
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
