@@ -1,11 +1,6 @@
 using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs;
-using Content.Shared.Tag;
-using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Content.Shared.ADT.Language;

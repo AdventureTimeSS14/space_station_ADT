@@ -9,7 +9,6 @@ namespace Content.Server.ADT.Language;
 public sealed class TranslatorSystem : SharedTranslatorSystem
 {
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
@@ -30,7 +29,6 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         if (hasPower)
         {
             component.Enabled = !component.Enabled;
-            //_powerCell.SetPowerCellDrawEnabled(translator, component.Enabled);
             var popupMessage = Loc.GetString(component.Enabled ? "translator-component-turnon" : "translator-component-shutoff", ("translator", component.Owner));
             _popup.PopupEntity(popupMessage, component.Owner, args.User);
         }

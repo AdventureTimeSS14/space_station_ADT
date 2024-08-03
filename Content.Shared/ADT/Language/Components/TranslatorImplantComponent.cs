@@ -6,9 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Implants.Components;
 
 /// <summary>
-/// Subdermal implants get stored in a container on an entity and grant the entity special actions
-/// The actions can be activated via an action, a passive ability (ie tracking), or a reactive ability (ie on death) or some sort of combination
-/// They're added and removed with implanters
+/// This component grants language knowledge when implanted.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TranslatorImplantComponent : Component

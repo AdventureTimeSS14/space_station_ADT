@@ -5,6 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Language;
 
+/// <summary>
+/// This component allows holding entity to understand given languages if it can understand any of "toSpeak" languages
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HandheldTranslatorComponent : Component
 {
