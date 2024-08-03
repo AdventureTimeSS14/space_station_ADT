@@ -171,6 +171,7 @@
 # IPC
 - type: emote
   id: SynthYes
+  name: chat-emote-name-synth-yes
   category: Vocal
   chatMessages: [утвердительно пищит]
   chatTriggers:
@@ -185,6 +186,7 @@
 
 - type: emote
   id: SynthNo
+  name: chat-emote-name-synth-no
   category: Vocal
   chatMessages: [отрицательно пищит]
   chatTriggers:
@@ -199,6 +201,7 @@
 
 - type: emote
   id: SighBuzz
+  name: chat-emote-name-sigh-buzz
   category: Vocal
   chatMessages: [раздражённо жужжит]
   chatTriggers:
