@@ -1298,6 +1298,9 @@
 
 - type: Tag
   id: WeaponAntiqueLaser
+  
+- type: Tag
+  id: ADTMothFriendlyFood
 
 - type: Tag
   id: WeaponPistolCHIMPUpgradeKit
