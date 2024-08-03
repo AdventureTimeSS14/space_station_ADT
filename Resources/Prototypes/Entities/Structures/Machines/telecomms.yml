@@ -86,6 +86,7 @@
       - EncryptionKeySecurity
       - EncryptionKeyService
       - EncryptionKeyCommand
+      - ADTEncryptionKeyLawyer
 
 - type: entity
   parent: TelecomServer
