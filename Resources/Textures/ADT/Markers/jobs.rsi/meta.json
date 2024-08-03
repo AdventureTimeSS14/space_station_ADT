@@ -6,15 +6,24 @@
     "x": 32,
     "y": 32
   },
-    "states": [
-        {
-            "name": "magistrat"
-        },
-        {
-            "name": "green"
-        },
-        {
-            "name": "iaa"
-        }
-    ]
+  "states": [
+    {
+      "name": "green"
+    },
+    {
+      "name": "investigator"
+    },
+    {
+      "name": "magistrat"
+    },
+    {
+      "name": "iaa"
+    },
+    {
+      "name": "urist"
+    },
+    {
+      "name": "pathologist"
+    }
+  ]
 }
