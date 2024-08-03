@@ -65,7 +65,6 @@
             Librarian: [ 1, 1 ]
             # command
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 2, 2 ]

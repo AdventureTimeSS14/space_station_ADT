@@ -1,0 +1,11 @@
+- type: entity
+  parent: BasePDA
+  id: MagistratPDA
+  name: magistrat PDA
+  description: magistrat PDA
+  components:
+  - type: Pda
+    id: MagistratIDCard
+    state: pda-lawyer
+  - type: Icon
+    state: pda-lawyer
