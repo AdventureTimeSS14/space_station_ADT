@@ -1,6 +1,7 @@
 # Translators
 - type: entity
-  id: TranslatorUnpowered
+  id: TranslatorBase
+  categories: [ HideSpawnMenu  ]
   parent: [ BaseItem ]
   name: Translator
   description: "Translates speech."
@@ -31,7 +32,8 @@
         
 - type: entity
   id: Translator
-  parent: [ TranslatorUnpowered, PowerCellSlotMediumItem ]
+  categories: [ HideSpawnMenu  ]
+  parent: [ TranslatorBase, PowerCellSlotMediumItem ]
   suffix: Powered
   components:
   - type: PowerCellDraw
@@ -39,6 +41,7 @@
 
 - type: entity
   id: TranslatorEmtpy
+  categories: [ HideSpawnMenu  ]
   parent: [ Translator ]
   suffix: Empty
   components:
