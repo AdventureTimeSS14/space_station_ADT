@@ -90,7 +90,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaled: true
+        scaleByQuantity: true
         damage:
           types:
             Heat: 4 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
