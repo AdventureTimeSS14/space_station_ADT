@@ -511,9 +511,11 @@
     accent: zombieMoth
   - type: Vocal
     sounds:
+      # Start-ADT Tweak Нианы 
       Male: MaleMoth
       Female: FemaleMoth
       Unsexed: MaleMoth
+      # End-ADT Tweak Нианы
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
