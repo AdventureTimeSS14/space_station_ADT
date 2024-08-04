@@ -91,6 +91,7 @@
   - ResearchDirector
   - Scientist
   - ResearchAssistant
+  - ADTRoboticist # ADT-Roles
 
 - type: department
   id: Specific

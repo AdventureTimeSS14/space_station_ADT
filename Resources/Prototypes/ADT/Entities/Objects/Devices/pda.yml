@@ -9,3 +9,33 @@
     state: pda-lawyer
   - type: Icon
     state: pda-lawyer
+
+- type: entity
+  parent: BasePDA
+  id: ADTRoboticistPDA
+  name: roboticist PDA
+  description: It's covered with an unknown gooey substance.
+  components:
+  - type: Pda
+    id: ADTRoboticistIDCard
+    state: pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#171716"
+    accentVColor: "#d90000"
+  - type: Icon
+    state: pda-roboticist
+
+- type: entity
+  parent: MedicalPDA
+  id: ADTPathologistPDA
+  name: pathologist's PDA
+  description: It breezes chill.
+  components:
+  - type: Pda
+    id: ADTPathologistIDCard
+    state: pda-pathologist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#15616b"
+  - type: Icon
+    state: pda-pathologist

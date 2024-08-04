@@ -44,3 +44,15 @@
     layers:
       - state: green
       - state: iaa
+
+- type: entity
+  id: ADTSpawnPointRoboticist
+  parent: SpawnPointJobBase
+  name: roboticist
+  components:
+  - type: SpawnPoint
+    job_id: ADTRoboticist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scientist

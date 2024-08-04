@@ -164,6 +164,7 @@
   - type: EncryptionKey
     channels:
     - Science
+    - Binary # ADT Tweak Roboticist
     defaultChannel: Science
   - type: Sprite
     layers:
