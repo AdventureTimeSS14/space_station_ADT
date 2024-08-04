@@ -23,3 +23,15 @@
     - state: id-pathologist
   - type: PresetIdCard
     job: ADTPathologist
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTRoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idroboticist
+  - type: PresetIdCard
+    job: ADTRoboticist
