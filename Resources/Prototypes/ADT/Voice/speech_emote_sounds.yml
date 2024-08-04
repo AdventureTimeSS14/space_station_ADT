@@ -67,28 +67,77 @@
       collection: Whistles
 
 - type: emoteSounds
-  id: UnisexMoth
+  id: MaleMoth
   params:
     variation: 0.125
   sounds:
     Buzz:
-      path: /Audio/ADT/Moth/moth_scream.ogg
+      collection: MothBuzz
     Scream:
-      path: /Audio/ADT/Moth/moth_scream.ogg
+      collection: MothScream
     Laugh:
-      path: /Audio/ADT/Moth/moth_laugh.ogg
+      collection: MothLaugh
     Chitter:
-      path: /Audio/ADT/Moth/moth_chitter.ogg
+      collection: MothChitter
     Squeak:
-      path: /Audio/ADT/Moth/moth_squeak.ogg
+      collection: MothSqueak
     Weh:
       collection: Weh
-    # ADT-Apathy Sounds.
-    #Scream-apathy:
-    #  path: /Audio/Voice/Moth/moth_scream.ogg
-    #Laugh-apathy:
-    #  path: /Audio/Voice/Moth/moth_laugh.ogg
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
 
+- type: emoteSounds
+  id: FemaleMoth
+  params:
+    variation: 0.125
+  sounds:
+    Buzz:
+      collection: MothBuzz
+    Scream:
+      collection: MothScream
+    Laugh:
+      collection: MothLaugh
+    Chitter:
+      collection: MothChitter
+    Squeak:
+      collection: MothSqueak
+    Weh:
+      collection: Weh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+  
 - type: emoteSounds
   id: ADTMaleTajaran
   params:

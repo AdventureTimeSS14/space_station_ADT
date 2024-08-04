@@ -511,9 +511,9 @@
     accent: zombieMoth
   - type: Vocal
     sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
-      Unsexed: UnisexMoth
+      Male: MaleMoth
+      Female: FemaleMoth
+      Unsexed: MaleMoth
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
