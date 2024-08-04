@@ -3,11 +3,14 @@
   parent: OrganAnimalStomach
   noSpawn: true
   components:
-  - type: Stomach
-    maxVol: 50
-  - type: Metabolizer
-    maxReagents: 5
-    metabolizerTypes: [ Novakid ]
+    - type: Stomach
+    - type: SolutionContainerManager
+      solutions:
+        stomach:
+          maxVol: 50.0
+    - type: Metabolizer
+      maxReagents: 5
+      metabolizerTypes: [ Novakid ]
 
 - type: entity
   id: OrganNovakidLungs

@@ -47,7 +47,7 @@
 
 - type: metabolizerType
   id: Novakid
-  name: novakid
+  name: metabolizer-type-novakid
 
 - type: metabolizerType
   id: Demon
