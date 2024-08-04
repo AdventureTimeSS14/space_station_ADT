@@ -29,7 +29,7 @@
     - GalacticCommon
     enabled: false
   - type: ItemToggle
-        
+
 - type: entity
   id: Translator
   categories: [ HideSpawnMenu  ]
@@ -63,6 +63,9 @@
     toUnderstand:
     - GalacticCommon
     - Bubblish
+    required:
+    - GalacticCommon
+    - Bubblish
   - type: StaticPrice
     price: 1500
 
@@ -77,6 +80,9 @@
     - GalacticCommon
     - Moffic
     toUnderstand:
+    - GalacticCommon
+    - Moffic
+    required:
     - GalacticCommon
     - Moffic
   - type: StaticPrice
@@ -95,6 +101,9 @@
     toUnderstand:
     - GalacticCommon
     - RootSpeak
+    required:
+    - GalacticCommon
+    - RootSpeak
   - type: StaticPrice
     price: 1500
 
@@ -109,6 +118,9 @@
     - GalacticCommon
     - Nekomimetic
     toUnderstand:
+    - GalacticCommon
+    - Nekomimetic
+    required:
     - GalacticCommon
     - Nekomimetic
   - type: StaticPrice
@@ -127,6 +139,9 @@
     toUnderstand:
     - GalacticCommon
     - Draconic
+    required:
+    - GalacticCommon
+    - Draconic
   - type: StaticPrice
     price: 1500
 
@@ -141,6 +156,9 @@
     - GalacticCommon
     - Canilunzt
     toUnderstand:
+    - GalacticCommon
+    - Canilunzt
+    required:
     - GalacticCommon
     - Canilunzt
   - type: StaticPrice
@@ -159,6 +177,9 @@
     toUnderstand:
     - GalacticCommon
     - RobotTalk
+    required:
+    - GalacticCommon
+    - RobotTalk
   - type: StaticPrice
     price: 1500
 
@@ -173,6 +194,9 @@
     - GalacticCommon
     - Fire
     toUnderstand:
+    - GalacticCommon
+    - Fire
+    required:
     - GalacticCommon
     - Fire
   - type: StaticPrice
@@ -191,24 +215,30 @@
     toUnderstand:
     - GalacticCommon
     - SolCommon
+    required:
+    - GalacticCommon
+    - SolCommon
   - type: StaticPrice
     price: 1500
 
-- type: entity
-  id: ArachnidTranslator
-  parent: [ Translator ]
-  name: Arachnid translator
-  description: "Translates speech."
-  components:
-  - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Moffic
-    toUnderstand:
-    - GalacticCommon
-    - Moffic
-  - type: StaticPrice
-    price: 1500
+# - type: entity
+#   id: ArachnidTranslator
+#   parent: [ Translator ]
+#   name: Arachnid translator
+#   description: "Translates speech."
+#   components:
+#   - type: HandheldTranslator
+#     toSpeak:
+#     - GalacticCommon
+#     - Moffic
+#     toUnderstand:
+#     - GalacticCommon
+#     - Moffic
+#     required:
+#     - GalacticCommon
+#     - Moffic
+#   - type: StaticPrice
+#     price: 1500
 
 - type: entity
   id: DraskTranslator
@@ -221,6 +251,9 @@
     - GalacticCommon
     - Drask
     toUnderstand:
+    - GalacticCommon
+    - Drask
+    required:
     - GalacticCommon
     - Drask
   - type: StaticPrice
@@ -239,6 +272,9 @@
     toUnderstand:
     - GalacticCommon
     - Urs
+    required:
+    - GalacticCommon
+    - Urs
   - type: StaticPrice
     price: 1500
 
@@ -253,6 +289,9 @@
     - GalacticCommon
     - Arkane
     toUnderstand:
+    - GalacticCommon
+    - Arkane
+    required:
     - GalacticCommon
     - Arkane
   - type: StaticPrice
@@ -271,6 +310,9 @@
     toUnderstand:
     - GalacticCommon
     - Shadowkin
+    required:
+    - GalacticCommon
+    - Shadowkin
   - type: StaticPrice
     price: 1500
 
@@ -285,6 +327,9 @@
     - GalacticCommon
     - Dwarf
     toUnderstand:
+    - GalacticCommon
+    - Dwarf
+    required:
     - GalacticCommon
     - Dwarf
   - type: StaticPrice
@@ -303,6 +348,9 @@
     toUnderstand:
     - GalacticCommon
     - CintaTaj
+    required:
+    - GalacticCommon
+    - CintaTaj
   - type: StaticPrice
     price: 1500
 
@@ -319,6 +367,9 @@
     toUnderstand:
     - GalacticCommon
     - Nian
+    required:
+    - GalacticCommon
+    - Nian
   - type: StaticPrice
     price: 1500
 
@@ -333,6 +384,9 @@
     - GalacticCommon
     - SikTaj
     toUnderstand:
+    - GalacticCommon
+    - SikTaj
+    required:
     - GalacticCommon
     - SikTaj
   - type: StaticPrice
@@ -360,6 +414,21 @@
     - Kangaroo
     - Pig
     toUnderstand:
+    - GalacticCommon
+    - Cat
+    - Dog
+    - Mothroach
+    - Mothroach
+    - Monkey
+    - Bee
+    - Mouse
+    - Chicken
+    - Duck
+    - Cow
+    - Sheep
+    - Kangaroo
+    - Pig
+    required:
     - GalacticCommon
     - Cat
     - Dog

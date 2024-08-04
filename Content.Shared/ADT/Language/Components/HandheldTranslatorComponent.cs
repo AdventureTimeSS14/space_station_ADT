@@ -20,6 +20,10 @@ public sealed partial class HandheldTranslatorComponent : Component
     public List<string> ToSpeak;
 
     [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("requires", required: true)]
+    public List<string> Required;
+
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("toggle")]
     public bool ToggleOnInteract = true;
 

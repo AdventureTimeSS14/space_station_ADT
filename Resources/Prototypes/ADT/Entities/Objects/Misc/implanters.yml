@@ -71,13 +71,13 @@
   - type: Implanter
     implant: BorgTranslatorImplant
 
-- type: entity
-  id: ArachnidTranslatorImplanter
-  name: Arachnid Translator implanter
-  parent: BaseImplantOnlyImplanter
-  components:
-  - type: Implanter
-    implant: ArachnidTranslatorImplant
+# - type: entity
+#   id: ArachnidTranslatorImplanter
+#   name: Arachnid Translator implanter
+#   parent: BaseImplantOnlyImplanter
+#   components:
+#   - type: Implanter
+#     implant: ArachnidTranslatorImplant
 
 - type: entity
   id: FireTranslatorImplanter

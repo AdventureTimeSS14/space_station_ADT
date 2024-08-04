@@ -29,9 +29,9 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
 
         var player = _playerManager.LocalSession?.AttachedEntity;
 
-        if (_entManager.TryGetComponent<LanguageSpeakerComponent>(player, out var lang) && lang.CurrentLanguage != null)
+        if (_language.GetLanguages(player, out var understood, out var spoken, out var translatorUnderstood, out var translatorSpoken, out var current) && player.HasValue)
         {
-            var ev = new LanguageMenuStateMessage(_entManager.GetNetEntity(player.Value), lang.CurrentLanguage, lang.UnderstoodLanguages);
+            var ev = new LanguageMenuStateMessage(_entManager.GetNetEntity(player.Value), current, understood, translatorUnderstood);
             UpdateState(ev);
         }
     }
@@ -83,6 +83,11 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
                     entry.Button.Text = Loc.GetString("language-choose-button-chosen");
                 if (!_language.CanSpeak(_entManager.GetEntity(state.ComponentOwner), _language.GetLanguage(entry.Language)))
                     entry.Button.Text = Loc.GetString("language-choose-button-cannot");
+
+                if (!state.Options.Contains(entry.Language) && state.TranslatorOptions.Contains(entry.Language))
+                    entry.Button.ToolTip = Loc.GetString("language-choose-button-tooltip-translator");
+                else
+                    entry.Button.ToolTip = Loc.GetString("language-choose-button-tooltip-known");
             }
         }
     }

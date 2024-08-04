@@ -126,18 +126,18 @@
     toUnderstand:
     - BorgTalk
 
-- type: entity
-  parent: BaseTranslatorImplant
-  id: ArachnidTranslatorImplant
-  name: translator implant
-  description: This implant grants language knowledge.
-  noSpawn: true
-  components:
-  - type: TranslatorImplant
-    toSpeak:
-    - Moffic
-    toUnderstand:
-    - Moffic
+# - type: entity
+#   parent: BaseTranslatorImplant
+#   id: ArachnidTranslatorImplant
+#   name: translator implant
+#   description: This implant grants language knowledge.
+#   noSpawn: true
+#   components:
+#   - type: TranslatorImplant
+#     toSpeak:
+#     - Moffic
+#     toUnderstand:
+#     - Moffic
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -161,7 +161,7 @@
   components:
   - type: TranslatorImplant
     toSpeak:
-    - SolCommon 
+    - SolCommon
     toUnderstand:
     - SolCommon
 

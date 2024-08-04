@@ -55,7 +55,10 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
 
         Dirty(component.ImplantedEntity.Value, languageSpeaker);
 
-        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), _language.GetCurrentLanguage(component.ImplantedEntity.Value).ID, languageSpeaker.UnderstoodLanguages);
+        if (!_language.GetLanguages(component.ImplantedEntity.Value, out var understood, out _, out var current))
+            return;
+
+        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), current, understood);
         RaiseNetworkEvent(menuEv);
 
         var ev = new ImplantImplantedEvent(uid, component.ImplantedEntity.Value);
@@ -99,7 +102,10 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
 
         Dirty(component.ImplantedEntity.Value, languageSpeaker);
 
-        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), _language.GetCurrentLanguage(component.ImplantedEntity.Value).ID, languageSpeaker.UnderstoodLanguages);
+        if (!_language.GetLanguages(component.ImplantedEntity.Value, out var understood, out _, out var current))
+            return;
+
+        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), current, understood);
         RaiseNetworkEvent(menuEv);
 
         component.ImplantedEntity = null;

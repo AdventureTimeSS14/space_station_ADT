@@ -5,6 +5,8 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Containers;
 using Content.Shared.Ghost;
 using Robust.Shared.Network;
+using Content.Shared.Hands.EntitySystems;
+using System.Linq;
 
 namespace Content.Shared.ADT.Language;
 
@@ -15,6 +17,7 @@ public abstract class SharedLanguageSystem : EntitySystem
     [Dependency] protected readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -30,6 +33,9 @@ public abstract class SharedLanguageSystem : EntitySystem
             return false;
 
         if (proto.ID == "Universal")
+            return true;
+
+        if (GetLanguages(uid, out _, out _, out _, out var translator, out _) && translator.Contains(proto.ID))
             return true;
 
         foreach (var lang in component.SpokenLanguages)
@@ -48,6 +54,9 @@ public abstract class SharedLanguageSystem : EntitySystem
             return false;
 
         if (proto.ID == "Universal")
+            return true;
+
+        if (GetLanguages(uid, out _, out _, out var translator, out _, out _) && translator.Contains(proto.ID))
             return true;
 
         foreach (var lang in component.UnderstoodLanguages)
@@ -71,6 +80,9 @@ public abstract class SharedLanguageSystem : EntitySystem
         if (proto.ID == "Universal")
             return true;
 
+        if (GetLanguages(uid, out _, out _, out _, out var translator, out _) && translator.Contains(protoId))
+            return true;
+
         foreach (var lang in component.SpokenLanguages)
             if (lang == proto.ID)
                 return true;
@@ -90,6 +102,9 @@ public abstract class SharedLanguageSystem : EntitySystem
             return false;
 
         if (proto.ID == "Universal")
+            return true;
+
+        if (GetLanguages(uid, out _, out _, out var translator, out _, out _) && translator.Contains(protoId))
             return true;
 
         foreach (var lang in component.UnderstoodLanguages)
@@ -212,13 +227,62 @@ public abstract class SharedLanguageSystem : EntitySystem
 
         if (_netMan.IsClient)
         {
+            GetLanguages(speaker, out _, out _, out var translator, out _, out _);
             component.CurrentLanguage = language;
-            RaiseLocalEvent(new LanguageMenuStateMessage(ent, language, component.UnderstoodLanguages));
+            RaiseLocalEvent(new LanguageMenuStateMessage(ent, language, component.UnderstoodLanguages, translator));
         }
 
         RaiseNetworkEvent(new LanguageChosenMessage(ent, language));
     }
 
+    public bool GetLanguages(
+        EntityUid? player,
+        out List<string> understood,
+        out List<string> spoken,
+        out List<string> translatorUnderstood,
+        out List<string> translatorSpoken,
+        out string current,
+        LanguageSpeakerComponent? comp = null)
+    {
+        understood = new();
+        spoken = new();
+        translatorUnderstood = new();
+        translatorSpoken = new();
+        current = String.Empty;
+
+        if (player == null)
+            return false;
+        var uid = player.Value;
+
+        if (!Resolve(uid, ref comp))
+            return false;
+
+        understood.AddRange(comp.UnderstoodLanguages);
+        spoken.AddRange(comp.SpokenLanguages);
+        current = GetCurrentLanguage(uid).ID;
+
+        foreach (var item in _hands.EnumerateHeld(uid))
+        {
+            if (TryComp<HandheldTranslatorComponent>(item, out var translator))
+            {
+                foreach (var lang in translator.Required)
+                {
+                    if (understood.Contains(lang))
+                    {
+                        understood.AddRange(translator.ToUnderstand);
+                        spoken.AddRange(translator.ToSpeak);
+                        break;
+                    }
+                }
+            }
+        }
+
+        
+        if (understood.Count <= 0 || spoken.Count <= 0 || current == String.Empty)
+            return false;
+
+        return true;
+    }
     public LanguagePrototype GetLanguage(string id)
     {
         if (!_proto.TryIndex<LanguagePrototype>(id, out var result))
@@ -256,11 +320,13 @@ public sealed class LanguageMenuStateMessage : EntityEventArgs
     public NetEntity ComponentOwner;
     public string CurrentLanguage;
     public List<string> Options;
+    public List<string> TranslatorOptions;
 
-    public LanguageMenuStateMessage(NetEntity componentOwner, string currentLanguage, List<string> options)
+    public LanguageMenuStateMessage(NetEntity componentOwner, string currentLanguage, List<string> options, List<string> translatorOptions)
     {
         ComponentOwner = componentOwner;
         CurrentLanguage = currentLanguage;
         Options = options;
+        TranslatorOptions = translatorOptions;
     }
 }

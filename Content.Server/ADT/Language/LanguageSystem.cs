@@ -43,15 +43,17 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         if (!TryComp<LanguageSpeakerComponent>(uid, out var component) || component.CurrentLanguage == null)
             return;
 
-        var langs = component.UnderstoodLanguages;
-        if (langs == null || component.CurrentLanguage == null)
-            return;
+        //if (langs == null || component.CurrentLanguage == null)
+        //    return;
 
         component.CurrentLanguage = args.SelectedLanguage;
 
         Dirty(uid, component);
 
-        var state = new LanguageMenuStateMessage(args.Uid, component.CurrentLanguage, langs);
+        if (!GetLanguages(uid, out var understood, out var spoken, out var current))
+            return;
+
+        var state = new LanguageMenuStateMessage(args.Uid, current, understood);
         RaiseNetworkEvent(state, uid);
     }
 
