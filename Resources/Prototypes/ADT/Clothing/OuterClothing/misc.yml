@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronPathologist
+  name: pathologist's apron
+  description: An apron used by pathologists.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_pathologist.rsi

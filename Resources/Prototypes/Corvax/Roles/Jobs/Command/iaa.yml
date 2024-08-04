@@ -15,17 +15,16 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
-    - Service
-    - Brig
-    - Maintenance
-    - Command
-    - External
-    - IAA
-  #Start-ADt Tweaks
+  - Service
+  - Brig
+  - Maintenance
+  - Command
+  - External
+  - Lawyer 
+  - IAA # ADT Tweak
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  #End-ADt Tweaks
 
 - type: startingGear
   id: IAAGear
