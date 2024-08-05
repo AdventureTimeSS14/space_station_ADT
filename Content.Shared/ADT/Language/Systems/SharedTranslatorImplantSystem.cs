@@ -10,8 +10,6 @@ namespace Content.Shared.Implants;
 public abstract class SharedTranslatorImplantSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
 
     public override void Initialize()
@@ -55,10 +53,10 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
 
         Dirty(component.ImplantedEntity.Value, languageSpeaker);
 
-        if (!_language.GetLanguages(component.ImplantedEntity.Value, out var understood, out _, out var current))
+        if (!_language.GetLanguages(component.ImplantedEntity.Value, out var understood, out _, out var translatorUnderstood, out _, out var current))
             return;
 
-        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), current, understood);
+        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), current, understood, translatorUnderstood);
         RaiseNetworkEvent(menuEv);
 
         var ev = new ImplantImplantedEvent(uid, component.ImplantedEntity.Value);
@@ -102,10 +100,10 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
 
         Dirty(component.ImplantedEntity.Value, languageSpeaker);
 
-        if (!_language.GetLanguages(component.ImplantedEntity.Value, out var understood, out _, out var current))
+        if (!_language.GetLanguages(component.ImplantedEntity.Value, out var understood, out _, out var translatorUnderstood, out _, out var current))
             return;
 
-        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), current, understood);
+        var menuEv = new LanguageMenuStateMessage(GetNetEntity(component.ImplantedEntity.Value), current, understood, translatorUnderstood);
         RaiseNetworkEvent(menuEv);
 
         component.ImplantedEntity = null;

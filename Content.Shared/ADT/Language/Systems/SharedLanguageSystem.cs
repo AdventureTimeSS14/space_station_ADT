@@ -114,91 +114,6 @@ public abstract class SharedLanguageSystem : EntitySystem
         return false;
     }
 
-    // Unholy shit
-    public bool CheckTranslators(EntityUid uid, EntityUid source, LanguagePrototype proto)
-    {
-        if (!TryComp<ContainerManagerComponent>(uid, out var uidManager))
-            return false;
-        if (!TryComp<LanguageSpeakerComponent>(uid, out var comp))
-            return false;
-        bool canTranslate = false;
-        bool canUnderstandTranslator = false;
-
-        foreach (var container in uidManager.Containers.Values)
-        {
-            foreach (var entity in container.ContainedEntities)
-            {
-                if (TryComp<HandheldTranslatorComponent>(entity, out var translator) && translator.Enabled)
-                {
-                    foreach (var item in translator.ToUnderstand)
-                    {
-                        if (item == proto.ID)
-                            canTranslate = true;
-                    }
-                    if (!TryComp<LanguageSpeakerComponent>(uid, out var sourceLang))
-                    {
-                        canUnderstandTranslator = false;
-                        continue;
-                    }
-
-                    foreach (var lang in translator.ToSpeak)
-                    {
-                        foreach (var understoodLangs in sourceLang.UnderstoodLanguages)
-                        {
-                            if (lang == understoodLangs)
-                                canUnderstandTranslator = true;
-                        }
-                    }
-
-                }
-            }
-        }
-
-        if (canTranslate && canUnderstandTranslator)
-            return true;
-
-        canTranslate = false;
-        canUnderstandTranslator = false;
-
-        if (!TryComp<ContainerManagerComponent>(source, out var sourceManager))
-            return false;
-
-        foreach (var container in sourceManager.Containers.Values)
-        {
-            foreach (var entity in container.ContainedEntities)
-            {
-                if (TryComp<HandheldTranslatorComponent>(entity, out var translator) && translator.Enabled)
-                {
-                    foreach (var item in translator.ToSpeak)
-                    {
-                        if (item == proto.ID)
-                            canTranslate = true;
-                    }
-                    if (!TryComp<LanguageSpeakerComponent>(source, out var sourceLang))
-                    {
-                        canUnderstandTranslator = false;
-                        continue;
-                    }
-
-                    foreach (var lang in translator.ToUnderstand)
-                    {
-                        foreach (var understoodLangs in sourceLang.SpokenLanguages)
-                        {
-                            if (lang == understoodLangs)
-                                canUnderstandTranslator = true;
-                        }
-                    }
-
-                }
-            }
-        }
-
-        if (canTranslate && canUnderstandTranslator)
-            return true;
-
-        return false;
-    }
-
     public LanguagePrototype GetCurrentLanguage(EntityUid uid)
     {
         var universalProto = _proto.Index<LanguagePrototype>("Universal");
@@ -269,15 +184,14 @@ public abstract class SharedLanguageSystem : EntitySystem
                 {
                     if (understood.Contains(lang))
                     {
-                        understood.AddRange(translator.ToUnderstand);
-                        spoken.AddRange(translator.ToSpeak);
+                        translatorUnderstood.AddRange(translator.ToUnderstand);
+                        translatorSpoken.AddRange(translator.ToSpeak);
                         break;
                     }
                 }
             }
         }
 
-        
         if (understood.Count <= 0 || spoken.Count <= 0 || current == String.Empty)
             return false;
 

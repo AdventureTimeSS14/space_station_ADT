@@ -27,6 +27,8 @@
     - GalacticCommon
     toUnderstand:
     - GalacticCommon
+    required:
+    - GalacticCommon
     enabled: false
   - type: ItemToggle
 

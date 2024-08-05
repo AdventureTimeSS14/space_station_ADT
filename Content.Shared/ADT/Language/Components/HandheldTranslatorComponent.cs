@@ -9,25 +9,26 @@ namespace Content.Shared.ADT.Language;
 /// This component allows holding entity to understand given languages if it can understand any of "toSpeak" languages
 /// </summary>
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class HandheldTranslatorComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("toUnderstand", required: true)]
+    [DataField("toUnderstand", required: true), AutoNetworkedField]
     public List<string> ToUnderstand;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("toSpeak", required: true)]
+    [DataField("toSpeak", required: true), AutoNetworkedField]
     public List<string> ToSpeak;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("requires", required: true)]
+    [DataField("required", required: true), AutoNetworkedField]
     public List<string> Required;
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("toggle")]
     public bool ToggleOnInteract = true;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     [DataField]
     public bool Enabled = false;
 

@@ -597,7 +597,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
             // ADT Languages start
-            if (!_language.CanUnderstand(listener, language) && !_language.CheckTranslators(listener, source, language))
+            if (!_language.CanUnderstand(listener, language))
             {
                 if (data.Range <= WhisperClearRange)
                     _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, wrappedLanguageMessage, source, false, session.Channel);
@@ -803,7 +803,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue;
             }
 
-            if (!_language.CanUnderstand(listener, language) && !_language.CheckTranslators(listener, source, language))
+            if (!_language.CanUnderstand(listener, language))
                 _chatManager.ChatMessageToOne(channel, message, wrappedLanguageMessage, source, entHideChat, session.Channel, author: author);
             else
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);

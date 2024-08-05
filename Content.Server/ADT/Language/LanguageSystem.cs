@@ -50,10 +50,10 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         Dirty(uid, component);
 
-        if (!GetLanguages(uid, out var understood, out var spoken, out var current))
+        if (!GetLanguages(uid, out var understood, out _, out var translatorUnderstood, out _, out var current))
             return;
 
-        var state = new LanguageMenuStateMessage(args.Uid, current, understood);
+        var state = new LanguageMenuStateMessage(args.Uid, current, understood, translatorUnderstood);
         RaiseNetworkEvent(state, uid);
     }
 
