@@ -177,6 +177,7 @@
   components:
   - type: HumanoidAppearance
     species: Shadekin
+  - type: Inventory
     displacements:
       jumpsuit:
         layer:
