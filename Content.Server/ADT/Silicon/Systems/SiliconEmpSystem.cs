@@ -50,7 +50,7 @@ public sealed class SiliconEmpSystem : EntitySystem
 
         _stun.TrySlowdown(uid, duration, true, _random.NextFloat(0.50f, 0.70f), _random.NextFloat(0.35f, 0.70f), statusComp);
 
-        _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SeeingStaticSystem.StaticKey, duration, true, statusComp);
+        _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SharedSeeingStaticSystem.StaticKey, duration, true, statusComp);
 
         if (_random.Prob(0.60f))
             _stuttering.DoStutter(uid, duration * 2, false, statusComp);

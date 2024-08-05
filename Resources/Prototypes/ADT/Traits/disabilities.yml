@@ -1,0 +1,9 @@
+# Simple Station
+
+- type: trait
+  id: ColorBlindnessMonochrome
+  name: trait-monochromacy-name
+  description: trait-monochromacy-description
+  category: Disabilities
+  components:
+    - type: Monochromacy
