@@ -24,10 +24,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "torso_m"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "torso_m"
   - type: BodyPart
     partType: Torso
@@ -39,10 +39,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "head_m"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "head_m"
   - type: BodyPart
     partType: Head
@@ -65,10 +65,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_arm"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_arm"
   - type: BodyPart
     partType: Arm
@@ -81,10 +81,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_arm"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_arm"
   - type: BodyPart
     partType: Arm
@@ -97,10 +97,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_hand"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_hand"
   - type: BodyPart
     partType: Hand
@@ -113,10 +113,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_hand"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_hand"
   - type: BodyPart
     partType: Hand
@@ -129,10 +129,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_leg"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_leg"
   - type: BodyPart
     partType: Leg
@@ -148,10 +148,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_leg"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_leg"
   - type: BodyPart
     partType: Leg
@@ -167,10 +167,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_foot"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "l_foot"
   - type: BodyPart
     partType: Foot
@@ -183,10 +183,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_foot"
   - type: Icon
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: "r_foot"
   - type: BodyPart
     partType: Foot
