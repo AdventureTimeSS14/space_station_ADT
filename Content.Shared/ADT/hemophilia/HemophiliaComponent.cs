@@ -1,4 +1,4 @@
-namespace Content.Shared.Traits;
+namespace Content.Shared.ADT.Traits;
 
 [RegisterComponent]
 public sealed partial class HemophiliaComponent : Component

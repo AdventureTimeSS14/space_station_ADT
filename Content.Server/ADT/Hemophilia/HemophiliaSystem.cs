@@ -1,7 +1,7 @@
 using Content.Server.Body.Components;
-using Content.Shared.Traits;
+using Content.Shared.ADT.Traits;
 
-namespace Content.Server.Hemophilia;
+namespace Content.Server.ADT.Hemophilia;
 
 public sealed partial class HemophiliaSystem : EntitySystem
 {
