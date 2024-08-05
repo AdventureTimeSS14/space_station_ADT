@@ -101,16 +101,6 @@
     Heat: 5
 
 - type: damageModifierSet
-  id: Moth # Slightly worse at everything but cold
-  coefficients:
-    Blunt: 1
-    Piercing: 1.15
-    Slash: 1.15
-    Cold: 0.7
-    Heat: 1.5
-    Poison: 1.5
-
-- type: damageModifierSet
   id: CyborgMetallicStrong
   coefficients:
     Blunt: 0.6
