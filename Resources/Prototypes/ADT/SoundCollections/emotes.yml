@@ -52,3 +52,28 @@
   id: TajaranPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+
+- type: soundCollection
+  id: MothBuzz
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: MothScream
+  files:
+  - /Audio/ADT/Moth/moth_screm.ogg
+
+- type: soundCollection
+  id: MothLaugh
+  files:
+  - /Audio/ADT/Moth/moth_laugh.ogg
+
+- type: soundCollection
+  id: MothChitter
+  files:
+  - /Audio/ADT/Moth/moth_chitter.ogg
+
+- type: soundCollection
+  id: MothSqueak
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg
