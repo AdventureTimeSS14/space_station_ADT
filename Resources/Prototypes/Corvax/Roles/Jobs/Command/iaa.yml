@@ -21,6 +21,7 @@
   - Command
   - External
   - Lawyer
+  - IAA
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

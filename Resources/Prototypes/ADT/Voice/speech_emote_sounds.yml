@@ -89,6 +89,78 @@
     variation: 0.125
 
 - type: emoteSounds
+  id: MaleMoth
+  params:
+    variation: 0.125
+  sounds:
+    Buzz:
+      collection: MothBuzz
+    Scream:
+      collection: MothScream
+    Laugh:
+      collection: MothLaugh
+    Chitter:
+      collection: MothChitter
+    Squeak:
+      collection: MothSqueak
+    Weh:
+      collection: Weh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+
+- type: emoteSounds
+  id: FemaleMoth
+  params:
+    variation: 0.125
+  sounds:
+    Buzz:
+      collection: MothBuzz
+    Scream:
+      collection: MothScream
+    Laugh:
+      collection: MothLaugh
+    Chitter:
+      collection: MothChitter
+    Squeak:
+      collection: MothSqueak
+    Weh:
+      collection: Weh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+  
+- type: emoteSounds
   id: ADTMaleTajaran
   params:
     variation: 0.125
@@ -184,4 +256,5 @@
     Sigh-apathy:
       collection: FemaleSigh
     Crying-apathy:
+      collection: FemaleCry
       collection: FemaleCry
