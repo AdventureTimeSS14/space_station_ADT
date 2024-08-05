@@ -20,7 +20,7 @@
   - DraskTranslator
 #  - UrsTranslator # Закомменчено до раундстарт урсов
   - ArkaneTranslator
-  - ShadowkinTranslator
+  - ShadekinTranslator
   - NianTranslator
   - FireTranslator
   - SikTajTranslator
@@ -55,5 +55,5 @@
   - DraskTranslatorImplanter
 #  - UrsTranslatorImplanter # Закомменчено до раундстарт урсов
   - ArkaneTranslatorImplanter
-  - ShadowkinTranslatorImplanter
+  - ShadekinTranslatorImplanter
   - CintaTajTranslatorImplanter

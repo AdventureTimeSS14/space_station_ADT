@@ -31,7 +31,7 @@
     Cellular: 1.5
 
 - type: damageModifierSet
-  id: Shadowkin # пупупу
+  id: Shadekin # пупупу
   coefficients:
     Blunt: 1.2
     Piercing: 1.2

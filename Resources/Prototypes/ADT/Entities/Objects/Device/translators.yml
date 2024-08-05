@@ -274,22 +274,22 @@
 
 
 - type: entity
-  id: ShadowkinTranslator
+  id: ShadekinTranslator
   parent: [ TranslatorEmtpy ]
-  name: Shadowkin translator
-  description: "Translates speech between Shadowkin lang and Galactic Common."
+  name: Shadekin translator
+  description: "Translates speech between Shadekin lang and Galactic Common."
   components:
   - type: HandheldTranslator
     default-language: GalacticCommon
     spoken:
     - GalacticCommon
-    - Shadowkin
+    - Shadekin
     understood:
     - GalacticCommon
-    - Shadowkin
+    - Shadekin
     requires:
     - GalacticCommon
-    - Shadowkin
+    - Shadekin
     requires-all: false
 
 - type: entity
@@ -334,7 +334,7 @@
   id: FireTranslator
   parent: [ TranslatorEmtpy ]
   name: Fire translator
-  description: "Translates speech between Shadowkin lang and Galactic Common."
+  description: "Translates speech between Shadekin lang and Galactic Common."
   components:
   - type: HandheldTranslator
     default-language: GalacticCommon

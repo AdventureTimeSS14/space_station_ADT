@@ -359,11 +359,11 @@
       - DraskTranslatorImplanter
 #      - UrsTranslatorImplanter # Закомменчено до раундстарт урсов
       - ArkaneTranslatorImplanter
-      - ShadowkinTranslatorImplanter
+      - ShadekinTranslatorImplanter
       - CintaTajTranslatorImplanter
 #      - UrsTranslator # Закомменчено до раундстарт урсов
       - ArkaneTranslator
-      - ShadowkinTranslator
+      - ShadekinTranslator
       - NianTranslator
       - FireTranslator
       - SikTajTranslator

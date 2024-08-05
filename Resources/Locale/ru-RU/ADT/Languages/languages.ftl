@@ -84,8 +84,8 @@ language-Urs-description = Басистый и рычащий язык, на к�
 language-Arkane-name = Каукиттен
 language-Arkane-description = Протяжный, чем-то напоминающий Солнечный язык, на котором говорят арканы.
 
-language-Shadowkin-name = Миар
-language-Shadowkin-description = Загадочный язык, на котором говорят сумеречники.
+language-Shadekin-name = Миар
+language-Shadekin-description = Загадочный язык, на котором говорят сумеречники.
 
 language-Dwarf-name = Шахтёрский
 language-Dwarf-description = Rock and stone!
@@ -127,7 +127,7 @@ language-Moffic = Паучий
 language-BorgTalk = Двоичный
 language-Urs = Рыкрур
 language-Arkane = Каукиттен
-language-Shadowkin = Миар
+language-Shadekin = Миар
 language-Dev = Разраб
 language-Dwarf = Шахт
 language-CintaTaj = Синта’тайр

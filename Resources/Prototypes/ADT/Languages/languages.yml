@@ -721,9 +721,9 @@
   - риина
   - ин
 
-# Spoken by the Shadowkin race.
+# Spoken by the Shadekin race.
 - type: language
-  id: Shadowkin
+  id: Shadekin
   obfuscateSyllables: true
   replacement:
   - mia
