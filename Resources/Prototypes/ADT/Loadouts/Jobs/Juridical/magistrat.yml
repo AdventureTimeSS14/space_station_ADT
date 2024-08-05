@@ -1,0 +1,8 @@
+- type: loadout
+  id: MagistratJumpsuit
+  equipment: MagistratJumpsuit
+
+- type: startingGear
+  id: MagistratJumpsuit
+  equipment:
+    jumpsuit: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
