@@ -1,0 +1,70 @@
+- type: soundCollection
+  id: DraskCough
+  files:
+    - /Audio/ADT/Drask/draskcough.ogg
+- type: soundCollection
+  id: DraskScream
+  files:
+    - /Audio/ADT/Drask/draskscream.ogg
+- type: soundCollection
+  id: DraskSneeze
+  files:
+    - /Audio/ADT/Drask/drasksneeze.ogg
+- type: soundCollection
+  id: DraskTalk
+  files:
+    - /Audio/ADT/Drask/drasktalk.ogg
+
+- type: soundCollection
+  id: TajaranHisses
+  files:
+  - /Audio/ADT/Felinid/cat_hiss1.ogg
+  - /Audio/ADT/Felinid/cat_hiss2.ogg
+
+- type: soundCollection
+  id: TajaranMeows
+  files:
+  - /Audio/ADT/Felinid/cat_meow1.ogg
+  - /Audio/ADT/Felinid/cat_meow2.ogg
+  - /Audio/ADT/Felinid/cat_meow3.ogg
+
+- type: soundCollection
+  id: TajaranMews
+  files:
+  - /Audio/ADT/Felinid/cat_mew1.ogg
+  - /Audio/ADT/Felinid/cat_mew2.ogg
+
+- type: soundCollection
+  id: TajaranGrowls
+  files:
+  - /Audio/ADT/Felinid/cat_growl1.ogg
+
+- type: soundCollection
+  id: TajaranPurrs
+  files:
+  - /Audio/ADT/Felinid/cat_purr1.ogg
+
+- type: soundCollection
+  id: MothBuzz
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: MothScream
+  files:
+  - /Audio/ADT/Moth/moth_screm.ogg
+
+- type: soundCollection
+  id: MothLaugh
+  files:
+  - /Audio/ADT/Moth/moth_laugh.ogg
+
+- type: soundCollection
+  id: MothChitter
+  files:
+  - /Audio/ADT/Moth/moth_chitter.ogg
+
+- type: soundCollection
+  id: MothSqueak
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg

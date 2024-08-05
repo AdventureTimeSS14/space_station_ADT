@@ -445,6 +445,8 @@
       - id: ADTUnderwearBoxRD
       # Sirena-Underwear-End
       - id: EncryptionKeyBinary
+      - id: BookBusido # Corvax-Books
+      - id: BookSpaceLaw
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -496,7 +498,7 @@
       # Sirena-Underwear-Start
       - id: ADTUnderwearBoxHOS
       # Sirena-Underwear-End
-
+      - id: BookSpaceLaw
 
 - type: entity
   id: LockerFreezerVaultFilled

@@ -1,0 +1,17 @@
+- type: latheRecipe
+  id: RPD
+  result: ADTRPDEmpty
+  category: Tools
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 300
+
+- type: latheRecipe
+  id: RPDAmmo
+  result: ADTRPDAmmo
+  category: Tools
+  completetime: 2.4
+  materials:
+    Steel: 500
+    Plastic: 250

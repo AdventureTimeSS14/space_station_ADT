@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation at commit 9bebd81ae0b0a7f952b59886a765c681205de31f",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/650492a26d71ba668e89bf97bd97b91a515745be, inhands made by tamioki",
   "size": {
     "x": 32,
     "y": 32

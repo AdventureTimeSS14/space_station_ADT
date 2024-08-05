@@ -62,6 +62,15 @@
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: Wagging
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    - Draconic
+    - CintaTaj
+    understands:
+    - GalacticCommon
+    - Draconic
+    - CintaTaj
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -71,5 +80,11 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
+    hideLayersOnEquip:
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: Inventory
+    speciesId: reptilian
 
 #Weh

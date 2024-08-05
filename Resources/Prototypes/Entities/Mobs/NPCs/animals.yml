@@ -62,6 +62,11 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
 
 - type: entity
   name: bee
@@ -506,9 +511,11 @@
     accent: zombieMoth
   - type: Vocal
     sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
-      Unsexed: UnisexMoth
+      # Start-ADT Tweak Нианы 
+      Male: MaleMoth
+      Female: FemaleMoth
+      Unsexed: MaleMoth
+      # End-ADT Tweak Нианы
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
@@ -1046,6 +1053,11 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Monkey
+    understands:
+    - Monkey
 
 - type: entity
   name: kangaroo
@@ -1282,6 +1294,11 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Monkey
+    understands:
+    - Monkey
 
 - type: entity
   name: monkey
@@ -1312,6 +1329,12 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Monkey
+    understands:
+    - GalacticCommon
+    - Monkey
 
 - type: entity
   id: MobMonkeySyndicateAgent
@@ -1471,6 +1494,9 @@
     - Syndicate
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  - type: LanguageSpeaker # Frontier
+    understands:
+    - GalacticCommon
 
 - type: entity
   id: MobKoboldSyndicateAgent
@@ -1655,6 +1681,11 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
 
 - type: entity
   parent: MobMouse
@@ -2613,6 +2644,11 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Dog
+    understands:
+    - Dog
 
 - type: entity
   name: corrupted corgi
@@ -2766,6 +2802,11 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Cat
+    understands:
+    - Cat
 
 - type: entity
   name: calico cat
@@ -3161,6 +3202,11 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
 
 - type: entity
   name: pig
