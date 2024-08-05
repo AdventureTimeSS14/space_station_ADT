@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.Species.Shadekin.Components;
+namespace Content.Shared.ADT.Shadekin.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShadekinComponent : Component

@@ -2,13 +2,13 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Content.Client.ADT.Overlays;
 using Content.Client.ADT.Overlays.Shaders;
-using Content.Shared.ADT.Species.Shadekin.Components;
+using Content.Shared.ADT.Shadekin.Components;
 using Robust.Client.GameObjects;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Robust.Shared.Player;
 
-namespace Content.Client.ADT.Species.Shadekin.Systems;
+namespace Content.Client.ADT.Shadekin.Systems;
 
 public sealed class ShadekinTintSystem : EntitySystem
 {
