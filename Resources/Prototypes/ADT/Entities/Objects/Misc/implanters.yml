@@ -214,16 +214,16 @@
     - Arkane
 
 - type: entity
-  id: ShadowkinTranslatorImplanter
+  id: ShadekinTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: Shadowkin translator implant
-  description: "An implant giving the ability to understand and speak Shadowkin language."
+  name: Shadekin translator implant
+  description: "An implant giving the ability to understand and speak Shadekin language."
   components:
   - type: TranslatorImplanter
     spoken:
-    - Shadowkin
+    - Shadekin
     understood:
-    - Shadowkin
+    - Shadekin
 
 - type: entity
   id: BorgTranslatorImplanter
@@ -259,7 +259,7 @@
   - type: TranslatorImplanter
     understood:
     - RobotTalk
-    - Shadowkin
+    - Shadekin
     - Arkane
     - Urs
     - Drask

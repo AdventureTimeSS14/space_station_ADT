@@ -1,0 +1,4 @@
+- type: shader
+  id: ColorTint
+  kind: source
+  path: "/Textures/ADT/Shaders/color_tint.swsl"

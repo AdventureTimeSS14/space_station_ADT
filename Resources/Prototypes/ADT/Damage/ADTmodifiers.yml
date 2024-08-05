@@ -31,7 +31,7 @@
     Cellular: 1.5
 
 - type: damageModifierSet
-  id: Shadowkin # пупупу
+  id: Shadekin # пупупу
   coefficients:
     Blunt: 1.2
     Piercing: 1.2
@@ -56,16 +56,6 @@
     Cold: 1.5
     Heat: 2.0
     Poison: 1.1
-
-- type: damageModifierSet
-  id: Moth # Slightly worse at everything but cold
-  coefficients:
-    Blunt: 1
-    Piercing: 1.15
-    Slash: 1.15
-    Cold: 0.7
-    Heat: 1.5
-    Poison: 1.5
 
 - type: damageModifierSet
   id: CyborgMetallic
