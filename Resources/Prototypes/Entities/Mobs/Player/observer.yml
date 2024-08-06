@@ -48,6 +48,11 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
+  - type: LanguageSpeaker
+    speaks:
+    - Universal
+    understands:
+    - Universal
 
 - type: entity
   id: ActionGhostBoo

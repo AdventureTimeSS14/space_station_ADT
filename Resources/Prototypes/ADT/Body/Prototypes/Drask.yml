@@ -1,0 +1,49 @@
+- type: body
+  name: "drask"
+  id: Drask
+  root: torso
+  slots:
+    head:
+      part: HeadDrask
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganDraskEyes
+        heart: OrganDraskHeart
+    torso:
+      part: TorsoDrask
+      organs:
+        lungs: OrganDraskLungs
+        stomach: OrganDraskInnards
+        liver: OrganHumanLiver
+        kidneys: OrganDraskKidneys
+      connections:
+      - left arm
+      - right arm
+      - left leg
+      - right leg
+    right arm:
+      part: RightArmDrask
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmDrask
+      connections:
+      - left hand
+    right hand:
+      part: RightHandDrask
+    left hand:
+      part: LeftHandDrask
+    right leg:
+      part: RightLegDrask
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegDrask
+      connections:
+      - left foot
+    right foot:
+      part: RightFootDrask
+    left foot:
+      part: LeftFootDrask

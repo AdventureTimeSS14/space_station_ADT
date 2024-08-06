@@ -1,0 +1,14 @@
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyLawyer
+  name: law department encryption key
+  description: The encryption key used by the most hated person (after the clown).
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTLawyerChannel
+      defaultChannel: ADTLawyerChannel
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: nano_label

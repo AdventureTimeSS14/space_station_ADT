@@ -1,4 +1,4 @@
-﻿name: "Labels: PR"
+name: "Labels: PR"
 
 on:
 - pull_request_target
@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v5
-      with:
-        sync-labels: true
+      with:                # ADT Tweak by Schrodinger
+        sync-labels: true  # Поправил auto-labels

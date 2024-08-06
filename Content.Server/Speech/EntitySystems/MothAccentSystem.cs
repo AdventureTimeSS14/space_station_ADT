@@ -21,38 +21,26 @@ public sealed class MothAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        // buzzz
-        message = RegexLowerBuzz.Replace(message, "zzz");
-        // buZZZ
-        message = RegexUpperBuzz.Replace(message, "ZZZ");
+        // Changed By 1Stepka1 Moth_speech_ADT start
+        
+        message = Regex.Replace(message, "з{1,3}", "ззз");
 
-        // Corvax-Localization-Start
-        // ж => жжж
-        message = Regex.Replace(
-            message,
-            "ж+",
-            _random.Pick(new List<string>() { "жж", "жжж" })
-        );
-        // Ж => ЖЖЖ
-        message = Regex.Replace(
-            message,
-            "Ж+",
-            _random.Pick(new List<string>() { "ЖЖ", "ЖЖЖ" })
-        );
-        // з => ссс
-        message = Regex.Replace(
-            message,
-            "з+",
-            _random.Pick(new List<string>() { "зз", "ззз" })
-        );
-        // З => CCC
-        message = Regex.Replace(
-            message,
-            "З+",
-            _random.Pick(new List<string>() { "ЗЗ", "ЗЗЗ" })
-        );
-        // Corvax-Localization-End
+        message = Regex.Replace(message, "с{1,3}", "зз");
 
+        message = Regex.Replace(message, "ц{1,3}", "зз");
+
+        message = Regex.Replace(message, "ж{1,3}", "жзж");
+
+        message = Regex.Replace(message, "З{1,3}", "ЗЗЗ");
+
+        message = Regex.Replace(message, "С{1,3}", "ЗЗ");
+
+        message = Regex.Replace(message, "Ц{1,3}", "ЗЗ");
+
+        message = Regex.Replace(message, "Ж{1,3}", "ЖЗЖ");
+
+        // Changed By 1Stepka1 Moth_speech_ADT end
+        
         args.Message = message;
     }
 }

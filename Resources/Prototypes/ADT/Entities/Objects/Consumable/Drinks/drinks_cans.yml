@@ -1,0 +1,15 @@
+- type: entity
+  parent: DrinkCanBaseFull
+  id: ADTDrinkNoStopCan
+  name: No Stop Can
+  description: No Stop Can
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: EnergyDrink
+          Quantity: 30
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/nostop.rsi

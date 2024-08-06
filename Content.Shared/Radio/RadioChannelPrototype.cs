@@ -35,4 +35,9 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
+
+    // Lang start
+    [DataField("translate"), ViewVariables]
+    public bool TranslateSpeech = false;
+    // Lang end
 }

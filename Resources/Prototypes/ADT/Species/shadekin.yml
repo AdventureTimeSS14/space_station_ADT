@@ -1,0 +1,166 @@
+- type: species
+  id: Shadekin
+  name: species-name-shadekin
+  roundStart: true
+  prototype: MobShadekin
+  sprites: MobShadekinSprites
+  defaultSkinTone: "#FFFFFF"
+  markingLimits: MobShadekinMarkingLimits
+  dollPrototype: MobShadekinDummy
+  skinColoration: Hues
+  maleFirstNames: names_shadekin
+  femaleFirstNames: names_shadekin
+  maleLastNames: names_arachnid_last # Corvax-LastnameGender
+  femaleLastNames: names_arachnid_last # Corvax-LastnameGender
+  minAge: 18
+  maxAge: 80
+  youngAge: 30
+  oldAge: 50
+  sexes:
+    - Male
+    - Female
+    - Unsexed
+
+- type: speciesBaseSprites
+  id: MobShadekinSprites
+  sprites:
+    Head: MobShadekinHead
+    Snout: MobShadekinAnyMarkingFollowSkin
+    HeadTop: MobShadekinAnyMarkingFollowSkin
+    HeadSide: MobShadekinAnyMarkingFollowSkin
+    Tail: MobShadekinAnyMarkingFollowSkin
+    Chest: MobShadekinTorso
+    Eyes: MobShadekinEyes
+    LArm: MobShadekinLArm
+    RArm: MobShadekinRArm
+    LHand: MobShadekinLHand
+    RHand: MobShadekinRHand
+    LLeg: MobShadekinLLeg
+    RLeg: MobShadekinRLeg
+    LFoot: MobShadekinLFoot
+    RFoot: MobShadekinRFoot
+
+- type: markingPoints
+  id: MobShadekinMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [TailShadekin]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [EarsShadekin]
+    Chest:
+      points: 0
+      required: false
+    Legs:
+      points: 0
+      required: false
+    Arms:
+      points: 0
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobShadekinAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobShadekinAnyMarkingFollowSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobShadekinHead
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinHeadMale
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinHeadFemale
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobShadekinTorso
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinTorsoMale
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinTorsoFemale
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobShadekinLLeg
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobShadekinLHand
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobShadekinEyes
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobShadekinLArm
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobShadekinLFoot
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobShadekinRLeg
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobShadekinRHand
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobShadekinRArm
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobShadekinRFoot
+  baseSprite:
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: r_foot

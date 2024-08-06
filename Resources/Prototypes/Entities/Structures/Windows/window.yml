@@ -92,7 +92,8 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
-  
+  - type: CanBuildWindowOnTopRPD # ADT-RPD
+
 - type: entity
   id: WindowRCDResistant
   parent: Window
@@ -197,7 +198,7 @@
     price: 10
 
 - type: entity
-  id: WindowDirectionalRCDResistant  
+  id: WindowDirectionalRCDResistant
   parent: WindowDirectional
   abstract: true
   components:

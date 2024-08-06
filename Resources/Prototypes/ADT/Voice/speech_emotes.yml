@@ -1,0 +1,211 @@
+- type: emote # эмоция work out
+  id: WorkOut
+  name: chat-emote-name-workout
+  chatMessages: ["качается"]
+  chatTriggers:
+    - works out
+    - bigs up
+    - buffs up
+    - качается
+
+- type: emote
+  id: Laugh-apathy
+  name: chat-emote-name-laugh-apathy
+  category: Vocal
+  chatMessages: [выдавливает из себя смех]
+  chatTriggers:
+    - выдавливает из себя смех
+
+- type: emote
+  id: Scream-apathy
+  name: chat-emote-name-scream-apathy
+  category: Vocal
+  chatMessages: [наигранно кричит!]
+  chatTriggers:
+    - наигранно кричит!
+
+- type: emote
+  id: Sigh-apathy
+  name: chat-emote-name-sigh-apathy
+  category: Vocal
+  chatMessages: [театрально вздыхает]
+  chatTriggers:
+    - театрально вздыхает
+
+- type: emote
+  id: Crying-apathy
+  name: chat-emote-name-crying-apathy
+  category: Vocal
+  chatMessages: [фальшиво плачет]
+  chatTriggers:
+    - фальшиво плачет
+
+## vocal emotes
+- type: emote
+  id: Hiss
+  name: chat-emote-name-hiss
+  category: Vocal
+  chatMessages: [шипит]
+  chatTriggers:
+    - шипит
+    - шипит.
+    - шипит!
+
+- type: emote
+  id: Meow
+  name: chat-emote-name-meow
+  category: Vocal
+  chatMessages: [мяукает]
+  chatTriggers:
+    - мяу
+    - мяукнул
+    - мяукнул.
+    - мяукнул!
+    - мяукнула
+    - мяукнула.
+    - мяукнула!
+    - мяукает
+    - мяукает.
+    - мяукает!
+
+- type: emote
+  id: Mew
+  name: chat-emote-name-mew
+  category: Vocal
+  chatMessages: [мякает]
+  chatTriggers:
+    - мя
+    - мякает
+    - мякает.
+    - мякает!
+    - ня
+    - мякает?
+    - mews.
+    - mews!
+    - mewing
+    - mewed
+
+- type: emote
+  id: Growl
+  name: chat-emote-name-growl
+  category: Vocal
+  chatMessages: [рычит]
+  chatTriggers:
+    - рычит
+    - рычит.
+    - рычит!
+    - ррр
+    - growl
+    - growls
+    - growls.
+    - growls!
+    - growling
+    - growled
+
+- type: emote
+  id: Purr
+  name: chat-emote-name-purr
+  category: Vocal
+  chatMessages: [мурчит]
+  chatTriggers:
+    - мур
+    - мурчит
+    - мурчит.
+    - мурчит!
+
+- type: emote
+  id: Heckaet
+  name: chat-emote-name-heck
+  category: Vocal
+  chatMessages: [хекает]
+  chatTriggers:
+    - кхе
+    - кхе.
+    - хекает
+    - хекает.
+    - отдышка
+    - отдышка.
+
+- type: emote
+  id: Howl
+  name: chat-emote-name-howl
+  category: Vocal
+  chatMessages: [воет]
+  chatTriggers:
+    - воет
+    - воет.
+    - воет!
+
+- type: emote
+  id: Whine
+  name: chat-emote-name-whine
+  category: Vocal
+  chatMessages: [скулит]
+  chatTriggers:
+    - скул
+    - скул.
+    - скул!
+    - скулит
+    - скулит.
+    - скулит!
+
+- type: emote
+  id: Bark
+  name: chat-emote-name-bark
+  category: Vocal
+  chatMessages: [лает]
+  chatTriggers:
+    - лает
+    - лает.
+    - лает!
+    - гавкает
+    - гавкает.
+    - гавкает!
+    - гав
+    - гав.
+    - гав!
+    - рявкает
+    - рявкает.
+    - рявкает!
+
+# IPC
+- type: emote
+  id: SynthYes
+  name: chat-emote-name-synth-yes
+  category: Vocal
+  chatMessages: [утвердительно пищит]
+  chatTriggers:
+    - утвердительно пищит
+    - утвердительно пищит.
+    - соглашается
+    - соглашается.
+    - согласен
+    - согласен.
+    - подтверждает
+    - подтверждает.
+
+- type: emote
+  id: SynthNo
+  name: chat-emote-name-synth-no
+  category: Vocal
+  chatMessages: [отрицательно пищит]
+  chatTriggers:
+    - отрицательно пищит
+    - отрицательно пищит.
+    - отрицает
+    - отрицает.
+    - не соглашается
+    - не соглашается.
+    - не согласен
+    - не согласен.
+
+- type: emote
+  id: SighBuzz
+  name: chat-emote-name-sigh-buzz
+  category: Vocal
+  chatMessages: [раздражённо жужжит]
+  chatTriggers:
+    - раздражённо жужжит
+    - раздражённо жужжит.
+    - раздраженно жужжит
+    - раздраженно жужжит.
