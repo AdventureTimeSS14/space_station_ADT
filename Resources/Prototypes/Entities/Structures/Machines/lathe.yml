@@ -333,17 +333,16 @@
       - FauxTileAstroSnow
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
-      # vv Frontier - languages mechanic vv
+      # vv Languages mechanic vv
       - CanilunztTranslator
       - BubblishTranslator
       - NekomimeticTranslator
       - DraconicTranslator
       - SolCommonTranslator
       - RootSpeakTranslator
-      - XenoTranslator
+      #- XenoTranslator
       - DraskTranslator
-      - BasicGalaticCommonTranslatorImplanter
-      - AdvancedGalaticCommonTranslatorImplanter
+      - GalacticCommonTranslatorImplanter
       - BubblishTranslatorImplanter
       - NekomimeticTranslatorImplanter
       - DraconicTranslatorImplanter
@@ -357,18 +356,23 @@
       - NianTranslatorImplanter
       - FireTranslatorImplanter
       - DraskTranslatorImplanter
-#      - UrsTranslatorImplanter # Закомменчено до раундстарт урсов
+      - UrsTranslatorImplanter
       - ArkaneTranslatorImplanter
       - ShadowkinTranslatorImplanter
       - CintaTajTranslatorImplanter
-#      - UrsTranslator # Закомменчено до раундстарт урсов
+      - IPCTranslatorImplanter
+      - BorgTranslatorImplanter
+      - DwarfTranslatorImplanter
+      - UrsTranslator
       - ArkaneTranslator
       - ShadowkinTranslator
       - NianTranslator
       - FireTranslator
       - SikTajTranslator
       - CintaTajTranslator
-      # ^^ Frontier - languages mechanic ^^
+      - DwarfTranslator
+      - IPCTranslator
+      # ^^ Languages mechanic ^^
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag

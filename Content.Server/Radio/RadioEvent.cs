@@ -1,10 +1,11 @@
 using Content.Shared.Chat;
 using Content.Shared.Radio;
+using Content.Shared.ADT.Language;  // ADT Languages
 
 namespace Content.Server.Radio;
 
 [ByRefEvent]
-public readonly record struct RadioReceiveEvent(string Message, EntityUid MessageSource, RadioChannelPrototype Channel, EntityUid RadioSource, MsgChatMessage ChatMsg);
+public readonly record struct RadioReceiveEvent(string Message, EntityUid MessageSource, RadioChannelPrototype Channel, EntityUid RadioSource, MsgChatMessage ChatMsg, MsgChatMessage UnknownLanguageChatMsg, LanguagePrototype Language);  // ADT Languages
 
 /// <summary>
 /// Use this event to cancel sending message per receiver
