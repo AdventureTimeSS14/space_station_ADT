@@ -76,7 +76,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         return result;
     }
 
-    // OK I have no idea how to generate message so I took some voids from other PR
+    // Message obfuscation and seed system taken from https://github.com/new-frontiers-14/frontier-station-14/pull/671
     private void ObfuscateSyllables(StringBuilder builder, string message, LanguagePrototype language)
     {
         // Go through each word. Calculate its hash sum and count the number of letters.

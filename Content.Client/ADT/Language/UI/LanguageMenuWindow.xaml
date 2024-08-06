@@ -1,3 +1,4 @@
+<!--Original window taken from https://github.com/new-frontiers-14/frontier-station-14/pull/671-->
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                Title="a"
