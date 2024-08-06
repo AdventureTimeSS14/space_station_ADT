@@ -308,8 +308,8 @@
     Silver: 50
 
 - type: latheRecipe
-  id: ShadowkinTranslatorImplanter
-  result: ShadowkinTranslatorImplanter
+  id: ShadekinTranslatorImplanter 
+  result: ShadekinTranslatorImplanter
   completetime: 2
   materials:
     Steel: 500
@@ -350,8 +350,8 @@
     Gold: 50
 
 - type: latheRecipe
-  id: ShadowkinTranslator
-  result: ShadowkinTranslator
+  id: ShadekinTranslator
+  result: ShadekinTranslator
   completetime: 2
   materials:
     Steel: 500
