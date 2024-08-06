@@ -1,5 +1,5 @@
-translator-component-shutoff = {$translator} выключается.
-translator-component-turnon = The {$translator} включается.
+translator-component-shutoff = {CAPITALIZE($translator)} выключается.
+translator-component-turnon = {CAPITALIZE($translator)} включается.
 translator-enabled = Оно включено.
 translator-disabled = Оно выключено.
 
@@ -59,3 +59,13 @@ ent-NianTranslator = переводчик Ткачьего языка
 
 ent-FireTranslator = переводчик Огненного языка
     .desc = Используется для взаимного перевода Общегалактического и Огненного языков.
+
+ent-UrsTranslator = переводчик Рыкрур
+    .desc = Используется для взаимного перевода Общегалактического языка и Рыкрур.
+
+ent-IPCTranslator = переводчик троичного кода
+    .desc = Используется для взаимного перевода Общегалактического языка и троичного кода.
+
+ent-DwarfTranslator = переводчик языка Шахт
+    .desc = Используется для взаимного перевода Общегалактического языка и Шахт.
+

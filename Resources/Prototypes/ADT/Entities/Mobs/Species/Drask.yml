@@ -12,7 +12,7 @@
         Cold: 0.05
         Bloodloss: 0.05
   - type: Icon
-    sprite: ADT/Mobs/Drask/parts.rsi
+    sprite: ADT/Mobs/Species/Drask/parts.rsi
     state: full
   - type: Thirst
   - type: Perishable

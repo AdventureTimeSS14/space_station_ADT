@@ -69,8 +69,8 @@
     Gold: 50
 
 - type: latheRecipe
-  id: BasicGalaticCommonTranslatorImplanter
-  result: BasicGalaticCommonTranslatorImplanter
+  id: GalacticCommonTranslatorImplanter
+  result: GalacticCommonTranslatorImplanter
   completetime: 2
   materials:
     Steel: 500
@@ -79,27 +79,16 @@
     Gold: 50
     Silver: 50
 
-- type: latheRecipe
-  id: XenoTranslator
-  result: XenoTranslator
-  completetime: 2
-  materials:
-    Steel: 200
-    Plastic: 50
-    Gold: 50
-    Plasma: 50
-    Silver: 50
-
-- type: latheRecipe
-  id: AdvancedGalaticCommonTranslatorImplanter
-  result: AdvancedGalaticCommonTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+#- type: latheRecipe
+#  id: XenoTranslator
+#  result: XenoTranslator
+#  completetime: 2
+#  materials:
+#    Steel: 200
+#    Plastic: 50
+#    Gold: 50
+#    Plasma: 50
+#    Silver: 50
 
 - type: latheRecipe
   id: BubblishTranslatorImplanter
@@ -179,6 +168,39 @@
     Silver: 50
 
 - type: latheRecipe
+  id: IPCTranslatorImplanter
+  result: IPCTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: BorgTranslatorImplanter
+  result: BorgTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: DwarfTranslatorImplanter
+  result: DwarfTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
   id: AnimalTranslator
   result: AnimalTranslator
   completetime: 2
@@ -223,6 +245,17 @@
     Silver: 50
 
 - type: latheRecipe
+  id: DraskTranslatorImplanter
+  result: DraskTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
   id: DraskTranslator
   result: DraskTranslator
   completetime: 2
@@ -233,15 +266,24 @@
     Gold: 50
 
 - type: latheRecipe
-  id: DraskTranslatorImplanter
-  result: DraskTranslatorImplanter
+  id: DwarfTranslator
+  result: DwarfTranslator
   completetime: 2
   materials:
     Steel: 500
-    Glass: 500
-    Plastic: 100
+    Glass: 100
+    Plastic: 50
     Gold: 50
-    Silver: 50
+
+- type: latheRecipe
+  id: IPCTranslator
+  result: IPCTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
 
 - type: latheRecipe
   id: UrsTranslatorImplanter
@@ -287,15 +329,15 @@
     Gold: 50
     Silver: 50
 
-#- type: latheRecipe
-#  id: UrsTranslator
-#  result: UrsTranslator
-#  completetime: 2
-#  materials:
-#    Steel: 500
-#    Glass: 100
-#    Plastic: 50
-#    Gold: 50
+- type: latheRecipe
+  id: UrsTranslator
+  result: UrsTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
 
 - type: latheRecipe
   id: ArkaneTranslator

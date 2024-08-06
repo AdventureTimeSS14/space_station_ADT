@@ -1,17 +1,24 @@
 language-Universal-name = Универсальный
-language-Universal-description = Что ты такое?
+language-Universal-description = ЧТО ТЫ ТАКОЕ.
+
 language-GalacticCommon-name = Общегалактический
 language-GalacticCommon-description = Обычно используется для межвидового общения и официальных целей.
+
 language-Bubblish-name = Пузырчатый
 language-Bubblish-description = Язык слаймолюдов. Это смесь булькающих звуков и хлюпов. Человеку очень трудно говорить без механической помощи.
+
 language-RootSpeak-name = Песнь корней
 language-RootSpeak-description = Странный шелестящий язык, на котором говорят дионы.
+
 language-CodeSpeak-name = Кодовый язык
 language-CodeSpeak-description = Оперативники синдиката могут использовать серию кодовых слов для передачи сложной информации, в то время как для любого слушателя они звучат как случайные понятия и напитки.
+
 language-Nekomimetic-name = Некоязык
 language-Nekomimetic-description = Для стороннего наблюдателя этот язык представляет собой непонятную смесь ломаного японского. Для фелинидов он каким-то образом понятен.
+
 language-Draconic-name = Синта'унати
 language-Draconic-description = Общий язык унатхов с преобладающими шипящими звуками.
+
 language-Canilunzt-name = Канилунц
 language-Canilunzt-description = Гортанный язык, на котором говорят и используют обитатели системы Ваззенда, состоящий из рычания, лая, тявканья и интенсивного использования движений ушей и хвоста, вулпканины говорят на этом языке с легкостью.
 
@@ -26,6 +33,7 @@ language-Fire-description = Звуки огня, что каким-то обра
 
 language-SolCommon-name = Солнечный язык
 language-SolCommon-description = Общий язык, на котором говорят обитатели солнечной системы.
+
 language-Cat-name = Кошачий
 language-Cat-description = Примитивные звуки, издаваемые кошками. Каким-то образом они передают смысл!
 
@@ -87,7 +95,7 @@ language-Arkane-description = Протяжный, чем-то напоминаю
 language-Shadekin-name = Миар
 language-Shadekin-description = Загадочный язык, на котором говорят сумеречники.
 
-language-Dwarf-name = Шахтёрский
+language-Dwarf-name = Шахт
 language-Dwarf-description = Rock and stone!
 
 language-Dev-name = Разработческий

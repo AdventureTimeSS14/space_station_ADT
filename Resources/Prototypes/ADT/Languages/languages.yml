@@ -11,9 +11,9 @@
   id: GalacticCommon
   obfuscateSyllables: true
   replacement:
-  - Бла
-  - Бла
-  - Бла
+  - бла
+  - бла
+  - бла
   - динг-донг
   - динг
   - донг
@@ -35,6 +35,8 @@
 - type: language
   id: Bubblish
   obfuscateSyllables: true
+  color: "#61daff"
+  whisperColor: "#5f9db0"
   replacement:
   - блоб
   - плоп
@@ -49,6 +51,8 @@
 - type: language
   id: Moffic
   obfuscateSyllables: true
+  color: "#b34444"
+  whisperColor: "#8a4343"
   replacement:
   - år
   - i
@@ -112,6 +116,8 @@
 - type: language
   id: RootSpeak
   obfuscateSyllables: true
+  color: "#76ff61"
+  whisperColor: "#7fc474"
   replacement:
   - хс
   - зт
@@ -124,6 +130,8 @@
 - type: language
   id: CodeSpeak
   obfuscateSyllables: true
+  color: Crimson
+  whisperColor: Crimson
   replacement:
   - Белый русский
   - Представитель станции
@@ -179,6 +187,8 @@
 - type: language
   id: Nekomimetic
   obfuscateSyllables: true
+  color: "#ff78e8"
+  whisperColor: "#c280b7"
   replacement:
   - неко
   - нян
@@ -233,6 +243,8 @@
 - type: language
   id: Draconic
   obfuscateSyllables: true
+  color: "#0ea600"
+  whisperColor: "#31702c"
   replacement:
   - za
   - az
@@ -323,6 +335,8 @@
 - type: language
   id: Canilunzt
   obfuscateSyllables: true
+  color: "#ff9a3b"
+  whisperColor: "#cf8f53"
   replacement:
   - rur
   - ya
@@ -387,6 +401,8 @@
 - type: language
   id: SikTaj
   obfuscateSyllables: true
+  color: "#ff683b"
+  whisperColor: "#cf7b61"
   replacement:
   - rae
   - ye
@@ -451,6 +467,8 @@
 - type: language
   id: Nian
   obfuscateSyllables: true
+  color: "#ffdd61"
+  whisperColor: "#cfb96b"
   replacement:
   - жз
   - эзз
@@ -485,6 +503,8 @@
 - type: language
   id: Fire
   obfuscateSyllables: true
+  color: "#ff6a00"
+  whisperColor: "#e0894a"
   replacement:
   - шш
   - вшш
@@ -501,6 +521,8 @@
 - type: language
   id: SolCommon
   obfuscateSyllables: true
+  color: "#00fc65"
+  whisperColor: "#6db389"
   replacement:
   - тао
   - ши
@@ -562,6 +584,8 @@
 - type: language
   id: RobotTalk
   obfuscateSyllables: true
+  color: "#5773ff"
+  whisperColor: "#7c8acc"
   replacement:
   - "0"
   - "1"
@@ -570,6 +594,8 @@
 - type: language
   id: BorgTalk
   obfuscateSyllables: true
+  color: "#9faffc"
+  whisperColor: "#babfd6"
   replacement:
   - "0"
   - "1"
@@ -650,6 +676,8 @@
 - type: language
   id: Drask
   obfuscateSyllables: true
+  color: "#0074c7"
+  whisperColor: "#538cb5"
   replacement:
   - овв
   - оумн
@@ -673,6 +701,8 @@
 - type: language
   id: Urs
   obfuscateSyllables: true
+  color: "#b36b00"
+  whisperColor: "#99743d"
   replacement:
   - раа
   - ишш
@@ -702,6 +732,8 @@
 - type: language
   id: Arkane
   obfuscateSyllables: true
+  color: "#e478ff"
+  whisperColor: "#c79fd1"
   replacement:
   - рииа
   - инн
@@ -725,6 +757,8 @@
 - type: language
   id: Shadekin
   obfuscateSyllables: true
+  color: "#c048f7"
+  whisperColor: "#a68bb3"
   replacement:
   - mia
   - ar
@@ -748,6 +782,8 @@
 - type: language
   id: Dwarf
   obfuscateSyllables: true
+  color: "#f5e238"
+  whisperColor: "#d4cb79"
   replacement:
   - арр
   - рок
@@ -770,6 +806,8 @@
 - type: language
   id: CintaTaj
   obfuscateSyllables: true
+  color: "#88d424"
+  whisperColor: "#91ba5b"
   replacement:
   - za
   - az
@@ -918,6 +956,7 @@
 - type: language
   id: Dev
   obfuscateSyllables: true
+  color: White
   replacement:
   - су
   - ка
