@@ -4,7 +4,7 @@ language-menu-description-header = Описание
 language-choose-button = Выбрать
 language-choose-button-chosen = Выбрано
 language-choose-button-cannot = Только понимание
-language-menu-action = Меню языков
-language-menu-action-desc = Открыть меню выбора языка.
+language-choose-button-tooltip-translator = Вы используете переводчик для пользования данным языком.
+language-choose-button-tooltip-known = Вы полностью владеете данным языком.
 
 game-hud-open-languages-menu-button-tooltip = Открыть меню выбора языка

@@ -50,7 +50,6 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
             _menu = UIManager.CreateWindow<LanguageMenuWindow>();
             _menu.OnClose += OnWindowClosed;
             _menu.OnOpen += OnWindowOpen;
-            //_menu.OnPlayEmote += OnPlayEmote;
 
             if (LanguagesButton != null)
                 LanguagesButton.SetClickPressed(true);

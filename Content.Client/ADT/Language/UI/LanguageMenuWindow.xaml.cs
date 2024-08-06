@@ -41,20 +41,19 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
     {
         CurrentLanguageLabel.Text = Loc.GetString("language-menu-current-language", ("language", _language.GetLanguage(state.CurrentLanguage).LocalizedName));
 
-        //OptionsList.RemoveAllChildren();
         List<string> options = new();
         List<Option> optionList = _optionLists;
 
         options.AddRange(state.Options);
-        options.AddRange(state.TranslatorOptions);
 
-        List<string> translatorOptions = new();
-        translatorOptions.AddRange(state.TranslatorOptions);
+        List<string> translatorOptions = state.TranslatorOptions;
+        List<EntryState> entries = _entries.ToList();
+        
         foreach (var lng in state.Options)
         {
             translatorOptions.Remove(lng);
         }
-        foreach (var entry in _entries)
+        foreach (var entry in entries)
         {
             if (state.Options.Contains(entry.Language))
             {
@@ -63,7 +62,7 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
             }
             else if (state.TranslatorOptions.Contains(entry.Language))
             {
-                options.Remove(entry.Language);
+                translatorOptions.Remove(entry.Language);
                 continue;
             }
             else
@@ -85,7 +84,14 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
         {
             foreach (var language in options)
             {
-                AddLanguageEntry(language, translatorOptions.Contains(language));
+                AddLanguageEntry(language);
+            }
+        }
+        if (translatorOptions.Count > 0)
+        {
+            foreach (var language in translatorOptions)
+            {
+                AddLanguageEntry(language, true);
             }
         }
 
@@ -99,14 +105,6 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
                     entry.Button.Text = Loc.GetString("language-choose-button-chosen");
                 if (!_language.CanSpeak(_entManager.GetEntity(state.ComponentOwner), _language.GetLanguage(entry.Language)))
                     entry.Button.Text = Loc.GetString("language-choose-button-cannot");
-
-                if (translatorOptions.Contains(entry.Language))
-                {
-                    entry.Button.Text = "П | " + entry.Button.Text;
-                    entry.Button.ToolTip = Loc.GetString("language-choose-button-tooltip-translator");
-                }
-                else
-                    entry.Button.ToolTip = Loc.GetString("language-choose-button-tooltip-known");
             }
         }
     }
@@ -137,13 +135,10 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
             var button = new Button();
             button.Text = Loc.GetString("language-choose-button");
             button.OnPressed += _ => OnLanguageChosen(language);
-            if (translator)
-            {
-                //button.Text = "П | " + button.Text;
-                button.ToolTip = Loc.GetString("language-choose-button-tooltip-translator");
-            }
-            else
-                button.ToolTip = Loc.GetString("language-choose-button-tooltip-known");
+            button.ToolTip =
+                translator ?
+                Loc.GetString("language-choose-button-tooltip-translator") :
+                Loc.GetString("language-choose-button-tooltip-known");
 
             state.Button = button;
 

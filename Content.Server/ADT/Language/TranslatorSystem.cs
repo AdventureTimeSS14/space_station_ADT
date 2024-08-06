@@ -22,8 +22,8 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         SubscribeLocalEvent<HandheldTranslatorComponent, ActivateInWorldEvent>(OnTranslatorActivateInWorld);
         SubscribeLocalEvent<HandheldTranslatorComponent, UseInHandEvent>(OnTranslatorUseInHand);
 
-        SubscribeLocalEvent<HandheldTranslatorComponent, EquippedHandEvent>(OnPickUp);
-        SubscribeLocalEvent<HandheldTranslatorComponent, DroppedEvent>(OnDrop);
+        SubscribeLocalEvent<HandheldTranslatorComponent, GotEquippedHandEvent>(OnPickUp);
+        SubscribeLocalEvent<HandheldTranslatorComponent, GotUnequippedHandEvent>(OnDrop);
 
         SubscribeLocalEvent<HandheldTranslatorComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
     }
@@ -49,16 +49,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         Dirty(translator, component);
 
         ToggleTranslator(translator);
-        if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
-        {
-            var ev = new LanguageMenuStateMessage(GetNetEntity(args.User), current, understood, translatorUnderstood);
-            RaiseNetworkEvent(ev, args.User);
-        }
-    }
-
-    private void OnPickUp(EntityUid translator, HandheldTranslatorComponent component, EquippedHandEvent args)
-    {
-        Dirty(translator, component);
+        component.User = component.Enabled ? args.User : null;
 
         if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
         {
@@ -67,9 +58,27 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         }
     }
 
-    private void OnDrop(EntityUid translator, HandheldTranslatorComponent component, DroppedEvent args)
+    private void OnPickUp(EntityUid translator, HandheldTranslatorComponent component, GotEquippedHandEvent args)
     {
         Dirty(translator, component);
+
+        component.User = args.User;
+
+        if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
+        {
+            var ev = new LanguageMenuStateMessage(GetNetEntity(args.User), current, understood, translatorUnderstood);
+            RaiseNetworkEvent(ev, args.User);
+        }
+    }
+
+    private void OnDrop(EntityUid translator, HandheldTranslatorComponent component, GotUnequippedHandEvent args)
+    {
+        Dirty(translator, component);
+
+        if (component.User.HasValue)
+            _language.SelectDefaultLanguage(component.User.Value);
+
+        component.User = null;
 
         if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
         {
@@ -90,6 +99,8 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
             component.Enabled = !component.Enabled;
             var popupMessage = Loc.GetString(component.Enabled ? "translator-component-turnon" : "translator-component-shutoff", ("translator", component.Owner));
             _popup.PopupEntity(popupMessage, component.Owner);
+            if (!component.Enabled && component.User.HasValue)
+                _language.SelectDefaultLanguage(component.User.Value);
         }
 
         Dirty(uid, component);
@@ -98,6 +109,8 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
     private void OnPowerCellSlotEmpty(EntityUid translator, HandheldTranslatorComponent component, PowerCellSlotEmptyEvent args)
     {
         component.Enabled = false;
+
+        component.User = null;
 
         Dirty(translator, component);
         OnAppearanceChange(translator, component);

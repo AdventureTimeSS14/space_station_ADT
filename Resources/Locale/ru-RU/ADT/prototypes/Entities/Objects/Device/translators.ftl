@@ -1,5 +1,5 @@
-translator-component-shutoff = {$translator} выключается.
-translator-component-turnon = The {$translator} включается.
+translator-component-shutoff = {CAPITALIZE($translator)} выключается.
+translator-component-turnon = {CAPITALIZE($translator)} включается.
 translator-enabled = Оно включено.
 translator-disabled = Оно выключено.
 

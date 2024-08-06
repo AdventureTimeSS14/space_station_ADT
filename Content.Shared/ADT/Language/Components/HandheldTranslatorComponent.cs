@@ -32,4 +32,5 @@ public sealed partial class HandheldTranslatorComponent : Component
     [DataField]
     public bool Enabled = false;
 
+    public EntityUid? User;
 }

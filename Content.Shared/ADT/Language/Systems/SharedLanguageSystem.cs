@@ -150,6 +150,22 @@ public abstract class SharedLanguageSystem : EntitySystem
         RaiseNetworkEvent(new LanguageChosenMessage(ent, language));
     }
 
+    public void SelectDefaultLanguage(EntityUid uid, LanguageSpeakerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var language = component.SpokenLanguages.FirstOrDefault("Universal");
+
+        GetLanguages(uid, out _, out _, out var translator, out _, out _);
+        component.CurrentLanguage = language;
+
+        Dirty(uid, component);
+
+        RaiseNetworkEvent(new LanguageMenuStateMessage(GetNetEntity(uid), language, component.UnderstoodLanguages, translator));
+        RaiseNetworkEvent(new LanguageChosenMessage(GetNetEntity(uid), language));
+    }
+
     public bool GetLanguages(
         EntityUid? player,
         out List<string> understood,
@@ -178,7 +194,7 @@ public abstract class SharedLanguageSystem : EntitySystem
 
         foreach (var item in _hands.EnumerateHeld(uid))
         {
-            if (TryComp<HandheldTranslatorComponent>(item, out var translator))
+            if (TryComp<HandheldTranslatorComponent>(item, out var translator) && translator.Enabled)
             {
                 foreach (var lang in translator.Required)
                 {
