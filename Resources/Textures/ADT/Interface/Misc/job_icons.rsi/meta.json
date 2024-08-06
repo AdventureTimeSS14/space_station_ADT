@@ -13,6 +13,9 @@
         },
         {
             "name": "ADTPathologist"
+        },
+        {
+            "name": "JobADTIconSecurityCyborg"
         }
     ]
 }

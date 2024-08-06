@@ -1,0 +1,41 @@
+#SecurityCyborg
+- type: siliconLaw
+  id: SecCyb1
+  order: 1
+  lawString: law-seccyb-1
+
+- type: siliconLaw
+  id: SecCyb2
+  order: 2
+  lawString: law-seccyb-2
+
+- type: siliconLaw
+  id: SecCyb3
+  order: 3
+  lawString: law-seccyb-3
+
+- type: siliconLaw
+  id: SecCyb4
+  order: 4
+  lawString: law-seccyb-4
+
+- type: siliconLaw
+  id: SecCyb5
+  order: 5
+  lawString: law-seccyb-5
+
+- type: siliconLaw
+  id: SecCyb6
+  order: 6
+  lawString: law-seccyb-6
+
+- type: siliconLawset
+  id: SecCyb
+  laws:
+  - SecCyb1
+  - SecCyb2
+  - SecCyb3
+  - SecCyb4
+  - SecCyb5
+  - SecCyb6
+  obeysTo: laws-owner-crew

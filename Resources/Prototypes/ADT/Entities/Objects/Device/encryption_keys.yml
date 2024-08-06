@@ -1,0 +1,17 @@
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyCybSecurity
+  name: security encryption key
+  description: An encryption key used by security.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Security
+    - Common
+    - Science
+    - Binary
+    defaultChannel: Security
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: sec_label

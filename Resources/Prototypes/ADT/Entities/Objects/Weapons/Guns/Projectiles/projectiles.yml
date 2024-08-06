@@ -30,3 +30,59 @@
     forceSound: true
   - type: EmpOnCollide
     energyConsumption: 80000
+
+- type: entity
+  parent: AnomalousParticleDelta
+  id: ADTAnomalousParticleOmegaStrongCyb
+  name: omega particles
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+      - state: magicm_green
+        shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Heat: 20
+
+- type: entity
+  name: emitter bolt
+  id: ADTBoltCyb
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Singularity/emitter.rsi
+    layers:
+      - state: projectile
+        shader: unshaded
+  # - type: Ammo
+  #   muzzleFlash: null
+  # - type: Physics
+  # - type: Fixtures
+  #   fixtures:
+  #     projectile:
+  #       shape:
+  #         !type:PhysShapeAabb
+  #         bounds: "-0.2,-0.2,0.2,0.2"
+  #       hard: false
+  #       mask:
+  #       - Opaque
+  #     fly-by: *flybyfixture
+  - type: StaminaDamageOnCollide
+    damage: 20
+  - type: Projectile
+#   soundHit:  Waiting on serv3
+    damage:
+      types:
+        Heat: 14
+  # mining laser real
+  - type: GatheringProjectile
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: TimedDespawn
+    lifetime: 3
