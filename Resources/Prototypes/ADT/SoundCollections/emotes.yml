@@ -14,6 +14,42 @@
   id: DraskTalk
   files:
     - /Audio/ADT/Drask/drasktalk.ogg
+ 
+# IPC
+- type: soundCollection
+  id: SynthYes
+  files:
+    - /Audio/ADT/IPC/synth_yes.ogg
+
+- type: soundCollection
+  id: SynthNo
+  files:
+    - /Audio/ADT/IPC/synth_no.ogg
+
+- type: soundCollection
+  id: Ping
+  files:
+    - /Audio/ADT/IPC/ping.ogg
+
+- type: soundCollection
+  id: Buzz
+  files:
+    - /Audio/ADT/IPC/buzz-sigh.ogg
+
+- type: soundCollection
+  id: SighIPC
+  files:
+    - /Audio/ADT/IPC/buzz-two.ogg
+
+- type: soundCollection
+  id: ScreamIPC
+  files:
+    - /Audio/ADT/IPC/synth_scream.ogg
+
+- type: soundCollection
+  id: SighBuzz
+  files:
+    - /Audio/ADT/IPC/buzz-two.ogg
 
 - type: soundCollection
   id: TajaranHisses
@@ -43,3 +79,28 @@
   id: TajaranPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+
+- type: soundCollection
+  id: MothBuzz
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: MothScream
+  files:
+  - /Audio/ADT/Moth/moth_screm.ogg
+
+- type: soundCollection
+  id: MothLaugh
+  files:
+  - /Audio/ADT/Moth/moth_laugh.ogg
+
+- type: soundCollection
+  id: MothChitter
+  files:
+  - /Audio/ADT/Moth/moth_chitter.ogg
+
+- type: soundCollection
+  id: MothSqueak
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg
