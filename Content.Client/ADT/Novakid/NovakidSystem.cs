@@ -1,8 +1,8 @@
-using Content.Shared.ADT.NovakidFeatures;
+using Content.Shared.ADT.Novakid;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.ADT.NovakidFeatures;
-public sealed partial class NovakidFeaturesSystem : EntitySystem
+namespace Content.Client.ADT.Novakid;
+public sealed partial class NovakidSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PointLightSystem _lights = default!;

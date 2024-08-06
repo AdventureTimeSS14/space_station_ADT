@@ -1,4 +1,4 @@
-namespace Content.Shared.ADT.NovakidFeatures;
+namespace Content.Shared.ADT.Novakid;
 
 [RegisterComponent]
 public sealed partial class NovakidGlowingComponent : Component

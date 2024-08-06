@@ -20,3 +20,6 @@ marking-VoxHairTielQuills = Вокс, Тилские перья
 marking-VoxHairYasu = Вокс, Ясухиро
 marking-VoxHairMange = Вокс, Лишай
 marking-VoxHairPony = Вокс, Пони
+
+novakid-hurt-by-water-popup = Вода заставляет ваше пламя угасать
+species-name-novakid = Новакид

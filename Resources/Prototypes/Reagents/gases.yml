@@ -82,10 +82,12 @@
     Poison:
       effects:
       - !type:HealthChange
+      # Start ADT tweak: Novakid
         conditions:
         - !type:OrganType
           type: Novakid
           shouldHave: false
+      # End ADT tweak
         damage:
           types:
             Poison: 3
@@ -93,6 +95,7 @@
         reagent: Inaprovaline
         amount: -2.0
     Gas:
+      # Start ADT tweak: Novakid
       effects:
       - !type:HealthChange
         conditions:
@@ -151,6 +154,7 @@
         - !type:ReagentThreshold
           reagent: Plasma
           min: 1
+      # End ADT tweak
       # Cant be added until I add metabolism effects on reagent removal
       - !type:AdjustAlert
         alertType: Toxins

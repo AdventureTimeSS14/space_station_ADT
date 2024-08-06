@@ -1,5 +1,3 @@
-novakid-hurt-by-water-popup = Вода заставляет ваше пламя угасать
-species-name-novakid = Новакид
 marking-NovakidHair1 = сплетение
 marking-NovakidHair2 = комета
 marking-NovakidHair3 = дуализм
