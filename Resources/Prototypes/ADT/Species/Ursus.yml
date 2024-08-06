@@ -13,7 +13,7 @@
   maleLastNames: LastUrs
   femaleLastNames: LastUrs
   naming: firstlast
-  sponsorOnly: true
+  #sponsorOnly: true
 
 - type: speciesBaseSprites
   id: MobUrsusSprites
