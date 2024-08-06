@@ -130,6 +130,7 @@
     - KnockedDown
     - SlowedDown
     - Flashed
+    - SeeingStatic # ADT IPC (shaders)
   - type: TypingIndicator
     proto: robot
   - type: Speech

@@ -1,6 +1,7 @@
 - type: loadoutGroup
   id: MagistratJumpsuit
   name: loadout-group-lawyer-jumpsuit
+  minLimit: 1
   loadouts:
   - MagistratJumpsuit
   - LawyerJumpsuit
@@ -31,6 +32,7 @@
 - type: loadoutGroup
   id: PathologJumpsuit
   name: loadout-group-patholog-jumpsuit
+  minLimit: 1
   loadouts:
   - PathologJumpsuit
   - PathologJumpskirt
@@ -40,7 +42,7 @@
 - type: loadoutGroup
   id: PathologBackpack
   name: loadout-group-patholog-backpack
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - PathologBackpack
   - PathologSatchel
@@ -61,3 +63,34 @@
   loadouts:
   - BlueShoes
   - MedicalWinterBoots
+
+#Science
+
+- type: loadoutGroup
+  id: RoboticistJumpsuit
+  name: loadout-group-roboticist-jumpsuit
+  minLimit: 1
+  loadouts:
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+
+- type: loadoutGroup
+  id: RoboticistOuterClothing
+  name: loadout-group-roboticist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoat
+  - ScienceLabCoat
+  - ScienceWintercoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: RobohandsGloves
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves
