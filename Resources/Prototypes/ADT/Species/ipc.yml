@@ -1,0 +1,150 @@
+# Simple Station
+
+- type: species
+  id: IPC
+  name: species-name-ipc
+  roundStart: true # закомментировано для теста
+  prototype: MobIPC
+  sprites: MobIPCSprites
+  markingLimits: MobIPCMarkingLimits
+  dollPrototype: MobIPCDummy
+  skinColoration: Hues
+  sponsorOnly: false
+  minAge: 1
+  maxAge: 240
+  oldAge: 50
+  youngAge: 25
+  maleFirstNames: IpcFirst
+  femaleFirstNames: IpcFirst
+  maleLastNames: IpcLast # Corvax-LastnameGender
+  femaleLastNames: IpcLast # Corvax-LastnameGender
+  naming: FirstDashLast
+  sexes:
+  - Unsexed
+
+# The lack of a layer means that
+# this person cannot have round-start anything
+# applied to that layer. It has to instead
+# be defined as a 'custom base layer'
+# in either the mob's starting marking prototype,
+# or it has to be added in C#.
+- type: speciesBaseSprites
+  id: MobIPCSprites
+  sprites:
+    Head: MobIPCHead
+    Snout: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Hair: MobHumanoidMarkingMatchSkin
+    FacialHair: MobIPCScreen
+    Chest: MobIPCTorso
+    LArm: MobIPCLArm
+    RArm: MobIPCRArm
+    LHand: MobIPCLHand
+    RHand: MobIPCRHand
+    LLeg: MobIPCLLeg
+    RLeg: MobIPCRLeg
+    LFoot: MobIPCLFoot
+    RFoot: MobIPCRFoot
+
+- type: markingPoints
+  id: MobIPCMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 0
+      required: false
+    Legs:
+      points: 0
+      required: false
+    Arms:
+      points: 0
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobIPCScreen
+
+- type: humanoidBaseSprite
+  id: MobIPCHead
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobIPCHeadMale
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobIPCHeadFemale
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobIPCTorso
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobIPCTorsoMale
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobIPCTorsoFemale
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobIPCLLeg
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobIPCLArm
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobIPCLHand
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobIPCLFoot
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobIPCRLeg
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobIPCRArm
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobIPCRHand
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobIPCRFoot
+  baseSprite:
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+    state: r_foot

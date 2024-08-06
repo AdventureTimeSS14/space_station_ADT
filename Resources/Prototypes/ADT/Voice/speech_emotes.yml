@@ -12,7 +12,7 @@
   id: Laugh-apathy
   name: chat-emote-name-laugh-apathy
   category: Vocal
-  chatMessages: [выдавливает из себя смех] 
+  chatMessages: [выдавливает из себя смех]
   chatTriggers:
     - выдавливает из себя смех
 
@@ -20,7 +20,7 @@
   id: Scream-apathy
   name: chat-emote-name-scream-apathy
   category: Vocal
-  chatMessages: [наигранно кричит!] 
+  chatMessages: [наигранно кричит!]
   chatTriggers:
     - наигранно кричит!
 
@@ -28,7 +28,7 @@
   id: Sigh-apathy
   name: chat-emote-name-sigh-apathy
   category: Vocal
-  chatMessages: [театрально вздыхает] 
+  chatMessages: [театрально вздыхает]
   chatTriggers:
     - театрально вздыхает
 
@@ -36,7 +36,7 @@
   id: Crying-apathy
   name: chat-emote-name-crying-apathy
   category: Vocal
-  chatMessages: [фальшиво плачет] 
+  chatMessages: [фальшиво плачет]
   chatTriggers:
     - фальшиво плачет
 
@@ -167,3 +167,45 @@
     - рявкает
     - рявкает.
     - рявкает!
+
+# IPC
+- type: emote
+  id: SynthYes
+  name: chat-emote-name-synth-yes
+  category: Vocal
+  chatMessages: [утвердительно пищит]
+  chatTriggers:
+    - утвердительно пищит
+    - утвердительно пищит.
+    - соглашается
+    - соглашается.
+    - согласен
+    - согласен.
+    - подтверждает
+    - подтверждает.
+
+- type: emote
+  id: SynthNo
+  name: chat-emote-name-synth-no
+  category: Vocal
+  chatMessages: [отрицательно пищит]
+  chatTriggers:
+    - отрицательно пищит
+    - отрицательно пищит.
+    - отрицает
+    - отрицает.
+    - не соглашается
+    - не соглашается.
+    - не согласен
+    - не согласен.
+
+- type: emote
+  id: SighBuzz
+  name: chat-emote-name-sigh-buzz
+  category: Vocal
+  chatMessages: [раздражённо жужжит]
+  chatTriggers:
+    - раздражённо жужжит
+    - раздражённо жужжит.
+    - раздраженно жужжит
+    - раздраженно жужжит.
