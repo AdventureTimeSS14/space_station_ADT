@@ -6,7 +6,7 @@
   description: "I see you!"
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Drask/organs.rsi
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: eyes
 
 - type: entity
@@ -17,7 +17,7 @@
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Drask/organs.rsi
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: lungs
   - type: Lung
   - type: Metabolizer
@@ -51,7 +51,7 @@
   description: "I feel bad for the heartless bastard who lost this."
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Drask/organs.rsi
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: heart_on
   - type: Metabolizer
     maxReagents: 2
@@ -69,7 +69,7 @@
   description: "Ew innards."
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Drask/organs.rsi
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: innards
   - type: SolutionContainerManager
     solutions:
@@ -95,7 +95,7 @@
   name: kidneys
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Drask/organs.rsi
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: kidneys
   - type: Metabolizer
     maxReagents: 5

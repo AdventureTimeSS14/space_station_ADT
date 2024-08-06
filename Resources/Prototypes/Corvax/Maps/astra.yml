@@ -4,7 +4,7 @@
   mapPath: /Maps/corvax_astra.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 40
+  minPlayers: 55
   stations:
     Astra:
       stationProto: StandardNanotrasenStation
@@ -35,7 +35,6 @@
             Zookeeper: [ 1, 1 ]
             # command
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 3 ]

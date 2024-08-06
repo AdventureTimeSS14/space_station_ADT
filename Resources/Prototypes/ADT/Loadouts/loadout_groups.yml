@@ -1,0 +1,96 @@
+- type: loadoutGroup
+  id: MagistratJumpsuit
+  name: loadout-group-lawyer-jumpsuit
+  minLimit: 1
+  loadouts:
+  - MagistratJumpsuit
+  - LawyerJumpsuit
+  - LawyerJumpskirt
+  - LawyerJumpsuitBlue
+  - LawyerJumpskirtBlue
+  - LawyerJumpsuitPurple
+  - LawyerJumpskirtPurple
+  - LawyerJumpsuitRed
+  - LawyerJumpskirtRed
+  - LawyerJumpsuitGood
+  - LawyerJumpskirtGood
+
+- type: loadoutGroup
+  id: MagistratNeck
+  name: loadout-group-lawyer-neck
+  minLimit: 0
+  loadouts:
+  - LawyerNeck
+
+- type: loadoutGroup
+  id: PathologHead
+  name: loadout-group-patholog-head
+  minLimit: 0
+  loadouts:
+  - PathologHead
+
+- type: loadoutGroup
+  id: PathologJumpsuit
+  name: loadout-group-patholog-jumpsuit
+  minLimit: 1
+  loadouts:
+  - PathologJumpsuit
+  - PathologJumpskirt
+  - PathologJumpsuitAlt
+  - PathologJumpskirtAlt
+
+- type: loadoutGroup
+  id: PathologBackpack
+  name: loadout-group-patholog-backpack
+  minLimit: 1
+  loadouts:
+  - PathologBackpack
+  - PathologSatchel
+  - PathologDuffel
+
+- type: loadoutGroup
+  id: PathologWindbreaker
+  name: loadout-group-patholog-outerclothing
+  minLimit: 0
+  loadouts:
+  - PathologWindbreaker
+  - PathologWintercoat
+  - PathologApron
+
+- type: loadoutGroup
+  id: PathologShoes
+  name: loadout-group-patholog-shoes
+  loadouts:
+  - BlueShoes
+  - MedicalWinterBoots
+
+#Science
+
+- type: loadoutGroup
+  id: RoboticistJumpsuit
+  name: loadout-group-roboticist-jumpsuit
+  minLimit: 1
+  loadouts:
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+
+- type: loadoutGroup
+  id: RoboticistOuterClothing
+  name: loadout-group-roboticist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoat
+  - ScienceLabCoat
+  - ScienceWintercoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: RobohandsGloves
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves

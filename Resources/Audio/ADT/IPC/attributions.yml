@@ -1,0 +1,4 @@
+- files: ["borg_deathsound.ogg", "buzz-sigh.ogg", "buzz-two.ogg", "ping.ogg", "signal.ogg", "synth_no.ogg", "synth_yes.ogg"]
+  license: "CC0-1.0"
+  copyright: "Original sound by https://github.com/ss220-space/Paradise"
+  source: "https://github.com/ss220-space/Paradise"
