@@ -126,7 +126,7 @@
   description: "An implant giving the ability to understand and speak Shadekin language."
   components:
   - type: Implanter
-    implant: ShadowkinTranslatorImplant
+    implant: ShadekinTranslatorImplant
 
 - type: entity
   id: DwarfTranslatorImplanter
