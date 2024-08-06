@@ -238,6 +238,126 @@
       collection: FemaleCry
 
 - type: emoteSounds
+  id: UnisexNovakid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: NovakidScreams
+    Laugh:
+      collection: NovakidLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+
+- type: emoteSounds
+  id: MaleNovakid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: NovakidScreams
+    Laugh:
+      collection: NovakidLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    # ADT-Apathy Sounds. 
+    Scream-apathy:
+      collection: NovakidScreams
+    Laugh-apathy:
+      collection: NovakidLaugh 
+    Sigh-apathy:
+      collection: MaleSigh
+    Crying-apathy:
+      collection: MaleCry
+
+- type: emoteSounds
+  id: FemaleNovakid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: NovakidScreams
+    Laugh:
+      collection: NovakidLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    # ADT-Apathy Sounds. 
+    Scream-apathy:
+      collection: NovakidScreams
+    Laugh-apathy:
+      collection: NovakidLaugh 
+    Sigh-apathy:
+      collection: FemaleSigh
+    Crying-apathy:
+      collection: FemaleCry
+      
+- type: emoteSounds
   id: UnisexIPC
   sounds:
     RobotBeep:

@@ -1,4 +1,4 @@
-﻿<widgets:GameTopMenuBar xmlns="https://spacestation14.io"
+<widgets:GameTopMenuBar xmlns="https://spacestation14.io"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:style="clr-namespace:Content.Client.Stylesheets"
            xmlns:ic="clr-namespace:Robust.Shared.Input;assembly=Robust.Shared"
@@ -53,6 +53,18 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!--ADT Languages start-->
+    <ui:MenuButton
+        Name="LanguagesButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/Interface/languages-menu.svg.192dpi.png'}"
+        ToolTip="{Loc 'game-hud-open-languages-menu-button-tooltip'}"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguagesMenu}"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        />
+    <!--ADT Languages end-->
     <ui:MenuButton
         Name="CraftingButton"
         Access="Internal"
