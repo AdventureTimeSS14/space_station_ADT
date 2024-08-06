@@ -177,11 +177,26 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
+        // Parkstation-Ipc-Start
+        if (!component.ExamineWhileLocked && !component.KeysUnlocked)
+            return;
+
+        if (!component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
+            return;
+        // Parkstation-Ipc-End
+
         if (component.KeyContainer.ContainedEntities.Count == 0)
         {
             args.PushMarkup(Loc.GetString("encryption-keys-no-keys"));
             return;
         }
+
+        // хз чо эт, вроде не нужно
+        // if (component.Channels.Count > 0)
+        // {
+        //     args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
+        //     AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
+        // }
 
         if (component.Channels.Count > 0)
         {

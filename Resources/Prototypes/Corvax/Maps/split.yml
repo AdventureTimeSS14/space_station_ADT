@@ -41,7 +41,6 @@
             Zookeeper: [ 1, 1 ]
             # command
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ]
             # engineering
             AtmosphericTechnician: [ 1, 1 ]
             # medical

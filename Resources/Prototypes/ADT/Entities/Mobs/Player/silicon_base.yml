@@ -1,0 +1,381 @@
+# Simple Station
+
+- type: entity
+  save: false
+  abstract: true
+  id: ADTPlayerSiliconBase # For player controlled silicons
+  components:
+    - type: Reactive
+      groups:
+        Acidic: [Touch]
+    - type: Input
+      context: "human"
+    - type: InputMover
+    - type: ZombieImmune
+    - type: MobMover
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+    - type: Clickable
+    - type: Damageable
+      damageContainer: Inorganic # Note that for dumb reasons, this essentially makes them a wall.
+    - type: InteractionOutline
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 185 ### влияет на шанс Disarm. было 50
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 3
+      baseSprintSpeed: 4
+    - type: Sprite
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: full
+      noRot: true
+      drawdepth: Mobs
+    - type: Physics
+      bodyType: KinematicController
+    - type: Body
+      prototype: Drone
+    - type: DoAfter
+    - type: Examiner
+    # - type: Recyclable
+    #   safe: false
+    - type: StandingState
+    - type: Alerts
+    # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
+    #   protectionTime: 12
+    - type: Silicon
+      entityType: enum.SiliconType.Player
+      batteryPowered: false # Needs to also have a battery!
+      chargeThresholdMid: 0.60
+      chargeThresholdLow: 0.30
+      chargeThresholdCritical: 0
+      speedModifierThresholds:
+        4: 1
+        3: 1
+        2: 0.80
+        1: 0.45
+        0: 0.00
+    - type: RadiationReceiver
+    - type: AtmosExposed
+    - type: Temperature
+      heatDamageThreshold: 700
+      coldDamageThreshold: 0
+      currentTemperature: 400
+      specificHeat: 24
+      coldDamage:
+        types:
+          Cold: 0.1 # Per second, scales with temperature & other constants.
+      heatDamage:
+        types:
+          Heat: 0.25 # Per second, scales with temperature & other constants.
+      atmosTemperatureTransferEfficiency: 0.05
+    - type: ThermalRegulator
+      metabolismHeat: 600
+      radiatedHeat: 350
+      implicitHeatRegulation: 350
+      sweatHeatRegulation: 0 # This might end up being a problem if they can't cool themselves down?
+      shiveringHeatRegulation: 1200
+      normalBodyTemperature: 400
+      thermalRegulationTemperatureThreshold: 125
+    - type: ComplexInteraction
+
+- type: entity
+  parent: ADTPlayerSiliconBase
+  id: PlayerSiliconHumanoidBase
+  abstract: true
+  components:
+    - type: StatusIcon
+    - type: MobState
+      allowedStates:
+        - Alive
+        - Dead
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        165: Dead
+    - type: Damageable
+      damageContainer: ADTSiliconDamageContainer # Not a wall.
+    - type: Stamina
+      critThreshold: 200
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 500
+          behaviors:
+            - !type:GibBehavior {}
+    - type: Icon
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+      state: full
+    - type: MindContainer
+      showExamineInfo: true
+    - type: Sprite
+      noRot: true
+      drawdepth: Mobs
+      layers:
+        - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Head"]
+        - map: ["enum.HumanoidVisualLayers.Snout"]
+        - map: ["enum.HumanoidVisualLayers.Eyes"]
+        - map: ["enum.HumanoidVisualLayers.RArm"]
+        - map: ["enum.HumanoidVisualLayers.LArm"]
+        - map: ["enum.HumanoidVisualLayers.RLeg"]
+        - map: ["enum.HumanoidVisualLayers.LLeg"]
+        - shader: StencilClear
+          sprite: Mobs/Species/Human/parts.rsi
+          state: l_leg
+        - shader: StencilMask
+          map: ["enum.HumanoidVisualLayers.StencilMask"]
+          sprite: Mobs/Customization/masking_helpers.rsi
+          state: female_full
+          visible: false
+        - map: ["enum.HumanoidVisualLayers.LFoot"]
+        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
+        - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
+        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
+        - map: ["id"]
+        - map: ["gloves"]
+        - map: ["shoes"]
+        - map: ["ears"]
+        - map: ["outerClothing"]
+        - map: ["eyes"]
+        - map: ["belt"]
+        - map: ["neck"]
+        - map: ["back"]
+        - map: ["enum.HumanoidVisualLayers.FacialHair"]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
+        - map: ["enum.HumanoidVisualLayers.HeadSide"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: ["mask"]
+        - map: ["head"]
+        - map: ["pocket1"]
+        - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        #- map: ["enum.HumanoidVisualLayers.Wings"]
+        - map: ["clownedon"] # Dynamically generated
+          sprite: "Effects/creampie.rsi"
+          state: "creampie_human"
+          visible: false
+    - type: Repairable
+      #fuelcost: 60
+      doAfterDelay: 10 # was 18
+      damage:
+        types:
+          Blunt: -20
+          Slash: -20
+          Piercing: -20
+      #bloodlossModifier: -100
+    - type: Bloodstream ### я добавил компонент Bloodstream как заглушку. Он нужен,
+# чтобы хилиться с помощью CableStack. Дело в том, что HealingSystem использует проверку на наличие BloodstreamComponent.
+# В любом случае Bloodstream здесь является костылём, чтобы не лезть в код. В будущем можно зделать для IPC нормальную bloodstream систему.
+      damageBleedModifiers: BloodlossIPC
+      bloodReagent: Water
+      bleedReductionAmount: 0
+      bloodMaxVolume: 0
+      chemicalMaxVolume: 0
+      bleedPuddleThreshold: 3
+      bloodRefreshAmount: 0
+      bloodlossThreshold: 0
+      maxBleedAmount: 0
+      bloodlossDamage:
+        types:
+          Burn: 1.5
+      bloodlossHealDamage:
+        types:
+          Burn: 0
+    - type: Flammable
+      fireSpread: true
+      canResistFire: true
+      damage:
+        types:
+          Heat: 0.75 #per second, scales with number of fire 'stacks'
+    # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
+    #   damage:
+    #     types:
+    #       Blunt: 0.28 #per second, scales with pressure and other constants.
+    - type: Temperature
+      heatDamageThreshold: 320
+      coldDamageThreshold: 255
+      currentTemperature: 280
+      specificHeat: 50
+      coldDamage:
+        types:
+          Cold: 0.1 #per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat: 0.15 #per second, scales with temperature & other constants
+      atmosTemperatureTransferEfficiency: 0.4
+    - type: ThermalRegulator
+      metabolismHeat: 1000 # Increase once we have more ways to regulate temperature
+      radiatedHeat: 800
+      implicitHeatRegulation: 600
+      sweatHeatRegulation: 0
+      shiveringHeatRegulation: 12000 # Overclocking, yo
+      normalBodyTemperature: 280
+      thermalRegulationTemperatureThreshold: 32
+    - type: Polymorphable
+    - type: Identity
+    - type: MovedByPressure
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/metal_break1.ogg
+    - type: LagCompensation
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection: MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection: MetalLaserImpact
+    - type: Tag
+      tags:
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+    - type: Hands
+    - type: Inventory
+      templateId: human
+    - type: InventorySlots
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.CreamPiedVisuals.Creamed:
+          clownedon:
+            True: { visible: true }
+            False: { visible: false }
+    - type: RotationVisuals
+    - type: FloatingVisuals
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Generic_mob_burning
+      alternateState: Standing
+      fireStackAlternateState: 3
+    - type: CombatMode
+      canDisarm: true
+    - type: Climbing
+    - type: Cuffable
+    - type: AnimationPlayer
+    - type: Buckle
+    - type: CreamPied
+    - type: Stripping
+    - type: Strippable
+    - type: UserInterface
+      interfaces:
+        enum.VoiceMaskUIKey.Key:
+          type: VoiceMaskBoundUserInterface
+        enum.HumanoidMarkingModifierKey.Key:
+          type: HumanoidMarkingModifierBoundUserInterface
+        enum.StrippingUiKey.Key:
+          type: StrippableBoundUserInterface
+    - type: Emoting
+    - type: Grammar
+      attributes:
+        proper: true
+    - type: StandingState
+    - type: CanEscapeInventory
+    - type: HumanoidAppearance
+      species: IPC
+    - type: Body
+      prototype: IPC
+      requiredLegs: 2
+    - type: Ensnareable
+      sprite: Objects/Misc/ensnare.rsi
+    - type: Speech
+      speechSounds: Pai
+    - type: Vocal
+      sounds:
+        Male: MaleHuman
+        Female: FemaleHuman
+        Unsexed: MaleHuman
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        collection: Punch
+      angle: 30
+      animation: WeaponArcFist
+      attackRate: 1
+      damage:
+        types:
+          Blunt: 6 # It's tough.
+    - type: MobPrice
+      price: 1500 # Kidnapping a living person and selling them for cred is a good move.
+      deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+    - type: Pullable
+    - type: Puller
+    - type: Reactive
+      groups:
+        Flammable: [Touch]
+        Extinguish: [Touch]
+        Acidic: [Touch, Ingestion]
+      reactions:
+        - reagents: [Water, SpaceCleaner]
+          methods: [Touch]
+          effects:
+            - !type:WashCreamPieReaction
+    - type: BodyEmotes
+      soundsId: GeneralBodyEmotes
+    - type: DamageVisuals
+      thresholds: [20, 50, 100]
+      targetLayers:
+        - "enum.HumanoidVisualLayers.Chest"
+        - "enum.HumanoidVisualLayers.Head"
+        - "enum.HumanoidVisualLayers.LArm"
+        - "enum.HumanoidVisualLayers.LLeg"
+        - "enum.HumanoidVisualLayers.RArm"
+        - "enum.HumanoidVisualLayers.RLeg"
+      damageOverlayGroups:
+        Brute:
+          sprite: Mobs/Effects/brute_damage.rsi
+          color: "#1a1a1a"
+        Burn:
+          sprite: Mobs/Effects/burn_damage.rsi
+    # Organs
+    - type: IdExaminable
+    - type: HealthExaminable
+      examinableTypes:
+        - Blunt
+        - Slash
+        - Piercing
+        - Heat
+        - Shock
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        - Stutter
+        - SeeingRainbows
+        - Electrocution
+        # - Drunk
+        - SlurredSpeech
+        # - PressureImmunity
+        - Muted
+        # - ForcedSleep
+        - TemporaryBlindness
+        - Pacified
+        # - PsionicsDisabled
+        # - PsionicallyInsulated
+        - SeeingStatic
+    - type: Blindable

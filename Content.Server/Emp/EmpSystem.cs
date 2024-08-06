@@ -40,11 +40,31 @@ public sealed class EmpSystem : SharedEmpSystem
     /// <param name="duration">The duration of the EMP effects.</param>
     public void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration)
     {
+        /*
         foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
         {
             TryEmpEffects(uid, energyConsumption, duration);
         }
         Spawn(EmpPulseEffectPrototype, coordinates);
+        */
+
+        ///ADT-Tweak IPC start
+        foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
+        {
+            var ev = new EmpPulseEvent(energyConsumption, false, false, TimeSpan.FromSeconds(duration)); // Parkstation-IPCs
+            RaiseLocalEvent(uid, ref ev);
+            if (ev.Affected)
+            {
+                Spawn(EmpDisabledEffectPrototype, Transform(uid).Coordinates);
+            }
+            if (ev.Disabled)
+            {
+                var disabled = EnsureComp<EmpDisabledComponent>(uid);
+                disabled.DisabledUntil = Timing.CurTime + TimeSpan.FromSeconds(duration);
+            }
+        }
+        Spawn(EmpPulseEffectPrototype, coordinates);
+        ///ADT-Tweak IPC end
     }
 
     /// <summary>
@@ -131,13 +151,12 @@ public sealed class EmpSystem : SharedEmpSystem
         args.Cancelled = true;
     }
 
-
-///ADT ion start
+    ///ADT ion start
     private void OnProjectileHit(EntityUid uid, EmpOnCollideComponent component, ref ProjectileHitEvent args)
     {
         TryEmpEffects(args.Target, component.EnergyConsumption, component.DisableDuration);
     }
-///ADT ion end
+    ///ADT ion end
 }
 
 /// <summary>
@@ -148,7 +167,7 @@ public sealed partial class EmpAttemptEvent : CancellableEntityEventArgs
 }
 
 [ByRefEvent]
-public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration);
+public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration); // Parkstation-IPCs
 
 [ByRefEvent]
 public record struct EmpDisabledRemoved();

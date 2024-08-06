@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+  name: white-diplomat-suit-namе
+  description: white-diplomat-suit-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuits/white-diplomat-suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuits/white-diplomat-suit.rsi

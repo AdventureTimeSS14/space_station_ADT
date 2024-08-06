@@ -1,0 +1,15 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsIAA
+  suffix: IAA, Locked
+  components:
+  - type: AccessReader
+    access: [["IAA"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMagistrate
+  suffix: Magistrate, Locked
+  components:
+  - type: AccessReader
+    access: [["Magistrate"]]
