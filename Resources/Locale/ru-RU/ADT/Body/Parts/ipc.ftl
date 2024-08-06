@@ -1,0 +1,10 @@
+ent-HeadIPC = голова КПБ
+ent-TorsoIPC = тело КПБ
+ent-LeftArmIPC = левая рука КПБ
+ent-RightArmIPC = правая рука КПБ
+ent-LeftHandIPC = левая кисть КПБ
+ent-RightHandIPC = правая кисть КПБ
+ent-LeftLegIPC = левая нога КПБ
+ent-RightLegIPC = правая нога КПБ
+ent-LeftFootIPC = левая ступня КПБ
+ent-RightFootIPC = правая ступня КПБ

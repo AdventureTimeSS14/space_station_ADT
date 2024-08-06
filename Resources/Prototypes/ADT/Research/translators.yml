@@ -3,7 +3,7 @@
   id: BasicTranslation
   name: research-technology-basic-translation
   icon:
-    sprite: _NF/Objects/Devices/translator.rsi
+    sprite: ADT/Objects/Devices/translator.rsi
     state: icon
   discipline: CivilianServices
   tier: 2
@@ -15,31 +15,32 @@
   - DraconicTranslator
   - SolCommonTranslator
   - RootSpeakTranslator
-  - BasicGalaticCommonTranslatorImplanter
+  - GalacticCommonTranslatorImplanter
   - MofficTranslator
   - DraskTranslator
-#  - UrsTranslator # Закомменчено до раундстарт урсов
+  - UrsTranslator # Закомменчено до раундстарт урсов  # И никто не раскомментил, молодцы
   - ArkaneTranslator
   - ShadowkinTranslator
   - NianTranslator
   - FireTranslator
   - SikTajTranslator
   - CintaTajTranslator
-
+  - IPCTranslator
+  - DwarfTranslator
 
 # Frontier - languages mechanic
 - type: technology
   id: AdvancedTranslation
   name: research-technology-advanced-translation
   icon:
-    sprite: _NF/Objects/Devices/translator.rsi
+    sprite: ADT/Objects/Devices/translator.rsi
     state: icon
   discipline: CivilianServices
   tier: 3
   cost: 15000
   recipeUnlocks:
-  - XenoTranslator
-  - AdvancedGalaticCommonTranslatorImplanter
+#  - XenoTranslator
+#  - AdvancedGalaticCommonTranslatorImplanter
   - BubblishTranslatorImplanter
   - NekomimeticTranslatorImplanter
   - DraconicTranslatorImplanter
@@ -53,7 +54,10 @@
   - NianTranslatorImplanter
   - FireTranslatorImplanter
   - DraskTranslatorImplanter
-#  - UrsTranslatorImplanter # Закомменчено до раундстарт урсов
+  - UrsTranslatorImplanter # Закомменчено до раундстарт урсов   # И никто не раскомментил, молодцы
   - ArkaneTranslatorImplanter
   - ShadowkinTranslatorImplanter
   - CintaTajTranslatorImplanter
+  - IPCTranslatorImplanter
+  - BorgTranslatorImplanter
+  - DwarfTranslatorImplanter
