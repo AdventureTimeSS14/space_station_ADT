@@ -67,7 +67,7 @@
 
 - type: entity
   id: DisposalHolder
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: disposal holder
   components:
   - type: DisposalHolder
