@@ -7,7 +7,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_static
 
 - type: marking
@@ -16,7 +16,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_blue
 
 - type: marking
@@ -26,7 +26,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_breakout
 
 - type: marking
@@ -36,7 +36,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_eight
 
 - type: marking
@@ -45,7 +45,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_goggles
 
 - type: marking
@@ -54,7 +54,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_exclaim
 
 - type: marking
@@ -63,7 +63,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_heart
 
 - type: marking
@@ -72,7 +72,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_monoeye
 
 - type: marking
@@ -81,7 +81,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_nature
 
 - type: marking
@@ -91,7 +91,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_orange
 
 - type: marking
@@ -100,7 +100,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_pink
 
 - type: marking
@@ -109,7 +109,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_question
 
 - type: marking
@@ -119,7 +119,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_shower
 
 - type: marking
@@ -129,7 +129,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_yellow
 
 - type: marking
@@ -139,7 +139,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_scroll
 
 - type: marking
@@ -148,7 +148,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_console
 
 - type: marking
@@ -158,7 +158,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_rgb
 
 - type: marking
@@ -168,7 +168,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_glider
 
 - type: marking
@@ -178,7 +178,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_rainbowhoriz
 
 - type: marking
@@ -188,7 +188,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_bsod
 
 - type: marking
@@ -198,7 +198,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_redtext
 
 - type: marking
@@ -208,7 +208,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_sinewave
 
 - type: marking
@@ -218,7 +218,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_squarewave
 
 - type: marking
@@ -228,7 +228,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_ecgwave
 
 - type: marking
@@ -237,7 +237,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_eyes
 
 - type: marking
@@ -246,7 +246,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_eyestall
 
 - type: marking
@@ -255,7 +255,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_eyesangry
 
 - type: marking
@@ -265,7 +265,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_loading
 
 - type: marking
@@ -275,7 +275,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_windowsxp
 
 - type: marking
@@ -285,7 +285,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_tetris
 
 - type: marking
@@ -295,7 +295,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_tv
 
 - type: marking
@@ -305,7 +305,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_textdrop
 
 - type: marking
@@ -315,7 +315,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_stars
 
 - type: marking
@@ -325,7 +325,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_rainbowdiag
 
 - type: marking
@@ -334,7 +334,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_blank
 
 - type: marking
@@ -343,7 +343,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_smile
 
 - type: marking
@@ -352,7 +352,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_frown
 
 - type: marking
@@ -361,7 +361,7 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_ring
 
 - type: marking
@@ -370,5 +370,5 @@
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_screens.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_l
