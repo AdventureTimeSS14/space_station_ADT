@@ -1,12 +1,12 @@
 name: Build & Release
 
 on:
-  workflow_dispatch: # Позволяет запускать процесс вручную
-  push:
-    branches: [ master, staging, trying ]
-  pull_request:
-    types: [ opened, reopened, synchronize ]
-    branches: [ master ]
+  workflow_dispatch:
+  schedule:
+  - cron: '0 6 * * *'
+  workflow_run:
+    workflows: [Build & Test Release]
+    types: [completed]
 
 jobs:
   build:
