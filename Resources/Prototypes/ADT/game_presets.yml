@@ -1,0 +1,13 @@
+- type: gamePreset
+  id: Phantom
+  alias:
+    - phantom
+    - ghosts
+  name: phantom-title
+  showInVote: true
+  description: phantom-description
+  rules:
+    - PhantomGameRule
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler

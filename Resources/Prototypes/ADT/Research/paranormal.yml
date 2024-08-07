@@ -1,0 +1,39 @@
+- type: technology
+  id: ADTPseudoscience
+  name: research-technology-pseudiscience
+  icon:
+    sprite: ADT/Objects/Fun/Tabletop/ouija_board.rsi
+    state: uija-desk
+  discipline: CivilianServices
+  tier: 1
+  cost: 2500
+  recipeUnlocks:
+  - GhostRadio
+  - OuijaBoard
+
+- type: technology
+  id: ADTCombatPseudoscience
+  name: research-technology-combat-pseudiscience
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Pistols/ecto_pistol.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - EctoRifle
+  - EctoPistol
+
+- type: technology
+  id: ADTProtectionPseudoscience
+  name: research-technology-protection-pseudiscience
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/ecto-shield.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PsiShield
+  - PhantomHud
+  - EctoShield

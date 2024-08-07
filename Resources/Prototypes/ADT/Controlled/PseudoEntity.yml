@@ -1,0 +1,31 @@
+- type: entity
+  id: PseudoEntity
+  noSpawn: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+  - type: RadiationReceiver
+  - type: Stamina
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Eye
+  - type: ContentEye
+  - type: MindContainer
+  - type: PermanentBlindness
+  - type: Blindable
+  - type: Sprite
+    noRot: true
+    drawdepth: Ghosts
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    layers:
+    - state: haunt
+    - type: Tag
+      tags:
+        - HideContextMenu
+  - type: Input
+    context: "ghost"
+  - type: Muted
