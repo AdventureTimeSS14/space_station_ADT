@@ -35,9 +35,9 @@
   - Medical
   - Engineering
   - Cargo
-  - Centcom
+  # - Centcom
   - Detective
-  - Investigator
+  # - Investigator
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -53,5 +53,5 @@
     #pocket2: WeaponDisabler
     neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
     #shoes: ADTClothingShoesBootsCybSec
-  satchel: ClothingBackpackSatchelSecurityFilled
-  duffelbag: ClothingBackpackDuffelSecurityFilled
+  # satchel: ClothingBackpackSatchelSecurityFilled
+  # duffelbag: ClothingBackpackDuffelSecurityFilled

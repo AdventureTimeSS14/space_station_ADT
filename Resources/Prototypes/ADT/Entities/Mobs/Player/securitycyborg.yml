@@ -87,10 +87,10 @@
     layoutId: ADTBodyCyborgSec
   - type: SSDIndicator
   #- type: UnblockableSpeech  По идее должен иметь возможность разговаривать после крита, но тоже самое после смерти
-  - type: EmotePanel
+  # - type: EmotePanel
   - type: ContentEye
     maxZoom: 1.0,1.0
-  - type: ShowSecurityIcons
+  # - type: ShowSecurityIcons
   - type: SiliconLawBound
   - type: SiliconLawProvider
     laws: SecCyb
@@ -144,5 +144,5 @@
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.1
-  - type: SizeAttribute # Frontier
-    tall: true
+  # - type: SizeAttribute # Frontier
+  #   tall: true

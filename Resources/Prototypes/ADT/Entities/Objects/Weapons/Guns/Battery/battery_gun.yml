@@ -59,7 +59,7 @@
     fireRate: 1.7
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    personable: true
+    # personable: true # TODO: Доделать персоанализацию оружия
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 60

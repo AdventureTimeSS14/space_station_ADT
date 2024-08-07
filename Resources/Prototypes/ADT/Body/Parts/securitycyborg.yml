@@ -1,0 +1,185 @@
+# Части тела
+- type: entity
+  id: ADTPartCyborgSec
+  parent: BaseItem
+  name: "ipc body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+
+- type: entity
+  id: ADTTorsolCyborgSec
+  name: "ipc torso"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "torso_m"
+  - type: BodyPart
+    partType: Torso
+
+- type: entity
+  id: ADTHeadCyborgSec
+  name: "ipc head"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "head_m"
+  - type: BodyPart
+    partType: Head
+    vital: true
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: InputMover
+  - type: GhostOnMove
+  - type: Tag
+    tags:
+      - Head
+
+- type: entity
+  id: ADTLeftArmCyborgSec
+  name: "left ipc arm"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+
+- type: entity
+  id: ADTRightArmCyborgSec
+  name: "right ipc arm"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+
+- type: entity
+  id: ADTLeftHandCyborgSec
+  name: "left ipc hand"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: entity
+  id: ADTRightHandCyborgSec
+  name: "right ipc hand"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  id: ADTLeftLegCyborgSec
+  name: "left ipc leg"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: MovementBodyPart
+
+- type: entity
+  id: ADTRightLegCyborgSec
+  name: "right ipc leg"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: MovementBodyPart
+
+- type: entity
+  id: ADTLeftFootCyborgSec
+  name: "left ipc foot"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "l_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
+
+- type: entity
+  id: ADTRightFootCyborgSec
+  name: "right ipc foot"
+  parent: ADTPartCyborgSec
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: "r_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right
