@@ -97,7 +97,6 @@
     - Common
   - type: ZombieImmune
   - type: Repairable
-    fuelcost: 15
     doAfterDelay: 3
     allowSelfRepair: true
   # - type: PowerCellSlot
@@ -181,7 +180,7 @@
   - type: StandingState
   - type: Tag
     tags:
-    - ShoesRequiredStepTriggerImmune
+    # - ShoesRequiredStepTriggerImmune
     # - DoorBumpOpener
     - CanPilot
     - CannotSuicide
@@ -317,7 +316,7 @@
     autoRot: true
   - type: Tag
     tags:
-      - ShoesRequiredStepTriggerImmune
+    #  - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
     price: 1275
@@ -346,7 +345,6 @@
     speechSounds: Pai
   - type: ZombieImmune
   - type: Repairable
-    fuelcost: 15
     doAfterDelay: 5
   - type: UserInterface
     interfaces:
@@ -475,7 +473,7 @@
     autoRot: true
   - type: Tag
     tags:
-      - ShoesRequiredStepTriggerImmune
+    #  - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
     price: 1275
@@ -504,7 +502,6 @@
     speechSounds: Pai
   - type: ZombieImmune
   - type: Repairable
-    fuelcost: 15
     doAfterDelay: 5
   - type: UserInterface
     interfaces:
@@ -634,7 +631,7 @@
     autoRot: true
   - type: Tag
     tags:
-      - ShoesRequiredStepTriggerImmune
+    #  - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
     price: 750
@@ -663,7 +660,6 @@
     speechSounds: Pai
   - type: ZombieImmune
   - type: Repairable
-    fuelcost: 15
     doAfterDelay: 5
   - type: UserInterface
     interfaces:
