@@ -10,8 +10,8 @@
   skinColoration: Hues
   maleFirstNames: firstMaleUrs
   femaleFirstNames: firstFemaleUrs
-  maleLastNames: LastUrs
-  femaleLastNames: LastUrs
+  maleLastNames: LastMaleUrs
+  femaleLastNames: LastFemaleUrs
   naming: firstlast
   #sponsorOnly: true
 
