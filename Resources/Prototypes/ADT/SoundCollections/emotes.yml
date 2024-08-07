@@ -113,3 +113,66 @@
   id: MothSqueak
   files:
   - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: UrsusScreams
+  files:
+  - /Audio/ADT/Ursus/scream1.ogg
+  - /Audio/ADT/Ursus/scream2.ogg
+  - /Audio/ADT/Ursus/scream3.ogg
+  - /Audio/ADT/Ursus/scream4.ogg
+
+- type: soundCollection
+  id: UrsusCry
+  files:
+  - /Audio/ADT/Ursus/cry1.ogg
+  - /Audio/ADT/Ursus/cry2.ogg
+
+- type: soundCollection
+  id: UrsusLaugh
+  files:
+  - /Audio/ADT/Ursus/laugh1.ogg
+  - /Audio/ADT/Ursus/laugh2.ogg
+
+- type: soundCollection
+  id: NesMaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/growl1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl2.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl3.ogg
+
+- type: soundCollection
+  id: NesFemaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/scream1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/scream2.ogg
+
+- type: soundCollection
+  id: VulpHowls
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/howl.ogg
+
+- type: soundCollection
+  id: VulpBarks
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/bark.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark1.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark2.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark3.ogg
+
+- type: soundCollection
+  id: VulpWhines
+  files:
+  - /Audio/ADT/Voice/Doge/dog_whine.ogg
+
+- type: soundCollection
+  id: VulpGrowls
+  files:
+  - /Audio/ADT/Voice/Doge/dog_growl1.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl2.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl3.ogg
+
+- type: soundCollection
+  id: VulpHeckaetSound
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/vulpkanin_hekaet1.ogg
