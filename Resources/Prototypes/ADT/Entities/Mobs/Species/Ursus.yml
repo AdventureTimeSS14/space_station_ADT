@@ -15,7 +15,7 @@
   - type: Thirst
     #baseDecayRate: 0.0083
   - type: Icon
-    sprite: ADT/Mobs/Ursus/parts.rsi
+    sprite: ADT/Mobs/Species/Ursus/parts.rsi
     state: full
   - type: Butcherable
     butcheringType: Spike

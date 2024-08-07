@@ -4,7 +4,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: neat
 
 - type: marking
@@ -13,7 +13,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: warrior
 
 - type: marking
@@ -22,7 +22,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: warrior2
 
 - type: marking
@@ -31,7 +31,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: surface_river
 
 - type: marking
@@ -40,7 +40,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: gorgon
 
 - type: marking
@@ -49,7 +49,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: breadwinner
 
 - type: marking
@@ -58,7 +58,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: whip
 
 - type: marking
@@ -67,7 +67,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: whip2
 
 - type: marking
@@ -76,7 +76,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: short_hedgehog
  
 - type: marking
@@ -85,7 +85,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: short_hedgehog2
 
 - type: marking
@@ -94,7 +94,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: valkyries_scythe
 
 - type: marking
@@ -103,7 +103,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: valkyries_scythe2
 
 - type: marking
@@ -112,7 +112,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: warriors_scythe
 - type: marking
   id: ADTUrsusBraidsontheside
@@ -120,7 +120,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braids_on_the_side
 
 - type: marking
@@ -129,7 +129,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braids_on_the_side2
 
 - type: marking
@@ -138,7 +138,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: forest_style
 
 - type: marking
@@ -147,7 +147,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: forest_style2
 
 - type: marking
@@ -156,7 +156,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: soft_waves
 
 - type: marking
@@ -165,7 +165,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: soft_waves2
 
 - type: marking
@@ -174,7 +174,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braided_cone
 
 - type: marking
@@ -183,7 +183,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braided_side
 
 - type: marking
@@ -192,7 +192,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: braided_side2
 
 - type: marking
@@ -201,7 +201,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: collector
 
 - type: marking
@@ -210,7 +210,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: fallen_cone
 
 - type: marking
@@ -219,7 +219,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: tail_big_dipper
 
 - type: marking
@@ -228,7 +228,7 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: cone
 
 - type: marking
@@ -237,5 +237,5 @@
   markingCategory: Hair
   speciesRestriction: [UrsusSpecies]
   sprites:
-    - sprite: ADT/Mobs/Ursus/custom.rsi
+    - sprite: ADT/Mobs/Customization/Ursus/custom.rsi
       state: young_boy
