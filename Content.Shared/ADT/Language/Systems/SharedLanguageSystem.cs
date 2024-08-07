@@ -1,73 +1,262 @@
-﻿using Content.Shared.Actions;
+using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Robust.Shared.Containers;
+using Content.Shared.Ghost;
+using Robust.Shared.Network;
+using Content.Shared.Hands.EntitySystems;
+using System.Linq;
 
-namespace Content.Shared.Language.Systems;
+namespace Content.Shared.ADT.Language;
 
 public abstract class SharedLanguageSystem : EntitySystem
 {
-    [ValidatePrototypeId<LanguagePrototype>]
-    public static readonly string GalacticCommonPrototype = "GalacticCommon";
-    [ValidatePrototypeId<LanguagePrototype>]
-    public static readonly string UniversalPrototype = "Universal";
-    public static LanguagePrototype GalacticCommon { get; private set; } = default!;
-    public static LanguagePrototype Universal { get; private set; } = default!;
 
     [Dependency] private readonly SharedActionsSystem _action = default!;
-    [Dependency] protected readonly IPrototypeManager _prototype = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
-    protected ISawmill _sawmill = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
-        GalacticCommon = _prototype.Index<LanguagePrototype>("GalacticCommon");
-        Universal = _prototype.Index<LanguagePrototype>("Universal");
-        _sawmill = Logger.GetSawmill("language");
-
-        SubscribeLocalEvent<LanguageSpeakerComponent, MapInitEvent>(OnInit);
+        
     }
 
-    public LanguagePrototype? GetLanguage(string id)
+    public bool CanSpeak(EntityUid uid, LanguagePrototype proto, LanguageSpeakerComponent? component = null)
     {
-        _prototype.TryIndex<LanguagePrototype>(id, out var proto);
-        return proto;
+        if (HasComp<GhostComponent>(uid))
+            return false;
+
+        if (!Resolve(uid, ref component))
+            return false;
+
+        if (proto.ID == "Universal")
+            return true;
+
+        if (GetLanguages(uid, out _, out _, out _, out var translator, out _) && translator.Contains(proto.ID))
+            return true;
+
+        foreach (var lang in component.SpokenLanguages)
+            if (lang == proto.ID)
+                return true;
+
+        return false;
     }
 
-    private void OnInit(EntityUid uid, LanguageSpeakerComponent component, MapInitEvent args)
+    public bool CanUnderstand(EntityUid uid, LanguagePrototype proto, LanguageSpeakerComponent? component = null)
     {
-        _action.AddAction(uid, ref component.Action, component.LanguageMenuAction, uid);
+        if (HasComp<GhostComponent>(uid))
+            return true;
+
+        if (!Resolve(uid, ref component))
+            return false;
+
+        if (proto.ID == "Universal")
+            return true;
+
+        if (GetLanguages(uid, out _, out _, out var translator, out _, out _) && translator.Contains(proto.ID))
+            return true;
+
+        foreach (var lang in component.UnderstoodLanguages)
+            if (lang == proto.ID)
+                return true;
+
+        return false;
     }
 
-    /// <summary>
-    ///   Raised on an entity when its list of languages changes.
-    /// </summary>
-    public sealed class LanguagesUpdateEvent : EntityEventArgs
+    public bool CanSpeak(EntityUid uid, string protoId, LanguageSpeakerComponent? component = null)
     {
+        if (!_proto.TryIndex<LanguagePrototype>(protoId, out var proto))
+            return false;
+
+        if (HasComp<GhostComponent>(uid))
+            return false;
+
+        if (!Resolve(uid, ref component))
+            return false;
+
+        if (proto.ID == "Universal")
+            return true;
+
+        if (GetLanguages(uid, out _, out _, out _, out var translator, out _) && translator.Contains(protoId))
+            return true;
+
+        foreach (var lang in component.SpokenLanguages)
+            if (lang == proto.ID)
+                return true;
+
+        return false;
     }
 
-    /// <summary>
-    ///   Sent when a client wants to update its language menu.
-    /// </summary>
-    [Serializable, NetSerializable]
-    public sealed class RequestLanguageMenuStateMessage : EntityEventArgs
+    public bool CanUnderstand(EntityUid uid, string protoId, LanguageSpeakerComponent? component = null)
     {
+        if (!_proto.TryIndex<LanguagePrototype>(protoId, out var proto))
+            return false;
+
+        if (HasComp<GhostComponent>(uid))
+            return true;
+
+        if (!Resolve(uid, ref component))
+            return false;
+
+        if (proto.ID == "Universal")
+            return true;
+
+        if (GetLanguages(uid, out _, out _, out var translator, out _, out _) && translator.Contains(protoId))
+            return true;
+
+        foreach (var lang in component.UnderstoodLanguages)
+            if (lang == proto.ID)
+                return true;
+
+        return false;
     }
 
-    /// <summary>
-    ///   Sent by the server when the client needs to update its language menu,
-    ///   or directly after [RequestLanguageMenuStateMessage].
-    /// </summary>
-    [Serializable, NetSerializable]
-    public sealed class LanguageMenuStateMessage : EntityEventArgs
+    public LanguagePrototype GetCurrentLanguage(EntityUid uid)
     {
-        public string CurrentLanguage;
-        public List<string> Options;
+        var universalProto = _proto.Index<LanguagePrototype>("Universal");
 
-        public LanguageMenuStateMessage(string currentLanguage, List<string> options)
+        if (!TryComp<LanguageSpeakerComponent>(uid, out var comp) || comp.CurrentLanguage == null)
+            return universalProto;
+
+        if (_proto.TryIndex<LanguagePrototype>(comp.CurrentLanguage, out var proto))
+            return proto;
+
+        return universalProto;
+    }
+
+    public void SelectLanguage(NetEntity ent, string language, LanguageSpeakerComponent? component = null)
+    {
+        var speaker = GetEntity(ent);
+
+        if (!CanSpeak(speaker, GetLanguage(language)))
+            return;
+
+        if (component == null && !TryComp(speaker, out component))
+            return;
+
+        if (component.CurrentLanguage == language)
+            return;
+
+        if (_netMan.IsClient)
         {
-            CurrentLanguage = currentLanguage;
-            Options = options;
+            GetLanguages(speaker, out _, out _, out var translator, out _, out _);
+            component.CurrentLanguage = language;
+            RaiseLocalEvent(new LanguageMenuStateMessage(ent, language, component.UnderstoodLanguages, translator));
         }
+
+        RaiseNetworkEvent(new LanguageChosenMessage(ent, language));
+    }
+
+    public void SelectDefaultLanguage(EntityUid uid, LanguageSpeakerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var language = component.SpokenLanguages.FirstOrDefault("Universal");
+
+        GetLanguages(uid, out _, out _, out var translator, out _, out _);
+        component.CurrentLanguage = language;
+
+        Dirty(uid, component);
+
+        RaiseNetworkEvent(new LanguageMenuStateMessage(GetNetEntity(uid), language, component.UnderstoodLanguages, translator));
+        RaiseNetworkEvent(new LanguageChosenMessage(GetNetEntity(uid), language));
+    }
+
+    public bool GetLanguages(
+        EntityUid? player,
+        out List<string> understood,
+        out List<string> spoken,
+        out List<string> translatorUnderstood,
+        out List<string> translatorSpoken,
+        out string current,
+        LanguageSpeakerComponent? comp = null)
+    {
+        understood = new();
+        spoken = new();
+        translatorUnderstood = new();
+        translatorSpoken = new();
+        current = String.Empty;
+
+        if (player == null)
+            return false;
+        var uid = player.Value;
+
+        if (!Resolve(uid, ref comp))
+            return false;
+
+        understood.AddRange(comp.UnderstoodLanguages);
+        spoken.AddRange(comp.SpokenLanguages);
+        current = GetCurrentLanguage(uid).ID;
+
+        foreach (var item in _hands.EnumerateHeld(uid))
+        {
+            if (TryComp<HandheldTranslatorComponent>(item, out var translator) && translator.Enabled)
+            {
+                foreach (var lang in translator.Required)
+                {
+                    if (understood.Contains(lang))
+                    {
+                        translatorUnderstood.AddRange(translator.ToUnderstand);
+                        translatorSpoken.AddRange(translator.ToSpeak);
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (understood.Count <= 0 || spoken.Count <= 0 || current == String.Empty)
+            return false;
+
+        return true;
+    }
+    public LanguagePrototype GetLanguage(string id)
+    {
+        if (!_proto.TryIndex<LanguagePrototype>(id, out var result))
+            return _proto.Index<LanguagePrototype>("Universal");
+
+        return result;
+    }
+}
+
+
+/// <summary>
+///   Sent when a client wants to change its selected language.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LanguageChosenMessage : EntityEventArgs
+{
+    public NetEntity Uid;
+    public string SelectedLanguage;
+
+    public LanguageChosenMessage(NetEntity uid, string selectedLanguage)
+    {
+        Uid = uid;
+        SelectedLanguage = selectedLanguage;
+    }
+}
+
+
+/// <summary>
+///   Sent by the server when the client needs to update its language menu,
+///   or directly after [RequestLanguageMenuStateMessage].
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LanguageMenuStateMessage : EntityEventArgs
+{
+    public NetEntity ComponentOwner;
+    public string CurrentLanguage;
+    public List<string> Options;
+    public List<string> TranslatorOptions;
+
+    public LanguageMenuStateMessage(NetEntity componentOwner, string currentLanguage, List<string> options, List<string> translatorOptions)
+    {
+        ComponentOwner = componentOwner;
+        CurrentLanguage = currentLanguage;
+        Options = options;
+        TranslatorOptions = translatorOptions;
     }
 }

@@ -1,0 +1,24 @@
+- type: soundCollection
+  id: NovakidScreams
+  files:
+    - /Audio/ADT/Novakid/novakid_scream01.ogg
+    - /Audio/ADT/Novakid/novakid_scream02.ogg
+    - /Audio/ADT/Novakid/novakid_scream03.ogg
+    - /Audio/ADT/Novakid/novakid_scream04.ogg
+    
+- type: soundCollection
+  id: TajaranMaleScreams
+  files:
+  - /Audio/Voice/Human/malescream_1.ogg
+
+- type: soundCollection
+  id: TajaranFemaleScreams
+  files:
+  - /Audio/Voice/Human/femalescream_2.ogg
+
+- type: soundCollection
+  id: TajaranScreams
+  files:
+  - /Audio/ADT/Felinid/cat_scream1.ogg
+  - /Audio/ADT/Felinid/cat_scream2.ogg
+  - /Audio/ADT/Felinid/cat_scream3.ogg

@@ -1,0 +1,86 @@
+- type: entity
+  id: SiliconChargerIndustrial
+  parent: BaseMachinePowered
+  name: industrial charger
+  description: A heavy duty machine for inductively charging robotic beings. Gets extremely hot!
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Machines/borgcharger.rsi
+      noRot: true
+      layers:
+        - state: base
+        - state: closed
+          map: ["enum.StorageVisualLayers.Door"]
+        - state: borgcharger_closed_unlit
+          shader: unshaded
+          map: ["enum.SiliconChargerVisuals.Lights"]
+        - state: HV
+          map: ["HV"]
+        - state: MV
+          map: ["MV"]
+        - state: LV
+          map: ["LV"]
+    - type: EntityStorageVisuals
+      stateDoorOpen: open
+      stateDoorClosed: closed
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.VisualState:
+          enum.SiliconChargerVisuals.Lights:
+            Normal: { state: "borgcharger_closed_unlit" }
+            NormalOpen: { state: "borgcharger_open_unlit" }
+            Charging: { state: "borgcharger_active_unlit" }
+        enum.PowerDeviceVisuals.Powered:
+          enum.SiliconChargerVisuals.Lights:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Icon
+      sprite: ADT/Structures/Machines/borgcharger.rsi
+      state: icon
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.45,-0.5,0.45,0.5"
+          density: 190
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: ApcPowerReceiver
+      powerLoad: 500
+    - type: StaticPrice #было DynamicPrice
+      price: 600
+    - type: EntityStorage
+      maxItemSize: Tiny
+    - type: Appearance
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+        entity_storage: !type:Container
+    - type: SiliconCharger
+      chargeMulti: 50
+      targetTemp: 390
+    - type: Construction
+      graph: Machine
+      node: machine
+      containers:
+      - machine_board
+      - machine_parts
+      - entity_storage
+    - type: Machine
+      board: IndustrialChargerCircuitboard
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 350
+        behaviors:
+        - !type:EmptyAllContainersBehaviour
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
