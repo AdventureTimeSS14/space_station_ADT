@@ -1,3 +1,5 @@
+ent-ADTClothingUniformsJumpsuitWhiteDiplomatSuitL = Белый костюм дипломата
+    .desc = Специально сделанный белый костюм дипломата NanoTrasen.
 ent-ADTClothingUniformPathologistSuit = костюм патологоанатома
     .desc = Лёгкий комбинезон для работника морга.
 ent-ADTClothingUniformPathologistSkirt = юбка-костюм патологоанатома
