@@ -69,89 +69,89 @@
 - type: humanoidBaseSprite
   id: MobDemonHead
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobDemonHeadMale
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobDemonHeadFemale
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobDemonTorso
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobDemonTorsoMale
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobDemonTorsoFemale
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: torso_f
 
 - type: humanoidBaseSprite
   id: MobDemonLLeg
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobDemonLHand
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobDemonLArm
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobDemonLFoot
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobDemonRLeg
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobDemonRHand
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobDemonRArm
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobDemonRFoot
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: r_foot
 
 - type: humanoidBaseSprite
   id: MobDemonTail
   baseSprite:
-    sprite: ADT/Mobs/Demon/parts.rsi
+    sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail

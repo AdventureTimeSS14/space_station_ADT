@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Displacement maps made by _kote",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "load": {
+        "srgb": false
+    },
+    "states": [
+        {
+            "name": "jumpsuit",
+            "directions": 4
+        },
+        {
+            "name": "shoes",
+            "directions": 4
+        },
+        {
+            "name": "hand",
+            "directions": 4
+        },
+        {
+            "name": "head",
+            "directions": 4
+        }
+    ]
+}
