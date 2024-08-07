@@ -2085,3 +2085,49 @@ Entries:
       - {message: 'Подтянуты коммиты с корвакса, 27.07.24', type: Tweak}
     time: '2024-07-27T16:15:51Z'
     id: 220
+  - author: Darki255
+    changes:
+      - {message: Перенесён патологоанатом., type: Add}
+    time: '2024-08-01T17:02:59Z'
+    id: 221
+  - author: KashRas2
+    changes:
+      - {message: Добавлен РРТ. Теперь атмосы стали намного лучше., type: Add}
+    time: '2024-08-02T08:03:42Z'
+    id: 222
+  - author: Schrodinger71
+    changes:
+      - {message: 'Подтянул коммиты Корвухов, 02.08.24.', type: Tweak}
+    time: '2024-08-03T12:00:54Z'
+    id: 223
+  - author: Darki255
+    changes:
+      - {message: Добавлены нианы, type: Add}
+    time: '2024-08-04T21:44:57Z'
+    id: 224
+  - author: FaDeOkno
+    changes:
+      - {message: Полный реворк системы языков., type: Tweak}
+      - {message: 'Языки теперь выделяются не названием, а цветом текста.', type: Tweak}
+      - {message: Упрощена система языков., type: Tweak}
+      - {message: Языковые импланты теперь можно извлечь., type: Tweak}
+      - {message: Меню языков теперь открывается при нажатии на кнопку L и имеет кнопку
+          в верхнем меню., type: Add}
+    time: '2024-08-06T17:55:45Z'
+    id: 225
+  - author: FaDeOkno
+    changes:
+      - {message: Добавлено иное отображение одежды на сумеречниках, type: Add}
+    time: '2024-08-06T20:18:47Z'
+    id: 226
+  - author: RipZoro1
+    changes:
+      - {message: Добавлена бола в СБтех, type: Add}
+      - {message: Добавлена шинель кадета в СБшкаф, type: Add}
+    time: '2024-08-07T00:49:59Z'
+    id: 227
+  - author: Шрёдька
+    changes:
+      - {message: 'Подтянуты коммиты с корвакса, 07.08.24', type: Tweak}
+    time: '2024-08-07T23:28:50Z'
+    id: 228
