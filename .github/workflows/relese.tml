@@ -1,0 +1,80 @@
+name: Build & Release
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 6 * * *'
+  workflow_run:
+    workflows: [Build & Release]
+    types: [completed]
+
+
+jobs:
+  build:
+    if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3.2.0
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Setup submodule
+        run: |
+          git submodule update --init --recursive
+      - name: Pull engine updates
+        uses: space-wizards/submodule-dependency@v0.1.5
+      - name: Update Engine Submodules
+        run: |
+          cd RobustToolbox/
+          git submodule update --init --recursive
+
+      - name: Get Engine Tag
+        run: |
+          cd RobustToolbox
+          git fetch --depth=1
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Run tests
+        run: dotnet test --configuration Release
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create Release Archive
+        run: |
+          mkdir release
+          dotnet publish --configuration Release --output ./release
+          cd release
+          zip -r ../release.zip .
+
+      - name: Upload Release
+        uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: release.zip
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          files: release.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
