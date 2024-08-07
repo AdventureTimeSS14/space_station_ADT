@@ -1,0 +1,142 @@
+- type: species
+  id: ADTCyborgSpecies
+  name: species-name-cyb-security
+  roundStart: false #true # остаил для набегеров с софтом
+  prototype: ADTMobMouseCyborgSpecies #prototype: ADTMobCyborSecurity
+  sprites: ADTMobCyborgSecSprites
+  markingLimits: MobIPCMarkingLimits
+  dollPrototype: ADTMobMouseCyborgSpecies #ADTMobCyborgSecDummy
+  skinColoration: TintedHues
+  minAge: 1
+  maxAge: 240
+  oldAge: 50
+  youngAge: 50
+  # maleFirstNames: IpcFirst
+  # femaleFirstNames: IpcFirst
+  # maleLastNames: IpcLast # Corvax-LastnameGender
+  # femaleLastNames: IpcLast # Corvax-LastnameGender
+  # naming: FirstDashLast
+  sexes:
+  - Unsexed
+
+- type: entity
+  parent: MobMouse2
+  id: ADTMobMouseCyborgSpecies
+  name: "Крыска"
+  components:
+  - type: HumanoidAppearance
+    species: ADTCyborgSpecies
+  - type: RandomMetadata
+    nameSegments: [names_mouse_cyb]
+
+- type: dataset
+  id: names_mouse_cyb
+  values:
+  - Крыска
+
+- type: speciesBaseSprites
+  id: ADTMobCyborgSecSprites
+  sprites:
+    Head: ADTMobSecurityHead
+    Snout: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Hair: MobHumanoidMarkingMatchSkin
+    FacialHair: ADTMobSecurityScreen
+    Chest: ADTMobSecurityTorso
+    LArm: ADTMobSecurityLArm
+    RArm: ADTMobSecurityRArm
+    LHand: ADTMobSecurityLHand
+    RHand: ADTMobSecurityRHand
+    LLeg: ADTMobSecurityLLeg
+    RLeg: ADTMobSecurityRLeg
+    LFoot: ADTMobSecurityLFoot
+    RFoot: ADTMobSecurityRFoot
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityScreen
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityHead
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityHeadMale
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityHeadFemale
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityTorso
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityTorsoMale
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityTorsoFemale
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityLLeg
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityLArm
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityLHand
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityLFoot
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityRLeg
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityRArm
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityRHand
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: ADTMobSecurityRFoot
+  baseSprite:
+    sprite: ADT/Mobs/Silicon/Cyborg/parts.rsi
+    state: r_foot

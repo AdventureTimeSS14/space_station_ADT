@@ -1,0 +1,148 @@
+- type: entity
+  parent: ADTPlayerSiliconHumanoidBaseSchrodinger
+  id: ADTMobCyborSecurity
+  name: Security Cyborg
+  description: A cyborg designed to quell any unrest. Mechanized heavy power.
+  components:
+  - type: InteractionPopup
+    interactSuccessString: petting-success-ipc
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+  - type: Loadout
+    prototypes:
+      - ADTSecurityCyborgGear
+  - type: SiliconEmitSoundOnDrained
+    sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg"
+    interval: 15
+    playChance: 1
+    popUp: silicon-power-low
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Critical
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Critical
+      200: Dead
+    allowRevives: true # Для воскрешения достаточно починить урон. - ss220.
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: TypingIndicator
+    proto: robot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+        - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      90: 0.5
+      120: 0.3
+  - type: SiliconDownOnDead
+  - type: Inventory
+    templateId: ADTCyborgSecInventory
+  - type: EyeProtection
+    protectionTime: 12
+  - type: Battery
+    maxCharge: 150000
+    startingCharge: 150000
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainPerSecond: 60
+    chargeThresholdMid: 0.80
+    chargeThresholdLow: 0.35
+    chargeThresholdCritical: 0.10
+    speedModifierThresholds:
+      4: 0.9
+      3: 0.9
+      2: 0.7
+      1: 0.45
+      0: 0.00
+  - type: BatteryDrinker
+  - type: EncryptionKeyHolder
+    keySlots: 4
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: WiresPanel  # + Тех панель
+  - type: Wires
+    boardName: "ipc-board-name"
+    layoutId: ADTBodyCyborgSec
+  - type: SSDIndicator
+  #- type: UnblockableSpeech  По идее должен иметь возможность разговаривать после крита, но тоже самое после смерти
+  - type: EmotePanel
+  - type: ContentEye
+    maxZoom: 1.0,1.0
+  - type: ShowSecurityIcons
+  - type: SiliconLawBound
+  - type: SiliconLawProvider
+    laws: SecCyb
+  - type: EmagSiliconLaw
+    stunTime: 7
+  # - type: IonStormTarget
+  # - type: BorgChassis
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTEncryptionKeyCybSecurity
+  - type: AutoImplant
+    implants:
+    - TrackingImplant
+  - type: RandomMetadata
+    nameSegments: [names_sec_cyb]
+  - type: Damageable
+    damageModifierSet: ADTSecurityCybDamagModSet
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: SoldierDeath
+  - type: Vocal
+    sounds:
+      Male: UnisexIPC
+      Female: UnisexIPC
+      Unsexed: UnisexIPC
+  - type: Speech
+    speechSounds: Metrocop
+    soundCooldownTime: 0.5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSoldier
+      params:
+        volume: -2
+  - type: NoSlip
+  - type: Insulated
+  - type: Tag
+    tags:
+    - ChangelingBlacklist
+    - ShoesRequiredStepTriggerImmune
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener # авто открытие двери, когда подходишь к ней
+  # - type: PresetIdCard
+  #   job: ADTSecurityCyborg
+  # - type: AccessReader
+  #   access: [ ["Engineering"], ["Command"], ["Research"], ["Cargo"], ["Salvage"], ["Brig"], ["Medical"], ["Medical"], ["Research"], ["Security"], ["Armory"], ["Detective"], ["External"], ["Service"], ["Captain"], ["CentralCommand"] ]
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.1
+  - type: SizeAttribute # Frontier
+    tall: true

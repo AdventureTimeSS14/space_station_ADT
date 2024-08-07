@@ -1,0 +1,68 @@
+- type: entity
+  name: FN FAL
+  parent: BaseItem
+  id: ADTGunRifleFNFAL
+  description: Rifles
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/fn_fal.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/fn_fal.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleFNFAL
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 1
+        whitelist:
+          tags:
+            - ADTMagazineRifleFNFAL
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 4.7
+    minAngle: 5
+    maxAngle: 7
+    angleIncrease: 2
+    angleDecay: 4
+    selectedMode: Burst
+    availableModes:
+      #- FullAuto
+      - SemiAuto
+      - Burst
+    soundGunshot:
+      collection: FN_Fal_choot
+  - type: Item
+    size: Large
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -5

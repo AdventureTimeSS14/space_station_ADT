@@ -4,3 +4,10 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
     state: ADTPathologist
+
+- type: statusIcon
+  parent: JobIcon
+  id: jobADTIconSecurityCyborg
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: JobADTIconSecurityCyborg

@@ -6,3 +6,6 @@ ent-ADTPathologistPDA = КПК патологоанатома
 
 ent-ADTRoboticistPDA = КПК робототехника
     .desc = Почему это всё ещё не робот?!
+
+ent-ADTSecurityCybPDA = КПК киборга СБ
+    .desc = Красный, чтобы скрыть пятна крови пассажира.

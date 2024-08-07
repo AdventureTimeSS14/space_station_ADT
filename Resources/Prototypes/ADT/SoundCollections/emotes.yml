@@ -113,3 +113,39 @@
   id: MothSqueak
   files:
   - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: speechSounds
+  id: Metrocop
+  saySound:
+    path: /Audio/ADT/Footsteps/say/off2.ogg
+  askSound:
+    path: /Audio/ADT/Footsteps/say/off1.ogg
+  exclaimSound:
+    path: /Audio/ADT/Footsteps/say/off3.ogg
+
+- type: soundCollection
+  id: SoldierDeath
+  files:
+  - /Audio/ADT/Footsteps/combine/die1.ogg
+  - /Audio/ADT/Footsteps/combine/die2.ogg
+  - /Audio/ADT/Footsteps/combine/die3.ogg
+  - /Audio/ADT/Footsteps/combine/die4.ogg
+
+- type: soundCollection
+  id: FootstepSoldier
+  files:
+  - /Audio/ADT/Footsteps/gear1.ogg
+  - /Audio/ADT/Footsteps/gear2.ogg
+  - /Audio/ADT/Footsteps/gear3.ogg
+  - /Audio/ADT/Footsteps/gear4.ogg
+  - /Audio/ADT/Footsteps/gear5.ogg
+  - /Audio/ADT/Footsteps/gear6.ogg
+
+
+- type: soundCollection
+  id: Metrocop
+  files:
+  - /Audio/ADT/Footsteps/say/off1.ogg
+  - /Audio/ADT/Footsteps/say/off2.ogg
+  - /Audio/ADT/Footsteps/say/off3.ogg
+  - /Audio/ADT/Footsteps/say/off4.ogg

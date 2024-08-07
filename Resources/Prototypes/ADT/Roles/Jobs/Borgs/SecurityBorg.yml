@@ -1,0 +1,57 @@
+- type: job
+  id: ADTSecurityCyborg
+  name: JobADTSecurityCyborg
+  description: job-description-security-cyborg
+  playTimeTracker: JobSecurityCyborg
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 324000 #90 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 324000 #90 hrs
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 21600 #6 hrs 21600
+    - !type:RoleTimeRequirement
+      role: JobWarden
+      time: 21600 #6 hrs 21600
+    - !type:RoleTimeRequirement
+      role: JobDetective
+      time: 7200 #2 hrs 7200
+  icon: "jobADTIconSecurityCyborg"
+  supervisors: job-supervisors-rd
+  jobEntity: ADTMobCyborSecurity
+  canBeAntag: false
+  access:
+  #- AllAccess
+  - Command
+  - Brig
+  - Security
+  - Armory
+  - Maintenance
+  - Service
+  - External
+  - Research
+  - Medical
+  - Engineering
+  - Cargo
+  - Centcom
+  - Detective
+  - Investigator
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ADTSecurityCyborgGear
+  equipment:
+    suitstorage: ADTGunRifleFNFAL  #ADTMagazineRifleFNFAL
+    back: ADTClothingBackpackSecurityCyb
+    #id: ADTSecurityCybPDA #ADTSecurityCybPDA
+    belt: ClothingBeltSecurityFilled
+    pocket1: ADtWeaponSecCyborg
+    #pocket2: WeaponDisabler
+    neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
+    #shoes: ADTClothingShoesBootsCybSec
+  satchel: ClothingBackpackSatchelSecurityFilled
+  duffelbag: ClothingBackpackDuffelSecurityFilled
