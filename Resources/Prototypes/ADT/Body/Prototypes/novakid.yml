@@ -1,0 +1,49 @@
+- type: body
+  name: "novakid"
+  id: Novakid
+  root: torso
+  slots:
+    head:
+      part: HeadNovakid
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoNovakid
+      organs:
+        heart: OrganNovakidHeart
+        lungs: OrganNovakidLungs
+        stomach: OrganNovakidStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+      connections:
+      - left arm
+      - right arm
+      - left leg
+      - right leg
+    right arm:
+      part: RightArmNovakid
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmNovakid
+      connections:
+      - left hand
+    right hand:
+      part: RightHandNovakid
+    left hand:
+      part: LeftHandNovakid
+    right leg:
+      part: RightLegNovakid
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegNovakid
+      connections:
+      - left foot
+    right foot:
+      part: RightFootNovakid
+    left foot:
+      part: LeftFootNovakid

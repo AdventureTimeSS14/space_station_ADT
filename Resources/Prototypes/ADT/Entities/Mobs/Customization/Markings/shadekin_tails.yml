@@ -1,0 +1,44 @@
+- type: marking
+  id: TailShadekin
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin
+
+- type: marking
+  id: TailShadekinBig
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big
+
+- type: marking
+  id: TailShadekinBigFluff
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big_fluff
+
+- type: marking
+  id: TailShadekinShorter
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: shadekin_shorter
+
+- type: marking
+  id: TailShadekinMedium
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: shadekin_medium

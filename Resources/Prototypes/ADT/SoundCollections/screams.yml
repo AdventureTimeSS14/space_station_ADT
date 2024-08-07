@@ -1,4 +1,12 @@
 - type: soundCollection
+  id: NovakidScreams
+  files:
+    - /Audio/ADT/Novakid/novakid_scream01.ogg
+    - /Audio/ADT/Novakid/novakid_scream02.ogg
+    - /Audio/ADT/Novakid/novakid_scream03.ogg
+    - /Audio/ADT/Novakid/novakid_scream04.ogg
+    
+- type: soundCollection
   id: TajaranMaleScreams
   files:
   - /Audio/Voice/Human/malescream_1.ogg
