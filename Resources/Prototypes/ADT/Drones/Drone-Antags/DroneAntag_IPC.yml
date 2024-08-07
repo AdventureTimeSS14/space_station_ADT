@@ -340,7 +340,6 @@
       allowed:
         - Stun
     - type: Blindable
-    #- type: ComplexInteraction
 
 - type: entity
   id: ADTDroneAntagIPC
@@ -456,7 +455,7 @@
     force: true
   - type: AutoImplant
     implants:
-    - SyndUniversalTranslatorImplanter
+    - SyndUniversalTranslatorImplant
   - type: Repairable
     doAfterDelay: 5
     damage:
