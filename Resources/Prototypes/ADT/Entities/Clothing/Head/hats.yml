@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadUrsHat
+  name: urs hat
+  description: A futuristic looking striped hat from "STEP" clothing series.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/urs_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/urs_hat.rsi
+
