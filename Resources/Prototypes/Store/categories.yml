@@ -94,3 +94,8 @@
   id: RevenantAbilities
   name: store-category-abilities
 
+  # ADT revenant
+- type: storeCategory
+  id: RevenantInstantEffects
+  name: store-category-inst-effects
+

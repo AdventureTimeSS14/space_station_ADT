@@ -5,6 +5,7 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.PowerCell;
 using Content.Shared.GhostInteractions;
+using Content.Shared.Interaction.Events;
 
 namespace Content.Server.GhostInteractions;
 
@@ -19,11 +20,36 @@ public sealed class GhostRadioSystem : SharedGhostRadioSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GhostRadioComponent, ActivateInWorldEvent>(OnTranslatorToggle);
+        SubscribeLocalEvent<GhostRadioComponent, ActivateInWorldEvent>(OnRadioToggle);
+        SubscribeLocalEvent<GhostRadioComponent, UseInHandEvent>(OnRadioUseInHand);
+
         SubscribeLocalEvent<GhostRadioComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
     }
 
-    private void OnTranslatorToggle(EntityUid translator, GhostRadioComponent component, ActivateInWorldEvent args)
+    private void OnRadioToggle(EntityUid translator, GhostRadioComponent component, ActivateInWorldEvent args)
+    {
+        if (!component.ToggleOnInteract)
+            return;
+
+        var hasPower = _powerCell.HasDrawCharge(translator);
+
+        var isEnabled = !component.Enabled;
+
+        isEnabled &= hasPower;
+        component.Enabled = isEnabled;
+
+        OnAppearanceChange(translator, component);
+
+        // HasPower shows a popup when there's no power, so we do not proceed in that case
+        if (hasPower)
+        {
+            var message =
+                Loc.GetString(component.Enabled ? "ghost-radio-component-turnon" : "ghost-radio-component-shutoff");
+            _popup.PopupEntity(message, component.Owner, args.User);
+        }
+    }
+
+    private void OnRadioUseInHand(EntityUid translator, GhostRadioComponent component, UseInHandEvent args)
     {
         if (!component.ToggleOnInteract)
             return;

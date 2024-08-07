@@ -1,3 +1,5 @@
+store-category-inst-effects = Пассивное
+
 alerts-revenant-essence-name = [color=#f605fa]Эссенция[/color]
 alerts-revenant-essence-desc = Сила [color=#f605fa]души[/color]. Поддерживает ваше существование и используется для использования способностей.
 
@@ -30,3 +32,9 @@ revenant-smoke-action-desc = Стоит [color=#f605fa]30 эссенции[/colo
 revenant-lock = Сплав
 revenant-lock-desc = Заприте все ближайшие шлюзы. Использование проявляет вас на средний срок.
 revenant-lock-action-desc = Стоит [color=#f605fa]50 эссенции[/color].
+
+revenant-shield-effect-name = Неколебимость
+revenant-shield-effect-desc = Получите возможность обмануть смерть ещё один раз.
+
+revenant-misery-effect-name = Ненастье
+revenant-misery-effect-desc = Прокляните всю станцию, заставляя несчастья происходить невероятно часто.

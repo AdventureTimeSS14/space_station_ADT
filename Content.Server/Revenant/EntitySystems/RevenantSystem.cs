@@ -64,6 +64,7 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
 
         InitializeAbilities();
+        InitializeInstantEffects();
     }
 
     private void OnStartup(EntityUid uid, RevenantComponent component, ComponentStartup args)
@@ -146,6 +147,14 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (component.Essence <= 0)
         {
+            // ADT Revenant shield ability start
+            if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
+            {
+                shield.Used = true;
+                return true;
+            }
+            // ADT Revenant shield ability end
+
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             QueueDel(uid);
         }

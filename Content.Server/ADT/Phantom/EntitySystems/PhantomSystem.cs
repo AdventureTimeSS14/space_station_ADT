@@ -1730,7 +1730,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
 
         var randomVessel = _random.Pick(allowedVessels);
-        ChangeEssenceAmount(uid, component.Essence, component);
+        component.Essence = 50;
+        ChangeEssenceAmount(uid, 0, component, false);
 
         if (!component.HasHaunted)
         {

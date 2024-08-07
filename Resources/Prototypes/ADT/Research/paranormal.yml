@@ -23,6 +23,8 @@
   recipeUnlocks:
   - EctoRifle
   - EctoPistol
+  - EctoBatterySmall
+  - EctoBattery
 
 - type: technology
   id: ADTProtectionPseudoscience

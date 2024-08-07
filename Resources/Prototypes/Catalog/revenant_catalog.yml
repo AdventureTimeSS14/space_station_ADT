@@ -49,3 +49,76 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+  # ADT Content start
+- type: listing
+  id: RevenantHysteria
+  name: revenant-hysteria-name
+  description: revenant-hysteria-desc
+  productAction: ActionRevenantHysteria
+  cost:
+    StolenEssence: 50
+  categories:
+  - RevenantAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: RevenantSmoke
+  name: revenant-smoke-name
+  description: revenant-smoke-desc
+  productAction: ActionRevenantSmoke
+  cost:
+    StolenEssence: 75
+  categories:
+  - RevenantAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: RevenantLock
+  name: revenant-lock-name
+  description: revenant-lock-desc
+  productAction: ActionRevenantLock
+  cost:
+    StolenEssence: 100
+  categories:
+  - RevenantAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: RevenantShield
+  name: revenant-shield-effect-name
+  description: revenant-shield-effect-desc
+  productEvent: !type:AddRevenantShieldEvent
+  raiseProductEventOnUser: true
+  cost:
+    StolenEssence: 100
+  categories:
+  - RevenantInstantEffects
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  icon:
+    sprite: Interface/Actions/revenant.rsi
+    state: rev_corruption
+
+- type: listing
+  id: RevenantMisery
+  name: revenant-misery-effect-name
+  description: revenant-misery-effect-desc
+  productEvent: !type:StartRevenantMiseryEvent
+  raiseProductEventOnUser: true
+  cost:
+    StolenEssence: 300
+  categories:
+  - RevenantInstantEffects
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+  # ADT content end
