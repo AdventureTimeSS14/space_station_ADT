@@ -1,0 +1,8 @@
+
+- type: hallucinationsPack
+  id: Changeling
+  entities:
+  - ADTHallucinationMobSpider
+  - ADTHallucinationMobSlime
+  - ADTHallucinationMobBehonker
+  - ADTHallucinationRod

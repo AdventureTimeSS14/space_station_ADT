@@ -1,0 +1,68 @@
+- type: hallucinationsPack
+  id: Revenant
+  spawnRate: 20.0
+  minChance: 0.1
+  maxChance: 0.5
+  increasedPerSpawn: 0.05
+  maxSpawns: 1
+  entities:
+  - ADTRevenantHallucination
+  - ADTRevHallucinationRevenant
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTRevenantHallucination
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/hallucinations.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alternate4
+      - state: alternate4-unshaded
+        map: [ "unshaded" ]
+        shader: unshaded
+        visible: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.0
+    baseSprintSpeed: 1.7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: TimedDespawn
+    lifetime: 60.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTRevHallucinationRevenant
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Ghosts/revenant.rsi
+    layers:
+    - state: stunned
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Phantom/Hallucinations/Creature4.ogg
+  - type: TimedDespawn
+    lifetime: 10.0

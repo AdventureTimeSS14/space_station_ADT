@@ -19,3 +19,53 @@
   description: alerts-charge-desc
   minSeverity: -1
   maxSeverity: 4
+
+- type: alert
+  id: ADTChaplain
+  icons:
+  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
+    state: power0
+  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
+    state: power1
+  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
+    state: power2
+  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
+    state: power3
+  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
+    state: power4
+  - sprite: /Textures/ADT/Interface/chaplain-alert.rsi
+    state: power5
+  name: alerts-chaplain-name
+  description: alerts-chaplain-desc
+  minSeverity: 0
+  maxSeverity: 5
+
+- type: alert
+  id: PhantomVessels
+  icons:
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom0
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom1
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom2
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom3
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom4
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom5
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom6
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom7
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom8
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom9
+  - sprite: /Textures/ADT/Interface/vessels-alert.rsi
+    state: fantom10
+  name: alerts-vessels-name
+  description: alerts-vessels-desc
+  minSeverity: 0
+  maxSeverity: 10
