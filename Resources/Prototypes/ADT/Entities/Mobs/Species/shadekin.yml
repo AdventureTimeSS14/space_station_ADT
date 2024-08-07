@@ -141,6 +141,11 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: head
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -186,3 +191,8 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: head
