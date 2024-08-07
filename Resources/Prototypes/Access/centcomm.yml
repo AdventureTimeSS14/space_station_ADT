@@ -1,3 +1,7 @@
 - type: accessLevel
   id: CentralCommand
   name: id-card-access-level-central-command
+
+- type: accessLevel
+  id: Centcom
+  name: id-card-access-level-centcom
