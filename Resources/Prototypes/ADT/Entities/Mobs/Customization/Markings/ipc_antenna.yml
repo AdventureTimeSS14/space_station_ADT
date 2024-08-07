@@ -6,7 +6,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_tv
 
 - type: marking
@@ -15,7 +15,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_tesla
 
 # - type: marking
@@ -24,7 +24,7 @@
 #   bodyPart: Hair
 #   markingCategory: Hair
 #   sprites:
-#     - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+#     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
 #       state: ipc_antenna_lightb
 
 # - type: marking
@@ -33,7 +33,7 @@
 #   bodyPart: Hair
 #   markingCategory: Hair
 #   sprites:
-#     - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+#     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
 #       state: ipc_antenna_light
 
 - type: marking
@@ -42,7 +42,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_cyberhead
 
 # - type: marking
@@ -51,7 +51,7 @@
 #   bodyPart: Hair
 #   markingCategory: Hair
 #   sprites:
-#     - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+#     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
 #       state: ipc_antenna_sidelights
 
 - type: marking
@@ -60,7 +60,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_antlers
 
 - type: marking
@@ -69,7 +69,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_droneeyes
 
 - type: marking
@@ -78,7 +78,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_crowned
 
 - type: marking
@@ -87,5 +87,5 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: ADT/Mobs/Customization/ipc_antenna.rsi
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_towers
