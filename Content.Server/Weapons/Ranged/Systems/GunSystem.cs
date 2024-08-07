@@ -249,6 +249,11 @@ public sealed partial class GunSystem : SharedGunSystem
 
                         var dmg = hitscan.Damage;
 
+                        foreach (var item in hitscan.TargetEvents)
+                        {
+                            RaiseLocalEvent(hitEntity, item);
+                        }
+
                         var hitName = ToPrettyString(hitEntity);
                         if (dmg != null)
                             dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);

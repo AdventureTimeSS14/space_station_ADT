@@ -6,6 +6,8 @@ using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Chemistry.Components;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Revenant.Components;
 
@@ -51,6 +53,9 @@ public sealed partial class RevenantComponent : Component
 
     [ViewVariables]
     public float Accumulator = 0;
+
+    [DataField]
+    public ProtoId<AlertPrototype> EssenceAlert = "Essence";
 
     // Here's the gist of the harvest ability:
     // Step 1: The revenant clicks on an entity to "search" for it's soul, which creates a doafter.
@@ -114,6 +119,12 @@ public sealed partial class RevenantComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("defileEffectChance")]
     public float DefileEffectChance = 0.5f;
+
+    /// <summary>
+    /// Defile sound
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("defileSound")]
+    public string DefileSound = "/Audio/ADT/revenant-defile.ogg";
     #endregion
 
     #region Overload Lights Ability
@@ -141,7 +152,13 @@ public sealed partial class RevenantComponent : Component
     /// How close to the light the entity has to be in order to be zapped.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("overloadZapRadius")]
-    public float OverloadZapRadius = 2f;
+    public float OverloadZapRadius = 4.5f;
+
+    /// <summary>
+    /// Overload Lights sound
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("overloadSound")]
+    public string OverloadSound = "/Audio/ADT/revenant-blight.ogg";
     #endregion
 
     #region Blight Ability
@@ -171,7 +188,7 @@ public sealed partial class RevenantComponent : Component
     /// The amount of essence that is needed to use the ability.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("malfunctionCost")]
-    public FixedPoint2 MalfunctionCost = -60;
+    public FixedPoint2 MalfunctionCost = -50;
 
     /// <summary>
     /// The status effects applied after the ability
@@ -199,10 +216,126 @@ public sealed partial class RevenantComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? MalfunctionBlacklist;
+
+    /// <summary>
+    /// Malfunction sound
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("malfSound")]
+    public string MalfSound = "/Audio/ADT/revenant-malf.ogg";
     #endregion
 
-    [DataField]
-    public ProtoId<AlertPrototype> EssenceAlert = "Essence";
+    #region Hysteria Ability
+
+    /// <summary>
+    /// The amount of essence that is needed to use the ability.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("hysteriaCost")]
+    public FixedPoint2 HysteriaCost = -60;
+
+    /// <summary>
+    /// The status effects applied after the ability
+    /// the first float corresponds to amount of time the entity is stunned.
+    /// the second corresponds to the amount of time the entity is made solid.
+    /// </summary>
+    [DataField("hysteriaDebuffs")]
+    public Vector2 HysteriaDebuffs = new(2, 8);
+
+    /// <summary>
+    /// The radius around the user that this ability affects
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("hysteriaRadius")]
+    public float HysteriaRadius = 3.5f;
+
+    /// <summary>
+    /// How long people seeing hallucinations
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("hysteriaDuration")]
+    public TimeSpan HysteriaDuration = TimeSpan.FromSeconds(35);
+
+    /// <summary>
+    /// Hallucinations prototype
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("hysteriaProto")]
+    public string HysteriaProto = "Revenant";
+
+    /// <summary>
+    /// Hallucinations sound
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("hysteriaSound")]
+    public string HysteriaSound = "/Audio/ADT/ghost-sing.ogg";
+
+    #endregion
+
+    #region Smoke Ablilty
+
+    /// <summary>
+    /// The amount of essence that is needed to use the ability.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("smokeCost")]
+    public FixedPoint2 SmokeCost = -30;
+
+    /// <summary>
+    /// The status effects applied after the ability
+    /// the first float corresponds to amount of time the entity is stunned.
+    /// the second corresponds to the amount of time the entity is made solid.
+    /// </summary>
+    [DataField("smokeDebuffs")]
+    public Vector2 SmokeDebuffs = new(2, 7);
+
+    /// <summary>
+    /// Smoke duration
+    /// </summary>
+    [DataField("smokeDuration")]
+    public float SmokeDuration = 20.0f;
+
+    /// <summary>
+    /// Smoke amount
+    /// </summary>
+    [DataField("smokeAmount")]
+    public int SmokeAmount = 17;
+
+    /// <summary>
+    /// Smoke solution
+    /// </summary>
+    [DataField("smokeQuantity")]
+    public int SmokeQuantity = 17;
+
+    /// <summary>
+    /// Smoke sound
+    /// </summary>
+    [DataField("smokeSound")]
+    public SoundSpecifier SmokeSound = new SoundPathSpecifier("/Audio/ADT/scary-game-effect.ogg");
+
+    #endregion
+
+    #region Door Lock Ability
+
+    /// <summary>
+    /// The amount of essence that is needed to use the ability.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("lockCost")]
+    public FixedPoint2 LockCost = -50;
+
+    /// <summary>
+    /// The status effects applied after the ability
+    /// the first float corresponds to amount of time the entity is stunned.
+    /// the second corresponds to the amount of time the entity is made solid.
+    /// </summary>
+    [DataField("lockDebuffs")]
+    public Vector2 LockDebuffs = new(3, 6);
+
+    /// <summary>
+    /// The radius around the user that this ability affects
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("lockRadius")]
+    public float LockRadius = 6.5f;
+
+    /// <summary>
+    /// Lock sound
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("lockSound")]
+    public string LockSound = "/Audio/ADT/revenant-lock.ogg";
+    #endregion
 
     #region Visualizer
     [DataField("state")]

@@ -3,3 +3,9 @@
 
 - type: Tag
   id: PhantomEctoplasm
+
+- type: Tag
+  id: PhantomEctoplasmBattery
+
+- type: Tag
+  id: PhantomEctoplasmPistolBattery

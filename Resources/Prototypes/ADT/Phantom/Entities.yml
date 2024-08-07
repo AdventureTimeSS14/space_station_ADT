@@ -482,14 +482,7 @@
     sprite: ADT/Objects/Misc/ectoplasm.rsi
     layers:
     - state: icon
-  - type: Battery
-    maxCharge: 1
-    startingCharge: 1
-    pricePerJoule: 0
   - type: Appearance
-  - type: HitscanBatteryAmmoProvider
-    proto: EctoLaser
-    fireCost: 0.1
   - type: Tag
     tags:
     - PhantomEctoplasm

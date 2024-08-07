@@ -48,17 +48,16 @@ public sealed partial class PhantomStyleMenu : RadialMenu
                 ToolTip = Loc.GetString(style.Name ?? String.Empty),
                 ProtoId = style.ID,
             };
-
             var tex = new TextureRect
             {
-                HorizontalAlignment = HAlignment.Left,
-                VerticalAlignment = VAlignment.Top,
+                HorizontalAlignment = HAlignment.Center,
+                VerticalAlignment = VAlignment.Center,
                 Texture = _spriteSystem.Frame0(style.Icon ?? SpriteSpecifier.Invalid),
                 TextureScale = new Vector2(1.5f, 1.5f),
-                SetSize = new Vector2(28f, 28f),
+                SetSize = new Vector2(48f, 48f),
             };
-
             button.AddChild(tex);
+
             parent.AddChild(button);
         }
 

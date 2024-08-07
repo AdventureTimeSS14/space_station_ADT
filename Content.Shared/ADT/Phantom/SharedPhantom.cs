@@ -4,6 +4,7 @@ using Content.Shared.Humanoid;
 using Robust.Shared.Serialization;
 using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage;
 
 namespace Content.Shared.Phantom;
 
@@ -178,13 +179,23 @@ public sealed class PhantomNightmareEvent : EntityEventArgs
     {
     }
 }
+
+[DataDefinition]
+public sealed partial class EctoplasmHitscanHitEvent : EntityEventArgs
+{
+    [DataField(required: true)]
+    public DamageSpecifier DamageToPhantom = new();
+
+    [DataField(required: true)]
+    public DamageSpecifier DamageToTarget = new();
+}
 #endregion
 
 #region Radial Menu
-/// <summary>
-/// This event carries list of style prototypes and entity - the source of request. This class is a part of code which is responsible for using RadialUiController.
-/// </summary>
-[Serializable, NetSerializable]
+    /// <summary>
+    /// This event carries list of style prototypes and entity - the source of request. This class is a part of code which is responsible for using RadialUiController.
+    /// </summary>
+    [Serializable, NetSerializable]
 public sealed partial class RequestPhantomStyleMenuEvent : EntityEventArgs
 {
     public readonly List<string> Prototypes = new();

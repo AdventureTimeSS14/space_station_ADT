@@ -132,6 +132,7 @@
     - Pacified
     - StaminaModifier
     - Flashed
+    - ADTHallucinations
   - type: Body
     prototype: Human
     requiredLegs: 2

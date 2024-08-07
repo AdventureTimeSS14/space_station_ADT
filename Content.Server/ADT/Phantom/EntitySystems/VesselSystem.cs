@@ -2,6 +2,8 @@ using Content.Shared.Phantom.Components;
 using Content.Shared.Phantom;
 using Content.Shared.Mobs;
 using Content.Shared.Eye;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 
 namespace Content.Server.Phantom.EntitySystems;
 
@@ -9,6 +11,7 @@ public sealed partial class PhantomVesselSystem : EntitySystem
 {
     [Dependency] private readonly PhantomSystem _phantom = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -18,6 +21,8 @@ public sealed partial class PhantomVesselSystem : EntitySystem
         SubscribeLocalEvent<VesselComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<VesselComponent, MobStateChangedEvent>(OnDeath);
         SubscribeLocalEvent<VesselComponent, EntityTerminatingEvent>(OnDeleted);
+        SubscribeLocalEvent<VesselComponent, EctoplasmHitscanHitEvent>(OnEctoplasmicDamage);
+
         SubscribeLocalEvent<PhantomHolderComponent, MapInitEvent>(OnHauntedInit);
         SubscribeLocalEvent<PhantomHolderComponent, MobStateChangedEvent>(OnHauntedDeath);
         SubscribeLocalEvent<PhantomHolderComponent, ComponentShutdown>(OnHauntedShutdown);
@@ -59,6 +64,13 @@ public sealed partial class PhantomVesselSystem : EntitySystem
                     _phantom.ChangeEssenceAmount(component.Phantom, -1000, allowDeath: true);
             }
         }
+    }
+
+    private void OnEctoplasmicDamage(EntityUid uid, VesselComponent component, EctoplasmHitscanHitEvent args)
+    {
+        _damageableSystem.TryChangeDamage(component.Phantom, args.DamageToPhantom);
+        _damageableSystem.TryChangeDamage(uid, args.DamageToTarget, true);
+        _phantom.StopHaunt(component.Phantom, uid);
     }
 
     private void OnHauntedDeath(EntityUid uid, PhantomHolderComponent component, MobStateChangedEvent args)

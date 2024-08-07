@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Bible.Components
 {
@@ -25,6 +26,9 @@ namespace Content.Server.Bible.Components
         [ViewVariables]
         public EntityUid? Summon = null;
 
+        [ViewVariables]
+        public EntityUid? PersonSummoned = null;
+
         [DataField("summonAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string SummonAction = "ActionBibleSummon";
 
@@ -36,5 +40,15 @@ namespace Content.Server.Bible.Components
         public float Accumulator = 0f;
         [DataField("respawnTime")]
         public float RespawnTime = 180f;
+
+        /// <summary>
+        /// How much energy will cost the summon
+        /// </summary>
+        [DataField("summonCost")]
+        [ViewVariables(VVAccess.ReadWrite)]
+        public FixedPoint2 SummonCost = 4;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool Respawning = true;
     }
 }

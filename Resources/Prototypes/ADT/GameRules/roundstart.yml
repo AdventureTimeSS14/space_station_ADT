@@ -10,10 +10,10 @@
 
 - type: entity
   parent: BasePhantomRule
-  id: PhantomPhantomGameRule
+  id: PhantomGameRule
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 1 #30
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -27,3 +27,4 @@
       mindComponents:
       - type: PhantomRole
         prototype: Phantom
+  - type: AntagRandomSpawn
