@@ -45,7 +45,7 @@
           - None
   - type: Visibility
     layer: 505
-  
+
       # Ling ents
 - type: entity
   parent: ADTBaseLingHallucination
@@ -327,7 +327,7 @@
   - type: TimedDespawn
     lifetime: 10.0
   - type: MovementIgnoreGravity
-    gravityState: true 
+    gravityState: true
   - type: PointLight
     color: White
     radius: 1

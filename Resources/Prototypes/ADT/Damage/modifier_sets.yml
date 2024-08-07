@@ -118,7 +118,7 @@
     Cold: 1.5
     Heat: 1.0
     Poison: 1.4
-    
+
 - type: damageModifierSet
   id: AshWalker # Груба кожа = умно ящериц
   coefficients:

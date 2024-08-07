@@ -2235,7 +2235,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
         ev.Vessels.Sort();
 
-        RaiseNetworkEvent(ev, uid); 
+        RaiseNetworkEvent(ev, uid);
     }
     #endregion
 

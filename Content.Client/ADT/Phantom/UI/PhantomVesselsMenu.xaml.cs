@@ -65,7 +65,7 @@ public sealed partial class PhantomVesselsMenu : RadialMenu
                 Profile = humanoid,
                 Name = name,
             };
-            
+
             face.Scale *= 1f;
             button.AddChild(face);
             parent.AddChild(button);
