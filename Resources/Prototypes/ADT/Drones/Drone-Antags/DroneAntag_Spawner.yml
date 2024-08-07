@@ -5,7 +5,7 @@
   components:
     - type: Sprite
       layers:
-        - sprite: ADT/Markers/job.rsi
+        - sprite: ADT/Markers/jobs.rsi
           state: green
         - sprite: ADT/Mobs/Silicon/AntagDrones/drone-miner.rsi
           state: mineshell
@@ -20,7 +20,7 @@
   components:
     - type: Sprite
       layers:
-        - sprite: ADT/Markers/job.rsi
+        - sprite: ADT/Markers/jobs.rsi
           state: green
         - sprite: ADT/Mobs/Silicon/AntagDrones/drone-engineer.rsi
           state: engshell
@@ -35,7 +35,7 @@
   components:
     - type: Sprite
       layers:
-        - sprite: ADT/Markers/job.rsi
+        - sprite: ADT/Markers/jobs.rsi
           state: green
         - sprite: ADT/Mobs/Silicon/AntagDrones/drone-charger.rsi
           state: chargeshell
@@ -51,7 +51,7 @@
   components:
     - type: Sprite
       layers:
-        - sprite: ADT/Markers/job.rsi
+        - sprite: ADT/Markers/jobs.rsi
           state: green
         - sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
           state: ipc_icon

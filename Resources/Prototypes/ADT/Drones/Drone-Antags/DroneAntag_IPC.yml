@@ -270,11 +270,11 @@
     - type: Strippable
     - type: UserInterface
       interfaces:
-        - key: enum.VoiceMaskUIKey.Key
+        enum.VoiceMaskUIKey.Key:
           type: VoiceMaskBoundUserInterface
-        - key: enum.HumanoidMarkingModifierKey.Key
+        enum.HumanoidMarkingModifierKey.Key:
           type: HumanoidMarkingModifierBoundUserInterface
-        - key: enum.StrippingUiKey.Key
+        enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
     - type: StandingState
     - type: CanEscapeInventory
@@ -340,6 +340,7 @@
       allowed:
         - Stun
     - type: Blindable
+    #- type: ComplexInteraction
 
 - type: entity
   id: ADTDroneAntagIPC
@@ -434,7 +435,6 @@
       Alive: BorgHealth
       Critical: BorgCrit
       Dead: BorgDead
-
     allowRevives: true # Для воскрешения достаточно починить урон. - ss220.
   - type: NpcFactionMember
     factions:
@@ -575,7 +575,6 @@
     shortscale: 0.9
   - type: StaticPrice
     price: 2525
-
 # damage modifier set
 
 - type: damageModifierSet
