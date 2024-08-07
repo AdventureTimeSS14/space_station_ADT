@@ -1,16 +1,17 @@
-﻿- type: stealTargetGroup
-  id: NesGravityGeneratorCore
-  name: гравитационное ядро
-  sprite:
-    sprite: NES/GraviCore.rsi
-    state: GraviCore
+﻿# TODO: В будущем перенести закоменченные прототипы
+# - type: stealTargetGroup
+#   id: NesGravityGeneratorCore
+#   name: гравитационное ядро
+#   sprite:
+#     sprite: NES/GraviCore.rsi
+#     state: GraviCore
 
-- type: stealTargetGroup
-  id: MobileDefibrillator
-  name: переносной дефибриллятор
-  sprite:
-    sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi 
-    state: icon
+# - type: stealTargetGroup
+#   id: MobileDefibrillator
+#   name: переносной дефибриллятор
+#   sprite:
+#     sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi 
+#     state: icon
 
 - type: stealTargetGroup
   id: ADTClothingMaskGasCE

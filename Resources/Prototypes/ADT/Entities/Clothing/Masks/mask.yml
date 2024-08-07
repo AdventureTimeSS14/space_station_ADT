@@ -1,266 +1,267 @@
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTJasonHockeyMask
-  name: hockey mask of maniac
-  description: hockey mask of maniac
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/jason.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/jason.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-  - type: BreathMask
+# TODO: Не стал удалять прототипы, можно будет их по нужде в будущем переносить, или все сразу скопом
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTJasonHockeyMask
+#   name: hockey mask of maniac
+#   description: hockey mask of maniac
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/jason.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/jason.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTSquidGameWorkerMask
-  name: squid game worker mask
-  description: squid game worker mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/squidgame_worker.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/squidgame_worker.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTSquidGameWorkerMask
+#   name: squid game worker mask
+#   description: squid game worker mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/squidgame_worker.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/squidgame_worker.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTSquidGameSoldierMask
-  name: squid game soldier mask
-  description: squid game soldier mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTSquidGameSoldierMask
+#   name: squid game soldier mask
+#   description: squid game soldier mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTSquidGameManagerMask
-  name: squid game manager mask
-  description: squid game manager mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/squidgame_manager.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/squidgame_manager.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTSquidGameManagerMask
+#   name: squid game manager mask
+#   description: squid game manager mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/squidgame_manager.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/squidgame_manager.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#   - type: BreathMask
 
-- type: entity
-  parent: WeldingMaskBase
-  id: ADTClothingHeadHatTagilla
-  name: Tagilla mask
-  description: Tagilla mask
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/tagilla_mask.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/tagilla_mask.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Piercing: 0.95
-        Heat: 0.95
+# - type: entity
+#   parent: WeldingMaskBase
+#   id: ADTClothingHeadHatTagilla
+#   name: Tagilla mask
+#   description: Tagilla mask
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+#   - type: Armor
+#     modifiers:
+#       coefficients:
+#         Piercing: 0.95
+#         Heat: 0.95
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTClothingHeadHatClownArmor
-  name: ballistic mask of a psychopathic clown
-  description: OMFG YOU DO NOT KILL CLOWN! CLOWN KILLS YOU!
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-  - type: BreathMask
-  - type: Armor
-    modifiers:
-      coefficients:
-        Piercing: 0.95
-        Heat: 0.95
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTClothingHeadHatClownArmor
+#   name: ballistic mask of a psychopathic clown
+#   description: OMFG YOU DO NOT KILL CLOWN! CLOWN KILLS YOU!
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#   - type: BreathMask
+#   - type: Armor
+#     modifiers:
+#       coefficients:
+#         Piercing: 0.95
+#         Heat: 0.95
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTMichaelMyersMask
-  name: Michael Myers mask
-  description: Michael Myers mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/michael_myersmask.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/michael_myersmask.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTMichaelMyersMask
+#   name: Michael Myers mask
+#   description: Michael Myers mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#   - type: BreathMask
 
-# PayDay2 mask
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTPayDayChainsMask
-  name: squid game worker mask
-  description: squid game worker mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_chains.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_chains.rsi
-  - type: BreathMask
+# # PayDay2 mask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTPayDayChainsMask
+#   name: squid game worker mask
+#   description: squid game worker mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/payday_chains.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/payday_chains.rsi
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTPayDayDallasMask
-  name: squid game worker mask
-  description: squid game worker mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_dallas.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_dallas.rsi
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTPayDayDallasMask
+#   name: squid game worker mask
+#   description: squid game worker mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/payday_dallas.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/payday_dallas.rsi
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTPayDayHoustonMask
-  name: squid game worker mask
-  description: squid game worker mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_houston.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_houston.rsi
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTPayDayHoustonMask
+#   name: squid game worker mask
+#   description: squid game worker mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/payday_houston.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/payday_houston.rsi
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTPayDayWolfMask
-  name: squid game worker mask
-  description: squid game worker mask
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/payday_wolf.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/payday_wolf.rsi
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTPayDayWolfMask
+#   name: squid game worker mask
+#   description: squid game worker mask
+#   suffix: Halloween
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/payday_wolf.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/payday_wolf.rsi
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskGasSecurity
-  id: ADTClothingMaskGasLapkeeSet
-  name: white sec mask
-  description: white sec mask
-  suffix: Personal, Lapkee
-  components:
-  - type: BreathMask
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/lapkeeset_mask.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/lapkeeset_mask.rsi
+# - type: entity
+#   parent: ClothingMaskGasSecurity
+#   id: ADTClothingMaskGasLapkeeSet
+#   name: white sec mask
+#   description: white sec mask
+#   suffix: Personal, Lapkee
+#   components:
+#   - type: BreathMask
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/lapkeeset_mask.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/lapkeeset_mask.rsi
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTClothingMaskBorodaDedMoroz
-  suffix: New Year
-  name: Boroda ded moroz
-  description: Boroda ded moroz
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTClothingMaskBorodaDedMoroz
+#   suffix: New Year
+#   name: Boroda ded moroz
+#   description: Boroda ded moroz
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskBase
-  id: ADTChronosMask
-  name: chronos victim mask
-  description: chronos victim mask
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/chronosvisor.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/chronosvisor.rsi
-  - type: BreathMask
-  - type: ShowSecurityIcons
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
+# - type: entity
+#   parent: ClothingMaskBase
+#   id: ADTChronosMask
+#   name: chronos victim mask
+#   description: chronos victim mask
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/chronosvisor.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/chronosvisor.rsi
+#   - type: BreathMask
+#   - type: ShowSecurityIcons
+#   - type: FlashImmunity
+#   - type: EyeProtection
+#     protectionTime: 5
 
-#противогаз СССП
+# #противогаз СССП
 
-- type: entity
-  parent: ClothingMaskGasSyndicate
-  id: ADTClothingMaskGasUSSP
-  name: PMG-40 gasmask
-  description: The gas mask of the army of USSP.
-  suffix: USSP
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/usspgasmask.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/usspgasmask.rsi
-  - type: Tag
-    tags:
-    - HidesHair
-  - type: ShowSecurityIcons
+# - type: entity
+#   parent: ClothingMaskGasSyndicate
+#   id: ADTClothingMaskGasUSSP
+#   name: PMG-40 gasmask
+#   description: The gas mask of the army of USSP.
+#   suffix: USSP
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/usspgasmask.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/usspgasmask.rsi
+#   - type: Tag
+#     tags:
+#     - HidesHair
+#   - type: ShowSecurityIcons
 
-- type: entity
-  parent: ClothingMaskGasSecurity
-  id: ADTClothingMaskGasDarkRavenFriskis
-  suffix: Only Friskis
-  name: raven gas mask
-  description: raven gas mask
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Mask/raven.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Mask/raven.rsi
-    clothingVisuals:
-      mask:
-      - state: equipped-MASK
-      - state: equipped-MASK-unshaded
-        shader: unshaded
-  - type: BreathMask
+# - type: entity
+#   parent: ClothingMaskGasSecurity
+#   id: ADTClothingMaskGasDarkRavenFriskis
+#   suffix: Only Friskis
+#   name: raven gas mask
+#   description: raven gas mask
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Mask/raven.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Mask/raven.rsi
+#     clothingVisuals:
+#       mask:
+#       - state: equipped-MASK
+#       - state: equipped-MASK-unshaded
+#         shader: unshaded
+#   - type: BreathMask
 
-- type: entity
-  parent: ClothingMaskGas
-  id: ADTClothingMaskGasIlisium
-  name:  gas mask
-  description: A close-fitting tactical mask that can be connected to an air supply.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/gasmask_ili.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/gasmask_ili.rsi
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
+# - type: entity
+#   parent: ClothingMaskGas
+#   id: ADTClothingMaskGasIlisium
+#   name:  gas mask
+#   description: A close-fitting tactical mask that can be connected to an air supply.
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Clothing/Head/Hats/gasmask_ili.rsi
+#   - type: Clothing
+#     sprite: ADT/Clothing/Head/Hats/gasmask_ili.rsi
+#   - type: FlashImmunity
+#   - type: EyeProtection
+#     protectionTime: 5
 
 - type: entity
   parent: ClothingMaskGasAtmos

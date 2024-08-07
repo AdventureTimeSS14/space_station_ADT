@@ -144,14 +144,6 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
-<<<<<<< HEAD
-      - id: ClothingMaskBreath
-=======
-      - id: ADTClothingMaskGasCE
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
-      - id: ClothingNeckCloakCe
->>>>>>> 7de9fe1e70 (Добавление противогаза старшего инженера, изменение локализации, содержания шкафа СИ, заданий вора.)
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingShoesBootsMagAdv
@@ -166,6 +158,12 @@
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      # Start-ADT Tweak
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingNeckCloakCe
+      - id: ADTClothingMaskGasCE
+      # End-ADT Tweak
 
 - type: entity
   id: LockerChiefEngineerFilled

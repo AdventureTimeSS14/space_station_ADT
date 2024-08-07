@@ -78,7 +78,7 @@
     ClothingHeadsetAltMedicalStealObjective: 1
     FireAxeStealObjective: 1                            #eng
     AmePartFlatpackStealObjective: 1
-    ADTClothingMaskGasCEStealObjective: 1
+    ADTClothingMaskGasCEStealObjective: 1    # ADT Tweak: add gas mask CE
     ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
     SalvageShuttleCircuitboardStealObjective: 1
