@@ -92,8 +92,8 @@ language-Urs-description = Басистый и рычащий язык, на к�
 language-Arkane-name = Каукиттен
 language-Arkane-description = Протяжный, чем-то напоминающий Солнечный язык, на котором говорят арканы.
 
-language-Shadowkin-name = Миар
-language-Shadowkin-description = Загадочный язык, на котором говорят сумеречники.
+language-Shadekin-name = Миар
+language-Shadekin-description = Загадочный язык, на котором говорят сумеречники.
 
 language-Dwarf-name = Шахт
 language-Dwarf-description = Rock and stone!
@@ -103,3 +103,39 @@ language-Dev-description = Больше звучит как ругань пок�
 
 language-CintaTaj-name = Синта’Тайр
 language-CintaTaj-description = Язык, разработанный таярами и унатхами для общения между двумя расами, представляет собой смесь шипений и слов.
+
+language-GalacticCommon = Общ.
+language-Bubblish = Пузырчатый
+language-RootSpeak = Песнь корней
+language-CodeSpeak = Кодовый
+language-Nekomimetic = Неко
+language-Draconic = Синта'унати
+language-Canilunzt = Канилунц
+language-SikTaj = Сик'тайр
+language-Nian = Ткачий
+language-Fire = Огненный
+language-SolCommon = Солнечный
+language-Cat = Кошачий
+language-Dog = Собачий
+language-Mothroach = Молиный
+language-Xeno = Ксено
+language-RobotTalk = Троичный
+language-Monkey = Обезьяний
+language-Bee = Пчелиный
+language-Mouse = Мышиный
+language-Drask = Орлуум
+# These ones are half-assed because these creatures are almost never played as.
+language-Chicken = Animal chicken
+language-Duck = Animal duck
+language-Cow = Animal cow
+language-Sheep = Animal sheep
+language-Kangaroo = Animal kangaroo
+language-Pig = Animal pig
+language-Moffic = Паучий
+language-BorgTalk = Двоичный
+language-Urs = Рыкрур
+language-Arkane = Каукиттен
+language-Shadekin = Миар
+language-Dev = Разраб
+language-Dwarf = Шахт
+language-CintaTaj = Синта’тайр

@@ -358,14 +358,14 @@
       - DraskTranslatorImplanter
       - UrsTranslatorImplanter
       - ArkaneTranslatorImplanter
-      - ShadowkinTranslatorImplanter
+      - ShadekinTranslatorImplanter
       - CintaTajTranslatorImplanter
       - IPCTranslatorImplanter
       - BorgTranslatorImplanter
       - DwarfTranslatorImplanter
       - UrsTranslator
       - ArkaneTranslator
-      - ShadowkinTranslator
+      - ShadekinTranslator
       - NianTranslator
       - FireTranslator
       - SikTajTranslator

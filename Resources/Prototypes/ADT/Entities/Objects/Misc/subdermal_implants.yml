@@ -206,16 +206,16 @@
 
 - type: entity
   parent: BaseTranslatorImplant
-  id: ShadowkinTranslatorImplant
+  id: ShadekinTranslatorImplant
   name: translator implant
   description: This implant grants language knowledge.
   noSpawn: true
   components:
   - type: TranslatorImplant
     toSpeak:
-    - Shadowkin
+    - Shadekin
     toUnderstand:
-    - Shadowkin
+    - Shadekin
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -253,7 +253,7 @@
   - type: TranslatorImplant
     toUnderstand:
     - RobotTalk
-    - Shadowkin
+    - Shadekin
     - Arkane
     - Urs
     - Drask

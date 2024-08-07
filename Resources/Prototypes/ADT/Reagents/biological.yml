@@ -1,0 +1,12 @@
+#NES кровь сумеречника
+- type: reagent
+  parent: Blood
+  id: ShadekinBlood
+  name: reagent-name-shadekin-blood
+  group: Biological
+  desc: reagent-desc-shadekin-blood
+  flavor: metallic
+  color: "#2e0f24"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-ferrous
+  slippery: false
