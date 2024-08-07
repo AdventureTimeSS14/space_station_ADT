@@ -4,7 +4,7 @@
   parent: BulletDisabler
   name: ion bolt
   description: No energy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: FlyBySound
     sound:

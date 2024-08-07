@@ -4,8 +4,6 @@
   parent: BaseMobUrsus
   id: MobUrsus
   components:
-    - type: Inventory
-      speciesId: urs #для одежды на урсов
     - type: Temperature
       heatDamageThreshold: 320
       coldDamageThreshold: 250
@@ -44,3 +42,11 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
+    - type: Inventory
+      speciesId: urs #для одежды на урсов
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Human/displacement.rsi
+              state: jumpsuit-female
