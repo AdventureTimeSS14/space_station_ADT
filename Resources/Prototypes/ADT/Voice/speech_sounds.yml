@@ -6,3 +6,12 @@
     path: /Audio/ADT/Drask/drasktalk.ogg
   exclaimSound:
     path: /Audio/ADT/Drask/drasktalk.ogg
+
+- type: speechSounds
+  id: Vulpa
+  saySound:
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp.ogg
+  askSound:
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp_ask.ogg
+  exclaimSound:
+    path: /Audio/ADT/Voice/Vulpkanin_Talk/vulp_exclaim.ogg
