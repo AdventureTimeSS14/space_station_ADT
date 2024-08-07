@@ -50,7 +50,7 @@
   name: Urist McUrsus
   parent: MobHumanDummy
   id: MobUrsusDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description:
   components:
     - type: HumanoidAppearance
