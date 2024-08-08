@@ -9,5 +9,5 @@
     stampedColor: "#754d36"
     stampState: "paper_stamp-detective"
   - type: Sprite
-    sprite: ADT/Objects/Misc/stampsADT.rsi
+    sprite: ADT/Objects/Misc/stamps.rsi
     state: stamp-magistrat
