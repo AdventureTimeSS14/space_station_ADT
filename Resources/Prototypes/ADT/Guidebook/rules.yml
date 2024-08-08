@@ -1,0 +1,10 @@
+- type: guideEntry
+  id: ADTRuleset
+  name: Правила сервера
+  priority: 0
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/MrpRuleset.xml"
+  # children:
+  # - CorvaxRule0
+  # - CorvaxRule1
+  # - CorvaxRule2
