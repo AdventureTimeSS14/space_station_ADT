@@ -35,8 +35,8 @@
     key: enum.IdCardConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.IdCardConsoleUiKey.Key
-      type: IdCardConsoleBoundUserInterface
+      enum.IdCardConsoleUiKey.Key:
+        type: IdCardConsoleBoundUserInterface
   - type: CrewManifestViewer
     ownerKey: enum.IdCardConsoleUiKey.Key
   - type: Sprite

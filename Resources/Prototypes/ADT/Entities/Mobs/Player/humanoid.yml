@@ -448,7 +448,6 @@
       state: full
     - type: RandomHumanoidSpawner
       settings: ADTSpaceSecCadet
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ADTSpaceSecCadet
@@ -457,7 +456,6 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ SpaceSecCadet ]
-    - type: InitialInfectedExempt
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
       factions:
@@ -490,7 +488,6 @@
       state: full
     - type: RandomHumanoidSpawner
       settings: ADTSpaceSecOfficer
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ADTSpaceSecOfficer
@@ -499,7 +496,6 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ SpaceSecOfficer ]
-    - type: InitialInfectedExempt
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
       factions:
@@ -532,7 +528,6 @@
       state: full
     - type: RandomHumanoidSpawner
       settings: ADTSpaceSecPilot
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ADTSpaceSecPilot
@@ -541,7 +536,6 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ SpaceSecPilot ]
-    - type: InitialInfectedExempt
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
       factions:
@@ -574,7 +568,6 @@
       state: full
     - type: RandomHumanoidSpawner
       settings: ADTSpaceSecCommander
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ADTSpaceSecCommander
@@ -583,7 +576,6 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ SpaceSecCommander ]
-    - type: InitialInfectedExempt
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
       factions:
@@ -616,7 +608,6 @@
       state: full
     - type: RandomHumanoidSpawner
       settings: ADTSpaceSecService
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ADTSpaceSecService
@@ -625,7 +616,6 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ SpaceSecService ]
-    - type: InitialInfectedExempt
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
       factions:
