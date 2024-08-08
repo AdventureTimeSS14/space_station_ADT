@@ -1,4 +1,4 @@
-﻿version: 1 # Not used right now, whatever.
+version: 1 # Not used right now, whatever.
 binds:
 - function: UIClick
   type: State
@@ -190,6 +190,12 @@ binds:
 - function: OpenEmotesMenu
   type: State
   key: Y
+
+  # ADT Languages update
+- function: OpenLanguagesMenu
+  type: State
+  key: L
+
 - function: TextCursorSelect
   # TextCursorSelect HAS to be above ExamineEntity
   # So that LineEdit receives it correctly.
@@ -455,8 +461,8 @@ binds:
 - function: OpenDecalSpawnWindow
   type: State
   key: F8
-- function: OpenScoreboardWindow
-  type: State
+- function: ToggleRoundEndSummaryWindow
+  type: Toggle
   key: F9
 - function: OpenSandboxWindow
   type: State

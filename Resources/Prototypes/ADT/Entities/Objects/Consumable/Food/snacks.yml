@@ -135,7 +135,7 @@
 # Мусор
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: ADTFoodPacketChipsTrashBase
   description: This is rubbish.
@@ -147,7 +147,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: ADTFoodDriedPacketTrashBase
   description: This is rubbish.
@@ -159,7 +159,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChipsTrashBase
   id: ADTFoodPacketChipsOnionAndSourcreamTrash
   description: This is rubbish.
@@ -168,7 +168,7 @@
     state: onion-and-sourcream-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChipsTrashBase
   id: ADTFoodPacketChipsShrimpTrash
   description: This is rubbish.
@@ -177,7 +177,7 @@
     state: shrimp-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChipsTrashBase
   id: ADTFoodPacketChipsSpaceTrash
   description: This is rubbish.
@@ -186,7 +186,7 @@
     state: space-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChipsTrashBase
   id: ADTFoodPacketSpicyTrash
   description: This is rubbish.
@@ -197,7 +197,7 @@
 # разделитель
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodDriedPacketTrashBase
   id: ADTFoodPacketBeefTrash
   description: This is rubbish.
@@ -206,7 +206,7 @@
     state: beef-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodDriedPacketTrashBase
   id: ADTFoodPacketChickenTrash
   description: This is rubbish.
@@ -215,7 +215,7 @@
     state: chicken-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodDriedPacketTrashBase
   id: ADTFoodPacketHorseTrash
   description: This is rubbish.
@@ -224,7 +224,7 @@
     state: horse-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodDriedPacketTrashBase
   id: ADTFoodPacketPigTrash
   description: This is rubbish.
@@ -426,7 +426,7 @@
 #Trash 
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrash
   name: chocolate wrapper
@@ -438,7 +438,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrashChoco
   name: chocolate wrapper
@@ -447,7 +447,7 @@
     state: choco-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrashCoconut
   name: chocolate wrapper
@@ -456,7 +456,7 @@
     state: coconut-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrashEnergy
   name: chocolate wrapper
@@ -465,7 +465,7 @@
     state: energy-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrashNuts
   name: chocolate wrapper
@@ -474,7 +474,7 @@
     state: nuts-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrashPink
   name: chocolate wrapper
@@ -483,7 +483,7 @@
     state: pink-trash
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTFoodPacketChocolateTrash
   id: ADTFoodPacketChocolateTrashTwo
   name: chocolate wrapper

@@ -144,7 +144,6 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
-      - id: ClothingMaskBreath
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingShoesBootsMagAdv
@@ -159,6 +158,12 @@
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      # Start-ADT Tweak
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingNeckCloakCe
+      - id: ADTClothingMaskGasCE
+      # End-ADT Tweak
 
 - type: entity
   id: LockerChiefEngineerFilled

@@ -1,0 +1,19 @@
+- type: marking
+  id: EarsShadekin
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears.rsi
+      state: shadekin
+
+- type: marking
+  id: EarsShadekinStriped
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears.rsi
+      state: shadekin
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears.rsi
+      state: shadekin_stripes

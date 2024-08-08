@@ -9,7 +9,7 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// Human-readable name for the channel.
     /// </summary>
     [DataField("name")]
-    public LocId Name { get; private set; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public string LocalizedName => Loc.GetString(Name);
@@ -35,4 +35,9 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
+
+    // Lang start
+    [DataField("translate"), ViewVariables]
+    public bool TranslateSpeech = false;
+    // Lang end
 }
