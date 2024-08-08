@@ -46,7 +46,7 @@
       baseWalkSpeed: 3
       baseSprintSpeed: 4
     - type: Sprite
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
       state: ipc_full
       noRot: true
       drawdepth: Mobs
@@ -123,7 +123,7 @@
           behaviors:
             - !type:GibBehavior {}
     - type: Icon
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
       state: ipc_full
     - type: MindContainer
       showExamineInfo: true
@@ -359,14 +359,14 @@
   #   playChance: 1
   #   popUp: silicon-power-low
   - type: Icon
-    sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+    sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
     state: ipc_full
   - type: Sprite
     noRot: true
     drawdepth: Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+        sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
         state: ipc_full
       - map: ["enum.HumanoidVisualLayers.Chest"]
       - map: ["enum.HumanoidVisualLayers.Head"]

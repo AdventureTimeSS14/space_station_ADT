@@ -1,15 +1,3 @@
-- type: npcFaction
-  id: DroneAntag
-  hostile:
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - NanoTrasen
-  - PetsNT
-  - Dragon
-
 - type: entity
   parent: BaseWeaponTurret
   id: ADTWeaponTurretDroneAntag

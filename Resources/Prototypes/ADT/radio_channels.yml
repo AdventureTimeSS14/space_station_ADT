@@ -8,8 +8,16 @@
 
 - type: radioChannel
   id: ADTSpaceSecChannel
-  name: SPACE SEC линия
+  name: ADT-SpaceSec-Channel-name
   keycode: 'у'
   frequency: 1302
   color: "#c8c3c0"
+  longRange: true
+
+- type: radioChannel
+  id: ADTDroneAntagChannel
+  name: ADT-DroneAntag-Channel-name
+  keycode: 'й'
+  frequency: 1301
+  color: "#690e0e"
   longRange: true

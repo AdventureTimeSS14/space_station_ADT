@@ -7,7 +7,7 @@
       layers:
         - sprite: ADT/Markers/jobs.rsi
           state: green
-        - sprite: ADT/Mobs/Silicon/AntagDrones/drone-miner.rsi
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-miner.rsi
           state: mineshell
     - type: ConditionalSpawner
       prototypes:
@@ -22,7 +22,7 @@
       layers:
         - sprite: ADT/Markers/jobs.rsi
           state: green
-        - sprite: ADT/Mobs/Silicon/AntagDrones/drone-engineer.rsi
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-engineer.rsi
           state: engshell
     - type: ConditionalSpawner
       prototypes:
@@ -37,7 +37,7 @@
       layers:
         - sprite: ADT/Markers/jobs.rsi
           state: green
-        - sprite: ADT/Mobs/Silicon/AntagDrones/drone-charger.rsi
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-charger.rsi
           state: chargeshell
     - type: ConditionalSpawner
       prototypes:
@@ -53,7 +53,7 @@
       layers:
         - sprite: ADT/Markers/jobs.rsi
           state: green
-        - sprite: ADT/Mobs/Silicon/AntagDrones/drone-ipc-soldier.rsi
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
           state: ipc_icon
     - type: ConditionalSpawner
       prototypes:

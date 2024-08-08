@@ -7,7 +7,7 @@
   description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
   components:
     - type: Sprite
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-core-basic.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-core-basic.rsi
       state: drone-core-basic
     - type: StaticPrice
       price: 1250
@@ -25,7 +25,7 @@
   description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
   components:
     - type: Sprite
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-core-advanced.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-core-advanced.rsi
       state: drone-core-advanced
     - type: StaticPrice
       price: 2500
@@ -43,7 +43,7 @@
   description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
   components:
     - type: Sprite
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-core-elite.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-core-elite.rsi
       state: drone-core-elite
     - type: StaticPrice
       price: 5000
@@ -62,7 +62,7 @@
   description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
   components:
     - type: Sprite
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-core-command.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-core-command.rsi
       state: drone-core-command
     - type: StaticPrice
       price: 7500

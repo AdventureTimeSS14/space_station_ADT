@@ -256,7 +256,7 @@
     drawdepth: Mobs
     layers:
     - state: minedrone
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-miner.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-miner.rsi
       map: ["base"]
   - type: MovementIgnoreGravity
   - type: Fixtures
@@ -413,7 +413,7 @@
     drawdepth: Mobs
     layers:
     - state: engdrone
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-engineer.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-engineer.rsi
       map: ["base"]
   - type: MovementIgnoreGravity
   - type: Fixtures
@@ -571,7 +571,7 @@
     drawdepth: Mobs
     layers:
     - state: chargedrone
-      sprite: ADT/Mobs/Silicon/AntagDrones/drone-charger.rsi
+      sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-charger.rsi
       map: ["base"]
   - type: MovementIgnoreGravity
   - type: Fixtures
