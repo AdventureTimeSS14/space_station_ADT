@@ -1,0 +1,11 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseThiefStealObjective
+  id: ADTClothingMaskGasCEStealObjective
+  components:
+  - type: NotJobRequirement
+    job: StationEngineer
+  - type: StealCondition
+    stealGroup: ADTClothingMaskGasCE
+  - type: Objective
+    difficulty: 1
