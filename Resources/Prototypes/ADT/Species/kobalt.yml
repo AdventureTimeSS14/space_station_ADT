@@ -7,21 +7,21 @@
   defaultSkinTone: "#34a223"
   markingLimits: MobKoboltMarkingLimits
   dollPrototype: MobKoboltDummy
-  skinColoration: Hues #
-  maleFirstNames: names_reptilian_male #
-  femaleFirstNames: names_reptilian_female #
-  naming: FirstDashFirst #
+  skinColoration: Hues #как у reptilian
+  maleFirstNames: names_reptilian_male #как у reptilian
+  femaleFirstNames: names_reptilian_female #как у reptilian
+  naming: FirstDashFirst #как у reptilian
 
 - type: speciesBaseSprites
   id: MobKoboltSprites
   sprites:
     Head: MobKoboltHead
-    Snout: MobHumanoidAnyMarking #
+    Snout: MobHumanoidAnyMarking #как у reptilian
     Chest: MobKoboltTorso
-    HeadTop: MobHumanoidAnyMarking #
-    HeadSide: MobHumanoidAnyMarking #
-    Tail: MobHumanoidAnyMarking #
-    Eyes: MobHumanoidEyes #
+    HeadTop: MobHumanoidAnyMarking #как у reptilian
+    HeadSide: MobHumanoidAnyMarking #как у reptilian
+    Tail: MobHumanoidAnyMarking #как у reptilian
+    Eyes: MobHumanoidEyes #как у reptilian
     LArm: MobKoboltLArm
     RArm: MobKoboltRArm
     LHand: MobKoboltLHand

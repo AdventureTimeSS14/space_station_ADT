@@ -1,39 +1,25 @@
 - type: entity
   save: false
-  name: Urisst' Mzhand Kobolt
-  parent: BaseMobSpeciesOrganic
+  name: Urisst' Mzhand
+  parent: BaseMobReptilian
   id: BaseMobKobolt
   abstract: true
   components:
   - type: HumanoidAppearance 
     species: KoboltSpecies
-  - type: Hunger #
-  - type: Thirst #
   - type: Icon #
     sprite: Mobs/Species/Reptilian/parts.rsi 
     state: full
-  - type: Sprite #новое особенность кобольда
+  - type: Sprite #особенность кобольда. в будущем заменить на sizeAtribute
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.8, 0.8 #особенность кобольда
+    scale: 0.8, 0.8
   - type: Body
     prototype: Kobolt
     requiredLegs: 2
-  - type: LizardAccent #
-  #- type: LizardBlood
-  - type: Speech
-    speechSounds: Lizard
-  - type: Vocal
-    sounds:
-      Male: UnisexReptilian
-      Female: UnisexReptilian
-      Unsexed: UnisexReptilian
-#  - type: DiseaseCarrier
+#  - type: DiseaseCarrier непонятная недобавленная херня
 #    diseaseResist: 0.1
-  - type: Damageable #
-    damageContainer: Biological
-    damageModifierSet: Scale
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -60,8 +46,6 @@
   - type: Perishable
 
 - type: entity
-  save: false
-  name: Urist McHands
   parent: BaseSpeciesDummy
   id: MobKoboltDummy
   noSpawn: true

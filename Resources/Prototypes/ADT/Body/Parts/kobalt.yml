@@ -1,13 +1,13 @@
 - type: entity
   id: PartKobolt
-  parent: [BaseItem, BasePart, PartReptilian]
+  parent: PartReptilian
   name: "kobolt body part"
   abstract: true
 
 - type: entity
   id: TorsoKobolt
   name: "kobolt torso"
-  parent: [PartKobolt, BaseTorso, TorsoReptilian]
+  parent: TorsoReptilian
   components:
   - type: Sprite
     netsync: false
@@ -20,7 +20,7 @@
 - type: entity
   id: HeadKobolt
   name: "kobolt head"
-  parent: [PartKobolt, BaseHead, HeadReptilian]
+  parent: HeadReptilian
   components:
   - type: Sprite
     netsync: false
