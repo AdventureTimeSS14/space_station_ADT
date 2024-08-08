@@ -1,6 +1,6 @@
 using Content.Shared.Cloning;
 
-namespace Content.Server.SizeAttribute
+namespace Content.Server.ADT.SizeAttribute
 {
     [RegisterComponent]
     public sealed partial class SizeAttributeComponent : Component, ITransferredByCloning

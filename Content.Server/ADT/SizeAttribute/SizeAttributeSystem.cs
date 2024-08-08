@@ -5,7 +5,7 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
 using Content.Shared.Item.PseudoItem;
 
-namespace Content.Server.SizeAttribute
+namespace Content.Server.ADT.SizeAttribute
 {
     public sealed class SizeAttributeSystem : EntitySystem
     {
