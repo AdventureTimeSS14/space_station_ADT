@@ -1,3 +1,4 @@
+# Main
 - type: trait
   id: Blindness
   name: trait-blindness-name
@@ -37,15 +38,6 @@
   cost: -2
 
 - type: trait
-  id: Pacifist
-  name: trait-pacifist-name
-  description: trait-pacifist-desc
-  category: Quirks
-  components:
-    - type: Pacified
-  cost: -2
-
-- type: trait
   id: Unrevivable
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
@@ -67,16 +59,6 @@
   cost: -2
 
 - type: trait
-  id: LightweightDrunk
-  name: trait-lightweight-name
-  description: trait-lightweight-desc
-  category: Quirks
-  components:
-    - type: LightweightDrunk
-      boozeStrengthMultiplier: 2
-  cost: -1
-
-- type: trait
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
@@ -88,15 +70,6 @@
       maxSoundDistance: 7
       sounds:
         collection: Paracusia
-  cost: -1
-
-- type: trait
-  id: Snoring
-  name: trait-snoring-name
-  description: trait-snoring-desc
-  category: Quirks
-  components:
-    - type: Snoring
   cost: -1
 
 # ADT
@@ -158,7 +131,7 @@
       modifier: 1.3
   cost: 2
 
-# Simple Station
+# SimpleStation14
 
 - type: trait
   id: ColorBlindnessMonochrome

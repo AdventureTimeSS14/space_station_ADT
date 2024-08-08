@@ -54,4 +54,4 @@ humanoid-profile-editor-no-traits = Нет доступных черт
 humanoid-profile-editor-trait-count-hint = Доступно очков: [{ $current }/{ $max }]
 trait-category-disabilities = Ограничения
 trait-category-speech = Черты речи
-trait-category-quirks = Причуды
+#trait-category-quirks = Причуды
