@@ -8,7 +8,7 @@
     id: ADTSpaceSecCadetIDCard
     ears: ADTSpaceSecClothingHeadset
 #    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
-    socks: ClothingUnderwearSocksNormal
+#    socks: ClothingUnderwearSocksNormal
     neck: ADTSpaceSecToken
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ClothingOuterArmorBasic

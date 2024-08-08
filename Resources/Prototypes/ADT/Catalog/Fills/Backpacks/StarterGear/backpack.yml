@@ -9,3 +9,13 @@
       - id: BodyBagFolded
       # До добавления слота носков- id: ADTFootTag
       - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackFilled
+  noSpawn: true
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: SpaceCash500
