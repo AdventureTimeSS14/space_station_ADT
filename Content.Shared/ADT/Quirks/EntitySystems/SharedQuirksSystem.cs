@@ -18,8 +18,6 @@ public abstract class SharedQuirksSystem : EntitySystem
 {
     [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -62,7 +60,9 @@ public abstract class SharedQuirksSystem : EntitySystem
     public void TryHide(EntityUid uid, EntityUid closet)
     {
         if (_storage.Insert(uid, closet))
+        {
             _popup.PopupClient(Loc.GetString("quirk-fast-locker-hide-success"), uid);
+        }
         else
             _popup.PopupCursor(Loc.GetString("quirk-fast-locker-hide-fail"), uid);
     }
