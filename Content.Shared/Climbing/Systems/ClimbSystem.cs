@@ -215,8 +215,11 @@ public sealed partial class ClimbSystem : VirtualController
         RaiseLocalEvent(climbable, ref ev);
         if (ev.Cancelled)
             return false;
+        var speedEv = new CheckClimbSpeedModifiersEvent(user, entityToMove, climbable, comp.ClimbDelay);
+        RaiseLocalEvent(entityToMove, ref speedEv);
+        var delay = speedEv.Time;
 
-        var args = new DoAfterArgs(EntityManager, user, comp.ClimbDelay, new ClimbDoAfterEvent(),
+        var args = new DoAfterArgs(EntityManager, user, delay, new ClimbDoAfterEvent(),
             entityToMove,
             target: climbable,
             used: entityToMove)
