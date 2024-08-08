@@ -1,5 +1,5 @@
 - type: entity
-  parent: ADTPlayerSiliconHumanoidBaseSchrodinger
+  parent: ADTPlayerSiliconHumanoidBaseSchrodinger # разкоменитить
   id: ADTMobCyborSecurity
   name: Security Cyborg
   description: A cyborg designed to quell any unrest. Mechanized heavy power.
@@ -82,9 +82,6 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
   - type: WiresPanel  # + Тех панель
-  - type: Wires
-    boardName: "ipc-board-name"
-    layoutId: ADTBodyCyborgSec
   - type: SSDIndicator
   #- type: UnblockableSpeech  По идее должен иметь возможность разговаривать после крита, но тоже самое после смерти
   # - type: EmotePanel
