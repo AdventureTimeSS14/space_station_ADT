@@ -1,0 +1,146 @@
+- type: entity
+  id: PartKobolt
+  parent: PartReptilian
+  name: "kobolt body part"
+  abstract: true
+
+- type: entity
+  id: TorsoKobolt
+  name: "kobolt torso"
+  parent: TorsoReptilian
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadKobolt
+  name: "kobolt head"
+  parent: HeadReptilian
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "head_m"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: InputMover
+  - type: GhostOnMove
+
+- type: entity
+  id: LeftArmKobolt
+  name: "left kobolt arm"
+  parent: [PartKobolt, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmKobolt
+  name: "right kobolt arm"
+  parent: [PartKobolt, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandKobolt
+  name: "left kobolt hand"
+  parent: [PartKobolt, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandKobolt
+  name: "right kobolt hand"
+  parent: [PartKobolt, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegKobolt
+  name: "left kobolt leg"
+  parent: [PartKobolt, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_leg"
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.5
+
+- type: entity
+  id: RightLegKobolt
+  name: "right kobolt leg"
+  parent: [PartKobolt, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_leg"
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.5
+
+- type: entity
+  id: LeftFootKobolt
+  name: "left kobolt foot"
+  parent: [PartKobolt, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootKobolt
+  name: "right kobolt foot"
+  parent: [PartKobolt, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_foot"
