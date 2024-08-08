@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿﻿using System.IO;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text.Json.Serialization;
 using Lidgren.Network;
 using Robust.Shared.Network;
@@ -11,6 +13,9 @@ namespace Content.Shared.Corvax.Sponsors;
 [Serializable, NetSerializable]
 public sealed class SponsorInfo
 {
+    [JsonPropertyName("CharacterName")]
+    public string CharacterName { get; set; } = null!;
+
     [JsonPropertyName("tier")]
     public int? Tier { get; set; }
 
@@ -19,12 +24,62 @@ public sealed class SponsorInfo
 
     [JsonPropertyName("priorityJoin")]
     public bool HavePriorityJoin { get; set; } = false;
-    
+
     [JsonPropertyName("extraSlots")]
     public int ExtraSlots { get; set; }
 
     [JsonPropertyName("allowedMarkings")] // TODO: Rename API field in separate PR as breaking change!
     public string[] AllowedMarkings { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("expireDate")]
+    public DateTime ExpireDate {get; set;}
+
+    [JsonPropertyName("allowJob")]
+    public bool AllowJob { get; set; }
+}
+
+public sealed class MsgSponsorListInfo : NetMessage
+{
+    public override MsgGroups MsgGroup => MsgGroups.Command;
+
+    public SponsorInfo[]? Sponsors;
+
+    public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
+    {
+        var _listSponsors = new List<SponsorInfo>();
+        var _itemsCount = buffer.ReadVariableInt32();
+        buffer.ReadPadBits();
+        for (int i = 0; i <= _itemsCount - 1; i++)
+        {
+            SponsorInfo _sponsor;
+            var length = buffer.ReadVariableInt32();
+            using var stream = new MemoryStream();
+            buffer.ReadAlignedMemory(stream, length);
+            serializer.DeserializeDirect(stream, out _sponsor);
+            _listSponsors.Add(_sponsor);
+            buffer.ReadPadBits();
+        }
+
+        Sponsors = _listSponsors.ToArray();
+    }
+
+    public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
+    {
+        var _itemsCount = Sponsors?.Length ?? 0;
+        buffer.WriteVariableInt32(_itemsCount);
+        buffer.WritePadBits();
+        if (Sponsors != null)
+        {
+            foreach (var sponsor in Sponsors)
+            {
+                var stream = new MemoryStream();
+                serializer.SerializeDirect(stream, sponsor);
+                buffer.WriteVariableInt32((int) stream.Length);
+                buffer.Write(stream.AsSpan());
+                buffer.WritePadBits();
+            }
+        }
+    }
 }
 
 
@@ -36,14 +91,15 @@ public sealed class MsgSponsorInfo : NetMessage
     public override MsgGroups MsgGroup => MsgGroups.Command;
 
     public SponsorInfo? Info;
-    
+
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         var isSponsor = buffer.ReadBoolean();
         buffer.ReadPadBits();
         if (!isSponsor) return;
         var length = buffer.ReadVariableInt32();
-        using var stream = buffer.ReadAlignedMemory(length);
+        using var stream = new MemoryStream();
+        buffer.ReadAlignedMemory(stream, length);
         serializer.DeserializeDirect(stream, out Info);
     }
 

@@ -24,10 +24,10 @@ public sealed class CCCVars
      */
 
     /// <summary>
-    /// Deny any VPN connections.
+    ///     Controls if the connections queue is enabled. If enabled stop kicking new players after `SoftMaxPlayers` cap and instead add them to queue.
     /// </summary>
-    public static readonly CVarDef<bool> PanicBunkerDenyVPN =
-        CVarDef.Create("game.panic_bunker.deny_vpn", false, CVar.SERVERONLY);
+    public static readonly CVarDef<bool>
+        QueueEnabled = CVarDef.Create("queue.enabled", false, CVar.SERVERONLY);
 
     /**
      * TTS (Text-To-Speech)

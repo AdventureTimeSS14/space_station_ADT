@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using Content.Client.Corvax.Sponsors;
 using Content.Client.Corvax.TTS;
-using Content.Client.Lobby;
-using Content.Corvax.Interfaces.Shared;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Preferences;
+using Robust.Client.UserInterface;
+using Robust.Client.GameObjects;
 
 namespace Content.Client.Lobby.UI;
 
@@ -27,8 +27,6 @@ public sealed partial class HumanoidProfileEditor
         };
 
         VoicePlayButton.OnPressed += _ => PlayPreviewTTS();
-
-        IoCManager.Instance!.TryResolveType(out _sponsorsMgr);
     }
 
     private void UpdateTTSVoicesControls()

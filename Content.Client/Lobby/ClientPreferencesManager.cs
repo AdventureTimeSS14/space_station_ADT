@@ -13,12 +13,12 @@ namespace Content.Client.Lobby
     ///     connection.
     ///     Stores preferences on the server through <see cref="SelectCharacter" /> and <see cref="UpdateCharacter" />.
     /// </summary>
-    public partial class ClientPreferencesManager : IClientPreferencesManager
+    public sealed class ClientPreferencesManager : IClientPreferencesManager
     {
         [Dependency] private readonly IClientNetManager _netManager = default!;
+        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
         [Dependency] private readonly IBaseClient _baseClient = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
 
         public event Action? OnServerDataLoaded;
 
@@ -63,8 +63,9 @@ namespace Content.Client.Lobby
         {
             var collection = IoCManager.Instance!;
             // Corvax-Sponsors-Start
-            var allowedMarkings = _sponsorsManager.TryGetInfo(out var sponsor) ? sponsor.AllowedMarkings : new string[]{};
-            profile.EnsureValid(allowedMarkings);
+            var allowedMarkings = _sponsorsManager.TryGetInfo(out var sponsor) ? sponsor.AllowedMarkings : [];
+            var session = _playerManager.LocalSession!;
+            profile.EnsureValid(session, collection, allowedMarkings);
             // Corvax-Sponsors-End
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
             Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor);
