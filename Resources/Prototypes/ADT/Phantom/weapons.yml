@@ -23,7 +23,7 @@
 - type: entity
   name: mysterious power cell
   description: Unrechargeable powercell made from ectoplasm.
-  id: PowerCellEctoplasm
+  id: ADTPowerCellEctoplasm
   parent: BasePowerCell
   components:
   - type: Sprite
@@ -46,7 +46,7 @@
 - type: entity
   name: small mysterious power cell
   description: Unrechargeable powercell made from ectoplasm.
-  id: PowerCellEctoplasmSmall
+  id: ADTPowerCellEctoplasmSmall
   parent: BasePowerCell
   components:
   - type: Sprite
@@ -100,7 +100,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: ADTPhantomEctoplasm
+        startingItem: ADTPowerCellEctoplasm
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -156,7 +156,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: ADTPhantomEctoplasm
+        startingItem: ADTPowerCellEctoplasmSmall
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:

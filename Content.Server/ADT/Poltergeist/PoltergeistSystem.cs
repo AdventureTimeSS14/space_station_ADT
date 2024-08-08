@@ -202,7 +202,7 @@ public sealed partial class PoltergeistSystem : EntitySystem
         foreach (var ent in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 8f))
         {
             if (TryComp<GhostRadioComponent>(ent, out var radio) && radio.Enabled)
-                _chat.TrySendInGameICMessage(ent, args.Message, InGameICChatType.Whisper, false);
+                _chat.TrySendInGameICMessage(ent, args.Message, InGameICChatType.Whisper, false, ignoreActionBlocker: true);
         }
         // TODO ghost radio
         // upd: it took 5 minutes to do it WHAT DA HEEEEEL

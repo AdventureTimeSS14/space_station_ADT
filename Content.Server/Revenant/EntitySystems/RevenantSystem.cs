@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.Actions;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
@@ -45,6 +46,7 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
+    [Dependency] private readonly ExplosionSystem _explotions = default!;
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string RevenantShopId = "ActionRevenantShop";
@@ -64,7 +66,7 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
 
         InitializeAbilities();
-        InitializeInstantEffects();
+        InitializeInstantEffects(); // ADT Revenant instant effects
     }
 
     private void OnStartup(EntityUid uid, RevenantComponent component, ComponentStartup args)
@@ -151,6 +153,9 @@ public sealed partial class RevenantSystem : EntitySystem
             if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
             {
                 shield.Used = true;
+                _status.TryRemoveStatusEffect(uid, "Stun");
+                _status.TryRemoveStatusEffect(uid, "Corporeal");
+                ChangeEssenceAmount(uid, 50, allowDeath: false);
                 return true;
             }
             // ADT Revenant shield ability end
