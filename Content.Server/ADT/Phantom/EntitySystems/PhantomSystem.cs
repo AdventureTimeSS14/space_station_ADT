@@ -1458,7 +1458,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         foreach (var ent in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 8f))
         {
             if (TryComp<GhostRadioComponent>(ent, out var radio) && radio.Enabled)
-                _chatSystem.TrySendInGameICMessage(ent, args.Message, InGameICChatType.Whisper, false);
+                _chatSystem.TrySendInGameICMessage(ent, args.Message, InGameICChatType.Whisper, false, ignoreActionBlocker: true);
         }
 
         bool playSound = false;

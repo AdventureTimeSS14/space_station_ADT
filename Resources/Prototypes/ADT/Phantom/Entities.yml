@@ -70,9 +70,9 @@
     speechVerb: Ghost
   - type: LanguageSpeaker # Frontier
     speaks:
-    - GalacticCommon
+    - Universal
     understands:
-    - GalacticCommon
+    - Universal
   - type: TypingIndicator
     proto: alien
 
