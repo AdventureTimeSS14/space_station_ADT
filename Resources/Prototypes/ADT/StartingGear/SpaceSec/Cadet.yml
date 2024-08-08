@@ -7,10 +7,10 @@
     eyes: ClothingEyesGlassesSunglasses
     id: ADTSpaceSecCadetIDCard
     ears: ADTSpaceSecClothingHeadset
-    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+#    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
     socks: ClothingUnderwearSocksNormal
     neck: ADTSpaceSecToken
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ClothingOuterArmorBasic
-  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
-  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+#  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+#  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
