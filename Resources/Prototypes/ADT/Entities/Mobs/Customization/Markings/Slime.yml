@@ -3,7 +3,7 @@
   id: SlimeRabbitAntennae
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [SlimeSpecies]
+  speciesRestriction: [SlimePerson]
   sprites:
   - sprite: ADT/Mobs/Slime/custom.rsi
     state: rabbit-antennae
@@ -12,7 +12,7 @@
   id: SlimeRabbitEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [SlimeSpecies]
+  speciesRestriction: [SlimePerson]
   sprites:
   - sprite: ADT/Mobs/Slime/custom.rsi
     state: rabbit-ears
@@ -21,7 +21,7 @@
   id: SlimeButterflyWings
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [SlimeSpecies]
+  speciesRestriction: [SlimePerson]
   sprites:
   - sprite: ADT/Mobs/Slime/custom.rsi
     state: butterfly_wings
