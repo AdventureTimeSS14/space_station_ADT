@@ -14,7 +14,7 @@
   id: DraskTalk
   files:
     - /Audio/ADT/Drask/drasktalk.ogg
- 
+
 # IPC
 - type: soundCollection
   id: SynthYes
@@ -59,7 +59,7 @@
     - /Audio/ADT/Novakid/novakid_laugh03.ogg
     - /Audio/ADT/Novakid/novakid_laugh04.ogg
     - /Audio/ADT/Novakid/novakid_laugh05.ogg
-    
+
 - type: soundCollection
   id: TajaranHisses
   files:
@@ -113,3 +113,97 @@
   id: MothSqueak
   files:
   - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: UrsusScreams
+  files:
+  - /Audio/ADT/Ursus/scream1.ogg
+  - /Audio/ADT/Ursus/scream2.ogg
+  - /Audio/ADT/Ursus/scream3.ogg
+  - /Audio/ADT/Ursus/scream4.ogg
+
+- type: soundCollection
+  id: UrsusCry
+  files:
+  - /Audio/ADT/Ursus/cry1.ogg
+  - /Audio/ADT/Ursus/cry2.ogg
+
+- type: soundCollection
+  id: UrsusLaugh
+  files:
+  - /Audio/ADT/Ursus/laugh1.ogg
+  - /Audio/ADT/Ursus/laugh2.ogg
+
+- type: soundCollection
+  id: NesMaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/growl1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl2.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl3.ogg
+
+- type: soundCollection
+  id: NesFemaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/scream1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/scream2.ogg
+
+- type: soundCollection
+  id: VulpHowls
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/howl.ogg
+
+- type: soundCollection
+  id: VulpBarks
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/bark.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark1.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark2.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark3.ogg
+
+- type: soundCollection
+  id: VulpWhines
+  files:
+  - /Audio/ADT/Voice/Doge/dog_whine.ogg
+
+- type: soundCollection
+  id: VulpGrowls
+  files:
+  - /Audio/ADT/Voice/Doge/dog_growl1.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl2.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl3.ogg
+
+- type: soundCollection
+  id: VulpHeckaetSound
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/vulpkanin_hekaet1.ogg
+
+#feliinid
+
+- type: soundCollection
+  id: FelinidHisses
+  files:
+  - /Audio/ADT/Felinid/cat_hiss1.ogg
+  - /Audio/ADT/Felinid/cat_hiss2.ogg
+
+- type: soundCollection
+  id: FelinidMeows
+  files:
+  - /Audio/ADT/Felinid/cat_meow1.ogg
+  - /Audio/ADT/Felinid/cat_meow2.ogg
+  - /Audio/ADT/Felinid/cat_meow3.ogg
+
+- type: soundCollection
+  id: FelinidMews
+  files:
+  - /Audio/ADT/Felinid/cat_mew1.ogg
+  - /Audio/ADT/Felinid/cat_mew2.ogg
+
+- type: soundCollection
+  id: FelinidGrowls
+  files:
+  - /Audio/ADT/Felinid/cat_growl1.ogg
+
+- type: soundCollection
+  id: FelinidPurrs
+  files:
+  - /Audio/ADT/Felinid/cat_purr1.ogg

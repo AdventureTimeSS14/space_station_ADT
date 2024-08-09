@@ -119,6 +119,33 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 4.5
     baseSprintSpeed : 2.7
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: shoes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: head
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -127,52 +154,17 @@
     understands:
     - GalacticCommon
     - Shadekin
-  # - type: SizeAttributeWhitelist # Frontier
-  #   tall: true
-  #   tallscale: 1
-  #   short: true
-  #   shortscale: 0.85
-  - type: Inventory
-    displacements:
-      jumpsuit:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
-      shoes:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: shoes
-          copyToShaderParameters:
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
-      gloves:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: hand
-          copyToShaderParameters:
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
-      head:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: head
-          copyToShaderParameters:
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1
+    short: true
+    shortscale: 0.85
 
 - type: entity
   save: false
   parent: MobHumanDummy
   id: MobShadekinDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy shadekin meant to be used in character setup.
   components:
   - type: HumanoidAppearance
@@ -180,35 +172,27 @@
   - type: Inventory
     displacements:
       jumpsuit:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
       shoes:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: shoes
-          copyToShaderParameters:
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: shoes
       gloves:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: hand
-          copyToShaderParameters:
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: hand
       outerClothing:
-        layer:
-          sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-          state: outerClothing
-          copyToShaderParameters:
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: head

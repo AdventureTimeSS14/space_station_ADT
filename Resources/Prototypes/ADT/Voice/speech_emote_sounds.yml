@@ -304,11 +304,11 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
-    # ADT-Apathy Sounds. 
+    # ADT-Apathy Sounds.
     Scream-apathy:
       collection: NovakidScreams
     Laugh-apathy:
-      collection: NovakidLaugh 
+      collection: NovakidLaugh
     Sigh-apathy:
       collection: MaleSigh
     Crying-apathy:
@@ -347,16 +347,16 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    # ADT-Apathy Sounds. 
+    # ADT-Apathy Sounds.
     Scream-apathy:
       collection: NovakidScreams
     Laugh-apathy:
-      collection: NovakidLaugh 
+      collection: NovakidLaugh
     Sigh-apathy:
       collection: FemaleSigh
     Crying-apathy:
       collection: FemaleCry
-      
+
 - type: emoteSounds
   id: UnisexIPC
   sounds:
@@ -379,3 +379,256 @@
   params:
     variation: 0.125
 
+- type: emoteSounds
+  id: MaleUrsus
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: UrsusScreams
+    Laugh:
+      collection: UrsusLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: UrsusCry
+    Whistle:
+      collection: Whistles
+
+- type: emoteSounds
+  id: FemaleUrsus
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: UrsusScreams
+    Laugh:
+      collection: UrsusLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: UrsusCry
+    Whistle:
+      collection: Whistles
+
+- type: emoteSounds
+  id: NesMaleVulpa
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: NesMaleVulpaScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Howl:
+      collection: VulpHowls
+    Bark:
+      collection: VulpBarks
+    Growl:
+      collection: VulpGrowls
+    Whine:
+      collection: VulpWhines
+    Whistle:
+      collection: Whistles
+    Heckaet:
+      collection: VulpHeckaetSound
+
+- type: emoteSounds
+  id: NesFemaleVulpa
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: NesFemaleVulpaScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Howl:
+      collection: VulpHowls
+    Bark:
+      collection: VulpBarks
+    Growl:
+      collection: VulpGrowls
+    Whine:
+      collection: VulpWhines
+    Whistle:
+      collection: Whistles
+    Heckaet:
+      collection: VulpHeckaetSound
+
+- type: emoteSounds
+  id: MaleFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+    Laugh:
+      collection: MaleLaugh
+    Hiss:
+      collection: FelinidHisses
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    # ADT-Apathy Sounds.
+    Scream-apathy:
+      collection: FelinidScreams
+    Laugh-apathy:
+      collection: MaleLaugh
+    Sigh-apathy:
+      collection: MaleSigh
+    Crying-apathy:
+      collection: MaleCry
+
+- type: emoteSounds
+  id: FemaleFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Hiss:
+      collection: FelinidHisses
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    # ADT-Apathy Sounds.
+    Scream-apathy:
+      collection: FelinidScreams
+    Laugh-apathy:
+      collection: FemaleLaugh
+    Sigh-apathy:
+      collection: FemaleSigh
+    Crying-apathy:
+      collection: FemaleCry
