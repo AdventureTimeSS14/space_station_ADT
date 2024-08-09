@@ -21,4 +21,4 @@ phantom-cond-maxphantomlevelreached = Фантом достиг максимал
 phantom-welcome =
     Вы - неупокоенный дух, способный воздействовать на реальность. Пути к выполнению ваших целей могут быть любыми, ограничивает вас лишь фантазия.
 
-objective-issuer-phantom = Фантом
+objective-issuer-phantom = [color=#6500c9]Фантом[/color]

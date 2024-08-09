@@ -1,6 +1,27 @@
 ent-ADTMobPhantom = фантом
     .desc = Повод задуматься, точно ли вы атеист.
 
+ent-KillPhantomImmunePersonObjective = Убить
+    .desc = Эта цель невосприимчива к моим фокусам. Нужно избавиться от такого феномена.
+
+ent-PhantomKeepAliveObjective = Защить
+    .desc = Мне нужно любыми способами защитить цель и убедиться, что она доберётся до ЦентКома живой.
+
+ent-PhantomMakeVesselObjective = Сделать сосудом.
+    .desc = Цель должна быть моим сосудом хотя бы до конца смены.
+
+ent-PhantomEscapeShuttleObjective = Выжить
+    .desc = Это ещё не конец...
+
+ent-PhantomStartNightmareObjective = Кошмар
+    .desc = Я стану их худшим кошмаром.
+
+ent-PhantomReincarnateObjective = Реинкарнация
+    .desc = Ещё возможно вернуться в этот мир... Нельзя упустить эту возможность.
+
+ent-PhantomTyranyObjective = Тирания
+    .desc = Я завладею этой станцией, неважно, какой ценой.
+
 phantom-haunt-fail-self = Вы уже следуете за {CAPITALIZE(THE($target))}.
 
 phantom-haunt-self = Вы начали следовать за {CAPITALIZE(THE($target))}.

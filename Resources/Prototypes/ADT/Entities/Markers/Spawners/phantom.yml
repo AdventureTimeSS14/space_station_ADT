@@ -1,0 +1,19 @@
+- type: entity
+  id: SpawnPointGhostPhantom
+  name: ghost role spawn point
+  suffix: rat king
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-phantom-name
+    description: ghost-role-information-phantom-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobPhantom
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Phantom/phantom.rsi
+        state: phantom

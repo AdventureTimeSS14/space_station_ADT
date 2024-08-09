@@ -14,17 +14,17 @@
   components:
   - type: GameRule
     minPlayers: 1 #30
-  # - type: AntagSelection
-  #   selectionTime: PrePlayerSpawn
-  #   definitions:
-  #   - prefRoles: [ Phantom ]
-  #     # spawnerPrototype: SpawnPointObserver
-  #     max: 1
-  #     components:
-  #     - type: NpcFactionMember
-  #       factions:
-  #       - Syndicate
-  #     mindComponents:
-  #     - type: PhantomRole
-  #       prototype: Phantom
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ Phantom ]
+      spawnerPrototype: SpawnPointGhostPhantom
+      max: 1
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: PhantomRole
+        prototype: Phantom
   - type: AntagRandomSpawn
