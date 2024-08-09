@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesHudPhantom
+  name: ectoplasmic hud
+  description: Im tired
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/HUD/phantom_hud.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/HUD/phantom_hud.rsi
+  - type: ShowHauntedIcons
+

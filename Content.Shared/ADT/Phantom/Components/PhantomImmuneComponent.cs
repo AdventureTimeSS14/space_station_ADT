@@ -3,7 +3,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.Antag;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Phantom.Components;
+namespace Content.Shared.ADT.Phantom.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PhantomImmuneComponent : Component

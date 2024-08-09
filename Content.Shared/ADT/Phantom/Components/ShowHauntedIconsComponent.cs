@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Phantom.Components;
+namespace Content.Shared.ADT.Phantom.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShowHauntedIconsComponent : Component

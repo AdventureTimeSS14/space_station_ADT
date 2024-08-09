@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Shared.FixedPoint;
 using Content.Shared.Eui;
-using Content.Shared.Hallucinations;
+using Content.Shared.ADT.Hallucinations;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -9,7 +9,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Audio;
 using Content.Shared.Alert;
 
-namespace Content.Shared.Phantom.Components;
+namespace Content.Shared.ADT.Phantom.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(true)]

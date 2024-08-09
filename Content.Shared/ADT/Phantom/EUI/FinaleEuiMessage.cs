@@ -1,7 +1,7 @@
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Phantom;
+namespace Content.Shared.ADT.Phantom;
 
 [Serializable, NetSerializable]
 public enum PhantomFinaleButton

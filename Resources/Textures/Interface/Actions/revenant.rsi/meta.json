@@ -30,6 +30,12 @@
     },
     {
         "name": "rev_speak"
+    },
+    {
+        "name": "rage"
+    },
+    {
+        "name": "shield"
     }
   ]
 }

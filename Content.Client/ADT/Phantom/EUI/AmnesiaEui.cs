@@ -2,9 +2,9 @@ using Content.Client.Eui;
 using Content.Shared.Cloning;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
-using Content.Shared.Phantom;
+using Content.Shared.ADT.Phantom;
 
-namespace Content.Client.Phantom;
+namespace Content.Client.ADT.Phantom;
 
 [UsedImplicitly]
 public sealed class PhantomAmnesiaEui : BaseEui

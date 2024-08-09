@@ -5,7 +5,7 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Localization;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Client.Phantom;
+namespace Content.Client.ADT.Phantom;
 
 public sealed class PhantomFinaleWindow : DefaultWindow
 {

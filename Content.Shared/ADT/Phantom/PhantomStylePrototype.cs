@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Phantom;
+namespace Content.Shared.ADT.Phantom;
 
 /// <summary>
 /// A prototype for phantom styles.

@@ -27,7 +27,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Revenant.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
-using Content.Server.Hallucinations;
+using Content.Server.ADT.Hallucinations;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;

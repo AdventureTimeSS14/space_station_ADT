@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Hallucinations;
+namespace Content.Shared.ADT.Hallucinations;
 
 /// <summary>
 ///     Packs of entities that can become a hallucination

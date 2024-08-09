@@ -6,7 +6,7 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
-using Content.Shared.Phantom.Components;
+using Content.Shared.ADT.Phantom.Components;
 
 namespace Content.Server.Objectives.Systems;
 
