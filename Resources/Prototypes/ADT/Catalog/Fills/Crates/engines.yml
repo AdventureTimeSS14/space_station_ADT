@@ -1,0 +1,7 @@
+- type: entity
+  id: CrateEngineeringIndustrialSMES
+  parent: CrateEngineeringSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTIndustrialSMESEmpty

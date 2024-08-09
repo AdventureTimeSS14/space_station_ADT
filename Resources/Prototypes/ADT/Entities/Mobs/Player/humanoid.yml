@@ -420,22 +420,6 @@
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 
-# start Майор РХБЗЗ
-- type: entity
-  id: ADTRandomHumanoidSpawnerCBURNUnit
-  name: Cmnd CBURN Agent
-  suffix: AdtERTRole
-  components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: cburn
-    - type: RandomHumanoidSpawner
-      settings: ADTCmndCBURNAgent
-    - type: AutoImplant
-      implants:
-      - MindShieldImplant
-
-
 - type: randomHumanoidSettings
   speciesBlacklist:
     - Diona
@@ -455,4 +439,17 @@
       nameSegments:
       - ADTCmndNamesFirstMilitary
       - NamesLastERTCallsign  # Corvax Localization
-# end Майор РХБЗЗ
+
+- type: entity
+  id: ADTRandomHumanoidSpawnerCBURNUnit
+  name: Cmnd CBURN Agent
+  suffix: AdtERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: ADTCmndCBURNAgent
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant

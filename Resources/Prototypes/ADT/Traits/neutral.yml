@@ -1,0 +1,31 @@
+- type: trait
+  id: Tall
+  name: trait-tall-name
+  description: trait-tall-desc
+  category: Height
+  cost: 1
+  whitelist:
+    components:
+      - SizeAttributeWhitelist
+  blacklist:
+    components:
+      - SizeAttribute
+  components:
+    - type: SizeAttribute
+      tall: true
+
+- type: trait
+  id: Short
+  name: trait-short-name
+  description: trait-short-desc
+  category: Height
+  cost: 1
+  whitelist:
+    components:
+      - SizeAttributeWhitelist
+  blacklist:
+    components:
+      - SizeAttribute
+  components:
+    - type: SizeAttribute
+      short: true
