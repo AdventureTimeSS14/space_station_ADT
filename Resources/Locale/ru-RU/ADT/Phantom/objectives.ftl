@@ -1,7 +1,10 @@
+objective-condition-phantom-kill-person-title = Убить {$targetName}, {CAPITALIZE($job)}
 phantom-kill-objective-desc = Появился необычайный феномен, на который я никак не могу воздействовать. Нужно от него избавиться.
 
+objective-condition-phantom-alive-title = Защить {$targetName}, {CAPITALIZE($job)}
 phantom-keep-alive-objective-desc = Его время ещё не пришло.
 
+objective-condition-phantom-vessel-title = Сделайте {$targetName}, {CAPITALIZE($job)}, сосудом
 phantom-make-vessel-objective-desc = Мне нужен этот сосуд.
 
 phantom-escape-objective-name = Выжить
