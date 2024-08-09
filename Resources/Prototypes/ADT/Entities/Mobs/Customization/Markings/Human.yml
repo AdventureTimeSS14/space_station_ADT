@@ -455,7 +455,7 @@
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
-    state: tattoo-space_christian_cross
+    state: tattoo_space_christian_cross
 
 - type: marking
   id: HumanTattooArmlazaL
