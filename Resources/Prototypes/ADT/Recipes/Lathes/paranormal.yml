@@ -79,7 +79,7 @@
 
 - type: latheRecipe
   id: EctoBatterySmall
-  result: PowerCellEctoplasmSmall
+  result: ADTPowerCellEctoplasmSmall
   completetime: 3
   materials:
     Steel: 300
@@ -88,7 +88,7 @@
 
 - type: latheRecipe
   id: EctoBattery
-  result: PowerCellEctoplasm
+  result: ADTPowerCellEctoplasm
   completetime: 6
   materials:
     Steel: 500
