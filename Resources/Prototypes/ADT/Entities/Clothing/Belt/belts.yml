@@ -1,6 +1,6 @@
 # Blueshield
 - type: entity
-  id: ClothingBeltMedicalSecurity
+  id: ADTClothingBeltMedicalSecurity
   name: medical-security belt
   description: Special medical-security belt.
   parent: ClothingBeltStorageBase

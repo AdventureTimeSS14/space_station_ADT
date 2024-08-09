@@ -1,6 +1,6 @@
 - type: entity
-  id: ClothingBeltMedicalSecurityFilled
-  parent: ClothingBeltMedicalSecurity
+  id: ADTClothingBeltMedicalSecurityFilled
+  parent: ADTClothingBeltMedicalSecurity
   suffix: Filled
   components:
   - type: StorageFill

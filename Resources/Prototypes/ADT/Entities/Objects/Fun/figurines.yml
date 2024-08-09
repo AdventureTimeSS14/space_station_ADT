@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseFigurine
-  id: ToyFigurineBlueshieldOfficer
+  id: ADTToyFigurineBlueshieldOfficer
   name: blueshield officer figure
   description: A figurine depicting the blueshield officer, austere and blue, stands guard over the station government. I guess.
   components:

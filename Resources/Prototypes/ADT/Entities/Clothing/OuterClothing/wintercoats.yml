@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingOuterWinterCoat
-  id: ClothingOuterWinterBlueshield
+  id: ADTClothingOuterWinterBlueshield
   name: blueshield's winter coat
   components:
   - type: Sprite

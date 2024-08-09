@@ -41,13 +41,13 @@
   id: ADTBlueShieldOfficerGear
   equipment:
     head: ADTClothingHeadHatBeretBlueshieldBlack
-    eyes: ClothingEyesGlassesBlueshield
-    ears: ClothingHeadsetBlueshield
-    jumpsuit: ClothingUniformJumpsuitBlueshield
+    eyes: ADTClothingEyesGlassesBlueshield
+    ears: ADTClothingHeadsetBlueshield
+    jumpsuit: ADTClothingUniformJumpsuitBlueshield
     back: ADTClothingBlueshieldBackpack
     shoes: ClothingShoesBootsCombatFilled
     outerClothing: ADTClothingBlueshieldArmor
-    belt: ClothingBeltMedicalSecurityFilled
+    belt: ADTClothingBeltMedicalSecurityFilled
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
     pocket2: HandheldCrewMonitor

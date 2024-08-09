@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseWeaponCaseNTBS
+  id: ADTBaseWeaponCaseNTBS
   name: weapon case
   description: Weapon case, special designed for ERT.
   parent: [ BaseStorageItem, BaseBagOpenClose ]

@@ -2,14 +2,9 @@ ent-ADTClothingUniformsJumpsuitWhiteDiplomatSuitL = Белый костюм ди
     .desc = Специально сделанный белый костюм дипломата NanoTrasen.
 ent-ADTClothingUniformPathologistSuit = костюм патологоанатома
     .desc = Лёгкий комбинезон для работника морга.
-ent-ADTClothingUniformPathologistSkirt = юбка-костюм патологоанатома
-    .desc = Лёгкая юбка-комбинезон для работницы морга.
+
 ent-ADTClothingUniformPathologistSuitAlt = чёрный костюм патологоанатома
     .desc = Лёгкий комбинезон для работника морга. Более угрюмая версия.
-ent-ADTClothingUniformPathologistSkirtAlt = чёрная юбка-костюм патологоанатома
-    .desc = Лёгкая юбка-комбинезон для работницы морга. Более угрюмая версия.
 
-ent-ClothingUniformJumpsuitBlueshield = костюм офицера "Синего Щита"
+ent-ADTClothingUniformJumpsuitBlueshield = костюм офицера "Синего Щита"
     .desc = Военные штаны и белая рубашка с погонами Офицера "Синего Щита", уже очень скоро она будет окроплена кроваво-алой кровью врагов НТ, перепутавших его с охранником продуктового магазина 21-го века.
-ent-ClothingUniformJumpskirtBlueshield = юбка и костюм офицера "Синего Щита"
-    .desc = Юбка и белая рубашка с погонами Офицера "Синего Щита", уже очень скоро она будет окроплена кроваво-алой кровью врагов НТ, перепутавших его с охранником продуктового магазина 21-го века.

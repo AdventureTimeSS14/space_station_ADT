@@ -100,8 +100,6 @@
         orGroup: SpacemenFig
       - id: ToyFigurineGreytider
         orGroup: SpacemenFig
-      - id: ToyFigurineBlueshieldOfficer
-        orGroup: SpacemenFig
       - id: ToyFigurineWizard
         prob: 0.50
         orGroup: SpacemenFig
@@ -134,4 +132,6 @@
         orGroup: SpacemenFig
       - id: ToyFigurineHamlet
         prob: 0.20
+        orGroup: SpacemenFig
+      - id: ADTToyFigurineBlueshieldOfficer  #ADT-Tweak
         orGroup: SpacemenFig

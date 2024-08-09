@@ -44,7 +44,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - ADTBlueShieldOfficer
+  - ADTBlueShieldOfficer # ADT-Roles
   primary: false
   weight: 100
 

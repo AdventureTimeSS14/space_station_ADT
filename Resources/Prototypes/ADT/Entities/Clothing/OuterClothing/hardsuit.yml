@@ -24,7 +24,7 @@
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: BlueshieldSuit
+  id: ADTBlueshieldSuit
   name: blueshield's hardsuit
   description: A rugged and mobile spacesuit for the lives of high-ranking members of Nanotrasen.
   components:
@@ -52,4 +52,4 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitBlueshield
+    clothingPrototype: ADTClothingHeadHelmetHardsuitBlueshield

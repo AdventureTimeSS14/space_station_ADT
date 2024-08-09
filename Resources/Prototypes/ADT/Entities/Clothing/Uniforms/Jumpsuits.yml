@@ -12,7 +12,7 @@
 # Blueshield
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitBlueshield
+  id: ADTClothingUniformJumpsuitBlueshield
   name: blueshield's jumpsuit
   description: blueshield's jumpsuit
   components:
@@ -23,7 +23,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitBlueshieldTurtleneck
+  id: ADTClothingUniformJumpsuitBlueshieldTurtleneck
   name: blueshield's turtleneck
   description: blueshield's turtleneck
   components:

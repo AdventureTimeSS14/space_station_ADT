@@ -1,7 +1,7 @@
 # Blueshield
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckCloakBlueshield
+  id: ADTClothingNeckCloakBlueshield
   name: blueshield cloak
   description: A blue cape with an armored shoulder pad, especially for the protection of station heads.
   components:
