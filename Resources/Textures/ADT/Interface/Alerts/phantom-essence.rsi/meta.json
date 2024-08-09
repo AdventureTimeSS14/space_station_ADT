@@ -1,15 +1,15 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Created by EmoGarbage404",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by mnogo_znal",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "essence1"
-        }
+        },
         {
             "name": "essence2"
         },

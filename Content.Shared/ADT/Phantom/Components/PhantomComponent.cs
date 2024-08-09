@@ -231,7 +231,12 @@ public sealed partial class PhantomComponent : Component
 
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<AlertPrototype> EssenceCountAlert = "Essence";
+    public ProtoId<AlertPrototype> EssenceCountAlert = "PhantomEssense";
+
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<AlertPrototype> HauntedAlert = "PhantomStopHaunt";
+
     #endregion
     /// <summary>
     /// The total amount of Essence the phantom has. Functions
@@ -244,7 +249,7 @@ public sealed partial class PhantomComponent : Component
     /// Prototype to spawn when the entity dies.
     /// </summary>
     [DataField("spawnOnDeathPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string SpawnOnDeathPrototype = "Ectoplasm";
+    public string SpawnOnDeathPrototype = "ADTPhantomEctoplasm";
 
     /// <summary>
     /// The entity's current max amount of essence. Can be increased

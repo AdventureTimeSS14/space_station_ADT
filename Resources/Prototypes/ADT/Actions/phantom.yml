@@ -33,19 +33,19 @@
     range: 3
     priority: -89
 
-- type: entity
-  id: ActionPhantomStopHaunt
-  name: action-phantom-stop-haunt
-  description: action-phantom-stop-haunt-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    icon:
-      sprite: ADT/Interface/Actions/actions_phantom.rsi
-      state: breath_in_back
-    itemIconStyle: BigAction
-    event: !type:StopHauntingActionEvent
+#- type: entity
+#  id: ActionPhantomStopHaunt
+#  name: action-phantom-stop-haunt
+#  description: action-phantom-stop-haunt-desc
+#  noSpawn: true
+#  components:
+#  - type: InstantAction
+#    checkCanInteract: false
+#    icon:
+#      sprite: ADT/Interface/Actions/actions_phantom.rsi
+#      state: breath_in_back
+#    itemIconStyle: BigAction
+#    event: !type:StopHauntingActionEvent
     #useDelay: 1
 
 - type: entity

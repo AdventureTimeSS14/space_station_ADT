@@ -71,7 +71,7 @@
   maxSeverity: 10
 
 - type: alert
-  id: PhantomVessels
+  id: PhantomEssense
   icons:
   - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
     state: essence1
@@ -109,3 +109,12 @@
   description: alerts-revenant-essence-desc
   minSeverity: 0
   maxSeverity: 16
+
+- type: alert
+  id: PhantomStopHaunt
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-haunted.rsi
+    state: icon
+  name: alerts-phantom-stop-haunt
+  description: alerts-phantom-stop-haunt-desc
+  onClick: !type:StopHaunt  { }
