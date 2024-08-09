@@ -420,6 +420,7 @@
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 
+# start Майор РХБЗЗ
 - type: randomHumanoidSettings
   speciesBlacklist:
     - Diona
@@ -453,3 +454,4 @@
     - type: AutoImplant
       implants:
       - MindShieldImplant
+# end Майор РХБЗЗ
