@@ -4,3 +4,4 @@ ent-ADTPhantomPortal = неизвестный объект
 ent-ADTPhantomEctoplasm = кристаллическая эктоплазма
     .desc = Казалось бы, откуда она здесь?
 
+tabletop-ouija-board-name = Доска Уиджи

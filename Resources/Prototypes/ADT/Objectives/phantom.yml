@@ -4,7 +4,7 @@
   id: BasePhantomObjective
   components:
   - type: Objective
-    issuer: "Фантом"
+    issuer: objective-issuer-phantom
   - type: RoleRequirement
     roles:
       components:

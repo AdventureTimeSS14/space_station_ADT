@@ -53,7 +53,7 @@
   - type: Vessel
   - type: ShowVesselIcons
   - type: Pullable
-  
+
 - type: entity
   parent: ADTBasePhantomMonster
   id: ADTPhantomUndead
@@ -181,7 +181,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaled: true
+        # scaled: true
         damage:
           types:
             Heat: 20
