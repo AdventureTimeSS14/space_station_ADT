@@ -120,7 +120,7 @@
 - type: entity
   noSpawn: true
   parent: BasePhantomObjective
-  id: PhantomReincarnateObjective
+  id: PhantomTyranyObjective
   name: phantom-tyrany-objective-name
   description: phantom-tyrany-objective-desc
   components:
