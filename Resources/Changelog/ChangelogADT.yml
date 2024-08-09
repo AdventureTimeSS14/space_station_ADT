@@ -2131,3 +2131,14 @@ Entries:
       - {message: 'Подтянуты коммиты с корвакса, 07.08.24', type: Tweak}
     time: '2024-08-07T23:28:50Z'
     id: 228
+  - author: Шрёдька
+    changes:
+      - {message: Починил систему роста., type: Fix}
+      - {message: 'Добавлена новая категория в черты: Рост.', type: Tweak}
+    time: '2024-08-08T14:20:41Z'
+    id: 229
+  - author: Bolper
+    changes:
+      - {message: Перенёс расу кобольдов. Мне тут как бы особо нечего добавить., type: Tweak}
+    time: '2024-08-08T15:07:05Z'
+    id: 230
