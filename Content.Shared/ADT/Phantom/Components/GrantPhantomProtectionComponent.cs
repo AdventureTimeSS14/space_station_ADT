@@ -6,7 +6,7 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Phantom;
+namespace Content.Shared.ADT.Phantom;
 
 [RegisterComponent]
 public sealed partial class GrantPhantomProtectionComponent : Component

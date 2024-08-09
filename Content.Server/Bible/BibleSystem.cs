@@ -18,10 +18,10 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Content.Shared.Controlled;
+using Content.Shared.ADT.Controlled;
 using Content.Shared.Mind;
-using Content.Shared.Phantom.Components;
-using Content.Server.Phantom.EntitySystems;
+using Content.Shared.ADT.Phantom.Components;
+using Content.Server.ADT.Phantom.EntitySystems;
 
 namespace Content.Server.Bible;
 

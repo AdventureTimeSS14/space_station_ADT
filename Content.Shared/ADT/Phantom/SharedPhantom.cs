@@ -6,7 +6,7 @@ using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 
-namespace Content.Shared.Phantom;
+namespace Content.Shared.ADT.Phantom;
 
 #region EntityTarget Actions
 public sealed partial class MakeHolderActionEvent : EntityTargetActionEvent

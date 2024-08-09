@@ -9,7 +9,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Phantom;
+using Content.Shared.ADT.Phantom;
 using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Phantom.UI;

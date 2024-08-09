@@ -12,7 +12,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Content.Client.ADT.Phantom.UI;
-using Content.Shared.Phantom;
+using Content.Shared.ADT.Phantom;
 using Robust.Shared.Player;
 using Content.Shared.ADT.Language;
 using Content.Shared.Preferences;

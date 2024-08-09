@@ -6,7 +6,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Phantom.Components;
+namespace Content.Shared.ADT.Phantom.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PhantomPortalComponent : Component

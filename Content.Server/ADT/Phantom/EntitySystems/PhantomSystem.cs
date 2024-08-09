@@ -2,8 +2,8 @@ using Content.Server.Actions;
 using Content.Shared.Actions;
 using Content.Shared.Physics;
 using Robust.Shared.Physics;
-using Content.Shared.Phantom;
-using Content.Shared.Phantom.Components;
+using Content.Shared.ADT.Phantom;
+using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Map;
 using Content.Shared.Movement.Events;
@@ -52,9 +52,9 @@ using Content.Server.Station.Systems;
 using Content.Server.EUI;
 using Content.Server.Body.Components;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Server.Hallucinations;
+using Content.Server.ADT.Hallucinations;
 using Content.Server.AlertLevel;
-using Content.Shared.Controlled;
+using Content.Shared.ADT.Controlled;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Weapons.Melee;
@@ -70,17 +70,17 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Server.Database;
 using Content.Server.Chat;
-using Content.Shared.Hallucinations;
+using Content.Shared.ADT.Hallucinations;
 using Robust.Shared.Utility;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.GhostInteractions;
+using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Server.Phantom.EntitySystems;
+namespace Content.Server.ADT.Phantom.EntitySystems;
 
 public sealed partial class PhantomSystem : SharedPhantomSystem
 {

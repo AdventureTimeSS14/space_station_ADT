@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Content.Shared.StatusIcon;
 using Content.Shared.Antag;
 
-namespace Content.Shared.Phantom.Components;
+namespace Content.Shared.ADT.Phantom.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(true)]

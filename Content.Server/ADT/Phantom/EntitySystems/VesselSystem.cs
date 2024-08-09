@@ -1,11 +1,11 @@
-using Content.Shared.Phantom.Components;
-using Content.Shared.Phantom;
+using Content.Shared.ADT.Phantom.Components;
+using Content.Shared.ADT.Phantom;
 using Content.Shared.Mobs;
 using Content.Shared.Eye;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
 
-namespace Content.Server.Phantom.EntitySystems;
+namespace Content.Server.ADT.Phantom.EntitySystems;
 
 public sealed partial class PhantomVesselSystem : EntitySystem
 {

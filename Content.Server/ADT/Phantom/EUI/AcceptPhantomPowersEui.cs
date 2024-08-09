@@ -1,10 +1,10 @@
 using Content.Server.EUI;
-using Content.Shared.Phantom;
+using Content.Shared.ADT.Phantom;
 using Content.Shared.Eui;
-using Content.Shared.Phantom.Components;
-using Content.Server.Phantom.EntitySystems;
+using Content.Shared.ADT.Phantom.Components;
+using Content.Server.ADT.Phantom.EntitySystems;
 
-namespace Content.Server.Phantom;
+namespace Content.Server.ADT.Phantom;
 
 public sealed class AcceptPhantomPowersEui : BaseEui
 {

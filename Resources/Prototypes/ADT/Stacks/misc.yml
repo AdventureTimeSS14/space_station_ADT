@@ -1,0 +1,8 @@
+- type: stack
+  id: Ectoplasm
+  name: ectoplasm
+  icon: { sprite: ADT/Objects/Misc/ectoplasm.rsi, state: icon }
+  spawn: ADTPhantomEctoplasm
+  maxCount: 1
+  itemSize: 1
+
