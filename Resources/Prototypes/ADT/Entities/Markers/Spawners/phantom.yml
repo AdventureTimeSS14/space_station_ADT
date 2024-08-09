@@ -12,7 +12,8 @@
       settings: default
   - type: GhostRoleMobSpawner
     prototype: ADTMobPhantom
-    sprite: ADT/Mobs/Phantom/phantom.rsi
+  - type: Sprite
+    sprite: Markers/jobs.rsi
     layers:
       - state: green
       - sprite: ADT/Mobs/Phantom/phantom.rsi
