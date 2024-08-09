@@ -484,7 +484,7 @@
         settings: short
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
+      - ADTNamesFirstMilitaryRXBZZ # ADT Tweak
       - NamesLastMilitary
 
 ## Central Command
