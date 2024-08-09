@@ -1,8 +1,0 @@
-TattoArm_ImHeartMom - Татуровка "Я люблю маму"
-TattoArm-Laza - Татуровка Лазы
-tatto__fullskelet - Скелет (полный)
-tatto_skelet_foot - скелет (стопа)
-tatto_skelet_leg - Скелет (нога)
-tatto_skelet_arm - Скелет (рука)
-tatto_skull_face - Раскраска черепа (лицо)
-Tatto_line_arm - Татуировки линии
