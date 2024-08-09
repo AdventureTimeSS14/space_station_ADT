@@ -1,18 +1,18 @@
-- type: trait
-  id: ADTHemophilia
-  name: trait-hemophilia-name
-  description: trait-hemophilia-desc
-  category: Disabilities
-  components:
-    - type: Hemophilia
-      modifier: 0.01
+# - type: trait
+#   id: ADTHemophilia
+#   name: trait-hemophilia-name
+#   description: trait-hemophilia-desc
+#   category: Disabilities
+#   components:
+#     - type: Hemophilia
+#       modifier: 0.01
 
-# Simple Station
+# # Simple Station
 
-- type: trait
-  id: ColorBlindnessMonochrome
-  name: trait-monochromacy-name
-  description: trait-monochromacy-description
-  category: Disabilities
-  components:
-    - type: Monochromacy
+# - type: trait
+#   id: ColorBlindnessMonochrome
+#   name: trait-monochromacy-name
+#   description: trait-monochromacy-description
+#   category: Disabilities
+#   components:
+#     - type: Monochromacy
