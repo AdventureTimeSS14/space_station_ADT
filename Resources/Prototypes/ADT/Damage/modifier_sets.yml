@@ -48,16 +48,6 @@
     Asphyxiation: 2.0
 
 - type: damageModifierSet
-  id: Felinid # мяу
-  coefficients:
-    Blunt: 1.0
-    Piercing: 1.15
-    Slash: 1.30
-    Cold: 1.5
-    Heat: 2.0
-    Poison: 1.1
-
-- type: damageModifierSet
   id: BloodlossIPC
   coefficients:
     Blunt: 1
@@ -119,6 +109,16 @@
   coefficients:
     Blunt: 1.0
 
+- type: damageModifierSet
+  id: Felinid # мяу
+  coefficients:
+    Blunt: 1.0
+    Piercing: 1.0
+    Slash: 1.0
+    Cold: 1.5
+    Heat: 1.0
+    Poison: 1.4
+    
 - type: damageModifierSet
   id: AshWalker # Груба кожа = умно ящериц
   coefficients:
