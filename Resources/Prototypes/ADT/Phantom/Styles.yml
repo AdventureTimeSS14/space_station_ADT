@@ -1,0 +1,50 @@
+- type: phantomStyle
+  id: PhantomStyleMove
+  name: "Контроль"
+  icon:
+    sprite: ADT/Interface/Actions/actions_phantom.rsi
+    state: fant_disarm
+  lvl1:
+  - "ActionPhantomStarvation"
+  lvl2:
+  - "ActionPhantomParalysis"
+  lvl3:
+  - "ActionPhantomPuppeter"
+  lvl4:
+  - "ActionPhantomPsycho"
+  lvl5:
+  - "ActionPhantomTyrany"
+
+- type: phantomStyle
+  id: PhantomStyleAgressive
+  name: "Агрессия"
+  icon:
+    sprite: ADT/Interface/Actions/actions_phantom.rsi
+    state: fant_harm
+  lvl1:
+  - "ActionPhantomBreakdown"
+  lvl2:
+  - "ActionPhantomBlinding"
+  lvl3:
+  - "ActionPhantomControl"
+  lvl4:
+  - "ActionPhantomInjury"
+  lvl5:
+  - "ActionPhantomNightmare"
+
+- type: phantomStyle
+  id: PhantomStyleHelp
+  name: "Помощь"
+  icon:
+    sprite: ADT/Interface/Actions/actions_phantom.rsi
+    state: fant_help
+  lvl1:
+  - "ActionPhantomRepair"
+  lvl2:
+  - "ActionPhantomHeal"  
+  lvl3:
+  - "ActionPhantomPortal"
+  lvl4:
+  - "ActionPhantomHelpingHand"
+  lvl5:
+  - "ActionPhantomFreedom"

@@ -1,0 +1,10 @@
+- type: hallucinationsPack
+  id: Revenant
+  spawnRate: 20.0
+  minChance: 0.1
+  maxChance: 0.5
+  increasedPerSpawn: 0.05
+  maxSpawns: 1
+  entities:
+  - ADTPhantomHallucinationPoltergeist
+  - ADTRevHallucinationRevenant

@@ -62,6 +62,17 @@ public sealed partial class RevenantMalfunctionActionEvent : InstantActionEvent
 {
 }
 
+public sealed partial class RevenantHysteriaActionEvent : InstantActionEvent
+{
+}
+
+public sealed partial class RevenantGhostSmokeActionEvent : InstantActionEvent
+{
+}
+
+public sealed partial class RevenantLockActionEvent : InstantActionEvent
+{
+}
 
 [NetSerializable, Serializable]
 public enum RevenantVisuals : byte
@@ -77,4 +88,16 @@ public enum RevenantVisualLayers : byte
     Digit1,
     Digit2,
     Digit3
+}
+
+[NetSerializable, Serializable]
+[DataDefinition]
+public sealed partial class AddRevenantShieldEvent : EntityEventArgs
+{
+}
+
+[NetSerializable, Serializable]
+[DataDefinition]
+public sealed partial class StartRevenantMiseryEvent : EntityEventArgs
+{
 }

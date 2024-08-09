@@ -1,0 +1,20 @@
+- type: soundCollection
+  id: PhantomHaunt
+  files:
+  - /Audio/ADT/Phantom/Sounds/haunt-1.ogg
+  - /Audio/ADT/Phantom/Sounds/haunt-2.ogg
+  - /Audio/ADT/Phantom/Sounds/haunt-3.ogg
+
+- type: soundCollection
+  id: PhantomSpeech
+  files:
+  - /Audio/ADT/Phantom/Speech/phantom-speech-1.ogg
+  - /Audio/ADT/Phantom/Speech/phantom-speech-2.ogg
+  - /Audio/ADT/Phantom/Speech/phantom-speech-3.ogg
+  - /Audio/ADT/Phantom/Speech/phantom-speech-4.ogg
+
+- type: soundCollection
+  id: PhantomGhostKiss
+  files:
+  - /Audio/ADT/Phantom/Sounds/ghost-kiss-1.ogg
+  - /Audio/ADT/Phantom/Sounds/ghost-kiss-2.ogg

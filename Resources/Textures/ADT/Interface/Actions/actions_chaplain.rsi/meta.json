@@ -1,0 +1,20 @@
+{
+    "copyright": "Made by discord: mnogo_znal, for space station 14",
+    "license": "CC-BY-SA-3.0",
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "hand_of_wololo"
+        },
+        {
+            "name": "holy_touch"
+        },
+        {
+            "name": "saint_fist"
+        }
+    ]
+}

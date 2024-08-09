@@ -491,6 +491,19 @@ namespace Content.Shared.CCVar
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
 
         /*
+        * Phantom
+        */
+
+        public static readonly CVarDef<int> PhantomMinPlayers =
+            CVarDef.Create("phantom.min_players", 25);
+
+        public static readonly CVarDef<int> PhantomMaxDifficulty =
+            CVarDef.Create("phantom.max_difficulty", 15);
+
+        public static readonly CVarDef<int> PhantomMaxPicks =
+            CVarDef.Create("phantom.max_picks", 10);
+
+        /*
          * Tips
          */
 

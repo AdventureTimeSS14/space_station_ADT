@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingPsiShield
+  name: psi-shield
+  description: No ghosties allowed
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/psi-shield.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/psi-shield.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Item
+    size: Ginormous
+  - type: GrantPhantomProtection

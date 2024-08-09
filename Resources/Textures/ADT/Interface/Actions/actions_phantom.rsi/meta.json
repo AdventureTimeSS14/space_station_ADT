@@ -1,0 +1,104 @@
+{
+    "copyright": "Made by discord: mnogo_znal, for space station 14",
+    "license": "CC-BY-SA-3.0",
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "breath_in_back"
+        },
+        {
+            "name": "breakdown"
+        },
+        {
+            "name": "bloodbath"
+        },
+        {
+            "name": "cleansing"
+        },
+        {
+            "name": "freedom"
+        },
+        {
+            "name": "ghost_injury"
+        },
+        {
+            "name": "ghost_kiss"
+        },
+        {
+            "name": "nightmare"
+        },
+        {
+            "name": "paralysis"
+        },
+        {
+            "name": "recovery"
+        },
+        {
+            "name": "thirst"
+        },
+        {
+            "name": "torture"
+        },
+        {
+            "name": "transition"
+        },
+        {
+            "name": "im_here"
+        },
+        {
+            "name": "fant_disarm"
+        },
+        {
+            "name": "fant_harm"
+        },
+        {
+            "name": "fant_help"
+        },
+        {
+            "name": "freedom_cuffs"
+        },
+        {
+            "name": "ghost_claws"
+        },
+        {
+            "name": "intent_set"
+        },
+        {
+            "name": "MS_broke"
+        },
+        {
+            "name": "PDA_news"
+        },
+        {
+            "name": "kukold"
+        },
+        {
+            "name": "helping-hand"
+        },
+        {
+            "name": "help-portal"
+        },
+        {
+            "name": "psycho-epedemic"
+        },
+        {
+            "name": "repair"
+        },
+        {
+            "name": "oath"
+        },
+        {
+            "name": "help-control-oblivion"
+        },
+        {
+            "name": "help-harm-massacre"
+        },
+        {
+            "name": "help-coin"
+        }
+    ]
+}
