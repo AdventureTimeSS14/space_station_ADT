@@ -7,5 +7,5 @@ ent-ADTPathologistPDA = КПК патологоанатома
 ent-ADTRoboticistPDA = КПК робототехника
     .desc = Почему это всё ещё не робот?!
 
-ent-ADTBlueShieldOfficerPDA = КПК офицера синего щита
+ent-ADTBlueshieldOfficerPDA = КПК офицера синего щита
     .desc = Покажи им, какой он стильный, как он прочен, ведь в нём вся сила NT.
