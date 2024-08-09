@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Client.Corvax.Sponsors;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -40,6 +41,7 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class HumanoidProfileEditor : BoxContainer
     {
+        private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
         private readonly IClientPreferencesManager _preferencesManager;
         private readonly IConfigurationManager _cfgManager;
         private readonly IEntityManager _entManager;
@@ -1597,7 +1599,8 @@ namespace Content.Client.Lobby.UI
 
             try
             {
-                var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!);
+                var sponsorPrototypes = _sponsorsManager.TryGetInfo(out var sponsor) ? sponsor.AllowedMarkings : [];
+                var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!, sponsorPrototypes);
                 var oldProfile = Profile;
                 SetProfile(profile, CharacterSlot);
 

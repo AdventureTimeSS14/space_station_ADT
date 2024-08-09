@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Content.Client.Corvax.Sponsors;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
@@ -22,6 +23,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
@@ -98,6 +100,15 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             reason = FormattedMessage.FromUnformatted(Loc.GetString("role-ban"));
             return false;
         }
+
+        //ADT-Sponsors-Job-Start
+        var info = _sponsorsManager.TryGetInfo(out var sponsorInfo);
+        if (info && sponsorInfo != null)
+        {
+            if (sponsorInfo.AllowJob)
+                return true;
+        }
+        //ADT-Sponsors-Job-End
 
         if (!CheckWhitelist(job, out reason))
             return false;

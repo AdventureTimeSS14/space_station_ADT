@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Corvax.Interfaces.Server;
 using Content.Server.Database;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -63,10 +62,7 @@ namespace Content.Server.GameTicking
 
                     // Make the player actually join the game.
                     // timer time must be > tick length
-                    // Corvax-Queue-Start
-                    if (!IoCManager.Instance!.TryResolveType<IServerJoinQueueManager>(out _))
-                        Timer.Spawn(0, () => _playerManager.JoinGame(args.Session));
-                    // Corvax-Queue-End
+                    // Timer.Spawn(0, args.Session.JoinGame); // Corvax-Queue: Moved to `JoinQueueManager`
 
                     var record = await _dbManager.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
