@@ -24,4 +24,4 @@
   speciesRestriction: [SlimeSpecies]
   sprites:
   - sprite: ADT/Mobs/Slime/custom.rsi
-    state: butterfly-wings
+    state: butterfly_wings
