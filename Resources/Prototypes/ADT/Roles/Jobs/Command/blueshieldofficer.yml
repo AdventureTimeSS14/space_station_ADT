@@ -51,6 +51,6 @@
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
     pocket2: HandheldCrewMonitor
-  innerClothingSkirt: ClothingUniformJumpskirtBlueshield
-  satchel: ADTClothingBackpackSatchelBlueshield
-  duffelbag: ADTClothingBackpackDuffelBlueshield
+  # innerClothingSkirt: ClothingUniformJumpskirtBlueshield
+  # satchel: ADTClothingBackpackSatchelBlueshield
+  # duffelbag: ADTClothingBackpackDuffelBlueshield

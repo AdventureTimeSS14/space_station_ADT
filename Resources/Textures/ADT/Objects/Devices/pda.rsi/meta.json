@@ -49,6 +49,10 @@
                     1.2
                 ]
             ]
+        },
+        {
+            "name": "equipped-IDCARD",
+            "directions": 4
         }
     ]
 }
