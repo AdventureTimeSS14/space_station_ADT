@@ -1116,7 +1116,7 @@
   id: MothWingsSlightlylongwings
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-slightlylongwings
@@ -1125,7 +1125,7 @@
   id: MothWingsSkull
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-skull
@@ -1134,7 +1134,7 @@
   id: MothWingsPredatoreyes
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-predatoreyes
@@ -1143,7 +1143,7 @@
   id: MothWingsLine
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-line
@@ -1152,7 +1152,7 @@
   id: MothWingsGradient
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-gradient
@@ -1161,7 +1161,7 @@
   id: MothWingsDeathwing
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-deathwing
@@ -1170,7 +1170,7 @@
   id: MothWingsCowcoloring
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-cowcoloring
@@ -1179,7 +1179,7 @@
   id: MothWingsAsterisks
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: wings-asterisks
@@ -1188,7 +1188,7 @@
   id: MothEyesR
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: eyes_r
@@ -1197,7 +1197,7 @@
   id: MothEyesL
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: eyes_l
@@ -1206,7 +1206,7 @@
   id: MothAntennaTwisted
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: antenna-twisted
@@ -1215,7 +1215,7 @@
   id: MothAntennaLong
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: antenna-long
@@ -1224,7 +1224,7 @@
   id: MothAntennaHowler
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: antenna-howler
@@ -1233,7 +1233,7 @@
   id: MothAntennaFluffy
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [MothSpecies]
+  speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Moth/custom.rsi
     state: antenna-fluffy
