@@ -20,8 +20,8 @@
     difficulty: 1.75
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-      state: icon
+      sprite: ADT/Interface/Objectives/phantom.rsi
+      state: kill
   - type: ObjectiveBlacklistRequirement
     blacklist:
       components:
@@ -41,7 +41,7 @@
     difficulty: 1.75
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      sprite: Interface/Alerts/pacified.rsi
       state: icon
   - type: TargetObjective
     title: objective-condition-phantom-alive-title
@@ -58,8 +58,8 @@
     difficulty: 1.75
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-      state: icon
+      sprite: ADT/Interface/vessel-alert.rsi
+      state: empty
   - type: TargetObjective
     title: objective-condition-phantom-vessel-title
   - type: PickRandomPerson
@@ -90,8 +90,8 @@
     difficulty: 1.75
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-      state: icon
+      sprite: ADT/Interface/Objectives/phantom.rsi
+      state: nightmare
   - type: ObjectiveBlacklistRequirement
     blacklist:
       components:
@@ -109,10 +109,29 @@
     difficulty: 1.75
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-      state: icon
+      sprite: ADT/Interface/Objectives/phantom.rsi
+      state: reincarnation
   - type: ObjectiveBlacklistRequirement
     blacklist:
       components:
       - SocialObjective
   - type: PhantomReincarnateCondition
+
+- type: entity
+  noSpawn: true
+  parent: BasePhantomObjective
+  id: PhantomReincarnateObjective
+  name: phantom-tyrany-objective-name
+  description: phantom-tyrany-objective-desc
+  components:
+  - type: Objective
+    difficulty: 1.75
+    unique: false
+    icon:
+      sprite: ADT/Interface/Objectives/phantom.rsi
+      state: tyrany
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - SocialObjective
+  - type: PhantomTyranyCondition

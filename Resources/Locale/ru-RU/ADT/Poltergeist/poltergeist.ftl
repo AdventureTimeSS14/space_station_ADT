@@ -11,6 +11,3 @@ poltergeist-die-window-deny-button = Нет
 
 trait-poltergeist-name = Беспокойный дух
 trait-poltergeist-desc = После смерти вы становитесь полтергейстом, ууу! Однако, вернуться к жизни более вам не удастся.
-
-ent-ADTMobPoltergeist = полтергейст
-    .desc = Шумный призрак. Имеет своеобразное чувство юмора.
