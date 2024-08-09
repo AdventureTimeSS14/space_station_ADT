@@ -1,0 +1,9 @@
+#ОСЩ
+- type: entity
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelBlueshield
+  name: blueshield satchel
+  description: A satchel to hold medical and security equipment
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/blueshield_satchel.rsi

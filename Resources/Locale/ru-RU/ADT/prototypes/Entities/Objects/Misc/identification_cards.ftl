@@ -6,3 +6,6 @@ ent-ADTPathologistIDCard = ID карта патологоанатома
 
 ent-ADTRoboticistIDCard = ID карта робототехника
     .desc = { ent-IDCardStandard.desc }
+
+ent-ADTBlueShieldOfficerIDCard = ID карта офицера синего щита
+    .desc = Блестящая карта офицера Синего Щита.

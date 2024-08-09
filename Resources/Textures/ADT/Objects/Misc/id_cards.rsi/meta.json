@@ -18,7 +18,42 @@
       "directions": 4
     },
     {
-      "name": "default-inhand-right",
+        "name": "default-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "idblueshield"
+    },
+    {
+        "name": "centcom"
+    },
+    {
+      "name": "ert_chaplain"
+    },
+    {
+      "name": "ert_commander"
+    },
+    {
+      "name": "ert_engineer"
+    },
+    {
+      "name": "ert_janitor"
+    },
+    {
+      "name": "ert_medic"
+    },
+    {
+      "name": "ert_security"
+    },
+    {
+        "name": "idcentcom"
+    },
+    {
+      "name": "blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-right",
       "directions": 4
     }
   ]

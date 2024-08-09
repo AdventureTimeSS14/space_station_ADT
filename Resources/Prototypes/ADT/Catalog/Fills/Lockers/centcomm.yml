@@ -1,0 +1,41 @@
+# Blueshield
+- type: entity
+  id: LockerBlueshieldFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerBlueshield
+  components:
+  - type: StorageFill
+    contents:
+    - id: BlueshieldSuit
+    - id: MedkitCombatFilled
+    - id: MedkitBruteFilled
+    - id: WeaponDisabler
+    - id: BaseWeaponCaseNTBS
+    # - id: ADTUnderwearBoxBlueshield
+    - id: ClothingHeadsetAltBlueshield
+    - id: ADTClothingHeadHatBeretBlueshield
+    - id: ClothingNeckCloakBlueshield
+    - id: ClothingOuterWinterBlueshield
+    - id: ClothingShoesBootsJack
+    - id: ClothingUniformJumpskirtBlueshieldTurtleneck
+    - id: ClothingUniformJumpsuitBlueshieldTurtleneck
+
+- type: entity
+  id: LockerBlueshieldFilled
+  suffix: Filled
+  parent: LockerBlueshield
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedkitCombatFilled
+    - id: MedkitBruteFilled
+    - id: WeaponDisabler
+    - id: BaseWeaponCaseNTBS
+    # - id: ADTUnderwearBoxBlueshield
+    - id: ClothingHeadsetAltBlueshield
+    - id: ADTClothingHeadHatBeretBlueshield
+    - id: ClothingNeckCloakBlueshield
+    - id: ClothingOuterWinterBlueshield
+    - id: ClothingShoesBootsJack
+    - id: ClothingUniformJumpskirtBlueshieldTurtleneck
+    - id: ClothingUniformJumpsuitBlueshieldTurtleneck
