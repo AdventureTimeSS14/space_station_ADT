@@ -67,6 +67,11 @@ phantom-no-mind = Цель в бессознательном состоянии.
 
 phantom-helping-hand-toolate = Слишком поздно...
 
+phantom-style-already = Этот стиль уже выбран.
+
+alerts-vessels-name = Сосуды
+alerts-vessels-desc = Количество ваших [color=#f605fa]сосудов[/color].
+
 # EUI
 accept-phantom-window-title = Клятва
 accept-phantom-window-prompt-text-part = По вашему телу проходит сила... Поклянётесь ли вы в верности даровавшему их созданию?

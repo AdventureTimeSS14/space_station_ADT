@@ -69,3 +69,43 @@
   description: alerts-vessels-desc
   minSeverity: 0
   maxSeverity: 10
+
+- type: alert
+  id: PhantomVessels
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence1
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence2
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence3
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence4
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence5
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence6
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence7
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence8
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence9
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence10
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence11
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence12
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence13
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence14
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence15
+  - sprite: /Textures/ADT/Interface/Alerts/phantom-essense.rsi
+    state: essence16
+  name: alerts-revenant-essence-name
+  description: alerts-revenant-essence-desc
+  minSeverity: 0
+  maxSeverity: 16

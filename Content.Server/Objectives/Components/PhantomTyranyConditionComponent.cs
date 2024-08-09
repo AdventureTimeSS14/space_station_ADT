@@ -6,7 +6,7 @@ namespace Content.Server.Objectives.Components;
 /// Requires that a target dies or, if <see cref="RequireDead"/> is false, is not on the emergency shuttle.
 /// Depends on <see cref="TargetObjectiveComponent"/> to function.
 /// </summary>
-[RegisterComponent, Access(typeof(KillPhantomImmunePersonConditionSystem))]
+[RegisterComponent, Access(typeof(PhantomTyranyConditionSystem))]
 public sealed partial class PhantomTyranyConditionComponent : Component
 {
 

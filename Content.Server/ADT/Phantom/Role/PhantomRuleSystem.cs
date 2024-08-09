@@ -161,16 +161,11 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var nukeops, out _))
         {
-            if (nukeops.OperativeMindPendingData.TryGetValue(uid, out var role) ||
-                nukeops.RoundEndBehavior == RoundEndBehavior.Nothing)
-            {
-                role ??= nukeops.PhantomSpawnDetails.AntagRoleProto;
-                _roles.MindAddRole(mindId, new PhantomRoleComponent { PrototypeId = role });
-                AddObjectives(mindId, mind, nukeops);
-                nukeops.OperativeMindPendingData.Remove(uid);
-                nukeops.PhantomMind = mindId;
-                _antagSelection.SendBriefing(mind.Session, Loc.GetString("phantom-welcome"), Color.BlueViolet, component.GreetSoundNotification);
-            }
+            _roles.MindAddRole(mindId, new PhantomRoleComponent { PrototypeId = "Phantom" });
+            AddObjectives(mindId, mind, nukeops);
+            nukeops.OperativeMindPendingData.Remove(uid);
+            nukeops.PhantomMind = mindId;
+            _antagSelection.SendBriefing(mind.Session, Loc.GetString("phantom-welcome"), Color.BlueViolet, component.GreetSoundNotification);
 
             if (mind.Session is not { } playerSession)
                 return;
@@ -195,7 +190,6 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
     {
         if (ev.NewMobState == MobState.Dead || ev.NewMobState == MobState.Invalid)
             CheckCommandLose();
-            
     }
 
     private bool CheckCommandLose()
