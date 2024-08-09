@@ -419,3 +419,39 @@
         settings: short
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
+
+# start Капитан РХБЗЗ
+- type: entity
+  id: ADTRandomHumanoidSpawnerCBURNUnit
+  name: Cmnd CBURN Agent
+  suffix: AdtERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: ADTCmndCBURNAgent
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTCmndCBURNAgent
+  components:
+    - type: MindShield
+    - type: Loadout
+      prototypes: [ADTCmndCBURNGear]
+    - type: GhostRole
+      name: ghost-role-information-cmnd-cburn-agent-name
+      description: ghost-role-information-cmnd-cburn-agent-description
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10h overall
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+      - ADTCmndNamesFirstMilitary
+      - NamesLastERTCallsign  # Corvax Localization
+# end Капитан РХБЗЗ
