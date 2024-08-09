@@ -77,7 +77,7 @@
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
-    state: forehead-bindi
+    state: forehead-Bindi
 
 - type: marking
   id: HumanForeheadFathereyebrows
