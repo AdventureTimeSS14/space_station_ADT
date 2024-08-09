@@ -420,7 +420,7 @@
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 
-# start Майор РХБЗЗ
+# start Капитан РХБЗЗ
 - type: entity
   id: ADTRandomHumanoidSpawnerCBURNUnit
   name: Cmnd CBURN Agent
@@ -454,4 +454,4 @@
       nameSegments:
       - ADTCmndNamesFirstMilitary
       - NamesLastERTCallsign  # Corvax Localization
-# end Майор РХБЗЗ
+# end Капитан РХБЗЗ
