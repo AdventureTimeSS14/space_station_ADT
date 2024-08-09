@@ -1,29 +1,19 @@
-using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Humanoid;
 using Content.Server.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Server.Objectives;
-using Content.Server.Popups;
-using Content.Server.Preferences.Managers;
-using Content.Server.RandomMetadata;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Server.Store.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Roles;
-using Content.Shared.Tag;
-using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.ADT.Phantom;
 using Content.Server.Revolutionary.Components;
@@ -156,6 +146,9 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
     private void OnMindAdded(EntityUid uid, PhantomComponent component, MindAddedMessage args)
     {
         if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
+            return;
+
+        if (_roles.MindHasRole<PhantomRoleComponent>(mindId))
             return;
 
         var query = QueryActiveRules();

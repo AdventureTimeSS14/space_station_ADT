@@ -2,7 +2,7 @@
   id: SpawnPointGhostPhantom
   name: ghost role spawn point
   suffix: rat king
-  parent: MarkerBase
+  parent: BaseAntagSpawner
   components:
   - type: GhostRole
     name: ghost-role-information-phantom-name
