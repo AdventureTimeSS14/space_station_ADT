@@ -140,7 +140,7 @@
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
-    state: hair-pigtailtajan
+    state: hair-pigtailtajaran
 
 - type: marking
   id: HumanHairShavedside
@@ -446,7 +446,7 @@
   speciesRestriction: [HumanSpecies]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
-    state: tattoo_Narsi
+    state: tattoo_narsi
 
 - type: marking
   id: HumanTattooSpaceChristianCross
