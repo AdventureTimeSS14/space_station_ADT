@@ -22,3 +22,82 @@
         Piercing: 0.9
         Heat: 0.9
         Radiation: 0.9
+
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ADTSpaceSecPilotHelm
+  noSpawn: true
+  name: space sec pilot helmet
+  description: Looks like something that inspires order.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/space_sec_pilot_hardsuithead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/space_sec_pilot_hardsuithead.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.85
+        Piercing: 0.95
+        Heat: 0.8
+        Radiation: 0.8
+        Caustic: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ADTSpaceSecOfficerHelm
+  noSpawn: true
+  name: space sec officer helmet
+  description: Looks like something that inspires order.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/space_sec_officer_hardsuithead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/space_sec_officer_hardsuithead.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.9
+        Radiation: 0.9
+        Caustic: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ADTSpaceSecCommanderHelm
+  noSpawn: true
+  name: space sec commander helmet
+  description: Looks like something that inspires order.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/space_sec_commander_hardsuithead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/space_sec_commander_hardsuithead.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

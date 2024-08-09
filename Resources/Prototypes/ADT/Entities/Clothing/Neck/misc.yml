@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTSpaceSecToken
+  name: space sec token
+  description: The standard token of the space sec corporation
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/space_sec_token.rsi

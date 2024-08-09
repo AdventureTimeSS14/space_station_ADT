@@ -4,3 +4,40 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
     state: ADTPathologist
+
+#SPACE SEC
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecCadet
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecCadetStatusIcon
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecOfficer
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecOfficerStatusIcon
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecPilot
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecPilotStatusIcon
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecCommander
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecCommanderStatusIcon
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecService
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecServiceStatusIcon

@@ -1,0 +1,60 @@
+- type: entity
+  name: drone miner spawner
+  id: ADTSpawnerDroneAntagMiner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/jobs.rsi
+          state: green
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-miner.rsi
+          state: mineshell
+    - type: ConditionalSpawner
+      prototypes:
+        - ADTDroneAntagMiner
+
+- type: entity
+  name: drone engineer spawner
+  id: ADTSpawnerDroneAntagEngineer
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/jobs.rsi
+          state: green
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-engineer.rsi
+          state: engshell
+    - type: ConditionalSpawner
+      prototypes:
+        - ADTDroneAntagMiner
+
+- type: entity
+  name: drone charger spawner
+  id: ADTSpawnerDroneAntagCharger
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/jobs.rsi
+          state: green
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-charger.rsi
+          state: chargeshell
+    - type: ConditionalSpawner
+      prototypes:
+        - ADTDroneAntagMiner
+
+- type: entity
+  name: drone soldier spawner
+  suffix: IPC
+  id: ADTSpawnerDroneAntagIPC
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: ADT/Markers/jobs.rsi
+          state: green
+        - sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
+          state: ipc_icon
+    - type: ConditionalSpawner
+      prototypes:
+        - ADTDroneAntagIPC

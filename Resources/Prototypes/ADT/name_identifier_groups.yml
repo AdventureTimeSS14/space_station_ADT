@@ -1,0 +1,21 @@
+﻿
+- type: nameIdentifierGroup
+  id: ADTDroneAntagMiner
+  prefix: drone miner SD
+  fullName: true
+  minValue: 100
+  maxValue: 999
+
+- type: nameIdentifierGroup
+  id: ADTDroneAntagSoldier
+  prefix: drone soldier SD
+  fullName: true
+  minValue: 100
+  maxValue: 999
+
+- type: nameIdentifierGroup
+  id: ADTIPCAntag
+  prefix: BF
+  fullName: true
+  minValue: 100
+  maxValue: 999
