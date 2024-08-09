@@ -7,3 +7,9 @@ ent-ADTtelescopicBatonBob = Телескопическая дубинка Боб
 ent-ADTtelescopicBatonKon = Телескопическая дубинка Йохана
     .desc = "Непонятно, кровь это или цвет дубинки.."
     .suffix = { "" }
+
+ent-ADTGhostClaws = призрачные когти
+    .desc = Нет, они не пройдут насквозь.
+
+ent-ADTEctoSword = священный меч
+    .desc = То, что нужно, когда вокруг тебя летают призраки.

@@ -1886,7 +1886,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             var targetMessage = Loc.GetString("phantom-haunt-target");
             _popup.PopupEntity(targetMessage, target, target);
 
-            _action.AddAction(uid, ref component.PhantomStopHauntActionEntity, component.PhantomStopHauntAction);
+            _alerts.ShowAlert(uid, component.HauntedAlert);
+            //_action.AddAction(uid, ref component.PhantomStopHauntActionEntity, component.PhantomStopHauntAction);
 
             if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
                 _audio.PlayGlobal(component.HauntSound, mind.Session);
@@ -1913,11 +1914,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         RemComp<PhantomHolderComponent>(holder);
         HauntedStopEffects(component.Holder, component);
-        component.Holder = new EntityUid();
+        component.Holder = EntityUid.Invalid;
         component.HasHaunted = false;
         _actionBlocker.UpdateCanMove(uid);
 
-        _action.RemoveAction(uid, component.PhantomStopHauntActionEntity);
+        _alerts.ClearAlert(uid, component.HauntedAlert);
+        //_action.RemoveAction(uid, component.PhantomStopHauntActionEntity);
 
         var eye = EnsureComp<EyeComponent>(uid);
         _eye.SetDrawFov(uid, false, eye);

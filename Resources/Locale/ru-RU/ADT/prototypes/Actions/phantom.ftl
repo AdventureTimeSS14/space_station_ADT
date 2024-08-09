@@ -1,9 +1,6 @@
 action-phantom-haunt = Дышать в затылок
 action-phantom-haunt-desc = Сделайте выбранную цель [color=#05eafa]одержимой[/color].
 
-action-phantom-stop-haunt = Прекратить одержимость
-action-phantom-stop-haunt-desc = Покиньте тело [color=#05eafa]одержимого[/color].
-
 action-phantom-cycle-vessels = Переключить сосуд
 action-phantom-cycle-vessels-desc = Выберите следующий [color=#f605fa]сосуд[/color] из доступных.
 
