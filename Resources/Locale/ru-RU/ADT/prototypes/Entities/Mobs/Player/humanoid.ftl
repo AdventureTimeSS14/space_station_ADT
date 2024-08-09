@@ -47,3 +47,6 @@ ent-ADTRandomHumanoidSpawnerERTMedicalEVA = ОБР офицер сб
 ent-ADTRandomHumanoidSpawnerERTMedicalEVARiot = ОБР офицер сб
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
+
+ent-ADTRandomHumanoidSpawnerCBURNUnit = майор РХБЗЗ
+    .desc = { "" }
