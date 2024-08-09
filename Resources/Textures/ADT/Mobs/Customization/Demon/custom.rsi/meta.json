@@ -66,6 +66,42 @@
         {
             "name": "up",
             "directions": 4
+        },
+        {
+            "name": "ears_elf",
+            "directions": 4
+        },
+        {
+            "name": "horns_buffalo",
+            "directions": 4
+        },
+        {
+            "name": "horns_capricorn",
+            "directions": 4
+        },
+        {
+            "name": "horns_devil",
+            "directions": 4
+        },
+        {
+            "name": "horns_devil2",
+            "directions": 4
+        },
+        {
+            "name": "horns_devil3",
+            "directions": 4
+        },
+        {
+            "name": "horns_devil4",
+            "directions": 4
+        },
+        {
+            "name": "horns_ram",
+            "directions": 4
+        },
+        {
+            "name": "horns_unicorn",
+            "directions": 4
         }
     ]
 }

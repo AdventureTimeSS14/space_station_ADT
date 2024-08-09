@@ -1,0 +1,68 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:cherreshnia & discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wings-deathwing",
+            "directions": 4
+        },
+        {
+            "name": "wings-gradient",
+            "directions": 4
+        },
+        {
+            "name": "wings-line",
+            "directions": 4
+        },
+        {
+            "name": "wings-predatoreyes",
+            "directions": 4
+        },
+        {
+            "name": "wings-skull",
+            "directions": 4
+        },
+        {
+            "name": "wings-slightlylongwings",
+            "directions": 4
+        },
+        {
+            "name": "antenna-fluffy",
+            "directions": 4
+        },
+        {
+            "name": "antenna-howler",
+            "directions": 4
+        },
+        {
+            "name": "antenna-long",
+            "directions": 4
+        },
+        {
+            "name": "antenna-twisted",
+            "directions": 4
+        },
+        {
+            "name": "eyes_l",
+            "directions": 4
+        },
+        {
+            "name": "eyes_r",
+            "directions": 4
+        },
+        {
+            "name": "wings-asterisks",
+            "directions": 4
+        },
+        {
+            "name": "wings-cowcoloring",
+            "directions": 4
+        }
+    ]
+}
+
