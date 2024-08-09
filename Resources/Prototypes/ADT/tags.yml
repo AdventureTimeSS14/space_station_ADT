@@ -1,2 +1,8 @@
 - type: Tag
   id: ADTMothFriendlyFood
+
+- type: Tag
+  id: Patch
+
+- type: Tag
+  id: Defibrillator
