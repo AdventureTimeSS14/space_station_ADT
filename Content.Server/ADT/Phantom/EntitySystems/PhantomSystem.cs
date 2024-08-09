@@ -2235,7 +2235,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
         ev.Vessels.Sort();
 
-        RaiseNetworkEvent(ev, uid); 
+        RaiseNetworkEvent(ev, uid);
     }
     #endregion
 
@@ -2284,8 +2284,6 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             var selfMessage = Loc.GetString("phantom-claws-disappear-self");
             _popup.PopupEntity(message, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
             _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
-
-            component.Claws = new();
         }
         component.ClawsOn = !component.ClawsOn;
     }

@@ -30,7 +30,7 @@ public sealed partial class PhantomPuppetComponent : Component
     public bool ClawsOn = false;
 
     [DataField]
-    public EntityUid Claws = new();
+    public EntityUid? Claws;
 
     [DataField]
     public float RegenerateBurnHealAmount = -40f;

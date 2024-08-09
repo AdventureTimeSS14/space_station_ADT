@@ -18,7 +18,7 @@
     selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ Phantom ]
-      spawnerPrototype: SpawnPointObserver
+      # spawnerPrototype: SpawnPointObserver
       max: 1
       components:
       - type: NpcFactionMember

@@ -88,6 +88,6 @@ public sealed partial class ChaplainComponent : Component
 
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<AlertPrototype> Alert = "Chaplain";
+    public ProtoId<AlertPrototype> Alert = "ADTChaplain";
 }
 
