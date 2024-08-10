@@ -425,7 +425,7 @@
 - type: entity
   parent: MobHuman
   id: ADTSpaceSecCadet
-  name: Space Sec Cadet Human
+  name: Space Sec Cadet
   suffix: Space Sec
   components:
     - type: MindShield
@@ -439,9 +439,9 @@
       - Passive # Костыль
 
 - type: entity
-  name: Space Sec Cadet Random
+  name: Space Sec Cadet
   id: ADTRandomHumanoidSpawnerSpaceSecCadet
-  suffix: Space Sec
+  suffix: Space Sec, Random
   components:
     - type: Sprite
       sprite: Mobs/Species/Reptilian/parts.rsi
@@ -465,7 +465,7 @@
 - type: entity
   parent: MobHuman
   id: ADTSpaceSecOfficer
-  name: Space Sec Officer Human
+  name: Space Sec Officer
   suffix: Space Sec
   components:
     - type: MindShield
@@ -479,9 +479,9 @@
       - Passive # Костыль
 
 - type: entity
-  name: Space Sec Officer Random
+  name: Space Sec Officer
   id: ADTRandomHumanoidSpawnerSpaceSecOfficer
-  suffix: Space Sec
+  suffix: Space Sec, Random
   components:
     - type: Sprite
       sprite: Mobs/Species/Reptilian/parts.rsi
@@ -505,7 +505,7 @@
 - type: entity
   parent: MobHuman
   id: ADTSpaceSecPilot
-  name: Space Sec Pilot Human
+  name: Space Sec Pilot
   suffix: Space Sec
   components:
     - type: MindShield
@@ -519,9 +519,9 @@
       - Passive # Костыль
 
 - type: entity
-  name: Space Sec Pilot Random
+  name: Space Sec Pilot
   id: ADTRandomHumanoidSpawnerSpaceSecPilot
-  suffix: Space Sec
+  suffix: Space Sec, Random
   components:
     - type: Sprite
       sprite: Mobs/Species/Reptilian/parts.rsi
@@ -545,7 +545,7 @@
 - type: entity
   parent: MobHuman
   id: ADTSpaceSecCommander
-  name: Space Sec Commander Human
+  name: Space Sec Commander
   suffix: Space Sec
   components:
     - type: MindShield
@@ -559,9 +559,9 @@
       - Passive # Костыль
 
 - type: entity
-  name: Space Sec Commander Random
+  name: Space Sec Commander
   id: ADTRandomHumanoidSpawnerSpaceSecCommander
-  suffix: Space Sec
+  suffix: Space Sec, Random
   components:
     - type: Sprite
       sprite: Mobs/Species/Reptilian/parts.rsi
@@ -585,7 +585,7 @@
 - type: entity
   parent: MobHuman
   id: ADTSpaceSecService
-  name: Space Sec Service Human
+  name: Space Sec Service
   suffix: Space Sec
   components:
     - type: MindShield
@@ -599,9 +599,9 @@
       - Passive # Костыль
 
 - type: entity
-  name: Space Sec Service Random
+  name: Space Sec Service
   id: ADTRandomHumanoidSpawnerSpaceSecService
-  suffix: Space Sec
+  suffix: Space Sec, Random
   components:
     - type: Sprite
       sprite: Mobs/Species/Reptilian/parts.rsi
