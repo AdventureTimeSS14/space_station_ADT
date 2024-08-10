@@ -47,8 +47,6 @@ public sealed partial class HumanoidProfileEditor
         };
 
         BarkPlayButton.OnPressed += _ => PlayPreviewBark();
-
-        IoCManager.Instance!.TryResolveType(out _sponsorsMgr);
     }
 
     private void UpdateBarkVoicesControls()
@@ -66,22 +64,12 @@ public sealed partial class HumanoidProfileEditor
         for (var i = 0; i < _barkList.Count; i++)
         {
             var voice = _barkList[i];
-            //if (!HumanoidCharacterProfile.CanHaveVoice(voice, Profile.Sex))
-            //    continue;
 
             var name = Loc.GetString(voice.Name);
             BarkProtoButton.AddItem(name, i);
 
             if (firstVoiceChoiceId == 1)
                 firstVoiceChoiceId = i;
-
-            if (_sponsorsMgr is null)
-                continue;
-            if (voice.SponsorOnly && _sponsorsMgr != null &&
-                !_sponsorsMgr.GetClientPrototypes().Contains(voice.ID))
-            {
-                BarkProtoButton.SetItemDisabled(VoiceButton.GetIdx(i), true);
-            }
         }
 
         var voiceChoiceId = _barkList.FindIndex(x => x.ID == Profile.BarkProto);
