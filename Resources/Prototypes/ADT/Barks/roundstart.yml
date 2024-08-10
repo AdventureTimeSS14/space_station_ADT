@@ -1,0 +1,112 @@
+- type: speechBark
+  id: Human1
+  name: bark-human1-name
+  sound: /Audio/Voice/Talk/speak_1.ogg
+
+- type: speechBark
+  id: Human2
+  name: bark-human2-name
+  sound: /Audio/Voice/Talk/speak_2.ogg
+
+- type: speechBark
+  id: Human3
+  name: bark-human3-name
+  sound: /Audio/Voice/Talk/speak_3.ogg
+
+- type: speechBark
+  id: GuitarMutedLow
+  name: bark-guitar-muted-low-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C2.ogg
+
+- type: speechBark
+  id: GuitarMutedMid
+  name: bark-guitar-muted-mid-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C3.ogg
+
+- type: speechBark
+  id: GuitarMutedHigh
+  name: bark-guitar-muted-high-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C4.ogg
+
+- type: speechBark
+  id: BanjoMedium
+  name: bark-banjo-mid-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/Banjo-Cn3.ogg
+
+- type: speechBark
+  id: BanjoHigh
+  name: bark-banjo-high-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/Banjo-Cn4.ogg
+
+- type: speechBark
+  id: Synth1
+  name: bark-synth-1-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-synth-1.ogg
+
+- type: speechBark
+  id: Synth2
+  name: bark-synth-2-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/synth-2.ogg
+
+- type: speechBark
+  id: Synth3
+  name: bark-synth-3-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
+
+- type: speechBark
+  id: Synth4
+  name: bark-synth-4-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-synth-2.ogg
+
+# UT Voices are neat
+- type: speechBark
+  id: Chrip1
+  name: bark-chrip-1-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-chrip-1.ogg
+
+- type: speechBark
+  id: Chrip2
+  name: bark-chrip-2-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-chrip-2.ogg
+
+- type: speechBark
+  id: Flowey
+  name: bark-flowey-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-flowey.ogg
+
+- type: speechBark
+  id: Mettaton
+  name: bark-mettaton-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-metta.ogg
+
+- type: speechBark
+  id: Papyrus
+  name: bark-papyrus-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-papyrus.ogg
+
+- type: speechBark
+  id: Sans
+  name: bark-sans-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-sans.ogg
+
+- type: speechBark
+  id: Toriel
+  name: bark-toriel-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-toriel.ogg
+
+- type: speechBark
+  id: Alphys
+  name: bark-alphys-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-alphy.ogg
+
+- type: speechBark
+  id: Asgore
+  name: bark-asgore-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-asgore.ogg
+
+# Weh
+- type: speechBark
+  id: Weh
+  name: bark-weh-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/weh.ogg
+

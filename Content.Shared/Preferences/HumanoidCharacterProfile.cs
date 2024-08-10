@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.GameTicking;
@@ -107,6 +108,14 @@ namespace Content.Shared.Preferences
         [DataField]
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
+        public string BarkProto = "Human1";
+
+        public float BarkPitch = 1f;
+
+        public float BarkLowVar = 0.1f;
+
+        public float BarkHighVar = 0.5f;
+
         /// <summary>
         /// <see cref="_jobPriorities"/>
         /// </summary>
@@ -143,7 +152,11 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            string barkProto,
+            float barkPitch,
+            float barkLowVar,
+            float barkHighVar)
         {
             Name = name;
             FlavorText = flavortext;
@@ -159,6 +172,10 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            BarkProto = barkProto;
+            BarkPitch = barkPitch;
+            BarkLowVar = barkLowVar;
+            BarkHighVar = barkHighVar;
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -190,7 +207,11 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.BarkProto,
+                other.BarkPitch,
+                other.BarkLowVar,
+                other.BarkHighVar)
         {
         }
 
@@ -314,6 +335,39 @@ namespace Content.Shared.Preferences
         }
         // Corvax-TTS-End
 
+        // ADT Barks start
+        public HumanoidCharacterProfile WithBarkProto(string bark)
+        {
+            return new(this)
+            {
+                BarkProto = bark,
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkPitch(float pitch)
+        {
+            return new(this)
+            {
+                BarkPitch = pitch,
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkMinVariation(float variation)
+        {
+            return new(this)
+            {
+                BarkLowVar = variation,
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkMaxVariation(float variation)
+        {
+            return new(this)
+            {
+                BarkHighVar = variation,
+            };
+        }
+        // ADT Barks end
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
             return new(this) { Appearance = appearance };
@@ -490,6 +544,10 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (BarkProto != other.BarkProto) return false;
+            if (BarkPitch != other.BarkPitch) return false;
+            if (BarkLowVar != other.BarkLowVar) return false;
+            if (BarkHighVar != other.BarkHighVar) return false;
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 

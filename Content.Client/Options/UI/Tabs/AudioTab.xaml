@@ -1,4 +1,4 @@
-﻿<Control xmlns="https://spacestation14.io"
+<Control xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:ui="clr-namespace:Content.Client.Options.UI">
     <BoxContainer Orientation="Vertical">
@@ -9,6 +9,9 @@
                 <ui:OptionSlider Name="SliderVolumeMaster" Title="{Loc 'ui-options-master-volume'}"
                                  Margin="0 0 0 8" />
                 <!-- Corvax-TTS-Start --><ui:OptionSlider Name="SliderVolumeTts" Title="{Loc 'ui-options-tts-volume'}" /><!-- Corvax-TTS-End -->
+                <!-- Corvax-TTS-Start -->
+                <ui:OptionDropDown Name="DropDownBarksOrTTS" Title="{Loc 'ui-options-barks-or-tts'}" />
+                <!-- Corvax-TTS-End -->
                 <ui:OptionSlider Name="SliderVolumeMidi" Title="{Loc 'ui-options-midi-volume'}" />
                 <ui:OptionSlider Name="SliderVolumeAmbientMusic" Title="{Loc 'ui-options-ambient-music-volume'}" />
                 <ui:OptionSlider Name="SliderVolumeAmbience" Title="{Loc 'ui-options-ambience-volume'}" />

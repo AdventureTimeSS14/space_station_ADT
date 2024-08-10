@@ -10,6 +10,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Robust.Shared.Player;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Client.Corvax.TTS;
 
@@ -72,6 +73,9 @@ public sealed class TTSSystem : EntitySystem
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
         var filePath = new ResPath($"{_fileIdx++}.ogg");
+
+        if (_cfg.GetCVar(ADTCCVars.ReplaceTTSWithBarks) == true)
+            return;
 
         // Languages TTS support start
         var player = _playerManager.LocalSession?.AttachedEntity;
