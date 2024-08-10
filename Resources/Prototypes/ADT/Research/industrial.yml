@@ -1,0 +1,11 @@
+- type: technology
+  id: Advanted Energy
+  name: research-avanted-energy
+  icon:
+    sprite: ADT/Structures/Power/industrial_smes.rsi
+    state: smes
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ADTIndustrialSMESMachineCircuitboard

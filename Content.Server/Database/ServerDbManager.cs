@@ -293,6 +293,13 @@ namespace Content.Server.Database
 
         #endregion
 
+        //ADT-Sponsors-Start
+        #region Sponsors
+        Task<Sponsor?> GetSponsorInfo(NetUserId userId, CancellationToken cancel = default);
+        Task<Sponsor[]?> GetSponsorList(CancellationToken cancel = default);
+        #endregion
+        //ADT-Sponsors-End
+
         #region Job Whitelists
 
         Task AddJobWhitelist(Guid player, ProtoId<JobPrototype> job);
@@ -961,6 +968,20 @@ namespace Content.Server.Database
 
             return enumerable;
         }
+
+        //ADT-Sponsors-Start
+        public async Task<Sponsor?> GetSponsorInfo(NetUserId userId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return await _db.GetSponsorInfo(userId);
+        }
+
+        public async Task<Sponsor[]?> GetSponsorList(CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return await _db.GetSponsorList();
+        }
+        //ADT-Sponsors-End
 
         private DbContextOptions<PostgresServerDbContext> CreatePostgresOptions()
         {
