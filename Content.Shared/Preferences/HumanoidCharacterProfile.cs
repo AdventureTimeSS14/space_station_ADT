@@ -125,7 +125,6 @@ namespace Content.Shared.Preferences
         /// <see cref="_antagPreferences"/>
         /// </summary>
         public IReadOnlySet<ProtoId<AntagPrototype>> AntagPreferences => _antagPreferences;
-
         /// <summary>
         /// <see cref="_traitPreferences"/>
         /// </summary>
@@ -533,6 +532,7 @@ namespace Content.Shared.Preferences
         {
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
+            if (Voice != other.Voice) return false; //ADT-TTS-Tweak
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
@@ -809,6 +809,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int)Sex);
+            hashCode.Add(Voice); //ADT-TTS-Tweak
             hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);

@@ -1325,6 +1325,42 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("server_unban", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Sponsor", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+                    b.Property<bool>("AllowJob")
+                        .HasColumnType("boolean")
+                        .HasColumnName("allow_job");
+                    b.Property<string>("AllowedMarkings")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("allowed_markings");
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expire_date");
+                    b.Property<int>("ExtraSlots")
+                        .HasColumnType("integer")
+                        .HasColumnName("extra_slots");
+                    b.Property<bool>("HavePriorityJoin")
+                        .HasColumnType("boolean")
+                        .HasColumnName("have_priority_join");
+                    b.Property<string>("OOCColor")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("ooccolor");
+                    b.Property<int>("Tier")
+                        .HasColumnType("integer")
+                        .HasColumnName("tier");
+                    b.HasKey("UserId")
+                        .HasName("PK_sponsors");
+                    b.HasIndex("UserId")
+                        .IsUnique();
+                    b.ToTable("sponsors", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")
