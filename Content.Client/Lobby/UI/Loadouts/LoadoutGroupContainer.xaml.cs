@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Corvax.Interfaces.Shared;
 using Content.Shared.Clothing;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -19,18 +18,18 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
     public event Action<ProtoId<LoadoutPrototype>>? OnLoadoutPressed;
     public event Action<ProtoId<LoadoutPrototype>>? OnLoadoutUnpressed;
 
-    public LoadoutGroupContainer(HumanoidCharacterProfile profile, RoleLoadout loadout, LoadoutGroupPrototype groupProto, ICommonSession session, IDependencyCollection collection)
+    public LoadoutGroupContainer(HumanoidCharacterProfile profile, RoleLoadout loadout, LoadoutGroupPrototype groupProto, ICommonSession session, IDependencyCollection collection, bool isSponsor)
     {
         RobustXamlLoader.Load(this);
         _groupProto = groupProto;
 
-        RefreshLoadouts(profile, loadout, session, collection);
+        RefreshLoadouts(profile, loadout, session, collection, isSponsor);
     }
 
     /// <summary>
     /// Updates button availabilities and buttons.
     /// </summary>
-    public void RefreshLoadouts(HumanoidCharacterProfile profile, RoleLoadout loadout, ICommonSession session, IDependencyCollection collection)
+    public void RefreshLoadouts(HumanoidCharacterProfile profile, RoleLoadout loadout, ICommonSession session, IDependencyCollection collection, bool isSponsor)
     {
         var protoMan = collection.Resolve<IPrototypeManager>();
         var loadoutSystem = collection.Resolve<IEntityManager>().System<LoadoutSystem>();
@@ -68,18 +67,15 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
 
         var selected = loadout.SelectedLoadouts[_groupProto.ID];
 
-        // Corvax-Loadouts-Start
-        var groupLoadouts = _groupProto.Loadouts;
-        if (collection.TryResolveType<ISharedLoadoutsManager>(out var loadoutsManager) && _groupProto.ID == "Inventory")
-        {
-            groupLoadouts = loadoutsManager.GetClientPrototypes().Select(id => (ProtoId<LoadoutPrototype>)id).ToList();
-        }
-        // Corvax-Loadouts-End
-
-        foreach (var loadoutProto in groupLoadouts) // Corvax-Loadouts
+        foreach (var loadoutProto in _groupProto.Loadouts)
         {
             if (!protoMan.TryIndex(loadoutProto, out var loadProto))
                 continue;
+
+            //ADT-Sponsors-Loadout-Start
+            if (loadProto.SponsorOnly && !isSponsor)
+                continue;
+            //ADT-Sponsors-Loadout-End
 
             var matchingLoadout = selected.FirstOrDefault(e => e.Prototype == loadoutProto);
             var pressed = matchingLoadout != null;
