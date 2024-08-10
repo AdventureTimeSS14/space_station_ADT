@@ -9,7 +9,7 @@ public sealed class ADTCCVars
     * Barks
     */
     public static readonly CVarDef<bool> BarksEnabled =
-        CVarDef.Create("barks.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+        CVarDef.Create("barks.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
     public static readonly CVarDef<float> BarksMaxPitch =
         CVarDef.Create("barks.max_pitch", 1.5f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
@@ -24,6 +24,6 @@ public sealed class ADTCCVars
         CVarDef.Create("barks.max_delay", 0.6f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
     public static readonly CVarDef<bool> ReplaceTTSWithBarks =
-        CVarDef.Create("barks.replace_tts", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("barks.replace_tts", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
 }

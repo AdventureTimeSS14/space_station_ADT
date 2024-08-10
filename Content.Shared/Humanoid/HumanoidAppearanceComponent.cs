@@ -56,11 +56,6 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public ProtoId<TTSVoicePrototype> Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
     // Corvax-TTS-End
 
-    //// ADT Barks start
-    // [DataField]
-    // public SpeechBarkData Bark = new SpeechBarkData("Human1");
-    //// ADT Barks end
-
     /// <summary>
     ///     The initial profile and base layers to apply to this humanoid.
     /// </summary>
