@@ -22,4 +22,9 @@ public sealed partial class LoadoutPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<LoadoutEffect> Effects = new();
+
+    //ADT-Sponsors-Loadout-Start
+    [DataField("sponsorOnly")]
+    public bool SponsorOnly = false;
+    //ADT-Sponsors-Loadout-End
 }

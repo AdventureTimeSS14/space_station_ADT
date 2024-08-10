@@ -1,5 +1,6 @@
 id-card-access-level-iaa = Агент Внутренних Дел
 id-card-access-level-magistrate = Магистрат
+id-card-access-level-blueshield = Офицер Синего Щита
 
 id-card-access-level-spacesec-official = Служебный SEC
 id-card-access-level-spacesec-maintenance = Техобслуживание SEC

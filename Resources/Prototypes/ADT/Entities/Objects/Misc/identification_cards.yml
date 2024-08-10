@@ -38,6 +38,19 @@
 
 - type: entity
   parent: IDCardStandard
+  id: ADTBlueShieldOfficerIDCard
+  name: Blue Shield Officer ID card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: centcom
+        - state: idblueshield
+    - type: PresetIdCard
+      job: ADTBlueShieldOfficer
+
+- type: entity
+  parent: IDCardStandard
   id: ADTSpaceSecCadetIDCard
   name: space sec cadet ID card
   components:

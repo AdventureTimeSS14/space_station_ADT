@@ -7,6 +7,9 @@ ent-ADTPathologistIDCard = ID карта патологоанатома
 ent-ADTRoboticistIDCard = ID карта робототехника
     .desc = { ent-IDCardStandard.desc }
 
+ent-ADTBlueShieldOfficerIDCard = ID карта офицера синего щита
+    .desc = Блестящая карта офицера Синего Щита.
+
 ent-ADTSpaceSecCadetIDCard = ID карта кадета SPACE SEC
     .desc = Карта, необходимая для доступа в различные области станции.
 ent-ADTSpaceSecOfficerIDCard = ID карта офицера SPACE SEC

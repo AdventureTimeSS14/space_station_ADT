@@ -1,0 +1,93 @@
+# Head
+- type: loadout
+  id: ADTBlueshieldHeadBeret
+  equipment: ADTBlueshieldHeadBeret
+
+- type: startingGear
+  id: ADTBlueshieldHeadBeret
+  equipment:
+    head: ADTClothingHeadHatBeretBlueshield
+
+- type: loadout
+  id: ADTBlueshieldHeadBeretBlack
+  equipment: ADTBlueshieldHeadBeretBlack
+
+- type: startingGear
+  id: ADTBlueshieldHeadBeretBlack
+  equipment:
+    head: ADTClothingHeadHatBeretBlueshieldBlack
+
+# Jumpsuit
+- type: loadout
+  id: ADTBlueshieldJumpsuit
+  equipment: ADTBlueshieldJumpsuit
+
+- type: startingGear
+  id: ADTBlueshieldJumpsuit
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBlueshield
+
+- type: loadout
+  id: ADTBlueshieldJumpskirt
+  equipment: ADTBlueshieldJumpskirt
+
+- type: startingGear
+  id: ADTBlueshieldJumpskirt
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtBlueshield
+
+- type: loadout
+  id: ADTBlueshieldJumpsuitTurtleneck
+  equipment: ADTBlueshieldJumpsuitTurtleneck
+
+- type: startingGear
+  id: ADTBlueshieldJumpsuitTurtleneck
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBlueshieldTurtleneck
+
+- type: loadout
+  id: ADTBlueshieldJumpskirtTurtleneck
+  equipment: ADTBlueshieldJumpskirtTurtleneck
+
+- type: startingGear
+  id: ADTBlueshieldJumpskirtTurtleneck
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtBlueshieldTurtleneck
+
+# Neck
+- type: loadout
+  id: ADTBlueshieldCloak
+  equipment: ADTBlueshieldCloak
+
+- type: startingGear
+  id: ADTBlueshieldCloak
+  equipment:
+    neck: ADTClothingNeckCloakBlueshield
+
+# Back
+- type: loadout
+  id: ADTBlueshieldBackpack
+  equipment: ADTBlueshieldBackpack
+
+- type: startingGear
+  id: ADTBlueshieldBackpack
+  equipment:
+    back: ADTClothingBlueshieldBackpack
+
+- type: loadout
+  id: ADTBlueshieldSatchel
+  equipment: ADTBlueshieldSatchel
+
+- type: startingGear
+  id: ADTBlueshieldSatchel
+  equipment:
+    back: ADTClothingBackpackSatchelBlueshield
+
+- type: loadout
+  id: ADTBlueshieldDuffel
+  equipment: ADTBlueshieldDuffel
+
+- type: startingGear
+  id: ADTBlueshieldDuffel
+  equipment:
+    back: ADTClothingBackpackDuffelBlueshield

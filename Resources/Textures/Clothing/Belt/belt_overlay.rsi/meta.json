@@ -14,7 +14,10 @@
       "name": "bottle"
     },
     {
-      "name": "bottle_spray"
+        "name": "bottle_spray"
+    },
+    {
+        "name": "defibrillator"
     },
     {
       "name": "cleaver"
