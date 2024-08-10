@@ -1,6 +1,6 @@
 ﻿using Content.Server.Body.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Chemistry.ReagentEffects;
+using Content.Server.Backmen.Chemistry.ReagentEffects;
 using Content.Shared.Backmen.Disease;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
