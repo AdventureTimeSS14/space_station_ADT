@@ -1,9 +1,5 @@
 using System.Linq;
 using Content.Client.ADT.SpeechBarks;
-using Content.Client.Lobby;
-using Content.Corvax.Interfaces.Shared;
-using Content.Shared.Corvax.TTS;
-using Content.Shared.Preferences;
 using Content.Shared.ADT.SpeechBarks;
 
 namespace Content.Client.Lobby.UI;

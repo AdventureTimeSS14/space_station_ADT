@@ -20,7 +20,6 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
