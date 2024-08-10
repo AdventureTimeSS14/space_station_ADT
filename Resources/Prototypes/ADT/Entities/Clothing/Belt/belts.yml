@@ -88,3 +88,33 @@
     sprite: ADT/Clothing/Belt/medical_security_belt.rsi
   - type: Clothing
     sprite: ADT/Clothing/Belt/medical_security_belt.rsi
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltSheathOCK
+  name: sabre sheath OCK
+  description: This is a green scabbard that is given only to the best of the Central Committee.There are rumors that a saber in them can reduce wages.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/sheath_OCK.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/sheath_OCK.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: Appearance

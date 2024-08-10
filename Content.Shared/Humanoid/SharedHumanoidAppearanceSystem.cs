@@ -1,12 +1,12 @@
 using System.IO;
 using System.Linq;
-using Content.Corvax.Interfaces.Shared;
 using Content.Shared.CCVar;
 using Content.Shared.Decals;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Corvax.TTS;
+using Content.Shared.Decals;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Robust.Shared;
@@ -38,24 +38,22 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
-    private ISharedSponsorsManager? _sponsors;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
     // Corvax-TTS-Start
-    public const string DefaultVoice = "Garithos";
+    public const string DefaultVoice = "Aidar";
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
     {
-        {Sex.Male, "Garithos"},
-        {Sex.Female, "Maiev"},
-        {Sex.Unsexed, "Myron"},
+        {Sex.Male, "Aidar"},
+        {Sex.Female, "Kseniya"},
+        {Sex.Unsexed, "Baya"},
     };
     // Corvax-TTS-End
 
     public override void Initialize()
     {
         base.Initialize();
-        IoCManager.Instance!.TryResolveType(out _sponsors); // Corvax-Sponsors
 
         SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HumanoidAppearanceComponent, ExaminedEvent>(OnExamined);
@@ -73,7 +71,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         return dataNode;
     }
 
-    public HumanoidCharacterProfile FromStream(Stream stream, ICommonSession session)
+    public HumanoidCharacterProfile FromStream(Stream stream, ICommonSession session, string[] sponsorPrototypes)
     {
         using var reader = new StreamReader(stream, EncodingHelpers.UTF8);
         var yamlStream = new YamlStream();
@@ -85,10 +83,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         /*
          * Add custom handling here for forks / version numbers if you care.
          */
-
         var profile = export.Profile;
         var collection = IoCManager.Instance;
-        var sponsorPrototypes = _sponsors != null && _sponsors.TryGetServerPrototypes(session.UserId, out var prototypes) ? prototypes.ToArray() : []; // Corvax-Sponsors
         profile.EnsureValid(session, collection!, sponsorPrototypes);
         return profile;
     }

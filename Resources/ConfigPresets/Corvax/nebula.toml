@@ -11,7 +11,7 @@ enabled = true
 show_reason = true
 min_account_age = 0
 min_overall_minutes = 0
-deny_vpn = true
+#deny_vpn = true # FIX ADT
 enable_without_admins = true
 disable_with_admins = true
 
