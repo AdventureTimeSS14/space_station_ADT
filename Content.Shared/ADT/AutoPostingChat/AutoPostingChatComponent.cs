@@ -2,38 +2,74 @@ using Robust.Shared.Audio;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.ADT.AutoPostingChat;
-
 [RegisterComponent]
 [NetworkedComponent]
 public sealed partial class AutoPostingChatComponent : Component
 {
     /// <summary>
-    /// timings for giggles and knocks.
+    ///Sets a random interval after each iteration of spoken messages
     /// </summary>
-    //[ViewVariables(VVAccess.ReadWrite)]
-    //public TimeSpan DamageGiggleCooldown = TimeSpan.FromSeconds(2);
+    [DataField("randomIntervalSpeak"), ViewVariables(VVAccess.ReadWrite)]
+    public bool RandomIntervalSpeak = false;
 
-    //[ViewVariables(VVAccess.ReadWrite)]
-    //public float KnockChance = 0.05f;
-    //[ViewVariables(VVAccess.ReadWrite)]
-    //public float GiggleRandomChance = 0.3f;
-
-
+    /// <summary>
+    /// The interval in milliseconds between automatic speech messages.
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public int SpeakTimerRead = 8000;
+    [DataField("maxRandomIntervalSpeak")]
+    public int MaxRandomIntervalSpeak = 30;
 
+    /// <summary>
+    /// The interval in milliseconds between automatic speech messages.
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public int EmoteTimerRead = 9000;
+    [DataField("minRandomIntervalSpeak")]
+    public int MinRandomIntervalSpeak = 1;
 
+    /// <summary>
+    /// The interval in milliseconds between automatic speech messages.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("speakTimer")]
+    public int SpeakTimerRead = 8;
+
+    /// <summary>
+    /// Sets a random interval after each iteration of spoken emotions
+    /// </summary>
+    [DataField("randomIntervalEmote"), ViewVariables(VVAccess.ReadWrite)]
+    public bool RandomIntervalEmote = false;
+
+    /// <summary>
+    /// The interval in milliseconds between automatic speech messages.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("maxRandomIntervalEmote")]
+    public int MaxRandomIntervalEmote = 30;
+
+    /// <summary>
+    /// The interval in milliseconds between automatic speech messages.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("minRandomIntervalEmote")]
+    public int MinRandomIntervalEmote = 1;
+
+    /// <summary>
+    /// The interval in milliseconds between automatic emote messages.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("emoteTimer")]
+    public int EmoteTimerRead = 9;
+
+    /// <summary>
+    /// The message that will be automatically spoken by the entity.
+    /// </summary>
     [DataField("speakMessage")]
-    public string? PostingMessageSpeak = "Вульп-вульп!";
+    public List<string> PostingMessageSpeak = new List<string>();
 
-
+    /// <summary>
+    /// The message that will be automatically emotes by the entity.
+    /// </summary>
     [DataField("emoteMessage")]
-    public string? PostingMessageEmote = "Кхе";
-
-
-
+    public List<string> PostingMessageEmote = new List<string>();
 }
