@@ -4,7 +4,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_baran
 
 - type: marking
@@ -13,7 +13,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_bullhorns
 
 - type: marking
@@ -22,7 +22,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_crown
 
 - type: marking
@@ -31,7 +31,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_five
 
 - type: marking
@@ -40,7 +40,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_highback
 
 - type: marking
@@ -49,7 +49,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_jacksonchameleon
 
 - type: marking
@@ -58,7 +58,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_long
 
 - type: marking
@@ -67,7 +67,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_stagbeetle
 
 - type: marking
@@ -76,7 +76,7 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_superlong
 
 - type: marking
@@ -85,5 +85,5 @@
   markingCategory: HeadTop
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_twoago

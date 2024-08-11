@@ -4,7 +4,7 @@
   markingCategory: Overlay
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_khar
 
 - type: marking
@@ -13,7 +13,7 @@
   markingCategory: Overlay
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_skelet_body
 
 - type: marking
@@ -22,7 +22,7 @@
   markingCategory: Overlay
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_skeleton
 
 - type: marking
@@ -31,7 +31,7 @@
   markingCategory: Overlay
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_sun
 
 - type: marking
@@ -40,7 +40,7 @@
   markingCategory: Overlay
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_warpaint
 
 - type: marking
@@ -49,5 +49,5 @@
   markingCategory: Head
   speciesRestriction: [ReptilianSpecies]
   sprites:
-  - sprite: ADT/Mobs/Reptilian/custom.rsi
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: lineeyes
