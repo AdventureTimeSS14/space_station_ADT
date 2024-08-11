@@ -110,11 +110,13 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                 if (_player.LocalSession == null)
                     break;
                 var entity = GetEntity(ev.Source.Value);
-                if (entity == EntityUid.Invalid)
+                if (entity == EntityUid.Invalid || _player.LocalEntity == null)
                     continue;
                 if (Deleted(entity) || Terminating(entity))
                     continue;
-                if (Transform(entity).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity ?? EntityUid.Invalid).Coordinates, out var distance) &&
+                if (!HasComp<TransformComponent>(entity) || !HasComp<TransformComponent>(_player.LocalEntity.Value))
+                    continue;
+                if (Transform(entity).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity.Value).Coordinates, out var distance) &&
                     distance > SharedChatSystem.VoiceRange)
                     continue;
 
