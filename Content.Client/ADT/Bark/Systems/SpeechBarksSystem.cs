@@ -109,6 +109,8 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
             {
                 if (_player.LocalSession == null)
                     break;
+                if (Deleted(GetEntity(ev.Source.Value)) || Terminating(GetEntity(ev.Source.Value)))
+                    continue;
                 if (Transform(GetEntity(ev.Source.Value)).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity ?? EntityUid.Invalid).Coordinates, out var distance) &&
                     distance > SharedChatSystem.VoiceRange)
                     continue;
