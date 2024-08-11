@@ -1,0 +1,63 @@
+- type: marking
+  id: ReptilianImplantCybersunArmL
+  bodyPart: LArm
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-arm_l
+
+- type: marking
+  id: ReptilianImplantCybersunArmR
+  bodyPart: Arm
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-arm_r
+
+- type: marking
+  id: ReptilianImplantCybersunLegL
+  bodyPart: Leg
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-leg_l
+
+- type: marking
+  id: ReptilianImplantCybersunLegR
+  bodyPart: Leg
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-leg_r
+
+- type: marking
+  id: ReptilianImplantCybersunFootL
+  bodyPart: Foot
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-foot_l
+
+- type: marking
+  id: ReptilianImplantCybersunFootR
+  bodyPart: Foot
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-foot_r
+
+- type: marking
+  id: ReptilianImplantCybersunHandL
+  bodyPart: Hand
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-hand_l
+
+- type: marking
+  id: ReptilianImplantCybersunHandR
+  bodyPart: Hand
+  markingCategory: Body
+  sprites:
+  - sprite: ADT/Mobs/Reptilian/custom.rsi
+    state: implantcybersun-hand_r
