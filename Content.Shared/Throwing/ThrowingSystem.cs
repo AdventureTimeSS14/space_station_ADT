@@ -198,10 +198,12 @@ public sealed class ThrowingSystem : EntitySystem
         // If someone changes how tile friction works at some point, this will have to be adjusted.
         var throwSpeed = compensateFriction ? direction.Length() / (flyTime + 1 / tileFriction) : baseThrowSpeed;
         var impulseVector = direction.Normalized() * throwSpeed * physics.Mass;
+        // ADT Quirks start
         var modifiersEv = new CheckThrowRangeModifiersEvent(user);
         RaiseLocalEvent(user ?? EntityUid.Invalid, ref modifiersEv);
         throwSpeed *= modifiersEv.SpeedMod;
         impulseVector *= modifiersEv.VectorMod;
+        // ADT Quirks end
 
         _physics.ApplyLinearImpulse(uid, impulseVector, body: physics);
 

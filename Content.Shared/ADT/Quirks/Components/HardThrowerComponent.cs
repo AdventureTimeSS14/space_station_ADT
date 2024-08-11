@@ -9,5 +9,6 @@ namespace Content.Shared.ADT.Traits;
 public sealed partial class HardThrowerComponent : Component
 {
     [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Modifier = 0.8f;
 }

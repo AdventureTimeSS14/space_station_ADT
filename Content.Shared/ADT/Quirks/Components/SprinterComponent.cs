@@ -8,5 +8,7 @@ namespace Content.Shared.ADT.Traits;
 [NetworkedComponent]
 public sealed partial class SprinterComponent : Component
 {
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Modifier = 1.1f;
 }

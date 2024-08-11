@@ -216,6 +216,7 @@ public sealed partial class ClimbSystem : VirtualController
         RaiseLocalEvent(climbable, ref ev);
         if (ev.Cancelled)
             return false;
+        // ADT Quirks start
         var speedEv = new CheckClimbSpeedModifiersEvent(user, entityToMove, climbable, comp.ClimbDelay);
         RaiseLocalEvent(entityToMove, ref speedEv);
         var delay = speedEv.Time;
@@ -229,7 +230,7 @@ public sealed partial class ClimbSystem : VirtualController
             BreakOnDamage = true,
             DuplicateCondition = DuplicateConditions.SameTool | DuplicateConditions.SameTarget
         };
-
+        // ADT Quirks end
         _audio.PlayPredicted(comp.StartClimbSound, climbable, user);
         return _doAfterSystem.TryStartDoAfter(args, out id);
     }
