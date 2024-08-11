@@ -5,7 +5,7 @@
   markingCategory: HeadTop
   speciesRestriction: [SlimePerson]
   sprites:
-  - sprite: ADT/Mobs/Slime/custom.rsi
+  - sprite: ADT/Mobs/Customization/Slime/custom.rsi
     state: rabbit-antennae
 
 - type: marking
@@ -14,7 +14,7 @@
   markingCategory: HeadTop
   speciesRestriction: [SlimePerson]
   sprites:
-  - sprite: ADT/Mobs/Slime/custom.rsi
+  - sprite: ADT/Mobs/Customization/Slime/custom.rsi
     state: rabbit-ears
 
 - type: marking
@@ -23,5 +23,5 @@
   markingCategory: Tail
   speciesRestriction: [SlimePerson]
   sprites:
-  - sprite: ADT/Mobs/Slime/custom.rsi
+  - sprite: ADT/Mobs/Customization/Slime/custom.rsi
     state: butterfly_wings
