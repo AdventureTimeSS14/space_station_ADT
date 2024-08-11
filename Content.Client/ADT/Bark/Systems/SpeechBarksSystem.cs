@@ -13,6 +13,7 @@ using Robust.Shared.Utility;
 using Robust.Client.Player;
 using Content.Shared.ADT.CCVar;
 using Robust.Shared.Timing;
+using Content.Shared.Corvax.CCCVars;
 
 namespace Content.Client.ADT.SpeechBarks;
 
@@ -20,7 +21,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IGameTiming _time = default!;
@@ -86,8 +87,9 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         if (ev.Source != null)
         {
             var audioParams = AudioParams.Default
-                .WithVolume(AdjustVolume(false));
-
+                .WithVolume(AdjustVolume(false))
+                .WithPlayOffset(0f);
+                
 
             if (ev.Message.EndsWith('!'))
                 audioParams = audioParams.WithVolume(audioParams.Volume * 1.2f);
@@ -101,8 +103,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
             if (_player.LocalSession == null)
                 return;
 
-            _audio.PlayEntity(str, Filter.Local().AddPlayer(_player.LocalSession), GetEntity(ev.Source.Value), true, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
-
+            _audio.PlayEntity(audioResource.AudioStream, GetEntity(ev.Source.Value), audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
         }
     }
 
