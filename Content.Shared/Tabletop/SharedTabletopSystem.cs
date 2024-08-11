@@ -115,7 +115,7 @@ namespace Content.Shared.Tabletop
             if (!TryComp(target, out draggable))
                 return false;
 
-            if (HasComp<OuijaBoardUserComponent>(playerEntity))
+            if (HasComp<OuijaBoardUserComponent>(playerEntity)) // ADT Ouija board
                 return true;
 
             // CanSeeTable checks interaction action blockers. So no need to check them here.

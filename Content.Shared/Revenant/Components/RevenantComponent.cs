@@ -124,7 +124,7 @@ public sealed partial class RevenantComponent : Component
     /// Defile sound
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("defileSound")]
-    public string DefileSound = "/Audio/ADT/revenant-defile.ogg";
+    public string DefileSound = "/Audio/ADT/revenant-defile.ogg";   // ADT Revenant sounds
     #endregion
 
     #region Overload Lights Ability
@@ -158,7 +158,7 @@ public sealed partial class RevenantComponent : Component
     /// Overload Lights sound
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("overloadSound")]
-    public string OverloadSound = "/Audio/ADT/revenant-blight.ogg";
+    public string OverloadSound = "/Audio/ADT/revenant-blight.ogg";   // ADT Revenant sounds
     #endregion
 
     #region Blight Ability

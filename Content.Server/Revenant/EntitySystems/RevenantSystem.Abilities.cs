@@ -303,7 +303,7 @@ public sealed partial class RevenantSystem
             toxin.DamageDict.Add("Poison", 27);
             _damage.TryChangeDamage(ent, toxin, origin: uid);
         }
-        _audio.PlayPvs(component.DefileSound, uid);
+        _audio.PlayPvs(component.DefileSound, uid); // ADT Revenant sounds
     }
 
     private void OnOverloadLightsAction(EntityUid uid, RevenantComponent component, RevenantOverloadLightsActionEvent args)
@@ -340,7 +340,7 @@ public sealed partial class RevenantSystem
             comp.Target = ent; //who they gon fire at?
         }
 
-        _audio.PlayPvs(component.OverloadSound, uid);
+        _audio.PlayPvs(component.OverloadSound, uid);   // ADT Revenant sounds
     }
 
     private void OnBlightAction(EntityUid uid, RevenantComponent component, RevenantBlightActionEvent args)

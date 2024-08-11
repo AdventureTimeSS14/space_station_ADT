@@ -26,9 +26,6 @@ namespace Content.Server.Bible.Components
         [ViewVariables]
         public EntityUid? Summon = null;
 
-        [ViewVariables]
-        public EntityUid? PersonSummoned = null;
-
         [DataField("summonAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string SummonAction = "ActionBibleSummon";
 
@@ -41,6 +38,10 @@ namespace Content.Server.Bible.Components
         [DataField("respawnTime")]
         public float RespawnTime = 180f;
 
+        // ADT Phantom start
+        [ViewVariables]
+        public EntityUid? PersonSummoned = null;
+
         /// <summary>
         /// How much energy will cost the summon
         /// </summary>
@@ -50,5 +51,6 @@ namespace Content.Server.Bible.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         public bool Respawning = true;
+        // ADT Phantom end
     }
 }
