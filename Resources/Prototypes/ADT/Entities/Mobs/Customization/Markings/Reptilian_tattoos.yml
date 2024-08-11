@@ -2,7 +2,7 @@
   id: ReptilianTattoSkeletArmL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ReptilianSpecies]
+  speciesRestriction: [Reptilian]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_arm_l
@@ -11,7 +11,7 @@
   id: ReptilianTattoSkeletArmR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ReptilianSpecies]
+  speciesRestriction: [Reptilian]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_arm_r
@@ -20,7 +20,7 @@
   id: ReptilianTattoSkeletLegL
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ReptilianSpecies]
+  speciesRestriction: [Reptilian]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_leg_l
@@ -29,7 +29,7 @@
   id: ReptilianTattoSkeletLegR
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ReptilianSpecies]
+  speciesRestriction: [Reptilian]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_leg_r
