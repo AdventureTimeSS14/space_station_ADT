@@ -11,6 +11,8 @@ using Content.Shared.ADT.SpeechBarks;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Robust.Shared.Utility;
+using System.Threading.Tasks;
 
 namespace Content.Server.ADT.SpeechBarks;
 
@@ -45,14 +47,33 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         if (!_isEnabled)
             return;
 
+        var ev = new TransformSpeakerBarkEvent(uid, component.Sound, component.BarkPitch);
+        RaiseLocalEvent(uid, ev);
+
         var message = args.ObfuscatedMessage ?? args.Message;
-        RaiseNetworkEvent(new PlaySpeechBarksEvent(
+
+        PlayBarks(new PlaySpeechBarksEvent(
             GetNetEntity(uid),
             message,
-            component.Sound,
-            component.BarkPitch,
+            ev.Sound,
+            ev.Pitch,
             component.BarkLowVar,
             component.BarkHighVar,
             args.Whisper));
+    }
+
+    private async void PlayBarks(PlaySpeechBarksEvent ev)
+    {
+        if (ev.Message == null)
+            return;
+
+        var count = (int)ev.Message.Length / 3f;
+
+        for (var i = 0; i < count; i++)
+        {
+            RaiseNetworkEvent(ev);
+
+            await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(ev.LowVar, ev.HighVar)));
+        }
     }
 }

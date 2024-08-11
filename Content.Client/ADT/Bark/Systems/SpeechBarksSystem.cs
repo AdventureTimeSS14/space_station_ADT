@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Chat;
-using Content.Shared.Corvax.CCCVars;
+using Robust.Shared.Player;
 using Robust.Client.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -12,6 +12,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Shared.Utility;
 using Robust.Client.Player;
 using Content.Shared.ADT.CCVar;
+using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.SpeechBarks;
 
@@ -19,17 +20,24 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _cfg.OnValueChanged(CCCVars.TTSVolume, OnVolumeChanged, true);
+        _cfg.OnValueChanged(ADTCCVars.BarksVolume, OnVolumeChanged, true);
 
         SubscribeNetworkEvent<PlaySpeechBarksEvent>(OnEntitySpoke);
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _cfg.UnsubValueChanged(ADTCCVars.BarksVolume, OnVolumeChanged);
     }
 
     private readonly List<string> _sampleText =
@@ -67,7 +75,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         return isWhisper ? SharedChatSystem.WhisperMuffledRange : SharedChatSystem.VoiceRange;
     }
 
-    private async void OnEntitySpoke(PlaySpeechBarksEvent ev)
+    private void OnEntitySpoke(PlaySpeechBarksEvent ev)
     {
         if (_cfg.GetCVar(ADTCCVars.ReplaceTTSWithBarks) == false)
             return;
@@ -78,31 +86,23 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         if (ev.Source != null)
         {
             var audioParams = AudioParams.Default
-                .WithMaxDistance(AdjustDistance(ev.IsWhisper))
-                .WithPitchScale(ev.Pitch)
-                .WithVolume(AdjustVolume(ev.IsWhisper));
+                .WithVolume(AdjustVolume(false));
+
 
             if (ev.Message.EndsWith('!'))
-                audioParams = audioParams.WithRolloffFactor(1.4f);
-            //audioParams = audioParams.WithVolume(audioParams.Volume * 2.5f);
+                audioParams = audioParams.WithVolume(audioParams.Volume * 1.2f);
 
-            var count = Math.Clamp((int)ev.Message.Length / 3f, 1, 15);
-            var message = ev.Message;
             var audioResource = new AudioResource();
             string str = ev.Sound;
 
             var path = new ResPath(str);
             audioResource.Load(IoCManager.Instance!, path);
 
-            for (var i = 0; i < count; i++)
-            {
-                if (_player.LocalSession == null)
-                    break;
+            if (_player.LocalSession == null)
+                return;
 
-                _audio.PlayEntity(audioResource.AudioStream, GetEntity(ev.Source.Value), audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
+            _audio.PlayEntity(str, Filter.Local().AddPlayer(_player.LocalSession), GetEntity(ev.Source.Value), true, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
 
-                await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(ev.LowVar, ev.HighVar)));
-            }
         }
     }
 
@@ -121,7 +121,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         string str = proto.Sound;
 
         if (message.EndsWith('!'))
-            audioParams = audioParams.WithRolloffFactor(1.4f);
+            audioParams = audioParams.WithVolume(audioParams.Volume * 1.2f);
 
         var path = new ResPath(str);
         audioResource.Load(IoCManager.Instance!, path);
@@ -136,6 +136,4 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
             await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(lowVar, highVar)));
         }
     }
-
-
 }

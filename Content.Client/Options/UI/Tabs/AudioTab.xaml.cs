@@ -36,6 +36,11 @@ public sealed partial class AudioTab : Control
         // Corvax-TTS-End
 
         // ADT Barks start
+        Control.AddOptionPercentSlider(
+            ADTCCVars.BarksVolume,
+            SliderVolumeBarks,
+            scale: ContentAudioSystem.BarksMultiplier);
+
         Control.AddOptionDropDown<bool>(
             ADTCCVars.ReplaceTTSWithBarks,
             DropDownBarksOrTTS,
