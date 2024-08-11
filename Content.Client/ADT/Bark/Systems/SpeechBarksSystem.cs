@@ -109,13 +109,16 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
             {
                 if (_player.LocalSession == null)
                     break;
-                if (Deleted(GetEntity(ev.Source.Value)) || Terminating(GetEntity(ev.Source.Value)))
+                var entity = GetEntity(ev.Source.Value);
+                if (entity == EntityUid.Invalid)
                     continue;
-                if (Transform(GetEntity(ev.Source.Value)).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity ?? EntityUid.Invalid).Coordinates, out var distance) &&
+                if (Deleted(entity) || Terminating(entity))
+                    continue;
+                if (Transform(entity).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity ?? EntityUid.Invalid).Coordinates, out var distance) &&
                     distance > SharedChatSystem.VoiceRange)
                     continue;
 
-                _audio.PlayEntity(audioResource.AudioStream, GetEntity(ev.Source.Value), audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
+                _audio.PlayEntity(audioResource.AudioStream, entity, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
 
                 await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(ev.LowVar, ev.HighVar)));
             }
