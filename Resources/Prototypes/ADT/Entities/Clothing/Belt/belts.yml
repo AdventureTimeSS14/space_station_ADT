@@ -1,0 +1,120 @@
+# Blueshield
+- type: entity
+  id: ADTClothingBeltMedicalSecurity
+  name: medical-security belt
+  description: Special medical-security belt.
+  parent: ClothingBeltStorageBase
+  components:
+  - type: Storage
+    grid:
+    - 0,0,7,1
+    maxItemSize: Normal
+    whitelist:
+      tags:
+        - Taser
+        - SecBeltEquip
+        - Sidearm
+        - MagazinePistol
+        - MagazineMagnum
+        - Patch
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - Defibrillator
+        - SurgeryTool
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - Ammo
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+  - type: ItemMapper
+    mapLayers:
+      flashbang:
+        whitelist:
+          components:
+          - FlashOnTrigger
+      stunbaton:
+        whitelist:
+          components:
+          - Stunbaton
+      tear_gas_grenade:
+        whitelist:
+          components:
+          - SmokeOnTrigger
+      bottle:
+        whitelist:
+          tags:
+          - Bottle
+      hypo:
+        whitelist:
+          components:
+          - Hypospray
+      pill:
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+      bottle_spray:
+        whitelist:
+          tags:
+          - Spray
+      defibrillator:
+        whitelist:
+         tags:
+         - Defibrillator
+      wrench:
+        whitelist:
+          tags:
+          - Wrench
+    sprite: Clothing/Belt/belt_overlay.rsi
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/medical_security_belt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/medical_security_belt.rsi
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltSheathOCK
+  name: sabre sheath OCK
+  description: This is a green scabbard that is given only to the best of the Central Committee.There are rumors that a saber in them can reduce wages.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/sheath_OCK.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/sheath_OCK.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: Appearance

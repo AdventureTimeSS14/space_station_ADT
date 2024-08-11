@@ -1,0 +1,13 @@
+#Blueshield's hardsuit
+- type: entity
+  id: ADTSuitStorageBlueshield
+  parent: SuitStorageBase
+  suffix: Blueshield
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ADTBlueshieldSuit
+        - id: ClothingMaskBreath
+  - type: AccessReader
+    access: [["BlueShield"]]
