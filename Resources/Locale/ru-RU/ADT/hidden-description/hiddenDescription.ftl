@@ -1,0 +1,2 @@
+corvax-hidden-desc-ADTWeaponSaberRevBlueshield-syndicate = [color=#e31735]Энергетический револьвер Офицера Синего Щита. Прекрасная замена энергетическому мечу, технологию которого украло НТ, ради модернизации этого жалкого оружия.[/color]
+corvax-hidden-desc-ADTWeaponSaberRevBlueshield-security = [color=#DE3A3A]Это энергетический меч-револьвер! Кажется, это принадлежит Офицеру Синего Щита, очень опасное оружие, если попадёт не в те руки.[/color]
