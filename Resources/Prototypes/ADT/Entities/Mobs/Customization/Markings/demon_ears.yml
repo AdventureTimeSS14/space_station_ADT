@@ -1,0 +1,26 @@
+- type: marking
+  id: DemonCowEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_ears
+
+- type: marking
+  id: DemonEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: demon_ears
+
+- type: marking
+  id: DemonElfEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: ears_elf
