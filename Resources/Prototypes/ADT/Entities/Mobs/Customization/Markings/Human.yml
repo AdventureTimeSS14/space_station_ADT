@@ -2,7 +2,7 @@
   id: HumanBeardBeardchin
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-beardchin
@@ -11,7 +11,7 @@
   id: HumanBeardBeardlong
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-beardlong
@@ -20,7 +20,7 @@
   id: HumanBeardBeardshort
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-beardshort
@@ -29,7 +29,7 @@
   id: HumanBeardBeardthick
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-beardthick
@@ -38,7 +38,7 @@
   id: HumanBeardBeardviking
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-beardviking
@@ -47,7 +47,7 @@
   id: HumanBeardBristle
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-bristle
@@ -56,7 +56,7 @@
   id: HumanBeardMustachewithstubble
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-mustachewithstubble
@@ -65,7 +65,7 @@
   id: HumanBeardThickbristle
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: beard-thickbristle
@@ -74,7 +74,7 @@
   id: HumanForeheadBindi
   bodyPart: Head
   markingCategory: Snout
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: forehead-Bindi
@@ -83,7 +83,7 @@
   id: HumanForeheadFathereyebrows
   bodyPart: Head
   markingCategory: Snout
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: forehead-fathereyebrows
@@ -92,7 +92,7 @@
   id: HumanHairArabicgatheredhair
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-arabicgatheredhair
@@ -101,7 +101,7 @@
   id: HumanHairClassichairmale
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-classichairmale
@@ -110,7 +110,7 @@
   id: HumanHairCombedfromside
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-combedfromside
@@ -119,7 +119,7 @@
   id: HumanHairLonghair
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-longhair
@@ -128,7 +128,7 @@
   id: HumanHairManbunold
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-manbunold
@@ -137,7 +137,7 @@
   id: HumanHairPigtailtajaran
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-pigtailtajaran
@@ -146,7 +146,7 @@
   id: HumanHairShavedside
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-shavedside
@@ -155,7 +155,7 @@
   id: HumanHairShorthaired
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-shorthaired
@@ -164,7 +164,7 @@
   id: HumanWomenbun
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: hair-womenbun
@@ -173,7 +173,7 @@
   id: HumanPiercingBrowL
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_brow_l
@@ -182,7 +182,7 @@
   id: HumanPiercingBrowR
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_brow_r
@@ -191,7 +191,7 @@
   id: HumanPiercingEarL
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_ear_l
@@ -200,7 +200,7 @@
   id: HumanPiercingEarR
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_ear_r
@@ -209,7 +209,7 @@
   id: HumanPiercingNavel
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_navel
@@ -218,7 +218,7 @@
   id: HumanPiercingNippleL
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_nipple_l
@@ -227,7 +227,7 @@
   id: HumanPiercingNippleR
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_nipple_r
@@ -236,7 +236,7 @@
   id: HumanPiercingNipple
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: piercing_nipple
@@ -245,7 +245,7 @@
   id: HumanTattooArmImheartmomL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_arm_imheartmom_l
@@ -254,7 +254,7 @@
   id: HumanTattooArmImheartmomR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_arm_imheartmom_r
@@ -263,7 +263,7 @@
   id: HumanTattooChurchdomes
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_churchdomes
@@ -272,7 +272,7 @@
   id: HumanTattooElysiumPatriotism
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_elysium_patriotism
@@ -281,7 +281,7 @@
   id: HumanTattooFullskelet
   bodyPart: Chest
   markingCategory: Overlay
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_fullskelet
@@ -290,7 +290,7 @@
   id: HumanTattooKarabel
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_karabel
@@ -299,7 +299,7 @@
   id: HumanTattooKrenelMercenary
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_KrenelMercenary
@@ -308,7 +308,7 @@
   id: HumanTattooLineArmL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_line_arm_l
@@ -317,7 +317,7 @@
   id: HumanTattooLineArmR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_line_arm_r
@@ -326,7 +326,7 @@
   id: HumanTattooPatriotTSF
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_PatriotTSF
@@ -335,7 +335,7 @@
   id: HumanTattooRose
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_Rose
@@ -344,7 +344,7 @@
   id: HumanTattooSerpentTemptation
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_serpenttemptation
@@ -353,7 +353,7 @@
   id: HumanTattooSkull
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skull
@@ -362,7 +362,7 @@
   id: HumanTattooSkeletarmL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skelet_arm_l
@@ -371,7 +371,7 @@
   id: HumanTattooSkeletarmR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skelet_arm_r
@@ -380,7 +380,7 @@
   id: HumanTattooSkeletbody
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skelet_body
@@ -389,7 +389,7 @@
   id: HumanTattooSkeletfootL
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skelet_foot_l
@@ -398,7 +398,7 @@
   id: HumanTattooSkeletfootR
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skelet_foot_r
@@ -407,7 +407,7 @@
   id: HumanTattooSkeletlegL
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skelet_leg_l
@@ -416,7 +416,7 @@
   id: HumanTattooSkeletlegR
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skelet_leg_r
@@ -425,7 +425,7 @@
   id: HumanTattooSkullFace
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_skull_face
@@ -434,7 +434,7 @@
   id: HumanTattooSymbolElysium
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_symbol_elysium
@@ -443,7 +443,7 @@
   id: HumanTattooNarsi
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_narsi
@@ -452,7 +452,7 @@
   id: HumanTattooSpaceChristianCross
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattoo_space_christian_cross
@@ -461,7 +461,7 @@
   id: HumanTattooArmlazaL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattooarm-laza_l
@@ -470,7 +470,7 @@
   id: HumanTattooArmlazaR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [HumanSpecies]
+  speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Human/custom.rsi
     state: tattooarm-laza_r
