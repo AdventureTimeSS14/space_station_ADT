@@ -1,29 +1,32 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Adventure Time, justkekc",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "green"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Adventure Time, justkekc, Blueshield made by Tamioki",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "investigator"
-    },
-    {
-      "name": "magistrat"
-    },
-    {
-      "name": "iaa"
-    },
-    {
-      "name": "urist"
-    },
-    {
-      "name": "pathologist"
-    }
-  ]
+    "states": [
+        {
+            "name": "green"
+        },
+        {
+            "name": "investigator"
+        },
+        {
+            "name": "magistrat"
+        },
+        {
+            "name": "iaa"
+        },
+        {
+            "name": "urist"
+        },
+        {
+            "name": "pathologist"
+        },
+        {
+            "name": "blueshield"
+        }
+    ]
 }

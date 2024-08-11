@@ -1,0 +1,12 @@
+- type: entity
+  id: ADTClothingBeltMedicalSecurityFilled
+  parent: ADTClothingBeltMedicalSecurity
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: GrenadeFlashBang
+      - id: TearGasGrenade
+      - id: Stunbaton
+      - id: Handcuffs
+      - id: Handcuffs
