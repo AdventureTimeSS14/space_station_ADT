@@ -14,6 +14,8 @@ using Robust.Client.Player;
 using Content.Shared.ADT.CCVar;
 using Robust.Shared.Timing;
 using Content.Shared.Corvax.CCCVars;
+using Robust.Client.Audio.Effects;
+using Robust.Shared.Audio.Effects;
 
 namespace Content.Client.ADT.SpeechBarks;
 
@@ -62,7 +64,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
     private float AdjustVolume(bool isWhisper)
     {
         var volume = MinimalVolume + SharedAudioSystem.GainToVolume(_volume);
-
+        
         if (isWhisper)
         {
             volume -= SharedAudioSystem.GainToVolume(WhisperFade);
@@ -87,9 +89,10 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         if (ev.Source != null)
         {
             var audioParams = AudioParams.Default
-                .WithVolume(AdjustVolume(false))
-                .WithPlayOffset(0f);
-                
+                .WithVolume(AdjustVolume(ev.IsWhisper))
+                .WithMaxDistance(AdjustDistance(ev.IsWhisper))
+                .WithPlayOffset(0f)
+                .WithReferenceDistance(1000f);
 
             if (ev.Message.EndsWith('!'))
                 audioParams = audioParams.WithVolume(audioParams.Volume * 1.2f);
@@ -99,7 +102,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 
             var path = new ResPath(str);
             audioResource.Load(IoCManager.Instance!, path);
-
+            
             if (_player.LocalSession == null)
                 return;
 
