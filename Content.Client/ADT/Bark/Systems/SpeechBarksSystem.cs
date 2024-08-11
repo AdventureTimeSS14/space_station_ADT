@@ -64,7 +64,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
     private float AdjustVolume(bool isWhisper)
     {
         var volume = MinimalVolume + SharedAudioSystem.GainToVolume(_volume);
-        
+
         if (isWhisper)
         {
             volume -= SharedAudioSystem.GainToVolume(WhisperFade);
@@ -78,7 +78,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         return isWhisper ? SharedChatSystem.WhisperMuffledRange : SharedChatSystem.VoiceRange;
     }
 
-    private void OnEntitySpoke(PlaySpeechBarksEvent ev)
+    private async void OnEntitySpoke(PlaySpeechBarksEvent ev)
     {
         if (_cfg.GetCVar(ADTCCVars.ReplaceTTSWithBarks) == false)
             return;
@@ -92,7 +92,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                 .WithVolume(AdjustVolume(ev.IsWhisper))
                 .WithMaxDistance(AdjustDistance(ev.IsWhisper))
                 .WithPlayOffset(0f)
-                .WithReferenceDistance(1000f);
+                .WithReferenceDistance(100f);
 
             if (ev.Message.EndsWith('!'))
                 audioParams = audioParams.WithVolume(audioParams.Volume * 1.2f);
@@ -102,11 +102,22 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 
             var path = new ResPath(str);
             audioResource.Load(IoCManager.Instance!, path);
-            
-            if (_player.LocalSession == null)
-                return;
 
-            _audio.PlayEntity(audioResource.AudioStream, GetEntity(ev.Source.Value), audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
+            var count = (int)ev.Message.Length / 3f;
+
+            for (var i = 0; i < count; i++)
+            {
+                if (_player.LocalSession == null)
+                    break;
+                if (Transform(GetEntity(ev.Source.Value)).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity ?? EntityUid.Invalid).Coordinates, out var distance) &&
+                    distance > SharedChatSystem.VoiceRange)
+                    continue;
+
+                _audio.PlayEntity(audioResource.AudioStream, GetEntity(ev.Source.Value), audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
+
+                await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(ev.LowVar, ev.HighVar)));
+            }
+
         }
     }
 

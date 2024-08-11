@@ -52,7 +52,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 
         var message = args.ObfuscatedMessage ?? args.Message;
 
-        PlayBarks(new PlaySpeechBarksEvent(
+        RaiseNetworkEvent(new PlaySpeechBarksEvent(
             GetNetEntity(uid),
             message,
             ev.Sound,
@@ -60,20 +60,5 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
             component.BarkLowVar,
             component.BarkHighVar,
             args.Whisper));
-    }
-
-    private async void PlayBarks(PlaySpeechBarksEvent ev)
-    {
-        if (ev.Message == null)
-            return;
-
-        var count = (int)ev.Message.Length / 3f;
-
-        for (var i = 0; i < count; i++)
-        {
-            RaiseNetworkEvent(ev);
-
-            await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(ev.LowVar, ev.HighVar)));
-        }
     }
 }
