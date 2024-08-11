@@ -1118,7 +1118,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-slightlylongwings
 
 - type: marking
@@ -1127,7 +1127,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-skull
 
 - type: marking
@@ -1136,7 +1136,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-predatoreyes
 
 - type: marking
@@ -1145,7 +1145,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-line
 
 - type: marking
@@ -1154,7 +1154,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-gradient
 
 - type: marking
@@ -1163,7 +1163,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-deathwing
 
 - type: marking
@@ -1172,7 +1172,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-cowcoloring
 
 - type: marking
@@ -1181,7 +1181,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-asterisks
 
 - type: marking
@@ -1190,7 +1190,7 @@
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: eyes_r
 
 - type: marking
@@ -1199,7 +1199,7 @@
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: eyes_l
 
 - type: marking
@@ -1208,7 +1208,7 @@
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: antenna-twisted
 
 - type: marking
@@ -1217,7 +1217,7 @@
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: antenna-long
 
 - type: marking
@@ -1226,7 +1226,7 @@
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: antenna-howler
 
 - type: marking
@@ -1235,6 +1235,6 @@
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
-  - sprite: ADT/Mobs/Moth/custom.rsi
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: antenna-fluffy
 ##END-АDT-Аlаzel
