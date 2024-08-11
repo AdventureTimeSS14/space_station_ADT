@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterBlueshield
+  name: blueshield's winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/blueshield_winter.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/blueshield_winter.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.9
+        Piercing: 0.9

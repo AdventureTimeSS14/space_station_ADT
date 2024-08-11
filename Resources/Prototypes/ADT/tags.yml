@@ -2,6 +2,15 @@
   id: ADTMothFriendlyFood
 
 - type: Tag
+  id: Patch
+
+- type: Tag
+  id: Defibrillator
+
+- type: Tag
+  id: ADTLasgunRevolverCell
+
+- type: Tag
   id: PhantomEctoplasm
 
 - type: Tag
