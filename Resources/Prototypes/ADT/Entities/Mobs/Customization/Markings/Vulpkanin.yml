@@ -200,8 +200,8 @@
 #Start-customization-Uma-ADT
 - type: marking
   id: ADTVulpkanin_skullBreast
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -227,8 +227,8 @@
 
 - type: marking
   id: ADTVulpkanin_tattoo
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -236,8 +236,8 @@
 
 - type: marking
   id: ADTVulpkanin_wingsBack
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -245,8 +245,8 @@
 
 - type: marking
   id: ADTVulpkanin_bigscarRight
-  bodyPart: Head
-  markingCategory: Arms
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -299,8 +299,8 @@
 
 - type: marking
   id: ADTVulpkanin_lineLeft
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -380,8 +380,8 @@
 
 - type: marking
   id: ADTVulpkaninScarRight
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -389,8 +389,8 @@
 
 - type: marking
   id: ADTVulpkaninScar2Left
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -398,8 +398,8 @@
 
 - type: marking
   id: ADTVulpkaninScar2Right
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -407,8 +407,8 @@
 
 - type: marking
   id: ADTVulpkaninScar3Left
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -416,8 +416,8 @@
 
 - type: marking
   id: ADTVulpkaninScar3Right
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -425,8 +425,8 @@
 
 - type: marking
   id: ADTVulpkaninScar4Left
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -434,8 +434,8 @@
 
 - type: marking
   id: ADTVulpkaninScar4Right
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
