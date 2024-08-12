@@ -33,7 +33,7 @@
 - type: marking
   id: ReptilianImplantCybersunFootL
   bodyPart: LFoot
-  markingCategory: Foot
+  markingCategory: Legs
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-foot_l
@@ -41,7 +41,7 @@
 - type: marking
   id: ReptilianImplantCybersunFootR
   bodyPart: LFoot
-  markingCategory: Foot
+  markingCategory: Legs
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-foot_r
