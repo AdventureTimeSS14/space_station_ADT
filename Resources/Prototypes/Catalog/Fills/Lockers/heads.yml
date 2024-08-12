@@ -107,7 +107,7 @@
       - id: DoorRemoteCommand
       - id: RubberStampCaptain
       - id: JetpackCaptainFilled
-      - id: MedalCased
+      - id: MedalCase
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
