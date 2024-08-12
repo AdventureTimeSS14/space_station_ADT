@@ -263,7 +263,7 @@
 
 - type: marking
   id: ADTVulpkanin_braceletArmLeft
-  bodyPart: Arms
+  bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -272,7 +272,7 @@
 
 - type: marking
   id: ADTVulpkanin_braceletArmRight
-  bodyPart: Arms
+  bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -281,7 +281,7 @@
 
 - type: marking
   id: ADTVulpkanin_braceletLegLeft
-  bodyPart: Legs
+  bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -290,7 +290,7 @@
 
 - type: marking
   id: ADTVulpkanin_braceletLegRight
-  bodyPart: Legs
+  bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -317,7 +317,7 @@
 
 - type: marking
   id: ADTVulpkanin_ringArmLeft
-  bodyPart: Arms
+  bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -326,7 +326,7 @@
 
 - type: marking
   id: ADTVulpkanin_ringArmRight
-  bodyPart: Arms
+  bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -353,7 +353,7 @@
 
 - type: marking
   id: ADTVulpkaninRingLegLeft
-  bodyPart: Legs
+  bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -362,7 +362,7 @@
 
 - type: marking
   id: ADTVulpkaninRingLegRight
-  bodyPart: Legs
+  bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
