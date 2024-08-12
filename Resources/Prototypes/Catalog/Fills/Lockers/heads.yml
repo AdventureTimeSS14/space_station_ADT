@@ -53,10 +53,6 @@
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: MedalCase
-      # ADT-Economy-Start
-      - id: ADTCommandBudgetCard
-      - id: ADTCommandBudgetPinPaper
-      # ADT-Economy-End
 
 - type: entity
   id: LockerCaptainFilled
@@ -87,10 +83,6 @@
       - id: ClothingHeadCaptainHat
       - id: ClothingOuterCoatCaptain
       # Corvax-Resprite-End
-      # ADT-Economy-Start
-      - id: ADTCommandBudgetCard
-      - id: ADTCommandBudgetPinPaper
-      # ADT-Economy-End
 
 - type: entity
   id: LockerCaptainFilledNoLaser
@@ -115,11 +107,7 @@
       - id: DoorRemoteCommand
       - id: RubberStampCaptain
       - id: JetpackCaptainFilled
-      - id: MedalCase
-      # ADT-Economy-Start
-      - id: ADTCommandBudgetCard
-      - id: ADTCommandBudgetPinPaper
-      # ADT-Economy-End
+      - id: MedalCased
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -151,10 +139,6 @@
       - id: ClothingOuterCoatHOP # Corvax-Resprite
       - id: AccessConfigurator
       - id: PrinterDocFlatpack # Corvax-Printer
-      # ADT-Economy-Start
-      - id: ADTCommandBudgetCard
-      - id: ADTCommandBudgetPinPaper
-      # ADT-Economy-End
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit

@@ -46,7 +46,7 @@ public sealed class BankCardSystem : EntitySystem
     {
         _salaries = _protoMan.Index<SalaryPrototype>("Salaries");
 
-        SubscribeLocalEvent<BankCardComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<BankCardComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned);
     }
@@ -92,7 +92,7 @@ public sealed class BankCardSystem : EntitySystem
         return salary;
     }
 
-    private void OnStartup(EntityUid uid, BankCardComponent component, ComponentStartup args)
+    private void OnMapInit(EntityUid uid, BankCardComponent component, MapInitEvent args)
     {
         if (component.CommandBudgetCard &&
             TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? acc))
@@ -100,6 +100,7 @@ public sealed class BankCardSystem : EntitySystem
             component.AccountId = acc.BankAccount.AccountId;
             return;
         }
+        
         if (component.AccountId.HasValue)
         {
             CreateAccount(component.AccountId.Value, component.StartingBalance);

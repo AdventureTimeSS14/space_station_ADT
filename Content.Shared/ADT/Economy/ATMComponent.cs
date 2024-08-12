@@ -14,7 +14,7 @@ public sealed partial class ATMComponent : Component
     [DataField("currencyType")]
     public string CurrencyType = "SpaceCash";
 
-    public string SlotId = "card-slot";
+    public string SlotId = "idCardSlot";
 
     [ValidatePrototypeId<StackPrototype>]
     public string CreditStackPrototype = "Credit";

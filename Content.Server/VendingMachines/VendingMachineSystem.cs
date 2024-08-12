@@ -9,6 +9,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Server.ADT.Economy;
+using Content.Shared.ADT.Economy;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
@@ -26,7 +27,7 @@ using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
-using Content.Shared.ADT.Economy;
+using Content.Shared.Wall;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -52,6 +53,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly StackSystem _stackSystem = default!;
         //ADT-Economy-End
 
+        private const float WallVendEjectDistanceFromWall = 1f;
         private const double GlobalPriceMultiplier = 2.0; //ADT-Economy
 
         public override void Initialize()
@@ -501,7 +503,20 @@ namespace Content.Server.VendingMachines
                 return;
             }
 
-            var ent = Spawn(vendComponent.NextItemToEject, Transform(uid).Coordinates); //ADT-Economy-Start
+            // Default spawn coordinates
+            var spawnCoordinates = Transform(uid).Coordinates;
+
+            //Make sure the wallvends spawn outside of the wall.
+
+            if (TryComp<WallMountComponent>(uid, out var wallMountComponent))
+            {
+
+                var offset = wallMountComponent.Direction.ToWorldVec() * WallVendEjectDistanceFromWall;
+                spawnCoordinates = spawnCoordinates.Offset(offset);
+            }
+
+            var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
+
             if (vendComponent.ThrowNextItem)
             {
                 var range = vendComponent.NonLimitedEjectRange;
