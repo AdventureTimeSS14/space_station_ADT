@@ -2,7 +2,7 @@
   id: ReptilianHornsBaran
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_baran
@@ -11,7 +11,7 @@
   id: ReptilianHornsBullhorns
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_bullhorns
@@ -20,7 +20,7 @@
   id: ReptilianHornsCrown
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_crown
@@ -29,7 +29,7 @@
   id: ReptilianHornsFive
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_five
@@ -38,7 +38,7 @@
   id: ReptilianHornsHighback
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_highback
@@ -47,7 +47,7 @@
   id: ReptilianHornsJacksonchameleon
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_jacksonchameleon
@@ -56,7 +56,7 @@
   id: ReptilianHornsLong
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_long
@@ -65,7 +65,7 @@
   id: ReptilianHornsStagbeetle
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_stagbeetle
@@ -74,7 +74,7 @@
   id: ReptilianHornsSuperlong
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_superlong
@@ -83,7 +83,7 @@
   id: ReptilianHornsTwoago
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_twoago
