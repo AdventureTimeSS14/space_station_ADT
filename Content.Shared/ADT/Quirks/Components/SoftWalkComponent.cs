@@ -8,5 +8,4 @@ namespace Content.Shared.ADT.Traits;
 [NetworkedComponent]
 public sealed partial class SoftWalkComponent : Component
 {
-    public ProtoId<TagPrototype> Tag = "ShoesRequiredStepTriggerImmune";
 }

@@ -11,6 +11,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.StepTrigger.Components;
 
 namespace Content.Shared.ADT.Traits;
 
@@ -69,10 +70,7 @@ public abstract class SharedQuirksSystem : EntitySystem
 
     private void OnSoftWalkMapInit(EntityUid uid, SoftWalkComponent comp, MapInitEvent args)
     {
-        if (_tag.HasTag(uid, comp.Tag))
-            RemComp<SoftWalkComponent>(uid);
-        else
-            _tag.AddTag(uid, comp.Tag);
+        EnsureComp<StepTriggerImmuneComponent>(uid, out _);
     }
 
     private void OnFreerunningClimbTimeModify(EntityUid uid, FreerunningComponent comp, ref CheckClimbSpeedModifiersEvent args)
