@@ -39,7 +39,7 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 3
       required: false
     Tail:
       points: 1
@@ -47,6 +47,17 @@
     Head:
       points: 4
       required: false
+    Overlay:
+      points: 1
+      required: false
+    Arms:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+
+
 - type: humanoidBaseSprite
   id: MobVulpkaninEyes
   baseSprite:
