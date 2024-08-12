@@ -227,7 +227,7 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
-    state: wings-slightlylongwings
+    state: wings-slightlylongwings # тут всё ок
 
 - type: marking
   id: MothWingsSkull
@@ -235,6 +235,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-skull
 
@@ -244,6 +246,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-predatoreyes
 
@@ -253,6 +257,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-line
 
@@ -262,6 +268,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-gradient
 
@@ -271,6 +279,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-deathwing
 
@@ -280,6 +290,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-cowcoloring
 
@@ -289,5 +301,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: wings-asterisks
