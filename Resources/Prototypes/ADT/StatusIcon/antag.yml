@@ -9,6 +9,7 @@
     - ShowAntagIcons
     - Phantom
     - PhantomPuppet
+  visibleToOwner: false
 
 - type: statusIcon
   id: PhantomPuppetFaction
@@ -21,6 +22,7 @@
     - ShowAntagIcons
     - Phantom
     - PhantomPuppet
+  visibleToOwner: true
 
 - type: statusIcon
   id: PhantomHaunted
@@ -34,6 +36,7 @@
     - Phantom
     - PhantomPuppet
     - Chaplain
+  visibleToOwner: false
 
 - type: statusIcon
   id: PhantomImmune
@@ -46,6 +49,7 @@
     - ShowAntagIcons
     - Phantom
     - PhantomPuppet
+  visibleToOwner: false
 
 - type: statusIcon
   id: ChaplainFaction

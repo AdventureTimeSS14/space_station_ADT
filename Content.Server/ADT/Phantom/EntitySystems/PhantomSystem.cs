@@ -1105,7 +1105,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         bool success = false;
         if (TryComp<BatteryComponent>(target, out var batteryComp))
         {
-            _batterySystem.SetCharge(target, batteryComp.MaxCharge, batteryComp);
+            _batterySystem.SetCharge(target, batteryComp.MaxCharge);
             success = true;
         }
 
@@ -1126,7 +1126,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 {
                     if (TryComp<BatteryComponent>(entity, out var entBatteryComp))
                     {
-                        _batterySystem.SetCharge(entity, entBatteryComp.MaxCharge, batteryComp);
+                        _batterySystem.SetCharge(entity, entBatteryComp.MaxCharge);
                         success = true;
                     }
 

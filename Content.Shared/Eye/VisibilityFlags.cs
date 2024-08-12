@@ -8,7 +8,9 @@ namespace Content.Shared.Eye
     {
         None   = 0,
         Normal = 1 << 0,
-        Ghost  = 1 << 1,
-        PhantomVessel = 1 << 2, // ADT Phantom
+        Ghost  = 1 << 1,   // ADT Phantom
+        PhantomVessel = 2 << 1, // ADT Phantom
+        BaseHallucination = 3 << 1, // ADT Phantom
+
     }
 }
