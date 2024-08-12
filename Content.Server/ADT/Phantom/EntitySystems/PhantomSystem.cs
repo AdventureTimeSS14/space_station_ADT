@@ -1,4 +1,3 @@
-using Content.Server.Actions;
 using Content.Shared.Actions;
 using Content.Shared.Physics;
 using Robust.Shared.Physics;
@@ -47,7 +46,6 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Bible.Components;
 using Content.Server.Body.Systems;
-using Robust.Shared.GameStates;
 using Content.Server.Station.Systems;
 using Content.Server.EUI;
 using Content.Server.Body.Components;
@@ -55,7 +53,6 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Server.ADT.Hallucinations;
 using Content.Server.AlertLevel;
 using Content.Shared.ADT.Controlled;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.CombatMode;
@@ -67,9 +64,6 @@ using Content.Shared.Tag;
 using Content.Server.Hands.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Weapons.Ranged.Events;
-using Content.Server.Database;
-using Content.Server.Chat;
 using Content.Shared.ADT.Hallucinations;
 using Robust.Shared.Utility;
 using Content.Shared.Humanoid.Markings;
@@ -1001,7 +995,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         if (_random.Prob(chance))
         {
-            var stunTime = TimeSpan.FromSeconds(4);
+            var stunTime = TimeSpan.FromSeconds(1);
             RemComp<MindShieldComponent>(target);
             _sharedStun.TryParalyze(target, stunTime, true);
             _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
@@ -1011,7 +1005,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             var stunTime = TimeSpan.FromSeconds(1);
             _sharedStun.TryParalyze(uid, stunTime, true);
-            _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(uid, EntityManager))), uid, uid);
+            _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
             _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), uid, uid, PopupType.SmallCaution);
         }
     }
@@ -1417,7 +1411,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         args.Handled = true;
 
         var eui = new PhantomFinaleEui(uid, this, component, PhantomFinaleType.Nightmare);
-        _euiManager.OpenEui(eui, mind.Session);
+        _euiManager.OpenEui(eui, selfMind.Session);
     }
 
     private void OnTyrany(EntityUid uid, PhantomComponent component, TyranyFinaleActionEvent args)
