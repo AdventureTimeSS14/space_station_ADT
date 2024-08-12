@@ -130,3 +130,5 @@ marking-MothWingsGradient = Крылья (Градиент)
 marking-MothWingsDeathwing = Крылья (Крылья Смерти)
 marking-MothWingsCowcoloring = Крылья (Коровья окраска)
 marking-MothWingsAsterisks = Крылья (Звездочки)
+marking-MothEyesR = Ниан, правый глаз
+marking-MothEyesL = Ниан, левый глаз
