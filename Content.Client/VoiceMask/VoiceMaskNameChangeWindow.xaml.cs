@@ -49,13 +49,13 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             ReloadVoices(IoCManager.Resolve<IPrototypeManager>());
         }
         // Corvax-TTS-End
-        // Corvax-TTS-Start
+        // ADT Barks start
         if (IoCManager.Resolve<IConfigurationManager>().GetCVar(ADTCCVars.BarksEnabled))
         {
             BarksContainer.Visible = true;
             ReloadBarks(IoCManager.Resolve<IPrototypeManager>());
         }
-        // Corvax-TTS-End
+        // ADT Barks end
 
         AddVerbs();
     }

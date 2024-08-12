@@ -266,10 +266,12 @@ namespace Content.Server.Database
                 antags.ToHashSet(),
                 traits.ToHashSet(),
                 loadouts,
+                // ADT Barks start
                 profile.BarkProto,
                 profile.BarkPitch,
                 profile.LowBarkVar,
                 profile.HighBarkVar
+                // ADT Barks end
             );
         }
 

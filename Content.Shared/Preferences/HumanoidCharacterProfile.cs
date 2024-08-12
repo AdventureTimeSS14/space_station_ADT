@@ -108,6 +108,7 @@ namespace Content.Shared.Preferences
         [DataField]
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
+        // ADT Barks start
         public string BarkProto = "Human1";
 
         public float BarkPitch = 1f;
@@ -115,6 +116,7 @@ namespace Content.Shared.Preferences
         public float BarkLowVar = 0.1f;
 
         public float BarkHighVar = 0.5f;
+        // ADT Barks end
 
         /// <summary>
         /// <see cref="_jobPriorities"/>
@@ -152,10 +154,12 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts,
+            // ADT Barks start
             string barkProto,
             float barkPitch,
             float barkLowVar,
             float barkHighVar)
+            // ADT Barks end
         {
             Name = name;
             FlavorText = flavortext;
@@ -171,10 +175,12 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            // ADT Barks start
             BarkProto = barkProto;
             BarkPitch = barkPitch;
             BarkLowVar = barkLowVar;
             BarkHighVar = barkHighVar;
+            // ADT Barks end
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -207,10 +213,12 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
+                // ADT Barks start
                 other.BarkProto,
                 other.BarkPitch,
                 other.BarkLowVar,
                 other.BarkHighVar)
+                // ADT Barks end
         {
         }
 
@@ -544,10 +552,12 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            // ADT Barks start
             if (BarkProto != other.BarkProto) return false;
             if (BarkPitch != other.BarkPitch) return false;
             if (BarkLowVar != other.BarkLowVar) return false;
             if (BarkHighVar != other.BarkHighVar) return false;
+            // ADT Barks end
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
