@@ -52,10 +52,12 @@
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: trinity_spots
 
+#Бороды
 - type: marking
   id: DemonGoatee
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [DemonSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: goatee
