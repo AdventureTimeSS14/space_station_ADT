@@ -209,8 +209,8 @@
 
 - type: marking
   id: ADTVulpkanin_spots
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -218,8 +218,8 @@
 
 - type: marking
   id: ADTVulpkanin_spots2
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -246,7 +246,7 @@
 - type: marking
   id: ADTVulpkanin_bigscarRight
   bodyPart: Head
-  markingCategory: Head
+  markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -254,8 +254,8 @@
 
 - type: marking
   id: ADTVulpkanin_binding
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -263,8 +263,8 @@
 
 - type: marking
   id: ADTVulpkanin_braceletArmLeft
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Arms
+  markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -272,8 +272,8 @@
 
 - type: marking
   id: ADTVulpkanin_braceletArmRight
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Arms
+  markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -281,8 +281,8 @@
 
 - type: marking
   id: ADTVulpkanin_braceletLegLeft
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Legs
+  markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -290,8 +290,8 @@
 
 - type: marking
   id: ADTVulpkanin_braceletLegRight
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Legs
+  markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -317,8 +317,8 @@
 
 - type: marking
   id: ADTVulpkanin_ringArmLeft
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Arms
+  markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -326,8 +326,8 @@
 
 - type: marking
   id: ADTVulpkanin_ringArmRight
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Arms
+  markingCategory: Arms
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -353,8 +353,8 @@
 
 - type: marking
   id: ADTVulpkaninRingLegLeft
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Legs
+  markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -362,8 +362,8 @@
 
 - type: marking
   id: ADTVulpkaninRingLegRight
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Legs
+  markingCategory: Legs
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -371,8 +371,8 @@
 
 - type: marking
   id: ADTVulpkaninRunes
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -443,8 +443,8 @@
 
 - type: marking
   id: ADTVulpkaninSkeleton
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
@@ -452,8 +452,8 @@
 
 - type: marking
   id: ADTVulpkaninSkull
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
