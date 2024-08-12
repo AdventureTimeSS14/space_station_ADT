@@ -1,0 +1,293 @@
+# Wings
+- type: marking
+  id: MothWingsDefault
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default
+
+- type: marking
+  id: MothWingsCharred
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: charred
+
+- type: marking
+  id: MothWingsDbushy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dbushy_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dbushy_secondary
+
+- type: marking
+  id: MothWingsDeathhead
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: deathhead_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: deathhead_secondary
+
+- type: marking
+  id: MothWingsFan
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: fan
+
+- type: marking
+  id: MothWingsDfan
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dfan
+
+- type: marking
+  id: MothWingsFeathery
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: feathery
+
+- type: marking
+  id: MothWingsFirewatch
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: firewatch_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: firewatch_secondary
+
+- type: marking
+  id: MothWingsGothic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic
+
+- type: marking
+  id: MothWingsJungle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: jungle
+
+- type: marking
+  id: MothWingsLadybug
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: ladybug
+
+- type: marking
+  id: MothWingsMaple
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: maple
+
+- type: marking
+  id: MothWingsMoffra
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: moffra_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: moffra_secondary
+
+- type: marking
+  id: MothWingsOakworm
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: oakworm
+
+- type: marking
+  id: MothWingsPlasmafire
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: plasmafire_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: plasmafire_secondary
+
+- type: marking
+  id: MothWingsPointy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: pointy
+
+- type: marking
+  id: MothWingsRoyal
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: royal_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: royal_secondary
+
+- type: marking
+  id: MothWingsStellar
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: stellar
+
+- type: marking
+  id: MothWingsStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: striped
+
+- type: marking
+  id: MothWingsSwirly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: swirly
+
+- type: marking
+  id: MothWingsWhitefly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: whitefly
+
+- type: marking
+  id: MothWingsWitchwing
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: witchwing
+
+- type: marking
+  id: MothWingsUnderwing
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: underwing_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: underwing_secondary
+
+- type: marking
+  id: MothWingsSlightlylongwings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-slightlylongwings
+
+- type: marking
+  id: MothWingsSkull
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-skull
+
+- type: marking
+  id: MothWingsPredatoreyes
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-predatoreyes
+
+- type: marking
+  id: MothWingsLine
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-line
+
+- type: marking
+  id: MothWingsGradient
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-gradient
+
+- type: marking
+  id: MothWingsDeathwing
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-deathwing
+
+- type: marking
+  id: MothWingsCowcoloring
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-cowcoloring
+
+- type: marking
+  id: MothWingsAsterisks
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Moth/custom.rsi
+    state: wings-asterisks
