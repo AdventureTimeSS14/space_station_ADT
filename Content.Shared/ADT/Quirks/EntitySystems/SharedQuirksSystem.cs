@@ -5,7 +5,7 @@ using Robust.Shared.Network;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Content.Shared.Tools.Components;
-using Content.Shared.Storage.Components;
+using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
@@ -25,10 +25,6 @@ public abstract class SharedQuirksSystem : EntitySystem
 
     public override void Initialize()
     {
-        //SubscribeLocalEvent<SharedEntityStorageComponent, GetVerbsEvent<AlternativeVerb>>(OnGetHideVerbs);
-
-        SubscribeLocalEvent<SoftWalkComponent, MapInitEvent>(OnSoftWalkMapInit);
-
         SubscribeLocalEvent<FreerunningComponent, CheckClimbSpeedModifiersEvent>(OnFreerunningClimbTimeModify);
 
         SubscribeLocalEvent<SprinterComponent, MapInitEvent>(OnSprinterMapInit);
@@ -36,27 +32,6 @@ public abstract class SharedQuirksSystem : EntitySystem
 
         SubscribeLocalEvent<HardThrowerComponent, CheckThrowRangeModifiersEvent>(OnThrowerRangeModify);
     }
-
-    //private void OnGetHideVerbs(EntityUid uid, SharedEntityStorageComponent comp, GetVerbsEvent<AlternativeVerb> args)
-    //{
-    //    if (!args.CanAccess || !args.CanInteract)
-    //        return;
-
-    //    if (!HasComp<FastLockersComponent>(args.User))
-    //        return;
-    //    if (TryComp<WeldableComponent>(uid, out var weldable) && weldable.IsWelded)
-    //        return;
-    //    if (!comp.ItemCanStoreMobs)
-    //        return;
-
-    //    AlternativeVerb verb = new()
-    //    {
-    //        Act = () => TryHide(args.User, uid),
-    //        Text = Loc.GetString("quirk-fast-locker-hide-verb"),
-    //    };
-    //    args.Verbs.Add(verb);
-
-    //}
 
     public void TryHide(EntityUid uid, EntityUid closet)
     {
@@ -66,11 +41,6 @@ public abstract class SharedQuirksSystem : EntitySystem
         }
         else
             _popup.PopupCursor(Loc.GetString("quirk-fast-locker-hide-fail"), uid);
-    }
-
-    private void OnSoftWalkMapInit(EntityUid uid, SoftWalkComponent comp, MapInitEvent args)
-    {
-        EnsureComp<StepTriggerImmuneComponent>(uid, out _);
     }
 
     private void OnFreerunningClimbTimeModify(EntityUid uid, FreerunningComponent comp, ref CheckClimbSpeedModifiersEvent args)

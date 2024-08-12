@@ -1,4 +1,5 @@
-﻿using Content.Shared.Examine;
+﻿using Content.Shared.ADT.Traits;
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Tag;
@@ -24,6 +25,9 @@ public sealed class StepTriggerImmuneSystem : EntitySystem
 
     private void OnStepTriggerClothingAttempt(EntityUid uid, ClothingRequiredStepTriggerComponent component, ref StepTriggerAttemptEvent args)
     {
+        if (HasComp<SoftWalkComponent>(args.Tripper))   // ADT Quirks
+            args.Cancelled = true;
+
         if (_inventory.TryGetInventoryEntity<ClothingRequiredStepTriggerImmuneComponent>(args.Tripper, out _))
         {
             args.Cancelled = true;
