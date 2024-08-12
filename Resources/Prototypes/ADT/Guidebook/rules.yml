@@ -1,0 +1,105 @@
+- type: guideEntry
+  id: ADTRuleset
+  name: Правила сервера
+  priority: 0
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/MrpRuleset.xml"
+  children:
+  - ADTRule0
+  - ADTRule1
+  - ADTRule2
+  - ADTRule3
+  - ADTRule4
+  - ADTRule5
+  - ADTRule6
+  - ADTRule7
+  - ADTRule8
+  - ADTRule9
+  - ADTRule10
+
+- type: guideEntry
+  id: ADTRule0
+  name: Правило 0
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule0.xml"
+
+- type: guideEntry
+  id: ADTRule1
+  name: Правило 1
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule1.xml"
+
+- type: guideEntry
+  id: ADTRule2
+  name: Правило 2
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule2.xml"
+
+- type: guideEntry
+  id: ADTRule3
+  name: Правило 3
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule3.xml"
+
+- type: guideEntry
+  id: ADTRule4
+  name: Правило 4
+  priority: 5
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule4.xml"
+
+- type: guideEntry
+  id: ADTRule5
+  name: Правило 5
+  priority: 6
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule5.xml"
+
+- type: guideEntry
+  id: ADTRule6
+  name: Правило 6
+  priority: 7
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule6.xml"
+
+- type: guideEntry
+  id: ADTRule7
+  name: Правило 7
+  priority: 8
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule7.xml"
+
+- type: guideEntry
+  id: ADTRule8
+  name: Правило 8
+  priority: 9
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule8.xml"
+
+- type: guideEntry
+  id: ADTRule9
+  name: Правило 9
+  priority: 10
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule9.xml"
+
+- type: guideEntry
+  id: ADTRule10
+  name: Правило 10
+  priority: 11
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule10.xml"
+
+- type: entity
+  parent: BasePlushie
+  id: ADTIconAdventureTime
+  name: AdventureTime
+  description: Decs AdventureTime icon
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/adventuretime.rsi
+    state: icon
