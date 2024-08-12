@@ -33,6 +33,7 @@
     - NuclearOperative
     - SyndicateAgent
     - CentralCommand
+    - IgnoreBalanceChecks # ADT-Economy-Tweak
   - type: UserInterface
     interfaces:
       enum.SolarControlConsoleUiKey.Key:
