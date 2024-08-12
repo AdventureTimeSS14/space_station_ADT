@@ -24,7 +24,7 @@
       map: ["enum.ATMVisualLayers.BaseUnshaded"]
       shader: unshaded
   - type: ATM
-    idCardSlot:
+    idSlot:
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true
@@ -35,7 +35,7 @@
   - type: ItemSlots
   - type: ContainerContainer
     containers:
-      IdCardSlot: !type:ContainerSlot
+      idSlot: !type:ContainerSlot
   - type: Appearance
   - type: AmbientOnPowered
   - type: AmbientSound

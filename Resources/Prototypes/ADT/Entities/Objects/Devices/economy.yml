@@ -114,7 +114,6 @@
     - type: ActivatableUI
       key: enum.EftposKey.Key
       singleUser: true
-      closeOnHandDeselect: false
     - type: UserInterface
       interfaces:
         enum.EftposKey.Key:

@@ -12,6 +12,7 @@
     - CanPilot
     - BypassInteractionRangeChecks
     - BypassDropChecks
+    - IgnoreBalanceChecks # ADT-Economy-Tweak
   - type: Input
     context: "aghost"
   - type: Ghost
@@ -33,7 +34,6 @@
     - NuclearOperative
     - SyndicateAgent
     - CentralCommand
-    - IgnoreBalanceChecks # ADT-Economy-Tweak
   - type: UserInterface
     interfaces:
       enum.SolarControlConsoleUiKey.Key:
