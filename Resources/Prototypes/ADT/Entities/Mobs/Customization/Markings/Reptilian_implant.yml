@@ -1,7 +1,7 @@
 - type: marking
   id: ReptilianImplantCybersunArmL
   bodyPart: LArm
-  markingCategory: Body
+  markingCategory: Arms
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-arm_l
@@ -9,7 +9,7 @@
 - type: marking
   id: ReptilianImplantCybersunArmR
   bodyPart: LArm
-  markingCategory: Body
+  markingCategory: Arms
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-arm_r
@@ -17,7 +17,7 @@
 - type: marking
   id: ReptilianImplantCybersunLegL
   bodyPart: RLeg
-  markingCategory: Body
+  markingCategory: Legs
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-leg_l
@@ -25,7 +25,7 @@
 - type: marking
   id: ReptilianImplantCybersunLegR
   bodyPart: RLeg
-  markingCategory: Body
+  markingCategory: Legs
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-leg_r
@@ -33,7 +33,7 @@
 - type: marking
   id: ReptilianImplantCybersunFootL
   bodyPart: LFoot
-  markingCategory: Body
+  markingCategory: Foot
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-foot_l
@@ -41,7 +41,7 @@
 - type: marking
   id: ReptilianImplantCybersunFootR
   bodyPart: LFoot
-  markingCategory: Body
+  markingCategory: Foot
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-foot_r
@@ -49,7 +49,7 @@
 - type: marking
   id: ReptilianImplantCybersunHandL
   bodyPart: LHand
-  markingCategory: Body
+  markingCategory: Hand
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-hand_l
@@ -57,7 +57,7 @@
 - type: marking
   id: ReptilianImplantCybersunHandR
   bodyPart: LHand
-  markingCategory: Body
+  markingCategory: Hand
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: implantcybersun-hand_r
