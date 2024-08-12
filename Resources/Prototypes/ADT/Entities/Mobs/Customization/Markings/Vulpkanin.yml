@@ -196,3 +196,266 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: tiger_head
+
+#Start-customization-Uma-ADT
+- type: marking
+  id: ADTVulpkanin_skullBreast
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_skull_breast
+
+- type: marking
+  id: ADTVulpkanin_spots
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_spots
+
+- type: marking
+  id: ADTVulpkanin_spots2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_spots2
+
+- type: marking
+  id: ADTVulpkanin_tattoo
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_tattoo
+
+- type: marking
+  id: ADTVulpkanin_wingsBack
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_wings_back
+
+- type: marking
+  id: ADTVulpkanin_bigscarRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_bigscar_right
+
+- type: marking
+  id: ADTVulpkanin_binding
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_binding
+
+- type: marking
+  id: ADTVulpkanin_braceletArmLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_bracelet_arm_left
+
+- type: marking
+  id: ADTVulpkanin_braceletArmRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_bracelet_arm_right
+
+- type: marking
+  id: ADTVulpkanin_braceletLegLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_bracelet_leg_left
+
+- type: marking
+  id: ADTVulpkanin_braceletLegRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_bracelet_leg_right
+
+- type: marking
+  id: ADTVulpkanin_lineLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_line_left
+
+- type: marking
+  id: ADTVulpkanin_lineRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_line_right
+
+- type: marking
+  id: ADTVulpkanin_ringArmLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_ring_arm_left
+
+- type: marking
+  id: ADTVulpkanin_ringArmRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_ring_arm_right
+
+- type: marking
+  id: ADTVulpkanin_ringEarLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_ring_ear_left
+
+- type: marking
+  id: ADTVulpkanin_ringEarRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_ring_ear_right
+
+- type: marking
+  id: ADTVulpkaninRingLegLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_ring_leg_left
+
+- type: marking
+  id: ADTVulpkaninRingLegRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_ring_leg_right
+
+- type: marking
+  id: ADTVulpkaninRunes
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_runes
+
+- type: marking
+  id: ADTVulpkaninScarRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_scar_right
+
+- type: marking
+  id: ADTVulpkaninScar2Left
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_scar2_left
+
+- type: marking
+  id: ADTVulpkaninScar2Right
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_scar2_right
+
+- type: marking
+  id: ADTVulpkaninScar3Left
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_scar3_left
+
+- type: marking
+  id: ADTVulpkaninScar3Right
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_scar3_right
+
+- type: marking
+  id: ADTVulpkaninScar4Left
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_scar4_left
+
+- type: marking
+  id: ADTVulpkaninScar4Right
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_scar4_right
+
+- type: marking
+  id: ADTVulpkaninSkeleton
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_skeleton
+
+- type: marking
+  id: ADTVulpkaninSkull
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
+      state: vulp_skull
+#END-customization-Uma-ADT

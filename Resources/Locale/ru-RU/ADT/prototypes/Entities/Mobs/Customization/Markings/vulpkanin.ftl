@@ -19,3 +19,4 @@ marking-ADTVulpkaninfullbelly = Окрас живота
 marking-ADTVulpkaninpointsfade = Окрас лап
 marking-ADTVulpkaninpointsfadebelly = Пятнистый окрас лап, груди и живота
 marking-ADTVulpkaninsharppoints = Резкие пятна
+
