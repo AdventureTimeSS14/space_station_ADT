@@ -51,3 +51,27 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple
+
+# Лисий хвост
+- type: marking
+  id: ADTFoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  #sponsorOnly: false # AdventureTime-Sponsors
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/fox_parts.rsi
+    state: tail_fox_wag_stripes_prime # AdventureTime-Sponsors
+  - sprite: ADT/Mobs/Customization/Human/fox_parts.rsi
+    state: tail_fox_wag_stripes_second # AdventureTime-Sponsors
+  - sprite: ADT/Mobs/Customization/Human/fox_parts.rsi
+    state: tail_fox_wag_stripes_third # AdventureTime-Sponsors
