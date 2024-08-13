@@ -9,7 +9,6 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/urs_hat.rsi
 
-<<<<<<< HEAD
 # Brigmedic beret
 - type: entity
   parent: ClothingHeadBase
@@ -21,7 +20,7 @@
       sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
     - type: Clothing
       sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
-=======
+
 - type: entity
   parent: ClothingHeadBase
   id: ADTClothingHeadHatBeretBlueshieldBlack
@@ -43,4 +42,3 @@
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
->>>>>>> 94241cd50a416e93dea1b6e0e455c63099a59b15
