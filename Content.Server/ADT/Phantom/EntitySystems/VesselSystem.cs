@@ -92,17 +92,6 @@ public sealed partial class PhantomVesselSystem : EntitySystem
         }
     }
 
-    private void OnHauntedInit(EntityUid uid, PhantomHolderComponent component, MapInitEvent args)
-    {
-        EnsureComp<PhantomHolderIconComponent>(uid);
-    }
-
-    private void OnHauntedShutdown(EntityUid uid, PhantomHolderComponent component, ComponentShutdown args)
-    {
-        if (HasComp<PhantomHolderIconComponent>(uid))
-            RemComp<PhantomHolderIconComponent>(uid);
-    }
-
     private void OnHauntedDeleted(EntityUid uid, PhantomHolderComponent component, EntityTerminatingEvent args)
     {
         if (!TryComp<PhantomComponent>(component.Phantom, out var phantom))

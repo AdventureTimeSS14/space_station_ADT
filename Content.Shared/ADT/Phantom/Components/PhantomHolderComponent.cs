@@ -19,13 +19,3 @@ public sealed partial class PhantomHolderComponent : Component
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;
 }
-
-[RegisterComponent, NetworkedComponent]
-public sealed partial class PhantomHolderIconComponent : Component
-{
-    [DataField("statusIcon")]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "PhantomHaunted";
-
-    [DataField]
-    public bool IconVisibleToGhost { get; set; } = true;
-}
