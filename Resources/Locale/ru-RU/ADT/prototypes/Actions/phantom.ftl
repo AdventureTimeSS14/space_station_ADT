@@ -1,3 +1,6 @@
+action-phantom-style = Выбор стиля
+action-phantom-style-desc = Выберите текущий стиль. От этого зависит ваш набор способностей. Вы можете переключиться в любой момент.
+
 action-phantom-haunt = Дышать в затылок
 action-phantom-haunt-desc = Сделайте выбранную цель [color=#05eafa]одержимой[/color].
 

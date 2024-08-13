@@ -19,8 +19,8 @@
   - type: Blindable
   - type: Sprite
     noRot: true
-    drawdepth: Ghosts
     sprite: ADT/Mobs/Phantom/phantom.rsi
+    drawdepth: Effects
     layers:
     - state: haunt
     - type: Tag
@@ -29,6 +29,8 @@
   - type: Input
     context: "ghost"
   - type: Muted
+  - type: Stealth
+    lastVisibility: -1
 
 
 - type: entity

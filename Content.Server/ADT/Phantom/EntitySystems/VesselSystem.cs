@@ -27,6 +27,7 @@ public sealed partial class PhantomVesselSystem : EntitySystem
         SubscribeLocalEvent<PhantomHolderComponent, MobStateChangedEvent>(OnHauntedDeath);
         SubscribeLocalEvent<PhantomHolderComponent, ComponentShutdown>(OnHauntedShutdown);
         SubscribeLocalEvent<PhantomHolderComponent, EntityTerminatingEvent>(OnHauntedDeleted);
+        SubscribeLocalEvent<PhantomHolderComponent, EctoplasmHitscanHitEvent>(OnHauntedEctoplasmicDamage);
     }
     private void OnMapInit(EntityUid uid, VesselComponent component, MapInitEvent args)
     {
@@ -67,6 +68,12 @@ public sealed partial class PhantomVesselSystem : EntitySystem
     }
 
     private void OnEctoplasmicDamage(EntityUid uid, VesselComponent component, EctoplasmHitscanHitEvent args)
+    {
+        _damageableSystem.TryChangeDamage(uid, args.DamageToTarget, true);
+        _phantom.StopHaunt(component.Phantom, uid);
+    }
+
+    private void OnHauntedEctoplasmicDamage(EntityUid uid, PhantomHolderComponent component, EctoplasmHitscanHitEvent args)
     {
         _damageableSystem.TryChangeDamage(component.Phantom, args.DamageToPhantom);
         _damageableSystem.TryChangeDamage(uid, args.DamageToTarget, true);

@@ -80,7 +80,7 @@ phantom-epidemic-end = Эпидемия психоза завершилась.
 phantom-no-holder-need = Необходимо быть вне одержимого.
 phantom-no-holder = Требуется одержимый.
 
-phantom-ability-fail-self = Невозможно применить способность к {CAPITALIZE(THE($target))}.
+phantom-ability-fail-self = Невозможно применить способность к {CAPITALIZE($target)}.
 
 phantom-final-already = Вы уже использовали финальную способность.
 
@@ -89,6 +89,22 @@ phantom-no-mind = Цель в бессознательном состоянии.
 phantom-helping-hand-toolate = Слишком поздно...
 
 phantom-style-already = Этот стиль уже выбран.
+
+phantom-claws-appear = У {CAPITALIZE($name)} внезапно появляются полупрозрачные когти!
+
+phantom-claws-appear-self = У вас на руках появились призрачные когти.
+
+phantom-claws-disappear = Призрачные когти {CAPITALIZE($name)} исчезли!
+
+phantom-claws-disappear-self = Призрачные когти исчезают.
+
+phantom-fail-nohuman = {CAPITALIZE($target)} не гуманоид.
+
+phantom-puppeter-fail-notvessel = {CAPITALIZE($target)} не сосуд.
+
+
+
+# Alerts
 
 alerts-vessels-name = Сосуды
 alerts-vessels-desc = Количество ваших [color=#f605fa]сосудов[/color].
@@ -128,7 +144,7 @@ phantom-deathmatch-announcement =
 phantom-blessing-announcement =
     Срочные новости!
     В недавней безвыигрышной лотерее NanoTrasen на получение оплачиваемых отпусков и премий в размере месячного оклада для каждого сотрудника и пассажира победил экипаж данной станции! Всему экипажу приказано явиться в головной офис на поздравительную вечеринку!
-    Так же, решением верховного религиозного совета NanoTrasen, священник станции лишается своего сана и официально считается уволенным из рядов корпорации. 
+    Так же, решением верховного религиозного совета NanoTrasen, священник станции лишается своего сана и официально считается уволенным из рядов корпорации.
 
 phantom-blessing-second-announcer = Патриарха церкви NanoTrasen
 phantom-blessing-second-announcement =

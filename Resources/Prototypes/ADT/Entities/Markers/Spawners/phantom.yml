@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnPointGhostPhantom
   name: ghost role spawn point
-  suffix: rat king
+  suffix: phantom
   parent: BaseAntagSpawner
   components:
   - type: GhostRole

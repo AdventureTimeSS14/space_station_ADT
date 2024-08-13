@@ -37,17 +37,18 @@ public abstract class SharedPhantomSystem : EntitySystem
         component.CurrentActions.Clear();
 
         var level = component.Vessels.Count;
+        var curseds = component.CursedVessels.Count;
         if (level <= 0)
             return;
         if (level > 0)
             AddFromList(uid, component, proto.Lvl1Actions);
-        if (level > 1)
-            AddFromList(uid, component, proto.Lvl2Actions);
         if (level > 2)
-            AddFromList(uid, component, proto.Lvl3Actions);
-        if (level > 3)
-            AddFromList(uid, component, proto.Lvl4Actions);
+            AddFromList(uid, component, proto.Lvl2Actions);
         if (level > 4)
+            AddFromList(uid, component, proto.Lvl3Actions);
+        if (level > 6 && curseds > 0)
+            AddFromList(uid, component, proto.Lvl4Actions);
+        if (level > 9 && curseds > 1)
             AddFromList(uid, component, proto.Lvl5Actions);
         component.CurrentStyle = style;
     }

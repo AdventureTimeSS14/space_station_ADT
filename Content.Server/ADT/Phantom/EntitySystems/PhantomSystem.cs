@@ -73,6 +73,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.ADT.Silicon.Components;
 
 namespace Content.Server.ADT.Phantom.EntitySystems;
 
@@ -728,7 +729,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 if (_random.Prob(chance))
                 {
                     UpdateEctoplasmSpawn(uid);
-                    var stunTime = TimeSpan.FromSeconds(4);
+                    var stunTime = TimeSpan.FromSeconds(1);
                     RemComp<MindShieldComponent>(target);
                     _sharedStun.TryParalyze(target, stunTime, true);
                     _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
@@ -1062,7 +1063,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
-            var selfMessage = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
+            var selfMessage = Loc.GetString("phantom-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
@@ -1172,6 +1173,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
 
         if (!TryComp<BlindableComponent>(target, out var blindable))
+        {
+            var selfMessage = Loc.GetString("phantom-blinding-noblood");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (HasComp<SiliconComponent>(target))
         {
             var selfMessage = Loc.GetString("phantom-blinding-noblood");
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -1355,7 +1363,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
-            var selfMessage = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
+            var selfMessage = Loc.GetString("phantom-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
@@ -1989,7 +1997,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
-            var selfMessageFailNoHuman = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
+            var selfMessageFailNoHuman = Loc.GetString("phantom-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessageFailNoHuman, uid, uid);
             return false;
         }
