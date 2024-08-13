@@ -1288,7 +1288,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
             var (target, _) = _random.Pick(_lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, 150f));
 
-            if (!_hallucinations.StartEpidemicHallucinations(target, "MindBreaker"))
+            if (!_hallucinations.StartEpidemicHallucinations(target, component.HallucinationsPrototype))
             {
                 var failMessage = Loc.GetString("phantom-epidemic-fail");
                 _popup.PopupEntity(failMessage, uid, uid);
@@ -1300,6 +1300,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
             var selfMessage = Loc.GetString("phantom-epidemic-success", ("name", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
+
+            component.EpidemicActive = true;
 
             UpdateEctoplasmSpawn(uid);
             args.Handled = true;
@@ -1314,6 +1316,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
             var selfMessage = Loc.GetString("phantom-epidemic-end");
             _popup.PopupEntity(selfMessage, uid, uid);
+
+            component.EpidemicActive = false;
 
             UpdateEctoplasmSpawn(uid);
             args.Handled = true;
