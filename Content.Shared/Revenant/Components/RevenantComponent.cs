@@ -217,6 +217,8 @@ public sealed partial class RevenantComponent : Component
     [DataField]
     public EntityWhitelist? MalfunctionBlacklist;
 
+    // ADT Content start
+
     /// <summary>
     /// Malfunction sound
     /// </summary>
@@ -336,6 +338,7 @@ public sealed partial class RevenantComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("lockSound")]
     public string LockSound = "/Audio/ADT/revenant-lock.ogg";
     #endregion
+    // ADT Content end
 
     #region Visualizer
     [DataField("state")]

@@ -249,10 +249,12 @@ public sealed partial class GunSystem : SharedGunSystem
 
                         var dmg = hitscan.Damage;
 
+                        // ADT hitscan events start
                         foreach (var item in hitscan.TargetEvents)
                         {
                             RaiseLocalEvent(hitEntity, item);
                         }
+                        // ADT hitscan events end
 
                         var hitName = ToPrettyString(hitEntity);
                         if (dmg != null)

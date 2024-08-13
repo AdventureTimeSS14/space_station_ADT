@@ -92,6 +92,7 @@ public enum RevenantVisualLayers : byte
     Digit3
 }
 
+// ADT Content start
 [NetSerializable, Serializable]
 [DataDefinition]
 public sealed partial class AddRevenantShieldEvent : EntityEventArgs
@@ -103,3 +104,4 @@ public sealed partial class AddRevenantShieldEvent : EntityEventArgs
 public sealed partial class StartRevenantMiseryEvent : EntityEventArgs
 {
 }
+// ADT Content end
