@@ -214,6 +214,7 @@
     - GalacticCommon
     understands:
     - GalacticCommon
+  - type: SpeechBarks
 
 - type: entity
   save: false

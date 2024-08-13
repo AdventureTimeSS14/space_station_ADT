@@ -6,4 +6,4 @@ namespace Content.Shared.StepTrigger.Components;
 /// Grants the attached entity to step triggers.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class StepTriggerImmuneComponent : Component;
+public sealed partial class StepTriggerImmuneComponent : Component {}   // "{}" is ADT part
