@@ -1,50 +1,18 @@
-using Content.Server.Actions;
 using Content.Shared.Actions;
-using Content.Shared.Physics;
 using Robust.Shared.Physics;
 using Content.Shared.ADT.Poltergeist;
 using Content.Shared.Popups;
-using Robust.Shared.Map;
-using Content.Shared.Movement.Events;
 using Content.Server.Power.EntitySystems;
-using Content.Shared.Mobs.Systems;
 using Robust.Shared.Random;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Chat;
-using System.Linq;
-using Robust.Shared.Serialization.Manager;
-using Content.Shared.Alert;
-using Robust.Server.GameObjects;
 using Content.Server.Chat.Systems;
-using Content.Shared.ActionBlocker;
 using Content.Shared.StatusEffect;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
-using Content.Shared.Humanoid;
 using Robust.Shared.Containers;
-using Content.Shared.DoAfter;
-using System.Numerics;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Content.Server.Chat.Managers;
-using Robust.Shared.Prototypes;
 using Content.Shared.Stunnable;
 using Content.Server.Power.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Eye;
-using Content.Server.Light.Components;
-using Content.Server.Light.EntitySystems;
 using Content.Server.Chat;
-using Content.Shared.PowerCell.Components;
 using Robust.Shared.Timing;
-using Content.Shared.Inventory;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Mindshield.Components;
-using Content.Server.Body.Systems;
 using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.Bible.Components;
 using Content.Server.EUI;
@@ -52,6 +20,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Item;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Mobs;
+using Content.Server.Singularity.Events;
 
 namespace Content.Server.ADT.Poltergeist;
 
@@ -61,33 +30,11 @@ public sealed partial class PoltergeistSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly VisibilitySystem _visibility = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly ApcSystem _apcSystem = default!;
     [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly SharedStunSystem _sharedStun = default!;
     [Dependency] private readonly EuiManager _euiManager = null!;
     [Dependency] private readonly BatterySystem _batterySystem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
@@ -104,7 +51,7 @@ public sealed partial class PoltergeistSystem : EntitySystem
         SubscribeLocalEvent<PoltergeistComponent, PoltergeistRestInPeaceActionEvent>(OnRestInPeace);
 
         SubscribeLocalEvent<PoltergeistComponent, AlternativeSpeechEvent>(OnTrySpeak);
-
+        SubscribeLocalEvent<PoltergeistComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);
         SubscribeLocalEvent<PotentialPoltergeistComponent, MobStateChangedEvent>(OnMobState);
     }
     private void OnMobState(EntityUid uid, PotentialPoltergeistComponent component, MobStateChangedEvent args)
@@ -219,6 +166,11 @@ public sealed partial class PoltergeistSystem : EntitySystem
             return;
 
         _euiManager.OpenEui(new RestInPeaceEui(uid, this), mind.Session);
+    }
+
+    private void OnSinguloConsumeAttempt(EntityUid uid, PoltergeistComponent component, ref EventHorizonAttemptConsumeEntityEvent args)
+    {
+        args.Cancelled = true;
     }
 
     public void Rest(EntityUid uid)

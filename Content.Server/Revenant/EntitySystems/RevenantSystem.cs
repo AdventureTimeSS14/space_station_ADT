@@ -24,6 +24,7 @@ using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.Singularity.Events;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -64,6 +65,8 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RevenantComponent, StatusEffectAddedEvent>(OnStatusAdded);
         SubscribeLocalEvent<RevenantComponent, StatusEffectEndedEvent>(OnStatusEnded);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
+
+        SubscribeLocalEvent<RevenantComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);  // ADT
 
         InitializeAbilities();
         InitializeInstantEffects(); // ADT Revenant instant effects
@@ -197,6 +200,11 @@ public sealed partial class RevenantSystem : EntitySystem
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
         _store.ToggleUi(uid, uid, store);
+    }
+
+    private void OnSinguloConsumeAttempt(EntityUid uid, RevenantComponent component, ref EventHorizonAttemptConsumeEntityEvent args) // ADT
+    {
+        args.Cancelled = true;
     }
 
     public void MakeVisible(bool visible)

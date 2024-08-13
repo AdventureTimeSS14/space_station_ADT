@@ -74,6 +74,7 @@ using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.ADT.Silicon.Components;
+using Content.Server.Singularity.Events;
 
 namespace Content.Server.ADT.Phantom.EntitySystems;
 
@@ -120,8 +121,6 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystems = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     #endregion
@@ -184,7 +183,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         SubscribeLocalEvent<PhantomComponent, RefreshPhantomLevelEvent>(OnLevelChanged);
         SubscribeLocalEvent<PhantomComponent, OpenPhantomStylesMenuActionEvent>(OnRequestStyleMenu);
         SubscribeNetworkEvent<SelectPhantomStyleEvent>(OnSelectStyle);
-
+        SubscribeLocalEvent<PhantomComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);
 
         // IDK why the fuck this is not working in another file
         SubscribeLocalEvent<HolyDamageComponent, ProjectileHitEvent>(OnProjectileHit);
@@ -1691,6 +1690,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         _euiManager.OpenEui(new AcceptPhantomPowersEui(target, this, component), mind.Session);
     }
+
+    private void OnSinguloConsumeAttempt(EntityUid uid, PhantomComponent component, ref EventHorizonAttemptConsumeEntityEvent args)
+    {
+        args.Cancelled = true;
+    }
+
     #endregion
 
     #region Raised Not By Events
