@@ -5,3 +5,9 @@ ent-ADTWeaponPistolDesertEagle = Дезерт Игл
 ent-ADTWeaponSaberRevBlueshield = энергетический меч-револьвер
 .desc = NTRS-01 - Nanotrasen energy Revolver-Saber model-1, первый рабочий прототип энергетического револьвера с портативном аккумулятором, с интегрированным энергетическим клинком, выданный в полевое испытание всем Офицерам Синего Щита. Крайне редкая и дорогая технология NT, вымеренная до каждой детали, НЕ ПОТЕРЯЙТЕ ЕГО!
 .suffix = { "ОСЩ" }
+
+ent-ADTEctoplasmicPistol = эктоплазменный револьвер
+    .desc = Разнаботано специально для GhostBusters™.
+
+ent-ADTEctoplasmicRifle = эктоплазменная винтовка
+    .desc = Разнаботано специально для GhostBusters™.
