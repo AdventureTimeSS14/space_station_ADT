@@ -26,6 +26,4 @@ bark-asgore-name = Азгор (Undertale)
 
 bark-weh-name = weh
 
-bark-weh-name = weh
-
 bark-ghost-radio-name = Призрачное радио
