@@ -1,3 +1,4 @@
+using Content.Server.ADT.Economy; //ADT-Economy
 using Content.Shared.Cargo;
 
 namespace Content.Server.Cargo.Components;
@@ -8,8 +9,17 @@ namespace Content.Server.Cargo.Components;
 [RegisterComponent, Access(typeof(SharedCargoSystem))]
 public sealed partial class StationBankAccountComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("balance")]
-    public int Balance = 2000;
+    //ADT-Economy-Start
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int Balance
+    {
+        get => BankAccount.Balance;
+        set => BankAccount.Balance = value;
+    }
+
+    [ViewVariables]
+    public BankAccount BankAccount = default!;
+    //ADT-Economy-End
 
     /// <summary>
     /// How much the bank balance goes up per second, every Delay period. Rounded down when multiplied.

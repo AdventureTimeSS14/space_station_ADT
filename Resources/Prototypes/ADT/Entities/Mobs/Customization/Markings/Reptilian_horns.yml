@@ -1,0 +1,89 @@
+- type: marking
+  id: ReptilianHornsBaran
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_baran
+
+- type: marking
+  id: ReptilianHornsBullhorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_bullhorns
+
+- type: marking
+  id: ReptilianHornsCrown
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_crown
+
+- type: marking
+  id: ReptilianHornsFive
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_five
+
+- type: marking
+  id: ReptilianHornsHighback
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_highback
+
+- type: marking
+  id: ReptilianHornsJacksonchameleon
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_jacksonchameleon
+
+- type: marking
+  id: ReptilianHornsLong
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_long
+
+- type: marking
+  id: ReptilianHornsStagbeetle
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_stagbeetle
+
+- type: marking
+  id: ReptilianHornsSuperlong
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_superlong
+
+- type: marking
+  id: ReptilianHornsTwoago
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: horns_twoago

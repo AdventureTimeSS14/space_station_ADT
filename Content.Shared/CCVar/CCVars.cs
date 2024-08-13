@@ -24,7 +24,7 @@ namespace Content.Shared.CCVar
         ///     Guide Entry Prototype ID to be displayed as the server rules.
         /// </summary>
         public static readonly CVarDef<string> RulesFile =
-            CVarDef.Create("server.rules_file", "DefaultRuleset", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.rules_file", "ADTRuleset", CVar.REPLICATED | CVar.SERVER); //ADT tweak rule
 
         /// <summary>
         ///     Guide entry that is displayed by default when a guide is opened.
@@ -489,6 +489,19 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
+
+        /*
+        * Phantom
+        */
+
+        public static readonly CVarDef<int> PhantomMinPlayers =
+            CVarDef.Create("phantom.min_players", 25);
+
+        public static readonly CVarDef<int> PhantomMaxDifficulty =
+            CVarDef.Create("phantom.max_difficulty", 15);
+
+        public static readonly CVarDef<int> PhantomMaxPicks =
+            CVarDef.Create("phantom.max_picks", 10);
 
         /*
          * Tips

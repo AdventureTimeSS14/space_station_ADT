@@ -216,8 +216,12 @@ public sealed partial class ClimbSystem : VirtualController
         RaiseLocalEvent(climbable, ref ev);
         if (ev.Cancelled)
             return false;
+        // ADT Quirks start
+        var speedEv = new CheckClimbSpeedModifiersEvent(user, entityToMove, climbable, comp.ClimbDelay);
+        RaiseLocalEvent(entityToMove, ref speedEv);
+        var delay = speedEv.Time;
 
-        var args = new DoAfterArgs(EntityManager, user, comp.ClimbDelay, new ClimbDoAfterEvent(),
+        var args = new DoAfterArgs(EntityManager, user, delay, new ClimbDoAfterEvent(),
             entityToMove,
             target: climbable,
             used: entityToMove)
@@ -226,7 +230,7 @@ public sealed partial class ClimbSystem : VirtualController
             BreakOnDamage = true,
             DuplicateCondition = DuplicateConditions.SameTool | DuplicateConditions.SameTarget
         };
-
+        // ADT Quirks end
         _audio.PlayPredicted(comp.StartClimbSound, climbable, user);
         return _doAfterSystem.TryStartDoAfter(args, out id);
     }

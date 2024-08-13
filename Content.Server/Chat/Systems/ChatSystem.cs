@@ -236,6 +236,18 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // ADT Languages end
 
+        // ADT Alternative speech start
+        var altEv = new AlternativeSpeechEvent(sanitizedMessage, false, desiredType);
+        if (TryProccessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true))
+        {
+            altEv.Radio = true;
+            altEv.Message = altSpeechRadioResult;
+        }
+        RaiseLocalEvent(source, altEv);
+        if (altEv.Cancelled)
+            return;
+        // ADT Alternative speech end
+
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {
@@ -624,7 +636,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, language, channel, obfuscatedMessage);
+        var ev = new EntitySpokeEvent(source, message, language, channel, obfuscatedMessage, true);
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
@@ -1059,14 +1071,16 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     /// </summary>
     public RadioChannelPrototype? Channel;
     public readonly LanguagePrototype Language;
+    public readonly bool Whisper;
 
-    public EntitySpokeEvent(EntityUid source, string message, LanguagePrototype language, RadioChannelPrototype? channel, string? obfuscatedMessage)
+    public EntitySpokeEvent(EntityUid source, string message, LanguagePrototype language, RadioChannelPrototype? channel, string? obfuscatedMessage, bool whisper = false)
     {
         Source = source;
         Message = message;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
         Language = language;
+        Whisper = whisper;
     }
 }
 
