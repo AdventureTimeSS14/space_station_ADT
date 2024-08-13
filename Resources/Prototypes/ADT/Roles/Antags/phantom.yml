@@ -13,6 +13,6 @@
      time: 36000 #10 hrs
    - !type:OverallPlaytimeRequirement
      time: 180000 # 50h overall
-    - !type:RoleTimeRequirement
-      role: JobChaplain
-      time: 36000 #10 hrs
+   - !type:RoleTimeRequirement
+     role: JobChaplain
+     time: 36000 #10 hrs
