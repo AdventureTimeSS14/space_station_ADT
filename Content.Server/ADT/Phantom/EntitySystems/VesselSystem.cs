@@ -23,9 +23,7 @@ public sealed partial class PhantomVesselSystem : EntitySystem
         SubscribeLocalEvent<VesselComponent, EntityTerminatingEvent>(OnDeleted);
         SubscribeLocalEvent<VesselComponent, EctoplasmHitscanHitEvent>(OnEctoplasmicDamage);
 
-        SubscribeLocalEvent<PhantomHolderComponent, MapInitEvent>(OnHauntedInit);
         SubscribeLocalEvent<PhantomHolderComponent, MobStateChangedEvent>(OnHauntedDeath);
-        SubscribeLocalEvent<PhantomHolderComponent, ComponentShutdown>(OnHauntedShutdown);
         SubscribeLocalEvent<PhantomHolderComponent, EntityTerminatingEvent>(OnHauntedDeleted);
         SubscribeLocalEvent<PhantomHolderComponent, EctoplasmHitscanHitEvent>(OnHauntedEctoplasmicDamage);
     }
