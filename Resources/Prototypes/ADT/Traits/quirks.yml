@@ -47,3 +47,12 @@
       modifier: 1.3
   cost: 2
 
+- type: trait
+  id: ADTPotentialPoltergeist
+  name: trait-poltergeist-name
+  description: trait-poltergeist-desc
+  category: Quirks
+  components:
+    - type: PotentialPoltergeist
+  cost: 4
+
