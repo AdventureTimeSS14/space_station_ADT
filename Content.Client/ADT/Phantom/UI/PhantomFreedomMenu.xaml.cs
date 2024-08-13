@@ -54,8 +54,8 @@ public sealed partial class PhantomFreedomMenu : RadialMenu
             {
                 var tex = new TextureRect
                 {
-                    HorizontalAlignment = HAlignment.Left,
-                    VerticalAlignment = VAlignment.Top,
+                    HorizontalAlignment = HAlignment.Center,
+                    VerticalAlignment = VAlignment.Center,
                     Texture = _spriteSystem.Frame0(action.Icon ?? SpriteSpecifier.Invalid),
                     TextureScale = new Vector2(1.5f, 1.5f),
                     SetSize = new Vector2(48f, 48f),

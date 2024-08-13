@@ -43,6 +43,7 @@ public abstract class SharedPhantomSystem : EntitySystem
             AddFromList(uid, component, proto.Lvl3Actions);
             AddFromList(uid, component, proto.Lvl4Actions);
             AddFromList(uid, component, proto.Lvl5Actions);
+            component.CurrentStyle = style;
             return;
         }
 

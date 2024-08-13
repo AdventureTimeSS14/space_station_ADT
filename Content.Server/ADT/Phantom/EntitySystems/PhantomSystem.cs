@@ -271,6 +271,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     {
         if (args.Key == "Stun")
             _appearance.SetData(uid, PhantomVisuals.Stunned, true);
+        Dirty(uid, component);
     }
 
     private void OnStatusEnded(EntityUid uid, PhantomComponent component, StatusEffectEndedEvent args)
@@ -280,6 +281,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             _appearance.SetData(uid, PhantomVisuals.Stunned, false);
             _appearance.SetData(uid, PhantomVisuals.Corporeal, component.IsCorporeal);
         }
+        Dirty(uid, component);
     }
 
     #region Radial Menu
@@ -291,9 +293,6 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     /// <param name="args">Event</param>
     private void OnRequestStyleMenu(EntityUid uid, PhantomComponent component, OpenPhantomStylesMenuActionEvent args)
     {
-        if (args.Handled)
-            return;
-
         if (_entityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
         {
             var ev = new RequestPhantomStyleMenuEvent(GetNetEntity(uid));
@@ -307,8 +306,6 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             ev.Prototypes.Sort();
             RaiseNetworkEvent(ev, actorComponent.PlayerSession);
         }
-
-        args.Handled = true;
     }
 
     /// <summary>
@@ -1374,13 +1371,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) &&
-        _mindSystem.TryGetMind(target, out _, out var targetMind))
+        if (_mindSystem.TryGetMind(uid, out _, out var mind))// &&
+        //_mindSystem.TryGetMind(target, out _, out var targetMind))
         {
             args.Handled = true;
             if (mind.Session != null)
                 _audio.PlayGlobal(component.PuppeterSound, mind.Session);
-            if (targetMind.Session != null)
+            if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.Session != null)
                 _audio.PlayGlobal(component.PuppeterSound, targetMind.Session);
             UpdateEctoplasmSpawn(uid);
             _controlled.TryStartControlling(uid, target, 30f, 10, "Phantom");
