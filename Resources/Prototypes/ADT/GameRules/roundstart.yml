@@ -13,7 +13,7 @@
   id: PhantomGameRule
   components:
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 25
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
