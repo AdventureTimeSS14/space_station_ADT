@@ -50,10 +50,10 @@ portal-component-no-linked-entities-phant = Невозможно перемес�
 
 phantom-paralysis-fail-active = Паралич уже активен на одержимом!
 
-phantom-mindshield-success-self = Успешно повреждён имплант защиты разума {CAPITALIZE(THE($target))}.
+phantom-mindshield-success-self = Успешно повреждён имплант защиты разума {CAPITALIZE(THE($name))}.
 phantom-mindshield-success-target = Вы чувствуете острую головную боль!
 
-phantom-mindshield-fail-self = Не удалось повредить имплант защиты разума {CAPITALIZE(THE($target))}.
+phantom-mindshield-fail-self = Не удалось повредить имплант защиты разума {CAPITALIZE(THE($name))}.
 phantom-mindshield-fail-target = Вы чувствуете покалывание в области головы.
 
 phantom-breakdown-fail-active = Поломка уже активна на одержимом!

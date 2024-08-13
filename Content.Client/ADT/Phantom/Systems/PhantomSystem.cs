@@ -29,7 +29,7 @@ public sealed class PhantomSystem : EntitySystem
 
         SubscribeLocalEvent<VesselComponent, GetStatusIconsEvent>(GetVesselIcon);
         SubscribeLocalEvent<PhantomPuppetComponent, GetStatusIconsEvent>(GetPuppetIcon);
-        SubscribeLocalEvent<PhantomHolderComponent, GetStatusIconsEvent>(GetHauntedIcon);
+        // SubscribeLocalEvent<PhantomHolderComponent, GetStatusIconsEvent>(GetHauntedIcon);
         SubscribeLocalEvent<PhantomImmuneComponent, GetStatusIconsEvent>(GetImmuneIcon);
     }
 
@@ -48,11 +48,11 @@ public sealed class PhantomSystem : EntitySystem
             args.StatusIcons.Add(iconPrototype);
     }
 
-    private void GetHauntedIcon(Entity<PhantomHolderComponent> ent, ref GetStatusIconsEvent args)
-    {
-        if (_proto.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
-    }
+    // private void GetHauntedIcon(Entity<PhantomHolderComponent> ent, ref GetStatusIconsEvent args)
+    // {
+    //     if (_proto.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+    //         args.StatusIcons.Add(iconPrototype);
+    // }
 
     private void GetImmuneIcon(Entity<PhantomImmuneComponent> ent, ref GetStatusIconsEvent args)
     {

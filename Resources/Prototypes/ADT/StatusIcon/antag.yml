@@ -30,12 +30,12 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/smaller_phantom_icons.rsi
     state: haunted
-  showTo:
-    components:
-    - ShowAntagIcons
-    - Phantom
-    - PhantomPuppet
-    - Chaplain
+  # showTo:
+  #   components:
+  #   - ShowAntagIcons
+  #   - Phantom
+  #   - PhantomPuppet
+  #   - Chaplain
   visibleToOwner: false
 
 - type: statusIcon

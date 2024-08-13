@@ -18,57 +18,45 @@ public sealed partial class PhantomComponent : Component
 
     #region Actions
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId PhantomHauntAction = "ActionPhantomHaunt";
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? PhantomHauntActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId PhantomStopHauntAction = "ActionPhantomStopHaunt";
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? PhantomStopHauntActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId PhantomMakeVesselAction = "ActionPhantomMakeVessel";
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? PhantomMakeVesselActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId PhantomSelectVesselAction = "ActionPhantomCycleVessels";
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? PhantomSelectVesselActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId PhantomHauntVesselAction = "ActionPhantomHauntVessel";
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? PhantomHauntVesselActionEntity;
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId PhantomStyleAction = "ActionPhantomSelectStyle";
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? PhantomStyleActionEntity;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public string CurrentStyle = "PhantomStyleMove";
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public List<EntityUid?> CurrentActions = new();
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public List<EntityUid> TempContainedActions = new();
     #endregion
 
     #region Toggleable Actions
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan Cooldown = TimeSpan.FromSeconds(30);
-
     [ViewVariables(VVAccess.ReadWrite)]
     public bool IsCorporeal = false;
 
@@ -84,7 +72,6 @@ public sealed partial class PhantomComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ClawsOn = false;
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid Claws = new();
 
     #endregion
@@ -225,15 +212,12 @@ public sealed partial class PhantomComponent : Component
     #endregion
 
     #region Alerts
-    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<AlertPrototype> VesselCountAlert = "PhantomVessels";
 
-    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<AlertPrototype> EssenceCountAlert = "PhantomEssense";
 
-    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<AlertPrototype> HauntedAlert = "PhantomStopHaunt";
 
@@ -270,22 +254,18 @@ public sealed partial class PhantomComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public FixedPoint2 ChurchDamage = -5f;
 
-    [ViewVariables]
     public float Accumulator = 0;
 
     /// <summary>
     /// Entity that currently is haunted
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid Holder = new EntityUid();
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool HasHaunted = false;
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public List<EntityUid> Vessels = new List<EntityUid>();
 
-    [ViewVariables(VVAccess.ReadWrite)]
     public List<EntityUid> CursedVessels = new List<EntityUid>();
 
     [DataField]
@@ -325,12 +305,12 @@ public sealed partial class PhantomComponent : Component
     public string PortalPrototype = "ADTPhantomPortal";
 
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<HallucinationsPrototype>))]
-    public string HallucinationsPrototype = "Changeling";
+    public string HallucinationsPrototype = "Phantom";
 
     [ViewVariables(VVAccess.ReadWrite)]
     public Container HelpingHand = default!;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool EpidemicActive = false;
 
     [DataField]
@@ -357,10 +337,10 @@ public sealed partial class PhantomComponent : Component
     [DataField]
     public bool CanHaunt = true;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool NightmareStarted = false;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool TyranyStarted = false;
     #endregion
     #region Visualizer

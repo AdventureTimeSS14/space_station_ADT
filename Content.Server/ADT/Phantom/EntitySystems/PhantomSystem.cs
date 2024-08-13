@@ -701,6 +701,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         var timeStatic = TimeSpan.FromSeconds(15);
         var timeHaunted = TimeSpan.FromHours(1);
         var chance = 0.2f;
+        bool success = false;
+
         if (IsHolder(target, component))
         {
             if (TryComp<StatusEffectsComponent>(target, out var status) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeHaunted, true, status))
@@ -743,6 +745,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                     _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
                     _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), target, target, PopupType.SmallCaution);
                 }
+                args.Handled = true;
             }
         }
         else
@@ -753,7 +756,6 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 _popup.PopupEntity(selfMessageActive, uid, uid);
                 return;
             }
-            bool success = false;
             if (TryComp<PoweredLightComponent>(target, out var light))
             {
                 _poweredLight.TryDestroyBulb(target, light);
