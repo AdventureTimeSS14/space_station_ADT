@@ -703,7 +703,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         var chance = 0.2f;
         if (IsHolder(target, component))
         {
-            if (TryComp<StatusEffectsComponent>(target, out var status) && HasComp<BatteryComponent>(target)) //&& _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeHaunted, true, status))
+            if (TryComp<StatusEffectsComponent>(target, out var status) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeHaunted, true, status))
             {
                 if (!component.BreakdownOn)
                 {

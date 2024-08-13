@@ -13,7 +13,7 @@
     attackRate: 1
     damage:
       types:
-        Slash: 7
+        Slash: 16
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0

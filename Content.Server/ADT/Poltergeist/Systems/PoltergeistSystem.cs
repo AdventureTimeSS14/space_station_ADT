@@ -21,6 +21,7 @@ using Content.Shared.Item;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Mobs;
 using Content.Server.Singularity.Events;
+using Content.Shared.ADT.Silicon.Components;
 
 namespace Content.Server.ADT.Poltergeist;
 
@@ -92,7 +93,7 @@ public sealed partial class PoltergeistSystem : EntitySystem
         var time = TimeSpan.FromSeconds(1);
         var timeStatic = TimeSpan.FromSeconds(2);
 
-        if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target)) //&& _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
+        if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
         {
             _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false);
             _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false);

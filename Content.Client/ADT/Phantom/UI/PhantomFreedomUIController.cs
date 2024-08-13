@@ -1,21 +1,10 @@
-using Content.Client.Chat.UI;
-using Content.Client.Gameplay;
-using Content.Client.UserInterface.Controls;
-using Content.Shared.Chat;
-using Content.Shared.Chat.Prototypes;
-using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Input.Binding;
-using Robust.Shared.Prototypes;
 using Content.Client.ADT.Phantom.UI;
 using Content.Shared.ADT.Phantom;
 using Robust.Shared.Player;
-using Content.Shared.ADT.Language;
-using Content.Shared.Preferences;
 
 namespace Content.Client.UserInterface.Systems.Phantom;
 

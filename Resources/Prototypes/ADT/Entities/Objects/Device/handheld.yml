@@ -479,6 +479,8 @@
   - type: ToggleableLightVisuals
     spriteLayer: radio
   - type: ItemToggle
+  - type: SpeechBarks
+    barkPrototype: GhostRadio
 
 - type: entity
   id: ADTGhostRadio
