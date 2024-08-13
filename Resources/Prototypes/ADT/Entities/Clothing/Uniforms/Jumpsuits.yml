@@ -8,3 +8,14 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/white-diplomat-suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/white-diplomat-suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBrigmedicTurtleneck
+  name: brigmedic turtleneck
+  description: Comfortable and warm turtleneck. Especially for the guardian angel.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brigmed.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brigmed.rsi

@@ -1,0 +1,29 @@
+# Штука для наших фигурок, чтобы потом все фигурки из этого файла брали текстурки из нашего файла.
+- type: entity
+  parent: BaseItem
+  id: ADTBaseFigurine
+  name: figurine
+  description: A small miniature.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: StaticPrice
+    price: 75
+  - type: Tag
+    tags:
+    - Figurine
+  - type: StealTarget
+    stealGroup: Figurines
+
+- type: entity
+  parent: ADTBaseFigurine
+  id: ToyFigurineBrigmedic
+  name: brigmedic figure
+  description: AAA, MEDIC!
+  components:
+  - type: Sprite
+    state: brigmedic
