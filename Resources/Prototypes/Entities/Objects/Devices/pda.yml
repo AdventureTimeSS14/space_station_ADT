@@ -75,6 +75,7 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - ADTWalletCartridge # ADT-Economy
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge

@@ -77,7 +77,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return new();
 
-        return GetAllInventory(uid, component).Where(_ => _.Amount > 0).ToList();
+        return GetAllInventory(uid, component).Where(inventoryEntry => inventoryEntry.Amount > 0).ToList(); //ADT-Economy
     }
 
     private void AddInventoryFromPrototype(EntityUid uid, Dictionary<string, uint>? entries,
@@ -107,7 +107,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         foreach (var (id, amount) in entries)
         {
-            if (PrototypeManager.HasIndex<EntityPrototype>(id))
+            if (PrototypeManager.TryIndex<EntityPrototype>(id, out var proto)) //ADT-Economy
             {
                 var restock = amount;
                 var chanceOfMissingStock = 1 - restockQuality;
@@ -125,10 +125,23 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     // restocking a machine who doesn't want to force vend out
                     // all the items just to restock one empty slot without
                     // losing the rest of the restock.
-                    entry.Amount = Math.Min(entry.Amount + amount, 3 * restock);
+
+                //ADT-Economy-Start
+                    entry.Amount = Math.Min(entry.Amount + amount, 3 * amount);
                 else
-                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock));
+                {
+                    var price = GetEntryPrice(proto);
+                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, amount, price));
+                }
+                //ADT-Economy-End
             }
         }
     }
+
+    //ADT-Economy-Stat
+    protected virtual int GetEntryPrice(EntityPrototype proto)
+    {
+        return 25;
+    }
+    //ADT-Economy-End
 }
