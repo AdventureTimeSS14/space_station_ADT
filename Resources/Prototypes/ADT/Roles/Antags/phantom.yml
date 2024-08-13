@@ -4,15 +4,12 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-phantom-objective
-  #requirements:
-  #  - !type:DepartmentTimeRequirement
-  #    department: Command
-  #    time: 36000 #10 hrs
-  #  - !type:DepartmentTimeRequirement
-  #    department: Security
-  #    time: 36000 #10 hrs
-  #  - !type:DepartmentTimeRequirement
-  #    department: Civilian
-  #    time: 36000 #10 hrs
-  #  - !type:OverallPlaytimeRequirement
-  #    time: 180000 # 50h overall
+  requirements:
+   - !type:DepartmentTimeRequirement
+     department: Security
+     time: 18000 #5 hrs
+   - !type:DepartmentTimeRequirement
+     department: Civilian
+     time: 36000 #10 hrs
+   - !type:OverallPlaytimeRequirement
+     time: 180000 # 50h overall
