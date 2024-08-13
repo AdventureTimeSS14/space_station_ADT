@@ -91,7 +91,6 @@ namespace Content.IntegrationTests.Tests
             "ADT_Marathon",
             "ADT_Meta",
             "ADT_Oasis",
-            "ADT_Omega",
             "ADT_Origin",
             "ADT_Saltern",
             "ADT_Packed",
