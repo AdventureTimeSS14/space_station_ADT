@@ -1,5 +1,4 @@
 - type: entity
-<<<<<<< HEAD
   parent: ClothingEyesBase
   id: ADTClothingEyesGlassesMed
   name: medical sunglasses
@@ -10,7 +9,21 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/sunmed.rsi
-=======
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical
+
+- type: entity
   parent: ClothingEyesGlassesSecurity
   id: ADTClothingEyesGlassesBlueshield
   name: blueshield's glasses
@@ -20,20 +33,9 @@
     sprite: ADT/Clothing/Eyes/Glasses/blueshield.rsi
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/blueshield.rsi
->>>>>>> 94241cd50a416e93dea1b6e0e455c63099a59b15
   - type: ShowHealthBars
     damageContainers:
     - Biological
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-<<<<<<< HEAD
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - HudMedical
-=======
->>>>>>> 94241cd50a416e93dea1b6e0e455c63099a59b15

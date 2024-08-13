@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Штука для наших фигурок, чтобы потом все фигурки из этого файла брали текстурки из нашего файла.
 - type: entity
   parent: BaseItem
@@ -28,7 +27,7 @@
   components:
   - type: Sprite
     state: brigmedic
-=======
+
 - type: entity
   parent: BaseFigurine
   id: ADTToyFigurineBlueshieldOfficer
@@ -38,4 +37,3 @@
   - type: Sprite
     sprite: ADT/Objects/Fun/figurines.rsi
     state: blueshield
->>>>>>> 94241cd50a416e93dea1b6e0e455c63099a59b15
