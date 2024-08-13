@@ -100,9 +100,6 @@ phantom-claws-disappear-self = Призрачные когти исчезают.
 
 phantom-fail-nohuman = {CAPITALIZE($target)} не гуманоид.
 
-phantom-puppeter-fail-notvessel = {CAPITALIZE($target)} не сосуд.
-
-
 
 # Alerts
 
