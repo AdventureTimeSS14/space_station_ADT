@@ -1,18 +1,34 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Atlas
-  - Bagel
-  - Box
-  - Cluster
-  - Core
-  - Fland
-  - Marathon
-  - Meta
-  - Oasis
-  - Omega
-  - Origin
-  - Saltern
-  - Packed
-  - Reach
-  - Train
+  # - Atlas
+  # - Bagel
+  # - Box
+  # - Cluster
+  # - Core
+  # - Fland
+  # - Marathon
+  # - Meta
+  # - Oasis
+  # - Omega
+  # - Origin
+  # - Saltern
+  # - Packed
+  # - Reach
+  # - Train
+# adt_maps
+  - ADT_Astra
+  - ADT_Avrit
+  - ADT_Bagel
+  - ADT_Box
+  - ADT_Cluster
+  - ADT_Core
+  - ADT_Fland
+  - ADT_Marathon
+  - ADT_Meta
+  - ADT_Oasis
+  - ADT_Omega
+  - ADT_Origin
+  - ADT_Saltern
+  - ADT_Packed
+  - ADT_Train
