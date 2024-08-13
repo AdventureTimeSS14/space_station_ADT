@@ -79,7 +79,23 @@ namespace Content.IntegrationTests.Tests
             "Atlas",
             "Reach",
             "Train",
-            "Oasis"
+            "Oasis",
+            // ADT-Start
+            "ADT_Astra",
+            "ADT_Avrit",
+            "ADT_Bagel",
+            "ADT_Box",
+            "ADT_Cluster",
+            "ADT_Core",
+            "ADT_Fland",
+            "ADT_Marathon",
+            "ADT_Meta",
+            "ADT_Oasis",
+            "ADT_Origin",
+            "ADT_Saltern",
+            "ADT_Packed",
+            "ADT_Train"
+            // ADT-End
         };
 
         /// <summary>
