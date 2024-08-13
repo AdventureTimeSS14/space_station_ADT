@@ -95450,8 +95450,6 @@ entities:
       pos: 4.5,-11.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 21483
     - type: AtmosPipeColor
@@ -97141,8 +97139,6 @@ entities:
       pos: 3.5,-9.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 21483
     - type: AtmosPipeColor
