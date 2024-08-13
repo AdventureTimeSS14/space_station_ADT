@@ -50,4 +50,4 @@
     sprite: ADT/Objects/Weapons/Melee/ecto-sword.rsi
     quickEquip: false
     slots:
-    - suitStorage
+    - suitstorage
