@@ -12,6 +12,7 @@
     - CanPilot
     - BypassInteractionRangeChecks
     - BypassDropChecks
+    - IgnoreBalanceChecks # ADT-Economy-Tweak
   - type: Input
     context: "aghost"
   - type: Ghost

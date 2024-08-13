@@ -1,2 +1,29 @@
 - type: Tag
   id: ADTMothFriendlyFood
+
+- type: Tag
+  id: Patch
+
+- type: Tag
+  id: Defibrillator
+
+- type: Tag
+  id: ADTLasgunRevolverCell
+
+- type: Tag
+  id: PhantomEctoplasm
+
+- type: Tag
+  id: PhantomEctoplasmBattery
+
+- type: Tag
+  id: PhantomEctoplasmPistolBattery
+
+- type: Tag
+  id: PhantomFreedom
+
+- type: Tag
+  id: IgnoreBalanceChecks
+
+- type: Tag
+  id: SpaceCash

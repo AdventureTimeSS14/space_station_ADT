@@ -447,3 +447,55 @@
     - Pig
   - type: StaticPrice
     price: 1500
+
+# Ghost radio
+
+- type: entity
+  id: ADTGhostRadioUnpowered
+  parent: [ BaseItem ]
+  name: ghost radio
+  description: "fshhhshfpshhh."
+  components:
+  - type: Item
+    sprite: ADT/Objects/Device/ghost_radio.rsi
+  - type: Sprite
+    sprite: ADT/Objects/Device/ghost_radio.rsi
+    state: icon
+    layers:
+      - state: icon
+      - state: radio
+        shader: unshaded
+        visible: false
+        map: [ "enum.ToggleVisuals.Layer", "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: GhostRadio
+    enabled: false
+  - type: ToggleableLightVisuals
+    spriteLayer: radio
+  - type: ItemToggle
+  - type: SpeechBarks
+    barkPrototype: GhostRadio
+
+- type: entity
+  id: ADTGhostRadio
+  parent: [ ADTGhostRadioUnpowered, PowerCellSlotMediumItem ]
+  suffix: Powered
+  components:
+  - type: PowerCellDraw
+    drawRate: 1
+
+- type: entity
+  id: ADTGhostRadioEmtpy
+  parent: [ ADTGhostRadio ]
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
