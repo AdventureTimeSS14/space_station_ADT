@@ -593,6 +593,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
+        if (!_mindSystem.TryGetMind(target, out var mindId, out var mind) || mind.Session == null)
+        {
+            var failMessage = Loc.GetString("phantom-no-mind");
+            _popup.PopupEntity(failMessage, uid, uid);
+            return;
+        }
+
         args.Handled = true;
         var makeVesselDoAfter = new DoAfterArgs(EntityManager, uid, component.MakeVesselDuration, new MakeVesselDoAfterEvent(), uid, target: target)
         {
@@ -1367,13 +1374,14 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null &&
-            _mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.Session != null &&
-            mind.Session != null && targetMind.Session != null)
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) &&
+        _mindSystem.TryGetMind(target, out _, out var targetMind))
         {
             args.Handled = true;
-            _audio.PlayGlobal(component.PuppeterSound, mind.Session);
-            _audio.PlayGlobal(component.PuppeterSound, targetMind.Session);
+            if (mind.Session != null)
+                _audio.PlayGlobal(component.PuppeterSound, mind.Session);
+            if (targetMind.Session != null)
+                _audio.PlayGlobal(component.PuppeterSound, targetMind.Session);
             UpdateEctoplasmSpawn(uid);
             _controlled.TryStartControlling(uid, target, 30f, 10, "Phantom");
         }
@@ -2396,6 +2404,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         EnsureComp<PhantomPuppetComponent>(target);
         component.CanHaunt = false;
         component.NightmareStarted = true;
+        component.IgnoreLevels = true;
     }
 
     public void Tyrany(EntityUid uid, PhantomComponent component)

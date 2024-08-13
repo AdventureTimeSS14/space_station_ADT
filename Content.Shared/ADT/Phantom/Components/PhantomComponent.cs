@@ -347,6 +347,9 @@ public sealed partial class PhantomComponent : Component
 
     [DataField]
     public int UsedActionsBeforeEctoplasm = 0;
+
+    [DataField]
+    public bool IgnoreLevels = false;
     #region Finale
     [DataField]
     public bool FinalAbilityUsed = false;
