@@ -3385,6 +3385,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3146
@@ -3535,6 +3536,13 @@ entities:
     components:
     - type: Transform
       pos: -7.5,28.5
+      parent: 31
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 11514
+    components:
+    - type: Transform
+      pos: -1.5,-26.5
       parent: 31
 - proto: ADTSuitStorageBlueshield
   entities:

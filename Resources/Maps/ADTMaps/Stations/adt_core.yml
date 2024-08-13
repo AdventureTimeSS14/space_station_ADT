@@ -11602,6 +11602,18 @@ entities:
     - type: Transform
       pos: 52.5,-23.5
       parent: 2
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 22009
+    components:
+    - type: Transform
+      pos: 62.5,-25.5
+      parent: 2
+  - uid: 22010
+    components:
+    - type: Transform
+      pos: 63.5,-25.5
+      parent: 2
 - proto: ADTSuitStorageBlueshield
   entities:
   - uid: 21958

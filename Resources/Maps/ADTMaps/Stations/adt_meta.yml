@@ -8372,6 +8372,18 @@ entities:
     - type: Transform
       pos: -16.5,3.5
       parent: 5350
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 26686
+    components:
+    - type: Transform
+      pos: 2.5,-36.5
+      parent: 5350
+  - uid: 26696
+    components:
+    - type: Transform
+      pos: 3.5,-40.5
+      parent: 5350
 - proto: ADTSuitStorageBlueshield
   entities:
   - uid: 134
@@ -10808,7 +10820,7 @@ entities:
       pos: -42.5,29.5
       parent: 5350
     - type: Door
-      secondsUntilStateChange: -897.9058
+      secondsUntilStateChange: -1003.70496
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2

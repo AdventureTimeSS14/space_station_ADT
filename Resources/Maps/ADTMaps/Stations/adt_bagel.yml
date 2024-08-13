@@ -9372,8 +9372,8 @@ entities:
           id: docking43669
           localAnchorB: -47.5,-40
           localAnchorA: 0.5,0
-          damping: 1559.8024
-          stiffness: 14000.754
+          damping: 1559.8116
+          stiffness: 14000.836
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2133
@@ -9558,6 +9558,18 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-9.5
+      parent: 60
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 24509
+    components:
+    - type: Transform
+      pos: -32.5,14.5
+      parent: 60
+  - uid: 24510
+    components:
+    - type: Transform
+      pos: -37.5,13.5
       parent: 60
 - proto: ADTSuitStorageBlueshield
   entities:

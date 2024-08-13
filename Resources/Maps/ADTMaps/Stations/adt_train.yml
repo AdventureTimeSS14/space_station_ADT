@@ -5647,6 +5647,13 @@ entities:
     - type: Transform
       pos: -3.5,-6.5
       parent: 2
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 17000
+    components:
+    - type: Transform
+      pos: 5.5,-315.5
+      parent: 2
 - proto: ADTSuitStorageBlueshield
   entities:
   - uid: 12956
@@ -74376,7 +74383,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -142139.45
+      secondsUntilStateChange: -142174.02
       state: Closing
   - uid: 11227
     components:

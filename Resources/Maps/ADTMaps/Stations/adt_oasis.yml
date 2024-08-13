@@ -10106,6 +10106,18 @@ entities:
     - type: Transform
       pos: 31.5,24.5
       parent: 2
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 29035
+    components:
+    - type: Transform
+      pos: -3.5,-49.5
+      parent: 2
+  - uid: 29036
+    components:
+    - type: Transform
+      pos: -5.5,-50.5
+      parent: 2
 - proto: ADTToyFigurineBlueshieldOfficer
   entities:
   - uid: 28963
@@ -14710,7 +14722,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11031.176
+      secondsUntilStateChange: -11138.658
       state: Opening
   - uid: 6934
     components:
@@ -14722,7 +14734,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11033.81
+      secondsUntilStateChange: -11141.292
       state: Opening
   - uid: 6935
     components:
@@ -14734,7 +14746,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11032.659
+      secondsUntilStateChange: -11140.142
       state: Opening
   - uid: 6936
     components:
@@ -14745,7 +14757,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11031.876
+      secondsUntilStateChange: -11139.358
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -92527,7 +92539,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2355.1558
+      secondsUntilStateChange: -2462.6384
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -136613,7 +136625,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -39187.008
+      secondsUntilStateChange: -39294.492
       state: Opening
   - uid: 5211
     components:
@@ -184252,7 +184264,7 @@ entities:
       pos: 24.5,2.5
       parent: 21002
     - type: Door
-      secondsUntilStateChange: -384391.62
+      secondsUntilStateChange: -384499.1
       state: Opening
   - uid: 28863
     components:

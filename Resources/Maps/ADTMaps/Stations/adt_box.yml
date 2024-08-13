@@ -8868,6 +8868,18 @@ entities:
     - type: Transform
       pos: -23.5,-6.5
       parent: 8364
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 21527
+    components:
+    - type: Transform
+      pos: 59.5,-21.5
+      parent: 8364
+  - uid: 21579
+    components:
+    - type: Transform
+      pos: 58.5,-18.5
+      parent: 8364
 - proto: ADTSuitStorageBlueshield
   entities:
   - uid: 8059
@@ -11693,7 +11705,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -4100.6343
+      secondsUntilStateChange: -4174.601
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -83656,7 +83668,7 @@ entities:
       pos: 41.5,-13.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -713.0993
+      secondsUntilStateChange: -787.0662
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944

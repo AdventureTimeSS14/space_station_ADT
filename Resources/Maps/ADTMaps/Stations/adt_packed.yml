@@ -6116,6 +6116,13 @@ entities:
     - type: Transform
       pos: 16.5,43.5
       parent: 2
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 13306
+    components:
+    - type: Transform
+      pos: 52.5,10.5
+      parent: 2
 - proto: ADTToyFigurineBlueshieldOfficer
   entities:
   - uid: 13264
@@ -40247,7 +40254,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29.4714
+      secondsUntilStateChange: -51.484016
       state: Closing
   - uid: 9351
     components:
@@ -57695,7 +57702,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -529.64233
+      secondsUntilStateChange: -551.65497
       state: Closing
   - uid: 11849
     components:
