@@ -8,6 +8,3 @@ poltergeist-die-window-title = Покой
 poltergeist-die-window-prompt-text-part = Точно ли вы готовы отправиться в иной мир, прекратив бытие неупокоенной души?
 poltergeist-die-window-accept-button = Да
 poltergeist-die-window-deny-button = Нет
-
-trait-poltergeist-name = Беспокойный дух
-trait-poltergeist-desc = После смерти вы становитесь полтергейстом, ууу! Однако, вернуться к жизни более вам не удастся.
