@@ -38200,11 +38200,6 @@ entities:
     - type: Transform
       pos: 13.5,30.5
       parent: 2
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-    - type: ActiveUserInterface
 - proto: DresserResearchDirectorFilled
   entities:
   - uid: 565
