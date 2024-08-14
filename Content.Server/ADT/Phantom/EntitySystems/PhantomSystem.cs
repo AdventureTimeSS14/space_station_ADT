@@ -1645,6 +1645,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     private void OnLevelChanged(EntityUid uid, PhantomComponent component, RefreshPhantomLevelEvent args)
     {
         SelectStyle(uid, component, component.CurrentStyle, true);
+        _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short) Math.Clamp(component.Vessels.Count, 0, 10));
     }
 
     private void MakeVesselDoAfter(EntityUid uid, PhantomComponent component, MakeVesselDoAfterEvent args)
