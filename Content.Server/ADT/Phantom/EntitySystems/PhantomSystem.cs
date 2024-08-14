@@ -1079,6 +1079,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
+        if (HasComp<PhantomPuppetComponent>(target))
+            return;
 
         args.Handled = true;
         var makeVesselDoAfter = new DoAfterArgs(EntityManager, uid, component.MakeVesselDuration, new PuppeterDoAfterEvent(), uid, target: target)
