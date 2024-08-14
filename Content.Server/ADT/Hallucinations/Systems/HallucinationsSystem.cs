@@ -44,25 +44,25 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
     private void OnHallucinationsInit(EntityUid uid, HallucinationsComponent component, MapInitEvent args)
     {
-        component.Layer = _random.Next(100, 150);
+        //component.Layer = _random.Next(100, 150);
         if (!_entityManager.TryGetComponent<EyeComponent>(uid, out var eye))
             return;
         UpdatePreset(component);
         _eye.SetVisibilityMask(uid, eye.VisibilityMask | (ushort)VisibilityFlags.BaseHallucination, eye);
 
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
+        //_eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
         $"{ToPrettyString(uid):player} began to hallucinate.");
     }
 
     private void OnHallucinationsDiseaseInit(EntityUid uid, HallucinationsDiseaseComponent component, MapInitEvent args)
     {
-        component.Layer = _random.Next(100, 150);
+        //component.Layer = _random.Next(100, 150);
         if (!_entityManager.TryGetComponent<EyeComponent>(uid, out var eye))
             return;
         _eye.SetVisibilityMask(uid, eye.VisibilityMask | (ushort)VisibilityFlags.BaseHallucination, eye);
 
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
+        //_eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
         $"{ToPrettyString(uid):player} began to hallucinate.");
     }
@@ -87,7 +87,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
             return;
         _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~(ushort)VisibilityFlags.BaseHallucination, eye);
 
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~component.Layer, eye);
+        //_eye.SetVisibilityMask(uid, eye.VisibilityMask & ~component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
         $"{ToPrettyString(uid):player} stopped hallucinating.");
     }
@@ -98,7 +98,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
             return;
         _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~(ushort)VisibilityFlags.BaseHallucination, eye);
 
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~component.Layer, eye);
+        //_eye.SetVisibilityMask(uid, eye.VisibilityMask & ~component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
         $"{ToPrettyString(uid):player} stopped hallucinating.");
     }
