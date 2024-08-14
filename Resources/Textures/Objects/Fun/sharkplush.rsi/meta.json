@@ -41,6 +41,17 @@
       "directions": 4
     },
     {
+        "name": "black"
+    },
+    {
+        "name": "black-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "black-inhand-right",
+        "directions": 4
+    },
+    {
       "name": "mopbucket_shark_blue"
     },
     {
@@ -48,6 +59,9 @@
     },
     {
       "name": "mopbucket_shark_grey"
+    },
+    {
+        "name": "mopbucket_shark_black"
     }
   ]
 }
