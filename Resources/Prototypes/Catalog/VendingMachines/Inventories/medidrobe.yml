@@ -14,15 +14,6 @@
     ClothingHandsGlovesNitrile: 2
     ClothingHeadsetMedical: 4
     ClothingOuterWinterMed: 2
-<<<<<<< HEAD
-=======
-    ClothingOuterWinterPara: 2
-    ClothingOuterCoatParamedicWB: 2
-    ClothingHeadHatParamedicsoft: 2
-    ADTClothingOuterParamedicVoidHardsuit: 1
-    #ClothingHeadHelmetVoidParamed: 1
-    #ClothingOuterHardsuitVoidParamed: 1
->>>>>>> d06f4b2bbf (Плакаты)
     ClothingOuterHospitalGown: 5
     UniformScrubsColorGreen: 4
     UniformScrubsColorBlue: 4

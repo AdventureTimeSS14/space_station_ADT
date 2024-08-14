@@ -133,13 +133,7 @@
   components:
   - type: StorageFill
     contents:
-<<<<<<< HEAD
       - id: ClothingOuterHardsuitVoidParamed
-=======
-      #- id: ClothingHeadHelmetVoidParamed
-      #- id: ClothingOuterHardsuitVoidParamed
-      - id: ADTClothingOuterParamedicVoidHardsuit
->>>>>>> d06f4b2bbf (Плакаты)
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
       - id: ClothingOuterWinterPara
