@@ -132,6 +132,8 @@
     - Pacified
     - StaminaModifier
     - Flashed
+    - ADTHallucinations
+    - ADTStarvation
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -213,6 +215,7 @@
     - GalacticCommon
     understands:
     - GalacticCommon
+  - type: SpeechBarks
 
 - type: entity
   save: false

@@ -21,6 +21,10 @@
       - id: ClothingHeadsetAltCargo
       - id: BoxEncryptionKeyCargo
       - id: PrinterDocFlatpack # Corvax-Printer
+      # ADT-Economy-Start
+      - id: ADTCommandBudgetCard
+      - id: ADTCommandBudgetPinPaper
+      # ADT-Economy-End
 
 - type: entity
   id: LockerCaptainFilledHardsuit

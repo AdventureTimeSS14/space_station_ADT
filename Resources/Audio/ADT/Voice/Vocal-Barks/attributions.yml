@@ -1,0 +1,14 @@
+- files: ["Banjo-Cn3.ogg", "Banjo-Cn4.ogg", "Guitar-C2.ogg", "Guitar-C3.ogg", "Guitar-C4.ogg", "bloop.ogg", "merp.ogg", "synth-2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound from https://github.com/deathride58/Citadel-Station-13/"
+  source: "https://github.com/deathride58/Citadel-Station-13/"
+
+- files: ["undertale-alphy.ogg", "undertale-asgore.ogg", "undertale-chrip-1.ogg", "undertale-chrip-2.ogg", "undertale-flowey.ogg", "undertale-metta.ogg", "undertale-papyrus.ogg", "undertale-sans.ogg", "undertale-synth-1.ogg", "undertale-synth-2.ogg", "undertale-toriel.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound by Toby Fox"
+  source: "https://store.steampowered.com/app/391540/Undertale/"
+
+- files: ["noise-bark.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound from https://zvukipro.com/situacii/387-zvuki-belogo-shuma.html"
+  source: "https://zvukipro.com/situacii/387-zvuki-belogo-shuma.html"

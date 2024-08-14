@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingEyesGlassesSecurity
+  id: ADTClothingEyesGlassesBlueshield
+  name: blueshield's glasses
+  description: Upgraded sunglasses that provide flash immunity and a medical-security HUDs.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/blueshield.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/blueshield.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological

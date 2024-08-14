@@ -18,6 +18,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+using Content.Shared.ADT.SpeechBarks;
 
 namespace Content.Shared.Humanoid;
 
@@ -49,6 +50,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         {Sex.Unsexed, "serana"},
     };
     // Corvax-TTS-End
+    public const string DefaultBark = "Human1";
 
     public override void Initialize()
     {
@@ -388,7 +390,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
-
+        var bark = _proto.Index<BarkPrototype>(profile.BarkProto); // ADT Barks
+        SetBarkData(uid, bark.Sound, profile.BarkPitch, profile.BarkLowVar, profile.BarkHighVar); // ADT Barks
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
@@ -478,6 +481,19 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         comp.VoicePrototypeId = voiceId;
     }
     // Corvax-TTS-End
+
+    // ADT Barks start
+    public void SetBarkData(EntityUid uid, string sound, float pitch, float lowVar, float highVar)
+    {
+        if (!TryComp<SpeechBarksComponent>(uid, out var comp))
+            return;
+
+        comp.Sound = sound;
+        comp.BarkPitch = pitch;
+        comp.BarkLowVar = lowVar;
+        comp.BarkHighVar = highVar;
+    }
+    // ADT Barks end
 
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.

@@ -377,6 +377,18 @@
       - DwarfTranslator
       - IPCTranslator
       # ^^ Languages mechanic ^^
+
+      # vv ADT Phantom vv
+      - GhostRadio
+      - OuijaBoard
+      - EctoRifle
+      - EctoPistol
+      - EctoBatterySmall
+      - EctoBattery
+      - PsiShield
+      - PhantomHud
+      - EctoShield
+      # ^^ ADT Phantom ^^
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -546,6 +558,7 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
+      - ADTIndustrialSMESMachineCircuitboard #ADT
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard

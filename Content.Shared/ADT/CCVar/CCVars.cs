@@ -17,4 +17,6 @@ public sealed class SimpleStationCCVars
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
     #endregion Silicons
+
+
 }

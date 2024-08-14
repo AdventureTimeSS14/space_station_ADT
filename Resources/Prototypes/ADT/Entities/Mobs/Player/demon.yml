@@ -39,10 +39,10 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
-    # - type: SizeAttributeWhitelist # Frontier  TODO: нет такого компонента..
-    #   tall: true
-    #   tallscale: 1.1
-    #   short: true
-    #   shortscale: 0.9
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 1.1
+      short: true
+      shortscale: 0.9
 
 #Weh
