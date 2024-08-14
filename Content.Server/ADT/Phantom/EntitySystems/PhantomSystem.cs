@@ -1079,6 +1079,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
+        if (HasComp<PhantomPuppetComponent>(target))
+            return;
 
         args.Handled = true;
         var makeVesselDoAfter = new DoAfterArgs(EntityManager, uid, component.MakeVesselDuration, new PuppeterDoAfterEvent(), uid, target: target)
@@ -1645,6 +1647,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     private void OnLevelChanged(EntityUid uid, PhantomComponent component, RefreshPhantomLevelEvent args)
     {
         SelectStyle(uid, component, component.CurrentStyle, true);
+        _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short) Math.Clamp(component.Vessels.Count, 0, 10));
     }
 
     private void MakeVesselDoAfter(EntityUid uid, PhantomComponent component, MakeVesselDoAfterEvent args)
