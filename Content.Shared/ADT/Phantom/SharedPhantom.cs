@@ -1,10 +1,10 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Robust.Shared.Serialization;
 using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
+using Content.Shared.Alert;
 
 namespace Content.Shared.ADT.Phantom;
 
@@ -310,3 +310,5 @@ public sealed partial class SelfGhostHealActionEvent : InstantActionEvent
 {
 }
 #endregion
+
+public sealed partial class StopHauntAlertEvent : BaseAlertEvent;
