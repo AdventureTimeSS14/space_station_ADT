@@ -216,6 +216,7 @@
     understands:
     - GalacticCommon
   - type: SpeechBarks
+  - type: Crawler
 
 - type: entity
   save: false

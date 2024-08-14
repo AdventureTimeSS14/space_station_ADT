@@ -15,6 +15,7 @@ using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Crawling;
 
 namespace Content.Shared.Stunnable;
 
@@ -111,6 +112,8 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
     {
+        if (HasComp<CrawlerComponent>(uid))
+            return;
         _standingState.Stand(uid);
     }
 
