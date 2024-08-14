@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -45,6 +46,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
         SetTTSVoice(target, sourceHumanoid.Voice, targetHumanoid); // Corvax-TTS
+        if (TryComp<SpeechBarksComponent>(source, out var barks))
+            SetBarkData(target, barks.Sound, barks.BarkPitch, barks.BarkLowVar, barks.BarkHighVar); // ADT Barks
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
         if (TryComp<GrammarComponent>(target, out var grammar))

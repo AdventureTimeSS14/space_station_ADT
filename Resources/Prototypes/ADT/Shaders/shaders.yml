@@ -1,0 +1,10 @@
+# Simple Station
+- type: shader
+  id: ColorTint
+  kind: source
+  path: "/Textures/ADT/Shaders/color_tint.swsl"
+
+- type: shader
+  id: SeeingStatic
+  kind: source
+  path: "/Textures/ADT/Shaders/seeing_static.swsl"

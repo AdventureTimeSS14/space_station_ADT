@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
@@ -7,6 +7,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.ADT.Language;  // ADT Languages
+using Content.Shared.ADT.Language;  // ADT Languages
 
 namespace Content.Server.Corvax.TTS;
 
@@ -18,6 +20,7 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly TTSManager _ttsManager = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
 
     private readonly List<string> _sampleText =
         new()
@@ -33,7 +36,8 @@ public sealed partial class TTSSystem : EntitySystem
             "Здесь есть доктор? Человек умирает от отравленного пончика! Нужна помощь!",
             "Вам нужно согласие и печать квартирмейстера, если вы хотите сделать заказ на партию дробовиков.",
             "Возле эвакуационного шаттла разгерметизация! Инженеры, нам срочно нужна ваша помощь!",
-            "Бармен, налей мне самого крепкого вина, которое есть в твоих запасах!"
+            "Бармен, налей мне самого крепкого вина, которое есть в твоих запасах!",
+            "Здесь был котя."
         };
 
     private const int MaxMessageChars = 100 * 2; // same as SingleBubbleCharLimit * 2
@@ -66,7 +70,7 @@ public sealed partial class TTSSystem : EntitySystem
         if (soundData is null)
             return;
 
-        RaiseNetworkEvent(new PlayTTSEvent(soundData), Filter.SinglePlayer(args.SenderSession));
+        RaiseNetworkEvent(new PlayTTSEvent(soundData, soundData, _prototypeManager.Index<LanguagePrototype>("Universal")), Filter.SinglePlayer(args.SenderSession));
     }
 
     private async void OnEntitySpoke(EntityUid uid, TTSComponent component, EntitySpokeEvent args)
@@ -86,21 +90,27 @@ public sealed partial class TTSSystem : EntitySystem
 
         if (args.ObfuscatedMessage != null)
         {
-            HandleWhisper(uid, args.Message, args.ObfuscatedMessage, protoVoice.Speaker);
+            HandleWhisper(uid, args.Message, args.ObfuscatedMessage, protoVoice.Speaker, args.Language);    // ADT Languages
             return;
         }
 
-        HandleSay(uid, args.Message, protoVoice.Speaker);
+        HandleSay(uid, args.Message, protoVoice.Speaker, args.Language);    // ADT Languages
     }
 
-    private async void HandleSay(EntityUid uid, string message, string speaker)
+    private async void HandleSay(EntityUid uid, string message, string speaker, LanguagePrototype language)
     {
         var soundData = await GenerateTTS(message, speaker);
         if (soundData is null) return;
-        RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(uid)), Filter.Pvs(uid));
+
+        // ADT Languages start
+        var languageSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, language), speaker);
+        if (languageSoundData is null) return;
+        // ADT Languages end
+
+        RaiseNetworkEvent(new PlayTTSEvent(soundData, languageSoundData, language, GetNetEntity(uid)), Filter.Pvs(uid));
     }
 
-    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker)
+    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker, LanguagePrototype language)
     {
         var fullSoundData = await GenerateTTS(message, speaker, true);
         if (fullSoundData is null) return;
@@ -108,8 +118,16 @@ public sealed partial class TTSSystem : EntitySystem
         var obfSoundData = await GenerateTTS(obfMessage, speaker, true);
         if (obfSoundData is null) return;
 
-        var fullTtsEvent = new PlayTTSEvent(fullSoundData, GetNetEntity(uid), true);
-        var obfTtsEvent = new PlayTTSEvent(obfSoundData, GetNetEntity(uid), true);
+        // ADT Languages start
+        var fullLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, language), speaker, true);
+        if (fullLangSoundData is null) return;
+
+        var obfLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, obfMessage, language), speaker, true);
+        if (obfLangSoundData is null) return;
+        // ADT Languages end
+
+        var fullTtsEvent = new PlayTTSEvent(fullSoundData, fullLangSoundData, language, GetNetEntity(uid), true);   // ADT Languages
+        var obfTtsEvent = new PlayTTSEvent(obfSoundData, obfLangSoundData, language, GetNetEntity(uid), true);  // ADT Languages
 
         // TODO: Check obstacles
         var xformQuery = GetEntityQuery<TransformComponent>();
@@ -135,23 +153,12 @@ public sealed partial class TTSSystem : EntitySystem
         if (char.IsLetter(textSanitized[^1]))
             textSanitized += ".";
 
-        var ssmlTraits = SoundTraits.RateFast;
-        if (isWhisper)
-            ssmlTraits = SoundTraits.PitchVerylow;
-        var textSsml = ToSsmlText(textSanitized, ssmlTraits);
-
-        return await _ttsManager.ConvertTextToSpeech(speaker, textSsml);
+        return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized);
     }
 }
 
-public sealed class TransformSpeakerVoiceEvent : EntityEventArgs
+public sealed class TransformSpeakerVoiceEvent(EntityUid sender, string voiceId) : EntityEventArgs
 {
-    public EntityUid Sender;
-    public string VoiceId;
-
-    public TransformSpeakerVoiceEvent(EntityUid sender, string voiceId)
-    {
-        Sender = sender;
-        VoiceId = voiceId;
-    }
+    public EntityUid Sender = sender;
+    public string VoiceId = voiceId;
 }

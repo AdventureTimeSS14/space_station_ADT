@@ -23,6 +23,11 @@ public sealed partial class VoiceMaskSystem
             comp.VoiceId = component.LastSetVoice;
         // Corvax-TTS-End
 
+        // ADT Barks start
+        comp.BarkId = component.LastSetBark;
+        comp.BarkPitch = component.LastSetPitch;
+        // ADT Barks end
+
         _actions.AddAction(user, ref component.ActionEntity, component.Action, uid);
     }
 

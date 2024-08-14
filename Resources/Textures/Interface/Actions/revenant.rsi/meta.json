@@ -1,0 +1,41 @@
+{
+  "copyright" : "Taken from https://github.com/tgstation/tgstation at at https://github.com/tgstation/tgstation/commit/00762e4851d07c5d420de3564c96de8ea884c25e",
+  "license" : "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "rev_agressivnie_toolbox"
+    },
+    {
+        "name": "rev_airlock"
+    },
+    {
+        "name": "rev_blackout"
+    },
+    {
+        "name": "rev_corruption"
+    },
+    {
+        "name": "rev_ghostsmoke"
+    },
+    {
+        "name": "rev_malafucturing"
+    },
+    {
+        "name": "rev_panic"
+    },
+    {
+        "name": "rev_speak"
+    },
+    {
+        "name": "rage"
+    },
+    {
+        "name": "shield"
+    }
+  ]
+}

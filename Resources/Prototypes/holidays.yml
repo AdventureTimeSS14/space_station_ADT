@@ -68,8 +68,8 @@
   beginMonth: March
 
 - type: holiday
-  id: holiday-name-easter
-  name: Easter
+  id: Easter
+  name: holiday-name-easter
   shouldCelebrate:
     !type:Computus { }
 
@@ -265,11 +265,13 @@
     !type:DayOfYear
     dayOfYear: 256
 
-- type: holiday
-  id: BisexualPrideDay
-  name: holiday-name-bisexual-pride-day
-  beginDay: 23
-  beginMonth: September
+# ADT-Holidays-Start
+# - type: holiday
+#   id: BisexualPrideDay
+#   name: holiday-name-bisexual-pride-day
+#   beginDay: 23
+#   beginMonth: September
+# ADT-Holidays-End
 
 - type: holiday
   id: StupidQuestionsDay
@@ -320,8 +322,8 @@
     weekday: Thursday
 
 - type: holiday
-  id: holiday-name-halloween
-  name: Halloween
+  id: Halloween
+  name: holiday-name-halloween
   beginDay: 31
   beginMonth: October
   greet:
@@ -361,11 +363,13 @@
   beginDay: 19
   beginMonth: November
 
-- type: holiday
-  id: TransgenderRemembranceDay
-  name: holiday-name-transgender-remembrance-day
-  beginDay: 20
-  beginMonth: November
+# ADT-Holidays-Start
+# - type: holiday
+#   id: TransgenderRemembranceDay
+#   name: holiday-name-transgender-remembrance-day
+#   beginDay: 20
+#   beginMonth: November
+# ADT-Holidays-End
 
 - type: holiday
   id: SayingHelloDay
@@ -383,8 +387,8 @@
     weekday: Thursday
 
 - type: holiday
-  id: holiday-name-sinterklaas
-  name: Sinterklaas
+  id: Sinterklaas
+  name: holiday-name-sinterklaas
   beginDay: 5
   beginMonth: December
 
@@ -407,8 +411,8 @@
   beginMonth: December
 
 - type: holiday
-  id: holiday-name-christmas
-  name: Christmas
+  id: Christmas
+  name: holiday-name-christmas
   beginDay: 24
   endDay: 26
   beginMonth: December
@@ -438,9 +442,11 @@
   shouldCelebrate:
     !type:FridayThirteenth { }
 
-- type: holiday
-  id: PrideMonth
-  name: holiday-name-pride-month
-  beginDay: 1
-  endDay: 31
-  beginMonth: June
+# ADT-Holidays-Start
+# - type: holiday
+#   id: PrideMonth
+#   name: holiday-name-pride-month
+#   beginDay: 1
+#   endDay: 31
+#   beginMonth: June
+# ADT-Holidays-End

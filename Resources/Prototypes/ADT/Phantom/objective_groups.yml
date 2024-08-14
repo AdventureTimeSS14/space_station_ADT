@@ -1,0 +1,28 @@
+- type: weightedRandom
+  id: PhantomObjectiveGroups
+  weights:
+    PhantomKillObjectives: 1
+    PhantomSocialObjectives: 1
+
+- type: weightedRandom
+  id: PhantomKillObjectives
+  weights:
+    KillPhantomImmunePersonObjective: 1
+
+- type: weightedRandom
+  id: PhantomSocialObjectives
+  weights:
+    PhantomKeepAliveObjective: 1
+    PhantomEscapeShuttleObjective: 1
+
+- type: weightedRandom
+  id: PhantomFinalObjectiveGroup
+  weights:
+    PhantomFinalObjectives: 1
+
+- type: weightedRandom
+  id: PhantomFinalObjectives
+  weights:
+    PhantomStartNightmareObjective: 1
+    PhantomReincarnateObjective: 1
+

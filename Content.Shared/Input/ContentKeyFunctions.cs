@@ -26,6 +26,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction EscapeContext = "EscapeContext";
         public static readonly BoundKeyFunction OpenCharacterMenu = "OpenCharacterMenu";
         public static readonly BoundKeyFunction OpenEmotesMenu = "OpenEmotesMenu";
+        public static readonly BoundKeyFunction OpenLanguagesMenu = "OpenLanguagesMenu";    // Languaжes
         public static readonly BoundKeyFunction OpenCraftingMenu = "OpenCraftingMenu";
         public static readonly BoundKeyFunction OpenGuidebook = "OpenGuidebook";
         public static readonly BoundKeyFunction OpenInventoryMenu = "OpenInventoryMenu";
@@ -56,6 +57,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ZoomOut = "ZoomOut";
         public static readonly BoundKeyFunction ZoomIn = "ZoomIn";
         public static readonly BoundKeyFunction ResetZoom = "ResetZoom";
+        public static readonly BoundKeyFunction ToggleCrawling = "ToggleCrawling";//ADT crawling
 
         public static readonly BoundKeyFunction ArcadeUp = "ArcadeUp";
         public static readonly BoundKeyFunction ArcadeDown = "ArcadeDown";

@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chocolatefreezy_trash"
+    },
+    {
+      "name": "chocolateicecream_trash"
+    },
+    {
+      "name": "ChocolatePopsicle_trash"
+    },
+    {
+      "name": "chocolatepopsiclewithnuts_trash"
+    },
+    {
+      "name": "icecreamwafflecone_trash"
+    },
+    {
+      "name": "icecreamwaffleconenuts_trash"
+    },
+    {
+      "name": "jumbopopsicle_trash"
+    },
+    {
+      "name": "melonpopsicle_trash"
+    },
+    {
+      "name": "orangepopsicle_trash"
+    },
+    {
+      "name": "pineapplechocolate_trash"
+    },
+    {
+      "name": "popsicleapple_trash"
+    },
+    {
+      "name": "popsiclebanana_trash"
+    },
+    {
+      "name": "popsiclemole_trash"
+    },
+    {
+      "name": "randomfruitIce_trash"
+    },
+    {
+      "name": "seasaltppopsicle_trash"
+    },
+    {
+      "name": "spacefreezy_trash"
+    },
+    {
+      "name": "spaceicecream_trash"
+    },
+    {
+      "name": "strawberryicecream_trash"
+    },
+    {
+      "name": "threeflavorsfreezy_trash"
+    },
+    {
+      "name": "threeflavorspopsicle_trash"
+    },
+    {
+      "name": "vanillafreezy_trash"
+    },
+    {
+      "name": "vanillaicecream_trash"
+    },
+    {
+      "name": "watermelonpopsicle_trash"
+    }
+  ]
+}

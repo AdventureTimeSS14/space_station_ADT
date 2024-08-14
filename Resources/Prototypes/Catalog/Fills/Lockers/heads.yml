@@ -21,6 +21,10 @@
       - id: ClothingHeadsetAltCargo
       - id: BoxEncryptionKeyCargo
       - id: PrinterDocFlatpack # Corvax-Printer
+      # ADT-Economy-Start
+      - id: ADTCommandBudgetCard
+      - id: ADTCommandBudgetPinPaper
+      # ADT-Economy-End
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -144,7 +148,6 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
-      - id: ClothingMaskBreath
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingShoesBootsMagAdv
@@ -159,6 +162,12 @@
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      # Start-ADT Tweak
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingNeckCloakCe
+      - id: ADTClothingMaskGasCE
+      # End-ADT Tweak
 
 - type: entity
   id: LockerChiefEngineerFilled

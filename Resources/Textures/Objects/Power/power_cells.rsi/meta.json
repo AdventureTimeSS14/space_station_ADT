@@ -33,6 +33,12 @@
         },
         {
             "name": "o2"
+        },
+        {
+            "name": "ecto"
+        },
+        {
+            "name": "ecto-small"
         }
     ]
 }

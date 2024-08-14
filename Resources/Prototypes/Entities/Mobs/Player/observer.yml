@@ -3,7 +3,7 @@
   id: MobObserver
   name: observer
   description: Boo!
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: CargoSellBlacklist
   - type: Sprite
@@ -48,7 +48,11 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
-  - type: UniversalLanguageSpeaker # Frontier / Ghosts should understand any language.
+  - type: LanguageSpeaker
+    speaks:
+    - Universal
+    understands:
+    - Universal
 
 - type: entity
   id: ActionGhostBoo

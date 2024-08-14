@@ -1,3 +1,4 @@
+using Content.Client.Corvax.Sponsors;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -16,6 +17,8 @@ public sealed partial class LoadoutWindow : FancyWindow
 
     private List<LoadoutGroupContainer> _groups = new();
 
+    public bool IsSponsor; //ADT-Sponsors-Loadout
+
     public HumanoidCharacterProfile Profile;
 
     public LoadoutWindow(HumanoidCharacterProfile profile, RoleLoadout loadout, RoleLoadoutPrototype proto, ICommonSession session, IDependencyCollection collection)
@@ -23,6 +26,11 @@ public sealed partial class LoadoutWindow : FancyWindow
         RobustXamlLoader.Load(this);
         Profile = profile;
         var protoManager = collection.Resolve<IPrototypeManager>();
+        //ADT-Sponsors-Loadout-Start
+        var checkSponsorSystem = collection.Resolve<IEntityManager>().System<CheckSponsorClientSystem>();
+        checkSponsorSystem.TryCheckSponsor(session.AttachedEntity?.ToString());
+        IsSponsor = checkSponsorSystem.IsSponsor;
+        //ADT-Sponsors-Loadout-End
 
         foreach (var group in proto.Groups)
         {
@@ -32,7 +40,7 @@ public sealed partial class LoadoutWindow : FancyWindow
             if (groupProto.Hidden)
                 continue;
 
-            var container = new LoadoutGroupContainer(profile, loadout, protoManager.Index(group), session, collection);
+            var container = new LoadoutGroupContainer(profile, loadout, protoManager.Index(group), session, collection, IsSponsor); //ADT-Sponsors-Loadout
             LoadoutGroupsContainer.AddTab(container, Loc.GetString(groupProto.Name));
             _groups.Add(container);
 
@@ -52,7 +60,7 @@ public sealed partial class LoadoutWindow : FancyWindow
     {
         foreach (var group in _groups)
         {
-            group.RefreshLoadouts(Profile, loadout, session, collection);
+            group.RefreshLoadouts(Profile, loadout, session, collection, IsSponsor); //ADT-Sponsors-Loadout
         }
     }
 }

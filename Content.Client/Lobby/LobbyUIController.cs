@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Client.Guidebook;
-using Content.Client.Corvax.TTS;
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
@@ -273,6 +272,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             _logManager,
             _playerManager,
             _prototypeManager,
+            _resourceCache,
             _requirements,
             _markings);
 

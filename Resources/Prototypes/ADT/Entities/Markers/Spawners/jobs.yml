@@ -1,0 +1,70 @@
+- type: entity
+  id: ADTSpawnPointJobBase
+  parent: MarkerBase
+  abstract: true
+  suffix: Job Spawn ADT
+  components:
+  - type: SpawnPoint
+    spawn_type: Job
+  - type: Sprite
+    sprite: ADT/Markers/jobs.rsi
+
+- type: entity
+  id: SpawnPointADTPathologist
+  parent: ADTSpawnPointJobBase
+  name: pathologist
+  components:
+  - type: SpawnPoint
+    job_id: ADTPathologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: pathologist
+
+- type: entity
+  id: SpawnPointMagistrat
+  parent: ADTSpawnPointJobBase
+  name: magistrat
+  components:
+  - type: SpawnPoint
+    job_id: Magistrat 
+  - type: Sprite
+    layers:
+      - state: green
+      - state: magistrat
+
+- type: entity
+  id: SpawnPointIAA
+  parent: ADTSpawnPointJobBase
+  name: IAA
+  components:
+  - type: SpawnPoint
+    job_id: IAA 
+  - type: Sprite
+    layers:
+      - state: green
+      - state: iaa
+
+- type: entity
+  id: ADTSpawnPointRoboticist
+  parent: SpawnPointJobBase
+  name: roboticist
+  components:
+  - type: SpawnPoint
+    job_id: ADTRoboticist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scientist
+
+- type: entity
+  id: SpawnADTBlueShieldOfficer
+  parent: ADTSpawnPointJobBase
+  name: ADTBlueShieldOfficer
+  components:
+    - type: SpawnPoint
+      job_id: ADTBlueShieldOfficer
+    - type: Sprite
+      layers:
+        - state: green
+        - state: blueshield

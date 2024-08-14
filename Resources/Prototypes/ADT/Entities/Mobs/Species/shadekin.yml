@@ -1,0 +1,198 @@
+- type: entity
+  save: false
+  parent: BaseMobHuman
+  id: BaseMobShadekin
+  abstract: true
+  name: Урист МакСумеречник
+  components:
+  - type: HumanoidAppearance
+    species: Shadekin
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+    state: full
+  - type: Body
+    prototype: Shadekin
+    requiredLegs: 2
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      150: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      48: 0.85
+      64: 0.65
+  - type: Damageable
+    damageContainer: Biological # Shadekin
+    damageModifierSet: Shadekin
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 1 # В секунду.
+  - type: Bloodstream
+    bloodReagent: ShadekinBlood
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Temperature
+    heatDamageThreshold: 330
+    coldDamageThreshold: 200
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.25 #per second, scales with temperature & other constants
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 130 #lower density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.0
+    damageRecovery:
+      types:
+        Asphyxiation: 0.0
+  - type: Sprite
+    scale: 0.95, 0.95
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 2
+        Slash: 3
+        Piercing: 1
+  - type: Shadekin
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
+  - type: CombatMode
+    canDisarm: true
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: InputMover
+  - type: Alerts
+  - type: Actions
+  - type: CameraRecoil
+  - type: Examiner
+  - type: CanHostGuardian
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: InteractionPopup
+    successChance: 0.75
+    interactFailureString: petting-failure-generic
+    interactSuccessString: petting-success-soft-floofy
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: petting-success-soft-floofy-others
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 2.7
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: shoes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: head
+  # Frontier - languages mechanic
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - Shadekin
+    understands:
+    - GalacticCommon
+    - Shadekin
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1
+    short: true
+    shortscale: 0.85
+
+- type: entity
+  save: false
+  parent: MobHumanDummy
+  id: MobShadekinDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy shadekin meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Shadekin
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: shoes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: head

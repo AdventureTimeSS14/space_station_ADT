@@ -1,0 +1,120 @@
+- type: entity
+  id: WeaponCaseNTM90
+  name: weapon Case
+  suffix: M-90gl
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleM90GrenadeLauncher
+    - id: MagazineRifle
+      amount: 5
+    - id: GrenadeFrag
+      amount: 2
+    - id: GrenadeBlast
+      amount: 3
+
+- type: entity
+  id: WeaponCaseNTLecter
+  name: weapon case
+  suffix: Lecter
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleLecter
+    - id: MagazineRifle
+      amount: 5
+
+- type: entity
+  id: WeaponCaseNTnPulseCarbine
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPulseCarbine
+
+- type: entity
+  id: WeaponCaseNTMateba
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverMateba
+    - id: SpeedLoaderMagnum
+      amount: 3
+
+- type: entity
+  id: WeaponCaseNTAPAmmo
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: SpeedLoaderMagnumAP
+      amount: 2
+
+- type: entity
+  id: WeaponCaseNTDisabler
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponDisablerSMG
+    - id: WeaponDisabler
+
+- type: entity
+  id: WeaponCaseNTDeagle
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineMagnum
+      amount: 3
+    - id: ADTWeaponPistolDesertEagle
+
+- type: entity
+  id: WeaponCaseNTIonRifle
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTWeaponIonRifle
+
+- type: entity
+  id: WeaponCaseNTDrozd
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunDrozd
+    - id: MagazinePistolSubMachineGun
+      amount: 5
+
+- type: entity
+  id: WeaponCaseBulldog
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunBulldog
+    - id: MagazineShotgun
+      amount: 2
+    - id: MagazineShotgunBeanbag
