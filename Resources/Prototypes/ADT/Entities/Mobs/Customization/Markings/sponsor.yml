@@ -4,7 +4,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: durak
 
 - type: marking
@@ -13,7 +13,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: horn1
 
 - type: marking
@@ -22,7 +22,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: horn2
 
 - type: marking
@@ -31,7 +31,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: horn3
 
 - type: marking
@@ -40,7 +40,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: horn4
 
 - type: marking
@@ -49,7 +49,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: horn5
 
 - type: marking
@@ -58,7 +58,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: horn6
 
 - type: marking
@@ -67,7 +67,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: lord
 
 - type: marking
@@ -76,7 +76,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: oldpain
 
 - type: marking
@@ -85,7 +85,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: tavrhorn
 
 - type: marking
@@ -94,7 +94,7 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: telehorn
 
 - type: marking
@@ -103,5 +103,5 @@
   markingCategory: HeadTop
   sponsorOnly: true
   sprites:
-    - sprite: /ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
+    - sprite: ADT/Entities/Mobs/Customization/Markings/horns/head.rsi
       state: vampirehorn
