@@ -111,13 +111,15 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                     break;
                 var entity = GetEntity(ev.Source.Value);
                 if (entity == EntityUid.Invalid || _player.LocalEntity == null)
-                    continue;
+                    break;
                 if (Deleted(entity) || Terminating(entity))
-                    continue;
+                    break;
                 if (!HasComp<TransformComponent>(entity) || !HasComp<TransformComponent>(_player.LocalEntity.Value))
                     continue;
                 if (Transform(entity).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity.Value).Coordinates, out var distance) &&
                     distance > SharedChatSystem.VoiceRange)
+                    continue;
+                if (Transform(entity).ParentUid == EntityUid.Invalid)
                     continue;
 
                 _audio.PlayEntity(audioResource.AudioStream, entity, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));

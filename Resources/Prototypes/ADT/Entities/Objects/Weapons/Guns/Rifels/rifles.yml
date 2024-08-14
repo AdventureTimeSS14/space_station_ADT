@@ -37,7 +37,7 @@
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-            - PhantomEctoplasm
+            - PhantomEctoplasmBattery
   - type: Appearance
   - type: StaticPrice
     price: 500
