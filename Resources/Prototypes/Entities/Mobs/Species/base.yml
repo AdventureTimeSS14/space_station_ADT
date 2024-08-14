@@ -133,6 +133,7 @@
     - StaminaModifier
     - Flashed
     - ADTHallucinations
+    - ADTStarvation
   - type: Body
     prototype: Human
     requiredLegs: 2
