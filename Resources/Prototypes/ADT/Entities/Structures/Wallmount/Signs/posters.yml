@@ -34,5 +34,5 @@
   description: "This is the logo of the SPACE SEC Corporation"
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/space_sec_poster.rsi
+    sprite: ADT/Structures/Wallmounts/signs.rsi
     state: poster_spacesec

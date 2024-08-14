@@ -1,9 +1,0 @@
-- type: entity
-  parent: BaseWeaponTurret
-  id: ADTWeaponTurretDroneAntag
-  suffix: Drone Antag
-  components:
-    - type: NpcFactionMember
-      factions:
-        - DroneAntag
-

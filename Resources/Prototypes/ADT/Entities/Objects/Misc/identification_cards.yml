@@ -55,10 +55,10 @@
   name: space sec cadet ID card
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-cadet
+    - state: id-spacesec-cadet
   - type: IdCard
     jobIcon: JobIconADTSpaceSecCadet
     jobTitle: Кадет SPACE SEC
@@ -74,10 +74,10 @@
   name: space sec officer ID card
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-officer
+    - state: id-spacesec-officer
   - type: IdCard
     jobIcon: JobIconADTSpaceSecOfficer
     jobTitle: Офицер SPACE SEC
@@ -95,10 +95,10 @@
   name: space sec pilot ID card
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-pilot
+    - state: id-spacesec-pilot
   - type: IdCard
     jobIcon: JobIconADTSpaceSecPilot
     jobTitle: Пилот SPACE SEC
@@ -116,10 +116,10 @@
   name: space sec commander ID card
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-commander
+    - state: id-spacesec-commander
   - type: IdCard
     jobIcon: JobIconADTSpaceSecCommander
     jobTitle: Командир SPACE SEC
@@ -138,10 +138,10 @@
   name: space sec service ID card
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/space_sec_ids.rsi
+    sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-service
+    - state: id-spacesec-service
   - type: IdCard
     jobIcon: JobIconADTSpaceSecService
     jobTitle: Сотрудник SPACE SEC
