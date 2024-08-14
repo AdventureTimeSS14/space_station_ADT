@@ -56,7 +56,7 @@
   - type: TypingIndicator
     proto: robot
   - type: TTS # Corvax-TTS
-    voice: TrainingRobot
+    voice: skippy
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai

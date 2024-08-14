@@ -47,6 +47,10 @@
         whitelist:
           tags:
             - PlushieSharkGrey
+      mopbucket_shark_black:
+        whitelist:
+          tags:
+            - PlushieSharkBlack
     sprite: Objects/Fun/sharkplush.rsi
   - type: Transform
     noRot: true
@@ -59,6 +63,7 @@
             - PlushieSharkBlue
             - PlushieSharkPink
             - PlushieSharkGrey
+            - PlushieSharkBlack
         priority: 3 # Higher than drinking priority
   - type: Drink
     solution: bucket
