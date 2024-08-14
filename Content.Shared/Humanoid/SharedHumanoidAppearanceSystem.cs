@@ -6,7 +6,6 @@ using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Corvax.TTS;
-using Content.Shared.Decals;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Robust.Shared;
@@ -43,12 +42,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
     // Corvax-TTS-Start
-    public const string DefaultVoice = "Aidar";
+    public const string DefaultVoice = "johnny";
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
     {
-        {Sex.Male, "Aidar"},
-        {Sex.Female, "Kseniya"},
-        {Sex.Unsexed, "Baya"},
+        {Sex.Male, "johnny"},
+        {Sex.Female, "v_female"},
+        {Sex.Unsexed, "serana"},
     };
     // Corvax-TTS-End
     public const string DefaultBark = "Human1";

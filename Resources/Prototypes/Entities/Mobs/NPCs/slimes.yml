@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: basic slime
   id: BaseMobAdultSlimes
   parent: [ SimpleMobBase, MobCombat ]
@@ -112,7 +112,7 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
-  - type: LanguageSpeaker # Frontier
+  - type: LanguageSpeaker # ADT
     speaks:
     - Bubblish
     understands:
@@ -148,7 +148,7 @@
     rootTask:
       task: SimpleHostileCompound
   - type: TTS # Corvax-TTS
-    voice: Chen
+    voice: neco_arc_2
 
 - type: entity
   name: geras

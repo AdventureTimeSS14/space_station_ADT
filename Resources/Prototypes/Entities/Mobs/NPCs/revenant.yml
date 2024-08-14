@@ -40,6 +40,8 @@
   - type: Examiner
   - type: NoSlip
   - type: Actions
+  - type: TTS # Corvax-TTS
+    voice: illidan
   - type: Eye
     drawFov: false
     visMask:

@@ -28,6 +28,8 @@ public sealed class QuirksSystem : SharedQuirksSystem
             return;
         if (TryComp<WeldableComponent>(uid, out var weldable) && weldable.IsWelded)
             return;
+        if (comp.Contents.Contains(args.User))
+            return;
 
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.User))
             return;
