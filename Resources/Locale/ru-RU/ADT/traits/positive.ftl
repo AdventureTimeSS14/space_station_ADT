@@ -12,3 +12,6 @@ trait-fast-lockers-desc = Вы можете моментально и макси
 
 trait-hard-thrower-name = Сильный бросок
 trait-hard-thrower-desc = Вы бросаетесь вещами сильнее остальных.
+
+trait-poltergeist-name = Беспокойный дух
+trait-poltergeist-desc = После смерти вы становитесь полтергейстом, ууу! Однако, вернуться к жизни более вам не удастся.

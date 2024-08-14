@@ -1,0 +1,51 @@
+- type: entity
+  name: ectoshield
+  parent: BaseShield
+  id: ADTEctoShield
+  description: A ballistic riot shield built for withstanding bullets, but not much else.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/ecto-shield.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/ecto-shield.rsi
+    size: Ginormous
+    heldPrefix: ecto
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Piercing: 0.6
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.6
+        Piercing: 0.5
+      flatReductions:
+        Blunt: 1.2
+        Piercing: 1.2
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 201
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 200 #This is probably enough damage before it breaks
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound: /Audio/Effects/metal_break1.ogg
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel:
+                min: 2
+                max: 2
+              SheetGlass:
+                min: 2
+                max: 2
+  - type: GrantPhantomProtection
+    workInHand: true
