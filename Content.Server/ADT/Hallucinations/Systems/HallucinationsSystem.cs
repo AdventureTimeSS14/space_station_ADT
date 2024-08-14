@@ -202,8 +202,8 @@ public sealed partial class HallucinationsSystem : EntitySystem
                 _visibilitySystem.SetLayer((hallucination, visibility), (ushort)VisibilityFlags.BaseHallucination, false);
                 _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
 
-                _visibilitySystem.SetLayer((hallucination, visibility), (ushort) stat.Layer, false);
-                _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
+                //_visibilitySystem.SetLayer((hallucination, visibility), (ushort) stat.Layer, false);
+                //_visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
             }
 
             var uidnewCoords = Transform(uid).MapPosition.Offset(_random.NextVector2(stat.Range));
@@ -216,8 +216,8 @@ public sealed partial class HallucinationsSystem : EntitySystem
             _visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort)VisibilityFlags.BaseHallucination, false);
             _visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
 
-            _visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort) stat.Layer, false);
-            _visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
+            //_visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort) stat.Layer, false);
+            //_visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
 
         }
 
@@ -252,8 +252,8 @@ public sealed partial class HallucinationsSystem : EntitySystem
                 _visibilitySystem.SetLayer((hallucination, visibility), (ushort)VisibilityFlags.BaseHallucination, false);
                 _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
 
-                _visibilitySystem.SetLayer((hallucination, visibility), (ushort)stat.Layer, false);
-                _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
+                //_visibilitySystem.SetLayer((hallucination, visibility), (ushort)stat.Layer, false);
+                //_visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
             }
 
             var uidnewCoords = Transform(uid).MapPosition.Offset(_random.NextVector2(stat.Range));
@@ -266,8 +266,8 @@ public sealed partial class HallucinationsSystem : EntitySystem
             _visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort)VisibilityFlags.BaseHallucination, false);
             _visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
 
-            _visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort) stat.Layer, false);
-            _visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
+            //_visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort) stat.Layer, false);
+            //_visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
 
         }
     }
