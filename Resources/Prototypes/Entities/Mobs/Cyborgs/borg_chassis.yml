@@ -274,8 +274,8 @@
     interactFailureString: petting-failure-medical-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: TTS # Corvax-TTS
-    voice: TrainingRobot
+  # - type: TTS # Corvax-TTS
+  #   voice: TrainingRobot
 
 - type: entity
   id: BorgChassisService
