@@ -15,7 +15,7 @@
   description: Big and safe to have by your side if you want to discover the world below the surface of the ocean.
   components:
   - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
+    sprite: ADT/Objects/Fun/sharkplushie.rsi
     state: black
   - type: Item
     heldPrefix: black

@@ -63,7 +63,6 @@
             - PlushieSharkBlue
             - PlushieSharkPink
             - PlushieSharkGrey
-            - PlushieSharkGrey
             - PlushieSharkBlack
         priority: 3 # Higher than drinking priority
   - type: Drink
