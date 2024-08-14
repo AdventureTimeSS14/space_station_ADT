@@ -293,7 +293,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     /// <param name="args">Event</param>
     private void OnRequestStyleMenu(EntityUid uid, PhantomComponent component, OpenPhantomStylesMenuActionEvent args)
     {
-        if (_entityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
         {
             var ev = new RequestPhantomStyleMenuEvent(GetNetEntity(uid));
 
@@ -304,7 +304,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 ev.Prototypes.Add(prototype.ID);
             }
             ev.Prototypes.Sort();
-            RaiseNetworkEvent(ev, actorComponent.PlayerSession);
+            RaiseNetworkEvent(ev, mind.Session);
         }
     }
 
@@ -348,7 +348,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (_entityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
         {
             var ev = new RequestPhantomFreedomMenuEvent(GetNetEntity(uid));
 
@@ -367,7 +367,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 }
             }
             ev.Prototypes.Sort();
-            RaiseNetworkEvent(ev, actorComponent.PlayerSession);
+            RaiseNetworkEvent(ev, mind.Session);
         }
 
         args.Handled = true;
@@ -423,7 +423,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
 
         }
-        if (_entityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
         {
             var ev = new RequestPhantomVesselMenuEvent(GetNetEntity(uid), new());
 
@@ -477,7 +477,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 ev.Vessels.Add((netEnt, profile, meta.EntityName));
             }
             ev.Vessels.Sort();
-            RaiseNetworkEvent(ev, actorComponent.PlayerSession);
+            RaiseNetworkEvent(ev, mind.Session);
         }
 
         args.Handled = true;
