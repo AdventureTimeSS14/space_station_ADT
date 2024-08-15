@@ -1,0 +1,185 @@
+# Translators
+- type: entity
+  id: GalacticCommonTranslatorImplanter
+  name: Galactic Common Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: GalacticCommonTranslatorImplant
+
+- type: entity
+  id: BubblishTranslatorImplanter
+  name: Bubblish Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: BubblishTranslatorImplant
+
+- type: entity
+  id: MofficTranslatorImplanter
+  name: Moffic Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: MofficTranslatorImplant
+
+- type: entity
+  id: RootSpeakTranslatorImplanter
+  name: RootSpeak Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: RootSpeakTranslatorImplant
+
+- type: entity
+  id: NekomimeticTranslatorImplanter
+  name: Nekomimetic Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: NekomimeticTranslatorImplant
+
+- type: entity
+  id: DraconicTranslatorImplanter
+  name: Draconic Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: DraconicTranslatorImplant
+
+- type: entity
+  id: CanilunztTranslatorImplanter
+  name: Canilunzt Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: CanilunztTranslatorImplant
+
+- type: entity
+  id: IPCTranslatorImplanter
+  name: IPC Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: IPCTranslatorImplant
+
+- type: entity
+  id: BorgTranslatorImplanter
+  name: Borg Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: BorgTranslatorImplant
+
+# - type: entity
+#   id: ArachnidTranslatorImplanter
+#   name: Arachnid Translator implanter
+#   parent: BaseImplantOnlyImplanter
+#   components:
+#   - type: Implanter
+#     implant: ArachnidTranslatorImplant
+
+- type: entity
+  id: FireTranslatorImplanter
+  name: Fire Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: FireTranslatorImplant
+
+- type: entity
+  id: SolCommonTranslatorImplanter
+  name: SolCommon Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: SolCommonTranslatorImplant
+
+- type: entity
+  id: DraskTranslatorImplanter
+  name: Drask Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: DraskTranslatorImplant
+
+- type: entity
+  id: UrsTranslatorImplanter
+  name: Urs Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: UrsTranslatorImplant
+
+- type: entity
+  id: ArkaneTranslatorImplanter
+  name: Arkane Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: ArkaneTranslatorImplant
+
+- type: entity
+  id: ShadekinTranslatorImplanter
+  parent: BaseImplantOnlyImplanter
+  name: Shadekin translator implant
+  description: "An implant giving the ability to understand and speak Shadekin language."
+  components:
+  - type: Implanter
+    implant: ShadekinTranslatorImplant
+
+- type: entity
+  id: DwarfTranslatorImplanter
+  name: Dwarf Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: DwarfTranslatorImplant
+
+- type: entity
+  id: CintaTajTranslatorImplanter
+  name: CintaTaj Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: CintaTajTranslatorImplant
+
+- type: entity
+  id: CodeSpeakImplanter
+  name: Code speak Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: CodeSpeakTranslatorImplant
+
+- type: entity
+  id: SyndUniversalTranslatorImplanter
+  name: Universal Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: SyndUniversalTranslatorImplant
+
+- type: entity
+  id: SikTajTranslatorImplanter
+  name: Universal Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: SikTajTranslatorImplant
+
+- type: entity
+  id: NianTranslatorImplanter
+  name: Nian Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: NianTranslatorImplant
+
+- type: entity
+  id: DevTranslatorImplanter
+  name: Dev Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: DevTranslatorImplant

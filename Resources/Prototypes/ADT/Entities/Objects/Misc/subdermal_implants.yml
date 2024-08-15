@@ -1,0 +1,324 @@
+# Translators
+- type: entity
+  id: BaseTranslatorImplant
+  abstract: true
+  components:
+  - type: SubdermalImplant
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: GalacticCommonTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - GalacticCommon
+    toUnderstand:
+    - GalacticCommon
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: BubblishTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Bubblish
+    toUnderstand:
+    - Bubblish
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: MofficTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Nian
+    toUnderstand:
+    - Nian
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: RootSpeakTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+#    toSpeak:
+#    - RootSpeak  # Никто кроме дион не может шуршать ветками, когда их нет, даже с имплантом
+    toUnderstand:
+    - RootSpeak
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: NekomimeticTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Nekomimetic
+    toUnderstand:
+    - Nekomimetic
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: DraconicTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Draconic
+    toUnderstand:
+    - Draconic
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: CanilunztTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Canilunzt
+    toUnderstand:
+    - Canilunzt
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: IPCTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - RobotTalk
+    toUnderstand:
+    - RobotTalk
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: BorgTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - BorgTalk
+    toUnderstand:
+    - BorgTalk
+
+# - type: entity
+#   parent: BaseTranslatorImplant
+#   id: ArachnidTranslatorImplant
+#   name: translator implant
+#   description: This implant grants language knowledge.
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: TranslatorImplant
+#     toSpeak:
+#     - Moffic
+#     toUnderstand:
+#     - Moffic
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: FireTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+#    toSpeak:
+#    - Fire # как с дионами
+    toUnderstand:
+    - Fire
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: SolCommonTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - SolCommon
+    toUnderstand:
+    - SolCommon
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: DraskTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Drask
+    toUnderstand:
+    - Drask
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: UrsTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Urs
+    toUnderstand:
+    - Urs
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: ArkaneTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Arkane
+    toUnderstand:
+    - Arkane
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: ShadekinTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Shadekin
+    toUnderstand:
+    - Shadekin
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: DwarfTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Dwarf
+    toUnderstand:
+    - Dwarf
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: CintaTajTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - CintaTaj
+    toUnderstand:
+    - CintaTaj
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: SyndUniversalTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toUnderstand:
+    - RobotTalk
+    - Shadekin
+    - Arkane
+    - Urs
+    - Drask
+    - Fire
+    - Nian
+    - SikTaj
+    - Moffic
+    - RootSpeak
+    - SolCommon
+    - Canilunzt
+    - Draconic
+    - Bubblish
+    - Nekomimetic
+    - BorgTalk
+    - Dwarf
+    - CintaTaj
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: CodeSpeakTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - CodeSpeak
+    toUnderstand:
+    - CodeSpeak
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: SikTajTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - SikTaj
+    toUnderstand:
+    - SikTaj
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: NianTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Nian
+    toUnderstand:
+    - Nian
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: DevTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Dev
+    toUnderstand:
+    - Dev

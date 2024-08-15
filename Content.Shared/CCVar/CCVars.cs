@@ -24,7 +24,7 @@ namespace Content.Shared.CCVar
         ///     Guide Entry Prototype ID to be displayed as the server rules.
         /// </summary>
         public static readonly CVarDef<string> RulesFile =
-            CVarDef.Create("server.rules_file", "DefaultRuleset", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.rules_file", "ADTRuleset", CVar.REPLICATED | CVar.SERVER); //ADT tweak rule
 
         /// <summary>
         ///     Guide entry that is displayed by default when a guide is opened.
@@ -489,6 +489,19 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
+
+        /*
+        * Phantom
+        */
+
+        public static readonly CVarDef<int> PhantomMinPlayers =
+            CVarDef.Create("phantom.min_players", 25);
+
+        public static readonly CVarDef<int> PhantomMaxDifficulty =
+            CVarDef.Create("phantom.max_difficulty", 15);
+
+        public static readonly CVarDef<int> PhantomMaxPicks =
+            CVarDef.Create("phantom.max_picks", 10);
 
         /*
          * Tips
@@ -1496,6 +1509,13 @@ namespace Content.Shared.CCVar
             CVarDef.Create("shuttle.godmode_arrivals", false, CVar.SERVERONLY);
 
         /// <summary>
+        /// If a grid is split then hide any smaller ones under this mass (kg) from the map.
+        /// This is useful to avoid split grids spamming out labels.
+        /// </summary>
+        public static readonly CVarDef<int> HideSplitGridsUnder =
+            CVarDef.Create("shuttle.hide_split_grids_under", 30, CVar.SERVERONLY);
+
+        /// <summary>
         /// Whether to automatically spawn escape shuttles.
         /// </summary>
         public static readonly CVarDef<bool> GridFill =
@@ -1672,10 +1692,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED | CVar.SERVER);
 
         public static readonly CVarDef<int> ViewportMaximumWidth =
-            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("viewport.maximum_width", 29, CVar.REPLICATED | CVar.SERVER); //ADT 16:9
 
         public static readonly CVarDef<int> ViewportWidth =
-            CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
+            CVarDef.Create("viewport.width", 29, CVar.CLIENTONLY | CVar.ARCHIVE); //ADT 16:9
 
         public static readonly CVarDef<bool> ViewportVerticalFit =
             CVarDef.Create("viewport.vertical_fit", true, CVar.CLIENTONLY | CVar.ARCHIVE);

@@ -24,7 +24,7 @@
     - category: Thirst
     - alertType: Magboots
     - alertType: Pacified
-
+    - alertType: Crawling #ADT crawling
 - type: entity
   id: AlertSpriteView
   categories: [ HideSpawnMenu  ]

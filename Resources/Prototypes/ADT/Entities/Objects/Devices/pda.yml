@@ -1,0 +1,62 @@
+- type: entity
+  parent: BasePDA
+  id: MagistratPDA
+  name: magistrat PDA
+  description: magistrat PDA
+  components:
+  - type: Pda
+    id: MagistratIDCard
+    state: pda-lawyer
+  - type: Icon
+    state: pda-lawyer
+
+- type: entity
+  parent: BasePDA
+  id: ADTRoboticistPDA
+  name: roboticist PDA
+  description: It's covered with an unknown gooey substance.
+  components:
+  - type: Pda
+    id: ADTRoboticistIDCard
+    state: pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#171716"
+    accentVColor: "#d90000"
+  - type: Icon
+    state: pda-roboticist
+
+- type: entity
+  parent: MedicalPDA
+  id: ADTPathologistPDA
+  name: pathologist's PDA
+  description: It breezes chill.
+  components:
+  - type: Pda
+    id: ADTPathologistIDCard
+    state: pda-pathologist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#15616b"
+  - type: Icon
+    state: pda-pathologist
+
+- type: entity
+  parent: BasePDA
+  id: ADTBlueshieldOfficerPDA
+  name: BlueShield PDA
+  description: Smells like protection.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Devices/pda.rsi
+    - type: Pda
+      id: ADTBlueShieldOfficerIDCard
+      state: pda-blueshield
+    - type: PdaBorderColor
+      borderColor: "#424248"
+      accentHColor: "#2851a4"
+      accentVColor: "#e1e1e1"
+    - type: Icon
+      sprite: ADT/Objects/Devices/pda.rsi
+      state: pda-blueshield
+    - type: HealthAnalyzer
+      scanDelay: 1.2

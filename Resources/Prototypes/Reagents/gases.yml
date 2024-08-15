@@ -14,6 +14,16 @@
         conditions:
         - !type:OrganType
           type: Human
+      # Start ADT tweak: Drask
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Drask
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Novakid
+      # End ADT tweak
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -72,6 +82,12 @@
     Poison:
       effects:
       - !type:HealthChange
+      # Start ADT tweak: Novakid
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+      # End ADT tweak
         damage:
           types:
             Poison: 3
@@ -79,20 +95,72 @@
         reagent: Inaprovaline
         amount: -2.0
     Gas:
+      # Start ADT tweak: Novakid
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 1
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 1
+      - !type:ChemVomit
+        probability: 0.12
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 0.8
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 0.6
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              1
-      # We need a metabolism effect on reagent removal
+            Blunt: -0.015
+            Slash: -0.015
+            Piercing: -0.015
+            Heat: -0.015
+            Poison: -0.012
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Novakid
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 1
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 1
+      # End ADT tweak
+      # Cant be added until I add metabolism effects on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
-          - !type:ReagentThreshold
-            min: 1.5
+        - !type:ReagentThreshold
+          min: 1.5
         clear: True
         time: 5
   reactiveEffects:
@@ -100,6 +168,7 @@
       methods: [ Touch ]
       effects:
       - !type:FlammableReaction
+
 
 - type: reagent
   id: Tritium

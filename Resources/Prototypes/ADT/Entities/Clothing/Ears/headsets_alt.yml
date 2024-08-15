@@ -1,0 +1,9 @@
+- type: entity
+  parent: ClothingHeadsetAltCentCom
+  id: ADTClothingHeadsetAltBlueshield
+  name: blueshield over-ear headset
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi

@@ -1,0 +1,155 @@
+- type: entity
+  id: PartShadekin
+  parent: BaseItem
+  name: Shadekin body part
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+  - type: Icon
+    sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+  - type: Damageable
+    damageContainer: Biological
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+
+- type: entity
+  id: TorsoShadekin
+  name: Shadekin torso
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: torso_m
+  - type: Icon
+    state: torso_m
+  - type: BodyPart
+    partType: Torso
+
+- type: entity
+  id: HeadShadekin
+  name: Shadekin head
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: head_m
+  - type: Icon
+    state: head_m
+  - type: BodyPart
+    partType: Head
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: InputMover
+  - type: GhostOnMove
+
+- type: entity
+  id: LeftArmShadekin
+  name: left Shadekin arm
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: l_arm
+  - type: Icon
+    state: l_arm
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+
+- type: entity
+  id: RightArmShadekin
+  name: right Shadekin arm
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: r_arm
+  - type: Icon
+    state: r_arm
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+
+- type: entity
+  id: LeftHandShadekin
+  name: left Shadekin hand
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: l_hand
+  - type: Icon
+    state: l_hand
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: entity
+  id: RightHandShadekin
+  name: right Shadekin hand
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: r_hand
+  - type: Icon
+    state: r_hand
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  id: LeftLegShadekin
+  name: left Shadekin leg
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: l_leg
+  - type: Icon
+    state: l_leg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: MovementBodyPart
+
+- type: entity
+  id: RightLegShadekin
+  name: right Shadekin leg
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: r_leg
+  - type: Icon
+    state: r_leg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: MovementBodyPart
+
+- type: entity
+  id: LeftFootShadekin
+  name: left Shadekin foot
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: l_foot
+  - type: Icon
+    state: l_foot
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
+
+- type: entity
+  id: RightFootShadekin
+  name: right Shadekin foot
+  parent: PartShadekin
+  components:
+  - type: Sprite
+    state: r_foot
+  - type: Icon
+    state: r_foot
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right

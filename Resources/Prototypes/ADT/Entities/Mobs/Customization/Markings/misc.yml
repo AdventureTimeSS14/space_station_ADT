@@ -1,0 +1,218 @@
+## Аргументации конечностей
+- type: marking
+  id: AugmentsAugArmRight
+  bodyPart: RArm
+  markingCategory: Arms
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: r_augarm
+
+- type: marking
+  id: AugmentsAugHandRigh
+  bodyPart: RHand
+  markingCategory: Arms
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: r_aughand
+
+- type: marking
+  id: AugmentsAugArmLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: l_augarm
+
+- type: marking
+  id: AugmentsAugHandLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: l_aughand
+
+- type: marking
+  id: AugmentsAugTorso
+  bodyPart: Chest
+  markingCategory: Chest
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: augtorso_m
+
+- type: marking
+  id: AugmentsAugLegRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: r_augleg
+
+- type: marking
+  id: AugmentsAugFootRight
+  bodyPart: RFoot
+  markingCategory: Legs
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: r_augfoot
+
+- type: marking
+  id: AugmentsAugLegLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: l_augleg
+
+- type: marking
+  id: AugmentsAugFootLeft
+  bodyPart: LFoot
+  markingCategory: Legs
+  sponsorOnly: true
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/augbody.rsi
+      state: l_augfoot
+
+## Робо тело
+- type: marking
+  id: AugmentsRoboticArmRight
+  bodyPart: RArm
+  markingCategory: Arms
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: r_roboarm
+
+- type: marking
+  id: AugmentsRoboticHandRigh
+  bodyPart: RHand
+  markingCategory: Arms
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: r_robohand
+
+- type: marking
+  id: AugmentsRoboticArmLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: l_roboarm
+
+- type: marking
+  id: AugmentsRoboticHandLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: l_robohand
+
+- type: marking
+  id: AugmentsRoboticTorso
+  bodyPart: Chest
+  markingCategory: Chest
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: robotorso_m
+
+- type: marking
+  id: AugmentsRoboticLegRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: r_roboleg
+
+- type: marking
+  id: AugmentsRoboticFootRight
+  bodyPart: RFoot
+  markingCategory: Legs
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: r_robofoot
+
+- type: marking
+  id: AugmentsRoboticLegLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: l_roboleg
+
+- type: marking
+  id: AugmentsRoboticFootLeft
+  bodyPart: LFoot
+  markingCategory: Legs
+  sponsorOnly: false
+  sprites:
+    - sprite: ADT/Mobs/Customization/augments/robotbody1.rsi
+      state: l_robofoot
+
+## Всякое челюсти, лицо
+- type: marking
+  id: Malstrem
+  bodyPart: Eyes
+  markingCategory: Head
+  sponsorOnly: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/augments/headaugs.rsi
+    state: malstrem
+
+- type: marking
+  id: Beholder
+  bodyPart: Eyes
+  markingCategory: Head
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/augments/headaugs.rsi
+    state: beholder
+
+- type: marking
+  id: Terminator
+  bodyPart: Eyes
+  markingCategory: Head
+  sponsorOnly: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/augments/headaugs.rsi
+    state: terminator
+
+- type: marking
+  id: Iron_jaw
+  bodyPart: Eyes
+  markingCategory: Head
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/augments/headaugs.rsi
+    state: iron_jaw

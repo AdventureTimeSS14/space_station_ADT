@@ -3,6 +3,7 @@ using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Afk.Events;
+using Content.Server.Corvax.Sponsors;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Mind;
@@ -35,7 +36,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly MindSystem _minds = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
 
     public override void Initialize()
     {
@@ -200,6 +201,16 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
+
+        //ADT-Sponsors-Job-Start
+        var info = _sponsorsManager.TryGetInfo(player.UserId, out var sponsorInfo);
+
+        if (info && sponsorInfo != null)
+        {
+            if (sponsorInfo.AllowJob)
+                return true;
+        }
+        //ADT-Sponsors-Job-End
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {

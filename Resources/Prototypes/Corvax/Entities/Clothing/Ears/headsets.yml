@@ -1,6 +1,7 @@
 - type: entity
   parent: ClothingHeadset
-  id: ClothingHeadsetIAA
+  id: СorvaxClothingHeadsetIAA
+  suffix: DONT TOUCH! It`s Corvax Headset
   name: iaa headset
   description: A headset for internal affairs agent to hear the captain's last words.
   components:

@@ -1,0 +1,103 @@
+- type: entity
+  id: OrganDraskEyes
+  parent: BaseHumanOrgan
+  suffix: "drask"
+  name: eyes
+  description: "I see you!"
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    state: eyes
+
+- type: entity
+  id: OrganDraskLungs
+  parent: BaseHumanOrgan
+  suffix: "drask"
+  name: lungs
+  description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    state: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Drask ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganDraskHeart
+  parent: BaseHumanOrgan
+  suffix: "drask"
+  name: heart
+  description: "I feel bad for the heartless bastard who lost this."
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    state: heart_on
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Drask ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganDraskInnards
+  parent: BaseHumanOrgan
+  suffix: "drask"
+  name: innards
+  description: "Ew innards."
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    state: innards
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Drask ]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: OrganDraskKidneys
+  parent: BaseHumanOrgan
+  suffix: "drask"
+  name: kidneys
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Drask/organs.rsi
+    state: kidneys
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Drask ]
+    removeEmpty: true

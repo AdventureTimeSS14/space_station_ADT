@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:auriss093",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "butterfly_wings",
+            "directions": 4
+        },
+        {
+            "name": "rabbit-antennae",
+            "directions": 4
+        },
+        {
+            "name": "rabbit-ears",
+            "directions": 4
+        }
+    ]
+}

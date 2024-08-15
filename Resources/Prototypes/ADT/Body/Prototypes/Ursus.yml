@@ -1,0 +1,49 @@
+- type: body
+  id: Ursus
+  name: "Ursus"
+  root: torso
+  slots:
+    head:
+      part: HeadUrsus
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoHuman
+      connections:
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+    right_arm:
+      part: RightArmUrsus
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmUrsus
+      connections:
+      - left_hand
+    right_hand:
+      part: RightHandUrsus
+    left_hand:
+      part: LeftHandUrsus
+    right_leg:
+      part: RightLegUrsus
+      connections:
+      - right_foot
+    left_leg:
+      part: LeftLegUrsus
+      connections:
+      - left_foot
+    right_foot:
+      part: RightFootUrsus
+    left_foot:
+      part: LeftFootUrsus
