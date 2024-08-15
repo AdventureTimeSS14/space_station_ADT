@@ -75,6 +75,7 @@
     - Universal
   - type: TypingIndicator
     proto: alien
+  - type: UniversalLanguageSpeaker
 
 - type: entity
   id: ADTPhantomReincarnationAnim
