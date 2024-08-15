@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingSandals
+  name: Sandals
+  description: pair of sandals
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sandals.rsi

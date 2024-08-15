@@ -28,6 +28,200 @@
   description: blueshield's turtleneck
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turtleneck/turtleneck_blueshield.rsi
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blueshield.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turtleneck/turtleneck_blueshield.rsi
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blueshield.rsi
+
+# Водолазки. От prazat911, конечно же.
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckAquamarine
+  name: aquamarine turtleneck
+  description: Too bright!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckWhite
+  name: white turtleneck
+  description: Warm and comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckAzure
+  name: azure turtleneck
+  description: Brighter shade of blue.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckYellow
+  name: yellow turtleneck
+  description: Filled with happines.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckGreen
+  name: green turtleneck
+  description: Cheaper analog of CentComm turtleneck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBrown
+  name: brown turtleneck
+  description: -Ya know why i wear red? It hides blood well! -But that's brown color...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckRed
+  name: red turtleneck
+  description: Hides blood of clowns well!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckOrange
+  name: orange turtleneck
+  description: I don't want to talk about it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckPink
+  name: pink turtleneck
+  description: Who would wear this?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckGrey
+  name: grey turtleneck
+  description: Grey style?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBlue
+  name: blue turtleneck
+  description: Darker shade of azure.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckPurple
+  name: purple turtleneck
+  description: Feel yourself like a real scientist.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBlack
+  name: black turtleneck
+  description: Favourite clothes of bookworms.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckBlackSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_blacksleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_blacksleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckWhiteSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whitesleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whitesleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckWhiteBlackSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whiteblacksleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whiteblacksleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformNewMekka
+  name: New Mekka jumpsuit
+  description: New Mekka jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Piercing: 0.8
+        Heat: 0.9
