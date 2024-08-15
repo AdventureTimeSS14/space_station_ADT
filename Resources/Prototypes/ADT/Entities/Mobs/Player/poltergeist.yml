@@ -31,7 +31,7 @@
         mask:
         - GhostImpassable
   - type: MovementIgnoreGravity
-    gravityState: true 
+    gravityState: true
   - type: Damageable
     damageContainer: Biological
   - type: Examiner
@@ -60,3 +60,4 @@
     - GalacticCommon
   - type: Jetpack # да, костыль.
   - type: OuijaBoardUser
+  - type: UniversalLanguageSpeaker
