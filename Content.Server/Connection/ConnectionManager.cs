@@ -214,6 +214,7 @@ namespace Content.Server.Connection
             // Corvax-End
             {
                 var showReason = _cfg.GetCVar(CCVars.PanicBunkerShowReason);
+                var customReason = _cfg.GetCVar(CCVars.PanicBunkerCustomReason);
 
                 var minMinutesAge = _cfg.GetCVar(CCVars.PanicBunkerMinAccountAge);
                 var record = await _dbManager.GetPlayerRecordByUserId(userId);

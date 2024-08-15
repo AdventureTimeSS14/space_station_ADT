@@ -135,7 +135,7 @@ namespace Content.Server.Administration.Commands
             // Pretty much copied from StationSpawningSystem.SpawnStartingGear
             if (entityManager.TryGetComponent<EncryptionKeyHolderComponent>(target, out var keyHolderComp))
             {
-                var earEquipString = startingGear.GetGear("ears");
+                var earEquipString = ((IEquipmentLoadout) startingGear).GetGear("ears");
                 var containerMan = entityManager.System<SharedContainerSystem>();
 
                 if (!string.IsNullOrEmpty(earEquipString))
