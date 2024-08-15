@@ -46,7 +46,7 @@ public sealed partial class HallucinationsDiseaseComponent : Component
     };
 
     [DataField]
-    public int Layer = 50;
+    public ushort Layer = 50;
 
     public HallucinationsPrototype? Proto;
 
