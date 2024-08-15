@@ -66,8 +66,9 @@
     contents:
       - id: ADTWiretapping
   - type: Storage
-    maxSlots: 1
     maxItemSize: Small
+    grid:
+    - 1,0,2,0
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
