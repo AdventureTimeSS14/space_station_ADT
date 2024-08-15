@@ -21,13 +21,16 @@ public abstract class SharedLanguageSystem : EntitySystem
 
     public override void Initialize()
     {
-        
+
     }
 
     public bool CanSpeak(EntityUid uid, LanguagePrototype proto, LanguageSpeakerComponent? component = null)
     {
         if (HasComp<GhostComponent>(uid))
             return false;
+
+        if (HasComp<UniversalLanguageSpeakerComponent>(uid))
+            return true;
 
         if (!Resolve(uid, ref component))
             return false;
@@ -48,6 +51,9 @@ public abstract class SharedLanguageSystem : EntitySystem
     public bool CanUnderstand(EntityUid uid, LanguagePrototype proto, LanguageSpeakerComponent? component = null)
     {
         if (HasComp<GhostComponent>(uid))
+            return true;
+
+        if (HasComp<UniversalLanguageSpeakerComponent>(uid))
             return true;
 
         if (!Resolve(uid, ref component))
