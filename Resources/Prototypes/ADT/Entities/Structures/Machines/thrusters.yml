@@ -83,7 +83,7 @@
       - -1.1,1.2
       - 0.1,1.2
       - 0.4,0.5
-    thrust: 150
+    thrust: 250
 
 - type: entity
   id: ADTBigThruster
@@ -150,4 +150,4 @@
       - -1.1,2.5
       - 1.1,2.5
       - 1.4,0.5
-    thrust: 350
+    thrust: 500
