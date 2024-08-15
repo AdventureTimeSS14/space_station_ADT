@@ -1,13 +1,15 @@
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconMagistrat
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
     state: Magistrat
+  jobName: job-name-magistrat
 
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconADTBlueShieldOfficer
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
     state: ADTBlueShieldOfficer
+  jobName: job-name-ADTBlueShieldOfficer
