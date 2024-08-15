@@ -53,19 +53,19 @@ public sealed partial class PoltergeistSystem : EntitySystem
 
         SubscribeLocalEvent<PoltergeistComponent, AlternativeSpeechEvent>(OnTrySpeak);
         SubscribeLocalEvent<PoltergeistComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);
-        SubscribeLocalEvent<PotentialPoltergeistComponent, MobStateChangedEvent>(OnMobState);
+        // SubscribeLocalEvent<PotentialPoltergeistComponent, MobStateChangedEvent>(OnMobState);
     }
-    private void OnMobState(EntityUid uid, PotentialPoltergeistComponent component, MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead);
-        {
-            if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
-            {
-                var poltergei = Spawn("ADTMobPoltergeist", Transform(uid).Coordinates);
-                _mindSystem.TransferTo(mindId, poltergei);
-            }
-        }
-    }
+    // private void OnMobState(EntityUid uid, PotentialPoltergeistComponent component, MobStateChangedEvent args)
+    // {
+    //     if (args.NewMobState == MobState.Dead);
+    //     {
+    //         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+    //         {
+    //             var poltergei = Spawn("ADTMobPoltergeist", Transform(uid).Coordinates);
+    //             _mindSystem.TransferTo(mindId, poltergei);
+    //         }
+    //     }
+    // }
 
     private void OnMapInit(EntityUid uid, PoltergeistComponent component, MapInitEvent args)
     {

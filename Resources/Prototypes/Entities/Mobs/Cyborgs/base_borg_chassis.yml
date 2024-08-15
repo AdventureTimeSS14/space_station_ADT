@@ -231,8 +231,8 @@
     - Cyborgs
     - Robotics
   - type: StepTriggerImmune
-  # - type: TTS # Corvax-TTS
-  #   voice: TrainingRobot
+  - type: TTS # Corvax-TTS
+    voice: fact_core
 
 - type: entity
   abstract: true

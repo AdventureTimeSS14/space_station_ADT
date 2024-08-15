@@ -294,7 +294,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     /// <param name="args">Event</param>
     private void OnRequestStyleMenu(EntityUid uid, PhantomComponent component, OpenPhantomStylesMenuActionEvent args)
     {
-        if (_entityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
         {
             var ev = new RequestPhantomStyleMenuEvent(GetNetEntity(uid));
 
@@ -305,7 +305,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 ev.Prototypes.Add(prototype.ID);
             }
             ev.Prototypes.Sort();
-            RaiseNetworkEvent(ev, actorComponent.PlayerSession);
+            RaiseNetworkEvent(ev, mind.Session);
         }
     }
 
@@ -349,7 +349,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (_entityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
         {
             var ev = new RequestPhantomFreedomMenuEvent(GetNetEntity(uid));
 
@@ -368,7 +368,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 }
             }
             ev.Prototypes.Sort();
-            RaiseNetworkEvent(ev, actorComponent.PlayerSession);
+            RaiseNetworkEvent(ev, mind.Session);
         }
 
         args.Handled = true;
@@ -424,7 +424,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
 
         }
-        if (_entityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
         {
             var ev = new RequestPhantomVesselMenuEvent(GetNetEntity(uid), new());
 
@@ -478,7 +478,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 ev.Vessels.Add((netEnt, profile, meta.EntityName));
             }
             ev.Vessels.Sort();
-            RaiseNetworkEvent(ev, actorComponent.PlayerSession);
+            RaiseNetworkEvent(ev, mind.Session);
         }
 
         args.Handled = true;
@@ -1080,6 +1080,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
+        if (HasComp<PhantomPuppetComponent>(target))
+            return;
 
         args.Handled = true;
         var makeVesselDoAfter = new DoAfterArgs(EntityManager, uid, component.MakeVesselDuration, new PuppeterDoAfterEvent(), uid, target: target)
@@ -1646,6 +1648,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     private void OnLevelChanged(EntityUid uid, PhantomComponent component, RefreshPhantomLevelEvent args)
     {
         SelectStyle(uid, component, component.CurrentStyle, true);
+        _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short) Math.Clamp(component.Vessels.Count, 0, 10));
     }
 
     private void MakeVesselDoAfter(EntityUid uid, PhantomComponent component, MakeVesselDoAfterEvent args)

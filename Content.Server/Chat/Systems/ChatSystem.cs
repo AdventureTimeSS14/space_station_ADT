@@ -429,7 +429,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     #endregion
 
     #region Private API
-    
+
     private void SendEntitySpeak(
         EntityUid source,
         string originalMessage,
@@ -490,6 +490,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             coloredLanguageMessage = "[color=" + language.Color.Value.ToHex().ToString() + "]" + coloredLanguageMessage + "[/color]";
         }
         // ADT Languages end
+
+        if (string.IsNullOrEmpty(FormattedMessage.EscapeText(coloredMessage)))  // ADT Chat fix
+            return;
+
 
         name = FormattedMessage.EscapeText(name);
         var wrappedMessage = Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
@@ -627,6 +631,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (language == null)
             language = _language.GetCurrentLanguage(source);
         // ADT Languages end
+
+        if (string.IsNullOrEmpty(FormattedMessage.EscapeText(coloredMessage)))  // ADT Chat fix
+            return;
 
         foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
         {

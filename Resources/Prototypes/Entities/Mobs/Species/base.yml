@@ -135,6 +135,7 @@
     - RadiationProtection
     - Drowsiness
     - ADTHallucinations # ADT-Tweak
+    - ADTStarvation # ADT-Tweak
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -218,6 +219,7 @@
     understands:
     - GalacticCommon
   - type: SpeechBarks
+  - type: Crawler
 
 - type: entity
   save: false

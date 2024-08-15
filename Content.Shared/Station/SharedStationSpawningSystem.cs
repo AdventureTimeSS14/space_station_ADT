@@ -8,6 +8,9 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
+using Content.Shared.Radio.Components; // Parkstation-IPC
+using Content.Shared.Containers; // Parkstation-IPC
+using Robust.Shared.Containers; // Parkstation-IPC
 
 namespace Content.Shared.Station;
 
@@ -18,6 +21,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<InventoryComponent> _inventoryQuery;
@@ -117,6 +121,34 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 }
             }
         }
+
+        // Parkstation-Ipc-Start
+        // Pretty much copied from StationSpawningSystem.SpawnStartingGear
+        if (TryComp<EncryptionKeyHolderComponent>(entity, out var keyHolderComp))
+        {
+            var earEquipString = startingGear.GetGear("ears");
+
+            if (!string.IsNullOrEmpty(earEquipString))
+            {
+                var earEntity = Spawn(earEquipString, Transform(entity).Coordinates);
+
+                if (TryComp<EncryptionKeyHolderComponent>(earEntity, out _) && // I had initially wanted this to spawn the headset, and simply move all the keys over, but the headset didn't seem to have any keys in it when spawned...
+                    TryComp<ContainerFillComponent>(earEntity, out var fillComp) &&
+                    fillComp.Containers.TryGetValue(EncryptionKeyHolderComponent.KeyContainerName, out var defaultKeys))
+                {
+                    _container.CleanContainer(keyHolderComp.KeyContainer);
+
+                    foreach (var key in defaultKeys)
+                    {
+                        var keyEntity = Spawn(key, Transform(entity).Coordinates);
+                        _container.Insert(keyEntity, keyHolderComp.KeyContainer);
+                    }
+                }
+
+                QueueDel(earEntity);
+            }
+        }
+        // Parkstation-Ipc-End
 
         if (startingGear.Storage.Count > 0)
         {
