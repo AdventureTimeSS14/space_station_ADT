@@ -48,7 +48,7 @@ namespace Content.Server.Shuttles.Components
 
         public List<EntityUid> Colliding = new();
 
-        public bool Firing = false;
+        public bool Firing = true; //А почему бы и нет?
 
         /// <summary>
         /// Next time we tick damage for anyone colliding.
