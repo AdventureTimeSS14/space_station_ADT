@@ -1,6 +1,3 @@
-ent-ADTClothingHeadHelmetHardsuitBlueshield = шлем скафандра офицера синего щита
-    .desc = Плотный и устойчивый шлем Офицера Синего Щита на основе шлемов Отряда Быстрого Реагирования. Призван держать воздух внутри, пули снаружи.
-
 ent-ADTClothingHeadHatBeretBlueshield = синий берет офицера синего щита
     .desc = Синий берет, с золотой кокардой подразделения "Синий Щит".
 ent-ADTClothingHeadHatBeretBlueshieldBlack = чёрный берет офицера синего щита
