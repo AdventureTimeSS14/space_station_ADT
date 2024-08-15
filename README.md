@@ -24,7 +24,11 @@ Adventure Time - это проект русскоязычного сервера
 [Более подробные инструкции по запуску проекта.](https://docs.spacestation14.com/en/general-development/setup.html)
 
 ## Лицензия
-Весь код в этом репозитории лицензирован по [MIT](https://github.com/space-syndicate/space-station-14/blob/master/LICENSE.TXT).
+Содержимое, добавленное в этот репозиторий после коммита ec1ea3b4a902ba253994b19f228af277dbd34f4e (`2 августа 2024 08:50:00 UTC`), распространяется по лицензии GNU Affero General Public License версии 3.0, если не указано иное. См. [LICENSE-AGPLv3](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/LICENSE-AGPLv3.txt).
+
+Содержимое, добавленное в этот репозиторий до коммита ec1ea3b4a902ba253994b19f228af277dbd34f4e (`2 августа 2024 08:50:00 UTC`), распространяется по лицензии MIT если не указано иное. См. [LICENSE](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/LICENSE.TXT).
+
+Код, принадлежащий [Space Wizard Federation](https://github.com/space-wizards), а также [The Space Syndicate](https://github.com/space-syndicate), распространяется по лицензии [MIT](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/LICENSE.TXT). 
 
 Большинство ресурсов лицензированы по [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. У ресурсов есть собственная лицензия и информация об авторском праве в метаданных файла. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
