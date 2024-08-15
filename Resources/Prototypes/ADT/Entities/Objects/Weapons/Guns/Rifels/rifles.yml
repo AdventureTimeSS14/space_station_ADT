@@ -1,0 +1,52 @@
+- type: entity
+  id: ADTEctoplasmicRifle
+  parent: BaseWeaponPowerCell
+  name: ectoplasmic rifle
+  description: Made specially for GhostBusters
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    size: Huge
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTPowerCellEctoplasm
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - PhantomEctoplasmBattery
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage

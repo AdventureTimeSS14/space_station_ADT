@@ -5,6 +5,13 @@
     xmlns:style="clr-namespace:Content.Client.Stylesheets">
     <BoxContainer Orientation="Vertical">
         <LineEdit Name="SearchBar" PlaceHolder="{Loc 'vending-machine-component-search-filter'}" HorizontalExpand="True"  Margin ="4 4" Access="Public"/>
+        <!-- ADT-Economy-Start -->
+        <Label Name="CreditsLabel" HorizontalExpand="True"/>
+        <Button
+            Name="WithdrawButton"
+            Text="{Loc 'store-ui-default-withdraw-text'}"
+            HorizontalAlignment="Right"/>
+        <!-- ADT-Economy-End -->
         <ItemList Name="VendingContents"
                   SizeFlagsStretchRatio="8"
                   VerticalExpand="True"

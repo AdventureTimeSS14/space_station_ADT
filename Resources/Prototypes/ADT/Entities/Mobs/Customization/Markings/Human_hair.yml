@@ -1,0 +1,188 @@
+- type: marking
+  id: HumanBeardBeardchin
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardchin
+
+- type: marking
+  id: HumanBeardBeardlong
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardlong
+
+- type: marking
+  id: HumanBeardBeardshort
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardshort
+
+- type: marking
+  id: HumanBeardBeardthick
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardthick
+
+- type: marking
+  id: HumanBeardBeardviking
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardviking
+
+- type: marking
+  id: HumanBeardBristle
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-bristle
+
+- type: marking
+  id: HumanBeardMustachewithstubble
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-mustachewithstubble
+
+- type: marking
+  id: HumanBeardThickbristle
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-thickbristle
+
+- type: marking
+  id: HumanHairArabicgatheredhair
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-arabicgatheredhair
+
+- type: marking
+  id: HumanHairClassichairmale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-classichairmale
+
+- type: marking
+  id: HumanHairCombedfromside
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-combedfromside
+
+- type: marking
+  id: HumanHairLonghair
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-longhair
+
+- type: marking
+  id: HumanHairManbunold
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-manbunold
+
+- type: marking
+  id: HumanHairPigtailtajaran
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-pigtailtajaran
+
+- type: marking
+  id: HumanHairShavedside
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-shavedside
+
+- type: marking
+  id: HumanHairShorthaired
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-shorthaired
+
+- type: marking
+  id: HumanWomenbun
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-womenbun
+
+- type: marking
+  id: HumanForeheadBindi
+  bodyPart: Head
+  markingCategory: Snout
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: forehead-Bindi
+
+- type: marking
+  id: HumanForeheadFathereyebrows
+  bodyPart: Head
+  markingCategory: Snout
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: forehead-fathereyebrows
+
+- type: marking
+  id: HumanPiercingBrowL
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_brow_l
+
+- type: marking
+  id: HumanPiercingBrowR
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_brow_r

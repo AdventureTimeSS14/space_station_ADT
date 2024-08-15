@@ -6,6 +6,7 @@ using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
 using Content.Shared.Actions;
+using Content.Shared.ADT.Poltergeist;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
 using Content.Shared.Follower;
@@ -447,7 +448,14 @@ namespace Content.Server.Ghost
                 _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
                 return null;
             }
-
+            // ADT Poltergeist start
+            if (HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
+            {
+                var polter = SpawnAtPosition("ADTMobPoltergeist", spawnPosition.Value);
+                _minds.TransferTo(mind.Owner, polter, mind: mind.Comp);
+                return polter;
+            }
+            // ADT Poltergeist end
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
             var ghostComponent = Comp<GhostComponent>(ghost);
 

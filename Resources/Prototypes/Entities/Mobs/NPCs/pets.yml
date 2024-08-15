@@ -36,7 +36,7 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalIan
-  - type: LanguageSpeaker # Frontier
+  - type: LanguageSpeaker # ADT
     speaks:
     - Dog
     understands:
@@ -796,7 +796,7 @@
       proper: true
       gender: female
   - type: TTS # Corvax-TTS
-    voice: Dryad
+    voice: angry_neco_arc
 
 - type: entity
   name: Pun Pun

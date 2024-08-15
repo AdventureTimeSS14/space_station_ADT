@@ -9,6 +9,30 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/white-diplomat-suit.rsi
 
+# Blueshield
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlueshield
+  name: blueshield's jumpsuit
+  description: blueshield's jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlueshieldTurtleneck
+  name: blueshield's turtleneck
+  description: blueshield's turtleneck
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Turtleneck/turtleneck_blueshield.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Turtleneck/turtleneck_blueshield.rsi
+
+#Brigmed
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformBrigmedicTurtleneck

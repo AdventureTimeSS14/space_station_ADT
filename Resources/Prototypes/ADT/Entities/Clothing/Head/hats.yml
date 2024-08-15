@@ -9,6 +9,28 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/urs_hat.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlueshieldBlack
+  name: blueshield officer's beret
+  description: A corporate black beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret_black.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlueshield
+  name: blueshield officer's beret
+  description: A corporate blue beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
+
 # Brigmedic beret
 - type: entity
   parent: ClothingHeadBase

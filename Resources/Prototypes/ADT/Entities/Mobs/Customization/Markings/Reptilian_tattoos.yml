@@ -1,0 +1,35 @@
+- type: marking
+  id: ReptilianTattoSkeletArmL
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: tatto_skelet_arm_l
+
+- type: marking
+  id: ReptilianTattoSkeletArmR
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: tatto_skelet_arm_r
+
+- type: marking
+  id: ReptilianTattoSkeletLegL
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: tatto_skelet_leg_l
+
+- type: marking
+  id: ReptilianTattoSkeletLegR
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: tatto_skelet_leg_r

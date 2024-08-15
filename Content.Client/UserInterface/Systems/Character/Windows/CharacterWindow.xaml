@@ -14,6 +14,10 @@
                     <Label Name="SubText" VerticalAlignment="Top" StyleClasses="LabelSubText" Access="Public"/>
                 </BoxContainer>
             </BoxContainer>
+            <!-- ADT-Economy-Start -->
+            <Label Text="{Loc 'character-info-memories-label'}" HorizontalAlignment="Center"/>
+            <BoxContainer Orientation="Vertical" Name="Memories" Access="Public"/>
+            <!-- ADT-Economy-End -->
             <Label Name="ObjectivesLabel" Access="Public" Text="{Loc 'character-info-objectives-label'}" HorizontalAlignment="Center"/>
             <BoxContainer Orientation="Vertical" Name="Objectives" Access="Public"/>
             <cc:Placeholder Name="RolePlaceholder" Access="Public" PlaceholderText="{Loc 'character-info-roles-antagonist-text'}"/>
