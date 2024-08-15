@@ -9,7 +9,7 @@ using Robust.Shared.Player;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Alert;
 
-namespace Content.Shared.Crawling;
+namespace Content.Shared.ADT.Crawling;
 public sealed partial class CrawlingSystem : EntitySystem
 {
     [Dependency] private readonly StandingStateSystem _standing = default!;
