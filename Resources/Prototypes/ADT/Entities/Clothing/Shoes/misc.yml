@@ -8,3 +8,5 @@
     sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
+  - type: StaticPrice
+    price: 10

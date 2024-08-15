@@ -19,6 +19,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/blacklady_satchel.rsi
+  - type: StaticPrice
+    price: 5
 
 - type: entity
   parent: ClothingBackpack
@@ -28,3 +30,5 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/leatherlady_satchel.rsi
+  - type: StaticPrice
+    price: 5

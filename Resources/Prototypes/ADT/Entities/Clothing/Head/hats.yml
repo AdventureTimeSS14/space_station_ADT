@@ -41,6 +41,8 @@
     sprite: ADT/Clothing/Head/Hats/beret_black.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: StaticPrice
+    price: 5
   - type: Tag
     tags:
     - ClothMade

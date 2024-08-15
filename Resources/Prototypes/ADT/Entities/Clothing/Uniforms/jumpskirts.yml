@@ -32,6 +32,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -43,6 +45,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -54,6 +58,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -65,6 +71,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -76,6 +84,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -87,6 +97,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -98,6 +110,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -109,6 +123,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -120,6 +136,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -131,6 +149,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -142,6 +162,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -153,6 +175,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -164,6 +188,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black_women.rsi 
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black_women.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -175,6 +201,8 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_black_womensleeveless.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_black_womensleeveless.rsi
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingUniformBase
@@ -186,3 +214,5 @@
     sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_white_womensleeveless.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_white_womensleeveless.rsi
+  - type: StaticPrice
+    price: 10

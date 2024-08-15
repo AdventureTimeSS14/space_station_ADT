@@ -16,6 +16,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/darkgrey_cloak.rsi #спрайты от floppo4ka
+  - type: StaticPrice
+    price: 5
 
 - type: entity
   parent: ClothingNeckBase
@@ -25,3 +27,5 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/gothic_cloak.rsi #спрайты от floppo4ka
+  - type: StaticPrice
+    price: 5
