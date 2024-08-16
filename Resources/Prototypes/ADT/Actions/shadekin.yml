@@ -1,0 +1,14 @@
+- type: entity
+  id: ActionShadekinTeleport
+  name: action-shadekin-teleport
+  description: action-shadekin-teleport-desc
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_phantom.rsi
+      state: transition
+    itemIconStyle: BigAction
+    event: !type:ShadekinTeleportActionEvent
+    range: 7
+    deselectOnMiss: false
