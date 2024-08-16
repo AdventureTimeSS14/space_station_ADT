@@ -37,11 +37,11 @@
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltMedicalFilled
-    pocket1: WeaponPistolMk58Nonlethal
-    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
-    socks: ClothingUnderwearSocksNormal
-  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
-  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
-  innerClothingSkirt: ADTClothingUniformSkirtBrigmedicTurtleneck
-  satchel: ClothingBackpackSatchelBrigmedicFilled
-  duffelbag: ClothingBackpackDuffelBrigmedicFilled
+    pocket1: WeaponPistolMk58
+#    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+#    socks: ClothingUnderwearSocksNormal
+#  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+#  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+#  innerClothingSkirt: ADTClothingUniformSkirtBrigmedicTurtleneck
+#  satchel: ClothingBackpackSatchelBrigmedicFilled
+#  duffelbag: ClothingBackpackDuffelBrigmedicFilled
