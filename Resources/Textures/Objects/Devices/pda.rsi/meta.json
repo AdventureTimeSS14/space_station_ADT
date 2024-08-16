@@ -62,9 +62,6 @@
       "name": "pda-clown"
     },
     {
-      "name": "pda-pathologist"
-    },
-    {
       "name": "pda-cmo"
     },
     {
@@ -90,9 +87,6 @@
     },
     {
       "name": "pda-janitor"
-    },
-    {
-      "name": "pda-lawyer"
     },
     {
       "name": "pda-library",
@@ -143,9 +137,6 @@
     },
     {
       "name": "pda-rd"
-    },
-    {
-      "name": "pda-roboticist"
     },
     {
       "name": "pda-science"

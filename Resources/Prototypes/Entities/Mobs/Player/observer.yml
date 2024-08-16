@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMob
+  parent: [BaseMob, InventoryBase]
   id: MobObserver
   name: observer
   description: Boo!
@@ -53,6 +53,12 @@
     - Universal
     understands:
     - Universal
+  - type: Hands
+    showInHands: false
+  - type: Inventory
+    templateId: ghost
+  - type: Loadout
+    prototypes: [ MobGhostGear ]
 
 - type: entity
   id: ActionGhostBoo
