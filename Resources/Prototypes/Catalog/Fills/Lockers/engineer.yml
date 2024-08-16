@@ -94,6 +94,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: ADTBookSRPeng
   # ADT-RPD-Start
       - id: ADTRPD
       - id: ADTRPDAmmo
@@ -112,6 +113,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: ADTBookSRPeng
   # ADT-RPD-Start
       - id: ADTRPD
       - id: ADTRPDAmmo

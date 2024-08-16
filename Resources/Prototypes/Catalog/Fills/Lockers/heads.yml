@@ -25,6 +25,9 @@
       - id: ADTCommandBudgetCard
       - id: ADTCommandBudgetPinPaper
       # ADT-Economy-End
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPcrg
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -53,6 +56,8 @@
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: MedalCase
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerCaptainFilled
@@ -83,6 +88,8 @@
       - id: ClothingHeadCaptainHat
       - id: ClothingOuterCoatCaptain
       # Corvax-Resprite-End
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerCaptainFilledNoLaser
@@ -108,6 +115,8 @@
       - id: RubberStampCaptain
       - id: JetpackCaptainFilled
       - id: MedalCase
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -139,6 +148,8 @@
       - id: ClothingOuterCoatHOP # Corvax-Resprite
       - id: AccessConfigurator
       - id: PrinterDocFlatpack # Corvax-Printer
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -168,6 +179,9 @@
       - id: ClothingNeckCloakCe
       - id: ADTClothingMaskGasCE
       # End-ADT Tweak
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPeng
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -188,6 +202,9 @@
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPeng
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -211,6 +228,9 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPmed
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -231,6 +251,9 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPmed
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -250,6 +273,9 @@
       - id: BoxEncryptionKeyScience
       - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPrnd
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -268,6 +294,9 @@
       - id: BoxEncryptionKeyScience
       - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPrnd
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -303,6 +332,10 @@
       - id: BookSecretDocuments
       - id: BookBusido # Corvax-Books
       - id: BookSpaceLaw
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPsec
+      - id: ADTBookPCDsec
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -330,6 +363,9 @@
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
       - id: BookSpaceLaw
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPsec
+      - id: ADTBookPCDcmd
 
 - type: entity
   id: LockerFreezerVaultFilled

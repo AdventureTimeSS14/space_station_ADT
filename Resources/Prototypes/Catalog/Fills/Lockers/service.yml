@@ -21,6 +21,7 @@
         amount: 2
       - id: RagItem
         amount: 2
+      - id: ADTBookSRPsrv
 
 #- type: entity
 #  id: LockerFormalFilled
@@ -52,6 +53,7 @@
       - id: DrinkMilkCarton
         amount: 2
       - id: DrinkSoyMilkCarton
+      - id: ADTBookSRPsrv
 
 - type: entity
   id: ClosetJanitorFilled
@@ -77,6 +79,7 @@
         amount: 2
       - id: Plunger
         amount: 2
+      - id: ADTBookSRPsrv
 
 - type: entity
   id: ClosetLegalFilled
@@ -88,6 +91,7 @@
       - id: BriefcaseBrownFilled
         prob: 0.80
       - id: ClothingOuterRobesJudge
+      - id: ADTBookSRPsrv
 
 - type: entity
   id: LockerBotanistFilled
@@ -108,6 +112,7 @@
       - id: HandLabeler
       - id: ClothingUniformOveralls
       - id: ClothingHeadHatTrucker
+      - id: ADTBookSRPsrv
         prob: 0.1
 
 - type: entity

@@ -158,9 +158,6 @@
       - id: BookShips
         prob: 0.1
         orGroup: BookLore
-      - id: BookZP
-        prob: 0.1
-        orGroup: BookLore
       - id: BookUSSP
         prob: 0.1
         orGroup: BookLore

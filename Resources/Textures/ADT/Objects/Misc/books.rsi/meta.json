@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "drawn by discord: prazat911 (and some were redrawn by juuungarik",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "CRP_CMD"
+    },
+    {
+      "name": "CRP_CRG"
+    },
+    {
+      "name": "CRP_JRD"
+    },
+    {
+      "name": "CRP_MED"
+    },
+    {
+      "name": "CRP_RND"
+    },
+    {
+      "name": "CRP_ENG"
+    },
+    {
+      "name": "CRP_SEC"
+    },
+    {
+      "name": "CRP_SRV"
+    },
+    {
+        "name": "KZ"
+    },
+    {
+        "name": "PCD_SEC"
+    },
+    {
+        "name": "PCD_CMD"
+    },
+    {
+        "name": "PCD_JRD"
+    }
+  ]
+}

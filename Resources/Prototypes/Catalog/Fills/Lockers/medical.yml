@@ -70,6 +70,7 @@
         prob: 0.05
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
+      - id: ADTBookSRPmed
 
 - type: entity
   parent: LockerWallMedical
@@ -125,6 +126,7 @@
       - id: ClothingMaskSterile
       - id: HandLabeler
         prob: 0.5
+      - id: ADTBookSRPmed
 
 - type: entity
   id: LockerParamedicFilled
@@ -146,3 +148,4 @@
       - id: HandheldGPSBasic
       - id: MedkitFilled
         prob: 0.3
+      - id: ADTBookSRPmed
