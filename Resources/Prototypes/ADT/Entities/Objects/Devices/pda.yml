@@ -18,7 +18,6 @@
       visible: false
   - type: Icon
     sprite: ADT/Objects/Devices/pda.rsi
-    state: pda
 
 - type: entity
   parent: ADTBasePDA
