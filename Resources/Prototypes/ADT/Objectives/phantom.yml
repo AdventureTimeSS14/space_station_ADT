@@ -33,7 +33,7 @@
 
 - type: entity
   noSpawn: true
-  parent: [BasePhantomObjective, BaseSocialObjective]
+  parent: [BasePhantomObjective]
   id: PhantomKeepAliveObjective
   description: phantom-keep-alive-objective-desc
   components:
@@ -47,10 +47,15 @@
     title: objective-condition-phantom-alive-title
   - type: PickRandomPerson
   - type: KeepAliveCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - KillPhantomImmunePersonCondition
+  - type: SocialObjective
 
 - type: entity
   noSpawn: true
-  parent: [BasePhantomObjective, BaseSocialObjective]
+  parent: [BasePhantomObjective]
   id: PhantomMakeVesselObjective
   description: phantom-make-vessel-objective-desc
   components:
@@ -64,6 +69,11 @@
     title: objective-condition-phantom-vessel-title
   - type: PickRandomPerson
   - type: MakeTargetVesselCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - KillPhantomImmunePersonCondition
+  - type: SocialObjective
 
 - type: entity
   noSpawn: true
