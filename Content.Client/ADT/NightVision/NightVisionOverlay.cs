@@ -1,3 +1,5 @@
+// taken and adapted from https://github.com/RMC-14/RMC-14?ysclid=lzx00zxd6e53093995
+
 using System.Numerics;
 using Content.Shared.ADT.NightVision;
 // using Content.Shared._RMC14.Xenonids;
