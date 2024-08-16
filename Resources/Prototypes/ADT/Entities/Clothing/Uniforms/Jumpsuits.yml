@@ -28,9 +28,9 @@
   description: blueshield's turtleneck
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blueshield.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blueshield.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blueshield.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blueshield.rsi
 
 # Водолазки. От prazat911, конечно же.
 - type: entity
@@ -40,9 +40,9 @@
   description: Too bright!
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_aquamarine.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_aquamarine.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_aquamarine.rsi
   - type: StaticPrice
     price: 10
 
@@ -53,9 +53,9 @@
   description: Warm and comfy.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_white.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
   - type: StaticPrice
     price: 10
 
@@ -66,9 +66,9 @@
   description: Brighter shade of blue.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_azure.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_azure.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_azure.rsi
   - type: StaticPrice
     price: 10
 
@@ -79,9 +79,9 @@
   description: Filled with happines.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_yellow.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_yellow.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_yellow.rsi
   - type: StaticPrice
     price: 10
 
@@ -92,9 +92,9 @@
   description: Cheaper analog of CentComm turtleneck.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_green.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_green.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_green.rsi
   - type: StaticPrice
     price: 10
 
@@ -105,9 +105,9 @@
   description: -Ya know why i wear red? It hides blood well! -But that's brown color...
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brown.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_brown.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brown.rsi
   - type: StaticPrice
     price: 10
 
@@ -118,9 +118,9 @@
   description: Hides blood of clowns well!
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_red.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_red.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_red.rsi
   - type: StaticPrice
     price: 10
 
@@ -131,9 +131,9 @@
   description: I don't want to talk about it.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_orange.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_orange.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_orange.rsi
   - type: StaticPrice
     price: 10
 
@@ -144,9 +144,9 @@
   description: Who would wear this?
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_pink.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_pink.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_pink.rsi
   - type: StaticPrice
     price: 10
 
@@ -157,9 +157,9 @@
   description: Grey style?
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_grey.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
   - type: StaticPrice
     price: 10
 
@@ -170,9 +170,9 @@
   description: Darker shade of azure.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blue.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_blue.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blue.rsi
   - type: StaticPrice
     price: 10
 
@@ -183,9 +183,9 @@
   description: Feel yourself like a real scientist.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_purple.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_purple.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_purple.rsi
   - type: StaticPrice
     price: 10
 
@@ -196,9 +196,9 @@
   description: Favourite clothes of bookworms.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_black.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turtleneck_black.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_black.rsi
   - type: StaticPrice
     price: 10
 
@@ -209,9 +209,9 @@
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_blacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_blacksleeveless.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_blacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_blacksleeveless.rsi
   - type: StaticPrice
     price: 10
 
@@ -222,9 +222,9 @@
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whitesleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whitesleeveless.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whitesleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whitesleeveless.rsi
   - type: StaticPrice
     price: 10
 
@@ -235,9 +235,9 @@
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whiteblacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whiteblacksleeveless.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turleneck/turleneck_whiteblacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whiteblacksleeveless.rsi
   - type: StaticPrice
     price: 10
 
