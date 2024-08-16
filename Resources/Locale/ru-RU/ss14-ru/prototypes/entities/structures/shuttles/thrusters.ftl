@@ -16,7 +16,3 @@ ent-GyroscopeUnanchored = { ent-Gyroscope }
 ent-DebugGyroscope = { ent-Gyroscope }
     .suffix = DEBUG
     .desc = { ent-Gyroscope.desc }
-ent-ADTMediumThruster = средний ракетный двигатель
-    .desc = { ent-BaseThruster.desc }
-ent-ADTBigThruster = большой ракетный двигатель
-    .desc = { ent-BaseThruster.desc }
