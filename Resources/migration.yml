@@ -398,3 +398,8 @@ LogicGate: LogicGateOr
 
 # ADT 2024-08-13
 ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
+
+# ADT 2024-08-15
+NesBigThruster: ADTBigThruster
+NesMiniGyroscope: Gyroscope
+

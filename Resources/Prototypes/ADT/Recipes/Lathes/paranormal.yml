@@ -27,7 +27,7 @@
     Silver: 250
     Gold: 250
     Uranium: 1500
-    Ectoplasm: 500
+    Ectoplasm: 300
 
 - type: latheRecipe
   id: EctoPistol
@@ -40,7 +40,7 @@
     Silver: 50
     Gold: 1000
     Uranium: 500
-    Ectoplasm: 500
+    Ectoplasm: 150
 
 - type: latheRecipe
   id: PsiShield
@@ -53,7 +53,7 @@
     Silver: 50
     Gold: 1000
     Uranium: 500
-    Ectoplasm: 2000
+    Ectoplasm: 400
 
 - type: latheRecipe
   id: PhantomHud
@@ -64,7 +64,7 @@
     Glass: 1500
     Silver: 500
     Gold: 100
-    Ectoplasm: 2000
+    Ectoplasm: 200
 
 - type: latheRecipe
   id: EctoShield
@@ -75,7 +75,7 @@
     Plastic: 500
     Silver: 500
     Gold: 1000
-    Ectoplasm: 1000
+    Ectoplasm: 300
 
 - type: latheRecipe
   id: EctoBatterySmall
@@ -84,7 +84,7 @@
   materials:
     Steel: 300
     Glass: 300
-    Ectoplasm: 100
+    Ectoplasm: 50
 
 - type: latheRecipe
   id: EctoBattery
@@ -93,4 +93,4 @@
   materials:
     Steel: 500
     Glass: 500
-    Ectoplasm: 200
+    Ectoplasm: 100
