@@ -21,7 +21,9 @@
         amount: 2
       - id: RagItem
         amount: 2
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsrv
+    # ADT-WikiBooks-End
 
 #- type: entity
 #  id: LockerFormalFilled
@@ -53,7 +55,9 @@
       - id: DrinkMilkCarton
         amount: 2
       - id: DrinkSoyMilkCarton
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsrv
+    # ADT-WikiBooks-End
 
 - type: entity
   id: ClosetJanitorFilled
@@ -79,7 +83,9 @@
         amount: 2
       - id: Plunger
         amount: 2
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsrv
+    # ADT-WikiBooks-End
 
 - type: entity
   id: ClosetLegalFilled
@@ -91,7 +97,9 @@
       - id: BriefcaseBrownFilled
         prob: 0.80
       - id: ClothingOuterRobesJudge
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsrv
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerBotanistFilled
@@ -112,7 +120,9 @@
       - id: HandLabeler
       - id: ClothingUniformOveralls
       - id: ClothingHeadHatTrucker
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsrv
+    # ADT-WikiBooks-End
         prob: 0.1
 
 - type: entity

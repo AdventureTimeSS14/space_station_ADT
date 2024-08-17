@@ -20,8 +20,10 @@
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerWardenFilled
@@ -46,8 +48,10 @@
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerSecurityFilled
@@ -78,8 +82,10 @@
         prob: 0.6
       - id: BookSpaceLaw
         prob: 0.5
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -120,8 +126,11 @@
         prob: 0.5
       - id: ClothingOuterCoatLabSecurityMedic # Corvax-Resprite
         prob: 0.5
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
+      - id: ADTBookSRPmed
       - id: ADTBookPCDsec
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerDetectiveFilled
@@ -147,8 +156,10 @@
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
       - id: HandLabeler
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
+    # ADT-WikiBooks-End
 
 - type: entity
   id: ClosetBombFilled
