@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/da8505ca557ffbc038af2cdbcf2943eaa9897de6/icons/obj/clothing/shoes.dmi and https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/da8505ca557ffbc038af2cdbcf2943eaa9897de6/icons/mob/clothing/feet.dmi. Inhands sprites made by Username228 (#serj3428 discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-FEET",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}
