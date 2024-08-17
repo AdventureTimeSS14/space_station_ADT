@@ -1110,7 +1110,7 @@ namespace Content.Shared.CCVar
         ///     Whether gas differences will move entities.
         /// </summary>
         public static readonly CVarDef<bool> SpaceWind =
-            CVarDef.Create("atmos.space_wind", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind", true, CVar.SERVERONLY); ///ADT
 
         /// <summary>
         ///     Divisor from maxForce (pressureDifference * 2.25f) to force applied on objects.
@@ -1159,7 +1159,7 @@ namespace Content.Shared.CCVar
 		///     Also looks weird on slow spacing for unrelated reasons. If you do want to enable this, you should probably turn on instaspacing.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosRipTiles =
-            CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY); ///ADT
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.
