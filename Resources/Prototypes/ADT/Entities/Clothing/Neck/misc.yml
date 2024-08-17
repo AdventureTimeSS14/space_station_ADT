@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckGoldChain
+  name: golden chain
+  description: A chain made of gold.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi 
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi #спрайты от prazat911
