@@ -86,10 +86,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedControlledSystem _controlled = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -134,8 +132,9 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         base.Initialize();
 
         // Startup
-        SubscribeLocalEvent<PhantomComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<PhantomComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PhantomComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<PhantomComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PhantomComponent, StatusEffectAddedEvent>(OnStatusAdded);
         SubscribeLocalEvent<PhantomComponent, StatusEffectEndedEvent>(OnStatusEnded);
 
@@ -207,7 +206,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         _appearance.SetData(uid, PhantomVisuals.Stunned, false);
         _appearance.SetData(uid, PhantomVisuals.Corporeal, false);
         ChangeEssenceAmount(uid, 0, component);
+    }
 
+    private void OnMapInit(EntityUid uid, PhantomComponent component, MapInitEvent args)
+    {
         _action.AddAction(uid, ref component.PhantomHauntActionEntity, component.PhantomHauntAction);
         _action.AddAction(uid, ref component.PhantomMakeVesselActionEntity, component.PhantomMakeVesselAction);
         _action.AddAction(uid, ref component.PhantomStyleActionEntity, component.PhantomStyleAction);
