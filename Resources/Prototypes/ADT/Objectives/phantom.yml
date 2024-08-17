@@ -44,6 +44,10 @@
   - type: PickRandomPerson
   - type: KeepAliveCondition
   - type: SocialObjective
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - PhantomNightmareStartedCondition
 
 - type: entity
   noSpawn: true
@@ -62,6 +66,10 @@
   - type: PickRandomPerson
   - type: MakeTargetVesselCondition
   - type: SocialObjective
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - PhantomNightmareStartedCondition
 
 - type: entity
   noSpawn: true
