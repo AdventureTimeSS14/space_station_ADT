@@ -48,7 +48,9 @@
   storage:
     back:
     - Flash
+  # ADT-TelescopicBaton
     - ADTtelescopicBaton
+  # ADT-TelescopicBaton
 #    pocket1: ADTtelescopicBaton
 #    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
 #    socks: ClothingUnderwearSocksNormal

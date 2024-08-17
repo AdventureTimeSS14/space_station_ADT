@@ -52,4 +52,5 @@
     back:
     - Flash
     - MagazinePistol
-    - ADTtelescopicBaton
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
+

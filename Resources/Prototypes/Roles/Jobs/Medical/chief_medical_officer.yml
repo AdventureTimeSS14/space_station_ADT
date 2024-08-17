@@ -48,4 +48,4 @@
   storage:
     back:
     - Flash
-    - ADTtelescopicBaton
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
