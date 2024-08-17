@@ -2279,3 +2279,27 @@ Entries:
       - {message: Снова можно делать длинные имена, type: Tweak}
     time: '2024-08-17T13:29:04Z'
     id: 249
+  - author: PyotrIgn
+    changes:
+      - {message: Уменьшена сила подрыва топливных резервуаров, type: Tweak}
+    time: '2024-08-17T15:26:36Z'
+    id: 250
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлены наши старые обмотки для ног в ОдеждоМат, type: Add}
+    time: '2024-08-17T15:26:36Z'
+    id: 251
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлена покупка компонентов ДАМ и контроллера ДАМ в карго, type: Add}
+      - {message: Количество компонентов ДАМ в одном ящике увеличено до 12 вместо
+          9, type: Tweak}
+      - {message: Выработка солнечных батарей увеличена в 2.5 раза, type: Tweak}
+    time: '2024-08-17T16:30:06Z'
+    id: 252
+  - author: Ratyyy
+    changes:
+      - {message: 'В связи со сменой поставщиков газов, появился космический ветер.',
+        type: Add}
+    time: '2024-08-17T16:33:35Z'
+    id: 253
