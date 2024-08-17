@@ -905,6 +905,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: MegaSeedAds
   - type: SpeakOnUIClosed
@@ -931,6 +932,10 @@
   components:
   - type: AccessReader
     access: [["Hydroponics"]]
+  # ADT-Economy-Start
+  - type: VendingMachine
+    allForFree: false
+  # ADT-Economy-End
 
 - type: entity
   parent: VendingMachine
