@@ -1,5 +1,6 @@
 - type: entity
   parent: ClothingNeckBase
+  id: ADTClothingNeckGoldChain
   name: golden chain
   description: A chain made of gold.
   components:
