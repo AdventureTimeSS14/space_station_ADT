@@ -22,12 +22,14 @@
         - ClothingNeckCloakGoliathCloak
         - ClothingNeckCloakAce
         - ClothingNeckCloakAro
-        - ClothingNeckCloakBi
-        - ClothingNeckCloakIntersex
-        - ClothingNeckCloakLesbian
-        - ClothingNeckCloakGay
-        - ClothingNeckCloakEnby
-        - ClothingNeckCloakPan
+        #ADT start
+        # - ClothingNeckCloakBi
+        # - ClothingNeckCloakIntersex
+        # - ClothingNeckCloakLesbian
+        # - ClothingNeckCloakGay
+        # - ClothingNeckCloakEnby
+        # - ClothingNeckCloakPan
+        #ADT end
         - ToySkeleton
         - Basketball
         - Football
@@ -37,14 +39,16 @@
         - Skub
         - DrinkMugDog
         - ClothingNeckLGBTPin
-        - ClothingNeckAromanticPin
-        - ClothingNeckAsexualPin
-        - ClothingNeckBisexualPin
-        - ClothingNeckIntersexPin
-        - ClothingNeckLesbianPin
-        - ClothingNeckNonBinaryPin
-        - ClothingNeckPansexualPin
-        - ClothingNeckTransPin
+        #ADT start
+        # - ClothingNeckAromanticPin
+        # - ClothingNeckAsexualPin
+        # - ClothingNeckBisexualPin
+        # - ClothingNeckIntersexPin
+        # - ClothingNeckLesbianPin
+        # - ClothingNeckNonBinaryPin
+        # - ClothingNeckPansexualPin
+        # - ClothingNeckTransPin
+        #ADT end
         # Corvax-Pins-Start
         - ClothingNeckUSSPPin
         - ClothingNeckDonkPin
@@ -76,8 +80,10 @@
         - ClothingUniformJumpsuitPirate
         - ClothingShoesBootsCowboyFancy
         - ClothingHeadHatCowboyBountyHunter
-        - ClothingNeckAutismPin
-        - ClothingNeckGoldAutismPin
+        #ADT start
+        # - ClothingNeckAutismPin
+        # - ClothingNeckGoldAutismPin
+        #ADT end
         - WristwatchGold
       rareChance: 0.01
       prototypes:

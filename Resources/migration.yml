@@ -395,3 +395,28 @@ SignHydro3: SignHydro1
 
 # 2024-07-27
 LogicGate: LogicGateOr
+
+#ADT start
+# 2024-08-17
+ClothingNeckPinBase: null
+ClothingNeckLGBTPin: null
+ClothingNeckAromanticPin: null
+ClothingNeckAsexualPin: null
+ClothingNeckBisexualPin: null
+ClothingNeckIntersexPin: null
+ClothingNeckLesbianPin: null
+ClothingNeckNonBinaryPin: null
+ClothingNeckPansexualPin: null
+ClothingNeckTransPin: null
+ClothingNeckAutismPin: null
+ClothingNeckGoldAutismPin: null
+ClothingNeckCloakBi: null
+ClothingNeckCloakIntersex: null
+ClothingNeckCloakLesbian: null
+ClothingNeckCloakGay: null
+ClothingNeckCloakEnby: null
+ClothingNeckCloakPan: null
+LGBTQHandyFlag: null
+LGBTQFlag: null
+
+#ADT end
