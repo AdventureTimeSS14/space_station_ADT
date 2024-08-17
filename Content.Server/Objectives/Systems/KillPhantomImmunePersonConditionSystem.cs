@@ -65,7 +65,19 @@ public sealed class KillPhantomImmunePersonConditionSystem : EntitySystem
         {
             if (_job.MindTryGetJob(item, out _, out var prototype) && prototype.RequireAdminNotify) // Why is it named RequireAdminNotify? Anyway, this checks if this mind is a command staff
                 continue;
+            if (TryComp<MindComponent>(item, out var mindComponent))
+            {
+                if (HasComp<VesselComponent>(mindComponent.OwnedEntity) ||
+                    HasComp<PhantomPuppetComponent>(mindComponent.OwnedEntity) ||
+                    HasComp<PhantomHolderComponent>(mindComponent.OwnedEntity))
+                    continue;
+            }
             resultList.Add(item);
+        }
+        if (resultList.Count <= 0)
+        {
+            args.Cancelled = true;
+            return;
         }
         var pickedTarget = _random.Pick(resultList);
 
