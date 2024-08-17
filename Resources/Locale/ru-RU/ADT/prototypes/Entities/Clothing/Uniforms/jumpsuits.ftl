@@ -12,6 +12,7 @@ ent-ADTClothingUniformJumpsuitBlueshield = костюм офицера "Сине
 ent-ADTClothingUniformJumpsuitBlueshieldTurtleneck = водолазка офицера "Синего Щита"
     .desc = Белая удобная водолазка Офицера"Синего Щита" с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
 
+
 ent-ADTClothingUniformTurleneckAmerc = водолазка Наёмника
     .desc = Практичная и удобная водолазка оливкового цвета.
     .suffix = { "" }
@@ -109,3 +110,14 @@ ent-ADTCapJumpsuitWarm = водолазка капитана
     
 ent-ClothingUniformJumpsuitBlueshieldTurtleneck = водолазка офицера синего щита
     .desc = Белая удобная водолазка Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
+
+ent-ADTSpaceSecUniformCadet = комбинезон кадета SPACE SEC
+    .desc = Стандартная одежда корпорации SPACE SEC.
+ent-ADTSpaceSecUniformPilot = комбинезон пилота SPACE SEC
+    .desc = Стандартная одежда корпорации SPACE SEC.
+ent-ADTSpaceSecUniformCommander = комбинезон командира SPACE SEC
+    .desc = Стандартная одежда корпорации SPACE SEC.
+ent-ADTSpaceSecUniformService = комбинезон сотрудника SPACE SEC
+    .desc = Стандартная одежда корпорации SPACE SEC.
+ent-ADTSpaceSecUniformOfficer = комбинезон офицера SPACE SEC
+    .desc = Стандартная одежда корпорации SPACE SEC.

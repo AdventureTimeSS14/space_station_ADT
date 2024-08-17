@@ -62,6 +62,13 @@ public abstract class SharedPhantomSystem : EntitySystem
         if (level > 9 && curseds > 1)
             AddFromList(uid, component, proto.Lvl5Actions);
         component.CurrentStyle = style;
+
+        if (component.MaxReachedLevel < level)
+        {
+            var ev = new PhantomLevelReachedEvent(level);
+            component.MaxReachedLevel = level;
+            RaiseLocalEvent(uid, ref ev);
+        }
     }
 
     /// <summary>

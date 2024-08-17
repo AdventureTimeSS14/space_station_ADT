@@ -259,3 +259,59 @@
         Blunt: 0.8
         Piercing: 0.8
         Heat: 0.9
+
+# SPACE SEC
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformCadet
+  name: space sec cadet uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_cadet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_cadet.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformPilot
+  name: space sec pilot uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_pilot.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_pilot.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformCommander
+  name: space sec commander uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_commander.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_commander.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformService
+  name: space sec service uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_service.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_service.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformOfficer
+  name: space sec officer uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_officer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_officer.rsi
