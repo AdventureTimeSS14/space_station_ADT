@@ -27,3 +27,7 @@
     belt: WeaponPistolN1984
     pocket1: BoxFolderBlack
     pocket2: PenCentcom
+  storage:
+    back:
+    - Flash #ADT-CustomADTLoadout
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
