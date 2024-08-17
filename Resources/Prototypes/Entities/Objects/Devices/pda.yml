@@ -954,17 +954,17 @@
   - type: Pda
     id: CluwneIDCard
     state: pda-cluwne
-  - type: PdaBorderColor
-    borderColor: "#1c8f4d"
-  - type: Icon
-    state: pda-cluwne
-    penSlot:
+    penSlot: #офы криво кинули мелок
       startingItem: CrayonGreen
       ejectSound: /Audio/Items/bikehorn.ogg
       priority: -1
       whitelist:
         tags:
         - Write
+  - type: PdaBorderColor
+    borderColor: "#1c8f4d"
+  - type: Icon
+    state: pda-cluwne
   - type: Unremoveable
 
 - type: entity
