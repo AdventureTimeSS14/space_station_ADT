@@ -91,6 +91,14 @@
     ClothingUniformJumpsuitCasualRed: 2
     ClothingUniformJumpskirtCasualRed: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
+    # ADT бельё/обмотки/плащи начало
+    ADTClothingFootWrapsWhite: 2
+    ADTClothingFootWrapsHighWhite: 2
+    ADTClothingFootWrapsBlack: 2
+    ADTClothingFootWrapsHighBlack: 2
+    ADTClothingFootWrapsBrown: 2
+    ADTClothingFootWrapsHighBrown: 2
+    # ADT бельё/обмотки/плащи конец
     ClothingShoesColorBlack: 8
     ClothingShoesColorBrown: 4
     ClothingShoesColorWhite: 3

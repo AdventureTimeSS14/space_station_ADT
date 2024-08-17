@@ -141,6 +141,8 @@ public sealed partial class HallucinationsSystem : EntitySystem
             return false;
 
         var hallucinations = EnsureComp<HallucinationsDiseaseComponent>(target);
+        hallucinations.EndTime = _timing.CurTime + TimeSpan.FromSeconds(15);
+
         hallucinations.Proto = prototype;
         hallucinations.Spawns = prototype.Entities;
         hallucinations.Range = prototype.Range;
@@ -224,6 +226,12 @@ public sealed partial class HallucinationsSystem : EntitySystem
         var diseaseQuery = EntityQueryEnumerator<HallucinationsDiseaseComponent, TransformComponent>();
         while (diseaseQuery.MoveNext(out var uid, out var stat, out var xform))
         {
+            if (_timing.CurTime >= stat.EndTime)
+            {
+                RemCompDeferred<HallucinationsDiseaseComponent>(uid);
+                continue;
+            }
+
             if (_timing.CurTime < stat.NextSecond)
                 continue;
             var rate = stat.SpawnRate;
