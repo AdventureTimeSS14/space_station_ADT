@@ -773,7 +773,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 _apcSystem.ApcToggleBreaker(target, apc);
                 success = true;
             }
-            if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target)) //&& _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
+            if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
             {
                 _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false);
                 _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false);
@@ -797,7 +797,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                             _apcSystem.ApcToggleBreaker(entity, entApc);
                             success = true;
                         }
-                        if (HasComp<StatusEffectsComponent>(entity) && HasComp<BatteryComponent>(entity)) //&& _status.TryAddStatusEffect<SeeingStaticComponent>(entity, "SeeingStatic", timeStatic, false))
+                        if (HasComp<StatusEffectsComponent>(entity) && HasComp<BatteryComponent>(entity) && _status.TryAddStatusEffect<SeeingStaticComponent>(entity, "SeeingStatic", timeStatic, false))
                         {
                             _status.TryAddStatusEffect<KnockedDownComponent>(entity, "KnockedDown", time, false);
                             _status.TryAddStatusEffect<StunnedComponent>(entity, "Stun", time, false);
