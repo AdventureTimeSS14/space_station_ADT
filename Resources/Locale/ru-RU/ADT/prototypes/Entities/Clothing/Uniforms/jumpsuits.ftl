@@ -110,7 +110,7 @@ ent-ADTCapJumpsuitWarm = водолазка капитана
     
 ent-ClothingUniformJumpsuitBlueshieldTurtleneck = водолазка офицера синего щита
     .desc = Белая удобная водолазка Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
-=======
+
 ent-ADTSpaceSecUniformCadet = комбинезон кадета SPACE SEC
     .desc = Стандартная одежда корпорации SPACE SEC.
 ent-ADTSpaceSecUniformPilot = комбинезон пилота SPACE SEC
