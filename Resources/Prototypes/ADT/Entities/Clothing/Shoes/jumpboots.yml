@@ -9,6 +9,8 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/jumpboots.rsi
   - type: Jumpboots
+  - type: StaticPrice
+    price: 10
 
 - type: entity
   parent: ClothingShoesMilitaryBase
