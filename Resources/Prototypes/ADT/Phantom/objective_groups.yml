@@ -2,7 +2,7 @@
   id: PhantomObjectiveGroups
   weights:
     PhantomKillObjectives: 1
-    PhantomSocialObjectives: 1
+    PhantomSocialObjectives: 0.5
 
 - type: weightedRandom
   id: PhantomKillObjectives

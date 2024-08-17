@@ -1,0 +1,74 @@
+# core basic
+
+- type: entity
+  id: ADTDroneAntagCoreBasic
+  parent: BaseItem
+  name: basic drone core
+  description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/drone-core-basic.rsi
+      state: drone-core-basic
+    - type: StaticPrice
+      price: 1250
+    - type: PointLight
+      radius: 1.5
+      energy: 3
+      color: "#cc5500"
+
+# core advanced
+
+- type: entity
+  id: ADTDroneAntagCoreAdvanced
+  parent: BaseItem
+  name: advanced drone core
+  description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/drone-core-advanced.rsi
+      state: drone-core-advanced
+    - type: StaticPrice
+      price: 2500
+    - type: PointLight
+      radius: 1.5
+      energy: 3
+      color: "#9ad67a"
+
+# core elite
+
+- type: entity
+  id: ADTDroneAntagCoreElite
+  parent: BaseItem
+  name: elite drone core
+  description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/drone-core-elite.rsi
+      state: drone-core-elite
+    - type: StaticPrice
+      price: 5000
+    - type: PointLight
+      radius: 1.5
+      energy: 3
+      color: "#b93fc4"
+# ff517a
+
+# core command
+
+- type: entity
+  id: ADTDroneAntagCoreCommand
+  parent: BaseItem
+  name: command drone core
+  description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/drone-core-command.rsi
+      state: drone-core-command
+    - type: StaticPrice
+      price: 7500
+    - type: PointLight
+      radius: 1.5
+      energy: 3
+      color: "#2f8bd6"
+
+# c351ff

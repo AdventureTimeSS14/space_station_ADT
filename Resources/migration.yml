@@ -403,3 +403,25 @@ ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
 NesBigThruster: ADTBigThruster
 NesMiniGyroscope: Gyroscope
 
+#ADT start
+# 2024-08-17
+ClothingNeckLGBTPin: DrinkBottleVodka
+ClothingNeckAromanticPin: DrinkBottleVodka
+ClothingNeckAsexualPin: DrinkBottleVodka
+ClothingNeckBisexualPin: DrinkBottleVodka
+ClothingNeckIntersexPin: DrinkBottleVodka
+ClothingNeckLesbianPin: DrinkBottleVodka
+ClothingNeckNonBinaryPin: DrinkBottleVodka
+ClothingNeckPansexualPin: DrinkBottleVodka
+ClothingNeckTransPin: DrinkBottleVodka
+ClothingNeckAutismPin: DrinkBottleVodka
+ClothingNeckGoldAutismPin: DrinkBottleVodka
+ClothingNeckCloakBi: DrinkBottleVodka
+ClothingNeckCloakIntersex: DrinkBottleVodka
+ClothingNeckCloakLesbian: DrinkBottleVodka
+ClothingNeckCloakGay: DrinkBottleVodka
+ClothingNeckCloakEnby: DrinkBottleVodka
+ClothingNeckCloakPan: DrinkBottleVodka
+LGBTQHandyFlag: DrinkBottleVodka
+LGBTQFlag: DrinkBottleVodka
+#ADT end
