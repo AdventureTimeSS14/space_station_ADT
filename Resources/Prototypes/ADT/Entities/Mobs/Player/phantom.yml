@@ -44,7 +44,7 @@
   #- type: TTS
   #  voice: Kelthuzad
   - type: Eye
-    drawFov: false
+    drawFov: true
     visMask:
       - Normal
       - Ghost
