@@ -177,6 +177,7 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     loopDeny: false
+    priceMultiplier: 0.57 # ADT-Economy
   - type: Advertise
     pack: BoozeOMatAds
   - type: SpeakOnUIClosed
@@ -794,6 +795,7 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     ejectDelay: 0.6
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: NanoMedAds
   - type: SpeakOnUIClosed
@@ -981,6 +983,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/sustenance.rsi
     layers:
@@ -1413,6 +1416,7 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/wallmed.rsi
     layers:
@@ -1890,6 +1894,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: SyndieDrobeAds
   - type: SpeakOnUIClosed
@@ -2104,6 +2109,7 @@
     normalState: normal
     denyState: deny
     ejectDelay: 2
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
@@ -2132,6 +2138,7 @@
     normalState: normal
     denyState: deny
     ejectDelay: 2
+    allForFree: true # ADT-Economy
   - type: AccessReader
     access: [["SyndicateAgent"]]
 
