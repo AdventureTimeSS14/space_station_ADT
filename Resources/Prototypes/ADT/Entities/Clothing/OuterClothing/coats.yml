@@ -45,6 +45,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 800
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -56,3 +58,5 @@
     sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 800

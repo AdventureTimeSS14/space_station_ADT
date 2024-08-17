@@ -24,3 +24,5 @@
     sprite: ADT/Clothing/OuterClothing/WinterCoats/russian_coat.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/WinterCoats/russian_coat.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 1000

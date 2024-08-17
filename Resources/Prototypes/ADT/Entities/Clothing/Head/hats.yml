@@ -31,6 +31,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
 
+#Стильномат
 - type: entity
   parent: ClothingHeadBase
   id: ADTClothingHeadHatCinnamonFlatCap
@@ -41,6 +42,8 @@
     sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 150
 
 - type: entity
   parent: ClothingHeadBase
@@ -52,3 +55,5 @@
     sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 150

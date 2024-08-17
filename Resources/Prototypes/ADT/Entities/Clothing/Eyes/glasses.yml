@@ -25,3 +25,5 @@
     sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi #спрайты от dion_clawed
+  - type: StaticPrice
+    price: 200

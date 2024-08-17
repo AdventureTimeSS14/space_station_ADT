@@ -8,3 +8,5 @@
       sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi 
     - type: Clothing
       sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi #спрайты от prazat911
+    - type: StaticPrice
+      price: 500

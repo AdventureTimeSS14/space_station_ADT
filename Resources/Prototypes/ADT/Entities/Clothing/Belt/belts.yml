@@ -131,6 +131,8 @@
   - type: Clothing
     sprite: ADT/Clothing/Belt/black_suspenders.rsi #спрайты от prazat911
     quickEquip: true
+  - type: StaticPrice
+    price: 160
 
 - type: entity
   parent: ClothingBeltBase
@@ -143,3 +145,5 @@
   - type: Clothing
     sprite: ADT/Clothing/Belt/leather_suspenders.rsi #спрайты от prazat911
     quickEquip: true
+  - type: StaticPrice
+    price: 160
