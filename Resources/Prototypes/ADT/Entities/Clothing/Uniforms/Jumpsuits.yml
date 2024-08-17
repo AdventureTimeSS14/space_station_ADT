@@ -260,8 +260,6 @@
         Piercing: 0.8
         Heat: 0.9
 
-    sprite: ADT/Clothing/Uniforms/Turtleneck/turtleneck_blueshield.rsi
-
 # SPACE SEC
 - type: entity
   parent: ClothingUniformBase
