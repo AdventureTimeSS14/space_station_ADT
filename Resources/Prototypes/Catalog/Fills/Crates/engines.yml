@@ -9,7 +9,7 @@
   - type: StorageFill
     contents:
       - id: AmePartFlatpack
-        amount: 9
+        amount: 12 #ADT_Tweaks
 
 - type: entity
   id: CrateEngineeringAMEJar
