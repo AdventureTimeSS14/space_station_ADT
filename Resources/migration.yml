@@ -396,6 +396,10 @@ SignHydro3: SignHydro1
 # 2024-07-27
 LogicGate: LogicGateOr
 
+# ADT 2024-08-15
+NesBigThruster: ADTBigThruster
+NesMiniGyroscope: Gyroscope
+
 #ADT start
 # 2024-08-17
 ClothingNeckPinBase: null
