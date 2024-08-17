@@ -40,7 +40,7 @@ public sealed partial class PhantomVesselSystem : EntitySystem
 
         phantom.Vessels.Remove(uid);
         var ev = new RefreshPhantomLevelEvent();
-        RaiseLocalEvent(component.Phantom, ev);
+        RaiseLocalEvent(component.Phantom, ref ev);
         _phantom.PopulateVesselMenu(component.Phantom);
 
         if (phantom.Holder == uid)
@@ -104,7 +104,7 @@ public sealed partial class PhantomVesselSystem : EntitySystem
 
         phantom.Vessels.Remove(uid);
         var ev = new RefreshPhantomLevelEvent();
-        RaiseLocalEvent(component.Phantom, ev);
+        RaiseLocalEvent(component.Phantom, ref ev);
 
         if (phantom.Holder == uid)
             _phantom.StopHaunt(component.Phantom, uid, phantom);

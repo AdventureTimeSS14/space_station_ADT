@@ -100,6 +100,9 @@ phantom-claws-disappear-self = Призрачные когти исчезают.
 
 phantom-fail-nohuman = {CAPITALIZE($target)} не гуманоид.
 
+phantom-fail-mindshield = Имплант защиты разума {CAPITALIZE($target)} не позволяет это сделать.
+
+phantom-vessel-removed = {CAPITALIZE($target)} больше не является сосудом.
 
 # Alerts
 
