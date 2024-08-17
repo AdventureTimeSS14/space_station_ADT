@@ -30,7 +30,7 @@ namespace Content.Shared.Preferences
         private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // Corvax-Localization
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
-        public const int MaxNameLength = 32;
+        public const int MaxNameLength = 96;    // ну тип ADT
         public const int MaxDescLength = 512;
 
         /// <summary>
