@@ -70,3 +70,4 @@
   storage:
     back:
     - Flash
+    - ADTtelescopicBaton

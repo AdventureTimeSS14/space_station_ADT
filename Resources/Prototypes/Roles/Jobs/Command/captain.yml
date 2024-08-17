@@ -34,7 +34,7 @@
     components:
       - type: CommandStaff
       - type: PhantomTyranyTarget # ADT Phantom
-  
+
 - type: startingGear
   id: CaptainGear
   equipment:
@@ -46,4 +46,5 @@
   storage:
     back:
     - Flash
+    - ADTtelescopicBaton
     # - StationCharter
