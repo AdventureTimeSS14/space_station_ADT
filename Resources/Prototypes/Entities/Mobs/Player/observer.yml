@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseMob, InventoryBase]
+  parent: [BaseMob, InventoryBase] #ADT pda
   id: MobObserver
   name: observer
   description: Boo!
@@ -53,12 +53,12 @@
     - Universal
     understands:
     - Universal
-  - type: Hands
-    showInHands: false
-  - type: Inventory
-    templateId: ghost
-  - type: Loadout
-    prototypes: [ MobGhostGear ]
+  - type: Hands                   #ADT pda
+    showInHands: false            #ADT pda
+  - type: Inventory               #ADT pda
+    templateId: ghost             #ADT pda
+  - type: Loadout                 #ADT pda
+    prototypes: [ MobGhostGear ]  #ADT pda
 
 - type: entity
   id: ActionGhostBoo
