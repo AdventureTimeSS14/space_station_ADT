@@ -123,6 +123,7 @@
   description: You could have been there somewhere, but unfortunately you are here now.
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
     state: painting_somewhereelse
 
 - type: entity
@@ -132,17 +133,8 @@
   description: The first cosmonaut to fly into space. His historic flight took place on April 12, 1961 on the Vostok-1 spacecraft. Gagarin became the first person to successfully make a single near-Earth space trip, making one revolution around the Earth. This feat brought him worldwide fame and the status of a national hero in the USSR. It's a shame not to know about it while working in the Space Station.
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
     state: painting_gagarin
-
-- type: entity
-  parent: ADTPosterBaseKek
-  id: ADTPosterSpaceSec
-  name: SPACE SEC logo
-  description: "This is the logo of the SPACE SEC Corporation"
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/signs.rsi
-    state: poster_spacesec
 
 #Анимированные постеры
 
@@ -798,6 +790,16 @@
     sprite: ADT/Structures/Wallmounts/128x128posters.rsi
     state: roza
     scale: 0.25, 0.25
+
+- type: entity
+  parent: ADTPosterBaseKek
+  id: ADTPosterSpaceSec
+  name: SPACE SEC logo
+  description: "This is the logo of the SPACE SEC Corporation"
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/signs.rsi
+    state: poster_spacesec
 
 # Странные постеры
 - type: entity
