@@ -2342,9 +2342,6 @@ Entries:
     id: 259
   - author: PyotrIgn
     changes:
-      - {message: Добавлено веселье!, type: Add}
-      - {message: Убрано веселье!, type: Remove}
-      - {message: Изменено веселье!, type: Tweak}
-      - {message: Исправлено веселье!, type: Fix}
+      - {message: Добавлен Стильномат, type: Add}
     time: '2024-08-18T13:20:05Z'
     id: 260
