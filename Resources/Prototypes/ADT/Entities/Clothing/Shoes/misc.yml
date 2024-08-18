@@ -36,3 +36,16 @@
     sprite: ADT/Clothing/Shoes/Boots/black_boots.rsi  #спрайты от dion_clawed
   - type: StaticPrice
     price: 240
+    
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingSandals
+  name: Sandals
+  description: pair of sandals
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
+  - type: StaticPrice
+    price: 10

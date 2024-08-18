@@ -57,3 +57,21 @@
     sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi #спрайты от prazat911
   - type: StaticPrice
     price: 150
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlackCivilian
+  name: black beret
+  description: A black beret.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: StaticPrice
+    price: 5
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon

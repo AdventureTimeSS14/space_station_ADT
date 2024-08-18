@@ -14,6 +14,7 @@
     storageWhitelist:
       tags:
       - DrinkBottle
+      - ChemDispensable #ADT_Tweak
     pack: SodaDispenserInventory
   - type: Transform
     noRot: false
@@ -32,4 +33,5 @@
     storageWhitelist:
       tags:
       - DrinkBottle
+      - ChemDispensable #ADT_Tweak
     pack: EmptyInventory
