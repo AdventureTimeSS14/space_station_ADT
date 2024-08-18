@@ -9,7 +9,6 @@
     solutions:
       beaker:
         maxVol: 600
-        canMix: true
   - type: Sprite
     sprite: ADT/Objects/Specific/Chemistry/canister.rsi
     layers:
@@ -25,7 +24,6 @@
     sprintModifier: 0.5
   - type: MultiHandedItem
   - type: Label
-    originalName: ent-ADTReagentCanister
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: fill-
