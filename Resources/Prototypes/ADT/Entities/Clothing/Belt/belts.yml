@@ -118,3 +118,32 @@
           tags:
           - CaptainSabre
   - type: Appearance
+
+ #Празатомат
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTClothingBeltBlackSuspenders
+  name: black suspenders
+  description: A suspenders made with elastic ribbon and the addition of rubber. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/black_suspenders.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/black_suspenders.rsi #спрайты от prazat911
+    quickEquip: true
+  - type: StaticPrice
+    price: 160
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTClothingBeltBrownSuspenders
+  name: brown suspenders
+  description: A suspenders made of rough leather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/leather_suspenders.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/leather_suspenders.rsi #спрайты от prazat911
+    quickEquip: true
+  - type: StaticPrice
+    price: 160

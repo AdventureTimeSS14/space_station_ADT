@@ -1,5 +1,44 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootLightShoes
+  name: light shoes
+  description: Elegant shoes on a high heels. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/light_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/light_shoes.rsi
+  - type: StaticPrice
+    price: 120
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWhiteSandals
+  name: white sandals
+  description: White sandals. #кто бы мог подумать.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/white_sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/white_sandals.rsi  #спрайты от dion_clawed
+  - type: StaticPrice
+    price: 240
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootBlackBoots
+  name: black boots
+  description: Comfortable for bullies!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/black_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/black_boots.rsi  #спрайты от dion_clawed
+  - type: StaticPrice
+    price: 240
+    
+- type: entity
+  parent: ClothingShoesBaseButcherable
   id: ADTClothingSandals
   name: Sandals
   description: pair of sandals

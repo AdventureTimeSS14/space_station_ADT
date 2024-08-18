@@ -31,6 +31,33 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
 
+#Стильномат
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatCinnamonFlatCap
+  name: sinnamon flat cap
+  description: A cap with rounded crown and short margins. Sewn from thick fabric, that makes it perfect for cold weather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatGreyFlatCap
+  name: grey flat cap
+  description: A cap with rounded crown and short margins. Sewn from thick fabric, that makes it perfect for cold weather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 150
+
 - type: entity
   parent: ClothingHeadBase
   id: ADTClothingHeadHatBeretBlackCivilian
