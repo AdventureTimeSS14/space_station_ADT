@@ -30,3 +30,21 @@
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlackCivilian
+  name: black beret
+  description: A black beret.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: StaticPrice
+    price: 5
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
