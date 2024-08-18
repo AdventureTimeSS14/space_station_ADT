@@ -1,0 +1,86 @@
+- type: body
+  id: ADTDroneAntagBodyMiner
+  name: Antag Drone Body Miner
+  root: head
+  slots:
+    head:
+      part: LightHeadBorg
+      connections:
+      - hand 1
+      - hand 2
+      - hand 3
+      - hand 4
+      - hand 5
+      # - hand 6
+    hand 1:
+      part: LeftArmBorg
+    hand 2:
+      part: LeftArmBorg
+    hand 3:
+      part: LeftArmBorg
+    hand 4:
+      part: RightArmBorg
+    hand 5:
+      part: RightArmBorg
+    # hand 6:
+    #   part: RightArmBorg
+
+- type: body
+  id: ADTDroneAntagBodyEngineer
+  name: Antag Drone Body Engineer
+  root: head
+  slots:
+    head:
+      part: LightHeadBorg
+      connections:
+      - hand 1
+      - hand 2
+      - hand 3
+      - hand 4
+      - hand 5
+      - hand 6
+      - hand 7
+      - hand 8
+    hand 1:
+      part: LeftArmBorg
+    hand 2:
+      part: LeftArmBorg
+    hand 3:
+      part: LeftArmBorg
+    hand 4:
+      part: RightArmBorg
+    hand 5:
+      part: RightArmBorg
+    hand 6:
+      part: RightArmBorg
+    hand 7:
+      part: RightArmBorg
+    hand 8:
+      part: RightArmBorg
+
+- type: body
+  id: ADTDroneAntagBodyCharger
+  name: Antag Drone Body Charger
+  root: head
+  slots:
+    head:
+      part: LightHeadBorg
+      connections:
+      - hand 1
+      - hand 2
+      - hand 3
+      - hand 4
+      # - hand 5
+      # - hand 6
+    hand 1:
+      part: LeftArmBorg
+    hand 2:
+      part: LeftArmBorg
+    hand 3:
+      part: LeftArmBorg
+    hand 4:
+      part: RightArmBorg
+    # hand 5:
+    #   part: RightArmBorg
+    # hand 6:
+    #   part: RightArmBorg

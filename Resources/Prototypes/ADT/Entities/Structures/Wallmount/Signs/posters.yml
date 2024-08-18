@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseSign
+  id: ADTPosterBaseKek
+  abstract: true
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    snapCardinals: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PosterBroken:
+            min: 1
+            max: 1
+        offset: 0
+
+- type: entity
+  parent: ADTPosterBaseKek
+  id: ADTPosterSpaceSec
+  name: SPACE SEC logo
+  description: "This is the logo of the SPACE SEC Corporation"
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/signs.rsi
+    state: poster_spacesec
