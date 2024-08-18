@@ -394,9 +394,7 @@
     sprintModifier: 0.75
   - type: HeldSpeedModifier
   - type: Item
-    size: Huge
-    shape:
-    - 0,0,4,4 #5X5, can fit in a duffel bag but nothing smaller.
+    size: Normal #ADT Tweak
   - type: Tag
     tags:
     - WhitelistChameleon
