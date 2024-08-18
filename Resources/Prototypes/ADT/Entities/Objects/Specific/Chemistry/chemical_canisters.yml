@@ -1,0 +1,365 @@
+#Базовая канистра
+- type: entity
+  name: big canister
+  parent: Jug
+  id: ADTReagentCanister
+  description: A big canister for a big boys.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 600
+        canMix: true
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/canister.rsi
+    layers:
+      - state: icon
+      - state: fill-1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Objects/Specific/Chemistry/canister.rsi
+  - type: HeldSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: MultiHandedItem
+  - type: Label
+    originalName: ent-ADTReagentCanister
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: fill-
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  - type: StaticPrice
+    price: 180
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (carbon)
+  id: ADTReagentCanisterCarbon
+  noSpawn: true
+  components:
+  - type: Label
+    currentLabel: reagent-name-carbon
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+          - ReagentId: Carbon
+            Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (iodine)
+  id: ADTReagentCanisterIodine
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-iodine
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Iodine
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (fluorine)
+  id: ADTReagentCanisterFluorine
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-fluorine
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Fluorine
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (chlorine)
+  id: ADTReagentCanisterChlorine
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-chlorine
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Chlorine
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (aluminium)
+  id: ADTReagentCanisterAluminium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-aluminium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Aluminium
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (phosphorus)
+  id: ADTReagentCanisterPhosphorus
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-phosphorus
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Phosphorus
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (sulfur)
+  id: ADTReagentCanisterSulfur
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-sulfur
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Sulfur
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (silicon)
+  id: ADTReagentCanisterSilicon
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-silicon
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Silicon
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (hydrogen)
+  id: ADTReagentCanisterHydrogen
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-hydrogen
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Hydrogen
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (lithium)
+  id: ADTReagentCanisterLithium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-lithium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Lithium
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (sodium)
+  id: ADTReagentCanisterSodium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-sodium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Sodium
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (potassium)
+  id: ADTReagentCanisterPotassium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-potassium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Potassium
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (radium)
+  id: ADTReagentCanisterRadium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-radium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Radium
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (iron)
+  id: ADTReagentCanisterIron
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-iron
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Iron
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (copper)
+  id: ADTReagentCanisterCopper
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-copper
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Copper
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (gold)
+  id: ADTReagentCanisterGold
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-gold
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Gold
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (mercury)
+  id: ADTReagentCanisterMercury
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-mercury
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Mercury
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (silver)
+  id: ADTReagentCanisterSilver
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-silver
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Silver
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (ethanol)
+  id: ADTReagentCanisterEthanol
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-ethanol
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Ethanol
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (sugar)
+  id: ADTReagentCanisterSugar
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-sugar
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Sugar
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (nitrogen)
+  id: ADTReagentCanisterNitrogen
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-nitrogen
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Nitrogen
+              Quantity: 600
+
+- type: entity
+  parent: ADTReagentCanister
+  name: canister (oxygen)
+  id: ADTReagentCanisterOxygen
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-oxygen
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Oxygen
+              Quantity: 600
