@@ -2082,6 +2082,7 @@
   components:
   - type: VendingMachine
     pack: TankDispenserEVAInventory
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     state: dispenser
@@ -2095,6 +2096,7 @@
   components:
   - type: VendingMachine
     pack: TankDispenserEngineeringInventory
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     layers:
