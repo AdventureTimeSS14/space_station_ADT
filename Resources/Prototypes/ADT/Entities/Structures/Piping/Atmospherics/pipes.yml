@@ -7,6 +7,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: GasPipeStraight
@@ -17,6 +18,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: GasPipeBend
@@ -27,6 +29,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: GasPipeTJunction
@@ -37,6 +40,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: GasPipeFourway
@@ -47,3 +51,4 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True

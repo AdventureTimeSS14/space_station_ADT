@@ -6,6 +6,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalTagger
@@ -15,6 +16,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalTrunk
@@ -24,6 +26,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalRouter
@@ -33,6 +36,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalRouterFlipped
@@ -42,6 +46,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalJunction
@@ -51,6 +56,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalJunctionFlipped
@@ -60,6 +66,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalYJunction
@@ -69,6 +76,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalBend
@@ -78,6 +86,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalSignalRouter
@@ -87,6 +96,7 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
 
 - type: entity
   parent: DisposalSignalRouterFlipped
@@ -96,3 +106,4 @@
     anchored: false
   - type: Physics
     bodyType: Dynamic
+    canCollide: True
