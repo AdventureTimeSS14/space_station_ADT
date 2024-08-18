@@ -2303,3 +2303,48 @@ Entries:
         type: Add}
     time: '2024-08-17T16:33:35Z'
     id: 253
+  - author: jungarikjan
+    changes:
+      - {message: Добавлены три новых арта в лобби, type: Add}
+    time: '2024-08-17T19:55:03Z'
+    id: 254
+  - author: jungarikjan
+    changes:
+      - {message: 'Добавлены книжки СРП, КЗ и Процедур (СБ, ЮР, КОМ)', type: Add}
+      - {message: Эти же книжки добавлены в шкафы сотрудников (пока без юр. отдела),
+        type: Add}
+      - {message: Главам добавлены телескопички, type: Add}
+      - {message: 'Убран спавн книжки "Зарплаты НТ", не соответствующей лору', type: Remove}
+      - {message: Из шкафчика Капитана и холодоса в хранилище удалены кредиты, type: Remove}
+    time: '2024-08-17T21:30:59Z'
+    id: 255
+  - author: Darki255
+    changes:
+      - {message: Добавлены вещи в одеждомат, type: Add}
+    time: '2024-08-18T09:47:20Z'
+    id: 256
+  - author: PyotrIgn
+    changes:
+      - {message: Разблокирована возможность изучить все технологии 3 уровня в каждой
+          дисциплине, type: Tweak}
+    time: '2024-08-18T10:11:15Z'
+    id: 257
+  - author: Darki255
+    changes:
+      - {message: Добавлены прыжковые ботинки, type: Add}
+      - {message: Добавлены прыжковые ботинки синдиката, type: Add}
+    time: '2024-08-18T10:14:36Z'
+    id: 258
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлены канистры на 600 единиц для раздатчиков реагентов, type: Tweak}
+    time: '2024-08-18T12:12:37Z'
+    id: 259
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлено веселье!, type: Add}
+      - {message: Убрано веселье!, type: Remove}
+      - {message: Изменено веселье!, type: Tweak}
+      - {message: Исправлено веселье!, type: Fix}
+    time: '2024-08-18T13:20:05Z'
+    id: 260
