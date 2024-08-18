@@ -19,6 +19,8 @@ using Content.Shared.ADT.Phantom;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Mind;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Stunnable;
+using Content.Shared.Damage;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -33,6 +35,8 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly SharedStunSystem _sharedStun = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -46,6 +50,8 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
 
         SubscribeLocalEvent<PhantomComponent, PhantomDiedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<PhantomComponent, MindAddedMessage>(OnMindAdded);
+        SubscribeLocalEvent<PhantomComponent, PhantomLevelReachedEvent>(OnNewLevelReached);
+
         SubscribeLocalEvent<PhantomTyranyTargetComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
 
         SubscribeLocalEvent<PhantomComponent, PhantomTyranyEvent>(OnTyranyAttempt);
@@ -101,8 +107,25 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         }
     }
 
-    private void OnMobStateChanged(EntityUid uid, PhantomComponent component, PhantomDiedEvent args)
+    private void OnMobStateChanged(EntityUid uid, PhantomComponent component, ref PhantomDiedEvent args)
     {
+        foreach (var vessel in component.Vessels)
+        {
+            var stunTime = TimeSpan.FromSeconds(4);
+            RemComp<VesselComponent>(uid);
+            _sharedStun.TryParalyze(vessel, stunTime, true);
+        }
+        foreach (var cursed in component.CursedVessels)
+        {
+            var damage = new DamageSpecifier();
+            damage.DamageDict.Add("Blunt", 200);
+            damage.DamageDict.Add("Cellular", 200);
+            _damage.TryChangeDamage(cursed, damage, true);
+            RemComp<PhantomPuppetComponent>(uid);
+        }
+        if (HasComp<PhantomHolderComponent>(component.Holder))
+            RemCompDeferred<PhantomHolderComponent>(component.Holder);
+
         var ruleQuery = QueryActiveRules();
         while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
         {
@@ -113,7 +136,7 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         }
     }
 
-    private void OnTyranyAttempt(EntityUid uid, PhantomComponent component, PhantomTyranyEvent args)
+    private void OnTyranyAttempt(EntityUid uid, PhantomComponent component, ref PhantomTyranyEvent args)
     {
         var ruleQuery = QueryActiveRules();
         while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
@@ -123,7 +146,7 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         }
     }
 
-    private void OnNightmareAttempt(EntityUid uid, PhantomComponent component, PhantomNightmareEvent args)
+    private void OnNightmareAttempt(EntityUid uid, PhantomComponent component, ref PhantomNightmareEvent args)
     {
         var ruleQuery = QueryActiveRules();
         while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
@@ -133,7 +156,7 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         }
     }
 
-    private void OnReincarnation(EntityUid uid, PhantomComponent component, PhantomReincarnatedEvent args)
+    private void OnReincarnation(EntityUid uid, PhantomComponent component, ref PhantomReincarnatedEvent args)
     {
         var ruleQuery = QueryActiveRules();
         while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
@@ -155,9 +178,13 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         while (query.MoveNext(out _, out _, out var nukeops, out _))
         {
             _roles.MindAddRole(mindId, new PhantomRoleComponent { PrototypeId = "Phantom" });
-            AddObjectives(mindId, mind, nukeops);
+            var finObjective = _objectives.GetRandomObjective(mindId, mind, nukeops.FinalObjectiveGroup, 10f);
+            if (finObjective == null)
+                return;
+
+            _mind.AddObjective(mindId, mind, finObjective.Value);
             nukeops.OperativeMindPendingData.Remove(uid);
-            nukeops.PhantomMind = mindId;
+            nukeops.PhantomMind = (mindId, mind);
             _antagSelection.SendBriefing(mind.Session, Loc.GetString("phantom-welcome"), Color.BlueViolet, component.GreetSoundNotification);
 
             if (mind.Session is not { } playerSession)
@@ -165,6 +192,21 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
 
             if (GameTicker.RunLevel != GameRunLevel.InRound)
                 return;
+        }
+    }
+
+    private void OnNewLevelReached(EntityUid uid, PhantomComponent component, ref PhantomLevelReachedEvent args)
+    {
+        var ruleQuery = QueryActiveRules();
+        while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
+        {
+            var objective = _objectives.GetRandomObjective(phantom.PhantomMind.Owner, phantom.PhantomMind.Comp, phantom.ObjectiveGroup, _cfg.GetCVar(CCVars.PhantomMaxDifficulty));
+            if (objective == null)
+                continue;
+
+            _mind.AddObjective(phantom.PhantomMind.Owner, phantom.PhantomMind.Comp, objective.Value);
+            var adding = Comp<ObjectiveComponent>(objective.Value).Difficulty;
+            Log.Debug($"Added objective {ToPrettyString(objective):objective} with {adding} difficulty");
         }
     }
 
