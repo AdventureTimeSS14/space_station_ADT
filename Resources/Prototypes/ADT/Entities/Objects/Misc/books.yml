@@ -1,0 +1,295 @@
+- type: entity
+  id: BookSpaceLaw
+  parent: BaseItem
+  name: space law
+  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: KZ
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD#%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+# procedures
+# procedures
+# procedures
+
+- type: entity
+  id: ADTBookPCDsec
+  parent: BaseItem
+  name: security procedures
+  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: PCD_SEC
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D1%8B_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookPCDcmd
+  parent: BaseItem
+  name: command procedures
+  description: A set of Nanotrasen guidelines for keeping personnel order on their space stations.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: PCD_CMD
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookPCDjrd
+  parent: BaseItem
+  name: juridical procedures
+  description: A set of Nanotrasen guidelines for keeping juridical order on their space stations.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: PCD_JRD
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%8E%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+# srp
+# srp
+# srp
+
+- type: entity
+  id: ADTBookSRPcmd
+  parent: BaseItem
+  name: command procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_CMD
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookSRPcrg
+  parent: BaseItem
+  name: cargo procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_CRG
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0_%D1%81%D0%BD%D0%B0%D0%B1%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookSRPeng
+  parent: BaseItem
+  name: engineering procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_ENG
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookSRPjrd
+  parent: BaseItem
+  name: juridical procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_JRD
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%8E%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookSRPmed
+  parent: BaseItem
+  name: medical procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_MED
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookSRPrnd
+  parent: BaseItem
+  name: rnd procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_RND
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BD%D0%B0%D1%83%D1%87%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookSRPsec
+  parent: BaseItem
+  name: security procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_SEC
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0_%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D1%8B_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBookSRPsrv
+  parent: BaseItem
+  name: service procedures
+  description: A set of Nanotrasen guidelines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: CRP_SRV
+  - type: Tag
+    tags:
+    - Book
+# Corvax-HyperLink
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0 # ADT Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1

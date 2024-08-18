@@ -28,6 +28,513 @@
   description: blueshield's turtleneck
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Turtleneck/turtleneck_blueshield.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blueshield.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Turtleneck/turtleneck_blueshield.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blueshield.rsi
+
+# Водолазки. От prazat911, конечно же.
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckAquamarine
+  name: aquamarine turtleneck
+  description: Too bright!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_aquamarine.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_aquamarine.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckWhite
+  name: white turtleneck
+  description: Warm and comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckAzure
+  name: azure turtleneck
+  description: Brighter shade of blue.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_azure.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_azure.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckYellow
+  name: yellow turtleneck
+  description: Filled with happines.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_yellow.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckGreen
+  name: green turtleneck
+  description: Cheaper analog of CentComm turtleneck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_green.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBrown
+  name: brown turtleneck
+  description: -Ya know why i wear red? It hides blood well! -But that's brown color...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brown.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckRed
+  name: red turtleneck
+  description: Hides blood of clowns well!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_red.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckOrange
+  name: orange turtleneck
+  description: I don't want to talk about it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_orange.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_orange.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckPink
+  name: pink turtleneck
+  description: Who would wear this?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_pink.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_pink.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckGrey
+  name: grey turtleneck
+  description: Grey style?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBlue
+  name: blue turtleneck
+  description: Darker shade of azure.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blue.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckPurple
+  name: purple turtleneck
+  description: Feel yourself like a real scientist.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_purple.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurtleneckBlack
+  name: black turtleneck
+  description: Favourite clothes of bookworms.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_black.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckBlackSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_blacksleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_blacksleeveless.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckWhiteSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whitesleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whitesleeveless.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformTurleneckWhiteBlackSleeveless
+  name: ancient jumpsuit
+  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whiteblacksleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whiteblacksleeveless.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformNewMekka
+  name: New Mekka jumpsuit
+  description: New Mekka jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: StaticPrice
+    price: 5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+#Стильномат
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitAnarchyTshirt
+  name: black anarchy t-shirt
+  description: black anarchy t-shirt
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_anarchy.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_anarchy.rsi
+  - type: StaticPrice
+    price: 2
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDenimPants
+  name: denim pants
+  description: denim pants
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_pants.rsi
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDenim
+  name: denim jumpsuit
+  description: denim jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_jumpsuit.rsi
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitCamouflageTshirt
+  name: camouflage suit
+  description: camouflage suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/camo_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/camo_suit.rsi
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitCamouflageTshirtDesert
+  name: desert camouflage suit
+  description: desert camouflage suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/desert_camo_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/desert_camo_suit.rsi
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSerious
+  name: serious suit
+  description: serious suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/serious_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/serious_suit.rsi
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlackShirt
+  name: black shirt
+  description: An usual black shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlueShirt
+  name: blue shirt
+  description: An usual blue shirt with brown pants. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitPurpleShirt
+  name: purple shirt
+  description: An usual purple shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitRedShirt
+  name: red shirt
+  description: An usual red shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitFancyShirt
+  name: fancy shirt
+  description: I don't know how he got there...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitRedPlaidShirt
+  name: red plaid shirt
+  description: Smells like barbecue... Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitHawaiiShirt
+  name: hawaiian shirt
+  description: An ideal variant for those, who wants to look serious, but still lively as a cricket. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hawaiian_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hawaiian_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitGothicAttire
+  name: gothic attire
+  description: For those, who don't like bright colors.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gothic_attire.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/gothic_attire.rsi #спрайты от dion_clawed
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldGreySuit
+  name: old grey suit
+  description: The suit is new, but the design is outdated, considering other clothes of company "Modeling Agency Dar-Vaxed". Pretty suprising, that this suit still on sale.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_suit.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldBrownSuit
+  name: old brown suit
+  description: A carefully groomed suit. Maybe it had bright brown colours, until they came out. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_brown_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_brown_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 700
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSweatshirtBright
+  name: sweatshirt of bright personality
+  description: For those, who like bright colors.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sweatshirt_bright.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sweatshirt_bright.rsi #спрайты от dion_clawed
+  - type: StaticPrice
+    price: 700
+
+# SPACE SEC
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformCadet
+  name: space sec cadet uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_cadet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_cadet.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformPilot
+  name: space sec pilot uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_pilot.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_pilot.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformCommander
+  name: space sec commander uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_commander.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_commander.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformService
+  name: space sec service uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_service.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_service.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSpaceSecUniformOfficer
+  name: space sec officer uniform
+  description: standart space sec uniform
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_officer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_officer.rsi

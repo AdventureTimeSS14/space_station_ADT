@@ -13,10 +13,10 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Server.Revolutionary.Components;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server.Objectives.Systems;    // ADT file
 
 /// <summary>
-/// Handles kill person condition logic and picking random kill targets.
+/// Final phantom objective
 /// </summary>
 public sealed class PhantomTyranyConditionSystem : EntitySystem
 {
@@ -76,6 +76,6 @@ public sealed class PhantomTyranyConditionSystem : EntitySystem
             }
         }
 
-        return Math.Clamp(dead / commandList.Count, 0f, 1f);
+        return Math.Clamp(dead / commandList.Count, 0f, component.TyranyStarted ? 1f : 0.8f);
     }
 }
