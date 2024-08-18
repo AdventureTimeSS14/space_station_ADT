@@ -954,7 +954,7 @@
   - type: Pda
     id: CluwneIDCard
     state: pda-cluwne
-    penSlot: #офы криво кинули мелок
+    penSlot: #ADT Tweak
       startingItem: CrayonGreen
       ejectSound: /Audio/Items/bikehorn.ogg
       priority: -1
