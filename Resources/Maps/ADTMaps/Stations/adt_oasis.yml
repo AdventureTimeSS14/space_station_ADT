@@ -10111,12 +10111,12 @@ entities:
   - uid: 29035
     components:
     - type: Transform
-      pos: -3.5,-49.5
+      pos: -5.5,-49.5
       parent: 2
   - uid: 29036
     components:
     - type: Transform
-      pos: -5.5,-50.5
+      pos: -5.5,-51.5
       parent: 2
 - proto: ADTToyFigurineBlueshieldOfficer
   entities:
@@ -10131,6 +10131,18 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-27.5
+      parent: 2
+- proto: ADTVendingMachinePrazatClothing
+  entities:
+  - uid: 11835
+    components:
+    - type: Transform
+      pos: -7.5,-56.5
+      parent: 2
+  - uid: 11939
+    components:
+    - type: Transform
+      pos: -43.5,-14.5
       parent: 2
 - proto: AirAlarm
   entities:
@@ -14722,7 +14734,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11138.658
+      secondsUntilStateChange: -11230.556
       state: Opening
   - uid: 6934
     components:
@@ -14734,7 +14746,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11141.292
+      secondsUntilStateChange: -11233.189
       state: Opening
   - uid: 6935
     components:
@@ -14746,7 +14758,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11140.142
+      secondsUntilStateChange: -11232.039
       state: Opening
   - uid: 6936
     components:
@@ -14757,7 +14769,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -11139.358
+      secondsUntilStateChange: -11231.256
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -76710,15 +76722,6 @@ entities:
     - type: Transform
       pos: -46.98417,-7.2719007
       parent: 2
-- proto: ClothingNeckCloakGay
-  entities:
-  - uid: 24198
-    components:
-    - type: Transform
-      parent: 19505
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingNeckStethoscope
   entities:
   - uid: 2097
@@ -88208,6 +88211,15 @@ entities:
     - type: Transform
       pos: -53.783127,12.796899
       parent: 2
+- proto: DrinkBottleVodka
+  entities:
+  - uid: 24198
+    components:
+    - type: Transform
+      parent: 19505
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: DrinkBottleWine
   entities:
   - uid: 23355
@@ -92539,7 +92551,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2462.6384
+      secondsUntilStateChange: -2554.536
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -136625,7 +136637,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -39294.492
+      secondsUntilStateChange: -39386.387
       state: Opening
   - uid: 5211
     components:
@@ -182113,13 +182125,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: WardrobeYellowFilled
-  entities:
-  - uid: 11939
-    components:
-    - type: Transform
-      pos: -7.5,-56.5
-      parent: 2
 - proto: WarningAir
   entities:
   - uid: 8696
@@ -182245,11 +182250,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,34.5
-      parent: 2
-  - uid: 11835
-    components:
-    - type: Transform
-      pos: -43.5,-14.5
       parent: 2
   - uid: 12042
     components:
@@ -184264,7 +184264,7 @@ entities:
       pos: 24.5,2.5
       parent: 21002
     - type: Door
-      secondsUntilStateChange: -384499.1
+      secondsUntilStateChange: -384591
       state: Opening
   - uid: 28863
     components:

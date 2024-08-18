@@ -7683,6 +7683,18 @@ entities:
     - type: Transform
       pos: -24.5,-0.5
       parent: 30
+- proto: ADTVendingMachinePrazatClothing
+  entities:
+  - uid: 691
+    components:
+    - type: Transform
+      pos: -46.5,8.5
+      parent: 30
+  - uid: 20721
+    components:
+    - type: Transform
+      pos: 31.5,39.5
+      parent: 30
 - proto: AirAlarm
   entities:
   - uid: 6224
@@ -11151,7 +11163,7 @@ entities:
       pos: -20.5,-5.5
       parent: 30
     - type: Door
-      secondsUntilStateChange: -21070.674
+      secondsUntilStateChange: -21186.77
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14517,11 +14529,6 @@ entities:
     - type: Transform
       pos: -24.5,32.5
       parent: 30
-  - uid: 691
-    components:
-    - type: Transform
-      pos: -46.5,8.5
-      parent: 30
   - uid: 10249
     components:
     - type: Transform
@@ -14551,11 +14558,6 @@ entities:
     components:
     - type: Transform
       pos: 37.5,32.5
-      parent: 30
-  - uid: 20721
-    components:
-    - type: Transform
-      pos: 29.5,38.5
       parent: 30
   - uid: 20723
     components:
@@ -63744,6 +63746,14 @@ entities:
     components:
     - type: Transform
       pos: 26.5,-24.5
+      parent: 30
+- proto: GasMinerPlasma
+  entities:
+  - uid: 20720
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 26.5,-30.5
       parent: 30
 - proto: GasMinerWaterVapor
   entities:
@@ -113389,11 +113399,6 @@ entities:
     components:
     - type: Transform
       pos: 36.5,32.5
-      parent: 30
-  - uid: 20720
-    components:
-    - type: Transform
-      pos: 31.5,39.5
       parent: 30
   - uid: 20722
     components:
