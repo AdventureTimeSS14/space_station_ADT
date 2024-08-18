@@ -4,6 +4,7 @@ using Content.Shared.Roles;
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Content.Shared.Dataset;
+using Content.Shared.Mind;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
@@ -63,7 +64,7 @@ public sealed partial class PhantomRuleComponent : Component
     [DataField]
     public Dictionary<EntityUid, string> OperativeMindPendingData = new();
 
-    public EntityUid PhantomMind = new();
+    public Entity<MindComponent> PhantomMind = new();
 
     [DataField]
     public ProtoId<WeightedRandomPrototype> ObjectiveGroup = "PhantomObjectiveGroups";
