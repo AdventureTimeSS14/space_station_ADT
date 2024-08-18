@@ -96,7 +96,7 @@
   gasVisbilityFactor: 250
   color: 1c1a1a
   reagent: Zauker
-  pricePerMole: 15
+  pricePerMole: 30
 
 - type: gas
   id: 17

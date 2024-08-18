@@ -69,6 +69,11 @@
           Quantity: 9
         - ReagentId: Carbon
           Quantity: 1
+  # ADT-UPD-Start
+  - type: Tag
+    tags:
+    - ADTSteelSheet
+  # ADT-UPD-End
 
 - type: entity
   parent: SheetSteel

@@ -1,0 +1,49 @@
+- type: entity
+  parent: GasPipeHalf
+  id: ADTGasPipeHalf
+  suffix: Half
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+
+- type: entity
+  parent: GasPipeStraight
+  id: ADTGasPipeStraight
+  suffix: Straight
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+
+- type: entity
+  parent: GasPipeBend
+  id: ADTGasPipeBend
+  suffix: Bend
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+
+- type: entity
+  parent: GasPipeTJunction
+  id: ADTGasPipeTJunction
+  suffix: TJunction
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+
+- type: entity
+  parent: GasPipeFourway
+  id: ADTGasPipeFourway
+  suffix: Fourway
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic

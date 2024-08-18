@@ -13,3 +13,21 @@
         PowerCell:
           amount: 16
           defaultPrototype: PowerCellSmall
+
+- type: entity
+  id: ADTUniversalPipeDispenserCircuitboard
+  parent: BaseMachineCircuitboard
+  name: universal pipe dispenser board
+  description: A machine circuit board for a universal pipe dispenser. Exists in a single copy.
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: ADTUniversalPipeDispenser
+      stackRequirements:
+        MatterBin: 2
+        Manipulator: 2
+      tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker
