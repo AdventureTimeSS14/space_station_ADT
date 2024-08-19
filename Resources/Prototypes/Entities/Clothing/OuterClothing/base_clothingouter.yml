@@ -136,6 +136,7 @@
     - WhitelistChameleon
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: InjectorsBlocker
 
 - type: entity
   abstract: true

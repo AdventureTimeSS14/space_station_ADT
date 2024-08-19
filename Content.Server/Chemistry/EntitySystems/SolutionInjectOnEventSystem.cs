@@ -2,6 +2,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Shared.Chemistry;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -33,11 +34,31 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
     private void HandleProjectileHit(Entity<SolutionInjectOnProjectileHitComponent> entity, ref ProjectileHitEvent args)
     {
+        // ADT Injector blocking start
+        if (!entity.Comp.IgnoreBlockers)
+        {
+            var ev = new InjectAttemptEvent();
+            RaiseLocalEvent(args.Target, ev);
+            if (ev.Cancelled)
+                return;
+        }
+        // ADT Injector blocking end
+
         DoInjection((entity.Owner, entity.Comp), args.Target, args.Shooter);
     }
 
     private void HandleEmbed(Entity<SolutionInjectOnEmbedComponent> entity, ref EmbedEvent args)
     {
+        // ADT Injector blocking start
+        if (!entity.Comp.IgnoreBlockers)
+        {
+            var ev = new InjectAttemptEvent();
+            RaiseLocalEvent(args.Embedded, ev);
+            if (ev.Cancelled)
+                return;
+        }
+        // ADT Injector blocking end
+
         DoInjection((entity.Owner, entity.Comp), args.Embedded, args.Shooter);
     }
 
@@ -84,19 +105,30 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (Deleted(target))
                 continue;
 
+            // ADT Injector blocking start
+            if (!injector.Comp.IgnoreBlockers)
+            {
+                var ev = new InjectAttemptEvent();
+                RaiseLocalEvent(target, ev);
+                if (ev.Cancelled)
+                    continue;
+            }
+            // Забавно, тут уже есть что-то подобное, однако сделано ужасно костыльно. Закомменчу, пожалуй
+
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
-            {
-                // Only show popup to attacker
-                if (source != null)
-                    _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByHardsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
+            // if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
+            // {
+            //     // Only show popup to attacker
+            //     if (source != null)
+            //         _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByHardsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
 
-                continue;
-            }
+            //     continue;
+            // }
+            // ADT Injector blocking end
 
             // Check if the target has anything equipped in a slot that would block injection
-            if (injector.Comp.BlockSlots != SlotFlags.NONE)
+            if (injector.Comp.BlockSlots != SlotFlags.NONE) // Это останется, так как идёт проверка независимо от компонента блокера. Моё же делает 100% защиту
             {
                 var blocked = false;
                 var containerEnumerator = _inventory.GetSlotEnumerator(target, injector.Comp.BlockSlots);

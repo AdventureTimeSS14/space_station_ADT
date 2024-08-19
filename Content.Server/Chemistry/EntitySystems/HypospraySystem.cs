@@ -84,6 +84,14 @@ public sealed class HypospraySystem : SharedHypospraySystem
                 return false;
         }
 
+        if (!entity.Comp.IgnoreBlockers)
+        {
+            var blockerEv = new InjectAttemptEvent();
+            RaiseLocalEvent(target, blockerEv);
+            if (blockerEv.Cancelled)
+                return false;
+        }
+
         string? msgFormat = null;
 
         if (target == user)

@@ -58,6 +58,7 @@
     transferAmount: 2
     solution: melee
     blockSlots: OUTERCLOTHING
+    ignoreBlockers: true  # ADT
   - type: SolutionTransfer
     maxTransferAmount: 2
   - type: Damageable

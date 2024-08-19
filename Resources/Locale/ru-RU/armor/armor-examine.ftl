@@ -17,3 +17,6 @@ armor-damage-type-cold = Низкотемпературный
 armor-damage-type-poison = Ядовитый
 armor-damage-type-shock = Электрический
 armor-damage-type-structural = Структурный
+
+# ADT Stunmeta fix
+armor-stamina-protection-value = - [color=cyan] Стамина [/color] урон снижается на [color=lightblue]{ $value }%[/color].
