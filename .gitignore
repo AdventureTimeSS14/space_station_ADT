@@ -311,6 +311,3 @@ Resources/MapImages
 
 *.bak
 
-# Direnv stuff
-.direnv/
-/Resources/Locale/ru-RU/ADT/prototypes/Entities/Clothing/Head/hardsuit-helmets.ftl

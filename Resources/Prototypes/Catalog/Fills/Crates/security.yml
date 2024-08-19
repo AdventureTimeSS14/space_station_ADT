@@ -114,3 +114,26 @@
         amount: 4
 
 # Cosmetic Crates
+
+- type: entity
+  id: ADTCrateSecurityBrigmedic
+  parent: CrateSecgear
+  components:
+  - type: StorageFill
+    contents:
+      #- id: BrigmedicPDA
+      - id: ClothingHeadHatBeretSecurityMedic
+      - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingBackpackDuffelBrigmedic
+      - id: ClothingBackpackBrigmedic
+      - id: ClothingBackpackSatchelBrigmedic
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ClothingHeadsetBrigmedic
+      - id: ClothingOuterCoatAMG
+      - id: ClothingOuterHardsuitBrigmedic
+      - id: ClothingUniformJumpskirtOfLife
+      - id: ClothingHeadHelmetSecurityMedic
+      - id: WeaponDisabler
+      - id: MedkitCombatFilled
+      - id: MedkitAdvancedFilled

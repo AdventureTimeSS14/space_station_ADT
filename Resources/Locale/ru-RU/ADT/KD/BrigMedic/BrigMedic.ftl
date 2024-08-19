@@ -1,12 +1,12 @@
-ent-ClothingHeadsetADTBrigMedic = гарнитура бриг медика
+ent-ClothingHeadsetADTBrigMedic = гарнитура бригмедика
     .desc = гарнитура с допуском и к СБ и меду
     .suffix = { "" }
-ent-ADTBrigMedicPDA = КПК бриг медика
+ent-ADTBrigMedicPDA = КПК бригмедика
     .desc = КПК бриг медика
     .suffix = { "" }
-ent-ADTBrigMedicIDCard = ID карта бриг медика
+ent-ADTBrigMedicIDCard = ID карта бригмедика
     .desc = ID карта бриг медика
     .suffix = { "" }
-ent-SpawnADTBrigMedic = спавн бриг медика
-    .desc = спавн бриг медика
+ent-SpawnADTBrigMedic = спавн бригмедика
+    .desc = спавн бригмедика
     .suffix = { "" }
