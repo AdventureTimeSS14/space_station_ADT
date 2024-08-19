@@ -1,0 +1,36 @@
+- type: entity
+  id: ActionJumpboots
+  name: action-jump
+  description: action-jump-desc
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    useDelay: 45
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: ADT/Clothing/Shoes/Boots/jumpboots.rsi
+      state: icon
+    event: !type:JumpbootsActionEvent
+
+
+- type: entity
+  id: ActionJumpbootsSynd
+  name: action-jump
+  description: action-jump-desc
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    useDelay: 15
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
+      state: icon
+    event: !type:JumpbootsActionEvent

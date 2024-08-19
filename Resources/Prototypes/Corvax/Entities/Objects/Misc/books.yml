@@ -3,7 +3,7 @@
   id: BookLoreBase
   abstract: true
   name: Лорные книги
-  description: Данные книги содержат в себе лор Корвакса.
+  description: Данные книги содержат в себе лор.
   components:
     - type: Sprite
       sprite: Corvax/Objects/Misc/books.rsi

@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Crawling;
+namespace Content.Shared.ADT.Crawling;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(CrawlingSystem))]
 public sealed partial class CrawlingComponent : Component

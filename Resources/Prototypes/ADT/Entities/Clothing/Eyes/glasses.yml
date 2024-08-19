@@ -14,13 +14,19 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - HudMedical
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesPink
+  name: pink glasses
+  description: Don't notice the flaws of this world.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi #спрайты от dion_clawed
+  - type: StaticPrice
+    price: 200
 
 - type: entity
   parent: ClothingEyesBase

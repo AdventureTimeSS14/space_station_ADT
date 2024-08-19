@@ -8,7 +8,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Content.Shared.ADT.Phantom.Components;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server.Objectives.Systems;    // ADT file
 
 /// <summary>
 /// Handles kill person condition logic and picking random kill targets.
@@ -59,9 +59,31 @@ public sealed class KillPhantomImmunePersonConditionSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
+        var resultList = new List<EntityUid>();
 
-        var pickedTarget = _random.Pick(allHumans);
-        EnsureComp<PhantomImmuneComponent>(pickedTarget);
+        foreach (var item in allHumans) // Don't pick heads because they may be tyrany targets
+        {
+            if (_job.MindTryGetJob(item, out _, out var prototype) && prototype.RequireAdminNotify) // Why is it named RequireAdminNotify? Anyway, this checks if this mind is a command staff
+                continue;
+            if (TryComp<MindComponent>(item, out var mindComponent))
+            {
+                if (HasComp<VesselComponent>(mindComponent.OwnedEntity) ||
+                    HasComp<PhantomPuppetComponent>(mindComponent.OwnedEntity) ||
+                    HasComp<PhantomHolderComponent>(mindComponent.OwnedEntity))
+                    continue;
+            }
+            resultList.Add(item);
+        }
+        if (resultList.Count <= 0)
+        {
+            args.Cancelled = true;
+            return;
+        }
+        var pickedTarget = _random.Pick(resultList);
+
+        if (TryComp<MindComponent>(pickedTarget, out var mind) && mind.OwnedEntity != null)
+            EnsureComp<PhantomImmuneComponent>(mind.OwnedEntity.Value);
+
         _target.SetTarget(uid, pickedTarget, target);
 
     }

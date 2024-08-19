@@ -34,6 +34,33 @@
         Piercing: 0.7
         Heat: 0.85
 
+#толстовки-топки от Празата
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterGraySweatshirtTop
+  name: gray sweatshirt-top
+  description: gray sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterBlackSweatshirtTop
+  name: black sweatshirt-top
+  description: black sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 800
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterCoatBrigmedicWB

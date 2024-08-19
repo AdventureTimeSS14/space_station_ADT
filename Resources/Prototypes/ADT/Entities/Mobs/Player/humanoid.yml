@@ -455,3 +455,205 @@
       - ADTCmndNamesFirstMilitary
       - NamesLastERTCallsign  # Corvax Localization
 # end Капитан РХБЗЗ
+
+# SPACE SEC
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecCadet
+  name: Space Sec Cadet
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecCadet ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Cadet
+  id: ADTRandomHumanoidSpawnerSpaceSecCadet
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecCadet
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecCadet
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecCadet ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecOfficer
+  name: Space Sec Officer
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecOfficer ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Officer
+  id: ADTRandomHumanoidSpawnerSpaceSecOfficer
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecOfficer
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecOfficer
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecOfficer ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecPilot
+  name: Space Sec Pilot
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecPilot ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Pilot
+  id: ADTRandomHumanoidSpawnerSpaceSecPilot
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecPilot
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecPilot
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecPilot ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecCommander
+  name: Space Sec Commander
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecCommander ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Commander
+  id: ADTRandomHumanoidSpawnerSpaceSecCommander
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecCommander
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecCommander
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecCommander ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecService
+  name: Space Sec Service
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecService ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Service
+  id: ADTRandomHumanoidSpawnerSpaceSecService
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecService
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecService
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecService ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
