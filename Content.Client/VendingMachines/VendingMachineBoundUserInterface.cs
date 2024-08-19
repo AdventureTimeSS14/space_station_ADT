@@ -39,7 +39,7 @@ namespace Content.Client.VendingMachines
             _menu.OnSearchChanged += OnSearchChanged;
             _menu.OnWithdraw += SendMessage; //ADT-Economy
 
-            _menu.Populate(_cachedInventory, out _cachedFilteredIndex, component.PriceMultiplier, component.Credits); //ADT-Economy
+            _menu.Populate(Owner, _cachedInventory, out _cachedFilteredIndex, component.PriceMultiplier, component.Credits); //ADT-Economy
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -51,7 +51,7 @@ namespace Content.Client.VendingMachines
 
             _cachedInventory = newState.Inventory;
 
-            _menu?.Populate(_cachedInventory, out _cachedFilteredIndex, newState.PriceMultiplier, newState.Credits); //ADT-Economy
+            _menu?.Populate(Owner, _cachedInventory, out _cachedFilteredIndex, newState.PriceMultiplier, newState.Credits, _menu.SearchBar.Text); //ADT-Economy
         }
 
         private void OnItemSelected(ItemList.ItemListSelectedEventArgs args)
@@ -85,7 +85,7 @@ namespace Content.Client.VendingMachines
         {
             //ADT-Economy-Start
             var component = EntMan.GetComponent<VendingMachineComponent>(Owner);
-            _menu?.Populate(_cachedInventory, out _cachedFilteredIndex, component.PriceMultiplier, component.Credits, filter);
+            _menu?.Populate(Owner, _cachedInventory, out _cachedFilteredIndex, component.PriceMultiplier, component.Credits, filter);
             //ADT-Economy-End
         }
     }

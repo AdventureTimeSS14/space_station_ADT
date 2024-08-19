@@ -5,6 +5,7 @@
     Captain: 800
     Magistrat: 800
     CentralCommandOfficial: 800
+    IAA: 600
     ChiefEngineer: 600
     ChiefMedicalOfficer: 600
     HeadOfPersonnel: 600
@@ -39,6 +40,7 @@
     SecurityCadet: 200
     SecurityOfficer: 300
     Detective: 400
+    Pilot: 400
     Warden: 500
     ADTPathologist: 400
     ADTRoboticist: 400

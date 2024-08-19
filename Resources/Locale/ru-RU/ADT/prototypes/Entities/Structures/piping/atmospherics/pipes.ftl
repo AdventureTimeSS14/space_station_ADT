@@ -1,0 +1,15 @@
+ent-ADTGasPipeHalf = { ent-GasPipeBase }
+    .suffix = Половинная
+    .desc = { ent-GasPipeBase.desc }
+ent-ADTGasPipeStraight = { ent-GasPipeBase }
+    .suffix = Прямая
+    .desc = { ent-GasPipeBase.desc }
+ent-ADTGasPipeBend = { ent-GasPipeBase }
+    .suffix = Угловая
+    .desc = { ent-GasPipeBase.desc }
+ent-ADTGasPipeTJunction = { ent-GasPipeBase }
+    .suffix = Т-образная
+    .desc = { ent-GasPipeBase.desc }
+ent-ADTGasPipeFourway = { ent-GasPipeBase }
+    .suffix = Четверная
+    .desc = { ent-GasPipeBase.desc }
