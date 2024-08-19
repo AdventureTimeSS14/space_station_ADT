@@ -73,6 +73,8 @@
   - type: Tag
     tags:
     - ADTSteelSheet
+    - Sheet
+    - Metal
   # ADT-UPD-End
 
 - type: entity
