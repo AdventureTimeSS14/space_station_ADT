@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White;
+namespace Content.Shared.ADT;
 
 /// <summary>
 /// This is a prototype for...
