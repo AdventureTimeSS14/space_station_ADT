@@ -16,6 +16,10 @@ using Robust.Shared.Random;
 using Content.Shared.Examine;
 using Content.Server.Actions;
 using Content.Server.Station.Systems;
+using Content.Shared.Alert;
+using Robust.Shared.Prototypes;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Pulling.Components;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -30,6 +34,9 @@ public sealed partial class ShadekinSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly AlertsSystem _alert = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     public override void Initialize()
     {
@@ -39,6 +46,8 @@ public sealed partial class ShadekinSystem : EntitySystem
         SubscribeLocalEvent<ShadekinComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnMapInit);
         SubscribeLocalEvent<ShadekinComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<ShadekinComponent, HumanoidProfileLoadedEvent>(OnProfileLoaded);
     }
 
     public override void Update(float frameTime)
@@ -52,7 +61,7 @@ public sealed partial class ShadekinSystem : EntitySystem
                 continue;
             if (comp.Blackeye)
                 continue;
-
+            _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
             comp.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
 
             if (comp.PowerLevel >= comp.PowerLevelMax)
@@ -77,12 +86,30 @@ public sealed partial class ShadekinSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ShadekinComponent comp, ComponentInit args)
     {
-        _action.AddAction(uid, ref comp.ActionEntity, comp.ActionProto);
+        _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
     }
 
     private void OnShutdown(EntityUid uid, ShadekinComponent comp, ComponentShutdown args)
     {
-        _action.RemoveAction(uid, comp.ActionEntity);
+        _alert.ClearAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"));
+        if (comp.ActionEntity != null)
+            _action.RemoveAction(uid, comp.ActionEntity);
+    }
+
+    private void OnProfileLoaded(EntityUid uid, ShadekinComponent comp, ref HumanoidProfileLoadedEvent args)
+    {
+        // if ( // Оно очень странно получается, работает только при позднем подключении
+        //     args.Profile.Appearance.EyeColor.B < 100f &&
+        //     args.Profile.Appearance.EyeColor.R < 100f &&
+        //     args.Profile.Appearance.EyeColor.G < 100f)
+        // {
+        //     comp.Blackeye = true;
+        //     comp.PowerLevelGainEnabled = false;
+        //     comp.PowerLevel = 0f;
+        //     return;
+        // }
+        _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
+        _action.AddAction(uid, ref comp.ActionEntity, comp.ActionProto);
     }
 
     private void OnTeleport(EntityUid uid, ShadekinComponent comp, ShadekinTeleportActionEvent args)
@@ -91,9 +118,11 @@ public sealed partial class ShadekinSystem : EntitySystem
             return;
         // if (_interaction.InRangeUnobstructed(uid, args.Target, -1f))
         //     return;
-        if (!TryUseAbility(uid, 40))
+        if (!TryUseAbility(uid, 50))
             return;
         args.Handled = true;
+        if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+            _pulling.TryStopPull(puller.Pulling.Value, pullable);
         _transform.SetCoordinates(uid, args.Target);
         _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
         _audio.PlayPvs("/Audio/ADT/Shadekin/shadekin-transition.ogg", uid);
@@ -132,6 +161,9 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (_interaction.InRangeUnobstructed(uid, newCoords, -1f))
             {
                 TryUseAbility(uid, 40, false);
+                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                    _pulling.TryStopPull(puller.Pulling.Value, pullable);
+                _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
                 _transform.SetCoordinates(uid, newCoords);
                 _transform.AttachToGridOrMap(uid, Transform(uid));
                 _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
@@ -153,6 +185,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             return false;
         }
         comp.PowerLevel -= cost.Float();
+        _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
         return true;
     }
 
@@ -170,7 +203,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             humanoid.EyeColor = Color.Black;
             Dirty(uid, humanoid);
         }
-
+        _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 5));
         _action.RemoveAction(comp.ActionEntity);
     }
 }

@@ -6,9 +6,10 @@
   components:
   - type: WorldTargetAction
     icon:
-      sprite: ADT/Interface/Actions/actions_phantom.rsi
-      state: transition
+      sprite: ADT/Interface/Actions/shadekin.rsi
+      state: teleport
     itemIconStyle: BigAction
     event: !type:ShadekinTeleportActionEvent
     range: 7
     deselectOnMiss: false
+    useDelay: 8

@@ -70,13 +70,13 @@
           - MobMask
         layer:
           - MobLayer
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 0.0
-    damageRecovery:
-      types:
-        Asphyxiation: 0.0
+  # - type: Respirator  # Зачем.
+  #   damage:
+  #     types:
+  #       Asphyxiation: 0.0
+  #   damageRecovery:
+  #     types:
+  #       Asphyxiation: 0.0
   - type: Sprite
     scale: 0.95, 0.95
   - type: MeleeWeapon
