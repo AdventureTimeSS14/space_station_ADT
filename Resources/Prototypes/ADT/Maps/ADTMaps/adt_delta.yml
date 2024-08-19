@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Delta
   mapName: 'Delta Station'
-  mapPath: /Maps/ADTmaps/Stations/adt_delta.yml
+  mapPath: /Maps/ADTMaps/Stations/adt_delta.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 40
