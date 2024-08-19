@@ -29,6 +29,8 @@ namespace Content.Shared.Mind
         [DataField, AutoNetworkedField]
         public List<EntityUid> Objectives = new();
 
+        internal readonly HashSet<Memory> Memories = new(); //ADT-Economy
+
         /// <summary>
         ///     The session ID of the player owning this mind.
         /// </summary>
@@ -63,6 +65,21 @@ namespace Content.Shared.Mind
 
         [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
         public string? CharacterName { get; set; }
+        
+        //ADT-Economy-Start
+        [ViewVariables]
+        public IEnumerable<Memory> AllMemories => Memories;
+
+        public void AddMemory(Memory memory)
+        {
+            if (Memories.Contains(memory))
+            {
+                return;
+            }
+
+            Memories.Add(memory);
+        }
+        //ADT-Economy-End
 
         /// <summary>
         ///     The time of death for this Mind.

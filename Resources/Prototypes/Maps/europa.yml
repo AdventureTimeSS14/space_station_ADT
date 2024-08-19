@@ -17,8 +17,6 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_transit.yml
         - type: StationJobs
           availableJobs:
             #service
@@ -27,7 +25,6 @@
             Chef: [ 1, 1 ]
             Janitor: [ 2, 2 ]
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ] # Corvax-IAA
             HeadOfPersonnel: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
@@ -64,3 +61,5 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
+            # Юрдеп
+            Lawyer: [ 1, 1 ]

@@ -1,5 +1,5 @@
 using System.Text.Json.Nodes;
-using Content.Corvax.Interfaces.Server;
+using Content.Server.Corvax.JoinQueue;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Robust.Server.ServerStatus;
@@ -24,6 +24,7 @@ namespace Content.Server.GameTicking
         ///     For access to CVars in status responses.
         /// </summary>
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly JoinQueueManager _queueManager = default!; // Corvax-Queue
         /// <summary>
         ///     For access to the round ID in status responses.
         /// </summary>
@@ -41,18 +42,18 @@ namespace Content.Server.GameTicking
             // This method is raised from another thread, so this better be thread safe!
             lock (_statusShellLock)
             {
-                // Corvax-Queue-Start
-                var players = IoCManager.Instance?.TryResolveType<IServerJoinQueueManager>(out var joinQueueManager) ?? false
-                    ? joinQueueManager.ActualPlayersCount
-                    : _playerManager.PlayerCount;
-                // Corvax-Queue-End
-
                 jObject["name"] = _baseServer.ServerName;
+                jObject["players"] = _queueManager.ActualPlayersCount;
                 jObject["map"] = _gameMapManager.GetSelectedMap()?.MapName;
                 jObject["round_id"] = _gameTicker.RoundId;
-                jObject["players"] = players; // Corvax-Queue
                 jObject["soft_max_players"] = _cfg.GetCVar(CCVars.SoftMaxPlayers);
                 jObject["panic_bunker"] = _cfg.GetCVar(CCVars.PanicBunkerEnabled);
+
+                /*
+                 * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
+                 */
+
+                jObject["baby_jail"] = _cfg.GetCVar(CCVars.BabyJailEnabled);
                 jObject["run_level"] = (int) _runLevel;
                 if (preset != null)
                     jObject["preset"] = Loc.GetString(preset.ModeTitle);

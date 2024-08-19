@@ -16,6 +16,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Station.Components;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
@@ -30,8 +31,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] NoSpawnMaps =
         {
             "CentComm",
-            "Dart",
-            "NukieOutpost"
+            "Dart"
         };
 
         private static readonly string[] Grids =
@@ -70,7 +70,6 @@ namespace Content.IntegrationTests.Tests
             "Bagel",
             "Origin",
             "CentComm",
-            "NukieOutpost",
             "Box",
             "Europa",
             "Saltern",
@@ -80,7 +79,24 @@ namespace Content.IntegrationTests.Tests
             "Atlas",
             "Reach",
             "Train",
-            "Oasis"
+            "Oasis",
+            // ADT-Start
+            "ADT_Astra",
+            "ADT_Avrit",
+            "ADT_Bagel",
+            "ADT_Box",
+            "ADT_Cluster",
+            "ADT_Core",
+            "ADT_Fland",
+            "ADT_Delta",
+            "ADT_Marathon",
+            "ADT_Meta",
+            "ADT_Oasis",
+            "ADT_Origin",
+            "ADT_Saltern",
+            "ADT_Packed",
+            "ADT_Train"
+            // ADT-End
         };
 
         /// <summary>

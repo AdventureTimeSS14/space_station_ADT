@@ -1,0 +1,244 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:lunalita",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "braid",
+            "directions": 4
+        },
+        {
+            "name": "comet",
+            "directions": 4
+        },
+        {
+            "name": "constellation",
+            "directions": 4
+        },
+        {
+            "name": "crack",
+            "directions": 4
+        },
+        {
+            "name": "cross",
+            "directions": 4
+        },
+        {
+            "name": "crucifix",
+            "directions": 4
+        },
+        {
+            "name": "dual",
+            "directions": 4
+        },
+        {
+            "name": "duality",
+            "directions": 4
+        },
+        {
+            "name": "eye",
+            "directions": 4
+        },
+        {
+            "name": "fame",
+            "directions": 4
+        },
+        {
+            "name": "gas_cloud",
+            "directions": 4
+        },
+        {
+            "name": "gaseous_avalanche",
+            "directions": 4
+        },
+        {
+            "name": "h",
+            "directions": 4
+        },
+        {
+            "name": "heart",
+            "directions": 4
+        },
+        {
+            "name": "indicator",
+            "directions": 4
+        },
+        {
+            "name": "light_shine",
+            "directions": 4
+        },
+        {
+            "name": "little_light_starshine",
+            "directions": 4
+        },
+        {
+            "name": "little_star",
+            "directions": 4
+        },
+        {
+            "name": "lunar_day",
+            "directions": 4
+        },
+        {
+            "name": "meteoric_shower",
+            "directions": 4
+        },
+        {
+            "name": "milky_way",
+            "directions": 4
+        },
+        {
+            "name": "Nebula",
+            "directions": 4
+        },
+        {
+            "name": "note",
+            "directions": 4
+        },
+        {
+            "name": "prism",
+            "directions": 4
+        },
+        {
+            "name": "rune",
+            "directions": 4
+        },
+        {
+            "name": "solar_corona",
+            "directions": 4
+        },
+        {
+            "name": "squad",
+            "directions": 4
+        },
+        {
+            "name": "star_rain",
+            "directions": 4
+        },
+        {
+            "name": "starfall",
+            "directions": 4
+        },
+        {
+            "name": "starfire",
+            "directions": 4
+        },
+        {
+            "name": "sunshine",
+            "directions": 4
+        },
+        {
+            "name": "supernova",
+            "directions": 4
+        },
+        {
+            "name": "thrill",
+            "directions": 4
+        },
+        {
+            "name": "triple",
+            "directions": 4
+        },
+        {
+            "name": "uncrucifix",
+            "directions": 4
+        },
+        {
+            "name": "universal_style",
+            "directions": 4
+        },
+        {
+            "name": "virgo",
+            "directions": 4
+        },
+        {
+            "name": "x",
+            "directions": 4
+        }
+        ,
+        {
+            "name": "ye",
+            "directions": 4
+        },
+        {
+            "name": "zeta",
+            "directions": 4
+        },
+        {
+            "name": "head_novakid_defolt",
+            "directions": 4
+        },
+        {
+            "name": "torso_novakid_defolt",
+            "directions": 4
+        },
+        {
+            "name": "cone_a",
+            "directions": 4
+        },
+        {
+            "name": "connect_a",
+            "directions": 4
+        },
+        {
+            "name": "dot_a",
+            "directions": 4
+        },
+        {
+            "name": "dotline_a",
+            "directions": 4
+        },
+        {
+            "name": "G_a",
+            "directions": 4
+        },
+        {
+            "name": "house",
+            "directions": 4
+        },
+        {
+            "name": "K",
+            "directions": 4
+        },
+        {
+            "name": "lima-a",
+            "directions": 4
+        },
+        {
+            "name": "linedot_a",
+            "directions": 4
+        },
+        {
+            "name": "omega_a",
+            "directions": 4
+        },
+        {
+            "name": "plus",
+            "directions": 4
+        },
+        {
+            "name": "rose",
+            "directions": 4
+        },
+        {
+            "name": "shatter_a",
+            "directions": 4
+        },
+        {
+            "name": "star_a",
+            "directions": 4
+        },
+        {
+            "name": "two-a",
+            "directions": 4
+        },
+        {
+            "name": "eyes_a",
+            "directions": 4
+        }
+    ]
+}

@@ -36,6 +36,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: ChiefEngineerGear
@@ -47,3 +48,4 @@
   storage:
     back:
     - Flash
+    - ADTtelescopicBaton #ADT-CustomADTLoadout

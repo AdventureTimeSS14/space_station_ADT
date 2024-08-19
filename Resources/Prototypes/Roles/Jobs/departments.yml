@@ -22,7 +22,6 @@
   - Clown
   - HeadOfPersonnel
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
@@ -38,7 +37,6 @@
   color: "#334E6D"
   roles:
   - Captain
-  - IAA # Corvax-IAA
   - CentralCommandOfficial
   - ChiefEngineer
   - ChiefMedicalOfficer
@@ -46,6 +44,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  - ADTBlueShieldOfficer # ADT-Roles
   primary: false
   weight: 100
 
@@ -70,6 +69,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - ADTPathologist
 
 - type: department
   id: Security
@@ -92,6 +92,7 @@
   - ResearchDirector
   - Scientist
   - ResearchAssistant
+  - ADTRoboticist # ADT-Roles
 
 - type: department
   id: Specific

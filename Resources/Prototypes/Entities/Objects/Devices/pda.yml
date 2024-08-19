@@ -75,6 +75,7 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - ADTWalletCartridge # ADT-Economy
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -109,6 +110,9 @@
   id: BaseMedicalPDA
   abstract: true
   components:
+  - type: ItemToggle
+    toggleLight: false
+    onUse: false
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
@@ -254,9 +258,7 @@
     borderColor: "#C18199"
   - type: Icon
     state: pda-clown
-  - type: Slippery
-    paralyzeTime: 4
-    launchForwardsMultiplier: 1.5
+  - type: Slippery # secretly made of bananium
   - type: StepTrigger
   - type: CollisionWake
     enabled: false
@@ -952,17 +954,17 @@
   - type: Pda
     id: CluwneIDCard
     state: pda-cluwne
-  - type: PdaBorderColor
-    borderColor: "#1c8f4d"
-  - type: Icon
-    state: pda-cluwne
-    penSlot:
+    penSlot: #ADT Tweak
       startingItem: CrayonGreen
       ejectSound: /Audio/Items/bikehorn.ogg
       priority: -1
       whitelist:
         tags:
         - Write
+  - type: PdaBorderColor
+    borderColor: "#1c8f4d"
+  - type: Icon
+    state: pda-cluwne
   - type: Unremoveable
 
 - type: entity

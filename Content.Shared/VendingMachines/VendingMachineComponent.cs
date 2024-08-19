@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -187,6 +188,30 @@ namespace Content.Shared.VendingMachines
         [DataField("loopDeny")]
         public bool LoopDenyAnimation = true;
         #endregion
+
+        //ADT-Economy-Start
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public double PriceMultiplier = 0.25;
+
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public bool AllForFree = false;
+
+        public ProtoId<StackPrototype> CreditStackPrototype = "Credit";
+
+        [DataField]
+        public string CurrencyType = "SpaceCash";
+
+        [DataField]
+        public SoundSpecifier SoundInsertCurrency =
+            new SoundPathSpecifier("/Audio/ADT/Machines/polaroid2.ogg");
+
+        [DataField]
+        public SoundSpecifier SoundWithdrawCurrency =
+            new SoundPathSpecifier("/Audio/ADT/Machines/polaroid1.ogg");
+
+        [ViewVariables]
+        public int Credits;
+        //ADT-Economy-End
     }
 
     [Serializable, NetSerializable]
@@ -198,11 +223,15 @@ namespace Content.Shared.VendingMachines
         public string ID;
         [ViewVariables(VVAccess.ReadWrite)]
         public uint Amount;
-        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount)
+        [ViewVariables(VVAccess.ReadWrite)] //ADT-Economy
+        public int Price; //ADT-Economy
+
+        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, int price)
         {
             Type = type;
             ID = id;
             Amount = amount;
+            Price = price; //ADT-Economy
         }
     }
 

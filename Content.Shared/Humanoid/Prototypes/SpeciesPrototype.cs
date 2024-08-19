@@ -144,4 +144,5 @@ public enum SpeciesNaming : byte
     FirstDashFirstDashFirst,
     // ADT End tweak
     TheFirstofLast,
+    FirstDashLast, // Parkstation-IPC
 }

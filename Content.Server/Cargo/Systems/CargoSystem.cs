@@ -1,6 +1,8 @@
+using Content.Server.ADT.Economy; //ADT-Economy
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.GameTicking; //ADT-Economy
 using Content.Server.Paper;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Systems;
@@ -44,6 +46,9 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly GameTicker _ticker = default!; //ADT-Economy
+    [Dependency] private readonly BankCardSystem _bankCard = default!; //ADT-Economy
+
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
@@ -67,7 +72,18 @@ public sealed partial class CargoSystem : SharedCargoSystem
         InitializeShuttle();
         InitializeTelepad();
         InitializeBounty();
+
+        SubscribeLocalEvent<StationBankAccountComponent, ComponentInit>(OnInit); //ADT-Economy
     }
+
+    //ADT-Economy-Start
+    private void OnInit(EntityUid uid, StationBankAccountComponent component, ComponentInit args)
+    {
+        component.BankAccount = _bankCard.CreateAccount(default, 2000);
+        component.BankAccount.CommandBudgetAccount = true;
+        component.BankAccount.Name = Loc.GetString("command-budget");
+    }
+    //ADT-Economy-End
 
     public override void Update(float frameTime)
     {
@@ -81,18 +97,18 @@ public sealed partial class CargoSystem : SharedCargoSystem
     public void UpdateBankAccount(EntityUid uid, StationBankAccountComponent component, int balanceAdded)
     {
         component.Balance += balanceAdded;
-        var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
+        var query = EntityQueryEnumerator<BankClientComponent, TransformComponent>();
 
-        while (query.MoveNext(out var oUid, out var _))
+        var ev = new BankBalanceUpdatedEvent(uid, component.Balance);
+        while (query.MoveNext(out var client, out var comp, out var xform))
         {
-            if (!_uiSystem.IsUiOpen(oUid, CargoConsoleUiKey.Orders))
-                continue;
-
-            var station = _station.GetOwningStation(oUid);
+            var station = _station.GetOwningStation(client, xform);
             if (station != uid)
                 continue;
 
-            UpdateOrderState(oUid, station);
+            comp.Balance = component.Balance;
+            Dirty(client, comp);
+            RaiseLocalEvent(client, ref ev);
         }
     }
 }

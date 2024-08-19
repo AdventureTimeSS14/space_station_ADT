@@ -1,0 +1,23 @@
+- type: radioChannel
+  id: ADTLawyerChannel
+  name: ADT-Lawyer-Channel-name
+  keycode: 'ю'
+  frequency: 1305
+  color: "#c6d2f5"
+  longRange: false
+
+- type: radioChannel
+  id: ADTSpaceSecChannel
+  name: ADT-SpaceSec-Channel-name
+  keycode: 'у'
+  frequency: 1302
+  color: "#c8c3c0"
+  longRange: true
+
+- type: radioChannel
+  id: ADTDroneAntagChannel
+  name: ADT-DroneAntag-Channel-name
+  keycode: 'й'
+  frequency: 1301
+  color: "#690e0e"
+  longRange: true

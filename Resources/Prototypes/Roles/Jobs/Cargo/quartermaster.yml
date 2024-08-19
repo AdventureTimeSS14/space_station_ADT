@@ -34,6 +34,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: QuartermasterGear
@@ -45,3 +46,4 @@
   storage:
     back:
     - Flash
+    - ADTtelescopicBaton #ADT-CustomADTLoadout

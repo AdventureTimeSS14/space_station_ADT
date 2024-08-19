@@ -1,0 +1,5 @@
+- type: speechBark
+  id: GhostRadio
+  name: bark-ghost-radio-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/noise-bark.ogg
+  roundStart: false

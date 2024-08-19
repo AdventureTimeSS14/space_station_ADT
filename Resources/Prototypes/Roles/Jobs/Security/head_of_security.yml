@@ -38,6 +38,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: HoSGear
@@ -51,3 +52,5 @@
     back:
     - Flash
     - MagazinePistol
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
+

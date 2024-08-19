@@ -94,8 +94,8 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public object? ProductEvent;
 
-    [DataField]
-    public bool RaiseProductEventOnUser;
+    [DataField("raiseOnBuyer")]
+    public bool RaiseProductEventOnUser = false;    // adt типо
 
     /// <summary>
     /// used internally for tracking how many times an item was purchased.
@@ -164,6 +164,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
+            RaiseProductEventOnUser = RaiseProductEventOnUser,  // ADT fix
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
         };

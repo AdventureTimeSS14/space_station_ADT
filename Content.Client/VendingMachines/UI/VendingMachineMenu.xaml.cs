@@ -17,10 +17,9 @@ namespace Content.Client.VendingMachines.UI
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
 
         private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
-
+        public Action<VendingMachineWithdrawMessage>? OnWithdraw; //ADT-Economy
         public event Action<ItemList.ItemListSelectedEventArgs>? OnItemSelected;
         public event Action<string>? OnSearchChanged;
 
@@ -62,8 +61,19 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory, out List<int> filteredInventory,  string? filter = null)
+        public void Populate(EntityUid entityUid, List<VendingMachineInventoryEntry> inventory, out List<int> filteredInventory, double priceMultiplier, int credits, string? filter = null) //ADT-Economy
         {
+            //ADT-Economy-Start
+            CreditsLabel.Text = Loc.GetString("vending-ui-credits-amount", ("credits", credits));
+            WithdrawButton.Disabled = credits == 0;
+            WithdrawButton.OnPressed += _ =>
+            {
+                if (credits == 0)
+                    return;
+                OnWithdraw?.Invoke(new VendingMachineWithdrawMessage());
+            };
+            var vendComp = _entityManager.GetComponent<VendingMachineComponent>(entityUid); //ADT-Economy
+            //ADT-Economy-End
             filteredInventory = new();
 
             if (inventory.Count == 0)
@@ -100,6 +110,18 @@ namespace Content.Client.VendingMachines.UI
                     _dummies.Add(entry.ID, dummy);
                 }
 
+                //ADT-Economy-Start
+                var price = 0;
+                if (!vendComp.AllForFree)
+                {
+                    price = (int)(entry.Price * priceMultiplier);
+                }
+                else
+                {
+                    price = 0; // Это работает только если заспавненный вендомат уже был с этим значением. Спасибо визардам и их bounduserinterface емае.
+                }
+                //ADT-Economy-Start
+
                 var itemName = Identity.Name(dummy, _entityManager);
                 Texture? icon = null;
                 if (_prototypeManager.TryIndex<EntityPrototype>(entry.ID, out var prototype))
@@ -119,7 +141,7 @@ namespace Content.Client.VendingMachines.UI
                 if (itemName.Length > longestEntry.Length)
                     longestEntry = itemName;
 
-                vendingItem.Text = $"{itemName} [{entry.Amount}]";
+                vendingItem.Text = $"[{price}$] {itemName} [{entry.Amount}]"; //ADT-Economy
                 vendingItem.Icon = icon;
                 filteredInventory.Add(i);
             }

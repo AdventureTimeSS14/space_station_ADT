@@ -94,8 +94,13 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RCD
-      - id: RCDAmmo
+  # ADT-RPD-Start
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+  # ADT-RPD-End
+    # ADT-WikiBooks-Start
+      - id: ADTBookSRPeng
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -110,8 +115,13 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RCD
-      - id: RCDAmmo
+  # ADT-RPD-Start
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+  # ADT-RPD-End
+    # ADT-WikiBooks-Start
+      - id: ADTBookSRPeng
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -126,6 +136,9 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
+    # ADT-WikiBooks-Start
+      - id: ADTBookSRPeng
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerEngineerFilled
@@ -139,6 +152,9 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
+    # ADT-WikiBooks-Start
+      - id: ADTBookSRPeng
+    # ADT-WikiBooks-End
 
 - type: entity
   id: ClosetRadiationSuitFilled

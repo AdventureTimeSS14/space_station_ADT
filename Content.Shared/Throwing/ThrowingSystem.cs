@@ -26,11 +26,6 @@ public sealed class ThrowingSystem : EntitySystem
 
     public const float PushbackDefault = 2f;
 
-    /// <summary>
-    /// The minimum amount of time an entity needs to be thrown before the timer can be run.
-    /// Anything below this threshold never enters the air.
-    /// </summary>
-    public const float MinFlyTime = 0.15f;
     public const float FlyTimePercentage = 0.8f;
 
     private float _frictionModifier;
@@ -168,9 +163,6 @@ public sealed class ThrowingSystem : EntitySystem
         var flyTime = direction.Length() / baseThrowSpeed;
         if (compensateFriction)
             flyTime *= FlyTimePercentage;
-
-        if (flyTime < MinFlyTime)
-            flyTime = 0f;
         comp.ThrownTime = _gameTiming.CurTime;
         comp.LandTime = comp.ThrownTime + TimeSpan.FromSeconds(flyTime);
         comp.PlayLandSound = playSound;
@@ -206,6 +198,13 @@ public sealed class ThrowingSystem : EntitySystem
         // If someone changes how tile friction works at some point, this will have to be adjusted.
         var throwSpeed = compensateFriction ? direction.Length() / (flyTime + 1 / tileFriction) : baseThrowSpeed;
         var impulseVector = direction.Normalized() * throwSpeed * physics.Mass;
+        // ADT Quirks start
+        var modifiersEv = new CheckThrowRangeModifiersEvent(user);
+        RaiseLocalEvent(user ?? EntityUid.Invalid, ref modifiersEv);
+        throwSpeed *= modifiersEv.SpeedMod;
+        impulseVector *= modifiersEv.VectorMod;
+        // ADT Quirks end
+
         _physics.ApplyLinearImpulse(uid, impulseVector, body: physics);
 
         if (comp.LandTime == null || comp.LandTime <= TimeSpan.Zero)

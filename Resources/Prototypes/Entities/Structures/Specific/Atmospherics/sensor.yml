@@ -25,9 +25,28 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
+        # ADT-Gas-Start
+        BZ: danger
+        Pluoxium: unwanted
+        Hydrogen: danger
+        Nitrium: unwanted
+        Healium: danger
+        HyperNoblium: unwanted
+        ProtoNitrate: danger
+        Zauker: danger
+        Halon: danger
+        Helium: unwanted
+        AntiNoblium: danger
+        # ADT-Gas-End
     - type: Tag
       tags:
         - AirSensor
+    # ADT-RPD-Start
+    - type: RPDDeconstructable
+      cost: 4
+      delay: 2
+      fx: EffectRCDDeconstruct2
+    # ADT-RPD-End
 
 - type: entity
   id: AirSensor

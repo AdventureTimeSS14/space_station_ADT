@@ -1,0 +1,13 @@
+- type: lobbyBackground
+  id: Nanotrasen3024
+  background: /Textures/ADT/LobbyScreens/nanotrasen-3024.webp
+
+- type: lobbyBackground
+  id: Spider clan
+  background: /Textures/ADT/LobbyScreens/spider-clan.webp
+
+- type: lobbyBackground
+  id: NOGORLEX
+  background: /Textures/ADT/LobbyScreens/NOGORLEX.webp
+
+

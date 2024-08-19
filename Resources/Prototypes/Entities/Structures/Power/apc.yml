@@ -1,5 +1,5 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   id: BaseAPC
   name: APC
   description: A control terminal for the area's electrical systems.
@@ -143,10 +143,12 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: BatteryDrinkerSource # ADT - IPC
+    maxAmount: 10000
 
 # APC under construction
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   id: APCFrame
   name: APC frame
   description: A control terminal for the area's electrical systems, lacking the electronics.

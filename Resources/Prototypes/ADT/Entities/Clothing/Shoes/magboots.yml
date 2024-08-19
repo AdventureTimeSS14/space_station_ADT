@@ -16,12 +16,13 @@
   - type: StaticPrice
     price: 2000
   - type: Magboots
-    toggleAction: ActionToggleMagbootsERT
+  - type: ToggleClothing
+    action: ActionToggleMagbootsERT
 
 - type: entity
   id: ActionToggleMagbootsERT
-  parent: ActionBaseToggleMagboots
-  noSpawn: true
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }

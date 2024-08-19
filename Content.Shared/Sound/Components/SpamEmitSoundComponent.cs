@@ -39,6 +39,6 @@ public sealed partial class SpamEmitSoundComponent : BaseEmitSoundComponent
     /// Do not set this directly, use <see cref="EmitSoundSystem.SetEnabled"/>
     /// </summary>
     [DataField, AutoNetworkedField]
-    [Access(typeof(SharedEmitSoundSystem))]
+    // [Access(typeof(SharedEmitSoundSystem))] ADT: IPC (невозможно указать требуемый доступ)
     public bool Enabled = true;
 }
