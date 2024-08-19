@@ -115,8 +115,8 @@
 - type: gasReaction
   id: HyperNobliumProduction
   priority: 7
-  minimumTemperature: 2.7
-  maximumTemperature: 15
+  minimumTemperature: 23.15
+  maximumTemperature: 27.85
   minimumRequirements:
   - 0     # oxygen
   - 10    # nitrogen
