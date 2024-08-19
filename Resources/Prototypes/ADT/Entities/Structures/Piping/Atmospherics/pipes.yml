@@ -8,6 +8,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: GasPipeStraight
@@ -19,6 +21,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: GasPipeBend
@@ -30,6 +34,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: GasPipeTJunction
@@ -41,6 +47,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: GasPipeFourway
@@ -52,3 +60,5 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null

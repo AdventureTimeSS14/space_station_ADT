@@ -7,6 +7,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalTagger
@@ -17,6 +19,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalTrunk
@@ -27,6 +31,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalRouter
@@ -37,6 +43,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalRouterFlipped
@@ -47,6 +55,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalJunction
@@ -57,6 +67,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalJunctionFlipped
@@ -67,6 +79,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalYJunction
@@ -77,6 +91,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalBend
@@ -87,6 +103,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalSignalRouter
@@ -97,6 +115,8 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
 
 - type: entity
   parent: DisposalSignalRouterFlipped
@@ -107,3 +127,5 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: True
+  - type: Construction
+    deconstructionTarget: null
