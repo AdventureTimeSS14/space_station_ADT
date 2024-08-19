@@ -7,7 +7,6 @@
         "y": 32
     },
     "states": [
-        { "name": "painting_somewhereelse" },
         { "name": "painting_gagarin" }
     ]
 }
