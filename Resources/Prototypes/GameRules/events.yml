@@ -429,6 +429,7 @@
     - id: MobClownSpider
       prob: 0.05
 
+# ADT zombie remove
 # - type: entity
 #   id: ZombieOutbreak
 #   parent: BaseGameRule
