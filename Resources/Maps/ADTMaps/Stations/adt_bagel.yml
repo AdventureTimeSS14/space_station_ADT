@@ -9592,6 +9592,23 @@ entities:
     - type: Transform
       pos: 39.5,-5.5
       parent: 60
+- proto: ADTVendingMachinePrazatClothing
+  entities:
+  - uid: 7433
+    components:
+    - type: Transform
+      pos: -3.5,-67.5
+      parent: 60
+  - uid: 18402
+    components:
+    - type: Transform
+      pos: -39.5,20.5
+      parent: 60
+  - uid: 24511
+    components:
+    - type: Transform
+      pos: -1.5,-71.5
+      parent: 60
 - proto: AirAlarm
   entities:
   - uid: 249
@@ -54631,12 +54648,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-67.5
       parent: 60
-  - uid: 7433
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -3.5,-67.5
-      parent: 60
   - uid: 7600
     components:
     - type: Transform
@@ -59005,20 +59016,6 @@ entities:
     - type: Transform
       pos: -41.75516,14.452198
       parent: 60
-- proto: ClothingNeckAromanticPin
-  entities:
-  - uid: 24089
-    components:
-    - type: Transform
-      pos: 83.621025,-13.51627
-      parent: 60
-- proto: ClothingNeckBisexualPin
-  entities:
-  - uid: 24090
-    components:
-    - type: Transform
-      pos: -20.494595,5.7531924
-      parent: 60
 - proto: ClothingNeckBling
   entities:
   - uid: 18461
@@ -59051,27 +59048,6 @@ entities:
     components:
     - type: Transform
       pos: -38.4609,19.6876
-      parent: 60
-- proto: ClothingNeckIntersexPin
-  entities:
-  - uid: 24088
-    components:
-    - type: Transform
-      pos: -12.770909,19.336336
-      parent: 60
-- proto: ClothingNeckLesbianPin
-  entities:
-  - uid: 24086
-    components:
-    - type: Transform
-      pos: -10.308835,13.564301
-      parent: 60
-- proto: ClothingNeckLGBTPin
-  entities:
-  - uid: 7174
-    components:
-    - type: Transform
-      pos: -11.221505,22.789167
       parent: 60
 - proto: ClothingNeckMantleCMO
   entities:
@@ -59109,13 +59085,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckNonBinaryPin
-  entities:
-  - uid: 13569
-    components:
-    - type: Transform
-      pos: -6.8039737,15.288539
-      parent: 60
 - proto: ClothingNeckScarfStripedBlue
   entities:
   - uid: 7862
@@ -59182,13 +59151,6 @@ entities:
     components:
     - type: Transform
       pos: -63.651737,-1.4881696
-      parent: 60
-- proto: ClothingNeckTransPin
-  entities:
-  - uid: 5166
-    components:
-    - type: Transform
-      pos: -8.970711,16.51249
       parent: 60
 - proto: ClothingOuterApron
   entities:
@@ -66930,6 +66892,48 @@ entities:
     - type: Transform
       pos: -40.5,9.5
       parent: 60
+- proto: DrinkBottleVodka
+  entities:
+  - uid: 5166
+    components:
+    - type: Transform
+      pos: -8.970711,16.51249
+      parent: 60
+  - uid: 7174
+    components:
+    - type: Transform
+      pos: -11.221505,22.789167
+      parent: 60
+  - uid: 9548
+    components:
+    - type: Transform
+      pos: -41.49743,-36.512333
+      parent: 60
+  - uid: 13569
+    components:
+    - type: Transform
+      pos: -6.8039737,15.288539
+      parent: 60
+  - uid: 24086
+    components:
+    - type: Transform
+      pos: -10.308835,13.564301
+      parent: 60
+  - uid: 24088
+    components:
+    - type: Transform
+      pos: -12.770909,19.336336
+      parent: 60
+  - uid: 24089
+    components:
+    - type: Transform
+      pos: 83.621025,-13.51627
+      parent: 60
+  - uid: 24090
+    components:
+    - type: Transform
+      pos: -20.494595,5.7531924
+      parent: 60
 - proto: DrinkDoctorsDelightGlass
   entities:
   - uid: 16136
@@ -71945,26 +71949,20 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -44.5,36.5
       parent: 60
-- proto: GasMinerNitrogen
+- proto: GasMinerNitrogenStationLarge
   entities:
   - uid: 15203
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -44.5,32.5
       parent: 60
-    - type: GasMiner
-      maxExternalPressure: 4500
-- proto: GasMinerOxygen
+- proto: GasMinerOxygenStationLarge
   entities:
   - uid: 15204
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -44.5,34.5
       parent: 60
-    - type: GasMiner
-      maxExternalPressure: 4500
 - proto: GasMinerPlasma
   entities:
   - uid: 24467
@@ -106705,13 +106703,6 @@ entities:
     - type: Transform
       pos: 21.334734,-11.3924055
       parent: 60
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 9548
-    components:
-    - type: Transform
-      pos: -41.49743,-36.512333
-      parent: 60
 - proto: LightBulb
   entities:
   - uid: 19737
@@ -124928,11 +124919,6 @@ entities:
     components:
     - type: Transform
       pos: 9.5,-19.5
-      parent: 60
-  - uid: 18402
-    components:
-    - type: Transform
-      pos: -39.5,20.5
       parent: 60
   - uid: 18479
     components:

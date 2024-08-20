@@ -26,8 +26,9 @@
   - ADT_Fland
   - ADT_Marathon
   - ADT_Meta
-  - ADT_Oasis
   - ADT_Origin
   - ADT_Saltern
   - ADT_Packed
   - ADT_Train
+  - ADT_Delta
+  - ADT_Oasis

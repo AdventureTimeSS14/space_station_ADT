@@ -3565,6 +3565,13 @@ entities:
     - type: Transform
       pos: 15.5,-13.5
       parent: 31
+- proto: ADTVendingMachinePrazatClothing
+  entities:
+  - uid: 8953
+    components:
+    - type: Transform
+      pos: -28.5,-9.5
+      parent: 31
 - proto: AirAlarm
   entities:
   - uid: 5107
@@ -27364,13 +27371,6 @@ entities:
     - type: Transform
       pos: -28.4315,17.631725
       parent: 31
-- proto: ClothingNeckNonBinaryPin
-  entities:
-  - uid: 11135
-    components:
-    - type: Transform
-      pos: 43.27403,-8.317395
-      parent: 31
 - proto: ClothingNeckScarfStripedBlue
   entities:
   - uid: 7843
@@ -27410,13 +27410,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckTransPin
-  entities:
-  - uid: 11137
-    components:
-    - type: Transform
-      pos: -24.17542,-23.65307
-      parent: 31
 - proto: ClothingOuterArmorBasic
   entities:
   - uid: 1206
@@ -31848,6 +31841,16 @@ entities:
     - type: Transform
       pos: -14.761818,-11.281694
       parent: 31
+  - uid: 11135
+    components:
+    - type: Transform
+      pos: 43.27403,-8.317395
+      parent: 31
+  - uid: 11137
+    components:
+    - type: Transform
+      pos: -24.17542,-23.65307
+      parent: 31
 - proto: DrinkDeadRumGlass
   entities:
   - uid: 10660
@@ -34313,19 +34316,29 @@ entities:
     - type: Transform
       pos: 40.5,22.5
       parent: 31
-- proto: GasMinerNitrogen
+- proto: GasMinerNitrogenStationLarge
   entities:
   - uid: 4888
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 34.5,22.5
       parent: 31
-- proto: GasMinerOxygen
+- proto: GasMinerOxygenStationLarge
   entities:
   - uid: 4830
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 36.5,22.5
+      parent: 31
+- proto: GasMinerPlasma
+  entities:
+  - uid: 11516
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 42.5,22.5
       parent: 31
 - proto: GasMinerWaterVapor
   entities:
@@ -57068,11 +57081,6 @@ entities:
     components:
     - type: Transform
       pos: -34.5,8.5
-      parent: 31
-  - uid: 8953
-    components:
-    - type: Transform
-      pos: -28.5,-9.5
       parent: 31
   - uid: 10542
     components:
