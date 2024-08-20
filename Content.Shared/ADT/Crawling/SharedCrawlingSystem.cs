@@ -8,14 +8,18 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Player;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Alert;
+using Robust.Shared.Physics.Systems;
+using System.Numerics;
 
 namespace Content.Shared.ADT.Crawling;
-public sealed partial class CrawlingSystem : EntitySystem
+public abstract class SharedCrawlingSystem : EntitySystem
 {
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -31,9 +35,11 @@ public sealed partial class CrawlingSystem : EntitySystem
         SubscribeLocalEvent<CrawlingComponent, ComponentShutdown>(OnCrawlSlowRemove);
         SubscribeLocalEvent<CrawlingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
+        SubscribeLocalEvent<CrawlerComponent, MapInitEvent>(OnCrawlerInit);
+
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ToggleCrawling, InputCmdHandler.FromDelegate(ToggleCrawlingKeybind, handle: false))
-            .Register<CrawlingSystem>();
+            .Register<SharedCrawlingSystem>();
     }
 
     private void ToggleCrawlingKeybind(ICommonSession? session)
@@ -99,16 +105,26 @@ public sealed partial class CrawlingSystem : EntitySystem
     private void OnCrawlSlowdownInit(EntityUid uid, CrawlingComponent component, ComponentInit args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+        _appearance.SetData(uid, CrawlingVisuals.Standing, false);
+        _appearance.SetData(uid, CrawlingVisuals.Crawling, true);
     }
     private void OnCrawlSlowRemove(EntityUid uid, CrawlingComponent component, ComponentShutdown args)
     {
         component.SprintSpeedModifier = 1f;
         component.WalkSpeedModifier = 1f;
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+        _appearance.SetData(uid, CrawlingVisuals.Crawling, false);
+        _appearance.SetData(uid, CrawlingVisuals.Standing, true);
     }
     private void OnRefreshMovespeed(EntityUid uid, CrawlingComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
+    }
+
+    private void OnCrawlerInit(EntityUid uid, CrawlerComponent comp, MapInitEvent args)
+    {
+        _appearance.SetData(uid, CrawlingVisuals.Standing, true);
+        _appearance.SetData(uid, CrawlingVisuals.Crawling, false);
     }
 }
 
@@ -120,4 +136,11 @@ public sealed partial class CrawlStandupDoAfterEvent : SimpleDoAfterEvent
 [Serializable, NetSerializable]
 public sealed partial class CrawlingKeybindEvent
 {
+}
+
+[NetSerializable, Serializable]
+public enum CrawlingVisuals : byte
+{
+    Standing,
+    Crawling,
 }
