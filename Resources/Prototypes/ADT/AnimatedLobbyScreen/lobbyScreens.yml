@@ -26,9 +26,9 @@
   id: VangoghLobbyScreen
   path: /Textures/ADT/LobbyScreens/backgrounds/vangogh.rsi
 
-#- type: animatedLobbyScreen
-#  id: ThirdLobbyScreen
-#  path: Ohio/Lobby/backgrounds/3.rsi
+- type: animatedLobbyScreen
+  id: ThirdLobbyScreen
+  path: /Textures/ADT/LobbyScreens/backgrounds/3.rsi
 
 #- type: animatedLobbyScreen
 #  id: FifthLobbyScreen
