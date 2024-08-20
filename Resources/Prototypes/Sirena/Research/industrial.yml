@@ -2,7 +2,7 @@
 # Tier 3
 - type: technology
   id: HUD
-  name: technologies-hud
+  name: research-technology-hud
   icon:
     sprite: Clothing/Eyes/Hud/diag.rsi
     state: icon
