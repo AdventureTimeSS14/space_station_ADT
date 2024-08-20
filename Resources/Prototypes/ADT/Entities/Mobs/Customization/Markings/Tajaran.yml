@@ -38,7 +38,7 @@
 #Наложение.
 - type: marking
   id: BodyStripes
-  bodyPart: [ Chest, RArm, LArm, RLeg, LLeg ]
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [TajaranSpecies]
   sprites:
@@ -47,7 +47,7 @@
 
 - type: marking
   id: BodyBlots
-  bodyPart: [ Chest, RArm, LArm, RLeg, LLeg ] 
+  bodyPart: LLeg 
   markingCategory: Overlay
   speciesRestriction: [TajaranSpecies]
   sprites:
@@ -56,7 +56,7 @@
 
 - type: marking
   id: patch2
-  bodyPart: [ Chest, RLeg, LLeg ]
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [TajaranSpecies]
   sprites:
@@ -65,7 +65,7 @@
 
 - type: marking
   id: BodySkeleton
-  bodyPart: [ Chest, RArm, LArm, RLeg, LLeg ]
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [TajaranSpecies]
   sprites:
@@ -74,7 +74,7 @@
 
 - type: marking
   id: arm1
-  bodyPart: [ RArm, LArm, RLeg, LLeg ] #честно, я без малейшего понятия, почему это не работает. Черта либо клипается сквозь одежду, либо обрезает руки.
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [TajaranSpecies]
   sprites:
