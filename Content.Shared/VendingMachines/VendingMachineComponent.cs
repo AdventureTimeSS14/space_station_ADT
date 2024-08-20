@@ -193,6 +193,9 @@ namespace Content.Shared.VendingMachines
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public double PriceMultiplier = 0.25;
 
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public bool AllForFree = false;
+
         public ProtoId<StackPrototype> CreditStackPrototype = "Credit";
 
         [DataField]

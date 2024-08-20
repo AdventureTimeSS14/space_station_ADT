@@ -1,0 +1,131 @@
+- type: entity
+  parent: DisposalPipe
+  id: ADTDisposalPipe
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalTagger
+  id: ADTDisposalTagger
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalTrunk
+  id: ADTDisposalTrunk
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalRouter
+  id: ADTDisposalRouter
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalRouterFlipped
+  id: ADTDisposalRouterFlipped
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalJunction
+  id: ADTDisposalJunction
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalJunctionFlipped
+  id: ADTDisposalJunctionFlipped
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalYJunction
+  id: ADTDisposalYJunction
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalBend
+  id: ADTDisposalBend
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalSignalRouter
+  id: ADTDisposalSignalRouter
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: DisposalSignalRouterFlipped
+  id: ADTDisposalSignalRouterFlipped
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null

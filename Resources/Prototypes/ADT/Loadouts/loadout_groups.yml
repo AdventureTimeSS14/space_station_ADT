@@ -96,6 +96,7 @@
   - RobohandsGloves
 
 #Blueshield
+
 - type: loadoutGroup
   id: ADTBlueshieldJumpsuit
   name: loadout-group-blueshield-jumpsuit

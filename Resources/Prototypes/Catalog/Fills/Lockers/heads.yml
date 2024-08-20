@@ -25,6 +25,12 @@
       - id: ADTCommandBudgetCard
       - id: ADTCommandBudgetPinPaper
       # ADT-Economy-End
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPcrg
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -42,7 +48,7 @@
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
-      - id: SpaceCash1000
+      # - id: SpaceCash1000 # ADT-Economy
       - id: PlushieNuke
         prob: 0.1
       - id: CigarGoldCase
@@ -53,6 +59,11 @@
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: MedalCase
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerCaptainFilled
@@ -68,7 +79,7 @@
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
-      - id: SpaceCash1000
+      # - id: SpaceCash1000 # ADT-Economy
       - id: PlushieNuke
         prob: 0.1
       - id: CigarGoldCase
@@ -83,6 +94,11 @@
       - id: ClothingHeadCaptainHat
       - id: ClothingOuterCoatCaptain
       # Corvax-Resprite-End
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerCaptainFilledNoLaser
@@ -98,7 +114,7 @@
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
-      - id: SpaceCash1000
+      # - id: SpaceCash1000 # ADT-Economy
       - id: PlushieNuke
         prob: 0.1
       - id: CigarGoldCase
@@ -108,6 +124,11 @@
       - id: RubberStampCaptain
       - id: JetpackCaptainFilled
       - id: MedalCase
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -139,6 +160,11 @@
       - id: ClothingOuterCoatHOP # Corvax-Resprite
       - id: AccessConfigurator
       - id: PrinterDocFlatpack # Corvax-Printer
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -168,6 +194,17 @@
       - id: ClothingNeckCloakCe
       - id: ADTClothingMaskGasCE
       # End-ADT Tweak
+      # ADT-UPD-Start
+      - id: ADTUniversalPipeDispenserCircuitboard
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+      # ADT-UPD-End
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPeng
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -188,6 +225,17 @@
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      # ADT-UPD-Start
+      - id: ADTUniversalPipeDispenserCircuitboard
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+      # ADT-UPD-End
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPeng
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -211,6 +259,12 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPmed
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -231,6 +285,12 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPmed
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -250,6 +310,12 @@
       - id: BoxEncryptionKeyScience
       - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPrnd
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -268,6 +334,12 @@
       - id: BoxEncryptionKeyScience
       - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPrnd
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -303,6 +375,13 @@
       - id: BookSecretDocuments
       - id: BookBusido # Corvax-Books
       - id: BookSpaceLaw
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPsec
+      - id: ADTBookPCDsec
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -330,6 +409,12 @@
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
       - id: BookSpaceLaw
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcmd
+      - id: ADTBookSRPsec
+      - id: ADTBookPCDcmd
+      - id: ADTtelescopicBaton
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerFreezerVaultFilled
@@ -343,6 +428,6 @@
     - id: WeaponRevolverDeckard
     - id: ClothingOuterHardsuitBasic
     - id: JetpackBlue
-    - id: SpaceCash1000
+    # - id: SpaceCash1000 # ADT-Economy
     - id: BeachBall
     - id: BikeHorn

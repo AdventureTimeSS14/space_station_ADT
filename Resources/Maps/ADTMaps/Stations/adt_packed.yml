@@ -6137,6 +6137,13 @@ entities:
     - type: Transform
       pos: 75.5,-1.5
       parent: 2
+- proto: ADTVendingMachinePrazatClothing
+  entities:
+  - uid: 4098
+    components:
+    - type: Transform
+      pos: 19.5,5.5
+      parent: 2
 - proto: AirAlarm
   entities:
   - uid: 138
@@ -32989,11 +32996,6 @@ entities:
     - type: Transform
       pos: 7.491953,-13.240216
       parent: 2
-  - uid: 7009
-    components:
-    - type: Transform
-      pos: 19.545155,5.62142
-      parent: 2
 - proto: ClothingNeckScarfStripedRed
   entities:
   - uid: 12226
@@ -33030,7 +33032,7 @@ entities:
   - uid: 8289
     components:
     - type: Transform
-      pos: 19.90453,5.512045
+      pos: 20.453794,5.526769
       parent: 2
   - uid: 12228
     components:
@@ -33419,7 +33421,7 @@ entities:
   - uid: 8290
     components:
     - type: Transform
-      pos: 19.93578,5.65267
+      pos: 20.422544,5.714269
       parent: 2
 - proto: ClothingUniformJumpsuitMercenary
   entities:
@@ -40249,7 +40251,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -51.484016
+      secondsUntilStateChange: -148.28381
       state: Closing
   - uid: 9351
     components:
@@ -41032,18 +41034,20 @@ entities:
     - type: Transform
       pos: 46.5,-27.5
       parent: 2
-- proto: GasMinerNitrogenStation
+- proto: GasMinerNitrogenStationLarge
   entities:
   - uid: 1182
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 46.5,-23.5
       parent: 2
-- proto: GasMinerOxygenStation
+- proto: GasMinerOxygenStationLarge
   entities:
-  - uid: 4098
+  - uid: 1857
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 46.5,-25.5
       parent: 2
 - proto: GasMinerPlasma
@@ -57697,7 +57701,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -551.65497
+      secondsUntilStateChange: -648.4548
       state: Closing
   - uid: 11849
     components:
@@ -70204,12 +70208,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-9.5
-      parent: 2
-  - uid: 1857
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,5.5
       parent: 2
   - uid: 2121
     components:

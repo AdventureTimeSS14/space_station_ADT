@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Blueshield made by Tamioki.",
+  "copyright": "Sprites exclusively for AdventureTime! Blueshield made by Tamioki. Ghost by illumination6753 (Discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -29,6 +29,9 @@
             "name": "light_overlay"
         },
         {
+            "name": "pda"
+        },
+        {
             "name": "pda-blueshield",
             "delays": [
                 [
@@ -49,6 +52,18 @@
                     1.2
                 ]
             ]
+        },
+        {
+            "name": "pda-ghost"
+        },
+        {
+            "name": "pda-lawyer"
+        },
+        {
+            "name": "pda-roboticist"
+        },
+        {
+            "name": "pda-pathologist"
         },
         {
             "name": "equipped-IDCARD",

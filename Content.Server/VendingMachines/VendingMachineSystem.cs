@@ -240,13 +240,13 @@ namespace Content.Server.VendingMachines
 
         protected override int GetEntryPrice(EntityPrototype proto)
         {
-            var price = (int) _pricing.GetEstimatedPrice(proto);
+            var price = (int)_pricing.GetEstimatedPrice(proto);
             return price > 0 ? price : 25;
         }
 
         private int GetPrice(VendingMachineInventoryEntry entry, VendingMachineComponent comp)
         {
-            return (int) (entry.Price * GetPriceMultiplier(comp));
+            return (int)(entry.Price * GetPriceMultiplier(comp));
         }
 
         private double GetPriceMultiplier(VendingMachineComponent comp)
@@ -359,7 +359,7 @@ namespace Content.Server.VendingMachines
 
             //ADT-Economy-Start
             var price = GetPrice(entry, vendComponent);
-            if (price > 0 && sender.HasValue && !_tag.HasTag(sender.Value, "IgnoreBalanceChecks"))
+            if (price > 0 && !vendComponent.AllForFree && sender.HasValue && !_tag.HasTag(sender.Value, "IgnoreBalanceChecks"))
             {
                 var success = false;
                 if (vendComponent.Credits >= price)
