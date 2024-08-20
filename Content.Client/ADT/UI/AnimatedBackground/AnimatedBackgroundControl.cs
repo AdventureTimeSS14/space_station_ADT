@@ -15,7 +15,7 @@ public sealed class AnimatedBackgroundControl : TextureRect
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    private string _rsiPath = "/Textures/White/Lobby/backgrounds/native.rsi";
+    private string _rsiPath = "/Textures/ADT/LobbyScreens/backgrounds/native.rsi";
     public RSI? _RSI;
     private const int States = 1;
 

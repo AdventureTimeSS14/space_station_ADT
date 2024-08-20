@@ -1,18 +1,18 @@
 - type: animatedLobbyScreen
   id: SeaLobbyScreen
-  path: /Textures/White/Lobby/backgrounds/sea.rsi
+  path: /Textures/ADT/LobbyScreens/backgrounds/sea.rsi
 
 - type: animatedLobbyScreen
   id: RocketLobbyScreen
-  path: /Textures/White/Lobby/backgrounds/rocket.rsi
+  path: /Textures/ADT/LobbyScreens/backgrounds/rocket.rsi
 
 - type: animatedLobbyScreen
   id: CubeLobbyScreen
-  path: /Textures/White/Lobby/backgrounds/cube.rsi
+  path: /Textures/ADT/LobbyScreens/backgrounds/cube.rsi
 
 - type: animatedLobbyScreen
   id: MilkywayLobbyScreen
-  path: /Textures/White/Lobby/backgrounds/milkyway.rsi
+  path: /Textures/ADT/LobbyScreens/backgrounds/milkyway.rsi
 
 #- type: animatedLobbyScreen
 #  id: NativeLobbyScreen
@@ -20,11 +20,11 @@
 
 - type: animatedLobbyScreen
   id: CentcommLobbyScreen
-  path: /Textures/White/Lobby/backgrounds/centcomm.rsi
+  path: /Textures/ADT/LobbyScreens/backgrounds/centcomm.rsi
 
 - type: animatedLobbyScreen
   id: VangoghLobbyScreen
-  path: /Textures/White/Lobby/backgrounds/vangogh.rsi
+  path: /Textures/ADT/LobbyScreens/backgrounds/vangogh.rsi
 
 #- type: animatedLobbyScreen
 #  id: ThirdLobbyScreen
