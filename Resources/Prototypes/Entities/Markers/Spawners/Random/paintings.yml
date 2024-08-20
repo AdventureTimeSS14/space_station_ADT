@@ -27,7 +27,6 @@
       - PaintingRedBlueYellow
       - PaintingHelloWorld
       #ADT tweak vvv
-      - ADTPaintingSomewhereElse
       - ADTPaintingGagarin
       #ADT tweak ^^^
     chance: 1
