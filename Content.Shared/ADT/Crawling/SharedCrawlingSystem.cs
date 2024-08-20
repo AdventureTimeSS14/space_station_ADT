@@ -8,10 +8,9 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Player;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Alert;
-using Robust.Shared.Physics.Systems;
-using System.Numerics;
 
 namespace Content.Shared.ADT.Crawling;
+
 public abstract class SharedCrawlingSystem : EntitySystem
 {
     [Dependency] private readonly StandingStateSystem _standing = default!;
@@ -19,7 +18,6 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     public override void Initialize()
     {
         base.Initialize();
