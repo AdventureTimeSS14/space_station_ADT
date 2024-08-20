@@ -249,12 +249,15 @@ public sealed partial class StaminaSystem : EntitySystem
         if (component.Critical)
             return;
 
+        // ADT Stunmeta fix start
         if (!ignoreResistances)
         {
             var modifyEv = new StaminaDamageModifyEvent(value, source);
             RaiseLocalEvent(uid, modifyEv);
             value = modifyEv.Damage;
         }
+        // ADT Stunmeta fix end
+
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);
 
@@ -400,7 +403,7 @@ public sealed partial class StaminaSystem : EntitySystem
 }
 
 /// <summary>
-///     Raised before stamina damage is dealt to allow other systems to cancel it.
+///     Raised before stamina damage is dealt to allow other systems to modify it.
 /// </summary>
 [ByRefEvent]
 public record struct BeforeStaminaDamageEvent(float Value, bool Cancelled = false);

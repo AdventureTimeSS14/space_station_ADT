@@ -67,7 +67,23 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         // MeleeHitEvent is weird, so we have to filter to make sure we actually
         // hit something and aren't just examining the weapon.
         if (args.IsHit)
-            TryInjectTargets((entity.Owner, entity.Comp), args.HitEntities, args.User);
+        {
+            List<EntityUid> list = new();
+            foreach (var ent in args.HitEntities)
+            {
+                // ADT Injector blocking start
+                if (!entity.Comp.IgnoreBlockers)
+                {
+                    var ev = new InjectAttemptEvent();
+                    RaiseLocalEvent(ent, ev);
+                    if (ev.Cancelled)
+                        continue;
+                    list.Add(ent);
+                }
+                // ADT Injector blocking end
+            }
+            TryInjectTargets((entity.Owner, entity.Comp), list, args.User);
+        }
     }
 
     private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)
@@ -105,30 +121,19 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (Deleted(target))
                 continue;
 
-            // ADT Injector blocking start
-            if (!injector.Comp.IgnoreBlockers)
-            {
-                var ev = new InjectAttemptEvent();
-                RaiseLocalEvent(target, ev);
-                if (ev.Cancelled)
-                    continue;
-            }
-            // Забавно, тут уже есть что-то подобное, однако сделано ужасно костыльно. Закомменчу, пожалуй
-
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            // if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
-            // {
-            //     // Only show popup to attacker
-            //     if (source != null)
-            //         _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByHardsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
+            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
+            {
+                // Only show popup to attacker
+                if (source != null)
+                    _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByHardsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
 
-            //     continue;
-            // }
-            // ADT Injector blocking end
+                continue;
+            }
 
             // Check if the target has anything equipped in a slot that would block injection
-            if (injector.Comp.BlockSlots != SlotFlags.NONE) // Это останется, так как идёт проверка независимо от компонента блокера. Моё же делает 100% защиту
+            if (injector.Comp.BlockSlots != SlotFlags.NONE)
             {
                 var blocked = false;
                 var containerEnumerator = _inventory.GetSlotEnumerator(target, injector.Comp.BlockSlots);
