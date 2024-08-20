@@ -1,8 +1,10 @@
+using Content.Shared.ADT.CCVar; // ADT Radial menu settings
 using Content.Shared.ADT.RPD;
 using Content.Shared.ADT.RPD.Components;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
+using Robust.Shared.Configuration; // ADT Radial menu settings
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.RPD;
@@ -12,7 +14,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
-
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT Radial menu settings
     private RPDMenu? _menu;
 
     public RPDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
@@ -29,7 +31,12 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 
         // Open the menu, centered on the mouse
         var vpSize = _displayManager.ScreenSize;
-        _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+        // ADT Radial menu settings start
+        if (_cfg.GetCVar(ADTCCVars.CenterRadialMenu) == false)
+            _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+        else
+            _menu.OpenCentered();
+        // ADT Radial menu settings end
     }
 
     public void SendRPDSystemMessage(ProtoId<RPDPrototype> protoId)
