@@ -442,8 +442,8 @@
     layers:
     - state: default
     - state: idbrigmedic
-  - type: PresetIdCard
-    job: Brigmedic
+  - type: PresetIdCard # ADT rework
+    job: Brigmedic     #
 
 - type: entity
   parent: IDCardStandard
@@ -627,7 +627,7 @@
     - JobIconResearchAssistant
     - JobIconGeneticist
     - JobIconClown
-    - JobIconBrigmedic
+    - JobIconBrigmedic # ADT rework brigmeidc
     - JobIconCaptain
     - JobIconHeadOfPersonnel
     - JobIconVirologist

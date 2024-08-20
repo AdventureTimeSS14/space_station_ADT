@@ -24,4 +24,4 @@
         - id: ClothingOuterHardsuitBrigmedic
         - id: ClothingMaskBreath
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Security"]]

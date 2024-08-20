@@ -87,6 +87,7 @@
       - id: ADTBookPCDsec
     # ADT-WikiBooks-End
 
+# ADT Brigmedic rework
 - type: entity
   id: LockerBrigmedicFilledHardsuit
   suffix: Filled, Hardsuit
@@ -173,6 +174,8 @@
       - id: ADTBookSRPmed
       - id: ADTBookPCDsec
     # ADT-WikiBooks-End
+
+# ADT rework brigmedic end
 
 - type: entity
   id: LockerDetectiveFilled
