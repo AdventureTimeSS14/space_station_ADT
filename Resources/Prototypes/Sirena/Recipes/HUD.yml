@@ -1,0 +1,42 @@
+#HUD
+- type: latheRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
+  completetime: 30
+  materials:
+    Steel: 150
+    Glass: 50
+    Plastic: 150
+    Silver: 50
+
+- type: latheRecipe
+  id: ClothingEyesHudMedical
+  result: ClothingEyesHudMedical
+  completetime: 30
+  materials:
+    Steel: 150
+    Glass: 50
+    Plastic: 150
+    Silver: 50
+
+#- type: latheRecipe
+#  id: ClothingEyesHudSecurity
+#  result: ClothingEyesHudSecurity
+#  completetime: 30
+#  materials:
+#    Steel: 150
+#    Glass: 50
+#    Plastic: 150
+#    Silver: 50
+
+#ADT modify
+- type: latheRecipe
+  id: ADTClothingEyesHudAdvanced
+  result: ADTClothingEyesHudAdvanced
+  completetime: 30
+  materials:
+    Steel: 300
+    Glass: 100
+    Plastic: 300
+    Silver: 100
+    Plasma: 100

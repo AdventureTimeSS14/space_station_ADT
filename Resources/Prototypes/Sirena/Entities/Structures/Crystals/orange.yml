@@ -1,0 +1,63 @@
+- type: entity
+  id: CrystalOrange
+  parent: BaseCrystal
+  components:
+  - type: Sprite
+    state: crystal_orange
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#96863b"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardCrystalOrange:
+            min: 0
+            max: 2
+
+- type: entity
+  id: CrystalOrangeMedium
+  parent: CrystalOrange
+  components:
+  - type: Sprite
+    state: crystal_orange_medium
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#96863b"
+
+- type: entity
+  id: CrystalOrangeSmall
+  parent: CrystalOrange
+  components:
+  - type: Sprite
+    state: crystal_orange_small
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#96863b"
+
+- type: entity
+  id: ShardCrystalOrange
+  parent: BaseCrystalShard
+  components:
+  - type: Sprite
+    state: crystalshard_orange
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#96863b"
+  - type: Tag
+    tags:
+      - Trash
+      - CrystalShardOrange

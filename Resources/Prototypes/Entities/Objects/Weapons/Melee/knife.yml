@@ -192,6 +192,14 @@
     damage:
       types:
         Slash: 5.5
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 7
   - type: Item
     sprite: Objects/Weapons/Melee/shiv.rsi
   - type: DisarmMalus
@@ -211,6 +219,10 @@
     damage:
       types:
         Slash: 7 #each "tier" grants an additional 2 damage
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 9
   - type: Item
     sprite: Objects/Weapons/Melee/reinforced_shiv.rsi
   - type: Sprite
@@ -230,6 +242,10 @@
     damage:
       types:
         Slash: 9
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 11
   - type: Item
     sprite: Objects/Weapons/Melee/plasma_shiv.rsi
   - type: Sprite
@@ -249,6 +265,11 @@
     damage:
       types:
         Slash: 7
+        Radiation: 4
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 9
         Radiation: 4
   - type: Item
     sprite: Objects/Weapons/Melee/uranium_shiv.rsi

@@ -1,0 +1,63 @@
+- type: entity
+  id: CrystalBlue
+  parent: BaseCrystal
+  components:
+  - type: Sprite
+    state: crystal_blue
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#1843D4"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardCrystalBlue:
+            min: 0
+            max: 2
+
+- type: entity
+  id: CrystalBlueMedium
+  parent: CrystalBlue
+  components:
+  - type: Sprite
+    state: crystal_blue_medium
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#3d5cb3"
+
+- type: entity
+  id: CrystalBlueSmall
+  parent: CrystalBlue
+  components:
+  - type: Sprite
+    state: crystal_blue_small
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#3d5cb3"
+
+- type: entity
+  id: ShardCrystalBlue
+  parent: BaseCrystalShard
+  components:
+  - type: Sprite
+    state: crystalshard_blue
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#3d5cb3"
+  - type: Tag
+    tags:
+      - Trash
+      - CrystalShardBlue

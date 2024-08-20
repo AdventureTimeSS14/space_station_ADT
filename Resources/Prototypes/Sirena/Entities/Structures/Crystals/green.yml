@@ -1,0 +1,63 @@
+- type: entity
+  id: CrystalGreen
+  parent: BaseCrystal
+  components:
+  - type: Sprite
+    state: crystal_green
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#5ea34e"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardCrystalGreen:
+            min: 0
+            max: 2
+
+- type: entity
+  id: CrystalGreenMedium
+  parent: CrystalGreen
+  components:
+  - type: Sprite
+    state: crystal_green_medium
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#5ea34e"
+
+- type: entity
+  id: CrystalGreenSmall
+  parent: CrystalGreen
+  components:
+  - type: Sprite
+    state: crystal_green_small
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#5ea34e"
+
+- type: entity
+  id: ShardCrystalGreen
+  parent: BaseCrystalShard
+  components:
+  - type: Sprite
+    state: crystalshard_green
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#5ea34e"
+  - type: Tag
+    tags:
+      - Trash
+      - CrystalShardGreen

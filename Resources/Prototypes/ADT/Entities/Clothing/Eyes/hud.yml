@@ -10,3 +10,17 @@
     sprite: ADT/Clothing/Eyes/HUD/phantom_hud.rsi
   - type: ShowHauntedIcons
 
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
+  id: ADTClothingEyesHudAdvanced
+  name: Advanced hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/HUD/advanced_hud.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/HUD/advanced_hud.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic

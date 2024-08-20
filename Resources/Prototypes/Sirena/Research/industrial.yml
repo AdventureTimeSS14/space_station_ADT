@@ -1,0 +1,18 @@
+
+# Tier 3
+- type: technology
+  id: HUD
+  name: technologies-hud
+  icon:
+    sprite: Clothing/Eyes/Hud/diag.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 7000
+  recipeUnlocks:
+  - ClothingEyesHudDiagnostic
+  - ClothingEyesHudMedical
+  - ClothingEyesHudSecurity
+  - ADTClothingEyesHudAdvanced
+  #technologyPrerequisites:
+  #- CompactPower
