@@ -12,11 +12,11 @@ public sealed partial class GameTicker
     public string? LobbyBackground { get; private set; }
 
     [ViewVariables]
-    private List<string>? _lobbyBackgrounds;
+    private List<string>? _lobbyBackgrounds; // ADT Tweak
 
     private void InitializeLobbyBackground()
     {
-        _lobbyBackgrounds = _prototypeManager.EnumeratePrototypes<AnimatedLobbyScreenPrototype>()
+        _lobbyBackgrounds = _prototypeManager.EnumeratePrototypes<AnimatedLobbyScreenPrototype>() // ADT Tweak
             .Select(x => x.Path)
             .ToList();
 
@@ -25,6 +25,6 @@ public sealed partial class GameTicker
 
     private void RandomizeLobbyBackground()
     {
-        LobbyBackground = _lobbyBackgrounds!.Any() ? _robustRandom.Pick(_lobbyBackgrounds!) : null;
+        LobbyBackground = _lobbyBackgrounds!.Any() ? _robustRandom.Pick(_lobbyBackgrounds!) : null; // ADT Tweak
     }
 }
