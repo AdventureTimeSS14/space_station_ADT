@@ -5675,6 +5675,13 @@ entities:
     - type: Transform
       pos: -2.5,-174.5
       parent: 2
+- proto: ADTVendingMachinePrazatClothing
+  entities:
+  - uid: 5203
+    components:
+    - type: Transform
+      pos: 6.5,-124.5
+      parent: 2
 - proto: AirAlarm
   entities:
   - uid: 5
@@ -34173,12 +34180,6 @@ entities:
       parent: 2
 - proto: Chair
   entities:
-  - uid: 5203
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 6.5,-124.5
-      parent: 2
   - uid: 5204
     components:
     - type: Transform
@@ -48895,6 +48896,14 @@ entities:
     components:
     - type: Transform
       pos: -20.5,-255.5
+      parent: 2
+- proto: GasMinerPlasma
+  entities:
+  - uid: 17001
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-251.5
       parent: 2
 - proto: GasMixer
   entities:
@@ -74383,7 +74392,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -142174.02
+      secondsUntilStateChange: -142472.64
       state: Closing
   - uid: 11227
     components:
