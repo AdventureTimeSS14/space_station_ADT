@@ -390,6 +390,9 @@
       - PhantomHud
       - EctoShield
       # ^^ ADT Phantom ^^
+      #ADT hud ADD
+      - ADTClothingEyesHudAdvanced
+      #ADT hud END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -690,6 +693,9 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    #ADT hud ADD
+    - ClothingEyesHudDiagnostic
+    #ADT hud END
   - type: MaterialStorage
     whitelist:
       tags:
@@ -983,6 +989,9 @@
       - BluespaceBeaker
       - SyringeBluespace
       - SyringeCryostasis
+      #ADT hud ADD
+      - ClothingEyesHudMedical
+      #ADT hud END
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

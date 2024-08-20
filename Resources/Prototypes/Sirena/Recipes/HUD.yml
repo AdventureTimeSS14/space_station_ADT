@@ -19,7 +19,7 @@
     Plastic: 150
     Silver: 50
 
-#- type: latheRecipe
+# - type: latheRecipe
 #  id: ClothingEyesHudSecurity
 #  result: ClothingEyesHudSecurity
 #  completetime: 30
