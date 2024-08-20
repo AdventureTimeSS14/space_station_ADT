@@ -194,6 +194,11 @@
       - id: ClothingNeckCloakCe
       - id: ADTClothingMaskGasCE
       # End-ADT Tweak
+      # ADT-UPD-Start
+      - id: ADTUniversalPipeDispenserCircuitboard
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+      # ADT-UPD-End
       # ADT-WikiBooks-Start
       - id: ADTBookSRPcmd
       - id: ADTBookSRPeng
@@ -220,6 +225,11 @@
       - id: AccessConfigurator
       - id: RCD
       - id: RCDAmmo
+      # ADT-UPD-Start
+      - id: ADTUniversalPipeDispenserCircuitboard
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+      # ADT-UPD-End
       # ADT-WikiBooks-Start
       - id: ADTBookSRPcmd
       - id: ADTBookSRPeng

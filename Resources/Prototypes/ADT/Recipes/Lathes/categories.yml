@@ -1,0 +1,7 @@
+- type: latheCategory
+  id: Atmos
+  name: lathe-category-atmos
+
+- type: latheCategory
+  id: Disposals
+  name: lathe-category-disposals
