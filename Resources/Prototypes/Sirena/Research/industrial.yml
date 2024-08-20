@@ -12,7 +12,7 @@
   recipeUnlocks:
   - ClothingEyesHudDiagnostic
   - ClothingEyesHudMedical
-  - ClothingEyesHudSecurity
+  #- ClothingEyesHudSecurity
   - ADTClothingEyesHudAdvanced
   #technologyPrerequisites:
   #- CompactPower
