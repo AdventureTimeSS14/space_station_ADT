@@ -8,7 +8,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: ADT/Objects/Decoration/poster_helloween.rsi
+      - sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
         state: spider
   - type: RandomSpawner
     offset: 0
