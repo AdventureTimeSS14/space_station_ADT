@@ -118,6 +118,7 @@
     unlitIdleState: unlit
     unlitRunningState: unlit-building
     staticRecipes:
+      - StorageCanister #ADT tweak
       - Wirecutter
       - Igniter
       - Signaller
