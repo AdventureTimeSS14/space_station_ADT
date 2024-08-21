@@ -11635,6 +11635,18 @@ entities:
     - type: Transform
       pos: 48.5,-14.5
       parent: 2
+- proto: ADTVendingMachinePrazatClothing
+  entities:
+  - uid: 1094
+    components:
+    - type: Transform
+      pos: -29.5,-12.5
+      parent: 2
+  - uid: 17063
+    components:
+    - type: Transform
+      pos: -59.5,-55.5
+      parent: 2
 - proto: AirAlarm
   entities:
   - uid: 755
@@ -57901,11 +57913,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -19.5,-44.5
       parent: 2
-  - uid: 17063
-    components:
-    - type: Transform
-      pos: -29.5,-12.5
-      parent: 2
   - uid: 17291
     components:
     - type: Transform
@@ -60161,33 +60168,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckAromanticPin
-  entities:
-  - uid: 21450
-    components:
-    - type: Transform
-      pos: -19.327265,17.651068
-      parent: 2
-- proto: ClothingNeckAsexualPin
-  entities:
-  - uid: 5233
-    components:
-    - type: Transform
-      pos: -19.65906,17.512405
-      parent: 2
 - proto: ClothingNeckBling
   entities:
   - uid: 14398
     components:
     - type: Transform
       pos: 54.98519,-35.41314
-      parent: 2
-- proto: ClothingNeckCloakEnby
-  entities:
-  - uid: 17203
-    components:
-    - type: Transform
-      pos: 28.513657,-33.38952
       parent: 2
 - proto: ClothingNeckCloakNanotrasen
   entities:
@@ -60202,20 +60188,6 @@ entities:
     components:
     - type: Transform
       pos: 27.4845,-46.404865
-      parent: 2
-- proto: ClothingNeckLGBTPin
-  entities:
-  - uid: 5872
-    components:
-    - type: Transform
-      pos: -53.645718,-60.37925
-      parent: 2
-- proto: ClothingNeckNonBinaryPin
-  entities:
-  - uid: 5103
-    components:
-    - type: Transform
-      pos: -53.317593,-60.37925
       parent: 2
 - proto: ClothingNeckScarfStripedSyndieRed
   entities:
@@ -68340,6 +68312,38 @@ entities:
           - data: null
             ReagentId: PoisonWine
             Quantity: 50
+- proto: DrinkBottleVodka
+  entities:
+  - uid: 5103
+    components:
+    - type: Transform
+      pos: -53.317593,-60.37925
+      parent: 2
+  - uid: 5233
+    components:
+    - type: Transform
+      pos: -19.65906,17.512405
+      parent: 2
+  - uid: 5872
+    components:
+    - type: Transform
+      pos: -53.645718,-60.37925
+      parent: 2
+  - uid: 17203
+    components:
+    - type: Transform
+      pos: 28.513657,-33.38952
+      parent: 2
+  - uid: 17207
+    components:
+    - type: Transform
+      pos: 29.482407,-33.45202
+      parent: 2
+  - uid: 21450
+    components:
+    - type: Transform
+      pos: -19.327265,17.651068
+      parent: 2
 - proto: DrinkChangelingStingCan
   entities:
   - uid: 976
@@ -74920,20 +74924,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 20.5,-3.5
       parent: 2
-- proto: GasMinerNitrogenStation
-  entities:
-  - uid: 1094
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 18.5,-3.5
-      parent: 2
-- proto: GasMinerOxygenStation
+- proto: GasMinerNitrogenStationLarge
   entities:
   - uid: 1095
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      pos: 18.5,-3.5
+      parent: 2
+- proto: GasMinerOxygenStationLarge
+  entities:
+  - uid: 6394
+    components:
+    - type: Transform
       pos: 16.5,-3.5
       parent: 2
 - proto: GasMinerPlasma
@@ -101217,13 +101219,6 @@ entities:
       parent: 6997
     - type: Physics
       canCollide: False
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 17207
-    components:
-    - type: Transform
-      pos: 29.482407,-33.45202
-      parent: 2
 - proto: LiquidNitrogenCanister
   entities:
   - uid: 5722
@@ -104844,11 +104839,6 @@ entities:
     components:
     - type: Transform
       pos: -35.5,-55.5
-      parent: 2
-  - uid: 6394
-    components:
-    - type: Transform
-      pos: -59.5,-55.5
       parent: 2
   - uid: 6395
     components:
