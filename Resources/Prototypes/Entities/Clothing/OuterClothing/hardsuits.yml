@@ -394,6 +394,7 @@
     sprintModifier: 0.75
   - type: HeldSpeedModifier
   - type: Item
+    # size: Huge
     size: Normal #ADT Tweak
   - type: Tag
     tags:
