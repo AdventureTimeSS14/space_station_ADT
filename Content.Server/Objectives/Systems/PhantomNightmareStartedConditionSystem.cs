@@ -8,10 +8,10 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Content.Shared.ADT.Phantom.Components;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server.Objectives.Systems;    // ADT file
 
 /// <summary>
-/// Handles kill person condition logic and picking random kill targets.
+/// Final phantom objective
 /// </summary>
 public sealed class PhantomNightmareStartedConditionSystem : EntitySystem
 {

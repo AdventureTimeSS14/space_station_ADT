@@ -12,4 +12,48 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
     state: ADTBlueShieldOfficer
-  jobName: job-name-ADTBlueShieldOfficer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTPathologist
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTPathologist
+  jobname: job-name-ADTPathologist
+
+#SPACE SEC
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecCadet
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecCadetStatusIcon
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecOfficer
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecOfficerStatusIcon
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecPilot
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecPilotStatusIcon
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecCommander
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecCommanderStatusIcon
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTSpaceSecService
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
+    state: ADTSpaceSecServiceStatusIcon

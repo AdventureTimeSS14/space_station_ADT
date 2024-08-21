@@ -265,6 +265,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - PhantomEctoplasm
   - type: Lathe
     idleState: icon
     runningState: building

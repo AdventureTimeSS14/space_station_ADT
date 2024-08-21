@@ -64,6 +64,14 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
+  # ADT-UPD-Start
+  - type: Item
+    size: Ginormous
+  - type: HeldSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: MultiHandedItem
+  # ADT-UPD-End
 
 - type: entity
   id: DisposalHolder

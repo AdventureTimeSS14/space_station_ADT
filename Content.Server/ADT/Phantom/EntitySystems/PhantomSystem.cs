@@ -57,7 +57,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.CombatMode;
 using Content.Server.Cuffs;
-using Content.Server.Humanoid;
+using Robust.Server.Player;
 using Content.Shared.Preferences;
 using Content.Shared.Ghost;
 using Content.Shared.Tag;
@@ -75,6 +75,7 @@ using Content.Shared.Revenant.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Server.Singularity.Events;
+using Content.Server.GameTicking.Rules;
 
 namespace Content.Server.ADT.Phantom.EntitySystems;
 
@@ -85,10 +86,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedControlledSystem _controlled = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -123,6 +122,9 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly PhantomRuleSystem _phantomGameRule = default!;
+
     #endregion
 
     public override void Initialize()
@@ -131,8 +133,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         // Startup
         SubscribeLocalEvent<PhantomComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<PhantomComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PhantomComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<PhantomComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PhantomComponent, StatusEffectAddedEvent>(OnStatusAdded);
         SubscribeLocalEvent<PhantomComponent, StatusEffectEndedEvent>(OnStatusEnded);
 
@@ -570,14 +572,14 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
-            var selfMessage = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
+            var selfMessage = Loc.GetString("phantom-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
 
         if (HasComp<MindShieldComponent>(target))
         {
-            var selfMessage = Loc.GetString("phantom-vessel-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
+            var selfMessage = Loc.GetString("phantom-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
@@ -616,6 +618,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
 
         var target = args.Target;
+
+        if (HasComp<MindShieldComponent>(target))
+        {
+            var selfMessage = Loc.GetString("phantom-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
 
         if (!TryUseAbility(uid, target))
             return;
@@ -767,7 +776,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 _apcSystem.ApcToggleBreaker(target, apc);
                 success = true;
             }
-            if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target)) //&& _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
+            if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
             {
                 _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false);
                 _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false);
@@ -791,7 +800,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                             _apcSystem.ApcToggleBreaker(entity, entApc);
                             success = true;
                         }
-                        if (HasComp<StatusEffectsComponent>(entity) && HasComp<BatteryComponent>(entity)) //&& _status.TryAddStatusEffect<SeeingStaticComponent>(entity, "SeeingStatic", timeStatic, false))
+                        if (HasComp<StatusEffectsComponent>(entity) && HasComp<BatteryComponent>(entity) && _status.TryAddStatusEffect<SeeingStaticComponent>(entity, "SeeingStatic", timeStatic, false))
                         {
                             _status.TryAddStatusEffect<KnockedDownComponent>(entity, "KnockedDown", time, false);
                             _status.TryAddStatusEffect<StunnedComponent>(entity, "Stun", time, false);
@@ -1194,6 +1203,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
+        if (HasComp<MindShieldComponent>(target))
+        {
+            var selfMessage = Loc.GetString("phantom-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
         UpdateEctoplasmSpawn(uid);
         args.Handled = true;
 
@@ -1273,58 +1289,41 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         if (args.Handled)
             return;
 
-        if (!component.EpidemicActive)
+        List<EntityUid> list = new();
+        foreach (var (ent, humanoid) in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, 150f))
         {
-            List<EntityUid> list = new();
-            foreach (var (ent, humanoid) in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, 150f))
-            {
-                if (_mindSystem.TryGetMind(ent, out _, out _) && TryComp<MobStateComponent>(ent, out var state) && state.CurrentState == Shared.Mobs.MobState.Alive)
-                    list.Add(ent);
-            }
-
-            if (list.Count <= 0)
-            {
-                var failMessage = Loc.GetString("phantom-epidemic-fail");
-                _popup.PopupEntity(failMessage, uid, uid);
-                return;
-            }
-
-            var (target, _) = _random.Pick(_lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, 150f));
-
-            if (!_hallucinations.StartEpidemicHallucinations(target, component.HallucinationsPrototype))
-            {
-                var failMessage = Loc.GetString("phantom-epidemic-fail");
-                _popup.PopupEntity(failMessage, uid, uid);
-                return;
-            }
-
-            if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                _audio.PlayGlobal(component.PsychoSound, mind.Session);
-
-            var selfMessage = Loc.GetString("phantom-epidemic-success", ("name", Identity.Entity(target, EntityManager)));
-            _popup.PopupEntity(selfMessage, uid, uid);
-
-            component.EpidemicActive = true;
-
-            UpdateEctoplasmSpawn(uid);
-            args.Handled = true;
+            if (
+                _mindSystem.TryGetMind(ent, out _, out _) &&
+                TryComp<MobStateComponent>(ent, out var state) &&
+                state.CurrentState == Shared.Mobs.MobState.Alive &&
+                !HasComp<MindShieldComponent>(ent))
+                list.Add(ent);
         }
-        else
+
+        if (list.Count <= 0)
         {
-            var query = EntityQueryEnumerator<HallucinationsDiseaseComponent>();
-            while (query.MoveNext(out var mob, out var comp))
-            {
-                RemComp<HallucinationsDiseaseComponent>(mob);
-            }
-
-            var selfMessage = Loc.GetString("phantom-epidemic-end");
-            _popup.PopupEntity(selfMessage, uid, uid);
-
-            component.EpidemicActive = false;
-
-            UpdateEctoplasmSpawn(uid);
-            args.Handled = true;
+            var failMessage = Loc.GetString("phantom-epidemic-fail");
+            _popup.PopupEntity(failMessage, uid, uid);
+            return;
         }
+
+        var (target, _) = _random.Pick(_lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, 150f));
+
+        if (!_hallucinations.StartEpidemicHallucinations(target, component.HallucinationsPrototype))
+        {
+            var failMessage = Loc.GetString("phantom-epidemic-fail");
+            _popup.PopupEntity(failMessage, uid, uid);
+            return;
+        }
+
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
+            _audio.PlayGlobal(component.PsychoSound, mind.Session);
+
+        var selfMessage = Loc.GetString("phantom-epidemic-success", ("name", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(selfMessage, uid, uid);
+
+        UpdateEctoplasmSpawn(uid);
+        args.Handled = true;
     }
 
     private void OnHelpingHand(EntityUid uid, PhantomComponent component, PhantomHelpingHelpActionEvent args)
@@ -1380,6 +1379,20 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
+        if (!HasComp<VesselComponent>(target))
+        {
+            var selfMessage = Loc.GetString("phantom-puppeter-fail-notvessel", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (HasComp<MindShieldComponent>(target))
+        {
+            var selfMessage = Loc.GetString("phantom-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
         if (_mindSystem.TryGetMind(uid, out _, out var mind))// &&
         //_mindSystem.TryGetMind(target, out _, out var targetMind))
         {
@@ -1413,6 +1426,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
         var target = component.Holder;
+
+        if (HasComp<MindShieldComponent>(target))
+        {
+            var selfMessage = Loc.GetString("phantom-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
 
         if (!TryUseAbility(uid, target))
             return;
@@ -1481,6 +1501,20 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             args.Cancel();
 
+            foreach (var ghost in _playerManager.Sessions)
+            {
+                var ent = ghost.AttachedEntity;
+                if (!HasComp<GhostComponent>(ent))
+                    continue;
+                var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
+                    ("entityName", Identity.Entity(uid, EntityManager)),
+                    ("verb", "шепчет"),
+                    ("fontType", "Default"),
+                    ("fontSize", 12),
+                    ("message", args.Message));
+
+                _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, wrappedMessage, uid, false, ghost.Channel);
+            }
             if (args.Radio)
             {
                 var popupMessage = Loc.GetString("phantom-say-target");
@@ -1645,7 +1679,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         args.Cancel();
     }
 
-    private void OnLevelChanged(EntityUid uid, PhantomComponent component, RefreshPhantomLevelEvent args)
+    private void OnLevelChanged(EntityUid uid, PhantomComponent component, ref RefreshPhantomLevelEvent args)
     {
         SelectStyle(uid, component, component.CurrentStyle, true);
         _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short) Math.Clamp(component.Vessels.Count, 0, 10));
@@ -1751,7 +1785,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         if (allowedVessels.Count < 1)
         {
             var ev = new PhantomDiedEvent();
-            RaiseLocalEvent(uid, ev);
+            RaiseLocalEvent(uid, ref ev);
             return false;
         }
 
@@ -1868,8 +1902,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             holderComp.Phantom = uid;
             _actionBlocker.UpdateCanMove(uid);
 
-            var eye = EnsureComp<EyeComponent>(uid);
-            _eye.SetDrawFov(uid, true, eye);
+            // var eye = EnsureComp<EyeComponent>(uid);
+            // _eye.SetDrawFov(uid, true, eye);
             _appearance.SetData(uid, PhantomVisuals.Haunting, true);
 
             var xform = Transform(uid);
@@ -1947,8 +1981,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         _alerts.ClearAlert(uid, component.HauntedAlert);
         //_action.RemoveAction(uid, component.PhantomStopHauntActionEntity);
 
-        var eye = EnsureComp<EyeComponent>(uid);
-        _eye.SetDrawFov(uid, false, eye);
+        // var eye = EnsureComp<EyeComponent>(uid);
+        // _eye.SetDrawFov(uid, false, eye);
         _appearance.SetData(uid, PhantomVisuals.Haunting, false);
 
         Dirty(holder, holderComp);
@@ -2051,7 +2085,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     /// <param name="uid">Phantom uid</param>
     /// <param name="component">Phantom component</param>
     /// <returns>Is there are any altars</returns>
-    public bool CheckAltars(EntityUid uid, PhantomComponent component)
+    public bool CheckAltars(EntityUid uid, PhantomComponent? component = null)
     {
         var xformQuery = GetEntityQuery<TransformComponent>();
 
@@ -2092,14 +2126,11 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     /// <param name="trgt">Target uid (nullable)</param>
     /// <param name="comp">Phantom component</param>
     /// <returns>Is phantom able to use this ability</returns>
-    private bool TryUseAbility(EntityUid uid, EntityUid? trgt = null, PhantomComponent? comp = null)
+    private bool TryUseAbility(EntityUid uid, EntityUid? trgt = null)
     {
-        if (!Resolve(uid, ref comp))
-            return false;
-
         if (trgt == null)
         {
-            if (CheckAltars(uid, comp))
+            if (CheckAltars(uid))
                 return false;
             return true;
         }
@@ -2389,7 +2420,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
 
         var ev = new PhantomNightmareEvent();
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(uid, ref ev);
 
         var list = new List<EntityUid>();
         foreach (var vessel in component.Vessels)
@@ -2432,7 +2463,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
 
         var ev = new PhantomTyranyEvent();
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(uid, ref ev);
 
         _alertLevel.SetLevel(stationUid.Value, "delta", false, false, true, true);
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-tyrany-announcement"), Loc.GetString("phantom-announcer"), true, component.TyranySound, Color.DarkCyan);
@@ -2528,7 +2559,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             _mindSystem.TransferTo(mindId, human);
             var ev = new PhantomReincarnatedEvent();
-            RaiseLocalEvent(uid, ev);
+            RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
             _euiManager.OpenEui(new PhantomAmnesiaEui(), selfMind.Session);
             _audio.PlayGlobal(component.OblivionSong, selfMind.Session);
@@ -2579,7 +2610,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             _mindSystem.TransferTo(selfMindId, human);
             var ev = new PhantomReincarnatedEvent();
-            RaiseLocalEvent(uid, ev);
+            RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
         }
     }
@@ -2611,7 +2642,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             _mindSystem.TransferTo(selfMindId, human);
             var ev = new PhantomReincarnatedEvent();
-            RaiseLocalEvent(uid, ev);
+            RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
             _audio.PlayGlobal(component.HelpSong, selfMind.Session);
         }

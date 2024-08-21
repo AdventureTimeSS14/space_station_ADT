@@ -29,4 +29,9 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /*
+    * Radial menu
+    */
+    public static readonly CVarDef<bool> CenterRadialMenu =
+        CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

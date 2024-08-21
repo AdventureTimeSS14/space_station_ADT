@@ -1,0 +1,5 @@
+# Ghost
+- type: startingGear
+  id: MobGhostGear
+  equipment:
+    id: ADTGhostPDA

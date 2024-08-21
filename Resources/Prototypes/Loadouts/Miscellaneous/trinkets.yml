@@ -71,68 +71,117 @@
     - CigarGold
 
 # Pins
-- type: loadout
-  id: ClothingNeckLGBTPin
-  storage:
-    back:
-    - ClothingNeckLGBTPin
 
-- type: loadout
-  id: ClothingNeckAromanticPin
-  storage:
-    back:
-    - ClothingNeckAromanticPin
+#ADT end
 
-- type: loadout
-  id: ClothingNeckAsexualPin
-  storage:
-    back:
-    - ClothingNeckAsexualPin
+# - type: loadout
+#   id: ClothingNeckLGBTPin
+#   equipment: ClothingNeckLGBTPin
 
-- type: loadout
-  id: ClothingNeckBisexualPin
-  storage:
-    back:
-    - ClothingNeckBisexualPin
+# - type: startingGear
+#   id: ClothingNeckLGBTPin
+#   storage:
+#     back:
+#     - ClothingNeckLGBTPin
 
-- type: loadout
-  id: ClothingNeckIntersexPin
-  storage:
-    back:
-    - ClothingNeckIntersexPin
+# - type: loadout
+#   id: ClothingNeckAromanticPin
+#   equipment: ClothingNeckAromanticPin
 
-- type: loadout
-  id: ClothingNeckLesbianPin
-  storage:
-    back:
-    - ClothingNeckLesbianPin
+# - type: startingGear
+#   id: ClothingNeckAromanticPin
+#   storage:
+#     back:
+#     - ClothingNeckAromanticPin
 
-- type: loadout
-  id: ClothingNeckNonBinaryPin
-  storage:
-    back:
-    - ClothingNeckNonBinaryPin
+# - type: loadout
+#   id: ClothingNeckAsexualPin
+#   equipment: ClothingNeckAsexualPin
 
-- type: loadout
-  id: ClothingNeckPansexualPin
-  storage:
-    back:
-    - ClothingNeckPansexualPin
+# - type: startingGear
+#   id: ClothingNeckAsexualPin
+#   storage:
+#     back:
+#     - ClothingNeckAsexualPin
 
-- type: loadout
-  id: ClothingNeckTransPin
-  storage:
-    back:
-    - ClothingNeckTransPin
+# - type: loadout
+#   id: ClothingNeckBisexualPin
+#   equipment: ClothingNeckBisexualPin
 
-- type: loadout
-  id: ClothingNeckAutismPin
-  storage:
-    back:
-    - ClothingNeckAutismPin
+# - type: startingGear
+#   id: ClothingNeckBisexualPin
+#   storage:
+#     back:
+#     - ClothingNeckBisexualPin
 
-- type: loadout
-  id: ClothingNeckGoldAutismPin
-  storage:
-    back:
-    - ClothingNeckGoldAutismPin
+# - type: loadout
+#   id: ClothingNeckIntersexPin
+#   equipment: ClothingNeckIntersexPin
+
+# - type: startingGear
+#   id: ClothingNeckIntersexPin
+#   storage:
+#     back:
+#     - ClothingNeckIntersexPin
+
+# - type: loadout
+#   id: ClothingNeckLesbianPin
+#   equipment: ClothingNeckLesbianPin
+
+# - type: startingGear
+#   id: ClothingNeckLesbianPin
+#   storage:
+#     back:
+#     - ClothingNeckLesbianPin
+
+# - type: loadout
+#   id: ClothingNeckNonBinaryPin
+#   equipment: ClothingNeckNonBinaryPin
+
+# - type: startingGear
+#   id: ClothingNeckNonBinaryPin
+#   storage:
+#     back:
+#     - ClothingNeckNonBinaryPin
+
+# - type: loadout
+#   id: ClothingNeckPansexualPin
+#   equipment: ClothingNeckPansexualPin
+
+# - type: startingGear
+#   id: ClothingNeckPansexualPin
+#   storage:
+#     back:
+#     - ClothingNeckPansexualPin
+
+# - type: loadout
+#   id: ClothingNeckTransPin
+#   equipment: ClothingNeckTransPin
+
+# - type: startingGear
+#   id: ClothingNeckTransPin
+#   storage:
+#     back:
+#     - ClothingNeckTransPin
+
+# - type: loadout
+#   id: ClothingNeckAutismPin
+#   equipment: ClothingNeckAutismPin
+
+# - type: startingGear
+#   id: ClothingNeckAutismPin
+#   storage:
+#     back:
+#     - ClothingNeckAutismPin
+
+# - type: loadout
+#   id: ClothingNeckGoldAutismPin
+#   equipment: ClothingNeckGoldAutismPin
+
+# - type: startingGear
+#   id: ClothingNeckGoldAutismPin
+#   storage:
+#     back:
+#     - ClothingNeckGoldAutismPin
+
+#ADT end

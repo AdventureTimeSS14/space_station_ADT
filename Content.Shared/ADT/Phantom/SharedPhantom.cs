@@ -145,40 +145,23 @@ public sealed partial class PuppeterDoAfterEvent : SimpleDoAfterEvent
 #endregion
 
 #region Events
-public sealed class RefreshPhantomLevelEvent : EntityEventArgs
-{
-    public RefreshPhantomLevelEvent()
-    {
-    }
-}
+[ByRefEvent]
+public record struct RefreshPhantomLevelEvent();
 
-public sealed class PhantomReincarnatedEvent : EntityEventArgs
-{
-    public PhantomReincarnatedEvent()
-    {
-    }
-}
+[ByRefEvent]
+public record struct PhantomReincarnatedEvent();
 
-public sealed class PhantomDiedEvent : EntityEventArgs
-{
-    public PhantomDiedEvent()
-    {
-    }
-}
+[ByRefEvent]
+public record struct PhantomDiedEvent();
 
-public sealed class PhantomTyranyEvent : EntityEventArgs
-{
-    public PhantomTyranyEvent()
-    {
-    }
-}
+[ByRefEvent]
+public record struct PhantomTyranyEvent();
 
-public sealed class PhantomNightmareEvent : EntityEventArgs
-{
-    public PhantomNightmareEvent()
-    {
-    }
-}
+[ByRefEvent]
+public record struct PhantomNightmareEvent();
+
+[ByRefEvent]
+public record struct PhantomLevelReachedEvent(int Level);
 
 [DataDefinition]
 public sealed partial class EctoplasmHitscanHitEvent : EntityEventArgs
