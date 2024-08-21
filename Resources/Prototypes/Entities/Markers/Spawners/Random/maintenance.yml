@@ -96,12 +96,12 @@
       # Cloaks
       - !type:GroupSelector
         children:
+        - id: ClothingNeckCloakAdmin
+        - id: ClothingNeckCloakMoth
+        - id: ClothingNeckCloakVoid
+        - id: ClothingNeckCloakGoliathCloak
         #ADT start
         # - id: ClothingNeckCloakTrans
-        # - id: ClothingNeckCloakAdmin
-        # - id: ClothingNeckCloakMoth
-        # - id: ClothingNeckCloakVoid
-        # - id: ClothingNeckCloakGoliathCloak
         # - id: ClothingNeckCloakAce
         # - id: ClothingNeckCloakAro
         # - id: ClothingNeckCloakBi
