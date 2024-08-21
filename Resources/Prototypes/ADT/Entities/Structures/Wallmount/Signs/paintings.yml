@@ -1,0 +1,9 @@
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingGagarin
+  name: portrait of Yuri Alekseevich Gagarin
+  description: The first cosmonaut to fly into space. His historic flight took place on April 12, 1961 on the Vostok-1 spacecraft. Gagarin became the first person to successfully make a single near-Earth space trip, making one revolution around the Earth. This feat brought him worldwide fame and the status of a national hero in the USSR. It's a shame not to know about it while working in the Space Station.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: painting_gagarin
