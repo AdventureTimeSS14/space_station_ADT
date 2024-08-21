@@ -1,4 +1,3 @@
-# ADT rework - add SpaceMedipen
 - type: entity
   parent: BoxCardboard
   id: BoxSurvival
@@ -14,7 +13,7 @@
     - id: Flare
     - id: FoodSnackNutribrick
     - id: DrinkWaterBottleFull
-    - id: SpaceMedipen
+    - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
   - type: Sprite
     layers:
     - state: internals
