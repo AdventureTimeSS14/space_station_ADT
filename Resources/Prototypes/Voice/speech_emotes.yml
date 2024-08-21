@@ -510,7 +510,7 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   whitelist:
-    requireAll: true
+    requireAll: false #ADT Tweak
     components:
     - BorgChassis
     - Vocal
