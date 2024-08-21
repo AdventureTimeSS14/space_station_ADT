@@ -133,13 +133,6 @@
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
-    # DO NOT ADD MORE, USE UNIFORM DYING
-  contrabandInventory:
-    ClothingMaskNeckGaiter: 2
-    ClothingUniformJumpsuitTacticool: 1
-    ClothingUniformJumpskirtTacticool: 1
-  # DO NOT ADD MORE, USE UNIFORM DYING
-
 # ADT водолазки начало
     ADTClothingUniformTurtleneckBlack: 1
     ADTClothingUniformTurtleneckBlackWomen: 1
@@ -176,3 +169,9 @@
     ADTClothingUniformTurleneckWhiteBlackSleeveless: 1
     ADTClothingUniformTurleneckWhiteWomenSleeveless: 1
 # ADT водолазки конец
+# DO NOT ADD MORE, USE UNIFORM DYING
+  contrabandInventory:
+    ClothingMaskNeckGaiter: 2
+    ClothingUniformJumpsuitTacticool: 1
+    ClothingUniformJumpskirtTacticool: 1
+# DO NOT ADD MORE, USE UNIFORM DYING
