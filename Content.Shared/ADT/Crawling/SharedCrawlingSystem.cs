@@ -8,6 +8,12 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Player;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Alert;
+using Content.Shared.Climbing.Components;
+using Content.Shared.Popups;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Map.Components;
+using Content.Shared.Climbing.Systems;
+using Content.Shared.Climbing.Events;
 
 namespace Content.Shared.ADT.Crawling;
 
@@ -18,6 +24,9 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly BonkSystem _bonk = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -68,6 +77,15 @@ public abstract class SharedCrawlingSystem : EntitySystem
     {
         if (args.Cancelled)
             return;
+
+        foreach (var item in _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f))
+        {
+            if (HasComp<ClimbableComponent>(item))
+            {
+                _bonk.TryBonk(uid, item, source: uid);
+                return;
+            }
+        }
         _standing.Stand(uid);
     }
     private void OnStandUp(EntityUid uid, CrawlerComponent component, StandAttemptEvent args)
