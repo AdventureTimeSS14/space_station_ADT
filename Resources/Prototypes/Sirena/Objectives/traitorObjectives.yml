@@ -1,7 +1,0 @@
-- type: entity
-  noSpawn: true
-  parent: BaseRDStealObjective
-  id: RDPinpointerStealObjective
-  components:
-  - type: StealCondition
-    stealGroup: AnomalyPinpointer
