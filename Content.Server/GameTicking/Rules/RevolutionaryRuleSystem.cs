@@ -194,7 +194,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private bool CheckRevsLose()
     {
-        var stunTime = TimeSpan.FromSeconds(4);
+        ///ADT метод полностью переписан
+        ///ADT start
         var headRevList = new List<EntityUid>();
 
         var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
@@ -204,37 +205,51 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         }
 
         // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
-        // Cuffing Head Revs is not enough - they must be killed.
-        if (IsGroupDetainedOrDead(headRevList, false, false))
+        if (IsGroupDead(headRevList, false))
         {
-            var rev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
-            while (rev.MoveNext(out var uid, out _, out var mc))
+            var headrev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
+            while (headrev.MoveNext(out var uid, out _, out var mc))
             {
                 if (HasComp<HeadRevolutionaryComponent>(uid))
                     continue;
-
-                _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
-                _stun.TryParalyze(uid, stunTime, true);
-                RemCompDeferred<RevolutionaryComponent>(uid);
-                _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
-                _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
-
-                if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
-                    continue;
-
-                // remove their antag role
-                _role.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId);
-
-                // make it very obvious to the rev they've been deconverted since
-                // they may not see the popup due to antag and/or new player tunnel vision
-                if (_mind.TryGetSession(mindId, out var session))
-                    _euiMan.OpenEui(new DeconvertedEui(), session);
+                if (TryComp<MobStateComponent>(uid, out var mobstate) && mobstate.CurrentState != MobState.Dead)
+                {
+                    AddComp<HeadRevolutionaryComponent>(uid);
+                    return false;
+                }
             }
-            return true;
+        }
+        return true;
+
+    }
+    private bool IsGroupDead(List<EntityUid> list, bool checkOffStation)
+    {
+        var dead = 0;
+        foreach (var entity in list)
+        {
+            if (TryComp<MobStateComponent>(entity, out var state))
+            {
+                if (state.CurrentState == MobState.Dead || state.CurrentState == MobState.Invalid)
+                {
+                    dead++;
+                }
+                else if (checkOffStation && _stationSystem.GetOwningStation(entity) == null && !_emergencyShuttle.EmergencyShuttleArrived)
+                {
+                    dead++;
+                }
+            }
+            //If they don't have the MobStateComponent they might as well be dead.
+            else
+            {
+                dead++;
+            }
         }
 
-        return false;
+        return dead == list.Count || list.Count == 0;
     }
+    ///ADT end
+
+
 
     /// <summary>
     /// Will take a group of entities and check if these entities are alive, dead or cuffed.
