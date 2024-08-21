@@ -12,9 +12,10 @@
   - AllAccess
   access:
   - CentralCommand
-  special: # ADT Tweak 
+  special: # Start ADT Tweak 
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ] 
+    implants: [ MindShieldImplant ]
+  # End ADT Tweak
 
 - type: startingGear
   id: CentcomGear
