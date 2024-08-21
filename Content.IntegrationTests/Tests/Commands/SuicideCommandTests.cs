@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Execution;
@@ -21,7 +21,7 @@ namespace Content.IntegrationTests.Tests.Commands;
 [TestFixture]
 public sealed class SuicideCommandTests
 {
-
+    ///*#ADT_Tweak - убрать когда поправят тесты на суицид корваксы. Пока урон повышен с 5 до 10*/
     [TestPrototypes]
     private const string Prototypes = @"
 - type: entity
@@ -32,7 +32,7 @@ public sealed class SuicideCommandTests
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 5
+        Slash: 10
   - type: Execution
 
 - type: entity
@@ -43,8 +43,8 @@ public sealed class SuicideCommandTests
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 5
-        Blunt: 5
+        Slash: 10
+        Blunt: 10 
   - type: Execution
 
 - type: entity
