@@ -29,6 +29,7 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
     state: ADTSpaceSecCadetStatusIcon
+  jobname: job-name-ADTSpaceSecCadet
 
 - type: jobIcon
   parent: JobIcon
@@ -36,6 +37,7 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
     state: ADTSpaceSecOfficerStatusIcon
+  jobname: job-name-ADTSpaceSecOfficer
 
 - type: jobIcon
   parent: JobIcon
@@ -43,6 +45,7 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
     state: ADTSpaceSecPilotStatusIcon
+  jobname: job-name-ADTSpaceSecPilot
 
 - type: jobIcon
   parent: JobIcon
@@ -50,6 +53,7 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
     state: ADTSpaceSecCommanderStatusIcon
+  jobname: job-name-ADTSpaceSecCommander
 
 - type: jobIcon
   parent: JobIcon
@@ -57,3 +61,4 @@
   icon:
     sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
     state: ADTSpaceSecServiceStatusIcon
+  jobname: job-name-ADTSpaceSecService

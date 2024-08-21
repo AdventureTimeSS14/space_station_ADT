@@ -96,19 +96,21 @@
       # Cloaks
       - !type:GroupSelector
         children:
-        - id: ClothingNeckCloakTrans
-        - id: ClothingNeckCloakAdmin
-        - id: ClothingNeckCloakMoth
-        - id: ClothingNeckCloakVoid
-        - id: ClothingNeckCloakGoliathCloak
-        - id: ClothingNeckCloakAce
-        - id: ClothingNeckCloakAro
-        - id: ClothingNeckCloakBi
-        - id: ClothingNeckCloakIntersex
-        - id: ClothingNeckCloakLesbian
-        - id: ClothingNeckCloakGay
-        - id: ClothingNeckCloakEnby
-        - id: ClothingNeckCloakPan
+        #ADT start
+        # - id: ClothingNeckCloakTrans
+        # - id: ClothingNeckCloakAdmin
+        # - id: ClothingNeckCloakMoth
+        # - id: ClothingNeckCloakVoid
+        # - id: ClothingNeckCloakGoliathCloak
+        # - id: ClothingNeckCloakAce
+        # - id: ClothingNeckCloakAro
+        # - id: ClothingNeckCloakBi
+        # - id: ClothingNeckCloakIntersex
+        # - id: ClothingNeckCloakLesbian
+        # - id: ClothingNeckCloakGay
+        # - id: ClothingNeckCloakEnby
+        # - id: ClothingNeckCloakPan
+        #ADT end
       - id: ToySkeleton
       - id: Basketball
       - id: Football
