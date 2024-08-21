@@ -15,7 +15,6 @@ research-technology-atmospheric-tech = Atmospherics
 research-technology-shuttlecraft = Shuttlecraft
 research-technology-ripley-aplu = Ripley APLU
 research-technology-advanced-atmospherics = Advanced Atmospherics
-research-technology-compact-technologies = Matter compression technologies
 research-technology-advanced-tools = Advanced Tools
 research-technology-super-powercells = Super Powercells
 research-technology-bluespace-storage = Bluespace Storage
