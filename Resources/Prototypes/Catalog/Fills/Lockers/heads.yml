@@ -22,12 +22,12 @@
     - id: ADTCommandBudgetCard
     - id: ADTCommandBudgetPinPaper
     # ADT-Economy-End
-      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPcrg
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
+    # ADT-WikiBooks-Start
+    - id: ADTBookSRPcmd
+    - id: ADTBookSRPcrg
+    - id: ADTBookPCDcmd
+    - id: ADTtelescopicBaton
+    # ADT-WikiBooks-End
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -181,7 +181,16 @@
     - id: NitrogenTankFilled
     - id: ClothingNeckCloakCe
     - id: ADTClothingMaskGasCE
+    - id: ADTUniversalPipeDispenserCircuitboard
+    - id: ADTRPD
+    - id: ADTRPDAmmo
     # End-ADT Tweak
+    # ADT-WikiBooks-Start
+    - id: ADTBookSRPcmd
+    - id: ADTBookSRPeng
+    - id: ADTBookPCDcmd
+    - id: ADTtelescopicBaton
+    # ADT-WikiBooks-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -205,18 +214,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillChiefEngineerNoHardsuit
 
-# No hardsuit + hardsuit locker      # ADT-UPD-Start
-      - id: ADTUniversalPipeDispenserCircuitboard
-      - id: ADTRPD
-      - id: ADTRPDAmmo
-      # ADT-UPD-End
-      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPeng
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
-
+# No hardsuit + hardsuit locker
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
   suffix: Filled, Hardsuit
@@ -250,6 +248,12 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
+    # ADT-WikiBooks-Start
+    - id: ADTBookSRPcmd
+    - id: ADTBookSRPmed
+    - id: ADTBookPCDcmd
+    - id: ADTtelescopicBaton
+    # ADT-WikiBooks-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -260,13 +264,7 @@
     - id: ClothingOuterHardsuitMedical
     - id: OxygenTankFilled
 
-# No hardsuit locker      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPmed
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
-
+# No hardsuit locker      
 - type: entity
   id: LockerChiefMedicalOfficerFilled
   suffix: Filled
@@ -277,13 +275,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillChiefMedicalOfficerNoHardsuit
 
-# No hardsuit + Hardsuit locker      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPmed
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
-
+# No hardsuit + Hardsuit locker
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
   suffix: Filled, Hardsuit
@@ -313,6 +305,12 @@
     - id: ProtolatheMachineCircuitboard
     - id: ResearchComputerCircuitboard
     - id: RubberStampRd
+    # ADT-WikiBooks-Start
+    - id: ADTBookSRPcmd
+    - id: ADTBookSRPrnd
+    - id: ADTBookPCDcmd
+    - id: ADTtelescopicBaton
+    # ADT-WikiBooks-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -323,13 +321,7 @@
     - id: ClothingOuterHardsuitRd
     - id: OxygenTankFilled
 
-# No hardsuit locker      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPrnd
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
-
+# No hardsuit locker      
 - type: entity
   id: LockerResearchDirectorFilled
   suffix: Filled
@@ -340,13 +332,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillResearchDirectorNoHardsuit
 
-# No hardsuit + Hardsuit locker      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPrnd
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
-
+# No hardsuit + Hardsuit locker
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
   suffix: Filled, Hardsuit
@@ -386,6 +372,13 @@
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
     - id: BookBusido # Corvax-Books
+    # ADT-WikiBooks-Start
+    - id: ADTBookSRPcmd
+    - id: ADTBookSRPsec
+    - id: ADTBookPCDsec
+    - id: ADTBookPCDcmd
+    - id: ADTtelescopicBaton
+    # ADT-WikiBooks-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -397,14 +390,7 @@
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
-# No hardsuit locker      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPsec
-      - id: ADTBookPCDsec
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
-
+# No hardsuit locker      
 - type: entity
   id: LockerHeadOfSecurityFilled
   suffix: Filled
@@ -429,12 +415,6 @@
           tableId: LockerFillHeadOfSecurityNoHardsuit
         - !type:NestedSelector
           tableId: FillHeadOfSecurityHardsuit
-      # ADT-WikiBooks-Start
-      - id: ADTBookSRPcmd
-      - id: ADTBookSRPsec
-      - id: ADTBookPCDcmd
-      - id: ADTtelescopicBaton
-      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerFreezerVaultFilled
