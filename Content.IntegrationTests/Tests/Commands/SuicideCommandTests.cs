@@ -19,9 +19,9 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests.Commands;
 
 [TestFixture]
+//ADT_Tweak изменен урон с 5 до 205 и 105 соответственно пока проблема не будет исправлена корваксами или кем-то еще
 public sealed class SuicideCommandTests
 {
-    ///*#ADT_Tweak - убрать когда поправят тесты на суицид корваксы. Пока урон повышен с 5 до 10*/
     [TestPrototypes]
     private const string Prototypes = @"
 - type: entity
@@ -32,7 +32,7 @@ public sealed class SuicideCommandTests
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
+        Slash: 205
   - type: Execution
 
 - type: entity
@@ -43,8 +43,8 @@ public sealed class SuicideCommandTests
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
-        Blunt: 10 
+        Slash: 105
+        Blunt: 105
   - type: Execution
 
 - type: entity
