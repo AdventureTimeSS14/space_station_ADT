@@ -244,7 +244,8 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
-  - type: NightVisionItem
+  - type: NightVisionItem # RMC Night vision
+  - type: ItemToggle  # RMC Night vision
   - type: Appearance
   - type: GenericVisualizer
     visuals:

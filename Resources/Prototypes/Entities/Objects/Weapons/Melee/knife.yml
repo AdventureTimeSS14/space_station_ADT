@@ -136,7 +136,7 @@
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
 
 - type: entity
-  parent: [ClothingHeadHatGreyFlatcap, BaseSyndicateContraband]
+  parent: [ClothingHeadHatGreyFlatcap] #, BaseSyndicateContraband] # ADT Remove cringe
   id: BladedFlatcapGrey
   name: grey flatcap
   description: Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim.
@@ -261,7 +261,7 @@
 
 - type: entity
   name: throwing knife
-  parent: [BaseKnife, BaseSyndicateContraband]
+  parent: [BaseKnife] #, BaseSyndicateContraband] # ADT Remove cringe
   id: ThrowingKnife
   description: This bloodred knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
   components:

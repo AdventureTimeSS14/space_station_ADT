@@ -206,7 +206,7 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: [ BaseItem, BaseSyndicateContraband ]
+  parent: [ BaseItem ] #, BaseSyndicateContraband ] # ADT Remove cringe
   id: HypoDartBox
   name: hypodart box
   suffix: HypoDart

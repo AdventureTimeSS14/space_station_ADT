@@ -114,7 +114,7 @@
 
 - type: entity
   name: suspicious toolbox
-  parent: [ToolboxBase, BaseSyndicateContraband]
+  parent: [ToolboxBase] #, BaseSyndicateContraband] # ADT Remove cringe
   id: ToolboxSyndicate
   description: A sinister looking toolbox filled with elite syndicate tools.
   components:

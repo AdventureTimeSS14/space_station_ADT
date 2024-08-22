@@ -40,7 +40,7 @@
         - Scientist
         - Borg
 # Corvax-HiddenDesc-End
-        
+
 - type: entity
   parent: Telecrystal
   id: Telecrystal1
@@ -67,7 +67,7 @@
 
 # Uplinks
 - type: entity
-  parent: [BaseItem, StorePresetUplink, BaseSyndicateContraband]
+  parent: [BaseItem, StorePresetUplink] #, BaseSyndicateContraband] # ADT Remove cringe
   id: BaseUplinkRadio
   name: syndicate uplink
   description: Suspiciously looking old radio...

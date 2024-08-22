@@ -609,7 +609,7 @@
     sprite: Clothing/Head/Hats/truckershat.rsi
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  parent: [ ClothingHeadBase ] #, BaseSyndicateContraband ] # ADT Remove cringe
   id: ClothingHeadPyjamaSyndicateBlack
   name: syndicate black pyjama hat
   description: For keeping that traitor head of yours warm.
@@ -620,7 +620,7 @@
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  parent: [ ClothingHeadBase ] #, BaseSyndicateContraband ] # ADT Remove cringe
   id: ClothingHeadPyjamaSyndicatePink
   name: syndicate pink pyjama hat
   description: For keeping that traitor head of yours warm.
@@ -631,7 +631,7 @@
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  parent: [ ClothingHeadBase ] #, BaseSyndicateContraband ] # ADT Remove cringe
   id: ClothingHeadPyjamaSyndicateRed
   name: syndicate red pyjama hat
   description: For keeping that traitor head of yours warm.
