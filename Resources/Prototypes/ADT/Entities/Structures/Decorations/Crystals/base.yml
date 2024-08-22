@@ -37,7 +37,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Sirena/Structures/Decoration/crystal.rsi
+    sprite: ADT/Structures/Decoration/crystal.rsi
     state: crystal_green
     noRot: true
   - type: MeleeWeapon
