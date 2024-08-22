@@ -259,6 +259,7 @@
   components:
   - type: Item
     sprite: Objects/Tanks/Jetpacks/void.rsi
+    size: Normal #ADT Tweak
   - type: Sprite
     sprite: Objects/Tanks/Jetpacks/void.rsi
   - type: Clothing
