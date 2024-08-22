@@ -222,9 +222,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         return true;
 
     }
-    private bool IsGroupDead(List<EntityUid> list, bool checkOffStation)
+    private bool IsGroupDead(List<EntityUid> list, bool checkOffStation, int? Dead = 0)
     {
-        var dead = 0;
+        var dead = Dead;
         foreach (var entity in list)
         {
             if (TryComp<MobStateComponent>(entity, out var state))
