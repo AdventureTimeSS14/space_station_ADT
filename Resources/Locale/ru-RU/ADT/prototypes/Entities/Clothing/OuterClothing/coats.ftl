@@ -10,3 +10,7 @@ ent-ADTClothingOuterGraySweatshirtTop = серая толстовка-топка
 
 ent-ADTClothingOuterBlackSweatshirtTop = черная толстовка-топка
     .desc = Стильная белая толстовка-топка. Производства компании "Modeling Agency Dar-Vaxed".
+
+ent-ADTClothingOuterBolperCoat = плащ Волпера
+    .desc = +5 процентов к крутости.
+    .suffix = Именное, Bolper.
