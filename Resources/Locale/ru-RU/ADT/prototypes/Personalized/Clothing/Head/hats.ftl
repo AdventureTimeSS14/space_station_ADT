@@ -1,0 +1,9 @@
+ent-ADTClothingHeadHatsMendozaCap = кепка Алексея Мендозы
+    .desc = Фиолетовая кепка некоего Алексея Мендозы. Сзади - нарисованный маркером большой крест. Рядом - еще семнадцать мелких крестиков. Владелец кепки шутит, что это число его побегов из заключения.
+    .suffix = { "Именное, Armorkillerd" }
+ent-ADTClothingHeadHatKivchikBerete = берет возмездия
+    .desc = Красивый чёрный берет. Он пахнет ягодами.
+    .suffix = { "Именное, Kivchik" }
+ent-ADTClothingHeadHatsJohanCap = фуражка Йохана
+    .desc = Выглядит всрато, но круто.
+    .suffix = { "Именное, Conjurer" }

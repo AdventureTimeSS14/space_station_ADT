@@ -9,6 +9,36 @@
     "states": [
         {
             "name": "plushie_ursus"
+        },
+        {
+            "name": "plushie_ma"
+        },
+        {
+            "name": "plushie_evgeniy"
+        },
+        {
+            "name": "plushie_iohan"
+        },
+        {
+            "name": "plushie_migel"
+        },
+        {
+            "name": "plushie_jungar"
+        },
+        {
+            "name": "plushie_ellis"
+        },
+        {
+            "name": "plushie_riker"
+        },
+        {
+            "name": "plushie_lya"
+        },
+        {
+            "name": "plushie_ayus"
+        },
+        {
+            "name": "plushie_schrodinger"
         }
     ]
 }

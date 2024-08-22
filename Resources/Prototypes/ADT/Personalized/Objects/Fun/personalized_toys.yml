@@ -1,0 +1,107 @@
+# Ale_xan_der
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMa
+  name: Ma
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ma
+
+# PushnoY
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEvgeniy
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_evgeniy
+
+# Conjerer
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieIohan
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_iohan
+
+# eddiemercury
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMigel
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_migel
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJungar
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_jungar
+
+# Maestro_HLT
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieFritz
+  name: Ellis plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ellis
+
+# MADIAL
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRicker
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_riker
+
+# Syrel
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLya
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_lya
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAyus
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_ayus
+
+# Shrodinger
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSchrodinger
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_schrodinger

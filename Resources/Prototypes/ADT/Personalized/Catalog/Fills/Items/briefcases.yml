@@ -1,0 +1,26 @@
+- type: entity
+  id: ADTBriefcaseBrownSchrodinger
+  name: Schrodinger`s briefcase
+  parent: ADTBriefcaseCentcomm
+  suffix: Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,5
+  #- type: Storage
+  #  maxItemSize: Ginormous
+  #  maxTotalWeight: 0
+  #  maxSlots: 50 #By this ignore maxTotalWeight
+  - type: StorageFill
+    contents:
+      - id: ClothingShoesBootsLaceup
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingMaskGasCentcom
+      - id: ClothingUniformJumpsuitCentcomAgent
+      - id: ADTWeaponRevolverDeckardGold
+      - id: CentcomPDA
+      - id: ADTClothingNeckMantleCentComm
+      - id: ClothingHeadsetAltCentCom
+      - id: ADTClothingOuterCoatSchroCoat
+      - id: ADTClothingNeckNanoTrasenPinSchrodinger

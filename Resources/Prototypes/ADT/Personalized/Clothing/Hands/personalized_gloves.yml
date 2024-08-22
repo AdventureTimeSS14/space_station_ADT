@@ -1,0 +1,14 @@
+# Kivchik
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsKivchikGloves
+  suffix: Kivchik
+  name: black gloves of retribution
+  description: 'Beautiful black gloves with a gold stripe and red inscription: "ALMD"'
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/kivchikset_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/kivchikset_gloves.rsi
+  - type: Fiber
+    fiberColor: fibers-black

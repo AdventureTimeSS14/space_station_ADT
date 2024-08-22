@@ -1,0 +1,12 @@
+# Kivchik
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckKivchikCloak
+  suffix: Kivchik
+  name: black cloak of retribution
+  description: A neat black raincoat with golden stripes and clasps.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/kivchikset_cloak.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak

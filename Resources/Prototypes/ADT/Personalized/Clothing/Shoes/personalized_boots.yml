@@ -1,0 +1,13 @@
+# Kivchik
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ADTClothingShoesKivchikBoots
+  suffix: Kivchik
+  name: boots of retribution
+  description: Black boots with metal inserts. Look reliable.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/kivchikset_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/kivchikset_boots.rsi
+  - type: Matchbox

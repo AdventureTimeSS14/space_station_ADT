@@ -1,0 +1,24 @@
+# Kivchik
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformKivchikJumpskirt
+  suffix: Kivchik
+  name: black jumpsuit of retribution
+  description: Black jumpsuit with golden stripes and red bandage.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kivchikset_skirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/kivchikset_skirt.rsi
+
+#Conjurer
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAJohanPants
+  name: Johan`s pants
+  description: Just pants, right.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/johan_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/johan_pants.rsi

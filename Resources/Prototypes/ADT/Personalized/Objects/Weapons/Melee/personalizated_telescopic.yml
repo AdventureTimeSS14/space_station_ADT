@@ -1,0 +1,88 @@
+- type: entity
+  name: TelescopicBatonBob
+  parent: ADTtelescopicBaton
+  id: ADTtelescopicBatonBob
+  description: Big, dangerous telescopic baton. Can be stored in pockets when turned off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_bob.rsi
+    layers:
+    - state: telescope_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
+    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
+    #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
+    damageOpen:
+      types:
+        Blunt: 2.4
+    damageFolded:
+      types:
+        Blunt: 0
+    staminaDamageFolded: 0
+    staminaDamageOpen: 35
+  - type: StaminaDamageOnHit
+    damage: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2.4
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_bob.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: telescope_on}
+          False: {state: telescope_off}
+
+# Conjurer
+- type: entity
+  name: TelescopicBatonKon
+  parent: ADTtelescopicBaton
+  id: ADTtelescopicBatonKon
+  description: Big, dangerous telescopic baton. Can be stored in pockets when turned off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_kon.rsi
+    layers:
+    - state: telescope_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    openSound: "/Audio/ADT/open_telescopichka.ogg"
+    closeSound: "/Audio/ADT/close_telescopichka.ogg"
+    #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
+    damageOpen:
+      types:
+        Blunt: 2.4
+    damageFolded:
+      types:
+        Blunt: 0
+    staminaDamageFolded: 0
+    staminaDamageOpen: 35
+  - type: StaminaDamageOnHit
+    damage: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2.4
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_kon.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: telescope_on}
+          False: {state: telescope_off}

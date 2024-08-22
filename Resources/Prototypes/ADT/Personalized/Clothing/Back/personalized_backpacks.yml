@@ -1,0 +1,10 @@
+# Kivchik
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ADTClothingBackpackKivchikSatchel
+  suffix: Kivchik
+  name: satchel of retribution
+  description: A beautiful black bag with a gold clasp and red stripes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/kivchikset_satchel.rsi

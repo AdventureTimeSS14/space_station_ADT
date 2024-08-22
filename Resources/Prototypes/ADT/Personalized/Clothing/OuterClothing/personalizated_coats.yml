@@ -1,0 +1,46 @@
+# Conjurer
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatJohanCoat
+  name: Johans`s Coat
+  description: White coat with blue strips? YOS.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/johan_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/johan_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8
+
+# Shrodinger
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatSchroCoat
+  name: Schrodinger`s Coat
+  description: This dark coat is heavier than look
+  components:
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/schrodinger_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/schrodinger_coat.rsi
+  - type: StorageFill
+    contents:
+    - id: ADTCigarSchrodingerCase
+    - id: FlippoSchrodingerLighter
+    - id: SpeedLoaderMagnum
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.8

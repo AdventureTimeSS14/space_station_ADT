@@ -1,0 +1,175 @@
+#Зиппо Йохана
+- type: entity
+  name: flippo Johan lighter
+  parent: BaseItem
+  id: FlippoJohanLighter
+  description: A zippo lighter with a red metal coating. There are two letters on the case that stand for "Johan Kresta.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/flippolighter_johan.rsi
+    layers:
+    - state: zippo_icon_base
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: zippo_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: IgnitionSource
+    ignited: false
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 1
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Tools/flippolighter_johan.rsi
+    heldPrefix: zippo
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 20
+        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: zippo-inhand-left-flame
+        shader: unshaded
+      right:
+      - state: zippo-inhand-right-flame
+        shader: unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1 # does a little bit of damage on hit when off
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.3 #slightly stronger than the other lighters
+    color: blue
+    energy: 2
+
+#Зиппо Шрёди
+- type: entity
+  name: flippo Johan lighter
+  parent: BaseItem
+  id: FlippoSchrodingerLighter
+  description: A zippo lighter with a red metal coating. There are two letters on the case that stand for Johan Kresta.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/flippolighter_schrodinger.rsi
+    layers:
+    - state: zippo_icon_base
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: zippo_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: IgnitionSource
+    ignited: false
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 1
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Tools/flippolighter_schrodinger.rsi
+    heldPrefix: zippo
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 20
+        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: zippo-inhand-left-flame
+        shader: unshaded
+      right:
+      - state: zippo-inhand-right-flame
+        shader: unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1 # does a little bit of damage on hit when off
+  - type: PointLight
+    enabled: false
+    netsync: false
+    energy: 2
+    radius: 1.3 #slightly stronger than the other lighters
+    color: "#00e600" #green
