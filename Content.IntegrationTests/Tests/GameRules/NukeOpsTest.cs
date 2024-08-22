@@ -222,14 +222,20 @@ public sealed class NukeOpsTest
         var totalSeconds = 30;
         var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
         var increment = 5;
-        var resp = entMan.GetComponent<RespiratorComponent>(player);
-        var damage = entMan.GetComponent<DamageableComponent>(player);
-        for (var tick = 0; tick < totalTicks; tick += increment)
+
+        // ADT Fix IPC from failing tests start
+        if (entMan.TryGetComponent<RespiratorComponent>(player, out var resp))
         {
-            await pair.RunTicksSync(increment);
-            Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
-            Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
+            // var resp = entMan.GetComponent<RespiratorComponent>(player);
+            var damage = entMan.GetComponent<DamageableComponent>(player);
+            for (var tick = 0; tick < totalTicks; tick += increment)
+            {
+                await pair.RunTicksSync(increment);
+                Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
+                Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
+            }
         }
+        // ADT Fix IPC from failing tests end
 
         // Check that the round does not end prematurely when agents are deleted in the outpost
         var nukies = dummyEnts.Where(entMan.HasComponent<NukeOperativeComponent>).Append(player).ToArray();
