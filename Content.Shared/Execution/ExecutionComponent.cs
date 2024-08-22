@@ -18,7 +18,7 @@ public sealed partial class ExecutionComponent : Component
     /// Arbitrarily chosen number to multiply damage by, used to deal reasonable amounts of damage to a victim of an execution.
     /// /// </summary>
     [DataField, AutoNetworkedField]
-    public float DamageMultiplier = 9f;
+    public float DamageMultiplier = 12f;
 
     /// <summary>
     /// Shown to the person performing the melee execution (attacker) upon starting a melee execution.
