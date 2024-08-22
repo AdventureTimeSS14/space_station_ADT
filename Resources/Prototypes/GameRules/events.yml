@@ -545,7 +545,7 @@
     maxTimeBetweenIncidents: 300
     maxSoundDistance: 7
     sounds:
-      collection: Paracusia
+      collection: ADThallucinations #ADT hallucinations
 
 - type: entity
   id: ImmovableRodSpawn
