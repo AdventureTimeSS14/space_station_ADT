@@ -124,7 +124,7 @@ public sealed class SharedExecutionSystem : EntitySystem
 
     private void OnGetMeleeDamage(Entity<ExecutionComponent> entity, ref GetMeleeDamageEvent args)
     {
-        if (!TryComp<MeleeWeaponComponent>(entity, out var melee) || !entity.Comp.Executing)
+        if (!TryComp<MeleeWeaponComponent>(entity, out var melee) || !entity.Comp.Executing || entity.Comp.ExecutingEntity == null)
         {
             return;
         }
@@ -134,7 +134,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         //args.Damage += bonus;
         // Чё это за несвятая хуйня, кто это писал 
         
-        if (!TryComp<MobThresholdsComponent>(uid, out var thresholds))
+        if (!TryComp<MobThresholdsComponent>(entity.Comp.ExecutingEntity.Value, out var thresholds))
             return;
         args.Damage *= 1 / args.Damage.GetTotal();
         args.Damage *= thresholds.Thresholds.Keys.Last(); // Так должно заработать с любым оружием
@@ -212,7 +212,8 @@ public sealed class SharedExecutionSystem : EntitySystem
         var prev = _combat.IsInCombatMode(attacker);
         _combat.SetInCombatMode(attacker, true);
         entity.Comp.Executing = true;
-
+        entity.Comp.ExecutingEntity = victim; // ADT Execution fix
+        
         var internalMsg = entity.Comp.CompleteInternalMeleeExecutionMessage;
         var externalMsg = entity.Comp.CompleteExternalMeleeExecutionMessage;
 
@@ -231,6 +232,7 @@ public sealed class SharedExecutionSystem : EntitySystem
 
         _combat.SetInCombatMode(attacker, prev);
         entity.Comp.Executing = false;
+        entity.Comp.ExecutingEntity = null; // ADT Execution fix
         args.Handled = true;
 
         if (attacker != victim)
