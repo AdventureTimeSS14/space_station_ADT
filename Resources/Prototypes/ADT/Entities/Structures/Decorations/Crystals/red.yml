@@ -1,0 +1,63 @@
+- type: entity
+  id: CrystalRed
+  parent: BaseCrystal
+  components:
+  - type: Sprite
+    state: crystal_red
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF4020"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardCrystalRed:
+            min: 0
+            max: 2
+
+- type: entity
+  id: CrystalRedMedium
+  parent: CrystalRed
+  components:
+  - type: Sprite
+    state: crystal_red_medium
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#FF4020"
+
+- type: entity
+  id: CrystalRedSmall
+  parent: CrystalRed
+  components:
+  - type: Sprite
+    state: crystal_red_small
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#FF4020"
+
+- type: entity
+  id: ShardCrystalRed
+  parent: BaseCrystalShard
+  components:
+  - type: Sprite
+    state: crystalshard_red
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#FF4020"
+  - type: Tag
+    tags:
+      - Trash
+      - CrystalShardRed

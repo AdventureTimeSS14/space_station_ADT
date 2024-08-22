@@ -1,0 +1,71 @@
+- type: entity
+  id: StalagmiteBase
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/stalagmite.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+        - Opaque
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SoundOnGather
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+        - Pickaxe
+
+- type: entity
+  id: Stalagmite1
+  parent: StalagmiteBase
+  components:
+  - type: Sprite
+    state: stalagmite1
+
+- type: entity
+  id: Stalagmite2
+  parent: StalagmiteBase
+  components:
+  - type: Sprite
+    state: stalagmite2
+
+- type: entity
+  id: Stalagmite3
+  parent: StalagmiteBase
+  components:
+  - type: Sprite
+    state: stalagmite3
+
+- type: entity
+  id: Stalagmite4
+  parent: StalagmiteBase
+  components:
+  - type: Sprite
+    state: stalagmite4
+
+- type: entity
+  id: Stalagmite5
+  parent: StalagmiteBase
+  components:
+  - type: Sprite
+    state: stalagmite5

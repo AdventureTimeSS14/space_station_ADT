@@ -33,3 +33,24 @@
 
 - type: Tag
   id: ADTSteelSheet
+
+- type: Tag
+  id: CrystalShardBlue
+
+- type: Tag
+  id: CrystalShardCyan
+
+- type: Tag
+  id: CrystalShardGreen
+
+- type: Tag
+  id: CrystalShardGrey
+
+- type: Tag
+  id: CrystalShardOrange
+
+- type: Tag
+  id: CrystalShardPink
+
+- type: Tag
+  id: CrystalShardRed

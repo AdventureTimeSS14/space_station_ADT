@@ -315,6 +315,7 @@
       - id: ADTBookSRPrnd
       - id: ADTBookPCDcmd
       - id: ADTtelescopicBaton
+      - id: AnomalyPinpointer
       # ADT-WikiBooks-End
 
 - type: entity
@@ -339,6 +340,7 @@
       - id: ADTBookSRPrnd
       - id: ADTBookPCDcmd
       - id: ADTtelescopicBaton
+      - id: AnomalyPinpointer
       # ADT-WikiBooks-End
 
 - type: entity

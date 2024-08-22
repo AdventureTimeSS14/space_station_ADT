@@ -10,7 +10,7 @@
 #   id: MobileDefibrillator
 #   name: переносной дефибриллятор
 #   sprite:
-#     sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi 
+#     sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi
 #     state: icon
 
 - type: stealTargetGroup
@@ -19,3 +19,10 @@
   sprite:
     sprite: ADT/Clothing/Mask/gasCE.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: ADTAnomalyPinpointer
+  name: M.A.F.
+  sprite:
+    sprite: Objects/Devices/pinpointer.rsi
+    state: pinpointer-anomaly

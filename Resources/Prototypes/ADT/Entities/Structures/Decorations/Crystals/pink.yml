@@ -1,0 +1,63 @@
+- type: entity
+  id: CrystalPink
+  parent: BaseCrystal
+  components:
+  - type: Sprite
+    state: crystal_pink
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#a84dab"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardCrystalPink:
+            min: 0
+            max: 2
+
+- type: entity
+  id: CrystalPinkMedium
+  parent: CrystalPink
+  components:
+  - type: Sprite
+    state: crystal_pink_medium
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#a84dab"
+
+- type: entity
+  id: CrystalPinkSmall
+  parent: CrystalPink
+  components:
+  - type: Sprite
+    state: crystal_pink_small
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#a84dab"
+
+- type: entity
+  id: ShardCrystalPink
+  parent: BaseCrystalShard
+  components:
+  - type: Sprite
+    state: crystalshard_pink
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#a84dab"
+  - type: Tag
+    tags:
+      - Trash
+      - CrystalShardPink
