@@ -87,7 +87,15 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(3));
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
-                var expectedIDs = new[] { "HumanHealth", "Debug1", "Debug2" };
+                var expectedIDs = new[] { "Debug1", "Debug2" }; // ADT Fix IPC from failing tests
+
+                // ADT Fix IPC from failing tests start
+                var categories = alertControls.Select(ac => ac.Alert.Category);
+                var expectedCategories = new[] { "Health" };
+
+                Assert.That(categories, Is.SupersetOf(expectedCategories));
+                // ADT Fix IPC from failing tests end
+
                 Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
             });
 
@@ -104,7 +112,15 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(2));
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
-                var expectedIDs = new[] { "HumanHealth", "Debug2" };
+                var expectedIDs = new[] { "Debug2" }; // ADT Fix IPC from failing tests
+
+                // ADT Fix IPC from failing tests start
+                var categories = alertControls.Select(ac => ac.Alert.Category);
+                var expectedCategories = new[] { "Health" };
+
+                Assert.That(categories, Is.SupersetOf(expectedCategories));
+                // ADT Fix IPC from failing tests end
+
                 Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
             });
 

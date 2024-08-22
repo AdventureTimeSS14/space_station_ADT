@@ -216,3 +216,14 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turleneck_white_womensleeveless.rsi
   - type: StaticPrice
     price: 15
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSkirtBrigmedicTurtleneck
+  name: brigmedic turtleneck
+  description: Comfortable and warm turtleneck. Especially for the guardian angel.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
