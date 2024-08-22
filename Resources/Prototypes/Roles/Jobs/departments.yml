@@ -83,6 +83,7 @@
   - Pilot # Corvax-Pilot
   - Detective
   - Warden
+  - Brigmedic # ADT rework brigmedic
 
 - type: department
   id: Science

@@ -75,3 +75,15 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+
+# Brigmedic beret
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBrigmedic
+  name: brigmedic beret
+  description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
