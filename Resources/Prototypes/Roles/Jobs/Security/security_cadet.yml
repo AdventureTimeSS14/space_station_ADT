@@ -6,6 +6,12 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 #10 hrs # Corvax-RoleTime
+# ADT-Tweak
+    # - !type:DepartmentTimeRequirement
+    #   department: Security
+    #   time: 72000 #20 hrs # Corvax-RoleTime
+    #   inverted: true # stop playing intern if you're good at security!
+# ADT-Tweak
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
