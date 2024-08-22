@@ -74,4 +74,9 @@ public sealed partial class ExecutionComponent : Component
     /// </summary>
     [DataField]
     public bool Executing = false;
+
+    // ADT Execution fix start
+    [DataField]
+    public EntityUid? ExecutingEntity;
+    // ADT Execution fix end
 }
