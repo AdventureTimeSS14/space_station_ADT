@@ -129,9 +129,17 @@ public sealed class SharedExecutionSystem : EntitySystem
             return;
         }
 
-        var bonus = melee.Damage * entity.Comp.DamageMultiplier - melee.Damage;
-        args.Damage += bonus;
+        // ADT Execution fix start
+        //var bonus = melee.Damage * entity.Comp.DamageMultiplier - melee.Damage;
+        //args.Damage += bonus;
+        // Чё это за несвятая хуйня, кто это писал 
+        
+        if (!TryComp<MobThresholdsComponent>(uid, out var thresholds))
+            return;
+        args.Damage *= 1 / args.Damage.GetTotal();
+        args.Damage *= thresholds.Thresholds.Keys.Last(); // Так должно заработать с любым оружием
         args.ResistanceBypass = true;
+        // ADT Execution fix end
     }
 
     private void OnSuicideByEnvironment(Entity<ExecutionComponent> entity, ref SuicideByEnvironmentEvent args)
