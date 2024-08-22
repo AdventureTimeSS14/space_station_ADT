@@ -216,7 +216,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
 
-#Brigmedic Hardsuit
+#Brigmedic Hardsuit ADT rework
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseRestrictedContraband]
   id: ClothingOuterHardsuitBrigmedic
@@ -224,9 +224,9 @@
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -234,11 +234,16 @@
     modifiers:
       coefficients:
         Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.7
+        Radiation: 0.8
+        Caustic: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
   - type: ClothingSpeedModifier
-    walkModifier: 0.65
-    sprintModifier: 0.65
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
