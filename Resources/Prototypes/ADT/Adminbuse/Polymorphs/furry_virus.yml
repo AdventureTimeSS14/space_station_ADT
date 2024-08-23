@@ -9,6 +9,7 @@
 
 - type: emote
   id: BCatMeow
+  name: chat-emote-name-meow
   category: Vocal
   chatMessages: [meows]
 
