@@ -310,6 +310,10 @@
       - Igniter
       - HandHeldMassScanner
       - PowerCellMicroreactor
+      - RCD #ADT Tweak
+      - RCDAmmo #ADT Tweak
+      - RPDAmmo #ADT Tweak
+      - RPD #ADT Tweak
       - PowerCellHigh
       - WeaponPistolCHIMP
       - ClothingMaskWeldingGas
