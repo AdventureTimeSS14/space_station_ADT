@@ -4,7 +4,7 @@
   name: анализатор фурри вируса
   components:
   - type: HealthAnalyzer
-    fake: true
+    #fake: true
     disease: FurryVirus
 
 - type: emote

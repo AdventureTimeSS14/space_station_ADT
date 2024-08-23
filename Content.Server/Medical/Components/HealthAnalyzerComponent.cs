@@ -1,4 +1,6 @@
+using Content.Shared.ADT.Disease;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Medical.Components;
@@ -55,4 +57,10 @@ public sealed partial class HealthAnalyzerComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? ScanningEndSound;
+
+
+    // ADT Disease start
+    [DataField]
+    public ProtoId<DiseasePrototype>? Disease;
+    // ADT Disease end
 }

@@ -22,11 +22,11 @@ public sealed partial class DiseaseVaccineCreatorComponent : Component
     /// </summary>
     public int BiomassCost = 4;
 
-    /// <summary>
-    /// The machine part that reduces biomass cost.
-    /// </summary>
-    [DataField("machinePartCost", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartCost = "Manipulator";
+    // /// <summary>
+    // /// The machine part that reduces biomass cost.
+    // /// </summary>
+    // [DataField("machinePartCost", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    // public string MachinePartCost = "Manipulator";
 
     /// <summary>
     /// Current vaccines queued.

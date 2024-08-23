@@ -1,3 +1,4 @@
+using Content.Server.ADT.Disease;
 using Content.Server.Body.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Medical.Components;
@@ -18,6 +19,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Medical;
@@ -33,6 +35,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly PrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -91,7 +94,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             NeedHand = true,
             BreakOnMove = true,
         });
-        
+
         if (args.Target == args.User || doAfterCancelled)
             return;
 
@@ -105,6 +108,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             return;
 
         _audio.PlayPvs(uid.Comp.ScanningEndSound, uid);
+        if (uid.Comp.Disease != null)
+            EntityManager.System<DiseaseSystem>().TryAddDisease(args.Target.Value, _proto.Index(uid.Comp.Disease.Value));
 
         OpenUserInterface(args.User, uid);
         BeginAnalyzingEntity(uid, args.Target.Value);
