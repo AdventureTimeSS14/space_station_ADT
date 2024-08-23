@@ -35,7 +35,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly PrototypeManager _proto = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
