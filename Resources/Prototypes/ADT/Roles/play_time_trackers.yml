@@ -9,3 +9,6 @@
 
 - type: playTimeTracker
   id: JobADTBlueShieldOfficer
+
+- type: playTimeTracker
+  id: JobBrigmedic

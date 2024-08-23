@@ -14,7 +14,7 @@ public sealed partial class PhantomHolderComponent : Component
 
 
     [DataField("statusIcon")]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "PhantomHaunted";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "PhantomHaunted";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;

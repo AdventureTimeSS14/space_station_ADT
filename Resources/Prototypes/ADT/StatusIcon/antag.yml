@@ -1,4 +1,4 @@
-- type: statusIcon
+- type: factionIcon
   id: PhantomVesselFaction
   priority: 11
   icon:
@@ -11,7 +11,7 @@
     - PhantomPuppet
   visibleToOwner: false
 
-- type: statusIcon
+- type: factionIcon
   id: PhantomPuppetFaction
   priority: 11
   icon:
@@ -24,7 +24,7 @@
     - PhantomPuppet
   visibleToOwner: true
 
-- type: statusIcon
+- type: factionIcon
   id: PhantomHaunted
   priority: 10
   icon:
@@ -38,7 +38,7 @@
   #   - Chaplain
   visibleToOwner: false
 
-- type: statusIcon
+- type: factionIcon
   id: PhantomImmune
   priority: 10
   icon:
@@ -51,7 +51,7 @@
     - PhantomPuppet
   visibleToOwner: false
 
-- type: statusIcon
+- type: factionIcon
   id: ChaplainFaction
   priority: 11
   icon:
@@ -64,7 +64,7 @@
     - PhantomPuppet
     - Chaplain
 
-- type: statusIcon
+- type: factionIcon
   id: BelieverFaction
   priority: 11
   icon:

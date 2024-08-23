@@ -175,6 +175,7 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     loopDeny: false
+    priceMultiplier: 0.57 # ADT-Economy
   - type: Advertise
     pack: BoozeOMatAds
   - type: SpeakOnUIClosed
@@ -195,6 +196,7 @@
   - type: GuideHelp
     guides:
     - Bartender
+    - Drinks
 
 - type: entity
   parent: VendingMachine
@@ -792,6 +794,7 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     ejectDelay: 0.6
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: NanoMedAds
   - type: SpeakOnUIClosed
@@ -886,6 +889,7 @@
   - type: GuideHelp
     guides:
     - Security
+    - Antagonists
 
 - type: entity
   parent: VendingMachine
@@ -901,6 +905,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: MegaSeedAds
   - type: SpeakOnUIClosed
@@ -927,6 +932,10 @@
   components:
   - type: AccessReader
     access: [["Hydroponics"]]
+  # ADT-Economy-Start
+  - type: VendingMachine
+    allForFree: false
+  # ADT-Economy-End
 
 - type: entity
   parent: VendingMachine
@@ -979,6 +988,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/sustenance.rsi
     layers:
@@ -1411,6 +1421,7 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/wallmed.rsi
     layers:
@@ -1888,6 +1899,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: SyndieDrobeAds
   - type: SpeakOnUIClosed
@@ -1997,7 +2009,7 @@
   parent: VendingMachine
   id: VendingMachineCentDrobe
   name: CentDrobe
-  description: A one-of-a-kind vending machine for all your centcom aesthetic needs!
+  description: A one-of-a-kind vending machine for all your centcomm aesthetic needs!
   components:
   - type: VendingMachine
     pack: CentDrobeInventory
@@ -2070,6 +2082,7 @@
   components:
   - type: VendingMachine
     pack: TankDispenserEVAInventory
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     state: dispenser
@@ -2083,6 +2096,7 @@
   components:
   - type: VendingMachine
     pack: TankDispenserEngineeringInventory
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     layers:
@@ -2102,6 +2116,7 @@
     normalState: normal
     denyState: deny
     ejectDelay: 2
+    allForFree: true # ADT-Economy
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
@@ -2116,6 +2131,7 @@
   - type: GuideHelp
     guides:
     - Chemicals
+    - Chemist
 
 - type: entity
   parent: VendingMachineChemicals
@@ -2130,6 +2146,7 @@
     normalState: normal
     denyState: deny
     ejectDelay: 2
+    allForFree: true # ADT-Economy
   - type: AccessReader
     access: [["SyndicateAgent"]]
 
