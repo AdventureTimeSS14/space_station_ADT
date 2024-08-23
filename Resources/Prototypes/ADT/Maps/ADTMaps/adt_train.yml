@@ -4,8 +4,8 @@
   mapPath: /Maps/ADTMaps/Stations/adt_train.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 10
-  maxPlayers: 50
+  minPlayers: 0
+  maxPlayers: 30
   stations:
     ADT_Train:
       stationProto: StandardNanotrasenStation
