@@ -48,6 +48,7 @@
       0: Alive
       200: Dead
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     angle: 0
@@ -121,7 +122,7 @@
     attributes:
       gender: male
   - type: TTS # Corvax-TTS
-    voice: Rat
+    voice: dude
 
 - type: entity
   id: MobRatKingBuff
@@ -143,6 +144,7 @@
       0: Alive
       350: Dead
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
     angle: 0

@@ -227,7 +227,7 @@
   id: GauzeLizardLefteyePatch
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies] #ADT везде добавил спешил кобальдов, т.к. все маркинги от унатхов им тоже подходят
   coloring:
     default:
       type:
@@ -241,7 +241,7 @@
   id: GauzeLizardRighteyePatch
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
       type:
@@ -255,7 +255,7 @@
   id: GauzeLizardFootRight
   bodyPart: RFoot
   markingCategory: Overlay
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
       type:
@@ -269,7 +269,7 @@
   id: GauzeLizardFootLeft
   bodyPart: LFoot
   markingCategory: Overlay
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
       type:
@@ -283,7 +283,7 @@
   id: GauzeLizardBlindfold
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Reptilian]
+  speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
       type:

@@ -44,6 +44,11 @@
         mask:
         - ItemMask
   - type: Appearance
+  # ADT-Economy-Start
+  - type: Currency
+    price:
+      SpaceCash: 1
+  # ADT-Economy-End
 
 - type: material
   id: Credit

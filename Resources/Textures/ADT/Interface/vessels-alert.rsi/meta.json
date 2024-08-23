@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by: mnogo_znal for space station 14",
+    "states": [
+        {
+            "name": "fantom0"
+        },
+        {
+            "name": "fantom1"
+        },
+        {
+            "name": "fantom2"
+        },
+        {
+            "name": "fantom3"
+        },
+        {
+            "name": "fantom4"
+        },
+        {
+            "name": "fantom5"
+        },
+        {
+            "name": "fantom6"
+        },
+        {
+            "name": "fantom7"
+        },
+        {
+            "name": "fantom8"
+        },
+        {
+            "name": "fantom9"
+        },
+        {
+            "name": "fantom10"
+        },
+        {
+            "name": "empty"
+        }
+    ]
+}

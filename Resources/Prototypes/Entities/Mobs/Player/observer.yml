@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMob
+  parent: [BaseMob, InventoryBase] #ADT Tweak
   id: MobObserver
   name: observer
   description: Boo!
@@ -53,6 +53,12 @@
     - Universal
     understands:
     - Universal
+  - type: Hands                   #ADT Tweak
+    showInHands: false            #ADT Tweak
+  - type: Inventory               #ADT Tweak
+    templateId: ghost             #ADT Tweak
+  - type: Loadout                 #ADT Tweak
+    prototypes: [ MobGhostGear ]  #ADT Tweak
 
 - type: entity
   id: ActionGhostBoo

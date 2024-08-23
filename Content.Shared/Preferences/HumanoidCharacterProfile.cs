@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.GameTicking;
@@ -29,7 +30,7 @@ namespace Content.Shared.Preferences
         private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // Corvax-Localization
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
-        public const int MaxNameLength = 32;
+        public const int MaxNameLength = 96;    // ну тип ADT
         public const int MaxDescLength = 512;
 
         /// <summary>
@@ -107,6 +108,16 @@ namespace Content.Shared.Preferences
         [DataField]
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
+        // ADT Barks start
+        public string BarkProto = "Human1";
+
+        public float BarkPitch = 1f;
+
+        public float BarkLowVar = 0.1f;
+
+        public float BarkHighVar = 0.5f;
+        // ADT Barks end
+
         /// <summary>
         /// <see cref="_jobPriorities"/>
         /// </summary>
@@ -142,7 +153,13 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            // ADT Barks start
+            string barkProto,
+            float barkPitch,
+            float barkLowVar,
+            float barkHighVar)
+            // ADT Barks end
         {
             Name = name;
             FlavorText = flavortext;
@@ -158,6 +175,12 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            // ADT Barks start
+            BarkProto = barkProto;
+            BarkPitch = barkPitch;
+            BarkLowVar = barkLowVar;
+            BarkHighVar = barkHighVar;
+            // ADT Barks end
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -189,7 +212,13 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                // ADT Barks start
+                other.BarkProto,
+                other.BarkPitch,
+                other.BarkLowVar,
+                other.BarkHighVar)
+                // ADT Barks end
         {
         }
 
@@ -313,6 +342,39 @@ namespace Content.Shared.Preferences
         }
         // Corvax-TTS-End
 
+        // ADT Barks start
+        public HumanoidCharacterProfile WithBarkProto(string bark)
+        {
+            return new(this)
+            {
+                BarkProto = bark,
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkPitch(float pitch)
+        {
+            return new(this)
+            {
+                BarkPitch = pitch,
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkMinVariation(float variation)
+        {
+            return new(this)
+            {
+                BarkLowVar = variation,
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkMaxVariation(float variation)
+        {
+            return new(this)
+            {
+                BarkHighVar = variation,
+            };
+        }
+        // ADT Barks end
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
             return new(this) { Appearance = appearance };
@@ -490,6 +552,12 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            // ADT Barks start
+            if (BarkProto != other.BarkProto) return false;
+            if (BarkPitch != other.BarkPitch) return false;
+            if (BarkLowVar != other.BarkLowVar) return false;
+            if (BarkHighVar != other.BarkHighVar) return false;
+            // ADT Barks end
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 

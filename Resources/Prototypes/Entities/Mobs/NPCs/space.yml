@@ -233,15 +233,23 @@
       types:
         Piercing: 6
         Poison: 4
+  #ADT Start
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: ChloralHydrate
-          Quantity: 80
+          Quantity: 15
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: ChloralHydrate
+        Quantity: 2
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 4
+    transferAmount: 2
+  #ADT End
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup

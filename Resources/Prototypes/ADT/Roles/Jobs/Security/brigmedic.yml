@@ -1,0 +1,47 @@
+- type: job
+  id: Brigmedic
+  name: job-name-brigmedic
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10800 #3 hrs
+  startingGear: BrigmedicGear
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Medical
+  - Security
+  - Brig
+  - Maintenance
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: BrigmedicGear
+  equipment:
+    jumpsuit: ADTClothingUniformBrigmedicTurtleneck
+    outerClothing: ADTClothingOuterCoatBrigmedicWB
+    back: ClothingBackpackBrigmedicFilled
+    shoes: ClothingShoesBootsJackSec
+    gloves: ClothingHandsGlovesLatex
+    eyes: ADTClothingEyesGlassesMed
+    head: ADTClothingHeadHatBeretBrigmedic
+    id: BrigmedicPDA
+    ears: ClothingHeadsetBrigmedic
+    belt: ClothingBeltMedicalFilled
+    pocket1: WeaponPistolMk58
+#    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+#    socks: ClothingUnderwearSocksNormal
+#  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+#  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+#  innerClothingSkirt: ADTClothingUniformSkirtBrigmedicTurtleneck
+#  satchel: ClothingBackpackSatchelBrigmedicFilled
+#  duffelbag: ClothingBackpackDuffelBrigmedicFilled

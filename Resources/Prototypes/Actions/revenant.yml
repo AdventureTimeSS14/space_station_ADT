@@ -1,7 +1,7 @@
 - type: entity
   id: ActionRevenantShop
-  name: Shop
-  description: Opens the ability shop.
+  name: revenant-shop-action
+  description: revenant-shop-action-desc
   components:
   - type: InstantAction
     icon: Interface/Actions/shop.png
@@ -9,21 +9,27 @@
 
 - type: entity
   id: ActionRevenantDefile
-  name: Defile
-  description: Costs 30 Essence.
+  name: revenant-defile
+  description: revenant-defile-action-desc
   components:
   - type: InstantAction
-    icon: Interface/Actions/defile.png
+    icon:
+      sprite: Interface/Actions/revenant.rsi
+      state: rev_corruption
+    itemIconStyle: BigAction
     event: !type:RevenantDefileActionEvent
     useDelay: 15
 
 - type: entity
   id: ActionRevenantOverloadLights
-  name: Overload Lights
-  description: Costs 40 Essence.
+  name: revenant-overload-lights
+  description: revenant-overload-lights-action-desc
   components:
   - type: InstantAction
-    icon: Interface/Actions/overloadlight.png
+    icon:
+      sprite: Interface/Actions/revenant.rsi
+      state: rev_blackout
+    itemIconStyle: BigAction
     event: !type:RevenantOverloadLightsActionEvent
     useDelay: 20
 
@@ -40,10 +46,58 @@
 
 - type: entity
   id: ActionRevenantMalfunction
-  name: Malfunction
-  description: Costs 60 Essence.
+  name: revenant-malfunction
+  description: revenant-malfunction-action-desc
+  noSpawn: true
   components:
   - type: InstantAction
-    icon: Interface/Actions/malfunction.png
+    icon:
+      sprite: Interface/Actions/revenant.rsi
+      state: rev_malafucturing
+    itemIconStyle: BigAction
     event: !type:RevenantMalfunctionActionEvent
     useDelay: 20
+
+    ## ADT revenant update
+
+- type: entity
+  id: ActionRevenantHysteria
+  name: revenant-hysteria
+  description: revenant-hysteria-action-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/revenant.rsi
+      state: rev_panic
+    itemIconStyle: BigAction
+    event: !type:RevenantHysteriaActionEvent
+    useDelay: 90
+
+- type: entity
+  id: ActionRevenantSmoke
+  name: revenant-smoke
+  description: revenant-smoke-action-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/revenant.rsi
+      state: rev_ghostsmoke
+    itemIconStyle: BigAction
+    event: !type:RevenantGhostSmokeActionEvent
+    useDelay: 25
+
+- type: entity
+  id: ActionRevenantLock
+  name: revenant-lock
+  description: revenant-lock-action-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/revenant.rsi
+      state: rev_airlock
+    itemIconStyle: BigAction
+    event: !type:RevenantLockActionEvent
+    useDelay: 25

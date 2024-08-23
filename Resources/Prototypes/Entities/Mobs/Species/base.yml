@@ -132,6 +132,10 @@
     - Pacified
     - StaminaModifier
     - Flashed
+    - RadiationProtection
+    - Drowsiness
+    - ADTHallucinations # ADT-Tweak
+    - ADTStarvation # ADT-Tweak
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -165,6 +169,7 @@
   - type: Dna
   - type: MindContainer
     showExamineInfo: true
+  - type: CanEnterCryostorage
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -213,6 +218,8 @@
     - GalacticCommon
     understands:
     - GalacticCommon
+  - type: SpeechBarks
+  - type: Crawler
 
 - type: entity
   save: false
@@ -242,7 +249,6 @@
       groups:
         Brute: -0.07
   - type: Fingerprint
-
   - type: Blindable
   # Other
   - type: Temperature
@@ -256,6 +262,11 @@
     heatDamage:
       types:
         Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100

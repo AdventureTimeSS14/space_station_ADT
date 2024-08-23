@@ -8,3 +8,27 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/blueshield_backpack.rsi
+
+#дамские сумочки
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackBlackLadySatchel
+  name: black lady satchel
+  description: Satchel for storage. Wow, whats there? A stolen hearts?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/blacklady_satchel.rsi
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackLeatherLadySatchel
+  name: leather lady satchel
+  description: Satchel for storage. Wow, whats there? A stolen hearts?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/leatherlady_satchel.rsi
+  - type: StaticPrice
+    price: 5
