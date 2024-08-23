@@ -1,83 +1,78 @@
-using System.Linq;
-using System.Numerics;
-using Content.Server.Administration.Commands;
-using Content.Server.Cargo.Systems;
-using Content.Server.Chat.Managers;
-using Content.Shared.GameTicking.Components;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.NPC.Components;
-using Content.Shared.NPC.Systems;
-using Content.Server.Preferences.Managers;
-using Content.Server.Spawners.Components;
-using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
-using Content.Shared.CCVar;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Mind;
-using Content.Shared.Preferences;
-using Content.Shared.Roles;
-using Robust.Server.GameObjects;
-using Robust.Server.Maps;
-using Robust.Server.Player;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
-using Robust.Shared.Enums;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Utility;
+// using System.Linq;
+// using System.Numerics;
+// using Content.Server.Administration.Commands;
+// using Content.Server.Cargo.Systems;
+// using Content.Server.Chat.Managers;
+// using Content.Shared.GameTicking.Components;
+// using Content.Server.GameTicking.Rules.Components;
+// using Content.Shared.NPC.Prototypes;
+// using Content.Shared.NPC.Components;
+// using Content.Shared.NPC.Systems;
+// using Content.Server.Preferences.Managers;
+// using Content.Server.Spawners.Components;
+// using Content.Server.Station.Components;
+// using Content.Server.Station.Systems;
+// using Content.Shared.CCVar;
+// using Content.Shared.Humanoid;
+// using Content.Shared.Humanoid.Prototypes;
+// using Content.Shared.Mind;
+// using Content.Shared.Preferences;
+// using Content.Shared.Roles;
+// using Robust.Server.GameObjects;
+// using Robust.Server.Maps;
+// using Robust.Server.Player;
+// using Robust.Shared.Audio;
+// using Robust.Shared.Audio.Systems;
+// using Robust.Shared.Configuration;
+// using Robust.Shared.Enums;
+// using Robust.Shared.Map;
+// using Robust.Shared.Player;
+// using Robust.Shared.Prototypes;
+// using Robust.Shared.Random;
+// using Robust.Shared.Utility;
 
-namespace Content.Server.GameTicking.Rules;
+// namespace Content.Server.GameTicking.Rules;
 
-/// <summary>
-/// This handles the Pirates minor antag, which is designed to coincide with other modes on occasion.
-/// </summary>
-public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
-{
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-    [Dependency] private readonly StationSpawningSystem _stationSpawningSystem = default!;
-    [Dependency] private readonly PricingSystem _pricingSystem = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
-    [Dependency] private readonly NamingSystem _namingSystem = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+// /// <summary>
+// /// This handles the Pirates minor antag, which is designed to coincide with other modes on occasion.
+// /// </summary>
+// public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
+// {
+//     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+//     [Dependency] private readonly IRobustRandom _random = default!;
+//     [Dependency] private readonly IConfigurationManager _cfg = default!;
+//     [Dependency] private readonly IChatManager _chatManager = default!;
+//     [Dependency] private readonly IMapManager _mapManager = default!;
+//     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+//     [Dependency] private readonly StationSpawningSystem _stationSpawningSystem = default!;
+//     [Dependency] private readonly PricingSystem _pricingSystem = default!;
+//     [Dependency] private readonly MapLoaderSystem _map = default!;
+//     [Dependency] private readonly NamingSystem _namingSystem = default!;
+//     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+//     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+//     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+//     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string GameRuleId = "Pirates";
+//     [ValidatePrototypeId<EntityPrototype>]
+//     private const string GameRuleId = "Pirates";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string MobId = "MobVox";
+//     [ValidatePrototypeId<EntityPrototype>]
+//     private const string MobId = "MobVox";
 
-    [ValidatePrototypeId<SpeciesPrototype>]
-    private const string SpeciesId = "Vox";
+//     [ValidatePrototypeId<SpeciesPrototype>]
+//     private const string SpeciesId = "Vox";
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string PirateFactionId = "Syndicate";
+//     [ValidatePrototypeId<NpcFactionPrototype>]
+//     private const string PirateFactionId = "Syndicate";
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string EnemyFactionId = "NanoTrasen";
+//     [ValidatePrototypeId<NpcFactionPrototype>]
+//     private const string EnemyFactionId = "NanoTrasen";
 
-    [ValidatePrototypeId<StartingGearPrototype>]
-    private const string GearId = "PirateGear";
+//     [ValidatePrototypeId<StartingGearPrototype>]
+//     private const string GearId = "PirateGear";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string SpawnPointId = "SpawnPointPirates";
-
-    // Какие наху пираты
-    // У нас нет пиратов
-
-
+//     [ValidatePrototypeId<EntityPrototype>]
+//     private const string SpawnPointId = "SpawnPointPirates";
 
     // /// <inheritdoc/>
     // public override void Initialize()
@@ -324,4 +319,8 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
     //         }
     //     }
     // }
-}
+//}
+
+    // Какие наху пираты
+    // У нас нет пиратов
+
