@@ -13,6 +13,7 @@
   - !type:AddComponentSpecial
     components:
     - type: Chaplain  # ADT Chaplain
+      statusIcon: ChaplainFaction
     #- type: BibleUser #Lets them heal with bibles
 
 
