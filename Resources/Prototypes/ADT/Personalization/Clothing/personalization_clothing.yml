@@ -246,3 +246,37 @@
     sprite: ADT/Personalization/pyotr_officialsuit.rsi
   - type: Clothing
     sprite: ADT/Personalization/pyotr_officialsuit.rsi
+
+# Altius
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatAidan
+  name: Aidan coat
+  description: Aidan coat.
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitAidan
+  name: Aidan suit
+  description: Aidan suit
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/suit_aidan.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/suit_aidan.rsi
