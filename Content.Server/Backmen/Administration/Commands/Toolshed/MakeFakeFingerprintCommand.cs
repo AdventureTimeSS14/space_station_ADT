@@ -8,7 +8,7 @@ using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Toolshed.Syntax;
 
-namespace Content.Server.Backmen.Administration.Commands.Toolshed;
+namespace Content.Server.ADT.Administration.Commands.Toolshed;
 
 [ToolshedCommand, AdminCommand(AdminFlags.Fun)]
 public sealed class MakeFakeFingerprintCommand : ToolshedCommand

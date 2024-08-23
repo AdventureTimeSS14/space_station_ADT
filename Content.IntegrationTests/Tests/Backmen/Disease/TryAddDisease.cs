@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using Content.Server.Backmen.Disease;
-using Content.Shared.Backmen.Disease;
+using Content.Server.ADT.Disease;
+using Content.Shared.ADT.Disease;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests.Backmen.Disease;
+namespace Content.IntegrationTests.Tests.ADT.Disease;
 
 [TestFixture]
 [TestOf(typeof(DiseaseSystem))]

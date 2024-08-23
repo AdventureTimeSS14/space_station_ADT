@@ -185,7 +185,7 @@ public sealed partial class RevenantComponent : Component
     /// <summary>
     /// The disease that is given to the victims of the ability.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("blightDiseasePrototypeId", customTypeSerializer: typeof(PrototypeIdSerializer<Shared.Backmen.Disease.DiseasePrototype>))]
+    [ViewVariables(VVAccess.ReadWrite), DataField("blightDiseasePrototypeId", customTypeSerializer: typeof(PrototypeIdSerializer<Shared.ADT.Disease.DiseasePrototype>))]
     public string BlightDiseasePrototypeId = "SpectralTiredness";
     #endregion
 

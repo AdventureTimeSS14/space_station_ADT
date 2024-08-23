@@ -12,7 +12,7 @@ using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Toolshed.Syntax;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Backmen.Administration.Commands.Toolshed;
+namespace Content.Server.ADT.Administration.Commands.Toolshed;
 
 [ToolshedCommand, AdminCommand(AdminFlags.Fun)]
 public sealed class ChangeSexCommand : ToolshedCommand
