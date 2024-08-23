@@ -37,4 +37,10 @@ public sealed partial class HyposprayComponent : Component
     /// </summary>
     [DataField]
     public bool InjectOnly = false;
+
+    // ADT Injector blocking start
+    [DataField]
+    public bool IgnoreBlockers = true;  // Мало ли будете вводить гипоспреи обычным врачам. Таким подобной роскоши не нужно
+    // ADT Injector blocking end
+
 }

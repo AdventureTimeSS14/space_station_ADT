@@ -3,7 +3,7 @@
   id: ClothingNeckPinBase
   abstract: true
   name: pin
-  description: be nothing do crime
+  description: Be nothing do crime.
   components:
   - type: Item
     size: Tiny
@@ -153,7 +153,7 @@
 #     clothingVisuals:
 #       neck:
 #       - state: trans-equipped
- 
+
 # - type: entity
 #   parent: ClothingNeckPinBase
 #   id: ClothingNeckAutismPin
