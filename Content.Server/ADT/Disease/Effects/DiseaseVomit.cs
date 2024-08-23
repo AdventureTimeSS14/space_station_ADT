@@ -31,6 +31,6 @@ public sealed partial class DiseaseEffectSystem
         if(args.Handled)
             return;
         args.Handled = true;
-        _vomit.Vomit(args.DiseasedEntity, args.DiseaseEffect.ThirstAmount, args.DiseaseEffect.HungerAmount);
+        _vomit.Vomit(args.DiseasedEntity.Owner, args.DiseaseEffect.ThirstAmount, args.DiseaseEffect.HungerAmount);
     }
 }

@@ -44,6 +44,6 @@ public sealed partial class DiseaseEffectSystem
         if (args.DiseaseEffect.Type == PopupRecipients.Local)
             _popup.PopupEntity(Loc.GetString(args.DiseaseEffect.Message), args.DiseasedEntity, args.DiseasedEntity, args.DiseaseEffect.VisualType);
         else if (args.DiseaseEffect.Type == PopupRecipients.Pvs)
-            _popup.PopupEntity(Loc.GetString(args.DiseaseEffect.Message, ("person", Identity.Entity(args.DiseasedEntity, EntityManager))), args.DiseasedEntity, args.DiseaseEffect.VisualType);
+            _popup.PopupEntity(Loc.GetString(args.DiseaseEffect.Message, ("person", Identity.Entity(args.DiseasedEntity.Owner, EntityManager))), args.DiseasedEntity, args.DiseaseEffect.VisualType);
     }
 }

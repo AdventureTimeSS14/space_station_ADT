@@ -20,6 +20,7 @@ public abstract partial class DiseaseEffect : HandledEntityEventArgs
     public abstract object GenerateEvent(Entity<DiseaseCarrierComponent> ent, ProtoId<DiseasePrototype> disease);
 }
 
+[ByRefEvent]
 public abstract class DiseaseArgs(Entity<DiseaseCarrierComponent> diseasedEntity, ProtoId<DiseasePrototype> disease)
     : HandledEntityEventArgs
 {
