@@ -15,6 +15,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Paper;
 using Content.Shared.Tools.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -104,7 +105,7 @@ public sealed class DiseaseDiagnosisSystem : EntitySystem
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, swab.SwabDelay, new DiseaseSwabDoAfterEvent(), uid, target: args.Target, used: uid)
         {
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             NeedHand = true
         });
     }
@@ -343,7 +344,7 @@ public sealed class DiseaseDiagnosisSystem : EntitySystem
         }
         _metaData.SetEntityName(printed,reportTitle);
 
-        _paperSystem.SetContent(printed, contents.ToMarkup(), paper);
+        _paperSystem.SetContent((printed, paper), contents.ToMarkup());
     }
 
     [ValidatePrototypeId<EntityPrototype>]

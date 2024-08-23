@@ -43,6 +43,7 @@ using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Stunnable;
+using Content.Server.ADT.Disease;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -360,7 +361,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in _lookup.GetEntitiesInRange(uid, component.BlightRadius))
         {
             if (emo.TryGetComponent(ent, out var comp))
-                EntityManager.System<Backmen.Disease.DiseaseSystem>().TryAddDisease(ent, component.BlightDiseasePrototypeId, comp);
+                EntityManager.System<DiseaseSystem>().TryAddDisease(ent, component.BlightDiseasePrototypeId, comp);
         }
         //EntityManager.System<Shared.ADT.Abilities.Psionics.SharedPsionicAbilitiesSystem>().LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
         // backmen-end: Disease

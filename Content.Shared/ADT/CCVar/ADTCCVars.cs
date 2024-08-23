@@ -34,4 +34,11 @@ public sealed class ADTCCVars
     */
     public static readonly CVarDef<bool> CenterRadialMenu =
         CVarDef.Create("radialmenu.center", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
+    * Disease
+    */
+    public static readonly CVarDef<bool> GameDiseaseEnabled =
+        CVarDef.Create("game.disease", true, CVar.SERVERONLY);
+
 }

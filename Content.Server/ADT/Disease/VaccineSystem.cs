@@ -177,7 +177,7 @@ public sealed class VaccineSystem : EntitySystem
 
     private void OpenServerList(EntityUid uid, DiseaseVaccineCreatorComponent component, VaccinatorServerSelectionMessage args)
     {
-        _uiSys.TryOpen(uid, ResearchClientUiKey.Key, args.Session);
+        _uiSys.TryOpenUi(uid, ResearchClientUiKey.Key, args.Actor);
     }
 
     private void AfterUIOpen(EntityUid uid, DiseaseVaccineCreatorComponent component, AfterActivatableUIOpenEvent args)
@@ -209,7 +209,7 @@ public sealed class VaccineSystem : EntitySystem
         }
 
         var state = new VaccineMachineUpdateState(biomass, component.BiomassCost, diseases, overrideLocked ?? HasComp<DiseaseMachineRunningComponent>(uid), hasServer);
-        _uiSys.TrySetUiState(uid, VaccineMachineUiKey.Key, state);
+        _uiSys.SetUiState(uid, VaccineMachineUiKey.Key, state);
     }
 
     /// <summary>
@@ -230,7 +230,7 @@ public sealed class VaccineSystem : EntitySystem
         var ev = new VaccineDoAfterEvent();
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, vaxx.InjectDelay, ev, uid, target: args.Target, used: uid)
         {
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             NeedHand = true
         };
 
