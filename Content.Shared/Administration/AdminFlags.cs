@@ -124,6 +124,11 @@
         /// </summary>
         NameColor = 1 << 21,
 
+        ///<summary>
+		/// Allows you to use Admin flood
+		///</summary>
+		AdminFlood = 1 << 22,
+
         /// <summary>
         ///     Dangerous host permissions like scsi.
         /// </summary>

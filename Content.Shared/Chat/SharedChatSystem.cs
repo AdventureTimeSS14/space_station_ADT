@@ -20,6 +20,7 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesPrefix = '%'; // Corvax-Localization
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
+    public const char AdminFloodPrefix = '<';
     public const char WhisperPrefix = ',';
     public const char DefaultChannelKey = 'р'; // Corvax-Localization
     // Corvax-TTS-Start: Moved from Server to Shared

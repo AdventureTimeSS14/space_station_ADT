@@ -78,6 +78,7 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.EmotesPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
+        {SharedChatSystem.AdminFloodPrefix, ChatSelectChannel.AdminFlood},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead}
     };
@@ -91,6 +92,7 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
+        {ChatSelectChannel.AdminFlood, SharedChatSystem.AdminFloodPrefix},  // ADT
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix}
     };
@@ -203,6 +205,9 @@ public sealed class ChatUIController : UIController
 
         _input.SetInputCommand(ContentKeyFunctions.FocusOOC,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.OOC)));
+
+        // _input.SetInputCommand(ContentKeyFunctions.FocusAdminFloodChat,  // ADT
+        //     InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.AdminFlood)));
 
         _input.SetInputCommand(ContentKeyFunctions.FocusAdminChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Admin)));
@@ -552,6 +557,12 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminAlert;
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
+        }
+
+        if (_admin.HasFlag(AdminFlags.AdminFlood))  // ADT
+        {
+            FilterableChannels |= ChatChannel.AdminFlood;
+            CanSendChannels |= ChatSelectChannel.AdminFlood;
         }
 
         SelectableChannels = CanSendChannels;

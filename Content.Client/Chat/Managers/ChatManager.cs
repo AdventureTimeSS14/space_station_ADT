@@ -42,7 +42,11 @@ namespace Content.Client.Chat.Managers
                 case ChatSelectChannel.Admin:
                     _consoleHost.ExecuteCommand($"asay \"{CommandParsing.Escape(str)}\"");
                     break;
-
+                // ADT AFlood chat start
+                case ChatSelectChannel.AdminFlood:
+                    _consoleHost.ExecuteCommand($"aflood \"{CommandParsing.Escape(str)}\"");
+                    break;
+                // ADT AFlood chat end
                 case ChatSelectChannel.Emotes:
                     _consoleHost.ExecuteCommand($"me \"{CommandParsing.Escape(str)}\"");
                     break;

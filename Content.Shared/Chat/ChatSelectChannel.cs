@@ -51,6 +51,11 @@
         /// </summary>
         Admin = ChatChannel.AdminChat,
 
+        /// <summary>
+        ///     Admin flood (ADT)
+        /// </summary>
+        AdminFlood = ChatChannel.AdminFlood,
+
         Console = ChatChannel.Unspecified
     }
 }

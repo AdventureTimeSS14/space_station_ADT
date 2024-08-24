@@ -20,6 +20,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.LOOC,
         ChatChannel.OOC,
         ChatChannel.Dead,
+        ChatChannel.AdminFlood, // ADT
         ChatChannel.Admin,
         ChatChannel.AdminAlert,
         ChatChannel.AdminChat,

@@ -224,6 +224,9 @@ namespace Content.Server.Chat.Managers
                 case OOCChatType.Admin:
                     SendAdminChat(player, message);
                     break;
+                case OOCChatType.AdminFlood:    // ADT
+                    SendAdminFlood(player, message);
+                    break;
             }
         }
 
@@ -310,6 +313,47 @@ namespace Content.Server.Chat.Managers
             _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
         }
 
+        // ADT AFlood chat start
+        private void SendAdminFlood(ICommonSession player, string message)
+        {
+            if (!_adminManager.IsAdmin(player))
+            {
+                _adminLogger.Add(LogType.Chat, LogImpact.Extreme, $"{player:Player} attempted to send admin message but was not admin");
+                return;
+            }
+
+            var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
+            var senderAdmin = _adminManager.GetAdminData(player);            // Start-ADT Schrodinger Tweak: Отсюда сможем получить инфу о префиксе админа
+            if (senderAdmin == null)
+            {
+                return;
+            }
+            var senderName = player.Name;                                    // Добавил переменную senderName, в ней содержиться player.Name и приставляем префикс к имени
+            if (!string.IsNullOrEmpty(senderAdmin.Title))
+            {
+                senderName += $"\\[{senderAdmin.Title}\\]";
+            }                                                                // End-ADT Tweak
+            var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+                                            ("adminChannelName", Loc.GetString("chat-manager-aflood-channel-name")),
+                                            ("playerName", senderName), ("message", FormattedMessage.EscapeText(message))); // ADT Tweak тут заменил player.Name на senderName
+
+            foreach (var client in clients)
+            {
+                var isSource = client != player.Channel;
+                ChatMessageToOne(ChatChannel.AdminFlood,
+                    message,
+                    wrappedMessage,
+                    default,
+                    false,
+                    client,
+                    //audioPath: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default,
+                    //audioVolume: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default,
+                    author: player.UserId);
+            }
+
+            _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
+        }
+        // ADT AFlood chat end
         #endregion
 
         #region Utility
@@ -416,6 +460,7 @@ namespace Content.Server.Chat.Managers
     public enum OOCChatType : byte
     {
         OOC,
-        Admin
+        Admin,
+        AdminFlood
     }
 }

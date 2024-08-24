@@ -32,4 +32,34 @@ namespace Content.Server.Chat.Commands
             IoCManager.Resolve<IChatManager>().TrySendOOCMessage(player, message, OOCChatType.Admin);
         }
     }
+
+    // ADT AFlood chat start
+    [AdminCommand(AdminFlags.AdminFlood)]
+    internal sealed class AdminFloodCommand : IConsoleCommand
+    {
+        public string Command => "aflood";
+        public string Description => "Send chat messages to the private admin chat channel.";
+        public string Help => "aflood <text>";
+
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        {
+            var player = shell.Player;
+
+            if (player == null)
+            {
+                shell.WriteError("You can't run this command locally.");
+                return;
+            }
+
+            if (args.Length < 1)
+                return;
+
+            var message = string.Join(" ", args).Trim();
+            if (string.IsNullOrEmpty(message))
+                return;
+
+            IoCManager.Resolve<IChatManager>().TrySendOOCMessage(player, message, OOCChatType.AdminFlood);
+        }
+    }
+    // ADT AFlood chat end
 }
