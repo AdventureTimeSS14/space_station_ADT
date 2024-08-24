@@ -60,3 +60,15 @@
     sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
   - type: StaticPrice
     price: 800
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabPathologist
+  name: pathologist's lab coat
+  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+    state: icon-open
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
