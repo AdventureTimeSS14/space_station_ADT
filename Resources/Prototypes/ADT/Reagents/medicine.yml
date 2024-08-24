@@ -298,12 +298,12 @@
   metabolisms:
     Medicine:
       effects:
-#      - !type:Embalm
-#         conditions:
-#          - !type:ReagentThreshold
-#            min: 5
-#          - !type:MobStateCondition
-#            mobstate: dead
+      - !type:Embalm
+         conditions:
+          - !type:ReagentThreshold
+            min: 5
+          - !type:MobStateCondition
+            mobstate: dead
       - !type:HealthChange
         damage:
           types:
