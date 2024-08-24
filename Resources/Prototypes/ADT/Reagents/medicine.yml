@@ -17,12 +17,11 @@
         visualType: Small
         messages: [ "medicine-effect-headache" ]
         probability: 0.05
-#      - !type:GenericStatusEffect
-#        key: Adrenaline
-#        component: IgnoreSlowOnDamage
-#        time: 20
-#        refresh: true
-#        refresh: true
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 20
+        refresh: true
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -321,11 +320,11 @@
     Medicine:
       metabolismRate: 1
       effects:
-#      - !type:GenericStatusEffect
-#        key: Adrenaline
-#        component: IgnoreSlowOnDamage
-#        time: 60
-#        refresh: true
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 60
+        refresh: true
       - !type:HealthChange
         damage:
           groups:

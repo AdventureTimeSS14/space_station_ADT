@@ -134,6 +134,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
     - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
   - type: Body

@@ -1,5 +1,6 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 
 namespace Content.Shared.Damage
@@ -14,6 +15,10 @@ namespace Content.Shared.Damage
 
             SubscribeLocalEvent<SlowOnDamageComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SlowOnDamageComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
+
+            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentStartup>(OnIgnoreStartup);
+            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentShutdown>(OnIgnoreShutdown);
+            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ModifySlowOnDamageSpeedEvent>(OnIgnoreModifySpeed);
         }
 
         private void OnRefreshMovespeed(EntityUid uid, SlowOnDamageComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -36,7 +41,10 @@ namespace Content.Shared.Damage
             if (closest != FixedPoint2.Zero)
             {
                 var speed = component.SpeedModifierThresholds[closest];
-                args.ModifySpeed(speed, speed);
+
+                var ev = new ModifySlowOnDamageSpeedEvent(speed);
+                RaiseLocalEvent(uid, ref ev);
+                args.ModifySpeed(ev.Speed, ev.Speed);
             }
         }
 
@@ -47,5 +55,26 @@ namespace Content.Shared.Damage
 
             _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
         }
+
+        private void OnIgnoreStartup(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentStartup args)
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        }
+
+        private void OnIgnoreShutdown(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentShutdown args)
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        }
+
+        private void OnIgnoreModifySpeed(Entity<IgnoreSlowOnDamageComponent> ent, ref ModifySlowOnDamageSpeedEvent args)
+        {
+            args.Speed = 1f;
+        }
+    }
+
+    [ByRefEvent]
+    public record struct ModifySlowOnDamageSpeedEvent(float Speed) : IInventoryRelayEvent
+    {
+        public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
     }
 }
