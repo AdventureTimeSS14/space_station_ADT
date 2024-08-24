@@ -373,15 +373,14 @@
       - !type:PopupMessage
         type: Local
         visualType: Small
-        messages:
-         - narcotic-effect-rainbows
-         - goodfeeling-artifact-drastic-3
+        messages: [ "goodfeeling-artifact-drastic-3" ]
+        # - narcotic-effect-rainbows
         probability: 0.05
-      - !type:PopupMessage
-        type: Pvs
-        visualType: Small
-        messages: [ "narcotic-effect-visible-miosis" ]
-        probability: 0.05
+#      - !type:PopupMessage
+#        type: Pvs
+#        visualType: Small
+#        messages: [ "narcotic-effect-visible-miosis" ]
+#        probability: 0.05
 
 #Кровоостанавливающая пудра
 - type: reagent
