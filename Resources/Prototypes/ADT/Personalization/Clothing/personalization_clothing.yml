@@ -7,9 +7,9 @@
   suffix: Bolper
   components:
   - type: Sprite
-    sprite: ADT\Personalization\bolper_trenchcoat.rsi
+    sprite: ADT/Personalization/bolper_trenchcoat.rsi
   - type: Clothing
-    sprite: ADT\Personalization\bolper_trenchcoat.rsi
+    sprite: ADT/Personalization/bolper_trenchcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
