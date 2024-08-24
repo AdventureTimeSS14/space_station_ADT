@@ -3,7 +3,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Crawling;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(CrawlingSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedCrawlingSystem))]
 public sealed partial class CrawlingComponent : Component
 {
     [ViewVariables, DataField("sprintSpeedModifier"), AutoNetworkedField]
