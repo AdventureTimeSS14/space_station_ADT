@@ -82,6 +82,7 @@
     - GalacticCommon
     - Draconic
     - CintaTaj
+  - type: InjectorsBlocker # ADT
 
 - type: entity
   parent: BaseSpeciesDummy

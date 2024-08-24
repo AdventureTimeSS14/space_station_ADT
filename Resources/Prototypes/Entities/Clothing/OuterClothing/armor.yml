@@ -170,6 +170,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: InjectorsBlocker  # ADT
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -212,6 +213,7 @@
   - type: GroupExamine
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: InjectorsBlocker  # ADT
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -310,6 +312,7 @@
   - type: GroupExamine
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: InjectorsBlocker  # ADT
 
 - type: entity
   parent: ClothingOuterBaseLarge
