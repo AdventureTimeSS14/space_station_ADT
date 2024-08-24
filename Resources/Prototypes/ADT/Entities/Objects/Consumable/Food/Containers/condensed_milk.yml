@@ -26,7 +26,8 @@
     sound:
       path: /Audio/Items/can_open3.ogg
   - type: Food
-    trash: ADTFoodTinCondensedMilkTrash
+    trash: 
+    - ADTFoodTinCondensedMilkTrash
 
 - type: entity
   parent: FoodTinBaseTrash
