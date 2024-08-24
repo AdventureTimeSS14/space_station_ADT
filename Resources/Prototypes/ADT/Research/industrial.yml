@@ -9,3 +9,18 @@
   cost: 15000
   recipeUnlocks:
   - ADTIndustrialSMESMachineCircuitboard
+
+- type: technology
+  id: ADTCompactTechnologies
+  name: research-technology-compact-technologies
+  icon:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - RPD
+    - RPDAmmo
+    - RCD
+    - RCDAmmo

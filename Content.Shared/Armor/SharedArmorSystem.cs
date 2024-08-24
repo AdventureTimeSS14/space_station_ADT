@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
@@ -22,6 +23,7 @@ public abstract class SharedArmorSystem : EntitySystem
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
         SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
+        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<StaminaDamageModifyEvent>>(OnStaminaDamageModify);    // ADT Stunmeta fix
     }
 
     private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
@@ -40,7 +42,7 @@ public abstract class SharedArmorSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var examineMarkup = GetArmorExamine(component.Modifiers);
+        var examineMarkup = GetArmorExamine(component.Modifiers, component.StaminaModifier);    // ADT Stunmeta fix
 
         var ev = new ArmorExamineEvent(examineMarkup);
         RaiseLocalEvent(uid, ref ev);
@@ -50,18 +52,17 @@ public abstract class SharedArmorSystem : EntitySystem
             Loc.GetString("armor-examinable-verb-message"));
     }
 
-    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers)
+    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers, float staminaModifier)   // ADT Stunmeta fix
     {
         var msg = new FormattedMessage();
-
-        msg.AddMarkup(Loc.GetString("armor-examine"));
+        msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
 
         foreach (var coefficientArmor in armorModifiers.Coefficients)
         {
             msg.PushNewline();
 
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
-            msg.AddMarkup(Loc.GetString("armor-coefficient-value",
+            msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
                 ("type", armorType),
                 ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
             ));
@@ -72,12 +73,24 @@ public abstract class SharedArmorSystem : EntitySystem
             msg.PushNewline();
 
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
-            msg.AddMarkup(Loc.GetString("armor-reduction-value",
+            msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
                 ("type", armorType),
                 ("value", flatArmor.Value)
             ));
         }
 
+        // ADT Stunmeta fix start
+        msg.PushNewline();
+        msg.AddMarkup(Loc.GetString("armor-stamina-protection-value", ("value", MathF.Round((1f - staminaModifier) * 100, 1))));
+        // ADT Stunmeta fix end
+
         return msg;
     }
+
+    // ADT Stunmeta fix start
+    private void OnStaminaDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<StaminaDamageModifyEvent> args)
+    {
+        args.Args.Damage *= component.StaminaModifier;
+    }
+    // ADT Stunmeta fix end
 }
