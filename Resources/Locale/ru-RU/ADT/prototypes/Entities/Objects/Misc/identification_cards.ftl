@@ -10,6 +10,9 @@ ent-ADTRoboticistIDCard = ID карта робототехника
 ent-ADTBlueShieldOfficerIDCard = ID карта офицера синего щита
     .desc = Блестящая карта офицера Синего Щита.
 
+ent-ADTBrigMedicIDCard = ID карта бригмедика
+    .desc = ID карта бриг медика
+
 ent-ADTSpaceSecCadetIDCard = ID карта кадета SPACE SEC
     .desc = Карта, необходимая для доступа в различные области станции.
 ent-ADTSpaceSecOfficerIDCard = ID карта офицера SPACE SEC

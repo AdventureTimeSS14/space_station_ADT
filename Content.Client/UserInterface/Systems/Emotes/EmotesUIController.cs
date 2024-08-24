@@ -1,6 +1,7 @@
 ﻿using Content.Client.Chat.UI;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.ADT.CCVar; // ADT Radial menu settings
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
@@ -9,6 +10,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration; // ADT Radial menu settings
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 
@@ -20,6 +22,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT Radial menu settings
 
     private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private EmotesMenu? _menu;
@@ -58,7 +61,12 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
             {
                 // Open the menu, centered on the mouse
                 var vpSize = _displayManager.ScreenSize;
-                _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+                // ADT Radial menu settings start
+                if (_cfg.GetCVar(ADTCCVars.CenterRadialMenu) == false)
+                    _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+                else
+                    _menu.OpenCentered();
+                // ADT Radial menu settings end
             }
         }
         else

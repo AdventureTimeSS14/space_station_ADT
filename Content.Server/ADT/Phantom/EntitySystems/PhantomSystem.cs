@@ -186,6 +186,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         SubscribeLocalEvent<PhantomComponent, OpenPhantomStylesMenuActionEvent>(OnRequestStyleMenu);
         SubscribeNetworkEvent<SelectPhantomStyleEvent>(OnSelectStyle);
         SubscribeLocalEvent<PhantomComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);
+        SubscribeLocalEvent<PhantomComponent, StopHauntAlertEvent>(OnStopHauntAlertClick);
 
         // IDK why the fuck this is not working in another file
         SubscribeLocalEvent<HolyDamageComponent, ProjectileHitEvent>(OnProjectileHit);
@@ -1744,6 +1745,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         args.Cancelled = true;
     }
 
+    private void OnStopHauntAlertClick(EntityUid uid, PhantomComponent component, ref StopHauntAlertEvent args)
+    {
+        StopHaunt(uid, component.Holder, component);
+    }
     #endregion
 
     #region Raised Not By Events

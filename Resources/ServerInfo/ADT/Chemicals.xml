@@ -1,0 +1,49 @@
+<Document>
+# Новые препараты в медицине.
+
+В этом журнале мы расскажем о новооткрытых реагентах, препаратах, которых рекомендуют использовать с "основными" лекарствами медицинского отдела, а так же некоторых полезных дополнениях.
+
+# Фармацевтика
+<Box>
+  <GuideEntityEmbed Entity="ADTMAgolatineCanister"/>
+  <GuideEntityEmbed Entity="ADTMPeroHydrogenBottle"/>
+  <GuideEntityEmbed Entity="ADTMHaloperidolPack"/>
+</Box>
+Большинство этих лекарств продаются во многих аптеках по вселенной и имеют большой спрос. Некоторые из них, в паре с определённым химикатом, становятся полноценными медицинскими препаратами.
+
+[head=2]Полезное[/head]
+<GuideReagentEmbed Reagent="ADTMFormalin"/>
+<GuideReagentEmbed Reagent="ADTMAgolatine"/>
+<GuideReagentEmbed Reagent="ADTMHaloperidol"/>
+<GuideReagentEmbed Reagent="ADTMMorphine"/>
+<GuideReagentEmbed Reagent="ADTStypticPowder"/>
+<GuideReagentEmbed Reagent="ADTSilverSulfadiazine"/>
+<GuideReagentEmbed Reagent="Charcoal"/>
+<GuideReagentEmbed Reagent="Vitamin"/>
+
+[head=2]Бикаридин[/head]
+<GuideReagentEmbed Reagent="ADTMSodiumizole"/>
+<GuideReagentEmbed Reagent="ADTMNitrofurfoll"/>
+<GuideReagentEmbed Reagent="ADTMPeroHydrogen"/>
+
+[head=2]Дермалин[/head]
+<GuideReagentEmbed Reagent="ADTMAnelgesin"/>
+<GuideReagentEmbed Reagent="ADTMMinoxide"/>
+
+[head=2]Диловен[/head]
+<GuideReagentEmbed Reagent="ADTMBiomicine"/>
+<GuideReagentEmbed Reagent="Ethylredoxrazine"/>
+
+[head=2]Дексалин плюс[/head]
+<GuideReagentEmbed Reagent="ADTMDiethamilate"/>
+<GuideReagentEmbed Reagent="ADTMNikematide"/>
+
+# Остальное
+Эти реагенты не являются медицинскими, и даже могут нанести некоторый вред.
+
+<GuideReagentEmbed Reagent="ADTMChaoticPolymorphine"/>
+<GuideReagentEmbed Reagent="ADTMPolymorphine"/>
+- Во время создания нитрида меди желательно добавлять с начала нужное количество меди, а затем азот, чтобы получились точные числа.
+<GuideReagentEmbed Reagent="ADTCopperNitride"/>
+
+</Document>

@@ -1,0 +1,7 @@
+- type: latheRecipe
+  id: StorageCanister
+  result: StorageCanister
+  category: Atmos
+  completetime: 3
+  materials:
+    Steel: 3000

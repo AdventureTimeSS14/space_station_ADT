@@ -12,7 +12,7 @@ public sealed partial class VesselComponent : Component
     public EntityUid Phantom = new EntityUid();
 
     [DataField("vesselStatusIcon")]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "PhantomVesselFaction";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "PhantomVesselFaction";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;
