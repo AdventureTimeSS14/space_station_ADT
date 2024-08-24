@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Aliens/slimes.rsi
+    sprite: ADT/Mobs/Aliens/slimes.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: blue_adult_slime
