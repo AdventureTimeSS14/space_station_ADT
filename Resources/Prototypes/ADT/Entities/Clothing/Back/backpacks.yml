@@ -33,12 +33,6 @@
   - type: StaticPrice
     price: 5
 
-- type: entity
-  parent: ClothingBackpackDuffelMedical
-  id: ADTClothingBackpackDuffelPathologist
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Back/pathologist_duffel.rsi
 
 - type: entity
   parent: ClothingBackpackMedical
@@ -47,9 +41,3 @@
   - type: Sprite
     sprite: ADT/Clothing/Back/pathologist_backpack.rsi
 
-- type: entity
-  parent: ClothingBackpackSatchelMedical
-  id: ADTClothingBackpackSatchelPathologist
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Back/pathologist_satchel.rsi
