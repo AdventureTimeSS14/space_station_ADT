@@ -57,7 +57,7 @@
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: BaseUplinkRadio40TC  #ADT Оставил аплинк
+    pocket2: PlushieCarp 
     belt: ClothingBeltAssault #ADT nukebuff
   storage:
     back:

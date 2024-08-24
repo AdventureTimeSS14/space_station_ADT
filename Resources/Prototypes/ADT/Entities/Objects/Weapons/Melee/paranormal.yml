@@ -41,6 +41,8 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/ecto-sword.rsi
     size: Huge
+    shape:
+    - 0,0,1,3
   - type: HolyDamage
   - type: PointLight
     color: Cyan

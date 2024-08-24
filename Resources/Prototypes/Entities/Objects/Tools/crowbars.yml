@@ -38,7 +38,7 @@
     - Belt
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
-    size: Normal
+    size: Small #ADT_Tweaks - ломы снова лезут в карман
     shape:
     - 0,0,0,1
 

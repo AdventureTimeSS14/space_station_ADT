@@ -36,6 +36,6 @@
     pocket2: BookSpaceLaw
   inhand:
     - BriefcaseIAAFilled
-  storage:
-    back:
-    - BoxSurvival
+  # storage: #Заменяем на аварийник по лодауту
+  #   back:
+  #   - BoxSurvival
