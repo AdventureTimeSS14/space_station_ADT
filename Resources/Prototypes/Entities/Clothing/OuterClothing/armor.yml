@@ -70,10 +70,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.8 #ADT Tweak 0.9
+        Slash: 0.8 #ADT Tweak 0.9
         Piercing: 0.4
-        Heat: 0.9
+        Heat: 0.8 #ADT Tweak 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.80
 
