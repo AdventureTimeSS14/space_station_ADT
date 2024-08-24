@@ -34,3 +34,5 @@ public enum NightVisionState
     Half,
     Full
 }
+
+public sealed partial class ToggleNightVision : BaseAlertEvent;
