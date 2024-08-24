@@ -32,3 +32,12 @@
     sprite: ADT/Clothing/Back/leatherlady_satchel.rsi
   - type: StaticPrice
     price: 5
+
+
+- type: entity
+  parent: ClothingBackpackMedical
+  id: ADTClothingBackpackPathologist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/pathologist_backpack.rsi
+
