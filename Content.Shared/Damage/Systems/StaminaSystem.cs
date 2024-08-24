@@ -7,6 +7,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
@@ -233,7 +234,8 @@ public sealed partial class StaminaSystem : EntitySystem
     }
 
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null,
+        bool ignoreResistances = false) // ADT Stunmeta fix
     {
         if (!Resolve(uid, ref component, false))
             return;
@@ -246,6 +248,15 @@ public sealed partial class StaminaSystem : EntitySystem
         // Have we already reached the point of max stamina damage?
         if (component.Critical)
             return;
+
+        // ADT Stunmeta fix start
+        if (!ignoreResistances)
+        {
+            var modifyEv = new StaminaDamageModifyEvent(value, source);
+            RaiseLocalEvent(uid, modifyEv);
+            value = modifyEv.Damage;
+        }
+        // ADT Stunmeta fix end
 
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);
@@ -392,7 +403,26 @@ public sealed partial class StaminaSystem : EntitySystem
 }
 
 /// <summary>
-///     Raised before stamina damage is dealt to allow other systems to cancel it.
+///     Raised before stamina damage is dealt to allow other systems to modify it.
 /// </summary>
 [ByRefEvent]
 public record struct BeforeStaminaDamageEvent(float Value, bool Cancelled = false);
+
+// ADT Stunmeta fix start
+public sealed class StaminaDamageModifyEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    // Whenever locational damage is a thing, this should just check only that bit of armour.
+    public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
+
+    public readonly float OriginalDamage;
+    public float Damage;
+    public EntityUid? Origin;
+
+    public StaminaDamageModifyEvent(float damage, EntityUid? origin = null)
+    {
+        OriginalDamage = damage;
+        Damage = damage;
+        Origin = origin;
+    }
+}
+// ADT Stunmeta fix end

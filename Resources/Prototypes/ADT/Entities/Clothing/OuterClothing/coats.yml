@@ -60,3 +60,18 @@
     sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
   - type: StaticPrice
     price: 800
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatBrigmedicWB
+  name: brigmedic windbreaker
+  description: A brigmedic's trusty windbreaker, for all the space wind.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Coats/brigmedicWB.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Coats/brigmedicWB.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Caustic: 0.75

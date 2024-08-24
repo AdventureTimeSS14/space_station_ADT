@@ -9,7 +9,7 @@ namespace Content.Shared.ADT.Phantom.Components;
 public sealed partial class PhantomImmuneComponent : Component
 {
     [DataField("statusIcon")]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "PhantomImmune";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "PhantomImmune";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;

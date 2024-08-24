@@ -142,7 +142,6 @@ DrinkGoldschlagerGlass: DrinkGildlagerGlass
 
 # 2024-01-07
 ClosetBase: ClosetSteelBase
-MonkeyCubeBox: VariantCubeBox
 
 # 2024-01-08
 SalvagePartsT4Spawner: SalvageLootSpawner
@@ -367,7 +366,6 @@ ClothingOuterCoatInspector: ClothingOuterCoatJensen
 # 2024-06-23
 FloorTileItemReinforced: PartRodMetal1
 
-
 #2024-06-25
 BookChefGaming: BookHowToCookForFortySpaceman
 
@@ -395,6 +393,9 @@ SignHydro3: SignHydro1
 
 # 2024-07-27
 LogicGate: LogicGateOr
+
+# ADT 2024-08-13
+ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
 
 # ADT 2024-08-15
 NesBigThruster: ADTBigThruster
