@@ -110,9 +110,3 @@ ent-ADTFoodSnackChocolateTrashPink = обертка от Розовый шоко
 
 ent-ADTFoodSnackChocolateTrashTwo = обертка от Двойного батончика
     .desc = Мусор
-
-ent-ADTFoodTinCondensedMilkTrash = сгущеное молоко (пусто)
-    .desc = Пустая консервная банка. Из неё можно получить немного металла.
-
-ent-ADTFoodTinCondensedMilk = сгущеное молоко
-    .desc = Стандартная банка сгущенки с удобным язычком.
