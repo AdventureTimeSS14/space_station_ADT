@@ -33,3 +33,6 @@
 
 - type: Tag
   id: ADTSteelSheet
+  
+- type: Tag
+  id: ADTCartridgeBibis
