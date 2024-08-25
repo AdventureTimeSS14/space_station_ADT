@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTFunCrateWedding
+  icon:
+    sprite: ADT\Objects\Weapons\Melee\white_bouquet.rsi
+    state: icon
+  product: ADTCrateWedding
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market

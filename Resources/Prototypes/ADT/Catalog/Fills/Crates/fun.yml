@@ -1,0 +1,28 @@
+- type: entity
+  id: ADTCrateWedding
+  parent: CrateGenericSteel
+  name: wedding crate
+  description: Contains a set of wedding dresses and bouquets for the bride!
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingUniformWhiteShortWeddingDress
+      - id: ADTClothingUniformShortDressBlackGold
+      - id: ADTClothingUniformBlackGhoticWeddingDress
+      - id: ADTClothingUniformWhiteGhoticWeddingDress
+      - id: ADTClothingUniformLushRoseWeddingDress
+      - id: ADTClothingUniformLushWhiteWeddingDress
+      - id: ADTClothingUniformBlackElegantDress
+      - id: ADTClothingUniformBlackWeddingSuit
+      - id: ADTClothingUniformBlueWeddingSuit
+      - id: ADTClothingUniformBrownWeddingSuit
+      - id: ADTClothingUniformBlackWeddingWomenSuit
+      - id: ADTClothingUniformAiryBlackSuit
+      - id: ADTClothingUniformAiryWhiteSuit
+      - id: ADTObjectWeaponsMeleeWhiteBouquet
+      - id: ADTObjectWeaponsMeleeRoseBouquet
+      - id: ADTObjectWeaponsMeleeYellowBouquet
+      - id: ADTObjectWeaponsMeleeBlackBouquet
+      - id: ADTObjectWeaponsMeleeBouquetWithBeer
+      - id: ADTObjectWeaponsMeleeLiliacBouquet
+
