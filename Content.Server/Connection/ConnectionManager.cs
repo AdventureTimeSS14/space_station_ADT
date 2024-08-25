@@ -214,13 +214,21 @@ namespace Content.Server.Connection
             // Corvax-End
             {
                 var showReason = _cfg.GetCVar(CCVars.PanicBunkerShowReason);
+                var customReason = _cfg.GetCVar(CCVars.PanicBunkerCustomReason);
 
                 var minMinutesAge = _cfg.GetCVar(CCVars.PanicBunkerMinAccountAge);
                 var record = await _dbManager.GetPlayerRecordByUserId(userId);
                 var validAccountAge = record != null &&
-                                        record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(minMinutesAge)) <= 0;
+                                      record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(minMinutesAge)) <= 0;
+                var bypassAllowed = _cfg.GetCVar(CCVars.BypassBunkerWhitelist) && await _db.GetWhitelistStatusAsync(userId);
 
-                if (showReason && !validAccountAge)
+                // Use the custom reason if it exists & they don't have the minimum account age
+                if (customReason != string.Empty && !validAccountAge && !bypassAllowed)
+                {
+                    return (ConnectionDenyReason.Panic, customReason, null);
+                }
+
+                if (showReason && !validAccountAge && !bypassAllowed)
                 {
                     return (ConnectionDenyReason.Panic,
                         Loc.GetString("panic-bunker-account-denied-reason",
@@ -301,7 +309,7 @@ namespace Content.Server.Connection
             if (record == null)
                 return (false, "");
 
-            var isAccountAgeInvalid = record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(maxAccountAgeMinutes)) <= 0;
+            var isAccountAgeInvalid = record.FirstSeenTime.CompareTo(DateTimeOffset.UtcNow - TimeSpan.FromMinutes(maxAccountAgeMinutes)) <= 0;
 
             if (isAccountAgeInvalid)
             {

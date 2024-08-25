@@ -219,6 +219,28 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSkirt
+  name: pathologist jumpskirt
+  description: A lightweight jumpskirt for a morgue worker
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSkirtAlt
+  name: pathologist jumpskirt
+  description: A lightweight jumpskirt for a morgue worker. A darker version.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ADTClothingUniformSkirtBrigmedicTurtleneck
   name: brigmedic turtleneck
   description: Comfortable and warm turtleneck. Especially for the guardian angel.

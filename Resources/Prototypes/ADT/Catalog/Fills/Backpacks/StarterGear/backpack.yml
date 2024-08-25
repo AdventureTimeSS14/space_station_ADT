@@ -5,7 +5,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalMedical
+      # - id: BoxSurvivalMedical
       - id: BodyBagFolded
       # До добавления слота носков- id: ADTFootTag
       - id: SpaceCash500

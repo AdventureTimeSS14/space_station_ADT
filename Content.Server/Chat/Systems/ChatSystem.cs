@@ -72,7 +72,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-    public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
+    public const string DefaultAnnouncementSound = "/Audio/Corvax/Announcements/announce.ogg"; // Corvax-Announcements
+    public const string CentComAnnouncementSound = "/Audio/Corvax/Announcements/centcomm.ogg"; // Corvax-Announcements
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -351,9 +352,40 @@ public sealed partial class ChatSystem : SharedChatSystem
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
         {
-            _audio.PlayGlobal(announcementSound?.GetSound() ?? DefaultAnnouncementSound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            if (sender == Loc.GetString("admin-announce-announcer-default")) announcementSound = new SoundPathSpecifier(CentComAnnouncementSound); // Corvax-Announcements: Support custom alert sound from admin panel
+            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
+    }
+
+    /// <summary>
+    /// Dispatches an announcement to players selected by filter.
+    /// </summary>
+    /// <param name="filter">Filter to select players who will recieve the announcement</param>
+    /// <param name="message">The contents of the message</param>
+    /// <param name="source">The entity making the announcement (used to determine the station)</param>
+    /// <param name="sender">The sender (Communications Console in Communications Console Announcement)</param>
+    /// <param name="playDefaultSound">Play the announcement sound</param>
+    /// <param name="announcementSound">Sound to play</param>
+    /// <param name="colorOverride">Optional color for the announcement message</param>
+    public void DispatchFilteredAnnouncement(
+        Filter filter,
+        string message,
+        EntityUid? source = null,
+        string? sender = null,
+        bool playSound = true,
+        SoundSpecifier? announcementSound = null,
+        Color? colorOverride = null)
+    {
+        sender ??= Loc.GetString("chat-manager-sender-announcement");
+
+        var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
+        _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
+        if (playSound)
+        {
+            _audio.PlayGlobal(announcementSound?.ToString() ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+        }
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
 
     /// <summary>
@@ -389,7 +421,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (playDefaultSound)
         {
-            _audio.PlayGlobal(announcementSound?.GetSound() ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal(announcementSound?.ToString() ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
