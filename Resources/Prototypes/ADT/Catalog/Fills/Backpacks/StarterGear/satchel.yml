@@ -5,7 +5,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalMedical
+      # - id: BoxSurvivalMedical
       - id: BodyBagFolded
      # До добавления слота носков - id: ADTFootTag
       - id: SpaceCash500
@@ -18,3 +18,15 @@
     contents:
       - id: BoxSurvival
       - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpackSatchelBrigmedic
+  id: ClothingBackpackSatchelBrigmedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      # - id: BoxSurvivalBrigmedic
+      - id: Flash
+      - id: MagazinePistol
+#      - id: ADTSpaceLaw
+      # - id: SpaceCash500

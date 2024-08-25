@@ -12,3 +12,4 @@
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler
+    - GameRuleMeteorScheduler

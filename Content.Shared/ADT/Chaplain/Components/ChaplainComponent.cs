@@ -81,7 +81,7 @@ public sealed partial class ChaplainComponent : Component
     public float RegenDelay = 30f;
 
     [DataField("statusIcon")]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "BelieverFaction";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BelieverFaction";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;

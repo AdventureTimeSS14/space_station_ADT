@@ -183,6 +183,11 @@ ent-ADTSpaceSecUniformService = комбинезон сотрудника SPACE 
 ent-ADTSpaceSecUniformOfficer = комбинезон офицера SPACE SEC
     .desc = Стандартная одежда корпорации SPACE SEC.
 
+ent-ADTClothingUniformBrigmedicTurtleneck = водолазка бригмедика
+    .desc = Удобная и тёплая водолазка ангела-хранителя брига.
+ent-ADTClothingUniformSkirtBrigmedicTurtleneck = юбка-водолазка бригмедика
+    .desc = Удобная и тёплая юбка-водолазка ангела-хранителя брига.
+
 ent-ADTClothingUniformBlackWeddingSuit = чёрный мужской свадебный костюм
     .desc = Чёрный костюм для знаменательного события.
 ent-ADTClothingUniformBlueWeddingSuit = синий мужской свадебный костюм

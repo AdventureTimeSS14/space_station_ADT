@@ -91,7 +91,7 @@
       Unsexed: UnisexDiona
   - type: BodyEmotes
     soundsId: DionaBodyEmotes
-  - type: Pacified # Corvax-DionaPacifist
+  # - type: Pacified # Corvax-DionaPacifist #ADT_Tweak - дионы распацифижены
   - type: IgnoreKudzu
   - type: IgniteOnHeatDamage
     fireStacks: 1
