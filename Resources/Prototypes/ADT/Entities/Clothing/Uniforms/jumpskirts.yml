@@ -251,7 +251,6 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
 
 # Luna
-
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformLushWhiteWeddingDress

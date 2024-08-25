@@ -606,7 +606,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/brown_wedding_suit_male.rsi
 
-
+#Luna
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformWhiteWeddingWomenSuit
