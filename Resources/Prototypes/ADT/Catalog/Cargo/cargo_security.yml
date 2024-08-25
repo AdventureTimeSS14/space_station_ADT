@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CargoLockerBrigmedic
+  icon:
+    sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
+    state: icon
+  product: LockerBrigmedicFilled
+  cost: 4000
+  category: cargoproduct-category-name-security
+  group: market
