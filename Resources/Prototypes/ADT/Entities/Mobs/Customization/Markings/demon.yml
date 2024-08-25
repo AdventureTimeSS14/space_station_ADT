@@ -61,3 +61,33 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: goatee
+
+#Глаза, гетерохромия
+
+- type: marking
+  id: ADTDemonrigth_eye
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [DemonSpecies]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+
+- type: marking
+  id: ADTDemonleft_eye
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [DemonSpecies]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l
