@@ -26,4 +26,3 @@ rotting-extremely-bloated = [color=red]{ CAPITALIZE(SUBJECT($target)) } силь
 rotting-rotting-nonmob = [color=orange]{ CAPITALIZE(SUBJECT($target)) } гниёт![/color]
 rotting-bloated-nonmob = [color=orangered]{ CAPITALIZE(SUBJECT($target)) } вздулось![/color]
 rotting-extremely-bloated-nonmob = [color=red]{ CAPITALIZE(SUBJECT($target)) } сильно вздулось![/color]
-adt-rotting-embalmed = [color=#edad45]Похоже, тело забальзамировано.[/color]
