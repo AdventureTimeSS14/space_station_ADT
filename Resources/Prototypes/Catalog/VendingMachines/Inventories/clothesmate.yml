@@ -32,13 +32,6 @@
     # ADTClothingUnderwearWhiteComfyPanties: 2
     # ADTClothingUnderwearTopComfyWhiteBra: 2
 # конец белья
-# начало обмоток
-    # ADTClothingFootWrapsWhite: 2
-    # ADTClothingFootWrapsBlack: 2
-    # ADTClothingFootWrapsBrown: 2  # TODO: Убрать комменты после добавления обмоток
-    # ADTClothingFootWrapsHighWhite: 2
-    # ADTClothingFootWrapsHighBlack: 2
-# конец обмоток
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
 # ADT бельё/обмотки/плащи конец
