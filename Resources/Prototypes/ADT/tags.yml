@@ -33,6 +33,9 @@
 
 - type: Tag
   id: ADTSteelSheet
-  
+
 - type: Tag
   id: ADTCartridgeBibis
+
+- type: Tag
+  id: ADTMagazineRifleBibis
