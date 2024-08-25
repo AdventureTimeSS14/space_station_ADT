@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Atmos.Miasma;
 
 
-namespace Content.Server.ADT.Chemistry.ReagentEffects;
+namespace Content.Server.ADT.EntityEffects.Effects;
 
 public sealed partial class Embalm : EntityEffect
 {
