@@ -93,6 +93,8 @@
   - type: Tag
     tags:
     - Fruit
+  - type: Openable
+    openableByHand: true #ADT_Tweak - чтобы была возможность открыть консерву из аварийного набора ниан без ломика
 
 - type: entity
   parent: FoodTinBaseTrash
