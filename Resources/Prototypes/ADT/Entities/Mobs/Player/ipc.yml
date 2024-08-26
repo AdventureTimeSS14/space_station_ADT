@@ -132,8 +132,9 @@
     tallscale: 1.1
     short: true
     shortscale: 0.9
+  - type: CanEnterCryostorage
   - type: Crawler
-
+  
 - type: entity
   save: false
   name: Urist McPositronic
