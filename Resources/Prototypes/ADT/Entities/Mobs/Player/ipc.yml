@@ -132,6 +132,7 @@
     tallscale: 1.1
     short: true
     shortscale: 0.9
+  - type: Crawler
 
 - type: entity
   save: false
