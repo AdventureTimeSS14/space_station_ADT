@@ -216,6 +216,17 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:AddictionEffect
+        popupMessages:
+        - addictionEffect-message-1
+        - addictionEffect-message-2
+        - addictionEffect-message-3
+        - addictionEffect-message-4
+        - addictionEffect-message-5
+        - addictionEffect-message-6
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
