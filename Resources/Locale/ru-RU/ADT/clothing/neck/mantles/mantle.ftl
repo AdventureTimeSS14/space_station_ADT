@@ -1,0 +1,3 @@
+ent-ClothingNeckMantleRipZoro = Таинственная наплечная мантия
+    .desc = Мантия, хранящая тайну...
+    .suffix = {"Именное, Rip_Zoro"}
