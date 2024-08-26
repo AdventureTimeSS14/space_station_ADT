@@ -475,6 +475,7 @@
         - Sidearm
         - MagazinePistol
         - MagazineMagnum
+        - ADTMagazineRifleBibis # ADT Tweak
         - CombatKnife
         - Truncheon
       components:
@@ -485,6 +486,7 @@
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
+        - ADTCartridgeBibis # ADT Tweak
         - DoorRemote
         - Whistle
         - HolosignProjector
