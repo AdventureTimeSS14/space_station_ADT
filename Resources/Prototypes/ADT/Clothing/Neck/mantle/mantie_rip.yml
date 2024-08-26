@@ -1,11 +1,13 @@
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckMantleRipZoro
+  id: ADTClothingNeckMantleRipZoro
   name: mysterious shoulder mantle
   description: A mantle that holds a secret...
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/mantles/rip_zoro_mantles.rsi
+    state: icon
   - type: Clothing
     sprite: ADT/Clothing/Neck/mantles/rip_zoro_mantles.rsi
-
+  - type: Item
+    size: Normal
