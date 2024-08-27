@@ -1,0 +1,92 @@
+- type: entity
+  parent: [BaseMob, MobDamageable]
+  id: ADTBaseSegmentedEntity
+  name: segmented entity
+  description: This is a debug thing. Have fun
+  suffix: DO NOT MAP
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        mask:
+          - MobMask
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: SegmentedBody
+    midSegment: ADTBaseSegmentedBodyPart
+    endSegment: ADTBaseSegmentedBodyEnd
+    segmentsCount: 3
+
+- type: entity
+  parent: BaseMob
+  id: ADTBaseSegmentedBodyPart
+  name: segment
+  description: This is a debug thing. Have fun
+  suffix: DO NOT MAP
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        mask:
+          - MobMask
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - sprite: ADT/Mobs/Test/segmented-body-test.rsi
+      state: mid-part
+  - type: SegmentedBodyPart
+    detachDamage: 50
+  - type: Damageable
+    damageContainer: Biological
+
+- type: entity
+  parent: BaseMob
+  id: ADTBaseSegmentedBodyEnd
+  name: segment
+  description: This is a debug thing. Have fun
+  suffix: DO NOT MAP
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        mask:
+          - MobMask
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - sprite: ADT/Mobs/Test/segmented-body-test.rsi
+      state: end-part
+  - type: SegmentedBodyPart
+    detachDamage: 50
+  - type: Damageable
+    damageContainer: Biological

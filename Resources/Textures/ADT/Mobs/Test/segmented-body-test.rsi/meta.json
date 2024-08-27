@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprite by e",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+
+    "states": [
+        {
+            "name": "mid-part"
+        },
+        {
+            "name": "end-part"
+        }
+    ]
+
+}
