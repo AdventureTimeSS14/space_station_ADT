@@ -42,7 +42,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: false #4boring4vote
+  showInVote: true #ADT_Tweak
   description: greenshift-description
   rules:
   - BasicRoundstartVariation
