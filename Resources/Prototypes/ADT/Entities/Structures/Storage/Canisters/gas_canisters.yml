@@ -52,7 +52,6 @@
   id: ADTPluoxiumCanister
   components:
   - type: Sprite
-    sprite: ADT/Structures/Storage/canister.rsi
     layers:
     - state: darkblue
   - type: GasCanister
@@ -630,7 +629,6 @@
   noSpawn: true
   components:
   - type: Sprite
-    sprite: ADT/Structures/Storage/canister.rsi
     state: darkblue-1
 
 - type: entity
