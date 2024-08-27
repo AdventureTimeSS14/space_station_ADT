@@ -1,0 +1,35 @@
+- type: entity
+  id: ADTBaseBulletRubber
+  name: base bullet rubber
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/snap.ogg
+  - type: StaminaDamageOnCollide
+    damage: 22 # 5 hits to stun sounds reasonable
+
+- type: entity
+  id: ADTBulletBibis
+  name: bibis ball
+  parent: ADTBaseBulletRubber
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0.1
+  - type: StaminaDamageOnCollide
+    damage: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: depleted-uranium
