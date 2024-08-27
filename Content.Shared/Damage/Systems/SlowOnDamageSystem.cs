@@ -2,6 +2,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
+using Content.Shared.ADT.Damage.Components;
 
 namespace Content.Shared.Damage
 {
@@ -15,10 +16,11 @@ namespace Content.Shared.Damage
 
             SubscribeLocalEvent<SlowOnDamageComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SlowOnDamageComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
-
+        //EmoGarbage404 tweak
             SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentStartup>(OnIgnoreStartup);
             SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentShutdown>(OnIgnoreShutdown);
             SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ModifySlowOnDamageSpeedEvent>(OnIgnoreModifySpeed);
+        //
         }
 
         private void OnRefreshMovespeed(EntityUid uid, SlowOnDamageComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -41,13 +43,14 @@ namespace Content.Shared.Damage
             if (closest != FixedPoint2.Zero)
             {
                 var speed = component.SpeedModifierThresholds[closest];
-
+        
+        //EmoGarbage404 tweak
                 var ev = new ModifySlowOnDamageSpeedEvent(speed);
                 RaiseLocalEvent(uid, ref ev);
                 args.ModifySpeed(ev.Speed, ev.Speed);
             }
         }
-
+        //
         private void OnDamageChanged(EntityUid uid, SlowOnDamageComponent component, DamageChangedEvent args)
         {
             // We -could- only refresh if it crossed a threshold but that would kind of be a lot of duplicated
@@ -56,6 +59,7 @@ namespace Content.Shared.Damage
             _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
         }
 
+        //EmoGarbage404 tweak
         private void OnIgnoreStartup(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentStartup args)
         {
             _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
@@ -77,4 +81,5 @@ namespace Content.Shared.Damage
     {
         public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
     }
+        //
 }

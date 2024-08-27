@@ -1,0 +1,14 @@
+- type: statusEffect
+  id: ADTHallucinations
+
+- type: statusEffect
+  id: ADTStarvation
+
+- type: statusEffect
+  id: Adrenaline #EmoGarbage404
+  alert: Adrenaline
+
+# Simple Station
+
+- type: statusEffect
+  id: SeeingStatic
