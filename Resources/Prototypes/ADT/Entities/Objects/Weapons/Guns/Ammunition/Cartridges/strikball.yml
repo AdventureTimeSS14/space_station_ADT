@@ -12,7 +12,7 @@
     deleteOnSpawn: true
   - type: Sprite
     noRot: false
-    sprite: ADT/Objects/Weapons/Guns/Ammunition/airsoft_bibis.rsi
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Casings/airsoft_bibis.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
