@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Origin
   mapName: 'Origin'
-  mapPath: /Maps/ADTMaps/Stations/adt_origin.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_origin.yml
   minPlayers: 50
   stations:
     ADT_Origin:
@@ -54,6 +54,7 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 7, 7 ]
             SecurityCadet: [ 2, 4 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
