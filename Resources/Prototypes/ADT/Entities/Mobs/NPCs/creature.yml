@@ -8,10 +8,10 @@
   - type: Body
     prototype: Human
     requiredLegs: 2
-# #
-#   - type: Hands
-#     showInHands: true
-# #
+#
+   - type: Hands
+     showInHands: true
+#
 #   - type: Inventory
 #     templateId: human
 # #
