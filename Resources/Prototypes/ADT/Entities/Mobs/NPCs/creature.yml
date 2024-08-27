@@ -6,17 +6,22 @@
   components:
 #
   - type: Body
-    prototype: Human
-    requiredLegs: 2
+    prototype: Felinid
 #
    - type: Hands
      showInHands: true
 #
-#   - type: Inventory
-#     templateId: human
-# #
-#   - type: InventorySlots
-# #
+  - type: Insulated
+#
+  - type: Inventory
+    templateId: human
+#
+  - type: InventorySlots
+#
+  - type: Stripping
+#
+  - type: Strippable
+#
 #   - type: Input
 #     context: "human"
 # #
@@ -84,11 +89,7 @@
 #
   - type: UserInterface
     interfaces:
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
-      enum.HumanoidMarkingModifierKey.Key:
-        type: HumanoidMarkingModifierBoundUserInterface
-      enum.StrippingUiKey.Key:
+      - key: enum.StrippingUiKey.Key
         type: StrippableBoundUserInterface
 #
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
@@ -195,3 +196,13 @@
 #
   - type: ReplacementAccent
     accent: genericAggressive
+#
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
+#
+  - type: JumpAct
+    jumpAction: CompActionJumpAbomination
+#
