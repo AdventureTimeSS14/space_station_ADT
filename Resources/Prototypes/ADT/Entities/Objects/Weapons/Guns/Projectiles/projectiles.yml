@@ -52,7 +52,7 @@
     forceSound: true
 
 - type: entity
-  id: BaseBulletRubber
+  id: ADTBaseBulletRubber
   name: base bullet rubber
   parent: BaseBullet
   noSpawn: true
@@ -73,7 +73,7 @@
 - type: entity
   id: ADTBulletBibis
   name: bibis ball
-  parent: BaseBulletRubber
+  parent: ADTBaseBulletRubber
   noSpawn: true
   components:
   - type: Projectile
