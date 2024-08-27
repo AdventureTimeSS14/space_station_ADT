@@ -1,0 +1,35 @@
+- type: entity
+  id: ADTBriefcaseCentcomm
+  name: Centcomm briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/sec_auditor_briefcase.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Misc/sec_auditor_briefcase.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+
+- type: entity
+  id: ADTBriefcaseBrownPyotr
+  name: Pyotr`s briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  #- type: Storage
+  #  maxItemSize: Ginormous
+  #  maxTotalWeight: 0
+  #  maxSlots: 50 #By this ignore maxTotalWeight
+  - type: StorageFill
+    contents:
+      #- id: ADTClothingBeltPyotrSheath
+      - id: ADTClothingHeadHatsPyotrCap
+      - id: ADTClothingNeckPyotrCloak
+      - id: ADTClothingOuterCoatPyotrCoat
+      - id: ADTClothingUniformPyotrOfficialSuit

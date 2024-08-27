@@ -63,6 +63,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly WeldableSystem _weld = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private void InitializeAbilities()
     {
@@ -253,7 +254,7 @@ public sealed partial class RevenantSystem
         var xform = Transform(uid);
         if (!TryComp<MapGridComponent>(xform.GridUid, out var map))
             return;
-        var tiles = map.GetTilesIntersecting(Box2.CenteredAround(xform.WorldPosition,
+        var tiles = map.GetTilesIntersecting(Box2.CenteredAround(_transformSystem.GetWorldPosition(xform),
             new Vector2(component.DefileRadius * 2, component.DefileRadius))).ToArray();
 
         _random.Shuffle(tiles);

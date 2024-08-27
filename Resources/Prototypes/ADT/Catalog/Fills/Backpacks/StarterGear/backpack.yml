@@ -5,7 +5,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalMedical
+      # - id: BoxSurvivalMedical
       - id: BodyBagFolded
       # До добавления слота носков- id: ADTFootTag
       - id: SpaceCash500
@@ -63,3 +63,16 @@
       contents:
         - id: JawsOfLife
         - id: WeaponLaserGun
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackBrigmedic
+  id: ClothingBackpackBrigmedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      # - id: BoxSurvivalBrigmedic
+      - id: Flash
+      - id: MagazinePistol
+#      - id: ADTSpaceLaw
+      # - id: SpaceCash500

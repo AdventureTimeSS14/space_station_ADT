@@ -92,7 +92,7 @@
 - type: soundCollection
   id: MothBuzz
   files:
-  - /Audio/ADT/Moth/moth_squeak.ogg
+  - /Audio/ADT/Moth/moth_screm.ogg
 
 - type: soundCollection
   id: MothScream

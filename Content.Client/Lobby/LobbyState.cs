@@ -216,6 +216,10 @@ namespace Content.Client.Lobby
             {
                 Lobby!.Background.SetRSI(_resourceCache.GetResource<RSIResource>(_gameTicker.LobbyBackground).RSI); // ADT Tweak
             }
+            else
+            {
+                Lobby!.Background.Texture = null;
+            }
 
         }
 
