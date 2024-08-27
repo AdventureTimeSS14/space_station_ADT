@@ -1,0 +1,16 @@
+- type: entity
+  id: ADTBulletBibis
+  name: bibis ball
+  parent: ADTBaseBulletRubber
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0.1
+  - type: StaminaDamageOnCollide
+    damage: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: depleted-uranium
