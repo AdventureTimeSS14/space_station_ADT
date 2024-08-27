@@ -35,7 +35,7 @@ namespace Content.Shared.ADT.SegmentedBody;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public sealed class SharedSegmentedBodySystem : EntitySystem
+public abstract class SharedSegmentedBodySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -66,25 +66,23 @@ public sealed class SharedSegmentedBodySystem : EntitySystem
     {
         if (comp.SegmentsCount <= 0 ||
             //_proto.TryIndex(comp.MiddleSegmentPrototype, out var midSegment) ||
-            comp.Segments.Count > 0)
+            comp.BodySegments.Count > 0)
             return;
 
         for (var i = 0; i < comp.SegmentsCount; i++)
         {
             var segment = Spawn(comp.MiddleSegmentPrototype, Transform(uid).Coordinates);
-            if (!TryComp<SegmentedBodyPartComponent>(segment, out var segmentComp))
-                break;
             var jointId = $"segmented-body-joint-{GetNetEntity(segment)}-{GetNetEntity(uid)}";
             var parent = uid;
-            if (comp.Segments.Count == 0)
+            if (comp.BodySegments.Count == 0)
             {
                 jointId = $"segmented-body-joint-{GetNetEntity(segment)}-{GetNetEntity(uid)}";
                 parent = uid;
             }
             else
             {
-                jointId = $"segmented-body-joint-{GetNetEntity(segment)}-{GetNetEntity(comp.Segments[i - 1])}";
-                parent = comp.Segments[i - 1];
+                jointId = $"segmented-body-joint-{GetNetEntity(segment)}-{GetNetEntity(comp.BodySegments[i - 1])}";
+                parent = comp.BodySegments[i - 1];
             }
 
             if (i == comp.SegmentsCount - 1 &&
@@ -94,10 +92,12 @@ public sealed class SharedSegmentedBodySystem : EntitySystem
                 QueueDel(segment);
                 segment = Spawn(comp.EndSegmentPrototype, Transform(uid).Coordinates);
             }
+            if (!TryComp<SegmentedBodyPartComponent>(segment, out var segmentComp))
+                break;
 
-            segmentComp.Body = uid;
+            segmentComp.MainBody = uid;
             segmentComp.ParentJointId = jointId;
-            comp.Segments.Add(segment);
+            comp.BodySegments.Add(segment);
             if (!_timing.ApplyingState)
             {
                 var union = _physics.GetHardAABB(parent).Union(_physics.GetHardAABB(segment));
@@ -119,30 +119,34 @@ public sealed class SharedSegmentedBodySystem : EntitySystem
     private void OnPartDamage(EntityUid uid, SegmentedBodyPartComponent comp, DamageChangedEvent args)
     {
         if (!TryComp<DamageableComponent>(uid, out var damageable))
-        {
             return;
-        }
+        if (comp.Detached)
+            return;
 
         if (comp.ShareDamage)
         {
-            if (args.DamageDelta != null)
-                _damage.TryChangeDamage(comp.Body, args.DamageDelta);
+            if (args.DamageDelta != null && comp.ShareDamage)
+                _damage.TryChangeDamage(comp.MainBody, args.DamageDelta);
         }
+
         if (damageable.Damage.GetTotal() >= comp.DetachDamage)
         {
-            if (!TryComp<SegmentedBodyComponent>(comp.Body, out var segmented) ||
-                segmented.Segments.Contains(uid))
+            if (!TryComp<SegmentedBodyComponent>(comp.MainBody, out var segmented) ||
+                segmented.BodySegments.Contains(uid))
                 return;
 
-            var index = segmented.Segments.IndexOf(uid);
-            for (var i = index; i < segmented.Segments.Count; i++)
+            var index = segmented.BodySegments.IndexOf(uid);
+            var count = segmented.BodySegments.Count;
+            for (var i = index; i < count; i++)
             {
-                var item = segmented.Segments[i];
+                var item = segmented.BodySegments[i];
                 if (!TryComp<SegmentedBodyPartComponent>(item, out var segment))
                     continue;
                 if (segment.ParentJointId != null)
                 {
                     _joints.RemoveJoint(item, segment.ParentJointId);
+                    segmented.BodySegments.Remove(item);
+                    comp.Detached = true;
                 }
             }
         }

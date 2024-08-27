@@ -47,5 +47,5 @@ public sealed partial class SegmentedBodyComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     [AutoNetworkedField]
-    public List<EntityUid> Segments = new();
+    public List<EntityUid> BodySegments = new();
 }

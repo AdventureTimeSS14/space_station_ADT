@@ -14,6 +14,7 @@ public sealed partial class SegmentedBodyPartComponent : Component
     /// True если это последняя часть
     /// </summary>
     [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool Last = false;
 
     /// <summary>
@@ -21,6 +22,7 @@ public sealed partial class SegmentedBodyPartComponent : Component
     /// Будет ли часть передавать урон телу
     /// </summary>
     [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool ShareDamage = true;
 
     /// <summary>
@@ -28,6 +30,7 @@ public sealed partial class SegmentedBodyPartComponent : Component
     /// True если часть была отсоединена
     /// </summary>
     [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool Detached = false;
 
     /// <summary>
@@ -36,17 +39,20 @@ public sealed partial class SegmentedBodyPartComponent : Component
     /// </summary>
     [AutoNetworkedField]
     [DataField(required: true)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 DetachDamage;
 
     /// <summary>
     /// Joints.
     /// </summary>
     [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public string? ParentJointId;
 
     /// <summary>
     /// Owner of <see cref="SegmentedBodyComponent"/>=
     /// </summary>
     [AutoNetworkedField]
-    public EntityUid? Body;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? MainBody;
 }
