@@ -1,0 +1,9 @@
+- files: ["radio_static.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from https://github.com/tgstation/tgstation/commit/2e6d27b81f7a0cedf3c2c411a76fc5efd01bdcbd"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/hallucinations/radio_static.ogg"
+
+- files: ["/Audio/ADT/hallucinations/behind_you1.ogg, /Audio/ADT/hallucinations/behind_you2.ogg, /Audio/ADT/hallucinations/far_noise.ogg, /Audio/ADT/hallucinations/growl1.ogg, /Audio/ADT/hallucinations/growl2.ogg, /Audio/ADT/hallucinations/growl3.ogg, /Audio/ADT/hallucinations/i_see_you1.ogg, /Audio/ADT/hallucinations/i_see_you2.ogg, /Audio/ADT/hallucinations/im_here1.ogg, /Audio/ADT/hallucinations/im_here2.ogg, /Audio/ADT/hallucinations/look_up1.ogg, /Audio/ADT/hallucinations/look_up2.ogg, /Audio/ADT/hallucinations/over_here1.ogg, /Audio/ADT/hallucinations/over_here2.ogg, /Audio/ADT/hallucinations/over_here3.ogg, /Audio/ADT/hallucinations/turn_around1.ogg, /Audio/ADT/hallucinations/turn_around2.ogg, /Audio/ADT/hallucinations/veryfar_noise.ogg, /Audio/ADT/hallucinations/wail.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from https://github.com/tgstation/tgstation/commit/3be1e8bdfd832ffb76d21cd8dcd11628182875a9"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/hallucinations"

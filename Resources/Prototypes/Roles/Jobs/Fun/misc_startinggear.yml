@@ -28,7 +28,6 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
-    suitstorage: AirTankFilled
     shoes: ClothingShoesBootsMagAdv
     id: DeathsquadPDA
     pocket1: EnergySword
@@ -36,8 +35,6 @@
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
-    - BoxSurvivalEngineering
-    - WeaponPulseRifle
     - WeaponPulsePistol
     - WeaponRevolverMateba
     - SpeedLoaderMagnumAP
@@ -48,6 +45,8 @@
     - Hypospray
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
     - FreedomImplanter
+  inhand:
+  - WeaponPulseRifle
 
 # Syndicate Operative Outfit - Civilian
 - type: startingGear
@@ -117,11 +116,9 @@
     id: CBURNPDA
     pocket1: RadioHandheld
     pocket2: WeaponLaserGun
-    suitstorage: OxygenTankFilled
     belt: ClothingBeltBandolier
   storage:
     back:
-    - BoxSurvivalEngineering
     - WeaponShotgunDoubleBarreled
     - BoxShotgunIncendiary
     - GrenadeFlashBang
@@ -153,22 +150,25 @@
   inhand:
     - WeaponMeleeToolboxRobust
 
-#Brigmedic
+#Brigmedic ADT rework brigmedic
 
-- type: startingGear
-  id: BrigmedicGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitBrigmedic
-    outerClothing: ClothingOuterCoatAMG
-    back: ClothingBackpackBrigmedic
-    shoes: ClothingShoesColorRed
-    gloves: ClothingHandsGlovesNitrile
-    eyes: ClothingEyesHudMedical
-    head: ClothingHeadHatBeretBrigmedic
-    id: BrigmedicPDA
-    ears: ClothingHeadsetBrigmedic
-    mask: ClothingMaskBreathMedicalSecurity
-    belt: ClothingBeltMedicalFilled
+#- type: startingGear
+#  id: BrigmedicGear
+#  equipment:
+#    jumpsuit: ClothingUniformJumpsuitBrigmedic
+#    outerClothing: ClothingOuterCoatAMG
+#    back: ClothingBackpackBrigmedicFilled
+#    shoes: ClothingShoesColorRed
+#    gloves: ClothingHandsGlovesNitrile
+#    eyes: ClothingEyesHudMedical
+#    head: ClothingHeadHatBeretBrigmedic
+#    id: BrigmedicPDA
+#    ears: ClothingHeadsetBrigmedic
+#    mask: ClothingMaskBreathMedicalSecurity
+#    belt: ClothingBeltMedicalFilled
+#  innerclothingskirt: ClothingUniformJumpskirtBrigmedic
+#  satchel: ClothingBackpackSatchelBrigmedicFilled
+#  duffelbag: ClothingBackpackDuffelBrigmedicFilled
 
 # Aghost
 - type: startingGear

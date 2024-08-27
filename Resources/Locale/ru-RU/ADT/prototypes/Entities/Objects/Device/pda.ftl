@@ -12,3 +12,6 @@ ent-ADTBlueshieldOfficerPDA = КПК офицера синего щита
 
 ent-ADTGhostPDA = КПК призрака
     .desc = Скажи станции Бу!
+
+ent-ADTBrigMedicPDA = КПК бригмедика
+    .desc = КПК бригмедика
