@@ -188,8 +188,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.49
-        density: 130
+          radius: 0.50
+        density: 200 # эта хуйня влияет на то, насколько ты типа силач, гигант, на твой вес, епта, и на disarm в том числе
         mask:
         - MobMask
         layer:
