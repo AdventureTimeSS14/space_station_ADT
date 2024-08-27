@@ -4,17 +4,28 @@
   name: the creature
   description: Once it was a human being...
   components:
-#
+# START-advice
+# САМЫЕ, НАХУЙ, ВАЖНЫЕ КОМПОНЕНТЫ, ЧТОБЫ ЕБЛОИД МОГ БРАТЬ В РУКИ ПРЕДМЕТЫ!!!
+# И ВОТ ЭТИ ВСЕ map В СПРАЙТАХ - ТОЖЕ НУЖНЫ!!!
+# УЧИТЕСЬ НА МОИХ СТРАДАНИЯХ!!!
   - type: Body
-    prototype: Felinid
+    prototype: Human
 #
-   - type: Hands
-     showInHands: true
+  - type: Hands
+    showInHands: false
+#
+  - type: Input
+    context: "human"
 #
   - type: Insulated
 #
   - type: Inventory
-    templateId: human
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
 #
   - type: InventorySlots
 #
@@ -22,85 +33,103 @@
 #
   - type: Strippable
 #
-#   - type: Input
-#     context: "human"
-# #
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-      - map: [ "enum.DamageStateVisualLayers.Base" ]
-        sprite: ADT/Mobs/creature.rsi
-        state: creature
-      # - map: ["enum.HumanoidVisualLayers.Chest"]
-      # - map: ["enum.HumanoidVisualLayers.Head"]
-      # - map: ["enum.HumanoidVisualLayers.Snout"]
-      # - map: ["enum.HumanoidVisualLayers.Eyes"]
-      # - map: ["enum.HumanoidVisualLayers.RArm"]
-      # - map: ["enum.HumanoidVisualLayers.LArm"]
-      # - map: ["enum.HumanoidVisualLayers.RLeg"]
-      # - map: ["enum.HumanoidVisualLayers.LLeg"]
-      # - shader: StencilClear
-      #   sprite: Mobs/Species/Human/parts.rsi
-      #   state: l_leg
-      # - shader: StencilMask
-      #   map: ["enum.HumanoidVisualLayers.StencilMask"]
-      #   sprite: Mobs/Customization/masking_helpers.rsi
-      #   state: unisex_full
-      #   visible: false
-      # - map: ["enum.HumanoidVisualLayers.LFoot"]
-      # - map: ["enum.HumanoidVisualLayers.RFoot"]
-      # - map: ["socks"]
-      # - map: ["underpants"]
-      # - map: ["undershirt"]
-      # - map: ["jumpsuit"]
-      # - map: ["enum.HumanoidVisualLayers.LHand"]
-      # - map: ["enum.HumanoidVisualLayers.RHand"]
-      # - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-      #   color: "#ffffff"
-      #   sprite: Objects/Misc/handcuffs.rsi
-      #   state: body-overlay-2
-      #   visible: false
-      # - map: ["id"]
-      # - map: ["gloves"]
-      # - map: ["shoes"]
-      # - map: ["ears"]
-      # - map: ["outerClothing"]
-      # - map: ["eyes"]
-      # - map: ["belt"]
-      # - map: ["neck"]
-      # - map: ["back"]
-      # - map: ["enum.HumanoidVisualLayers.FacialHair"]
-      # - map: ["enum.HumanoidVisualLayers.Hair"]
-      # - map: ["enum.HumanoidVisualLayers.HeadSide"]
-      # - map: ["enum.HumanoidVisualLayers.HeadTop"]
-      # - map: ["mask"]
-      # - map: ["head"]
-      # - map: ["pocket1"]
-      # - map: ["pocket2"]
-      # - map: ["enum.HumanoidVisualLayers.Tail"]
-      # #- map: ["enum.HumanoidVisualLayers.Wings"]
-#
-  - type: Emoting
-#
-  - type: BodyEmotes
-    soundsId: GeneralBodyEmotes
-#
-  - type: Internals
+  - type: ComplexInteraction
 #
   - type: UserInterface
     interfaces:
-      - key: enum.StrippingUiKey.Key
+      enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
 #
-  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
-    sprite: ADT/Mobs/creature.rsi
-    state: icon
+  - type: StatusIcon
 #
   - type: InputMover
 #
   - type: MobMover
 #
   - type: Clickable
+#
+# САМЫЕ, НАХУЙ, ВАЖНЫЕ КОМПОНЕНТЫ, ЧТОБЫ ЕБЛОИД МОГ БРАТЬ В РУКИ ПРЕДМЕТЫ!!!
+# УЧИТЕСЬ НА МОИХ СТРАДАНИЯХ!!!
+# И ВОТ ЭТИ ВСЕ map В СПРАЙТАХ - ТОЖЕ НУЖНЫ!!!
+# END-advice
+  - type: Sprite
+    sprite: ADT/Mobs/creature.rsi
+    drawdepth: Mobs
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: creature
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: alive-unshaded
+        shader: unshaded
+      - map: ["enum.HumanoidVisualLayers.Chest"]
+      - map: ["enum.HumanoidVisualLayers.Head"]
+      - map: ["enum.HumanoidVisualLayers.Snout"]
+      - map: ["enum.HumanoidVisualLayers.Eyes"]
+      - map: ["enum.HumanoidVisualLayers.RArm"]
+      - map: ["enum.HumanoidVisualLayers.LArm"]
+      - map: ["enum.HumanoidVisualLayers.RLeg"]
+      - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+      #- map: ["enum.HumanoidVisualLayers.Wings"]
+#
+  - type: Emoting
+#
+  - type: Speech
+    speechSounds: Drask
+    speechVerb: LargeMob
+#
+  - type: Vocal
+    sounds:
+      Male: MaleDrask
+      Female: FemaleDrask
+      Unsexed: MaleDrask
+#
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+#
+  - type: Internals
+#
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: ADT/Mobs/creature.rsi
+    state: icon
 #
   - type: NpcFactionMember
     factions:
@@ -112,22 +141,35 @@
     - FootstepSound
     - CannotSuicide
 #
-  - type: Speech
-    speechVerb: LargeMob
-#
   - type: MindContainer
 #
   - type: MovementAlwaysTouching
 #
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 4.5
+    baseWalkSpeed: 5.5
+    baseSprintSpeed: 5.5
 #
   - type: MobState
     allowedStates:
     - Alive
     - Critical
     - Dead
+#
+  - type: Deathgasp
+#
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    - Cold
+    - Caustic
+#
+  - type: LagCompensation
+#
+  - type: InteractionOutline
 #
   - type: MobThresholds
     thresholds:
@@ -157,6 +199,7 @@
     states:
       Alive:
         Base: creature
+        BaseUnshaded: alive-unshaded
       Critical:
         Base: dead
       Dead:
@@ -197,12 +240,13 @@
   - type: ReplacementAccent
     accent: genericAggressive
 #
+  - type: Damageable
+    damageModifierSet: ADTMobCreatureDamageSet
+#
+  # Frontier - languages mechanic
+#
   - type: LanguageSpeaker
     speaks:
     - GalacticCommon
     understands:
     - GalacticCommon
-#
-  - type: JumpAct
-    jumpAction: CompActionJumpAbomination
-#

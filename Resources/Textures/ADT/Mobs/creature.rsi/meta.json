@@ -20,6 +20,10 @@
       {
         "name": "dead",
         "directions": 1
+      },
+      {
+        "name": "alive-unshaded",
+        "directions": 4
       }
     ]
   }
