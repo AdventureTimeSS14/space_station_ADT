@@ -514,7 +514,7 @@
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
-            min: 30
+            min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
         damage:
           types:
             Poison: 3
@@ -522,7 +522,7 @@
         probability: 0.15
         conditions:
           - !type:ReagentThreshold
-            min: 30
+            min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
       - !type:GenericStatusEffect
         key: PressureImmunity
         component: PressureImmunity

@@ -65,6 +65,8 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMoth #ADT_Species
+  - ADTEmergencyIPC #ADT_Species
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -453,6 +455,8 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothClown #ADT_Species
+  - ADTEmergencyIPCClown #ADT_Species
 
 - type: loadoutGroup
   id: MimeHead
@@ -776,6 +780,8 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothExtended #ADT_Species
+  - ADTEmergencyIPCExtended #ADT_Species
 
 # Science
 - type: loadoutGroup
@@ -1065,6 +1071,8 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothSecurity #ADT_Species
+  - ADTEmergencyIPCSecurity #ADT_Species
 
 # Medical
 - type: loadoutGroup
@@ -1247,6 +1255,8 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothMedical #ADT_Species
+  - ADTEmergencyIPCMedical #ADT_Species
 
 # Wildcards
 - type: loadoutGroup
@@ -1289,6 +1299,8 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothSyndicate #ADT_Species
+  - ADTEmergencyIPCSyndicate #ADT_Species
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
