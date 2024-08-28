@@ -1,0 +1,532 @@
+#Тут куча канистр для раздатчиков алкоголя и безалкоголя.
+
+#безалкогольный раздатчик
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkIceCanister
+  name: ice canister
+  description: stubborn water. pretty cool.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Ice
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-ice
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkCoconutWaterCanister
+  name: coconut water canister
+  description: It's on the inside of the coconut that counts.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: CoconutWater
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-coconut-water
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkCoffeeCanister
+  name: coffee canister
+  description: wake up juice, of the heated kind.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Coffee
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-coffee
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkCreamCanister
+  name: cream canister
+  description: It's cream. Made from milk. What else did you think you'd find in there?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-cream
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkTeaCanister
+  name: tea canister
+  description: the drink of choice for the Bri'ish and hipsters.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Tea
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-tea
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkGreenTeaCanister
+  name: tea canister
+  description: the drink of choice for the Bri'ish and hipsters.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: GreenTea
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-green-tea
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkIcedTeaCanister
+  name: iced tea canister
+  description: for when the regular tea is too hot for you boohoo.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: IcedTea
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-iced-tea
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkColaCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Cola
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-cola
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkSpaceMountainWindCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: SpaceMountainWind
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-space-mountain-wind
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkDrGibbCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: DrGibb
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-dr-gibb
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkRootBeerCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: RootBeer
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-root-beer
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkSpaceUpCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: SpaceUp
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-space-up
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkTonicWaterCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: TonicWater
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-tonic-water
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkSodaWaterCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: SodaWater
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-soda-water
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkLemonLimeCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: LemonLime
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-lemon-lime
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkSugarCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-sugar
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkJuiceOrangeCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: JuiceOrange
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-juice-orange
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkJuiceLimeCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: JuiceLime
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-juice-lime
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkJuiceWatermelonCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: JuiceWatermelon
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-juice-watermelon
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkEnergyDrinkCanister
+  name: enegry drink canister
+  description: A canister of Red Bool, with enough caffine to kill a whole station.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: EnergyDrink
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-energy-drink
+
+#booooooooooooooooooze.
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkBeerCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Beer
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-beer
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkCoffeeLiqueurCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: CoffeeLiqueur
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-coffeeliqueur
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkWineCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Wine
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-wine
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkVodkaCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Vodka
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-vodka
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkGinCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Gin
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-gin
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkRumCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Rum
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-rum
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkTequilaCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Tequila
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-tequila
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkVermouthCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Vermouth
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-vermouth
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkCognacCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Cognac
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-cognac
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkAleCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Ale
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-ale
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkMeadCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Mead
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-mead
+
+# - type: entity
+#   parent: ADTReagentCanister
+#   id: ADTDrinkAppleLiqueurCanister
+#   name: cola canister
+#   description: Cola. In space.
+#   components:
+#   - type: SolutionContainerManager
+#     solutions:
+#       beaker:
+#         reagents:
+#         - ReagentId: ADTAppleLiqueur
+#           Quantity: 600
+#   - type: Drink
+#   - type: Label
+#     currentLabel: apple-liqueur-name
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTDrinkWhiskeyCanister
+  name: cola canister
+  description: Cola. In space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Whiskey
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-whiskey

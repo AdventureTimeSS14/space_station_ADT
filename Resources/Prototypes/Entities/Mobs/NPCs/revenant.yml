@@ -41,7 +41,7 @@
   - type: NoSlip
   - type: Actions
   - type: TTS # Corvax-TTS
-    voice: Kelthuzad
+    voice: illidan
   - type: Eye
     drawFov: false
     visMask:
@@ -86,19 +86,20 @@
   - type: Store
     categories:
     - RevenantAbilities
+    - RevenantInstantEffects
     currencyWhitelist:
     - StolenEssence
   - type: RandomMetadata
     nameSegments:
-#    - The
+    - The
     - RevenantType
-#    - of
+    - of
     - RevenantAdjective
     - RevenantTheme
   - type: Speech
     speechVerb: Ghost
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+  - type: OuijaBoardUser

@@ -1,0 +1,35 @@
+{
+    "license": "CC-BY-SA-3.0",
+    "copyright": "???",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "budgetcard"
+    },
+    {
+      "name": "car_budget"
+    },
+    {
+      "name": "srv_budget"
+    },
+    {
+      "name": "civ_budget"
+    },
+    {
+      "name": "sec_budget"
+    },
+    {
+      "name": "med_budget"
+    },
+    {
+      "name": "sci_budget"
+    },
+    {
+      "name": "eng_budget"
+    }
+  ]
+}

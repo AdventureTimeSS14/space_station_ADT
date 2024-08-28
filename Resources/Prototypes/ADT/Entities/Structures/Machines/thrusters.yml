@@ -1,0 +1,153 @@
+#Пу-пу, чтобы сделать нормальную коллизию приходится не использовать паренты, увы
+- type: entity
+  id: ADTMediumThruster
+  parent: BaseStructureDynamic
+  name: medium thruster
+  description: A thruster that allows a shuttle to move.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,0.5,0.5"
+        density: 160
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: AmbientSound
+    enabled: false
+    range: 4
+    volume: -4
+    sound:
+      path: /Audio/Effects/shuttle_thruster.ogg
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Rotatable
+    rotateWhileAnchored: false
+  - type: InteractionOutline
+  - type: Appearance
+  - type: ThrusterVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: ExtensionCableReceiver
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Electronic
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500  #Тебе придется его бить ооочень сука долго, инженер со сваркой чад сигма гейминг на космо боях
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:ExplodeBehavior
+  - type: StaticPrice
+    price: 600
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 60
+    intensitySlope: 2
+    totalIntensity: 60
+  - type: Sprite
+    sprite: ADT/Structures/Machines/Thrusters/medi_thruster.rsi
+    offset: -0.5, -0.5
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1.9
+      scale: 0.7, 1
+  - type: Thruster
+    burnShape:
+      - -1.4,0.5
+      - -1.1,1.2
+      - 0.1,1.2
+      - 0.4,0.5
+    thrust: 250
+
+- type: entity
+  id: ADTBigThruster
+  parent: ADTMediumThruster
+  name: big thruster
+  description: Big fuckin boy, BBBRRRROOOOOM.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-2.5,1.5,0.5"
+        density: 160
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: ApcPowerReceiver
+    powerLoad: 2500
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:ExplodeBehavior
+  - type: StaticPrice
+    price: 1000
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 2
+    totalIntensity: 100
+  - type: Sprite
+    sprite: ADT/Structures/Machines/Thrusters/big_thruster.rsi
+    offset: 0, -1
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 2.7
+      scale: 0.7, 1
+  - type: Thruster
+    burnShape:
+      - -1.4,0.5
+      - -1.1,2.5
+      - 1.1,2.5
+      - 1.4,0.5
+    thrust: 500

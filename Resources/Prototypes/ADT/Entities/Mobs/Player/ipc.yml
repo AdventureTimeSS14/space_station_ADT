@@ -50,8 +50,6 @@
       90: 0.5
       120: 0.3
   - type: SiliconDownOnDead
-  - type: Inventory
-    templateId: ipc
   - type: EyeProtection
     protectionTime: 12
   - type: Battery
@@ -126,18 +124,21 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-  # - type: SizeAttributeWhitelist # Frontier
-  #   tall: true
-  #   tallscale: 1.1
-  #   short: true
-  #   shortscale: 0.9
+  - type: Inventory
+    templateId: ipc
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
+  - type: CanEnterCryostorage
 
 - type: entity
   save: false
   name: Urist McPositronic
   parent: MobHumanDummy
   id: MobIPCDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy IPC meant to be used in character setup.
   components:
   - type: HumanoidAppearance

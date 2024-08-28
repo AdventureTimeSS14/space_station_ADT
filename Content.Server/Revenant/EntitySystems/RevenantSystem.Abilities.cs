@@ -27,8 +27,22 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Revenant.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
+using Content.Server.ADT.Hallucinations;
+using Content.Shared.StatusEffect;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Server.Fluids.EntitySystems;
+using Robust.Shared.Player;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Mind;
+using Content.Shared.Doors.Components;
+using Content.Shared.Doors.Systems;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Chemistry.Components;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
+using Content.Shared.ADT.Silicon.Components;
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -41,7 +55,15 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SmokeSystem _smoke = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedDoorSystem _door = default!;
+    [Dependency] private readonly WeldableSystem _weld = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private void InitializeAbilities()
     {
@@ -53,6 +75,11 @@ public sealed partial class RevenantSystem
         SubscribeLocalEvent<RevenantComponent, RevenantOverloadLightsActionEvent>(OnOverloadLightsAction);
         SubscribeLocalEvent<RevenantComponent, RevenantBlightActionEvent>(OnBlightAction);
         SubscribeLocalEvent<RevenantComponent, RevenantMalfunctionActionEvent>(OnMalfunctionAction);
+
+        /// ADT content
+        SubscribeLocalEvent<RevenantComponent, RevenantHysteriaActionEvent>(OnHysteriaAction);
+        SubscribeLocalEvent<RevenantComponent, RevenantGhostSmokeActionEvent>(OnGhostSmokeAction);
+        SubscribeLocalEvent<RevenantComponent, RevenantLockActionEvent>(OnLockAction);
     }
 
     private void OnInteract(EntityUid uid, RevenantComponent component, UserActivateInWorldEvent args)
@@ -227,7 +254,7 @@ public sealed partial class RevenantSystem
         var xform = Transform(uid);
         if (!TryComp<MapGridComponent>(xform.GridUid, out var map))
             return;
-        var tiles = map.GetTilesIntersecting(Box2.CenteredAround(xform.WorldPosition,
+        var tiles = map.GetTilesIntersecting(Box2.CenteredAround(_transformSystem.GetWorldPosition(xform),
             new Vector2(component.DefileRadius * 2, component.DefileRadius))).ToArray();
 
         _random.Shuffle(tiles);
@@ -266,12 +293,18 @@ public sealed partial class RevenantSystem
             //chucks shit
             if (items.HasComponent(ent) &&
                 TryComp<PhysicsComponent>(ent, out var phys) && phys.BodyType != BodyType.Static)
-                _throwing.TryThrow(ent, _random.NextAngle().ToWorldVec());
+                _throwing.TryThrow(ent, _random.NextAngle().ToWorldVec(), 15f);
 
             //flicker lights
             if (lights.HasComponent(ent))
                 _ghost.DoGhostBooEvent(ent);
+
+            // ADT Revenant buff
+            var toxin = new DamageSpecifier();
+            toxin.DamageDict.Add("Poison", 27);
+            _damage.TryChangeDamage(ent, toxin, origin: uid);
         }
+        _audio.PlayPvs(component.DefileSound, uid); // ADT Revenant sounds
     }
 
     private void OnOverloadLightsAction(EntityUid uid, RevenantComponent component, RevenantOverloadLightsActionEvent args)
@@ -307,6 +340,8 @@ public sealed partial class RevenantSystem
             var comp = EnsureComp<RevenantOverloadedLightsComponent>(allLight.First());
             comp.Target = ent; //who they gon fire at?
         }
+
+        _audio.PlayPvs(component.OverloadSound, uid);   // ADT Revenant sounds
     }
 
     private void OnBlightAction(EntityUid uid, RevenantComponent component, RevenantBlightActionEvent args)
@@ -338,6 +373,77 @@ public sealed partial class RevenantSystem
                 continue;
 
             _emag.DoEmagEffect(uid, ent); //it does not emag itself. adorable.
+
+            // ADT Revenant malfunction for IPC
+            if (_status.TryAddStatusEffect<SeeingStaticComponent>(ent, "SeeingStatic", TimeSpan.FromSeconds(15), true))
+                _status.TryAddStatusEffect<SlowedDownComponent>(ent, "SlowedDown", TimeSpan.FromSeconds(15), true);
+
+            _audio.PlayPvs(component.MalfSound, uid);
         }
     }
+
+    // ADT Revenant abilities start
+    private void OnHysteriaAction(EntityUid uid, RevenantComponent component, RevenantHysteriaActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseAbility(uid, component, component.HysteriaCost, component.HysteriaDebuffs))
+            return;
+
+        args.Handled = true;
+
+        foreach (var ent in _lookup.GetEntitiesInRange(uid, component.HysteriaRadius))
+        {
+            _status.TryAddStatusEffect<TemporaryBlindnessComponent>(ent, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(3), true);
+            _hallucinations.StartHallucinations(ent, "ADTHallucinations", component.HysteriaDuration, true, component.HysteriaProto);
+            if (!_mind.TryGetMind(ent, out var mindId, out var mind) || mind.Session == null)
+                continue;
+            _audio.PlayGlobal(component.HysteriaSound, Filter.SinglePlayer(mind.Session), false);
+        }
+    }
+
+    private void OnGhostSmokeAction(EntityUid uid, RevenantComponent component, RevenantGhostSmokeActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseAbility(uid, component, component.SmokeCost, component.SmokeDebuffs))
+            return;
+
+        args.Handled = true;
+
+        var solution = new Solution();
+
+        var quantity = component.SmokeQuantity;
+        solution.AddReagent("Water", quantity);
+
+        var foamEnt = Spawn("Smoke", Transform(uid).Coordinates);
+        var spreadAmount = component.SmokeAmount;
+
+        _smoke.StartSmoke(foamEnt, solution, component.SmokeDuration, spreadAmount);
+
+        _audio.PlayPvs(component.SmokeSound, uid);
+    }
+
+    private void OnLockAction(EntityUid uid, RevenantComponent component, RevenantLockActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseAbility(uid, component, component.LockCost, component.LockDebuffs))
+            return;
+
+        args.Handled = true;
+
+        foreach (var ent in _lookup.GetEntitiesInRange(uid, component.LockRadius))
+        {
+            if (!TryComp<DoorComponent>(ent, out var door))
+                continue;
+            if (door.State == DoorState.Closed)
+                _weld.SetWeldedState(ent, true);
+            _audio.PlayPvs(component.LockSound, ent);
+        }
+    }
+    // ADT Revenant abilities end
 }

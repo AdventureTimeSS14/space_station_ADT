@@ -17,7 +17,7 @@
           !type:SimpleColoring
           color: "#171717"
   sprites:
-    - sprite: ADT/Mobs/Species/Drask/custom.rsi
+    - sprite: ADT/Mobs/Customization/Drask/custom.rsi
       state: r_arm
 
 - type: marking
@@ -39,5 +39,5 @@
           !type:SimpleColoring
           color: "#171717"
   sprites:
-    - sprite: ADT/Mobs/Species/Drask/custom.rsi
+    - sprite: ADT/Mobs/Customization/Drask/custom.rsi
       state: l_arm

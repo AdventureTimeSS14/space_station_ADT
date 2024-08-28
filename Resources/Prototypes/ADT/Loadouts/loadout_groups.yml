@@ -94,3 +94,43 @@
   - LatexGloves
   - PurpleGloves
   - RobohandsGloves
+
+#Blueshield
+
+- type: loadoutGroup
+  id: ADTBlueshieldJumpsuit
+  name: loadout-group-blueshield-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldJumpsuit
+  - ADTBlueshieldJumpskirt
+  - ADTBlueshieldJumpsuitTurtleneck
+  - ADTBlueshieldJumpskirtTurtleneck
+
+- type: loadoutGroup
+  id: ADTBlueshieldHead
+  name: loadout-group-blueshield-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldHeadBeret
+  - ADTBlueshieldHeadBeretBlack
+
+- type: loadoutGroup
+  id: ADTBlueshieldNeck
+  name: loadout-group-blueshield-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldCloak
+
+- type: loadoutGroup
+  id: ADTBlueshieldBack
+  name: loadout-group-blueshield-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldBackpack
+  - ADTBlueshieldSatchel
+  - ADTBlueshieldDuffel

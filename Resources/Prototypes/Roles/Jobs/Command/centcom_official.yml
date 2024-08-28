@@ -12,6 +12,10 @@
   - AllAccess
   access:
   - CentralCommand
+  special: # Start ADT Tweak 
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  # End ADT Tweak
 
 - type: startingGear
   id: CentcomGear
@@ -27,3 +31,7 @@
     belt: WeaponPistolN1984
     pocket1: BoxFolderBlack
     pocket2: PenCentcom
+  storage:
+    back:
+    - Flash #ADT-CustomADTLoadout
+    - ADTtelescopicBaton #ADT-CustomADTLoadout

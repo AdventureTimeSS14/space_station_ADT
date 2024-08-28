@@ -149,16 +149,12 @@
   components:
   - type: StationEvent
     weight: 6
-    duration: 1
+    duration: null
     earliestStart: 30
     reoccurrenceDelay: 20
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
-    # Vox disabled until loadouts work on AntagSelection-based spawns
-    speciesOverride: Human
-    speciesOverrideBlacklist:
-    - Vox
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -175,6 +171,8 @@
       max: 1
       pickPlayer: false
       startingGear: SpaceNinjaGear
+      roleLoadout:
+      - RoleSurvivalEVA
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -429,39 +427,45 @@
     - id: MobClownSpider
       prob: 0.05
 
-- type: entity
-  id: ZombieOutbreak
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    earliestStart: 50
-    minimumPlayers: 30
-    weight: 2
-    duration: 1
-  - type: ZombieRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ InitialInfected ]
-      max: 3
-      playerRatio: 10
-      blacklist:
-        components:
-        - ZombieImmune
-        - AntagImmune
-      briefing:
-        text: zombie-patientzero-role-greeting
-        color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
-      components:
-      - type: PendingZombie #less time to prepare than normal
-        minInitialInfectedGrace: 300
-        maxInitialInfectedGrace: 450
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
-      - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+# ADT zombie remove
+# - type: entity
+#   id: ZombieOutbreak
+#   parent: BaseGameRule
+#   components:
+#   - type: StationEvent
+#     earliestStart: 50
+#     minimumPlayers: 30
+#     weight: 2
+#     duration: 1
+#   - type: ZombieRule
+#   - type: AntagSelection
+#     definitions:
+#     - prefRoles: [ InitialInfected ]
+#       max: 3
+#       playerRatio: 10
+#       blacklist:
+#         components:
+#         - ZombieImmune
+#         - AntagImmune
+#       briefing:
+#         text: zombie-patientzero-role-greeting
+#         color: Plum
+#         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+#       components:
+#       - type: PendingZombie #less time to prepare than normal
+#         minInitialInfectedGrace: 300
+#         maxInitialInfectedGrace: 450
+#       - type: ZombifyOnDeath
+#       - type: IncurableZombie
+#       - type: InitialInfected
+#       # Corvax-Не знаю какой тег, морти поправь
+#       - type: NpcFactionMember
+#         addFriendlyFactions:
+#         - Zombie
+#       # Corvax
+#       mindComponents:
+#       - type: InitialInfectedRole
+#         prototype: InitialInfected
 
 - type: entity
   parent: BaseNukeopsRule
@@ -510,6 +514,7 @@
     startAudio:
       path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
+    occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -539,7 +544,7 @@
     maxTimeBetweenIncidents: 300
     maxSoundDistance: 7
     sounds:
-      collection: Paracusia
+      collection: ADThallucinations #ADT hallucinations
 
 - type: entity
   id: ImmovableRodSpawn

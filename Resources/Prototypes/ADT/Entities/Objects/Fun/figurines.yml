@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseFigurine
+  id: ADTToyFigurineBlueshieldOfficer
+  name: blueshield officer figure
+  description: A figurine depicting the blueshield officer, austere and blue, stands guard over the station government. I guess.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
+    state: blueshield
+
+- type: entity
+  parent: BaseItem
+  id: ADTBaseFigurine
+  name: figurine
+  description: A small miniature.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: StaticPrice
+    price: 75
+  - type: Tag
+    tags:
+    - Figurine
+  - type: StealTarget
+    stealGroup: Figurines
+
+- type: entity
+  parent: ADTBaseFigurine
+  id: ToyFigurineBrigmedic
+  name: brigmedic figure
+  description: AAA, MEDIC!
+  components:
+  - type: Sprite
+    state: brigmedic

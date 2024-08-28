@@ -2,10 +2,40 @@
 - type: vendingMachineInventory
   id: ClothesMateInventory
   startingInventory:
+# Начало одежда на 14 февраля
+    #ADTClothingUniformDarkManSuit: 2
+    #ADTClothingUniformBrightManSuit: 2
+    #ADTClothingUniformCupidonSuit: 1
+    #ADTClothingBeltQuiverCupidon: 1
+    #ADTClothingOuterCupidonWings: 1
+    #ADTClothingUniformRedSweaterHeart: 2
+    #ADTClothingUniformWhiteSweaterHeart: 2 # TODO: Добавить вещи святого валентина
+    #ADTClothingOuterRedCardigan: 2
+    #ADTClothingOuterBlackCardigan: 2
+    #ADTClothingUnderwearSocksHeart: 2
+    #ADTClothingUnderwearStockingsHeart: 2
+# Конец одежда на 14 февраля
     ClothingBackpack: 5
     ClothingBackpackDuffel: 5
     ClothingBackpackSatchel: 3
+# ADT сумки начало
+    ADTClothingBackpackBlackLadySatchel: 2
+    ADTClothingBackpackLeatherLadySatchel: 2
+# ADT сумки конец
+    ADTClothingHeadHatBeretBlackCivilian: 2 # ADT Кастомный чёрный берет
     ClothingBackpackSatchelLeather: 2
+# ADT бельё/обмотки/плащи начало
+    # ADTClothingUnderwearRedLacePanties: 2
+    # ADTClothingUnderwearTopLaceBraRed: 2
+    # ADTClothingUnderwearBlackLacePanties: 2 # TODO: Убрать комменты после добавления ниженго белья
+    # ADTClothingUnderwearTopLaceBraBlack: 2
+    # ADTClothingUnderwearWhiteComfyPanties: 2
+    # ADTClothingUnderwearTopComfyWhiteBra: 2
+# конец белья
+    ADTClothingNeckDarkGreyCloak: 1
+    ADTClothingNeckGothicCloak: 1
+# ADT бельё/обмотки/плащи конец
+    ADTClothingSandals: 2
     ClothingRandomSpawner: 8
     ClothingHeadHatBeret: 4
     ClothingHeadBandBlack: 2
@@ -54,6 +84,14 @@
     ClothingUniformJumpsuitCasualRed: 2
     ClothingUniformJumpskirtCasualRed: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
+    # ADT бельё/обмотки/плащи начало
+    ADTClothingFootWrapsWhite: 2
+    ADTClothingFootWrapsHighWhite: 2
+    ADTClothingFootWrapsBlack: 2
+    ADTClothingFootWrapsHighBlack: 2
+    ADTClothingFootWrapsBrown: 2
+    ADTClothingFootWrapsHighBrown: 2
+    # ADT бельё/обмотки/плащи конец
     ClothingShoesColorBlack: 8
     ClothingShoesColorBrown: 4
     ClothingShoesColorWhite: 3
@@ -88,9 +126,45 @@
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
-    # DO NOT ADD MORE, USE UNIFORM DYING
+# ADT водолазки начало
+    ADTClothingUniformJumpsuitTurtleneckBlack: 1
+    ADTClothingUniformJumpskirtTurtleneckBlack: 1
+    ADTClothingUniformJumpsuitTurtleneckGrey: 1
+    ADTClothingUniformJumpskirtTurtleneckGrey: 1
+    ADTClothingUniformJumpsuitTurtleneckBrown: 1
+    ADTClothingUniformJumpskirtTurtleneckBrown: 1
+    ADTClothingUniformJumpsuitTurtleneckBlue: 1
+    ADTClothingUniformJumpskirtTurtleneckBlue: 1
+    ADTClothingUniformJumpsuitTurtleneckAzure: 1
+    ADTClothingUniformJumpskirtTurtleneckAzure: 1
+    ADTClothingUniformJumpsuitTurtleneckAquamarine: 1
+    ADTClothingUniformJumpskirtTurtleneckAquamarine: 1
+    ADTClothingUniformJumpsuitTurtleneckGreen: 1
+    ADTClothingUniformJumpskirtTurtleneckGreen: 1
+    ADTClothingUniformJumpsuitTurtleneckOrange: 1
+    ADTClothingUniformJumpskirtTurtleneckOrange: 1
+    ADTClothingUniformJumpsuitTurtleneckYellow: 1
+    ADTClothingUniformJumpskirtTurtleneckYellow: 1
+    ADTClothingUniformJumpsuitTurtleneckPurple: 1
+    ADTClothingUniformJumpskirtTurtleneckPurple: 1
+    ADTClothingUniformJumpsuitTurtleneckPink: 1
+    ADTClothingUniformJumpskirtTurtleneckPink: 1
+    ADTClothingUniformJumpsuitTurtleneckRed: 1
+    ADTClothingUniformJumpskirtTurtleneckRed: 1
+#    ADTClothingUniformJumpsuitTurtleneckSalat: 2
+#    ADTClothingUniformJumpsuitTurtleneckSalatBlack: 2
+#    ADTClothingUniformJumpskirtTurtleneckSalat: 2
+    ADTClothingUniformJumpsuitTurtleneckWhite: 1
+    ADTClothingUniformJumpskirtTurtleneckWhite: 1
+    ADTClothingUniformJumpsuitTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
+# ADT водолазки конец
+# DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1
-  # DO NOT ADD MORE, USE UNIFORM DYING
+# DO NOT ADD MORE, USE UNIFORM DYING

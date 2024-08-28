@@ -1,0 +1,105 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprite by discord: serj3428",
+    "states": [
+        {
+            "name": "burned_soul"
+        },
+        {
+            "name": "burning_soul",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "haunted",
+            "directions": 4
+        },
+        {
+            "name": "haunted_dead"
+        },
+        {
+            "name": "souless_fiend",
+            "directions": 4
+        },
+        {
+            "name": "souless_fiend_dead"
+        },
+        {
+            "name": "soul_burned",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "soul_burned_defeated"
+        },
+        {
+            "name": "spark_of_life",
+            "directions": 4
+        },
+        {
+            "name": "spark_of_life_dead"
+        },
+        {
+            "name": "undead",
+            "directions": 4
+        },
+        {
+            "name": "undead_defeated"
+        }
+    ]
+}

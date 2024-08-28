@@ -21,6 +21,16 @@ public sealed partial class VoiceMaskComponent : Component
     public string VoiceId = SharedHumanoidAppearanceSystem.DefaultVoice;
     // Corvax-TTS-End
 
+    // ADT Barks start
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string BarkId = "Human1";
+
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float BarkPitch = 1f;
+    // ADT Barks end
+
     /// <summary>
     /// If EnableSpeechVerbModification is true, overrides the speech verb used when this entity speaks.
     /// </summary>

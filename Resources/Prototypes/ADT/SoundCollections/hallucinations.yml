@@ -1,0 +1,23 @@
+- type: soundCollection
+  id: ADThallucinations
+  files:
+    - /Audio/ADT/hallucinations/behind_you1.ogg
+    - /Audio/ADT/hallucinations/behind_you2.ogg
+    - /Audio/ADT/hallucinations/far_noise.ogg
+    - /Audio/ADT/hallucinations/growl1.ogg
+    - /Audio/ADT/hallucinations/growl2.ogg
+    - /Audio/ADT/hallucinations/growl3.ogg
+    - /Audio/ADT/hallucinations/i_see_you1.ogg
+    - /Audio/ADT/hallucinations/i_see_you2.ogg
+    - /Audio/ADT/hallucinations/im_here1.ogg
+    - /Audio/ADT/hallucinations/im_here2.ogg
+    - /Audio/ADT/hallucinations/look_up1.ogg
+    - /Audio/ADT/hallucinations/look_up2.ogg
+    - /Audio/ADT/hallucinations/over_here1.ogg
+    - /Audio/ADT/hallucinations/over_here2.ogg
+    - /Audio/ADT/hallucinations/over_here3.ogg
+    - /Audio/ADT/hallucinations/radio_static.ogg
+    - /Audio/ADT/hallucinations/turn_around1.ogg
+    - /Audio/ADT/hallucinations/turn_around2.ogg
+    - /Audio/ADT/hallucinations/veryfar_noise.ogg
+    - /Audio/ADT/hallucinations/wail.ogg

@@ -1,0 +1,20 @@
+- type: entity
+  id: SpawnPointGhostPhantom
+  name: ghost role spawn point
+  suffix: phantom
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-phantom-name
+    description: ghost-role-information-phantom-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobPhantom
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Phantom/phantom.rsi
+        state: phantom

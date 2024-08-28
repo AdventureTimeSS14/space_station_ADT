@@ -1,0 +1,31 @@
+# Blueshield
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakBlueshield
+  name: blueshield cloak
+  description: A blue cape with an armored shoulder pad, especially for the protection of station heads.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/blueshield_neck.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckDarkGreyCloak
+  name: dark grey cloak
+  description: Even a greytide deserve his cloak.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/darkgrey_cloak.rsi #спрайты от floppo4ka
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckGothicCloak
+  name: gothic cloak
+  description: For a classy old-style vampires.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/gothic_cloak.rsi #спрайты от floppo4ka
+  - type: StaticPrice
+    price: 5

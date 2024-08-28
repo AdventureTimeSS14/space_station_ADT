@@ -8,6 +8,9 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
+using Content.Shared.Radio.Components; // Parkstation-IPC
+using Content.Shared.Containers; // Parkstation-IPC
+using Robust.Shared.Containers; // Parkstation-IPC
 
 namespace Content.Shared.Station;
 
@@ -18,6 +21,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<InventoryComponent> _inventoryQuery;
@@ -49,16 +53,15 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                     continue;
                 }
 
-                if (!PrototypeManager.TryIndex(loadoutProto.Equipment, out var startingGear))
-                {
-                    Log.Error($"Unable to find starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
-                    continue;
-                }
-
-                // Handle any extra data here.
-                EquipStartingGear(entity, startingGear, raiseEvent: false);
+                EquipStartingGear(entity, loadoutProto, raiseEvent: false);
             }
         }
+    }
+
+    public void EquipStartingGear(EntityUid entity, LoadoutPrototype loadout, bool raiseEvent = true)
+    {
+        EquipStartingGear(entity, loadout.StartingGear, raiseEvent);
+        EquipStartingGear(entity, (IEquipmentLoadout) loadout, raiseEvent);
     }
 
     /// <summary>
@@ -67,7 +70,15 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear, bool raiseEvent = true)
     {
         PrototypeManager.TryIndex(startingGear, out var gearProto);
-        EquipStartingGear(entity, gearProto);
+        EquipStartingGear(entity, gearProto, raiseEvent);
+    }
+
+    /// <summary>
+    /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>
+    /// </summary>
+    public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
+    {
+        EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent);
     }
 
     /// <summary>
@@ -76,7 +87,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// <param name="entity">Entity to load out.</param>
     /// <param name="startingGear">Starting gear to use.</param>
     /// <param name="raiseEvent">Should we raise the event for equipped. Set to false if you will call this manually</param>
-    public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
+    public void EquipStartingGear(EntityUid entity, IEquipmentLoadout? startingGear, bool raiseEvent = true)
     {
         if (startingGear == null)
             return;
@@ -110,6 +121,34 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 }
             }
         }
+
+        // Parkstation-Ipc-Start
+        // Pretty much copied from StationSpawningSystem.SpawnStartingGear
+        if (TryComp<EncryptionKeyHolderComponent>(entity, out var keyHolderComp))
+        {
+            var earEquipString = startingGear.GetGear("ears");
+
+            if (!string.IsNullOrEmpty(earEquipString))
+            {
+                var earEntity = Spawn(earEquipString, Transform(entity).Coordinates);
+
+                if (TryComp<EncryptionKeyHolderComponent>(earEntity, out _) && // I had initially wanted this to spawn the headset, and simply move all the keys over, but the headset didn't seem to have any keys in it when spawned...
+                    TryComp<ContainerFillComponent>(earEntity, out var fillComp) &&
+                    fillComp.Containers.TryGetValue(EncryptionKeyHolderComponent.KeyContainerName, out var defaultKeys))
+                {
+                    _container.CleanContainer(keyHolderComp.KeyContainer);
+
+                    foreach (var key in defaultKeys)
+                    {
+                        var keyEntity = Spawn(key, Transform(entity).Coordinates);
+                        _container.Insert(keyEntity, keyHolderComp.KeyContainer);
+                    }
+                }
+
+                QueueDel(earEntity);
+            }
+        }
+        // Parkstation-Ipc-End
 
         if (startingGear.Storage.Count > 0)
         {

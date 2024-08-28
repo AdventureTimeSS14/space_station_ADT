@@ -44,3 +44,16 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobADTBlueShieldOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ADTBlueshieldHead
+  - ADTBlueshieldJumpsuit
+  - ADTBlueshieldNeck
+  - ADTBlueshieldBack
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity

@@ -97,6 +97,10 @@
     Gas:
       # Start ADT tweak: Novakid
       effects:
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Novakid
       - !type:HealthChange
         conditions:
         - !type:OrganType

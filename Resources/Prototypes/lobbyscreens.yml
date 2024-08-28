@@ -125,3 +125,8 @@
 - type: lobbyBackground
   id: Cat1
   background: /Textures/LobbyScreens/cat1.png
+
+- type: lobbyBackground
+  id: ReclaimerNuke
+  background: /Textures/LobbyScreens/reclaimer-nuke.webp
+
