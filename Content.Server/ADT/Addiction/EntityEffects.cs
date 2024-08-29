@@ -1,12 +1,12 @@
-using Content.Shared.ADT.Addiction.Components;
+using Content.Shared.ADT.Addiction.AddictedComponent;
 using Content.Shared.StatusEffect;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 namespace Content.Server.ADT.Addiction.EntityEffects;
 public sealed partial class AddictionEffect : EntityEffect
 {
-    [DataField(required: true)]
-    public List<LocId> PopupMessages = new();
+/*    [DataField(required: true)]
+    public List<LocId> PopupMessages = new();*/
 
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
@@ -19,7 +19,7 @@ public sealed partial class AddictionEffect : EntityEffect
         if (ev is not EntityEffectReagentArgs args)
             return;
 
-        if (args.EntityManager.TryGetComponent<AddictedComponent>(args.TargetEntity, out var comp))
+/*        if (args.EntityManager.TryGetComponent<AddictedComponent>(args.TargetEntity, out var comp))
         {
             foreach (var item in PopupMessages)
             {
@@ -32,6 +32,6 @@ public sealed partial class AddictionEffect : EntityEffect
         {
             var comp1 = args.EntityManager.EnsureComponent<AddictedComponent>(args.TargetEntity);
             comp1.PopupMessages.AddRange(PopupMessages);
-        }
+        }*/
     }
 }

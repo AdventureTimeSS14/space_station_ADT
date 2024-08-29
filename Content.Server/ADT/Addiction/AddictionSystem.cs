@@ -1,4 +1,4 @@
-using Content.Shared.ADT.Addiction.Components;
+using Content.Shared.ADT.Addiction.AddictedComponent;
 using Content.Server.ADT.Addiction.EntityEffects;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
@@ -14,7 +14,7 @@ public sealed partial class AddictionSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<AddictedComponent>();
+/*        var query = EntityQueryEnumerator<AddictedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime < comp.NextPopup)
@@ -24,6 +24,6 @@ public sealed partial class AddictionSystem : EntitySystem
             var selfMessage = Loc.GetString(_random.Pick(comp.PopupMessages));
             _popup.PopupEntity(selfMessage, uid, uid);
             comp.NextPopup = _timing.CurTime + TimeSpan.FromSeconds(10);
-        }
+        }*/
     }
 }
