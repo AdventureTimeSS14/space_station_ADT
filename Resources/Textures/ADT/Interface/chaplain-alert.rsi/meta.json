@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by discord: mnogo_znal, for space station 14",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "power0"
+        },
+        {
+            "name": "power1"
+        },
+        {
+            "name": "power2"
+        },
+        {
+            "name": "power3"
+        },
+        {
+            "name": "power4"
+        },
+        {
+            "name": "power5"
+        }
+    ]
+}

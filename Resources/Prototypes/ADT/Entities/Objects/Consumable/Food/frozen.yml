@@ -1,0 +1,883 @@
+
+# Мороженки
+
+- type: entity
+  parent: FoodFrozenBase
+  id: ADTFoodFrozenBase
+  abstract: true
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Frozen/ice.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenChocolateFreezy
+  components:
+  - type: Food
+  - type: Sprite
+    state: chocolatefreezy
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenChocolateFreezyCaramel
+  components:
+  - type: Food
+  - type: Sprite
+    state: chocolatefreezy_caramel
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenChocolateIceCream
+  components:
+  - type: Food
+  - type: Sprite
+    state: chocolateicecream
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenHonkdae
+  components:
+  - type: Food
+  - type: Sprite
+    state: honkdae
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenIceCreamCone
+  components:
+  - type: Food
+  - type: Sprite
+    state: icecreamcone
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenIceCreamWafflecone
+  components:
+  - type: Food
+  - type: Sprite
+    state: icecreamwafflecone
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenIceCreamWaffleconeNuts
+  components:
+  - type: Food
+  - type: Sprite
+    state: icecreamwaffleconenuts
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenPineappleChocolate
+  components:
+  - type: Food
+  - type: Sprite
+    state: pineapplechocolate
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenSpaceFreezy
+  components:
+  - type: Food
+  - type: Sprite
+    state: spacefreezy
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenSpaceFreezyCaramel
+  components:
+  - type: Food
+  - type: Sprite
+    state: spacefreezy_caramel
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenSpaceIceCream
+  components:
+  - type: Food
+  - type: Sprite
+    state: spaceicecream
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenStrawberryIceCream
+  components:
+  - type: Food
+  - type: Sprite
+    state: strawberryicecream
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenSundae
+  components:
+  - type: Food
+  - type: Sprite
+    state: sundae
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenThreeFlavorsFreezy
+  components:
+  - type: Food
+  - type: Sprite
+    state: threeflavorsfreezy
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenThreeFlavorsFreezyCaramel
+  components:
+  - type: Food
+  - type: Sprite
+    state: threeflavorsfreezy_caramel
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenVanillaFreezy
+  components:
+  - type: Food
+  - type: Sprite
+    state: vanillafreezy
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenVanillaFreezyCaramel
+  components:
+  - type: Food
+  - type: Sprite
+    state: vanillafreezy_caramel
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenVanillaIceCream
+  components:
+  - type: Food
+  - type: Sprite
+    state: vanillaicecream
+
+- type: entity
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenWafflecone
+  components:
+  - type: Food
+  - type: Sprite
+    state: wafflecone
+
+# Мороженные на палочке
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenPopsicleBase
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: bananafruitIce
+  - type: Food
+    trash:
+      - FoodFrozenPopsicleTrash
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleBananaFruitIce
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: bananafruitIce
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleBerryFruitIce
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: berryfruitIce
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenChocolatePopsicle
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: chocolatepopsicle
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenChocolatePopsicleWithNuts
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: chocolatepopsiclewithnuts
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleGrapeFruitIce
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: grapefruitIce
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleJumbo
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: jumbopopsicle
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleMangoFruitIce
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: mangofruitIce
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenMelonPopsicle
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: melonpopsicle
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenOrangePopsicle
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: orangepopsicle
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleApple
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: popsicleapple
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleBanana
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: popsiclebanana
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleMole
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: popsiclemole
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleSeaSalt
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: seasaltppopsicle
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleStrawberryFruitIce
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: strawberryfruitIce
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenThreeFlavorsPopsicle
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: threeflavorspopsicle
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenWatermelonPopsicle
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: watermelonpopsicle
+
+# Упаковки с мороженым
+
+- type: entity
+  name: Frozen Packed
+  parent: BaseItem
+  id: ADTFoodFrozenPackedBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Frozen/packed.rsi
+    state: chocolatefreezy_packing
+  - type: Item
+    size: Tiny
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenChocolateFreezy
+      - id: ADTFoodFrozenChocolateFreezyTrash
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedChocolateFreezy
+  components:
+  - type: Sprite
+    state: chocolatefreezy_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenChocolateFreezy
+      - id: ADTFoodFrozenChocolateFreezyTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedChocolateIceCream
+  components:
+  - type: Sprite
+    state: chocolateicecream_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenChocolateIceCream
+      - id: ADTFoodFrozenChocolateIceCreamTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedChocolatePopsicle
+  components:
+  - type: Sprite
+    state: chocolatepopsicle_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenChocolatePopsicle
+      - id: ADTFoodFrozenChocolatePopsicleTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedChocolatePopsicleWithNuts
+  components:
+  - type: Sprite
+    state: chocolatepopsiclewithnuts_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenChocolatePopsicleWithNuts
+      - id: ADTFoodFrozenChocolatePopsicleWithNutsTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedIceCreamWafflecone
+  components:
+  - type: Sprite
+    state: icecreamwafflecone_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenIceCreamWafflecone
+      - id: ADTFoodFrozenIceCreamWaffleconeTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedIceCreamWaffleconeNuts
+  components:
+  - type: Sprite
+    state: icecreamwaffleconenuts_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenIceCreamWaffleconeNuts
+      - id: ADTFoodFrozenIceCreamWaffleconeNutsTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedJumboPopsicle
+  components:
+  - type: Sprite
+    state: jumbopopsicle_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPopsicleJumbo
+      - id: ADTFoodFrozenPopsicleJumboTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedMelonPopsicle
+  components:
+  - type: Sprite
+    state: melonpopsicle_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenMelonPopsicle
+      - id: ADTFoodFrozenMelonPopsicleTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedOrangePopsicle
+  components:
+  - type: Sprite
+    state: orangepopsicle_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenOrangePopsicle
+      - id: ADTFoodFrozenOrangePopsicleTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedPineappleChocolate
+  components:
+  - type: Sprite
+    state: pineapplechocolate_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPineappleChocolate
+      - id: ADTFoodFrozenPineappleChocolateTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedPopsicleApple
+  components:
+  - type: Sprite
+    state: popsicleapple_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPopsicleApple
+      - id: ADTFoodFrozenPopsicleAppleTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedPopsicleBanana
+  components:
+  - type: Sprite
+    state: popsiclebanana_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPopsicleBanana
+      - id: ADTFoodFrozenPopsicleBananaTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedPopsicleMole
+  components:
+  - type: Sprite
+    state: popsiclemole_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPopsicleMole
+      - id: ADTFoodFrozenPopsicleMoleTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedRandomFruitIce
+  components:
+  - type: Sprite
+    state: randomfruitIce
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenRandomFruitIceTrash
+      - id:  ADTFoodFrozenPopsicleBerryFruitIce
+        orGroup: FruitIce
+      - id: ADTFoodFrozenPopsicleBananaFruitIce
+        orGroup: FruitIce
+      - id: ADTFoodFrozenPopsicleGrapeFruitIce
+        orGroup: FruitIce
+      - id: ADTFoodFrozenPopsicleMangoFruitIce
+        orGroup: FruitIce
+      - id: ADTFoodFrozenPopsicleStrawberryFruitIce
+        orGroup: FruitIce
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedPopsicleSeaSalt
+  components:
+  - type: Sprite
+    state: seasaltppopsicle_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenPopsicleSeaSalt
+      - id: ADTFoodFrozenPopsicleSeaSaltTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedSpaceFreezy
+  components:
+  - type: Sprite
+    state: spacefreezy_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenSpaceFreezy
+      - id: ADTFoodFrozenSpaceFreezyTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedSpaceIceCream
+  components:
+  - type: Sprite
+    state: spaceicecream_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenSpaceIceCream
+      - id: ADTFoodFrozenSpaceIceCreamTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedStrawberryIceCream
+  components:
+  - type: Sprite
+    state: strawberryicecream_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenStrawberryIceCream
+      - id: ADTFoodFrozenStrawberryIceCreamTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedThreeFlavorsFreezy
+  components:
+  - type: Sprite
+    state: threeflavorsfreezy_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenThreeFlavorsFreezy
+      - id: ADTFoodFrozenThreeFlavorsFreezyTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedThreeFlavorsPopsicle
+  components:
+  - type: Sprite
+    state: threeflavorspopsicle_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenThreeFlavorsPopsicle
+      - id: ADTFoodFrozenThreeFlavorsPopsicleTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedVanillaFreezy
+  components:
+  - type: Sprite
+    state: vanillafreezy_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenVanillaFreezy
+      - id: ADTFoodFrozenVanillaFreezyTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedVanillaIceCream
+  components:
+  - type: Sprite
+    state: vanillaicecream_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenVanillaIceCream
+      - id: ADTFoodFrozenVanillaIceCreamTrash
+
+- type: entity
+  name: Frozen Packed
+  parent: ADTFoodFrozenPackedBase
+  id: ADTFoodFrozenPackedWatermelonPopsicle
+  components:
+  - type: Sprite
+    state: watermelonpopsicle_packing
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodFrozenWatermelonPopsicle
+      - id: ADTFoodFrozenWatermelonPopsicleTrash
+
+# Мусор
+
+- type: entity
+  parent: BaseItem
+  id: ADTFoodPacketFrozenTrashBase
+  description: This is rubbish.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Frozen/trash.rsi
+    state: chocolatefreezy_trash
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: SpaceGarbage
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenChocolateFreezyTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: chocolatefreezy_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenChocolateIceCreamTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: chocolateicecream_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenChocolatePopsicleTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: ChocolatePopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenChocolatePopsicleWithNutsTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: chocolatepopsiclewithnuts_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenIceCreamWaffleconeTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: icecreamwafflecone_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenIceCreamWaffleconeNutsTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: icecreamwaffleconenuts_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPopsicleJumboTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: jumbopopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenMelonPopsicleTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: melonpopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenOrangePopsicleTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: orangepopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPineappleChocolateTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: pineapplechocolate_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPopsicleAppleTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: popsicleapple_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPopsicleBananaTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: popsiclebanana_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPopsicleMoleTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: popsiclemole_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenRandomFruitIceTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: randomfruitIce_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenPopsicleSeaSaltTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: seasaltppopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenSpaceFreezyTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: spacefreezy_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenSpaceIceCreamTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: spaceicecream_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenStrawberryIceCreamTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: strawberryicecream_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenThreeFlavorsFreezyTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: threeflavorsfreezy_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenThreeFlavorsPopsicleTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: threeflavorspopsicle_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenVanillaFreezyTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: vanillafreezy_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenVanillaIceCreamTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: vanillaicecream_trash
+
+- type: entity
+  name: Frozen
+  parent: ADTFoodPacketFrozenTrashBase
+  id: ADTFoodFrozenWatermelonPopsicleTrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: watermelonpopsicle_trash

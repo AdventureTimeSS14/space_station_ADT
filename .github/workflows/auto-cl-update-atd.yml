@@ -34,7 +34,7 @@ jobs:
     - name: Run post-merge script
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: python Tools/ATD/auto_cl.py "${{ env.GITHUB_TOKEN }}" "${{ github.repository }}"
+      run: python Tools/ADT/auto_cl.py "${{ env.GITHUB_TOKEN }}" "${{ github.repository }}"
 
     - name: Configure Git
       run: |
@@ -66,3 +66,4 @@ jobs:
         title: "Auto CL update"
         body: "No cl, no fun"
         labels: "auto-update changelog"
+      continue-on-error: true

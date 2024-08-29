@@ -1,0 +1,93 @@
+- type: marking
+  id: DemonChestCowSpots
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: cow_spots
+
+- type: marking
+  id: DemonChestGuard
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: guards_stripes
+
+- type: marking
+  id: DemonChestLinesEmperos
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: lines_emperos
+
+- type: marking
+  id: DemonChestQueenLines
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: queen_lines
+
+- type: marking
+  id: DemonChestTreeLines
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: tree_lines
+
+- type: marking
+  id: DemonChestTrinitySpots
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: trinity_spots
+
+#Бороды
+- type: marking
+  id: DemonGoatee
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: goatee
+
+#Глаза, гетерохромия
+
+- type: marking
+  id: ADTDemonrigth_eye
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [DemonSpecies]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+
+- type: marking
+  id: ADTDemonleft_eye
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [DemonSpecies]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l

@@ -12,7 +12,8 @@
     - type: RCDDeconstructable
       cost: 6
       delay: 4
-      fx: EffectRCDDeconstruct4  
+      fx: EffectRCDDeconstruct4
+    - type: CanBuildWindowOnTopRPD # ADT-RPD
     - type: CanBuildWindowOnTop
     - type: Sprite
       drawdepth: Walls
@@ -92,7 +93,7 @@
   id: ClockworkGrille
   parent: Grille
   name: clockwork grille
-  description: a flimsy framework of iron rods assembled in traditional Ratvarian fashion.
+  description: A flimsy framework of iron rods assembled in traditional Ratvarian fashion.
   components:
     - type: Sprite
       drawdepth: Walls
@@ -233,4 +234,4 @@
     - type: Construction
       graph: GrilleDiagonal
       node: clockworkGrilleDiagonal
-      
+

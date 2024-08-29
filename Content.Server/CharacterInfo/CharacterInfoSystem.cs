@@ -31,19 +31,20 @@ public sealed class CharacterInfoSystem : EntitySystem
         var entity = args.SenderSession.AttachedEntity.Value;
 
         var objectives = new Dictionary<string, List<ObjectiveInfo>>();
-        var jobTitle = "No Profession";
+        var jobTitle = Loc.GetString("character-info-no-profession");
+        var memories = new Dictionary<string, string>(); //ADT-Economy
         string? briefing = null;
         if (_minds.TryGetMind(entity, out var mindId, out var mind))
         {
             // Get objectives
-            foreach (var objective in mind.AllObjectives)
+            foreach (var objective in mind.Objectives)
             {
                 var info = _objectives.GetInfo(objective, mindId, mind);
                 if (info == null)
                     continue;
 
                 // group objectives by their issuer
-                var issuer = Comp<ObjectiveComponent>(objective).Issuer;
+                var issuer = Comp<ObjectiveComponent>(objective).LocIssuer;
                 if (!objectives.ContainsKey(issuer))
                     objectives[issuer] = new List<ObjectiveInfo>();
                 objectives[issuer].Add(info.Value);
@@ -54,8 +55,15 @@ public sealed class CharacterInfoSystem : EntitySystem
 
             // Get briefing
             briefing = _roles.MindGetBriefing(mindId);
+
+            //ADT-Economy-Start || Get memories
+            foreach (var memory in mind.AllMemories)
+            {
+                memories[memory.Name] = memory.Value;
+            }
+            //ADT-Economy-End
         }
 
-        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);
+        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing, memories), args.SenderSession); //ADT-Economy
     }
 }

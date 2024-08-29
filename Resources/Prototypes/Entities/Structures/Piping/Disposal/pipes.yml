@@ -58,10 +58,24 @@
       DisposalTube: !type:Container
   - type: StaticPrice
     price: 22
+  # ADT-RPD-Start
+  - type: RPDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  # ADT-RPD-End
+  # ADT-UPD-Start
+  - type: Item
+    size: Ginormous
+  - type: HeldSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: MultiHandedItem
+  # ADT-UPD-End
 
 - type: entity
   id: DisposalHolder
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: disposal holder
   components:
   - type: DisposalHolder
@@ -75,7 +89,7 @@
   id: DisposalPipeBroken
   parent: DisposalPipeBase
   name: broken disposal pipe
-  description: A BBP (big broken pipe)
+  description: A BBP (big broken pipe).
   components:
   - type: Sprite
     drawdepth: ThickPipe

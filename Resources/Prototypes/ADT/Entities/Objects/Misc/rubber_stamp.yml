@@ -1,0 +1,13 @@
+- type: entity
+  name: magistrat's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampMagisrat
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-magistrat
+    stampedColor: "#754d36"
+    stampState: "paper_stamp-detective"
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stamps.rsi
+    state: stamp-magistrat

@@ -1,3 +1,5 @@
+# Errors
+loadout-group-species-restriction = Этот предмет недоступен для вашей текущей расы.
 # Miscellaneous
 loadout-group-trinkets = Безделушки
 loadout-group-glasses = Очки
@@ -9,6 +11,9 @@ loadout-group-survival-clown = Клоунский аварийный запас
 loadout-group-survival-medical = Медицинский аварийный запас
 loadout-group-survival-security = Аварийный запас охраны
 loadout-group-survival-syndicate = Github заставил меня перевести текст, который игрок вообще никогда не сможет увидеть, спасите
+loadout-group-breath-tool = Расозависимое дыхательное снаряжение
+loadout-group-tank-harness = Расозависимое снаряжение для выживания
+loadout-group-EVA-tank = Расозависимый газовый баллон
 # Command
 loadout-group-captain-head = Капитан, голова
 loadout-group-captain-jumpsuit = Капитан, комбинезон
@@ -152,5 +157,6 @@ loadout-group-paramedic-outerclothing = Парамедик, верхняя од�
 loadout-group-paramedic-shoes = Парамедик, обувь
 # Wildcards
 loadout-group-reporter-jumpsuit = Репортёр, комбинезон
+loadout-group-psychologist-jumpsuit = Psychologist jumpsuit
 loadout-group-boxer-jumpsuit = Боксёр, комбинезон
 loadout-group-boxer-gloves = Боксёр, перчатки

@@ -89,9 +89,6 @@
       "name": "pda-janitor"
     },
     {
-      "name": "pda-lawyer"
-    },
-    {
       "name": "pda-library",
       "delays": [
         [
@@ -101,6 +98,9 @@
           0.3
         ]
       ]
+    },
+    {
+        "name": "pda-lawyer"
     },
     {
       "name": "pda-medical"
@@ -140,9 +140,6 @@
     },
     {
       "name": "pda-rd"
-    },
-    {
-      "name": "pda-roboticist"
     },
     {
       "name": "pda-science"

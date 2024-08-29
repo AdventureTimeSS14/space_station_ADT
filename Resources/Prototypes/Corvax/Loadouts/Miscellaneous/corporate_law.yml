@@ -1,9 +1,5 @@
 - type: loadout
-  id: CorporateLaw
-  equipment: CorporateLaw
-
-- type: startingGear
-  id: CorporateLaw
+  id: SpaceLaw
   storage:
     pocket2:
-    - HyperLinkBookCorporateLaw
+    - BookSpaceLaw

@@ -1,0 +1,64 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsIAA
+  suffix: IAA, Locked
+  components:
+  - type: AccessReader
+    access: [["IAA"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMagistrate
+  suffix: Magistrate, Locked
+  components:
+  - type: AccessReader
+    access: [["Magistrate"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsSpaceSecOfficial
+  suffix: Space Sec, Locked
+  components:
+  - type: AccessReader
+    access: [["SpaceSecOfficial"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsSpaceSecSecurity
+  suffix: Space Sec, Security
+  components:
+  - type: AccessReader
+    access: [["SpaceSecSecurity"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsSpaceSecMaintence
+  suffix: Space Sec, Maintenance
+  components:
+  - type: AccessReader
+    access: [["SpaceSecMaintenance"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsSpaceSeckArmory
+  suffix: Space Sec, Armory
+  components:
+  - type: AccessReader
+    access: [["SpaceSecArmory"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsSpaceSecCommand
+  suffix: Space Sec, Command
+  components:
+  - type: AccessReader
+    access: [["SpaceSecCommand"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsSpaceSecExternal
+  suffix: Space Sec, External
+  components:
+  - type: AccessReader
+    access: [["SpaceSecExternal"]]
+

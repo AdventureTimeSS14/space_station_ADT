@@ -1,7 +1,7 @@
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Forensics;
@@ -83,6 +83,16 @@ public sealed class HypospraySystem : SharedHypospraySystem
             if (_useDelay.IsDelayed((uid, delayComp)))
                 return false;
         }
+
+        // ADT Injectors blocker start
+        if (!entity.Comp.IgnoreBlockers)
+        {
+            var blockerEv = new InjectAttemptEvent();
+            RaiseLocalEvent(target, blockerEv);
+            if (blockerEv.Cancelled)
+                return false;
+        }
+        // ADT Injectors blocker end
 
         string? msgFormat = null;
 

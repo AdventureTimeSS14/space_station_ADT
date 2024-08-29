@@ -161,7 +161,7 @@
   - type: Appearance
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: ClothingBeltMilitaryWebbing # ADT Nukebuff
   id: ClothingBeltAssault
   name: assault belt
   description: A tactical assault belt.
@@ -170,19 +170,19 @@
     sprite: Clothing/Belt/assault.rsi
   - type: Clothing
     sprite: Clothing/Belt/assault.rsi
-  - type: Storage
-    whitelist:
-      tags:
-        - CigPack
-        - Taser
-      components:
-        - Stunbaton
-        - FlashOnTrigger
-        - SmokeOnTrigger
-        - Flash
-        - Handcuff
-        - BallisticAmmoProvider
-        - Ammo
+  # - type: Storage ADT nukebuff
+  #   whitelist:
+  #     tags:
+  #       - CigPack
+  #       - Taser
+  #     components:
+  #       - Stunbaton
+  #       - FlashOnTrigger
+  #       - SmokeOnTrigger
+  #       - Flash
+  #       - Handcuff
+  #       - BallisticAmmoProvider
+  #       - Ammo
   - type: ItemMapper
     mapLayers:
       flashbang:
@@ -269,6 +269,7 @@
         - Radio
         - DiscreteHealthAnalyzer
         - SurgeryTool
+        - Dropper
       components:
         - Hypospray
         - Injector
@@ -343,6 +344,7 @@
         - Bottle
         - Syringe
         - CigPack
+        - Dropper
       components:
         - Seed
         - Smokable
@@ -454,7 +456,7 @@
   - type: Appearance
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, BaseRestrictedContraband]
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
@@ -473,8 +475,10 @@
         - Sidearm
         - MagazinePistol
         - MagazineMagnum
+        - ADTMagazineRifleBibis # ADT Tweak
         - CombatKnife
         - Truncheon
+        - ADTLasgunRevolverCell #ADT Tweak
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -483,6 +487,7 @@
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
+        - ADTCartridgeBibis # ADT Tweak
         - DoorRemote
         - Whistle
         - HolosignProjector
@@ -505,7 +510,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltBase, ClothingSlotBase]
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
   id: ClothingBeltSheath
   name: sabre sheath
   description: An ornate sheath designed to hold an officer's blade.
@@ -539,7 +544,7 @@
 # Belts without visualizers
 
 - type: entity
-  parent: ClothingBeltAmmoProviderBase
+  parent: [ClothingBeltAmmoProviderBase, BaseRestrictedContraband]
   id: ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
@@ -586,7 +591,7 @@
     - 0,0,3,1
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
@@ -641,7 +646,7 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by Syndicate boarding parties.

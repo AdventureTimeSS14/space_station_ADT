@@ -15,7 +15,7 @@ namespace Content.Server.Solar.Components
         /// Maximum supply output by this panel (coverage = 1)
         /// </summary>
         [DataField("maxSupply")]
-        public int MaxSupply = 750;
+        public int MaxSupply = 1875; ///ADT_Tweak
 
         /// <summary>
         /// Current coverage of this panel (from 0 to 1).

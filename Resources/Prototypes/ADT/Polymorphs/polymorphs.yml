@@ -1,0 +1,34 @@
+- type: polymorph
+  id: ADTWizardForcedVulpkanin
+  configuration:
+    entity: MobVulpkanin
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: true
+
+- type: polymorph
+  id: ADTPMothroach
+  configuration:
+    entity: MobMothroach
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPMothroach2
+  configuration:
+    entity: MobMothroach
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120

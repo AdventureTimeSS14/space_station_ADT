@@ -18,7 +18,6 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ] # Corvax-IAA
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
@@ -35,7 +34,7 @@
             TechnicalAssistant: [ 2, 3 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 2, 3 ]
+            Chemist: [ 2, 2 ]
             Paramedic: [ 1, 1 ]
             MedicalDoctor: [ 6, 6 ]
             Psychologist: [ 1, 1 ]
@@ -62,4 +61,6 @@
             Musician: [ 2, 2 ]
             Boxer: [ 1, 1 ]
             Reporter: [ 1, 1 ]
+            # Юрдеп
+            Lawyer: [ 1, 1 ]
 

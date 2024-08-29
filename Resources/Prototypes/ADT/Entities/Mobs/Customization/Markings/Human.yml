@@ -1,0 +1,77 @@
+- type: marking
+  id: HumanPiercingEarL
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_ear_l
+
+- type: marking
+  id: HumanPiercingEarR
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_ear_r
+
+- type: marking
+  id: HumanPiercingNavel
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_navel
+
+- type: marking
+  id: HumanPiercingNippleL
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_nipple_l
+
+- type: marking
+  id: HumanPiercingNippleR
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_nipple_r
+
+- type: marking
+  id: HumanPiercingNipple
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_nipple
+
+# Лисий хвост
+- type: marking
+  id: ADTFoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  #sponsorOnly: false # AdventureTime-Sponsors
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/fox_parts.rsi
+    state: tail_fox_wag_stripes_prime # AdventureTime-Sponsors
+  - sprite: ADT/Mobs/Customization/Human/fox_parts.rsi
+    state: tail_fox_wag_stripes_second # AdventureTime-Sponsors
+  - sprite: ADT/Mobs/Customization/Human/fox_parts.rsi
+    state: tail_fox_wag_stripes_third # AdventureTime-Sponsors

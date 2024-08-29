@@ -20,7 +20,8 @@
   - Maintenance
   - Command
   - External
-  - Lawyer
+  - Lawyer 
+  - IAA # ADT Tweak
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -32,9 +33,9 @@
     id: IAAPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetIAA
-    pocket2: HyperLinkBookCorporateLaw
+    pocket2: BookSpaceLaw
   inhand:
     - BriefcaseIAAFilled
-  storage:
-    back:
-    - BoxSurvival
+  # storage: #Заменяем на аварийник по лодауту
+  #   back:
+  #   - BoxSurvival

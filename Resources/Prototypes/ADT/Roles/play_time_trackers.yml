@@ -1,0 +1,14 @@
+- type: playTimeTracker
+  id: JobMagistrat
+
+- type: playTimeTracker
+  id: JobADTPathologist
+
+- type: playTimeTracker
+  id: JobRoboticist
+
+- type: playTimeTracker
+  id: JobADTBlueShieldOfficer
+
+- type: playTimeTracker
+  id: JobBrigmedic

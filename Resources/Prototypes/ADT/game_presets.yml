@@ -1,0 +1,15 @@
+- type: gamePreset
+  id: Phantom
+  alias:
+    - phantom
+    - ghosts
+  name: phantom-title
+  minPlayers: 25
+  showInVote: true
+  description: phantom-description
+  rules:
+    - PhantomGameRule
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - GameRuleMeteorScheduler

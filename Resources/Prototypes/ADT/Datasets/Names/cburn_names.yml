@@ -1,0 +1,13 @@
+- type: dataset
+  id: ADTCmndNamesFirstMilitary
+  values:
+  - Капитан
+
+- type: dataset
+  id: ADTNamesFirstMilitaryRXBZZ
+  values:
+  - Прапорщик
+  - Старший Прапорщик
+  - Младший лейтенант
+  - Лейтенант
+  - Старший лейтенант

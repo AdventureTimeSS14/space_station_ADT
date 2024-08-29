@@ -121,7 +121,7 @@
 - type: entity
   name: space kangaroo
   id: MobKangarooSpace
-  parent: MobSpaceBasic
+  parent: [MobSpaceBasic, StripableInventoryBase]
   description: It looks friendly. Why don't you give it a hug?
   components:
   - type: Sprite
@@ -167,12 +167,6 @@
       collection: FootstepBounce
   - type: ReplacementAccent
     accent: kangaroo
-  - type: InventorySlots
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -239,15 +233,23 @@
       types:
         Piercing: 6
         Poison: 4
+  #ADT Start
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: ChloralHydrate
-          Quantity: 80
+          Quantity: 15
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: ChloralHydrate
+        Quantity: 2
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 4
+    transferAmount: 2
+  #ADT End
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup

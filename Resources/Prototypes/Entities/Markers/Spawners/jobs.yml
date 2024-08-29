@@ -239,7 +239,7 @@
   name: lawyer
   components:
   - type: SpawnPoint
-    job_id: IAA # Corvax-IAA: Lawyer replaced with IAA
+    job_id: Lawyer # Corvax-IAA: Lawyer replaced with IAA
   - type: Sprite
     layers:
       - state: green
@@ -491,6 +491,8 @@
   parent: SpawnPointJobBase
   name: brigmedic
   components:
+  - type: SpawnPoint  # ADT rework brigmedic
+    job_id: Brigmedic #
   - type: Sprite
     layers:
       - state: green
@@ -510,17 +512,17 @@
       - state: green
       - state: ertleader
 
-- type: entity
-  id: SpawnPointERTChaplain
-  parent: SpawnPointJobBase
-  name: ERTchaplain
-  components:
-  - type: SpawnPoint
-    job_id: ERTChaplain
-  - type: Sprite
-    layers:
-      - state: green
-      - state: chaplain
+# - type: entity
+#   id: SpawnPointERTChaplain
+#   parent: SpawnPointJobBase
+#   name: ERTchaplain
+#   components:
+#   - type: SpawnPoint
+#     job_id: ERTChaplain
+#   - type: Sprite
+#     layers:
+#       - state: green
+#       - state: chaplain
 
 - type: entity
   id: SpawnPointERTEngineer

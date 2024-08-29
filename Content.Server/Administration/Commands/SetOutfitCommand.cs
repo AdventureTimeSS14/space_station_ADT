@@ -12,6 +12,9 @@ using Content.Shared.Roles;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Radio.Components; // Parkstation-IPC
+using Content.Shared.Containers; // Parkstation-IPC
+using Robust.Shared.Containers; // Parkstation-IPC
 
 namespace Content.Server.Administration.Commands
 {
@@ -97,11 +100,12 @@ namespace Content.Server.Administration.Commands
                 foreach (var slot in slots)
                 {
                     invSystem.TryUnequip(target, slot.Name, true, true, false, inventoryComponent);
-                    var gearStr = startingGear.GetGear(slot.Name);
+                    var gearStr = ((IEquipmentLoadout) startingGear).GetGear(slot.Name);
                     if (gearStr == string.Empty)
                     {
                         continue;
                     }
+
                     var equipmentEntity = entityManager.SpawnEntity(gearStr, entityManager.GetComponent<TransformComponent>(target).Coordinates);
                     if (slot.Name == "id" &&
                         entityManager.TryGetComponent(equipmentEntity, out PdaComponent? pdaComponent) &&
@@ -126,6 +130,36 @@ namespace Content.Server.Administration.Commands
                     handsSystem.TryPickup(target, inhandEntity, checkActionBlocker: false, handsComp: handsComponent);
                 }
             }
+
+            // Parkstation-Ipc-Start
+            // Pretty much copied from StationSpawningSystem.SpawnStartingGear
+            if (entityManager.TryGetComponent<EncryptionKeyHolderComponent>(target, out var keyHolderComp))
+            {
+                var earEquipString = ((IEquipmentLoadout) startingGear).GetGear("ears");
+                var containerMan = entityManager.System<SharedContainerSystem>();
+
+                if (!string.IsNullOrEmpty(earEquipString))
+                {
+                    var earEntity = entityManager.SpawnEntity(earEquipString, entityManager.GetComponent<TransformComponent>(target).Coordinates);
+
+                    if (entityManager.TryGetComponent<EncryptionKeyHolderComponent>(earEntity, out _) && // I had initially wanted this to spawn the headset, and simply move all the keys over, but the headset didn't seem to have any keys in it when spawned...
+                        entityManager.TryGetComponent<ContainerFillComponent>(earEntity, out var fillComp) &&
+                        fillComp.Containers.TryGetValue(EncryptionKeyHolderComponent.KeyContainerName, out var defaultKeys))
+                    {
+                        containerMan.CleanContainer(keyHolderComp.KeyContainer);
+
+                        foreach (var key in defaultKeys)
+                        {
+                            var keyEntity = entityManager.SpawnEntity(key, entityManager.GetComponent<TransformComponent>(target).Coordinates);
+                            containerMan.Insert(keyEntity, keyHolderComp.KeyContainer);
+                            //keyHolderComp.KeyContainer.Insert(keyEntity, force: true);
+                        }
+                    }
+
+                    entityManager.QueueDeleteEntity(earEntity);
+                }
+            }
+            // Parkstation-Ipc-End
 
             return true;
         }

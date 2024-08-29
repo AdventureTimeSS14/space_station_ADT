@@ -38,15 +38,24 @@ namespace Content.Server.Database
         public DbSet<PlayTime> PlayTime { get; set; } = default!;
         public DbSet<UploadedResourceLog> UploadedResourceLog { get; set; } = default!;
         public DbSet<AdminNote> AdminNotes { get; set; } = null!;
+        public DbSet<Sponsor> Sponsors { get; set; } = null!; //ADT-Sponsors
+
         public DbSet<AdminWatchlist> AdminWatchlists { get; set; } = null!;
         public DbSet<AdminMessage> AdminMessages { get; set; } = null!;
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
+        public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
                 .HasIndex(p => p.UserId)
                 .IsUnique();
+
+            //ADT-Sponsors-Start
+            modelBuilder.Entity<Sponsor>()
+                .HasIndex(p => p.UserId)
+                .IsUnique();
+            //ADT-Sponsors-End
 
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
@@ -186,6 +195,9 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<ConnectionLog>()
                 .HasIndex(p => p.UserId);
+
+            modelBuilder.Entity<ConnectionLog>()
+                .HasIndex(p => p.Time);
 
             modelBuilder.Entity<ConnectionLog>()
                 .Property(p => p.ServerId)
@@ -357,6 +369,10 @@ namespace Content.Server.Database
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
         public string Voice { get; set; } = null!; // Corvax-TTS
+        public string BarkProto { get; set; } = null!; // ADT Barks
+        public float BarkPitch { get; set; } = 1f; // ADT Barks
+        public float LowBarkVar { get; set; } = 0.1f; // ADT Barks
+        public float HighBarkVar { get; set; } = 0.5f; // ADT Barks
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;
@@ -900,6 +916,9 @@ namespace Content.Server.Database
         Panic = 3,
         /*
          * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
+         *
+         * If baby jail is removed, please reserve this value for as long as can reasonably be done to prevent causing ambiguity in connection denial reasons.
+         * Reservation by commenting out the value is likely sufficient for this purpose, but may impact projects which depend on SS14 like SS14.Admin.
          */
         BabyJail = 4,
     }
@@ -1121,6 +1140,20 @@ namespace Content.Server.Database
         /// </summary>
         public bool Dismissed { get; set; }
     }
+    //ADT-Sponsors-Start
+    [Table("sponsors")]
+    public class Sponsor
+    {
+        [Required, Key] public Guid UserId { get; set; }
+        public int Tier { get; set; }
+        public string OOCColor { get; set; } = "#00FF00";
+        public bool HavePriorityJoin { get; set; }
+        public string AllowedMarkings { get; set; } = null!;
+        public int ExtraSlots { get; set; }
+        public DateTime ExpireDate {get;set;}
+        public bool AllowJob { get; set; } = false;
+    }
+    //ADT-Sponsors-End
 
     [PrimaryKey(nameof(PlayerUserId), nameof(RoleId))]
     public class RoleWhitelist
@@ -1131,5 +1164,58 @@ namespace Content.Server.Database
 
         [Required]
         public string RoleId { get; set; } = default!;
+    }
+
+    /// <summary>
+    /// Defines a template that admins can use to quickly fill out ban information.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This information is not currently used by the game itself, but it is used by SS14.Admin.
+    /// </para>
+    /// </remarks>
+    public sealed class BanTemplate
+    {
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Title of the ban template. This is purely for reference by admins and not copied into the ban.
+        /// </summary>
+        public required string Title { get; set; }
+
+        /// <summary>
+        /// How long the ban should last. 0 for permanent.
+        /// </summary>
+        public TimeSpan Length { get; set; }
+
+        /// <summary>
+        /// The reason for the ban.
+        /// </summary>
+        /// <seealso cref="ServerBan.Reason"/>
+        public string Reason { get; set; } = "";
+
+        /// <summary>
+        /// Exemptions granted to the ban.
+        /// </summary>
+        /// <seealso cref="ServerBan.ExemptFlags"/>
+        public ServerBanExemptFlags ExemptFlags { get; set; }
+
+        /// <summary>
+        /// Severity of the ban
+        /// </summary>
+        /// <seealso cref="ServerBan.Severity"/>
+        public NoteSeverity Severity { get; set; }
+
+        /// <summary>
+        /// Ban will be automatically deleted once expired.
+        /// </summary>
+        /// <seealso cref="ServerBan.AutoDelete"/>
+        public bool AutoDelete { get; set; }
+
+        /// <summary>
+        /// Ban is not visible to players in the remarks menu.
+        /// </summary>
+        /// <seealso cref="ServerBan.Hidden"/>
+        public bool Hidden { get; set; }
     }
 }

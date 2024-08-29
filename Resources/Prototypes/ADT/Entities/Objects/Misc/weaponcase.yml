@@ -1,0 +1,20 @@
+- type: entity
+  id: WeaponCaseNT
+  name: weapon case
+  description: Case with weapons.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    size: Huge
+  - type: Storage
+    grid:
+    - 0,0,8,3
+    maxItemSize: Huge

@@ -1,0 +1,21 @@
+- type: entity
+  id: OrganDemonStomach
+  parent: OrganAnimalStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+
+- type: entity
+  id: OrganDemonHeart
+  parent: OrganAnimalHeart
+  components:
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Demon ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic

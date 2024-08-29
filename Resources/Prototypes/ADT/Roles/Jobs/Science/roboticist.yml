@@ -1,0 +1,23 @@
+- type: job
+  id: ADTRoboticist
+  name: job-name-roboticist
+  description: job-description-roboticist
+  playTimeTracker: JobRoboticist
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 25200 #7 hrs
+  startingGear: ADTRoboticistGear
+  icon: "JobIconRoboticist"
+  supervisors: job-supervisors-rd
+  access:
+  - Research
+  - Maintenance
+
+- type: startingGear
+  id: ADTRoboticistGear
+  equipment:
+    ears: ClothingHeadsetRobotics
+    id: ADTRoboticistPDA
+    pocket1: BorgTranslatorImplanter
+    belt: ClothingBeltUtilityEngineering 

@@ -31,6 +31,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedWiresSystem _wires = default!;
 
     public override void Initialize()
     {
@@ -150,7 +151,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             return;
         }
 
-        if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
+        if (!_wires.IsPanelOpen(uid))
         {
             _popup.PopupClient(Loc.GetString("encryption-keys-panel-locked"), uid, args.User);
             return;
@@ -176,16 +177,38 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
+        // Parkstation-Ipc-Start
+        if (!component.ExamineWhileLocked && !component.KeysUnlocked)
+            return;
+
+        if (!component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
+            return;
+        // Parkstation-Ipc-End
+
         if (component.KeyContainer.ContainedEntities.Count == 0)
         {
             args.PushMarkup(Loc.GetString("encryption-keys-no-keys"));
             return;
         }
 
+        // хз чо эт, вроде не нужно
+        // if (component.Channels.Count > 0)
+        // {
+        //     args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
+        //     AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
+        // }
+
         if (component.Channels.Count > 0)
         {
-            args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
-            AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
+            using (args.PushGroup(nameof(EncryptionKeyComponent)))
+            {
+                args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
+                AddChannelsExamine(component.Channels,
+                    component.DefaultChannel,
+                    args,
+                    _protoManager,
+                    "examine-encryption-channel");
+            }
         }
     }
 
@@ -231,14 +254,14 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             {
                 var msg = Loc.GetString("examine-headset-default-channel",
                 ("prefix", SharedChatSystem.DefaultChannelPrefix),
-                ("channel", defaultChannel),
+                ("channel", proto.LocalizedName),
                 ("color", proto.Color));
                 examineEvent.PushMarkup(msg);
             }
             if (HasComp<EncryptionKeyComponent>(examineEvent.Examined))
             {
                 var msg = Loc.GetString("examine-encryption-default-channel",
-                ("channel", defaultChannel),
+                ("channel", proto.LocalizedName),
                 ("color", proto.Color));
                 examineEvent.PushMarkup(msg);
             }
