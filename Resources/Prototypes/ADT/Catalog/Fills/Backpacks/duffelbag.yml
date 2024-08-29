@@ -11,7 +11,7 @@
       - id: ADTClothingOuterCoatBrigmedicWB
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
-      - id: ADTClothingUniformBrigmedicTurtleneck
-      - id: ADTClothingUniformSkirtBrigmedicTurtleneck
+      - id: ADTClothingUniformBrigmedicJumpsuitTurtleneck
+      - id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
       - id: ClothingHeadHelmetSecurityMedic # Corvax-Resprite
 
