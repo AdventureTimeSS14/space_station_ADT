@@ -1,0 +1,71 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsWhite
+  name: white footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Specific/white_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Specific/white_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsBlack
+  name: black footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Specific/black_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Specific/black_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsHighBlack
+  name: high black footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Specific/blackhigh_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Specific/blackhigh_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsHighWhite
+  name: high white footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Specific/whitehigh_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Specific/whitehigh_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsBrown
+  name: brown footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Specific/brown_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Specific/brown_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootWrapsHighBrown
+  name: brown white footwraps
+  description: Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Specific/brownhigh_footwraps.rsi #спрайты от floppo4ka
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Specific/brownhigh_footwraps.rsi #спрайты от floppo4ka

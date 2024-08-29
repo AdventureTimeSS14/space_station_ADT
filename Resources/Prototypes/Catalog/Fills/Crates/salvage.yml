@@ -22,6 +22,8 @@
       - id: ClothingBeltUtility
       - id: OreBag
       - id: ClothingBeltSalvageWebbing
+      - id: ADTClothingJumpBoots # ADT Tweak 
+        prob: 0.1
 
 - type: entity
   id: CrateSalvageAssortedGoodies

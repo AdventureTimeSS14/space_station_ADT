@@ -8,3 +8,7 @@ marking-RobotAntennaAntlers = Antlers
 marking-RobotAntennaDroneeyes = Drone Eyes
 marking-RobotAntennaCrowned = Crowned
 marking-RobotAntennaTowers = Towers
+marking-RobotAntennaDuality = Double
+marking-RobotAntennaHoloaura = Holoaura
+marking-RobotAntennaWireless = Wireless
+marking-RobotAntennaSmallEye = Small eye

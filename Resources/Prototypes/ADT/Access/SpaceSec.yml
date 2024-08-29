@@ -1,0 +1,23 @@
+- type: accessLevel
+  id: SpaceSecOfficial
+  name: id-card-access-level-spacesec-official
+
+- type: accessLevel
+  id: SpaceSecMaintenance
+  name: id-card-access-level-spacesec-maintenance
+
+- type: accessLevel
+  id: SpaceSecExternal
+  name: id-card-access-level-spacesec-external
+
+- type: accessLevel
+  id: SpaceSecSecurity
+  name: id-card-access-level-spacesec-security
+
+- type: accessLevel
+  id: SpaceSecArmory
+  name: id-card-access-level-spacesec-armory
+
+- type: accessLevel
+  id: SpaceSecCommand
+  name: id-card-access-level-spacesec-command

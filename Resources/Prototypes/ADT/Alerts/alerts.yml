@@ -117,7 +117,7 @@
     state: icon
   name: alerts-phantom-stop-haunt
   description: alerts-phantom-stop-haunt-desc
-  onClick: !type:StopHaunt  { }
+  clickEvent: !type:StopHauntAlertEvent
 
 - type: alert
   id: Crawling

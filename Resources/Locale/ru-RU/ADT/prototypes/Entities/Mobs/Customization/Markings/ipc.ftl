@@ -48,3 +48,9 @@ marking-RobotAntennaAntlers = Рога
 marking-RobotAntennaDroneeyes = Глаза дрона
 marking-RobotAntennaCrowned = Корона
 marking-RobotAntennaTowers = Башни
+marking-RobotAntennaDuality = Двойная
+marking-RobotAntennaHoloaura = Голоаура
+marking-RobotAntennaWireless = Беспроводная
+marking-RobotAntennaSmallEye = Малый глаз
+
+marking-RobotHeadTopWires = Кабели

@@ -1,4 +1,4 @@
-# Чипсеки 
+# Чипсеки
 
 - type: entity
   name: chips
@@ -12,7 +12,8 @@
     state: onion-and-sourcream
   - type: Item
   - type: Food
-    trash: ADTFoodPacketChipsTrash
+    trash:
+      - ADTFoodPacketChipsTrash
 
 - type: entity
   name: chips
@@ -23,7 +24,8 @@
   - type: Sprite
     state: onion-and-sourcream
   - type: Food
-    trash: ADTFoodPacketChipsOnionAndSourcreamTrash
+    trash:
+      - ADTFoodPacketChipsOnionAndSourcreamTrash
 
 - type: entity
   name: chips
@@ -34,7 +36,8 @@
   - type: Sprite
     state: shrimp
   - type: Food
-    trash: ADTFoodPacketChipsShrimpTrash
+    trash:
+      - ADTFoodPacketChipsShrimpTrash
 
 - type: entity
   name: chips
@@ -45,7 +48,8 @@
   - type: Sprite
     state: space
   - type: Food
-    trash: ADTFoodPacketChipsSpaceTrash
+    trash:
+      - ADTFoodPacketChipsSpaceTrash
 
 - type: entity
   name: chips
@@ -56,7 +60,8 @@
   - type: Sprite
     state: spicy
   - type: Food
-    trash: ADTFoodPacketSpicyTrash
+    trash:
+      - ADTFoodPacketSpicyTrash
   - type: SolutionContainerManager
     solutions:
       food:
@@ -81,7 +86,8 @@
     state: beef
   - type: Item
   - type: Food
-    trash: ADTFoodPacketBeefTrash
+    trash:
+      - ADTFoodPacketBeefTrash
 # Я однако не знаю какое им делать наполнение,по дефолту у них 10 питательных веществ, если нужно то заполните в base свои значения
 
 - type: entity
@@ -94,7 +100,8 @@
     state: beef
   - type: Item
   - type: Food
-    trash: ADTFoodPacketBeefTrash
+    trash:
+      - ADTFoodPacketBeefTrash
 
 - type: entity
   name: Dried meat
@@ -106,7 +113,8 @@
     state: chicken
   - type: Item
   - type: Food
-    trash: ADTFoodPacketChickenTrash
+    trash:
+      - ADTFoodPacketChickenTrash
 
 - type: entity
   name: Dried meat
@@ -118,7 +126,8 @@
     state: horse
   - type: Item
   - type: Food
-    trash: ADTFoodPacketHorseTrash
+    trash:
+      - ADTFoodPacketHorseTrash
 
 - type: entity
   name: Dried meat
@@ -130,7 +139,8 @@
     state: pig
   - type: Item
   - type: Food
-    trash: ADTFoodPacketPigTrash
+    trash:
+      - ADTFoodPacketPigTrash
 
 # Мусор
 
@@ -423,7 +433,7 @@
   - type: Sprite
     state: bar-two
 
-#Trash 
+#Trash
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -490,3 +500,5 @@
   components:
   - type: Sprite
     state: two-trash
+
+

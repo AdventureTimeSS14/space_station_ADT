@@ -24,7 +24,7 @@
     - Security
     - Magistrate
     - Lawyer
-    - IAA 
+    - IAA
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -45,6 +45,12 @@
     #belt:
     neck: ClothingNeckLawyerbadge
     pocket2: RubberStampMagisrat
+  storage:
+    back:
+    - Flash
+  # ADT-TelescopicBaton
+    - ADTtelescopicBaton
+  # ADT-TelescopicBaton
 #    pocket1: ADTtelescopicBaton
 #    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
 #    socks: ClothingUnderwearSocksNormal

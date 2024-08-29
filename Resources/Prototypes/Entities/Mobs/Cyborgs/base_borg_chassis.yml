@@ -228,7 +228,8 @@
   - type: Emoting
   - type: GuideHelp
     guides:
-      - Cyborgs
+    - Cyborgs
+    - Robotics
   - type: StepTriggerImmune
   - type: TTS # Corvax-TTS
     voice: fact_core

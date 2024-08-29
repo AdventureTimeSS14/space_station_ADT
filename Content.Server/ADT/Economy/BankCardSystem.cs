@@ -36,7 +36,7 @@ public sealed class BankCardSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
 
-    private const int SalaryDelay = 1200;
+    private const int SalaryDelay = 2700;
 
     private SalaryPrototype _salaries = default!;
     private readonly List<BankAccount> _accounts = new();

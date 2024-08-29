@@ -88,6 +88,7 @@ namespace Content.IntegrationTests.Tests
             "ADT_Cluster",
             "ADT_Core",
             "ADT_Fland",
+            "ADT_Delta",
             "ADT_Marathon",
             "ADT_Meta",
             "ADT_Oasis",

@@ -310,9 +310,6 @@ public sealed partial class PhantomComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Container HelpingHand = default!;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool EpidemicActive = false;
-
     [DataField]
     public int HelpingHandDuration = 10;
     public int HelpingHandTimer = 0;
@@ -330,6 +327,9 @@ public sealed partial class PhantomComponent : Component
 
     [DataField]
     public bool IgnoreLevels = false;
+
+    [DataField]
+    public int MaxReachedLevel = 0;
     #region Finale
     [DataField]
     public bool FinalAbilityUsed = false;

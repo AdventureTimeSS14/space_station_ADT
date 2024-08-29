@@ -38,6 +38,9 @@ public sealed partial class HallucinationsDiseaseComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float CurChance = 0.1f;
 
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan? EndTime;
+
     public List<EntProtoId> Spawns = new();
 
     [DataField]
@@ -46,7 +49,7 @@ public sealed partial class HallucinationsDiseaseComponent : Component
     };
 
     [DataField]
-    public int Layer = 50;
+    public ushort Layer = 50;
 
     public HallucinationsPrototype? Proto;
 
