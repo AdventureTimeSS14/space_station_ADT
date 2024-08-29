@@ -53,7 +53,7 @@
 # И ВОТ ЭТИ ВСЕ map В СПРАЙТАХ - ТОЖЕ НУЖНЫ!!!
 # END-advice
   - type: Sprite
-    sprite: ADT/Mobs/creature.rsi
+    sprite: ADT/Mobs/Demons/creature.rsi
     drawdepth: Mobs
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -128,7 +128,7 @@
   - type: Internals
 #
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
-    sprite: ADT/Mobs/creature.rsi
+    sprite: ADT/Mobs/Demons/creature.rsi
     state: icon
 #
   - type: NpcFactionMember
