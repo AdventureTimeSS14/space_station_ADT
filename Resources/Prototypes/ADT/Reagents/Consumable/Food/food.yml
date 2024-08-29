@@ -1,0 +1,18 @@
+- type: reagent
+  id: ADTCondensedMilk
+  name: reagent-name-condensedmilk
+  group: Foods
+  desc: reagent-desc-condensedmilk
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: adtconsideredmilk
+  color: "#fcfcf2"
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.5
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2

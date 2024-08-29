@@ -922,7 +922,7 @@
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
-    Telecrystal: 35
+    Telecrystal: 16 #ADT_Tweak - подкрепление стоит дешево, но поступает без своего аплинка
   categories:
   - UplinkAllies
   conditions:
