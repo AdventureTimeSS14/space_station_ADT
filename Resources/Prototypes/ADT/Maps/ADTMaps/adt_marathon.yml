@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Marathon
   mapName: 'Marathon Station'
-  mapPath: /Maps/ADTMaps/Stations/adt_marathon.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_marathon.yml
   minPlayers: 25
   maxPlayers: 90
   stations:
@@ -54,6 +54,7 @@
             SecurityOfficer: [ 4, 4 ]
             Detective: [ 1, 1 ]
             SecurityCadet: [ 4, 4 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             #Lawyer: [ 2, 2 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]
