@@ -1,0 +1,8 @@
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotHeadTopWires
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_headtops.rsi
+      state: ipc_wires

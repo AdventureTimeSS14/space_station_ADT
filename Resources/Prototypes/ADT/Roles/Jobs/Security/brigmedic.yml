@@ -27,7 +27,7 @@
 - type: startingGear
   id: BrigmedicGear
   equipment:
-    jumpsuit: ADTClothingUniformBrigmedicTurtleneck
+    jumpsuit: ADTClothingUniformBrigmedicJumpsuitTurtleneck
     outerClothing: ADTClothingOuterCoatBrigmedicWB
     back: ClothingBackpackBrigmedicFilled
     shoes: ClothingShoesBootsJackSec

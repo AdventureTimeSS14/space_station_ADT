@@ -23,3 +23,5 @@ marking-DemonChestQueenLines = Линии Королевы на груди
 marking-DemonChestTreeLines = Древесные линии на груди
 marking-DemonChestTrinitySpots = Троичные пятна на груди
 marking-DemonGoatee = Козлиная бородка
+marking-ADTDemonrigth_eye = Правый глаз
+marking-ADTDemonleft_eye = Левый глаз
