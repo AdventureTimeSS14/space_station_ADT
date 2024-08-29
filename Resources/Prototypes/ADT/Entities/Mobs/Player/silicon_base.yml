@@ -111,7 +111,7 @@
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
-            damage: 500
+            damage: 300
           behaviors:
             - !type:GibBehavior {}
     - type: Icon

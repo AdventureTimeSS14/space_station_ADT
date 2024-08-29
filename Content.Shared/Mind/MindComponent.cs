@@ -43,12 +43,6 @@ public sealed partial class MindComponent : Component
     public NetUserId? OriginalOwnerUserId { get; set; }
         internal readonly HashSet<Memory> Memories = new(); //ADT-Economy
 
-        /// <summary>
-        ///     The session ID of the player owning this mind.
-        /// </summary>
-        [DataField, AutoNetworkedField, Access(typeof(SharedMindSystem))]
-        public NetUserId? UserId { get; set; }
-
     /// <summary>
     ///     The first entity that this mind controlled. Used for round end information.
     ///     Might be relevant if the player has ghosted since.
@@ -77,7 +71,7 @@ public sealed partial class MindComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan? TimeOfDeath { get; set; }
-        
+
         //ADT-Economy-Start
         [ViewVariables]
         public IEnumerable<Memory> AllMemories => Memories;
