@@ -1,0 +1,178 @@
+- type: soundCollection
+  id: DraskCough
+  files:
+    - /Audio/ADT/Drask/draskcough.ogg
+- type: soundCollection
+  id: DraskScream
+  files:
+    - /Audio/ADT/Drask/draskscream.ogg
+- type: soundCollection
+  id: DraskSneeze
+  files:
+    - /Audio/ADT/Drask/drasksneeze.ogg
+- type: soundCollection
+  id: DraskTalk
+  files:
+    - /Audio/ADT/Drask/drasktalk.ogg
+ 
+# IPC
+- type: soundCollection
+  id: SynthYes
+  files:
+    - /Audio/ADT/IPC/synth_yes.ogg
+
+- type: soundCollection
+  id: SynthNo
+  files:
+    - /Audio/ADT/IPC/synth_no.ogg
+
+- type: soundCollection
+  id: Ping
+  files:
+    - /Audio/ADT/IPC/ping.ogg
+
+- type: soundCollection
+  id: Buzz
+  files:
+    - /Audio/ADT/IPC/buzz-sigh.ogg
+
+- type: soundCollection
+  id: SighIPC
+  files:
+    - /Audio/ADT/IPC/buzz-two.ogg
+
+- type: soundCollection
+  id: ScreamIPC
+  files:
+    - /Audio/ADT/IPC/synth_scream.ogg
+
+- type: soundCollection
+  id: SighBuzz
+  files:
+    - /Audio/ADT/IPC/buzz-two.ogg
+
+- type: soundCollection
+  id: NovakidLaugh
+  files:
+    - /Audio/ADT/Novakid/novakid_laugh01.ogg
+    - /Audio/ADT/Novakid/novakid_laugh02.ogg
+    - /Audio/ADT/Novakid/novakid_laugh03.ogg
+    - /Audio/ADT/Novakid/novakid_laugh04.ogg
+    - /Audio/ADT/Novakid/novakid_laugh05.ogg
+    
+- type: soundCollection
+  id: TajaranHisses
+  files:
+  - /Audio/ADT/Felinid/cat_hiss1.ogg
+  - /Audio/ADT/Felinid/cat_hiss2.ogg
+
+- type: soundCollection
+  id: TajaranMeows
+  files:
+  - /Audio/ADT/Felinid/cat_meow1.ogg
+  - /Audio/ADT/Felinid/cat_meow2.ogg
+  - /Audio/ADT/Felinid/cat_meow3.ogg
+
+- type: soundCollection
+  id: TajaranMews
+  files:
+  - /Audio/ADT/Felinid/cat_mew1.ogg
+  - /Audio/ADT/Felinid/cat_mew2.ogg
+
+- type: soundCollection
+  id: TajaranGrowls
+  files:
+  - /Audio/ADT/Felinid/cat_growl1.ogg
+
+- type: soundCollection
+  id: TajaranPurrs
+  files:
+  - /Audio/ADT/Felinid/cat_purr1.ogg
+
+- type: soundCollection
+  id: MothBuzz
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: MothScream
+  files:
+  - /Audio/ADT/Moth/moth_screm.ogg
+
+- type: soundCollection
+  id: MothLaugh
+  files:
+  - /Audio/ADT/Moth/moth_laugh.ogg
+
+- type: soundCollection
+  id: MothChitter
+  files:
+  - /Audio/ADT/Moth/moth_chitter.ogg
+
+- type: soundCollection
+  id: MothSqueak
+  files:
+  - /Audio/ADT/Moth/moth_squeak.ogg
+
+- type: soundCollection
+  id: UrsusScreams
+  files:
+  - /Audio/ADT/Ursus/scream1.ogg
+  - /Audio/ADT/Ursus/scream2.ogg
+  - /Audio/ADT/Ursus/scream3.ogg
+  - /Audio/ADT/Ursus/scream4.ogg
+
+- type: soundCollection
+  id: UrsusCry
+  files:
+  - /Audio/ADT/Ursus/cry1.ogg
+  - /Audio/ADT/Ursus/cry2.ogg
+
+- type: soundCollection
+  id: UrsusLaugh
+  files:
+  - /Audio/ADT/Ursus/laugh1.ogg
+  - /Audio/ADT/Ursus/laugh2.ogg
+
+- type: soundCollection
+  id: NesMaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/growl1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl2.ogg
+    - /Audio/ADT/Voice/Vulpkanin/growl3.ogg
+
+- type: soundCollection
+  id: NesFemaleVulpaScreams
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/scream1.ogg
+    - /Audio/ADT/Voice/Vulpkanin/scream2.ogg
+
+- type: soundCollection
+  id: VulpHowls
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/howl.ogg
+
+- type: soundCollection
+  id: VulpBarks
+  files:
+  - /Audio/ADT/Voice/Vulpkanin/bark.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark1.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark2.ogg
+  - /Audio/ADT/Voice/Doge/dog_bark3.ogg
+
+- type: soundCollection
+  id: VulpWhines
+  files:
+  - /Audio/ADT/Voice/Doge/dog_whine.ogg
+
+- type: soundCollection
+  id: VulpGrowls
+  files:
+  - /Audio/ADT/Voice/Doge/dog_growl1.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl2.ogg
+  - /Audio/ADT/Voice/Doge/dog_growl3.ogg
+
+- type: soundCollection
+  id: VulpHeckaetSound
+  files:
+    - /Audio/ADT/Voice/Vulpkanin/vulpkanin_hekaet1.ogg

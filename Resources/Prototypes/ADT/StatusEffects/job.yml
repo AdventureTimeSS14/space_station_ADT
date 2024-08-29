@@ -1,6 +1,0 @@
-- type: statusIcon
-  parent: JobIcon
-  id: JobIconADTInvestigator
-  icon:
-    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
-    state: ADTInvestigator

@@ -333,6 +333,46 @@
       - FauxTileAstroSnow
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
+      # vv Languages mechanic vv
+      - CanilunztTranslator
+      - BubblishTranslator
+      - NekomimeticTranslator
+      - DraconicTranslator
+      - SolCommonTranslator
+      - RootSpeakTranslator
+      #- XenoTranslator
+      - DraskTranslator
+      - GalacticCommonTranslatorImplanter
+      - BubblishTranslatorImplanter
+      - NekomimeticTranslatorImplanter
+      - DraconicTranslatorImplanter
+      - CanilunztTranslatorImplanter
+      - SolCommonTranslatorImplanter
+      - RootSpeakTranslatorImplanter
+      - AnimalTranslator
+      - MofficTranslatorImplanter
+      - MofficTranslator
+      - SikTajTranslatorImplanter
+      - NianTranslatorImplanter
+      - FireTranslatorImplanter
+      - DraskTranslatorImplanter
+      - UrsTranslatorImplanter
+      - ArkaneTranslatorImplanter
+      - ShadekinTranslatorImplanter
+      - CintaTajTranslatorImplanter
+      - IPCTranslatorImplanter
+      - BorgTranslatorImplanter
+      - DwarfTranslatorImplanter
+      - UrsTranslator
+      - ArkaneTranslator
+      - ShadekinTranslator
+      - NianTranslator
+      - FireTranslator
+      - SikTajTranslator
+      - CintaTajTranslator
+      - DwarfTranslator
+      - IPCTranslator
+      # ^^ Languages mechanic ^^
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -1190,6 +1230,7 @@
         - IngotGold30
         - IngotSilver30
         - MaterialBananium10
+        - MaterialDiamond
 
 - type: entity
   parent: OreProcessor

@@ -1,0 +1,102 @@
+- type: entity
+  id: ADTRPD
+  parent: BaseItem
+  name: RPD
+  description: Rapid Pipe Dispenser is used to quickly build structures for atmosphere operation and disposal.
+  components:
+  - type: RPD
+    availablePrototypes:
+    - ADTFireAlarm
+    - ADTGasPipeBend
+    - ADTGasPipeStraight
+    - ADTGasPipeHalf
+    - ADTGasPipeFourway
+    - ADTGasPipeTJunction
+    - ADTGasPressurePump
+    - ADTGasMixer
+    - ADTGasMixerFlipped
+    - ADTGasFilter
+    - ADTGasFilterFlipped
+    - ADTGasVolumePump
+    - ADTGasPassiveVent
+    - ADTGasOutletInjector
+    - ADTGasVentPump
+    - ADTGasValve
+    - ADTGasVentScrubber
+    - ADTAtmosDeviceFanTiny
+    - ADTGasPassiveGate
+    - ADTGasDualPortVentPump
+    - ADTSignalControlledValve
+    - ADTPressureControlledValve
+    - ADTDisposalUnit
+    - ADTMailingUnit
+    - ADTGasPort
+    - ADTDisposalJunctionFlipped
+    - ADTDisposalJunction
+    - ADTDisposalRouterFlipped
+    - ADTDisposalRouter
+    - ADTDisposalTagger
+    - ADTDisposalBend
+    - ADTDisposalYJunction
+    - ADTDisposalSignalRouter
+    - ADTDisposalSignalRouterFlipped
+    - ADTDisposalTrunk
+    - ADTDisposalPipe
+    - ADTAirSensor
+    - ADTFloorDrain
+    - ADTAirAlarm
+    - ADTDeconstruct
+  - type: LimitedCharges
+    maxCharges: 130
+    charges: 130
+  - type: UseDelay
+  - type: Sprite
+    sprite: ADT/Objects/Tools/rpd.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: ADT/Objects/Tools/rpd.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 100
+  - type: UserInterface
+    interfaces:
+      enum.RpdUiKey.Key:
+        type: RPDMenuBoundUserInterface
+  - type: ActivatableUI
+    key: enum.RpdUiKey.Key
+
+- type: entity
+  id: ADTRPDAmmo
+  parent: BaseItem
+  name: canned matter
+  description: A polymeric substance designed to create new objects.
+  components:
+  - type: RPDAmmo
+  - type: Sprite
+    sprite: ADT/Objects/Tools/rpd.rsi
+    state: ammo
+  - type: Item
+    sprite: ADT/Objects/Tools/rpd.rsi
+    heldPrefix: ammo
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: StaticPrice
+    price: 60
+
+- type: entity
+  id: ADTRPDEmpty
+  parent: ADTRPD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    charges: 0

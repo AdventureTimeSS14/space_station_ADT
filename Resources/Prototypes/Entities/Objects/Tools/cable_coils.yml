@@ -29,6 +29,21 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
+  # ADT Tweak Start: IPC
+  - type: Healing # cables can be used to heal IPC
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -5
+        Cold: -5
+        Shock: -5
+        Caustic: -5
+    # healingBeginSound:
+    #   path: "/Audio/Items/Medical/ointment_begin.ogg"
+    # healingEndSound:
+    #   path: "/Audio/Items/Medical/ointment_end.ogg"
+    # ADT Tweak End
 
 - type: entity
   id: CableHVStack
