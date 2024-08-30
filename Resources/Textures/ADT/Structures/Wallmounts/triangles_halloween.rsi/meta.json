@@ -1,0 +1,50 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:m1and1b для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "HPHW1"
+        },
+        {
+            "name": "HPHW2"
+        },
+        {
+            "name": "HPHW3"
+        },
+        {
+            "name": "HPHW4"
+        },
+        {
+            "name": "blackorange1"
+        },
+        {
+            "name": "blackorange2"
+        },
+        {
+            "name": "blackorange3"
+        },
+        {
+            "name": "blackwhite1"
+        },
+        {
+            "name": "blackwhite2"
+        },
+        {
+            "name": "blackwhite3"
+        },
+        {
+            "name": "orangeyellow1"
+        },
+        {
+            "name": "orangeyellow2"
+        },
+        {
+            "name": "orangeyellow3"
+        }
+    ]
+}

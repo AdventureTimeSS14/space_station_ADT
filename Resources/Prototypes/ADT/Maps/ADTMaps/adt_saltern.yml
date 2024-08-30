@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Saltern
   mapName: 'Saltern'
-  mapPath: /Maps/ADTMaps/Stations/adt_saltern.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_saltern.yml
   minPlayers: 0
   maxPlayers: 35
   fallback: true
@@ -55,6 +55,7 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 4, 4 ]
             SecurityCadet: [ 4, 4 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 1, 3 ]

@@ -1,2 +1,2 @@
 ent-MobUrsus = Урист МакУрс
-    .desc = Базовый моб расы Урсов
+    .desc = { ent-BaseMobUrsus.desc }

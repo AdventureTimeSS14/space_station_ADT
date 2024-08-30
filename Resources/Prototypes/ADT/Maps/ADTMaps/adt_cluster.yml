@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Cluster
   mapName: 'Cluster'
-  mapPath: /Maps/ADTMaps/Stations/adt_cluster.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_cluster.yml
   minPlayers: 1
   maxPlayers: 35
   stations:
@@ -54,6 +54,7 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 3, 3 ]
             SecurityCadet: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 2 ]

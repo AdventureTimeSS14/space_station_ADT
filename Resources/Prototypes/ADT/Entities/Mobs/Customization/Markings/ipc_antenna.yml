@@ -89,3 +89,41 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
       state: ipc_antenna_towers
+
+#Иллюми
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaDuality
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
+      state: ipc_antenna_duality
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaHoloaura
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
+      state: ipc_antenna_holo_aura
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaWireless
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
+      state: ipc_antenna_wireless_connection
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaSmallEye
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_antenna.rsi
+      state: ipc_small_eye

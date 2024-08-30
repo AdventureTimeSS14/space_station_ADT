@@ -44,6 +44,8 @@
   components:
     - type: Unrevivable
   cost: -1  # ADT Quirks
+  speciesBlacklist:
+  - IPC
 
 - type: trait
   id: Muted

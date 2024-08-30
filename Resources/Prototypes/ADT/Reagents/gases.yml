@@ -77,6 +77,16 @@
         factor: 8
         conditions:
         - !type:OrganType
+          type: Novakid
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Drask
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
           type: Animal
       - !type:Oxygenate
         factor: 8

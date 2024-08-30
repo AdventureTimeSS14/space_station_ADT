@@ -12,3 +12,7 @@
 
 - type: playTimeTracker
   id: JobADTSeniorPhysician
+
+- type: playTimeTracker
+  id: JobBrigmedic
+

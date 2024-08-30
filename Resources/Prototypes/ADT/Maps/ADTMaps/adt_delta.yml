@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Delta
   mapName: 'Delta Station'
-  mapPath: /Maps/ADTMaps/Stations/adt_delta.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_delta.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 40
@@ -60,6 +60,8 @@
             ADTPathologist: [ 1, 1 ] #ADT-Roles
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            Brigmedic: [ 1, 1 ] #ADT-Roles
+
         - type: StationGoal
           goals:
           - Shuttle

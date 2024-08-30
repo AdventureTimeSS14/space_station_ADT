@@ -32,13 +32,6 @@
     # ADTClothingUnderwearWhiteComfyPanties: 2
     # ADTClothingUnderwearTopComfyWhiteBra: 2
 # конец белья
-# начало обмоток
-    # ADTClothingFootWrapsWhite: 2
-    # ADTClothingFootWrapsBlack: 2
-    # ADTClothingFootWrapsBrown: 2  # TODO: Убрать комменты после добавления обмоток
-    # ADTClothingFootWrapsHighWhite: 2
-    # ADTClothingFootWrapsHighBlack: 2
-# конец обмоток
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
 # ADT бельё/обмотки/плащи конец
@@ -133,46 +126,45 @@
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
-    # DO NOT ADD MORE, USE UNIFORM DYING
+# ADT водолазки начало
+    ADTClothingUniformJumpsuitTurtleneckBlack: 1
+    ADTClothingUniformJumpskirtTurtleneckBlack: 1
+    ADTClothingUniformJumpsuitTurtleneckGrey: 1
+    ADTClothingUniformJumpskirtTurtleneckGrey: 1
+    ADTClothingUniformJumpsuitTurtleneckBrown: 1
+    ADTClothingUniformJumpskirtTurtleneckBrown: 1
+    ADTClothingUniformJumpsuitTurtleneckBlue: 1
+    ADTClothingUniformJumpskirtTurtleneckBlue: 1
+    ADTClothingUniformJumpsuitTurtleneckAzure: 1
+    ADTClothingUniformJumpskirtTurtleneckAzure: 1
+    ADTClothingUniformJumpsuitTurtleneckAquamarine: 1
+    ADTClothingUniformJumpskirtTurtleneckAquamarine: 1
+    ADTClothingUniformJumpsuitTurtleneckGreen: 1
+    ADTClothingUniformJumpskirtTurtleneckGreen: 1
+    ADTClothingUniformJumpsuitTurtleneckOrange: 1
+    ADTClothingUniformJumpskirtTurtleneckOrange: 1
+    ADTClothingUniformJumpsuitTurtleneckYellow: 1
+    ADTClothingUniformJumpskirtTurtleneckYellow: 1
+    ADTClothingUniformJumpsuitTurtleneckPurple: 1
+    ADTClothingUniformJumpskirtTurtleneckPurple: 1
+    ADTClothingUniformJumpsuitTurtleneckPink: 1
+    ADTClothingUniformJumpskirtTurtleneckPink: 1
+    ADTClothingUniformJumpsuitTurtleneckRed: 1
+    ADTClothingUniformJumpskirtTurtleneckRed: 1
+#    ADTClothingUniformJumpsuitTurtleneckSalat: 2
+#    ADTClothingUniformJumpsuitTurtleneckSalatBlack: 2
+#    ADTClothingUniformJumpskirtTurtleneckSalat: 2
+    ADTClothingUniformJumpsuitTurtleneckWhite: 1
+    ADTClothingUniformJumpskirtTurtleneckWhite: 1
+    ADTClothingUniformJumpsuitTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
+# ADT водолазки конец
+# DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1
-  # DO NOT ADD MORE, USE UNIFORM DYING
-
-# ADT водолазки начало
-    ADTClothingUniformTurtleneckBlack: 1
-    ADTClothingUniformTurtleneckBlackWomen: 1
-    ADTClothingUniformTurtleneckGrey: 1
-    ADTClothingUniformTurtleneckGreyWomen: 1
-    ADTClothingUniformTurtleneckBrown: 1
-    ADTClothingUniformTurtleneckBrownWomen: 1
-    ADTClothingUniformTurtleneckBlue: 1
-    ADTClothingUniformTurtleneckBlueWomen: 1
-    ADTClothingUniformTurtleneckAzure: 1
-    ADTClothingUniformTurtleneckAzureWomen: 1
-    ADTClothingUniformTurtleneckAquamarine: 1
-    ADTClothingUniformTurtleneckAquamarineWomen: 1
-    ADTClothingUniformTurtleneckGreen: 1
-    ADTClothingUniformTurtleneckGreenWomen: 1
-    ADTClothingUniformTurtleneckOrange: 1
-    ADTClothingUniformTurtleneckOrangeWomen: 1
-    ADTClothingUniformTurtleneckYellow: 1
-    ADTClothingUniformTurtleneckYellowWomen: 1
-    ADTClothingUniformTurtleneckPurple: 1
-    ADTClothingUniformTurtleneckPurpleWomen: 1
-    ADTClothingUniformTurtleneckPink: 1
-    ADTClothingUniformTurtleneckPinkWomen: 1
-    ADTClothingUniformTurtleneckRed: 1
-    ADTClothingUniformTurtleneckRedWomen: 1
-#    ADTClothingUniformTurleneckSalat: 2
-#    ADTClothingUniformTurleneckSalatBlack: 2
-#    ADTClothingUniformTurleneckSalatWomen: 2
-    ADTClothingUniformTurtleneckWhite: 1
-    ADTClothingUniformTurtleneckWhiteWomen: 1
-    ADTClothingUniformTurleneckBlackSleeveless: 1
-    ADTClothingUniformTurleneckBlackWomenSleeveless: 1
-    ADTClothingUniformTurleneckWhiteSleeveless: 1
-    ADTClothingUniformTurleneckWhiteBlackSleeveless: 1
-    ADTClothingUniformTurleneckWhiteWomenSleeveless: 1
-# ADT водолазки конец
+# DO NOT ADD MORE, USE UNIFORM DYING

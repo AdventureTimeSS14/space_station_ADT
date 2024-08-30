@@ -57,4 +57,9 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// </summary>
     [DataField]
     public SlotFlags BlockSlots = SlotFlags.NONE;
+
+    // ADT Injector blocking start
+    [DataField]
+    public bool IgnoreBlockers = false;
+    // ADT Injector blocking end
 }

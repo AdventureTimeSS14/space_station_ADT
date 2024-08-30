@@ -64,7 +64,17 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
+  - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMoth #ADT_Species
+  - ADTEmergencyIPC #ADT_Species
+
+- type: loadoutGroup
+  id: GroupEVATank
+  name: loadout-group-EVA-tank
+  hidden: true
+  loadouts:
   - LoadoutSpeciesEVANitrogen
+  - LoadoutSpeciesEVAOxygen
 
 # Command
 - type: loadoutGroup
@@ -444,7 +454,9 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
-  - LoadoutSpeciesEVANitrogen
+  - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothClown #ADT_Species
+  - ADTEmergencyIPCClown #ADT_Species
 
 - type: loadoutGroup
   id: MimeHead
@@ -767,7 +779,9 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
-  - LoadoutSpeciesEVANitrogen
+  - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothExtended #ADT_Species
+  - ADTEmergencyIPCExtended #ADT_Species
 
 # Science
 - type: loadoutGroup
@@ -1056,7 +1070,9 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
-  - LoadoutSpeciesEVANitrogen
+  - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothSecurity #ADT_Species
+  - ADTEmergencyIPCSecurity #ADT_Species
 
 # Medical
 - type: loadoutGroup
@@ -1238,7 +1254,9 @@
   loadouts:
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
-  - LoadoutSpeciesEVANitrogen
+  - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothMedical #ADT_Species
+  - ADTEmergencyIPCMedical #ADT_Species
 
 # Wildcards
 - type: loadoutGroup
@@ -1247,6 +1265,13 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+
+- type: loadoutGroup
+  id: PsychologistJumpsuit
+  name: loadout-group-psychologist-jumpsuit
+  loadouts:
+  - PsychologistJumpsuit
+  - PsychologistJumpskirt
 
 - type: loadoutGroup
   id: BoxerJumpsuit
@@ -1273,7 +1298,9 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
-  - LoadoutSpeciesEVANitrogen
+  - LoadoutSpeciesVoxNitrogen
+  - ADTEmergencyMothSyndicate #ADT_Species
+  - ADTEmergencyIPCSyndicate #ADT_Species
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

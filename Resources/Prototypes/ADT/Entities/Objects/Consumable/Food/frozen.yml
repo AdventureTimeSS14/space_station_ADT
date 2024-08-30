@@ -12,7 +12,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -172,7 +172,7 @@
 # Мороженные на палочке
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenPopsicleBase
   abstract: true
@@ -182,7 +182,8 @@
     - state: IceCreamStick
     - state: bananafruitIce
   - type: Food
-    trash: FoodFrozenPopsicleTrash
+    trash:
+      - FoodFrozenPopsicleTrash
   - type: Tag
     tags:
     - Fruit
@@ -218,7 +219,7 @@
     - state: chocolatepopsicle
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenChocolatePopsicleWithNuts
   components:
@@ -228,7 +229,7 @@
     - state: chocolatepopsiclewithnuts
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleGrapeFruitIce
   components:
@@ -238,7 +239,7 @@
     - state: grapefruitIce
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleJumbo
   components:
@@ -248,7 +249,7 @@
     - state: jumbopopsicle
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleMangoFruitIce
   components:
@@ -258,7 +259,7 @@
     - state: mangofruitIce
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenMelonPopsicle
   components:
@@ -268,7 +269,7 @@
     - state: melonpopsicle
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenOrangePopsicle
   components:
@@ -278,7 +279,7 @@
     - state: orangepopsicle
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleApple
   components:
@@ -288,7 +289,7 @@
     - state: popsicleapple
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleBanana
   components:
@@ -298,7 +299,7 @@
     - state: popsiclebanana
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleMole
   components:
@@ -308,7 +309,7 @@
     - state: popsiclemole
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleSeaSalt
   components:
@@ -318,7 +319,7 @@
     - state: seasaltppopsicle
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleStrawberryFruitIce
   components:
@@ -328,7 +329,7 @@
     - state: strawberryfruitIce
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenThreeFlavorsPopsicle
   components:
@@ -338,7 +339,7 @@
     - state: threeflavorspopsicle
 
 - type: entity
-  name: Popsicle 
+  name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenWatermelonPopsicle
   components:
@@ -675,7 +676,7 @@
     price: 0
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolateFreezyTrash
   categories: [ HideSpawnMenu ]
@@ -684,7 +685,7 @@
     state: chocolatefreezy_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolateIceCreamTrash
   categories: [ HideSpawnMenu ]
@@ -693,7 +694,7 @@
     state: chocolateicecream_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolatePopsicleTrash
   categories: [ HideSpawnMenu ]
@@ -702,7 +703,7 @@
     state: ChocolatePopsicle_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenChocolatePopsicleWithNutsTrash
   categories: [ HideSpawnMenu ]
@@ -711,7 +712,7 @@
     state: chocolatepopsiclewithnuts_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenIceCreamWaffleconeTrash
   categories: [ HideSpawnMenu ]
@@ -720,7 +721,7 @@
     state: icecreamwafflecone_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenIceCreamWaffleconeNutsTrash
   categories: [ HideSpawnMenu ]
@@ -729,7 +730,7 @@
     state: icecreamwaffleconenuts_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleJumboTrash
   categories: [ HideSpawnMenu ]
@@ -738,7 +739,7 @@
     state: jumbopopsicle_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenMelonPopsicleTrash
   categories: [ HideSpawnMenu ]
@@ -747,7 +748,7 @@
     state: melonpopsicle_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenOrangePopsicleTrash
   categories: [ HideSpawnMenu ]
@@ -756,7 +757,7 @@
     state: orangepopsicle_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPineappleChocolateTrash
   categories: [ HideSpawnMenu ]
@@ -765,7 +766,7 @@
     state: pineapplechocolate_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleAppleTrash
   categories: [ HideSpawnMenu ]
@@ -774,7 +775,7 @@
     state: popsicleapple_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleBananaTrash
   categories: [ HideSpawnMenu ]
@@ -783,7 +784,7 @@
     state: popsiclebanana_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleMoleTrash
   categories: [ HideSpawnMenu ]
@@ -792,7 +793,7 @@
     state: popsiclemole_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenRandomFruitIceTrash
   categories: [ HideSpawnMenu ]
@@ -801,7 +802,7 @@
     state: randomfruitIce_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenPopsicleSeaSaltTrash
   categories: [ HideSpawnMenu ]
@@ -810,7 +811,7 @@
     state: seasaltppopsicle_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenSpaceFreezyTrash
   categories: [ HideSpawnMenu ]
@@ -819,7 +820,7 @@
     state: spacefreezy_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenSpaceIceCreamTrash
   categories: [ HideSpawnMenu ]
@@ -828,7 +829,7 @@
     state: spaceicecream_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenStrawberryIceCreamTrash
   categories: [ HideSpawnMenu ]
@@ -837,7 +838,7 @@
     state: strawberryicecream_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenThreeFlavorsFreezyTrash
   categories: [ HideSpawnMenu ]
@@ -846,7 +847,7 @@
     state: threeflavorsfreezy_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenThreeFlavorsPopsicleTrash
   categories: [ HideSpawnMenu ]
@@ -855,7 +856,7 @@
     state: threeflavorspopsicle_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenVanillaFreezyTrash
   categories: [ HideSpawnMenu ]
@@ -864,7 +865,7 @@
     state: vanillafreezy_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenVanillaIceCreamTrash
   categories: [ HideSpawnMenu ]
@@ -873,7 +874,7 @@
     state: vanillaicecream_trash
 
 - type: entity
-  name: Frozen 
+  name: Frozen
   parent: ADTFoodPacketFrozenTrashBase
   id: ADTFoodFrozenWatermelonPopsicleTrash
   categories: [ HideSpawnMenu ]
