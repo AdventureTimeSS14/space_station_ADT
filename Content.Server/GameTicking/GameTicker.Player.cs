@@ -68,8 +68,10 @@ namespace Content.Server.GameTicking
                     var firstConnection = record != null &&
                                           Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 600; //пока у игрока не будет наиграно 10ч, будет высвечиваться надпись что он новичок, для облегчении слежки модерации, ADT
 
+                    var firstSeenTime = record?.FirstSeenTime.ToString("dd.MM.yyyy") ?? "неизвестно";
+
                     _chatManager.SendAdminAnnouncement(firstConnection
-                        ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
+                        ? $"\nВНИМАНИЕ! \nЗашёл новичок {args.Session.Name} с {firstSeenTime}. Администрации быть внимательней, у данного игрока меньше 10ч на нашем сервере. \n ВНИМАНИЕ!"  
                         : Loc.GetString("player-join-message", ("name", args.Session.Name)));
 
                     RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
