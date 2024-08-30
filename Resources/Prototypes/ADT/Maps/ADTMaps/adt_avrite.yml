@@ -41,6 +41,7 @@
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 5 ]
             TechnicalAssistant: [ 2, 3 ]
+            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             # medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
@@ -56,6 +57,7 @@
             ResearchAssistant: [ 3, 4 ]
             Borg: [ 2, 3 ]
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
+            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]

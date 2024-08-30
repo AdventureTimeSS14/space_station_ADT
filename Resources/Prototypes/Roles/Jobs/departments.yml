@@ -61,6 +61,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
+  - ADTSeniorEngineer # ADT Role
 
 - type: department
   id: Medical
@@ -74,8 +75,8 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - ADTPathologist # ADT Tweak
-  - ADTSeniorPhysician # ADT Tweal
+  - ADTPathologist # ADT Role
+  - ADTSeniorPhysician # ADT Role
 
 - type: department
   id: Security

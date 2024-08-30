@@ -13,6 +13,9 @@ JobADTSeniorPhysician = Ведущий врач
 job-name-senior-researcher = Доцент
 JobADTSeniorResearcher = Доцент
 
+job-name-senior-engineer = Бригадир 
+JobADTSeniorEngineer = Бригадир 
+
 job-name-ADTBlueShieldOfficer = Офицер Синего Щита
 JobADTBlueShieldOfficer = Офицер Синего Щита
 

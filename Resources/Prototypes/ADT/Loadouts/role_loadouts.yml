@@ -89,3 +89,16 @@
   - ScientistShoes
   - Survival
   - Trinkets
+
+- type: roleLoadout
+  id: JobADTSeniorEngineer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - StationEngineerHead
+  - StationEngineerJumpsuit
+  - StationEngineerOuterClothing
+  - StationEngineerBackpack
+  - StationEngineerShoes
+  - Survival
+  - Trinkets
