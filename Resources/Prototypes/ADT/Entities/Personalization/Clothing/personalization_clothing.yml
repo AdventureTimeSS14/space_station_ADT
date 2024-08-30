@@ -309,7 +309,7 @@
   id: ADTClothingShoesBolperBoots
   suffix: Bolper
   name: Bolper`s boots
-  description: Plus five pecent speed.
+  description: Plus five percent speed.
   components:
   - type: Sprite
     sprite: ADT/Personalization/bolper_boots.rsi
@@ -341,7 +341,7 @@
 
 - type: entity
   parent: [Clothing, ClothingSlotBase]
-  id: ClothingBackBolperSheath
+  id: ADTClothingBackBolperSheath
   suffix: Bolper
   name: Bolper`s katana sheath
   description: I`m ready to fight.
@@ -383,3 +383,31 @@
 #    quickEquip: false
 #    slots:
 #    - back
+
+#Pangaari
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPangaariAmericanSleeveless
+  suffix: Pangaari
+  name: American sleeveless.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
+
+#Rip_Zoro
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckRipZoroMantle
+  suffix: Rip_Zoro
+  name: Mysterious shoulder mantle
+  description: A mantle that holds a secret...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_mantle.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_mantle.rsi
+  - type: Item
+    size: Normal
