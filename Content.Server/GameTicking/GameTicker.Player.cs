@@ -71,7 +71,7 @@ namespace Content.Server.GameTicking
                     var firstSeenTime = record?.FirstSeenTime.ToString("dd.MM.yyyy") ?? "неизвестно"; // дата первого подключения, ADT
 
                     _chatManager.SendAdminAnnouncement(firstConnection
-                        ? $"\nВНИМАНИЕ! \nЗашёл новичок {args.Session.Name} с {firstSeenTime}. Администрации быть внимательней, у данного игрока меньше 10ч на нашем сервере. \n ВНИМАНИЕ!"  
+                        ? $"\nВНИМАНИЕ!!! \nЗашёл новичок {args.Session.Name} с {firstSeenTime}. Администрации быть внимательней :0, у данного игрока меньше 10ч на нашем сервере. \n ВНИМАНИЕ!!!"  
                         : Loc.GetString("player-join-message", ("name", args.Session.Name)));
 
                     RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
