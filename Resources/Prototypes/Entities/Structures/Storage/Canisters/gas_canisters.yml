@@ -99,7 +99,8 @@
           components:
             - GasTank
     - type: StaticPrice
-      price: 1000
+      price: 250 #ADT Tweak
+      # price: 1000
     - type: AccessReader
       access: [["Atmospherics"], ["Engineering"], ["Research"]]
     - type: Lock
@@ -611,6 +612,7 @@
       - 0 # Ammonia
       - 0 # N2O
       - 1871.71051 # Frezon
+      - 0 # BZ + ADT-Gas
       temperature: 293.15
   - type: Destructible
     thresholds:

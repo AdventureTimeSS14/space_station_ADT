@@ -1,0 +1,928 @@
+# Ale_xan_der
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMa
+  name: Ma
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ma
+
+# PushnoY
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEvgeniy
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_evgeniy
+
+# Conjurer
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieIohan
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_iohan
+
+- type: entity
+  name: flippo Johan lighter
+  parent: BaseItem
+  id: FlippoJohanLighter
+  description: A zippo lighter with a red metal coating. There are two letters on the case that stand for "Johan Kresta.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/flippolighter_johan.rsi
+    layers:
+    - state: zippo_icon_base
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: zippo_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: IgnitionSource
+    ignited: false
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 1
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: ADT/Personalization/flippolighter_johan.rsi
+    heldPrefix: zippo
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 20
+        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: zippo-inhand-left-flame
+        shader: unshaded
+      right:
+      - state: zippo-inhand-right-flame
+        shader: unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1 # does a little bit of damage on hit when off
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.3 #slightly stronger than the other lighters
+    color: blue
+    energy: 2
+
+- type: entity
+  name: АКSy-74
+  parent: BaseItem
+  id: ADTRifleAKsyIohana
+  description: Rifles
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aksy_iohana.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Personalization/aksy_iohana.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: AmmoCounter
+  - type: Gun
+    minAngle: 5
+    maxAngle: 7
+    angleIncrease: 2
+    angleDecay: 4
+    fireRate: 5.7
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      - SemiAuto
+      #- Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: Item
+    size: Large
+  - type: GunWieldBonus
+    minAngle: -13
+    maxAngle: -13
+
+- type: entity
+  name: TelescopicBatonKon
+  parent: ADTtelescopicBaton
+  id: ADTtelescopicBatonKon
+  description: Big, dangerous telescopic baton. Can be stored in pockets when turned off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_kon.rsi
+    layers:
+    - state: telescope_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
+    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
+    #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
+    damageOpen:
+      types:
+        Blunt: 2.4
+    damageFolded:
+      types:
+        Blunt: 0
+    staminaDamageFolded: 0
+    staminaDamageOpen: 35
+  - type: StaminaDamageOnHit
+    damage: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2.4
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_kon.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: telescope_on}
+          False: {state: telescope_off}
+
+# Feylly
+- type: entity
+  name: TelescopicBatonBob
+  parent: ADTtelescopicBaton
+  id: ADTtelescopicBatonBob
+  description: Big, dangerous telescopic baton. Can be stored in pockets when turned off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_bob.rsi
+    layers:
+    - state: telescope_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
+    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
+    #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
+    damageOpen:
+      types:
+        Blunt: 2.4
+    damageFolded:
+      types:
+        Blunt: 0
+    staminaDamageFolded: 0
+    staminaDamageOpen: 35
+  - type: StaminaDamageOnHit
+    damage: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2.4
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/telescopic_baton_bob.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: telescope_on}
+          False: {state: telescope_off}
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieBob
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_bob
+
+# Sipay
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: ADTEntityRockGuitarInstrument
+  name: Chariton's multi-guitar
+  description: The guitar of strict colors of one strict person. Black keys like a synthesizer are visible on the side of the guitar.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Rock_guitar.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: ADT/Personalization/Rock_guitar.rsi
+
+# Eddiemercury
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMigel
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_migel
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJungar
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_jungar
+
+# Maestro_HLT
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieFritz
+  name: Ellis plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ellis
+
+# Shrodinger
+- type: entity
+  name: flippo Johan lighter
+  parent: BaseItem
+  id: FlippoSchrodingerLighter
+  description: A zippo lighter with a red metal coating. There are two letters on the case that stand for Johan Kresta.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/flippolighter_schrodinger.rsi
+    layers:
+    - state: zippo_icon_base
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: zippo_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: IgnitionSource
+    ignited: false
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 1
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: ADT/Personalization/flippolighter_schrodinger.rsi
+    heldPrefix: zippo
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 20
+        maxVol: 20 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableLightVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: zippo-inhand-left-flame
+        shader: unshaded
+      right:
+      - state: zippo-inhand-right-flame
+        shader: unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1 # does a little bit of damage on hit when off
+  - type: PointLight
+    enabled: false
+    netsync: false
+    energy: 2
+    radius: 1.3 #slightly stronger than the other lighters
+    color: "#00e600" #green
+
+- type: entity
+  id: ADTCigarSchrodingerCase
+  parent: CigarCase
+  name: case Melnicov
+  description: Case
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTSchrodingerCigar
+      amount: 8
+  - type: Sprite
+    sprite: ADT/Personalization/melnikov_case.rsi
+
+- type: entity
+  id: ADTSchrodingerCigar
+  parent: CigarGold
+  name: Sigar Gold
+  description: Sigar
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 45
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 40
+          - ReagentId: Omnizine
+            Quantity: 5
+
+- type: entity
+  id: ADTBriefcaseBrownSchrodinger
+  name: Schrodinger`s briefcase
+  parent: ADTBriefcaseCentcomm
+  suffix: Filled
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,5
+  #- type: Storage
+  #  maxItemSize: Ginormous
+  #  maxTotalWeight: 0
+  #  maxSlots: 50 #By this ignore maxTotalWeight
+  - type: StorageFill
+    contents:
+      - id: ClothingShoesBootsLaceup
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingMaskGasCentcom
+      - id: ClothingUniformJumpsuitCentcomAgent
+      - id: ADTWeaponRevolverDeckardGold
+      - id: CentcomPDA
+      # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
+      - id: ClothingHeadsetAltCentCom
+      - id: ADTClothingOuterCoatSchroCoat
+      # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
+
+- type: entity
+  name: Deckard
+  parent: BaseWeaponRevolver
+  id: ADTWeaponRevolverDeckardGold
+  description: A rare, custom-built revolver. Use when there is no time for Voight-Kampff test. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/decard_gold.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 2.6
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: RevolverAmmoProvider
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 10000
+
+# MADIAL
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRicker
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_riker
+
+# Syrel
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLya
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_lya
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAyus
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ayus
+
+# Pangaari
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTeo
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_teo
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePochita
+  name: Plush pochita
+  description: A plush dog toy with a chainsaw blade sticking out of its head
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_pochita
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: pochita-inhand-left
+      right:
+      - state: pochita-inhand-right
+
+# D1night
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDekus
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dekus
+
+# Не помню сикей, персонаж был слайм с именем Афи
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAfi
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_afi
+
+# Koff
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKoff
+  name: Djessie plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_koff
+
+# Pyotr
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltPyotrSheath
+  name: Pyotr`s sabre sheath
+  description: An ornate sheath designed to hold an officer's blade.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pyotr_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/pyotr_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTPyotrSabre
+  - type: Appearance
+
+- type: entity
+  name: Pyotr's sabre
+  parent: BaseItem
+  id: ADTPyotrSabre
+  description: A ceremonial weapon belonging to the Pyotr Shahin. Heavier than stadart captain`s sabre.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/pyotr_sabre.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 22
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  # - type: Reflect
+  #   enabled: true
+  #   reflectProb: .5 # TODO: Дорабоатть компонент, ругается на поле spread вместе с enabled
+  #   spread: 90
+  - type: Item
+    size: Huge
+    sprite: ADT/Personalization/pyotr_sabre.rsi
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - CaptainSabre
+
+# Остальные игрушки админов
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieFries
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_fries
+
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieIlumi
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ilumi
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJan
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_jan
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieJason
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_jason
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKus
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kus
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLilit
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_lilit
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLuke
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_luke
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNova
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_nova
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePeter
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_peter
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRebecca
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rebecca
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSchrodinger
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_schrodinger
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTerenty
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_terenty
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieUvarov
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_uvarov
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieValtor
+  name: Djessie plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_valtor
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDarina
+  name: Darina plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_darina
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAkula
+  name: Darina plushie
+  description: Soft and cuddly smelling plush toy that looks like it belonged to NT working in cargo.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_akula
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiePrazat
+  name: Prazat Dar Vahed plushie
+  description: It looks like a cute little human doll... But in fact, this is a doll of a man who has done a lot of terrible things, who regrets and reproaches himself for it every day...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_prazat
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLo
+  name: Lo Vud plushie
+  description: A plush version of a once-living mime. It seems the toy got wet, as if someone was crying into it. She looks unhappy. It smells like space drugs.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_lo
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSati
+  name: Sati plushie
+  description: Arcana's toy, looks tired... And hey, what kind of clothes is she wearing? If you look closely, you will notice that a tag is sewn to the strange black and scarlet robe "Remember that your lives are worth more than a couple of credits!"
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sati
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieUma
+  name: Uma plushie
+  description: Soft and so cute!
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_uma
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieTimrika
+  name: Timrika plushie
+  description: It looks like a soft, cute and woolly tyaranka! However, bone drawings have their own history.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_timrika
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAmira
+  name: Amira plushie
+  description: It looks like a soft and cute research director.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_amira
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieOvai
+  name: Ovai plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ovai
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAzalia
+  name: Azalia plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_azalia
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieSofy
+  name: Sofy plushie
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_sofy
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieLiexer
+  name: Ketua
+  description: It looks like a soft and cute blondie.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_liexer

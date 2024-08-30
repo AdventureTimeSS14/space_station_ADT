@@ -1,0 +1,43 @@
+#Сгущенка
+
+- type: entity
+  parent: FoodTinBase
+  id: ADTFoodTinCondensedMilk
+  name: condensed milk
+  description: A standard issue tin of condensed milk with a convenient pull tab.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Containers/condensed_milk.rsi
+  # the convenient pull tab
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Containers/condensed_milk.rsi
+    size: Small
+    shape:
+    - 0,0,0,1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTCondensedMilk
+          Quantity: 30
+  - type: Openable
+    openableByHand: true
+    sound:
+      path: /Audio/Items/can_open3.ogg
+  - type: Food
+    trash: 
+    - ADTFoodTinCondensedMilkTrash
+
+- type: entity
+  parent: FoodTinBaseTrash
+  id: ADTFoodTinCondensedMilkTrash
+  name: condensed milk
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Containers/condensed_milk.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Containers/condensed_milk.rsi
+    size: Small
+    shape:
+    - 0,0,0,1

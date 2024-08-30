@@ -1,5 +1,40 @@
 - type: entity
   parent: BasePDA
+  id: ADTBasePDA
+  suffix: ADT
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: ADT/Objects/Devices/pda.rsi
+
+- type: entity
+  parent: ADTBasePDA
+  id: ADTBaseMedicalPDA
+  abstract: true
+  components:
+  - type: ItemToggle
+    toggleLight: false
+    onUse: false
+  - type: HealthAnalyzer
+    scanDelay: 1
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+#Если добаляете группу одинаковых кпк делайте им базу!
+
+- type: entity
+  parent: ADTBasePDA
   id: MagistratPDA
   name: magistrat PDA
   description: magistrat PDA
@@ -11,7 +46,7 @@
     state: pda-lawyer
 
 - type: entity
-  parent: BasePDA
+  parent: ADTBasePDA
   id: ADTRoboticistPDA
   name: roboticist PDA
   description: It's covered with an unknown gooey substance.
@@ -26,7 +61,7 @@
     state: pda-roboticist
 
 - type: entity
-  parent: MedicalPDA
+  parent: ADTBaseMedicalPDA
   id: ADTPathologistPDA
   name: pathologist's PDA
   description: It breezes chill.
@@ -41,13 +76,11 @@
     state: pda-pathologist
 
 - type: entity
-  parent: BasePDA
+  parent: ADTBaseMedicalPDA
   id: ADTBlueshieldOfficerPDA
   name: BlueShield PDA
   description: Smells like protection.
   components:
-    - type: Sprite
-      sprite: ADT/Objects/Devices/pda.rsi
     - type: Pda
       id: ADTBlueShieldOfficerIDCard
       state: pda-blueshield
@@ -56,7 +89,19 @@
       accentHColor: "#2851a4"
       accentVColor: "#e1e1e1"
     - type: Icon
-      sprite: ADT/Objects/Devices/pda.rsi
       state: pda-blueshield
-    - type: HealthAnalyzer
-      scanDelay: 1.2
+
+- type: entity
+  parent: ADTBasePDA
+  id: ADTGhostPDA
+  name: ghost PDA
+  description: Boo!
+  components:
+  - type: Pda
+    state: pda-ghost
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#333333"
+  - type: Icon
+    state: pda-ghost
+  - type: Unremoveable

@@ -22,7 +22,7 @@ void fragment() {
     // visualize distortion via:
     // COLOR = vec4(w,w,w,1.0);
 
-    w *= (3.0 + visibility * 2.0);
+    w *= (2.0 + visibility * 2.0); //ADT_Tweak - первая переменная изменена с 3 до 2 для лучшей невидимости
 
     highp vec4 background = zTextureSpec(SCREEN_TEXTURE, ( FRAGCOORD.xy + vec2(w) ) * SCREEN_PIXEL_SIZE );
 

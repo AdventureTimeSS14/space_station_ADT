@@ -1,6 +1,0 @@
-- type: statusIcon
-  parent: JobIcon
-  id: JobIconADTPathologist
-  icon:
-    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
-    state: ADTPathologist
