@@ -932,7 +932,7 @@
   name: Bolper's katana
   parent: BaseSword
   id: ADTBolperKatana
-  description: Plus five pecent to damage.
+  description: Plus five percent to damage.
   suffix: Bolper
   components:
   - type: Sprite
