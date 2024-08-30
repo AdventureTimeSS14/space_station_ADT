@@ -1153,7 +1153,7 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
-  - SeniorPhysicianPDA
+  # - SeniorPhysicianPDA
 
 - type: loadoutGroup
   id: MedicalGloves
