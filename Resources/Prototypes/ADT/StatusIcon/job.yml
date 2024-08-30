@@ -22,7 +22,7 @@
     state: ADTPathologist
   jobName: job-name-ADTPathologist
 
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconADTSeniorPhysician
   icon:
