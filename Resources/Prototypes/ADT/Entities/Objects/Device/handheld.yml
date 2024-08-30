@@ -223,6 +223,25 @@
   - type: StaticPrice
     price: 1500
 
+- type: entity
+  id: VoxPidginTranslator
+  parent: [ Translator ]
+  name: SolCommon translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - VoxPidgin
+    toUnderstand:
+    - GalacticCommon
+    - VoxPidgin
+    required:
+    - GalacticCommon
+    - VoxPidgin
+  - type: StaticPrice
+    price: 1500
+
 # - type: entity
 #   id: ArachnidTranslator
 #   parent: [ Translator ]
