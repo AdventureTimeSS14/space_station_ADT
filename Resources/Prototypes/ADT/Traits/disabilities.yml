@@ -7,6 +7,8 @@
     - type: Hemophilia
       modifier: 0.01
   cost: -2  # ADT Quirks
+  speciesBlacklist:
+  - IPC
 
 # Simple Station
 

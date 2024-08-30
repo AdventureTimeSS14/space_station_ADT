@@ -35,7 +35,7 @@
 # Водолазки. От prazat911, конечно же.
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckAquamarine
+  id: ADTClothingUniformJumpsuitTurtleneckAquamarine
   name: aquamarine turtleneck
   description: Too bright!
   components:
@@ -48,7 +48,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckWhite
+  id: ADTClothingUniformJumpsuitTurtleneckWhite
   name: white turtleneck
   description: Warm and comfy.
   components:
@@ -61,7 +61,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckAzure
+  id: ADTClothingUniformJumpsuitTurtleneckAzure
   name: azure turtleneck
   description: Brighter shade of blue.
   components:
@@ -74,7 +74,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckYellow
+  id: ADTClothingUniformJumpsuitTurtleneckYellow
   name: yellow turtleneck
   description: Filled with happines.
   components:
@@ -87,7 +87,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckGreen
+  id: ADTClothingUniformJumpsuitTurtleneckGreen
   name: green turtleneck
   description: Cheaper analog of CentComm turtleneck.
   components:
@@ -100,7 +100,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckBrown
+  id: ADTClothingUniformJumpsuitTurtleneckBrown
   name: brown turtleneck
   description: -Ya know why i wear red? It hides blood well! -But that's brown color...
   components:
@@ -113,7 +113,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckRed
+  id: ADTClothingUniformJumpsuitTurtleneckRed
   name: red turtleneck
   description: Hides blood of clowns well!
   components:
@@ -126,7 +126,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckOrange
+  id: ADTClothingUniformJumpsuitTurtleneckOrange
   name: orange turtleneck
   description: I don't want to talk about it.
   components:
@@ -139,7 +139,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckPink
+  id: ADTClothingUniformJumpsuitTurtleneckPink
   name: pink turtleneck
   description: Who would wear this?
   components:
@@ -152,7 +152,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckGrey
+  id: ADTClothingUniformJumpsuitTurtleneckGrey
   name: grey turtleneck
   description: Grey style?
   components:
@@ -165,7 +165,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckBlue
+  id: ADTClothingUniformJumpsuitTurtleneckBlue
   name: blue turtleneck
   description: Darker shade of azure.
   components:
@@ -178,7 +178,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckPurple
+  id: ADTClothingUniformJumpsuitTurtleneckPurple
   name: purple turtleneck
   description: Feel yourself like a real scientist.
   components:
@@ -191,7 +191,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurtleneckBlack
+  id: ADTClothingUniformJumpsuitTurtleneckBlack
   name: black turtleneck
   description: Favourite clothes of bookworms.
   components:
@@ -204,40 +204,40 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurleneckBlackSleeveless
+  id: ADTClothingUniformJumpsuitTurtleneckBlackSleeveless
   name: ancient jumpsuit
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_blacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blacksleeveless.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_blacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blacksleeveless.rsi
   - type: StaticPrice
     price: 15
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurleneckWhiteSleeveless
+  id: ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless
   name: ancient jumpsuit
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whitesleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_whitesleeveless.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whitesleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_whitesleeveless.rsi
   - type: StaticPrice
     price: 15
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformTurleneckWhiteBlackSleeveless
+  id: ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless
   name: ancient jumpsuit
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whiteblacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_whiteblacksleeveless.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/turleneck_whiteblacksleeveless.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_whiteblacksleeveless.rsi
   - type: StaticPrice
     price: 15
 
@@ -539,10 +539,32 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_officer.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSuit
+  name: pathologist jumpsuit
+  description: A lightweight jumpsuit for a morgue worker
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSuitAlt
+  name: pathologist jumpsuit
+  description: A lightweight jumpsuit for a morgue worker. A darker version.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
+
 #Brigmed
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformBrigmedicTurtleneck
+  id: ADTClothingUniformBrigmedicJumpsuitTurtleneck
   name: brigmedic turtleneck
   description: Comfortable and warm turtleneck. Especially for the guardian angel.
   components:
@@ -550,3 +572,4 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brigmed.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brigmed.rsi
+

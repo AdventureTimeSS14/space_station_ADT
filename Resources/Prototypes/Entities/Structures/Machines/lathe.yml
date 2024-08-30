@@ -118,6 +118,7 @@
     unlitIdleState: unlit
     unlitRunningState: unlit-building
     staticRecipes:
+      - StorageCanister #ADT tweak
       - Wirecutter
       - Igniter
       - Signaller
@@ -310,6 +311,10 @@
       - Igniter
       - HandHeldMassScanner
       - PowerCellMicroreactor
+      - RCD #ADT Tweak
+      - RCDAmmo #ADT Tweak
+      - RPDAmmo #ADT Tweak
+      - RPD #ADT Tweak
       - PowerCellHigh
       - WeaponPistolCHIMP
       - ClothingMaskWeldingGas

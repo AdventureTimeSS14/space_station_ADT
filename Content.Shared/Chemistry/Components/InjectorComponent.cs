@@ -103,6 +103,12 @@ public sealed partial class InjectorComponent : Component
     public float MovementThreshold = 0.1f;
 
     #endregion
+
+
+    // ADT Injector blocking start
+    [DataField]
+    public bool IgnoreBlockers = false;
+    // ADT Injector blocking end
 }
 
 /// <summary>
