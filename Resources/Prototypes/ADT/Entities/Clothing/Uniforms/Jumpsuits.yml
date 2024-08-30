@@ -260,6 +260,17 @@
         Piercing: 0.8
         Heat: 0.9
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformIlisium
+  name: Suit Ilisiom
+  description: Suit Ilisiom
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_ili.rsi
+
 #Стильномат
 
 - type: entity

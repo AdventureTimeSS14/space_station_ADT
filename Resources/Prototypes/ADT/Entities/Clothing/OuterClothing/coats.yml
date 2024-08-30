@@ -87,3 +87,18 @@
       modifiers:
         coefficients:
           Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatIlisium
+  name: Raincoat Ilisium
+  description: Ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/plash_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/plash_ili.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75

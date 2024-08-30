@@ -87,3 +87,14 @@
       sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
     - type: Clothing
       sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHuraskaIlisium
+  name: Huraska
+  description: Ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/hurashka.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/hurashka.rsi
