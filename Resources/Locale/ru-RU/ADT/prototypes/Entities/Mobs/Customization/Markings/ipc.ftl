@@ -53,4 +53,4 @@ marking-RobotAntennaHoloaura = Голоаура
 marking-RobotAntennaWireless = Беспроводная
 marking-RobotAntennaSmallEye = Малый глаз
 
-marking-RobotHeadTopWires = Кабели
+marking-RobotHeadWires = Кабели
