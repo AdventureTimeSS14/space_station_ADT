@@ -202,7 +202,7 @@
   id: ZaukerProduction
   priority: 9
   minimumTemperature: 50000
-  maximumTemperature: 75000
+  maximumTemperature: 100000
   minimumRequirements:
   - 0     # oxygen
   - 0     # nitrogen
