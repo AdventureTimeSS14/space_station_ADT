@@ -739,7 +739,7 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
-  - SeniorEngineerPDA
+  # - SeniorEngineerPDA
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
