@@ -102,30 +102,6 @@
         {
             "name": "horns_unicorn",
             "directions": 4
-        },
-        {
-            "name": "backward_horns",
-            "directions": 4
-        },
-        {
-            "name": "dark_crown",
-            "directions": 4
-        },
-        {
-            "name": "devil_prime1_s",
-            "directions": 4
-        },
-        {
-            "name": "devil_prime1",
-            "directions": 4
-        },
-        {
-            "name": "devil_prime2",
-            "directions": 4
-        },
-        {
-            "name": "fat_horn",
-            "directions": 4
         }
     ]
 }
