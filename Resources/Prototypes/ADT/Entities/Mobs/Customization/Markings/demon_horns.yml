@@ -96,3 +96,59 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: horns_unicorn
+
+#Start-Рога от Иллюми, 32x64
+- type: marking
+  id: DemonHornsBackwardHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: backward_horns
+
+- type: marking
+  id: DemonHornsDarkCrown
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: dark_crown
+
+- type: marking
+  id: DemonHornsDevilPrimeSi1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime1_s
+
+- type: marking
+  id: DemonHornsDevilPrime1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime1
+
+- type: marking
+  id: DemonHornsDevilPrime2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: devil_prime2
+
+- type: marking
+  id: DemonHornsFat_Horn
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/size_horns32x64.rsi
+    state: fat_horn
+#End-Рога от Иллюми, 32x64
