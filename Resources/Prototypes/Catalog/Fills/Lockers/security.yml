@@ -20,10 +20,14 @@
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
-    # ADT-WikiBooks-Start
+    # ADT-Tweak-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
-    # ADT-WikiBooks-End
+      - id: ADTClothingNeckShockCollar
+        amount: 2
+      - id: RemoteSignaller
+        amount: 2
+    # ADT-Tweak-End
 
 - type: entity
   id: LockerWardenFilled
@@ -48,10 +52,14 @@
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
-    # ADT-WikiBooks-Start
+    # ADT-Tweak-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
-    # ADT-WikiBooks-End
+      - id: ADTClothingNeckShockCollar
+        amount: 2
+      - id: RemoteSignaller
+        amount: 2
+    # ADT-Tweak-End
 
 - type: entity
   id: LockerSecurityFilled
