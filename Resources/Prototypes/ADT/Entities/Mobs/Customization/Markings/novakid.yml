@@ -621,7 +621,7 @@
   speciesRestriction: [NovakidSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
-    state: supernova
+    state: supernova2
 
 - type: marking
   id: NovakidFaceSymbolism
