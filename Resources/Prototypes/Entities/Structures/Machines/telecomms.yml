@@ -86,7 +86,7 @@
       - EncryptionKeySecurity
       - EncryptionKeyService
       - EncryptionKeyCommand
-      - ADTEncryptionKeyLawyer
+      - ADTEncryptionKeyLawyer #ADT_Tweak
 
 - type: entity
   parent: TelecomServer
@@ -147,6 +147,7 @@
     containers:
       key_slots:
       - EncryptionKeySecurity
+      - ADTEncryptionKeyLawyer #ADT_Tweak
 
 - type: entity
   parent: TelecomServer

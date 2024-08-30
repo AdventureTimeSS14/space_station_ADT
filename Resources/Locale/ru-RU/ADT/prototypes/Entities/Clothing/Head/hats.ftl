@@ -8,5 +8,8 @@ ent-ADTClothingHeadHatCinnamonFlatCap = коричневая плоская ке
 ent-ADTClothingHeadHatGreyFlatCap = серая плоская кепка
     .desc = { ent-ADTClothingHeadHatsCinnamonFlatCap.desc }
 
+ent-ADTClothingHeadHatBeretBrigmedic = берет бригмедика
+    .desc = Красный берет с ярким белым крестом, показывающий всем что вы - Медик. К сожалению, это не защищает вас от пули, ведь здесь не работают земные конвенции. Зато служит отличной мешенью.
+
 ent-ADTClothingHeadHatBeretBlackCivilian = чёрный берет
     .desc = Этот тёмный берет из мягкой ткани прилегает к голове как уютный оберег от холода. Его простой и классический дизайн делает его универсальным аксессуаром для любого стиля одежды.

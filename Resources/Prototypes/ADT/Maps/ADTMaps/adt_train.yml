@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Train
   mapName: 'Train'
-  mapPath: /Maps/ADTMaps/Stations/adt_train.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_train.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
@@ -55,6 +55,7 @@
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 6, 6 ]
             SecurityCadet: [ 3, 3 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             #Lawyer: [ 1, 2 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]

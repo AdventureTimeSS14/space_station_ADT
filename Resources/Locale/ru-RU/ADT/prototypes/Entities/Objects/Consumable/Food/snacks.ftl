@@ -7,7 +7,7 @@ ent-ADTFoodSnackChipsOnionAndSourcream = чипсы со вкусом зелён
 ent-ADTFoodSnackChipsShrimp = чипсы со вкусом креветки
     .desc = Для тех, кто любит вкус креветок, но не может позволить себе их купить.
 
-ent-ADTFoodSnackChipsSpace = космомические Чипсы 
+ent-ADTFoodSnackChipsSpace = космомические Чипсы
     .desc = Кукурузные чипсы в форме треугольника со вкусом сыра чеддер - идеальная закуска для игр.
 
 ent-ADTFoodSnackChipsSpicy = чипсы ФлеймиХат
@@ -19,9 +19,9 @@ ent-ADTFoodSnackDriedBeef = вяленая говядина
     .desc = Толстые куски вяленой говядины. Очень долго хранится, а в мясе много белка, хороший вещь для похода
 
 ent-ADTFoodSnackDriedChicken = сушеное куриное мясо
-    .desc = Хорошая закуска для охоты. 
+    .desc = Хорошая закуска для охоты.
 
-ent-ADTFoodSnackDriedHorse = сушеная конина 
+ent-ADTFoodSnackDriedHorse = сушеная конина
     .desc = Конина - самое вкусное мясо, в ней низкое содержание жира и богатое содержание белка.
 
 ent-ADTFoodSnackDriedPig = вяленая свинина

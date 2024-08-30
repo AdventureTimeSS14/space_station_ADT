@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Astra
   mapName: 'Astra Station'
-  mapPath: /Maps/ADTMaps/Stations/adt_astra.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_astra.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 30
@@ -63,6 +63,7 @@
             Pilot: [ 1, 1 ]
             SecurityOfficer: [ 6, 6 ]
             SecurityCadet: [ 3, 4 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]

@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Core
   mapName: 'Core'
-  mapPath: /Maps/ADTMaps/Stations/adt_core.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_core.yml
   minPlayers: 20
   maxPlayers: 80
   stations:
@@ -57,6 +57,7 @@
             #Lawyer: [ 1, 1 ] # Corvax-IAA
             SecurityCadet: [ 1, 1 ]
             Detective: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             #supply
             CargoTechnician: [ 3, 3 ]
             Quartermaster: [ 1, 1 ]

@@ -43,7 +43,7 @@ namespace Content.Shared.Humanoid
                 // Parkstation-Ipc-Start
                 case SpeciesNaming.FirstDashLast:
                     return Loc.GetString("namepreset-firstdashlast",
-                        ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto)));
+                        ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto, gender)));
                 // Parkstation-Ipc-End
                 case SpeciesNaming.FirstLast:
                 default:

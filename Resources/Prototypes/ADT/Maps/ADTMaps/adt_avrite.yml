@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Avrit
   mapName: 'Avrite Station'
-  mapPath: /Maps/ADTMaps/Stations/adt_avrite.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_avrite.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 30
@@ -63,6 +63,7 @@
             SecurityOfficer: [ 7, 8 ]
             SecurityCadet: [ 4, 6 ]
             Pilot: [ 1, 1]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]
