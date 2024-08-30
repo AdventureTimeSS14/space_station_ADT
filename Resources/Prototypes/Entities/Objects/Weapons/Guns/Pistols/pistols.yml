@@ -202,8 +202,12 @@
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
     fireRate: 5
+    # ADT: amount of shots while burst
+    shotsPerBurst: 3
     availableModes:
     - SemiAuto
+    # ADT: added burst mode
+    - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
 

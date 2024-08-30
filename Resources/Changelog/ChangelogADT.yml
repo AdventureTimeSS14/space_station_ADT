@@ -2526,6 +2526,7 @@ Entries:
           цвета для аркан. Короче - гетерохромия., type: Add}
     time: '2024-08-24T22:38:34Z'
     id: 286
+<<<<<<< HEAD
   - author: Tamioki&RevengenRat and some AnderFan
     changes:
     - { message: "Удалены шлем и броня Бригмедика добавленная к нам с Corvax'а.", type: Remove}
@@ -2543,3 +2544,49 @@ Entries:
     - { message: "Добавлена фигурка Бригмедика.", type: Add}
     id: 287
     time: '2024-08-25T21:41:00Z'
+=======
+  - author: PyotrIgn
+    changes:
+      - {message: Зарплата для бригмедика, type: Add}
+      - {message: Аварийные наборы у наших рас, type: Add}
+      - {message: Аварийные наборы для ниан и КПБ, type: Add}
+      - {message: Удален аплинк на 40ТК у подкрепления ядерщиков. Само подкрепление
+          стоит теперь 16 очков вместо 35., type: Remove}
+      - {message: Изменен размер святого меча - чтобы не конфликтовать с аварийным
+          набором, type: Tweak}
+      - {message: Спрайтов и размеров лома, type: Fix}
+      - {message: Иконки "Майндшилда", type: Fix}
+      - {message: Отсутствия связи по каналу ЮрДепа, type: Fix}
+      - {message: Спрайтов обмоток - теперь у унатхов должны проглядывать когти, type: Fix}
+      - {message: Пофикшена невозможность засунуть КПБ в криокапсулу, type: Fix}
+    time: '2024-08-25T13:46:08Z'
+    id: 287
+  - author: Ne4to_
+    changes:
+      - {message: Добавлен режим стрельбы очередями для МК-58, type: Add}
+      - {message: По просьбам сладкоежек вновь добавлена сгущенка, type: Add}
+    time: '2024-08-25T16:44:41Z'
+    id: 288
+  - author: PyotrIgn
+    changes:
+      - {message: Полноценное добавление рабочих мест бригмедика на все карты и самого
+          бригмедика - в манифесты, type: Add}
+    time: '2024-08-27T13:13:21Z'
+    id: 289
+  - author: Darkiich
+    changes:
+      - {message: Добавлен страйкбольный лектер, type: Add}
+    time: '2024-08-27T14:14:58Z'
+    id: 290
+  - author: PyotrIgn
+    changes:
+      - {message: Новые "прически" и кастомизация головы для КПБ, type: Add}
+    time: '2024-08-28T08:32:11Z'
+    id: 291
+  - author: PyotrIgn
+    changes:
+      - {message: Коробка-невидимка и космический ниндзя стали менее заметными в режиме
+          невидимости, type: Tweak}
+    time: '2024-08-28T08:32:11Z'
+    id: 292
+>>>>>>> d81f364b928c84a6fb2c26c343f0e6468deae11c
