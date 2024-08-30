@@ -894,7 +894,7 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
-  - SeniorResearcherPDA
+  # - SeniorResearcherPDA # ADT Tweak
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit

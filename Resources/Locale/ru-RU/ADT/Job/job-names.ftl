@@ -10,6 +10,9 @@ JobMagistrat = Магистрат
 job-name-senior-physician = Ведущий врач
 JobADTSeniorPhysician = Ведущий врач
 
+job-name-senior-researcher = Доцент
+JobADTSeniorResearcher = Доцент
+
 job-name-ADTBlueShieldOfficer = Офицер Синего Щита
 JobADTBlueShieldOfficer = Офицер Синего Щита
 

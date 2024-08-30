@@ -74,3 +74,18 @@
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - MedicalShoes
+
+- type: roleLoadout
+  id: JobADTSeniorResearcher
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ScientistHead
+  - Glasses
+  - ADTSeniorScientistJumpsuit
+  - ADTSeniorScientistGloves
+  - ScientistBackpack
+  - ADTSeniorScientistOuterClothing
+  - ScientistShoes
+  - Survival
+  - Trinkets

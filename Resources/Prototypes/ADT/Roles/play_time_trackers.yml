@@ -14,5 +14,8 @@
   id: JobADTSeniorPhysician
 
 - type: playTimeTracker
+  id: JobADTSeniorResearcher
+
+- type: playTimeTracker
   id: JobBrigmedic
 

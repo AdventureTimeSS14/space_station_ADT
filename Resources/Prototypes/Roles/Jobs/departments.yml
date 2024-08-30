@@ -102,6 +102,7 @@
   - Scientist
   - ResearchAssistant
   - ADTRoboticist # ADT-Roles
+  - ADTSeniorResearcher # ADT-Roles
 
 - type: department
   id: Specific
