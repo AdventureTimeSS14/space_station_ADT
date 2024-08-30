@@ -8,19 +8,18 @@
     - Wallmount
   components:
   - type: WallMount
-    arc: 360
   - type: Transform
     anchored: true
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
     sprite: ADT/Structures/Machines/atm.rsi
-    snapCardinals: true
+    snapCardinals: false
     state:
     layers:
-    - state: "off"
+    - state: "atm_off"
       map: ["enum.ATMVisualLayers.Base"]
-    - state: "on"
+    - state: "atm"
       map: ["enum.ATMVisualLayers.BaseUnshaded"]
       shader: unshaded
   - type: ATM
