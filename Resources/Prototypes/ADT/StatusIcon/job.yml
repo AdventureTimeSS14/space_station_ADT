@@ -27,7 +27,8 @@
   id: JobIconADTSeniorPhysician
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
-  jobName: SeniorPhysician
+    state: SeniorPhysician
+  jobName: job-name-senior-physician
 
 #SPACE SEC
 
