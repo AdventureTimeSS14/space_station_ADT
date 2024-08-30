@@ -1,7 +1,7 @@
 - type: entity
-  id: BrigmedicDuffelbagClothing
+  id: ADTBrigmedicDuffelbagClothing
   suffix: Filled
-  parent: ClothingBackpackDuffelSecurity
+  parent: ClothingBackpackDuffelBrigmedic
   name: brimedic duffelbag
   components:
   - type: StorageFill
