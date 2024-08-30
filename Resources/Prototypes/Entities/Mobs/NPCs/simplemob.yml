@@ -28,7 +28,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
-    - Adrenaline #EmoGarbage404 tweak
+    - Adrenaline #ADT-Medicine
   - type: Buckle
   - type: StandingState
   - type: Tag
@@ -106,7 +106,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
-    - Adrenaline #EmoGarbage404 tweak
+    - Adrenaline #ADT-Medicine
   - type: Bloodstream
     bloodMaxVolume: 150
   - type: MobPrice

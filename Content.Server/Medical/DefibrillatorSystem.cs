@@ -24,7 +24,7 @@ using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Atmos.Miasma;
+using Content.Shared.ADT.Atmos.Miasma; //ADT-Medicine
 
 namespace Content.Server.Medical;
 
@@ -153,7 +153,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),
                 InGameICChatType.Speak, true);
         }
-        if (HasComp<EmbalmedComponent>(target)) //ADT-Tweak
+        if (HasComp<EmbalmedComponent>(target)) //ADT-Medicine
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-embalmed"),
                 InGameICChatType.Speak, true);

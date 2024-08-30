@@ -5,7 +5,7 @@
   id: ADTStarvation
 
 - type: statusEffect
-  id: Adrenaline #EmoGarbage404
+  id: Adrenaline
   alert: Adrenaline
 
 # Simple Station
