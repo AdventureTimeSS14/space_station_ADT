@@ -59,13 +59,14 @@
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
-  id: JobADTBrigmedic
+  id: JobBrigmedic
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - ADTBrigmedicdHead
   - ADTBrigmedicJumpsuit
   - ADTBrigmedicdBack
+  - ADTBrigmedicOuterClothing 
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity

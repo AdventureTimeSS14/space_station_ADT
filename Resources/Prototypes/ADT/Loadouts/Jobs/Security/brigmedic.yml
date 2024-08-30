@@ -10,7 +10,7 @@
     head: ClothingHeadHatBeretSecurityMedic
 
 - type: loadout
-  id: ADTBrigmedicBeretRed
+  id: BrigmedicBeretRed
   equipment:
     head: ADTClothingHeadHatBeretBrigmedic
 

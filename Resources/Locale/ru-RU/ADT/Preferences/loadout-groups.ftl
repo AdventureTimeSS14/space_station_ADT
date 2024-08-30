@@ -29,3 +29,10 @@ loadout-group-patholog-outerclothing = Патологоанатом, верхн�
 loadout-group-patholog-shoes = Патологоанатом, обувь
 loadout-group-patholog-backpack = Патологоанатом, рюкзак
 # Wildcards
+
+# Security
+
+loadout-group-brigmedic-head = Бригмедик, голова
+loadout-group-brigmedic-jumpsuit = Бригмедик, комбинезон
+loadout-group-brigmedic-outerclothing = Бригмедик, верхняя одежда
+loadout-group-brigmedic-back = Бригмедик, рюкзак
