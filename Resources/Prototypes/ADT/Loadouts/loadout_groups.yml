@@ -134,3 +134,45 @@
   - ADTBlueshieldBackpack
   - ADTBlueshieldSatchel
   - ADTBlueshieldDuffel
+
+#Brigmedic
+
+- type: loadoutGroup
+  id: ADTBrigmedicJumpsuit
+  name: loadout-group-brigmedic-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicTurtleneck
+  - BrigmedicTurtleneckSkirt
+  - BrigmedicJumpsuit
+  - BrigmedicJumpskirt
+
+- type: loadoutGroup
+  id: ADTBrigmedicdHead
+  name: loadout-group-brigmedic-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - BrigmedicBeretWhite
+  - BrigmedicBeretBlack
+  - BrigmedicBeretRed
+
+- type: loadoutGroup
+  id: ADTBrigmedicdBack
+  name: loadout-group-brigmedic-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicdBackpack
+  - ADTBrigmedicSatchel
+  - ADTBrigmedicDuffel
+
+- type: loadoutGroup
+  id: ADTBrigmedicOuterClothing
+  name: loadout-group-brigmedic-outerclothing
+  minLimit: 0
+  maxlimit: 1
+  loadouts:
+  - BrigmedicOuterVest
+  - ADTBrigmedicOuterCoat
