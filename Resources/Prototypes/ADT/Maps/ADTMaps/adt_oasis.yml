@@ -43,6 +43,7 @@
             MedicalIntern: [ 4, 4 ]
             Psychologist: [ 1, 1 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]

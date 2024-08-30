@@ -57,3 +57,20 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobADTSeniorPhysician
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalDoctorJumpsuit
+  - Trinkets
+  - SurvivalMedical
+  - GroupSpeciesBreathToolMedical
+  - MedicalShoes

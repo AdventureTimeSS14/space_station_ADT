@@ -5,3 +5,5 @@ job-description-roboticist = Собирайте боргов, мехов, обс
 job-description-magistrat = Самый грозный и богатый на станции.
 
 job-description-ADTBlueShieldOfficer = Защищайте капитана и глав отделов от опасностей, а прежде всего - от них самих.
+
+job-description-senior-physician = Обучайте новых врачей основам оказания помощи раненым, химии, диагностике больных и утилизации трупов.

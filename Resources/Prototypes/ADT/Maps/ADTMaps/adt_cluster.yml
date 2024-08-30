@@ -41,6 +41,7 @@
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 3 ]

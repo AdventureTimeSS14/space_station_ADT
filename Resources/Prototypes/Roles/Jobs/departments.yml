@@ -69,7 +69,8 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - ADTPathologist
+  - ADTPathologist # ADT Tweak
+  - ADTSeniorPhysician # ADT Tweal
 
 - type: department
   id: Security
