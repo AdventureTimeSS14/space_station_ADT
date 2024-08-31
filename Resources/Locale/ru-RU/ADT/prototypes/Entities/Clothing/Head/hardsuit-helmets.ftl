@@ -8,3 +8,7 @@ ent-ADTSpaceSecOfficerHelm = шлем скафандра офицера SPACE SE
     .desc = Для хранителей безопасности среди звезд.
 ent-ADTSpaceSecCommanderHelm = шлем скафандра командира SPACE SEC
     .desc = Для командира хранителей безопасности среди звезд.
+
+ent-ADTClothingHeadHelmetIlisium = шлем
+    .suffix = Иллизиум
+    .desc = Шлем бойца Иллизиума
