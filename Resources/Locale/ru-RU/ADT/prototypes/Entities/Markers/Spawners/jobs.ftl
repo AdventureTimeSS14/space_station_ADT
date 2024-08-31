@@ -9,3 +9,15 @@ ent-SpawnADTBlueShieldOfficer = офицер синего щита
 
 ent-SpawnADTBrigMedic = бригмедик
     .desc = { ent-SpawnPointJobBase.desc }
+
+ent-SpawnPointSeniorEngineer = бригадир
+    .desc = { ent-SpawnPointJobBase.desc }
+
+ent-SpawnPointSeniorPhysician = ведущий врач
+    .desc = { ent-SpawnPointJobBase.desc }
+
+ent-SpawnPointSeniorResearcher = доцент
+    .desc = { ent-SpawnPointJobBase.desc }
+
+ent-SpawnPointSeniorOfficer = офицер-инструктор
+    .desc = { ent-SpawnPointJobBase.desc }
