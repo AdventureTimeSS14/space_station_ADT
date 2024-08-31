@@ -1021,7 +1021,7 @@
   name: loadout-group-security-id
   loadouts:
   - SecurityPDA
-  - SeniorOfficerPDA
+  # - SeniorOfficerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: DetectiveHead

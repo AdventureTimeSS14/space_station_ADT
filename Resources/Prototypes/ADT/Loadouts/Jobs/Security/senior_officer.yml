@@ -1,0 +1,19 @@
+- type: loadout
+  id: ADTSeniorOfficerBackpack
+  equipment:
+    back: ADTClothingBackpackSeniorSecurityFilled
+
+- type: loadout
+  id: ADTSeniorOfficerSatchel
+  equipment:
+    back: ADTClothingBackpackSatchelSeniorSecurityFilled
+
+- type: loadout
+  id: ADTSeniorOfficerDuffel
+  equipment:
+    back: ADTClothingBackpackDuffelSeniorSecurityFilled
+
+- type: loadout
+  id: ADTSeniorOfficerArmor
+  equipment:
+    outerClothing: ClothingOuterArmorBulletproof

@@ -162,3 +162,22 @@
   - ADTBlueshieldBackpack
   - ADTBlueshieldSatchel
   - ADTBlueshieldDuffel
+
+# Security Senior
+
+- type: loadoutGroup
+  id: ADTSeniorSecurityBackpack
+  name: loadout-group-security-backpack
+  loadouts:
+  - ADTSeniorOfficerBackpack
+  - ADTSeniorOfficerSatchel
+  - ADTSeniorOfficerDuffel
+  
+- type: loadoutGroup
+  id: ADTSeniorSecurityOuterClothing
+  name: loadout-group-security-outerclothing
+  loadouts:
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+  - ADTSeniorOfficerArmor

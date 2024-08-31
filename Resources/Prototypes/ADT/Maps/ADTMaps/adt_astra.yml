@@ -58,6 +58,7 @@
             Borg: [ 2, 2 ]
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]

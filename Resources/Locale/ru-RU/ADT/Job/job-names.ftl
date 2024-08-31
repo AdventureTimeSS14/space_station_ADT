@@ -16,6 +16,9 @@ JobADTSeniorResearcher = Доцент
 job-name-senior-engineer = Бригадир 
 JobADTSeniorEngineer = Бригадир 
 
+job-name-senior-officer = Офицер-Инструктор
+JobADTSeniorOfficer = Офицер-Инструктор
+
 job-name-ADTBlueShieldOfficer = Офицер Синего Щита
 JobADTBlueShieldOfficer = Офицер Синего Щита
 

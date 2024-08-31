@@ -102,3 +102,17 @@
   - StationEngineerShoes
   - Survival
   - Trinkets
+
+- type: roleLoadout
+  id: JobADTSeniorOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SecurityHead
+  - SecurityJumpsuit
+  - ADTSeniorSecurityOuterClothing
+  - SecurityBelt
+  - ADTSeniorSecurityBackpack
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
