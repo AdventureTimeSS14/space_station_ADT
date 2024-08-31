@@ -1,3 +1,4 @@
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
@@ -60,4 +61,12 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    // ADT Tweak start
+    /// <summary>
+    /// Will not be selectable if current species equals any of these
+    /// </summary>
+    [DataField]
+    public List<ProtoId<SpeciesPrototype>> SpeciesBlacklist = new();
+    // ADT Tweak end
 }

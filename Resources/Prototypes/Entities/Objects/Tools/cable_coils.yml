@@ -35,8 +35,6 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -5
-        Cold: -5
         Shock: -5
         Caustic: -5
     # healingBeginSound:

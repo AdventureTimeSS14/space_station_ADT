@@ -95,6 +95,34 @@
   - PurpleGloves
   - RobohandsGloves
 
+- type: loadoutGroup
+  id: ADTSeniorScientistJumpsuit
+  name: loadout-group-scientist-jumpsuit
+  loadouts:
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+  - SeniorResearcherJumpsuit
+  - SeniorResearcherJumpskirt
+
+- type: loadoutGroup
+  id: ADTSeniorScientistGloves
+  name: loadout-group-scientist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+  - PurpleGloves
+
+- type: loadoutGroup
+  id: ADTSeniorScientistOuterClothing
+  name: loadout-group-scientist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoat
+  - ScienceLabCoat
+  - ScienceWintercoat
+  - SeniorResearcherLabCoat
+
 #Blueshield
 
 - type: loadoutGroup
@@ -134,3 +162,22 @@
   - ADTBlueshieldBackpack
   - ADTBlueshieldSatchel
   - ADTBlueshieldDuffel
+
+# Security Senior
+
+- type: loadoutGroup
+  id: ADTSeniorSecurityBackpack
+  name: loadout-group-security-backpack
+  loadouts:
+  - ADTSeniorOfficerBackpack
+  - ADTSeniorOfficerSatchel
+  - ADTSeniorOfficerDuffel
+  
+- type: loadoutGroup
+  id: ADTSeniorSecurityOuterClothing
+  name: loadout-group-security-outerclothing
+  loadouts:
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+  - ADTSeniorOfficerArmor

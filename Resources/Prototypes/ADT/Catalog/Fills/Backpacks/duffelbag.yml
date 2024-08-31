@@ -1,0 +1,17 @@
+- type: entity
+  id: BrigmedicDuffelbagClothing
+  suffix: Filled
+  parent: ClothingBackpackDuffelSecurity
+  name: brimedic duffelbag
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatBeretMedic
+      - id: ClothingOuterCoatAMG
+      - id: ADTClothingOuterCoatBrigmedicWB
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ADTClothingUniformBrigmedicJumpsuitTurtleneck
+      - id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
+      - id: ClothingHeadHelmetSecurityMedic # Corvax-Resprite
+

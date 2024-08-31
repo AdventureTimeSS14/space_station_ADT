@@ -39,7 +39,7 @@ public sealed partial class PhantomPuppetComponent : Component
     public float RegenerateBruteHealAmount = -25f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "PhantomPuppetFaction";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "PhantomPuppetFaction";
 
     public override bool SessionSpecific => true;
 

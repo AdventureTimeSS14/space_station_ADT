@@ -1,7 +1,8 @@
 - type: entity
   parent: GasPipeHalf
   id: ADTGasPipeHalf
-  suffix: Half
+  categories: [ HideSpawnMenu ]
+  suffix: Half, ADT
   components:
   - type: Transform
     anchored: false
@@ -14,7 +15,8 @@
 - type: entity
   parent: GasPipeStraight
   id: ADTGasPipeStraight
-  suffix: Straight
+  categories: [ HideSpawnMenu ]
+  suffix: Straight, ADT
   components:
   - type: Transform
     anchored: false
@@ -27,7 +29,8 @@
 - type: entity
   parent: GasPipeBend
   id: ADTGasPipeBend
-  suffix: Bend
+  categories: [ HideSpawnMenu ]
+  suffix: Bend, ADT
   components:
   - type: Transform
     anchored: false
@@ -40,7 +43,8 @@
 - type: entity
   parent: GasPipeTJunction
   id: ADTGasPipeTJunction
-  suffix: TJunction
+  categories: [ HideSpawnMenu ]
+  suffix: TJunction, ADT
   components:
   - type: Transform
     anchored: false
@@ -53,7 +57,8 @@
 - type: entity
   parent: GasPipeFourway
   id: ADTGasPipeFourway
-  suffix: Fourway
+  categories: [ HideSpawnMenu ]
+  suffix: Fourway, ADT
   components:
   - type: Transform
     anchored: false

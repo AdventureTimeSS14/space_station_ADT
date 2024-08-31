@@ -94,6 +94,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: ADTDoorRemoteFirefight # ADT-Atmos-Remote
   # ADT-RPD-Start
       - id: ADTRPD
       - id: ADTRPDAmmo
@@ -115,6 +116,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: ADTDoorRemoteFirefight # ADT-Atmos-Remote
   # ADT-RPD-Start
       - id: ADTRPD
       - id: ADTRPDAmmo

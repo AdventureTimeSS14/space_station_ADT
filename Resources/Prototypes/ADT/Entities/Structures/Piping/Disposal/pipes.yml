@@ -1,6 +1,7 @@
 - type: entity
   parent: DisposalPipe
   id: ADTDisposalPipe
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -13,6 +14,7 @@
 - type: entity
   parent: DisposalTagger
   id: ADTDisposalTagger
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -25,6 +27,7 @@
 - type: entity
   parent: DisposalTrunk
   id: ADTDisposalTrunk
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -37,6 +40,7 @@
 - type: entity
   parent: DisposalRouter
   id: ADTDisposalRouter
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -49,6 +53,7 @@
 - type: entity
   parent: DisposalRouterFlipped
   id: ADTDisposalRouterFlipped
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -61,6 +66,7 @@
 - type: entity
   parent: DisposalJunction
   id: ADTDisposalJunction
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -73,6 +79,7 @@
 - type: entity
   parent: DisposalJunctionFlipped
   id: ADTDisposalJunctionFlipped
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -85,6 +92,7 @@
 - type: entity
   parent: DisposalYJunction
   id: ADTDisposalYJunction
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -97,6 +105,7 @@
 - type: entity
   parent: DisposalBend
   id: ADTDisposalBend
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -109,6 +118,7 @@
 - type: entity
   parent: DisposalSignalRouter
   id: ADTDisposalSignalRouter
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false
@@ -121,6 +131,7 @@
 - type: entity
   parent: DisposalSignalRouterFlipped
   id: ADTDisposalSignalRouterFlipped
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: false

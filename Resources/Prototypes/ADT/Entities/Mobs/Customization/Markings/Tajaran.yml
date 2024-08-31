@@ -144,6 +144,8 @@
   markingCategory: Tail
   speciesRestriction: [TajaranSpecies]
   sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_3 
 
@@ -153,6 +155,8 @@
   markingCategory: Tail
   speciesRestriction: [TajaranSpecies]
   sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_2 
 
@@ -162,6 +166,8 @@
   markingCategory: Tail
   speciesRestriction: [TajaranSpecies]
   sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: wingler_1 
 
@@ -171,6 +177,8 @@
   markingCategory: Tail
   speciesRestriction: [TajaranSpecies]
   sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: tail_tip
 
@@ -180,6 +188,8 @@
   markingCategory: Tail
   speciesRestriction: [TajaranSpecies]
   sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: tail_ring
 
@@ -189,6 +199,8 @@
   markingCategory: Tail
   speciesRestriction: [TajaranSpecies]
   sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от prazat911
       state: tail_skeleton
 
@@ -209,6 +221,91 @@
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m
+
+#Хвосты Animated
+- type: marking
+  id: TailWingler3Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
+      state: wingler_3_wagging
+
+- type: marking
+  id: TailWingler2Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
+      state: wingler_2_wagging
+
+- type: marking
+  id: TailWingler1Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
+      state: wingler_1_wagging
+
+- type: marking
+  id: TailTipAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
+      state: tail_tip_wagging
+
+- type: marking
+  id: TailRingAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
+      state: tail_ring_wagging
+
+- type: marking
+  id: TailSkeletonAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от prazat911
+      state: tail_skeleton_wagging
+
+- type: marking
+  id: TailFluffyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
+      state: tail_fluffy_wagging
+
+- type: marking
+  id: TailColorAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
+      state: tail_m_wagging
 
 #Голова.
 

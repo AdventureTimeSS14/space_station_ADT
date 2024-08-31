@@ -77,6 +77,8 @@
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: tail_m
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail1
 
 - type: marking
@@ -85,6 +87,8 @@
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]
   sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: tail_m
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail2
 
@@ -96,6 +100,38 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m
+
+#Animated
+- type: marking
+  id: ADTVulpkanintail1Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: tail1_wagging
+
+- type: marking
+  id: ADTVulpkanintail2Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: tail_m_wagging
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: tail2_wagging
+
+- type: marking
+  id: ADTVulpkanintailAllAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: tail_m_wagging
 
 #- type: marking
 #  id: ADTVulpkanintail3
