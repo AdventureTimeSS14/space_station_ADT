@@ -1,0 +1,428 @@
+# - type: microwaveMealRecipe
+#   id: ADTRecipeBakedChicken
+#   name: baked chicken
+#   result: ADTFoodMeatChickenBaked
+#   time: 25
+#   solids:
+#     ADTChickenBody: 1
+#   reagents:
+#     BbqSauce: 5
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeBakedStuffedChicken
+#   name: baked stuffed chicken
+#   result: ADTFoodMeatChickenBakedWithVegetables
+#   time: 30
+#   solids:
+#     ADTChickenBody: 1
+#     FoodPlate: 1
+#     FoodCabbage: 1
+#     FoodTomato: 1
+#     FoodPotato: 1
+#     FoodCorn: 1
+#     FoodMeatCutlet: 2
+#   reagents:
+#     BbqSauce: 5
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeBakedChickenLeg
+#   name: baked chicken leg
+#   result: ADTFoodMeatChickenBakedLeg
+#   time: 5
+#   solids:
+#     ADTFoodMeatChickenLeg: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeBakedChickenWing
+#   name: baked chicken wing
+#   result: ADTFoodMeatChickenBakedWing
+#   time: 5
+#   solids:
+#     ADTFoodMeatChickenWing: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodRecipeVulpix
+#   name: vulpix recipe
+#   result: ADTFoodVulpix
+#   time: 10
+#   solids:
+#     FoodOnion: 1
+#     FoodCheeseSlice: 1
+#     ADTOrganVulpkaninAnimalLiver: 1
+#     FoodPlateSmall: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeShawermaDefault
+#   name: shawerma recipe
+#   result: ADTShawermaDefault
+#   time: 20
+#   solids:
+#     FoodTomato: 1
+#     FoodMeatCutlet: 3
+#     FoodDough: 1
+#     FoodCarrot: 1
+#     FoodOnionRedSlice: 1
+#     FoodCabbage: 1
+#   reagents:
+#     Mayo: 2
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeShawermaCheese
+#   name: cheese shawerma recipe
+#   result: ADTShawermaCheese
+#   time: 20
+#   solids:
+#     FoodTomato: 1
+#     FoodMeatCutlet: 3
+#     FoodDough: 1
+#     FoodCarrot: 1
+#     FoodOnionRedSlice: 1
+#     FoodCabbage: 1
+#     FoodCheeseSlice: 1
+#   reagents:
+#     Mayo: 2
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeShawermaMeat
+#   name: shawerma recipe
+#   result: ADTShawermaMeat
+#   time: 20
+#   solids:
+#     FoodMeatCutlet: 3
+#     FoodMeatCooked: 1
+#     FoodEgg: 2
+#     FoodMeatMeatball: 1
+#   reagents:
+#     Mayo: 2
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeSausageRaw
+#   name: raw sausage recipe
+#   result: ADTFoodSausageRaw
+#   time: 10
+#   solids:
+#     FoodMeatCutlet: 1
+#   reagents:
+#     Milk: 5
+#     TableSalt: 2
+#     Egg: 6
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeSausageFried
+#   name: fried sausage recipe
+#   result: ADTFoodSausageFried
+#   time: 5
+#   solids:
+#     ADTFoodSausageRaw: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodRecipeKhachapuri
+#   name: khachapuri recipe
+#   result: ADTFoodKhachapuri
+#   time: 10
+#   reagents:
+#     TableSalt: 1
+#     Milk: 5
+#   solids:
+#     FoodEgg: 2
+#     FoodCheeseSlice: 1
+#     FoodBreadPlainSlice: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFriedEggSausageRecipe
+#   name: fried egg with sausage recipe
+#   result: ADTFriedEggSausage
+#   time: 10
+#   reagents:
+#     Egg: 12
+#   solids:
+#     ADTFoodSausageRaw: 1
+#     FoodPlateSmall: 1
+
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeTacoFishAlt
+#   name: fish taco recipe
+#   result: FoodTacoFish
+#   time: 10
+#   solids:
+#     FoodTacoShell: 1
+#     ADTFoodFish: 1
+#     FoodOnionSlice: 2
+#     FoodTomato: 1
+#     FoodCabbage: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeSashimiSafe
+#   name: safe sashimi recipe
+#   result: ADTFoodMealSashimi
+#   time: 15
+#   reagents:
+#     TableSalt: 1
+#   solids:
+#     ADTFoodFish: 2
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeBisqueAlt
+#   name: bisque recipe
+#   result: FoodSoupBisque
+#   time: 10
+#   reagents:
+#     Water: 10
+#   solids:
+#     FoodBowlBig: 1
+#     FoodTomato: 1
+#     FoodMushroom: 1
+#     ADTFoodFish: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodCroissantCreamRecipe
+#   name: croissant with cream recipe
+#   result: ADTFoodCroissantCream
+#   time: 10
+#   reagents:
+#     Egg: 6
+#     Sugar: 5
+#     Cream: 5
+#   solids:
+#     FoodDoughSlice: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodCroissantChocolateRecipe
+#   name: croissant with chocolate recipe
+#   result: ADTFoodCroissantChocolate
+#   time: 10
+#   reagents:
+#     Egg: 6
+#     Sugar: 5
+#   solids:
+#     FoodDoughSlice: 1
+#     FoodSnackChocolateBar: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodCroissantCheeseRecipe
+#   name: croissant with cheese recipe
+#   result: ADTFoodCroissantCheese
+#   time: 10
+#   reagents:
+#     Egg: 6
+#     Sugar: 5
+#   solids:
+#     FoodDoughSlice: 1
+#     FoodCheeseSlice: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodHotDogRecipe
+#   name: hot dog
+#   result: ADTFoodHotDog
+#   time: 10
+#   reagents:
+#     Ketchup: 2
+#   solids:
+#     FoodDoughSlice: 1
+#     ADTFoodSausageRaw: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodMealPigblanketRecipe
+#   name: pig blanket
+#   result: FoodMealPigblanket
+#   time: 5
+#   solids:
+#     FoodDoughSlice: 1
+#     ADTFoodSausageRaw: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipeDriedCannabisWhite
+#   name: dried cannabis leaves recipe
+#   result: ADTLeavesCannabisWhiteDried
+#   time: 10
+#   solids:
+#     ADTLeavesCannabisWhite: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodBoiledBuckwheatRecipe
+#   name: buckwheat kasha recipe
+#   result: ADTFoodBoiledBuckwheat
+#   time: 15
+#   reagents:
+#     Water: 10
+#     ADTBuckwheatSolids: 15
+#   solids:
+#     FoodBowlBig: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodBoiledBuckwheatEggRecipe
+#   name: buckwheat kasha egg recipe
+#   result: ADTFoodBoiledBuckwheatEgg
+#   time: 15
+#   solids:
+#     ADTFoodBoiledBuckwheat: 1
+#     FoodEgg: 1
+#     FoodCarrot: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodBoiledBuckwheatSausageRecipe
+#   name: buckwheat kasha sausage recipe
+#   result: ADTFoodBoiledBuckwheatSausage
+#   time: 15
+#   solids:
+#     ADTFoodBoiledBuckwheat: 1
+#     ADTFoodSausageRaw: 2
+
+# #маффины
+# - type: microwaveMealRecipe
+#   id: ADTMuffin
+#   name: muffin recipe
+#   result: ADTMuffinMoldMuffin
+#   time: 15
+#   solids:
+#     ADTMuffinMoldBatter: 1
+#     FoodButter: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTMuffinBerry
+#   name: muffin recipe
+#   result: ADTMuffinMoldMuffinBerry
+#   time: 15
+#   solids:
+#     ADTMuffinMoldBatter: 1
+#     FoodBerries: 2
+
+# - type: microwaveMealRecipe
+#   id: ADTMuffinParty
+#   name: party muffin recipe
+#   result: ADTMuffinMoldParty
+#   time: 15
+#   solids:
+#     ADTMuffinMoldBatter: 1
+#   reagents:
+#     Cream: 10
+
+# - type: microwaveMealRecipe
+#   id: ADTMuffinChocolate
+#   name: chocolate muffin recipe
+#   result: ADTMuffinMoldChocolate
+#   time: 15
+#   solids:
+#     ADTMuffinMoldBatter: 1
+#     FoodSnackChocolateBar: 2
+#   reagents:
+#     CocoaPowder: 5
+
+- type: microwaveMealRecipe
+  id: ADTFoodSawdustSoupRecipe
+  name: sawdust soup recipe
+  result: ADTFoodSoupSawdust
+  time: 15
+  reagents:
+    Water: 10
+    TableSalt: 10
+  solids:
+    FoodBowlBig: 1
+    MaterialWoodPlank1: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipePumpkinPie
+#   name: pumpkin pie
+#   result: ADTFoodPiePumpkin
+#   time: 15
+#   solids:
+#     FoodDoughPie: 1
+#     ADTFoodPumpkin: 1
+#     FoodPlateTin: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTRecipePumpkinSoup
+#   name: pumpkin soup recipe
+#   result: ADTFoodSoupPumpkin
+#   time: 10
+#   reagents:
+#     Water: 5
+#   solids:
+#     FoodBowlBig: 1
+#     ADTFoodPumkinSlice: 2
+#     FoodCarrot: 1
+#     FoodPotato: 1
+
+# #рецепты
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodOlivierSaladRecipe
+#   name: olivier salad recipe
+#   result: ADTFoodOlivierSalad
+#   time: 15
+#   reagents:
+#     Mayo: 5
+#   solids:
+#     FoodBowlBig: 1
+#     FoodPotato: 2
+#     FoodMeat: 1
+#     FoodCarrot: 1
+#     FoodEgg: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodJelliedMeatRecipe
+#   name: jellied meat recipe
+#   result: ADTFoodJelliedMeat
+#   time: 20
+#   reagents:
+#     Water: 15
+#     UncookedAnimalProteins: 9
+#     Fat: 9
+#   solids:
+#     FoodMeat: 1
+#     FoodPlateSmall: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodHerringUnderFurcoatRecipe
+#   name: herring under furcoat recipe
+#   result: ADTFoodHerringUnderFurcoat
+#   time: 15
+#   reagents:
+#     Mayo: 5
+#   solids:
+#     FoodCarrot: 2
+#     FoodEgg: 1
+#     FoodMeatFish: 1
+#     FoodPlateSmall: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodMeatHamRecipe
+#   name: ham with mead recipe
+#   result: ADTFoodMeatHam
+#   time: 25
+#   reagents:
+#     Blackpepper: 5
+#     TableSalt: 5
+#   solids:
+#     FoodMeat: 2
+#     FoodPlate: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodCakePuddingRecipe
+#   name: puding recipe
+#   result: ADTFoodCakePudding
+#   time: 10
+#   reagents:
+#     Water: 15
+#     Milk: 10
+#     Flour: 10
+#     Sugar: 15
+#     Egg: 6
+#   solids:
+#     FoodPlateSmall: 1
+
+# - type: microwaveMealRecipe
+#   id: ADTFoodCakePuddingChristmasRecipe
+#   name: christmas puding recipe
+#   result: ADTFoodCakePuddingChristmas
+#   time: 10
+#   reagents:
+#     Water: 15
+#     Milk: 10
+#     Flour: 10
+#     Sugar: 15
+#     Egg: 6
+#   solids:
+#     FoodPlateSmall: 1
+#     ADTFoodSnackCandyStick: 2

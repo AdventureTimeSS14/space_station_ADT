@@ -1,0 +1,253 @@
+- type: flavor
+  id: ADTCocoaSolidsFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTCocoaSolidsFlavor
+
+- type: flavor
+  id: ADTChocolateDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTChocolateDrinkFlavor
+
+- type: flavor
+  id: ADTCocoaDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTCocoaDrink
+
+- type: flavor
+  id: ADTSummerShadeFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTSummerShadeFlavor
+
+- type: flavor
+  id: ADTWinterSunFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTWinterSunFlavor
+
+- type: flavor
+  id: ADTHungoverAngelFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTHungoverAngelFlavor
+
+- type: flavor
+  id: ADTCitrusBalanceFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTCitrusBalanceFlavor
+
+- type: flavor
+  id: ADTDobryiDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTDobryiDrinkFlavor
+
+- type: flavor
+  id: ADTMilkEclipseFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTMilkEclipseFlavor
+
+- type: flavor
+  id: ADTArcticExplosionFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTArcticExplosionFlavor
+
+- type: flavor
+  id: ADTSugarKnightFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTSugarKnightFlavor
+
+- type: flavor
+  id: ADTGrapeLadyFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTGrapeLadyFlavor
+
+- type: flavor
+  id: ADTSaturdayBaronFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTSaturdayBaronFlavor
+
+- type: flavor
+  id: ADTArcticLatteFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTArcticLatteFlavor
+
+- type: flavor
+  id: ADTSpecialTeaOolongFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTSpecialTeaOolongFlavor
+
+- type: flavor
+  id: ADTAzureBlueFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTAzureBlueFlavor
+
+- type: flavor
+  id: ADTPenetrationDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTPenetrationDrinkFlavor
+
+- type: flavor
+  id: ADTEclipsedEclispeFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTEclipsedEclispeFlavor
+
+- type: flavor
+  id: ADTSpaceBushFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTSpaceBushFlavor
+
+- type: flavor
+  id: ADTBusinessConversationFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTBusinessConversationFlavor
+
+- type: flavor
+  id: ADTAppleLiqueurFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTAppleLiqueurFlavor
+
+- type: flavor
+  id: ADTAppleMartiniFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTAppleMartiniFlavor
+
+- type: flavor
+  id: ADTBacardiAppleFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTBacardiAppleFlavor
+
+- type: flavor
+  id: ADTVodkaAntivirusFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTVodkaAntivirusFlavor
+
+- type: flavor
+  id: ADTCherryExquisiteWineFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTCherryExquisiteWineFlavor
+
+- type: flavor
+  id: ADTElderGuardsFlavor
+  flavorType: Base
+  description: flavor-complex-ADTElderGuardsFlavor
+
+- type: flavor
+  id: ADTBuckwheatSolidsFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTBuckwheatSolidsFlavor
+
+- type: flavor
+  id: ADTBuckwheat
+  flavorType: Complex
+  description: flavor-complex-ADTBuckwheat
+
+- type: flavor
+  id: adt_poppy
+  flavorType: Base
+  description: flavor-base-adtpoppy
+
+- type: flavor
+  id: adt_vanilla
+  flavorType: Base
+  description: flavor-base-adtvanilla
+
+- type: flavor
+  id: ADTParty
+  flavorType: Base
+  description: flavor-base-party
+
+#октоберфест
+
+- type: flavor
+  id: ADTGoldenAleFlavor
+  flavorType: Complex
+  description: flavor-complex-goldenale
+
+- type: flavor
+  id: ADTSausageBeerFlavor
+  flavorType: Complex
+  description: flavor-complex-sausagebeer
+
+- type: flavor
+  id: ADTTechnoBeerFlavor
+  flavorType: Complex
+  description: flavor-complex-technobeer
+
+- type: flavor
+  id: ADTClassicPaulanerBeerFlavor
+  flavorType: Complex
+  description: flavor-complex-classicpaulaner
+
+- type: flavor
+  id: ADTLivseyBeerFlavor
+  flavorType: Complex
+  description: flavor-complex-livseybeer
+
+- type: flavor
+  id: ADTLuckyJonnyBeerFlavor
+  flavorType: Complex
+  description: flavor-complex-luckyjonny
+
+- type: flavor
+  id: ADTSecUnfilteredBeerFlavor
+  flavorType: Complex
+  description: flavor-complex-secunfiltered
+
+- type: flavor
+  id: ADTGlyphidStoutBeerFlavor
+  flavorType: Complex
+  description: flavor-complex-glyphidstout
+
+- type: flavor
+  id: adt_pumpkin
+  flavorType: Base
+  description: flavor-base-pumpkin
+
+- type: flavor
+  id: ADTSawdust
+  flavorType: Complex
+  description: flavor-complex-ADTSawdust
+
+#New Year
+- type: flavor
+  id: ADTHoliday
+  flavorType: Base
+  description: flavor-base-holiday
+
+- type: flavor
+  id: ADTMilkshake
+  flavorType: Complex
+  description: flavor-complex-milkshake
+
+- type: flavor
+  id: ADTTeaCinnamonLemon
+  flavorType: Complex
+  description: flavor-complex-tea-cimmanon-lemon
+  
+- type: flavor
+  id: ADTSbitenCinnamonLemon
+  flavorType: Complex
+  description: flavor-complex-sbiten-cimmanon-lemon
+
+- type: flavor
+  id: ADTOlivier
+  flavorType: Complex
+  description: flavor-complex-olivier
+
+- type: flavor
+  id: ADTJellymeat
+  flavorType: Complex
+  description: flavor-complex-jellymeat
+
+- type: flavor
+  id: ADTHerringUnderFurcoat
+  flavorType: Complex
+  description: flavor-complex-herring
+
+- type: flavor
+  id: adtconsideredmilk
+  flavorType: Complex
+  description: flavor-complex-adtconsideredmilk
+
+#на вкус как.. Отсутствие сортировки
+- type: flavor
+  id: ADTmandarin
+  flavorType: Base
+  description: flavor-base-mandarin

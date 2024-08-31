@@ -1,0 +1,35 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckMantiesChaplain
+  name: MantiesChaplain
+  description: 
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Cloaks/manties_chaplain.rsi
+
+- type: entity
+  parent: ClothingNeckMantleHOSShoulder
+  id: ADTClothingNeckMantleHOSShoulderSecurityCyb
+  name: Mantle cyborg
+  description: desc
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/mantles/cybmantle_shoulder.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/mantles/cybmantle_shoulder.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK
+      - state: equipped-NECK-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckMantleCentComm
+  name: head of security's shoulder mantle
+  description: Shootouts with nukies are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/mantles/mantle_centcomm.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/mantles/mantle_centcomm.rsi

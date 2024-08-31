@@ -1,0 +1,153 @@
+- type: entity
+  name: sawdust soup
+  parent: FoodBowlBase
+  id: ADTFoodSoupSawdust
+  description: Where did the soup come from in my sawdust?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTSawdust
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/sawdustsoup.rsi
+    layers:
+    - state: bowl
+    - state: sawdustsoup
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Water
+          Quantity: 10
+
+# - type: entity
+#   name: buckwheat-kasha-name
+#   parent: FoodBowlBase
+#   id: ADTFoodBoiledBuckwheat
+#   description: buckwheat-kasha-desc
+#   components:
+#   - type: FlavorProfile
+#     flavors:
+#       - ADTBuckwheat
+#   - type: Sprite
+#     sprite: ADT/Objects/Consumable/Food/buckwheat_kasha.rsi
+#     layers:
+#     - state: bowl
+#     - state: buckwheat_kasha
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 12
+#         reagents:
+#         - ReagentId: Nutriment
+#           Quantity: 8
+#         - ReagentId: Protein
+#           Quantity: 3
+
+# - type: entity
+#   name: buckwheat-egg-kasha-name
+#   parent: FoodBowlBase
+#   id: ADTFoodBoiledBuckwheatEgg
+#   description: buckwheat-egg-kasha-desc
+#   components:
+#   - type: FlavorProfile
+#     flavors:
+#       - ADTBuckwheat
+#       - egg
+#   - type: Sprite
+#     sprite: ADT/Objects/Consumable/Food/buckwheat_kasha.rsi
+#     layers:
+#     - state: bowl
+#     - state: buckwheat-kasha-egg
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 12
+#         reagents:
+#         - ReagentId: Nutriment
+#           Quantity: 8
+#         - ReagentId: Vitamin
+#           Quantity: 4
+#         - ReagentId: Protein
+#           Quantity: 3
+
+# - type: entity
+#   name: buckwheat-sausage-kasha-name
+#   parent: FoodBowlBase
+#   id: ADTFoodBoiledBuckwheatSausage
+#   description: buckwheat-sausage-kasha-desc
+#   components:
+#   - type: FlavorProfile
+#     flavors:
+#       - ADTBuckwheat
+#       - meaty
+#   - type: Sprite
+#     sprite: ADT/Objects/Consumable/Food/buckwheat_kasha.rsi
+#     layers:
+#     - state: bowl
+#     - state: buckwheat-kasha-sausage
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 40
+#         reagents:
+#         - ReagentId: Nutriment
+#           Quantity: 18
+#         - ReagentId: Vitamin
+#           Quantity: 7
+#         - ReagentId: Protein
+#           Quantity: 6
+
+# - type: entity
+#   name: pumpkin soup
+#   parent: FoodBowlBase
+#   id: ADTFoodSoupPumpkin
+#   description: A humble split pumpkin soup.
+#   components:
+#   - type: FlavorProfile
+#     flavors:
+#       - creamy
+#       - adt_pumpkin
+#   - type: Sprite
+#     sprite: ADT/Objects/Consumable/Food/pumpkin_soup.rsi
+#     state: icon
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 15
+#         reagents:
+#         - ReagentId: Nutriment
+#           Quantity: 8
+#         - ReagentId: Vitamin
+#           Quantity: 5
+
+# #новогодние блюда
+
+# - type: entity
+#   name: olivier salad
+#   parent: FoodBowlBase
+#   id: ADTFoodOlivierSalad
+#   description: olivier salad
+#   suffix: New Year
+#   components:
+#   - type: FlavorProfile
+#     flavors:
+#       - ADTOlivier
+#   - type: Sprite
+#     sprite: ADT/Objects/Consumable/Food/new-year/newyearfood.rsi
+#     layers:
+#     - state: bowl
+#     - state: olivier
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 15
+#         reagents:
+#         - ReagentId: Nutriment
+#           Quantity: 9
+#         - ReagentId: Vitamin
+#           Quantity: 3

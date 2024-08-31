@@ -5,12 +5,12 @@
   description: A chain made of gold.
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi 
+      sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi
     - type: Clothing
       sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi #спрайты от prazat911
     - type: StaticPrice
       price: 500
-     
+
 - type: entity
   parent: ClothingNeckBase
   id: ADTSpaceSecToken
@@ -20,3 +20,20 @@
     - type: Sprite
       sprite: ADT/Clothing/Neck/space_sec_token.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: SirenaChokerWithSpike
+  name: Choker Spike
+  description: If you turn it back and forth, then it will be a weapon of torture
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Misc/Chokers/choker_with_spike.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: SirenaChokerWithHeart
+  name: Choker Heart
+  description: For good crew members
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Misc/Chokers/choker_with_heart.rsi
