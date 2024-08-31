@@ -61,6 +61,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
+  # - ADTSeniorEngineer # ADT Role
 
 - type: department
   id: Medical
@@ -74,7 +75,8 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - ADTPathologist
+  - ADTPathologist # ADT Role
+  # - ADTSeniorPhysician # ADT Role
 
 - type: department
   id: Security
@@ -90,6 +92,7 @@
   - Detective
   - Warden
   - Brigmedic # ADT rework brigmedic
+  # - ADTSeniorOfficer # ADT Role
 
 - type: department
   id: Science
@@ -101,6 +104,7 @@
   - Scientist
   - ResearchAssistant
   - ADTRoboticist # ADT-Roles
+  # - ADTSeniorResearcher # ADT-Roles
 
 - type: department
   id: Specific

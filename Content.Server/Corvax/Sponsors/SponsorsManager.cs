@@ -90,27 +90,7 @@ public sealed class SponsorsManager
 
             return await response.Content.ReadFromJsonAsync<SponsorInfo>();
         }
-        else
-        {
-            var sponsorInfo = await _dbManager.GetSponsorInfo(userId);
-            if (sponsorInfo != null)
-            {
-                return new SponsorInfo()
-                {
-                    Tier = sponsorInfo.Tier,
-                    AllowedMarkings = sponsorInfo.AllowedMarkings.Split(";",StringSplitOptions.RemoveEmptyEntries),
-                    CharacterName = string.Empty,
-                    ExtraSlots = sponsorInfo.ExtraSlots,
-                    HavePriorityJoin = sponsorInfo.HavePriorityJoin,
-                    OOCColor = sponsorInfo.OOCColor,
-                    ExpireDate = sponsorInfo.ExpireDate,
-                    AllowJob = sponsorInfo.AllowJob
-                };
-            }
-            else
-            {
-                return null;
-            }
-        }
+
+        return null;
     }
 }
