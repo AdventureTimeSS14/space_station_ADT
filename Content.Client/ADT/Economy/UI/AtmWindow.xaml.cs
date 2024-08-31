@@ -33,7 +33,7 @@ public sealed partial class AtmWindow : DefaultWindow
 
     public void UpdateState(BoundUserInterfaceState state)
     {
-        if(state is not ATMBuiState cast) return;
+        if (state is not ATMBuiState cast) return;
 
         if (!cast.HasCard)
         {

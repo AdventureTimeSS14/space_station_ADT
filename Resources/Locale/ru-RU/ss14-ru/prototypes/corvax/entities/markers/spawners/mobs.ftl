@@ -1,2 +1,2 @@
-ent-SpawnMobGorillaLargo = спавнер горилла Пётр # ADT Tweak
+ent-SpawnMobGorillaLargo = спавнер горилла Пётр
     .desc = { ent-MarkerBase.desc }

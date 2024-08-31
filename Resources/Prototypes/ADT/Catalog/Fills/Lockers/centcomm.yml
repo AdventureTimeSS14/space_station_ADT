@@ -17,7 +17,7 @@
     - id: ADTClothingNeckCloakBlueshield
     - id: ADTClothingOuterWinterBlueshield
     - id: ClothingShoesBootsJack
-    - id: ADTClothingUniformJumpskirtBlueshieldTurtleneck
+    - id: ADTClothingUniformJumpskirtBlueshieldJumpskirtTurtleneck
     - id: ADTClothingUniformJumpsuitBlueshieldTurtleneck
 
 - type: entity
@@ -37,5 +37,5 @@
     - id: ADTClothingNeckCloakBlueshield
     - id: ADTClothingOuterWinterBlueshield
     - id: ClothingShoesBootsJack
-    - id: ADTClothingUniformJumpskirtBlueshieldTurtleneck
+    - id: ADTClothingUniformJumpskirtBlueshieldJumpskirtTurtleneck
     - id: ADTClothingUniformJumpsuitBlueshieldTurtleneck

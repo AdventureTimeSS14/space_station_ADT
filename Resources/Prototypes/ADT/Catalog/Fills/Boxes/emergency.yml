@@ -1,0 +1,265 @@
+- type: entity
+  name: survival box
+  parent: BoxCardboard
+  id: BoxSurvivalBrigmedic
+  description: It's a box with basic internals inside.
+  suffix: Medical
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskBreathMedicalSecurity
+      - id: EmergencyOxygenTankFilled
+      - id: EmergencyMedipen
+      - id: Flare
+      - id: FoodSnackNutribrick
+      - id: DrinkWaterBottleFull
+      - id: SpaceMedipen
+  - type: Sprite
+    layers:
+      - state: internals
+      - state: emergencytank
+
+#Аварийный запас для молей
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalMoth
+  name: survival moth box
+  description: It's a box with basic internals inside.
+  suffix: Moth
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodTinPeaches
+    - id: DrinkWaterBottleFull
+    - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxMothHug
+  name: box of moth hugs
+  description: A special box for sensitive people.
+  suffix: Emergency, Moth
+  components:
+  - type: Sprite
+    layers:
+    - state: box_hug
+    - state: heart
+  - type: Item
+    heldPrefix: hug
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyFunnyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodTinPeaches
+    - id: DrinkWaterBottleFull
+    - id: SpaceMedipen
+  - type: Tag
+    tags:
+    - BoxHug
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalMothEngineering
+  name: extended-capacity moth survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Extended, Moth
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodTinPeaches
+    - id: DrinkWaterBottleFull
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: extendedtank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalMothSecurity
+  name: survival moth box
+  description: It's a box with basic internals inside.
+  suffix: Security, Moth
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSecurity
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodTinPeaches
+    - id: DrinkWaterBottleFull
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalMothMedical
+  name: survival moth box
+  description: It's a box with basic internals inside.
+  suffix: Medical, Moth
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedical
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodTinPeaches
+    - id: DrinkWaterBottleFull
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalMothSyndicate
+  name: extended-capacity survival moth box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Syndicate, Moth
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSyndicate
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodTinPeaches
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: extendedtank
+
+#Аварийный запас для КПБ
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalSilicon
+  name: survival silicon box
+  description: It's a box with basic internals inside.
+  suffix: IPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: CableApcStack
+    - id: WelderMini
+    - id: PowerCellMedium
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSiliconHug
+  name: box of silicon hugs
+  description: A special box for sensitive people.
+  suffix: Emergency, IPC
+  components:
+  - type: Sprite
+    layers:
+    - state: box_hug
+    - state: heart
+  - type: Item
+    heldPrefix: hug
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: CableApcStack
+    - id: WelderMini
+    - id: PowerCellMedium
+  - type: Tag
+    tags:
+    - BoxHug
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalSiliconEngineering
+  name: extended-capacity silicon survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Extended, IPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: CableApcStack
+    - id: WelderMini
+    - id: PowerCellHigh
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: extendedtank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalSiliconSecurity
+  name: survival silicon box
+  description: It's a box with basic internals inside.
+  suffix: Security, IPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: CableApcStack
+    - id: WelderMini
+    - id: PowerCellHigh
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalSiliconMedical
+  name: survival silicon box
+  description: It's a box with basic internals inside.
+  suffix: Medical, IPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: CableApcStack
+    - id: WelderMini
+    - id: PowerCellMedium
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalSiliconSyndicate
+  name: extended-capacity survival silicon box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Syndicate, IPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: CableApcStack
+    - id: WelderMini
+    - id: PowerCellHigh
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: extendedtank

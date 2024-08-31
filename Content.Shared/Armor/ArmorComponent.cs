@@ -22,6 +22,14 @@ public sealed partial class ArmorComponent : Component
     /// </summary>
     [DataField]
     public float PriceMultiplier = 1;
+
+    // ADT Stunmeta fix start
+    /// <summary>
+    /// Stamina damage reduction
+    /// </summary>
+    [DataField]
+    public float StaminaModifier = 1f;
+    // ADT Stunmeta fix
 }
 
 /// <summary>
