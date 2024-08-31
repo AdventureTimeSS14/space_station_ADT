@@ -22,14 +22,6 @@
     state: ADTPathologist
   jobName: job-name-ADTPathologist
 
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconADTSeniorPhysician
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: SeniorPhysician
-  jobName: job-name-senior-physician
-
 #SPACE SEC
 
 - type: jobIcon
