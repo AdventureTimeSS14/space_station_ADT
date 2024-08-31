@@ -75,7 +75,7 @@
   name: seniorengineer
   components:
   - type: SpawnPoint
-    job_id: SeniorEngineer
+    job_id: ADTSeniorEngineer
   - type: Sprite
     layers:
       - state: green
@@ -87,7 +87,7 @@
   name: seniorphysician
   components:
   - type: SpawnPoint
-    job_id: SeniorPhysician
+    job_id: ADTSeniorPhysician
   - type: Sprite
     layers:
       - state: green
@@ -100,11 +100,11 @@
   name: seniorresearcher
   components:
   - type: SpawnPoint
-    job_id: SeniorResearcher
+    job_id: ADTSeniorResearcher
   - type: Sprite
     layers:
       - state: green
-      - state: 
+      - state: seniorresearcher
       
 - type: entity
   id: SpawnPointSeniorOfficer
@@ -112,7 +112,7 @@
   name: seniorofficer
   components:
   - type: SpawnPoint
-    job_id: SeniorOfficer
+    job_id: ADTSeniorOfficer
   - type: Sprite
     layers:
       - state: green
