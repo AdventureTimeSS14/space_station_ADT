@@ -265,6 +265,7 @@
   id: ADTClothingUniformIlisium
   name: Suit Ilisiom
   description: Suit Ilisiom
+  suffix: Ilisium
   components:
   - type: Sprite
     sprite: ADT/Clothing/Uniforms/Jumpsuit/uniform_ili.rsi

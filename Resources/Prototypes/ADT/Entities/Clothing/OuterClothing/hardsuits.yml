@@ -159,6 +159,7 @@
   id: ADTClothingOuterHardsuitIlisium
   name: hardsuit ilisium
   description: hardsuit ilisium
+  suffix: Ilisium
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Hardsuits/hardsuit_ili.rsi

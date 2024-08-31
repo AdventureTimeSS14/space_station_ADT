@@ -90,9 +90,10 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ADTClothingHeadHuraskaIlisium
+  id: ADTClothingHeadCapIlisium
   name: Huraska
   description: Ilisium
+  suffix: Ilisium
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/hurashka.rsi

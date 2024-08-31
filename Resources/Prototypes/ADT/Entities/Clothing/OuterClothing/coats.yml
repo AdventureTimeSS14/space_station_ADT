@@ -93,6 +93,7 @@
   id: ADTClothingOuterCoatIlisium
   name: Raincoat Ilisium
   description: Ilisium
+  suffix: Ilisium
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Coats/plash_ili.rsi

@@ -1,8 +1,9 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ADTClothingHeadHelmetSolderIlisium
+  id: ADTClothingHeadHelmetSoliderIlisium
   name: Helmet
   description: Ilisium
+  suffix: Ilisium
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Helmets/helmetSolder.rsi

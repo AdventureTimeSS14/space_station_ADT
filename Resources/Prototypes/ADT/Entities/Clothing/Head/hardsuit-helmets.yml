@@ -29,6 +29,7 @@
   noSpawn: true
   name: helmet
   description: Ilisium
+  suffix: Ilisium
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/helmet_ili.rsi
@@ -53,7 +54,7 @@
   id: ADTClothingHeadHelmetHardsuitBlueshield
   noSpawn: true
   name: blueshield hardsuit helmet
-  description: 
+  description:
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/blueshield_hardsuithead.rsi
