@@ -28,7 +28,9 @@ public sealed class CheckSponsorSystem : EntitySystem
         else
             return false;
 
+        //ADT-SPONSORS
         if (sponsorData != null && (sponsorData.Tier > 0 || sponsorData.AllowJob))
+        //ADT-SPONSORS
             return true;
         else
             return false;

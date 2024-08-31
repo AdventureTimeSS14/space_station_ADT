@@ -66,6 +66,7 @@ namespace Content.Client.Administration
                     args.ScreenHandle.DrawString(_font, screenCoordinates + (lineoffset * 2), "ANTAG", Color.OrangeRed);
                 }
 
+                //ADT-SPONSORS
                 if (playerInfo.Sponsor != null)
                 {
                     var sponsorOffset = playerInfo.Antag ? lineoffset * 3 : lineoffset * 2;
@@ -77,6 +78,7 @@ namespace Content.Client.Administration
 
                     args.ScreenHandle.DrawString(_font, screenCoordinates + sponsorOffset, sponsorString, Color.GreenYellow);
                 }
+                //ADT-SPONSORS
                 args.ScreenHandle.DrawString(_font, screenCoordinates+lineoffset, playerInfo.Username, playerInfo.Connected ? Color.Yellow : Color.White);
                 args.ScreenHandle.DrawString(_font, screenCoordinates, playerInfo.CharacterName, playerInfo.Connected ? Color.Aquamarine : Color.White);
             }

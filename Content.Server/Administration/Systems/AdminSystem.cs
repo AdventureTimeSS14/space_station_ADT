@@ -253,11 +253,13 @@ namespace Content.Server.Administration.Systems
                 overallPlaytime = playTime;
             }
 
+            //ADT-SPONSORS
             SponsorInfo? sponsorInfo = null;
             _sponsorsManager.TryGetInfo(data.UserId, out sponsorInfo);
 
             return new PlayerInfo(name, entityName, identityName, startingRole, antag, sponsorInfo, GetNetEntity(session?.AttachedEntity), data.UserId,
                 connected, _roundActivePlayers.Contains(data.UserId), overallPlaytime);
+            //ADT-SPONSORS
         }
 
         private void OnPanicBunkerChanged(bool enabled)
