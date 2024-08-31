@@ -29,7 +29,7 @@
     RLeg: MobTajaranRLeg
     LFoot: MobTajaranLFoot
     RFoot: MobTajaranRFoot
-    Tail: MobTajaranTail
+    Tail: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobTajaranMarkingLimits
@@ -46,7 +46,8 @@
       required: false
     Tail:
       points: 1
-      required: false
+      required: true
+      defaultMarkings: [ TailColor ]
     Head:
       points: 3
       required: false

@@ -304,3 +304,110 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesBolperBoots
+  suffix: Bolper
+  name: Bolper`s boots
+  description: Plus five percent speed.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_boots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckBolperCloak
+  suffix: Bolper
+  name: Bolper`s cloak
+  description: Plus five percent coolness.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_cloak.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBolperJumpsuit
+  suffix: Bolper
+  name: Bolper`s jumpsuit
+  description: Plus five percent freshness.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_jumpsuit.rsi
+
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ADTClothingBackBolperSheath
+  suffix: Bolper
+  name: Bolper`s katana sheath
+  description: I`m ready to fight.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_sheaths.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_sheaths.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Katana
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Katana
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 50
+  - type: StaticPrice
+    price: 20
+#  - type: Clothing
+#    quickEquip: false
+#    slots:
+#    - back
+
+#Pangaari
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPangaariAmericanSleeveless
+  suffix: Pangaari
+  name: American sleeveless.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
+
+#Rip_Zoro
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckRipZoroMantle
+  suffix: Rip_Zoro
+  name: Mysterious shoulder mantle
+  description: A mantle that holds a secret...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_mantle.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_mantle.rsi
+  - type: Item
+    size: Normal
