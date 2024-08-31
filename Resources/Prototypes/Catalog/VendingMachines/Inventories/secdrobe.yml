@@ -24,3 +24,5 @@
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2
     ADTClothingKadet: 4 #ADT tweak
+  contrabandInventory:
+    ClothingMaskClownSecurity: 1

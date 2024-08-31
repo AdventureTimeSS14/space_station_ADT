@@ -1,0 +1,39 @@
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ADTClothingJumpBoots
+  name: jumpboots
+  description: Looks heavy... Until you use it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/jumpboots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/jumpboots.rsi
+  - type: Jumpboots
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ADTClothingJumpBootsSynd
+  name: blood-red jumpboots
+  description: Looks heavy... Until you use it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
+    map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
+  - type: Jumpboots
+    jumpAction: ActionJumpbootsSynd
+  - type: Magboots
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+    # enabled: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon-on}
+          False: {state: icon}

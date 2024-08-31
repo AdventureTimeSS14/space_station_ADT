@@ -1,0 +1,8 @@
+- type: material
+  id: Ectoplasm
+  stackEntity: ADTPhantomEctoplasm
+  name: эктоплазма
+  icon: { sprite: ADT/Objects/Misc/ectoplasm.rsi, state: icon }
+  color: "#ffffff"
+  price: 0.05
+

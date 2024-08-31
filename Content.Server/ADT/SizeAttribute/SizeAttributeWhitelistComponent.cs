@@ -1,6 +1,6 @@
 using Robust.Shared.Physics.Collision.Shapes;
 
-namespace Content.Server.SizeAttribute
+namespace Content.Server.ADT.SizeAttribute
 {
     [RegisterComponent]
     public sealed partial class SizeAttributeWhitelistComponent : Component

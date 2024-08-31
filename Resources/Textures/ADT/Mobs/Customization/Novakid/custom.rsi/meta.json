@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:lunalita",
+    "copyright": "Created by discord:lunalita and Created by discord:unlumy",
     "size": {
         "x": 32,
         "y": 32
@@ -239,6 +239,50 @@
         {
             "name": "eyes_a",
             "directions": 4
-        }
+        },
+        {
+            "name": "horns",
+            "directions": 4
+        },
+        {
+            "name": "hourglasses",
+            "directions": 4
+        },
+        {
+            "name": "love",
+            "directions": 4
+        },
+        {
+            "name": "madness",
+            "directions": 4
+        },
+        {
+            "name": "naive",
+            "directions": 4
+        },
+        {
+            "name": "rev_triangle",
+            "directions": 4
+        },
+        {
+            "name": "scar",
+            "directions": 4
+        },
+        {
+            "name": "spider",
+            "directions": 4
+        },
+        {
+            "name": "spinning_top",
+            "directions": 4
+        },
+        {
+            "name": "supernova2",
+            "directions": 4
+        },
+        {
+            "name": "symbolism",
+            "directions": 4
+        }   
     ]
 }

@@ -3,77 +3,67 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   traitGear: WhiteCane
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   whitelist:
     components:
       - Blindable
   components:
     - type: PermanentBlindness
+  cost: -3  # ADT Quirks
 
 - type: trait
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
   traitGear: ClothingEyesGlasses
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   whitelist:
     components:
       - Blindable
   components:
     - type: PermanentBlindness
       blindness: 4
+  cost: -2  # ADT Quirks
 
 - type: trait
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   components:
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
       durationOfIncident: 10, 30
-
-- type: trait
-  id: Pacifist
-  name: trait-pacifist-name
-  description: trait-pacifist-desc
-  category: Disabilities
-  components:
-    - type: Pacified
+  cost: -2  # ADT Quirks
 
 - type: trait
   id: Unrevivable
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   components:
     - type: Unrevivable
+  cost: -1  # ADT Quirks
+  speciesBlacklist:
+  - IPC
 
 - type: trait
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   blacklist:
     components:
       - BorgChassis
   components:
     - type: Muted
-
-- type: trait
-  id: LightweightDrunk
-  name: trait-lightweight-name
-  description: trait-lightweight-desc
-  category: Disabilities
-  components:
-    - type: LightweightDrunk
-      boozeStrengthMultiplier: 2
+  cost: -2  # ADT Quirks
 
 - type: trait
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   components:
     - type: Paracusia
       minTimeBetweenIncidents: 0.1
@@ -81,11 +71,4 @@
       maxSoundDistance: 7
       sounds:
         collection: Paracusia
-
-- type: trait
-  id: Snoring
-  name: trait-snoring-name
-  description: trait-snoring-desc
-  category: Disabilities
-  components:
-    - type: Snoring
+  cost: -1  # ADT Quirks

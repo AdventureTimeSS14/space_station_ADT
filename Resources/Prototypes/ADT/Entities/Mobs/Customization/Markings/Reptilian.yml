@@ -1,0 +1,53 @@
+- type: marking
+  id: ReptilianDrawingKhar
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_khar
+
+- type: marking
+  id: ReptilianDrawingSkeletBody
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_skelet_body
+
+- type: marking
+  id: ReptilianDrawingSkeleton
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_skeleton
+
+- type: marking
+  id: ReptilianDrawingSun
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_sun
+
+- type: marking
+  id: ReptilianDrawingWarpaint
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_warpaint
+
+- type: marking
+  id: ReptilianLineEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: lineeyes

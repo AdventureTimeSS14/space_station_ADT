@@ -94,3 +94,90 @@
   - LatexGloves
   - PurpleGloves
   - RobohandsGloves
+
+- type: loadoutGroup
+  id: ADTSeniorScientistJumpsuit
+  name: loadout-group-scientist-jumpsuit
+  loadouts:
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+  - SeniorResearcherJumpsuit
+  - SeniorResearcherJumpskirt
+
+- type: loadoutGroup
+  id: ADTSeniorScientistGloves
+  name: loadout-group-scientist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+  - PurpleGloves
+
+- type: loadoutGroup
+  id: ADTSeniorScientistOuterClothing
+  name: loadout-group-scientist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoat
+  - ScienceLabCoat
+  - ScienceWintercoat
+  - SeniorResearcherLabCoat
+
+#Blueshield
+
+- type: loadoutGroup
+  id: ADTBlueshieldJumpsuit
+  name: loadout-group-blueshield-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldJumpsuit
+  - ADTBlueshieldJumpskirt
+  - ADTBlueshieldJumpsuitTurtleneck
+  - ADTBlueshieldJumpskirtTurtleneck
+
+- type: loadoutGroup
+  id: ADTBlueshieldHead
+  name: loadout-group-blueshield-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldHeadBeret
+  - ADTBlueshieldHeadBeretBlack
+
+- type: loadoutGroup
+  id: ADTBlueshieldNeck
+  name: loadout-group-blueshield-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldCloak
+
+- type: loadoutGroup
+  id: ADTBlueshieldBack
+  name: loadout-group-blueshield-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTBlueshieldBackpack
+  - ADTBlueshieldSatchel
+  - ADTBlueshieldDuffel
+
+# Security Senior
+
+- type: loadoutGroup
+  id: ADTSeniorSecurityBackpack
+  name: loadout-group-security-backpack
+  loadouts:
+  - ADTSeniorOfficerBackpack
+  - ADTSeniorOfficerSatchel
+  - ADTSeniorOfficerDuffel
+  
+- type: loadoutGroup
+  id: ADTSeniorSecurityOuterClothing
+  name: loadout-group-security-outerclothing
+  loadouts:
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+  - ADTSeniorOfficerArmor

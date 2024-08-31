@@ -44,3 +44,75 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobADTBlueShieldOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ADTBlueshieldHead
+  - ADTBlueshieldJumpsuit
+  - ADTBlueshieldNeck
+  - ADTBlueshieldBack
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobADTSeniorPhysician
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalDoctorJumpsuit
+  - Trinkets
+  - SurvivalMedical
+  - GroupSpeciesBreathToolMedical
+  - MedicalShoes
+
+- type: roleLoadout
+  id: JobADTSeniorResearcher
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ScientistHead
+  - Glasses
+  - ADTSeniorScientistJumpsuit
+  - ADTSeniorScientistGloves
+  - ScientistBackpack
+  - ADTSeniorScientistOuterClothing
+  - ScientistShoes
+  - Survival
+  - Trinkets
+
+- type: roleLoadout
+  id: JobADTSeniorEngineer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - StationEngineerHead
+  - StationEngineerJumpsuit
+  - StationEngineerOuterClothing
+  - StationEngineerBackpack
+  - StationEngineerShoes
+  - Survival
+  - Trinkets
+
+- type: roleLoadout
+  id: JobADTSeniorOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SecurityHead
+  - SecurityJumpsuit
+  - ADTSeniorSecurityOuterClothing
+  - SecurityBelt
+  - ADTSeniorSecurityBackpack
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets

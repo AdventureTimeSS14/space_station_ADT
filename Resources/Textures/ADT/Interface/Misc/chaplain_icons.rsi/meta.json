@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "size": {
+        "x": 6,
+        "y": 6
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: mnogo_znal",
+    "states": [
+        {
+            "name": "krest"
+        },
+        {
+            "name": "ne-krest"
+        }
+    ]
+}

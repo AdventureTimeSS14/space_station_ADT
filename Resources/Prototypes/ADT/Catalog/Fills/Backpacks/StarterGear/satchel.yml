@@ -1,11 +1,44 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTClothingBackpackSatchelPathologist
   id: ADTClothingBackpackSatchelPathologistFilled
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalMedical
+      # - id: BoxSurvivalMedical
       - id: BodyBagFolded
      # До добавления слота носков - id: ADTFootTag
       - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpackSatchelBrigmedic
+  id: ClothingBackpackSatchelBrigmedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      # - id: BoxSurvivalBrigmedic
+      - id: Flash
+      - id: MagazinePistol
+#      - id: ADTSpaceLaw
+      # - id: SpaceCash500
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelSeniorSecurityFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpeedLoaderMagnum
+      - id: SpeedLoaderMagnum
+      - id: SmokeGrenade
+      - id: SmokeGrenade

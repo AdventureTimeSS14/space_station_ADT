@@ -1,6 +1,5 @@
 using System.IO;
 using System.Linq;
-using Content.Corvax.Interfaces.Shared;
 using Content.Shared.CCVar;
 using Content.Shared.Decals;
 using Content.Shared.Examine;
@@ -19,6 +18,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+using Content.Shared.ADT.SpeechBarks;
 
 namespace Content.Shared.Humanoid;
 
@@ -38,24 +38,23 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
-    private ISharedSponsorsManager? _sponsors;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
     // Corvax-TTS-Start
-    public const string DefaultVoice = "Garithos";
+    public const string DefaultVoice = "johnny";
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
     {
-        {Sex.Male, "Garithos"},
-        {Sex.Female, "Maiev"},
-        {Sex.Unsexed, "Myron"},
+        {Sex.Male, "johnny"},
+        {Sex.Female, "v_female"},
+        {Sex.Unsexed, "serana"},
     };
     // Corvax-TTS-End
+    public const string DefaultBark = "Human1";
 
     public override void Initialize()
     {
         base.Initialize();
-        IoCManager.Instance!.TryResolveType(out _sponsors); // Corvax-Sponsors
 
         SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HumanoidAppearanceComponent, ExaminedEvent>(OnExamined);
@@ -73,7 +72,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         return dataNode;
     }
 
-    public HumanoidCharacterProfile FromStream(Stream stream, ICommonSession session)
+    public HumanoidCharacterProfile FromStream(Stream stream, ICommonSession session, string[] sponsorPrototypes)
     {
         using var reader = new StreamReader(stream, EncodingHelpers.UTF8);
         var yamlStream = new YamlStream();
@@ -85,10 +84,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         /*
          * Add custom handling here for forks / version numbers if you care.
          */
-
         var profile = export.Profile;
         var collection = IoCManager.Instance;
-        var sponsorPrototypes = _sponsors != null && _sponsors.TryGetServerPrototypes(session.UserId, out var prototypes) ? prototypes.ToArray() : []; // Corvax-Sponsors
         profile.EnsureValid(session, collection!, sponsorPrototypes);
         return profile;
     }
@@ -393,7 +390,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
-
+        var bark = _proto.Index<BarkPrototype>(profile.BarkProto); // ADT Barks
+        SetBarkData(uid, bark.Sound, profile.BarkPitch, profile.BarkLowVar, profile.BarkHighVar); // ADT Barks
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
@@ -483,6 +481,19 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         comp.VoicePrototypeId = voiceId;
     }
     // Corvax-TTS-End
+
+    // ADT Barks start
+    public void SetBarkData(EntityUid uid, string sound, float pitch, float lowVar, float highVar)
+    {
+        if (!TryComp<SpeechBarksComponent>(uid, out var comp))
+            return;
+
+        comp.Sound = sound;
+        comp.BarkPitch = pitch;
+        comp.BarkLowVar = lowVar;
+        comp.BarkHighVar = highVar;
+    }
+    // ADT Barks end
 
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.

@@ -419,3 +419,241 @@
         settings: short
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
+
+# start Капитан РХБЗЗ
+- type: entity
+  id: ADTRandomHumanoidSpawnerCBURNUnit
+  name: Cmnd CBURN Agent
+  suffix: AdtERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: ADTCmndCBURNAgent
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+
+- type: randomHumanoidSettings
+  speciesBlacklist:
+    - Diona
+  id: ADTCmndCBURNAgent
+  components:
+    - type: MindShield
+    - type: Loadout
+      prototypes: [ADTCmndCBURNGear]
+    - type: GhostRole
+      name: ghost-role-information-cmnd-cburn-agent-name
+      description: ghost-role-information-cmnd-cburn-agent-description
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10h overall
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+      - ADTCmndNamesFirstMilitary
+      - NamesLastERTCallsign  # Corvax Localization
+# end Капитан РХБЗЗ
+
+# SPACE SEC
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecCadet
+  name: Space Sec Cadet
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecCadet ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Cadet
+  id: ADTRandomHumanoidSpawnerSpaceSecCadet
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecCadet
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecCadet
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecCadet ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecOfficer
+  name: Space Sec Officer
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecOfficer ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Officer
+  id: ADTRandomHumanoidSpawnerSpaceSecOfficer
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecOfficer
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecOfficer
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecOfficer ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecPilot
+  name: Space Sec Pilot
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecPilot ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Pilot
+  id: ADTRandomHumanoidSpawnerSpaceSecPilot
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecPilot
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecPilot
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecPilot ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecCommander
+  name: Space Sec Commander
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecCommander ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Commander
+  id: ADTRandomHumanoidSpawnerSpaceSecCommander
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecCommander
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecCommander
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecCommander ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  parent: MobHuman
+  id: ADTSpaceSecService
+  name: Space Sec Service
+  suffix: Space Sec
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ SpaceSecService ]
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль
+
+- type: entity
+  name: Space Sec Service
+  id: ADTRandomHumanoidSpawnerSpaceSecService
+  suffix: Space Sec, Random
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Reptilian/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: ADTSpaceSecService
+
+- type: randomHumanoidSettings
+  id: ADTSpaceSecService
+  components:
+    - type: MindShield
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ SpaceSecService ]
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+      - SpaceSecFaction
+      - Passive # Костыль

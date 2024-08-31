@@ -26,6 +26,9 @@
       - PaintingSleepingGypsy
       - PaintingRedBlueYellow
       - PaintingHelloWorld
+      #ADT tweak vvv
+      - ADTPaintingGagarin
+      #ADT tweak ^^^
     chance: 1
     rarePrototypes:
       - PaintingSkeletonBoof

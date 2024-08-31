@@ -1,0 +1,124 @@
+- type: entity
+  parent: BaseItem
+  id: ADTBaseDepartmentBudgetCard
+  noSpawn: true
+  components:
+    - type: BankCard
+      startingBalance: 5000
+    - type: Sprite
+      sprite: ADT/Objects/Misc/cards.rsi
+      scale: 0.8, 0.8
+      state: budgetcard
+    - type: Item
+      storedRotation: 90
+
+- type: entity
+  parent: ADTBaseDepartmentBudgetCard
+  id: ADTCommandBudgetCard
+  name: command budget card
+  components:
+    - type: Sprite
+      state: budgetcard
+    - type: BankCard
+      commandBudgetCard: true
+
+- type: entity
+  parent: Paper
+  id: ADTCommandBudgetPinPaper
+  name: command budget pin
+  components:
+  - type: CommandBudgetPinPaper
+  - type: Paper
+
+- type: entity
+  parent: ADTBaseDepartmentBudgetCard
+  id: ADTCargoBudgetCard
+  noSpawn: true
+  name: cargo budget card
+  components:
+    - type: Sprite
+      state: car_budget
+    - type: BankCard
+      accountId: 1315
+
+- type: entity
+  parent: ADTBaseDepartmentBudgetCard
+  id: ADTCivilianBudgetCard
+  name: civilian budget card
+  noSpawn: true
+  components:
+    - type: Sprite
+      state: srv_budget
+    - type: BankCard
+      accountId: 1316
+
+- type: entity
+  parent: ADTBaseDepartmentBudgetCard
+  id: ADTEngineeringBudgetCard
+  name: engineering budget card
+  noSpawn: true
+  components:
+    - type: Sprite
+      state: eng_budget
+    - type: BankCard
+      accountId: 1318
+
+- type: entity
+  parent: ADTBaseDepartmentBudgetCard
+  id: ADTMedicalBudgetCard
+  name: medical budget card
+  noSpawn: true
+  components:
+    - type: Sprite
+      state: med_budget
+    - type: BankCard
+      accountId: 1319
+
+- type: entity
+  parent: ADTBaseDepartmentBudgetCard
+  id: ADTScienceBudgetCard
+  name: science budget card
+  noSpawn: true
+  components:
+    - type: Sprite
+      state: sci_budget
+    - type: BankCard
+      accountId: 1321
+
+- type: entity
+  parent: ADTBaseDepartmentBudgetCard
+  id: ADTSecurityBudgetCard
+  name: security budget card
+  noSpawn: true
+  components:
+    - type: Sprite
+      state: sec_budget
+    - type: BankCard
+      accountId: 1320
+
+- type: entity
+  parent: BaseItem
+  id: ADTEftpos
+  name: EFTPOS
+  description: Swipe your ID card to make purchases electronically.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Devices/eftpos.rsi
+      state:
+      layers:
+        - state: eftpos
+        - state: eftpos-screen
+          shader: unshaded
+      netsync: false
+    - type: Eftpos
+    - type: ActivatableUI
+      key: enum.EftposKey.Key
+      singleUser: true
+    - type: UserInterface
+      interfaces:
+        enum.EftposKey.Key:
+          type: EftposBui
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - Belt

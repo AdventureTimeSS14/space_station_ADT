@@ -1,11 +1,90 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ADTClothingBackpackPathologist
   id: ADTClothingBackpackPathologistFilled
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalMedical
+      # - id: BoxSurvivalMedical
       - id: BodyBagFolded
       # До добавления слота носков- id: ADTFootTag
       - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackFilled
+  noSpawn: true
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: SpaceCash500
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAntagDroneMiner
+  name: backpack antag drone miner
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi # invisible sprite
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: MiningDrill
+        - id: WeaponProtoKineticAccelerator
+        - id: JawsOfLife
+        - id: PowerDrill
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAntagDroneEngineer
+  name: backpack antag drone engineer
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi # invisible sprite
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: WelderIndustrial
+        - id: JawsOfLife
+        - id: PowerDrill
+        - id: Multitool
+        - id: trayScanner
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAntagDroneCharger
+  name: backpack antag drone charger
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi # invisible sprite
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: JawsOfLife
+        - id: WeaponLaserGun
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackBrigmedic
+  id: ClothingBackpackBrigmedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      # - id: BoxSurvivalBrigmedic
+      - id: Flash
+      - id: MagazinePistol
+#      - id: ADTSpaceLaw
+      # - id: SpaceCash500
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSecurity
+  id: ADTClothingBackpackSeniorSecurityFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpeedLoaderMagnum
+      - id: SpeedLoaderMagnum
+      - id: SmokeGrenade
+      - id: SmokeGrenade

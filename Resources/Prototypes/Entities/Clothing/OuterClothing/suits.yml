@@ -113,7 +113,7 @@
     modifiers:
       coefficients:
         Heat: 0.90
-        Radiation: 0.001
+        Radiation: 0.01
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
@@ -156,8 +156,8 @@
     parent: true
     components:
     - type: Stealth
-      minVisibility: 0.1
-      lastVisibility: 0.1
+      minVisibility: 0.03 #ADT_Tweak
+      lastVisibility: 0.03 #ADT_Tweak
   - type: PowerCellDraw
     drawRate: 1.8 # 200 seconds on the default cell
   # throwing star ability

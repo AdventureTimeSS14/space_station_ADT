@@ -1,5 +1,5 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseThiefStealObjective
   id: ADTClothingMaskGasCEStealObjective
   components:

@@ -1,0 +1,28 @@
+- type: entity
+  name: ore bag
+  id: OreBagAntagDrone
+  parent: BaseStorageItem
+  suffix: Antag Drone
+  components:
+  - type: MagnetPickup
+  - type: Sprite
+    sprite: Objects/Specific/Mining/ore_bag.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Back/ertleader_cyb.rsi # invisible sprite
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,3
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - ArtifactFragment
+        - Ore
+  - type: Dumpable

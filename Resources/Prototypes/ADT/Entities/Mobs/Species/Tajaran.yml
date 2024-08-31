@@ -53,13 +53,14 @@
       noRot: true
       drawdepth: Mobs
       scale: 0.95, 0.95
+    - type: Wagging
 
 - type: entity
   save: false
   name: Tajaran McHands
   parent: MobHumanDummy
   id: MobTajaranDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy tajaran meant to be used in character setup.
   components:
     - type: HumanoidAppearance

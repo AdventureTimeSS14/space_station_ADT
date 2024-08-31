@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Corvax.Interfaces.Server;
 using Content.Server.Database;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -63,17 +62,16 @@ namespace Content.Server.GameTicking
 
                     // Make the player actually join the game.
                     // timer time must be > tick length
-                    // Corvax-Queue-Start
-                    if (!IoCManager.Instance!.TryResolveType<IServerJoinQueueManager>(out _))
-                        Timer.Spawn(0, () => _playerManager.JoinGame(args.Session));
-                    // Corvax-Queue-End
+                    // Timer.Spawn(0, args.Session.JoinGame); // Corvax-Queue: Moved to `JoinQueueManager`
 
                     var record = await _dbManager.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
                                           Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 600; //пока у игрока не будет наиграно 10ч, будет высвечиваться надпись что он новичок, для облегчении слежки модерации, ADT
 
+                    var firstSeenTime = record?.FirstSeenTime.ToString("dd.MM.yyyy") ?? "неизвестно"; // дата первого подключения, ADT
+
                     _chatManager.SendAdminAnnouncement(firstConnection
-                        ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
+                        ? $"\nВНИМАНИЕ!!! \nЗашёл новичок {args.Session.Name} с {firstSeenTime}. Администрации быть внимательней :0, у данного игрока меньше 10ч на нашем сервере. \n ВНИМАНИЕ!!!"  
                         : Loc.GetString("player-join-message", ("name", args.Session.Name)));
 
                     RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);

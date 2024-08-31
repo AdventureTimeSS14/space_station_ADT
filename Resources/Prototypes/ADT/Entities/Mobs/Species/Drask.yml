@@ -70,7 +70,7 @@
   name: Urist McDrask
   parent: MobHumanDummy
   id: MobDraskDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
     species: DraskSpecies

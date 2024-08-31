@@ -26,6 +26,7 @@
     accent: zombieMoth
   - type: Speech
     speechVerb: Moth
+    allowedEmotes: ['Chitter', 'Squeak', 'Buzz']
   - type: TypingIndicator
     proto: moth
   - type: Butcherable
@@ -124,6 +125,13 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   - type: LanguageSpeaker # Frontier
     speaks:
     - GalacticCommon
@@ -135,7 +143,14 @@
 - type: entity
   parent: BaseSpeciesDummy
   id: MobMothDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
     species: Moth
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

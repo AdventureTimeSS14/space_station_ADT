@@ -49,6 +49,12 @@ namespace Content.Server.Database
                 .HasIndex(p => p.UserId)
                 .IsUnique();
 
+            //ADT-Sponsors-Start
+            modelBuilder.Entity<Sponsor>()
+                .HasIndex(p => p.UserId)
+                .IsUnique();
+            //ADT-Sponsors-End
+
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
                 .IsUnique();
@@ -361,6 +367,10 @@ namespace Content.Server.Database
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
         public string Voice { get; set; } = null!; // Corvax-TTS
+        public string BarkProto { get; set; } = null!; // ADT Barks
+        public float BarkPitch { get; set; } = 1f; // ADT Barks
+        public float LowBarkVar { get; set; } = 0.1f; // ADT Barks
+        public float HighBarkVar { get; set; } = 0.5f; // ADT Barks
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;
@@ -904,7 +914,7 @@ namespace Content.Server.Database
         Panic = 3,
         /*
          * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
-         * 
+         *
          * If baby jail is removed, please reserve this value for as long as can reasonably be done to prevent causing ambiguity in connection denial reasons.
          * Reservation by commenting out the value is likely sufficient for this purpose, but may impact projects which depend on SS14 like SS14.Admin.
          */
@@ -1128,6 +1138,20 @@ namespace Content.Server.Database
         /// </summary>
         public bool Dismissed { get; set; }
     }
+    //ADT-Sponsors-Start
+    [Table("sponsors")]
+    public class Sponsor
+    {
+        [Required, Key] public Guid UserId { get; set; }
+        public int Tier { get; set; }
+        public string OOCColor { get; set; } = "#00FF00";
+        public bool HavePriorityJoin { get; set; }
+        public string AllowedMarkings { get; set; } = null!;
+        public int ExtraSlots { get; set; }
+        public DateTime ExpireDate {get;set;}
+        public bool AllowJob { get; set; } = false;
+    }
+    //ADT-Sponsors-End
 
     [PrimaryKey(nameof(PlayerUserId), nameof(RoleId))]
     public class RoleWhitelist

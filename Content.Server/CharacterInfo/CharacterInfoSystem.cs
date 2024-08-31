@@ -31,7 +31,8 @@ public sealed class CharacterInfoSystem : EntitySystem
         var entity = args.SenderSession.AttachedEntity.Value;
 
         var objectives = new Dictionary<string, List<ObjectiveInfo>>();
-        var jobTitle = "No Profession";
+        var jobTitle = Loc.GetString("character-info-no-profession");
+        var memories = new Dictionary<string, string>(); //ADT-Economy
         string? briefing = null;
         if (_minds.TryGetMind(entity, out var mindId, out var mind))
         {
@@ -54,8 +55,15 @@ public sealed class CharacterInfoSystem : EntitySystem
 
             // Get briefing
             briefing = _roles.MindGetBriefing(mindId);
+
+            //ADT-Economy-Start || Get memories
+            foreach (var memory in mind.AllMemories)
+            {
+                memories[memory.Name] = memory.Value;
+            }
+            //ADT-Economy-End
         }
 
-        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);
+        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing, memories), args.SenderSession); //ADT-Economy
     }
 }

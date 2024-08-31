@@ -1,0 +1,69 @@
+- type: entity
+  parent: GasPipeHalf
+  id: ADTGasPipeHalf
+  categories: [ HideSpawnMenu ]
+  suffix: Half, ADT
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: GasPipeStraight
+  id: ADTGasPipeStraight
+  categories: [ HideSpawnMenu ]
+  suffix: Straight, ADT
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: GasPipeBend
+  id: ADTGasPipeBend
+  categories: [ HideSpawnMenu ]
+  suffix: Bend, ADT
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: GasPipeTJunction
+  id: ADTGasPipeTJunction
+  categories: [ HideSpawnMenu ]
+  suffix: TJunction, ADT
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null
+
+- type: entity
+  parent: GasPipeFourway
+  id: ADTGasPipeFourway
+  categories: [ HideSpawnMenu ]
+  suffix: Fourway, ADT
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: True
+  - type: Construction
+    deconstructionTarget: null

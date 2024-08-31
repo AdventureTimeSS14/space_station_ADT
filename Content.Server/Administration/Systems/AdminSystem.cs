@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
+using Content.Server.Corvax.Sponsors;
 using Content.Server.Forensics;
 using Content.Server.GameTicking;
 using Content.Server.Hands.Systems;
@@ -12,6 +13,7 @@ using Content.Shared.Administration;
 using Content.Shared.Administration.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.CCCVars;
+using Content.Shared.Corvax.Sponsors;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -52,6 +54,9 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
+        //ADT-SPONSORS
+        [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
+        //ADT-SPONSORS
 
         private readonly Dictionary<NetUserId, PlayerInfo> _playerList = new();
 
@@ -80,7 +85,6 @@ namespace Content.Server.Administration.Systems
             Subs.CVar(_config, CCVars.PanicBunkerShowReason, OnPanicBunkerShowReasonChanged, true);
             Subs.CVar(_config, CCVars.PanicBunkerMinAccountAge, OnPanicBunkerMinAccountAgeChanged, true);
             Subs.CVar(_config, CCVars.PanicBunkerMinOverallMinutes, OnPanicBunkerMinOverallMinutesChanged, true);
-            Subs.CVar(_config, CCCVars.PanicBunkerDenyVPN, OnPanicBunkerDenyVpnChanged, true); // Corvax-VPNGuard
 
             /*
              * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
@@ -249,8 +253,13 @@ namespace Content.Server.Administration.Systems
                 overallPlaytime = playTime;
             }
 
-            return new PlayerInfo(name, entityName, identityName, startingRole, antag, GetNetEntity(session?.AttachedEntity), data.UserId,
+            //ADT-SPONSORS
+            SponsorInfo? sponsorInfo = null;
+            _sponsorsManager.TryGetInfo(data.UserId, out sponsorInfo);
+
+            return new PlayerInfo(name, entityName, identityName, startingRole, antag, sponsorInfo, GetNetEntity(session?.AttachedEntity), data.UserId,
                 connected, _roundActivePlayers.Contains(data.UserId), overallPlaytime);
+            //ADT-SPONSORS
         }
 
         private void OnPanicBunkerChanged(bool enabled)
@@ -328,14 +337,6 @@ namespace Content.Server.Administration.Systems
             BabyJail.MaxOverallMinutes = minutes;
             SendBabyJailStatusAll();
         }
-
-        // Corvax-VPNGuard-Start
-        private void OnPanicBunkerDenyVpnChanged(bool deny)
-        {
-            PanicBunker.DenyVpn = deny;
-            SendPanicBunkerStatusAll();
-        }
-        // Corvax-VPNGuard-End
 
         private void UpdatePanicBunker()
         {
