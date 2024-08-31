@@ -19,6 +19,7 @@ public sealed partial class PlayerTabHeader : Control
         CharacterLabel.OnKeyBindDown += CharacterClicked;
         JobLabel.OnKeyBindDown += JobClicked;
         AntagonistLabel.OnKeyBindDown += AntagonistClicked;
+        SponsorLabel.OnKeyBindDown += SponsorClicked;
         PlaytimeLabel.OnKeyBindDown += PlaytimeClicked;
     }
 
@@ -30,6 +31,7 @@ public sealed partial class PlayerTabHeader : Control
             Header.Character => CharacterLabel,
             Header.Job => JobLabel,
             Header.Antagonist => AntagonistLabel,
+            Header.Sponsor => SponsorLabel,
             Header.Playtime => PlaytimeLabel,
             _ => throw new ArgumentOutOfRangeException(nameof(header), header, null)
         };
@@ -41,6 +43,7 @@ public sealed partial class PlayerTabHeader : Control
         CharacterLabel.Text = Loc.GetString("player-tab-character");
         JobLabel.Text = Loc.GetString("player-tab-job");
         AntagonistLabel.Text = Loc.GetString("player-tab-antagonist");
+        SponsorLabel.Text = Loc.GetString("player-tab-sponsor");
         PlaytimeLabel.Text = Loc.GetString("player-tab-playtime");
     }
 
@@ -75,6 +78,11 @@ public sealed partial class PlayerTabHeader : Control
         HeaderClicked(args, Header.Antagonist);
     }
 
+    private void SponsorClicked(GUIBoundKeyEventArgs args)
+    {
+        HeaderClicked(args, Header.Sponsor);
+    }
+
     private void PlaytimeClicked(GUIBoundKeyEventArgs args)
     {
         HeaderClicked(args, Header.Playtime);
@@ -90,6 +98,7 @@ public sealed partial class PlayerTabHeader : Control
             CharacterLabel.OnKeyBindDown -= CharacterClicked;
             JobLabel.OnKeyBindDown -= JobClicked;
             AntagonistLabel.OnKeyBindDown -= AntagonistClicked;
+            SponsorLabel.OnKeyBindDown -= SponsorClicked;
             PlaytimeLabel.OnKeyBindDown -= PlaytimeClicked;
         }
     }
@@ -100,6 +109,7 @@ public sealed partial class PlayerTabHeader : Control
         Character,
         Job,
         Antagonist,
+        Sponsor,
         Playtime
     }
 }

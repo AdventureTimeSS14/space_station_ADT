@@ -23,6 +23,7 @@ public sealed partial class PlayerTabEntry : PanelContainer
         if (player.IdentityName != player.CharacterName)
             CharacterLabel.Text += $" [{player.IdentityName}]";
         AntagonistLabel.Text = Loc.GetString(player.Antag ? "player-tab-is-antag-yes" : "player-tab-is-antag-no");
+        SponsorLabel.Text = Loc.GetString(player.Sponsor != null ? "player-tab-is-sponsor-yes" : "player-tab-is-sponsor-no");
         BackgroundColorPanel.PanelOverride = styleBoxFlat;
         OverallPlaytimeLabel.Text = player.PlaytimeString;
         PlayerEntity = player.NetEntity;

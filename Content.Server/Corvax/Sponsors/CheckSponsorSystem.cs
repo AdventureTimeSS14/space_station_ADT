@@ -28,7 +28,7 @@ public sealed class CheckSponsorSystem : EntitySystem
         else
             return false;
 
-        if (sponsorData != null && sponsorData.Tier > 0)
+        if (sponsorData != null && (sponsorData.Tier > 0 || sponsorData.AllowJob))
             return true;
         else
             return false;

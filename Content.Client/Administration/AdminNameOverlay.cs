@@ -65,6 +65,18 @@ namespace Content.Client.Administration
                 {
                     args.ScreenHandle.DrawString(_font, screenCoordinates + (lineoffset * 2), "ANTAG", Color.OrangeRed);
                 }
+
+                if (playerInfo.Sponsor != null)
+                {
+                    var sponsorOffset = playerInfo.Antag ? lineoffset * 3 : lineoffset * 2;
+                    var sponsorString = $"Sponsor ({playerInfo.Sponsor.Tier})";
+                    if (playerInfo.Sponsor.AllowJob)
+                        sponsorString += " (allJobs)";
+
+                    sponsorString += $" до {playerInfo.Sponsor.ExpireDate.ToString("dd.MM.yyyy")}";
+
+                    args.ScreenHandle.DrawString(_font, screenCoordinates + sponsorOffset, sponsorString, Color.GreenYellow);
+                }
                 args.ScreenHandle.DrawString(_font, screenCoordinates+lineoffset, playerInfo.Username, playerInfo.Connected ? Color.Yellow : Color.White);
                 args.ScreenHandle.DrawString(_font, screenCoordinates, playerInfo.CharacterName, playerInfo.Connected ? Color.Aquamarine : Color.White);
             }
