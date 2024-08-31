@@ -13,5 +13,5 @@
     programName: bank-program-name
     icon:
       sprite: ADT/Structures/Machines/atm.rsi
-      state: off
+      state: atm_off
   - type: BankCartridge
