@@ -2,7 +2,7 @@
   parent: ClothingNeckBase
   id: ADTClothingNeckJeton
   name: Jeton
-  description: 
+  description:
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/armytoken.rsi
@@ -48,9 +48,9 @@
   description: security chest camera
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/sec_camera.rsi 
+      sprite: ADT/Clothing/Misc/Neck/sec_camera.rsi
     - type: Clothing
-      sprite: ADT/Clothing/Neck/sec_camera.rsi
+      sprite: ADT/Clothing/Misc/Neck/sec_camera.rsi
     - type: DeviceNetwork
       deviceNetId: Wired
       receiveFrequencyId: SurveillanceCameraSecurity
