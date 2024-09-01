@@ -2,40 +2,40 @@ using Content.Shared.Mobs;
 using Content.Server.Chat.Systems;
 using Content.Shared.ADT.AutoPostingChat;
 using Robust.Shared.Timing;
-public sealed class AutoSpeakPostingChatSystem : EntitySystem
+public sealed class AutoEmotePostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AutoSpeakPostingChatComponent, MobStateChangedEvent>(OnMobState);
+        SubscribeLocalEvent<AutoEmotePostingChatComponent, MobStateChangedEvent>(OnMobState);
     }
     /// <summary>
     /// On death removes active comps and gives genetic damage to prevent cloning, reduce this to allow cloning.
     /// </summary>
-    private void OnMobState(EntityUid uid, AutoSpeakPostingChatComponent component, MobStateChangedEvent args)
+    private void OnMobState(EntityUid uid, AutoEmotePostingChatComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead || component == null)
         {
-            RemComp<AutoSpeakPostingChatComponent>(uid);
+            RemComp<AutoEmotePostingChatComponent>(uid);
         }
     }
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<AutoSpeakPostingChatComponent>();
+        var query = EntityQueryEnumerator<AutoEmotePostingChatComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_time.CurTime >= comp.NextSecond)
             {
-                if (comp.PostingMessageSpeak != null)
+                if (comp.PostingMessageEmote != null)
                 {
-                    _chat.TrySendInGameICMessage(uid, comp.PostingMessageSpeak, InGameICChatType.Speak, ChatTransmitRange.Normal);
+                    _chat.TrySendInGameICMessage(uid, comp.PostingMessageEmote, InGameICChatType.Speak, ChatTransmitRange.Normal);
                 }
 
-                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(comp.SpeakTimerRead);
+                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(comp.EmoteTimerRead);
             }
         }
     }
