@@ -1,19 +1,18 @@
 using Robust.Shared.Audio;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.ADT.AutoPostingChat;
 
 [RegisterComponent]
 [NetworkedComponent]
-public sealed partial class AutoPostingChatComponent : Component
+public sealed partial class AutoSpeakPostingChatComponent : Component
 {
 
-    public TimeSpan NextSecond = TimeSpan.MaxValue;
+    public TimeSpan NextSecond = TimeSpan.Zero;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public int SpeakTimerRead = 80;
+    public int SpeakTimerRead = 10;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public int EmoteTimerRead = 9;
