@@ -24,5 +24,8 @@ public sealed partial class AutoEmotePostingChatComponent : Component
     [DataField("min"), ViewVariables(VVAccess.ReadWrite)]
     public int IntervalRandomEmoteMin = 2;
 
+    //щиткод
+    public bool BloodCoughHideEmote = false;
+     public string? BloodCoughPostingMessageEmote = "Кашель";
 
 }
