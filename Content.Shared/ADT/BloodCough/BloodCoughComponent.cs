@@ -12,11 +12,10 @@ public sealed partial class BloodCoughComponent : Component
     public int CoughTimeMin = 2;
 
     [DataField("coughTimeMax"), ViewVariables(VVAccess.ReadWrite)]
-    public int CoughTimeMax = 17;
+    public int CoughTimeMax = 12;
 
     [DataField("postingSayDamage")]
     public string? PostingSayDamage = "Кашляет кровью";
 
-    //[DataField("randomIntervalSpeak"), ViewVariables(VVAccess.ReadWrite)]
     public bool CheckCoughBlood = false;
 }

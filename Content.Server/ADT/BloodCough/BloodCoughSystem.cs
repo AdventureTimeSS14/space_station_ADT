@@ -65,45 +65,4 @@ public sealed class BloodCoughSystem : EntitySystem
             }
         }
     }
-
-    // public override void Update(float frameTime)
-    // {
-    //     base.Update(frameTime);
-    //     var query = EntityQueryEnumerator<BloodCoughComponent>();
-    //     while (query.MoveNext(out var uid, out var comp))
-    //     {
-    //         if (EntityManager.TryGetComponent<DamageableComponent>(uid, out var damageable))
-    //         {
-    //             var currentDamage = damageable.TotalDamage;
-
-    //             if (currentDamage > 70)
-    //             {
-    //                 Log.Debug($"Сущность {ToPrettyString(uid)} имеет урон больше 70: {currentDamage}");
-    //                 HandleLowHealth(uid);
-    //             }
-    //             if (currentDamage <= 70)
-    //             {
-    //                 if (HasComp<AutoEmotePostingChatComponent>(uid))
-    //                 {
-    //                     RemComp<AutoEmotePostingChatComponent>(uid);
-    //                 }
-    //             }
-    //         }
-    //         else
-    //         {
-    //             Log.Debug($"Сущность {ToPrettyString(uid)} не имеет компонента BloodCoughComponent.");
-    //         }
-    //     }
-    // }
-
-    // private void HandleLowHealth(EntityUid uid)
-    // {
-    //     if (!TryComp<AutoEmotePostingChatComponent>(uid, out var posting))
-    //     {
-    //         posting = AddComp<AutoEmotePostingChatComponent>(uid);
-
-    //         posting.PostingMessageEmote = "Кашляет кровью";
-    //         posting.EmoteTimerRead = 15;
-    //     }
-    // }
 }
