@@ -4,14 +4,14 @@ namespace Content.Shared.ADT.AutoPostingChat;
 
 [RegisterComponent]
 [NetworkedComponent]
-public sealed partial class AutoSpeakPostingChatComponent : Component
+public sealed partial class AutoEmotePostingChatComponent : Component
 {
 
     public TimeSpan NextSecond = TimeSpan.Zero;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public int SpeakTimerRead = 10;
+    public int EmoteTimerRead = 9;
 
-    [DataField("speakMessage")]
-    public string? PostingMessageSpeak = "Вульп-вульп!";
+    [DataField("emoteMessage")]
+    public string? PostingMessageEmote = "Кхе";
 }
