@@ -6,14 +6,17 @@ namespace Content.Shared.ADT.BloodCough;
 [NetworkedComponent]
 public sealed partial class BloodCoughComponent : Component
 {
-    // public TimeSpan NextSecond = TimeSpan.Zero;
+    public TimeSpan NextSecond = TimeSpan.Zero;
 
-    // [DataField("emoteTimer"), ViewVariables(VVAccess.ReadWrite)]
-    // public int EmoteTimerRead = 9;
+    [DataField("coughTimeMin"), ViewVariables(VVAccess.ReadWrite)]
+    public int CoughTimeMin = 2;
 
-    // [DataField("emoteMessage")]
-    // public string? PostingMessageEmote = "Кхе";
+    [DataField("coughTimeMax"), ViewVariables(VVAccess.ReadWrite)]
+    public int CoughTimeMax = 17;
 
-    // [DataField("randomIntervalEmote"), ViewVariables(VVAccess.ReadWrite)]
-    // public bool RandomIntervalEmote = false;
+    [DataField("postingSayDamage")]
+    public string? PostingSayDamage = "Кашляет кровью";
+
+    //[DataField("randomIntervalSpeak"), ViewVariables(VVAccess.ReadWrite)]
+    public bool CheckCoughBlood = false;
 }
