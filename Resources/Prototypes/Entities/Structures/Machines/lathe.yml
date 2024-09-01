@@ -349,6 +349,7 @@
       - BubblishTranslator
       - NekomimeticTranslator
       - DraconicTranslator
+      - VoxPidginTranslator
       - SolCommonTranslator
       - RootSpeakTranslator
       #- XenoTranslator
@@ -358,6 +359,7 @@
       - NekomimeticTranslatorImplanter
       - DraconicTranslatorImplanter
       - CanilunztTranslatorImplanter
+      - VoxPidginTranslatorImplanter
       - SolCommonTranslatorImplanter
       - RootSpeakTranslatorImplanter
       - AnimalTranslator
