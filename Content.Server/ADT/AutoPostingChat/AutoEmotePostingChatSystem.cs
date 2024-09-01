@@ -18,7 +18,7 @@ public sealed class AutoEmotePostingChatSystem : EntitySystem
     /// </summary>
     private void OnMobState(EntityUid uid, AutoEmotePostingChatComponent component, MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead || component == null)
+        if (args.NewMobState == MobState.Dead)
         {
             RemComp<AutoEmotePostingChatComponent>(uid);
         }
