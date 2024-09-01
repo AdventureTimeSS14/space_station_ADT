@@ -12,25 +12,6 @@ public sealed class BloodCoughSystem : EntitySystem
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    // public override void Initialize()
-    // {
-    //     base.Initialize();
-    //     //SubscribeLocalEvent<BloodCoughComponent, DamageChangedEvent>(OnMobState);
-    // }
-
-    // private void OnMobState(EntityUid uid, BloodCoughComponent component, DamageChangedEvent args)
-    // {
-    //     if (EntityManager.TryGetComponent<DamageableComponent>(uid, out var damageable))
-    //     {
-    //         var currentDamage = damageable.TotalDamage;
-    //         Log.Debug($"Текущее здоровье сущности {ToPrettyString(uid)}: {currentDamage}");
-    //     }
-    //     else
-    //     {
-    //         Log.Debug($"Сущность {ToPrettyString(uid)} не имеет компонента DamageableComponent.");
-    //     }
-    // }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -43,13 +24,15 @@ public sealed class BloodCoughSystem : EntitySystem
 
                 if (currentDamage > 70)
                 {
-                    Log.Debug($"Сущность {ToPrettyString(uid)} имеет урон больше 170: {currentDamage}");
+                    Log.Debug($"Сущность {ToPrettyString(uid)} имеет урон больше 70: {currentDamage}");
                     HandleLowHealth(uid);
                 }
                 if (currentDamage <= 70)
                 {
-                    //добавить проверку есть ли вообще этот компонент на сущности перед тем как его удалить
-                    RemComp<AutoEmotePostingChatComponent>(uid);
+                    if (HasComp<AutoEmotePostingChatComponent>(uid))
+                    {
+                        RemComp<AutoEmotePostingChatComponent>(uid);
+                    }
                 }
             }
             else
@@ -61,10 +44,12 @@ public sealed class BloodCoughSystem : EntitySystem
 
     private void HandleLowHealth(EntityUid uid)
     {
-        Log.Debug($"Обработка низкого здоровья для сущности {ToPrettyString(uid)}.");
-        var posting = AddComp<AutoEmotePostingChatComponent>(uid);
-        posting.PostingMessageEmote = "Кашляет кровью";
-        posting.BloodCoughHideEmote = true;
-        posting.EmoteTimerRead = 2;
+        if (!TryComp<AutoEmotePostingChatComponent>(uid, out var posting))
+        {
+            posting = AddComp<AutoEmotePostingChatComponent>(uid);
+
+            posting.PostingMessageEmote = "Кашляет кровью";
+            posting.EmoteTimerRead = 15;
+        }
     }
 }

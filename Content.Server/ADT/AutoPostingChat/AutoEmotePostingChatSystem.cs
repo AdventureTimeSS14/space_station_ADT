@@ -37,11 +37,6 @@ public sealed class AutoEmotePostingChatSystem : EntitySystem
                 if (comp.PostingMessageEmote != null)
                 {
                     _chat.TrySendInGameICMessage(uid, comp.PostingMessageEmote, InGameICChatType.Emote, ChatTransmitRange.Normal);
-
-                    if (comp.BloodCoughHideEmote)
-                    {
-                        _chat.TrySendInGameICMessage(uid, comp.PostingMessageEmote, InGameICChatType.Emote, ChatTransmitRange.HideChat);
-                    }
                 }
 
                 if (comp.RandomIntervalEmote)

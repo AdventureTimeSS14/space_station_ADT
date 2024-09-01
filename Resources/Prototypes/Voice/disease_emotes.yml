@@ -23,6 +23,7 @@
     - кашель
     - кашляет
     # Corvax-Localization-End
+    - кашляет кровью # ADT-Tweak-AddComp-BloodCough
 
 - type: emote
   id: CatMeow
