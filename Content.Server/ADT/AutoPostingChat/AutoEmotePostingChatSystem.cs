@@ -2,10 +2,12 @@ using Content.Shared.Mobs;
 using Content.Server.Chat.Systems;
 using Content.Shared.ADT.AutoPostingChat;
 using Robust.Shared.Timing;
+using Robust.Shared.Random;
 public sealed class AutoEmotePostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -30,12 +32,19 @@ public sealed class AutoEmotePostingChatSystem : EntitySystem
         {
             if (_time.CurTime >= comp.NextSecond)
             {
+                var delay = comp.EmoteTimerRead;
+
                 if (comp.PostingMessageEmote != null)
                 {
-                    _chat.TrySendInGameICMessage(uid, comp.PostingMessageEmote, InGameICChatType.Speak, ChatTransmitRange.Normal);
+                    _chat.TrySendInGameICMessage(uid, comp.PostingMessageEmote, InGameICChatType.Emote, ChatTransmitRange.Normal);
                 }
 
-                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(comp.EmoteTimerRead);
+                if (comp.RandomIntervalEmote)
+                {
+                    delay = _random.Next(comp.IntervalRandomEmoteMin, comp.IntervalRandomEmoteMax);
+                }
+
+                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
             }
         }
     }

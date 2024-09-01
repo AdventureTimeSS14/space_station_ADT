@@ -9,9 +9,21 @@ public sealed partial class AutoSpeakPostingChatComponent : Component
 
     public TimeSpan NextSecond = TimeSpan.Zero;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("speakTimer"), ViewVariables(VVAccess.ReadWrite)]
     public int SpeakTimerRead = 10;
 
     [DataField("speakMessage")]
     public string? PostingMessageSpeak = "Вульп-вульп!";
+
+    [DataField("randomIntervalSpeak"), ViewVariables(VVAccess.ReadWrite)]
+    public bool RandomIntervalSpeak = false;
+
+    [DataField("max"), ViewVariables(VVAccess.ReadWrite)]
+    public int IntervalRandomSpeakMax = 30;
+
+    [DataField("min"), ViewVariables(VVAccess.ReadWrite)]
+    public int IntervalRandomSpeakMin = 2;
+
+
+
 }
