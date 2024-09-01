@@ -18,7 +18,7 @@ public sealed class AutoSpeakPostingChatSystem : EntitySystem
     /// </summary>
     private void OnMobState(EntityUid uid, AutoSpeakPostingChatComponent component, MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead || component == null)
+        if (args.NewMobState == MobState.Dead)
         {
             RemComp<AutoSpeakPostingChatComponent>(uid);
         }
