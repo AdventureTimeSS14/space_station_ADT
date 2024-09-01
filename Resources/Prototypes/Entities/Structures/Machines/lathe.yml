@@ -118,13 +118,14 @@
     unlitIdleState: unlit
     unlitRunningState: unlit-building
     staticRecipes:
+      - StorageCanister #ADT tweak
       - Wirecutter
       - Igniter
       - Signaller
       - Screwdriver
       - Welder
       - Wrench
-      - Crowbar
+      - CrowbarGreen
       - Multitool
       - NetworkConfigurator
       - SprayPainter
@@ -265,6 +266,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - PhantomEctoplasm
   - type: Lathe
     idleState: icon
     runningState: building
@@ -277,6 +279,7 @@
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
+      - MiningDrillDiamond
       - AnomalyScanner
       - AnomalyLocator
       - AnomalyLocatorWide
@@ -308,6 +311,10 @@
       - Igniter
       - HandHeldMassScanner
       - PowerCellMicroreactor
+      - RCD #ADT Tweak
+      - RCDAmmo #ADT Tweak
+      - RPDAmmo #ADT Tweak
+      - RPD #ADT Tweak
       - PowerCellHigh
       - WeaponPistolCHIMP
       - ClothingMaskWeldingGas
@@ -377,6 +384,18 @@
       - DwarfTranslator
       - IPCTranslator
       # ^^ Languages mechanic ^^
+
+      # vv ADT Phantom vv
+      - GhostRadio
+      - OuijaBoard
+      - EctoRifle
+      - EctoPistol
+      - EctoBatterySmall
+      - EctoBattery
+      - PsiShield
+      - PhantomHud
+      - EctoShield
+      # ^^ ADT Phantom ^^
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -576,7 +595,7 @@
   id: ExosuitFabricator
   parent: BaseLatheLube
   name: exosuit fabricator
-  description: Creates parts for robotics and other mechanical needs
+  description: Creates parts for robotics and other mechanical needs.
   components:
   - type: Sprite
     sprite: Structures/Machines/exosuit_fabricator.rsi
@@ -690,7 +709,7 @@
 - type: entity
   id: Biofabricator
   parent: BaseLathe
-  name: biofabricator
+  name: biocube fabricator
   description: Produces animal cubes using biomass.
   components:
   - type: Sprite
@@ -699,16 +718,20 @@
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
+      color: "#ffaa99"
     - state: unlit
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
+      color: "#ffaaaa"
     - state: inserting
       map: ["enum.MaterialStorageVisualLayers.Inserting"]
+      color: "#ffaaaa"
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: BiofabricatorMachineCircuitboard
   - type: MaterialStorage
+    ignoreColor: true
     whitelist:
       tags:
         - Sheet
@@ -1102,14 +1125,6 @@
       - ClothingOuterWinterWardenUnarmored
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
-      - ClothingNeckMantleCap
-      - ClothingNeckMantleCE
-      - ClothingNeckMantleCMO
-      - ClothingNeckMantleHOP
-      - ClothingNeckMantleHOS
-      - ClothingNeckMantleHOSShoulder # Corvax-Resprite: Old mantle
-      - ClothingNeckMantleRD
-      - ClothingNeckMantleQM
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime

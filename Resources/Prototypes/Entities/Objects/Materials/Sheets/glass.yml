@@ -48,6 +48,16 @@
     solutions:
       glass:
         canReact: false
+  # ADT IPC healing start
+  - type: Healing
+    delay: 1.5
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -2
+        Cold: -2
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetGlassBase
@@ -171,6 +181,15 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -4
+        Cold: -4
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetRGlass
@@ -248,6 +267,15 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -2
+        Cold: -6
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetPGlass
@@ -314,6 +342,15 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -2
+        Cold: -8
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetRPGlass
@@ -389,6 +426,15 @@
         - ReagentId: Uranium
           Quantity: 10
         canReact: false
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -6
+        Cold: -2
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetUGlass
@@ -443,6 +489,15 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -8
+        Cold: -2
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetRUGlass
@@ -520,6 +575,15 @@
         - ReagentId: Copper
           Quantity: 6.7
         canReact: false
+  # ADT IPC healing start
+  - type: Healing
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Heat: -5
+        Cold: -5
+  # ADT IPC healing end
 
 - type: entity
   parent: SheetClockworkGlass

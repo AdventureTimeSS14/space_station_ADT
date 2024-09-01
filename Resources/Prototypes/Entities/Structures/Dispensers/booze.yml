@@ -14,6 +14,7 @@
     storageWhitelist:
       tags:
       - DrinkBottle
+      - ChemDispensable #ADT_Tweak
     pack: BoozeDispenserInventory
   - type: Transform
     noRot: false
@@ -22,6 +23,7 @@
   - type: GuideHelp
     guides:
     - Bartender
+    - Drinks
   - type: StealTarget
     stealGroup: BoozeDispenser
 
@@ -34,4 +36,5 @@
     storageWhitelist:
       tags:
       - DrinkBottle
+      - ChemDispensable #ADT_Tweak
     pack: EmptyInventory

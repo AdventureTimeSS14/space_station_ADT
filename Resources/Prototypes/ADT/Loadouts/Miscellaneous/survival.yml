@@ -1,0 +1,129 @@
+#Species
+
+- type: loadoutEffectGroup
+  id: ADTMothSpecies
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Moth
+
+- type: loadoutEffectGroup
+  id: ADTSiliconSpecies
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - IPC
+
+# Basic
+- type: loadout
+  id: ADTEmergencyMoth
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMothSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalMoth
+
+- type: loadout
+  id: ADTEmergencyIPC
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSiliconSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalSilicon
+
+# Clown
+- type: loadout
+  id: ADTEmergencyMothClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMothSpecies
+  storage:
+    back:
+    - ADTBoxMothHug
+
+- type: loadout
+  id: ADTEmergencyIPCClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSiliconSpecies
+  storage:
+    back:
+    - ADTBoxSiliconHug
+
+# Engineering / Extended
+- type: loadout
+  id: ADTEmergencyMothExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMothSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalMothEngineering
+
+- type: loadout
+  id: ADTEmergencyIPCExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSiliconSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalSiliconEngineering
+
+# Medical
+- type: loadout
+  id: ADTEmergencyMothMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMothSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalMothMedical
+
+- type: loadout
+  id: ADTEmergencyIPCMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSiliconSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalSiliconMedical
+
+# Security
+- type: loadout
+  id: ADTEmergencyMothSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMothSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalMothSecurity
+
+- type: loadout
+  id: ADTEmergencyIPCSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSiliconSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalSiliconSecurity
+
+# Syndicate
+- type: loadout
+  id: ADTEmergencyMothSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMothSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalMothSyndicate
+
+- type: loadout
+  id: ADTEmergencyIPCSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSiliconSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalSiliconSyndicate

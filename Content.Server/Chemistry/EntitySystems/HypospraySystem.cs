@@ -84,6 +84,16 @@ public sealed class HypospraySystem : SharedHypospraySystem
                 return false;
         }
 
+        // ADT Injectors blocker start
+        if (!entity.Comp.IgnoreBlockers)
+        {
+            var blockerEv = new InjectAttemptEvent();
+            RaiseLocalEvent(target, blockerEv);
+            if (blockerEv.Cancelled)
+                return false;
+        }
+        // ADT Injectors blocker end
+
         string? msgFormat = null;
 
         if (target == user)

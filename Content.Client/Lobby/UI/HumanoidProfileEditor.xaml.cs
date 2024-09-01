@@ -10,6 +10,8 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
@@ -224,6 +226,20 @@ namespace Content.Client.Lobby.UI
 
             #endregion
             // Corvax-TTS-End
+
+            // ADT Barks Start
+            #region Voice
+
+            if (configurationManager.GetCVar(ADTCCVars.BarksEnabled))
+            {
+                BarksContainer.Visible = true;
+                BarksPitchContainer.Visible = true;
+                BarksDelayContainer.Visible = true;
+                InitializeBarks();
+            }
+
+            #endregion
+            // ADT Barks End
 
             RefreshSpecies();
 
@@ -455,6 +471,7 @@ namespace Content.Client.Lobby.UI
             SpeciesInfoButton.OnPressed += OnSpeciesInfoButtonPressed;
 
             UpdateSpeciesGuidebookIcon();
+            ReloadPreview();
             IsDirty = false;
         }
 
@@ -552,6 +569,13 @@ namespace Content.Client.Lobby.UI
                 foreach (var traitProto in categoryTraits)
                 {
                     var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
+                    // ADT Trait species blacklist start
+                    if (Profile != null && trait.SpeciesBlacklist.Contains(Profile.Species))
+                    {
+                        Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                        continue;
+                    }
+                    // ADT Trait species blacklist end
                     var selector = new TraitPreferenceSelector(trait);
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
@@ -664,7 +688,7 @@ namespace Content.Client.Lobby.UI
                 selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
 
                 var requirements = _entManager.System<SharedRoleSystem>().GetAntagRequirement(antag);
-                if (!_requirements.CheckRoleTime(requirements, out var reason))
+                if (!_requirements.CheckRoleRequirements(requirements, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason))
                 {
                     selector.LockRequirements(reason);
                     Profile = Profile?.WithAntagPreference(antag.ID, false);
@@ -766,6 +790,7 @@ namespace Content.Client.Lobby.UI
             UpdateSaveButton();
             UpdateMarkings();
             UpdateTTSVoicesControls(); // Corvax-TTS
+            UpdateBarkVoicesControls(); // ADT Barks
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -919,7 +944,7 @@ namespace Content.Client.Lobby.UI
                     icon.Texture = jobIcon.Icon.Frame0();
                     selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
 
-                    if (!_requirements.IsAllowed(job, out var reason))
+                    if (!_requirements.IsAllowed(job, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason))
                     {
                         selector.LockRequirements(reason);
                     }
@@ -1214,6 +1239,34 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
         }
         // Corvax-TTS-End
+
+        private void SetBarkProto(string prototype)
+        {
+            Profile = Profile?.WithBarkProto(prototype);
+            ReloadPreview();
+            SetDirty();
+        }
+
+        private void SetBarkPitch(float pitch)
+        {
+            Profile = Profile?.WithBarkPitch(Math.Clamp(pitch, _cfgManager.GetCVar(ADTCCVars.BarksMinPitch), _cfgManager.GetCVar(ADTCCVars.BarksMaxPitch)));
+            ReloadPreview();
+            SetDirty();
+        }
+
+        private void SetBarkMinVariation(float variation)
+        {
+            Profile = Profile?.WithBarkMinVariation(Math.Clamp(variation, _cfgManager.GetCVar(ADTCCVars.BarksMinDelay), Profile.BarkHighVar));
+            ReloadPreview();
+            SetDirty();
+        }
+
+        private void SetBarkMaxVariation(float variation)
+        {
+            Profile = Profile?.WithBarkMaxVariation(Math.Clamp(variation, Profile.BarkLowVar, _cfgManager.GetCVar(ADTCCVars.BarksMaxDelay)));
+            ReloadPreview();
+            SetDirty();
+        }
 
         private void SetSpecies(string newSpecies)
         {

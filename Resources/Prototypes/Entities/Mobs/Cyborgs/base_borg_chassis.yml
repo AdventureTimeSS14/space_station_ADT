@@ -228,10 +228,11 @@
   - type: Emoting
   - type: GuideHelp
     guides:
-      - Cyborgs
+    - Cyborgs
+    - Robotics
   - type: StepTriggerImmune
   - type: TTS # Corvax-TTS
-    voice: TrainingRobot
+    voice: fact_core
 
 - type: entity
   abstract: true
@@ -260,6 +261,8 @@
     intensitySlope: 20
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
+  - type: SpeechBarks
+    sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
 
 - type: entity
   id: BaseBorgChassisNT

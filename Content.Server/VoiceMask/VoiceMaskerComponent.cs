@@ -1,3 +1,4 @@
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
@@ -14,6 +15,12 @@ public sealed partial class VoiceMaskerComponent : Component
 
     [DataField]
     public string? LastSetVoice; // Corvax-TTS
+
+    [DataField]
+    public ProtoId<BarkPrototype> LastSetBark = "Human1"; // ADT Barks
+
+    [DataField]
+    public float LastSetPitch = 1f; // ADT Barks
 
     [DataField]
     public EntProtoId Action = "ActionChangeVoiceMask";

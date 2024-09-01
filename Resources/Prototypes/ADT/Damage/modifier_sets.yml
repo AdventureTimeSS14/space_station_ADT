@@ -118,3 +118,31 @@
     Cold: 1.5
     Heat: 1.0
     Poison: 1.4
+
+- type: damageModifierSet
+  id: Pretender
+  coefficients:
+    Blunt: 0.33
+    Piercing: 0.33
+    Slash: 0.33
+    Cold: 0.33
+    Heat: 0.33
+    Poison: 0.33
+    Cellular: 0.33
+
+#
+# ADT-damage modifier set
+#
+- type: damageModifierSet
+  id: ADTMobCreatureDamageSet
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.8
+    Heat: 0.8
+    Cold: 0 # похуй. абсолютно.
+    Poison: 0 # похуй. абсолютно.
+    Cellular: 0 # похуй. абсолютно.
+    Radiation: 0 # похуй. абсолютно.
+    Asphyxiation: 0 # похуй. абсолютно.
+    Bloodloss: 0 # похуй. абсолютно.

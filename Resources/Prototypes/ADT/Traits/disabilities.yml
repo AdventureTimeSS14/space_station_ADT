@@ -2,10 +2,13 @@
   id: ADTHemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   components:
     - type: Hemophilia
       modifier: 0.01
+  cost: -2  # ADT Quirks
+  speciesBlacklist:
+  - IPC
 
 # Simple Station
 
@@ -13,6 +16,7 @@
   id: ColorBlindnessMonochrome
   name: trait-monochromacy-name
   description: trait-monochromacy-description
-  category: Disabilities
+  category: Quirks  # ADT Quirks
   components:
     - type: Monochromacy
+  cost: -1  # ADT Quirks

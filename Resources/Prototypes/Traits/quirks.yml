@@ -5,6 +5,7 @@
   category: Quirks
   components:
   - type: Pacified
+  cost: -2  # ADT quirks
 
 - type: trait
   id: LightweightDrunk
@@ -14,6 +15,9 @@
   components:
   - type: LightweightDrunk
     boozeStrengthMultiplier: 2
+  cost: -1  # ADT quirks
+  speciesBlacklist:
+  - IPC
 
 - type: trait
   id: Snoring
@@ -22,3 +26,6 @@
   category: Quirks
   components:
   - type: Snoring
+  cost: -1  # ADT quirks
+  speciesBlacklist:
+  - IPC

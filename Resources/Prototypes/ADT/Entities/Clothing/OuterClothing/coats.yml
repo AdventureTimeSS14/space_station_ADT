@@ -34,3 +34,72 @@
         Piercing: 0.7
         Heat: 0.85
 
+#толстовки-топки от Празата
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterGraySweatshirtTop
+  name: gray sweatshirt-top
+  description: gray sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterBlackSweatshirtTop
+  name: black sweatshirt-top
+  description: black sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabPathologist
+  name: pathologist's lab coat
+  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+    state: icon-open
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatBrigmedicWB
+  name: brigmedic windbreaker
+  description: A brigmedic's trusty windbreaker, for all the space wind.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Coats/brigmedicWB.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Coats/brigmedicWB.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatIlisium
+  name: Raincoat Ilisium
+  description: Ilisium
+  suffix: Ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/plash_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/plash_ili.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75

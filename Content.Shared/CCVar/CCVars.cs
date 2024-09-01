@@ -24,7 +24,7 @@ namespace Content.Shared.CCVar
         ///     Guide Entry Prototype ID to be displayed as the server rules.
         /// </summary>
         public static readonly CVarDef<string> RulesFile =
-            CVarDef.Create("server.rules_file", "DefaultRuleset", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.rules_file", "ADTRuleset", CVar.REPLICATED | CVar.SERVER); //ADT tweak rule
 
         /// <summary>
         ///     Guide entry that is displayed by default when a guide is opened.
@@ -450,6 +450,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> GameTabletopPlace =
             CVarDef.Create("game.tabletop_place", false, CVar.SERVERONLY);
 
+        /// <summary>
+        /// If true, contraband severity can be viewed in the examine menu
+        /// </summary>
+        public static readonly CVarDef<bool> ContrabandExamine =
+            CVarDef.Create("game.contraband_examine", true, CVar.SERVER | CVar.REPLICATED);
+
         /*
          * Discord
          */
@@ -489,6 +495,19 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
+
+        /*
+        * Phantom
+        */
+
+        public static readonly CVarDef<int> PhantomMinPlayers =
+            CVarDef.Create("phantom.min_players", 25);
+
+        public static readonly CVarDef<int> PhantomMaxDifficulty =
+            CVarDef.Create("phantom.max_difficulty", 15);
+
+        public static readonly CVarDef<int> PhantomMaxPicks =
+            CVarDef.Create("phantom.max_picks", 10);
 
         /*
          * Tips
@@ -902,6 +921,15 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> AdminBypassMaxPlayers =
             CVarDef.Create("admin.bypass_max_players", true, CVar.SERVERONLY);
 
+        /// <summary>
+        /// Determine if custom rank names are used.
+        /// If it is false, it'd use the actual rank name regardless of the individual's title.
+        /// </summary>
+        /// <seealso cref="AhelpAdminPrefix"/>
+        /// <seealso cref="AhelpAdminPrefixWebhook"/>
+        public static readonly CVarDef<bool> AdminUseCustomNamesAdminRank =
+            CVarDef.Create("admin.use_custom_names_admin_rank", true, CVar.SERVERONLY);
+
         /*
          * AHELP
          */
@@ -920,6 +948,24 @@ namespace Content.Shared.CCVar
         /// <seealso cref="AhelpRateLimitPeriod"/>
         public static readonly CVarDef<int> AhelpRateLimitCount =
             CVarDef.Create("ahelp.rate_limit_count", 10, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Should the administrator's position be displayed in ahelp.
+        /// If it is is false, only the admin's ckey will be displayed in the ahelp.
+        /// </summary>
+        /// <seealso cref="AdminUseCustomNamesAdminRank"/>
+        /// <seealso cref="AhelpAdminPrefixWebhook"/>
+        public static readonly CVarDef<bool> AhelpAdminPrefix =
+            CVarDef.Create("ahelp.admin_prefix", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Should the administrator's position be displayed in the webhook.
+        /// If it is is false, only the admin's ckey will be displayed in webhook.
+        /// </summary>
+        /// <seealso cref="AdminUseCustomNamesAdminRank"/>
+        /// <seealso cref="AhelpAdminPrefix"/>
+        public static readonly CVarDef<bool> AhelpAdminPrefixWebhook =
+            CVarDef.Create("ahelp.admin_prefix_webhook", true, CVar.SERVERONLY);
 
         /*
          * Explosions
@@ -1097,7 +1143,7 @@ namespace Content.Shared.CCVar
         ///     Whether gas differences will move entities.
         /// </summary>
         public static readonly CVarDef<bool> SpaceWind =
-            CVarDef.Create("atmos.space_wind", false, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind", true, CVar.SERVERONLY); ///ADT
 
         /// <summary>
         ///     Divisor from maxForce (pressureDifference * 2.25f) to force applied on objects.
@@ -1559,19 +1605,19 @@ namespace Content.Shared.CCVar
         /// Is the emergency shuttle allowed to be early launched.
         /// </summary>
         public static readonly CVarDef<bool> EmergencyEarlyLaunchAllowed =
-            CVarDef.Create("shuttle.emergency_early_launch_allowed", false, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency_early_launch_allowed", true, CVar.SERVERONLY); //ADT-Tweak - включен ранний запуск аварийного шаттла командованием
 
         /// <summary>
         /// How long the emergency shuttle remains docked with the station, in seconds.
         /// </summary>
         public static readonly CVarDef<float> EmergencyShuttleDockTime =
-            CVarDef.Create("shuttle.emergency_dock_time", 180f, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency_dock_time", 300f, CVar.SERVERONLY); //ADT-Tweak - время стыковки эвакшаттла увеличен до 5 минут
 
         /// <summary>
         /// How long after the console is authorized for the shuttle to early launch.
         /// </summary>
         public static readonly CVarDef<float> EmergencyShuttleAuthorizeTime =
-            CVarDef.Create("shuttle.emergency_authorize_time", 10f, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency_authorize_time", 30f, CVar.SERVERONLY); //ADT-Tweak - предупреждение о запуске за 30 секунд до отправки
 
         /// <summary>
         /// The minimum time for the emergency shuttle to arrive at centcomm.
@@ -1603,7 +1649,7 @@ namespace Content.Shared.CCVar
         ///     Time in minutes after round start to auto-call the shuttle. Set to zero to disable.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallTime =
-            CVarDef.Create("shuttle.auto_call_time", 90, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_time", 270, CVar.SERVERONLY); //ADT-Tweak - автоматический эвак вызывается после 3 часов
 
         /// <summary>
         ///     Time in minutes after the round was extended (by recalling the shuttle) to call
@@ -2184,6 +2230,12 @@ namespace Content.Shared.CCVar
         // Clippy!
         public static readonly CVarDef<string> TippyEntity =
             CVarDef.Create("tippy.entity", "Tippy", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        ///     The number of seconds that must pass for a single entity to be able to point at something again.
+        /// </summary>
+        public static readonly CVarDef<float> PointingCooldownSeconds =
+            CVarDef.Create("pointing.cooldown_seconds", 0.5f, CVar.SERVERONLY);
 
         /*
          * DEBUG

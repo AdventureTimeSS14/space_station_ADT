@@ -1,3 +1,4 @@
+using Content.Shared.Corvax.Sponsors;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -10,6 +11,7 @@ namespace Content.Shared.Administration
         string IdentityName,
         string StartingJob,
         bool Antag,
+        SponsorInfo? Sponsor,
         NetEntity? NetEntity,
         NetUserId SessionId,
         bool Connected,

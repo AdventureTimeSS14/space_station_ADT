@@ -1,0 +1,78 @@
+- type: factionIcon
+  id: PhantomVesselFaction
+  priority: 11
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/phantom_icons.rsi
+    state: PhantomVessel
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Phantom
+    - PhantomPuppet
+  visibleToOwner: false
+
+- type: factionIcon
+  id: PhantomPuppetFaction
+  priority: 11
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/phantom_icons.rsi
+    state: PhantomPuppet
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Phantom
+    - PhantomPuppet
+  visibleToOwner: true
+
+- type: factionIcon
+  id: PhantomHaunted
+  priority: 10
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/smaller_phantom_icons.rsi
+    state: haunted
+  # showTo:
+  #   components:
+  #   - ShowAntagIcons
+  #   - Phantom
+  #   - PhantomPuppet
+  #   - Chaplain
+  visibleToOwner: false
+
+- type: factionIcon
+  id: PhantomImmune
+  priority: 10
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/smaller_phantom_icons.rsi
+    state: target
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Phantom
+    - PhantomPuppet
+  visibleToOwner: false
+
+- type: factionIcon
+  id: ChaplainFaction
+  priority: 11
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/chaplain_icons.rsi
+    state: krest
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Phantom
+    - PhantomPuppet
+    - Chaplain
+
+- type: factionIcon
+  id: BelieverFaction
+  priority: 11
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/chaplain_icons.rsi
+    state: ne-krest
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Phantom
+    - PhantomPuppet
+    - Chaplain

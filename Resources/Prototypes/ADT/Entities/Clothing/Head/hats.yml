@@ -30,3 +30,73 @@
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
+
+#Стильномат
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatCinnamonFlatCap
+  name: sinnamon flat cap
+  description: A cap with rounded crown and short margins. Sewn from thick fabric, that makes it perfect for cold weather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatGreyFlatCap
+  name: grey flat cap
+  description: A cap with rounded crown and short margins. Sewn from thick fabric, that makes it perfect for cold weather. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlackCivilian
+  name: black beret
+  description: A black beret.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_black.rsi
+  - type: StaticPrice
+    price: 5
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+# Brigmedic beret
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBrigmedic
+  name: brigmedic beret
+  description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadCapIlisium
+  name: Huraska
+  description: Ilisium
+  suffix: Ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/hurashka.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/hurashka.rsi
+

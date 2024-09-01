@@ -38,8 +38,6 @@ namespace Content.Server.Database
         public DbSet<PlayTime> PlayTime { get; set; } = default!;
         public DbSet<UploadedResourceLog> UploadedResourceLog { get; set; } = default!;
         public DbSet<AdminNote> AdminNotes { get; set; } = null!;
-        public DbSet<Sponsor> Sponsors { get; set; } = null!; //ADT-Sponsors
-
         public DbSet<AdminWatchlist> AdminWatchlists { get; set; } = null!;
         public DbSet<AdminMessage> AdminMessages { get; set; } = null!;
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
@@ -369,6 +367,10 @@ namespace Content.Server.Database
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
         public string Voice { get; set; } = null!; // Corvax-TTS
+        public string BarkProto { get; set; } = null!; // ADT Barks
+        public float BarkPitch { get; set; } = 1f; // ADT Barks
+        public float LowBarkVar { get; set; } = 0.1f; // ADT Barks
+        public float HighBarkVar { get; set; } = 0.5f; // ADT Barks
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;

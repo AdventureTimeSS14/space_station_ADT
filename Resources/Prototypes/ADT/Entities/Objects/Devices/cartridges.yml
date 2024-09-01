@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: ADTWalletCartridge
+  name: virtual wallet cartridge
+  description: A program for managing bank account
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: UIFragment
+    ui: !type:BankUi
+  - type: Cartridge
+    programName: bank-program-name
+    icon:
+      sprite: ADT/Structures/Machines/atm.rsi
+      state: atm_off
+  - type: BankCartridge

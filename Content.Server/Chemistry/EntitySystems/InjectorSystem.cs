@@ -92,6 +92,19 @@ public sealed class InjectorSystem : SharedInjectorSystem
             if (entity.Comp.IgnoreMobs)
                 return;
 
+            // ADT Injector blocking start
+            if (!entity.Comp.IgnoreBlockers)
+            {
+                var ev = new InjectAttemptEvent();
+                RaiseLocalEvent(target, ev);
+                if (ev.Cancelled)
+                {
+                    Popup.PopupEntity(Loc.GetString("injector-component-fail-user", ("target", Identity.Entity(target, EntityManager))), target, args.User);
+                    return;
+                }
+            }
+            // ADT Injector blocking end
+
             InjectDoAfter(entity, target, args.User);
             args.Handled = true;
             return;

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1",
+  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1 and unlumy",
   "size": {
     "x": 32,
     "y": 32
@@ -101,6 +101,22 @@
     },
     {
       "name": "ipc_antenna_towers",
+      "directions": 4
+    },
+    {
+      "name": "ipc_antenna_duality",
+      "directions": 4
+    },
+    {
+      "name": "ipc_antenna_holo_aura",
+      "directions": 4
+    },
+    {
+      "name": "ipc_antenna_wireless_connection",
+      "directions": 4
+    },
+    {
+      "name": "ipc_small_eye",
       "directions": 4
     }
   ]

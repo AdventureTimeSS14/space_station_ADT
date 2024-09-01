@@ -29,7 +29,7 @@ game-ticker-no-map-selected = [color=red]Карта ещё не выбрана![
 game-ticker-player-no-jobs-available-when-joining = При попытке присоединиться к игре ни одной роли не было доступно.
 # Displayed in chat to admins when a player joins
 player-join-message = Игрок { $name } зашёл!
-player-first-join-message = { $name } ВНИМАНИЕ НОВИЧОК зашел на сервер!!! Администрации быть бдительней :О
+#player-first-join-message = { $name } ВНИМАНИЕ НОВИЧОК зашел на сервер!!! Администрации быть бдительней :О
 # Displayed in chat to admins when a player leaves
 player-leave-message = Игрок { $name } вышел!
 latejoin-arrival-announcement =

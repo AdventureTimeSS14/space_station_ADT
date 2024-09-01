@@ -1,0 +1,797 @@
+- type: entity
+  parent: BaseSign
+  id: ADTPosterBase
+  abstract: true
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    snapCardinals: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PosterBroken:
+            min: 1
+            max: 1
+        offset: 0
+
+#легальные постеры
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitGreatFood
+  name: Great Food
+  description: "A poster advertising high-quality food from the station's kitchen."
+  components:
+  - type: Sprite
+    state: poster_adtgreatfood_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitTurnOnSensors
+  name: Turn on the sensors
+  description: "A reminder from the paramedic to everyone at the station - turn on the sensors so that you are quickly found in case of trouble."
+  components:
+  - type: Sprite
+    state: poster_adtturnonsensors_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitOktoberfest
+  name: Oktoberfest!
+  description: "A poster with a tayaran advertising the traditional October beer festival."
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    state: poster_adtoktoberfest_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitOktoberfest2
+  name: Oktoberfest!
+  description: "A poster with a beer mug advertising the traditional October beer festival."
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    state: poster_adtoktoberfest2_legit #Спрайт от Празата
+
+#контрабандные постеры
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandLustTayaran
+  name: Lusty Tayaran
+  description: "A poster with tayaran women of attractive appearance and in a provocative suit. Tayarans can also be beautiful!"
+  components:
+  - type: Sprite
+    state: poster_adtlusttayaran_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandFearThem
+  name: Fear Them!
+  description: "An elite squad of nuclear operatives will burn you to the ground. Leave NanoTrasen before it's too late!"
+  components:
+  - type: Sprite
+    state: poster_adtfearthem_contraband #Спрайт от Иллюми
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandSilence
+  name: Don`t takl!
+  description: "The Syndicate warns mime agents that you can be terribly tortured for divulging secrets."
+  components:
+  - type: Sprite
+    state: poster_adtsilence_contraband #Спрайт от Иллюми
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandLustUma
+  name: Lusty Uma
+  description: "A poster with vulpcanine women of attractive appearance and in a provocative suit."
+  components:
+  - type: Sprite
+    state: poster_adtlustuma_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandLustArDeco
+  name: Tayaran ArDeco
+  description: "A poster with tayaran women of attractive appearance and in ar deco suit."
+  components:
+  - type: Sprite
+    state: poster_adtlustardeco_contraband #Спрайт от Празата
+
+#Анимированные постеры
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterDontSitDown
+  name: "Don not sit down"
+  description: "Don not sit down"
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/dontsitdown.rsi
+    state: dontsitdown
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: cyan
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterSingoPizza
+  name: Pizza Time!
+  description: Pizza Time!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/pizzatime.rsi #спрайты от yamato_no_orochi8
+    state: pizzatime
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLustyMoth
+  name: lusty grey moth
+  description: You think you see them somewhere
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/lustymoth.rsi #спрайты от nerdyyyy__
+    state: lustymoth
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterWatchOutChem
+  name: watch out chem
+  description: watch out chem
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/watchoutchem.rsi #спрайты от yamato_no_orochi8
+    state: chem
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#cc0022"
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterPanem
+  name: panem et circenses
+  description: panem et circenses
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/panem.rsi #спрайты от yamato_no_orochi8
+    state: panem
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterPapersPlease
+  name: papers, please!
+  description: papers, please!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/papersplease.rsi #спрайты от yamato_no_orochi8
+    state: papersplease
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterDontTalkToArty
+  name: dont talk
+  description: dont talk
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/donttalktoarty.rsi #спрайты от yamato_no_orochi8
+    state: donttalktoarty
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#c028fc"
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterWorkUnderWay
+  name: work under way
+  description: work under way
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/workunderway.rsi #спрайты от yamato_no_orochi8
+    state: workunderway
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#d4b30f"
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterPlasmaMan
+  name: plasma!
+  description: plasma!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/plasmaman.rsi #спрайты от yamato_no_orochi8
+    state: plasmaman
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#d40fca"
+
+#Плакаты ко дню рождения
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterOneYear1
+  name: One Year!
+  description: One Year!
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_oneyearbirthday.rsi
+    state: poster1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterOneYear2
+  name: Birthday!
+  description: Birthday!
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_oneyearbirthday.rsi
+    state: poster2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterOneYear3
+  name: strange birthday poster
+  description: strange birthday poster
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_oneyearbirthday.rsi
+    state: poster3
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterOneYear4
+  name: strange birthday poster
+  description: strange birthday poster
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_oneyearbirthday.rsi
+    state: poster4
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterPassTheBanana
+  name: "Pass the banana down"
+  description: "Pass the banana down"
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/passthebanana.rsi
+    state: passthebanana
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: cyan
+
+#Флажки ко дню рождения от Овая
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterBirhtdayTrianglesPB1
+  name: purple-blue triangles left
+  description: purple-blue triangles left
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_birthday.rsi
+    state: pbleft
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterBirhtdayTrianglesPB2
+  name: purple-blue triangles center
+  description: purple-blue triangles center
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_birthday.rsi
+    state: pbcenter
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterBirhtdayTrianglesPB3
+  name: purple-blue triangles right
+  description: purple-blue triangles right
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_birthday.rsi
+    state: pbright
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterBirhtdayTrianglesRY1
+  name: red-yellow triangles left
+  description: red-yellow triangles left
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_birthday.rsi
+    state: ryleft
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterBirhtdayTrianglesRY2
+  name: red-yellow triangles center
+  description: red-yellow triangles center
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_birthday.rsi
+    state: rycenter
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterBirhtdayTrianglesRY3
+  name: red-yellow triangles right
+  description: red-yellow triangles right
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_birthday.rsi
+    state: ryright
+
+#Постер от Иллюми про производительность
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitEfficiency
+  name: diagram of efficiency
+  description: diagram of efficiency
+  components:
+  - type: Sprite
+    state: poster_efficiencydiagram_legit #Спрайт от Иллюми
+
+#Новогодние постеры
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNewYear
+  name: "2568"
+  description: Poster that celebrates New Year on Earth.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от yamato_no_orochi8
+    state: new_year
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#5469e6"
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNewYear2
+  name: happy new year
+  description: Poster that celebrates New Year on Earth.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от prazat911
+    state: new_year2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNewYear3
+  name: new year tayaran
+  description: Poster that celebrates New Year on Earth.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от prazat911
+    state: new_year3
+
+#Хеллоуинский декор
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpooky
+  name: spooky poster
+  description: spooky poster
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spooky
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenYummy
+  name: yummy poster
+  description: yummy poster
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: yummy
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpider
+  name: spider poster
+  description: spider poster
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spider
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpiderWeb1
+  name: spider web
+  description: spider web
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spiderweb1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpiderWeb2
+  name: spider web
+  description: spider web
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spiderweb2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHappyHalloween
+  name: happy halloween
+  description: happy halloween
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterTayarHalloween
+  name: happy halloween
+  description: happy halloween
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: tayarhalloween
+
+#Флажки к хеллоуину
+#черно-оранжевые
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackOrange1
+  name: black-orange triangles
+  description: black-orange triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackorange1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackOrange2
+  name: black-orange triangles
+  description: black-orange triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackorange2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackOrange3
+  name: black-orange triangles
+  description: black-orange triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackorange3
+
+#черно-белые
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackWhite1
+  name: black-white triangles
+  description: black-white triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackwhite1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackWhite2
+  name: black-white triangles
+  description: black-white triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackwhite2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackWhite3
+  name: black-white triangles
+  description: black-white triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackwhite3
+
+#оранжево-желтые
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesOrangeYellow1
+  name: orange-yellow triangles
+  description: orange-yellow triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: orangeyellow1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesOrangeYellow2
+  name: orange-yellow triangles
+  description: orange-yellow triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: orangeyellow2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesOrangeYellow3
+  name: orange-yellow triangles
+  description: orange-yellow triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: orangeyellow3
+
+#Счастливого хеллоуина
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy1
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy2
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy3
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW3
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy4
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW4
+
+#Флаги и плакаты СССП
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterGerbBKF
+  name: gerb BKF
+  description: gerb BKF
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: bkf
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterGerbKDV
+  name: gerb KDV
+  description: gerb KDV
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: kdv
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterGerbKS
+  name: gerb KS
+  description: gerb KS
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: ks
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterGerbUSSP
+  name: gerb USSP
+  description: gerb USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: ussp
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterGerbUSSP2
+  name: gerb USSP
+  description: gerb USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: ussp2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterUSSPRHBZ
+  name: RHBZ poster
+  description: gerb USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: rhbz
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterUSSPKS
+  name: USSP KS
+  description: gerb USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: ks2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterUSSPKDV
+  name: KDV poster
+  description: gerb USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_ussp.rsi
+    state: kdv2
+
+# Own
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterQuadroElectronics
+  name: "Quadro Electronics"
+  description: "When you look at the poaster you want to wear an animal mask"
+  components:
+  - type: Sprite
+    state: quadro_electronics
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandRoza
+  name: Roza
+  description: "A face of Atmosia."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/128x128posters.rsi
+    state: roza
+    scale: 0.25, 0.25
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterSpaceSec
+  name: SPACE SEC logo
+  description: "This is the logo of the SPACE SEC Corporation"
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/signs.rsi
+    state: poster_spacesec
+
+# Странные постеры
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterError
+  name: Error Poster
+  description: This is an error poster.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_syndicate.rsi
+    state: error
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNoBad
+  name: No Bad
+  description: This poster promotes good behavior.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_syndicate.rsi
+    state: nobad
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNoGood
+  name: No Good
+  description: This poster warns against bad behavior.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_syndicate.rsi
+    state: nogood
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterGasAttack
+  name: Gas Attack
+  description: This poster warns about gas attacks.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_syndicate.rsi
+    state: gasattack

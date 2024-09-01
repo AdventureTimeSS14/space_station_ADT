@@ -22,6 +22,9 @@
         prob: 0.3
       - id: Flare
         prob: 0.3
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcrg
+      # ADT-WikiBooks-End
 
 - type: entity
   id: LockerSalvageSpecialistFilled
@@ -46,3 +49,6 @@
         prob: 0.3
       - id: Flare
         prob: 0.3
+      # ADT-WikiBooks-Start
+      - id: ADTBookSRPcrg
+      # ADT-WikiBooks-End

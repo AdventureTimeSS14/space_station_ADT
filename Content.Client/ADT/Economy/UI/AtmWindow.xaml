@@ -1,0 +1,20 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               Title="{Loc 'atm-ui-name'}"
+               SetSize="400 220"
+               Resizable="False">
+
+    <BoxContainer Name="AuthorizationPage" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer HorizontalAlignment="Center" HorizontalExpand="True" VerticalAlignment="Center" Orientation="Vertical" MinSize="325 160">
+            <Label Text="{Loc 'atm-ui-nanotrasen-atm'}"/>
+            <Label Name="BalanceLabel" Visible="False"/>
+            <controls:HighDivider Name="Divider" Visible="False"/>
+            <Label Name="StatusLabel"/>
+            <SliderIntInput Name="WithdrawSlider"/>
+            <BoxContainer HorizontalExpand="True" VerticalExpand="True" VerticalAlignment="Bottom" Orientation="Horizontal">
+                <LineEdit Name="PinLineEdit" HorizontalExpand="True" PlaceHolder="{Loc 'atm-ui-enter-pin'}"/>
+                <Button Name="WithdrawButton" Text="{Loc 'store-ui-default-withdraw-text'}"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

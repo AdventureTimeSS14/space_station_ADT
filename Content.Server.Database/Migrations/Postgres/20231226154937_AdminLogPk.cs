@@ -10,25 +10,25 @@ namespace Content.Server.Database.Migrations.Postgres
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_admin_log_player_admin_log_log_id_round_id",
-                table: "admin_log_player");
+            // migrationBuilder.DropForeignKey(
+            //     name: "FK_admin_log_player_admin_log_log_id_round_id",
+            //     table: "admin_log_player");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_admin_log_player",
-                table: "admin_log_player");
-
-            migrationBuilder.DropIndex(
-                name: "IX_admin_log_player_log_id_round_id",
-                table: "admin_log_player");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_admin_log",
-                table: "admin_log");
-
-            migrationBuilder.DropIndex(
-                name: "IX_admin_log_round_id",
-                table: "admin_log");
+            // migrationBuilder.DropPrimaryKey(
+            //     name: "PK_admin_log_player",
+            //     table: "admin_log_player");
+            //
+            // migrationBuilder.DropIndex(
+            //     name: "IX_admin_log_player_log_id_round_id",
+            //     table: "admin_log_player");
+            //
+            // migrationBuilder.DropPrimaryKey(
+            //     name: "PK_admin_log",
+            //     table: "admin_log");
+            //
+            // migrationBuilder.DropIndex(
+            //     name: "IX_admin_log_round_id",
+            //     table: "admin_log");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_admin_log_player",

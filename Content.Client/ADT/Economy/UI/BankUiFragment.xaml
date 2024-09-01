@@ -1,0 +1,30 @@
+<ui1:BankUiFragment xmlns="https://spacestation14.io"
+                   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                   xmlns:ui1="clr-namespace:Content.Client.ADT.Economy.UI">
+
+    <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8">
+        <BoxContainer Name="LinkedAccount" Orientation="Vertical" Visible="False">
+            <RichTextLabel Name="LinkedAccountNumberLabel" />
+            <RichTextLabel Name="LinkedAccountNameLabel" />
+            <RichTextLabel Name="LinkedAccountBalanceLabel" />
+        </BoxContainer>
+        <RichTextLabel Name="NoLinkedAccountLabel" Visible="False" />
+        <controls:StripeBack>
+            <Button Name="AccountLinkButton" HorizontalExpand="True" HorizontalAlignment="Center"
+                    Text="{Loc 'bank-program-ui-link-account'}" />
+            <BoxContainer Name="AccountLink" Orientation="Vertical" Visible="False" HorizontalExpand="True"
+                          Margin="0 5 0 5">
+                <RichTextLabel Name="AccountLinkMessageLabel" />
+                <GridContainer HorizontalExpand="True" Columns="2" Rows="2">
+                    <LineEdit Name="AccountLineEdit" HorizontalExpand="True"
+                              PlaceHolder="{Loc 'bank-program-ui-account-number'}" />
+                    <Button Name="LinkConfirmButton" Text="{Loc 'bank-program-ui-link-confirm'}" />
+                    <LineEdit Name="PinLineEdit" HorizontalExpand="True" PlaceHolder="PIN" />
+                    <Button Name="LinkCancelButton" Text="{Loc 'bank-program-ui-link-cancel'}" />
+                </GridContainer>
+            </BoxContainer>
+        </controls:StripeBack>
+        <RichTextLabel Name="AccountLinkResultLabel" Visible="False" />
+    </BoxContainer>
+</ui1:BankUiFragment>

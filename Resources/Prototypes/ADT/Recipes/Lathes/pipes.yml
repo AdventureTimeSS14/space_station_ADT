@@ -1,0 +1,147 @@
+# Disposal
+
+- type: latheRecipe
+  id: DisposalPipe
+  result: ADTDisposalPipe
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalTagger
+  result: ADTDisposalTagger
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalTrunk
+  result: ADTDisposalTrunk
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalRouter
+  result: ADTDisposalRouter
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalRouterFlipped
+  result: ADTDisposalRouterFlipped
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalJunction
+  result: ADTDisposalJunction
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalJunctionFlipped
+  result: ADTDisposalJunctionFlipped
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalYJunction
+  result: ADTDisposalYJunction
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalBend
+  result: ADTDisposalBend
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalSignalRouter
+  result: ADTDisposalSignalRouter
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: DisposalSignalRouterFlipped
+  result: ADTDisposalSignalRouterFlipped
+  category: Disposals
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Steel: 50
+
+# Atmos
+
+- type: latheRecipe
+  id: GasPipeHalf
+  result: ADTGasPipeHalf
+  category: Atmos
+  completetime: 1
+  applyMaterialDiscount: false
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  id: GasPipeStraight
+  result: ADTGasPipeStraight
+  category: Atmos
+  completetime: 1
+  applyMaterialDiscount: false
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  id: GasPipeBend
+  result: ADTGasPipeBend
+  category: Atmos
+  completetime: 1
+  applyMaterialDiscount: false
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  id: GasPipeTJunction
+  result: ADTGasPipeTJunction
+  category: Atmos
+  completetime: 1
+  applyMaterialDiscount: false
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  id: GasPipeFourway
+  result: ADTGasPipeFourway
+  category: Atmos
+  completetime: 1
+  applyMaterialDiscount: false
+  materials:
+    Steel: 25
