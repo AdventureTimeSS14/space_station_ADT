@@ -2642,3 +2642,19 @@ Entries:
         type: Add}
     time: '2024-08-31T15:39:12Z'
     id: 302
+  - author: Шрёдька
+    changes:
+      - {message: Перенёс всю одежду Иллизиума., type: Add}
+    time: '2024-08-31T23:03:55Z'
+    id: 303
+  - author: Шрёдька
+    changes:
+      - {message: Кол-во боеприпасов в коробках от патрона .45 было увеличено 12 ->
+          30., type: Tweak}
+    time: '2024-09-01T07:45:29Z'
+    id: 304
+  - author: Flopochka
+    changes:
+      - {message: Язык «Вокс-пиджин», type: Add}
+    time: '2024-09-01T09:41:45Z'
+    id: 305
