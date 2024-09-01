@@ -134,7 +134,9 @@
     shortscale: 0.9
   - type: CanEnterCryostorage
   - type: Crawler
-  
+  - type: BloodCough
+    postingSayDamage: "Искрит и раздраженно жужит"
+
 - type: entity
   save: false
   name: Urist McPositronic

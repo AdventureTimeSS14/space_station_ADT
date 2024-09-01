@@ -11,6 +11,7 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
+    - type: BloodCough # ADT Tweak
 
 # Reformed Diona
 - type: entity
@@ -20,4 +21,4 @@
   name: Reformed Diona
   components:
     - type: IsDeadIC
-    - type: RandomHumanoidAppearance 
+    - type: RandomHumanoidAppearance

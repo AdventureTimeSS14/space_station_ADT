@@ -3,6 +3,8 @@
   name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
+  components:
+  - type: BloodCough # ADT Tweak
 
 #Syndie
 - type: entity

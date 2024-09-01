@@ -4,5 +4,7 @@
   suffix: Urisst' Mzhand
   parent: BaseMobReptilian
   id: MobReptilian
+  components:
+  - type: BloodCough # ADT Tweak
 
 #Weh
