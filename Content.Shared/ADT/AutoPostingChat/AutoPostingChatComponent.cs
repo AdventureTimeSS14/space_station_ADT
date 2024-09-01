@@ -9,23 +9,14 @@ namespace Content.Shared.ADT.AutoPostingChat;
 [NetworkedComponent]
 public sealed partial class AutoPostingChatComponent : Component
 {
-    /// <summary>
-    /// timings for giggles and knocks.
-    /// </summary>
-    //[ViewVariables(VVAccess.ReadWrite)]
-    //public TimeSpan DamageGiggleCooldown = TimeSpan.FromSeconds(2);
 
-    //[ViewVariables(VVAccess.ReadWrite)]
-    //public float KnockChance = 0.05f;
-    //[ViewVariables(VVAccess.ReadWrite)]
-    //public float GiggleRandomChance = 0.3f;
-
+    public TimeSpan NextSecond = TimeSpan.MaxValue;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public int SpeakTimerRead = 8000;
+    public int SpeakTimerRead = 80;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public int EmoteTimerRead = 9000;
+    public int EmoteTimerRead = 9;
 
     [DataField("speakMessage")]
     public string? PostingMessageSpeak = "Вульп-вульп!";
