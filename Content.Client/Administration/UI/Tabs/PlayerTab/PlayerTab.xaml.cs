@@ -197,10 +197,28 @@ namespace Content.Client.Administration.UI.Tabs.PlayerTab
                 Header.Character => Compare(x.CharacterName, y.CharacterName),
                 Header.Job => Compare(x.StartingJob, y.StartingJob),
                 Header.Antagonist => x.Antag.CompareTo(y.Antag),
+                Header.Sponsor => Compare(x.Sponsor?.Tier, y.Sponsor?.Tier), //ADT-SPONSORS
                 Header.Playtime => TimeSpan.Compare(x.OverallPlaytime ?? default, y.OverallPlaytime ?? default),
                 _ => 1
             };
         }
+
+        //ADT-SPONSORS
+        private int Compare(int? x, int? y)
+        {
+            if (!x.HasValue)
+                return -1;
+            if (!y.HasValue)
+                return 1;
+
+            if (x == y)
+                return 0;
+            else if (x > y)
+                return 1;
+            else
+                return -1;
+        }
+        //ADT-SPONSORS
 
         private int Compare(string x, string y)
         {

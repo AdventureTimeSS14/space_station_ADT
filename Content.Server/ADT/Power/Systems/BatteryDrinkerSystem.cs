@@ -136,11 +136,19 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         }
 
         if (_battery.TryUseCharge(source, amountToDrink, sourceBattery))
+        {
             _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink, drinkerBattery);
+            if (drinkerBattery.CurrentCharge < drinkerBattery.MaxCharge * 0.95f)
+                args.Repeat = true;
+            else
+                args.Repeat = false;
+        }
+
         else
         {
             _battery.SetCharge(drinker, sourceBattery.CurrentCharge + drinkerBattery.CurrentCharge, drinkerBattery);
             _battery.SetCharge(source, 0, sourceBattery);
+            args.Repeat = false;
         }
 
         //if (sourceComp != null && sourceComp.DrinkSound != null)

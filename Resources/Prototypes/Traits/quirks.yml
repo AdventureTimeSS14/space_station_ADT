@@ -16,6 +16,8 @@
   - type: LightweightDrunk
     boozeStrengthMultiplier: 2
   cost: -1  # ADT quirks
+  speciesBlacklist:
+  - IPC
 
 - type: trait
   id: Snoring
@@ -25,3 +27,5 @@
   components:
   - type: Snoring
   cost: -1  # ADT quirks
+  speciesBlacklist:
+  - IPC

@@ -36,6 +36,7 @@
             StationEngineer: [ 4, 4 ]
             AtmosphericTechnician: [ 2, 2 ]
             TechnicalAssistant: [ 2, 2 ]
+            # ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             MedicalDoctor: [ 3, 4 ]
@@ -43,16 +44,19 @@
             MedicalIntern: [ 2, 2 ]
             Paramedic: [ 1, 2 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles
+            # ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             ResearchAssistant: [ 1, 1 ]
             Borg: [ 1, 2 ]
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
+            # ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             #security
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 4, 4 ]
             Warden: [ 1, 1 ]
+            # ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             #Lawyer: [ 1, 1 ] # Corvax-IAA
             SecurityCadet: [ 1, 1 ]
             Detective: [ 1, 1 ]

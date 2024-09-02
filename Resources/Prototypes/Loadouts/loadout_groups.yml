@@ -739,7 +739,7 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
-  - SeniorEngineerPDA
+  # - SeniorEngineerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -894,7 +894,7 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
-  - SeniorResearcherPDA
+  # - SeniorResearcherPDA # ADT Tweak
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1021,7 +1021,7 @@
   name: loadout-group-security-id
   loadouts:
   - SecurityPDA
-  - SeniorOfficerPDA
+  # - SeniorOfficerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1169,7 +1169,7 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
-  - SeniorPhysicianPDA
+  # - SeniorPhysicianPDA # ADT Tweak
 
 - type: loadoutGroup
   id: MedicalGloves
