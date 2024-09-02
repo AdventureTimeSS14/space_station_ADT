@@ -8,7 +8,7 @@ import aiohttp
 import yaml
 
 FILE_PATH = Path(__file__).resolve()
-CHANGELOG_PATH = FILE_PATH.parents[2] / "Resources" / "Changelog" / "ChangelogADT.yml"
+CHANGELOG_PATH = FILE_PATH.parents[2] / "Resources" / "Changelog" / "1ChangelogADT.yml"
 OLD_CHANGELOG_PATH = FILE_PATH.parent / "cl_old.yml"
 
 
@@ -203,7 +203,7 @@ def update_cl_file(file_path, new_data):
 
     save_yaml({"Entries": combined_data}, file_path)
 
-    logging.info("Updated PR data saved to ChangelogADT.yml")
+    logging.info("Updated PR data saved to 1ChangelogADT.yml")
 
 
 async def main():
