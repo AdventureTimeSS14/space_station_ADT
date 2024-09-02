@@ -8,15 +8,3 @@
     spawn_type: Job
   - type: Sprite
     sprite: ADT/Markers/job.rsi
-
-- type: entity
-  id: ADTSpawnPointInvestigator
-  parent: ADTSpawnPointJobBase
-  name: Investigator
-  components:
-  - type: SpawnPoint
-    job_id: ADTInvestigator
-  - type: Sprite
-    layers:
-      - state: green
-      - state: investigator
