@@ -17,3 +17,7 @@ ent-ADTClothingOuterCoatBrigmedicWB = ветровка бригмедика
 ent-ADTClothingOuterCoatIlisium = плащ Иллизиума
     .suffix = Иллизиум
     .desc = Тёмный плащ Иллизиума
+
+ent-ADTClothingOuterCoatInvestigator = бушлат следователя Службы Безопасности
+    .desc = Один вид этого бушлата повышает вероятность чистосердечного признания подозреваемого на 50%.
+    .suffix = { "" }
