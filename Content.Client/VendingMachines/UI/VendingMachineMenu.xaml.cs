@@ -80,8 +80,7 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-            if (inventory.Count == 0 && VendingContents.Visible)
-        public void Populate(List<VendingMachineInventoryEntry> inventory)
+        public void Populate(EntityUid entityUid, List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits)
         {
             //ADT-Economy-Start
             CreditsLabel.Text = Loc.GetString("vending-ui-credits-amount", ("credits", credits));
@@ -148,7 +147,7 @@ namespace Content.Client.VendingMachines.UI
                 if (itemText.Length > longestEntry.Length)
                     longestEntry = itemText;
 
-                listData.Add(new VendorItemsListData(prototype.ID, itemText, i, $"[{price}$]));
+                listData.Add(new VendorItemsListData(prototype.ID, itemText, i, price));
             }
 
             VendingContents.PopulateList(listData);
@@ -164,4 +163,4 @@ namespace Content.Client.VendingMachines.UI
     }
 }
 
-public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex) : ListData;
+public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex, int price) : ListData;

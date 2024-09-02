@@ -37,7 +37,7 @@ namespace Content.Client.VendingMachines
             _menu.OnClose += Close; //ADT-Economy
             _menu.OnItemSelected += OnItemSelected;
             _menu.OnWithdraw += SendMessage; //ADT-Economy
-            _menu.Populate(_cachedInventory); 
+            _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits);
 
             _menu.OpenCenteredLeft();
         }
@@ -51,7 +51,7 @@ namespace Content.Client.VendingMachines
 
             _cachedInventory = newState.Inventory;
 
-            _menu?.Populate(_cachedInventory);
+            _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits);
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
@@ -85,14 +85,6 @@ namespace Content.Client.VendingMachines
             _menu.OnItemSelected -= OnItemSelected;
             _menu.OnClose -= Close;
             _menu.Dispose();
-        }
-
-        private void OnSearchChanged(string? filter)
-        {
-            //ADT-Economy-Start
-            var component = EntMan.GetComponent<VendingMachineComponent>(Owner);
-            _menu?.Populate(Owner, _cachedInventory, out _cachedFilteredIndex, component.PriceMultiplier, component.Credits, filter);
-            //ADT-Economy-End
         }
     }
 }

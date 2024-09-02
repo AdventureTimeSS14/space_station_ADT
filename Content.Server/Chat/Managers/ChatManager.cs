@@ -44,7 +44,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
-    private ISharedSponsorsManager? _sponsorsManager; // Corvax-Sponsors
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -58,7 +58,6 @@ internal sealed partial class ChatManager : IChatManager
 
     public void Initialize()
     {
-        IoCManager.Instance!.TryResolveType(out _sponsorsManager); // Corvax-Sponsors
         _netManager.RegisterNetMessage<MsgChatMessage>();
         _netManager.RegisterNetMessage<MsgDeleteChatMessagesBy>();
 
@@ -259,9 +258,9 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         // Corvax-Sponsors-Start
-        if (_sponsorsManager != null && _sponsorsManager.TryGetServerOocColor(player.UserId, out var oocColor))
+        if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && sponsorData.OOCColor != null)
         {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", oocColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", sponsorData.OOCColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         }
         // Corvax-Sponsors-End
 

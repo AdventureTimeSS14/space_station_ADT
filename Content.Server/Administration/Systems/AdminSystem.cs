@@ -80,7 +80,6 @@ public sealed class AdminSystem : EntitySystem
         Subs.CVar(_config, CCVars.PanicBunkerShowReason, OnPanicBunkerShowReasonChanged, true);
         Subs.CVar(_config, CCVars.PanicBunkerMinAccountAge, OnPanicBunkerMinAccountAgeChanged, true);
         Subs.CVar(_config, CCVars.PanicBunkerMinOverallMinutes, OnPanicBunkerMinOverallMinutesChanged, true);
-        Subs.CVar(_config, CCCVars.PanicBunkerDenyVPN, OnPanicBunkerDenyVpnChanged, true); // Corvax-VPNGuard
 
         /*
          * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
@@ -328,14 +327,6 @@ public sealed class AdminSystem : EntitySystem
         BabyJail.MaxOverallMinutes = minutes;
         SendBabyJailStatusAll();
     }
-
-    // Corvax-VPNGuard-Start
-    private void OnPanicBunkerDenyVpnChanged(bool deny)
-    {
-        PanicBunker.DenyVpn = deny;
-        SendPanicBunkerStatusAll();
-    }
-    // Corvax-VPNGuard-End
 
     private void UpdatePanicBunker()
     {

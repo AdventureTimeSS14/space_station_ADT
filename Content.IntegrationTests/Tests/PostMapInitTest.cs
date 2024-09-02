@@ -52,9 +52,9 @@ namespace Content.IntegrationTests.Tests
             "CorvaxOutpost",
             "CorvaxAstra",
             "CorvaxGelta",
-			"CorvaxMaus",
-			"CorvaxIshimura",
-			"CorvaxPaper",
+            "CorvaxMaus",
+            "CorvaxIshimura",
+            "CorvaxPaper",
             "CorvaxPilgrim",
             "CorvaxSplit",
             "CorvaxTerra",
@@ -77,7 +77,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            "Cog"
+            "Cog",
             // ADT-Start
             "ADT_Astra",
             "ADT_Avrit",
@@ -319,7 +319,7 @@ namespace Content.IntegrationTests.Tests
 #nullable enable
             while (queryPoint.MoveNext(out T? comp, out var xform))
             {
-                var spawner = (ISpawnPoint) comp;
+                var spawner = (ISpawnPoint)comp;
 
                 if (spawner.SpawnType is not SpawnPointType.LateJoin
                 || xform.GridUid == null
