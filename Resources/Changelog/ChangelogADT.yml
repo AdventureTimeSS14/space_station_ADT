@@ -2631,3 +2631,30 @@ Entries:
       - {message: Вульпканины и Таяры теперь могут контролировать свои хвосты., type: Fix}
     time: '2024-08-30T21:55:56Z'
     id: 300
+  - author: jungarikjan
+    changes:
+      - {message: Добавлен страшный моб для ивентов, type: Add}
+    time: '2024-08-31T14:28:40Z'
+    id: 301
+  - author: Darkiich
+    changes:
+      - {message: 'Добавлены ведущие роли - Доцент, Ведущий врач, Бригадир, Офицер-Инструктор',
+        type: Add}
+    time: '2024-08-31T15:39:12Z'
+    id: 302
+  - author: Шрёдька
+    changes:
+      - {message: Перенёс всю одежду Иллизиума., type: Add}
+    time: '2024-08-31T23:03:55Z'
+    id: 303
+  - author: Шрёдька
+    changes:
+      - {message: Кол-во боеприпасов в коробках от патрона .45 было увеличено 12 ->
+          30., type: Tweak}
+    time: '2024-09-01T07:45:29Z'
+    id: 304
+  - author: Flopochka
+    changes:
+      - {message: Язык «Вокс-пиджин», type: Add}
+    time: '2024-09-01T09:41:45Z'
+    id: 305
