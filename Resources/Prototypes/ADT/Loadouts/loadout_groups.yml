@@ -188,7 +188,7 @@
   name: loadout-warden-neck-adt
   minLimit: 0
   loadouts:
-  - ADTWardenNeckADT
+  - ADTWardenNeck
 
 # Security Oficer
 - type: loadoutGroup
@@ -196,4 +196,12 @@
   name: loadout-security-officer-neck-adt
   minLimit: 0
   loadouts:
-  - ADTSecurityOfficerNeckADT
+  - ADTSecurityOfficerNeck
+
+# Cadet Security Oficer
+- type: loadoutGroup
+  id: SecurityCadetNeckADT
+  name: loadout-security-officer-neck-adt
+  minLimit: 0
+  loadouts:
+  - ADTSecurityCadetNeck

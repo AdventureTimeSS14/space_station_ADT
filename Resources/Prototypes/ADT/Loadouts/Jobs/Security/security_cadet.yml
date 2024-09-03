@@ -1,6 +1,5 @@
-# Neck Warden ADT
+# Neck Cadet Security Officer ADT
 - type: loadout
-  id: ADTWardenNeck
+  id: SecurityCadetNeckADT
   equipment:
     neck: ADTClothingNeckSecBadge
-
