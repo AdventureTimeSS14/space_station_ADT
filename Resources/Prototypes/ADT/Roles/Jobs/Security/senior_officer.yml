@@ -6,16 +6,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 21600 #6 hrs
+      time: 28800 #6 hrs #ADT-RoleTime
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 7200 #2 hrs
+      time: 14400 #4 hrs #ADT-RoleTime
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 21600 #6 hrs
+      time: 28800 #6 hrs #ADT-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 216000 # 60 hrs
+      time: 234000 # 60 hrs #ADT-RoleTime
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos
