@@ -1,0 +1,6 @@
+# Neck Warden ADT
+- type: loadout
+  id: ADTWardenNeckADT
+  equipment:
+    neck: ADTClothingNeckSecBadge
+

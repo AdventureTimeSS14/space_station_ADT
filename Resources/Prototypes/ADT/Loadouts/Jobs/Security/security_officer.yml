@@ -1,0 +1,5 @@
+# Neck Security Officer ADT
+- type: loadout
+  id: ADTSecurityOfficerNeckADT
+  equipment:
+    neck: ADTClothingNeckSecBadge
