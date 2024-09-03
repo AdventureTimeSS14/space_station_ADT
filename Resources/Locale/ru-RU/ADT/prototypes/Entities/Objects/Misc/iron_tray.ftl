@@ -1,4 +1,4 @@
-ent-ADTIronTray = Поднос
+ent-ADTIronTray = поднос
     .desc = Железный поднос для хранения и сервировки продуктов.
-ent-ADTAntagIronTray = Поднос
+ent-ADTAntagIronTray = поднос
     .desc = Железный поднос для хранения и сервировки продуктов.

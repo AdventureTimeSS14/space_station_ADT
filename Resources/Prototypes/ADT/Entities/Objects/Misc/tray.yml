@@ -9,7 +9,7 @@
     state: icon
   - type: Storage
     grid:
-    - 0,0,10,7
+    - 0,0,4,3
     maxItemSize: Huge
 #   TODO: ERROR FOOD & Drink нет таких тэгов
 #    whitelist:
