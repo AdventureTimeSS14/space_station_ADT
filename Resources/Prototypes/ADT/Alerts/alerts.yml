@@ -126,3 +126,11 @@
     state: icon
   name: alerts-crawling-name
   description: alerts-crawling-desc
+
+- type: alert
+  id: Adrenaline
+  icons:
+  - sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
+  name: alerts-adrenaline-name
+  description: alerts-adrenaline-desc

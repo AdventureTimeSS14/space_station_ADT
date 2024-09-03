@@ -87,7 +87,7 @@ loadout-group-chief-engineer-jumpsuit = Старший инженер, комб�
 loadout-group-chief-engineer-outerclothing = Старший инженер, верхняя одежда
 loadout-group-chief-engineer-neck = Старший инженер, шея
 loadout-group-chief-engineer-shoes = Старший инженер, обувь
-loadout-group-technical-assistant-jumpsuit = Технический ассистент, комбинезон
+loadout-group-technical-assistant-jumpsuit = Инженер-стажёр, комбинезон
 loadout-group-station-engineer-head = Инженер, голова
 loadout-group-station-engineer-jumpsuit = Инженер, комбинезон
 loadout-group-station-engineer-backpack = Инженер, рюкзак
@@ -112,7 +112,7 @@ loadout-group-scientist-outerclothing = Учёный, верхняя одежд�
 loadout-group-scientist-gloves = Учёный, перчатки
 loadout-group-scientist-shoes = Учёный, обувь
 loadout-group-scientist-id = Учёный, ID
-loadout-group-research-assistant-jumpsuit = Научный ассистент, комбинезон
+loadout-group-research-assistant-jumpsuit = Лаборант, комбинезон
 # Security
 loadout-group-head-of-security-head = Глава службы безопасности, голова
 loadout-group-head-of-security-jumpsuit = Глава службы безопасности, комбинезон

@@ -1,0 +1,1 @@
+adt-rotting-embalmed = [color=#edad45]Похоже, тело забальзамировано.[/color]
