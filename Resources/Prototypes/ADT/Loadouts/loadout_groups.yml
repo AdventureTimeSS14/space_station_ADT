@@ -201,7 +201,7 @@
 # Cadet Security Oficer
 - type: loadoutGroup
   id: SecurityCadetNeckADT
-  name: loadout-security-officer-neck-adt
+  name: loadout-security-cadet-neck-adt
   minLimit: 0
   loadouts:
   - ADTSecurityCadetNeck
