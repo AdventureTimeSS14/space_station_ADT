@@ -1,0 +1,436 @@
+# Новые доп. препараты
+
+# Bicaridine
+- type: reagent
+  id: ADTMSodiumizole # ADTM - medical. Сортировка реагентов. ## Натримизол, отсылающий к метамизолу натрия.
+  name: reagent-name-sodiumizole
+  group: Medicine
+  desc: reagent-desc-sodiumizole
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#ba4d16"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-headache" ]
+        probability: 0.05
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 20
+        refresh: true
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Bicaridine
+          min: 0.5
+        damage:
+          types:
+            Blunt: -1
+
+- type: reagent
+  id: ADTMNitrofurfoll #искаверканное название нитрофурала.
+  name: reagent-name-nitrofurfoll
+  group: Medicine
+  desc: reagent-desc-nitrofurfoll
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#fcf27c"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Slash: -0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Bicaridine
+          min: 0.5
+        damage:
+          types:
+            Slash: -1
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-slash" ]
+        probability: 0.05
+
+- type: reagent
+  id: ADTMPeroHydrogen #литералли перекись водорода, но круче. Пероводород.
+  name: reagent-name-perohydrogen
+  group: Medicine
+  desc: reagent-desc-perohydrogen
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#d1d1d155"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Piercing: -0.75
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Piercing: -0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Bicaridine
+          min: 0.5
+        damage:
+          types:
+            Piercing: -1
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-piercing" ]
+        probability: 0.05
+
+# Dermaline.
+- type: reagent
+  id: ADTMAnelgesin #Налгезин ИРЛ.
+  name: reagent-name-anelgesin
+  group: Medicine
+  desc: reagent-desc-anelgesin
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#5b79ab"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 308.15
+        amount: -1500
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-heat" ]
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Dermaline
+          min: 0.5
+        damage:
+          types:
+            Heat: -1
+
+- type: reagent
+  id: ADTMMinoxide
+  name: reagent-name-minoxide #типо как ликоксид, но миноксид.
+  group: Medicine
+  desc: reagent-desc-minoxide
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#e3fcff"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Shock: -0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Dermaline
+          min: 0.5
+        damage:
+          types:
+            Shock: -1
+      - !type:GenericStatusEffect
+        key: KnockedDown #против ударов током.
+        time: 0.5
+        type: Remove
+      - !type:AdjustReagent
+        reagent: Licoxide
+        amount: -0.5
+      - !type:AdjustReagent
+        reagent:  Tazinide
+        amount: -0.5
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-shock" ]
+        probability: 0.05
+
+#Dylovene
+# У этилредоксразина будет больше смысла в паре с диловеном, так что тут только один препарат.
+- type: reagent
+  id: ADTMBiomicine #Биомицин, отсылающий к неомицину.
+  name: reagent-name-biomicine
+  group: Medicine
+  desc: reagent-desc-biomicine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#d1d1d155"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Dylovene
+          min: 0.5
+        damage:
+          types:
+            Poison: -2
+            Blunt: 1.5
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Dylovene
+          min: 0.5
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Dylovene
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-major-stress" ]
+        probability: 0.1
+
+#DexalinPlus
+# Баффы очень маленькие, поскольку я хочу откреститься подальше от старого дексалина
+- type: reagent
+  id: ADTMNikematide #анаграмма никетамида.
+  name: reagent-name-nikematide
+  group: Medicine
+  desc: reagent-desc-nikematide
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#c98928"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -0.25
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-asphyxia" ]
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: DexalinPlus
+          min: 0.5
+        damage:
+          types:
+            Asphyxiation: -0.5
+
+- type: reagent
+  id: ADTMDiethamilate #Диэтамилат. Искаверканное и совмещённое название Дициона и Этамзилата.
+  name: reagent-name-diethamilate
+  group: Medicine
+  desc: reagent-desc-diethamilate
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: medicine
+  color: "#f5c6dc"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ModifyBleedAmount
+        amount: -1.5 #буквально как транексамовая, но надо плескать её.
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyBleedAmount
+        amount: -0.5
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-usual" ]
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: DexalinPlus
+          min: 0.5
+        damage:
+          types:
+            Bloodloss: -0.5
+
+#а теперь маленькие, простенькие препаратики, которые предложили в дискорде.
+
+- type: reagent
+  id: ADTMFormalin #Даже название коверкать не буду. Формалин существует.
+  name: reagent-name-formalin
+  group: Medicine
+  desc: reagent-desc-formalin
+  flavor: bitter
+  physicalDesc: reagent-physical-desc-skunky
+  color: "#ffd478"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:Embalm
+         conditions:
+          - !type:ReagentThreshold
+            min: 5
+          - !type:MobStateCondition
+            mobstate: dead
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 1
+
+- type: reagent
+  id: ADTMMorphine
+  name: reagent-name-morphine
+  group: Medicine
+  desc: reagent-desc-morphine
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: bitter
+  color: "#c98928"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 60
+        refresh: true
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-pain" ] #пусть помимо иконки будет ещё и надпись.
+        probability: 0.05
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 1.5
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 1.5
+        type: Remove
+      - !type:ChemVomit #а это уже передозы.
+        conditions:
+        - !type:ReagentThreshold
+          min: 30.05
+        probability: 0.3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30.05
+        damage:
+          types:
+            Asphyxiation: 5
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 30.05
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:GenericStatusEffect #не забываем, что морфин ещё и наркотик.
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 2.5
+        refresh: false
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages: [ "goodfeeling-artifact-drastic-3" ]
+        # - narcotic-effect-rainbows
+        probability: 0.05
+#      - !type:PopupMessage
+#        type: Pvs
+#        visualType: Small
+#        messages: [ "narcotic-effect-visible-miosis" ]
+#        probability: 0.05
+
+#Кровоостанавливающая пудра
+- type: reagent
+  id: ADTStypticPowder
+  name: reagent-name-styptic-powder
+  group: Medicine
+  desc: reagent-desc-styptic-powder
+  flavor: medicine
+  color: "#c8a2c8"
+  physicalDesc: reagent-physical-desc-powdery
+  metabolisms:
+    Medicine:
+      metabolismRate : 0.75
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -2.25
+      - !type:ModifyBleedAmount
+        amount: -1 #почему кровоостанавливающая пудра не останавливала кровотечение?
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-usual" ]
+        probability: 0.05
+#Сульфадиазин серебра
+- type: reagent
+  id: ADTSilverSulfadiazine
+  name: reagent-name-silver-sulfadiazine
+  group: Medicine
+  desc: reagent-desc-silver-sulfadiazine
+  flavor: medicine
+  color: "#c8a2c8"
+  physicalDesc: reagent-physical-desc-powdery
+  metabolisms:
+    Medicine:
+      metabolismRate : 0.75
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -3
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-usual" ]
+        probability: 0.05
