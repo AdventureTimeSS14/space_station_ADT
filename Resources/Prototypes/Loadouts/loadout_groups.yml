@@ -1056,6 +1056,7 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatInvestigator # ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit

@@ -16,3 +16,12 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterDetective
+
+# OuterClothing
+- type: loadout
+  id: DetectiveCoatInvestigator
+  equipment:
+    head: ADTClothingOuterCoatInvestigator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterDetective
