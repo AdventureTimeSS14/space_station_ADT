@@ -17,6 +17,15 @@
   - !type:GroupLoadoutEffect
     proto: MasterDetective
 
+# Jumpsuit
+- type: loadout
+  id: DetectiveInvestigatorSuit
+  equipment:
+    head: ADTClothingUniformInvestigatorSuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterDetective
+
 # OuterClothing
 - type: loadout
   id: DetectiveCoatInvestigator

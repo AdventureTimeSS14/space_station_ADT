@@ -1048,6 +1048,7 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
+  - DetectiveInvestigatorSuit # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
