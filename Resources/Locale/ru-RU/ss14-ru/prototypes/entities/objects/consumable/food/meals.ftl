@@ -52,3 +52,5 @@ ent-FoodSaladWatermelonFruitBowl = фруктовый арбузный боул
     .desc = Единственный салат, в котором можно съесть миску.
 ent-FoodMealCornInButter = кукуруза в сливочном масле
     .desc = Маслянистенько.
+ent-FoodMealKhachapuri = хачапури
+    .desc = Большая лепешка, которую дополняет рассольный сыр и свежее яйцо.
