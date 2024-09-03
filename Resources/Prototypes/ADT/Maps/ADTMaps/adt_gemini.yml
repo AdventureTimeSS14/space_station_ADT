@@ -6,7 +6,7 @@
   randomRotation: false
   minPlayers: 20
   stations:
-    ADT_Gemini:
+    Gemini:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
