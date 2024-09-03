@@ -934,6 +934,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - HeadofSecurityMantleShoulder #ADT-Loadout
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
