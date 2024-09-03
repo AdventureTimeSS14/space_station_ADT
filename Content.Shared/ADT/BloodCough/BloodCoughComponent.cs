@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.BloodCough;
 
@@ -15,7 +16,7 @@ public sealed partial class BloodCoughComponent : Component
     public int CoughTimeMax = 12;
 
     [DataField("postingSayDamage")]
-    public string? PostingSayDamage = "Кашляет кровью";
+    public string? PostingSayDamage = Loc.GetString("blood-cough");
 
     public bool CheckCoughBlood = false;
 }

@@ -12,3 +12,4 @@
       types:
         Asphyxiation: -0.5
   - type: BloodCough # ADT Tweak
+    postingSayDamage: blood-cough

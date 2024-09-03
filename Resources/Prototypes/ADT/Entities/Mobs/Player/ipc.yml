@@ -135,7 +135,7 @@
   - type: CanEnterCryostorage
   - type: Crawler
   - type: BloodCough
-    postingSayDamage: "Искрит и раздраженно жужит"
+    postingSayDamage: blood-cough-ipc
 
 - type: entity
   save: false

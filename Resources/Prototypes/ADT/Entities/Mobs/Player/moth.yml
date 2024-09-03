@@ -5,3 +5,4 @@
   id: MobMoth
   components:
   - type: BloodCough
+    postingSayDamage: blood-cough

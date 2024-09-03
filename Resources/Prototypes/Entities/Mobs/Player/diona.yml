@@ -12,6 +12,7 @@
         types:
           Asphyxiation: -1.0
     - type: BloodCough # ADT Tweak
+      postingSayDamage: blood-cough
 
 # Reformed Diona
 - type: entity

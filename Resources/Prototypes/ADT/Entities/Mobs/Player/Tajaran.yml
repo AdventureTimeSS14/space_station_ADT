@@ -64,3 +64,4 @@
       short: true
       shortscale: 0.85
     - type: BloodCough
+      postingSayDamage: blood-cough

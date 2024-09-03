@@ -5,3 +5,4 @@
   name: Урист МакСумеречник
   components:
   - type: BloodCough
+    postingSayDamage: blood-cough

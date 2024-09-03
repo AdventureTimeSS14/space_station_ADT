@@ -5,3 +5,4 @@
   id: MobDwarf
   components:
   - type: BloodCough # ADT Tweak
+    postingSayDamage: blood-cough

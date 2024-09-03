@@ -13,7 +13,7 @@ public sealed partial class AutoEmotePostingChatComponent : Component
     public int EmoteTimerRead = 9;
 
     [DataField("emoteMessage")]
-    public string? PostingMessageEmote = "Кхе";
+    public string? PostingMessageEmote = default;
 
     [DataField("randomIntervalEmote"), ViewVariables(VVAccess.ReadWrite)]
     public bool RandomIntervalEmote = false;
