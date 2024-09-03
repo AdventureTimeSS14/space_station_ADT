@@ -934,6 +934,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - HeadofSecurityMantleShoulder #ADT-Loadout
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1030,6 +1031,7 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
+  - DetectiveInvestigatorCap # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1046,6 +1048,7 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
+  - DetectiveInvestigatorSuit # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1054,6 +1057,7 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatInvestigator # ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit

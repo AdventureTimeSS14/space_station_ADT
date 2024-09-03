@@ -376,6 +376,7 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - WardenNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -391,6 +392,7 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - SecurityOfficerNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobDetective
@@ -416,6 +418,7 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - SecurityCadetNeckADT # ADT-Loadouts
 
 # Medical
 - type: roleLoadout

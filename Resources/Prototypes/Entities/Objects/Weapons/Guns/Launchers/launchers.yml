@@ -48,7 +48,7 @@
     whitelist:
       tags:
         - Grenade
-    capacity: 3
+    capacity: 1 # ADT-Tweak DeBugg
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

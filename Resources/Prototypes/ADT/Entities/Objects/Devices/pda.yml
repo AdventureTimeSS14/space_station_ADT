@@ -105,3 +105,18 @@
   - type: Icon
     state: pda-ghost
   - type: Unremoveable
+
+# КПК Следователя
+- type: entity
+  parent: ADTBasePDA
+  id: ADTInvestigatorPDA
+  name: investigator PDA
+  description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
+  components:
+  - type: Pda
+    id: DetectiveIDCard
+    state: pda-investigator
+  - type: PdaBorderColor
+    borderColor: "#774705"
+  - type: Icon
+    state: pda-investigator
