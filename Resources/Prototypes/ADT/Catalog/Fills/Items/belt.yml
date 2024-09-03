@@ -13,7 +13,7 @@
 
 #кобура следователя СБ
 - type: entity
-  id: ADTClothingBeltInvestigatorHolster
+  id: ADTClothingBeltInvestigatorHolsterFill
   parent: ClothingBeltHolster
   suffix: Filled
   components:

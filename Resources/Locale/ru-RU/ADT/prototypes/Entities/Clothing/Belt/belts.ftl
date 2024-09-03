@@ -13,6 +13,6 @@ ent-ADTClothingBeltMedicalSecurityFilled = охранно-медицинский
     .desc = Довольно тонкий и при этом оснащённый всеми нужными креплениями пояс, для хранения охранного и медицинского арсенала.
     .suffix = { "Полный" }
 
-ent-ADTClothingBeltInvestigatorHolster = кобура следователя СБ
+ent-ADTClothingBeltInvestigatorHolsterFill = кобура следователя СБ
     .desc = Кобура с табельным оружием следователя СБ - пистолетом с магазинами нелетальных и летальных патронов.
     .suffix = { "" }
