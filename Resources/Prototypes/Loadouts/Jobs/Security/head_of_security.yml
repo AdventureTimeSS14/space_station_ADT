@@ -68,15 +68,6 @@
   id: HeadofSecurityMantle
   equipment:
     neck: ClothingNeckMantleHOS
-#Start-ADT-Tweak
-- type: loadout
-  id: HeadofSecurityMantleShoulder
-  equipment:
-    neck: ClothingNeckMantleHOSShoulder
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoS
-#End-ADT-Tweak
 
 # OuterClothing
 - type: loadout
