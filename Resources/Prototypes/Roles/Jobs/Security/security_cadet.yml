@@ -5,7 +5,7 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 54000 #15 hrs # ADT-RoleTime
 # ADT-Tweak
     # - !type:DepartmentTimeRequirement
     #   department: Security
