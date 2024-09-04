@@ -110,12 +110,6 @@
     entries:
       burger:
         name: food-sequence-burger-content-raw-meat
-        sprite:
-          sprite: Objects/Consumable/Food/meat.rsi
-          state: plain
-    entries:
-      burger:
-        name: food-sequence-burger-content-raw-meat
       taco:
         name: food-sequence-content-raw-meat
   - type: Tag
