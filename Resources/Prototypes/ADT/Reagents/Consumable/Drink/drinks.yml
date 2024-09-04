@@ -1,0 +1,183 @@
+#Коктейли от Кекса/Стычинского
+
+- type: reagent
+  id: ADTSummerShade
+  name: summer-shade-name
+  parent: BaseDrink
+  desc: summer-shade-desc
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: adt_summershade
+  color: "#FF2B2B"
+  recognizable: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 5
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 290 #дает легкую прохладу
+        amount: -2500
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/summershade.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTWinterSun
+  name: winter-sun-name
+  parent: ADTSummerShade
+  desc: winter-sun-desc
+  physicalDesc: reagent-physical-desc-milky
+  flavor: adt_wintersun
+  color: "#edccab"
+  recognizable: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 290 #дает легкую прохладу
+        amount: -2500
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/wintersun.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTHungoverAngel
+  name: hungover-angel-name
+  parent: ADTSummerShade
+  desc: hungover-angel-desc
+  physicalDesc: reagent-physical-desc-exhilarating
+  flavor: adt_hungoverangel
+  color: "#FBEC5D"
+  recognizable: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Toxin: -1
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-hungover" ]
+        probability: 0.04
+      - !type:GenericStatusEffect
+        key: Drunk
+        time: 2.0
+        type: Remove
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/hungoverangel.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTCitrusBalance
+  name: citrus-balance-name
+  parent: ADTSummerShade
+  desc: citrus-balance-desc
+  physicalDesc: reagent-physical-desc-citric
+  flavor: adt_citrusbalance
+  color: "#F8D568"
+  recognizable: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/citrucbalance.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTDobryiDrink
+  name: dobryi-drink-name
+  parent: ADTSummerShade
+  desc: dobryi-drink-desc
+  physicalDesc: reagent-physical-desc-sour
+  flavor: adt_dobtyidrink
+  color: "#955F20"
+  recognizable: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/dobryi.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTMilkEclipse
+  name: milk-eclipse-name
+  parent: ADTSummerShade
+  desc: milk-eclipse-desc
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: adt_milkeclipse
+  color: "#D8DEBA"
+  recognizable: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 4
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 290 #дает легкую прохладу
+        amount: -2500
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/milkeclipse.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTArcticExplosion
+  name: arctic-explosion-name
+  parent: ADTSummerShade
+  desc: arctic-explosion-desc
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: adt_arcticexlposion
+  color: "#c5e3e2"
+  recognizable: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 285 #дает среднюю прохладу
+        amount: -2500
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/arcticexplosion.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

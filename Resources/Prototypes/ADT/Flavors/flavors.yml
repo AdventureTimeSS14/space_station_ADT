@@ -2,3 +2,39 @@
   id: adtconsideredmilk
   flavorType: Complex
   description: flavor-complex-adtconsideredmilk
+
+#Безалкогольные коктейли от Кекса/Рамы
+- type: flavor
+  id: adt_summershade
+  flavorType: Complex
+  description: flavor-complex-summershade
+
+- type: flavor
+  id: adt_wintersun
+  flavorType: Complex
+  description: flavor-complex-wintersun
+
+- type: flavor
+  id: adt_hungoverangel
+  flavorType: Complex
+  description: flavor-complex-hungoverangel
+
+- type: flavor
+  id: adt_citrusbalance
+  flavorType: Complex
+  description: flavor-complex-citrusbalance
+
+- type: flavor
+  id: adt_dobtyidrink
+  flavorType: Complex
+  description: flavor-complex-dobtyidrink
+
+- type: flavor
+  id: adt_milkeclipse
+  flavorType: Complex
+  description: flavor-complex-milkeclipse
+
+- type: flavor
+  id: adt_arcticexlposion
+  flavorType: Complex
+  description: flavor-complex-arcticexlposion
