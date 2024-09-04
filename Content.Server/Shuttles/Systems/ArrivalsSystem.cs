@@ -60,6 +60,7 @@ public sealed class ArrivalsSystem : EntitySystem
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly ActorSystem _actor = default!;
+    [Dependency] private readonly ContainerSpawnPointSystem _containerSpawnPointSystem = default!;
 
     private EntityQuery<PendingClockInComponent> _pendingQuery;
     private EntityQuery<ArrivalsBlacklistComponent> _blacklistQuery;
@@ -337,6 +338,16 @@ public sealed class ArrivalsSystem : EntitySystem
         // Only works on latejoin even if enabled.
         if (!Enabled || _ticker.RunLevel != GameRunLevel.InRound)
             return;
+
+        // ADT station AI tweak start
+        if (ev.Job != null &&
+            ev.Job.Prototype.HasValue &&
+            _protoManager.Index(ev.Job.Prototype.Value).ContainerInsert)
+        {
+            _containerSpawnPointSystem.HandlePlayerSpawning(ev, true);
+            return;
+        }
+        // ADT station AI tweak end
 
         if (!HasComp<StationArrivalsComponent>(ev.Station))
             return;
