@@ -11,4 +11,17 @@
   id: JobADTBlueShieldOfficer
 
 - type: playTimeTracker
+  id: JobADTSeniorPhysician
+
+- type: playTimeTracker
+  id: JobADTSeniorResearcher
+
+- type: playTimeTracker
+  id: JobADTSeniorEngineer
+
+- type: playTimeTracker
+  id: JobADTSeniorOfficer
+
+- type: playTimeTracker
   id: JobBrigmedic
+

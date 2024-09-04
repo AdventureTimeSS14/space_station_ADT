@@ -1,36 +1,22 @@
+
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/Head/Hats/beret_black.rsi/meta.json
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, resprite by discord: schrodinger71",
-========
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/2d26ce62c273d025bed77a0e6c4bdc770b789bb0",
->>>>>>>> ff421c585c99e3306cb422cce276ef964adfc6f5:Resources/Textures/Clothing/Back/Backpacks/electropack.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "icon",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "name": "icon"
     },
     {
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/Head/Hats/beret_black.rsi/meta.json
       "name": "equipped-HELMET",
       "directions": 4
     },
     {
       "name": "equipped-HELMET-hamster",
-========
-      "name": "equipped-BACKPACK",
->>>>>>>> ff421c585c99e3306cb422cce276ef964adfc6f5:Resources/Textures/Clothing/Back/Backpacks/electropack.rsi/meta.json
       "directions": 4
     },
     {

@@ -59,7 +59,12 @@
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTPathologist: [ 1, 1 ] #ADT-Roles
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+            # ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             Brigmedic: [ 1, 1 ] #ADT-Roles
+            # ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+            # ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            # ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+
         - type: StationGoal
           goals:
           - Shuttle

@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/Eyes/Glasses/sunmed.rsi/meta.json
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/5a73e8f825ff279e82949b9329783a9e3070e2da & modified glass color by mureixlol",
-========
-  "copyright": "Taken from ParadiseStation at commit https://github.com/ParadiseSS13/Paradise/commit/95c46662c5a5cd4911132da8e695a7cc21fb4297",
->>>>>>>> ff421c585c99e3306cb422cce276ef964adfc6f5:Resources/Textures/Clothing/Uniforms/Jumpskirt/clown.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -15,15 +11,11 @@
       "name": "icon"
     },
     {
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/Eyes/Glasses/sunmed.rsi/meta.json
       "name": "equipped-EYES",
       "directions": 4
     },
     {
       "name": "equipped-EYES-hamster",
-========
-      "name": "equipped-INNERCLOTHING",
->>>>>>>> ff421c585c99e3306cb422cce276ef964adfc6f5:Resources/Textures/Clothing/Uniforms/Jumpskirt/clown.rsi/meta.json
       "directions": 4
     },
     {

@@ -766,7 +766,7 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
-  - SeniorEngineerPDA
+  # - SeniorEngineerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -921,7 +921,7 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
-  - SeniorResearcherPDA
+  # - SeniorResearcherPDA # ADT Tweak
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -961,6 +961,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - HeadofSecurityMantleShoulder #ADT-Loadout
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1047,7 +1048,7 @@
   name: loadout-group-security-id
   loadouts:
   - SecurityPDA
-  - SeniorOfficerPDA
+  # - SeniorOfficerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1056,6 +1057,7 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
+  - DetectiveInvestigatorCap # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1072,6 +1074,7 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
+  - DetectiveInvestigatorSuit # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1080,6 +1083,7 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatInvestigator # ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1202,7 +1206,7 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
-  - SeniorPhysicianPDA
+  # - SeniorPhysicianPDA # ADT Tweak
 
 - type: loadoutGroup
   id: MedicalGloves

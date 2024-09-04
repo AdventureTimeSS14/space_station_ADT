@@ -1,17 +1,19 @@
 {
   "version": 1,
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi/meta.json
   "license": "CC-BY-SA-3.0",
   "copyright": "Made by Tamioki.",
-========
-  "license": "CC0-1.0",
-  "copyright": "Created by EmoGarbage404",
->>>>>>>> ff421c585c99e3306cb422cce276ef964adfc6f5:Resources/Textures/Objects/Materials/Mob/sharktooth.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
     {
       "name": "inhand-left",
       "directions": 4
@@ -19,15 +21,6 @@
     {
       "name": "inhand-right",
       "directions": 4
-    },
-    {
-      "name": "tooth"
-    },
-    {
-      "name": "tooth_2"
-    },
-    {
-      "name": "tooth_3"
     }
   ]
 }

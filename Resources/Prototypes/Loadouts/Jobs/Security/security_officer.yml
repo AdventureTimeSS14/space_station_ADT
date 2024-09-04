@@ -140,6 +140,15 @@
   id: SecurityPDA
   equipment:
     id: SecurityPDA
+# ADT Start Tweak
+# - type: loadout
+#   id: SeniorOfficerPDA
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorOfficer
+#   equipment:
+#     id: SeniorOfficerPDA
+# ADT End Tweak
 
 - type: loadout
   id: SeniorOfficerPDA

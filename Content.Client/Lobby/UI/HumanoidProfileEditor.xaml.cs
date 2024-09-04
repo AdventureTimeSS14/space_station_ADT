@@ -569,6 +569,13 @@ namespace Content.Client.Lobby.UI
                 foreach (var traitProto in categoryTraits)
                 {
                     var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
+                    // ADT Trait species blacklist start
+                    if (Profile != null && trait.SpeciesBlacklist.Contains(Profile.Species))
+                    {
+                        Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                        continue;
+                    }
+                    // ADT Trait species blacklist end
                     var selector = new TraitPreferenceSelector(trait);
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;

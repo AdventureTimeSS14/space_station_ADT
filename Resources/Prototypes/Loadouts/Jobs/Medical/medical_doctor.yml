@@ -156,6 +156,20 @@
   equipment:
     id: MedicalPDA
 
+# ADT Tweak start
+# - type: loadout
+#   id: SeniorPhysicianPDA
+#   equipment: SeniorPhysicianPDA
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorPhysician
+
+# - type: startingGear
+#   id: SeniorPhysicianPDA
+#   equipment:
+#     id: SeniorPhysicianPDA
+# ADT Tweak end
+
 - type: loadout
   id: SeniorPhysicianPDA
   effects:
@@ -163,6 +177,7 @@
     proto: SeniorPhysician
   equipment:
     id: SeniorPhysicianPDA
+
 
 # Gloves
 - type: loadout
