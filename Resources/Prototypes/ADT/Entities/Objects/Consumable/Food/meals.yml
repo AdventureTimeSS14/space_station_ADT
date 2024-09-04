@@ -6,7 +6,7 @@
 
 - type: entity
   parent: FoodInjectableBase
-  id: FoodMealBase
+  id: ADTFoodMealBase
   abstract: true
   description: A delicious meal, cooked with love.
   components:
@@ -26,7 +26,7 @@
 # Tastes like egg, cheese.
 - type: entity
   name: Khachapuri
-  parent: FoodMealBase
+  parent: ADTFoodMealBase
   id: ADTFoodMealKhachapuri
   description: A large flatbread that complements pickled cheese, fresh egg.
   components:
