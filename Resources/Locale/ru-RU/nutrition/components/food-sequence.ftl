@@ -111,7 +111,7 @@ food-sequence-burger-content-suppermatter = супер
 food-sequence-burger-content-hamster = хомяко
 food-sequence-burger-content-berries = ягод
 food-sequence-burger-content-spacemans-trumpet = космотруб
-
+food-sequence-burger-content-raw-meat = аппендиксо
 # TACO
 
 food-sequence-taco-gen = тако с { $content }

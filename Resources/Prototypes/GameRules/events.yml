@@ -32,7 +32,7 @@
     - id: NinjaSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
-    - id: ZombieOutbreak
+    # - id: ZombieOutbreak
 
 
 - type: entity

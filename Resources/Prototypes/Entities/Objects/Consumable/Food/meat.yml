@@ -113,14 +113,14 @@
         sprite:
           sprite: Objects/Consumable/Food/meat.rsi
           state: plain
-  - type: Tag
-    tags:
-    - Meat
     entries:
       burger:
         name: food-sequence-burger-content-raw-meat
       taco:
         name: food-sequence-content-raw-meat
+  - type: Tag
+    tags:
+    - Meat
 
 - type: entity
   name: raw human meat
