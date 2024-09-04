@@ -197,21 +197,21 @@
 #       - state: equipped-MASK
 #   - type: BreathMask
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTChronosMask
-#   name: chronos victim mask
-#   description: chronos victim mask
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/chronosvisor.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/chronosvisor.rsi
-#   - type: BreathMask
-#   - type: ShowSecurityIcons
-#   - type: FlashImmunity
-#   - type: EyeProtection
-#     protectionTime: 5
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTChronosMask
+  name: chronos victim mask
+  description: chronos victim mask
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/chronosvisor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/chronosvisor.rsi
+  - type: BreathMask
+  - type: ShowSecurityIcons
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
 
 # #противогаз СССП
 
