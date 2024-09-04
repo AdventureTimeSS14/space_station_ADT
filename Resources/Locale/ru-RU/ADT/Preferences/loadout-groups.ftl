@@ -21,7 +21,9 @@ loadout-group-roboticist-jumpsuit = Робототехник, комбинезо
 loadout-group-roboticist-outerclothing = Робототехник, верхняя одежда
 loadout-group-roboticist-gloves = Робототехник, перчатки
 # Security
-
+loadout-warden-neck-adt = Смотритель, шея
+loadout-security-officer-neck-adt = Офицер СБ, шея
+loadout-security-cadet-neck-adt = Кадет СБ, шея
 # Medical
 loadout-group-patholog-head = Патологоанатом, голова
 loadout-group-patholog-jumpsuit = Патологоанатом, комбинезон

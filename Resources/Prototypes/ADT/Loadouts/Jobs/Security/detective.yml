@@ -1,0 +1,36 @@
+# Для разблокировки одёжки следака
+- type: loadoutEffectGroup
+  id: MasterDetective
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobDetective
+      time: 72000 #20 hrs
+
+# Head
+- type: loadout
+  id: DetectiveInvestigatorCap
+  equipment:
+    head: ADTClothingHeadHatsInvestigatorCap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterDetective
+
+# Jumpsuit
+- type: loadout
+  id: DetectiveInvestigatorSuit
+  equipment:
+    head: ADTClothingUniformInvestigatorSuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterDetective
+
+# OuterClothing
+- type: loadout
+  id: DetectiveCoatInvestigator
+  equipment:
+    head: ADTClothingOuterCoatInvestigator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterDetective

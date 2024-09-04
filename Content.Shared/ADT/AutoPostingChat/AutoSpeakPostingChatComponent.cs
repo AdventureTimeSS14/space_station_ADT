@@ -13,7 +13,7 @@ public sealed partial class AutoSpeakPostingChatComponent : Component
     public int SpeakTimerRead = 10;
 
     [DataField("speakMessage")]
-    public string? PostingMessageSpeak = "Вульп-вульп!";
+    public string? PostingMessageSpeak = default;
 
     [DataField("randomIntervalSpeak"), ViewVariables(VVAccess.ReadWrite)]
     public bool RandomIntervalSpeak = false;
