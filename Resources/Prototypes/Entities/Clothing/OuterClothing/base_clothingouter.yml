@@ -144,12 +144,6 @@
 
   - type: InjectorsBlocker
 
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # the average lightbulb only does around four damage!
-    slots: OUTERCLOTHING
-
 
 - type: entity
   abstract: true

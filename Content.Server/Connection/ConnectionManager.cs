@@ -2,8 +2,6 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using Content.Corvax.Interfaces.Server;
-using Content.Corvax.Interfaces.Shared;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using Content.Server.Corvax.Sponsors;

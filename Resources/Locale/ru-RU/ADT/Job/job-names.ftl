@@ -1,7 +1,6 @@
 job-name-ADTPathologist = Патологоанатом
 JobADTPathologist = Патологоанатом
 
-job-name-roboticist = Робототехник
 JobRoboticist = Робототехник
 
 job-name-magistrat = Магистрат

@@ -116,10 +116,6 @@
   - type: Tag
     tags:
     - Meat
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: plain
     entries:
       burger:
         name: food-sequence-burger-content-raw-meat
@@ -321,7 +317,7 @@
         name: food-sequence-content-chicken
       skewer:
         name: food-sequence-content-chicken
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
 
@@ -556,7 +552,7 @@
         name: food-sequence-content-lizard
       skewer:
         name: food-sequence-content-lizard
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tail
 
@@ -721,7 +717,7 @@
         name: food-sequence-content-snake
       skewer:
         name: food-sequence-content-snake
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-snake
 
@@ -823,7 +819,7 @@
         name: food-sequence-content-tomato
       skewer:
         name: food-sequence-content-tomato
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tomato
 
@@ -1039,7 +1035,7 @@
         name: food-sequence-content-meat
       skewer:
         name: food-sequence-content-meat
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
 
@@ -1084,7 +1080,7 @@
         name: food-sequence-content-meat
       skewer:
         name: food-sequence-content-meat
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
 
@@ -1201,7 +1197,7 @@
         name: food-sequence-content-chicken
       skewer:
         name: food-sequence-content-chicken
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
 
@@ -1243,7 +1239,7 @@
         name: food-sequence-content-chicken
       skewer:
         name: food-sequence-content-chicken
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
 
@@ -1285,7 +1281,7 @@
         name: food-sequence-content-duck
       skewer:
         name: food-sequence-content-duck
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
 
@@ -1439,7 +1435,7 @@
         name: food-sequence-content-lizard
       skewer:
         name: food-sequence-content-lizard
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tail-cooked
 
@@ -1505,7 +1501,7 @@
         name: food-sequence-content-meat
       skewer:
         name: food-sequence-content-meat
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
 
@@ -1579,7 +1575,7 @@
         name: food-sequence-content-meat
       skewer:
         name: food-sequence-content-meat
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
   - type: Construction
@@ -1697,7 +1693,7 @@
         name: food-sequence-content-chicken
       skewer:
         name: food-sequence-content-chicken
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
   - type: Construction
@@ -1739,7 +1735,7 @@
         name: food-sequence-content-duck
       skewer:
         name: food-sequence-content-duck
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
   - type: Construction
@@ -1784,7 +1780,7 @@
         name: food-sequence-content-lizard
       skewer:
         name: food-sequence-content-lizard
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tail
   - type: Construction
@@ -2061,7 +2057,7 @@
         name: food-sequence-content-chicken
       skewer:
         name: food-sequence-content-chicken
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
   - type: Construction
@@ -2101,7 +2097,7 @@
         name: food-sequence-content-duck
       skewer:
         name: food-sequence-content-duck
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
   - type: Construction
@@ -2142,7 +2138,7 @@
         name: food-sequence-content-lizard
       skewer:
         name: food-sequence-content-lizard
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tail-cooked
   - type: Construction
