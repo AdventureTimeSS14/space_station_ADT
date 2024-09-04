@@ -176,7 +176,7 @@
           state: "creampie_human"
           visible: false
     - type: Repairable # Взамен на быструю починку я урезал лечение примерно в 3 раза. Это лучше, чем DoAfter на 30 секунд при попытке вылечить себя
-      FuelCost: 3
+      fuelCost: 3
       selfRepairPenalty: 2
       doAfterDelay: 2 # was 10 # was 18
       damage:
