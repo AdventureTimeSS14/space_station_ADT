@@ -64,12 +64,15 @@
     - Universal
     understands:
     - Universal
-  - type: Hands                   #ADT Tweak
-    showInHands: false            #ADT Tweak
-  - type: Inventory               #ADT Tweak
-    templateId: ghost             #ADT Tweak
-  - type: Loadout                 #ADT Tweak
-    prototypes: [ MobGhostGear ]  #ADT Tweak
+  #ADT Observer PDA start
+  - type: Hands
+    showInHands: false
+  - type: Inventory
+    templateId: ghost
+  - type: Loadout
+    prototypes: [ MobGhostGear ]
+  - type: InventorySlots
+  #ADT Observer PDA end
 
 - type: entity
   id: ActionGhostBoo
