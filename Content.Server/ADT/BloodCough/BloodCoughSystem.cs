@@ -4,7 +4,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
 using Content.Server.Body.Components;
-using Content.Shared.Mobs;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Mobs.Systems;
