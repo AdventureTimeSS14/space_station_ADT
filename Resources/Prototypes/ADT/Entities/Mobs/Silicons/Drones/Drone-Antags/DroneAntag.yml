@@ -25,7 +25,7 @@
   - type: MovementIgnoreGravity
   - type: NoSlip
   - type: StaticPrice
-    price: 1275
+    price: 5000
   - type: Fixtures
     fixtures:
       fix1:
@@ -319,7 +319,7 @@
     #  - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
-    price: 1275
+    price: 5000
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -476,7 +476,7 @@
     #  - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
-    price: 1275
+    price: 5000
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -634,7 +634,7 @@
     #  - ShoesRequiredStepTriggerImmune
       - CannotSuicide
   - type: StaticPrice
-    price: 1275
+    price: 5000
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
