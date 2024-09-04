@@ -3,6 +3,3 @@
   name: Urist McFluff
   parent: BaseMobMoth
   id: MobMoth
-  components:
-  - type: BloodCough
-    postingSayDamage: blood-cough

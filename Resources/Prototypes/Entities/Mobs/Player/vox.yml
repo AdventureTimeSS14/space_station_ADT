@@ -4,5 +4,3 @@
   parent: BaseMobVox
   id: MobVox
   components:
-  - type: BloodCough # ADT Tweak
-    postingSayDamage: blood-cough
