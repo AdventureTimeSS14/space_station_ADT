@@ -8,6 +8,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.ADT.Silicon.Components;
 
 public sealed class BloodCoughSystem : EntitySystem
 {
@@ -56,20 +57,26 @@ public sealed class BloodCoughSystem : EntitySystem
         var query = EntityQueryEnumerator<BloodCoughComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_time.CurTime >= comp.NextSecond)
+            if (_mobState.IsAlive(uid))
             {
-                var delay = _random.Next(comp.CoughTimeMin, comp.CoughTimeMax);
-                if (comp.PostingSayDamage != null)
+                if (_time.CurTime >= comp.NextSecond)
                 {
-                    if (comp.CheckCoughBlood && TryComp<BloodstreamComponent>(uid, out var bloodId) && _mobState.IsAlive(uid))
+                    var delay = _random.Next(comp.CoughTimeMin, comp.CoughTimeMax);
+                    if (comp.PostingSayDamage != null)
                     {
-                        _chat.TrySendInGameICMessage(uid, comp.PostingSayDamage, InGameICChatType.Emote, ChatTransmitRange.HideChat);
-                        Solution blood = new();
-                        blood.AddReagent(bloodId.BloodReagent, 5);
-                        _puddleSystem.TrySpillAt(uid, blood, out _);
+                        if (comp.CheckCoughBlood)
+                        {
+                            _chat.TrySendInGameICMessage(uid, Loc.GetString(comp.PostingSayDamage), InGameICChatType.Emote, ChatTransmitRange.HideChat);
+                            if (comp.CheckCoughBlood && TryComp<BloodstreamComponent>(uid, out var bloodId) && !TryComp<SiliconComponent>(uid, out var _)) //лютейший костыль, тут проверка, потому что у кпб в крови ВОДА и при кашле он воду спавнит. поэтому сущности с SiliconComponent игнорим
+                            {
+                                Solution blood = new();
+                                blood.AddReagent(bloodId.BloodReagent, 1);
+                                _puddleSystem.TrySpillAt(uid, blood, out _, sound: false);
+                            }
+                        }
                     }
+                    comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
                 }
-                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
             }
         }
     }
