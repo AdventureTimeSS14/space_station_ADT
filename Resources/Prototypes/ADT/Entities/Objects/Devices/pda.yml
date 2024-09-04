@@ -25,7 +25,6 @@
   abstract: true
   components:
   - type: ItemToggle
-    toggleLight: false
     onUse: false
   - type: HealthAnalyzer
     scanDelay: 1

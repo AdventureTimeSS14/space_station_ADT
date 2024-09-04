@@ -16,7 +16,6 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
-    - id: SalvageShuttleConsoleCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
     # ADT-Economy-Start
     - id: ADTCommandBudgetCard
@@ -60,6 +59,7 @@
     - id: RubberStampCaptain
     - id: SpaceCash1000
     - id: WeaponDisabler
+    - id: ClothingEyesGlassesCommand
     # Corvax-Resprite-Start
     - id: ClothingHeadCaptainHat
     - id: ClothingOuterCoatCaptain
@@ -146,6 +146,7 @@
     - id: RubberStampDenied
     - id: RubberStampHop
     - id: WeaponDisabler
+    - id: ClothingEyesHudCommand
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
 
@@ -352,7 +353,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: BookSecretDocuments
+    - id: WeaponEnergyShotgun
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
