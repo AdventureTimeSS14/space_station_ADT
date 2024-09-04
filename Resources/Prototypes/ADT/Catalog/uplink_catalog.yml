@@ -13,3 +13,21 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkADTAntagIronTray
+  name: uplink-ADTAntagIronTray-name
+  description: uplink-ADTAntagIronTray-desc
+  icon: { sprite: ADT/Objects/Misc/iron_tray.rsi, state: icon}
+  productEntity: ADTAntagIronTray
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+    - Clown
+    - Mime
+    - Botanist
