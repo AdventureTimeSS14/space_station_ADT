@@ -16,7 +16,7 @@ public sealed partial class BloodCoughComponent : Component
     public int CoughTimeMax = 12;
 
     [DataField("postingSayDamage")]
-    public string? PostingSayDamage = Loc.GetString("blood-cough");
+    public string? PostingSayDamage = default;
 
     public bool CheckCoughBlood = false;
 }
