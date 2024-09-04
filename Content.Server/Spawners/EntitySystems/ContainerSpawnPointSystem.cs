@@ -49,8 +49,7 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
 
             if (forceJob)
             {
-                if (spawnPoint.SpawnType == SpawnPointType.Job &&
-                    args.Job != null &&
+                if (args.Job != null &&
                     spawnPoint.Job == args.Job.Prototype)
                 {
                     possibleContainers.Add((uid, spawnPoint, container, xform));
