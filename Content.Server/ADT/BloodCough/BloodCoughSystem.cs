@@ -58,7 +58,7 @@ public sealed class BloodCoughSystem : EntitySystem
                 if (comp.PostingSayDamage != null)
                 {
                     if (comp.CheckCoughBlood)
-                        _chat.TrySendInGameICMessage(uid, comp.PostingSayDamage, InGameICChatType.Emote, ChatTransmitRange.HideChat);
+                        _chat.TrySendInGameICMessage(uid, Loc.GetString(comp.PostingSayDamage), InGameICChatType.Emote, ChatTransmitRange.HideChat);
                 }
 
                 comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
