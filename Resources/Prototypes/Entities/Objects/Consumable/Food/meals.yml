@@ -405,30 +405,6 @@
     - Meat
 # Tastes like egg, cheese.
 - type: entity
-  name: Khachapuri
-  parent: FoodMealBase
-  id: FoodMealKhachapuri
-  description: A large flatbread that complements pickled cheese, fresh egg.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - egg
-      - salty
-      - milk
-      - cheesy
-  - type: Sprite
-    state: khachapuri
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 13
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: TableSalt
-          Quantity: 3
-    
-- type: entity
   name: fried egg
   parent: FoodMealBase
   id: FoodMealFriedegg

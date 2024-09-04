@@ -1,0 +1,12 @@
+- type: microwaveMealRecipe
+  id: Khachapuri
+  name: Khachapuri recipe
+  result: ADTFoodMealKhachapuri
+  time: 15
+  reagents: 
+    Egg: 12
+    TableSalt: 5
+    Milk: 5
+  solids: 
+    FoodCheeseSlice: 1
+    FoodBreadPlainSlice: 1
