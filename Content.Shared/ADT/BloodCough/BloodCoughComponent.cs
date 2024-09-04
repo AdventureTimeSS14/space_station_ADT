@@ -10,10 +10,10 @@ public sealed partial class BloodCoughComponent : Component
     public TimeSpan NextSecond = TimeSpan.Zero;
 
     [DataField("coughTimeMin"), ViewVariables(VVAccess.ReadWrite)]
-    public int CoughTimeMin = 2;
+    public int CoughTimeMin = 11;
 
     [DataField("coughTimeMax"), ViewVariables(VVAccess.ReadWrite)]
-    public int CoughTimeMax = 12;
+    public int CoughTimeMax = 17;
 
     [DataField("postingSayDamage")]
     public string? PostingSayDamage = default;
