@@ -8,6 +8,9 @@ using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.ADT.Silicon.Components;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
+
 
 public sealed class BloodCoughSystem : EntitySystem
 {
@@ -16,6 +19,7 @@ public sealed class BloodCoughSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -27,25 +31,28 @@ public sealed class BloodCoughSystem : EntitySystem
     {
         if (EntityManager.TryGetComponent<DamageableComponent>(uid, out var damageable))
         {
-            var currentDamage = damageable.TotalDamage;
-            if (currentDamage > 70)
+            var damagePerGroup = damageable.Damage.GetDamagePerGroup(_prototypeManager);
+            if (damagePerGroup.TryGetValue("Brute", out var bruteDamage))
             {
-                if (TryComp<BloodCoughComponent>(uid, out var posting))
+                if (bruteDamage > 70)
                 {
-                    posting.CheckCoughBlood = true;
+                    if (TryComp<BloodCoughComponent>(uid, out var posting))
+                    {
+                        posting.CheckCoughBlood = true;
+                    }
                 }
-            }
-            if (currentDamage <= 70)
-            {
-                if (TryComp<BloodCoughComponent>(uid, out var posting))
+                if (bruteDamage <= 70)
                 {
-                    posting.CheckCoughBlood = false;
+                    if (TryComp<BloodCoughComponent>(uid, out var posting))
+                    {
+                        posting.CheckCoughBlood = false;
+                    }
                 }
             }
         }
         else
         {
-            Log.Debug($"Сущность {ToPrettyString(uid)} не имеет компонента BloodCoughComponent.");
+            Log.Debug($"Сущность {ToPrettyString(uid)} не имеет компонента DamageableComponent.");
         }
     }
 
