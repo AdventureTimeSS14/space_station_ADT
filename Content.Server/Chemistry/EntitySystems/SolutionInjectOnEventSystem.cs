@@ -2,6 +2,8 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -20,7 +22,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
@@ -33,11 +35,31 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
     private void HandleProjectileHit(Entity<SolutionInjectOnProjectileHitComponent> entity, ref ProjectileHitEvent args)
     {
+        // ADT Injector blocking start
+        if (!entity.Comp.IgnoreBlockers)
+        {
+            var ev = new InjectAttemptEvent();
+            RaiseLocalEvent(args.Target, ev);
+            if (ev.Cancelled)
+                return;
+        }
+        // ADT Injector blocking end
+
         DoInjection((entity.Owner, entity.Comp), args.Target, args.Shooter);
     }
 
     private void HandleEmbed(Entity<SolutionInjectOnEmbedComponent> entity, ref EmbedEvent args)
     {
+        // ADT Injector blocking start
+        if (!entity.Comp.IgnoreBlockers)
+        {
+            var ev = new InjectAttemptEvent();
+            RaiseLocalEvent(args.Embedded, ev);
+            if (ev.Cancelled)
+                return;
+        }
+        // ADT Injector blocking end
+
         DoInjection((entity.Owner, entity.Comp), args.Embedded, args.Shooter);
     }
 
@@ -46,7 +68,23 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         // MeleeHitEvent is weird, so we have to filter to make sure we actually
         // hit something and aren't just examining the weapon.
         if (args.IsHit)
-            TryInjectTargets((entity.Owner, entity.Comp), args.HitEntities, args.User);
+        {
+            List<EntityUid> list = new();
+            foreach (var ent in args.HitEntities)
+            {
+                // ADT Injector blocking start
+                if (!entity.Comp.IgnoreBlockers)
+                {
+                    var ev = new InjectAttemptEvent();
+                    RaiseLocalEvent(ent, ev);
+                    if (ev.Cancelled)
+                        continue;
+                    list.Add(ent);
+                }
+                // ADT Injector blocking end
+            }
+            TryInjectTargets((entity.Owner, entity.Comp), list, args.User);
+        }
     }
 
     private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)

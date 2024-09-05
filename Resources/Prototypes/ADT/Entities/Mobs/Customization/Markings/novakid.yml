@@ -532,3 +532,102 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: two-a
+
+- type: marking
+  id: NovakidFaceHorns
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: horns
+
+- type: marking
+  id: NovakidFaceHourGlasses
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: hourglasses
+
+- type: marking
+  id: NovakidFaceLove
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: love
+
+- type: marking
+  id: NovakidFaceMadness
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: madness
+
+- type: marking
+  id: NovakidFaceNaive
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: naive
+
+- type: marking
+  id: NovakidFaceRevTriangle
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: rev_triangle
+
+- type: marking
+  id: NovakidFaceScar
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: scar
+
+- type: marking
+  id: NovakidFaceSpider
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: spider
+
+- type: marking
+  id: NovakidFaceSpinningTop
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: spinning_top
+
+- type: marking
+  id: NovakidFaceSupernova
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: supernova2
+
+- type: marking
+  id: NovakidFaceSymbolism
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [NovakidSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: symbolism

@@ -22,6 +22,7 @@ using Content.Shared.Emp;
 using Content.Shared.Interaction;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;

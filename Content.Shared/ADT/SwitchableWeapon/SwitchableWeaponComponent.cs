@@ -1,4 +1,3 @@
-
 using Content.Shared.Damage;
 using Content.Shared.Item;
 using Robust.Shared.Audio;

@@ -58,6 +58,7 @@
       noRot: true
       drawdepth: Mobs
       scale: 0.95, 0.95
+    - type: Wagging
 
 - type: entity
   save: false

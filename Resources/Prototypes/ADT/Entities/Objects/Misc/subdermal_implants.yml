@@ -322,3 +322,16 @@
     - Dev
     toUnderstand:
     - Dev
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: VoxPidginTranslatorImplant
+  name: translator implant
+  description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - VoxPidgin
+    toUnderstand:
+    - VoxPidgin

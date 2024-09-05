@@ -30,6 +30,7 @@
         - DiscreteHealthAnalyzer
         - Defibrillator
         - SurgeryTool
+        - ADTLasgunRevolverCell
       components:
         - Stunbaton
         - FlashOnTrigger

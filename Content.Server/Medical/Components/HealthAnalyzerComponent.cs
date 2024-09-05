@@ -63,4 +63,10 @@ public sealed partial class HealthAnalyzerComponent : Component
     [DataField]
     public ProtoId<DiseasePrototype>? Disease;
     // ADT Disease end
+
+    /// <summary>
+    /// Whether to show up the popup
+    /// </summary>
+    [DataField]
+    public bool Silent;
 }

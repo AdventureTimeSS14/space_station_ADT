@@ -3,6 +3,7 @@
   parent:
   - BaseMob
   - MobDamageable
+  - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
   id: BaseMobSpecies
@@ -134,6 +135,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline # ADT-Medicine
     - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
   - type: Body
@@ -290,6 +292,8 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: BloodCough # ADT Tweak
+    postingSayDamage: blood-cough
 
 - type: entity
   save: false

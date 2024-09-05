@@ -1,0 +1,65 @@
+- type: marking
+  id: EarsSylveon
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: sylveon_primary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: sylveon_secondary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: sylveon_tertiary
+
+- type: marking
+  id: EarsAvali
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: avali_inner
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: avali_outer
+
+- type: marking
+  id: EarsChemlight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: chemlight_outer
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: chemlight_inner
+
+- type: marking
+  id: EarsDragonLong
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: dragonlong
+
+- type: marking
+  id: EarsEasternD
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: easternd_ears
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: easternd_horns
+
+- type: marking
+  id: EarsMagus
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: magus_ears
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
+      state: magus_neck

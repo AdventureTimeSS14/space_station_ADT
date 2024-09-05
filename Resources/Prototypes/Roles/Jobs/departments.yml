@@ -16,7 +16,6 @@
   weight: -10
   roles:
   - Bartender
-  - Borg
   - Botanist
   - Boxer
   - Chaplain
@@ -61,6 +60,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
+  # - ADTSeniorEngineer # ADT Role
 
 - type: department
   id: Medical
@@ -74,7 +74,8 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - ADTPathologist
+  - ADTPathologist # ADT Role
+  # - ADTSeniorPhysician # ADT Role
 
 - type: department
   id: Security
@@ -90,6 +91,7 @@
   - Detective
   - Warden
   - Brigmedic # ADT rework brigmedic
+  # - ADTSeniorOfficer # ADT Role
 
 - type: department
   id: Science
@@ -101,6 +103,16 @@
   - Scientist
   - ResearchAssistant
   - ADTRoboticist # ADT-Roles
+  # - ADTSeniorResearcher # ADT-Roles
+
+- type: department
+  id: Silicon
+  name: department-Silicon
+  description: department-Silicon-description
+  color: "#D381C9"
+  roles:
+  - Borg
+  - StationAi
 
 - type: department
   id: Specific

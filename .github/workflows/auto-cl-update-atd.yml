@@ -29,7 +29,7 @@ jobs:
         python-version: '3.x'
 
     - name: Install requirements
-      run: pip install requests pyyaml
+      run: pip install aiohttp pyyaml
 
     - name: Run post-merge script
       env:
