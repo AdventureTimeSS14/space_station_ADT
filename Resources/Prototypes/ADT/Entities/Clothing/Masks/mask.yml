@@ -213,6 +213,8 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: Eye
+    drawFov: false
 
 # #противогаз СССП
 
