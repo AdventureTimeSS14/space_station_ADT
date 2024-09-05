@@ -41,7 +41,7 @@
             AtmosphericTechnician: [ 2, 3 ]
             StationEngineer: [ 4, 5 ]
             TechnicalAssistant: [ 3, 4 ]
-            # ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             # medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
@@ -50,14 +50,13 @@
             MedicalIntern: [ 3, 4 ]
             Psychologist: [ 1, 1 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles
-            # ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 6 ]
             ResearchAssistant: [ 3, 4 ]
-            Borg: [ 2, 2 ]
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
-            # ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -66,7 +65,7 @@
             SecurityOfficer: [ 6, 6 ]
             SecurityCadet: [ 3, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
-            # ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
@@ -74,6 +73,9 @@
             # juridical
             IAA: [ 1, 1 ]
             Magistrat: [ 1, 1 ] #ADT-Roles
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]
         - type: StationGoal
           goals:
           - Shuttle
