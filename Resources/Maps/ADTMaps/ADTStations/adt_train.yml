@@ -6650,6 +6650,18 @@ entities:
     - type: Transform
       pos: -3.5,-5.5
       parent: 2
+- proto: ADTSpawnPointRoboticist
+  entities:
+  - uid: 17423
+    components:
+    - type: Transform
+      pos: 5.5,-312.5
+      parent: 2
+  - uid: 17424
+    components:
+    - type: Transform
+      pos: 5.5,-314.5
+      parent: 2
 - proto: ADTSuitStorageBlueshield
   entities:
   - uid: 13832
@@ -6663,6 +6675,13 @@ entities:
     components:
     - type: Transform
       pos: -1.570934,-5.4950247
+      parent: 2
+- proto: ADTVendingMachinePatholoDrobe
+  entities:
+  - uid: 13354
+    components:
+    - type: Transform
+      pos: -1.5,-172.5
       parent: 2
 - proto: AirAlarm
   entities:
@@ -76674,7 +76693,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -148074.27
+      secondsUntilStateChange: -148266.53
       state: Closing
   - uid: 11227
     components:
@@ -77344,6 +77363,13 @@ entities:
     - type: Transform
       pos: -6.5,-89.5
       parent: 2
+- proto: LockerBrigmedicFilledHardsuit
+  entities:
+  - uid: 17425
+    components:
+    - type: Transform
+      pos: -7.5,-342.5
+      parent: 2
 - proto: LockerCaptainFilled
   entities:
   - uid: 11322
@@ -77795,11 +77821,6 @@ entities:
     - type: Transform
       pos: -7.5,-336.5
       parent: 2
-  - uid: 11377
-    components:
-    - type: Transform
-      pos: -7.5,-342.5
-      parent: 2
   - uid: 11378
     components:
     - type: Transform
@@ -77884,13 +77905,6 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-168.5
-      parent: 2
-- proto: MachineFrame
-  entities:
-  - uid: 11392
-    components:
-    - type: Transform
-      pos: -1.5,-172.5
       parent: 2
 - proto: MachineFrameDestroyed
   entities:
@@ -89351,6 +89365,13 @@ entities:
     - type: Transform
       pos: 6.5,-166.5
       parent: 2
+- proto: SpawnPointADTPathologist
+  entities:
+  - uid: 11392
+    components:
+    - type: Transform
+      pos: -3.5,-173.5
+      parent: 2
 - proto: SpawnPointAtmos
   entities:
   - uid: 17062
@@ -89393,6 +89414,13 @@ entities:
     components:
     - type: Transform
       pos: -6.5,-84.5
+      parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 11377
+    components:
+    - type: Transform
+      pos: -7.5,-341.5
       parent: 2
 - proto: SpawnPointCaptain
   entities:
@@ -89486,6 +89514,13 @@ entities:
     - type: Transform
       pos: -2.5,-344.5
       parent: 2
+- proto: SpawnPointIAA
+  entities:
+  - uid: 17426
+    components:
+    - type: Transform
+      pos: -2.5,-73.5
+      parent: 2
 - proto: SpawnPointJanitor
   entities:
   - uid: 13343
@@ -89549,13 +89584,15 @@ entities:
     - type: Transform
       pos: -5.5,-135.5
       parent: 2
-- proto: SpawnPointMedicalDoctor
+- proto: SpawnPointMagistrat
   entities:
-  - uid: 13354
+  - uid: 17427
     components:
     - type: Transform
-      pos: -3.5,-173.5
+      pos: -3.5,-73.5
       parent: 2
+- proto: SpawnPointMedicalDoctor
+  entities:
   - uid: 13355
     components:
     - type: Transform

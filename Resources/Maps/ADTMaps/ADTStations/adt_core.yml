@@ -16985,8 +16985,8 @@ entities:
       pos: 33.5,-10.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 62
   - uid: 615
