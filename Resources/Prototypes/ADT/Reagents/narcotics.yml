@@ -10,9 +10,8 @@
     Medicine:
       effects:
       - !type:GenericStatusEffect
-        key: PainKiller
-        component: PainKiller
-        type: Add
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
         time: 10
         refresh: false
       - !type:PopupMessage
