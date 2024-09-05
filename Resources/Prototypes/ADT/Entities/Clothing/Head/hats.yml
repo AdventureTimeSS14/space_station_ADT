@@ -114,3 +114,14 @@
     sprite: ADT/Clothing/Head/Hats/investigator_cap.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/investigator_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretArmy
+  name: army beret
+  description: army beret
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/armyberet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/armyberet.rsi

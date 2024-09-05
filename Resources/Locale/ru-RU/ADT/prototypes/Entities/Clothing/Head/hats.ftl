@@ -21,3 +21,6 @@ ent-ADTClothingHeadCapIlisium = фуражка
 ent-ADTClothingHeadHatsInvestigatorCap = фуражка следователя Службы Безопасности
     .desc = Слава NanoTrasen!
     .suffix = { "" }
+
+ent-ADTClothingHeadHatsBeretArmy = армейский берет
+    .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.

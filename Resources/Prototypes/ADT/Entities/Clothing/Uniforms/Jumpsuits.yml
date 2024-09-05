@@ -596,3 +596,21 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
+
+## Новая Мекка
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformNewMekka
+  name: New Mekka jumpsuit
+  description: New Mekka jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Piercing: 0.8
+        Heat: 0.9
