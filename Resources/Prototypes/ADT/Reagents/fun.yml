@@ -1,0 +1,453 @@
+- type: reagent
+  id: ADTMPolymorphine
+  name: reagent-name-polymorphine
+  group: Medicine
+  desc: reagent-desc-polymorphine
+  physicalDesc: reagent-physical-desc-enigmatic
+  flavor: tingly
+  color: "#b26de3"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:PopupMessage #прелюдии до полиморфа.
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 20
+        type: Local
+        visualType: Small
+        messages: [ "polymorph-effect-feelings" ]
+        probability: 0.07
+      - !type:PopupMessage
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16.5
+        type: Pvs
+        visualType: Small
+        messages: [ "medicine-effect-visible-polymorph" ]
+        probability: 1
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 12
+          max: 20
+      - !type:AdjustAlert
+        conditions:
+          - !type:ReagentThreshold
+            min: 14
+            max: 20
+        alertType: ADTAlertPolymorph
+        clear: true
+        time: 10
+      - !type:Polymorph #начало полиморфов.
+        prototype: ADTPolymorphMonkey #люди.
+        conditions:
+          - !type:OrganType
+            type: Human
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphMonkey2
+        conditions:
+          - !type:OrganType
+            type: Human
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #дварфы.
+        prototype: ADTPolymorphMonkey
+        conditions:
+          - !type:OrganType
+            type: Dwarf
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphMonkey2
+        conditions:
+          - !type:OrganType
+            type: Dwarf
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #унтахи.
+        prototype: ADTPolymorphLizard
+        conditions:
+          - !type:OrganType
+            type: Reptilian
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphLizard2
+        conditions:
+          - !type:OrganType
+            type: Reptilian
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #арахниды.
+        prototype: ADTPolymorphSpider
+        conditions:
+          - !type:OrganType
+            type: Arachnid
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphSpider2
+        conditions:
+          - !type:OrganType
+            type: Arachnid
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #дионы.
+        prototype: ADTPolymorphBush
+        conditions:
+          - !type:OrganType
+            type: Plant
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphBush2
+        conditions:
+          - !type:OrganType
+            type: Plant
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #нианы.
+        prototype: ADTPolymorphMothroach
+        conditions:
+          - !type:OrganType
+            type: Moth
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphMothroach2
+        conditions:
+          - !type:OrganType
+            type: Moth
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #слаймолюды.
+        prototype: ADTPolymorphSmile
+        conditions:
+          - !type:OrganType
+            type: Slime
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphSmile2
+        conditions:
+          - !type:OrganType
+            type: Slime
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5 #наши расы ниже.
+      - !type:Polymorph #таяры.
+        prototype: ADTPolymorphCat
+        conditions:
+          - !type:OrganType
+            type: Tajaran
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphCat2
+        conditions:
+          - !type:OrganType
+            type: Tajaran
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #новакиды.
+        prototype: ADTPolymorphRodMetall
+        conditions:
+          - !type:OrganType
+            type: Novakid
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph 
+        prototype: ADTPolymorphRodMetall2
+        conditions:
+          - !type:OrganType
+            type: Novakid
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #фелиниды.
+        prototype: ADTPolymorphCat
+        conditions:
+          - !type:OrganType
+            type: Felinid
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph 
+        prototype: ADTPolymorphCat2
+        conditions:
+          - !type:OrganType
+            type: Felinid
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #вульпы.
+        prototype: ADTPolymorphDog
+        conditions:
+          - !type:OrganType
+            type: Vulpkanin
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphDog2
+        conditions:
+          - !type:OrganType
+            type: Vulpkanin
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #арканы.
+        prototype: ADTPolymorphMonkey 
+        conditions:
+          - !type:OrganType
+            type: Demon
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphMonkey2
+        conditions:
+          - !type:OrganType
+            type: Demon
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #урсы.
+        prototype: ADTPolymorphSpaceBear 
+        conditions:
+          - !type:OrganType
+            type: Ursus
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphSpaceBear2
+        conditions:
+          - !type:OrganType
+            type: Ursus
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #драски.
+        prototype: ADTPolymorphSoap
+        conditions:
+          - !type:OrganType
+            type: Drask
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTPolymorphSoap2
+        conditions:
+          - !type:OrganType
+            type: Drask
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph #животные, ради разнообразия. так же работает на "животные" расы (урсы, вульпы, таяры и т.д.) 
+        prototype: ADTPolymorphMouse
+        conditions:
+          - !type:OrganType
+            type: Animal
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.25
+      - !type:Polymorph 
+        prototype: ADTPolymorphSpider2
+        conditions:
+          - !type:OrganType
+            type: Animal
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.25
+      - !type:Polymorph 
+        prototype: ADTPolymorphCarp
+        conditions:
+          - !type:OrganType
+            type: Animal
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.25
+      - !type:Polymorph 
+        prototype: ADTPolymorphLizard2
+        conditions:
+          - !type:OrganType
+            type: Animal
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.25
+
+- type: reagent
+  id: ADTMChaoticPolymorphine
+  name: reagent-name-chaotic-polymorphine
+  group: Medicine
+  desc: reagent-desc-chaotic-polymorphine
+  physicalDesc: reagent-physical-desc-volatile
+  flavor: magical
+  color: "#62278c"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange #прелюдии до полиморфа.
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        damage:
+          types:
+            Cellular: 15
+      - !type:PopupMessage
+        conditions:
+          - !type:ReagentThreshold
+            min: 8
+            max: 15
+        type: Local
+        visualType: Small
+        messages: [ "polymorph-effect-feelings" ]
+        probability: 0.07
+      - !type:PopupMessage
+        conditions:
+          - !type:ReagentThreshold
+            min: 11.5
+            max: 12
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-visible-polymorph" ]
+        probability: 1
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 8
+          max: 15
+      - !type:AdjustAlert
+        conditions:
+          - !type:ReagentThreshold
+            min: 14
+            max: 20
+        alertType: ADTAlertPolymorph 
+        clear: true
+        time: 10
+      - !type:Polymorph #начало полиморфов.
+        prototype: ADTPolymorphMonkey
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphBread
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphRodMetall2
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphFrog
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphCat
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphSkeleton
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphCow
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphPossum
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphCarp
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+      - !type:Polymorph
+        prototype: ADTPolymorphSpaceBear
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 12
+        probability: 0.1
+
+#потом переделаю, как перенесу весь апдейт.
