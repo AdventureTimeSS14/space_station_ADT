@@ -14343,7 +14343,7 @@ entities:
       pos: -10.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -531.71387
+      secondsUntilStateChange: -1057.7134
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16984,11 +16984,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 33.5,-10.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 62
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
+    #   deviceLists:
+    #   - 62
   - uid: 615
     components:
     - type: Transform
@@ -118749,6 +118749,34 @@ entities:
     components:
     - type: Transform
       pos: -7.5,33.5
+      parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 13224
+    components:
+    - type: Transform
+      pos: -6.5,-17.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 13277
+    components:
+    - type: Transform
+      pos: -7.5,32.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 13265
+    components:
+    - type: Transform
+      pos: 55.5,2.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 13262
+    components:
+    - type: Transform
+      pos: 69.5,-11.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:

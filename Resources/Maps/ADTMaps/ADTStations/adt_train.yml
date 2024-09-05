@@ -76674,7 +76674,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -148008.94
+      secondsUntilStateChange: -148074.27
       state: Closing
   - uid: 11227
     components:
@@ -89724,6 +89724,34 @@ entities:
     - type: Transform
       pos: -0.5,-346.5
       parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 13388
+    components:
+    - type: Transform
+      pos: 5.5,-251.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 17421
+    components:
+    - type: Transform
+      pos: -4.5,-338.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 17422
+    components:
+    - type: Transform
+      pos: 6.5,-172.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 17420
+    components:
+    - type: Transform
+      pos: -4.5,-301.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 13382
@@ -89757,11 +89785,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-253.5
-      parent: 2
-  - uid: 13388
-    components:
-    - type: Transform
-      pos: 5.5,-251.5
       parent: 2
   - uid: 13389
     components:

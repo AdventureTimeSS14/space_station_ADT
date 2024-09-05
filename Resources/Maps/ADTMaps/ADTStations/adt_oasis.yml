@@ -14896,7 +14896,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13218.466
+      secondsUntilStateChange: -13298.633
       state: Opening
   - uid: 561
     components:
@@ -14908,7 +14908,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13221.1
+      secondsUntilStateChange: -13301.267
       state: Opening
   - uid: 562
     components:
@@ -14920,7 +14920,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13219.949
+      secondsUntilStateChange: -13300.116
       state: Opening
   - uid: 563
     components:
@@ -14931,7 +14931,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13219.166
+      secondsUntilStateChange: -13299.333
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -92996,7 +92996,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4542.446
+      secondsUntilStateChange: -4622.6123
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -137031,7 +137031,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41374.3
+      secondsUntilStateChange: -41454.47
       state: Opening
   - uid: 15856
     components:
@@ -138699,6 +138699,11 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-54.5
+      parent: 2
+  - uid: 18888
+    components:
+    - type: Transform
+      pos: 7.5,-46.5
       parent: 2
 - proto: LockerSecurity
   entities:
@@ -158732,6 +158737,34 @@ entities:
     components:
     - type: Transform
       pos: 31.5,-33.5
+      parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 8412
+    components:
+    - type: Transform
+      pos: 29.5,33.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 8411
+    components:
+    - type: Transform
+      pos: 34.5,-33.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 16123
+    components:
+    - type: Transform
+      pos: -17.5,-27.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 19763
+    components:
+    - type: Transform
+      pos: 7.5,-45.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:
@@ -184917,7 +184950,7 @@ entities:
       pos: 24.5,2.5
       parent: 22975
     - type: Door
-      secondsUntilStateChange: -386578.94
+      secondsUntilStateChange: -386659.1
       state: Opening
 - proto: WoodenBench
   entities:

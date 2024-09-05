@@ -33708,9 +33708,9 @@ entities:
     - type: Transform
       pos: 20.48783,5.539976
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
 - proto: ClownRecorder
   entities:
   - uid: 5128
@@ -40513,7 +40513,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1545.86
+      secondsUntilStateChange: -1587.6932
       state: Closing
   - uid: 6182
     components:
@@ -57961,7 +57961,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2046.031
+      secondsUntilStateChange: -2087.8643
       state: Closing
   - uid: 8824
     components:
@@ -68711,6 +68711,34 @@ entities:
     components:
     - type: Transform
       pos: 37.5,18.5
+      parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 13335
+    components:
+    - type: Transform
+      pos: 21.5,-32.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 13334
+    components:
+    - type: Transform
+      pos: 34.5,19.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 13332
+    components:
+    - type: Transform
+      pos: 73.5,7.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 13333
+    components:
+    - type: Transform
+      pos: 58.5,23.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:

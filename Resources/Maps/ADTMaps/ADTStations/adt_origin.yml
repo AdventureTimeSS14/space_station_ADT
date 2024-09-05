@@ -14896,7 +14896,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13371.639
+      secondsUntilStateChange: -13389.472
       state: Opening
   - uid: 561
     components:
@@ -14908,7 +14908,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13374.272
+      secondsUntilStateChange: -13392.105
       state: Opening
   - uid: 562
     components:
@@ -14920,7 +14920,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13373.122
+      secondsUntilStateChange: -13390.955
       state: Opening
   - uid: 563
     components:
@@ -14931,7 +14931,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13372.339
+      secondsUntilStateChange: -13390.172
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -92976,7 +92976,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4695.6187
+      secondsUntilStateChange: -4713.452
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -137008,7 +137008,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41527.473
+      secondsUntilStateChange: -41545.305
       state: Opening
   - uid: 15856
     components:
@@ -184889,7 +184889,7 @@ entities:
       pos: 24.5,2.5
       parent: 22975
     - type: Door
-      secondsUntilStateChange: -386732.12
+      secondsUntilStateChange: -386749.97
       state: Opening
 - proto: WoodenBench
   entities:

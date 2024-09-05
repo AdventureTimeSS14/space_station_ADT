@@ -7477,11 +7477,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 15.5,21.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
+    #   deviceLists:
+    #   - 88
 - proto: AltarSpawner
   entities:
   - uid: 361
@@ -35163,11 +35163,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 18.5,21.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
+    #   deviceLists:
+    #   - 88
 - proto: FirelockEdge
   entities:
   - uid: 5360
@@ -50587,11 +50587,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,20.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
+    #   deviceLists:
+    #   - 88
     - type: AtmosPipeColor
       color: '#0000FFFF'
   - uid: 7461
@@ -51417,11 +51417,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,21.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
+    #   deviceLists:
+    #   - 88
     - type: AtmosPipeColor
       color: '#FF0000FF'
   - uid: 7565
@@ -67938,6 +67938,34 @@ entities:
     components:
     - type: Transform
       pos: 13.5,9.5
+      parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 12723
+    components:
+    - type: Transform
+      pos: 19.5,-4.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 12722
+    components:
+    - type: Transform
+      pos: 20.5,13.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 12725
+    components:
+    - type: Transform
+      pos: -24.5,10.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 12724
+    components:
+    - type: Transform
+      pos: -17.5,-1.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:

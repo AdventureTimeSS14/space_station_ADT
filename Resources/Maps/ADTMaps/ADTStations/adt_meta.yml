@@ -10927,7 +10927,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2380.5588
+      secondsUntilStateChange: -2444.2253
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -139102,6 +139102,34 @@ entities:
     components:
     - type: Transform
       pos: -0.5,44.5
+      parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 21988
+    components:
+    - type: Transform
+      pos: 55.5,15.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 21989
+    components:
+    - type: Transform
+      pos: 2.5,38.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 9364
+    components:
+    - type: Transform
+      pos: -35.5,-33.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 21987
+    components:
+    - type: Transform
+      pos: 29.5,-55.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:

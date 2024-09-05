@@ -492,7 +492,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Boxstation
+      id: ADT_Boxstation
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -11766,7 +11766,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -4275.7197
+      secondsUntilStateChange: -4392.436
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84675,7 +84675,7 @@ entities:
       pos: 41.5,-13.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -888.1849
+      secondsUntilStateChange: -1004.901
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -144616,6 +144616,34 @@ entities:
     components:
     - type: Transform
       pos: 9.5,37.5
+      parent: 8364
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 22454
+    components:
+    - type: Transform
+      pos: 5.5,-60.5
+      parent: 8364
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 22455
+    components:
+    - type: Transform
+      pos: 9.5,36.5
+      parent: 8364
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 22452
+    components:
+    - type: Transform
+      pos: 41.5,-27.5
+      parent: 8364
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 22453
+    components:
+    - type: Transform
+      pos: 73.5,-26.5
       parent: 8364
 - proto: SpawnPointServiceWorker
   entities:

@@ -129285,6 +129285,34 @@ entities:
     - type: Transform
       pos: -33.5,-16.5
       parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 24523
+    components:
+    - type: Transform
+      pos: 0.5,18.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 16247
+    components:
+    - type: Transform
+      pos: -32.5,-16.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 24524
+    components:
+    - type: Transform
+      pos: 47.5,-10.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 20347
+    components:
+    - type: Transform
+      pos: -43.5,-7.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 19512
