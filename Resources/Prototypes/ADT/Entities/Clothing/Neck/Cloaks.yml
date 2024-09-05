@@ -35,6 +35,7 @@
   id: ADTClothingNeckNewMekkaCloak
   name: New Mekka cloak
   description: Protect from cold evening on a nukie planet.
+  suffix: New Mekka
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Neck/Cloaks/newmekkacloak.rsi #спрайты от floppo4ka
+    sprite: ADT/Clothing/Neck/Cloaks/newmekkacloak.rsi

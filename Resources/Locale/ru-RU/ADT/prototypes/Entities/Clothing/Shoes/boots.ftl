@@ -3,3 +3,4 @@ ent-ADTClothingSandals = сандали
     .suffix = { "" }
 ent-ADTClothingFootNewMekkaBoots = сапоги Новой Мекки
     .desc = Явно потрёпанные сапоги, в которых прошли уж точно не одну милю.
+    .suffix = { "Новая Мекка" }

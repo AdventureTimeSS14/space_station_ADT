@@ -120,6 +120,7 @@
   id: ADTClothingHeadHatsBeretArmy
   name: army beret
   description: army beret
+  suffix: New Mekka
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/armyberet.rsi

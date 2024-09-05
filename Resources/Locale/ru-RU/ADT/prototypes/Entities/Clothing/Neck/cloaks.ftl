@@ -11,3 +11,4 @@ ent-ADTClothingNeckGothicCloak = готический плащ
 
 ent-ADTClothingNeckNewMekkaCloak = накидка Новой Мекки
     .desc = Зеленая накидка, очень удобная в носке. Скреплена застёжкой на шее.
+    .suffix = { "Новая Мекка" }

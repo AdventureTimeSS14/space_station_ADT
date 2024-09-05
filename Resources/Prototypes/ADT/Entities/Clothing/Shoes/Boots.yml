@@ -3,6 +3,7 @@
   id: ADTClothingFootNewMekkaBoots
   name: New Mekka boots
   description: Comfortable for bullies!
+  suffix: New Mekka
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Boots/newmekka.rsi
