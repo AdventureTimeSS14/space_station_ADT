@@ -1,5 +1,5 @@
 - type: reagent
-  id: ADTMPolymorphine
+  id: ADTPolymorphine
   name: reagent-name-polymorphine
   group: Medicine
   desc: reagent-desc-polymorphine
@@ -330,7 +330,7 @@
         probability: 0.25
 
 - type: reagent
-  id: ADTMChaoticPolymorphine
+  id: ADTChaoticPolymorphine
   name: reagent-name-chaotic-polymorphine
   group: Medicine
   desc: reagent-desc-chaotic-polymorphine
