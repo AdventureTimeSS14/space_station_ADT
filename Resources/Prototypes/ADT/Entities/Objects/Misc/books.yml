@@ -302,14 +302,9 @@
   description: Red note with a recipes of new cocktails. Writen by R.S. 
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
+    sprite: ADT/Objects/Misc/books.rsi
     layers:
-    - state: paper
-    - state: cover_base
-      color: "#004848"
-    - state: decor_wingette
-      color: "#006666"
-    - state: icon_bar
+    - state: new-cocktail-book
   - type: Tag
     tags:
     - Book
