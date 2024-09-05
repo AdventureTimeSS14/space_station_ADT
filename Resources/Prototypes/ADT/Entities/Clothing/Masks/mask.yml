@@ -209,12 +209,10 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/chronosvisor.rsi
   - type: BreathMask
-  - type: ShowSecurityIcons
+  - type: NoShowFov # Отключает Fov при надевании
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: Eye
-    drawFov: false
 
 # #противогаз СССП
 

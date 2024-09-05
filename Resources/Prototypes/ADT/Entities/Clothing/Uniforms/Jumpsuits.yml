@@ -246,6 +246,7 @@
   id: ADTClothingUniformNewMekka
   name: New Mekka jumpsuit
   description: New Mekka jumpsuit
+  suffix: New Mekka
   components:
   - type: Sprite
     sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
@@ -596,21 +597,3 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ADTClothingUniformNewMekka
-  name: New Mekka jumpsuit
-  description: New Mekka jumpsuit
-  suffix: New Mekka
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/newmekkauniform.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Piercing: 0.8
-        Heat: 0.9
