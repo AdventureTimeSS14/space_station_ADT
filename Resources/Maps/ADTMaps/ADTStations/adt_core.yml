@@ -14343,7 +14343,7 @@ entities:
       pos: -10.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1057.7134
+      secondsUntilStateChange: -1096.7141
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16984,11 +16984,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 33.5,-10.5
       parent: 2
-    # - type: DeviceNetwork
-    #   configurators:
-    #   - invalid
-    #   deviceLists:
-    #   - 62
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 62
   - uid: 615
     components:
     - type: Transform
@@ -101163,6 +101163,13 @@ entities:
     - type: Transform
       pos: -36.5,12.5
       parent: 2
+- proto: LockerBrigmedicFilledHardsuit
+  entities:
+  - uid: 13412
+    components:
+    - type: Transform
+      pos: -5.5,34.5
+      parent: 2
 - proto: LockerCaptainFilledNoLaser
   entities:
   - uid: 14782
@@ -118405,6 +118412,13 @@ entities:
     components:
     - type: Transform
       pos: -32.5,-30.5
+      parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 13278
+    components:
+    - type: Transform
+      pos: -5.5,33.5
       parent: 2
 - proto: SpawnPointCaptain
   entities:

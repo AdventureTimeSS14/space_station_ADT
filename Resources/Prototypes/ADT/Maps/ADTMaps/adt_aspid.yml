@@ -1,6 +1,6 @@
 - type: gameMap
   id: ADT_Aspid
-  mapName: 'Core'
+  mapName: 'Aspid'
   mapPath: /Maps/ADTMaps/ADTStations/adt_aspid.yml
   minPlayers: 20
   maxPlayers: 80
@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Core {1}'
+          mapNameTemplate: '{0} Aspid {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

@@ -5356,7 +5356,7 @@ entities:
     - type: NavMap
     - type: FTLDestination
     - type: BecomesStation
-      id: Train
+      id: ADT_Train
   - uid: 17345
     components:
     - type: MetaData
