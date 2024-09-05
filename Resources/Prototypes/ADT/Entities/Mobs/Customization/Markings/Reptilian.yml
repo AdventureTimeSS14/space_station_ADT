@@ -51,3 +51,25 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Reptilian/custom.rsi
     state: lineeyes
+
+- type: marking
+  id: SnoutEasternDNW
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
+      state: easterndnw_primary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
+      state: easterndnw_secondary
+
+- type: marking
+  id: SnoutEasternDW
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
+      state: easterndw_primary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
+      state: easterndnw_secondary

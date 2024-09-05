@@ -1,5 +1,5 @@
 - type: entity
-  id: BookSpaceLaw
+  id: ADTBookSpaceLaw
   parent: BaseItem
   name: space law
   description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
