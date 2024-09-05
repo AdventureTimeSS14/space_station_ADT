@@ -233,6 +233,7 @@
       - id: DrinkVodkaBottleFull
       - id: DrinkWhiskeyBottleFull
       - id: DrinkWineBottleFull
+      - id: ADTDrinkAppleLiqueurBottleFull #ADT_Tweak
 
 - type: entity
   id: CrateServiceBox

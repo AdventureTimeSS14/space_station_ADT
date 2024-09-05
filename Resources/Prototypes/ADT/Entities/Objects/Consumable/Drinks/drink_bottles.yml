@@ -1,0 +1,19 @@
+- type: entity
+  parent: DrinkBottleGlassBaseFull
+  id: ADTDrinkAppleLiqueurBottleFull
+  name: apple liquer
+  description: fruit, dessert alcoholic drink.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: ADTAppleLiqueur
+          Quantity: 100
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_bottle.rsi
+    state: icon
+  - type: Label
+    currentLabel: apple-liqueur-name
