@@ -331,18 +331,20 @@
 - type: entity
   name: quartermaster PDA
   parent: BasePDA
-  id: QuartermasterPDA #ADT tweak
+  id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
   components:
   - type: Pda
     id: QuartermasterIDCard
     state: pda-qm
+    #ADT tweak Start
     penSlot:
       startingItem: ADTPenQM
       priority: -1
       whitelist:
         tags:
         - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#a23e3e"
@@ -489,19 +491,21 @@
 
 - type: entity
   parent: BasePDA
-  id: CEPDA #ADT tweak
+  id: CEPDA
   name: chief engineer PDA
   description: Looks like it's barely been used.
   components:
   - type: Pda
     id: CEIDCard
     state: pda-ce
+    #ADT tweak Start
     penSlot:
       startingItem: ADTPenCe
       priority: -1
       whitelist:
         tags:
         - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#949137"
     accentHColor: "#447987"
@@ -525,19 +529,21 @@
 
 - type: entity
   parent: BaseMedicalPDA
-  id: CMOPDA #ADT tweak
+  id: CMOPDA
   name: chief medical officer PDA
   description: Extraordinarily shiny and sterile. Has a built-in health analyzer.
   components:
   - type: Pda
     id: CMOIDCard
     state: pda-cmo
+    #ADT tweak Start
     penSlot:
       startingItem: ADTPenCmo
       priority: -1
       whitelist:
         tags:
         - Write
+      #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -595,19 +601,21 @@
 
 - type: entity
   parent: BasePDA
-  id: RnDPDA #ADT tweak
+  id: RnDPDA
   name: research director PDA
   description: It appears surprisingly ordinary.
   components:
   - type: Pda
     id: RDIDCard
     state: pda-rd
+    #ADT tweak Start
     penSlot:
       startingItem: ADTPenRD
       priority: -1
       whitelist:
         tags:
         - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -632,19 +640,21 @@
 
 - type: entity
   parent: BasePDA
-  id: HoSPDA #ADT tweak
+  id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
   components:
   - type: Pda
     id: HoSIDCard
     state: pda-hos
+    #ADT tweak Start
     penSlot:
       startingItem: ADTPenHos
       priority: -1
       whitelist:
         tags:
         - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
