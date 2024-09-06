@@ -331,14 +331,14 @@
 - type: entity
   name: quartermaster PDA
   parent: BasePDA
-  id: QuartermasterPDA
+  id: QuartermasterPDA #ADT tweak
   description: PDA for the guy that orders the guns.
   components:
   - type: Pda
     id: QuartermasterIDCard
     state: pda-qm
     penSlot:
-      startingItem: ADTPenQM #ADT tweak
+      startingItem: ADTPenQM
       priority: -1
       whitelist:
         tags:
@@ -489,7 +489,7 @@
 
 - type: entity
   parent: BasePDA
-  id: CEPDA
+  id: CEPDA #ADT tweak
   name: chief engineer PDA
   description: Looks like it's barely been used.
   components:
@@ -497,7 +497,7 @@
     id: CEIDCard
     state: pda-ce
     penSlot:
-      startingItem: ADTPenCe #ADT tweak
+      startingItem: ADTPenCe
       priority: -1
       whitelist:
         tags:
@@ -525,7 +525,7 @@
 
 - type: entity
   parent: BaseMedicalPDA
-  id: CMOPDA
+  id: CMOPDA #ADT tweak
   name: chief medical officer PDA
   description: Extraordinarily shiny and sterile. Has a built-in health analyzer.
   components:
@@ -533,7 +533,7 @@
     id: CMOIDCard
     state: pda-cmo
     penSlot:
-      startingItem: ADTPenCmo #ADT tweak
+      startingItem: ADTPenCmo
       priority: -1
       whitelist:
         tags:
@@ -595,7 +595,7 @@
 
 - type: entity
   parent: BasePDA
-  id: RnDPDA
+  id: RnDPDA #ADT tweak
   name: research director PDA
   description: It appears surprisingly ordinary.
   components:
@@ -603,7 +603,7 @@
     id: RDIDCard
     state: pda-rd
     penSlot:
-      startingItem: ADTPenRD  #ADT tweak
+      startingItem: ADTPenRD
       priority: -1
       whitelist:
         tags:
@@ -632,7 +632,7 @@
 
 - type: entity
   parent: BasePDA
-  id: HoSPDA
+  id: HoSPDA #ADT tweak
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
   components:
@@ -640,7 +640,7 @@
     id: HoSIDCard
     state: pda-hos
     penSlot:
-      startingItem: ADTPenHos #ADT tweak
+      startingItem: ADTPenHos
       priority: -1
       whitelist:
         tags:
