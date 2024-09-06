@@ -8,9 +8,9 @@
     size: Small
   - type: Sprite
     state: icon
-    sprite: ADT/Clothing/Neck/Misc/bodycam.rsi
+    sprite: ADT/Clothing/Neck/bodycam.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Neck/Misc/bodycam.rsi
+    sprite: ADT/Clothing/Neck/bodycam.rsi
     quickEquip: true
     slots:
     - neck
