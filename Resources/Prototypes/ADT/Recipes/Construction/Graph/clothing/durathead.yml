@@ -23,5 +23,5 @@
   targetNode: DuffelDurathead
   category: construction-category-clothing
   description: A better bag for a swag.
-  icon: { sprite: ADT/Clothing/Back/Duffel_Durathead.rsi, state: icon }
+  icon: { sprite: ADT/Clothing/Back/duffel_durathead.rsi, state: icon }
   objectType: Item
