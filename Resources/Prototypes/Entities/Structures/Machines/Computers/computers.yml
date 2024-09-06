@@ -16,6 +16,7 @@
       state: alert-2
     - map: ["computerLayerKeys"]
       state: atmos_key
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputer
@@ -243,6 +244,7 @@
     interfaces:
       enum.PowerMonitoringConsoleUiKey.Key:
         type: PowerMonitoringConsoleBoundUserInterface
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputer
@@ -301,6 +303,7 @@
   - type: GuideHelp
     guides:
     - CriminalRecords
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputer
@@ -324,6 +327,7 @@
   - type: GuideHelp
     guides:
     - Forensics
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputer
@@ -359,6 +363,7 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 1200
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputer
@@ -396,6 +401,7 @@
     board: ResearchComputerCircuitboard
   - type: AccessReader
     access: [["Research"]]
+  - type: StationAiWhitelist #ADT-Tweak
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -562,6 +568,7 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StrongMetallic
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: ComputerComms
@@ -623,6 +630,7 @@
     radius: 1.5
     energy: 1.6
     color: "#e6e227"
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputer
@@ -653,6 +661,7 @@
     radius: 1.5
     energy: 1.6
     color: "#e6e227"
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   id: ComputerCargoShuttle
@@ -707,6 +716,7 @@
       state: tech_key
   - type: CargoOrderConsole
   - type: BankClient
+  - type: StationAiWhitelist #ADT-Tweak
   - type: ActiveRadio
     channels:
     - Supply
@@ -1082,6 +1092,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: RoboticsConsole
     transmitFrequencyId: CyborgControl
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Computer
     board: RoboticsConsoleCircuitboard
   - type: AccessReader # only used for dangerous things
