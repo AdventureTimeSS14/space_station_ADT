@@ -568,7 +568,6 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StrongMetallic
-  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: ComputerComms

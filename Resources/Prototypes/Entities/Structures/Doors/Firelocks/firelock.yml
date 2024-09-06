@@ -117,6 +117,7 @@
       enabled: false
       castShadows: false
     - type: StationAiWhitelist #ADT-Tweak
+
 - type: entity
   id: Firelock
   parent: BaseFirelock
