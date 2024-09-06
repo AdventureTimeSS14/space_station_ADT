@@ -33,6 +33,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+using Content.Shared.Stacks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Cuffs
 {
@@ -53,6 +55,7 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
+        [Dependency] private readonly SharedStackSystem _stacks = default!;
 
         public override void Initialize()
         {
@@ -450,6 +453,50 @@ namespace Content.Shared.Cuffs
                 EnsureComp<UnremoveableComponent>(virtItem2.Value);
         }
 
+///ADT secborg start
+        /// <summary>
+        /// Checks if the handcuff is stackable, and creates a new handcuff entity if the stack requires it.
+        /// </summary>
+        /// <returns></returns>
+        public bool TrySpawnCuffSplitStack(EntityUid handcuff, EntityUid user, EntityUid target, [NotNullWhen(true)] out EntityUid? handcuffsplit)
+        {
+            if (!HasComp<HandcuffComponent>(handcuff))
+            {
+                handcuffsplit = null;
+                return false;
+            }
+            if (TryComp<StackComponent>(handcuff, out var stackComp))
+            {
+                if (_stacks.GetCount(handcuff, stackComp) >= 1)
+                {
+                    _stacks.Use(handcuff, 1, stackComp);
+
+                    if (_net.IsServer) /// let the server spawn because client mispredicts
+                    {
+                        var pos = Transform(target).Coordinates;
+                        handcuffsplit = Spawn("Zipties", pos); /// This should somehow get the proto ID instead of zipties, but fuck if I know how.
+                        return true;
+                    }
+                    else
+                    {
+                        handcuffsplit = null;
+                        return false;
+                    }
+                }
+                else
+                {
+                    handcuffsplit = null;
+                    return false;
+                }
+            }
+            else
+            {
+                handcuffsplit = handcuff;
+                _hands.TryDrop(user, handcuff);
+                return true;
+            }
+        }
+///ADT secborg end
         /// <summary>
         /// Add a set of cuffs to an existing CuffedComponent.
         /// </summary>
@@ -462,12 +509,21 @@ namespace Content.Shared.Cuffs
                 return false;
 
             // Success!
-            _hands.TryDrop(user, handcuff);
+            //ADT secborg start
+            TrySpawnCuffSplitStack(handcuff, user, target, out EntityUid? handcuffsplit);
 
-            _container.Insert(handcuff, component.Container);
-            UpdateHeldItems(target, handcuff, component);
-            return true;
+            if (handcuffsplit.HasValue)
+            {
+                _container.Insert(handcuffsplit.Value, component.Container);
+                UpdateHeldItems(target, (EntityUid) handcuffsplit, component);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+        ///ADT secborg end
 
         /// <returns>False if the target entity isn't cuffable.</returns>
         public bool TryCuffing(EntityUid user, EntityUid target, EntityUid handcuff, HandcuffComponent? handcuffComponent = null, CuffableComponent? cuffable = null)
@@ -489,7 +545,7 @@ namespace Content.Shared.Cuffs
                 return true;
             }
 
-            if (!_hands.CanDrop(user, handcuff))
+            if (!_hands.CanDrop(user, handcuff) && !handcuffComponent.BorgUse) ///ADT secbotg
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-cannot-drop-cuffs", ("target", Identity.Name(target, EntityManager, user))), user, user);
                 return false;

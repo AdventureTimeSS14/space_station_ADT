@@ -1,0 +1,51 @@
+- type: entity
+  id: ADTBaseBorgModuleSecurity
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - ADTBorgModuleSecurity
+
+- type: entity
+  id: ADTBorgModuleDetention
+  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: detentions module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icons-detentions
+  - type: ItemBorgModule
+    items:
+    - ADTInfCablecuffs
+    - ADTtelescopicBaton
+    - ADTBorgflash
+
+- type: entity
+  id: ADTBorgModuleHarm
+  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: harm module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icons-harm
+  - type: ItemBorgModule
+    items:
+    - Truncheon
+    - ADTWeaponLaserCarbineBorg
+
+- type: entity
+  id: ADTBorgModuleDisabler
+  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: disabler module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icons-disabler
+  - type: ItemBorgModule
+    items:
+    - ADTInfCablecuffs
+    - ADTWeaponDisablerBorg

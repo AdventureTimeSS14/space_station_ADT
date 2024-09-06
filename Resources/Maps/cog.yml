@@ -154219,36 +154219,20 @@ entities:
     - type: Transform
       pos: 31.551949,51.708954
       parent: 12
-- proto: RiotBulletShield
+- proto: Ash
   entities:
   - uid: 20873
     components:
     - type: Transform
       pos: -37.44216,65.286
       parent: 12
-    - type: Blocking
-      blockingToggleActionEntity: 20777
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 20777
-- proto: RiotLaserShield
+- proto: Ash
   entities:
   - uid: 20850
     components:
     - type: Transform
       pos: -37.846073,65.249306
       parent: 12
-    - type: Blocking
-      blockingToggleActionEntity: 19882
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 19882
 - proto: RollerBedSpawnFolded
   entities:
   - uid: 3815

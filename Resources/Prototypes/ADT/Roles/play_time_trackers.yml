@@ -25,3 +25,5 @@
 - type: playTimeTracker
   id: JobBrigmedic
 
+- type: playTimeTracker
+  id: ADTJobSecBorg

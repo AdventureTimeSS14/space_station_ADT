@@ -672,6 +672,14 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    #ADT secborg start
+    - ADTLeftArmBorgSecurity
+    - ADTRightArmBorgSecurity
+    - ADTLeftLegBorgSecurity
+    - ADTRightLegBorgSecurity
+    - ADTHeadBorgSecurity
+    - ADTTorsoBorgSecurity
+    #ADT secborg end
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -709,6 +717,9 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    - ADTBorgModuleDisabler #ADT secborg
+    - ADTBorgModuleDetention #ADT secborg
+    - ADTBorgModuleHarm # ADT secborg
   - type: MaterialStorage
     whitelist:
       tags:

@@ -92,6 +92,8 @@ public sealed partial class HandcuffComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier EndUncuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_takeoff_end.ogg");
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)] public bool BorgUse = false; ///ADT secborg
 }
 
 /// <summary>
