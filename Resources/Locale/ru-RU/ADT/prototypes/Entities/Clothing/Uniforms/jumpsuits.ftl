@@ -195,3 +195,7 @@ ent-ADTClothingUniformIlisium = костюм Иллизиума
 ent-ADTClothingUniformInvestigatorSuit = форма следователя Службы Безопасности
     .desc = Одежда для того, кто намерен докопаться до сути всех тайн.
     .suffix = { "" }
+
+ent-ADTClothingUniformNewMekka = униформа Новой Мекки
+    .desc = Эта униформа имеет очень долгую и кровавую историю...
+    .suffix = { "Новая Мекка" }
