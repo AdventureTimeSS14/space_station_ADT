@@ -1,12 +1,6 @@
 ent-ADTLeftArmBorgSecurity = левая рука киборга-офицера
-    .desc = { ent-BaseBorgArmLeft.desc }
 ent-ADTRightArmBorgSecurity = правая рука киборга-офицера
-    .desc = { ent-BaseBorgArmRight.desc }
 ent-ADTLeftLegBorgSecurity = левая нога киборга-офицера
-    .desc = { ent-BaseBorgLegLeft.desc }
 ent-ADTRightLegBorgSecurity = правая нога киборга-офицера
-    .desc = { ent-BaseBorgLegRight.desc }
 ent-ADTHeadBorgSecurity = голова киборга-офицера
-    .desc = { ent-BaseBorgHead.desc }
 ent-ADTTorsoBorgSecurity = туловище киборга-офицера
-    .desc = { ent-BaseBorgTorso.desc }
