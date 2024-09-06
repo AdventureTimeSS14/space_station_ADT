@@ -196,11 +196,11 @@
       kerfusNT_torso+o:
         whitelist:
           tags:
-            - ADTTorsoBorgKerfusNT
+            - ADTBorgKerfusNTTorso
       kerfusNT_head+o:
         whitelist:
           tags:
-            - ADTHeadBorgKerfusNT
+            - ADTBorgKerfusNTHead
             # ADT-Kerfus-End
   - type: ContainerContainer
     containers:
