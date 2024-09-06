@@ -126,13 +126,13 @@
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 3.6
-          Slash: 3.6
+          Blunt: 1.3
+          Slash: 1.3
           Piercing: 0.7
       activeBlockModifier:
         coefficients:
-          Blunt: 3.6
-          Slash: 3.6
+          Blunt: 1.3
+          Slash: 1.3
           Piercing: 0.5
         flatReductions:
           Piercing: 1

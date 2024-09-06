@@ -32,7 +32,7 @@
   - type: Construction
     node: security
   - type: AccessReader
-    access: [["Secutity"], ["Command"], ["Research"]]
+    access: [["Security"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgTall
   - type: InteractionPopup

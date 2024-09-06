@@ -1,7 +1,7 @@
 - type: entity
   id: ADTInfCablecuffs
   parent: Zipties
-  sufix: lingering, 1
+  suffix: lingering, 1
   components:
   - type: Handcuff
     breakoutTime: 3
@@ -31,4 +31,3 @@
   icon: { sprite: "/Textures/Objects/Misc/zipties.rsi", state: cuff }
   spawn: Zipties
   maxCount: 5
-  itemSize: 2

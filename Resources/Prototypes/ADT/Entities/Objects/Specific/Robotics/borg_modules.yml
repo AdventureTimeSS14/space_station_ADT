@@ -17,7 +17,6 @@
     - state: security
     - state: icons-detentions
   - type: ItemBorgModule
-    handCounher: 2
     items:
     - ADTInfCablecuffs
     - ADTtelescopicBaton
@@ -33,7 +32,6 @@
     - state: security
     - state: icons-harm
   - type: ItemBorgModule
-    handCounher: 2
     items:
     - Truncheon
     - ADTWeaponLaserCarbineBorg
@@ -48,7 +46,6 @@
     - state: security
     - state: icons-disabler
   - type: ItemBorgModule
-    handCounher: 2
     items:
     - ADTInfCablecuffs
     - ADTWeaponDisablerBorg
