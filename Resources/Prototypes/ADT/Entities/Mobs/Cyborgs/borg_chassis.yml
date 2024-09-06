@@ -73,6 +73,7 @@
   - type: RandomMetadata
     nameSegments: [names_borg]
 
+- type: entity
   id: ADTBorgChassisKerfusNT
   parent: BaseBorgChassisNT
   name: kerfus cyborg
