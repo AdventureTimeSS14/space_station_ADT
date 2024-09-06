@@ -46,6 +46,7 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  - ADTBorgModuleHarm #ADT secborg
 
 - type: technology
   id: NonlethalAmmunition
@@ -55,12 +56,14 @@
     state: beanbag
   discipline: Arsenal
   tier: 1
-  cost: 5000
+  cost: 8000 #ADT secborg
   recipeUnlocks:
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
   - WeaponDisabler
+  - ADTBorgModuleDisabler #ADT secborg
+  - ADTBorgModuleDetention #ADT secborg
 
 - type: technology
   id: UraniumMunitions

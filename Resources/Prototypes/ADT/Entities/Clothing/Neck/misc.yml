@@ -5,12 +5,12 @@
   description: A chain made of gold.
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi 
+      sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi
     - type: Clothing
       sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi #спрайты от prazat911
     - type: StaticPrice
       price: 500
-     
+
 - type: entity
   parent: ClothingNeckBase
   id: ADTSpaceSecToken
