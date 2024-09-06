@@ -4,7 +4,7 @@
   name: sec borg
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Silicon/chassis.rsi
+    sprite: ADT/Mobs/Cyborg/chassis.rsi
     layers:
     - state: sec
       map: ["movement"]
@@ -26,7 +26,7 @@
     noMindState: sec_e_r
   - type: BorgTransponder
     sprite:
-      sprite: ADT/Mobs/Silicon/chassis.rsi
+      sprite: ADT/Mobs/Cyborg/chassis.rsi
       state: sec
     name: secborg
   - type: Construction
