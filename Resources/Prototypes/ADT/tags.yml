@@ -63,3 +63,9 @@
 
 - type: Tag
   id: ADTBorgSecurityTorso
+
+- type: Tag
+  id: ADTBorgKerfusNTTorso
+
+- type: Tag
+  id: ADTBorgKerfusNTHead

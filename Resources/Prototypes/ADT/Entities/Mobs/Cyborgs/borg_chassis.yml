@@ -95,6 +95,7 @@
       tags:
       - BorgModuleGeneric
       - BorgModuleService
+      - BorgModuleJanitor
     hasMindState: kerfusNT_e
     noMindState: kerfus_e_r
   - type: BorgTransponder
@@ -103,7 +104,7 @@
       state: kerfus
     name: kerfus cyborg
   - type: Construction
-    node: service
+    node: kerfusNT
   - type: IntrinsicRadioTransmitter
     channels:
     - Binary
@@ -135,3 +136,5 @@
     interactFailureString: petting-failure-service-cyborg
     interactSuccessSound:
       path: /Audio/ADT/Ambience/Objects/minecraft_cat.ogg
+  - type: RandomMetadata
+    nameSegments: [names_borg]
