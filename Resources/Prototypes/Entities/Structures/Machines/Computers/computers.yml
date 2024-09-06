@@ -455,6 +455,7 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputer
