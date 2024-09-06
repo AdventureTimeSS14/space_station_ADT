@@ -1,0 +1,89 @@
+- type: marking
+  id: TailAxolotl
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: axolotl
+
+- type: marking
+  id: TailDatashark
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: datashark_ears_inner
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: datashark_ears
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: datashark_fin
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: datashark_tail
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: datashark_taildata
+
+- type: marking
+  id: TailEasternDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: easternd_primary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: easternd_secondary
+
+- type: marking
+  id: TailFish
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: fish_primary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: fish_secondary
+
+- type: marking
+  id: TailGecko
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: gecko_primary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: gecko_secondary
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: gecko_tertiary
+
+- type: marking
+  id: TailMaw
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: maw
+
+- type: marking
+  id: TailShark
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: shark_fin
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: shark_tail
+
+- type: marking
+  id: TailSnake
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, KoboltSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+      state: snake
