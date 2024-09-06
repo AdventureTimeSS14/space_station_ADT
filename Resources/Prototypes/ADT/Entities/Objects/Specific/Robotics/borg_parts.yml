@@ -92,3 +92,34 @@
       tags:
         - Trash
         - ADTBorgSecurityTorso
+
+- type: entity
+  id: ADTHeadBorgKerfusNT
+  parent: BaseBorgHead
+  name: kerfus cyborg head
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+      state: kerfusNT_head
+    - type: Icon
+      state: kerfusNT_head
+    - type: Tag
+      tags:
+        - Trash
+        - BorgHead
+        - ADTBorgKerfusNTHead
+
+- type: entity
+  id: ADTTorsoBorgKerfusNT
+  parent: BaseBorgTorso
+  name: kerfus cyborg torso
+  components:
+    - type: Icon
+      state: kerfusNT_torso
+    - type: Sprite
+      sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+      state: kerfusNT_torso
+    - type: Tag
+      tags:
+        - Trash
+        - ADTBorgKerfusNTTorso
