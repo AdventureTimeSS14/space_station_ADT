@@ -39,7 +39,7 @@
       sprite: Objects/Specific/Robotics/cyborg_parts.rsi
       state: security_l_leg
     - type: Icon
-      state: securityy_l_leg
+      state: security_l_leg
     - type: Tag
       tags:
         - Trash
