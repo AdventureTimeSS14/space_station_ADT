@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: ADT\Objects\Misc\pens.rsi
+    sprite: ADT/Objects/Misc/pens.rsi
     state: pen
   - type: Item
-    sprite: ADT\Objects\Misc\pens.rsi
+    sprite: ADT/Objects/Misc/pens.rsi
     heldPrefix: pen
     size: Tiny
   - type: EmbeddableProjectile
