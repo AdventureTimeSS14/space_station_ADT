@@ -20,6 +20,7 @@
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
+      - id: ADTClothingNeckBodyCamera #ADT bodycam
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
@@ -52,6 +53,7 @@
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
+      - id: ADTClothingNeckBodyCamera #ADT bodycam
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
@@ -90,6 +92,8 @@
         prob: 0.6
       - id: BookSpaceLaw
         prob: 0.5
+      - id: ADTClothingNeckBodyCamera # ADT bodycam
+        prob: 0.3
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
@@ -154,6 +158,7 @@
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
       - id: HandLabeler
+      - id: ADTClothingNeckBodyCamera
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec

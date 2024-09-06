@@ -65,7 +65,7 @@
   files:
   - /Audio/Effects/Footsteps/clownstep1.ogg
   - /Audio/Effects/Footsteps/clownstep2.ogg
-  
+
 - type: soundCollection
   id: FootstepJester
   files:
@@ -189,7 +189,7 @@
   id: FootstepBlood
   files:
   - /Audio/Effects/Footsteps/gib_step.ogg
-  
+
 - type: soundCollection
   id: FootstepSticky
   files:
@@ -205,7 +205,9 @@
 - type: soundCollection
   id: FootstepBorg
   files:
-  - /Audio/Effects/Footsteps/borgwalk1.ogg
+  - /Audio/ADT/Effects/Footsteps/borgwalk1.ogg #ADT borgs
+  - /Audio/ADT/Effects/Footsteps/borgwalk2.ogg #ADT borgs
+  - /Audio/ADT/Effects/Footsteps/borgwalk3.ogg #ADT borgs
 
 - type: soundCollection
   id: FootstepHoverBorg

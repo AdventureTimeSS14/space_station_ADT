@@ -166,6 +166,32 @@
         whitelist:
           tags:
             - BorgJanitorTorso
+      #ADT secborg start
+      security_chest+o:
+        whitelist:
+          tags:
+            - ADTBorgSecurityTorso
+      security_l_arm+o:
+        whitelist:
+          tags:
+            - ADTBorgSecurityLArm
+      security_r_arm+o:
+        whitelist:
+          tags:
+            - ADTBorgSecurityRArm
+      security_l_leg+o:
+        whitelist:
+          tags:
+            - ADTBorgSecurityLLeg
+      security_r_leg+o:
+        whitelist:
+          tags:
+            - ADTBorgSecurityRLeg
+      security_head+o:
+        whitelist:
+          tags:
+            - ADTBorgSecurityHead
+            #ADT secborg end
   - type: ContainerContainer
     containers:
       part-container: !type:Container
@@ -212,6 +238,14 @@
       - BorgMiningRLeg
       - BorgMiningHead
       - BorgMiningTorso
+      security: #ADT secborg start
+      - ADTBorgSecurityHead
+      - ADTBorgSecurityLArm
+      - ADTBorgSecurityLLeg
+      - ADTBorgSecurityRArm
+      - ADTBorgSecurityRLeg
+      - ADTBorgSecurityTorso
+      #ADT secborg end
   - type: Construction
     graph: Cyborg
     node: start
