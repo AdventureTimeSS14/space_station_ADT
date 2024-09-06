@@ -132,8 +132,8 @@
   - type: Inventory
     templateId: borgTall
   - type: InteractionPopup
-    interactSuccessString: petting-success-service-cyborg
-    interactFailureString: petting-failure-service-cyborg
+    interactSuccessString: petting-success-kerfus
+    interactFailureString: petting-failure-kerfus
     interactSuccessSound:
       path: /Audio/ADT/Ambience/Objects/minecraft_cat.ogg
   - type: RandomMetadata
