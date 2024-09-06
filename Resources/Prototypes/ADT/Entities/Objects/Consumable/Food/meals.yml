@@ -14,7 +14,7 @@
     storedRotation: -90
   - type: Food
   - type: Sprite
-    sprite: ADT\Objects\Consumable\Food\meals.rsi
+    sprite: ADT/Objects/Consumable/Food/meals.rsi
   - type: SolutionContainerManager
     solutions:
       food:
