@@ -1,12 +1,12 @@
 - type: job
-  id: Borg
+  id: ADTSecBorg
   name: job-name-ADTSecBorg
   description: job-description-borg
-  playTimeTracker: JobSecBorg
+  playTimeTracker: ADTJobSecBorg
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 216000 # 60 hrs
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgGeneric
+  jobEntity: ADTPlayerSecBorgGeneric
