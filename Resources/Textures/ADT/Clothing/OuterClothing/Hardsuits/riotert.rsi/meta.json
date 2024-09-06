@@ -1,12 +1,7 @@
 {
   "version": 1,
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/OuterClothing/Hardsuits/riotert.rsi/meta.json
   "license": "CC-BY-SA-3.0",
   "copyright": "Made my Ratyyy(github)",
-========
-  "license": "CC0-1.0",
-  "copyright": "Created by EmoGarbage404",
->>>>>>>> 3ccc7149ee66673b070c6a3cf4958120c32f1a16:Resources/Textures/Objects/Materials/Mob/sharktooth.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
