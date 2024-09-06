@@ -72,3 +72,70 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [names_borg]
+
+- type: entity
+  id: ADTBorgChassisKerfusNT
+  parent: BaseBorgChassisNT
+  name: kerfus cyborg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/cyborg_kerfus.rsi
+    layers:
+    - state: kerfusNT
+    - state: kerfus_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: kerfusNT_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 4
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleService
+      - BorgModuleJanitor
+    hasMindState: kerfusNT_e
+    noMindState: kerfus_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/Borgs/cyborg_kerfus.rsi
+      state: kerfus
+    name: kerfus cyborg
+  - type: Construction
+    node: kerfusNT
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: AccessReader
+    access: [["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall
+  - type: InteractionPopup
+    interactSuccessString: petting-success-kerfus
+    interactFailureString: petting-failure-kerfus
+    interactSuccessSound:
+      path: /Audio/ADT/Ambience/Objects/minecraft_cat.ogg
+  - type: RandomMetadata
+    nameSegments: [names_borg]
