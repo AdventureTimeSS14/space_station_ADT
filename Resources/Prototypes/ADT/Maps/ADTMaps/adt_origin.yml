@@ -1,19 +1,29 @@
 - type: gameMap
+<<<<<<<< HEAD:Resources/Prototypes/ADT/Maps/ADTMaps/adt_origin.yml
   id: ADT_Origin
   mapName: 'Origin'
   mapPath: /Maps/ADTMaps/ADTStations/adt_origin.yml
   minPlayers: 50
   stations:
     ADT_Origin:
+========
+  id: Cog
+  mapName: 'Cog'
+  mapPath: /Maps/cog.yml
+  minPlayers: 40
+  maxPlayers: 80 #big map
+  stations:
+    Cog:
+>>>>>>>> 3ccc7149ee66673b070c6a3cf4958120c32f1a16:Resources/Prototypes/Maps/cog.yml
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Origin {1}'
+          mapNameTemplate: '{0} Cog {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '14'
+            prefixCreator: 'R4' # R4407/Goon. GS isn't as cool sounding.
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_wode.yml
         - type: StationJobs
           availableJobs:
             # command
@@ -23,24 +33,30 @@
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
-            Chef: [ 3, 3 ]
+            Chef: [ 2, 2 ]
             Janitor: [ 3, 3 ]
-            Chaplain: [ 2, 2 ]
-            Librarian: [ 2, 2 ]
-            #Lawyer: [ 2, 2 ] # Corvax-IAA
-            ServiceWorker: [ 3, 4 ]
+            Chaplain: [ 1, 1 ]
+            Reporter: [ 2, 2 ]
+            #Librarian: [ 1, 1 ] no library :c
+            ServiceWorker: [ 3, 3 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
+<<<<<<<< HEAD:Resources/Prototypes/ADT/Maps/ADTMaps/adt_origin.yml
             StationEngineer: [ 6, 6 ]
             TechnicalAssistant: [ 2, 3 ]
             ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+========
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 3, 3 ]
+>>>>>>>> 3ccc7149ee66673b070c6a3cf4958120c32f1a16:Resources/Prototypes/Maps/cog.yml
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 2, 2 ]
-            Paramedic: [ 1, 1 ]
-            MedicalDoctor: [ 6, 6 ]
+            Chemist: [ 3, 3 ]
+            MedicalDoctor: [ 4, 4 ]
+            MedicalIntern: [ 3, 3 ]
             Psychologist: [ 1, 1 ]
+<<<<<<<< HEAD:Resources/Prototypes/ADT/Maps/ADTMaps/adt_origin.yml
             MedicalIntern: [ 1, 2 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles
             ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
@@ -50,22 +66,35 @@
             ResearchAssistant: [ 4, 4 ]
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+========
+            Paramedic: [ 1, 1 ]
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 5, 5 ]
+            ResearchAssistant: [ 3, 3 ]
+>>>>>>>> 3ccc7149ee66673b070c6a3cf4958120c32f1a16:Resources/Prototypes/Maps/cog.yml
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ]
             Detective: [ 1, 1 ]
+<<<<<<<< HEAD:Resources/Prototypes/ADT/Maps/ADTMaps/adt_origin.yml
             SecurityOfficer: [ 7, 7 ]
             SecurityCadet: [ 2, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+========
+            SecurityCadet: [ 4, 4 ]
+>>>>>>>> 3ccc7149ee66673b070c6a3cf4958120c32f1a16:Resources/Prototypes/Maps/cog.yml
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 5, 5 ]
-            #civillian
+            CargoTechnician: [ 4, 4 ]
+            #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
+<<<<<<<< HEAD:Resources/Prototypes/ADT/Maps/ADTMaps/adt_origin.yml
             Musician: [ 2, 2 ]
             Boxer: [ 1, 1 ]
             Reporter: [ 1, 1 ]
@@ -77,3 +106,10 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
 
+========
+            Musician: [ 1, 1 ]
+            Boxer: [ 2, 2]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 3, 3 ]
+>>>>>>>> 3ccc7149ee66673b070c6a3cf4958120c32f1a16:Resources/Prototypes/Maps/cog.yml
