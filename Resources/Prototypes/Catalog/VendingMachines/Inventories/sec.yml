@@ -18,7 +18,7 @@
     Zipties: 12
     RiotShield: 2
     RiotLaserShield: 2
-    RiotBulletShield: 2
+    # RiotBulletShield: 2 ADT no nullet shield
     RadioHandheldSecurity: 5
     Bola: 5 #ADT tweak
   # security officers need to follow a diet regimen!
