@@ -360,37 +360,37 @@
     voice: fact_core
   - type: LanguageSpeaker #ADT-Tweak-start
       speaks:
-      - GalacticCommon
-      - Fire
-      - Bubblish
-      - Nekomimetic
-      - Canilunzt
-      - Draconic
-      - SikTaj
-      - Nian
-      - SolCommon
-      - RobotTalk
-      - BorgTalk
-      - Urs
-      - Arkane
-      - Dwarf
-      - VoxPidgin
+        - GalacticCommon
+        - Fire
+        - Bubblish
+        - Nekomimetic
+        - Canilunzt
+        - Draconic
+        - SikTaj
+        - Nian
+        - SolCommon
+        - RobotTalk
+        - BorgTalk
+        - Urs
+        - Arkane
+        - Dwarf
+        - VoxPidgin
       understands:
-      - GalacticCommon
-      - Fire
-      - Bubblish
-      - Nekomimetic
-      - Canilunzt
-      - Draconic
-      - SikTaj
-      - Nian
-      - SolCommon
-      - RobotTalk
-      - BorgTalk
-      - Urs
-      - Arkane
-      - Dwarf
-      - VoxPidgin #ADT-Tweak-end
+        - GalacticCommon
+        - Fire
+        - Bubblish
+        - Nekomimetic
+        - Canilunzt
+        - Draconic
+        - SikTaj
+        - Nian
+        - SolCommon
+        - RobotTalk
+        - BorgTalk
+        - Urs
+        - Arkane
+        - Dwarf
+        - VoxPidgin #ADT-Tweak-end
 
 # The job-ready version of an AI spawn.
 - type: entity
