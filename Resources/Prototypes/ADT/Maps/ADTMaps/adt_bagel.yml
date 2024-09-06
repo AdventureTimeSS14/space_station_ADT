@@ -34,7 +34,7 @@
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 4, 4 ]
-            # ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
@@ -42,14 +42,13 @@
             Paramedic: [ 1, 1 ]
             MedicalIntern: [ 4, 4 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles
-            # ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
             ResearchAssistant: [ 4, 4 ]
-            Borg: [ 2, 2 ]
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
-            # ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -57,7 +56,7 @@
             Detective: [ 1, 1 ]
             SecurityCadet: [ 4, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
-            # ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
@@ -72,3 +71,6 @@
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Magistrat: [ 1, 1 ] #ADT-Roles
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]

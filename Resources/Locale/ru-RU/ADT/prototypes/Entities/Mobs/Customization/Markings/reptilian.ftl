@@ -39,3 +39,28 @@ marking-ReptilianDrawingSkeleton = Рисунок скелета
 marking-ReptilianDrawingSun = Рисунок солнца
 marking-ReptilianDrawingWarpaint = Боевая раскраска
 marking-ReptilianLineEyes = Глаза-полосы
+
+# Хвосты
+
+marking-TailAxolotl = Хвост, аксолотль
+marking-TailDatashark = Хвост, акуля
+marking-TailEasternDragon = Хвост, дракон
+marking-TailFish = Хвост, рыба
+marking-TailGecko = Хвост, гекон
+marking-TailMaw = Хвост, мав~
+marking-TailShark = Хвост, акула
+marking-TailSnake = Хвост, змея
+
+# Морды
+
+marking-SnoutEasternDW = Нос 1
+marking-SnoutEasternDNW = Нос 2
+
+# Уши
+
+marking-EarsSylveon = Уши, сильвеона
+marking-EarsAvali = Уши, авали
+marking-EarsChemlight = Уши, ХимСвет
+marking-EarsDragonLong = Уши, дракона длинные
+marking-EarsEasternD = Уши 1
+marking-EarsMagus = Уши, магус
