@@ -168,8 +168,3 @@
     back:
     - Dinkystar
 
-# neck
-- type: startingGear # ADT bodycam
-  id: ADTSecBodycam
-  equipment:
-    neck: ADTClothingNeckBodyCamera
