@@ -403,6 +403,7 @@
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - SecurityOfficerNeckADT # ADT-Loadouts
+  - SecurityNeck # ADT-Loadouts
 
 - type: roleLoadout
   id: JobDetective
@@ -430,7 +431,7 @@
   - Trinkets
   - GroupSpeciesBreathToolSecurity
   - SecurityCadetNeckADT # ADT-Loadouts
-
+  - SecurityNeck # ADT-Loadouts
 # Medical
 - type: roleLoadout
   id: JobChiefMedicalOfficer

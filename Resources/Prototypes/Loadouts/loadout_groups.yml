@@ -513,7 +513,7 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
-  
+
 - type: loadoutGroup
   id: SurvivalMime
   name: loadout-group-survival-mime
@@ -962,6 +962,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - HeadofSecurityMantleShoulder #ADT-Loadout
+  - ADTSecBodycam # ADT-Loadout
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -969,6 +970,13 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
+
+- type: loadoutGroup
+  id: SecurityNeck
+  name: loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - ADTSecBodycam # ADT-Loadout
 
 - type: loadoutGroup
   id: WardenHead
