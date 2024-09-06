@@ -147,13 +147,18 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+# ADT borgs start
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorg
+      params:
+        variation: 0.07
+        volume: -5
+#ADT borgs end
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
   - type: UnblockableSpeech
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepBorg
   - type: Construction
     graph: Cyborg
     containers:

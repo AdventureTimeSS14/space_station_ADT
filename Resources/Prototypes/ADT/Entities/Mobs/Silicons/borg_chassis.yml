@@ -1,0 +1,103 @@
+- type: entity
+  id: ADTBorgChassisPeace
+  parent: BaseBorgChassisNT
+  name: peace maker
+  components:
+  - type: Sprite
+    layers:
+    - state: peace
+      map: ["movement"]
+    - state: peace_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: peace_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 4
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - ADTBorgModuleSecurity
+    hasMindState: peace_e
+    noMindState: peace_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: peace
+    name: peace maker
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Security
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Security
+    - Binary
+    - Common
+    - Science
+  - type: AccessReader
+    access: [["Secutity"], ["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall
+  - type: InteractionPopup
+    interactSuccessString: petting-success-salvage-cyborg
+    interactFailureString: petting-failure-salvage-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+
+- type: entity
+  id: ADTBorgChassisSec
+  parent: ADTBorgChassisPeace
+  name: sec borg
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Silicon/chassis.rsi
+    layers:
+    - state: sec
+      map: ["movement"]
+    - state: sec_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: sec_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 4
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - ADTBorgModuleSecurity
+    hasMindState: sec_e
+    noMindState: sec_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: ADT/Mobs/Silicon/chassis.rsi
+      state: sec
+  - type: Construction
+    node: security
+
+- type: entity
+  id: ADTPlayerSecBorgGeneric
+  parent: ADTBorgChassisSec
+  suffix: Battery, Tools
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - PositronicBrain
+      borg_module:
+        - ADTBorgModuleDetention
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: RandomMetadata
+    nameSegments: [names_borg]

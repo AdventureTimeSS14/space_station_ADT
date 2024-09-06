@@ -42,3 +42,24 @@
 
 - type: Tag
   id: ADTBorgUse
+
+- type: Tag
+  id: ADTBorgModuleSecurity
+
+- type: Tag
+  id: ADTBorgSecurityHead
+
+- type: Tag
+  id: ADTBorgSecurityLArm
+
+- type: Tag
+  id: ADTBorgSecurityLLeg
+
+- type: Tag
+  id: ADTBorgSecurityRArm
+
+- type: Tag
+  id: ADTBorgSecurityRLeg
+
+- type: Tag
+  id: ADTBorgSecurityTorso

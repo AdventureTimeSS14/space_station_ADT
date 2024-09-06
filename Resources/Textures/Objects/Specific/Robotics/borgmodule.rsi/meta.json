@@ -126,6 +126,18 @@
     },
     {
       "name": "syndicate"
+    },
+    {
+      "name": "icons-detentions"
+    },
+    {
+      "name": "icons-peace"
+    },
+    {
+      "name": "icons-harm"
+    },
+    {
+      "name": "icons-disabler"
     }
   ]
 }
