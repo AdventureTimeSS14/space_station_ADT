@@ -17,7 +17,6 @@
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
-  containerInsert: true
 
 - type: job
   id: Borg
