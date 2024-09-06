@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "pen_CE, pen_cmo, pen_hos, pen_QM, pen_RD is drawn by mascotvalera (Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+      {
+        "name": "ADTpen_CE"
+      },
+      {
+        "name": "ADTpen_cmo"
+      },
+      {
+        "name": "ADTpen_hos"
+      },
+      {
+        "name": "ADTpen_QM"
+      },
+      {
+        "name": "ADTpen_RD"
+      }
+  ]
+}
