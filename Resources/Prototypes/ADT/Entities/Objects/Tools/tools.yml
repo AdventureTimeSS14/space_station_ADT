@@ -65,7 +65,7 @@
       Steel: 600
       Plastic: 100
   - type: StaticPrice
-    price: 100
+    price: 150
   - type: UserInterface
     interfaces:
       enum.RpdUiKey.Key:

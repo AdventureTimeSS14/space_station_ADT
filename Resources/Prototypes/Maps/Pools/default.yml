@@ -17,7 +17,7 @@
   # - Reach
   # - Train
 # adt_maps
-  - ADT_Astra
+  # - ADT_Astra в комментерии до ремапа
   - ADT_Avrit
   - ADT_Bagel
   - ADT_Box
@@ -32,3 +32,5 @@
   - ADT_Train
   - ADT_Delta
   - ADT_Oasis
+  - ADT_Gemini
+  - ADT_Aspid

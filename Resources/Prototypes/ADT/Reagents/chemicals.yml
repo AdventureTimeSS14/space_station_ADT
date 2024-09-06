@@ -1,0 +1,8 @@
+- type: reagent
+  id: ADTCopperNitride
+  name: reagent-name-copper-nitride
+  desc: reagent-desc-copper-nitride
+  physicalDesc: reagent-physical-desc-crystalline
+  color: "#09590a" 
+  boilingPoint: 300
+  meltingPoint: 300

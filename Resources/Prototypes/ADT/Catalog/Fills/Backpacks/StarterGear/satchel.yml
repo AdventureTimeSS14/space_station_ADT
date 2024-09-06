@@ -30,3 +30,15 @@
       - id: MagazinePistol
 #      - id: ADTSpaceLaw
       # - id: SpaceCash500
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelSeniorSecurityFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpeedLoaderMagnum
+      - id: SpeedLoaderMagnum
+      - id: SmokeGrenade
+      - id: SmokeGrenade

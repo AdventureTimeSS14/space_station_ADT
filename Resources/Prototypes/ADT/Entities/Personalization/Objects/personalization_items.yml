@@ -926,3 +926,27 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_liexer
+
+#Bolper
+- type: entity
+  name: Bolper's katana
+  parent: BaseSword
+  id: ADTBolperKatana
+  description: Plus five percent to damage.
+  suffix: Bolper
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_katana.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 15 
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: ADT/Personalization/bolper_katana.rsi
+  - type: Tag
+    tags:
+    - Katana
+  - type: DisarmMalus

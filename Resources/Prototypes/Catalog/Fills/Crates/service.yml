@@ -91,7 +91,8 @@
     - id: ClothingUniformJumpskirtOldDress
     - id: BikeHorn
     - id: ClownRecorder
-    - id: ClothingBeltSuspenders
+    - id: ClothingBeltSuspendersRed
+    - id: ClothingBeltSuspendersBlack
 
 - type: entity
   id: CrateServiceCustomSmokable
@@ -233,6 +234,7 @@
       - id: DrinkVodkaBottleFull
       - id: DrinkWhiskeyBottleFull
       - id: DrinkWineBottleFull
+      - id: ADTDrinkAppleLiqueurBottleFull #ADT_Tweak
 
 - type: entity
   id: CrateServiceBox

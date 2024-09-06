@@ -1,0 +1,23 @@
+# Рюкзаки начало
+- type: loadout
+  id: ADTSeniorOfficerBackpack
+  equipment:
+    back: ADTClothingBackpackSeniorSecurityFilled
+
+- type: loadout
+  id: ADTSeniorOfficerSatchel
+  equipment:
+    back: ADTClothingBackpackSatchelSeniorSecurityFilled
+
+- type: loadout
+  id: ADTSeniorOfficerDuffel
+  equipment:
+    back: ADTClothingBackpackDuffelSeniorSecurityFilled
+# Рюкзаки конец
+
+# Пуленепробиваемый бронежилет начало
+- type: loadout
+  id: ADTSeniorOfficerArmor
+  equipment:
+    outerClothing: ClothingOuterArmorBulletproof
+# Пуленепробиваемый конец

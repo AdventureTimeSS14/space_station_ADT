@@ -25,7 +25,7 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 1
+    price: 2.25
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
@@ -35,8 +35,6 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -5
-        Cold: -5
         Shock: -5
         Caustic: -5
     # healingBeginSound:
