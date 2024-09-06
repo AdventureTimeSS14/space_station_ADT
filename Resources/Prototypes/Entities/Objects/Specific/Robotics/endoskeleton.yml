@@ -192,16 +192,6 @@
           tags:
             - ADTBorgSecurityHead
             #ADT secborg end
-            # ADT-Kerfus-Start
-      kerfusNT_torso+o:
-        whitelist:
-          tags:
-            - ADTBorgKerfusNTTorso
-      kerfusNT_head+o:
-        whitelist:
-          tags:
-            - ADTBorgKerfusNTHead
-            # ADT-Kerfus-End
   - type: ContainerContainer
     containers:
       part-container: !type:Container
@@ -256,11 +246,6 @@
       - ADTBorgSecurityRLeg
       - ADTBorgSecurityTorso
       #ADT secborg end
-      # ADT-Kerfus-Start
-      kerfusNT:
-      - ADTTorsoBorgKerfusNT
-      - ADTHeadBorgKerfusNT
-      # ADT-Kerfus-End
   - type: Construction
     graph: Cyborg
     node: start
