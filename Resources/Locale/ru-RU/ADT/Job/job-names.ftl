@@ -27,5 +27,5 @@ job-name-ADTSpaceSecPilot = пилот SPACE SEC
 job-name-ADTSpaceSecCommander = командир SPACE SEC
 job-name-ADTSpaceSecService = сотрудник SPACE SEC
 
-job-name-ADTSecBorg = Офицер Синего Щита
+job-name-ADTSecBorg = Киборг службы безопасности
 JobADTSecBorg = Киборг службы безопасности
