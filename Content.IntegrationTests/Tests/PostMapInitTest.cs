@@ -95,7 +95,8 @@ namespace Content.IntegrationTests.Tests
             "ADT_Saltern",
             "ADT_Packed",
             "ADT_Train",
-            "ADT_Gemini"
+            "ADT_Gemini",
+            "ADT_Aspid"
             // ADT-End
         };
 
