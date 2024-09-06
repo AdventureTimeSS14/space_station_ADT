@@ -4,6 +4,7 @@
   levels:
     green:
       announcement: alert-level-green-announcement
+      sound: /Audio/Misc/greenalert.ogg # ADT-Tweak
       color: Green
       emergencyLightColor: LawnGreen
       shuttleTime: 600
@@ -52,7 +53,7 @@
       sound:
         path: /Audio/Misc/delta.ogg
         params:
-          volume: -6 # Corvax: Reduce sound volume
+          volume: -1 # ADT-Tweak
       disableSelection: true
       color: DarkRed
       emergencyLightColor: Orange
