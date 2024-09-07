@@ -1,7 +1,3 @@
-flavor-complex-somesalty = солёненькое
-reagent-name-ultra-chloral-hydrate = Ультрахлоральгидрат
-reagent-desc-ultra-chloral-hydrate = Модифицированный хлоральгидрат. В малых дозах вызывает сонливость. В больших дозах усыпляет. Передозировки нет
-
 reagent-name-nitrofurfoll = нитрофурфол
 reagent-desc-nitrofurfoll = Антимикробный препарат, который зачастую используют для исцеления небольших ран. Становится более эффективным вместе с бикаридином.
 

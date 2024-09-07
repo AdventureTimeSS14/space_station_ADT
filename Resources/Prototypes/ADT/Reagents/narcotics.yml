@@ -1,0 +1,79 @@
+- type: reagent
+  id: ADTOpium
+  name: reagent-name-opium
+  group: Narcotics
+  desc: reagent-desc-opium
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: bitter
+  color: "#9c4008"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 10
+        refresh: false
+      - !type:PopupMessage
+        conditions:
+        - !type:TotalDamage
+          min: 0.5
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-pain" ]
+        probability: 0.05
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 20 # THC масло по 16 добавляет.
+        refresh: false
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages:
+         - narcotic-effect-rainbows
+         - goodfeeling-artifact-drastic-3
+         - narcotic-effect-sleepy
+        probability: 0.05
+      - !type:PopupMessage
+        type: Pvs
+        visualType: Small
+        messages: [ "narcotic-effect-visible-miosis" ]
+        probability: 0.05  
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 10.05
+        damage:
+          types:
+            Asphyxiation: 2
+
+- type: reagent
+  id: LingDrugs
+  name: reagent-name-space-drugs
+  group: Narcotics
+  desc: reagent-desc-space-drugs
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: bitter
+  color: "#63806e"
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+      - !type:GenericStatusEffect
+        key: ADTHallucinations
+        component: LingHallucinations
+        type: Add
+        time: 10
+        refresh: false
+        conditions:
+        - !type:ReagentThreshold
+          min: 15

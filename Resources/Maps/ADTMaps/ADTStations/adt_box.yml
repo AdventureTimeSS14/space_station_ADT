@@ -11778,7 +11778,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -4480.5684
+      secondsUntilStateChange: -4527.1733
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84687,7 +84687,7 @@ entities:
       pos: 41.5,-13.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -1093.0336
+      secondsUntilStateChange: -1139.6385
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -144153,6 +144153,13 @@ entities:
     components:
     - type: Transform
       pos: 44.5,-19.5
+      parent: 8364
+- proto: SpawnPointADTSecborg
+  entities:
+  - uid: 22528
+    components:
+    - type: Transform
+      pos: 14.5,34.5
       parent: 8364
 - proto: SpawnPointAtmos
   entities:
