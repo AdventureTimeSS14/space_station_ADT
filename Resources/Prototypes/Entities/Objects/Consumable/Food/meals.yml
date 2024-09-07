@@ -404,6 +404,7 @@
     tags:
     - Meat
 # Tastes like egg, cheese.
+
 - type: entity
   name: fried egg
   parent: FoodMealBase
