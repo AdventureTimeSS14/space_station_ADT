@@ -112,7 +112,7 @@
     - Service
     - Supply
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Command"], ["Research"], ["Service"], ["Medical"]]
   - type: Inventory
     templateId: borgTall
   - type: InteractionPopup
