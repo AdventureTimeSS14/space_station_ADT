@@ -54,6 +54,7 @@
     - Science
   - type: TTS
     voice: sentrybot
+
 - type: entity
   id: ADTPlayerSecBorgGeneric
   parent: ADTBorgChassisSec

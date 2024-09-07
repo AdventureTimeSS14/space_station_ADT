@@ -10927,7 +10927,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2444.2253
+      secondsUntilStateChange: -2463.1914
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -138620,6 +138620,13 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-50.5
+      parent: 2
+- proto: SpawnPointADTSecborg
+  entities:
+  - uid: 26747
+    components:
+    - type: Transform
+      pos: 2.5,37.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:

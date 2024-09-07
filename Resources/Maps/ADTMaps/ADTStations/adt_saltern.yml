@@ -58047,6 +58047,13 @@ entities:
     - type: Transform
       pos: 15.5,-15.5
       parent: 2
+- proto: SpawnPointADTSecborg
+  entities:
+  - uid: 9623
+    components:
+    - type: Transform
+      pos: -12.5,15.5
+      parent: 2
 - proto: SpawnPointAtmos
   entities:
   - uid: 9256
