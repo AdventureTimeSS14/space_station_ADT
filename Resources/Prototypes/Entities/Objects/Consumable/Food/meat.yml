@@ -106,15 +106,18 @@
     graph: MeatSteak
     node: start
     defaultTarget: meat steak
+  - type: Tag
+    tags:
+    - Meat
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: plain
     entries:
       burger:
         name: food-sequence-burger-content-raw-meat
       taco:
         name: food-sequence-content-raw-meat
-  - type: Tag
-    tags:
-    - Meat
 
 - type: entity
   name: raw human meat

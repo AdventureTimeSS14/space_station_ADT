@@ -28,3 +28,43 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+
+
+- type: entity
+  name: laser rifle
+  parent: BaseWeaponBattery
+  id: ADTWeaponLaserCarbineBorg
+  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 62.5
+  - type: StaticPrice
+    price: 300
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+
+- type: entity
+  name: disabler
+  parent: WeaponDisabler
+  id: ADTWeaponDisablerBorg
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20

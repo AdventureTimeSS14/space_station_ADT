@@ -1,0 +1,9 @@
+- type: entity
+  name: flash
+  parent: Flash
+  id: ADTBorgflash
+  description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out.
+  components:
+    - type: LimitedCharges
+    - type: AutoRecharge
+      rechargeDuration: 10

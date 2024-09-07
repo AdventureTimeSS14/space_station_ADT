@@ -78,7 +78,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            "Cog",
+            // "Cog",
             // ADT-Start
             "ADT_Astra",
             "ADT_Avrit",
@@ -95,7 +95,8 @@ namespace Content.IntegrationTests.Tests
             "ADT_Saltern",
             "ADT_Packed",
             "ADT_Train",
-            "ADT_Gemini"
+            "ADT_Gemini",
+            "ADT_Aspid"
             // ADT-End
         };
 

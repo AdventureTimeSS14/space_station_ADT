@@ -29,3 +29,13 @@
     sprite: ADT/Clothing/Neck/Cloaks/gothic_cloak.rsi #спрайты от floppo4ka
   - type: StaticPrice
     price: 5
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckNewMekkaCloak
+  name: New Mekka cloak
+  description: Protect from cold evening on a nukie planet.
+  suffix: New Mekka
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/newmekkacloak.rsi
