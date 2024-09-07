@@ -14343,7 +14343,7 @@ entities:
       pos: -10.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1096.7141
+      secondsUntilStateChange: -1126.8413
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16985,8 +16985,6 @@ entities:
       pos: 33.5,-10.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 62
   - uid: 615
@@ -118317,6 +118315,13 @@ entities:
     components:
     - type: Transform
       pos: 51.5,-10.5
+      parent: 2
+- proto: SpawnPointADTSecborg
+  entities:
+  - uid: 13553
+    components:
+    - type: Transform
+      pos: -6.5,32.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:
