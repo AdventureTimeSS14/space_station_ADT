@@ -34,6 +34,9 @@
     understands:
     - GalacticCommon
     - SolCommon
+- type: Addicted
+  changeAddictionTypeTime: 50
+  requiredTime: 50
 
 - type: entity
   parent: BaseSpeciesDummy
