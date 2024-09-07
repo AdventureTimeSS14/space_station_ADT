@@ -32,8 +32,6 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedExecutionSystem _execution = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -132,6 +130,7 @@ public sealed class SharedExecutionSystem : EntitySystem
 
         var bonus = melee.Damage * entity.Comp.DamageMultiplier - melee.Damage;
         args.Damage += bonus;
+        args.ResistanceBypass = true;
     }
 
     private void OnSuicideByEnvironment(Entity<ExecutionComponent> entity, ref SuicideByEnvironmentEvent args)

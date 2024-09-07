@@ -1,5 +1,5 @@
 - type: entity
-  id: BookSpaceLaw
+  id: ADTBookSpaceLaw
   parent: BaseItem
   name: space law
   description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
@@ -293,3 +293,24 @@
     damage:
       types:
         Blunt: 1
+
+#Рецепты
+- type: entity
+  id: ADTBookADTCoctailsRecipe
+  parent: BaseItem
+  name: new coctails note
+  description: Red note with a recipes of new cocktails. Writen by R.S. 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: new-cocktail-book
+  - type: Tag
+    tags:
+    - Book
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - ADTNewCocktails
+  - type: StaticPrice
+    price: 2

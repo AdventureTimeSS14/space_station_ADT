@@ -100,3 +100,29 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/hurashka.rsi
 
+#Фуражка следователя
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsInvestigatorCap
+  name: investigator cap
+  description: Glory to NanoTrasen!
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/investigator_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/investigator_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBeretArmy
+  name: army beret
+  description: army beret
+  suffix: New Mekka
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/armyberet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/armyberet.rsi

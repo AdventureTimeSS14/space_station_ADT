@@ -17,3 +17,11 @@ ent-ADTClothingHeadHatBeretBlackCivilian = чёрный берет
 ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
     .desc = Тёмная фуражка офицера Иллизиума.
+
+ent-ADTClothingHeadHatsInvestigatorCap = фуражка следователя Службы Безопасности
+    .desc = Слава NanoTrasen!
+    .suffix = { "" }
+
+ent-ADTClothingHeadHatsBeretArmy = армейский берет
+    .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
+    .suffix = { "Новая Мекка" }
