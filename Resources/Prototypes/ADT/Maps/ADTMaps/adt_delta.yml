@@ -66,6 +66,7 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
+            ADTSecBorg: [ 1, 1]
 
         - type: StationGoal
           goals:
