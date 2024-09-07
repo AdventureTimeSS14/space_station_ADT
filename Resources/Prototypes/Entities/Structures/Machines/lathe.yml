@@ -693,6 +693,7 @@
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
+    - ADTBorgModuleRPD # ADT-RPD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening

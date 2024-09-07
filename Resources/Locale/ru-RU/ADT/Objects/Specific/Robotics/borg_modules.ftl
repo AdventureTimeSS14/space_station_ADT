@@ -1,6 +1,8 @@
 ent-ADTBorgModuleDetention = модуль задержания
-    .desc = сожержит вспышку, кабельные стяжки и телескопическую дубинку.
+    .desc = { ent-BaseBorgModule.desc }
 ent-ADTBorgModuleHarm = модуль вреда
-    .desc = сожержит самозарядную лазерную винтовку и дубину для нанесения тяжких телесных повреждений.
+    .desc = { ent-BaseBorgModule.desc }
 ent-ADTBorgModuleDisabler = модуль дизаблера
-    .desc = сожержит дизаблер и кабельные стяжки.
+    .desc = { ent-BaseBorgModule.desc }
+ent-ADTBorgModuleRPD = РРТ-модуль киборга
+    .desc = { ent-BaseBorgModule.desc }
