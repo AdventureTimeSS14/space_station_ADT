@@ -38,7 +38,6 @@ using System.Numerics;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Doors.Systems;
-using Content.Server.Magic.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -392,7 +391,7 @@ public sealed partial class ComponentalActionsSystem
 
         if (component.Active)
         {
-            _alerts.ShowAlert(uid, AlertType.ADTLevitation);
+            _alerts.ShowAlert(uid, _proto.Index(component.Alert));
             AddComp<MovementIgnoreGravityComponent>(uid);
             var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
             var sprintSpeed = component.SpeedModifier;
@@ -402,7 +401,7 @@ public sealed partial class ComponentalActionsSystem
         }
         else
         {
-            _alerts.ClearAlert(uid, AlertType.ADTLevitation);
+            _alerts.ShowAlert(uid, _proto.Index(component.Alert));
             RemComp<MovementIgnoreGravityComponent>(uid);
             var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
             var sprintSpeed = component.BaseSprintSpeed;
@@ -447,37 +446,37 @@ public sealed partial class ComponentalActionsSystem
     //    if (_container.IsEntityOrParentInContainer(uid))
     //        return;
 
-        var xform = Transform(uid);
-        var ignitionRadius = component.IgnitionRadius;
-        IgniteNearby(uid, xform.Coordinates, component.Severity, ignitionRadius, component);
+        // var xform = Transform(uid);
+        // var ignitionRadius = component.IgnitionRadius;
+        // IgniteNearby(uid, xform.Coordinates, component.Severity, ignitionRadius, component);
         //_audio.PlayPvs(component.IgniteSound, uid);
 
         //args.Handled = true;
-    }
+
 
     /// <summary>
     /// Ignites flammable objects within range.
     /// </summary>
-    public void IgniteNearby(EntityUid uid, EntityCoordinates coordinates, float severity, float radius, ElectrionPulseActComponent component)
-    {
-        //_flammables.Clear();
-        //_lookup.GetEntitiesInRange(coordinates, radius, _electrocution);
-        var range = component.MaxElectrocuteRange * component.Severity; //component.Stability;
-        var damage = (int) (component.MaxElectrocuteDamage * component.Severity);
-        var duration = component.MaxElectrocuteDuration * component.Severity;
+    // public void IgniteNearby(EntityUid uid, EntityCoordinates coordinates, float severity, float radius, ElectrionPulseActComponent component)
+    // {
+    //     //_flammables.Clear();
+    //     //_lookup.GetEntitiesInRange(coordinates, radius, _electrocution);
+    //     var range = component.MaxElectrocuteRange * component.Severity; //component.Stability;
+    //     var damage = (int) (component.MaxElectrocuteDamage * component.Severity);
+    //     var duration = component.MaxElectrocuteDuration * component.Severity;
 
-        foreach (var flammable in _electrocutio)
-        {
-            var ent = flammable.Owner;
-            if (ent != uid)
-            {
-                var stackAmount = 2 + (int) (severity / 0.15f);
-                //_flammable.AdjustFireStacks(ent, stackAmount, flammable);
-                //_flammable.Ignite(ent, uid, flammable);
-                _electrocution.TryDoElectrocution(ent, uid, damage, duration, true, statusEffects: comp, ignoreInsulation: true);
-            }
+    //     foreach (var flammable in _electrocutio)
+    //     {
+    //         var ent = flammable.Owner;
+    //         if (ent != uid)
+    //         {
+    //             var stackAmount = 2 + (int) (severity / 0.15f);
+    //             //_flammable.AdjustFireStacks(ent, stackAmount, flammable);
+    //             //_flammable.Ignite(ent, uid, flammable);
+    //             _electrocution.TryDoElectrocution(ent, uid, damage, duration, true, statusEffects: comp, ignoreInsulation: true);
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
 }

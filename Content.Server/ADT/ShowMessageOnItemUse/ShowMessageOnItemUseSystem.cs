@@ -27,7 +27,7 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
                 return;
 
         var transform = EntityManager.GetComponent<TransformComponent>(uid);
-        var flashableQuery = GetEntityQuery<FlashableComponent>();
+        var flashableQuery = GetEntityQuery<EyeComponent>();
 
         foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, component.Range))
         {
