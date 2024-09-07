@@ -705,7 +705,7 @@
     Water: 10
   solids:
     FoodBowlBig: 1
-
+    
 - type: microwaveMealRecipe
   id: RecipeRicePudding
   name: rice pudding recipe
