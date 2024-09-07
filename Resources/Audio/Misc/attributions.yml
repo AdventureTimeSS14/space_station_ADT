@@ -44,6 +44,16 @@
   source: "https://github.com/Skyrat-SS13/Skyrat13/commit/2d4f2d1b489590b559e4073f41b126cef56f4c50"
 
 - files: ["bluealert.ogg"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Taken from Citadel Station 13"
-  source: "https://github.com/Skyrat-SS13/Skyrat13/commit/2d4f2d1b489590b559e4073f41b126cef56f4c50"
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from TG station."
+  source: "https://github.com/TauCetiStation/TauCetiClassic/pull/10207/commits/2454e0f5a1b06b303f19029a279a8ac6e5b2580d"
+
+- files: ["greenalert.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from TG station."
+  source: "https://github.com/TauCetiStation/TauCetiClassic/pull/10207/commits/2454e0f5a1b06b303f19029a279a8ac6e5b2580d"
+
+- files: ["delta.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from TG station."
+  source: "https://github.com/TauCetiStation/TauCetiClassic/pull/10207/commits/2454e0f5a1b06b303f19029a279a8ac6e5b2580d"
