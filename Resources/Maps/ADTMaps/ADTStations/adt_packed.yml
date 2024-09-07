@@ -8978,6 +8978,42 @@ entities:
     - type: Transform
       pos: 35.5,7.5
       parent: 2
+- proto: AlwaysPoweredWallLight
+  entities:
+  - uid: 13342
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 52.5,36.5
+      parent: 2
+  - uid: 13343
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 52.5,33.5
+      parent: 2
+  - uid: 13344
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 60.5,36.5
+      parent: 2
+  - uid: 13345
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 60.5,33.5
+      parent: 2
+  - uid: 13346
+    components:
+    - type: Transform
+      pos: 55.5,31.5
+      parent: 2
+  - uid: 13347
+    components:
+    - type: Transform
+      pos: 57.5,31.5
+      parent: 2
 - proto: AmeController
   entities:
   - uid: 419
@@ -9646,6 +9682,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 16.5,25.5
+      parent: 2
+  - uid: 13357
+    components:
+    - type: Transform
+      pos: 55.5,35.5
       parent: 2
 - proto: APCSuperCapacity
   entities:
@@ -19249,6 +19290,46 @@ entities:
     - type: Transform
       pos: 9.5,-41.5
       parent: 2
+  - uid: 13363
+    components:
+    - type: Transform
+      pos: 55.5,35.5
+      parent: 2
+  - uid: 13364
+    components:
+    - type: Transform
+      pos: 55.5,34.5
+      parent: 2
+  - uid: 13365
+    components:
+    - type: Transform
+      pos: 56.5,34.5
+      parent: 2
+  - uid: 13366
+    components:
+    - type: Transform
+      pos: 56.5,33.5
+      parent: 2
+  - uid: 13367
+    components:
+    - type: Transform
+      pos: 56.5,32.5
+      parent: 2
+  - uid: 13368
+    components:
+    - type: Transform
+      pos: 56.5,31.5
+      parent: 2
+  - uid: 13369
+    components:
+    - type: Transform
+      pos: 56.5,30.5
+      parent: 2
+  - uid: 13370
+    components:
+    - type: Transform
+      pos: 56.5,29.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 2373
@@ -24215,6 +24296,31 @@ entities:
     - type: Transform
       pos: 13.5,-52.5
       parent: 2
+  - uid: 13352
+    components:
+    - type: Transform
+      pos: 52.5,36.5
+      parent: 2
+  - uid: 13353
+    components:
+    - type: Transform
+      pos: 53.5,36.5
+      parent: 2
+  - uid: 13354
+    components:
+    - type: Transform
+      pos: 53.5,37.5
+      parent: 2
+  - uid: 13355
+    components:
+    - type: Transform
+      pos: 53.5,38.5
+      parent: 2
+  - uid: 13356
+    components:
+    - type: Transform
+      pos: 54.5,38.5
+      parent: 2
 - proto: CableHVStack
   entities:
   - uid: 3365
@@ -28530,6 +28636,31 @@ entities:
     - type: Transform
       pos: 11.5,7.5
       parent: 2
+  - uid: 13358
+    components:
+    - type: Transform
+      pos: 54.5,38.5
+      parent: 2
+  - uid: 13359
+    components:
+    - type: Transform
+      pos: 54.5,37.5
+      parent: 2
+  - uid: 13360
+    components:
+    - type: Transform
+      pos: 54.5,36.5
+      parent: 2
+  - uid: 13361
+    components:
+    - type: Transform
+      pos: 54.5,35.5
+      parent: 2
+  - uid: 13362
+    components:
+    - type: Transform
+      pos: 55.5,35.5
+      parent: 2
 - proto: CableMVStack
   entities:
   - uid: 4229
@@ -28584,6 +28715,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 112.5,-18.5
+      parent: 2
+  - uid: 13349
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 53.5,36.5
       parent: 2
 - proto: CandlePurpleSmall
   entities:
@@ -33708,9 +33845,6 @@ entities:
     - type: Transform
       pos: 20.48783,5.539976
       parent: 2
-    # - type: DeviceNetwork
-    #   configurators:
-    #   - invalid
 - proto: ClownRecorder
   entities:
   - uid: 5128
@@ -34117,6 +34251,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 61.5,8.5
+      parent: 2
+  - uid: 13371
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 55.5,36.5
       parent: 2
 - proto: ComputerSalvageExpedition
   entities:
@@ -40513,7 +40653,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1587.6932
+      secondsUntilStateChange: -1793.3597
       state: Closing
   - uid: 6182
     components:
@@ -53482,6 +53622,13 @@ entities:
     - type: Transform
       pos: 67.46306,3.7913218
       parent: 2
+- proto: GeneratorBasic15kW
+  entities:
+  - uid: 13351
+    components:
+    - type: Transform
+      pos: 52.5,36.5
+      parent: 2
 - proto: Girder
   entities:
   - uid: 7939
@@ -57961,7 +58108,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2087.8643
+      secondsUntilStateChange: -2293.5308
       state: Closing
   - uid: 8824
     components:
@@ -66565,6 +66712,16 @@ entities:
         - Pressed: Toggle
         10226:
         - Pressed: Toggle
+  - uid: 13341
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 57.5,37.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        650:
+        - Pressed: Toggle
 - proto: SignalButtonDirectional
   entities:
   - uid: 10246
@@ -67530,6 +67687,11 @@ entities:
     - type: Transform
       pos: 3.5,-34.5
       parent: 2
+  - uid: 13348
+    components:
+    - type: Transform
+      pos: 53.5,37.5
+      parent: 2
 - proto: SmokingPipeFilledTobacco
   entities:
   - uid: 10393
@@ -68329,6 +68491,13 @@ entities:
     components:
     - type: Transform
       pos: 73.5,-2.5
+      parent: 2
+- proto: SpawnPointADTSecborg
+  entities:
+  - uid: 13336
+    components:
+    - type: Transform
+      pos: 35.5,19.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:
@@ -69202,6 +69371,11 @@ entities:
       loadingNetworkDemand: 60.000237
       currentReceiving: 60.000237
       currentSupply: 60.000237
+  - uid: 13350
+    components:
+    - type: Transform
+      pos: 54.5,38.5
+      parent: 2
 - proto: SubstationWallBasic
   entities:
   - uid: 10672
@@ -69441,6 +69615,29 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Bridge Entrance
+  - uid: 13337
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 52.5,35.5
+      parent: 2
+  - uid: 13338
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 60.5,35.5
+      parent: 2
+  - uid: 13339
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 56.5,38.5
+      parent: 2
+  - uid: 13340
+    components:
+    - type: Transform
+      pos: 58.5,29.5
+      parent: 2
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 10701
