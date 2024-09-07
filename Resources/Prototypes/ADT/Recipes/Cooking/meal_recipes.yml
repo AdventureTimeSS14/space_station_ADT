@@ -1,5 +1,5 @@
 - type: microwaveMealRecipe
-  id: ADTKhachapuri
+  id: ADTFoodKhachapuriRecipe
   name: Khachapuri recipe
   result: ADTFoodMealKhachapuri
   time: 15
