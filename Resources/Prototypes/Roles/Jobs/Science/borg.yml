@@ -8,11 +8,6 @@
   - !type:RoleTimeRequirement
     role: JobBorg
     time: 18000  # 5 hrs
-  # ADT secborg start
-  - !type:RoleTimeRequirement
-    role: ADTJobSecBorg
-    time: 18000  # 5 hrs
-  # ADT secborg end
   canBeAntag: false
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
