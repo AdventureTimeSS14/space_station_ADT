@@ -337,6 +337,14 @@
   - type: Pda
     id: QuartermasterIDCard
     state: pda-qm
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenQM
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#a23e3e"
@@ -490,6 +498,14 @@
   - type: Pda
     id: CEIDCard
     state: pda-ce
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenCe
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#949137"
     accentHColor: "#447987"
@@ -520,6 +536,14 @@
   - type: Pda
     id: CMOIDCard
     state: pda-cmo
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenCmo
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+      #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -584,6 +608,14 @@
   - type: Pda
     id: RDIDCard
     state: pda-rd
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenRD
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -615,6 +647,14 @@
   - type: Pda
     id: HoSIDCard
     state: pda-hos
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenHos
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"

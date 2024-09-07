@@ -1,0 +1,49 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
+# A bunch of different meals. This stuff doesn't come off their plates because
+# it's assembled on them. Or they just don't have plates.
+
+# Base
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodMealBase
+  abstract: true
+  description: A delicious meal, cooked with love.
+  components:
+  - type: Item
+    storedRotation: -90
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meals.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+
+# Tastes like egg, cheese.
+- type: entity
+  name: Khachapuri
+  parent: ADTFoodMealBase
+  id: ADTFoodMealKhachapuri
+  description: A large flatbread that complements pickled cheese, fresh egg.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - egg
+      - salty
+      - milk
+      - cheesy
+  - type: Sprite
+    state: khachapuri
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 3
