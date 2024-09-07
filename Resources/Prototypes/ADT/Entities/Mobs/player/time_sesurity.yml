@@ -151,7 +151,7 @@
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
     #neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
-    mask: ClothingMaskNeckGaiter
+    mask: ADTChronosMask
     jumpsuit: ClothingUniformJumpsuitOperative
     shoes: ADTClothingShoesBootsMagAdvSynd
     #head: ADTClothingHeadHelmetHardsuitDeathsquad

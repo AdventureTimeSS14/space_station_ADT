@@ -213,6 +213,12 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true
 
 # #противогаз СССП
 
