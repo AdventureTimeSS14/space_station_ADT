@@ -1,0 +1,13 @@
+- type: technology
+  id: ADTAirsoftGuns
+  name: research-technology-airsoft-guns
+  icon:
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    state: icon 
+  discipline: Arsenal 
+  tier: 1 
+  cost: 5000
+  recipeUnlocks:
+  - ADTWeaponRifleLecterBibis
+  - ADTMagazineRifleBibis 
+  - ADTCartridgeStrikeballBibis
