@@ -102,3 +102,14 @@
   materials:
     Steel: 1750
     Glass: 1500
+
+- type: latheRecipe
+  id: ADTBorgModuleRPD
+  result: ADTBorgModuleRPD
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50

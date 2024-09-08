@@ -2,7 +2,7 @@
   id: ADTRPD
   parent: BaseItem
   name: RPD
-  description: Rapid Pipe Dispenser is used to quickly build structures for atmosphere operation and disposal.
+  description: The rapid pipe dispenser is used to quickly build structures for atmosphere operation and disposal.
   components:
   - type: RPD
     availablePrototypes:
@@ -100,3 +100,16 @@
   components:
   - type: LimitedCharges
     charges: 0
+
+- type: entity
+  id: ADTRPDRecharging
+  parent: ADTRPD
+  name: experimental RPD
+  description: A bluespace-enhanced rapid pipe dispenser that passively generates its own compressed matter.
+  suffix: Recharging
+  components:
+  - type: LimitedCharges
+    maxCharges: 20
+    charges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
