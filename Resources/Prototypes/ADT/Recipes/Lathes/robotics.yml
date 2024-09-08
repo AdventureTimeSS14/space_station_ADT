@@ -113,3 +113,15 @@
     Glass: 500
     Plastic: 250
     Gold: 50
+
+- type: latheRecipe
+  id: ADTCustomLawCircuitBoard
+  result: ADTCustomLawCircuitBoard
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Plasma: 50
