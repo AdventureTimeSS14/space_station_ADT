@@ -112,6 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -271,6 +272,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
+  - type: StationAiWhitelist #ADT-Tweak
   - type: MaterialStorage
     whitelist:
       tags:
@@ -480,6 +482,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
@@ -669,6 +672,18 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    #ADT secborg start
+    - ADTLeftArmBorgSecurity
+    - ADTRightArmBorgSecurity
+    - ADTLeftLegBorgSecurity
+    - ADTRightLegBorgSecurity
+    - ADTHeadBorgSecurity
+    - ADTTorsoBorgSecurity
+    #ADT secborg end
+    # ADT-Kerfus-Start
+    - ADTTorsoBorgKerfusNT
+    - ADTHeadBorgKerfusNT
+    # ADT-Kerfus-End
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -678,6 +693,7 @@
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
+    - ADTBorgModuleRPD # ADT-RPD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
@@ -706,6 +722,9 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    - ADTBorgModuleDisabler #ADT secborg
+    - ADTBorgModuleDetention #ADT secborg
+    - ADTBorgModuleHarm # ADT secborg
   - type: MaterialStorage
     whitelist:
       tags:

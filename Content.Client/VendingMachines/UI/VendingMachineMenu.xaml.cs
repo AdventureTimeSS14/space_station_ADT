@@ -93,6 +93,7 @@ namespace Content.Client.VendingMachines.UI
             };
             var vendComp = _entityManager.GetComponent<VendingMachineComponent>(entityUid); //ADT-Economy
             //ADT-Economy-End
+
             if (inventory.Count == 0 && VendingContents.Visible)
             {
                 SearchBar.Visible = false;
@@ -123,6 +124,7 @@ namespace Content.Client.VendingMachines.UI
 
                 if (!_prototypeManager.TryIndex(entry.ID, out var prototype))
                     continue;
+
                 //ADT-Economy-Start
                 var price = 0;
                 if (!vendComp.AllForFree)
@@ -142,12 +144,12 @@ namespace Content.Client.VendingMachines.UI
                 }
 
                 var itemName = Identity.Name(dummy, _entityManager);
-                var itemText = $"{itemName} [{entry.Amount}]";
+                var itemText = $" [{price}$] {itemName} [{entry.Amount}]"; //ADT-Economy
 
                 if (itemText.Length > longestEntry.Length)
                     longestEntry = itemText;
 
-                listData.Add(new VendorItemsListData(prototype.ID, itemText, i, price));
+                listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
             }
 
             VendingContents.PopulateList(listData);
@@ -163,4 +165,4 @@ namespace Content.Client.VendingMachines.UI
     }
 }
 
-public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex, int price) : ListData;
+public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex) : ListData;
