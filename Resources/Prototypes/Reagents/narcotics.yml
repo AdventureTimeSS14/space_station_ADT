@@ -230,8 +230,8 @@
         - addiction-message-5
         - addiction-message-6
       - !type:AddictionEffect
-        TimeCoefficient: 10
-        QuantityCoefficient: 10
+        timeCoefficient: 10
+        quantityCoefficient: 10
 #ADT end
 
 # TODO: Replace these nonstandardized effects with generic brain damage

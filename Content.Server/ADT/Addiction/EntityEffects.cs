@@ -16,8 +16,8 @@ public sealed partial class AddictionEffect : EntityEffect
     public float TimeCoefficient = new(); // Коэфицент домножающий на себя время воздействие этого регаента на организм
     [DataField(required: true)]
     public float QuantityCoefficient = new(); // Коэфицент домножающий на себя количество усвоенного реагента организмом
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly TimeSpan _delayTime = TimeSpan.FromSeconds(1); // Время задержки эффекта
+/*    [Dependency] private readonly IGameTiming _timing = default!;*/
+    [DataField(required: false)] public TimeSpan _delayTime = TimeSpan.FromSeconds(1); // Время задержки эффекта
     //[Dependency] private readonly MetabolismGroupPrototype groupNarcotics = MetabolismGroupPrototype.ID; //
 /*    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;*/
 
@@ -32,7 +32,7 @@ public sealed partial class AddictionEffect : EntityEffect
             return;
         if (ev.EntityManager.TryGetComponent<AddictedComponent>(ev.TargetEntity, out var comp)) // Получили компонент того, на кого действует эффект.
         {
-            if (_timing.CurTime < comp.LastEffect + _delayTime)
+            if (IoCManager.Resolve<IGameTiming>().CurTime < comp.LastEffect + _delayTime)
                 return;
 
 /*            if (!_prototypeManager.TryIndex<ReagentPrototype>(ev.TargetEntity.ToString, out var proto))
@@ -41,8 +41,9 @@ public sealed partial class AddictionEffect : EntityEffect
             if (!proto.Metabolisms.TryGetValue("Narcotic", out var entry))
                 return;*/
 
-            comp.CurrentAddictedTime += _delayTime;
+            comp.CurrentAddictedTime += _delayTime * TimeCoefficient;
             comp.RemaningTime = comp.ChangeAddictionTypeTime;
+            comp.LastEffect = IoCManager.Resolve<IGameTiming>().CurTime;
         }
         
 /*        if (args.EntityManager.TryGetComponent<AddictedComponent>(args.TargetEntity, out var comp))
