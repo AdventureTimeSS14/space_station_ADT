@@ -5,3 +5,6 @@ ent-ADTRPDAmmo = консервированная материя
 ent-ADTRPDEmpty = { ent-ADTRPD }
     .desc = { ent-ADTRPD.desc }
     .suffix = Пустой
+ent-ADTRPDRecharging = экспериментальный РРТ
+    .desc = Блюспейс-улучшенный РРТ, пассивно регенерирующий заряды.
+    .suffix = Автозарядка

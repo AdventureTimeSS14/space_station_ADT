@@ -49,3 +49,16 @@
     items:
     - ADTInfCablecuffs
     - ADTWeaponDisablerBorg
+
+- type: entity
+  id: ADTBorgModuleRPD
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: RPD cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-rcd
+  - type: ItemBorgModule
+    items:
+    - ADTRPDRecharging

@@ -159,13 +159,14 @@
     state: icon
   discipline: Industrial
   tier: 2
-  cost: 10000
+  cost: 10500 # ADT-RPD
   recipeUnlocks:
     - WelderExperimental
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
     - BorgModuleRCD
+    - ADTBorgModuleRPD # ADT-RPD
 
 - type: technology
   id: MassExcavation
