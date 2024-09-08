@@ -150,6 +150,17 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+# Start ADT Tweak
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+# End ADT Tweak
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
