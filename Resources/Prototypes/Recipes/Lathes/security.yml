@@ -710,28 +710,3 @@
      Plastic: 1000
      Plasma: 500
      Glass: 500
-
-- type: latheRecipe
-  id: ADTWeaponRifleLecterBibis
-  result: ADTWeaponRifleLecterBibis
-  category: Weapons
-  completetime: 15
-  materials:
-    Steel: 500
-    Plastic: 1500
-
-- type: latheRecipe
-  id: ADTMagazineRifleBibis
-  result: ADTMagazineRifleBibis
-  category: Ammo
-  completetime: 5 
-  materials: 
-    Plastic: 150
-
-- type: latheRecipe
-  id: ADTCartridgeStrikeballBibis
-  result: ADTCartridgeStrikeballBibis
-  category: Ammo
-  completetime: 2
-  materials:
-    Plastic: 50
