@@ -168,3 +168,17 @@
       amount: 1
   products:
     ADTSilverSulfadiazine: 5
+
+- type: reaction
+  id: ADTDetoxisol
+  reactants:
+    Ultravasculine:
+      amount: 1
+    Diphenhydramine:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Charcoal:
+      amount: 1
+  products:
+    ADTDetoxisol: 4

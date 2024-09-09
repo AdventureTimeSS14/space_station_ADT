@@ -293,3 +293,21 @@
       amount: 1
   products:
     ADTElderGuards: 10 #polar bear heater. типо напиток из фильма, который по факту был придуман как шутка.
+
+- type: reaction
+  id: ADTLimeShade
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    JuiceLime:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+    Wine:
+      amount: 2
+    CoffeeLiqueur:
+      amount: 1
+  products:
+    ADTLimeShade: 5
+
+

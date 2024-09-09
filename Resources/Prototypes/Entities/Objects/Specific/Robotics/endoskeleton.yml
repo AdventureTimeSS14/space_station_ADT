@@ -258,8 +258,8 @@
       #ADT secborg end
       # ADT-Kerfus-Start
       kerfusNT:
-      - ADTTorsoBorgKerfusNT
-      - ADTHeadBorgKerfusNT
+      - ADTBorgKerfusNTTorso
+      - ADTBorgKerfusNTHead
       # ADT-Kerfus-End
   - type: Construction
     graph: Cyborg

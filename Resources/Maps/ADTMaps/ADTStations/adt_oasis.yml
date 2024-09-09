@@ -14896,7 +14896,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13298.633
+      secondsUntilStateChange: -13334.3
       state: Opening
   - uid: 561
     components:
@@ -14908,7 +14908,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13301.267
+      secondsUntilStateChange: -13336.934
       state: Opening
   - uid: 562
     components:
@@ -14920,7 +14920,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13300.116
+      secondsUntilStateChange: -13335.783
       state: Opening
   - uid: 563
     components:
@@ -14931,7 +14931,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13299.333
+      secondsUntilStateChange: -13335
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -92996,7 +92996,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4622.6123
+      secondsUntilStateChange: -4658.279
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -137031,7 +137031,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41454.47
+      secondsUntilStateChange: -41490.137
       state: Opening
   - uid: 15856
     components:
@@ -158058,6 +158058,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-27.5
+      parent: 2
+- proto: SpawnPointADTSecborg
+  entities:
+  - uid: 22971
+    components:
+    - type: Transform
+      pos: 37.5,-33.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:
@@ -184950,7 +184957,7 @@ entities:
       pos: 24.5,2.5
       parent: 22975
     - type: Door
-      secondsUntilStateChange: -386659.1
+      secondsUntilStateChange: -386694.75
       state: Opening
 - proto: WoodenBench
   entities:

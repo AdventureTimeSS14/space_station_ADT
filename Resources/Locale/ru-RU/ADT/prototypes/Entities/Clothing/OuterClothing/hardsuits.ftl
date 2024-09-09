@@ -15,3 +15,6 @@ ent-ADTClothingOuterHardsuitIlisium = скафандр Иллизиума
 ent-ADTClothingOuterHardsuitDeathsquad = скафандр стража времени
     .desc = Скафандр путника из далёкого будущего выглядит как невероятная смесь высокотехнологичного костюма и космической брони. Поверьте, если он идёт за вами, то убегать нет смысла.
     .suffix = { "ОБВА" }
+
+ent-ADTClothingOuterHardsuitInquisitory = скафандр инквизитора
+    .desc = Покайся в своих грехах.
