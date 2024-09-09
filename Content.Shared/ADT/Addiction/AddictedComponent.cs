@@ -22,7 +22,7 @@ public sealed partial class AddictedComponent : Component
     /// <summary>
     /// Время необходимое, чтобы стать зависимым.
     /// </summary>
-    [DataField(required: true)] public TimeSpan RequiredTime;.
+    [DataField(required: true)] public TimeSpan RequiredTime;
     /// <summary>
     /// Собсна тип зависимости. 0 - легкая, без побочек, 1 - с небольшими побочками и т п, до 4
     /// </summary>
