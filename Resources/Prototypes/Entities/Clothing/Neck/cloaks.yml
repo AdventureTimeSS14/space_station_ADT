@@ -200,6 +200,9 @@
   - type: TypingIndicatorClothing
     proto: alien
     #ADT Tweak Start
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
   - type: ToggleableClothing
     clothingPrototype: ADTClothingNeckVoidCloakHatHood
     requiredSlot:
