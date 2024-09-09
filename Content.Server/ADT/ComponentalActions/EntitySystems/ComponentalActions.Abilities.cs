@@ -415,25 +415,33 @@ public sealed partial class ComponentalActionsSystem
             return;
         _chat.TrySendInGameICMessage(uid, "щёлкает пальцами", InGameICChatType.Emote, ChatTransmitRange.Normal);
 
-        // Создаем таймер для задержки
-        System.Timers.Timer timer = new System.Timers.Timer();
-        timer.Interval = 3000; // 3 секунды
-        timer.AutoReset = false; // Для однократного срабатывания
-        timer.Elapsed += (sender, e) =>
-        {
-            //AddComp<SingularityDistortionComponent>(uid);
-            AddComp<PointLightComponent>(uid);
-            _light.SetEnabled(uid, true);
-            _light.SetColor(uid, Color.FromHex("#a83da8"));
-            _light.SetRadius(uid, 1.7f);
-            _light.SetEnergy(uid, 160f);
-            _audio.PlayPvs(component.IgniteSound, uid);
-            var despawn = AddComp<TimedDespawnComponent>(uid);
-            despawn.Lifetime = 0.7f;
-        };
-        timer.Start();
+        _light.SetEnabled(uid, true);
+        _light.SetColor(uid, Color.FromHex("#a83da8"));
+        _light.SetRadius(uid, 1.7f);
+        _light.SetEnergy(uid, 160f);
+        _audio.PlayPvs(component.IgniteSound, uid);
+        var despawn = AddComp<TimedDespawnComponent>(uid);
+        despawn.Lifetime = 2.1f;
 
-        args.Handled = true;
+        // // Создаем таймер для задержки
+        // System.Timers.Timer timer = new System.Timers.Timer();
+        // timer.Interval = 3000; // 3 секунды
+        // timer.AutoReset = false; // Для однократного срабатывания
+        // timer.Elapsed += (sender, e) =>
+        // {
+        //     //AddComp<SingularityDistortionComponent>(uid);
+        //     //AddComp<PointLightComponent>(uid);
+            // _light.SetEnabled(uid, true);
+            // _light.SetColor(uid, Color.FromHex("#a83da8"));
+            // _light.SetRadius(uid, 1.7f);
+            // _light.SetEnergy(uid, 160f);
+            // _audio.PlayPvs(component.IgniteSound, uid);
+            // var despawn = AddComp<TimedDespawnComponent>(uid);
+            // despawn.Lifetime = 2.1f;
+        // };
+        // timer.Start();
+
+        // args.Handled = true;
     }
 
         // //OnElectrionPulseAction(uid, component);
