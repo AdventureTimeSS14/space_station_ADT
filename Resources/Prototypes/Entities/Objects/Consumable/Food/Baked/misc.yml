@@ -254,6 +254,7 @@
   - type: Tag
     tags:
     - Pancake
+    - ADTMothFriendlyFood #ADT_Tweak - делаем обычные блинчики съедобными для молей
 
 - type: entity
   name: blueberry pancake
@@ -385,6 +386,9 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag  #ADT_Tweak - делаем вафли съедобными для молей
+    tags:
+    - ADTMothFriendlyFood
 
 - type: entity
   name: soy waffles
@@ -658,6 +662,9 @@
             Quantity: 1
           - ReagentId: Vitamin
             Quantity: 1
+    - type: Tag #ADT_Tweak - делаем луковые кольца съедобными для молей
+      tags:
+      - ADTMothFriendlyFood
 
 - type: entity
   name: croissant
@@ -686,3 +693,6 @@
     damage:
       types:
         Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
+  - type: Tag #ADT_Tweak - делаем круассаны съедобным для молей
+    tags:
+    - ADTMothFriendlyFood

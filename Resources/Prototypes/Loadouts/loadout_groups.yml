@@ -139,6 +139,12 @@
   - HoPJumpsuitTurtleneck
   - HoPJumpskirtTurtleneck
   # Corvax-Loadouts-End
+  # ADT-Loadouts-Start
+  - ADTJumpsuitHopWarm
+  - ADTJumpskirtHopWarm
+  - ADTJumpsuitHopAlt
+  - ADTJumpskirtHopAlt
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPNeck
@@ -147,6 +153,9 @@
   loadouts:
   - HoPCloak
   - HoPMantle
+  # ADT-Loadouts-Start
+  - ADTHoPAltCloak
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPBackpack
@@ -163,6 +172,9 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  # ADT-Loadouts-Start
+  - ADTCoatHOP
+  # ADT-Loadouts-End
 
 # Civilian
 - type: loadoutGroup
@@ -360,6 +372,11 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
+  # ADT-Loadouts-Start
+  - ADTJanitorJumpsuitJanimaid
+  - ADTJanitorJumpsuitJanimaidmini
+  - ADTJanitorJumpsuitJanimaidElegant
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -581,6 +598,9 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  # ADT-Loadouts-Start
+  - ADTCargoTechnicianBeret
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -620,6 +640,9 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
+  # ADT-Loadouts-Start
+  - ADTCargoTechnicianBeret
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -782,6 +805,9 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  # ADT-Loadouts-Start
+  - ADTOuterAtmosianBomberJacket
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1011,6 +1037,11 @@
   - SecurityJumpskirtGrey
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
+  # ADT-Loadouts-Start
+  - ADTSecurityOfficerMogesBrown
+  - ADTSecurityOfficerMogesBlue
+  - ADTSecurityOfficerMogesGray
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1074,7 +1105,12 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
-  - DetectiveInvestigatorSuit # ADT-Loadout
+  # ADT-Loadouts-Start
+  - DetectiveInvestigatorSuit
+  - ADTSecurityOfficerMogesBrown
+  - ADTSecurityOfficerMogesBlue
+  - ADTSecurityOfficerMogesGray
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
