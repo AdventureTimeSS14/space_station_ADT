@@ -7,47 +7,40 @@ namespace Content.Server.ADT.Addiction;
 
 public sealed partial class AddictionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+/*    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;*/
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        TimeSpan fT = TimeSpan.FromSeconds(frameTime);
         var query = EntityQueryEnumerator<AddictedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.Addicted)
-            {
-                comp.RemaningTime -= frameTime;
-                if (comp.RemaningTime <= 0)
-                {
-                    comp.RemaningTime = comp.ChangeAddictionTypeTime;
-                    if (comp.TypeAddiction > 0)
-                    {
-                        comp.TypeAddiction -= 1;
-                    }
-
-                }
-            }
-            else
-            {
-                if (comp.CurrentAddictedTime >= comp.RequiredTime)
-                {
-                    comp.Addicted = true;
-                }
-            }
+            UpdateCurrentAddictedTime(comp, fT);
+            UpdateTypeAddiction(comp);
+            UpdateAddicted(comp);
         }
-/*        var query = EntityQueryEnumerator<AddictedComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+    }
+    public void UpdateCurrentAddictedTime(AddictedComponent comp, TimeSpan frameTime)
+    {
+        if (comp.CurrentAddictedTime >= TimeSpan.Zero + frameTime)
+            comp.CurrentAddictedTime -= frameTime;
+        else
+            comp.CurrentAddictedTime = TimeSpan.Zero;
+    }
+    public void UpdateTypeAddiction(AddictedComponent comp)
+    {
+        if (comp.TypeAddiction > 0 && comp.Addicted && comp.RemaningTime <= TimeSpan.Zero)
         {
-            if (_timing.CurTime < comp.NextPopup)
-                continue;
-            if (comp.PopupMessages.Count <= 0)
-                continue;
-            var selfMessage = Loc.GetString(_random.Pick(comp.PopupMessages));
-            _popup.PopupEntity(selfMessage, uid, uid);
-            comp.NextPopup = _timing.CurTime + TimeSpan.FromSeconds(10);
-        }*/
+            comp.RemaningTime = comp.ChangeAddictionTypeTime;
+            comp.TypeAddiction -= 1;
+        }
+    }
+    public void UpdateAddicted(AddictedComponent comp)
+    {
+        if (comp.CurrentAddictedTime >= comp.RequiredTime)
+            comp.Addicted = true;
     }
 }
