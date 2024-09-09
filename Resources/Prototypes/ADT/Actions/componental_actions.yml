@@ -105,12 +105,9 @@
   components:
   - type: InstantAction
     icon:
-      sprite: /Textures/ADT/Interface/alerts.rsi
-      state: levitation
+      sprite: /Textures/ADT/Interface/Alerts/evaporation.rsi
+      state: evaporation
     itemIconStyle: BigAction
     checkCanInteract: false
     event: !type:CompElectrionPulseActionEvent
     useDelay: 5
-
-
-

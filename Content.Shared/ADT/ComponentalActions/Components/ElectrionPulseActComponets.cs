@@ -18,7 +18,7 @@ public sealed partial class ElectrionPulseActComponent : Component
     /// Radius of objects that will be ignited if flammable.
     /// </summary>
     [DataField]
-    public float IgnitionRadius = 4f;
+    public float IgnitionRadius = 5f;
 
     [DataField("lifetime")]
     public float Lifetime = 5f;
@@ -41,19 +41,19 @@ public sealed partial class ElectrionPulseActComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int MaxBoltCount = 5;
 
-    /// <summary>
-    /// The maximum radius of the passive electrocution effect
-    /// scales with stability
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxElectrocuteRange = 7f;
+    // /// <summary>
+    // /// The maximum radius of the passive electrocution effect
+    // /// scales with stability
+    // /// </summary>
+    // [DataField, ViewVariables(VVAccess.ReadWrite)]
+    // public float MaxElectrocuteRange = 7f;
 
-    /// <summary>
-    /// The maximum amount of damage the electrocution can do
-    /// scales with severity
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxElectrocuteDamage = 20f;
+    // /// <summary>
+    // /// The maximum amount of damage the electrocution can do
+    // /// scales with severity
+    // /// </summary>
+    // [DataField, ViewVariables(VVAccess.ReadWrite)]
+    // public float MaxElectrocuteDamage = 20f;
 
     /// <summary>
     /// The maximum amount of time the electrocution lasts
@@ -66,7 +66,7 @@ public sealed partial class ElectrionPulseActComponent : Component
     /// Radius of objects that will be ignited if flammable.
     /// </summary>
     [DataField]
-    public SoundSpecifier IgniteSound = new SoundPathSpecifier("/Audio/Magic/rumble.ogg");
+    public SoundSpecifier IgniteSound = new SoundPathSpecifier("/Audio/Magic/forcewall.ogg");
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float Severity = 0.3f;

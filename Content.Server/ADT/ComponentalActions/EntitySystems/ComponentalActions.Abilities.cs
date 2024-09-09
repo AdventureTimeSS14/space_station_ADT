@@ -107,6 +107,7 @@ using System.Linq;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
+using System.Threading;
 
 
 namespace Content.Server.ComponentalActions.EntitySystems;
@@ -413,15 +414,17 @@ public sealed partial class ComponentalActionsSystem
     {
         if (args.Handled)
             return;
-        _chat.TrySendInGameICMessage(uid, "щёлкает пальцами", InGameICChatType.Emote, ChatTransmitRange.Normal);
+        _chat.TrySendInGameICMessage(uid, "щёлкает пальцами", InGameICChatType.Emote, ChatTransmitRange.HideChat);
 
         _light.SetEnabled(uid, true);
         _light.SetColor(uid, Color.FromHex("#a83da8"));
         _light.SetRadius(uid, 1.7f);
         _light.SetEnergy(uid, 160f);
-        _audio.PlayPvs(component.IgniteSound, uid);
+
         var despawn = AddComp<TimedDespawnComponent>(uid);
         despawn.Lifetime = 2.1f;
+        Thread.Sleep(2000); //2 секунды задержка
+        _audio.PlayPvs(component.IgniteSound, uid);
 
         // // Создаем таймер для задержки
         // System.Timers.Timer timer = new System.Timers.Timer();
@@ -441,7 +444,7 @@ public sealed partial class ComponentalActionsSystem
         // };
         // timer.Start();
 
-        // args.Handled = true;
+        args.Handled = true;
     }
 
         // //OnElectrionPulseAction(uid, component);
