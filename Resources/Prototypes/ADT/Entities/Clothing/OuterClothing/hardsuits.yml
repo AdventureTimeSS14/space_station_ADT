@@ -210,6 +210,7 @@
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0.5
+    staminaModifier: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ToggleableClothing
