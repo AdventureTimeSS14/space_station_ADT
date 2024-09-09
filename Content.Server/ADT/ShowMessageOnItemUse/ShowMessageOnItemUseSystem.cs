@@ -3,6 +3,7 @@ using Content.Server.Mind;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Flash;
+using Content.Shared.StatusEffect;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
 
@@ -27,7 +28,8 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
                 return;
 
         var transform = EntityManager.GetComponent<TransformComponent>(uid);
-        var flashableQuery = GetEntityQuery<EyeComponent>();
+
+        var flashableQuery = GetEntityQuery<StatusEffectsComponent>();
 
         foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, component.Range))
         {
