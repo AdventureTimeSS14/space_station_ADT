@@ -92,6 +92,35 @@
       - NamesLastERTCallsign # Corvax-Localization
 
 
+
+- type: job
+  id: ADTJobTimePatrol
+  name: job-name-time-patrol
+  description: job-description-magistrat
+  playTimeTracker: JobTimePatrol
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 600000
+  startingGear: ADTTimePatrolGear
+  icon: "JobIconMagistrat"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+    - Command
+    - Brig
+    - Maintenance
+    - Service
+    - Security
+    - Magistrate
+    - Lawyer
+    - IAA
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
 - type: startingGear
   id: ADTTimePatrolGear
   equipment:

@@ -50,9 +50,13 @@ using Content.Server.Silicons.Laws;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Administration.Systems;
 
@@ -83,6 +87,8 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly AdminFrozenSystem _freezeADT = default!;
     [Dependency] private readonly IPlayerManager _playerManagerADT = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLawSystemADT = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
 
     // All antag verbs have names so invokeverb works.
@@ -95,34 +101,39 @@ public sealed partial class AdminVerbSystem
 
         if (_adminManagerADT.IsAdmin(player))
         {
-            Verb mark = new();
-            mark.Text = Loc.GetString("toolshed-verb-mark");
-            mark.Message = Loc.GetString("toolshed-verb-mark-description");
-            mark.Category = VerbCategory.Admin;
-            mark.Act = () => _toolshedADT.InvokeCommand(player, "=> $marked", Enumerable.Repeat(args.Target, 1), out _);
-            mark.Impact = LogImpact.Low;
-            args.Verbs.Add(mark);
-
             if (TryComp(args.Target, out ActorComponent? targetActor))
             {
                 // Spawn - Like respawn but on the spot.
                 args.Verbs.Add(new Verb()
                 {
-                    Text = Loc.GetString("admin-player-actions-spawn"),
+                    //Text = Loc.GetString("admin-player-actions-spawn"),
+                    Text = "admin-player-actions-spawn",
                     Category = VerbCategory.Admin,
+                    Icon = new SpriteSpecifier.Rsi(new("/Textures/ADT/Interface/Misc/time_patrol.rsi"), "icon"),
                     Act = () =>
                     {
                         if (!_transformSystem.TryGetMapOrGridCoordinates(args.Target, out var coords))
                         {
-                            _popupADT.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
+                            _popupADT.PopupEntity("admin-player-spawn-failed", args.User, args.User);
                             return;
                         }
 
                         var stationUid = _stationsADT.GetOwningStation(args.Target);
-
+                        string? jobId = "ADTJobTimePatrol";
+                        var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+                        var job = new JobComponent {Prototype = jobId};
                         var profile = _tickerADT.GetPlayerProfile(targetActor.PlayerSession);
-                        var mobUid = _spawningADT.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                        var mobUid = _spawningADT.SpawnPlayerMob(coords.Value, job, profile, stationUid);
                         var targetMind = _mindSystemADT.GetMind(args.Target);
+
+                        if (TryComp(mobUid, out TransformComponent? transform))
+                        {
+                            var coordinates = _transform.GetMoverCoordinates(mobUid, transform);
+                            var filter = Filter.Pvs(coordinates, 1, EntityManager, _playerManager);
+                            var audioParams = new AudioParams().WithVolume(3);
+                            _audio.PlayStatic("/Audio/Magic/forcewall.ogg", filter, coordinates, true, audioParams);
+                        }
+
 
                         if (targetMind != null)
                         {
@@ -131,37 +142,6 @@ public sealed partial class AdminVerbSystem
                     },
                     ConfirmationPopup = true,
                     Impact = LogImpact.High,
-                });
-
-                // Clone - Spawn but without the mind transfer, also spawns at the user's coordinates not the target's
-                args.Verbs.Add(new Verb()
-                {
-                    Text = Loc.GetString("admin-player-actions-clone"),
-                    Category = VerbCategory.Admin,
-                    Act = () =>
-                    {
-                        if (!_transformSystem.TryGetMapOrGridCoordinates(args.User, out var coords))
-                        {
-                            _popupADT.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
-                            return;
-                        }
-
-                        var stationUid = _stationsADT.GetOwningStation(args.Target);
-
-                        var profile = _tickerADT.GetPlayerProfile(targetActor.PlayerSession);
-                        _spawningADT.SpawnPlayerMob(coords.Value, null, profile, stationUid);
-                    },
-                    ConfirmationPopup = true,
-                    Impact = LogImpact.High,
-                });
-
-                // PlayerPanel
-                args.Verbs.Add(new Verb
-                {
-                    Text = Loc.GetString("admin-player-actions-player-panel"),
-                    Category = VerbCategory.Admin,
-                    Act = () => _consoleADT.ExecuteCommand(player, $"playerpanel \"{targetActor.PlayerSession.UserId}\""),
-                    Impact = LogImpact.Low
                 });
             }
         }
