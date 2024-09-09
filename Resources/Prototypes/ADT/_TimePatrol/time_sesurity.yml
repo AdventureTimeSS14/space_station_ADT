@@ -101,7 +101,7 @@
     belt: ADTADTWeaponPulseCarabinUSSP
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
-    neck: ADTClothingNeckNewMekkaCloak
+    neck: ClothingNeckMantleHOSShoulder
     mask: ADTChronosMask
     jumpsuit: ClothingUniformJumpsuitOperative
     shoes: ADTClothingShoesBootsCombatNeCkoll
@@ -351,8 +351,8 @@
     Poison:
       effects:
       - !type:MovespeedModifier
-        walkSpeedModifier: 0.05
-        sprintSpeedModifier: 0.05
+        walkSpeedModifier: 0.02
+        sprintSpeedModifier: 0.02
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
