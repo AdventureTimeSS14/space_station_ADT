@@ -199,6 +199,13 @@
     sprite: Clothing/Neck/Cloaks/void.rsi
   - type: TypingIndicatorClothing
     proto: alien
+    #ADT Tweak Start
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingNeckVoidCloakHatHood
+    requiredSlot:
+    - neck
+    slot: head
+    #ADT Tweak End
 
 - type: entity
   parent: ClothingNeckBase
@@ -218,7 +225,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aro.rsi
 
-#ADT start 
+#ADT start
 
 # - type: entity
 #   parent: ClothingNeckBase

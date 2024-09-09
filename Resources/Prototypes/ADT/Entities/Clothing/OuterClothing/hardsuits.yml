@@ -184,3 +184,32 @@
     damageCoefficient: 0.3
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetIlisium
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTinquisitory
+  name: inquisitory hardsuit
+  description: Repent of your sins.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ADTInquisitoryHead
