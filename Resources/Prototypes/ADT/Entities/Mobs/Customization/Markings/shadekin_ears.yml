@@ -147,7 +147,7 @@
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: shadekin
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
-      state: gauze_ear_left_default
+      state: gauze_ear_l_default
 
 - type: marking
   id: EarsShadekinGauzedRight
@@ -158,7 +158,7 @@
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: shadekin
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
-      state: gauze_ear_right_default
+      state: gauze_ear_r_default
 
 - type: marking
   id: EarsShadekinFluffy
@@ -341,7 +341,7 @@
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: saggy_default
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
-      state: saggy_gauze_l_all
+      state: saggy_gauze_all
 
 - type: marking
   id: EarsShadekinShort
