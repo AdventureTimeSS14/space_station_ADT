@@ -177,7 +177,7 @@
 
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
-  id: ADTInquisitoryHead
+  id: ADTClothingHeadHelmetHardsuitInquisitory
   categories: [ HideSpawnMenu ]
   noSpawn: false
   name: inquisitor hardsuit helmet

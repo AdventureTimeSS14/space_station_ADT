@@ -13,5 +13,5 @@ ent-ADTClothingHeadHelmetIlisium = шлем
     .suffix = Иллизиум
     .desc = Шлем бойца Иллизиума
 
-ent-ADTInquisitoryHead = шлем инквизитора
+ent-ADTClothingHeadHelmetHardsuitInquisitory = шлем инквизитора
     .desc = Тебе дана власть над судьбами

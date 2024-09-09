@@ -180,6 +180,7 @@
         Slash: 0.65
         Heat: 0.35
         Radiation: 0.85
+    staminaModifier: 1
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: ToggleableClothing
@@ -187,7 +188,7 @@
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ADTinquisitory
+  id: ADTClothingOuterHardsuitInquisitory
   name: inquisitory hardsuit
   description: Repent of your sins.
   components:

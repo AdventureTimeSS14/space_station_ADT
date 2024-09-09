@@ -12,5 +12,5 @@ ent-ADTClothingOuterHardsuitIlisium = скафандр Иллизиума
     .suffix = Иллизиум
     .desc = Боевой скафандр бойца Иллизиума. Обеспечен встроенными керамическими пластинами.
 
-ent-ADTinquisitory = скафандр инквизитора
+ent-ADTClothingOuterHardsuitInquisitory = скафандр инквизитора
     .desc = Покайся в своих грехах.
