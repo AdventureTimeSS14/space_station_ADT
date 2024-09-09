@@ -7,3 +7,13 @@
   cost: 1500
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: FunRingBox
+  icon:
+    sprite: ADT/Objects/Misc/RingBox.rsi
+    state: box
+  product: RingBox
+  cost: 8000
+  category: cargoproduct-category-name-fun
+  group: market

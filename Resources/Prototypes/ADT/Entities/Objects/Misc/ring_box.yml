@@ -1,0 +1,32 @@
+- type: entity
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  id: RingBox
+  name: ring box
+  description: very good.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Objects/Misc/RingBox.rsi
+    state: box
+    layers:
+    - state: box
+    - state: box-open
+      map: ["openLayer"]
+  - type: Storage
+    maxItemSize: Small
+  - type: Item
+    sprite: ADT/Objects/Misc/RingBox.rsi
+    size: Small
+    heldPrefix: box
+  - type: StorageFill
+    contents:
+    - id: ClothingHandsRingPlazma
+      amount: 1
+    - id: ClothingHandsRingEmerald
+      amount: 1
+    - id: ClothingHandsRingBlood
+      amount: 1
+    - id: ClothingHandsRingTurk
+      amount: 1
+  - type: StaticPrice
+    price: 500
