@@ -12,4 +12,4 @@
     event: !type:ShadekinTeleportActionEvent
     range: 7
     deselectOnMiss: false
-    useDelay: 8
+    useDelay: 12
