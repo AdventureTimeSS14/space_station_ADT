@@ -238,7 +238,6 @@
         - id: GrenadeStinger
         - id: GrenadeFlashBang
         - id: GrenadeFlashBang
-        #- id: WelderIndustrialAdvanced
 
 
 - type: entity
