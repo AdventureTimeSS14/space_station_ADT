@@ -4,7 +4,7 @@
   name: White bouquet
   description: Bouquet of white roses. Classic!
   components:
-  - type: Sharp
+ # - type: Sharp
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/white_bouquet.rsi
     state: icon
@@ -24,7 +24,7 @@
   name: Rose bouquet
   description: Delicate bouquet of pink hibiscus flowers. Especialy for her!
   components:
-  - type: Sharp
+ # - type: Sharp
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/rose_bouquet.rsi
     state: icon
@@ -44,7 +44,7 @@
   name: Yellow bouquet
   description: This is a bouquet of yellow peonies. Especially for connoisseurs of peonies
   components:
-  - type: Sharp
+ # - type: Sharp
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/yellow_bouquet.rsi
     state: icon
@@ -64,7 +64,7 @@
   name: Bouquet with beer
   description: Be unique! GIve a bouquet that you can eat, at the same time knocking over a bottle of beer
   components:
-  - type: Sharp
+ # - type: Sharp
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/bouquet_with_beer.rsi
     state: icon
@@ -84,7 +84,7 @@
   name: Black bouquet
   description: This roses are difinietly not colored, thay have always been like thah
   components:
-  - type: Sharp
+ # - type: Sharp
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/black_bouquet.rsi
     state: icon
@@ -104,7 +104,7 @@
   name: liliac roses bouquet
   description: This roses are difinietly not colored, thay have always been like thah
   components:
-  - type: Sharp
+ # - type: Sharp
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/liliac_bouquet.rsi
     state: icon
