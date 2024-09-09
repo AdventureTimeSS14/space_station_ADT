@@ -27,7 +27,7 @@
   name: magistrat
   components:
   - type: SpawnPoint
-    job_id: Magistrat 
+    job_id: Magistrat
   - type: Sprite
     layers:
       - state: green
@@ -39,7 +39,7 @@
   name: IAA
   components:
   - type: SpawnPoint
-    job_id: IAA 
+    job_id: IAA
   - type: Sprite
     layers:
       - state: green
@@ -68,3 +68,64 @@
       layers:
         - state: green
         - state: blueshield
+
+- type: entity
+  id: SpawnPointSeniorEngineer
+  parent: SpawnPointJobBase
+  name: seniorengineer
+  components:
+  - type: SpawnPoint
+    job_id: ADTSeniorEngineer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorengineer
+
+- type: entity
+  id: SpawnPointSeniorPhysician
+  parent: SpawnPointJobBase
+  name: seniorphysician
+  components:
+  - type: SpawnPoint
+    job_id: ADTSeniorPhysician
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorphysician
+
+
+- type: entity
+  id: SpawnPointSeniorResearcher
+  parent: SpawnPointJobBase
+  name: seniorresearcher
+  components:
+  - type: SpawnPoint
+    job_id: ADTSeniorResearcher
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorresearcher
+
+- type: entity
+  id: SpawnPointSeniorOfficer
+  parent: SpawnPointJobBase
+  name: seniorofficer
+  components:
+  - type: SpawnPoint
+    job_id: ADTSeniorOfficer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorofficer
+
+- type: entity
+  id: SpawnPointADTSecborg
+  parent: ADTSpawnPointJobBase
+  name: secborg
+  components:
+    - type: SpawnPoint
+      job_id: ADTSecBorg
+    - type: Sprite
+      layers:
+        - state: green
+        - state: secborg

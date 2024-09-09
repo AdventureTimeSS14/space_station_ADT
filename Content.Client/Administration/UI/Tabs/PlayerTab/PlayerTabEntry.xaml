@@ -24,6 +24,11 @@
                HorizontalExpand="True"
                ClipText="True"/>
         <customControls:VSeparator/>
+        <Label Name="SponsorLabel"
+               SizeFlagsStretchRatio="1"
+               HorizontalExpand="True"
+               ClipText="True"/>
+        <customControls:VSeparator/>
         <Label Name="OverallPlaytimeLabel"
                SizeFlagsStretchRatio="1"
                HorizontalExpand="True"

@@ -12,6 +12,9 @@ using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
+using Content.Shared.Damage;
+using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Server.ADT.Silicon.Systems;
 
@@ -22,6 +25,8 @@ public sealed class SiliconEmpSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
     [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -32,7 +37,8 @@ public sealed class SiliconEmpSystem : EntitySystem
 
     private void OnEmpPulse(EntityUid uid, SiliconComponent component, ref EmpPulseEvent args)
     {
-        args.EnergyConsumption *= 0.25f; // EMPs drain a lot of freakin power.
+        //args.EnergyConsumption *= 0.25f; // EMPs drain a lot of freakin power.
+        // А потому что нефиг под эми попадаться
 
         if (!TryComp<StatusEffectsComponent>(uid, out var statusComp))
             return;
@@ -57,14 +63,16 @@ public sealed class SiliconEmpSystem : EntitySystem
         else if (_random.Prob(0.80f))
             _slurredSystem.DoSlur(uid, duration * 2, statusComp);
 
-        if (_random.Prob(0.02f))
+        if (_random.Prob(0.4f)) // Какие-то неадекватно низкие шансы тут, буквально 2-8 процентов. Ребят, это слишком мало для ЭМИ
             _status.TryAddStatusEffect<MutedComponent>(uid, "Muted", duration * 0.5, true, statusComp);
 
-        if (_random.Prob(0.02f))
+        if (_random.Prob(0.4f))
             _status.TryAddStatusEffect<TemporaryBlindnessComponent>(uid, TemporaryBlindnessSystem.BlindingStatusEffect, duration * 0.5, true, statusComp);
 
-        if (_random.Prob(0.08f))
+        if (_random.Prob(0.7f))
             _status.TryAddStatusEffect<PacifiedComponent>(uid, "Pacified", duration * 0.5, true, statusComp);
+
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), _random.Next(20, 40)));  // УБИВАТЬ УБИВАТЬ УБИВАТЬ УБИВАТЬ
 
         args.EnergyConsumption = 0;
     }

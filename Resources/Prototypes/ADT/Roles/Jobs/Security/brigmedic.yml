@@ -6,10 +6,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 18000
+      time: 28800 #8 hrs #ADT-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10800 #3 hrs
+      time: 18000 #5 hrs #ADT-RoleTime
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -27,7 +27,7 @@
 - type: startingGear
   id: BrigmedicGear
   equipment:
-    jumpsuit: ADTClothingUniformBrigmedicTurtleneck
+    jumpsuit: ADTClothingUniformBrigmedicJumpsuitTurtleneck
     outerClothing: ADTClothingOuterCoatBrigmedicWB
     back: ClothingBackpackBrigmedicFilled
     shoes: ClothingShoesBootsJackSec

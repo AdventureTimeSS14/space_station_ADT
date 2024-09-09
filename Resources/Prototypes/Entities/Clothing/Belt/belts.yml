@@ -475,6 +475,7 @@
         - Sidearm
         - MagazinePistol
         - MagazineMagnum
+        - ADTMagazineRifleBibis # ADT Tweak
         - CombatKnife
         - Truncheon
         - ADTLasgunRevolverCell #ADT Tweak
@@ -486,6 +487,7 @@
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
+        - ADTCartridgeBibis # ADT Tweak
         - DoorRemote
         - Whistle
         - HolosignProjector
@@ -613,7 +615,7 @@
 - type: entity
   parent: ClothingBeltSecurity
   id: ClothingBeltSecurityWebbing
-  name: security webbing
+  name: security carrier
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
@@ -673,19 +675,29 @@
 
 - type: entity
   parent: ClothingBeltBase
-  id: ClothingBeltSuspenders
-  name: suspenders
+  id: ClothingBeltSuspendersRed
+  name: red suspenders
   description: For holding your pants up.
   components:
   - type: Tag
     tags:
     - MimeBelt
   - type: Sprite
-    sprite: Clothing/Belt/suspenders.rsi
+    sprite: Clothing/Belt/suspenders_red.rsi
     state: icon
   - type: Clothing
-    sprite: Clothing/Belt/suspenders.rsi
+    sprite: Clothing/Belt/suspenders_red.rsi
     quickEquip: true
+
+- type: entity
+  parent: ClothingBeltSuspendersRed
+  id: ClothingBeltSuspendersBlack
+  name: black suspenders
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/suspenders_black.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/suspenders_black.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase

@@ -12,4 +12,4 @@
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - GameRuleMeteorScheduler
+    - MeteorSwarmScheduler

@@ -39,5 +39,5 @@
   id: Emag
   suffix: Limited
   components:
-  - type: LimitedCharges
-  - type: AutoRecharge
+    - type: LimitedCharges
+    - type: AutoRecharge

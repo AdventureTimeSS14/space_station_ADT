@@ -1,0 +1,396 @@
+#Наши базовые алкогольные напитки
+
+#Антивирус и Вишневое вино ввести после допила спрайтов
+
+# - type: reagent
+#   id: ADTVodkaAntivirus
+#   name: vodka-antivirus-name
+#   parent: Vodka
+#   desc: vodka-antivirus-desc
+#   physicalDesc: reagent-physical-desc-overpowering
+#   flavor: adt_vodkaantivirus
+#   color: "#d1d1d155"
+#   metabolisms:
+#     Drink:
+#       effects:
+#       - !type:SatiateThirst
+#         factor: 2
+#       - !type:AdjustReagent
+#         reagent: Ethanol
+#         amount: 0.9
+
+# - type: reagent
+#   id: ADTCherryExquisiteWine
+#   name: cherry-exq-wine-name
+#   parent: BaseAlcohol
+#   desc: cherry-exq-wine-desc
+#   physicalDesc: reagent-physical-desc-translucent
+#   flavor: ADTCherryExquisiteWineFlavor
+#   color: "#A33E43"
+#   metamorphicSprite:
+#     sprite: ADT/Objects/Consumable/Drinks/cherryexquisitewineglass.rsi
+#     state: icon
+#   metabolisms:
+#     Drink:
+#       effects:
+#       - !type:SatiateThirst
+#         factor: 2
+#       - !type:AdjustReagent
+#         reagent: Ethanol
+#         amount: 0.05
+
+- type: reagent
+  id: ADTAppleLiqueur
+  name: apple-liqueur-name
+  parent: ADTSugarKnight
+  desc: apple-liqueur-desc
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: adt_appleliqueur
+  color: "#47941b"
+  recognizable: true
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_glass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.05
+
+#Коктейли от Кекса/Стычинского и Кермита
+
+- type: reagent
+  id: ADTSugarKnight
+  name: sugar-knight-name
+  parent: BaseAlcohol
+  desc: sugar-knight-desc
+  physicalDesc: reagent-physical-desc-sugary
+  flavor: adt_sugarknight
+  color: "#D36E70"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/sugarknight.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+
+- type: reagent
+  id: ADTGrapeLady
+  name: grape-lady-name
+  parent: ADTSugarKnight
+  desc: grape-lady-desc
+  physicalDesc: reagent-physical-desc-dark-red
+  flavor: adt_grapelady
+  color: "#8C4852"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/grapelady.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+
+- type: reagent
+  id: ADTSaturdayBaron
+  name: saturday-baron-name
+  parent: ADTSugarKnight
+  desc: saturday-baron-desc
+  physicalDesc: reagent-physical-desc-tart
+  flavor: adt_saturdaybaron
+  color: "#EFA94A"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/saturdaybaron.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: ADTArcticLatte
+  name: artic-latte-name
+  parent: ADTSugarKnight
+  desc: artic-latte-desc
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: adt_arcticlatte
+  color: "#916631"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/arcticlatte.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 290 #дает легкую прохладу
+        amount: -2500
+
+- type: reagent
+  id: ADTSpecialTeaOolong
+  name: special-teaoolong-name
+  parent: ADTSugarKnight
+  desc: special-teaoolong-desc
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: adt_oolongtea
+  color: "#8c492a"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/teaoolong.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+
+- type: reagent
+  id: ADTAzureBlue
+  name: azure-blue-name
+  parent: ADTSugarKnight
+  desc: azure-blue-desc
+  physicalDesc: reagent-physical-desc-tropical
+  flavor: adt_azureblue
+  color: "#6498e3"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/azureblue.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: ADTPenetrationDrink
+  name: penetration-drink-name
+  parent: ADTSugarKnight
+  desc: penetration-drink-desc
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: adt_penetrationdrink
+  color: "#6ddb6b"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/penetration.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: ADTEclipsedEclispe
+  name: eclipsed-eclipse-name
+  parent: ADTSugarKnight
+  desc: eclipsed-eclipse-desc
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: adt_eclipsedeclipse
+  color: "#592506"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/eclipsedeclipse.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.6
+
+- type: reagent
+  id: ADTSpaceBush
+  name: space-bush-name
+  parent: ADTSugarKnight
+  desc: space-bush-desc
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: adt_spacebush
+  color: "#85de8e"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/spacebush.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: ADTBusinessConversation
+  name: business-conversation-name
+  parent: ADTSugarKnight
+  desc: business-conversation-desc
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: adt_businessconversation
+  color: "#a8140a"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/buisinessconservation.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:AdjustReagent
+        reagent: Bicaridine
+        amount: 0.2
+
+- type: reagent
+  id: ADTAppleMartini
+  name: apple-martini-name
+  parent: ADTSugarKnight
+  desc: apple-martini-desc
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: adt_applemartini
+  color: "#664300"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/applemartini.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: ADTBacardiApple
+  name: bacardi-apple-name
+  parent: ADTSugarKnight
+  desc: bacardi-apple-desc
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: adt_bacardiapple
+  color: "#d4f2a7"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/bacardiapple.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: ADTElderGuards
+  name: elder-guards-name
+  parent: ADTSugarKnight
+  desc: elder-guards-desc
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: adt_elderguards
+  color: "#e86717"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/elderguards.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: ADTLimeShade
+  name: lime-shade-name
+  parent: BaseAlcohol
+  desc: lime-shade-desc
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: adt_limeshade
+  color: "#5c1e52"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15

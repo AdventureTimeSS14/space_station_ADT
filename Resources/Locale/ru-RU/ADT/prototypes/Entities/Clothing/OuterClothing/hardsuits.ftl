@@ -7,3 +7,7 @@ ent-ADTSpaceSecOfficerHardsuit = скафандр офицера SPACE SEC
     .desc = Для хранителей безопасности среди звезд.
 ent-ADTSpaceSecCommanderHardsuit = скафандр командира SPACE SEC
     .desc = Для командира хранителей безопасности среди звезд.
+
+ent-ADTClothingOuterHardsuitIlisium = скафандр Иллизиума
+    .suffix = Иллизиум
+    .desc = Боевой скафандр бойца Иллизиума. Обеспечен встроенными керамическими пластинами.

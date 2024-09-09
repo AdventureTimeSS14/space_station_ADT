@@ -1,6 +1,10 @@
+using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
+using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
+using Content.Shared.ADT.Damage.Components;
 
 namespace Content.Shared.Damage
 {
@@ -14,6 +18,14 @@ namespace Content.Shared.Damage
 
             SubscribeLocalEvent<SlowOnDamageComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SlowOnDamageComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
+            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentStartup>(OnIgnoreStartup); //ADT-Medicine start
+            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentShutdown>(OnIgnoreShutdown);
+            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ModifySlowOnDamageSpeedEvent>(OnIgnoreModifySpeed); //ADT-Medicine end
+
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, InventoryRelayedEvent<ModifySlowOnDamageSpeedEvent>>(OnModifySpeed);
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ClothingGotEquippedEvent>(OnGotEquipped);
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
         }
 
         private void OnRefreshMovespeed(EntityUid uid, SlowOnDamageComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -36,10 +48,12 @@ namespace Content.Shared.Damage
             if (closest != FixedPoint2.Zero)
             {
                 var speed = component.SpeedModifierThresholds[closest];
-                args.ModifySpeed(speed, speed);
+
+                var ev = new ModifySlowOnDamageSpeedEvent(speed); //ADT-Medicine start
+                RaiseLocalEvent(uid, ref ev);
+                args.ModifySpeed(ev.Speed, ev.Speed); //ADT-Medicine end
             }
         }
-
         private void OnDamageChanged(EntityUid uid, SlowOnDamageComponent component, DamageChangedEvent args)
         {
             // We -could- only refresh if it crossed a threshold but that would kind of be a lot of duplicated
@@ -47,5 +61,52 @@ namespace Content.Shared.Damage
 
             _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
         }
+
+        private void OnModifySpeed(Entity<ClothingSlowOnDamageModifierComponent> ent, ref InventoryRelayedEvent<ModifySlowOnDamageSpeedEvent> args)
+        {
+            var dif = 1 - args.Args.Speed;
+            if (dif <= 0)
+                return;
+
+            // reduces the slowness modifier by the given coefficient
+            args.Args.Speed += dif * ent.Comp.Modifier;
+        }
+
+        private void OnExamined(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ExaminedEvent args)
+        {
+            var msg = Loc.GetString("slow-on-damage-modifier-examine", ("mod", (1 - ent.Comp.Modifier) * 100));
+            args.PushMarkup(msg);
+        }
+
+        private void OnGotEquipped(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ClothingGotEquippedEvent args)
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(args.Wearer);
+        }
+
+        private void OnGotUnequipped(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ClothingGotUnequippedEvent args)
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(args.Wearer);
+        }
+        private void OnIgnoreStartup(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentStartup args) //ADT-Medicine start
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        }
+
+        private void OnIgnoreShutdown(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentShutdown args)
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        }
+
+        private void OnIgnoreModifySpeed(Entity<IgnoreSlowOnDamageComponent> ent, ref ModifySlowOnDamageSpeedEvent args)
+        {
+            args.Speed = 1f;
+        }
     }
+
+
+    [ByRefEvent]
+    public record struct ModifySlowOnDamageSpeedEvent(float Speed) : IInventoryRelayEvent
+    {
+        public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
+    } //ADT-Medicine end
 }

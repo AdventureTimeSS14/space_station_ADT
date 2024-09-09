@@ -101,10 +101,10 @@ GeneratorPlasmaMachineCircuitboard: PortableGeneratorPacmanMachineCircuitboard
 GeneratorUraniumMachineCircuitboard: PortableGeneratorSuperPacmanMachineCircuitboard
 
 # 2023-12-10
-SpawnPointSeniorResearcher: null
-SpawnPointSeniorOfficer: null
-SpawnPointSeniorEngineer: null
-SpawnPointSeniorPhysician: null
+# SpawnPointSeniorResearcher: null #ADT_Tweak
+# SpawnPointSeniorOfficer: null #ADT_Tweak
+# SpawnPointSeniorEngineer: null #ADT_Tweak
+# SpawnPointSeniorPhysician: null #ADT_Tweak
 
 # 2023-12-12
 #No this is not the CMO hardsuit, their prototype IDs were just confusingly similar
@@ -223,6 +223,10 @@ VehicleJanicartDestroyed: null
 # 2024-02-01
 YellowOxygenTank: OxygenTank
 YellowOxygenTankFilled: OxygenTankFilled
+
+# 2024-02-12
+FoodDonutBlumpkin: FoodDonutBluePumpkin
+FoodDonutJellyBlumpkin: FoodDonutJellyBluePumpkin
 
 # 2024-02-19
 Drone: null
@@ -394,6 +398,43 @@ SignHydro3: SignHydro1
 # 2024-07-27
 LogicGate: LogicGateOr
 
+# 2024-08-08
+MaterialReclaimer: null
+MaterialReclaimerMachineCircuitboard: null
+
+# 2024-08-11
+FoodTacoBeef: FoodTacoShell
+FoodTacoChicken: FoodTacoShell
+FoodTacoFish: FoodTacoShell
+FoodTacoBeefSupreme: FoodTacoShell
+FoodTacoChickenSupreme: FoodTacoShell
+FoodTacoRat: FoodTacoShell
+
+FoodMeatHumanKebab: FoodKebabSkewer
+FoodMeatLizardtailKebab: FoodKebabSkewer
+FoodMeatRatKebab: FoodKebabSkewer
+FoodMeatRatdoubleKebab: FoodKebabSkewer
+FoodMeatSnakeKebab: FoodKebabSkewer
+FoodMeatHawaiianKebab: FoodKebabSkewer
+FoodMeatKebab: FoodKebabSkewer
+FoodMeatFiestaKebab: FoodKebabSkewer
+
+#2024-08-14
+ClothingBeltSuspenders: ClothingBeltSuspendersRed
+
+# 2024-08-19
+ClothingNeckShockCollar: ClothingBackpackElectropack
+
+# 2024-08-22
+ComputerShuttleSalvage: null
+SalvageShuttleConsoleCircuitboard: null
+SalvageShuttleCircuitboardStealObjective: null
+
+# 2024-08-28
+ClothingBackpackDuffelSyndicateCostumeCentcom: null
+ClothingHeadsetAltCentComFake: null
+CentcomPDAFake: null
+CentcomIDCardSyndie: null
 # ADT 2024-08-13
 ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
 
@@ -428,4 +469,8 @@ LGBTQFlag: DrinkBottleVodka
 ClothingOuterArmorHeavy: null
 ClothingOuterArmorHeavyRed: null
 ClothingOuterArmorHeavyGreen: null
+
+#2024-09-06
+
+RiotBulletShield: null
 #ADT end

@@ -19,10 +19,16 @@
   chatTriggers:
     - cough
     - coughs
+    - coughed
     # Corvax-Localization-Start
     - кашель
     - кашляет
+    - кашлянул
     # Corvax-Localization-End
+    # Start-ADT-Tweak-AddComp-BloodCough
+    - Кашляет кровью
+    - Кашляет плазмой
+    # End-ADT-Tweak-AddComp-BloodCough
 
 - type: emote
   id: CatMeow
