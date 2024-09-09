@@ -7,8 +7,6 @@ namespace Content.Server.ADT.Addiction;
 
 public sealed partial class AddictionSystem : EntitySystem
 {
-/*    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;*/
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Update(float frameTime)
@@ -29,6 +27,10 @@ public sealed partial class AddictionSystem : EntitySystem
             comp.CurrentAddictedTime -= frameTime;
         else
             comp.CurrentAddictedTime = TimeSpan.Zero;
+        if (comp.RemaningTime >= TimeSpan.Zero + frameTime)
+            comp.RemaningTime -= frameTime;
+        else
+            comp.RemaningTime = TimeSpan.Zero;
     }
     public void UpdateTypeAddiction(AddictedComponent comp)
     {

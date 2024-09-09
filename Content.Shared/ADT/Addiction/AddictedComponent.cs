@@ -26,7 +26,7 @@ public sealed partial class AddictedComponent : Component
     /// <summary>
     /// Собсна тип зависимости. 0 - легкая, без побочек, 1 - с небольшими побочками и т п, до 4
     /// </summary>
-    [DataField] public int TypeAddiction;
+    [DataField] public int TypeAddiction = 4;
     /// <summary>
     /// собсна сообщает нам имеет ли зависимость пациент
     /// </summary>
