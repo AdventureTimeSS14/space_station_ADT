@@ -371,45 +371,6 @@ public sealed partial class ComponentalActionsSystem
         args.Handled = true;
     }
 
-    // private void OnMagGravity(EntityUid uid, LevitationActComponent component, CompGravitationActionEvent args)
-    // {
-    //     if (args.Handled)
-    //         return;
-
-    //     args.Handled = true;
-
-    //     ToggleLevitation(uid, component);
-    // }
-    // private void ToggleLevitation(EntityUid uid, LevitationActComponent component)
-    // {
-    //     component.Active = !component.Active;
-    //     if (TryComp(uid, out MovedByPressureComponent? movedByPressure))
-    //     {
-    //         movedByPressure.Enabled = !component.Active;
-    //         //_sharedActions.SetToggled(component.ActionEntity, component.Active);
-    //     }
-
-    //     if (component.Active)
-    //     {
-    //         _alerts.ShowAlert(uid, _proto.Index(component.Alert));
-    //         AddComp<MovementIgnoreGravityComponent>(uid);
-    //         var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-    //         var sprintSpeed = component.SpeedModifier;
-    //         var walkSpeed = component.SpeedModifier;
-    //         _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
-
-    //     }
-    //     else
-    //     {
-    //         _alerts.ShowAlert(uid, _proto.Index(component.Alert));
-    //         RemComp<MovementIgnoreGravityComponent>(uid);
-    //         var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-    //         var sprintSpeed = component.BaseSprintSpeed;
-    //         var walkSpeed = component.BaseWalkSpeed;
-    //         _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
-    //     }
-    // }
-
     private void OnElectrionPulse(EntityUid uid, ElectrionPulseActComponent component, CompElectrionPulseActionEvent args)
     {
         if (args.Handled)
@@ -421,72 +382,13 @@ public sealed partial class ComponentalActionsSystem
         _light.SetRadius(uid, 1.7f);
         _light.SetEnergy(uid, 160f);
 
-        var despawn = AddComp<TimedDespawnComponent>(uid);
-        despawn.Lifetime = 2.1f;
-        Thread.Sleep(2000); //2 секунды задержка
-        _audio.PlayPvs(component.IgniteSound, uid);
-
-        // // Создаем таймер для задержки
-        // System.Timers.Timer timer = new System.Timers.Timer();
-        // timer.Interval = 3000; // 3 секунды
-        // timer.AutoReset = false; // Для однократного срабатывания
-        // timer.Elapsed += (sender, e) =>
-        // {
-        //     //AddComp<SingularityDistortionComponent>(uid);
-        //     //AddComp<PointLightComponent>(uid);
-            // _light.SetEnabled(uid, true);
-            // _light.SetColor(uid, Color.FromHex("#a83da8"));
-            // _light.SetRadius(uid, 1.7f);
-            // _light.SetEnergy(uid, 160f);
-            // _audio.PlayPvs(component.IgniteSound, uid);
-            // var despawn = AddComp<TimedDespawnComponent>(uid);
-            // despawn.Lifetime = 2.1f;
-        // };
-        // timer.Start();
+        if (!HasComp<TimedDespawnComponent>(uid))
+        {
+            var despawn = AddComp<TimedDespawnComponent>(uid);
+            despawn.Lifetime = 2.1f;
+            _audio.PlayPvs(component.IgniteSound, uid);
+        }
 
         args.Handled = true;
     }
-
-        // //OnElectrionPulseAction(uid, component);
-        // var range = component.MaxElectrocuteRange; // * args.Stability;
-        // int boltCount = (int) MathF.Floor(MathHelper.Lerp((float) component.MinBoltCount, (float) component.MaxBoltCount, component.Severity));
-        // _lightning.ShootRandomLightnings(component, range, boltCount);
-    //private void OnElectrionPulseAction(EntityUid uid, ElectrionPulseActComponent component)//, FireStarterActionEvent args)
-    //{
-    //    if (_container.IsEntityOrParentInContainer(uid))
-    //        return;
-
-        // var xform = Transform(uid);
-        // var ignitionRadius = component.IgnitionRadius;
-        // IgniteNearby(uid, xform.Coordinates, component.Severity, ignitionRadius, component);
-        //_audio.PlayPvs(component.IgniteSound, uid);
-
-        //args.Handled = true;
-
-
-    /// <summary>
-    /// Ignites flammable objects within range.
-    /// </summary>
-    // public void IgniteNearby(EntityUid uid, EntityCoordinates coordinates, float severity, float radius, ElectrionPulseActComponent component)
-    // {
-    //     //_flammables.Clear();
-    //     //_lookup.GetEntitiesInRange(coordinates, radius, _electrocution);
-    //     var range = component.MaxElectrocuteRange * component.Severity; //component.Stability;
-    //     var damage = (int) (component.MaxElectrocuteDamage * component.Severity);
-    //     var duration = component.MaxElectrocuteDuration * component.Severity;
-
-    //     foreach (var flammable in _electrocutio)
-    //     {
-    //         var ent = flammable.Owner;
-    //         if (ent != uid)
-    //         {
-    //             var stackAmount = 2 + (int) (severity / 0.15f);
-    //             //_flammable.AdjustFireStacks(ent, stackAmount, flammable);
-    //             //_flammable.Ignite(ent, uid, flammable);
-    //             _electrocution.TryDoElectrocution(ent, uid, damage, duration, true, statusEffects: comp, ignoreInsulation: true);
-    //         }
-
-    //     }
-    // }
-
 }

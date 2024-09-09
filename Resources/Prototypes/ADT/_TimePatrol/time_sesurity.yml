@@ -1,7 +1,7 @@
 - type: entity
   id: ADTAnomalySpawnTimePatrol
   parent: BaseAnomaly
-  suffix: Time Patrol
+  suffix: "ОБВА"
   name: Spawn Time Patrol
   components:
   - type: PointLight
@@ -47,7 +47,7 @@
   name: Cultist
   parent: BaseMobHuman
   id: ADTTimePatrolSpawn
-  suffix: "Time Patrol"
+  suffix: "ОБВА"
   components:
   - type: NpcFactionMember
     factions:
@@ -101,7 +101,7 @@
     belt: ADTADTWeaponPulseCarabinUSSP
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
-    neck: ClothingNeckMantleHOSShoulder
+    neck: ADTClothingNeckMantleHOSShoulderTimePatrol
     mask: ADTChronosMask
     jumpsuit: ClothingUniformJumpsuitOperative
     shoes: ADTClothingShoesBootsCombatNeCkoll
@@ -124,6 +124,22 @@
   components:
   - type: NoSlip
 
+- type: entity
+  parent: ClothingNeckMantleHOSShoulder
+  id: ADTClothingNeckMantleHOSShoulderTimePatrol
+  name: Mantle time patrol
+  description: desc
+  suffix: "ОБВА"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/tsd_mantles.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Cloaks/tsd_mantles.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK
+      - state: equipped-NECK-unshaded
+        shader: unshaded
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -218,7 +234,7 @@
   parent: BaseWeaponBatterySmall
   id: ADTADTWeaponPulseCarabinUSSP
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
-  suffix: Time Patrol
+  suffix: "ОБВА"
   components:
     - type: BatterySelfRecharger
       autoRecharge: true
@@ -252,45 +268,6 @@
       maxCharge: 2000
       startingCharge: 2000
 
-# - type: entity
-#   name: disabler
-#   parent: BaseWeaponBatterySmall
-#   id: WeaponDisabler
-#   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
-#   components:
-#     - type: Tag
-#       tags:
-#         - Taser
-#         - Sidearm
-#     - type: Sprite
-#       sprite: Objects/Weapons/Guns/Battery/disabler.rsi
-#       layers:
-#         - state: base
-#           map: ["enum.GunVisualLayers.Base"]
-#         - state: mag-unshaded-0
-#           map: ["enum.GunVisualLayers.MagUnshaded"]
-#           shader: unshaded
-#     - type: Clothing
-#       sprite: Objects/Weapons/Guns/Battery/disabler.rsi
-#       quickEquip: false
-#       slots:
-#         - Belt
-#     - type: Gun
-#       fireRate: 2
-#       soundGunshot:
-#         path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-#     - type: ProjectileBatteryAmmoProvider
-#       proto: BulletDisabler
-#       fireCost: 100
-#     - type: MagazineVisuals
-#       magState: mag
-#       steps: 5
-#       zeroVisible: true
-#     - type: Appearance
-#     - type: GuideHelp
-#       guides:
-#       - Security
-
 - type: damageType
   id: ADTTimeDespawn
   name: damage-type-time-despawn
@@ -312,11 +289,12 @@
     damage:
       types:
         ADTTimeDespawn: 1
+        Shock: 7
     soundHit:
       path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
     forceSound: true
   - type: StaminaDamageOnCollide
-    damage: 30 # 3 hits to stun
+    damage: 40 # 4 hits to stun
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_tsd.rsi
     layers:

@@ -139,16 +139,11 @@ public sealed class TimeDespawnDamageSystem : EntitySystem
             {
                 Log.Debug($"Сущности {ToPrettyString(uid)} нанесли: '{timeDamage}' временного дамага.");
 
-                if (timeDamage > 7)
+                if (timeDamage > 6)
                 {
                     if (TryComp<DamageableComponent>(uid, out var _))
                     {
                         var igniteSound = new SoundPathSpecifier("/Audio/Magic/forcewall.ogg");
-                        // var despawn = AddComp<TimedDespawnComponent>(uid);
-                        // despawn.Lifetime = 1.1f;
-                        //Thread.Sleep(2000); //2 секунды задержка
-                        //AddComp<SingularityDistortionComponent>(uid);
-                        Log.Debug($"Сущность нанесли: '{timeDamage}' временного дамага и она СТЁРЛАСЬ.");
                         EraseDeleteTime(uid);
                         _audio.PlayPvs(igniteSound, uid);
                     }
@@ -216,9 +211,5 @@ public sealed class TimeDespawnDamageSystem : EntitySystem
             }
         }
         QueueDel(entity);
-
-        // if (_playerManager.TryGetSessionById(uid, out var session))
-        //     _gameTicker.SpawnObserver(session);
-
     }
 }
