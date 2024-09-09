@@ -172,7 +172,7 @@ public sealed class TimeDespawnDamageSystem : EntitySystem
             _popup.PopupCoordinates(Loc.GetString("admin-erase-popup", ("user", name)), coordinates, PopupType.LargeCaution);
             var filter = Filter.Pvs(coordinates, 1, EntityManager, _playerManager);
             var audioParams = new AudioParams().WithVolume(3);
-            _audio.PlayStatic("/Audio/Effects/pop_high.ogg", filter, coordinates, true, audioParams);
+            _audio.PlayStatic("/Audio/Magic/forcewall.ogg", filter, coordinates, true, audioParams);
         }
 
         foreach (var item in _inventory.GetHandOrInventoryEntities(entity))
