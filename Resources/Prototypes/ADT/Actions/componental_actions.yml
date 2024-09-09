@@ -98,21 +98,6 @@
     useDelay: 1
 
 - type: entity
-  id: CompLevitationAction
-  name: action-levitation
-  description: action-levitation-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: /Textures/ADT/Interface/alerts.rsi
-      state: levitation
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:CompGravitationActionEvent
-    useDelay: 1
-
-- type: entity
   id: CompElectrionPulseAction
   name: action-levitation
   description: action-levitation-desc

@@ -6,6 +6,7 @@
     - Toxin
     - Airloss
     - Genetic
+    - ADTTime # ADT-Tweak-time-patrol-update
 
 - type: damageContainer
   id: Inorganic
@@ -28,6 +29,7 @@
   id: Silicon
   supportedGroups:
     - Brute
+    - ADTTime # ADT-Tweak-time-patrol-update
   supportedTypes:
     - Heat
     - Shock

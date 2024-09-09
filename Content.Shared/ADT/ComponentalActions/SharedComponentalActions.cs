@@ -29,10 +29,6 @@ public sealed partial class CompInvisibilityActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class CompGravitationActionEvent : InstantActionEvent
-{
-}
-
 public sealed partial class CompElectrionPulseActionEvent : InstantActionEvent
 {
 }

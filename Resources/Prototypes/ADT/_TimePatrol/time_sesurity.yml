@@ -43,52 +43,11 @@
       path: /Audio/Effects/Lightning/lightningbolt.ogg
 
 
-# - type: entity
-#   id: ADTRandomHumanoidSpawnerDeathSquad
-#   name: Death Squad Agent
-#   suffix: ERTRole, Death Squad
-#   components:
-#     - type: Sprite
-#       sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
-#       state: icon
-#     - type: RandomMetadata
-#       nameSegments:
-#         - NamesFirstMilitaryLeader
-#         - NamesLastMilitary
-#     - type: RandomHumanoidSpawner
-#       settings: ADTDeathSquad
-#     - type: InitialInfectedExempt
-
-# - type: randomHumanoidSettings
-#   speciesBlacklist:
-#     - Diona
-#   id: ADTDeathSquad
-#   randomizeName: false
-#   components:
-#     - type: MindShield
-#     - type: GhostRole
-#       name: ghost-role-information-Death-Squad-name
-#       description: ghost-role-information-Death-Squad-description
-#       requirements:
-#       - !type:OverallPlaytimeRequirement
-#         time: 36000 # 10h overall
-#     - type: GhostTakeoverAvailable
-#     - type: Loadout
-#       prototypes: [ DeathSquadGear ]
-#     - type: RandomMetadata
-#       nameSegments:
-#         - NamesFirstMilitaryLeader
-#         - NamesLastMilitary
-#     - type: InitialInfectedExempt
-#TeslaGunBullet
-
-
 - type: entity
   name: Cultist
-  parent: ADTBaseMobHumanTimePatrol
+  parent: BaseMobHuman
   id: ADTTimePatrolSpawn
   suffix: "Time Patrol"
-  noSpawn: false
   components:
   - type: NpcFactionMember
     factions:
@@ -98,7 +57,7 @@
       0: Alive
       170: Critical
       300: Dead
-  - type: ElectrionPulseAct  # Тут имя менять
+  - type: ElectrionPulseAct  # Тут имя менять потом
   - type: TeleportAct
   - type: Loadout
     prototypes:
@@ -111,17 +70,17 @@
       Male: UnisexIPC
       Female: UnisexIPC
       Unsexed: UnisexIPC
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepSoldier
-      params:
-        volume: -2
+  # - type: FootstepModifier
+  #   footstepSoundCollection:
+  #     collection: FootstepSoldier
+  #     params:
+  #       volume: -2
   - type: NoSlip
   - type: Insulated
   - type: Tag
     tags:
-    - ChangelingBlacklist
-    - ShoesRequiredStepTriggerImmune
+    #- ChangelingBlacklist
+    #- ShoesRequiredStepTriggerImmune
     - CanPilot
     - FootstepSound
     - DoorBumpOpener # авто открытие двери, когда подходишь к ней
@@ -142,10 +101,10 @@
     belt: ADTADTWeaponPulseCarabinUSSP
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
-    #neck: ADTClothingNeckMantleHOSShoulderSecurityCyb
+    neck: ADTClothingNeckNewMekkaCloak
     mask: ADTChronosMask
     jumpsuit: ClothingUniformJumpsuitOperative
-    shoes: ADTClothingShoesBootsMagAdvSynd
+    shoes: ADTClothingShoesBootsCombatNeCkoll
     #head: ADTClothingHeadHelmetHardsuitDeathsquad
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
@@ -158,6 +117,13 @@
     socks: ClothingUnderwearSocksNormal
   underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
   underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ADTClothingShoesBootsCombatNeCkoll
+  components:
+  - type: NoSlip
+
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -247,367 +213,6 @@
         #- id: WelderIndustrialAdvanced
 
 
-# Anything human specific (e.g. UI, input) goes under MobHuman
-- type: entity
-  save: false
-  parent:
-  - BaseMob
-  - MobDamageable
-  - MobCombat
-  id: ADTBaseMobSpeciesTimePatrol
-  abstract: true
-  components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - shader: StencilClear
-      sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
-      # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
-      # sprite refactor when
-      state: l_leg
-    - shader: StencilMask
-      map: ["enum.HumanoidVisualLayers.StencilMask"]
-      sprite: Mobs/Customization/masking_helpers.rsi
-      state: unisex_full
-      visible: false
-    - map: [ "underwearb" ] #Sirena
-    - map: [ "underweart" ] #Sirena
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "socks" ] #Sirena
-    - map: ["jumpsuit"]
-    #- map: [ "underwearb" ] #Sirena
-    #- map: [ "underweart" ] #Sirena
-    #- map: ["enum.HumanoidVisualLayers.LFoot"]
-    #- map: ["enum.HumanoidVisualLayers.RFoot"]
-    #- map: [ "socks" ] #Sirena
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "outerClothing" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "neck" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
-    - map: [ "clownedon" ] # Dynamically generated
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-  - type: DamageVisuals
-    thresholds: [ 20, 40, 100 ]
-    targetLayers:
-    - "enum.HumanoidVisualLayers.Chest"
-    - "enum.HumanoidVisualLayers.Head"
-    - "enum.HumanoidVisualLayers.LArm"
-    - "enum.HumanoidVisualLayers.LLeg"
-    - "enum.HumanoidVisualLayers.RArm"
-    - "enum.HumanoidVisualLayers.RLeg"
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#FF0000"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-  - type: GenericVisualizer
-    visuals:
-      enum.CreamPiedVisuals.Creamed:
-        clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
-          True: {visible: true}
-          False: {visible: false}
-  - type: StatusIcon
-    bounds: -0.5,-0.5,0.5,0.5
-  - type: RotationVisuals
-    defaultRotation: 90
-    horizontalRotation: 90
-  - type: HumanoidAppearance
-    species: Human
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      60: 0.7
-      80: 0.5
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 185
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: FloorOcclusion
-  - type: RangedDamageSound
-    soundGroups:
-      Brute:
-        collection:
-          MeatBulletImpact
-    soundTypes:
-      Heat:
-        collection:
-          MeatLaserImpact
-  - type: Reactive
-    groups:
-      Flammable: [ Touch ]
-      Extinguish: [ Touch ]
-      Acidic: [Touch, Ingestion]
-    reactions:
-    - reagents: [Water, SpaceCleaner]
-      methods: [Touch]
-      effects:
-      - !type:WashCreamPieReaction
-  - type: StatusEffects
-    allowed:
-    - ADTApathy
-    - PainKiller
-    - Stun
-    - KnockedDown
-    - SlowedDown
-    - Stutter
-    - SeeingRainbows
-    - Electrocution
-    - Drunk
-    - SlurredSpeech
-    - RatvarianLanguage
-    - PressureImmunity
-    - Muted
-    - ForcedSleep
-    - TemporaryBlindness
-    - Pacified
-    - StaminaModifier
-    - ADTHallucinations
-  - type: Reflect
-    enabled: false
-    reflectProb: 0
-  - type: Body
-    prototype: Human
-    requiredLegs: 2
-  - type: Identity
-  - type: IdExaminable
-  - type: Hands
-  - type: Internals
-  - type: Inventory
-  - type: InventorySlots
-  - type: FloatingVisuals
-  - type: Climbing
-  - type: Cuffable
-  - type: Ensnareable
-    sprite: Objects/Misc/ensnare.rsi
-    state: icon
-  - type: AnimationPlayer
-  - type: Buckle
-  - type: CombatMode
-    canDisarm: true
-  - type: MeleeWeapon
-    soundHit:
-      collection: Punch
-    angle: 30
-    animation: WeaponArcFist
-    attackRate: 1
-    damage:
-      types:
-        Blunt: 5
-  - type: SleepEmitSound
-  #- type: SSDIndicator
-  - type: StandingState
-  - type: Fingerprint
-  - type: Dna
-  - type: MindContainer
-    showExamineInfo: true
-  - type: InteractionPopup
-    successChance: 1
-    interactSuccessString: hugging-success-generic
-    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
-    messagePerceivedByOthers: hugging-success-generic-others
-  - type: CanHostGuardian
-  - type: NpcFactionMember
-    factions:
-    - NanoTrasen
-  - type: CreamPied
-  - type: Stripping
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      - key: enum.VoiceMaskUIKey.Key
-        type: VoiceMaskBoundUserInterface
-      - key: enum.HumanoidMarkingModifierKey.Key
-        type: HumanoidMarkingModifierBoundUserInterface
-      - key: enum.StrippingUiKey.Key
-        type: StrippableBoundUserInterface
-      - key: enum.StoreUiKey.Key
-        type: StoreBoundUserInterface
-  - type: Puller
-  - type: Speech
-    speechSounds: Alto
-  - type: DamageForceSay
-  - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: MaleHuman
-  - type: Emoting
-  - type: BodyEmotes
-    soundsId: GeneralBodyEmotes
-  - type: Grammar
-    attributes:
-      proper: true
-  - type: MobPrice
-    price: 1500 # Kidnapping a living person and selling them for cred is a good move.
-    deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-  # Frontier - languages mechanic
-  - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
-  - type: SizeAttributeWhitelist # Frontier
-    tall: true
-    tallscale: 1.1
-    short: true
-    shortscale: 0.9
-
-- type: entity
-  save: false
-  parent:
-  - MobBloodstream
-  - MobRespirator
-  - MobAtmosStandard
-  - MobFlammable
-  - ADTBaseMobSpeciesTimePatrol
-  id: ADTBaseMobSpeciesOrganicTimePatrol
-  abstract: true
-  components:
-  #- type: Flashable
-  - type: Barotrauma
-    damage:
-      types:
-        Blunt: 0.5 #per second, scales with pressure and other constants.
-  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
-    allowedStates:
-    - Alive
-    damageCap: 20
-    damage:
-      types:
-        Heat: -0.07
-      groups:
-        Brute: -0.07
-  # Organs
-  - type: StatusEffects
-    allowed:
-    - ADTApathy
-    - PainKiller
-    - Stun
-    - KnockedDown
-    - SlowedDown
-    - Stutter
-    - SeeingRainbows
-    - Electrocution
-    - ForcedSleep
-    - TemporaryBlindness
-    - Drunk
-    - SlurredSpeech
-    - RatvarianLanguage
-    - PressureImmunity
-    - Muted
-    - Pacified
-    - StaminaModifier
-    - ADTHallucinations
-  - type: Blindable
-  # Other
-  - type: Temperature
-    heatDamageThreshold: 325
-    coldDamageThreshold: 260
-    currentTemperature: 310.15
-    specificHeat: 42
-    coldDamage:
-      types:
-        Cold: 0.2 #per second, scales with temperature & other constants
-    heatDamage:
-      types:
-        Heat: 1.5 #per second, scales with temperature & other constants
-  - type: ThermalRegulator
-    metabolismHeat: 800
-    radiatedHeat: 100
-    implicitHeatRegulation: 500
-    sweatHeatRegulation: 2000
-    shiveringHeatRegulation: 2000
-    normalBodyTemperature: 310.15
-    thermalRegulationTemperatureThreshold: 25
-  - type: Perishable
-  - type: Butcherable
-    butcheringType: Spike # TODO human.
-    spawned:
-      - id: FoodMeat
-        amount: 5
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 1.0
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
-  - type: FireVisuals
-    alternateState: Standing
-
-# Anything human specific (e.g. UI, input) goes under MobHuman
-- type: entity
-  parent: ADTBaseMobSpeciesOrganicTimePatrol
-  id: ADTBaseMobHumanTimePatrol
-  name: Urist McHands
-  abstract: true
-  components:
-  - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.05
-        Bloodloss: 0.05
-  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
-    sprite: Mobs/Species/Human/parts.rsi
-    state: full
-  - type: Thirst
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeatHuman
-      amount: 5
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - SolCommon
-    understands:
-    - GalacticCommon
-    - SolCommon
-
 - type: entity
   name: disabler
   parent: BaseWeaponBatterySmall
@@ -686,6 +291,17 @@
 #       guides:
 #       - Security
 
+- type: damageType
+  id: ADTTimeDespawn
+  name: damage-type-time-despawn
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1
+
+- type: damageGroup
+  id: ADTTime
+  name: damage-group-time
+  damageTypes:
+    - ADTTimeDespawn
 
 - type: entity
   id: ADTADTBulletMagnumHighVelocityTranquilizer
@@ -695,19 +311,14 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 1
-        Heat: 1
-        Burn: 1
-        Slash: 1
-        Piercing: 1
-        Radiation: 1
+        ADTTimeDespawn: 1
     soundHit:
       path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
     forceSound: true
   - type: StaminaDamageOnCollide
     damage: 30 # 3 hits to stun
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_tsd.rsi
     layers:
     - state: adtomnilaser
       shader: unshaded

@@ -142,11 +142,3 @@
       state: icon
   name: alerts-polymorph-name
   description: alerts-polymorph-desc
-
-- type: alert
-  id: ADTLevitation
-  icons:
-    - sprite: /Textures/ADT/Interface/alerts.rsi
-      state: levitation
-  name: alerts-levitation-name
-  description: alerts-levitation-desc

@@ -150,7 +150,6 @@ public sealed partial class ComponentalActionsSystem
         SubscribeLocalEvent<JumpActComponent, CompJumpActionEvent>(OnJump);
         SubscribeLocalEvent<StasisHealActComponent, CompStasisHealActionEvent>(OnStasisHeal);
         SubscribeLocalEvent<InvisibilityActComponent, CompInvisibilityActionEvent>(OnInvisibility);
-        SubscribeLocalEvent<LevitationActComponent, CompGravitationActionEvent>(OnMagGravity);
         SubscribeLocalEvent<ElectrionPulseActComponent, CompElectrionPulseActionEvent>(OnElectrionPulse);
     }
 
@@ -371,44 +370,44 @@ public sealed partial class ComponentalActionsSystem
         args.Handled = true;
     }
 
-    private void OnMagGravity(EntityUid uid, LevitationActComponent component, CompGravitationActionEvent args)
-    {
-        if (args.Handled)
-            return;
+    // private void OnMagGravity(EntityUid uid, LevitationActComponent component, CompGravitationActionEvent args)
+    // {
+    //     if (args.Handled)
+    //         return;
 
-        args.Handled = true;
+    //     args.Handled = true;
 
-        ToggleLevitation(uid, component);
-    }
-    private void ToggleLevitation(EntityUid uid, LevitationActComponent component)
-    {
-        component.Active = !component.Active;
-        if (TryComp(uid, out MovedByPressureComponent? movedByPressure))
-        {
-            movedByPressure.Enabled = !component.Active;
-            //_sharedActions.SetToggled(component.ActionEntity, component.Active);
-        }
+    //     ToggleLevitation(uid, component);
+    // }
+    // private void ToggleLevitation(EntityUid uid, LevitationActComponent component)
+    // {
+    //     component.Active = !component.Active;
+    //     if (TryComp(uid, out MovedByPressureComponent? movedByPressure))
+    //     {
+    //         movedByPressure.Enabled = !component.Active;
+    //         //_sharedActions.SetToggled(component.ActionEntity, component.Active);
+    //     }
 
-        if (component.Active)
-        {
-            _alerts.ShowAlert(uid, _proto.Index(component.Alert));
-            AddComp<MovementIgnoreGravityComponent>(uid);
-            var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-            var sprintSpeed = component.SpeedModifier;
-            var walkSpeed = component.SpeedModifier;
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
+    //     if (component.Active)
+    //     {
+    //         _alerts.ShowAlert(uid, _proto.Index(component.Alert));
+    //         AddComp<MovementIgnoreGravityComponent>(uid);
+    //         var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
+    //         var sprintSpeed = component.SpeedModifier;
+    //         var walkSpeed = component.SpeedModifier;
+    //         _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
 
-        }
-        else
-        {
-            _alerts.ShowAlert(uid, _proto.Index(component.Alert));
-            RemComp<MovementIgnoreGravityComponent>(uid);
-            var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-            var sprintSpeed = component.BaseSprintSpeed;
-            var walkSpeed = component.BaseWalkSpeed;
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
-        }
-    }
+    //     }
+    //     else
+    //     {
+    //         _alerts.ShowAlert(uid, _proto.Index(component.Alert));
+    //         RemComp<MovementIgnoreGravityComponent>(uid);
+    //         var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
+    //         var sprintSpeed = component.BaseSprintSpeed;
+    //         var walkSpeed = component.BaseWalkSpeed;
+    //         _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
+    //     }
+    // }
 
     private void OnElectrionPulse(EntityUid uid, ElectrionPulseActComponent component, CompElectrionPulseActionEvent args)
     {
