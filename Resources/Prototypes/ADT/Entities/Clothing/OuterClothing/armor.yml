@@ -17,3 +17,22 @@
         Heat: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.80
+
+- type: entity
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
+  id: ClothingOuterArmorAirsoft
+  name: airsoft suit
+  description: Semi-flexible polycarbonate armor suit with weakened protection. Airsoft armor
+  suffix: airsoft
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/riot.rsi
+    color: "#128fc9"
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/riot.rsi
+    color: "#128fc9"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 4
+  - type: GroupExamine
