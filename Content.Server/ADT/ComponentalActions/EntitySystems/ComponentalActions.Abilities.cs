@@ -377,15 +377,10 @@ public sealed partial class ComponentalActionsSystem
             return;
         _chat.TrySendInGameICMessage(uid, "щёлкает пальцами", InGameICChatType.Emote, ChatTransmitRange.HideChat);
 
-        _light.SetEnabled(uid, true);
-        _light.SetColor(uid, Color.FromHex("#a83da8"));
-        _light.SetRadius(uid, 1.7f);
-        _light.SetEnergy(uid, 160f);
-
         if (!HasComp<TimedDespawnComponent>(uid))
         {
             var despawn = AddComp<TimedDespawnComponent>(uid);
-            despawn.Lifetime = 2.1f;
+            despawn.Lifetime = 1.5f;
             _audio.PlayPvs(component.IgniteSound, uid);
         }
 
