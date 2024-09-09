@@ -213,4 +213,4 @@
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ToggleableClothing
-    clothingPrototype: ADTInquisitoryHead
+    clothingPrototype: ADTClothingHeadHelmetHardsuitInquisitory
