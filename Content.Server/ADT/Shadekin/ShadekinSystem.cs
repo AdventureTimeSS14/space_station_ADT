@@ -80,7 +80,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (comp.MinPowerAccumulator >= comp.MinPowerRoof)
                 BlackEye(uid);
             if (comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
-                TeleportRandomly(uid);
+                TeleportRandomly(uid, comp);
         }
     }
 
@@ -143,12 +143,10 @@ public sealed partial class ShadekinSystem : EntitySystem
             level = "worst";
 
         if (args.Examiner == uid)
-            args.PushMarkup(Loc.GetString("shadekin-examine-self-" + level, ("power", comp.PowerLevel)));
-        else
-            args.PushMarkup(Loc.GetString("shadekin-examine-others-" + (comp.Blackeye ? "blackeye" : level)));
+            args.PushMarkup(Loc.GetString("shadekin-examine-self-" + level, ("power", comp.PowerLevel.ToString())));
     }
 
-    public void TeleportRandomly(EntityUid uid, ShadekinComponent? comp = null)
+    public void TeleportRandomly(EntityUid uid, ShadekinComponent? comp)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -169,6 +167,28 @@ public sealed partial class ShadekinSystem : EntitySystem
                 _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
                 _audio.PlayPvs("/Audio/ADT/Shadekin/shadekin-transition.ogg", uid);
                 comp.MaxedPowerAccumulator = 0f;
+                coordsValid = true;
+                break;
+            }
+        }
+    }
+
+    public void TeleportRandomly(EntityUid uid, float range = 5f)
+    {
+        var coordsValid = false;
+        EntityCoordinates coords = Transform(uid).Coordinates;
+
+        while (!coordsValid)
+        {
+            var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-range, range), coords.Y + _random.NextFloat(-range, range));
+            if (_interaction.InRangeUnobstructed(uid, newCoords, -1f))
+            {
+                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                    _pulling.TryStopPull(puller.Pulling.Value, pullable);
+                _transform.SetCoordinates(uid, newCoords);
+                _transform.AttachToGridOrMap(uid, Transform(uid));
+                _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
+                _audio.PlayPvs("/Audio/ADT/Shadekin/shadekin-transition.ogg", uid);
                 coordsValid = true;
                 break;
             }
