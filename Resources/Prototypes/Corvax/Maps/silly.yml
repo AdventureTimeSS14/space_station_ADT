@@ -64,11 +64,12 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
-        - type: StationGoal
-          goals:
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - SolarPanels
+        #   - Artifacts
+        #   - Bank
+        #   - Zoo
+        #   - MiningOutpost
+        #   - Tesla

@@ -371,3 +371,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+
+- type: reagent
+  id: ADTLimeShade
+  name: lime-shade-name
+  parent: BaseAlcohol
+  desc: lime-shade-desc
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: adt_limeshade
+  color: "#5c1e52"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
