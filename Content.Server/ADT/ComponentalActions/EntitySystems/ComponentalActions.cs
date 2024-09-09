@@ -78,9 +78,6 @@ public sealed partial class ComponentalActionsSystem : EntitySystem
         SubscribeLocalEvent<InvisibilityActComponent, MapInitEvent>(OnStealthInit);
         SubscribeLocalEvent<InvisibilityActComponent, ComponentShutdown>(OnStealthShutdown);
 
-        SubscribeLocalEvent<LevitationActComponent, MapInitEvent>(OnMagGravInit);
-        SubscribeLocalEvent<LevitationActComponent, ComponentShutdown>(OnMagGravShutdown);
-
         SubscribeLocalEvent<ElectrionPulseActComponent, MapInitEvent>(OnElectrionPulseInit);
         SubscribeLocalEvent<ElectrionPulseActComponent, ComponentShutdown>(OnElectrionPulseShutdown);
 
@@ -139,15 +136,6 @@ public sealed partial class ComponentalActionsSystem : EntitySystem
         _action.AddAction(uid, ref component.ActionEntity, component.Action);
     }
     private void OnStealthShutdown(EntityUid uid, InvisibilityActComponent component, ComponentShutdown args)
-    {
-        _action.RemoveAction(uid, component.ActionEntity);
-    }
-
-    private void OnMagGravInit(EntityUid uid, LevitationActComponent component, MapInitEvent args)
-    {
-        _action.AddAction(uid, ref component.ActionEntity, component.Action);
-    }
-    private void OnMagGravShutdown(EntityUid uid, LevitationActComponent component, ComponentShutdown args)
     {
         _action.RemoveAction(uid, component.ActionEntity);
     }
