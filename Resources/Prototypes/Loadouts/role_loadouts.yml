@@ -28,6 +28,11 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+# Silicons
+- type: roleLoadout
+  id: JobStationAi
+  nameDataset: names_ai
+
 # Civilian
 - type: roleLoadout
   id: JobPassenger
@@ -36,6 +41,7 @@
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
+  - PassengerNeck
   - PassengerFace
   - PassengerGloves
   - PassengerOuterClothing
@@ -181,8 +187,9 @@
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
+  - MimeBelt
   - Glasses
-  - Survival
+  - SurvivalMime
   - Trinkets
 
 - type: roleLoadout
@@ -361,6 +368,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -375,7 +383,9 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - WardenNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -390,7 +400,9 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityOfficerNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobDetective
@@ -405,6 +417,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -416,6 +429,7 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - SecurityCadetNeckADT # ADT-Loadouts
 
 # Medical
 - type: roleLoadout

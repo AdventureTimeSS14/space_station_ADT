@@ -128,6 +128,22 @@
   description: alerts-crawling-desc
 
 - type: alert
+  id: Adrenaline
+  icons:
+  - sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
+  name: alerts-adrenaline-name
+  description: alerts-adrenaline-desc
+
+- type: alert
+  id: ADTAlertPolymorph
+  icons:
+    - sprite: /Textures/ADT/Interface/Alerts/polymorph.rsi
+      state: icon
+  name: alerts-polymorph-name
+  description: alerts-polymorph-desc
+
+- type: alert
   id: ShadekinPower
   icons:
   - sprite: /Textures/ADT/Interface/Alerts/shadekin.rsi

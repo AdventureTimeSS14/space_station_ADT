@@ -5,13 +5,57 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Baystation12/Baystation12 at commit 0c2c999f74f2998912ae009223df83cbd987aa5d",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/terminals.dmi",
   "states": [
     {
-      "name": "off"
+      "name": "atm_off",
+      "directions": 4
     },
     {
-      "name": "on"
+      "name": "atm",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
     }
-   ]
+  ]
 }

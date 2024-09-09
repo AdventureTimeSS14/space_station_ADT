@@ -283,3 +283,42 @@ ent-ADTClothingOuterBolperCoat = плащ Волпера
     .desc = +5 процентов к крутости.
     .suffix = Именное, Bolper.
 
+ent-ADTBolperKatana = Катана Волпера
+    .desc = +5 процентов к урону.
+    .suffix = Именное, Bolper.
+
+ent-ADTClothingShoesBolperBoots = Кроссовки Волпера
+    .desc = +5 процентов к скорости.
+    .suffix = Именное, Bolper.
+
+ent-ADTClothingNeckBolperCloak = Плащ Волпера
+    .desc = +5 процентов к крутости.
+    .suffix = Именное, Bolper.
+
+ent-ADTClothingUniformBolperJumpsuit = Костюм Волпера
+    .desc = +5 процентов к свежести.
+    .suffix = Именное, Bolper.
+
+ent-ADTClothingBackBolperSheath = Ножны Волпера
+    .desc = Я готов к бойне.
+    .suffix = Именное, Bolper.
+
+ent-ADTClothingHandsBolperGloves = Перчатки Волпера
+    .desc = Я защищу твои руки.
+    .suffix = Именное, Bolper.
+
+ent-ADTClothingUniformPangaariAmericanSleeveless = Американка без рукавов
+    .desc = Простой образ, состоящий из штанов и чёрной водолазки без рукавов.
+    .suffix = Именное, Pangaari.
+
+ent-ADTClothingNeckRipZoroMantle = Таинственная наплечная мантия
+    .desc = Мантия, хранящая тайну...
+    .suffix = Именное, Rip_Zoro
+
+ent-ADTClothingHandsPushnoYGloves = Беспалые кожаные перчатки
+    .desc = Перчатки без пальцев из прочной натуральной кожи, отлично сочетается с белой рубашкой и аквамариновой жилеткой.
+    .suffix = Именное, PushnoY.
+
+ent-ADTClothingUniformPushnoYJumpsuit = Аккуратный костюм Курото
+    .desc = Приятно выглаженная рубашка с аквамариновой жилеткой и серыми брюками, что может быть лучше?
+    .suffix = Именное, PushnoY.

@@ -7,7 +7,7 @@
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
-  sponsorOnly: true
+  #sponsorOnly: true # Пока снимаем до решения проблем
 
 
 - type: markingPoints

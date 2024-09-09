@@ -42,7 +42,6 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
             ResearchAssistant: [ 4, 4 ]
-            Borg: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -61,3 +60,7 @@
             Musician: [ 1, 1 ]
             # Юрдеп
             Lawyer: [ 1, 1 ]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]
+

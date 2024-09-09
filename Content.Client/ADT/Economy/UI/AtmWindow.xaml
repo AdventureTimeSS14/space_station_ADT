@@ -1,12 +1,12 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-               Title="ATM"
+               Title="{Loc 'atm-ui-name'}"
                SetSize="400 220"
                Resizable="False">
 
     <BoxContainer Name="AuthorizationPage" HorizontalExpand="True" VerticalExpand="True">
         <BoxContainer HorizontalAlignment="Center" HorizontalExpand="True" VerticalAlignment="Center" Orientation="Vertical" MinSize="325 160">
-            <Label Text="Nanotrasen ATM"/>
+            <Label Text="{Loc 'atm-ui-nanotrasen-atm'}"/>
             <Label Name="BalanceLabel" Visible="False"/>
             <controls:HighDivider Name="Divider" Visible="False"/>
             <Label Name="StatusLabel"/>

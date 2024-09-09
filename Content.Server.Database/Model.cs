@@ -28,6 +28,7 @@ namespace Content.Server.Database
         public DbSet<AdminLog> AdminLog { get; set; } = null!;
         public DbSet<AdminLogPlayer> AdminLogPlayer { get; set; } = null!;
         public DbSet<Whitelist> Whitelist { get; set; } = null!;
+        public DbSet<Blacklist> Blacklist { get; set; } = null!;
         public DbSet<ServerBan> Ban { get; set; } = default!;
         public DbSet<ServerUnban> Unban { get; set; } = default!;
         public DbSet<ServerBanExemption> BanExemption { get; set; } = default!;
@@ -38,8 +39,6 @@ namespace Content.Server.Database
         public DbSet<PlayTime> PlayTime { get; set; } = default!;
         public DbSet<UploadedResourceLog> UploadedResourceLog { get; set; } = default!;
         public DbSet<AdminNote> AdminNotes { get; set; } = null!;
-        public DbSet<Sponsor> Sponsors { get; set; } = null!; //ADT-Sponsors
-
         public DbSet<AdminWatchlist> AdminWatchlists { get; set; } = null!;
         public DbSet<AdminMessage> AdminMessages { get; set; } = null!;
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
@@ -564,6 +563,15 @@ namespace Content.Server.Database
         [Required, Key] public Guid UserId { get; set; }
     }
 
+    /// <summary>
+    /// List of users who are on the "blacklist". This is a list that may be used by Whitelist implementations to deny access to certain users.
+    /// </summary>
+    [Table("blacklist")]
+    public class Blacklist
+    {
+        [Required, Key] public Guid UserId { get; set; }
+    }
+
     public class Admin
     {
         [Key] public Guid UserId { get; set; }
@@ -718,6 +726,11 @@ namespace Content.Server.Database
         /// Intended for use with residential IP ranges that are often used maliciously.
         /// </remarks>
         BlacklistedRange = 1 << 2,
+
+        /// <summary>
+        /// Represents having all possible exemption flags.
+        /// </summary>
+        All = int.MaxValue,
         // @formatter:on
     }
 

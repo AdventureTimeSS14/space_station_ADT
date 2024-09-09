@@ -125,6 +125,11 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public List<ProtoId<GuideEntryPrototype>>? Guides;
+
+        // ADT station AI tweak start
+        [DataField]
+        public bool ContainerInsert = false;
+        // ADT station AI tweak end
     }
 
     /// <summary>
