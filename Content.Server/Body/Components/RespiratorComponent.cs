@@ -61,7 +61,7 @@ namespace Content.Server.Body.Components
         ///     The emote when gasps
         /// </summary>
         [DataField]
-        public ProtoId<EmotePrototype> GaspEmote = "Gasp";
+        public ProtoId<EmotePrototype>? GaspEmote = "Gasp"; // ADT tweak
 
         /// <summary>
         ///     How many cycles in a row has the mob been under-saturated?
