@@ -47,11 +47,17 @@
     - type: GridSpawn
       groups:
         trade: !type:GridSpawnGroup
+          minimumDistance: 150
+          maximumDistance: 200
+          nameDataset: adt_trade_station
           addComponents:
             - type: ProtectedGrid
             - type: TradeStation
           paths:
-            - /Maps/Shuttles/trading_outpost.yml
+        # ADT Trade Station Start
+            # - /Maps/Shuttles/trading_outpost.yml
+            - /Maps/ADTMaps/Shuttles/adt_trade_outpost.yml
+        # ADT Trade Station End
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
