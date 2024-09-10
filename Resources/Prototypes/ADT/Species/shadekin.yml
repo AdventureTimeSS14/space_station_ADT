@@ -8,10 +8,10 @@
   markingLimits: MobShadekinMarkingLimits
   dollPrototype: MobShadekinDummy
   skinColoration: Hues
-  maleFirstNames: names_shadekin
-  femaleFirstNames: names_shadekin
-  maleLastNames: names_arachnid_last # Corvax-LastnameGender
-  femaleLastNames: names_arachnid_last # Corvax-LastnameGender
+  maleFirstNames: names_shadekin_male_first
+  femaleFirstNames: names_shadekin_female_first
+  maleLastNames: names_shadekin_male_last
+  femaleLastNames: names_shadekin_female_last
   minAge: 18
   maxAge: 80
   youngAge: 30
