@@ -46,7 +46,7 @@
       required: true
       defaultMarkings: [ LizardTailSmooth ]
     Snout:
-      points: 1
+      points: 2   #ADT_Tweak
       required: true
       defaultMarkings: [ LizardSnoutRound ]
     HeadTop:
@@ -59,10 +59,10 @@
       points: 3
       required: false
     Legs:
-      points: 2
+      points: 4   #ADT_Tweak
       required: false
     Arms:
-      points: 2
+      points: 4   #ADT_Tweak
       required: false
 
 - type: humanoidBaseSprite
