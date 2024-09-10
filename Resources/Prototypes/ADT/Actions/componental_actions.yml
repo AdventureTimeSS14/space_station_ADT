@@ -42,7 +42,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -75,7 +75,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -90,7 +90,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: chameleon
     itemIconStyle: BigAction
     checkCanInteract: false
