@@ -1,0 +1,5 @@
+- type: dataset
+  id: adt_trade_station
+  values:
+  - Торговый Аванпост
+  - Торговая Станция
