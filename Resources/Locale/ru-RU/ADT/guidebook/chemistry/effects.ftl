@@ -5,6 +5,6 @@ reagent-effect-guidebook-embalm =
     } гниение трупов
 reagent-effect-guidebook-teleport =
     { $chance ->
-        [1] Вызывает
-        *[other] вызывают
+        [1] Вызвать
+        *[other] вызвать
     } неконтролируемое перемещение
