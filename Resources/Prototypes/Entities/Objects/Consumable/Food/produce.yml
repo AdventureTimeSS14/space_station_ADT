@@ -515,7 +515,6 @@
   - type: Tag
     tags:
     - Vegetable
-    - ADTMothFriendlyFood #ADT-Tweak - делаем капусту съедобной для молей
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Specific/Hydroponics/cabbage.rsi

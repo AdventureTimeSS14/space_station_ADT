@@ -205,17 +205,3 @@
   minLimit: 0
   loadouts:
   - ADTSecurityCadetNeck
-
-#Плащ и маска атмосианина
-
-- type: loadoutGroup
-  id: ADTAtmosphericTechnicianNeck
-  name: loadout-group-atmospheric-technician-neck
-  loadouts:
-  - ADTCloakAtmosian
-
-- type: loadoutGroup
-  id: ADTAtmosphericTechnicianGasMask
-  name: loadout-group-atmospheric-technician-gasmask
-  loadouts:
-  - ADTMaskGasAtmosian
