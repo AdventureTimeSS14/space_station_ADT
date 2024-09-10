@@ -111,7 +111,7 @@
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
-            damage: 500
+            damage: 300
           behaviors:
             - !type:GibBehavior {}
     - type: Icon
@@ -176,14 +176,14 @@
           state: "creampie_human"
           visible: false
     - type: Repairable # Взамен на быструю починку я урезал лечение примерно в 3 раза. Это лучше, чем DoAfter на 30 секунд при попытке вылечить себя
-      #fuelcost: 60
+      fuelCost: 3
       selfRepairPenalty: 2
       doAfterDelay: 2 # was 10 # was 18
       damage:
         types:
-          Blunt: -7
-          Slash: -7
-          Piercing: -7
+          Blunt: -10
+          Slash: -10
+          Piercing: -10
       #bloodlossModifier: -100
     - type: Bloodstream ### я добавил компонент Bloodstream как заглушку. Он нужен,
 # чтобы хилиться с помощью CableStack. Дело в том, что HealingSystem использует проверку на наличие BloodstreamComponent.

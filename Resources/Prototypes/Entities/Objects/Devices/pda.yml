@@ -67,6 +67,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: PDA
     prefix: device-address-prefix-console
+    savableAddress: false
   - type: WirelessNetworkConnection
     range: 500
   - type: CartridgeLoader
@@ -104,6 +105,15 @@
     - DoorBumpOpener
   - type: Input
     context: "human"
+  - type: SentienceTarget # sentient PDA = pAI lite
+    flavorKind: station-event-random-sentience-flavor-mechanical
+    weight: 0.001 # 1,000 PDAs = as likely to be picked as 1 regular animal
+  - type: BlockMovement
+    blockInteraction: false # lets the PDA toggle its own flashlight
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
 
 - type: entity
   parent: BasePDA
@@ -111,8 +121,8 @@
   abstract: true
   components:
   - type: ItemToggle
-    toggleLight: false
     onUse: false
+  - type: ItemTogglePointLight
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
@@ -221,6 +231,8 @@
     borderColor: "#d7d7d0"
   - type: Icon
     state: pda-cook
+  - type: ReplacementAccent # for random sentience event
+    accent: italian
 
 - type: entity
   parent: BasePDA
@@ -300,6 +312,7 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
+  - type: Muted # for random sentience event
 
 - type: entity
   name: chaplain PDA
@@ -324,6 +337,14 @@
   - type: Pda
     id: QuartermasterIDCard
     state: pda-qm
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenQM
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#a23e3e"
@@ -477,6 +498,14 @@
   - type: Pda
     id: CEIDCard
     state: pda-ce
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenCe
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#949137"
     accentHColor: "#447987"
@@ -507,6 +536,14 @@
   - type: Pda
     id: CMOIDCard
     state: pda-cmo
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenCmo
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+      #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -571,6 +608,14 @@
   - type: Pda
     id: RDIDCard
     state: pda-rd
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenRD
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -602,6 +647,14 @@
   - type: Pda
     id: HoSIDCard
     state: pda-hos
+    #ADT tweak Start
+    penSlot:
+      startingItem: ADTPenHos
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    #ADT tweak End
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
@@ -667,6 +720,7 @@
     id: UniversalIDCard
   - type: HealthAnalyzer
     scanDelay: 0
+    silent: true
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
@@ -675,14 +729,6 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
-
-- type: entity
-  parent: CentcomPDA
-  id: CentcomPDAFake
-  suffix: Fake
-  components:
-  - type: Pda
-    id: CentcomIDCardSyndie
 
 - type: entity
   parent: CentcomPDA

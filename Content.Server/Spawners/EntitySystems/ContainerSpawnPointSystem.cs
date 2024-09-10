@@ -3,6 +3,7 @@ using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Spawners.EntitySystems;
@@ -14,8 +15,26 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    public void HandlePlayerSpawning(PlayerSpawningEvent args)
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new []{ typeof(SpawnPointSystem) });
+    }
+
+    public void HandlePlayerSpawning(PlayerSpawningEvent args)   // ADT station AI tweak
+    {
+        if (args.Job != null &&
+            args.Job.Prototype.HasValue &&
+            _proto.Index(args.Job.Prototype.Value).ContainerInsert)
+            HandlePlayerSpawning(args, true);   // ADT station AI tweak
+        else
+            HandlePlayerSpawning(args, false);   // ADT station AI tweak
+    }
+
+    // ADT station AI tweak start
+    public void HandlePlayerSpawning(PlayerSpawningEvent args, bool forceJob = false)
     {
         if (args.SpawnResult != null)
             return;
@@ -28,25 +47,37 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
             if (args.Station != null && _station.GetOwningStation(uid, xform) != args.Station)
                 continue;
 
-            // If it's unset, then we allow it to be used for both roundstart and midround joins
-            if (spawnPoint.SpawnType == SpawnPointType.Unset)
+            if (forceJob)
             {
-                // make sure we also check the job here for various reasons.
-                if (spawnPoint.Job == null || spawnPoint.Job == args.Job?.Prototype)
+                if (args.Job != null &&
+                    spawnPoint.Job == args.Job.Prototype)
+                {
                     possibleContainers.Add((uid, spawnPoint, container, xform));
-                continue;
+                }
             }
 
-            if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
+            else
             {
-                possibleContainers.Add((uid, spawnPoint, container, xform));
-            }
+                // If it's unset, then we allow it to be used for both roundstart and midround joins
+                if (spawnPoint.SpawnType == SpawnPointType.Unset)
+                {
+                    // make sure we also check the job here for various reasons.
+                    if (spawnPoint.Job == null || spawnPoint.Job == args.Job?.Prototype)
+                        possibleContainers.Add((uid, spawnPoint, container, xform));
+                    continue;
+                }
 
-            if (_gameTicker.RunLevel != GameRunLevel.InRound &&
-                spawnPoint.SpawnType == SpawnPointType.Job &&
-                (args.Job == null || spawnPoint.Job == args.Job.Prototype))
-            {
-                possibleContainers.Add((uid, spawnPoint, container, xform));
+                if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
+                {
+                    possibleContainers.Add((uid, spawnPoint, container, xform));
+                }
+
+                if (_gameTicker.RunLevel != GameRunLevel.InRound &&
+                    spawnPoint.SpawnType == SpawnPointType.Job &&
+                    (args.Job == null || spawnPoint.Job == args.Job.Prototype))
+                {
+                    possibleContainers.Add((uid, spawnPoint, container, xform));
+                }
             }
         }
 
@@ -76,4 +107,5 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         Del(args.SpawnResult);
         args.SpawnResult = null;
     }
+    // ADT station AI tweak end
 }

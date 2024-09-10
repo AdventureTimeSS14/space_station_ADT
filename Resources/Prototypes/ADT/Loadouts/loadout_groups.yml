@@ -172,7 +172,7 @@
   - ADTSeniorOfficerBackpack
   - ADTSeniorOfficerSatchel
   - ADTSeniorOfficerDuffel
-  
+
 - type: loadoutGroup
   id: ADTSeniorSecurityOuterClothing
   name: loadout-group-security-outerclothing
@@ -181,3 +181,27 @@
   - ArmorVestSlim
   - SecurityOfficerWintercoat
   - ADTSeniorOfficerArmor
+
+# Warden
+- type: loadoutGroup
+  id: WardenNeckADT
+  name: loadout-warden-neck-adt
+  minLimit: 0
+  loadouts:
+  - ADTWardenNeck
+
+# Security Oficer
+- type: loadoutGroup
+  id: SecurityOfficerNeckADT
+  name: loadout-security-officer-neck-adt
+  minLimit: 0
+  loadouts:
+  - ADTSecurityOfficerNeck
+
+# Cadet Security Oficer
+- type: loadoutGroup
+  id: SecurityCadetNeckADT
+  name: loadout-security-cadet-neck-adt
+  minLimit: 0
+  loadouts:
+  - ADTSecurityCadetNeck

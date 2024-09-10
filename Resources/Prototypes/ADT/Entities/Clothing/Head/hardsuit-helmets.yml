@@ -23,13 +23,38 @@
         Heat: 0.9
         Radiation: 0.9
 
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ADTClothingHeadHelmetIlisium
+  noSpawn: true
+  name: helmet
+  description: Ilisium
+  suffix: Ilisium
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/helmet_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/helmet_ili.rsi
+  - type: PointLight
+    color: red
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.65
+        Heat: 0.80
+        Radiation: 0.95
+
 # Blueshield
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetHardsuitBlueshield
   noSpawn: true
   name: blueshield hardsuit helmet
-  description: 
+  description:
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/blueshield_hardsuithead.rsi
@@ -148,3 +173,31 @@
         Caustic: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ADTClothingHeadHelmetHardsuitInquisitory
+  categories: [ HideSpawnMenu ]
+  noSpawn: false
+  name: inquisitor hardsuit helmet
+  description: You have been given power over destinies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/inquisitoryhead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/inquisitoryhead.rsi
+  - type: PointLight
+    color: white
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8

@@ -1,0 +1,313 @@
+#Безалкогольные коктейли от Кекса/Стычинского и Кермита
+
+- type: reaction
+  id: ADTSummerShade
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceWatermelon:
+      amount: 3
+    Ice:
+      amount: 1
+    JuiceLime:
+      amount: 2
+  products:
+    ADTSummerShade: 6
+
+- type: reaction
+  id: ADTWinterSun
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    CafeLatte: 
+      amount: 3
+    Cream:
+      amount: 2
+  products:
+    ADTWinterSun: 5
+
+- type: reaction
+  id: ADTHungoverAngel
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    SodaWater:
+      amount: 3
+    Ice:
+      amount: 1
+    JuiceLemon:
+      amount: 2
+  products:
+    ADTHungoverAngel: 6
+
+- type: reaction
+  id: ADTCitrusBalance
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceLime:
+      amount: 2
+    JuiceOrange:
+      amount: 2
+    Ice:
+      amount: 1
+  products:
+    ADTCitrusBalance: 5
+
+- type: reaction
+  id: ADTDobryiDrink
+  reactants:
+    JuiceOrange:
+      amount: 1
+    LemonLime:
+      amount: 1
+    Cola:
+      amount: 1
+  products:
+    ADTDobryiDrink: 3
+
+- type: reaction
+  id: ADTMilkEclipse
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    IceCream:
+      amount: 2
+    Tea:
+      amount: 2
+    Milk:
+      amount: 1
+  products:
+    ADTMilkEclipse: 5
+
+- type: reaction
+  id: ADTArcticExplosion
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    IceCream:
+      amount: 3
+    SodaWater:
+      amount: 2
+    Ice:
+      amount: 1
+  products:
+    ADTArcticExplosion: 6
+
+#Алкогольные коктейли от Кекса/Стычинского и Кермита
+
+- type: reaction
+  id: ADTSugarKnight
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Wine:
+      amount: 4
+    Sugar:
+      amount: 1
+    Cream:
+      amount: 1
+  products:
+    ADTSugarKnight: 6
+
+- type: reaction
+  id: ADTGrapeLady
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Wine:
+      amount: 3
+    Vermouth:
+      amount: 2
+    Cream:
+      amount: 1
+  products:
+    ADTGrapeLady: 6
+
+- type: reaction
+  id: ADTSaturdayBaron
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Ice:
+      amount: 1
+    Rum:
+      amount: 3
+    JuiceLemon:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    ADTSaturdayBaron: 6
+
+- type: reaction
+  id: ADTArcticLatte
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    CoffeeLiqueur:
+      amount: 1
+    IcedCoffee:
+      amount: 4
+    Cream:
+      amount: 1
+  products:
+    ADTArcticLatte: 6
+
+- type: reaction
+  id: ADTSpecialTeaOolong
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Sugar:
+      amount: 1
+    Whiskey:
+      amount: 2
+    Vodka:
+      amount: 7
+  products:
+    ADTSpecialTeaOolong: 10
+
+- type: reaction
+  id: ADTAzureBlue
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    BlueCuracao:
+      amount: 2
+    Ice:
+      amount: 1
+    Vodka:
+      amount: 2
+    SodaWater:
+      amount: 1
+  products:
+    ADTAzureBlue: 6
+
+- type: reaction
+  id: ADTPenetrationDrink
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Wine:
+      amount: 3
+    ADTAppleLiqueur:
+      amount: 1
+    Sugar:
+      amount: 1
+    JuiceLime:
+      amount: 3
+    Ice:
+      amount: 1
+    SodaWater:
+      amount: 1
+  products:
+    ADTPenetrationDrink: 10
+
+- type: reaction
+  id: ADTEclipsedEclispe
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    GargleBlaster:
+      amount: 1
+    Moonshine:
+      amount: 1
+  products:
+    ADTEclipsedEclispe: 2
+
+- type: reaction
+  id: ADTSpaceBush
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    SpaceUp:
+      amount: 1
+    SpaceMountainWind:
+      amount: 1
+    Mojito:
+      amount: 4
+  products:
+    ADTSpaceBush: 6
+
+- type: reaction
+  id: ADTBusinessConversation
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    CubaLibre:
+      amount: 3
+    Vodka:
+      amount: 1
+    Gin:
+      amount: 1
+    Bicaridine:
+      amount: 1
+  products:
+    ADTBusinessConversation: 6
+
+
+- type: reaction
+  id: ADTAppleMartini
+  reactants:
+    ADTAppleLiqueur:
+      amount: 3
+    Vermouth:
+      amount: 2
+    Gin:
+      amount: 1
+  products:
+    ADTAppleMartini: 6
+
+- type: reaction
+  id: ADTBacardiApple
+  reactants:
+    ADTAppleLiqueur:
+      amount: 1
+    Rum:
+      amount: 1
+    Ice:
+      amount: 1
+  products:
+    ADTBacardiApple: 3
+
+#охохо, сейчас такое будет.
+- type: reaction
+  id: ADTElderGuards
+  reactants:
+    Vodka:
+      amount: 2
+    ADTCitrusBalance:
+      amount: 2
+    Rum:
+      amount: 1
+    Grenadine:
+      amount: 1
+    Vinegar:
+      amount: 1
+    Wine:
+      amount: 1
+    Gin:
+      amount: 1
+    Whiskey:
+      amount: 1
+  products:
+    ADTElderGuards: 10 #polar bear heater. типо напиток из фильма, который по факту был придуман как шутка.
+
+- type: reaction
+  id: ADTLimeShade
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    JuiceLime:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+    Wine:
+      amount: 2
+    CoffeeLiqueur:
+      amount: 1
+  products:
+    ADTLimeShade: 5
+
+

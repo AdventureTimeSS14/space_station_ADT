@@ -197,21 +197,22 @@
 #       - state: equipped-MASK
 #   - type: BreathMask
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTChronosMask
-#   name: chronos victim mask
-#   description: chronos victim mask
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/chronosvisor.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/chronosvisor.rsi
-#   - type: BreathMask
-#   - type: ShowSecurityIcons
-#   - type: FlashImmunity
-#   - type: EyeProtection
-#     protectionTime: 5
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTChronosMask
+  name: chronos victim mask
+  description: chronos victim mask
+  suffix: New Mekka
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/chronosvisor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/chronosvisor.rsi
+  - type: BreathMask
+  - type: NoShowFov # Отключает Fov при надевании
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
 
 # #противогаз СССП
 
@@ -249,19 +250,19 @@
 #         shader: unshaded
 #   - type: BreathMask
 
-# - type: entity
-#   parent: ClothingMaskGas
-#   id: ADTClothingMaskGasIlisium
-#   name:  gas mask
-#   description: A close-fitting tactical mask that can be connected to an air supply.
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Head/Hats/gasmask_ili.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Head/Hats/gasmask_ili.rsi
-#   - type: FlashImmunity
-#   - type: EyeProtection
-#     protectionTime: 5
+- type: entity
+  parent: ClothingMaskGas
+  id: ADTClothingMaskGasIlisium
+  name:  gas mask
+  description: A close-fitting tactical mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/gasmask_ili.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/gasmask_ili.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
 
 - type: entity
   parent: ClothingMaskGasAtmos

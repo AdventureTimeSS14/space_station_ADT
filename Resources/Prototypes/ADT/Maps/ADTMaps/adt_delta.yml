@@ -18,7 +18,6 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_corvaxdelta.yml
         - type: StationJobs
           availableJobs:
-            Borg: [ 2, 3 ]
             Boxer: [ 2, 2 ]
             CargoTechnician: [ 4, 4 ]
             Passenger: [ -1, -1 ]
@@ -59,19 +58,22 @@
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTPathologist: [ 1, 1 ] #ADT-Roles
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
-            # ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             Brigmedic: [ 1, 1 ] #ADT-Roles
-            # ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
-            # ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
-            # ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
-
-        - type: StationGoal
-          goals:
-          - Shuttle
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - XenobiologyRepair
-          - VirusologyAmbusol
+            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 3 ]
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - Shuttle
+        #   - SolarPanels
+        #   - Artifacts
+        #   - Bank
+        #   - Zoo
+        #   - MiningOutpost
+        #   - XenobiologyRepair
+        #   - VirusologyAmbusol

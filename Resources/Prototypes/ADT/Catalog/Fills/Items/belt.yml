@@ -10,3 +10,14 @@
       - id: Stunbaton
       - id: Handcuffs
       - id: Handcuffs
+
+#кобура следователя СБ
+- type: entity
+  id: ADTClothingBeltInvestigatorHolsterFill
+  parent: ClothingBeltHolster
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+        - id: WeaponPistolMk58
+        - id: MagazinePistol

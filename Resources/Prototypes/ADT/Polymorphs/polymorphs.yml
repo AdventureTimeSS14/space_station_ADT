@@ -9,8 +9,110 @@
     revertOnCrit: false
     revertOnDeath: true
 
+#полиморфин.
+#человек и дворф
 - type: polymorph
-  id: ADTPMothroach
+  id: ADTPolymorphMonkey
+  configuration:
+    entity: MobMonkey
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphMonkey2
+  configuration:
+    entity: MobMonkey
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#унатхи и кобольды
+- type: polymorph
+  id: ADTPolymorphLizard
+  configuration:
+    entity: MobLizard
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphLizard2
+  configuration:
+    entity: MobLizard
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#арахниды
+- type: polymorph
+  id: ADTPolymorphSpider
+  configuration:
+    entity: MobGiantSpider
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphSpider2
+  configuration:
+    entity: MobGiantSpider
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#дионы
+- type: polymorph
+  id: ADTPolymorphBush
+  configuration:
+    entity: FloraTree01
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphBush2
+  configuration:
+    entity: FloraTree01
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#моли (другого не придумал)
+- type: polymorph
+  id: ADTPolymorphMothroach
   configuration:
     entity: MobMothroach
     forced: true
@@ -22,7 +124,7 @@
     duration: 40
 
 - type: polymorph
-  id: ADTPMothroach2
+  id: ADTPolymorphMothroach2
   configuration:
     entity: MobMothroach
     forced: true
@@ -32,3 +134,239 @@
     revertOnCrit: true
     revertOnDeath: true
     duration: 120
+
+#слаймолюды
+- type: polymorph
+  id: ADTPolymorphSmile
+  configuration:
+    entity: MobSlimesPet
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphSmile2
+  configuration:
+    entity: MobSlimesPet
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#наши расы
+#таяры и фелиниды, кто бы мог подумать.
+- type: polymorph
+  id: ADTPolymorphCat
+  configuration:
+    entity: MobCat
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphCat2
+  configuration:
+    entity: MobCat
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#вульпы (увы, других собак нету.)
+- type: polymorph
+  id: ADTPolymorphDog
+  configuration:
+    entity: MobWalter
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphDog2
+  configuration:
+    entity: MobWalter
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#новакиды. Не совсем понятно, стоит ли и им добавлять, поскольку полиморфин работает на органику, но полиморф оставлю.
+- type: polymorph
+  id: ADTPolymorphRodMetall
+  configuration:
+    entity: PartRodMetal1
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphRodMetall2
+  configuration:
+    entity: PartRodMetal1 #ну вы поняли, палка с огнём.
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#Урсы
+- type: polymorph
+  id: ADTPolymorphSpaceBear
+  configuration:
+    entity: MobBearSpace
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphSpaceBear2
+  configuration:
+    entity: MobBearSpace
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#Драски
+- type: polymorph
+  id: ADTPolymorphSoap
+  configuration:
+    entity: Soap
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphSoap2
+  configuration:
+    entity: Soap
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+#самое весёлое: нестабильный полиморф. максимальный рандом, потому что нестабильность.
+- type: polymorph
+  id: ADTPolymorphBread
+  configuration:
+    entity: FoodBreadPlain
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphSkeleton
+  configuration:
+    entity: MobSkeletonPerson
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 15
+
+- type: polymorph
+  id: ADTPolymorphCow
+  configuration:
+    entity: MobCow
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 20
+
+- type: polymorph
+  id: ADTPolymorphFrog
+  configuration:
+    entity: MobFrog
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 35
+
+- type: polymorph
+  id: ADTPolymorphPossum
+  configuration:
+    entity: MobPossum
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 40
+
+- type: polymorph
+  id: ADTPolymorphCarp
+  configuration:
+    entity: MobCarp
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 50
+
+- type: polymorph
+  id: ADTPolymorphMouse
+  configuration:
+    entity: MobMouse
+    forced: true
+    transferName: true
+    allowRepeatedMorphs: False
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 30

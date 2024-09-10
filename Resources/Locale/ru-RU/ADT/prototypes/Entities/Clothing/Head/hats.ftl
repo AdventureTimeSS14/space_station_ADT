@@ -13,3 +13,15 @@ ent-ADTClothingHeadHatBeretBrigmedic = берет бригмедика
 
 ent-ADTClothingHeadHatBeretBlackCivilian = чёрный берет
     .desc = Этот тёмный берет из мягкой ткани прилегает к голове как уютный оберег от холода. Его простой и классический дизайн делает его универсальным аксессуаром для любого стиля одежды.
+
+ent-ADTClothingHeadCapIlisium = фуражка
+    .suffix = Иллизиум
+    .desc = Тёмная фуражка офицера Иллизиума.
+
+ent-ADTClothingHeadHatsInvestigatorCap = фуражка следователя Службы Безопасности
+    .desc = Слава NanoTrasen!
+    .suffix = { "" }
+
+ent-ADTClothingHeadHatsBeretArmy = армейский берет
+    .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
+    .suffix = { "Новая Мекка" }
