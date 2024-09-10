@@ -44,10 +44,10 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         SubscribeLocalEvent<ShadekinComponent, ShadekinTeleportActionEvent>(OnTeleport);
         SubscribeLocalEvent<ShadekinComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnMapInit);
+        SubscribeLocalEvent<ShadekinComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ShadekinComponent, ComponentShutdown>(OnShutdown);
 
-        SubscribeLocalEvent<ShadekinComponent, HumanoidProfileLoadedEvent>(OnProfileLoaded);
+        SubscribeLocalEvent<ShadekinComponent, MapInitEvent>(OnMapInit);
     }
 
     public override void Update(float frameTime)
@@ -84,7 +84,7 @@ public sealed partial class ShadekinSystem : EntitySystem
         }
     }
 
-    private void OnMapInit(EntityUid uid, ShadekinComponent comp, ComponentInit args)
+    private void OnInit(EntityUid uid, ShadekinComponent comp, ComponentInit args)
     {
         _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
     }
@@ -96,7 +96,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             _action.RemoveAction(uid, comp.ActionEntity);
     }
 
-    private void OnProfileLoaded(EntityUid uid, ShadekinComponent comp, ref HumanoidProfileLoadedEvent args)
+    private void OnMapInit(EntityUid uid, ShadekinComponent comp, MapInitEvent args)
     {
         // if ( // Оно очень странно получается, работает только при позднем подключении
         //     args.Profile.Appearance.EyeColor.B < 100f &&
