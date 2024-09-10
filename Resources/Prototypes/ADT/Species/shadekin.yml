@@ -25,10 +25,10 @@
   id: MobShadekinSprites
   sprites:
     Head: MobShadekinHead
-    Snout: MobShadekinAnyMarkingFollowSkin
-    HeadTop: MobShadekinAnyMarkingFollowSkin
-    HeadSide: MobShadekinAnyMarkingFollowSkin
-    Tail: MobShadekinAnyMarkingFollowSkin
+    Snout: MobShadekinAnyMarking
+    HeadTop: MobShadekinAnyMarking
+    HeadSide: MobShadekinAnyMarking
+    Tail: MobShadekinAnyMarking
     Chest: MobShadekinTorso
     Eyes: MobShadekinEyes
     LArm: MobShadekinLArm
@@ -67,13 +67,12 @@
     Arms:
       points: 4
       required: false
+    Overlay:
+      points: 1
+      required: false
 
 - type: humanoidBaseSprite
   id: MobShadekinAnyMarking
-
-- type: humanoidBaseSprite
-  id: MobShadekinAnyMarkingFollowSkin
-  markingsMatchSkin: true
 
 - type: humanoidBaseSprite
   id: MobShadekinHead
