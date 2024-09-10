@@ -12,7 +12,7 @@
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
-  containerInsert: true
+  containerInsert: true # ADT station AI spawn fix
 
 - type: job
   id: Borg
