@@ -333,17 +333,6 @@
       state: saggy_gauze_r
 
 - type: marking
-  id: EarsShadekinSaggyGauzedLeftAll
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Shadekin]
-  sprites:
-    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
-      state: saggy_default
-    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
-      state: saggy_gauze_all
-
-- type: marking
   id: EarsShadekinShort
   bodyPart: HeadTop
   markingCategory: HeadTop
