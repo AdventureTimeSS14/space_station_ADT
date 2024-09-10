@@ -431,7 +431,6 @@
   - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
     tags:
     - ADTMothFriendlyFood
-    - Bread
 
 - type: entity
   name: sausage bread
