@@ -611,29 +611,29 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hop.rsi
 
 - type: entity
-  parent: [ ClothingUniformBase, BaseFoldable ]
+  parent: ClothingUniformBase
   id: ADTClothingJumpsuitHopAlt
   name: head of personell's business suit
   description: Fancy.
   components:
-  - type: Appearance
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: fold-put-on-verb
-    foldVerbText: fold-pull-off-verb
-  - type: FoldableClothing
-    foldedEquippedPrefix: vest
-    foldedHeldPrefix: vest
+  #- type: Appearance
+  #- type: Foldable
+  #  canFoldInsideContainer: true
+  #  unfoldVerbText: fold-put-on-verb
+ #   foldVerbText: fold-pull-off-verb
+ # - type: FoldableClothing
+ #   foldedEquippedPrefix: vest
+ #   foldedHeldPrefix: vest
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
   - type: Sprite
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
-    layers:
-    - state: icon
-      map: [ "unfoldedLayer" ]
-    - state: icon_vest
-      map: ["foldedLayer"]
-      visible: false
+ #  layers:
+ #  - state: icon
+ #     map: [ "unfoldedLayer" ]
+ #   - state: icon_vest
+ #     map: ["foldedLayer"]
+ #     visible: false
 
 #Одежда для ветерана СБ
 - type: entity
