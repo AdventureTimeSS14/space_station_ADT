@@ -71,7 +71,6 @@
         layer:
           - MobLayer
   - type: Respirator
-    gaspEmote: null
     damage:
       types:
         Asphyxiation: 0.0
@@ -122,32 +121,6 @@
     baseSprintSpeed : 2.7
   - type: Inventory
     displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: shoes
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: hand
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: head
-    femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:

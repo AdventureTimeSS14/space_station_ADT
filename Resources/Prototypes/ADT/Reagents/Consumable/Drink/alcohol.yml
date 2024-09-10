@@ -394,8 +394,3 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
-      - !type:RandomTeleport
-        probability: 0.35
-        conditions:
-        - !type:ReagentThreshold
-          min: 20

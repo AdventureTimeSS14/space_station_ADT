@@ -401,9 +401,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.Age = profile.Age;
 
         Dirty(uid, humanoid);
-
-        var ev = new HumanoidProfileLoadedEvent(profile);   // ADT Profile loaded event
-        RaiseLocalEvent(uid, ref ev);   // ADT Profile loaded event
     }
 
     /// <summary>
