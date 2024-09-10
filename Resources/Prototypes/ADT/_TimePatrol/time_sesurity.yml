@@ -353,15 +353,6 @@
           reagent: ADTChloralHydrate
           min: 15
         key: ForcedSleep
-        component: PointLightColorBlue #Эту штуку менять
-        type: Add
-        refresh: false
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: ADTChloralHydrate
-          min: 15
-        key: ForcedSleep
         component: TimedDespawn
         refresh: false
         type: Add
