@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: OrganReptilianStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
@@ -12,6 +12,7 @@
       - Pill
       - Crayon
       - Paper
+      - ADTCarnivoreFriendlyFood #ADT_Tweak
   - type: SolutionContainerManager
     solutions:
       stomach:
