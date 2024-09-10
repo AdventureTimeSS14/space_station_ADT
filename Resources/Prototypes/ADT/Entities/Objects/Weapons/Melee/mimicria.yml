@@ -1,0 +1,93 @@
+- type: entity
+  name: Mimicria
+  parent: BaseSword
+  id: ADTWeaponSworldLobotomy
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus
+  - type: Spellbook
+    LearnTime: 0.1
+    spellActions:
+      ADTActionTeatacles: -1
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+    size: Huge
+
+- type: entity
+  id: ADTActionTeatacles
+  name: tentacles
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+      state: icon
+    event: !type:InstantSpawnSpellEvent
+      prototype: MimicriaTentacle
+      posData: !type:TargetInFront
+  
+- type: entity
+  id: ADTMimicriaTentacle
+  name: tentacle
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+    layers:
+    - state: mimicria_tentacle_wiggle
+  - type: Fixtures
+    fixtures:
+      fix:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - Impassable
+        layer:
+        - Impassable
+        hard: false
+  - type: TimedDespawn #do this shit by hand because of fucking course.
+    lifetime: 1
+  - type: DamageContacts
+    damage:
+      types:
+        Slash: 20
+        Piercing: 20
+  - type: SpawnOnDespawn
+    prototype: ADTEffectiMicriaTentacleRetract
+
+- type: entity
+  id: ADTEffectiMicriaTentacleRetract
+  parent: BaseEffectGoliathTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+    state: mimicria_tentacle_retract
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: ADTEffectiMicriaTentacleSpawn
+  parent: BaseEffectGoliathTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: tentacle
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+      state: mimicria_tentacle_spawn
+    - type: SpawnOnDespawn
+      prototype: MimicriaTentacle
