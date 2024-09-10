@@ -71,7 +71,7 @@
         layer:
           - MobLayer
   - type: Respirator
-    gaspEmote: null
+    #gaspEmote: null
     damage:
       types:
         Asphyxiation: 0.0
