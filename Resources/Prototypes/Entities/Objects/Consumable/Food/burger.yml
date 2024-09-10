@@ -926,9 +926,6 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 3
-  - type: Tag  #ADT_Tweak - делаем тофу-бургер съедобным для молей
-    tags:
-    - ADTMothFriendlyFood
 # Tastes like bun, tofu.
 
 - type: entity

@@ -50,19 +50,19 @@
       points: 1
       required: true
     Chest:
-      points: 2
+      points: 1
       required: true
     Tail:
       points: 1
       required: false
     Snout:
-      points: 2
+      points: 1
       required: false
     Legs:
-      points: 4
+      points: 2
       required: false
     Arms:
-      points: 4
+      points: 2
       required: false
       defaultMarkings: [DraskArmRight,DraskArmLeft]
 

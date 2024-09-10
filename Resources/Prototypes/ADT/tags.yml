@@ -2,9 +2,6 @@
   id: ADTMothFriendlyFood
 
 - type: Tag
-  id: ADTCarnivoreFriendlyFood
-
-- type: Tag
   id: Patch
 
 - type: Tag
