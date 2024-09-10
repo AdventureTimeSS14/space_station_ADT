@@ -117,7 +117,7 @@
     mask: ADTChronosMask
     jumpsuit: ClothingUniformJumpsuitOperative
     shoes: ADTClothingShoesBootsCombatNeCkoll
-    head: ADTClothingHeadHelmetHardsuitDeathsquad
+    #head: ADTClothingHeadHelmetHardsuitDeathsquad
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ADTClothingOuterHardsuitDeathsquad
@@ -154,7 +154,7 @@
         shader: unshaded
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing] #ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitBase
   id: ADTClothingOuterHardsuitDeathsquad
   name: deathsquad hardsuit
   description: An advanced hardsuit favored by commandos for use in special operations.
@@ -183,32 +183,28 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  # - type: ToggleableClothing
-  #   clothingPrototype: ADTClothingHeadHelmetHardsuitDeathsquad
-  - type: ContainerContainer
-      containers:
-        toggleable-clothing: !type:ContainerSlot {}
-  - type: ClothingRequiredStepTriggerImmune
-    slots: WITHOUT_POCKET
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitDeathsquad
 
 - type: entity
-  parent: ClothingHeadLightBase #ClothingHeadHardsuitWithLightBase
+  parent: ClothingHeadHardsuitWithLightBase  #ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
   components:
+  # - type: IngestionBlocker
+  # - type: IdentityBlocker
   - type: BreathMask
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/time_security_helmet.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hardsuits/time_security_helmet.rsi
-    quickEquip: true
+  # - type: PointLight # Corvax-Resprite
+  #   color: cyan
   - type: PointLight
     color: "#c53dff"
     #radius: 1.1
     energy: 6
-  - type: TemperatureProtection
-    coefficient: 0.001
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -221,9 +217,6 @@
         Heat: 0.3
         Radiation: 0.3
         Caustic: 0.3
-  - type: Tag
-    tags:
-    - WhitelistChameleon
 
 - type: entity
   parent: ClothingBackpackERTLeader # ADTADTClothingBackpackSecurityCybBase
