@@ -3,10 +3,22 @@
   name: Khachapuri recipe
   result: ADTFoodMealKhachapuri
   time: 15
-  reagents: 
+  reagents:
     Egg: 12
     TableSalt: 5
     Milk: 5
-  solids: 
+  solids:
     FoodCheeseSlice: 1
     FoodBreadPlainSlice: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodSawdustSoupRecipe
+  name: sawdust soup recipe
+  result: ADTFoodSoupSawdust
+  time: 15
+  reagents:
+    Water: 10
+    TableSalt: 10
+  solids:
+    FoodBowlBig: 1
+    MaterialWoodPlank1: 1
