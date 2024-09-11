@@ -112,3 +112,11 @@
   id: adt_elderguards
   flavorType: Complex
   description: flavor-complex-elderguards
+
+
+# Суп
+
+- type: flavor
+  id: ADTSawdust
+  flavorType: Complex
+  description: flavor-complex-ADTSawdust
