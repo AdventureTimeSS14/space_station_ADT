@@ -48,13 +48,14 @@
             <ScrollContainer HScrollEnabled="False"
                              HorizontalExpand="True"
                              VerticalExpand="True"
-                             MinHeight="50"
+                             MinHeight="35"
                              SizeFlagsStretchRatio="2.5">
+                <!-- ADT-Tweak: make it 4 columns so it looks and feels like  -->
                 <GridContainer Name="ReagentList"
                                HorizontalExpand="True"
                                VerticalExpand="True"
                                Access="Public"
-                               Columns="3" />
+                               Columns="4" />
             </ScrollContainer>
             <ScrollContainer HScrollEnabled="False"
                              HorizontalExpand="True"
