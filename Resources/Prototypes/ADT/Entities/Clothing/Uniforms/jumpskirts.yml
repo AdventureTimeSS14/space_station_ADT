@@ -249,3 +249,40 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
+
+#Альтернативная одежда для ГП
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpskirtHopWarm
+  name: hop jumpskirt warm
+  description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_hop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_hop.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpskirtHopAlt
+  name: head of personell's business suit
+  description: Fancy.
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-put-on-verb
+    foldVerbText: fold-pull-off-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: vest
+    foldedHeldPrefix: vest
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_alt_hop.rsi
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_alt_hop.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_vest
+      map: ["foldedLayer"]
+      visible: false
