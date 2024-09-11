@@ -4,11 +4,6 @@
   source: "https://gamemusicandsoundeffects.com/product/the-wrong-party/"
 
 - files: ["friday_night.ogg"]
-  license: "Custom"
+  license: "Royalty-free"
   copyright: "Friday Night by Leon Riskin. Royalty-free music. Purchased for the Space Station 14: Adventure Time project."
   source: "https://gamemusicandsoundeffects.com/product/friday-night/"
-
-- files: ["space_oddity.ogg"]
-  license: "Custom"
-  copyright: "Space Oddity by Chris Hadfield."
-  source: "https://www.youtube.com/watch?v=KaOC9danxNo"
