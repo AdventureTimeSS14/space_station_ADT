@@ -43,7 +43,7 @@
 
       - tool: Screwing
         doAfter: 0.5
-    
+
     - to: engineer
       steps:
       - assemblyId: engineer
@@ -179,6 +179,67 @@
       - tool: Screwing
         doAfter: 0.5
 
+  # ADT-Kerfus-Start
+    - to: kerfusNT
+      steps:
+      - assemblyId: kerfusNT
+        guideString: borg-construction-guide-string
+
+      - material: Cable
+        amount: 1
+        doAfter: 1
+        store: part-container
+
+      - component: Flash
+        name: flash
+        store: part-container
+        icon:
+          sprite: Objects/Weapons/Melee/flash.rsi
+          state: flash
+
+      - component: Flash
+        name: second flash
+        store: part-container
+        icon:
+          sprite: Objects/Weapons/Melee/flash.rsi
+          state: flash
+
+      - tool: Screwing
+        doAfter: 1
+  # ADT-Kerfus-End
+
+#ADT secborg start
+    - to: security
+      steps:
+      - assemblyId: security
+        guideString: borg-construction-guide-string
+
+      - material: Cable
+        amount: 1
+        doAfter: 1
+        store: part-container
+
+      - component: Flash
+        name: flash
+        store: part-container
+        icon:
+          sprite: Objects/Weapons/Melee/flash.rsi
+          state: flash
+
+      - component: Flash
+        name: second flash
+        store: part-container
+        icon:
+          sprite: Objects/Weapons/Melee/flash.rsi
+          state: flash
+
+      - tool: Screwing
+        doAfter: 0.5
+
+  - node: security
+    entity: ADTBorgChassisSec
+#ADT secborg end
+
   - node: cyborg
     entity: BorgChassisGeneric
 
@@ -205,3 +266,8 @@
 
   - node: syndicatesaboteur
     entity: BorgChassisSyndicateSaboteur
+
+  # ADT-Kerfus-Start
+  - node: kerfusNT
+    entity: ADTBorgChassisKerfusNT
+  # ADT-Kerfus-End

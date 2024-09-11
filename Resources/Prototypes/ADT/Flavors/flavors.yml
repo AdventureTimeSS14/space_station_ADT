@@ -112,3 +112,9 @@
   id: adt_elderguards
   flavorType: Complex
   description: flavor-complex-elderguards
+
+- type: flavor
+  id: adt_limeshade
+  flavorType: Complex
+  description: flavor-complex-limeshade
+

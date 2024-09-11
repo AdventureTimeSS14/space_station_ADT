@@ -21,7 +21,7 @@
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Passenger: [ -1, -1 ]
-            ServiceWorker: [ 3, 3 ]
+            ServiceWorker: [ 3, 4 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 3 ]
             Chef: [ 1, 1 ]
@@ -65,14 +65,14 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
-        - type: StationGoal
-          goals:
-          - Shuttle
-          - Singularity
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
-          - VirusologyAmbusol
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - Shuttle
+        #   - Singularity
+        #   - SolarPanels
+        #   - Artifacts
+        #   - Bank
+        #   - Zoo
+        #   - MiningOutpost
+        #   - VirusologyAmbusol

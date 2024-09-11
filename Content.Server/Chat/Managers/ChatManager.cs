@@ -277,11 +277,23 @@ internal sealed partial class ChatManager : IChatManager
             _adminLogger.Add(LogType.Chat, LogImpact.Extreme, $"{player:Player} attempted to send admin message but was not admin");
             return;
         }
+        // Start-ADT Schrodinger Tweak: Отсюда сможем получить инфу о префиксе админа
+        var senderAdmin = _adminManager.GetAdminData(player);
+        if (senderAdmin == null)
+        {
+            return;
+        }
+        var senderName = player.Name;  // Добавил переменную senderName, в ней содержиться player.Name и приставляем префикс к имени
+        if (!string.IsNullOrEmpty(senderAdmin.Title))
+        {
+            senderName += $"\\[{senderAdmin.Title}\\]";
+        }
+        // End-ADT Tweak
 
         var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
         var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
                                         ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
-                                        ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+                                        ("playerName", senderName), ("message", FormattedMessage.EscapeText(message))); // ADT Tweak тут заменил player.Name на senderName
 
         foreach (var client in clients)
         {

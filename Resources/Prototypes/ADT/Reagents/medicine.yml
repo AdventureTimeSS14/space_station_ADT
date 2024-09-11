@@ -2,7 +2,7 @@
 
 # Bicaridine
 - type: reagent
-  id: ADTMSodiumizole # ADTM - medical. Сортировка реагентов. ## Натримизол, отсылающий к метамизолу натрия.
+  id: ADTSodiumizole # Натримизол, отсылающий к метамизолу натрия.
   name: reagent-name-sodiumizole
   group: Medicine
   desc: reagent-desc-sodiumizole
@@ -32,7 +32,7 @@
             Blunt: -1
 
 - type: reagent
-  id: ADTMNitrofurfoll #искаверканное название нитрофурала.
+  id: ADTNitrofurfoll #искаверканное название нитрофурала.
   name: reagent-name-nitrofurfoll
   group: Medicine
   desc: reagent-desc-nitrofurfoll
@@ -64,7 +64,7 @@
         probability: 0.05
 
 - type: reagent
-  id: ADTMPeroHydrogen #литералли перекись водорода, но круче. Пероводород.
+  id: ADTPeroHydrogen #литералли перекись водорода, но круче. Пероводород.
   name: reagent-name-perohydrogen
   group: Medicine
   desc: reagent-desc-perohydrogen
@@ -105,7 +105,7 @@
 
 # Dermaline.
 - type: reagent
-  id: ADTMAnelgesin #Налгезин ИРЛ.
+  id: ADTAnelgesin #Налгезин ИРЛ.
   name: reagent-name-anelgesin
   group: Medicine
   desc: reagent-desc-anelgesin
@@ -135,7 +135,7 @@
             Heat: -1
 
 - type: reagent
-  id: ADTMMinoxide
+  id: ADTMinoxide
   name: reagent-name-minoxide #типо как ликоксид, но миноксид.
   group: Medicine
   desc: reagent-desc-minoxide
@@ -179,7 +179,7 @@
 #Dylovene
 # У этилредоксразина будет больше смысла в паре с диловеном, так что тут только один препарат.
 - type: reagent
-  id: ADTMBiomicine #Биомицин, отсылающий к неомицину.
+  id: ADTBiomicine #Биомицин, отсылающий к неомицину.
   name: reagent-name-biomicine
   group: Medicine
   desc: reagent-desc-biomicine
@@ -216,7 +216,7 @@
 #DexalinPlus
 # Баффы очень маленькие, поскольку я хочу откреститься подальше от старого дексалина
 - type: reagent
-  id: ADTMNikematide #анаграмма никетамида.
+  id: ADTNikematide #анаграмма никетамида.
   name: reagent-name-nikematide
   group: Medicine
   desc: reagent-desc-nikematide
@@ -248,7 +248,7 @@
             Asphyxiation: -0.5
 
 - type: reagent
-  id: ADTMDiethamilate #Диэтамилат. Искаверканное и совмещённое название Дициона и Этамзилата.
+  id: ADTDiethamilate #Диэтамилат. Искаверканное и совмещённое название Дициона и Этамзилата.
   name: reagent-name-diethamilate
   group: Medicine
   desc: reagent-desc-diethamilate
@@ -286,7 +286,7 @@
 #а теперь маленькие, простенькие препаратики, которые предложили в дискорде.
 
 - type: reagent
-  id: ADTMFormalin #Даже название коверкать не буду. Формалин существует.
+  id: ADTFormalin #Даже название коверкать не буду. Формалин существует.
   name: reagent-name-formalin
   group: Medicine
   desc: reagent-desc-formalin
@@ -309,7 +309,7 @@
             Cellular: 1
 
 - type: reagent
-  id: ADTMMorphine
+  id: ADTMorphine
   name: reagent-name-morphine
   group: Medicine
   desc: reagent-desc-morphine
@@ -434,3 +434,27 @@
         visualType: Small
         messages: [ "medicine-effect-usual" ]
         probability: 0.05
+
+- type: reagent
+  id: ADTDetoxisol
+  name: reagent-name-detoxisol
+  group: Medicine
+  desc: reagent-desc-detoxisol
+  physicalDesc: reagent-physical-desc-murky
+  flavor: medicine
+  color: "#9575c7"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate : 0.75
+      effects:
+        - !type:HealthChange
+          conditions:
+          - !type:Temperature
+            max: 153.0
+          damage:
+            types:
+              Poison: -2.5
+              Radiation: -2
+              Slash: 0.4
+              Piercing: 0.8

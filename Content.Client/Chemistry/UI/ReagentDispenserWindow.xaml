@@ -45,16 +45,18 @@
         <SplitContainer Orientation="Vertical"
                         HorizontalExpand="True"
                         VerticalExpand="True">
+
             <ScrollContainer HScrollEnabled="False"
                              HorizontalExpand="True"
                              VerticalExpand="True"
                              MinHeight="50"
                              SizeFlagsStretchRatio="2.5">
+
                 <GridContainer Name="ReagentList"
                                HorizontalExpand="True"
                                VerticalExpand="True"
                                Access="Public"
-                               Columns="3" />
+                               Columns="4" /> <!-- ADT-Tweak: make it 4 columns so it looks and feels like old reagent dispenser -->
             </ScrollContainer>
             <ScrollContainer HScrollEnabled="False"
                              HorizontalExpand="True"

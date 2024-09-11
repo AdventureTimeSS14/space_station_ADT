@@ -17,4 +17,3 @@ medicine-effect-pain = Вы чувствуете, как ваша боль пр�
 
 medicine-effect-visible-emotions-m = { CAPITALIZE($entity) } выглядит менее эмоциональным.
 medicine-effect-visible-emotions-f = { CAPITALIZE($entity) } выглядит менее эмоциональной.
-medicine-effect-visible-polymorph = { CAPITALIZE($entity) } притерпевает изменения в теле!
