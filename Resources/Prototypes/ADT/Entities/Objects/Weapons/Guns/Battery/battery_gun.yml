@@ -84,7 +84,7 @@
     - type: MaterialStorage
       storageLimit: 0
       materialWhiteList: [RawPlasma, Plasma]
-      canEjectStoredMaterial: false
+      canEjectStoredMaterials: false
     - type: BatteryRecharge
       multiplier: 1.25
     - type: Sprite
