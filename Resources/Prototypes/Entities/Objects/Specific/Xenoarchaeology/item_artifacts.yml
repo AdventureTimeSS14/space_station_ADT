@@ -37,7 +37,7 @@
         friction: 0.2
   - type: Artifact
   - type: RandomArtifactSprite
-    maxSprite: 11
+    maxSprite: 13 #ADT_Tweak
     activationTime: 2.4
   - type: RandomSprite
     available:
