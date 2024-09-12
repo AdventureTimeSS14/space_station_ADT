@@ -32,7 +32,6 @@ marking-EarsShadekinSaggyGradient = Опалые Уши, Градиент
 marking-EarsShadekinSaggyGauzedAll = Опалые Уши, Перемотанные
 marking-EarsShadekinSaggyGauzedLeft = Опалые Уши, Перевязь  на ухо(Л)
 marking-EarsShadekinSaggyGauzedRight = Опалые Уши, Перевязь  на ухо(П)
-marking-EarsShadekinSaggyGauzedLeftAll = Опалые Уши, нахуй
 marking-EarsShadekinShort = Короткие Уши
 marking-EarsShadekinShortButterfly = Короткие Уши, Украшенные
 marking-EarsShadekinShortRingedAll = Короткие Уши, С Кольцами
