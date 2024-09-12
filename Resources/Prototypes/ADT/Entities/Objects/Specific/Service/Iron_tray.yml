@@ -33,7 +33,11 @@
   description: An iron tray to store and service food
   suffix: Антаг
   components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 8
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 12
+        Slash: 20

@@ -113,9 +113,12 @@
   flavorType: Complex
   description: flavor-complex-elderguards
 
+- type: flavor
+  id: adt_limeshade
+  flavorType: Complex
+  description: flavor-complex-limeshade
 
 # Суп
-
 - type: flavor
   id: ADTSawdust
   flavorType: Complex
