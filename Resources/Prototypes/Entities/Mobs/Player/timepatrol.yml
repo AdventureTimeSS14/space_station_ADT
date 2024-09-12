@@ -1,0 +1,40 @@
+- type: entity
+  name: Cultist
+  parent: BaseMobHuman
+  id: ADTTimePatrolSpawn
+  suffix: "ОБВА"
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      170: Critical
+      300: Dead
+  - type: ElectrionPulseAct  # Тут имя менять потом
+  - type: TeleportAct
+  - type: Loadout
+    prototypes:
+      - ADTTimePatrolGear
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: Vocal
+    sounds:
+      Male: UnisexIPC
+      Female: UnisexIPC
+      Unsexed: UnisexIPC
+  - type: NoSlip
+  - type: Insulated
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener # авто открытие двери, когда подходишь к ней
+  # Frontier - languages mechanic
+  - type: UniversalLanguageSpeaker # Ghosts should understand any language.
+  - type: RandomMetadata
+    nameSegments:
+      - NamesFirstMilitaryLeaderCorvax # Corvax-Localization
+      - NamesLastERTCallsign # Corvax-Localization

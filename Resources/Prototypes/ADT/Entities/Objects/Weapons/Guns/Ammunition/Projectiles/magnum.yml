@@ -1,0 +1,33 @@
+- type: entity
+  id: ADTADTBulletMagnumHighVelocityTranquilizer
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        ADTTimeDespawn: 1
+        Shock: 7
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
+    forceSound: true
+  - type: StaminaDamageOnCollide
+    damage: 40 # 4 hits to stun
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_tsd.rsi
+    layers:
+    - state: adtomnilaser
+      shader: unshaded
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 3
+        reagents:
+        - ReagentId: ADTChloralHydrate
+          Quantity: 3
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo

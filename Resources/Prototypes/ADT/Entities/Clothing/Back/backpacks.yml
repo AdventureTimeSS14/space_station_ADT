@@ -41,3 +41,22 @@
   - type: Sprite
     sprite: ADT/Clothing/Back/pathologist_backpack.rsi
 
+- type: entity
+  parent: ClothingBackpackERTLeader # ADTADTClothingBackpackSecurityCybBase
+  id: ADTClothingBackpackTimePatrol
+  name: backpack time patrol
+  description: desc
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: Flash
+        - id: JawsOfLife
+        - id: CombatKnife
+        - id: FlashlightSeclite
+        - id: GrenadeStinger
+        - id: GrenadeStinger
+        - id: GrenadeFlashBang
+        - id: GrenadeFlashBang

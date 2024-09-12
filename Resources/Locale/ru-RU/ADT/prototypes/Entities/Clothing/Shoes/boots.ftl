@@ -4,3 +4,6 @@ ent-ADTClothingSandals = сандали
 ent-ADTClothingFootNewMekkaBoots = сапоги Новой Мекки
     .desc = Явно потрёпанные сапоги, в которых прошли уж точно не одну милю.
     .suffix = { "Новая Мекка" }
+
+ent-ADTClothingShoesBootsCombatNeCkoll = ботинки стража времени
+    .desc = Надёжные ботинки путника из далёкого будущего. Даже не пытаетесь заставить его подскользнутся.

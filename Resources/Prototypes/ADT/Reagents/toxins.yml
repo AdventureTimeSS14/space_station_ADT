@@ -47,3 +47,45 @@
         visualType: Small
         messages: [ "narcotic-effect-sleepy" ]
         probability: 0.06
+
+- type: reagent
+  id: ADTChloralHydrate
+  name: reagent-name-chloral-hydrate
+  group: Toxins
+  desc: reagent-desc-chloral-hydrate
+  flavor: bitter
+  color: "#000067"
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Poison:
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.02
+        sprintSpeedModifier: 0.02
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ADTChloralHydrate
+          min: 15
+        key: ForcedSleep
+        component: SingularityDistortion
+        type: Add
+        refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ADTChloralHydrate
+          min: 15
+        key: ForcedSleep
+        component: TimedDespawn
+        refresh: false
+        type: Add
+      - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: ADTChloralHydrate
+            min: 15
+        key: Pacified
+        component: Pacified
+        refresh: false
+        type: Add
