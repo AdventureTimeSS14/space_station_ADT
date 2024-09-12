@@ -12,3 +12,6 @@ ent-ADTSpaceSecCommanderHelm = шлем скафандра командира SP
 ent-ADTClothingHeadHelmetIlisium = шлем
     .suffix = Иллизиум
     .desc = Шлем бойца Иллизиума
+
+ent-ADTClothingHeadHelmetHardsuitInquisitory = шлем инквизитора
+    .desc = Тебе дана власть над судьбами
