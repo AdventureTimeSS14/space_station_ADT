@@ -611,7 +611,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hop.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseFoldable ]
   id: ADTClothingJumpsuitHopAlt
   name: head of personell's business suit
   description: Fancy.
@@ -628,12 +628,12 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
   - type: Sprite
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
-  layers:
-  - state: icon
-    map: [ "unfoldedLayer" ]
-  - state: icon_vest
-    map: ["foldedLayer"]
-    visible: false
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_vest
+      map: ["foldedLayer"]
+      visible: false
 
 #Одежда для ветерана СБ
 - type: entity

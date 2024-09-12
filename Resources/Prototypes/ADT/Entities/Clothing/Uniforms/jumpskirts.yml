@@ -263,7 +263,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_hop.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseFoldable ]
   id: ADTClothingJumpskirtHopAlt
   name: head of personell's business suit
   description: Fancy.
