@@ -26,7 +26,7 @@
   components:
     - type: Sprinter
       modifier: 1.05
-  cost: 6
+  cost: 4
 
 - type: trait
   id: ADTFastLockers
