@@ -8,8 +8,8 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: ADTOrganShadekinBrain
+        eyes: ADTOrganShadekinEyes
     torso:
       part: TorsoShadekin
       connections:
@@ -18,11 +18,11 @@
       - left leg
       - right leg
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        stomach: OrganHumanStomach
-        liver:  OrganHumanLiver
-        kidneys: OrganHumanKidneys
+        heart: ADTOrganShadekinHeart
+        lungs: ADTOrganShadekinLungs
+        stomach: ADTOrganShadekinStomach
+        liver: ADTOrganShadekinLiver
+        kidneys: ADTOrganShadekinKidneys
     right arm:
       part: RightArmShadekin
       connections:
@@ -47,3 +47,27 @@
       part: RightFootShadekin
     left foot:
       part: LeftFootShadekin
+
+- type: entity
+  id: ADTOrganShadekinBrain
+  parent: OrganHumanBrain
+  name: brain
+  description: todo
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    state: brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - people

@@ -1,0 +1,121 @@
+- type: entity
+  id: ADTOrganShadekinLungs
+  parent: BaseAnimalOrgan
+  name: lungs
+  description: todo
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    state: lung
+  - type: Organ
+  - type: Lung
+#    alert: null
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Gas
+      rateModifier: 20.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: ADTOrganShadekinStomach
+  parent: BaseAnimalOrgan
+  name: stomach
+  description: todo
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    state: stomach
+  - type: Organ
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 40
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: ADTOrganShadekinLiver
+  parent: BaseAnimalOrgan
+  name: liver
+  description: todo
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    state: liver
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: ADTOrganShadekinHeart
+  parent: BaseAnimalOrgan
+  name: heart
+  description: todo
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    state: heart-on
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Shadekin ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: ADTOrganShadekinKidneys
+  parent: BaseAnimalOrgan
+  name: kidneys
+  description: todo
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Shadekin ]
+    removeEmpty: true
+
+- type: entity
+  id: ADTOrganShadekinEyes
+  parent: BaseHumanOrgan
+  name: eyes
+  description: todo
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r

@@ -1,0 +1,54 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "ADT Team",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "eyeball-l"
+      },
+      {
+        "name": "eyeball-r"
+      },
+      {
+        "name": "brain"
+      },
+      {
+        "name": "brain-inhand-left"
+      },
+      {
+        "name": "brain-inhand-right"
+      },
+      {
+        "name": "kidney-l"
+      },
+      {
+        "name": "kidney-r"
+      },
+      {
+        "name": "liver"
+      },
+      {
+        "name": "lung"
+      },
+      {
+        "name": "stomach"
+      },
+      {
+        "name": "heart-on",
+        "delays": [
+          [
+            0.6,
+            0.1,
+            0.1
+          ]
+        ]
+      },
+      {
+        "name": "heart-off"
+      }
+    ]
+  }
