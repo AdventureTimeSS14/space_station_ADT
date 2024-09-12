@@ -287,8 +287,8 @@
         tableId: UnknownShuttlesFriendlyTable
       - !type:NestedSelector
         tableId: UnknownShuttlesFreelanceTable
-      - !type:NestedSelector
-        tableId: UnknownShuttlesHostileTable
+      # - !type:NestedSelector  # ADT tweak
+      #   tableId: UnknownShuttlesHostileTable
 
 - type: entity
   id: BasicStationEventScheduler
