@@ -153,7 +153,7 @@ public sealed partial class ShadekinSystem : EntitySystem
         var coordsValid = false;
         EntityCoordinates coords = Transform(uid).Coordinates;
 
-        if (TryComp<PullableComponent>(uid, out var pullable) && pullable.BeingPulled)
+        if (TryComp<PullableComponent>(uid, out var mainEntityPullable) && mainEntityPullable.BeingPulled)
         {
             comp.MaxedPowerAccumulator = 0f;
             return;
@@ -165,7 +165,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (_interaction.InRangeUnobstructed(uid, newCoords, -1f))
             {
                 TryUseAbility(uid, 40, false);
-                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && pullable != null)
+                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
                     _pulling.TryStopPull(puller.Pulling.Value, pullable);
                 _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
                 _transform.SetCoordinates(uid, newCoords);
