@@ -81,3 +81,8 @@ ent-ADTDrinkBacardiAppleGlass = { ent-DrinkGlass }
 ent-ADTDrinkElderGuardsGlass = { ent-DrinkGlass }
     .suffix = Старая гвардия
     .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkLimeShadeGlass = { ent-DrinkGlass }
+    .suffix = Лаймовый Шэйд
+    .desc = { ent-DrinkGlass.desc }
+

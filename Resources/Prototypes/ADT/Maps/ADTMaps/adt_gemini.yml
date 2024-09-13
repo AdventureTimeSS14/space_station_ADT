@@ -63,11 +63,11 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
-
-        - type: StationGoal
-          goals:
-          - Shuttle
-          - Artifacts
-          - Bank
-          - MiningOutpost
-          - VirusologyAmbusol
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - Shuttle
+        #   - Artifacts
+        #   - Bank
+        #   - MiningOutpost
+        #   - VirusologyAmbusol
