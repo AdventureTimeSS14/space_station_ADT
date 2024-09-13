@@ -42,14 +42,31 @@
         type: Pvs
         visualType: Small
         messages: [ "narcotic-effect-visible-miosis" ]
-        probability: 0.05  
+        probability: 0.05
       - !type:HealthChange
         conditions:
+        # Start edit by Filo
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End edit by Filo
         - !type:ReagentThreshold
           min: 10.05
         damage:
           types:
             Asphyxiation: 2
+      # Start edit by Filo
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 10.05
+        damage:
+          types:
+            Poison: 2
+      # End edit by Filo
 
 - type: reagent
   id: LingDrugs
