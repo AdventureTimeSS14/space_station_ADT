@@ -28,3 +28,14 @@
       - type: PhantomRole
         prototype: Phantom
   - type: AntagRandomSpawn
+
+- type: entityTable
+  id: RampingGameRulesTable
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: BasicAntagEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable

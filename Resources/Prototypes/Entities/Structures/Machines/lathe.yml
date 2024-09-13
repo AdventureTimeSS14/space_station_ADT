@@ -343,6 +343,10 @@
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
+      #ADT plasmacutters start
+      - ADTWeaponCutter
+      - ADTWeaponCutterAdv
+      #ADT plasmacutters end
       - WeaponTetherGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding

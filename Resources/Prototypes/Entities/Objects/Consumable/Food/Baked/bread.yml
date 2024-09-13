@@ -413,6 +413,10 @@
     - state: plain
   - type: SliceableFood
     slice: FoodBreadPlainSlice
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - ADTMothFriendlyFood
 
 - type: entity
   name: bread slice
@@ -424,6 +428,11 @@
   - type: Sprite
     layers:
     - state: plain-slice
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 
 - type: entity
   name: sausage bread
@@ -700,6 +709,10 @@
     damage:
       types:
         Blunt: 1 # bonk
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - ADTMothFriendlyFood
 # Tastes like France.
 
 - type: entity
@@ -723,6 +736,11 @@
           Quantity: 0.1
         - ReagentId: Blackpepper
           Quantity: 0.1
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 
 - type: entity
   name: buttered toast
@@ -745,6 +763,11 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 # Tastes like bread, butter.
 
 - type: entity
@@ -792,6 +815,11 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 5
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 # Tastes like garlic, Italy.
 
 - type: entity
