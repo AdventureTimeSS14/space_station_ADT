@@ -898,11 +898,6 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
-      # ADT Airsoft start
-      - ADTWeaponRifleLecterBibis
-      - ADTMagazineRifleBibis
-      - ADTCartridgeStrikeballBibis
-      # ADT Airsoft End
   - type: MaterialStorage
     whitelist:
       tags:
