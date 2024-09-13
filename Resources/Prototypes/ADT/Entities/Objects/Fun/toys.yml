@@ -30,20 +30,18 @@
   name: Neko Arc
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/nekoArc.rsi
+    sprite: ADTObjectsFunnekoArc.rsi
     state: PlushieArc
   - type: EmitSoundOnUse
     sound:
-      path: Audio/ADT/Entities/Object/Fun/Toys/NekoArc/bibibi.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: Audio/ADT/Entities/Object/Fun/Toys/NekoArc/buubuu.ogg
+      collection: ADTArk
   - type: EmitSoundOnLand
     sound:
-      path: Audio/ADT/Entities/Object/Fun/Toys/NekoArc/china.ogg
-  - type: Item
-    size: Normal
+      collection: ADTArk
+  - type: EmitSoundOnActivate
+    sound:
+      collection: ADTArk
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: Audio/ADT/Entities/Object/Fun/Toys/NekoArc/kavooo.ogg
+      collection: ADTArk
