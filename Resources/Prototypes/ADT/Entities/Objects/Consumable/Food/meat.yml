@@ -42,7 +42,7 @@
   name: raw shadekin cutlet
   parent: FoodMeatBase
   id: ADTFoodMeatCutletShadekin
-  description: A raw meat cutlet.
+  description: A raw shadekin cutlet.
   components:
   - type: Tag
     tags:
@@ -83,7 +83,7 @@
   name: shadekin steak
   parent: FoodMeatBase
   id: ADTFoodMeatShadekinCooked
-  description: A cooked slab of meat. Smells primal.
+  description: A cooked slab of shadekin. It looks like meat with wine.
   components:
   - type: Tag
     tags:
@@ -153,11 +153,11 @@
         sprite:
           sprite: ADT/Objects/Consumable/Food/meat.rsi
           state: shadekincutlet-cooked
-    skewer:
+      skewer:
         name: food-sequence-content-meat-shadekin
         sprite:
           sprite: ADT/Objects/Consumable/Food/meat.rsi
-          state: skewer-meat
+          state: skewer-shadekin-meat
   - type: Construction
     graph: ShadekinCutlet
     node: shadekin cutlet
