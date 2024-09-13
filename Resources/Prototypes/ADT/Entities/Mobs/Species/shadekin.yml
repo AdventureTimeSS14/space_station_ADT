@@ -196,6 +196,7 @@
     tallscale: 1
     short: true
     shortscale: 0.85
+  - type: NotLungAlertOxygen # ADT-Alert Прячет кислородное голодание
 
 - type: entity
   save: false
