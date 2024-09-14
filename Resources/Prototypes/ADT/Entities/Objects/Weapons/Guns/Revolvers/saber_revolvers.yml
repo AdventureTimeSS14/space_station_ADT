@@ -37,7 +37,7 @@
   - type: Gun
     fireRate: 1.8
     projectileSpeed: 30
-    SoundEmpty:
+    soundEmpty:
       path: null
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
