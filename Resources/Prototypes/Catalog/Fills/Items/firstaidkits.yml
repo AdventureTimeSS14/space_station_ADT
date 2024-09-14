@@ -81,10 +81,12 @@
   components:
   - type: StorageFill
     contents:
+      # ADT Tweak start
       - id: BurnAutoInjector
       - id: BruteAutoInjector
       - id: RadAutoInjector
       - id: AntiPoisonMedipen
+      # ADT Tweak End
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
