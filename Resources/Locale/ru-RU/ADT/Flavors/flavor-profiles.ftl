@@ -24,3 +24,5 @@ flavor-complex-applemartini = как алкоголь и зелёное ябло
 flavor-complex-bacardiapple = как ром с привкусом яблока
 flavor-complex-elderguards = как закон и очень странная смесь алкоголя с нотками уксуса
 flavor-complex-ADTSawdust = как 24-ая смена за день в лютый мороз
+flavor-complex-limeshade = как теплая тень с лаймовым привкусом
+

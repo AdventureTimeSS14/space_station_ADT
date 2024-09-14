@@ -339,3 +339,19 @@
   - type: Icon
     sprite: ADT/Objects/Consumable/Drinks/elderguards.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkLimeShadeGlass
+  suffix: LimeShade
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTLimeShade
+          Quantity: 30
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
+    state: icon

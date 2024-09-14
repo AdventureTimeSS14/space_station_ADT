@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767 Shadekin big fluff made by DSC@Cabbage#9633 (561159087765848084)",
+    "copyright": "[shadekin, shadekin_big by https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767, Shadekin big fluff made by DSC@Cabbage#9633 (561159087765848084)], other made by discord:filokini",
     "states": [
         {
             "name": "shadekin",
@@ -17,6 +17,82 @@
         },
         {
             "name": "shadekin_big_fluff",
+            "directions": 4
+        },
+        {
+            "name": "big_striped",
+            "directions": 4
+        },
+        {
+            "name": "big_twocolored",
+            "directions": 4
+        },
+        {
+            "name": "big_orbit",
+            "directions": 4
+        },
+        {
+            "name": "big_skeleton",
+            "directions": 4
+        },
+        {
+            "name": "default_dragon",
+            "directions": 4
+        },
+        {
+            "name": "default_striped",
+            "directions": 4
+        },
+        {
+            "name": "fluffy_stainy",
+            "directions": 4
+        },
+        {
+            "name": "snail_gradient",
+            "directions": 4
+        },
+        {
+            "name": "snail_spotty",
+            "directions": 4
+        },
+        {
+            "name": "snail_striped",
+            "directions": 4
+        },
+        {
+            "name": "tail_snail",
+            "directions": 4
+        },
+        {
+            "name": "tail_fluffy",
+            "directions": 4
+        },
+        {
+            "name": "tail_hook",
+            "directions": 4
+        },
+        {
+            "name": "bigfluff_arrowy",
+            "directions": 4
+        },
+        {
+            "name": "bigfluff_spirals",
+            "directions": 4
+        },
+        {
+            "name": "hook_lines",
+            "directions": 4
+        },
+        {
+            "name": "hook_snake",
+            "directions": 4
+        },
+        {
+            "name": "hook_spirals",
+            "directions": 4
+        },
+        {
+            "name": "hook_traced",
             "directions": 4
         }
     ]

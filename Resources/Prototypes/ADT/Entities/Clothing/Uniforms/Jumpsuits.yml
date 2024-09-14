@@ -597,3 +597,74 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
+
+#Альтернативная одежда для ГП
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitHopWarm
+  name: hop jumpsuit warm
+  description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_hop.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseFoldable ]
+  id: ADTClothingJumpsuitHopAlt
+  name: head of personell's business suit
+  description: Fancy.
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-put-on-verb
+    foldVerbText: fold-pull-off-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: vest
+    foldedHeldPrefix: vest
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_alt_hop.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_vest
+      map: ["foldedLayer"]
+      visible: false
+
+#Одежда для ветерана СБ
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitSecOffMogesBrown
+  name: sec off suit from Moges
+  description: Freeze, Moges Vice!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_brown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitSecOffMogesBlue
+  name: sec off suit from Moges
+  description: Freeze, Moges Vice!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitSecOffMogesGray
+  name: sec off suit from Moges
+  description: Freeze, Moges Vice!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_gray.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_gray.rsi
