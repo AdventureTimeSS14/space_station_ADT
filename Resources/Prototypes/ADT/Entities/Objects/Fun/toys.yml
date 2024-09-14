@@ -30,7 +30,7 @@
   name: Neko Arc
   components:
   - type: Sprite
-    sprite: ADTObjectsFunnekoArc.rsi
+    sprite: ADT/Objects/Fun/nekoArc.rsi
     state: PlushieArc
   - type: EmitSoundOnUse
     sound:
@@ -45,3 +45,6 @@
     wideAnimationRotation: 180
     soundHit:
       collection: ADTArk
+  - type: ItemCooldown
+  - type: UseDelay
+    delay: 2.0  
