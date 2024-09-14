@@ -47,27 +47,3 @@
       part: RightFootShadekin
     left foot:
       part: LeftFootShadekin
-
-- type: entity
-  id: ADTOrganShadekinBrain
-  parent: OrganHumanBrain
-  name: brain
-  description: todo
-  components:
-  - type: Sprite
-    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
-    state: brain
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: GreyMatter
-          Quantity: 5
-  - type: FlavorProfile
-    flavors:
-      - people

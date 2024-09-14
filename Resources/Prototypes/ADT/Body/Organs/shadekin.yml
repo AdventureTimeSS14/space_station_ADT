@@ -2,14 +2,13 @@
   id: ADTOrganShadekinLungs
   parent: BaseAnimalOrgan
   name: lungs
-  description: todo
+  description: And these are the lungs? It's more like a joke.
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi
     state: lung
   - type: Organ
   - type: Lung
-#    alert: null
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
@@ -30,10 +29,34 @@
           Quantity: 5
 
 - type: entity
+  id: ADTOrganShadekinBrain
+  parent: OrganHumanBrain
+  name: brain
+  description: And if I eat it, will I be able to do the same as them?
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi
+    state: brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - people
+
+- type: entity
   id: ADTOrganShadekinStomach
   parent: BaseAnimalOrgan
   name: stomach
-  description: todo
+  description: It looks like it's smaller than usual..
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi
@@ -60,7 +83,7 @@
   id: ADTOrganShadekinLiver
   parent: BaseAnimalOrgan
   name: liver
-  description: todo
+  description: Hmm, how much it can be sold for...
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi
@@ -77,7 +100,7 @@
   id: ADTOrganShadekinHeart
   parent: BaseAnimalOrgan
   name: heart
-  description: todo
+  description: The heart? It seems that it has been lying here for several days.
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi
@@ -95,7 +118,7 @@
   id: ADTOrganShadekinKidneys
   parent: BaseAnimalOrgan
   name: kidneys
-  description: todo
+  description: Someone was definitely not watching what he was eating.
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi
@@ -112,7 +135,7 @@
   id: ADTOrganShadekinEyes
   parent: BaseHumanOrgan
   name: eyes
-  description: todo
+  description: Weren't they a different color?..
   components:
   - type: Sprite
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi

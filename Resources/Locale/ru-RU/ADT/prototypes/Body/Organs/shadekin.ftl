@@ -9,4 +9,6 @@ ent-ADTOrganShadekinEyes = глаза
 ent-ADTOrganShadekinKidneys = почки
     .desc = Кто-то точно не следил за тем что он ест.
 ent-ADTOrganShadekinBrain = мозги
-    .desc = Им кто-то говорил, что если покрасить мозг он не станет лучше.
+    .desc = А если его съесть, то я смогу так же как они?
+ent-ADTOrganShadekinLiver = печень
+    .desc = Интересно, за сколько же его можно продать...
