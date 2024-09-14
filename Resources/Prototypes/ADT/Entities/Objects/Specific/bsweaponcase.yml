@@ -22,12 +22,7 @@
     - 3,0,6,1
   - type: StorageFill
     contents:
-      - id: ADTWeaponPistolDesertEagle
-      - id: MagazineMagnum
-      - id: MagazineMagnum
-
-# Оставлю прошлый состав тут
-#      - id: ADTWeaponSaberRevBlueshield
-#      - id: ADTPowerCellLasgunRevolver
-#      - id: ADTPowerCellLasgunRevolver
-#      - id: ADTPowerCellLasgunRevolver
+     - id: ADTWeaponSaberRevBlueshield
+     - id: ADTPowerCellLasgunRevolver
+     - id: ADTPowerCellLasgunRevolver
+     - id: ADTPowerCellLasgunRevolver

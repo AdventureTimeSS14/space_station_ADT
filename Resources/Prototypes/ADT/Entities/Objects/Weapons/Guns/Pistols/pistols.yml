@@ -14,11 +14,11 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Pistols/deser_eagle.rsi
   - type: Gun
-    minAngle: 8
-    maxAngle: 8
-    angleIncrease: 4
-    angleDecay: 4
-    fireRate: 3.1
+    minAngle: 4
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 1
+    fireRate: 3.2
     availableModes:
     - SemiAuto
     soundGunshot:
