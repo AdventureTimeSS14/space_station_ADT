@@ -99,7 +99,7 @@ ent-ADTQMJumpskirtWarm = водолазка квартирмейстера
 
 ent-ADTHOSJumpskirtWarm = { ent-ClothingUniformJumpsuitHoSAlt }
     .desc = { ent-ClothingUniformJumpsuitHoSAlt.desc }
-    
+
 ent-ADTRDJumpskirtWarm = { ent-ClothingUniformJumpsuitResearchDirector }
     .desc = { ent-ClothingUniformJumpsuitResearchDirector.desc }
 
@@ -108,3 +108,6 @@ ent-ADTCapJumpskirtWarm = { ent-ADTCapJumpsuitWarm }
 
 ent-ClothingUniformJumpskirtBlueshieldTurtleneck = юбка-водолазка офицера синего щита
     .desc = Белая удобная водолазка с юбкой для Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
+
+ent-ADTClothingUniformJumpskirtJanimaid = костюм горничной
+    .desc = Обновленный костюм горничной от НТ.
