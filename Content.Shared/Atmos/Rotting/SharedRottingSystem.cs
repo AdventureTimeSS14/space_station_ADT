@@ -6,7 +6,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Atmos.Miasma;
+using Content.Shared.ADT.Atmos.Miasma; //ADT-Medicine
 
 namespace Content.Shared.Atmos.Rotting;
 
