@@ -39,6 +39,5 @@
   - type: StorageFill
     contents:
       - id: SpeedLoaderMagnum
-      - id: SpeedLoaderMagnum
       - id: SmokeGrenade
       - id: SmokeGrenade
