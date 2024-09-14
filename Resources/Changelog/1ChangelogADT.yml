@@ -2997,3 +2997,10 @@ Entries:
           антаги. Лон опс тоже., type: Fix}
     time: '2024-09-12T21:40:34Z'
     id: 350
+  - author: PyotrIgn
+    changes:
+      - {message: Возвращение из небытия карты Moose. Вернул к жизни Lunar_Sosiska,
+        type: Add}
+      - {message: Изменена карта Aspid, type: Tweak}
+    time: '2024-09-14T15:36:14Z'
+    id: 351
