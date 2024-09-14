@@ -45,6 +45,5 @@
     wideAnimationRotation: 180
     soundHit:
       collection: ADTArk
-  - type: ItemCooldown
   - type: UseDelay
     delay: 2.0  
