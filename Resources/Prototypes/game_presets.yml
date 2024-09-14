@@ -74,7 +74,7 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: false #2boring2vote
+  showInVote: true #2boring2vote
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -87,7 +87,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: true #ADT_Tweak
+  showInVote: false #ADT_Tweak
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler

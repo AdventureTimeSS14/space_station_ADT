@@ -1,0 +1,17 @@
+- type: loadoutEffectGroup
+  id: ADTCargoTechnician15hrs
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 54000 # 15 hrs
+
+# Head
+- type: loadout
+  id: ADTCargoTechnicianBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTCargoTechnician15hrs
+  equipment:
+    head: ADTClothingHeadHatsBeretSupply
