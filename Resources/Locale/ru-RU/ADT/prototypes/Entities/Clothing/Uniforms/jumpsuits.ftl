@@ -200,10 +200,6 @@ ent-ADTClothingUniformNewMekka = униформа Новой Мекки
     .desc = Эта униформа имеет очень долгую и кровавую историю...
     .suffix = { "Новая Мекка" }
 
-
-ent-ADTClothingUniformJumpskirtJanimaid = костюм горничной
-    .desc = Обновленный костюм горничной от НТ.
-
 ent-ADTClothingJumpsuitHopAlt = деловой костюм главы персонала
     .desc = Качетсвенно сделанная униформа для тех глав персонала, что могут себе такую позволить.
 ent-ADTClothingJumpsuitSecOffMogesBrown = костюм офицера СБ с Могеса
