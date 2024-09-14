@@ -3,11 +3,10 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Server.ADT.NotLungAlertOxygen;
 
 namespace Content.Server.Body.Components
 {
-    [RegisterComponent, Access(typeof(RespiratorSystem), typeof(NotLungAlertOxygenSystem))] // ADT-TWEAK: add typeof(NotLungAlertOxygenSystem) чтобы у суммеров убирался алерт кислородного голодания
+    [RegisterComponent, Access(typeof(RespiratorSystem))]
     public sealed partial class RespiratorComponent : Component
     {
         /// <summary>

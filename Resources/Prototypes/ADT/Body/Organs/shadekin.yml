@@ -9,6 +9,7 @@
     state: lung
   - type: Organ
   - type: Lung
+#    alert: null
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
