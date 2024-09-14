@@ -15,11 +15,11 @@
     children:
     - id: UnknownShuttleSyndieEvacPod
 
-- type: entityTable
-  id: UnknownShuttlesHostileTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: LoneOpsSpawn
+# - type: entityTable # ADT tweak - Ёбнутые? Они засунули это в список к шаттлам, которые вынуждены идти на контакт. ЛОН ОПС в этот список входить НЕ ДОЛЖЕН
+#   id: UnknownShuttlesHostileTable
+#   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#     children:
+#     - id: LoneOpsSpawn
 
 # Shuttle Game Rules
 
