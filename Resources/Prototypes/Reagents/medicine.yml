@@ -143,11 +143,11 @@
             Brute: -2
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
+      # Start ADT tweak
         - !type:OrganType
           type: Shadekin
-          shouldhave: false
-        # End ADT tweak
+          shouldHave: false
+      # End ADT tweak
         - !type:ReagentThreshold
           min: 15
         damage:
@@ -289,7 +289,7 @@
           min: 10
         damage:
           types:
-            Cold: 3
+            Cold: 2.5
           groups:
             Brute: 1
       # End ADT tweak

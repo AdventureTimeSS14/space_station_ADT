@@ -65,9 +65,9 @@
         Heat : 0.25 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      293: 0.8
-      280: 0.6
-      260: 0.4
+      273: 0.8
+      260: 0.6
+      230: 0.4
   - type: Fixtures
     fixtures:
       fix1:

@@ -41,7 +41,7 @@
           shouldHave: true
         damage:
           types:
-            Poison: 1.25
+            Poison: 1
       - !type:HealthChange
         conditions:
         - !type:OrganType

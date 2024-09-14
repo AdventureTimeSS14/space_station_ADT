@@ -322,8 +322,8 @@
           shouldHave: true
         damage:
           types:
-            Poison: 3.5
-            Cold: 1.5
+            Poison: 3
+            Cold: 1
       # End ADT tweak
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -358,8 +358,8 @@
         damage:
           types:
             Bloodloss: 3
-            Poison: 4
-            Cold: 2.5
+            Poison: 3.5
+            Cold: 2
       # End ADT tweak
 
 - type: reagent
@@ -425,7 +425,7 @@
         damage:
           groups:
             Brute: 3
-            Toxin: 2.5
+            Toxin: 2
       # End ADT tweak
       - !type:PopupMessage
         type: Local
@@ -695,7 +695,7 @@
           shouldHave: true
         damage:
           types:
-            Poison: 1.5
+            Poison: 1.25
             Cold: 0.5
       # End ADT tweak
 
