@@ -3004,3 +3004,15 @@ Entries:
       - {message: Изменена карта Aspid, type: Tweak}
     time: '2024-09-14T15:36:14Z'
     id: 351
+  - author: PyotrIgn
+    changes:
+      - {message: 'Добавлены новые спрайты для артефактов и артефактной руды. Автор:
+          unlumy', type: Add}
+    time: '2024-09-14T16:46:15Z'
+    id: 352
+  - author: Ratyyy
+    changes:
+      - {message: НТ глобально сменили схему станции meta!, type: Tweak}
+      - {message: НТ отправили нужную партию моргов на станцтю!, type: Fix}
+    time: '2024-09-14T18:20:48Z'
+    id: 353
