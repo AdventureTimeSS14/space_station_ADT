@@ -13,6 +13,8 @@
     - !type:RoleTimeRequirement
       role: JobChiefMedicalOfficer
       time: 18000 #5 hrs
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 15
   startingGear: ADTBlueShieldOfficerGear
   icon: "JobIconADTBlueShieldOfficer"
