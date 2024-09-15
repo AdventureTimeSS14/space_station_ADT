@@ -72,6 +72,11 @@
   parent: Medkit
   id: MedkitAdvanced
   components:
+    #ADT Tweak
+  - type: Storage
+    grid:
+    - 0,0,4,1
+    #ADT Tweak
   - type: Sprite
     state: advkit
   - type: Item
