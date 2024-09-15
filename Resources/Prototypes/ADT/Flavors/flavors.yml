@@ -118,3 +118,8 @@
   flavorType: Complex
   description: flavor-complex-limeshade
 
+# Суп
+- type: flavor
+  id: ADTSawdust
+  flavorType: Complex
+  description: flavor-complex-ADTSawdust
