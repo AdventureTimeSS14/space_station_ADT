@@ -1,0 +1,16 @@
+- type: construction
+  id: ADTDeckChairRecipe
+  name: deckchair
+  description: A deckchair for the acquisition of an even tan under the light of the nearest star.
+  graph: adt_deckchair
+  startNode: start
+  targetNode: adtdeckchair
+  category: construction-category-furniture
+  icon:
+    sprite: ADT/Structures/Furniture/deckchair.rsi
+    state: deckchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
