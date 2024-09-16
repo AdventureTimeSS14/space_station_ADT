@@ -2,7 +2,7 @@
   id: ADTDeckChairRecipe
   name: deckchair
   description: A deckchair for the acquisition of an even tan under the light of the nearest star.
-  graph: bed
+  graph: adt_deckchair
   startNode: start
   targetNode: adtdeckchair
   category: construction-category-furniture

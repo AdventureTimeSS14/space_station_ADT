@@ -38,13 +38,13 @@ ent-ADTRandomHumanoidSpawnerERTSecurityEVARiot = ОБР офицер сб
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
 
-ent-ADTRandomHumanoidSpawnerERTMedical = ОБР офицер сб
+ent-ADTRandomHumanoidSpawnerERTMedical = ОБР медик сб
     .suffix = Базовый
     .desc = { "" }
-ent-ADTRandomHumanoidSpawnerERTMedicalEVA = ОБР офицер сб
+ent-ADTRandomHumanoidSpawnerERTMedicalEVA = ОБР медик сб
     .suffix = Броня EVA, против ЯО
     .desc = { ent-RandomHumanoidSpawnerERTLeader.desc }
-ent-ADTRandomHumanoidSpawnerERTMedicalEVARiot = ОБР офицер сб
+ent-ADTRandomHumanoidSpawnerERTMedicalEVARiot = ОБР медик сб
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
 

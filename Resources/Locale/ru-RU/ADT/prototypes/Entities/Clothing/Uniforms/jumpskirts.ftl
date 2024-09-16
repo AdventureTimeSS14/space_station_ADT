@@ -89,7 +89,7 @@ ent-ADTCMOJumpskirtWarm = водолазка главного врача
     .desc = Это комбинезон, носимый теми, у кого есть опыт работы на должности главного врача. Он обеспечивает слабую биологическую защиту.
     .suffix = {""}
 
-ent-ADTHOPJumpskirtWarm = водолазка главы персонала
+ent-ADTClothingUniformJumpskirtHopWarm = водолазка c юбкой главы персонала
     .desc = Довольно безвкусная и невзрачная. Идеально подходит для того, чтобы исчезнуть с лица Вселенной.
     .suffix = {""}
 
@@ -99,7 +99,7 @@ ent-ADTQMJumpskirtWarm = водолазка квартирмейстера
 
 ent-ADTHOSJumpskirtWarm = { ent-ClothingUniformJumpsuitHoSAlt }
     .desc = { ent-ClothingUniformJumpsuitHoSAlt.desc }
-    
+
 ent-ADTRDJumpskirtWarm = { ent-ClothingUniformJumpsuitResearchDirector }
     .desc = { ent-ClothingUniformJumpsuitResearchDirector.desc }
 
@@ -127,3 +127,9 @@ ent-ADTClothingUniformBlackElegantDress = элегантное черное пл
     .desc = Оно не слишком короткое? Мою попу не видно?
 ent-ADTClothingUniformOrangeBeachSuit = оранжевый пляжный костюм
     .desc = Цвет настроения оранжевый. Для любителей апельсинов и хорошего загара.
+ent-ADTClothingJumpskirtHopAlt = деловой костюм с юбкой главы персонала
+    .desc = Качетсвенно сделанная униформа для тех глав персонала, что могут себе такую позволить.
+
+ent-ADTClothingUniformJumpskirtJanimaid = костюм горничной
+    .desc = Обновленный костюм горничной от НТ.
+

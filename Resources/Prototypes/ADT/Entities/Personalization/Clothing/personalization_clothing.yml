@@ -452,3 +452,16 @@
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
   - type: Clothing
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
+
+#Maki_gg
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatMaki
+  name: Maki coat
+  description: Maki coat.
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/maki_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/maki_coat.rsi

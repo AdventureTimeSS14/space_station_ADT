@@ -21,7 +21,7 @@
   icon: { sprite: ADT/Objects/Specific/Service/iron_tray.rsi, state: icon}
   productEntity: ADTAntagIronTray
   cost:
-    Telecrystal: 2
+    Telecrystal: 3
   categories:
   - UplinkJob
   conditions:
@@ -31,3 +31,4 @@
     - Clown
     - Mime
     - Botanist
+    - Bartender
