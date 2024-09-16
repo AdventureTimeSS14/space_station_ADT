@@ -30,27 +30,3 @@ ent-ADTArmchairBlue = синее кресло
 
 ent-ADTArmchairBlue2 = { ent-ADTArmchairBlue }
     .desc = { ent-ADTArmchairWhite.desc }
-
-ent-ADTRoundTablePlastic = пластиковый круглый столик
-    .desc = Хорошо подойдет для маленького кафе.
-
-ent-ADTRoundTableWood = деревянный круглый столик
-    .desc = Хорошо подойдет для маленького кафе.
-
-ent-ADTRoundTableGlass = стеклянный круглый столик
-    .desc = Хорошо подойдет для маленького кафе.
-
-ent-ADTPizzeriaStool = черный стул для пиццерии
-    .desc = Хорошо подойдет для маленького кафе.
-
-ent-ADTRedStool = красный деревянный стул
-    .desc = Хорошо подойдет для маленького кафе.
-
-ent-ADTWhiteStool = белый деревянный стул
-    .desc = Хорошо подойдет для маленького кафе.
-
-ent-ADTRedTable = красный деревянный стол
-    .desc = Деревянный стол с красивой скатертью.
-
-ent-ADTWhiteTable = белый деревянный стол
-    .desc = Деревянный стол с красивой скатертью.
