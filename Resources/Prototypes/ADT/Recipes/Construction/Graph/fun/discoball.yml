@@ -4,7 +4,7 @@
   graph:
     - node: start
       edges:
-        - to: discoBall
+        - to: discoball
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -13,7 +13,7 @@
               amount: 10
               doAfter: 5
 
-    - node: discoBall
+    - node: discoball
       entity: ADTDiscoBall
       edges:
         - to: start

@@ -14,7 +14,7 @@
     sprite: ADT/Structures/Furniture/Sofa/black_sofa.rsi
     state: sofa_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtblacksofaleft
 
 - type: entity
@@ -33,7 +33,7 @@
     sprite: ADT/Structures/Furniture/Sofa/black_sofa.rsi
     state: sofa_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtblacksofamiddle
 
 - type: entity
@@ -52,7 +52,7 @@
     sprite: ADT/Structures/Furniture/Sofa/black_sofa.rsi
     state: sofa_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtblacksofaright
 
 #red sofa
@@ -72,7 +72,7 @@
     sprite: ADT/Structures/Furniture/Sofa/red_sofa.rsi
     state: sofa_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtredsofaleft
 
 - type: entity
@@ -91,7 +91,7 @@
     sprite: ADT/Structures/Furniture/Sofa/red_sofa.rsi
     state: sofa_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtredsofamiddle
 
 - type: entity
@@ -110,7 +110,7 @@
     sprite: ADT/Structures/Furniture/Sofa/red_sofa.rsi
     state: sofa_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtredsofaright
 
 #violet sofa
@@ -130,7 +130,7 @@
     sprite: ADT/Structures/Furniture/Sofa/violet_sofa.rsi
     state: sofa_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtvioletsofaleft
 
 - type: entity
@@ -149,7 +149,7 @@
     sprite: ADT/Structures/Furniture/Sofa/violet_sofa.rsi
     state: sofa_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtvioletsofamiddle
 
 - type: entity
@@ -168,7 +168,7 @@
     sprite: ADT/Structures/Furniture/Sofa/violet_sofa.rsi
     state: sofa_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtvioletsofaright
 
 #leather sofa
@@ -188,7 +188,7 @@
     sprite: ADT/Structures/Furniture/Sofa/leather_sofa.rsi
     state: sofa_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtleathersofaleft
 
 - type: entity
@@ -207,7 +207,7 @@
     sprite: ADT/Structures/Furniture/Sofa/leather_sofa.rsi
     state: sofa_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtleathersofamiddle
 
 - type: entity
@@ -226,7 +226,7 @@
     sprite: ADT/Structures/Furniture/Sofa/leather_sofa.rsi
     state: sofa_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtleathersofaright
 
 #церковная скамейка
@@ -247,7 +247,7 @@
     sprite: ADT/Structures/Furniture/bench_church.rsi #спрайт от shi106
     state: bench_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtchurchbenchleft
 
 - type: entity
@@ -266,7 +266,7 @@
     sprite: ADT/Structures/Furniture/bench_church.rsi #спрайт от shi106
     state: bench_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtchurchbenchmiddle
 
 - type: entity
@@ -285,7 +285,7 @@
     sprite: ADT/Structures/Furniture/bench_church.rsi #спрайт от shi106
     state: bench_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtchurchbenchright
 
 #Диваны от lunalita
@@ -309,7 +309,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
     state: whitesofa_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofawhiteleft
 
 - type: entity
@@ -328,7 +328,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
     state: whitesofa_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofawhiteright
 
 - type: entity
@@ -347,7 +347,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
     state: whitesofa_left_02
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofawhiteleft2
 
 - type: entity
@@ -366,7 +366,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
     state: whitesofa_right_02
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofawhiteright2
 
 ##середина.
@@ -386,7 +386,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
     state: whitesofa_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofawhitemiddle
 
 ##углы.
@@ -406,7 +406,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
     state: whitesofa_rightcorner
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofawhiterightcorner
 
 - type: entity
@@ -425,7 +425,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
     state: whitesofa_leftcorner
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofawhiteleftcorner
 
 #Голубой.
@@ -446,7 +446,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
     state: bluesofa_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofablueleft
 
 - type: entity
@@ -465,7 +465,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
     state: bluesofa_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofablueright
 
 - type: entity
@@ -484,7 +484,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
     state: bluesofa_left_02
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofablueleft2
 
 - type: entity
@@ -503,7 +503,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
     state: bluesofa_right_02
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofablueright2
 
 ##Середина.
@@ -523,7 +523,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
     state: bluesofa_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabluemiddle
 
 ##Углы
@@ -543,7 +543,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
     state: bluesofa_rightcorner
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabluerightcorner
 
 - type: entity
@@ -562,7 +562,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
     state: bluesofa_leftcorner
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofablueleftcorner
 
 #Коричневый.
@@ -583,7 +583,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
     state: brownsofa_left
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabrownleft
 
 - type: entity
@@ -602,7 +602,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
     state: brownsofa_right
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabrownright
 
 - type: entity
@@ -621,7 +621,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
     state: brownsofa_left_02
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabrownleft2
 
 - type: entity
@@ -640,7 +640,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
     state: brownsofa_right_02
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabrownright2
 
 ##Середина.
@@ -660,7 +660,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
     state: brownsofa_middle
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabrownmiddle
 
 ##Углы
@@ -680,7 +680,7 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
     state: brownsofa_rightcorner
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabrownrightcorner
 
 - type: entity
@@ -699,5 +699,5 @@
     sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
     state: brownsofa_leftcorner
   - type: Construction
-    graph: Seat
+    graph: ADTSeat
     node: adtsofabrownleftcorner
