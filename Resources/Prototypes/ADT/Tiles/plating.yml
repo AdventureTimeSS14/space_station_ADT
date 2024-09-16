@@ -1,52 +1,67 @@
-- type: tile
-  id: ADTUpperLeftLattice
-  name: tiles-upperleft-lattice
-  sprite: /Textures/ADT/Tiles/upper_left_lattice.png
-  baseTurf: Space
-  isSubfloor: true
-  deconstructTools: [ Cutting ]
-  weather: true
-  footstepSounds:
-    collection: FootstepPlating
-  friction: 0.3
-  isSpace: true
-  itemDrop: PartRodMetal1
-  heatCapacity: 10000
+# - type: tile
+#   id: ADTUpperLeftLattice
+#   name: tiles-upperleft-lattice
+#   sprite: /Textures/ADT/Tiles/upper_left_lattice.png
+#   baseTurf: Space
+#   isSubfloor: true
+#   deconstructTools: [ Cutting ]
+#   weather: true
+#   footstepSounds:
+#     collection: FootstepPlating
+#   friction: 0.3
+#   isSpace: true
+#   itemDrop: PartRodMetal1
+#   heatCapacity: 10000
+
+# - type: tile
+#   id: ADTUpperRightLattice
+#   name: tiles-upperright-lattice
+#   sprite: /Textures/ADT/Tiles/upper_right_lattice.png
+#   baseTurf: Space
+#   isSubfloor: true
+#   deconstructTools: [ Cutting ]
+#   weather: true
+#   footstepSounds:
+#     collection: FootstepPlating
+#   friction: 0.3
+#   isSpace: true
+#   itemDrop: PartRodMetal1
+#   heatCapacity: 10000
+
+# - type: tile
+#   id: ADTLowerLeftLattice
+#   name: tiles-lowerleft-lattice
+#   sprite: /Textures/ADT/Tiles/lower_left_lattice.png
+#   baseTurf: Space
+#   isSubfloor: true
+#   deconstructTools: [ Cutting ]
+#   weather: true
+#   footstepSounds:
+#     collection: FootstepPlating
+#   friction: 0.3
+#   isSpace: true
+#   itemDrop: PartRodMetal1
+#   heatCapacity: 10000
+
+# - type: tile
+#   id: ADTLowerRightLattice
+#   name: tiles-lowerright-lattice
+#   sprite: /Textures/ADT/Tiles/lower_right_lattice.png
+#   baseTurf: Space
+#   isSubfloor: true
+#   deconstructTools: [ Cutting ]
+#   weather: true
+#   footstepSounds:
+#     collection: FootstepPlating
+#   friction: 0.3
+#   isSpace: true
+#   itemDrop: PartRodMetal1
+#   heatCapacity: 10000
 
 - type: tile
-  id: ADTUpperRightLattice
-  name: tiles-upperright-lattice
-  sprite: /Textures/ADT/Tiles/upper_right_lattice.png
-  baseTurf: Space
-  isSubfloor: true
-  deconstructTools: [ Cutting ]
-  weather: true
-  footstepSounds:
-    collection: FootstepPlating
-  friction: 0.3
-  isSpace: true
-  itemDrop: PartRodMetal1
-  heatCapacity: 10000
-
-- type: tile
-  id: ADTLowerLeftLattice
-  name: tiles-lowerleft-lattice
-  sprite: /Textures/ADT/Tiles/lower_left_lattice.png
-  baseTurf: Space
-  isSubfloor: true
-  deconstructTools: [ Cutting ]
-  weather: true
-  footstepSounds:
-    collection: FootstepPlating
-  friction: 0.3
-  isSpace: true
-  itemDrop: PartRodMetal1
-  heatCapacity: 10000
-
-- type: tile
-  id: ADTLowerRightLattice
-  name: tiles-lowerright-lattice
-  sprite: /Textures/ADT/Tiles/lower_right_lattice.png
+  id: ADTTrainLattice
+  name: tiles-lattice-train
+  sprite: /Textures/Tiles/latticeTrain.png
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
