@@ -1,0 +1,56 @@
+- type: constructionGraph
+  id: ADTStool
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: pizzeriaStool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: redStool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: whiteStool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+    - node: pizzeriaStool
+      entity: ADTPizzeriaStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: redStool
+      entity: ADTRedStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: whiteStool
+      entity: ADTWhiteStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2

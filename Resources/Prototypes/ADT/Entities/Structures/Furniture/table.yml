@@ -1,0 +1,334 @@
+- type: entity
+  id: ADTRedTable
+  parent: TableBase
+  name: wood red table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/table_red_wood.rsi
+  - type: Icon
+    sprite: ADT/Structures/Furniture/table_red_wood.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/woodhit.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Construction
+    graph: ADTTable
+    node: redWoodTable
+
+- type: entity
+  id: ADTWhiteTable
+  parent: TableBase
+  name: wood white table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  suffix: One Year
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/table_white_wood.rsi
+  - type: Icon
+    sprite: ADT/Structures/Furniture/table_white_wood.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/woodhit.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Construction
+    graph: ADTTable
+    node: whiteWoodTable
+
+- type: entity
+  id: ADTRedWoodTableFrame
+  # BaseStructure and not BaseTable, since these shouldn't be climbable/placeable.
+  parent: BaseStructure
+  name: table frame
+  description: Pieces of metal that make the frame of a table.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/frame.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/frame.rsi
+    state: full
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.30,0.40,0.45"
+        density: 80
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: IconSmooth
+    key: state
+    base: state_
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTTable
+    node: redWoodTableFrame
+
+- type: entity
+  id: ADTWhiteWoodTableFrame
+  # BaseStructure and not BaseTable, since these shouldn't be climbable/placeable.
+  parent: BaseStructure
+  name: table frame
+  description: Pieces of metal that make the frame of a table.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/frame.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/frame.rsi
+    state: full
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.30,0.40,0.45"
+        density: 80
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: IconSmooth
+    key: state
+    base: state_
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTTable
+    node: whiteWoodTableFrame
+
+- type: entity
+  id: ADTRoundTablePlastic
+  parent: BaseStructure
+  name: plastic round table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  suffix: One Year
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/roundtable.rsi
+    state: round_plastic
+  - type: Icon
+    sprite: ADT/Structures/Furniture/roundtable.rsi
+    state: round_plastic
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+    bonkSound: !type:SoundCollectionSpecifier
+      collection: TrayHit
+  - type: Clickable
+  - type: Construction
+    graph: ADTRoundTable
+    node: plasticRoundTable
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  id: ADTRoundTableWood
+  parent: ADTRoundTablePlastic
+  name: wood round table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  suffix: One Year
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/woodhit.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/roundtable.rsi
+    state: round_wood
+  - type: Icon
+    sprite: ADT/Structures/Furniture/roundtable.rsi
+    state: round_wood
+  - type: Construction
+    graph: ADTRoundTable
+    node: woodRoundTable
+
+- type: entity
+  id: ADTRoundTableGlass
+  parent: ADTRoundTablePlastic
+  name: glass round table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  suffix: One Year
+  components:
+  - type: GlassTable
+    climberDamage:
+      types:
+        Slash: 30
+    tableDamage:
+      types:
+        Blunt: 100
+    tableMassLimit: 60
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/glass_break2.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/roundtable.rsi
+    state: round_glass
+  - type: Icon
+    sprite: ADT/Structures/Furniture/roundtable.rsi
+    state: round_glass
+  - type: Construction
+    graph: ADTRoundTable
+    node: glassRoundTable

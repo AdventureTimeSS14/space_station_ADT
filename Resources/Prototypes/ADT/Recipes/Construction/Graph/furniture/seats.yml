@@ -1,0 +1,805 @@
+- type: constructionGraph
+  id: ADTSeat
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtblacksofaleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtblacksofamiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtblacksofaright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtredsofaleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtredsofamiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtredsofaright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtvioletsofaleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtvioletsofamiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtvioletsofaright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtleathersofaleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtleathersofamiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtleathersofaright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofawhiteleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofawhiteright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofawhiteleft2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofawhiteright2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofawhitemiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofawhiteleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofawhiterightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofablueleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofablueright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofablueleft2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofablueright2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabluemiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofablueleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabluerightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabrownleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabrownright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabrownleft2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabrownright2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabrownmiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabrownleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofabrownrightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairblack
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairviolet
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairred
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairleather
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairblue
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairblue2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairwhite
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairwhite2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairbrown
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtarmchairbrown2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtchurchbenchleft
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchurchbenchmiddle
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchurchbenchright
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+
+# Sofa
+# Sofa-black
+    - node: adtblacksofaleft
+      entity: ADTBlackSofaLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtblacksofamiddle
+      entity: ADTBlackSofaMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtblacksofaright
+      entity: ADTBlackSofaRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa-red
+
+    - node: adtredsofaleft
+      entity: ADTRedSofaLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtredsofamiddle
+      entity: ADTRedSofaMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtredsofaright
+      entity: ADTRedSofaRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa-violet
+
+    - node: adtvioletsofaleft
+      entity: ADTVioletSofaLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtvioletsofamiddle
+      entity: ADTVioletSofaMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtvioletsofaright
+      entity: ADTVioletSofaRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa-leather
+
+    - node: adtleathersofaleft
+      entity: ADTLeatherSofaLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtleathersofamiddle
+      entity: ADTLeatherSofaMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtleathersofaright
+      entity: ADTLeatherSofaRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa-white
+
+    - node: adtsofawhiteleft
+      entity: ADTSofaWhiteLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofawhiteright
+      entity: ADTSofaWhiteRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofawhiteleft2
+      entity: ADTSofaWhiteLeftSide2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofawhiteright2
+      entity: ADTSofaWhiteRightSide2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofawhitemiddle
+      entity: ADTSofaWhiteMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofawhiteleftcorner
+      entity: ADTSofaWhiteLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofawhiterightcorner
+      entity: ADTSofaWhiteRightCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa-blue
+
+    - node: adtsofablueleft
+      entity: ADTSofaBlueLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofablueright
+      entity: ADTSofaBlueRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofablueleft2
+      entity: ADTSofaBlueLeftSide2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofablueright2
+      entity: ADTSofaBlueRightSide2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabluemiddle
+      entity: ADTSofaBlueMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofablueleftcorner
+      entity: ADTSofaBlueLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabluerightcorner
+      entity: ADTSofaBlueRightCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa-brown
+
+    - node: adtsofabrownleft
+      entity: ADTSofaBrownLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabrownright
+      entity: ADTSofaBrownRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabrownleft2
+      entity: ADTSofaBrownLeftSide2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabrownright2
+      entity: ADTSofaBrownRightSide2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabrownmiddle
+      entity: ADTSofaBrownMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabrownleftcorner
+      entity: ADTSofaBrownLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofabrownrightcorner
+      entity: ADTSofaBrownRightCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairblack
+      entity: ADTArmChairBlack
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairviolet
+      entity: ADTArmchairViolet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairred
+      entity: ADTArmchairRed
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairleather
+      entity: ADTArmchairLeather
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchurchbenchleft
+      entity: ADTChurchBenchLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: adtchurchbenchmiddle
+      entity: ADTChurchBenchMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: adtchurchbenchright
+      entity: ADTChurchBenchRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: adtarmchairwhite
+      entity: ADTArmchairWhite
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairwhite2
+      entity: ADTArmchairWhite2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairbrown
+      entity: ADTArmchairBrown
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairbrown2
+      entity: ADTArmchairBrown2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairblue
+      entity: ADTArmchairBlue
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtarmchairblue2
+      entity: ADTArmchairBlue2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
