@@ -221,6 +221,26 @@
             - material: Steel
               amount: 2
               doAfter: 1
+        - to: pizzeriastool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: redstool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: whitestool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: oktoberfeststool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
         - to: adtchurchbenchleft
           steps:
             - material: WoodPlank
@@ -236,7 +256,6 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
-
 
 # Sofa
 # Sofa-black
@@ -649,7 +668,7 @@
               doAfter: 2
 
     - node: adtarmchairblack
-      entity: ADTArmChairBlack
+      entity: ADTArmchairBlack
       edges:
         - to: start
           completed:
@@ -794,6 +813,51 @@
 
     - node: adtarmchairblue2
       entity: ADTArmchairBlue2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: pizzeriastool
+      entity: ADTPizzeriaStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: redstool
+      entity: ADTRedStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: whitestool
+      entity: ADTWhiteStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: oktoberfeststool
+      entity: ADTChairOktoberfest
       edges:
         - to: start
           completed:

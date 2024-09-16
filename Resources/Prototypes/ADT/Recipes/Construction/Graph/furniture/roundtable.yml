@@ -4,7 +4,7 @@
   graph:
     - node: start
       edges:
-        - to: plasticRoundTable
+        - to: plasticroundtable
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -12,7 +12,7 @@
             - material: Plastic
               amount: 4
               doAfter: 4
-        - to: woodRoundTable
+        - to: woodroundtable
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -20,7 +20,7 @@
             - material: WoodPlank
               amount: 4
               doAfter: 4
-        - to: glassRoundTable
+        - to: glassroundtable
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -29,7 +29,7 @@
               amount: 4
               doAfter: 4
 
-    - node: plasticRoundTable
+    - node: plasticroundtable
       entity: ADTRoundTablePlastic
       edges:
         - to: start
@@ -42,7 +42,7 @@
             - tool: Prying
               doAfter: 4
 
-    - node: woodRoundTable
+    - node: woodroundtable
       entity: ADTRoundTableWood
       edges:
         - to: start
@@ -55,7 +55,7 @@
             - tool: Prying
               doAfter: 4
 
-    - node: glassRoundTable
+    - node: glassroundtable
       entity: ADTRoundTableGlass
       edges:
         - to: start

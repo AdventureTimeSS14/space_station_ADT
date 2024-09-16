@@ -580,10 +580,10 @@
 
 - type: construction
   name: violet chair
-  id: ADTVioletChairRecipe
+  id: ADTArmchairVioletRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtvioletchair
+  targetNode: adtarmchairviolet
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -597,10 +597,10 @@
 
 - type: construction
   name: red chair
-  id: ADTRedChairRecipe
+  id: ADTArmchairRedRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtredchair
+  targetNode: adtarmchairred
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -614,10 +614,10 @@
 
 - type: construction
   name: leather chair
-  id: ADTLeatherChairRecipe
+  id: ADTArmchairLeatherRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtleatherchair
+  targetNode: adtarmchairleather
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -633,10 +633,10 @@
 
 - type: construction
   name: black chair
-  id: ADTBlackChairRecipe
+  id: ADTArmchairBlackRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtblackchair
+  targetNode: adtarmchairblack
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -757,7 +757,7 @@
   id: ADTRoundTablePlasticRecipe
   graph: ADTRoundTable
   startNode: start
-  targetNode: plasticRoundTable
+  targetNode: plasticroundtable
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:
@@ -774,7 +774,7 @@
   id: ADTRoundTableWoodRecipe
   graph: ADTRoundTable
   startNode: start
-  targetNode: woodRoundTable
+  targetNode: woodroundtable
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:
@@ -791,7 +791,7 @@
   id: ADTRoundTableGlassRecipe
   graph: ADTRoundTable
   startNode: start
-  targetNode: glassRoundTable
+  targetNode: glassroundtable
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:
@@ -805,10 +805,10 @@
 
 - type: construction
   name: white wood table
-  id: ADTWhiteTableRecipe
+  id: ADTWhiteWoodTableRecipe
   graph: ADTTable
   startNode: start
-  targetNode: whiteWoodTable
+  targetNode: whitewoodtable
   category: construction-category-furniture
   description: A square piece of glass, standing on four metal legs.
   icon:
@@ -822,10 +822,10 @@
 
 - type: construction
   name: red wood table
-  id: ADTRedTableRecipe
+  id: ADTRedWoodTableRecipe
   graph: ADTTable
   startNode: start
-  targetNode: redWoodTable
+  targetNode: redwoodtable
   category: construction-category-furniture
   description: A square piece of glass, standing on four metal legs.
   icon:
@@ -842,9 +842,9 @@
 - type: construction
   name: pizza stool
   id: ADTPizzeriaStoolRecipe
-  graph: ADTStool
+  graph: ADTSeat
   startNode: start
-  targetNode: pizzeriaStool
+  targetNode: pizzeriastool
   category: construction-category-furniture
   description: You can sit on this.
   icon:
@@ -859,9 +859,9 @@
 - type: construction
   name: white stool
   id: ADTWhiteStoolRecipe
-  graph: ADTStool
+  graph: ADTSeat
   startNode: start
-  targetNode: whiteStool
+  targetNode: whitestool
   category: construction-category-furniture
   description: You can sit on this.
   icon:
@@ -876,9 +876,9 @@
 - type: construction
   name: red stool
   id: ADTRedStoolRecipe
-  graph: ADTStool
+  graph: ADTSeat
   startNode: start
-  targetNode: redStool
+  targetNode: redstool
   category: construction-category-furniture
   description: You can sit on this.
   icon:
@@ -936,6 +936,59 @@
   icon:
     sprite: ADT/Structures/Furniture/bench_church.rsi
     state: bench_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# OctoberFest
+
+- type: construction
+  name: oktoberfest stool
+  id: ADTChairOktoberfestRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: oktoberfeststool
+  category: construction-category-furniture
+  description: You can sit on this.
+  icon:
+    sprite: ADT/Structures/Furniture/oktoberfest_chair.rsi
+    state: oct_chair_orange
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: oktoberfest table
+  id: ADTTableOktoberfestRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: oktoberfesttable
+  category: construction-category-furniture
+  description: Do not apply fire to this. Rumour says it burns easily.
+  icon:
+    sprite: ADT/Structures/Furniture/oktoberfest_table.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: oktoberfest orange table
+  id: ADTTableOktoberfestOrangeRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: oktoberfesttableorange
+  category: construction-category-furniture
+  description: Do not apply fire to this. Rumour says it burns easily.
+  icon:
+    sprite: ADT/Structures/Furniture/oktoberfest_table_orange.rsi
+    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1035,7 +1088,7 @@
   id: ADTDiscoBallRecipe
   graph: ADTDiscoBallGraph
   startNode: start
-  targetNode: discoBall
+  targetNode: discoball
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:

@@ -1,0 +1,159 @@
+- type: constructionGraph
+  id: ADTTable
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DeleteEntity {}
+      edges:
+        - to: redwoodtableframe
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: whitewoodtableframe
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: oktoberfesttableframe
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: oktoberfesttableorangeframe
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+
+    - node: whitewoodtableframe
+      entity: ADTWhiteWoodTableFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+                prototype: PartRodMetal
+                amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+        - to: whitewoodtable
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+    - node: redwoodtableframe
+      entity: ADTRedWoodTableFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+                prototype: PartRodMetal
+                amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+        - to: redwoodtable
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+    - node: whitewoodtable
+      entity: ADTWhiteWoodTable
+      edges:
+        - to: whitewoodtableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+    - node: redwoodtable
+      entity: ADTRedWoodTable
+      edges:
+        - to: redwoodtableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+    - node: oktoberfesttableframe
+      entity: ADTTableOktoberfestFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+                prototype: PartRodMetal
+                amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+        - to: oktoberfesttable
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+    - node: oktoberfesttableorangeframe
+      entity: ADTTableOktoberfestOrangeFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+                prototype: PartRodMetal
+                amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+        - to: oktoberfesttableorange
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+    - node: oktoberfesttable
+      entity: ADTTableOktoberfest
+      edges:
+        - to: oktoberfesttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+    - node: oktoberfesttableorange
+      entity: ADTTableOktoberfestOrange
+      edges:
+        - to: oktoberfesttableorangeframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1

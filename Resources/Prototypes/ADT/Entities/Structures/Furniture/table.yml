@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTRedTable
+  id: ADTRedWoodTable
   parent: TableBase
   name: wood red table
   description: Do not apply fire to this. Rumour says it burns easily.
@@ -38,10 +38,10 @@
     - Wooden
   - type: Construction
     graph: ADTTable
-    node: redWoodTable
+    node: redwoodtable
 
 - type: entity
-  id: ADTWhiteTable
+  id: ADTWhiteWoodTable
   parent: TableBase
   name: wood white table
   description: Do not apply fire to this. Rumour says it burns easily.
@@ -80,7 +80,7 @@
     - Wooden
   - type: Construction
     graph: ADTTable
-    node: whiteWoodTable
+    node: whitewoodtable
 
 - type: entity
   id: ADTRedWoodTableFrame
@@ -135,7 +135,7 @@
         acts: [ "Destruction" ]
   - type: Construction
     graph: ADTTable
-    node: redWoodTableFrame
+    node: redwoodtableframe
 
 - type: entity
   id: ADTWhiteWoodTableFrame
@@ -190,7 +190,7 @@
         acts: [ "Destruction" ]
   - type: Construction
     graph: ADTTable
-    node: whiteWoodTableFrame
+    node: whitewoodtableframe
 
 - type: entity
   id: ADTRoundTablePlastic
@@ -247,7 +247,7 @@
   - type: Clickable
   - type: Construction
     graph: ADTRoundTable
-    node: plasticRoundTable
+    node: plasticroundtable
   - type: Anchorable
   - type: Rotatable
   - type: InteractionOutline
@@ -289,7 +289,7 @@
     state: round_wood
   - type: Construction
     graph: ADTRoundTable
-    node: woodRoundTable
+    node: woodroundtable
 
 - type: entity
   id: ADTRoundTableGlass
@@ -331,4 +331,198 @@
     state: round_glass
   - type: Construction
     graph: ADTRoundTable
-    node: glassRoundTable
+    node: glassroundtable
+
+# OctoberFest
+
+- type: entity
+  id: ADTTableOktoberfest
+  parent: TableBase
+  name: wood oktoberfest table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/oktoberfest_table.rsi
+  - type: Icon
+    sprite: ADT/Structures/Furniture/oktoberfest_table.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Construction
+    graph: ADTTable
+    node: oktoberfesttable
+
+- type: entity
+  id: ADTTableOktoberfestOrange
+  parent: TableBase
+  name: wood oktoberfest orange table
+  description: Do not apply fire to this. Rumour says it burns easily.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/oktoberfest_table_orange.rsi
+  - type: Icon
+    sprite: ADT/Structures/Furniture/oktoberfest_table_orange.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Construction
+    graph: ADTTable
+    node: oktoberfesttableorange
+
+- type: entity
+  id: ADTTableOktoberfestFrame
+  # BaseStructure and not BaseTable, since these shouldn't be climbable/placeable.
+  parent: BaseStructure
+  name: table frame
+  description: Pieces of metal that make the frame of a table.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/frame.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/frame.rsi
+    state: full
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.30,0.40,0.45"
+        density: 80
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: IconSmooth
+    key: state
+    base: state_
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTTable
+    node: oktoberfesttableframe
+
+- type: entity
+  id: ADTTableOktoberfestOrangeFrame
+  # BaseStructure and not BaseTable, since these shouldn't be climbable/placeable.
+  parent: BaseStructure
+  name: table frame
+  description: Pieces of metal that make the frame of a table.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/frame.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/frame.rsi
+    state: full
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.30,0.40,0.45"
+        density: 80
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: IconSmooth
+    key: state
+    base: state_
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTTable
+    node: oktoberfesttableorangeframe
