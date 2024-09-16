@@ -46,3 +46,6 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
   - type: AlwaysHot
+  - type: Construction
+    graph: ADTFireplace
+    node: fireplace
