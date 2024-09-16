@@ -22,7 +22,6 @@ ent-ADTRedSofaRightSide = красный диван
     .suffix = Правая часть
     .desc = Большой диван, с которого не хочется слезать
 
-
 ent-ADTVioletSofaLeftSide = фиолетовый диван
     .suffix = Левая часть
     .desc = Большой диван, с которого не хочется слезать
@@ -35,7 +34,6 @@ ent-ADTVioletSofaRightSide = фиолетовый диван
     .suffix = Правая часть
     .desc = Большой диван, с которого не хочется слезать
 
-
 ent-ADTLeatherSofaLeftSide = кожаный диван
     .suffix = Левая часть
     .desc = Большой диван, с которого не хочется слезать
@@ -47,7 +45,6 @@ ent-ADTLeatherSofaMiddle = кожаный диван
 ent-ADTLeatherSofaRightSide = кожаный диван
     .suffix = Правая часть
     .desc = Большой диван, с которого не хочется слезать
-
 
 ent-ADTSofaWhiteLeftSide = белый диван
     .suffix = Левая часть
@@ -77,7 +74,6 @@ ent-ADTSofaWhiteLeftCorner = белый диван
     .suffix = Левый угол
     .desc = { ent-ADTSofaWhiteLeftSide.desc }
 
-
 ent-ADTSofaBlueLeftSide = синий диван
     .suffix = Левая часть
     .desc = Большой диван, с которого не хочется слезать.
@@ -89,6 +85,7 @@ ent-ADTSofaBlueLeftSide2 = { ent-ADTSofaBlueLeftSide }
 ent-ADTSofaBlueRightSide = синий диван
     .suffix = Правая часть
     .desc = { ent-ADTSofaBlueLeftSide.desc }
+
 ent-ADTSofaBlueRightSide2 = { ent-ADTSofaBlueRightSide }
     .suffix = Правая часть
     .desc = { ent-ADTSofaBlueLeftSide.desc }
@@ -116,6 +113,7 @@ ent-ADTSofaBrownLeftSide2 = { ent-ADTSofaBrownLeftSide }
 ent-ADTSofaBrownRightSide = коричневый диван
     .suffix = Правая часть
     .desc = { ent-ADTSofaBrownLeftSide.desc }
+
 ent-ADTSofaBrownRightSide2 = { ent-ADTSofaBrownRightSide }
     .suffix = Правая часть
     .desc = { ent-ADTSofaBrownLeftSide.desc }
@@ -127,6 +125,7 @@ ent-ADTSofaBrownMiddle = коричневый диван
 ent-ADTSofaBrownRightCorner = коричневый диван
     .suffix = Правый угол
     .desc = { ent-ADTSofaBrownLeftSide.desc }
+
 ent-ADTSofaBrownLeftCorner = коричневый диван
     .suffix = Левый угол
     .desc = { ent-ADTSofaBrownLeftSide.desc }
