@@ -165,6 +165,12 @@
     - Plating
     - Lattice
     - TrainLattice
+#ADT_Tweak - угловые решетки
+    - ADTUpperLeftLattice
+    - ADTUpperRightLattice
+    - ADTLowerLeftLattice
+    - ADTLowerRightLattice
+#ADT_Tweak - угловые решетки
     replacementTiles:
     - FloorMetalFoam
   - type: Damageable
