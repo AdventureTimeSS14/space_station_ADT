@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: Bonfire
+  id: ADTBonfire
   start: start
   graph:
     - node: start

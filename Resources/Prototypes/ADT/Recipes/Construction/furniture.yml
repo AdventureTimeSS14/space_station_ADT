@@ -1070,7 +1070,7 @@
   id: ADTBonfireRecipe
   name: bonfire
   description: Just dont freeze.
-  graph: Bonfire
+  graph: ADTBonfire
   startNode: start
   targetNode: bonfire
   category: construction-category-misc

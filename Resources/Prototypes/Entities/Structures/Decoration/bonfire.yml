@@ -31,9 +31,11 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: AlwaysHot
+  # Start ADT tweak
   - type: Construction
     graph: ADTBonfire
     node: bonfire
+  # End ADT tweak
 
 - type: entity
   id: LegionnaireBonfire
