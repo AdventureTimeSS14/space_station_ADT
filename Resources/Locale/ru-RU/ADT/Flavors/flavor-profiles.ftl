@@ -26,3 +26,5 @@ flavor-complex-elderguards = как закон и очень странная с
 flavor-complex-ADTSawdust = как 24-ая смена за день в лютый мороз
 flavor-complex-limeshade = как теплая тень с лаймовым привкусом
 
+flavor-base-adtpoppy = маково
+flavor-base-adtvanilla = ванильно
