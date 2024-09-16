@@ -180,9 +180,6 @@
   description: Traditional bavarian hat
   suffix: Oktoberfest
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - DroneUsable
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/bavarian_hat.rsi #спрайты от SHIONE
   - type: Clothing
@@ -195,9 +192,6 @@
   description: Traditional bavarian hat with a blue border
   suffix: Oktoberfest
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - DroneUsable
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/bavarian_hatborderblue.rsi #спрайты от SHIONE
   - type: Clothing
@@ -210,9 +204,6 @@
   description: Traditional bavarian hat with a red border
   suffix: Oktoberfest
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - DroneUsable
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/bavarian_hatborderred.rsi #спрайты от SHIONE
   - type: Clothing
@@ -225,9 +216,6 @@
   description: Traditional bavarian hat with a green border
   suffix: Oktoberfest
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - DroneUsable
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/bavarian_hatbordergreen.rsi #спрайты от SHIONE
   - type: Clothing
@@ -240,9 +228,6 @@
   description: Traditional bavarian blue hat with a feather
   suffix: Oktoberfest
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - DroneUsable
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/bavarian_hatblue.rsi #спрайты от SHIONE
   - type: Clothing
@@ -255,9 +240,6 @@
   description: Traditional bavarian green hat with a feather
   suffix: Oktoberfest
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - DroneUsable
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/bavarian_hatgreen.rsi #спрайты от SHIONE
   - type: Clothing
@@ -270,9 +252,6 @@
   description: Traditional bavarian red hat with a feather
   suffix: Oktoberfest
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - DroneUsable
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/bavarian_hatred.rsi #спрайты от SHIONE
   - type: Clothing
