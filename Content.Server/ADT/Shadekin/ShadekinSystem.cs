@@ -20,6 +20,8 @@ using Content.Shared.Alert;
 using Robust.Shared.Prototypes;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Server.Cuffs;
+using Content.Shared.Cuffs.Components;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -37,6 +39,7 @@ public sealed partial class ShadekinSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alert = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly CuffableSystem _cuffable = default!;
 
     public override void Initialize()
     {
@@ -152,6 +155,16 @@ public sealed partial class ShadekinSystem : EntitySystem
             return;
         var coordsValid = false;
         EntityCoordinates coords = Transform(uid).Coordinates;
+
+        if (TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable), true))
+        {
+            comp.MaxedPowerAccumulator = 0f;
+            return;
+        }
+
+        if (TryComp<PullableComponent>(uid, out var mainEntityPullable) && _pulling.IsPulled(uid, mainEntityPullable)) {
+            _pulling.TryStopPull(uid, mainEntityPullable);
+        }
 
         while (!coordsValid)
         {
