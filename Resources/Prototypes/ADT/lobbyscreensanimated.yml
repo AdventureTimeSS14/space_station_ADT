@@ -33,3 +33,51 @@
 #- type: animatedLobbyScreen
 #  id: FifthLobbyScreen
 #  path: Ohio/Lobby/backgrounds/5.rsi
+
+- type: animatedLobbyScreen
+  id: Warden
+  path: /Textures/LobbyScreens/warden.webp
+
+- type: animatedLobbyScreen
+  id: Pharmacy
+  path: /Textures/LobbyScreens/pharmacy.webp
+
+- type: animatedLobbyScreen
+  id: SSXIV
+  path: /Textures/LobbyScreens/ssxiv.webp
+
+- type: animatedLobbyScreen
+  id: Susstation
+  path: /Textures/LobbyScreens/susstation.webp
+
+- type: animatedLobbyScreen
+  id: SkellyVsTheRev
+  path: /Textures/LobbyScreens/skellyvstherev.webp
+
+- type: animatedLobbyScreen
+  id: Doomed
+  path: /Textures/LobbyScreens/doomed.webp
+
+- type: animatedLobbyScreen
+  id: Blueprint
+  path: /Textures/LobbyScreens/blueprint.webp
+
+- type: animatedLobbyScreen
+  id: Behonker
+  path: /Textures/LobbyScreens/behonker.webp
+
+- type: animatedLobbyScreen
+  id: TerminalStation
+  path: /Textures/LobbyScreens/terminalstation.webp
+
+- type: animatedLobbyScreen
+  id: JustAWeekAway
+  path: /Textures/LobbyScreens/justaweekaway.webp
+
+- type: animatedLobbyScreen
+  id: JaniShootout
+  path: /Textures/LobbyScreens/janishootout.webp
+
+- type: animatedLobbyScreen
+  id: ReclaimerNuke
+  path: /Textures/LobbyScreens/reclaimer-nuke.webp
