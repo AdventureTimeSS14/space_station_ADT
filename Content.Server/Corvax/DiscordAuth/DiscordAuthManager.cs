@@ -11,6 +11,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
+using Content.Shared.Players;
 
 namespace Content.Server.Corvax.DiscordAuth;
 
@@ -55,7 +56,8 @@ public sealed class DiscordAuthManager
         var isVerified = await IsVerified(message.MsgChannel.UserId);
         if (isVerified)
         {
-            var session = _playerMgr.GetSessionByUserId(message.MsgChannel.UserId);
+            //var session = _playerMgr.GetSessionByUserId(message.MsgChannel.UserId);
+            var session = _playerMgr.GetSessionById(message.MsgChannel.UserId);
 
             PlayerVerified?.Invoke(this, session);
         }
@@ -83,7 +85,7 @@ public sealed class DiscordAuthManager
 
             var authUrl = await GenerateAuthLink(e.Session.UserId);
             var msg = new MsgDiscordAuthRequired() { AuthUrl = authUrl };
-            e.Session.ConnectedClient.SendMessage(msg);
+            //e.Session.ConnectedClient.SendMessage(msg);
         }
     }
 
