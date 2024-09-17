@@ -8,6 +8,7 @@ namespace Content.Server.ADT.Addiction;
 public sealed partial class AddictionSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Update(float frameTime)
     {
@@ -18,7 +19,7 @@ public sealed partial class AddictionSystem : EntitySystem
         {
             UpdateCurrentAddictedTime(comp, fT);
             UpdateTypeAddiction(comp);
-            UpdateAddicted(comp);
+            UpdateAddicted(comp, uid);
         }
     }
     public void UpdateCurrentAddictedTime(AddictedComponent comp, TimeSpan frameTime)
@@ -40,9 +41,12 @@ public sealed partial class AddictionSystem : EntitySystem
             comp.TypeAddiction -= 1;
         }
     }
-    public void UpdateAddicted(AddictedComponent comp)
+    public void UpdateAddicted(AddictedComponent comp, EntityUid uid)
     {
         if (comp.CurrentAddictedTime >= comp.RequiredTime)
+        {
             comp.Addicted = true;
+            _popup.PopupEntity("У вас сформировывается зависимость", uid, uid);
+        }
     }
 }

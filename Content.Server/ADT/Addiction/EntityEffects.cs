@@ -29,7 +29,8 @@ public sealed partial class AddictionEffect : EntityEffect
             else
                 comp.CurrentAddictedTime += TimeSpan.FromSeconds(1) * TimeCoefficient * 2;
             comp.RemaningTime = comp.ChangeAddictionTypeTime;
-            comp.TypeAddiction = 4;
+            if comp.TypeAddiction < 4
+                comp.TypeAddiction += 1;
             comp.LastEffect = IoCManager.Resolve<IGameTiming>().CurTime;
         }
     }
