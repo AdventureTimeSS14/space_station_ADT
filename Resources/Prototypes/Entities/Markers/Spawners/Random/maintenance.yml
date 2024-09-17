@@ -97,21 +97,19 @@
       # Cloaks
       - !type:GroupSelector
         children:
+        - id: ClothingNeckCloakTrans
         - id: ClothingNeckCloakAdmin
         - id: ClothingNeckCloakMoth
         - id: ClothingNeckCloakVoid
         - id: ClothingNeckCloakGoliathCloak
-        #ADT start
-        # - id: ClothingNeckCloakTrans
-        # - id: ClothingNeckCloakAce
-        # - id: ClothingNeckCloakAro
-        # - id: ClothingNeckCloakBi
-        # - id: ClothingNeckCloakIntersex
-        # - id: ClothingNeckCloakLesbian
-        # - id: ClothingNeckCloakGay
-        # - id: ClothingNeckCloakEnby
-        # - id: ClothingNeckCloakPan
-        #ADT end
+        - id: ClothingNeckCloakAce
+        - id: ClothingNeckCloakAro
+        - id: ClothingNeckCloakBi
+        - id: ClothingNeckCloakIntersex
+        - id: ClothingNeckCloakLesbian
+        - id: ClothingNeckCloakGay
+        - id: ClothingNeckCloakEnby
+        - id: ClothingNeckCloakPan
       - id: ToySkeleton
       - id: Basketball
       - id: Football
@@ -141,14 +139,17 @@
       # Pins
       - !type:GroupSelector
         children:
-        #ADT start
-        # - ClothingNeckCloakBi
-        # - ClothingNeckCloakIntersex
-        # - ClothingNeckCloakLesbian
-        # - ClothingNeckCloakGay
-        # - ClothingNeckCloakEnby
-        # - ClothingNeckCloakPan
-        #ADT end
+        - id: ClothingNeckLGBTPin
+        - id: ClothingNeckAromanticPin
+        - id: ClothingNeckAsexualPin
+        - id: ClothingNeckBisexualPin
+        - id: ClothingNeckIntersexPin
+        - id: ClothingNeckLesbianPin
+        - id: ClothingNeckNonBinaryPin
+        - id: ClothingNeckPansexualPin
+        - id: ClothingNeckTransPin
+        - id: ClothingNeckAutismPin
+        - id: ClothingNeckGoldAutismPin
         # Corvax-Pins-Start
         - id: ClothingNeckUSSPPin
         - id: ClothingNeckDonkPin

@@ -236,15 +236,6 @@
     graph: BearSteak
     node: start
     defaultTarget: filet migrawr
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: bear
-    entries:
-      burger:
-        name: food-sequence-burger-content-bear
-      taco:
-        name: food-sequence-content-bear
 
 - type: entity
   name: raw penguin meat
@@ -920,15 +911,6 @@
     - Meat
   - type: Sprite
     state: slime
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: slime
-    entries:
-      burger:
-        name: food-sequence-content-slime
-      taco:
-        name: food-sequence-content-slime
 
 - type: entity
   name: raw snail meat
@@ -938,15 +920,6 @@
   components:
   - type: Sprite
     state: snail
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: snail
-    entries:
-      burger:
-        name: food-sequence-content-snail
-      taco:
-        name: food-sequence-content-snail
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1022,19 +995,9 @@
     graph: MeatSteak
     node: meat steak
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: plain-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-meat
-      taco:
-        name: food-sequence-content-meat
-      skewer:
-        name: food-sequence-content-meat
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: MeatSteak
+      Taco: MeatSteak
 
 - type: entity
   name: bacon
@@ -1067,19 +1030,9 @@
     graph: Bacon
     node: bacon
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: bacon-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-meat
-      taco:
-        name: food-sequence-content-meat
-      skewer:
-        name: food-sequence-content-meat
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: MeatBecon
+      Taco: MeatBecon
 
 - type: entity
   name: cooked bear
@@ -1110,14 +1063,9 @@
     graph: BearSteak
     node: filet migrawr
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: product-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-bear
-      taco:
-        name: food-sequence-content-bear
+      Burger: MeatBearBurger
+      Taco: MeatBear
 
 - type: entity
   name: penguin filet
@@ -1147,14 +1095,9 @@
     graph: PenguinSteak
     node: cooked penguin
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: bird-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-penguin
-      taco:
-        name: food-sequence-content-penguin
+      Burger: MeatPenguinBurger
+      Taco: MeatPenguin
 
 - type: entity
   name: cooked chicken
@@ -1184,19 +1127,9 @@
     graph: ChickenSteak
     node: cooked chicken
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: bird-cooked
     entries:
-      burger:
-        name: food-sequence-content-chicken
-      taco:
-        name: food-sequence-content-chicken
-      skewer:
-        name: food-sequence-content-chicken
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: MeatChicken
+      Taco: MeatChicken
 
 - type: entity
   name: fried chicken
@@ -1226,19 +1159,9 @@
         - ReagentId: Protein
           Quantity: 5
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: chicken-fried
     entries:
-      burger:
-        name: food-sequence-content-chicken
-      taco:
-        name: food-sequence-content-chicken
-      skewer:
-        name: food-sequence-content-chicken
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: MeatChicken
+      Taco: MeatChicken
 
 - type: entity
   name: cooked duck
@@ -1268,19 +1191,9 @@
     graph: DuckSteak
     node: cooked duck
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: bird-cooked
     entries:
-      burger:
-        name: food-sequence-content-duck
-      taco:
-        name: food-sequence-content-duck
-      skewer:
-        name: food-sequence-content-duck
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: MeatDuck
+      Taco: MeatDuck
 
 - type: entity
   name: cooked crab
@@ -1310,14 +1223,9 @@
     graph: CrabSteak
     node: cooked crab
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: crab-cooked
     entries:
-      burger:
-        name: food-sequence-content-crab
-      taco:
-        name: food-sequence-content-crab
+      Burger: MeatCrabBurger
+      Taco: MeatCrab
 
 - type: entity
   name: goliath steak
@@ -1345,14 +1253,9 @@
     graph: GoliathSteak
     node: goliath steak
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: goliath-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-goliath
-      taco:
-        name: food-sequence-content-goliath
+      Burger: MeatGoliathBurger
+      Taco: MeatGoliath
 
 - type: entity
   name: rouny steak
@@ -1384,14 +1287,9 @@
     graph: RounySteak
     node: rouny steak
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: rouny-cooked
     entries:
-      burger:
-        name: food-sequence-content-rouny
-      taco:
-        name: food-sequence-content-rouny
+      Burger: MeatXeno
+      Taco: MeatXeno
 
 - type: entity
   name: lizard steak
@@ -1422,19 +1320,9 @@
     graph: LizardSteak
     node: lizard steak
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: lizard-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-lizard
-      taco:
-        name: food-sequence-content-lizard
-      skewer:
-        name: food-sequence-content-lizard
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-tail-cooked
+      Burger: MeatLizardBurger
+      Taco: MeatLizard
 
 - type: entity
   name: boiled spider leg
@@ -1458,14 +1346,9 @@
         - ReagentId: Protein
           Quantity: 5
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: spiderleg-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-spider
-      taco:
-        name: food-sequence-content-spider
+      Burger: MeatSpiderBurger
+      Taco: MeatSpider
 
 - type: entity
   name: meatball
@@ -1488,19 +1371,9 @@
         - ReagentId: Protein
           Quantity: 5
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: meatball-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-meat
-      taco:
-        name: food-sequence-content-meat
-      skewer:
-        name: food-sequence-content-meat
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: MeatBall
+      Taco: MeatBall
 
 - type: entity
   name: boiled snail
@@ -1515,15 +1388,6 @@
   - type: Sprite
     layers:
     - state: snail-cooked
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: snail-cooked
-    entries:
-      burger:
-        name: food-sequence-content-snail
-      taco:
-        name: food-sequence-content-snail
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1535,6 +1399,10 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 4 # makes saline if you add salt!
+  - type: FoodSequenceElement
+    entries:
+      Burger: MeatSnail
+      Taco: MeatSnail
 
 # Cutlets
 
@@ -1561,20 +1429,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet
-    entries:
-      burger:
-        name: food-sequence-burger-content-meat
-      taco:
-        name: food-sequence-content-meat
-      skewer:
-        name: food-sequence-content-meat
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
   - type: Construction
     graph: Cutlet
     node: start
@@ -1604,16 +1458,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet
-      color: brown
-    entries:
-      burger:
-        name: food-sequence-burger-content-bear
-      taco:
-        name: food-sequence-content-bear
   - type: Construction
     graph: BearCutlet
     node: start
@@ -1641,16 +1485,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet
-      color: white
-    entries:
-      burger:
-        name: food-sequence-burger-content-penguin
-      taco:
-        name: food-sequence-content-penguin
   - type: Construction
     graph: PenguinCutlet
     node: start
@@ -1678,21 +1512,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet
-      color: white
-    entries:
-      burger:
-        name: food-sequence-content-chicken
-      taco:
-        name: food-sequence-content-chicken
-      skewer:
-        name: food-sequence-content-chicken
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
   - type: Construction
     graph: ChickenCutlet
     node: start
@@ -1720,21 +1539,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet
-      color: white
-    entries:
-      burger:
-        name: food-sequence-content-duck
-      taco:
-        name: food-sequence-content-duck
-      skewer:
-        name: food-sequence-content-duck
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
   - type: Construction
     graph: DuckCutlet
     node: start
@@ -1765,21 +1569,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet
-      color: pink
-    entries:
-      burger:
-        name: food-sequence-burger-content-lizard
-      taco:
-        name: food-sequence-content-lizard
-      skewer:
-        name: food-sequence-content-lizard
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-tail
   - type: Construction
     graph: LizardCutlet
     node: start
@@ -1806,15 +1595,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: spidercutlet
-    entries:
-      burger:
-        name: food-sequence-burger-content-spider
-      taco:
-        name: food-sequence-content-spider
   - type: Construction
     graph: SpiderCutlet
     node: start
@@ -1843,15 +1623,6 @@
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 20
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: xenocutlet
-    entries:
-      burger:
-        name: food-sequence-content-xeno
-      taco:
-        name: food-sequence-content-xeno
   - type: Construction
     graph: XenoCutlet
     node: start
@@ -1936,18 +1707,13 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet-cooked
-    entries:
-      burger:
-        sprite:
-          sprite: Objects/Consumable/Food/meat.rsi
-          state: cutlet-cooked
   - type: Construction
     graph: Cutlet
     node: cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: MeatCutlet
+      Taco: MeatCutlet
 
 - type: entity
   name: bear cutlet
@@ -1973,18 +1739,13 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-burger-content-bear
-      taco:
-        name: food-sequence-content-bear
   - type: Construction
     graph: BearCutlet
     node: bear cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: BearCutletBurger
+      Taco: BearCutlet
 
 - type: entity
   name: penguin cutlet
@@ -2008,18 +1769,13 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-burger-content-penguin
-      taco:
-        name: food-sequence-content-penguin
   - type: Construction
     graph: PenguinCutlet
     node: penguin cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: PenguinCutletBurger
+      Taco: PenguinCutlet
 
 - type: entity
   name: chicken cutlet
@@ -2043,23 +1799,13 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-content-chicken
-      taco:
-        name: food-sequence-content-chicken
-      skewer:
-        name: food-sequence-content-chicken
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
   - type: Construction
     graph: ChickenCutlet
     node: chicken cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: ChickenCutlet
+      Taco: ChickenCutlet
 
 - type: entity
   name: duck cutlet
@@ -2083,23 +1829,13 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-content-duck
-      taco:
-        name: food-sequence-content-duck
-      skewer:
-        name: food-sequence-content-duck
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
   - type: Construction
     graph: DuckCutlet
     node: duck cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: DuckCutlet
+      Taco: DuckCutlet
 
 - type: entity
   name: lizard cutlet
@@ -2124,23 +1860,13 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-burger-content-lizard
-      taco:
-        name: food-sequence-content-lizard
-      skewer:
-        name: food-sequence-content-lizard
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-tail-cooked
   - type: Construction
     graph: LizardCutlet
     node: lizard cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: LizardCutletBurger
+      Taco: LizardCutlet
 
 - type: entity
   name: spider cutlet
@@ -2163,16 +1889,13 @@
           Quantity: 1
         - ReagentId: Protein
           Quantity: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: cutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-burger-content-spider
   - type: Construction
     graph: SpiderCutlet
     node: spider cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: SpiderCutletBurger
+      Taco: SpiderCutlet
 
 - type: entity
   name: xeno cutlet
@@ -2195,13 +1918,10 @@
           Quantity: 1
         - ReagentId: Protein
           Quantity: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: xenocutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-content-xeno
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet
+  - type: FoodSequenceElement
+    entries:
+      Burger: XenoCutlet
+      Taco: XenoCutlet

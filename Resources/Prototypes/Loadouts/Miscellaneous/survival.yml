@@ -18,8 +18,9 @@
     - Human
     # - Moth #ADT_Tweak - Нианы получают свой вариант аварийного запаса
     - Reptilian
+    # - Vulpkanin # Corvax-MRP  #ADT_Tweak:Comment
     #ADT_Species Start
-    - DemonSpecies 
+    - DemonSpecies
     - DraskSpecies
     - Felinid
     - KoboltSpecies

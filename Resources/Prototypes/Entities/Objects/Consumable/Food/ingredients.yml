@@ -653,14 +653,9 @@
     - Slice
     - ADTMothFriendlyFood  #ADT_Tweak - делаем сыр съедобным для молей
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/ingredients.rsi
-      state: cheesewedge
     entries:
-      burger:
-        name: food-sequence-content-cheese
-      taco:
-        name: food-sequence-content-cheese
+      Taco: CheeseTaco
+      Burger: CheeseBurger
 
 - type: entity
   name: chèvre log
@@ -833,15 +828,6 @@
   - type: Tag
     tags:
       - Ingredient
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/cocoa.rsi
-      state: produce-beans
-    entries:
-      burger:
-        name: food-sequence-content-cocoa
-      taco:
-        name: food-sequence-content-cocoa
 
 - type: entity
   name: raw croissant

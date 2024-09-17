@@ -78,7 +78,8 @@
   description: extended-description
   rules:
   - BasicStationEventScheduler
-  - SpaceTrafficControlFriendlyEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset

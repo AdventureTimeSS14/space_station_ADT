@@ -20,8 +20,7 @@ forensic-scanner-printer-not-ready = Printer is not ready yet.
 forensic-scanner-verb-text = Scan
 forensic-scanner-verb-message = Perform a forensic scan
 
-forensic-pad-fingerprint-name = {$entity}'s fingerprints
-forensic-pad-gloves-name = fibers from {$entity}
+forensics-dna-unknown = unknown DNA
 
 forensics-dna-unknown = unknown DNA
 

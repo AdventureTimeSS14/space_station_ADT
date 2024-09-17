@@ -91,6 +91,24 @@
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
 
 - type: entity
+  name: energy sword
+  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  id: EnergySword
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+
+- type: entity
   name: energy dagger
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergyDaggerLoud
@@ -265,6 +283,22 @@
         map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
+  # Corvax-HiddenDesc-Start
+  - type: HiddenDescription
+    entries:
+    #- label: corvax-hidden-desc-EnergyCutlass-pirate #У нас нету в игре PirateRole, грусть
+    - label: corvax-hidden-desc-EnergyCutlass-security
+      jobRequired:
+      - HeadOfSecurity
+      - Detective
+      - SecurityCadet
+      - SecurityOfficer
+      - Warden
+      - Captain
+    - label: corvax-hidden-desc-EnergyCutlass-cargo
+      jobRequired:
+      - SalvageSpecialist
+  # Corvax-HiddenDesc-End
 
 - type: entity
   name: double-bladed energy sword
@@ -329,6 +363,26 @@
   - type: Reflect
     reflectProb: .75
     spread: 75
+  # Corvax-HiddenDesc-Start
+  - type: HiddenDescription
+    entries:
+    - label: corvax-hidden-desc-EnergySword-syndicate
+      whitelistMind:
+        components:
+        - TraitorRole
+        - NukeOperative
+    - label: corvax-hidden-desc-EnergySword-security
+      jobRequired:
+      - HeadOfSecurity
+      - Detective
+      - SecurityCadet
+      - SecurityOfficer
+      - Warden
+      - Captain
+    - label: corvax-hidden-desc-EnergySword-cargo
+      jobRequired:
+      - SalvageSpecialist
+  # Corvax-HiddenDesc-End
 
 - type: entity
   suffix: One-Handed, For Borgs

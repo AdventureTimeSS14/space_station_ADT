@@ -68,15 +68,10 @@
     flavors:
       - people
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: brain
     entries:
-      burger:
-        name: food-sequence-content-brain
-      taco:
-        name: food-sequence-content-brain
-  
+      Burger: Brain
+      Taco: Brain
+
 - type: entity
   id: OrganHumanEyes
   parent: BaseHumanOrgan
