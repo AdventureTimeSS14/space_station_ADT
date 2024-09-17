@@ -1,22 +1,22 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "white_stool, red_stool made by m1and1b for ADT MRP Server, pizza_stool made by discord - unlumy for ADT MRP Server",
+    "copyright": "white_chair, red_chair made by m1and1b for ADT MRP Server, pizza_chair made by discord - unlumy for ADT MRP Server",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "white_stool",
+            "name": "white_chair",
             "directions": 4
         },
         {
-            "name": "red_stool",
+            "name": "red_chair",
             "directions": 4
         },
         {
-            "name": "pizza_stool",
+            "name": "pizza_chair",
             "directions": 4
         }
     ]

@@ -837,19 +837,19 @@
   conditions:
     - !type:TileNotBlocked
 
-# Stools
+# Chairs
 
 - type: construction
-  name: pizza stool
-  id: ADTPizzeriaStoolRecipe
+  name: pizza chair
+  id: ADTChairPizzeriaRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: pizzeriastool
+  targetNode: pizzeriachair
   category: construction-category-furniture
   description: You can sit on this.
   icon:
-    sprite: ADT/Structures/Furniture/stools.rsi
-    state: pizza_stool
+    sprite: ADT/Structures/Furniture/chairs.rsi
+    state: pizza_chair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -857,16 +857,16 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white stool
-  id: ADTWhiteStoolRecipe
+  name: white chair
+  id: ADTChairWhiteRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: whitestool
+  targetNode: whitechair
   category: construction-category-furniture
   description: You can sit on this.
   icon:
-    sprite: ADT/Structures/Furniture/stools.rsi
-    state: white_stool
+    sprite: ADT/Structures/Furniture/chairs.rsi
+    state: white_chair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -874,21 +874,22 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red stool
-  id: ADTRedStoolRecipe
+  name: red chair
+  id: ADTChairRedRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: redstool
+  targetNode: redchair
   category: construction-category-furniture
   description: You can sit on this.
   icon:
-    sprite: ADT/Structures/Furniture/stools.rsi
-    state: red_stool
+    sprite: ADT/Structures/Furniture/chairs.rsi
+    state: red_chair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
 # Benchs
 
 - type: construction
@@ -945,11 +946,11 @@
 # OctoberFest
 
 - type: construction
-  name: oktoberfest stool
+  name: oktoberfest chair
   id: ADTChairOktoberfestRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: oktoberfeststool
+  targetNode: oktoberfestchair
   category: construction-category-furniture
   description: You can sit on this.
   icon:

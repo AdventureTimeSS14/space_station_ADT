@@ -58,63 +58,6 @@
     graph: ADTSeat
     node: adtarmchairleather
 
-- type: entity
-  name: pizzeria chair
-  id: ADTPizzeriaStool
-  parent: SeatBase
-  description: It looks spooky.
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/stools.rsi #спрайт от Иллюми
-    state: pizza_stool
-  - type: Construction
-    graph: ADTSeat
-    node: pizzeriastool
-
-- type: entity
-  name: red stool
-  id: ADTRedStool
-  parent: SeatBase
-  description: It looks spooky.
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/stools.rsi #спрайт от Овая
-    state: white_stool
-  - type: Construction
-    graph: ADTSeat
-    node: redstool
-
-- type: entity
-  name: white stool
-  id: ADTWhiteStool
-  parent: SeatBase
-  description: It looks spooky.
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/stools.rsi #спрайт от Овая
-    state: white_stool
-  - type: Construction
-    graph: ADTSeat
-    node: whitestool
-
 #New Year( ну походу новогодние были, я сюда закинул и обычное кресло)
 - type: entity
   name: black armchair
@@ -248,25 +191,3 @@
   - type: Construction
     graph: ADTSeat
     node: adtarmchairblue2
-
-# OctoberFest
-
-- type: entity
-  name: oktoberfest chair
-  id: ADTChairOktoberfest
-  parent: SeatBase
-  description: It looks comfy.
-  suffix: Oktoberfest
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/oktoberfest_chair.rsi
-    state: oct_chair_orange
-  - type: Construction
-    graph: ADTSeat
-    node: oktoberfeststool

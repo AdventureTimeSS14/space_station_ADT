@@ -221,22 +221,22 @@
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: pizzeriastool
+        - to: pizzeriachair
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: redstool
+        - to: redchair
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: whitestool
+        - to: whitechair
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: oktoberfeststool
+        - to: oktoberfestchair
           steps:
             - material: WoodPlank
               amount: 2
@@ -823,8 +823,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: pizzeriastool
-      entity: ADTPizzeriaStool
+    - node: pizzeriachair
+      entity: ADTChairPizzeria
       edges:
         - to: start
           completed:
@@ -834,8 +834,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: redstool
-      entity: ADTRedStool
+    - node: redchair
+      entity: ADTChairRed
       edges:
         - to: start
           completed:
@@ -845,8 +845,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: whitestool
-      entity: ADTWhiteStool
+    - node: whitechair
+      entity: ADTChairWhite
       edges:
         - to: start
           completed:
@@ -856,7 +856,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: oktoberfeststool
+    - node: oktoberfestchair
       entity: ADTChairOktoberfest
       edges:
         - to: start
