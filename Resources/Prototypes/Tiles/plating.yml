@@ -105,7 +105,7 @@
   id: ADTUpperLeftLattice
   name: tiles-upperleft-lattice
   sprite: /Textures/Tiles/upper_left_lattice.png
-  baseTurf: Space
+  baseTurf: Lattice
   isSubfloor: true
   deconstructTools: [ Cutting ]
   weather: true
@@ -120,7 +120,7 @@
   id: ADTUpperRightLattice
   name: tiles-upperright-lattice
   sprite: /Textures/Tiles/upper_right_lattice.png
-  baseTurf: Space
+  baseTurf: Lattice
   isSubfloor: true
   deconstructTools: [ Cutting ]
   weather: true
@@ -135,7 +135,7 @@
   id: ADTLowerLeftLattice
   name: tiles-lowerleft-lattice
   sprite: /Textures/Tiles/lower_left_lattice.png
-  baseTurf: Space
+  baseTurf: Lattice
   isSubfloor: true
   deconstructTools: [ Cutting ]
   weather: true
@@ -150,7 +150,7 @@
   id: ADTLowerRightLattice
   name: tiles-lowerright-lattice
   sprite: /Textures/Tiles/lower_right_lattice.png
-  baseTurf: Space
+  baseTurf: Lattice
   isSubfloor: true
   deconstructTools: [ Cutting ]
   weather: true
