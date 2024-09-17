@@ -16,6 +16,7 @@ using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
+using Content.Shared.ADT.UI.Chat;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Damage.ForceSay;
@@ -833,6 +834,17 @@ public sealed class ChatUIController : UIController
                 {
                     foreach (string codeword in codewordData.Codewords)
                         msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, codeword, "color", codewordData.Color.ToHex());
+                }
+            }
+        }
+
+        if (_player.LocalEntity != null && _ent.TryGetComponent<HighlightWordsInChatComponent>(_player.LocalEntity.Value, out var hlWords))
+        {
+            foreach (var (color, locStrings) in hlWords.HighlightWords)
+            {
+                foreach (var locString in locStrings)
+                {
+                    msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, Loc.GetString(locString), "color", color);
                 }
             }
         }
