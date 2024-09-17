@@ -24,6 +24,11 @@
       - ADTBorgModuleSecurity
     hasMindState: sec_e
     noMindState: sec_e_r
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
   - type: BorgTransponder
     sprite:
       sprite: ADT/Mobs/Cyborg/chassis.rsi
@@ -56,25 +61,6 @@
     voice: sentrybot
 
 - type: entity
-  id: ADTPlayerSecBorgGeneric
-  parent: ADTBorgChassisSec
-  suffix: Battery, Tools
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-        - PositronicBrain
-      borg_module:
-        - ADTBorgModuleDetention
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
-
-- type: entity
   id: ADTBorgChassisKerfusNT
   parent: BaseBorgChassisNT
   name: kerfus cyborg
@@ -98,6 +84,7 @@
       - BorgModuleGeneric
       - BorgModuleService
       - BorgModuleJanitor
+      - BorgModuleMedical
     hasMindState: kerfusNT_e
     noMindState: kerfus_e_r
   - type: BorgTransponder
@@ -130,7 +117,7 @@
     - Service
     - Supply
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Command"], ["Research"], ["Service"], ["Medical"]]
   - type: Inventory
     templateId: borgTall
   - type: InteractionPopup
@@ -138,5 +125,20 @@
     interactFailureString: petting-failure-kerfus
     interactSuccessSound:
       path: /Audio/ADT/Ambience/Objects/minecraft_cat.ogg
-  - type: RandomMetadata
-    nameSegments: [names_borg]
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+    storageOpenSound: /Audio/Machines/id_insert.ogg
+    storageCloseSound: /Audio/Machines/id_insert.ogg
+    clickInsert: false
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

@@ -115,7 +115,27 @@ namespace Content.Server.Power.EntitySystems
             RaiseLocalEvent(uid, ref ev);
             return delta;
         }
+        ///ADT plasmacutters start
+        public float AddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        {
+            if (value <= 0 || !Resolve(uid, ref battery))
+                return 0;
 
+            var newValue = Math.Clamp(battery.CurrentCharge + value, 0, battery.MaxCharge);
+            battery.CurrentCharge = newValue;
+            var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);
+            RaiseLocalEvent(uid, ref ev);
+            return newValue;
+        }
+        public bool TryAddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        {
+            if (!Resolve(uid, ref battery, false))
+                return false;
+
+            AddCharge(uid, value, battery);
+            return true;
+        }
+        ///ADT plasmacutters end
         public void SetMaxCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
             if (!Resolve(uid, ref battery))
