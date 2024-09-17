@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
+using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -94,6 +95,13 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public object? ProductEvent;
 
+    // goobstation - heretics
+    // i am too tired of making separate systems for knowledge adding
+    // and all that shit. i've had like 4 failed attempts
+    // so i'm just gonna shitcode my way out of my misery
+    [DataField]
+    public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;
+
     [DataField("raiseOnBuyer")]
     public bool RaiseProductEventOnUser = false;    // adt типо
 
@@ -164,9 +172,10 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
-            RaiseProductEventOnUser = RaiseProductEventOnUser,  // ADT fix
+            ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
+            RaiseProductEventOnUser = RaiseProductEventOnUser,  // ADT fix
         };
     }
 }
