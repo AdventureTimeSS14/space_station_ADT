@@ -183,19 +183,6 @@
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
-
-- type: technology
-  id: MassExcavation
-  name: research-technology-excavation
-  icon:
-    sprite: Objects/Tools/handdrilldiamond.rsi
-    state: handdrill
-  discipline: Industrial
-  tier: 2
-  cost: 12500
-  recipeUnlocks:
-    - OreBagOfHolding
-    - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
 
 # Tier 3
