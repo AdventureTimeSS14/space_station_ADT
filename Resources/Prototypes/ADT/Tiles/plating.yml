@@ -1,0 +1,16 @@
+- type: tile
+  id: ADTLatticeLeftUpper
+  name: tiles-lattice-left-upper
+  sprite: /Textures/ADT/Tiles/lattice_left_upper.png
+  # variants: 3
+  # placementVariants:
+  # - 1.0
+  # - 1.0
+  # - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
