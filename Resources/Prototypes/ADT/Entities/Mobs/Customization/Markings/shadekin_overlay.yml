@@ -1,0 +1,197 @@
+- type: marking
+  id: BodyShadekinArrow
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_arrow
+
+- type: marking
+  id: BodyShadekinBlackHole
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_blackhole
+
+- type: marking
+  id: BodyShadekinBrace
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_brace
+
+- type: marking
+  id: BodyShadekinBrawly
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_brawly
+
+- type: marking
+  id: BodyShadekinHeart
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_heart
+
+- type: marking
+  id: BodyShadekinInk
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink
+
+- type: marking
+  id: BodyShadekinInk2
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink2
+
+- type: marking
+  id: BodyShadekinInk3
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink3
+
+- type: marking
+  id: BodyShadekinInk4
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink4
+
+- type: marking
+  id: BodyShadekinInk5
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink5
+
+- type: marking
+  id: BodyShadekinInk6
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink6
+
+- type: marking
+  id: BodyShadekinInkAnim
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink_anim
+
+- type: marking
+  id: BodyShadekinLines
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_lines
+
+- type: marking
+  id: BodyShadekinNeck
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_neck
+
+- type: marking
+  id: BodyShadekinShield
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_shield
+
+- type: marking
+  id: BodyShadekinVacuum
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_vacuum
+
+- type: marking
+  id: BodyShadekinGauzeShoulder
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: gauze_shoulder_shadekin
+
+- type: marking
+  id: BodyShadekinGauzeLowArmR
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: gauze_lowerarm_r_shadekin
+
+- type: marking
+  id: BodyShadekinGauzeUpArmL
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: gauze_upperarm_l_shadekin
+
+- type: marking
+  id: BodyShadekinGauzeUpArmR
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: gauze_upperarm_r_shadekin
+
+- type: marking
+  id: BodyShadekinGauzeUpLegL
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: gauze_upperleg_l_shadekin
+
+- type: marking
+  id: BodyShadekinGauzeUpLegR
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: gauze_upperleg_r_shadekin
