@@ -76693,7 +76693,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -148266.53
+      secondsUntilStateChange: -148300.11
       state: Closing
   - uid: 11227
     components:
@@ -89371,6 +89371,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-173.5
+      parent: 2
+- proto: SpawnPointADTSecborg
+  entities:
+  - uid: 17428
+    components:
+    - type: Transform
+      pos: -7.5,-339.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:

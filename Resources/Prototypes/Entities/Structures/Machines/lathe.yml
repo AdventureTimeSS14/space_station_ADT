@@ -112,6 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -271,6 +272,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
+  - type: StationAiWhitelist #ADT-Tweak
   - type: MaterialStorage
     whitelist:
       tags:
@@ -341,6 +343,10 @@
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
+      #ADT plasmacutters start
+      - ADTWeaponCutter
+      - ADTWeaponCutterAdv
+      #ADT plasmacutters end
       - WeaponTetherGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
@@ -480,6 +486,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
@@ -669,6 +676,18 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    #ADT secborg start
+    - ADTLeftArmBorgSecurity
+    - ADTRightArmBorgSecurity
+    - ADTLeftLegBorgSecurity
+    - ADTRightLegBorgSecurity
+    - ADTHeadBorgSecurity
+    - ADTTorsoBorgSecurity
+    #ADT secborg end
+    # ADT-Kerfus-Start
+    - ADTTorsoBorgKerfusNT
+    - ADTHeadBorgKerfusNT
+    # ADT-Kerfus-End
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -678,6 +697,7 @@
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
+    - ADTBorgModuleRPD # ADT-RPD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
@@ -706,6 +726,9 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    - ADTBorgModuleDisabler #ADT secborg
+    - ADTBorgModuleDetention #ADT secborg
+    - ADTBorgModuleHarm # ADT secborg
   - type: MaterialStorage
     whitelist:
       tags:
@@ -809,6 +832,10 @@
       - MagazineLightRifleEmpty
       - MagazinePistol
       - MagazinePistolEmpty
+      # Start ADT tweak
+      - ADTMagazineMagnum
+      - ADTMagazineMagnumEmpty
+      # End ADT tweak
       - MagazinePistolSubMachineGun
       - MagazinePistolSubMachineGunEmpty
       - MagazinePistolSubMachineGunTopMounted
@@ -853,6 +880,10 @@
       - MagazineLightRifleUranium
       - MagazinePistolIncendiary
       - MagazinePistolUranium
+      # Start ADT tweak
+      - ADTMagazineMagnumIncendiary
+      - ADTMagazineMagnumUranium
+      # Start ADT tweak
       - MagazineRifleIncendiary
       - MagazineRifleUranium
       - MagazineShotgunBeanbag

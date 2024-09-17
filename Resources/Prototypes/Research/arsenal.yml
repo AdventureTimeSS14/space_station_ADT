@@ -12,6 +12,7 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
+  - ADTWeaponCutter #ADT plasmacutter
   # These are roundstart but not replenishable for salvage
 
 - type: technology
@@ -27,6 +28,9 @@
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  # Start ADT tweak
+  - ADTMagazineMagnumIncendiary
+  # Start ADT tweak
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -46,6 +50,7 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  - ADTBorgModuleHarm #ADT secborg
 
 - type: technology
   id: NonlethalAmmunition
@@ -55,12 +60,14 @@
     state: beanbag
   discipline: Arsenal
   tier: 1
-  cost: 5000
+  cost: 8000 #ADT secborg
   recipeUnlocks:
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
   - WeaponDisabler
+  - ADTBorgModuleDisabler #ADT secborg
+  - ADTBorgModuleDetention #ADT secborg
 
 - type: technology
   id: UraniumMunitions
@@ -74,6 +81,9 @@
   recipeUnlocks:
   - MagazineRifleUranium
   - MagazinePistolUranium
+  # Start ADT tweak
+  - ADTMagazineMagnumUranium
+  # Start ADT tweak
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium

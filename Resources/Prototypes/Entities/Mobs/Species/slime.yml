@@ -34,6 +34,10 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+    # ADT-SlimeHair-Start
+      enum.SlimeHairUiKey.Key:
+        type: SlimeHairBoundUserInterface
+    # ADT-SlimeHair-End
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -125,6 +129,7 @@
     understands:
     - GalacticCommon
     - Bubblish
+  - type: SlimeHair # ADT-SlimeHair
 
 - type: entity
   parent: MobHumanDummy
