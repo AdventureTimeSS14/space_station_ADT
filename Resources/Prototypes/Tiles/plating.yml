@@ -107,13 +107,12 @@
   sprite: /Textures/Tiles/upper_left_lattice.png
   baseTurf: Lattice
   isSubfloor: true
-  deconstructTools: [ Cutting ]
-  weather: true
+  #canCrowbar: false
+  isSpace: true
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
-  isSpace: true
   itemDrop: PartRodMetal1
+  friction: 0.3
   heatCapacity: 10000
 
 - type: tile
@@ -122,13 +121,12 @@
   sprite: /Textures/Tiles/upper_right_lattice.png
   baseTurf: Lattice
   isSubfloor: true
-  deconstructTools: [ Cutting ]
-  weather: true
+  #canCrowbar: false
+  isSpace: true
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
-  isSpace: true
   itemDrop: PartRodMetal1
+  friction: 0.3
   heatCapacity: 10000
 
 - type: tile
@@ -137,13 +135,12 @@
   sprite: /Textures/Tiles/lower_left_lattice.png
   baseTurf: Lattice
   isSubfloor: true
-  deconstructTools: [ Cutting ]
-  weather: true
+  #canCrowbar: false
+  isSpace: true
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
-  isSpace: true
   itemDrop: PartRodMetal1
+  friction: 0.3
   heatCapacity: 10000
 
 - type: tile
@@ -152,11 +149,10 @@
   sprite: /Textures/Tiles/lower_right_lattice.png
   baseTurf: Lattice
   isSubfloor: true
-  deconstructTools: [ Cutting ]
-  weather: true
+  #canCrowbar: false
+  isSpace: true
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
-  isSpace: true
   itemDrop: PartRodMetal1
+  friction: 0.3
   heatCapacity: 10000
