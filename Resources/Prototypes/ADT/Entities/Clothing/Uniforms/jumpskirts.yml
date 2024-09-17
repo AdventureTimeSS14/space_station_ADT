@@ -42,7 +42,7 @@
   description: Warm and comfy.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
   - type: StaticPrice
@@ -55,7 +55,7 @@
   description: Brighter shade of blue.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi
   - type: StaticPrice
@@ -68,7 +68,7 @@
   description: Filled with happines.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi
   - type: StaticPrice
@@ -81,7 +81,7 @@
   description: Cheaper analog of CentComm turtleneck.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi
   - type: StaticPrice
@@ -94,7 +94,7 @@
   description: -Ya know why i wear red? It hides blood well! -But that's brown color...
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi
   - type: StaticPrice
@@ -107,7 +107,7 @@
   description: Hides blood of clowns well!
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi
   - type: StaticPrice
@@ -120,7 +120,7 @@
   description: I don't want to talk about it.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi
   - type: StaticPrice
@@ -133,7 +133,7 @@
   description: Who would wear this?
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi
   - type: StaticPrice
@@ -146,7 +146,7 @@
   description: Grey style?
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi
   - type: StaticPrice
@@ -159,7 +159,7 @@
   description: Darker shade of azure.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi
   - type: StaticPrice
@@ -172,7 +172,7 @@
   description: Feel yourself like a real scientist.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi
   - type: StaticPrice
@@ -185,7 +185,7 @@
   description: Favourite clothes of bookworms.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi
   - type: StaticPrice
@@ -250,6 +250,19 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
 
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtJanimaid
+  name: janitorial maid uniform
+  description: For professionals, not the posers.
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/janimaid.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/janimaid.rsi
+
 #Альтернативная одежда для ГП
 - type: entity
   parent: ClothingUniformBase
@@ -286,3 +299,4 @@
     - state: icon_vest
       map: ["foldedLayer"]
       visible: false
+
