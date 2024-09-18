@@ -8,7 +8,7 @@
   # - 1.0
   # - 1.0
   baseTurf: Plating
-  isSubfloor: false
+  isSubfloor: true
   #canCrowbar: true
   footstepSounds:
     collection: FootstepFloor
