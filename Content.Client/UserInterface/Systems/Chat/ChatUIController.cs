@@ -839,7 +839,11 @@ public sealed class ChatUIController : UIController
         }
 
         // ADT-Tweak: возможность выделять сообщения в чате
-        if (_player.LocalEntity != null && _ent.TryGetComponent<HighlightWordsInChatComponent>(_player.LocalEntity.Value, out var hlWords))
+        if (
+            (msg.Channel == ChatChannel.Radio || msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper)
+            && _player.LocalEntity != null
+            && _ent.TryGetComponent<HighlightWordsInChatComponent>(_player.LocalEntity.Value, out var hlWords)
+        )
         {
             foreach (var (color, locStrings) in hlWords.HighlightWords)
             {
