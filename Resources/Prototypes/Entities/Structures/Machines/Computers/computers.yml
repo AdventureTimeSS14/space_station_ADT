@@ -4,7 +4,6 @@
   name: atmospheric alerts computer
   description: Used to access the station's atmospheric automated alert system.
   components:
-  - type: StationAiWhitelist
   - type: Computer
     board: AlertsComputerCircuitboard
   - type: Sprite
@@ -239,7 +238,6 @@
   name: power monitoring computer
   description: It monitors power levels across the station.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -303,7 +301,6 @@
   name: criminal records computer
   description: This can be used to check criminal records. Only security can modify them.
   components:
-  - type: StationAiWhitelist
   - type: CriminalRecordsConsole
   - type: UserInterface
     interfaces:
@@ -340,7 +337,6 @@
   name: station records computer
   description: This can be used to check station records.
   components:
-  - type: StationAiWhitelist
   - type: GeneralStationRecordConsole
   - type: UserInterface
     interfaces:
@@ -365,7 +361,6 @@
   name: crew monitoring console
   description: Used to monitor active health sensors built into most of the crew's uniforms.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -402,7 +397,6 @@
   name: R&D computer
   description: A computer used to interface with R&D tools.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -448,7 +442,6 @@
   name: analysis console
   description: A computer used to interface with the artifact analyzer.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -642,7 +635,6 @@
   name: solar control computer
   description: A controller for solar panel arrays.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -674,7 +666,6 @@
   name: mass scanner computer
   description: A computer for detecting nearby bodies, displaying them by position and mass.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -742,7 +733,6 @@
   name: cargo request computer
   description: Used to order supplies and approve requests.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -1110,7 +1100,6 @@
   name: robotics control console
   description: Used to remotely monitor, disable and destroy the station's cyborgs.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
