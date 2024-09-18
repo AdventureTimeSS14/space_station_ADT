@@ -1892,16 +1892,18 @@
   solids:
     FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
 
-- type: microwaveMealRecipe
-  id: RecipeThrowingCroissant
-  name: throwing croissant recipe
-  result: WeaponCroissant
-  secretRecipe: true
-  time: 5
-  solids:
-    FoodTacoShell: 1
-    FoodMeatChickenCutlet: 1
-    FoodCheeseSlice: 1
+# ADT Tweak
+# - type: microwaveMealRecipe
+#   id: RecipeThrowingCroissant
+#   name: throwing croissant recipe
+#   result: WeaponCroissant
+#   secretRecipe: true
+#   time: 5
+#   solids:
+#     FoodTacoShell: 1
+#     FoodMeatChickenCutlet: 1
+#     FoodCheeseSlice: 1
+# End ADT Tweak
 
 - type: microwaveMealRecipe
   id: RecipeTacoFish
