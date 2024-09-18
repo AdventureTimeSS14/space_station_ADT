@@ -9,11 +9,12 @@
   # - 1.0
   baseTurf: Plating
   isSubfloor: true
+  deconstructTools: [ Cutting ]
   weather: true
   #canCrowbar: true
   footstepSounds:
-    collection: FootstepFloor
+    collection: FootstepPlating
   friction: 0.3
   isSpace: true
-  itemDrop: FloorTileItemSteel
+  itemDrop: PartRodMetal1
   heatCapacity: 10000
