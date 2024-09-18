@@ -230,20 +230,6 @@
     currentLabel: reagent-name-nitrogen
 
 - type: entity
-  parent: BoxSurvival
-  id: BoxMime
-  suffix: Mime, Emergency
-  components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyOxygenTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodBreadBaguette
-    - id: DrinkWaterBottleFull
-
-- type: entity
   parent: BoxSurvivalNitrogen
   id: BoxMimeNitrogen
   suffix: Mime, Emergency N2
