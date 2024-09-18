@@ -489,19 +489,19 @@
     heldPrefix: gold
 
 # start adt tweak
-# - type: entity
-#   parent: IDCardStandard
-#   id: ERTChaplainIDCard
-#   name: ERT chaplain ID card
-#   components:
-#   - type: Sprite
-#     layers:
-#     - state: gold
-#     - state: ert_chaplain # we have the sprite for the id but dont have chaplain ERT equipment for now.
-#   - type: PresetIdCard
-#     job: ERTChaplain # TODO: Добавить роль
-#   - type: Item
-#     heldPrefix: blue
+- type: entity
+  parent: IDCardStandard
+  id: ERTChaplainIDCard
+  name: ERT chaplain ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: gold
+    - state: ert_chaplain # we have the sprite for the id but dont have chaplain ERT equipment for now.
+  # - type: PresetIdCard
+  #   job: ERTChaplain # TODO: Добавить роль
+  - type: Item
+    heldPrefix: blue
 # end adt tweak
 
 - type: entity
