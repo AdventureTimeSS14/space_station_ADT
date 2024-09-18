@@ -13,6 +13,7 @@
   #canCrowbar: true
   footstepSounds:
     collection: FootstepFloor
+  friction: 0.3
   isSpace: true
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
