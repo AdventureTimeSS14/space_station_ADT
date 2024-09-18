@@ -142,15 +142,6 @@
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/laughin_pea.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-content-pea
-      taco:
-        name: food-sequence-content-pea
 
 - type: entity
   name: tower-cap log
@@ -697,13 +688,6 @@
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      burger:
-        name: food-sequence-burger-content-pineapple
-        sprite:
-          sprite: Objects/Specific/Hydroponics/pineapple.rsi
-          state: produce
 
 - type: entity
   name: potato
@@ -1033,15 +1017,6 @@
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/cocoa.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-content-cocoa
-      taco:
-        name: food-sequence-content-cocoa
 
 - type: entity
   name: ear of corn
@@ -1107,15 +1082,6 @@
         reagents:
         - ReagentId: Cornmeal
           Quantity: 10
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/corn.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-content-corn
-      taco:
-        name: food-sequence-content-corn
 
 - type: entity
   name: onion
@@ -1147,15 +1113,6 @@
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/onion.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-burger-content-onion
-      taco:
-        name: food-sequence-content-onion
 
 - type: entity
   name: red onion
@@ -1187,15 +1144,6 @@
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/onion_red.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-burger-content-onion
-      taco:
-        name: food-sequence-content-onion
 
 - type: entity
   name: chanterelle cluster
@@ -1216,20 +1164,6 @@
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/chanterelle.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-content-mushroom
-      taco:
-        name: food-sequence-content-mushroom
-      skewer:
-        name: food-sequence-content-mushroom
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-mushroom
 
 # Slices
 
@@ -1854,13 +1788,6 @@
           Quantity: 10
   - type: Produce
     seedId: rice
-  - type: FoodSequenceElement
-    entries:
-      burger:
-        name: food-sequence-burger-content-rice
-        sprite:
-          sprite: Objects/Specific/Hydroponics/rice.rsi
-          state: produce
 
 - type: entity
   name: soybeans
