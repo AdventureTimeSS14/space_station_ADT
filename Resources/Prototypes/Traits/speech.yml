@@ -96,3 +96,19 @@
   cost: 2
   components:
   - type: FrontalLisp
+
+- type: trait
+  id: ADTShitcureAccent
+  name: trait-shitcure-name
+  description: trait-shitcure-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: ReplacementAccent
+    accent: shitcure
+  speciesBlacklist:
+  - KoboltSpecies
+  - Moth
+  - TajaranSpecies
+  - VulpkaninSpecies
+  - Reptilian
