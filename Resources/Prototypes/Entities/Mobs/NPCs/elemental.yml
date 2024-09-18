@@ -148,7 +148,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: GlassBreak
+          collection: GlassBreak 
       - !type:SpawnEntitiesBehavior
         spawn:
           SteelOre1:
