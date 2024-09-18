@@ -9,6 +9,7 @@
   # - 1.0
   baseTurf: Plating
   isSubfloor: true
+  weather: true
   #canCrowbar: true
   footstepSounds:
     collection: FootstepFloor
