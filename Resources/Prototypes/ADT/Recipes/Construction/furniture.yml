@@ -3,10 +3,10 @@
 
 - type: construction
   name: sofa left side
-  id: ADTBlackSofaLeftSideRecipe
+  id: ADTSofaBlackLeftSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtblacksofaleft
+  targetNode: adtsofablackleft
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -20,10 +20,10 @@
 
 - type: construction
   name: sofa middle
-  id: ADTBlackSofaMiddleRecipe
+  id: ADTSofaBlackMiddleRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtblacksofamiddle
+  targetNode: adtsofablackmiddle
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -37,10 +37,10 @@
 
 - type: construction
   name: sofa right side
-  id: ADTBlackSofaRightSideRecipe
+  id: ADTSofaBlackRightSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtblacksofaright
+  targetNode: adtsofablackright
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -56,10 +56,10 @@
 
 - type: construction
   name: red sofa left side
-  id: ADTRedSofaLeftSideRecipe
+  id: ADTSofaRedLeftSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtredsofaleft
+  targetNode: adtsofaredleft
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -73,10 +73,10 @@
 
 - type: construction
   name: red sofa middle
-  id: ADTRedSofaMiddleRecipe
+  id: ADTSofaRedMiddleRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtredsofamiddle
+  targetNode: adtsofaredmiddle
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -90,10 +90,10 @@
 
 - type: construction
   name: red sofa right side
-  id: ADTRedSofaRightSideRecipe
+  id: ADTSofaRedRightSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtredsofaright
+  targetNode: adtsofaredright
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -112,7 +112,7 @@
   id: ADTVioletSofaLeftSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtvioletsofaleft
+  targetNode: adtsofavioletleft
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -126,10 +126,10 @@
 
 - type: construction
   name: violet sofa middle
-  id: ADTVioletSofaMiddleRecipe
+  id: ADTSofaVioletMiddleRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtvioletsofamiddle
+  targetNode: adtsofavioletmiddle
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -143,10 +143,10 @@
 
 - type: construction
   name: violet sofa right side
-  id: ADTVioletSofaRightSideRecipe
+  id: ADTSofaVioletRightSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtvioletsofaright
+  targetNode: adtsofavioletright
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -162,10 +162,10 @@
 
 - type: construction
   name: leather sofa left side
-  id: ADTLeatherSofaLeftSideRecipe
+  id: ADTSofaLeatherLeftSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtleathersofaleft
+  targetNode: adtsofaleatherleft
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -179,10 +179,10 @@
 
 - type: construction
   name: leather sofa middle
-  id: ADTLeatherSofaMiddleRecipe
+  id: ADTSofaLeatherMiddleRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtleathersofamiddle
+  targetNode: adtsofaleathermiddle
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -196,10 +196,10 @@
 
 - type: construction
   name: leather sofa right side
-  id: ADTLeatherSofaRightSideRecipe
+  id: ADTSofaLeatherRightSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtleathersofaright
+  targetNode: adtsofaleatherright
   category: construction-category-furniture
   description: It looks comfy.
   icon:
@@ -754,10 +754,10 @@
 
 - type: construction
   name: plastic round table
-  id: ADTRoundTablePlasticRecipe
+  id: ADTTableRoundPlasticRecipe
   graph: ADTRoundTable
   startNode: start
-  targetNode: plasticroundtable
+  targetNode: adttableroundplastic
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:
@@ -771,10 +771,10 @@
 
 - type: construction
   name: wood round table
-  id: ADTRoundTableWoodRecipe
+  id: ADTTableRoundWoodRecipe
   graph: ADTRoundTable
   startNode: start
-  targetNode: woodroundtable
+  targetNode: adttableroundwood
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:
@@ -788,10 +788,10 @@
 
 - type: construction
   name: glass round table
-  id: ADTRoundTableGlassRecipe
+  id: ADTTableRoundGlassRecipe
   graph: ADTRoundTable
   startNode: start
-  targetNode: glassroundtable
+  targetNode: adttableroundglass
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:
@@ -805,10 +805,10 @@
 
 - type: construction
   name: white wood table
-  id: ADTWhiteWoodTableRecipe
+  id: ADTTableWhiteWoodRecipe
   graph: ADTTable
   startNode: start
-  targetNode: whitewoodtable
+  targetNode: adttablewhitewood
   category: construction-category-furniture
   description: A square piece of glass, standing on four metal legs.
   icon:
@@ -822,10 +822,10 @@
 
 - type: construction
   name: red wood table
-  id: ADTRedWoodTableRecipe
+  id: ADTTableRedWoodRecipe
   graph: ADTTable
   startNode: start
-  targetNode: redwoodtable
+  targetNode: adttableredwood
   category: construction-category-furniture
   description: A square piece of glass, standing on four metal legs.
   icon:
@@ -844,7 +844,7 @@
   id: ADTChairPizzeriaRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: pizzeriachair
+  targetNode: adtchairpizzeria
   category: construction-category-furniture
   description: You can sit on this.
   icon:
@@ -861,7 +861,7 @@
   id: ADTChairWhiteRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: whitechair
+  targetNode: adtchairwhite
   category: construction-category-furniture
   description: You can sit on this.
   icon:
@@ -878,7 +878,7 @@
   id: ADTChairRedRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: redchair
+  targetNode: adtchairred
   category: construction-category-furniture
   description: You can sit on this.
   icon:
@@ -894,10 +894,10 @@
 
 - type: construction
   name: church bench left side
-  id: ADTChurchBenchLeftSideRecipe
+  id: ADTBenchChurchLeftSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtchurchbenchleft
+  targetNode: adtbenchchurchleft
   category: construction-category-furniture
   description: Simple, but beautiful.
   icon:
@@ -911,10 +911,10 @@
 
 - type: construction
   name: church bench middle
-  id: ADTChurchBenchMiddleRecipe
+  id: ADTBenchChurchMiddleRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtchurchbenchmiddle
+  targetNode: adtbenchchurchmiddle
   category: construction-category-furniture
   description: Simple, but beautiful.
   icon:
@@ -928,10 +928,10 @@
 
 - type: construction
   name: church bench right side
-  id: ADTChurchBenchRightSideRecipe
+  id: ADTBenchChurchRightSideRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: adtchurchbenchright
+  targetNode: adtbenchchurchright
   category: construction-category-furniture
   description: Simple, but beautiful.
   icon:
@@ -950,7 +950,7 @@
   id: ADTChairOktoberfestRecipe
   graph: ADTSeat
   startNode: start
-  targetNode: oktoberfestchair
+  targetNode: adtchairoktoberfest
   category: construction-category-furniture
   description: You can sit on this.
   icon:
@@ -967,7 +967,7 @@
   id: ADTTableOktoberfestRecipe
   graph: ADTTable
   startNode: start
-  targetNode: oktoberfesttable
+  targetNode: adttableoktoberfest
   category: construction-category-furniture
   description: Do not apply fire to this. Rumour says it burns easily.
   icon:
@@ -984,7 +984,7 @@
   id: ADTTableOktoberfestOrangeRecipe
   graph: ADTTable
   startNode: start
-  targetNode: oktoberfesttableorange
+  targetNode: adttableoktoberfestorange
   category: construction-category-furniture
   description: Do not apply fire to this. Rumour says it burns easily.
   icon:
@@ -1032,41 +1032,6 @@
   conditions:
     - !type:TileNotBlocked
 
-# Закоментил эти двойные кроватки из-за плохого отображения, и сомнения что вообще они нужны.
-#- type: construction
-#  id: ADTDoubleBedTopRecipe
-#  name: double bed top
-#  description: You now, hot to use it.
-#  graph: ADTBed
-#  startNode: start
-#  targetNode: adtdoublebedtop
-#  category: construction-category-furniture
-#  icon:
-#    sprite: ADT/Structures/Furniture/bed_double.rsi
-#    state: top
-#  objectType: Structure
-#  placementMode: SnapgridCenter
-#  canBuildInImpassable: false
-#  conditions:
-#    - !type:TileNotBlocked
-#
-#- type: construction
-#  id: ADTDoubleBedBottomRecipe
-#  name: double bed bottom
-#  description: You now, hot to use it.
-#  graph: ADTBed
-#  startNode: start
-#  targetNode: adtdoublebedbottom
-#  category: construction-category-furniture
-#  icon:
-#    sprite: ADT/Structures/Furniture/bed_double.rsi
-#    state: bottom
-#  objectType: Structure
-#  placementMode: SnapgridCenter
-#  canBuildInImpassable: false
-#  conditions:
-#    - !type:TileNotBlocked
-
 - type: construction
   id: ADTBonfireRecipe
   name: bonfire
@@ -1089,7 +1054,7 @@
   id: ADTDiscoBallRecipe
   graph: ADTDiscoBallGraph
   startNode: start
-  targetNode: discoball
+  targetNode: adtdiscoball
   category: construction-category-furniture
   description: Lets fall in 2470.
   icon:

@@ -6,31 +6,7 @@
       actions:
         - !type:DeleteEntity {}
       edges:
-        - to: redwoodtableframe
-          completed:
-            - !type:SnapToGrid
-              southRotation: true
-          steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 1
-        - to: whitewoodtableframe
-          completed:
-            - !type:SnapToGrid
-              southRotation: true
-          steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 1
-        - to: oktoberfesttableframe
-          completed:
-            - !type:SnapToGrid
-              southRotation: true
-          steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 1
-        - to: oktoberfesttableorangeframe
+        - to: adttableframe
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -39,8 +15,8 @@
               amount: 2
               doAfter: 1
 
-    - node: whitewoodtableframe
-      entity: ADTWhiteWoodTableFrame
+    - node: adttableframe
+      entity: ADTTableFrame
       edges:
         - to: start
           completed:
@@ -51,14 +27,14 @@
             - tool: Anchoring
               doAfter: 1
 
-        - to: whitewoodtable
+        - to: adttablewhitewood
           steps:
             - material: WoodPlank
               amount: 1
               doAfter: 1
 
-    - node: redwoodtableframe
-      entity: ADTRedWoodTableFrame
+    - node: adttableframe
+      entity: ADTTableFrame
       edges:
         - to: start
           completed:
@@ -69,16 +45,16 @@
             - tool: Anchoring
               doAfter: 1
 
-        - to: redwoodtable
+        - to: adttableredwood
           steps:
             - material: WoodPlank
               amount: 1
               doAfter: 1
 
-    - node: whitewoodtable
-      entity: ADTWhiteWoodTable
+    - node: adttablewhitewood
+      entity: ADTTableWhiteWood
       edges:
-        - to: whitewoodtableframe
+        - to: adttableframe
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -87,10 +63,10 @@
             - tool: Prying
               doAfter: 1
 
-    - node: redwoodtable
-      entity: ADTRedWoodTable
+    - node: adttableredwood
+      entity: ADTTableRedWood
       edges:
-        - to: redwoodtableframe
+        - to: adttableframe
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -99,8 +75,8 @@
             - tool: Prying
               doAfter: 1
 
-    - node: oktoberfesttableframe
-      entity: ADTTableOktoberfestFrame
+    - node: adttableframe
+      entity: ADTTableFrame
       edges:
         - to: start
           completed:
@@ -111,13 +87,13 @@
             - tool: Anchoring
               doAfter: 1
 
-        - to: oktoberfesttable
+        - to: adttableoktoberfest
           steps:
             - material: WoodPlank
               amount: 1
               doAfter: 1
-    - node: oktoberfesttableorangeframe
-      entity: ADTTableOktoberfestOrangeFrame
+    - node: adttableframe
+      entity: ADTTableFrame
       edges:
         - to: start
           completed:
@@ -128,16 +104,16 @@
             - tool: Anchoring
               doAfter: 1
 
-        - to: oktoberfesttableorange
+        - to: adttableoktoberfestorange
           steps:
             - material: WoodPlank
               amount: 1
               doAfter: 1
 
-    - node: oktoberfesttable
+    - node: adttableoktoberfest
       entity: ADTTableOktoberfest
       edges:
-        - to: oktoberfesttableframe
+        - to: adttableframe
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -146,10 +122,10 @@
             - tool: Prying
               doAfter: 1
 
-    - node: oktoberfesttableorange
+    - node: adttableoktoberfestorange
       entity: ADTTableOktoberfestOrange
       edges:
-        - to: oktoberfesttableorangeframe
+        - to: adttableframe
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1

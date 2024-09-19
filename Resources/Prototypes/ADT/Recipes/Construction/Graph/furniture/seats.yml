@@ -6,62 +6,62 @@
       actions:
         - !type:DestroyEntity {}
       edges:
-        - to: adtblacksofaleft
+        - to: adtsofablackleft
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtblacksofamiddle
+        - to: adtsofablackmiddle
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtblacksofaright
+        - to: adtsofablackright
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtredsofaleft
+        - to: adtsofaredleft
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtredsofamiddle
+        - to: adtsofaredmiddle
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtredsofaright
+        - to: adtsofaredright
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtvioletsofaleft
+        - to: adtsofavioletleft
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtvioletsofamiddle
+        - to: adtsofavioletmiddle
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtvioletsofaright
+        - to: adtsofavioletright
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtleathersofaleft
+        - to: adtsofaleatherleft
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtleathersofamiddle
+        - to: adtsofaleathermiddle
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: adtleathersofaright
+        - to: adtsofaleatherright
           steps:
             - material: Steel
               amount: 2
@@ -221,37 +221,37 @@
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: pizzeriachair
+        - to: adtchairpizzeria
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: redchair
+        - to: adtchairred
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: whitechair
+        - to: adtchairwhite
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: oktoberfestchair
+        - to: adtchairoktoberfest
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtchurchbenchleft
+        - to: adtbenchchurchleft
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtchurchbenchmiddle
+        - to: adtbenchchurchmiddle
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtchurchbenchright
+        - to: adtbenchchurchright
           steps:
             - material: WoodPlank
               amount: 2
@@ -259,7 +259,7 @@
 
 # Sofa
 # Sofa-black
-    - node: adtblacksofaleft
+    - node: adtsofablackleft
       entity: ADTBlackSofaLeftSide
       edges:
         - to: start
@@ -271,7 +271,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtblacksofamiddle
+    - node: adtsofablackmiddle
       entity: ADTBlackSofaMiddle
       edges:
         - to: start
@@ -283,7 +283,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtblacksofaright
+    - node: adtsofablackright
       entity: ADTBlackSofaRightSide
       edges:
         - to: start
@@ -297,8 +297,8 @@
 
 # Sofa-red
 
-    - node: adtredsofaleft
-      entity: ADTRedSofaLeftSide
+    - node: adtsofaredleft
+      entity: ADTSofaRedLeftSide
       edges:
         - to: start
           completed:
@@ -309,8 +309,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtredsofamiddle
-      entity: ADTRedSofaMiddle
+    - node: adtsofaredmiddle
+      entity: ADTSofaRedMiddle
       edges:
         - to: start
           completed:
@@ -321,8 +321,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtredsofaright
-      entity: ADTRedSofaRightSide
+    - node: adtsofaredright
+      entity: ADTSofaRedRightSide
       edges:
         - to: start
           completed:
@@ -335,8 +335,8 @@
 
 # Sofa-violet
 
-    - node: adtvioletsofaleft
-      entity: ADTVioletSofaLeftSide
+    - node: adtsofavioletleft
+      entity: ADTSofaVioletLeftSide
       edges:
         - to: start
           completed:
@@ -347,8 +347,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtvioletsofamiddle
-      entity: ADTVioletSofaMiddle
+    - node: adtsofavioletmiddle
+      entity: ADTSofaVioletMiddle
       edges:
         - to: start
           completed:
@@ -359,8 +359,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtvioletsofaright
-      entity: ADTVioletSofaRightSide
+    - node: adtsofavioletright
+      entity: ADTSofaVioletRightSide
       edges:
         - to: start
           completed:
@@ -373,8 +373,8 @@
 
 # Sofa-leather
 
-    - node: adtleathersofaleft
-      entity: ADTLeatherSofaLeftSide
+    - node: adtsofaleatherleft
+      entity: ADTSofaLeatherLeftSide
       edges:
         - to: start
           completed:
@@ -385,8 +385,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtleathersofamiddle
-      entity: ADTLeatherSofaMiddle
+    - node: adtsofaleathermiddle
+      entity: ADTSofaLeatherMiddle
       edges:
         - to: start
           completed:
@@ -397,8 +397,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtleathersofaright
-      entity: ADTLeatherSofaRightSide
+    - node: adtsofaleatherright
+      entity: ADTSofaLeatherRightSide
       edges:
         - to: start
           completed:
@@ -715,8 +715,8 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: adtchurchbenchleft
-      entity: ADTChurchBenchLeftSide
+    - node: adtbenchchurchleft
+      entity: ADTBenchChurchLeftSide
       edges:
         - to: start
           completed:
@@ -727,8 +727,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: adtchurchbenchmiddle
-      entity: ADTChurchBenchMiddle
+    - node: adtbenchchurchmiddle
+      entity: ADTBenchChurchMiddle
       edges:
         - to: start
           completed:
@@ -739,8 +739,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: adtchurchbenchright
-      entity: ADTChurchBenchRightSide
+    - node: adtbenchchurchright
+      entity: ADTBenchChurchRightSide
       edges:
         - to: start
           completed:
@@ -823,7 +823,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: pizzeriachair
+    - node: adtchairpizzeria
       entity: ADTChairPizzeria
       edges:
         - to: start
@@ -834,7 +834,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: redchair
+    - node: adtchairred
       entity: ADTChairRed
       edges:
         - to: start
@@ -845,7 +845,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: whitechair
+    - node: adtchairwhite
       entity: ADTChairWhite
       edges:
         - to: start
@@ -856,7 +856,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: oktoberfestchair
+    - node: adtchairoktoberfest
       entity: ADTChairOktoberfest
       edges:
         - to: start

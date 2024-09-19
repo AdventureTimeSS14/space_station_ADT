@@ -14,35 +14,3 @@
     position: Down
     rotation: -90
     buckleOffset: "0,-0.15"
-
-#- type: entity
-#  parent: Bed
-#  id: ADTDoubleBedTop
-#  name: double bed
-#  description: You now, hot to use it.
-#  components:
-#  - type: Sprite
-#    sprite: ADT/Structures/Furniture/bed_double.rsi # спрайт от unlumy
-#    state: top
-#  - type: Construction
-#    graph: bed
-#    node: adtdoublebedtop
-#  - type: GuideHelp
-#    guides:
-#    - Medical Doctor
-
-# - type: entity
-#  parent: Bed
-#  id: ADTDoubleBedBottom
-#  name: double bed
-#  description: You now, hot to use it.
-#  components:
-#  - type: Sprite
-#    sprite: ADT/Structures/Furniture/bed_double.rsi # спрайт от unlumy
-#    state: bottom
-#  - type: Construction
-#    graph: bed
-#    node: adtdoublebedbottom
-#  - type: GuideHelp
-#    guides:
-#    - Medical Doctor

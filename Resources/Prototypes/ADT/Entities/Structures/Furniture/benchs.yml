@@ -1,0 +1,50 @@
+# База
+- type: entity
+  name: adt bench base
+  id: ADTBenchBase
+  parent: SeatBase
+  description: Simple, but beautiful.
+  abstract: true
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+
+- type: entity
+  name: church bench left side
+  id: ADTBenchChurchLeftSide
+  parent: ADTBenchBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bench_church.rsi #спрайт от shi106
+    state: bench_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtbenchchurchleft
+
+- type: entity
+  name: church bench middle
+  id: ADTBenchChurchMiddle
+  parent: ADTBenchBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bench_church.rsi #спрайт от shi106
+    state: bench_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtbenchchurchmiddle
+
+- type: entity
+  name: church bench side
+  id: ADTBenchChurchRightSide
+  parent: ADTBenchBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bench_church.rsi #спрайт от shi106
+    state: bench_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtbenchchurchright

@@ -1,11 +1,11 @@
-ent-ADTChurchBenchLeftSide = церковная скамейка
+ent-ADTBenchChurchLeftSide = церковная скамейка
     .suffix = Левая часть
     .desc = Простая, но красивая.
 
-ent-ADTChurchBenchMiddle = церковная скамейка
+ent-ADTBenchChurchMiddle = { ent-ADTChurchBenchLeftSide }
     .suffix = Середина
-    .desc = Простая, но красивая.
+    .desc = { ent-ADTChurchBenchLeftSide.desc }
 
-ent-ADTChurchBenchRightSide = церковная скамейка
+ent-ADTBenchChurchRightSide = { ent-ADTChurchBenchLeftSide }
     .suffix = Правая часть
-    .desc = Простая, но красивая
+    .desc = { ent-ADTChurchBenchLeftSide.desc }

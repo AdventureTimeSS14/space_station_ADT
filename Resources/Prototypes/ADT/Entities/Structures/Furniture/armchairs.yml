@@ -1,9 +1,10 @@
-#кресла от Юны
+# База
 - type: entity
-  name: violet armchair
-  id: ADTArmchairViolet
+  name: adt base armchair
+  id: ADTArmchairBase
   parent: SeatBase
   description: It looks comfy.
+  abstract: true
   components:
   - type: Transform
     anchored: true
@@ -11,6 +12,14 @@
     bodyType: Static
   - type: Anchorable
   - type: Rotatable
+
+#кресла от Юны
+- type: entity
+  name: violet armchair
+  id: ADTArmchairViolet
+  parent: ADTArmchairBase
+  description: It looks comfy.
+  components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsyuna.rsi #спрайт от yunachka
     state: violet_armchair
@@ -22,15 +31,9 @@
 - type: entity
   name: red armchair
   id: ADTArmchairRed
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsyuna.rsi #спрайт от yunachka
     state: red_armchair
@@ -42,15 +45,9 @@
 - type: entity
   name: leather armchair
   id: ADTArmchairLeather
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsyuna.rsi #спрайт от yunachka
     state: brown_armchair
@@ -62,15 +59,9 @@
 - type: entity
   name: black armchair
   id: ADTArmchairBlack
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsluna.rsi
     state: black_armchair
@@ -81,15 +72,9 @@
 - type: entity
   name: white armchair
   id: ADTArmchairWhite
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
     state: white_armchair
@@ -100,15 +85,9 @@
 - type: entity
   name: white armchair
   id: ADTArmchairWhite2
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
     state: white_armchair_02
@@ -119,15 +98,9 @@
 - type: entity
   name: brown armchair
   id: ADTArmchairBrown
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
     state: brown_armchair
@@ -138,15 +111,9 @@
 - type: entity
   name: brown armchair
   id: ADTArmchairBrown2
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
     state: brown_armchair_02
@@ -157,15 +124,9 @@
 - type: entity
   name: blue armchair
   id: ADTArmchairBlue
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
     state: blue_armchair
@@ -176,15 +137,9 @@
 - type: entity
   name: blue armchair
   id: ADTArmchairBlue2
-  parent: SeatBase
+  parent: ADTArmchairBase
   description: It looks comfy.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
     state: blue_armchair_02

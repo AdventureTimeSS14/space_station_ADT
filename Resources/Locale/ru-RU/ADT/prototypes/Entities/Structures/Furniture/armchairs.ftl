@@ -1,23 +1,23 @@
-ent-ADTArmchairBlack = чёрное кресло
-    .desc = Выглядит крайне комфортно
-
-ent-ADTArmchairViolet = фиолетовое кресло
-    .desc = Выглядит крайне комфортно
-
-ent-ADTArmchairRed = красное кресло
-    .desc = Выглядит крайне комфортно
-
-ent-ADTArmchairLeather = кожаное кресло
-    .desc = Выглядит крайне комфортно
-
 ent-ADTArmchairWhite = белое кресло
     .desc = Выглядит крайне комфортно.
 
 ent-ADTArmchairWhite2 = { ent-ADTArmchairWhite }
     .desc = { ent-ADTArmchairWhite.desc }
 
+ent-ADTArmchairBlack = чёрное кресло
+    .desc = { ent-ADTArmchairWhite.desc }
+
+ent-ADTArmchairViolet = фиолетовое кресло
+    .desc = { ent-ADTArmchairWhite.desc }
+
+ent-ADTArmchairRed = красное кресло
+    .desc = { ent-ADTArmchairWhite.desc }
+
+ent-ADTArmchairLeather = кожаное кресло
+    .desc = { ent-ADTArmchairWhite.desc }
+
 ent-ADTArmchairBrown = коричневое кресло
-    .desc = { ent-ADTArmchairWhite }
+    .desc = { ent-ADTArmchairWhite.desc }
 
 ent-ADTArmchairBrown2 = { ent-ADTArmchairBrown }
     .desc = { ent-ADTArmchairWhite.desc }

@@ -1,59 +1,54 @@
+# База
+- type: entity
+  name: adt chair base
+  id: ADTChairBase
+  parent: SeatBase
+  description: It looks comfy.
+  abstract: true
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+
 - type: entity
   name: pizzeria chair
   id: ADTChairPizzeria
   parent: SeatBase
   description: It looks spooky.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/chairs.rsi #спрайт от Иллюми
     state: pizza_chair
   - type: Construction
     graph: ADTSeat
-    node: pizzeriachair
+    node: adtchairpizzeria
 
 - type: entity
   name: red chair
   id: ADTChairRed
   parent: SeatBase
-  description: It looks spooky.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/chairs.rsi #спрайт от Овая
     state: white_chair
   - type: Construction
     graph: ADTSeat
-    node: redchair
+    node: adtchairred
 
 - type: entity
   name: white chair
   id: ADTChairWhite
   parent: SeatBase
-  description: It looks spooky.
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/chairs.rsi #спрайт от Овая
     state: white_chair
   - type: Construction
     graph: ADTSeat
-    node: whitechair
+    node: adtchairwhite
 
 # OctoberFest
 
@@ -61,18 +56,11 @@
   name: oktoberfest chair
   id: ADTChairOktoberfest
   parent: SeatBase
-  description: It looks comfy.
   suffix: Oktoberfest
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/Furniture/oktoberfest_chair.rsi
     state: oct_chair_orange
   - type: Construction
     graph: ADTSeat
-    node: oktoberfestchair
+    node: adtchairoktoberfest
