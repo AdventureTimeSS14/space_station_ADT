@@ -278,6 +278,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
             return;
+
         if (component.Lawset == null)
             component.Lawset = new SiliconLawset();
 
