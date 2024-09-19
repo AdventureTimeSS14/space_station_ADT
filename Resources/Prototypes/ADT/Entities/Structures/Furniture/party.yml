@@ -45,4 +45,4 @@
         acts: ["Destruction"]
   - type: Construction
     graph: ADTDiscoBallGraph
-    node: discoball
+    node: adtdiscoball
