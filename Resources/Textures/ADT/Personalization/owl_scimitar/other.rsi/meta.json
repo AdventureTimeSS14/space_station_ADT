@@ -7,7 +7,6 @@
         "y": 32
     },
     "states": [
-
         {
             "name": "inhand-left",
             "directions": 4
@@ -17,7 +16,7 @@
             "directions": 4
         },
         {
-            "name": "equipped_BELT",
+            "name": "equipped-BELT",
             "directions": 4
         }
     ]
