@@ -23,7 +23,7 @@
     state: sofa_left
   - type: Construction
     graph: ADTSeat
-    node: adtblacksofaleft
+    node: adtsofablackleft
 
 - type: entity
   name: sofa middle
@@ -35,7 +35,7 @@
     state: sofa_middle
   - type: Construction
     graph: ADTSeat
-    node: adtblacksofamiddle
+    node: adtsofablackmiddle
 
 - type: entity
   name: sofa right side
