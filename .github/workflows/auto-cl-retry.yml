@@ -1,0 +1,26 @@
+name: Retry Auto CL Update
+
+on:
+  workflow_run:
+    workflows: ["Auto CL update"]
+    types:
+      - completed
+
+jobs:
+  retry_job:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Retry Auto CL update
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { exec } = require('child_process');
+          exec('gh run rerun --job post_merge_job', (err, stdout, stderr) => {
+            if (err) {
+              console.error(Error: ${stderr});
+              return;
+            }
+            console.log(Output: ${stdout});
+          });
