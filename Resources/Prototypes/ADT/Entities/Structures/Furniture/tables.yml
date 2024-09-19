@@ -23,9 +23,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Tables/Tables/table_red_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables//table_red_wood.rsi
   - type: Icon
-    sprite: ADT/Structures/Furniture/Tables/Tables/table_red_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables//table_red_wood.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -64,9 +64,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Tables/Tables/table_white_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables/table_white_wood.rsi
   - type: Icon
-    sprite: ADT/Structures/Furniture/Tables/Tables/table_white_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables/table_white_wood.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
