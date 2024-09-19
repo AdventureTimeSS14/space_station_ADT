@@ -23,9 +23,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/table_red_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables/Tables/table_red_wood.rsi
   - type: Icon
-    sprite: ADT/Structures/Furniture/table_red_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables/Tables/table_red_wood.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -64,9 +64,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/table_white_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables/Tables/table_white_wood.rsi
   - type: Icon
-    sprite: ADT/Structures/Furniture/table_white_wood.rsi
+    sprite: ADT/Structures/Furniture/Tables/Tables/table_white_wood.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -137,10 +137,10 @@
         layer:
         - TableLayer
   - type: Sprite
-    sprite: ADT/Structures/Furniture/roundtable.rsi
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_plastic
   - type: Icon
-    sprite: ADT/Structures/Furniture/roundtable.rsi
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_plastic
   - type: Climbable
   - type: Bonkable
@@ -187,10 +187,10 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Sprite
-    sprite: ADT/Structures/Furniture/roundtable.rsi
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_wood
   - type: Icon
-    sprite: ADT/Structures/Furniture/roundtable.rsi
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_wood
   - type: Construction
     graph: ADTRoundTable
@@ -228,10 +228,10 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Sprite
-    sprite: ADT/Structures/Furniture/roundtable.rsi
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_glass
   - type: Icon
-    sprite: ADT/Structures/Furniture/roundtable.rsi
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_glass
   - type: Construction
     graph: ADTRoundTable
@@ -246,9 +246,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/oktoberfest_table.rsi
+    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table.rsi
   - type: Icon
-    sprite: ADT/Structures/Furniture/oktoberfest_table.rsi
+    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -287,9 +287,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/oktoberfest_table_orange.rsi
+    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table_orange.rsi
   - type: Icon
-    sprite: ADT/Structures/Furniture/oktoberfest_table_orange.rsi
+    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table_orange.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible

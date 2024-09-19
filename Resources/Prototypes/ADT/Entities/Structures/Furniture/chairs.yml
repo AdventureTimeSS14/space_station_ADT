@@ -20,7 +20,7 @@
   description: It looks spooky.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/chairs.rsi #спрайт от Иллюми
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Иллюми
     state: pizza_chair
   - type: Construction
     graph: ADTSeat
@@ -32,7 +32,7 @@
   parent: SeatBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/chairs.rsi #спрайт от Овая
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
     state: white_chair
   - type: Construction
     graph: ADTSeat
@@ -44,7 +44,7 @@
   parent: SeatBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/chairs.rsi #спрайт от Овая
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
     state: white_chair
   - type: Construction
     graph: ADTSeat
@@ -59,7 +59,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/oktoberfest_chair.rsi
+    sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
     state: oct_chair_orange
   - type: Construction
     graph: ADTSeat

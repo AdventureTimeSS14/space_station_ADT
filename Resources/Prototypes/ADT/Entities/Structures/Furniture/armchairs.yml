@@ -21,7 +21,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsyuna.rsi #спрайт от yunachka
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsyuna.rsi #спрайт от yunachka
     state: violet_armchair
   - type: Construction
     graph: ADTSeat
@@ -35,7 +35,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsyuna.rsi #спрайт от yunachka
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsyuna.rsi #спрайт от yunachka
     state: red_armchair
   - type: Construction
     graph: ADTSeat
@@ -49,7 +49,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsyuna.rsi #спрайт от yunachka
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsyuna.rsi #спрайт от yunachka
     state: brown_armchair
   - type: Construction
     graph: ADTSeat
@@ -63,7 +63,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
     state: black_armchair
   - type: Construction
     graph: ADTSeat
@@ -76,7 +76,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi #спрайт от lunalita
     state: white_armchair
   - type: Construction
     graph: ADTSeat
@@ -89,7 +89,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi #спрайт от lunalita
     state: white_armchair_02
   - type: Construction
     graph: ADTSeat
@@ -102,7 +102,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi #спрайт от lunalita
     state: brown_armchair
   - type: Construction
     graph: ADTSeat
@@ -115,7 +115,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi #спрайт от lunalita
     state: brown_armchair_02
   - type: Construction
     graph: ADTSeat
@@ -128,7 +128,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi #спрайт от lunalita
     state: blue_armchair
   - type: Construction
     graph: ADTSeat
@@ -141,7 +141,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/armchairsluna.rsi #спрайт от lunalita
+    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi #спрайт от lunalita
     state: blue_armchair_02
   - type: Construction
     graph: ADTSeat

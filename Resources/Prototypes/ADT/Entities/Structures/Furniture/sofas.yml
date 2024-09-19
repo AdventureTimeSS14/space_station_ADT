@@ -19,7 +19,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/black_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
     state: sofa_left
   - type: Construction
     graph: ADTSeat
@@ -31,7 +31,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/black_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
     state: sofa_middle
   - type: Construction
     graph: ADTSeat
@@ -43,7 +43,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/black_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
     state: sofa_right
   - type: Construction
     graph: ADTSeat
@@ -56,7 +56,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/red_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
     state: sofa_left
   - type: Construction
     graph: ADTSeat
@@ -68,7 +68,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/red_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
     state: sofa_middle
   - type: Construction
     graph: ADTSeat
@@ -80,7 +80,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/red_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
     state: sofa_right
   - type: Construction
     graph: ADTSeat
@@ -93,7 +93,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/violet_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
     state: sofa_left
   - type: Construction
     graph: ADTSeat
@@ -105,7 +105,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/violet_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
     state: sofa_middle
   - type: Construction
     graph: ADTSeat
@@ -117,7 +117,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/violet_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
     state: sofa_right
   - type: Construction
     graph: ADTSeat
@@ -130,7 +130,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/leather_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
     state: sofa_left
   - type: Construction
     graph: ADTSeat
@@ -142,7 +142,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/leather_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
     state: sofa_middle
   - type: Construction
     graph: ADTSeat
@@ -154,7 +154,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/leather_sofa.rsi
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
     state: sofa_right
   - type: Construction
     graph: ADTSeat
@@ -171,7 +171,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_left
   - type: Construction
     graph: ADTSeat
@@ -183,7 +183,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_right
   - type: Construction
     graph: ADTSeat
@@ -195,7 +195,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_left_02
   - type: Construction
     graph: ADTSeat
@@ -207,7 +207,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_right_02
   - type: Construction
     graph: ADTSeat
@@ -220,7 +220,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_middle
   - type: Construction
     graph: ADTSeat
@@ -233,7 +233,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_rightcorner
   - type: Construction
     graph: ADTSeat
@@ -245,7 +245,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_white.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_leftcorner
   - type: Construction
     graph: ADTSeat
@@ -259,7 +259,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_left
   - type: Construction
     graph: ADTSeat
@@ -271,7 +271,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_right
   - type: Construction
     graph: ADTSeat
@@ -283,7 +283,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_left_02
   - type: Construction
     graph: ADTSeat
@@ -295,7 +295,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_right_02
   - type: Construction
     graph: ADTSeat
@@ -308,7 +308,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_middle
   - type: Construction
     graph: ADTSeat
@@ -321,7 +321,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_rightcorner
   - type: Construction
     graph: ADTSeat
@@ -333,7 +333,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_blue.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_leftcorner
   - type: Construction
     graph: ADTSeat
@@ -347,7 +347,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_left
   - type: Construction
     graph: ADTSeat
@@ -359,7 +359,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_right
   - type: Construction
     graph: ADTSeat
@@ -371,7 +371,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_left_02
   - type: Construction
     graph: ADTSeat
@@ -383,7 +383,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_right_02
   - type: Construction
     graph: ADTSeat
@@ -396,7 +396,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_middle
   - type: Construction
     graph: ADTSeat
@@ -409,7 +409,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_rightcorner
   - type: Construction
     graph: ADTSeat
@@ -421,7 +421,7 @@
   parent: ADTSofaBase
   components:
   - type: Sprite
-    sprite: ADT/Structures/Furniture/Sofa/sofa_brown.rsi
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_leftcorner
   - type: Construction
     graph: ADTSeat
