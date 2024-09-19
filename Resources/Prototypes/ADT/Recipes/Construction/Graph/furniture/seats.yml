@@ -260,7 +260,7 @@
 # Sofa
 # Sofa-black
     - node: adtsofablackleft
-      entity: ADTBlackSofaLeftSide
+      entity: ADTSofaBlackLeftSide
       edges:
         - to: start
           completed:
@@ -272,7 +272,7 @@
               doAfter: 2
 
     - node: adtsofablackmiddle
-      entity: ADTBlackSofaMiddle
+      entity: ADTSofaBlackMiddle
       edges:
         - to: start
           completed:
@@ -284,7 +284,7 @@
               doAfter: 2
 
     - node: adtsofablackright
-      entity: ADTBlackSofaRightSide
+      entity: ADTSofaBlackRightSide
       edges:
         - to: start
           completed:
