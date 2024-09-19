@@ -3085,3 +3085,8 @@ Entries:
           в комнате ожидания, двумя тематическими картинами.', type: Add}
     time: '2024-09-19T01:08:46Z'
     id: 364
+  - author: PyotrIgn
+    changes:
+      - {message: Обновлена карта Alley, type: Tweak}
+    time: '2024-09-19T14:04:42Z'
+    id: 365
