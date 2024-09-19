@@ -1,9 +1,10 @@
+# Праздничный Диско-шар
+
 - type: entity
   id: ADTDiscoBall
   parent: BaseStructureDynamic
   name: disco ball
   description: disco ball
-  suffix: One Year
   #abstract: true
   components:
   - type: Transform

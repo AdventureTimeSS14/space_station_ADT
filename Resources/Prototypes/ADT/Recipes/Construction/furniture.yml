@@ -587,7 +587,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsyuna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
     state: violet_armchair
   objectType: Structure
   placementMode: SnapgridCenter
@@ -604,7 +604,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsyuna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
     state: red_armchair
   objectType: Structure
   placementMode: SnapgridCenter
@@ -621,7 +621,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsyuna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
     state: brown_armchair
   objectType: Structure
   placementMode: SnapgridCenter
@@ -640,7 +640,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: black_armchair
   objectType: Structure
   placementMode: SnapgridCenter
@@ -657,7 +657,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: white_armchair
   objectType: Structure
   placementMode: SnapgridCenter
@@ -674,7 +674,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: white_armchair_02
   objectType: Structure
   placementMode: SnapgridCenter
@@ -691,7 +691,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: brown_armchair
   objectType: Structure
   placementMode: SnapgridCenter
@@ -708,7 +708,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: brown_armchair_02
   objectType: Structure
   placementMode: SnapgridCenter
@@ -725,7 +725,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: blue_armchair
   objectType: Structure
   placementMode: SnapgridCenter
@@ -742,7 +742,7 @@
   category: construction-category-furniture
   description: It looks comfy.
   icon:
-    sprite: ADT/Structures/Furniture/Armchairs/armchairsluna.rsi
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: blue_armchair_02
   objectType: Structure
   placementMode: SnapgridCenter
@@ -755,7 +755,7 @@
 - type: construction
   name: plastic round table
   id: ADTTableRoundPlasticRecipe
-  graph: ADTRoundTable
+  graph: ADTTable
   startNode: start
   targetNode: adttableroundplastic
   category: construction-category-furniture
@@ -772,7 +772,7 @@
 - type: construction
   name: wood round table
   id: ADTTableRoundWoodRecipe
-  graph: ADTRoundTable
+  graph: ADTTable
   startNode: start
   targetNode: adttableroundwood
   category: construction-category-furniture
@@ -789,7 +789,7 @@
 - type: construction
   name: glass round table
   id: ADTTableRoundGlassRecipe
-  graph: ADTRoundTable
+  graph: ADTTable
   startNode: start
   targetNode: adttableroundglass
   category: construction-category-furniture
