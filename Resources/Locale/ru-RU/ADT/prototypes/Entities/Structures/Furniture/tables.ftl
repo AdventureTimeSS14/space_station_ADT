@@ -1,22 +1,20 @@
+ent-ADTTableFrame = каркас стола
+    .desc = Металлические детали, составляющие каркас стола
+
 ent-ADTRedTable = красный деревянный стол
     .desc = Деревянный стол с красивой скатертью.
-    .suffix = { "День рождения сервера" }
 
 ent-ADTWhiteTable = белый деревянный стол
-    .desc = Деревянный стол с красивой скатертью.
-    .suffix = { "День рождения сервера" }
+    .desc = { ent-ADTRedTable }
 
 ent-ADTRoundTablePlastic = пластиковый круглый столик
     .desc = Хорошо подойдет для маленького кафе.
-    .suffix = { "День рождения сервера" }
 
 ent-ADTRoundTableWood = деревянный круглый столик
-    .desc = Хорошо подойдет для маленького кафе.
-    .suffix = { "День рождения сервера" }
+    .desc = { ent-ADTRoundTablePlastic }
 
 ent-ADTRoundTableGlass = стеклянный круглый столик
-    .desc = Хорошо подойдет для маленького кафе.
-    .suffix = { "День рождения сервера" }
+    .desc = { ent-ADTRoundTablePlastic }
 
 ent-ADTTableOktoberfest = стол для Октоберфеста
     .suffix = { "Октоберфест" }
@@ -24,4 +22,4 @@ ent-ADTTableOktoberfest = стол для Октоберфеста
 
 ent-ADTTableOktoberfestOrange = стол с оранжевой скатертью для Октоберфеста
     .suffix = { "Октоберфест" }
-    .desc = Стол, способный выдержать очень много выпивки и закусок.
+    .desc = { ent-ADTTableOktoberfest }

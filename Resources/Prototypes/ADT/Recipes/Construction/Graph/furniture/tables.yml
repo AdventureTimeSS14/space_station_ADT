@@ -29,38 +29,38 @@
 
         - to: adttablewhitewood
           steps:
+            - tool: Prying
+              doAfter: 1
             - material: WoodPlank
               amount: 1
-              doAfter: 1
-
-    - node: adttableframe
-      entity: ADTTableFrame
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-                prototype: PartRodMetal
-                amount: 2
-          steps:
-            - tool: Anchoring
               doAfter: 1
 
         - to: adttableredwood
           steps:
+            - tool: Prying
+              doAfter: 1
+            - tool: Cutting
+              doAfter: 1
             - material: WoodPlank
               amount: 1
               doAfter: 1
 
-    - node: adttablewhitewood
-      entity: ADTTableWhiteWood
-      edges:
-        - to: adttableframe
-          completed:
-            - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
-              amount: 1
+        - to: adttableoktoberfest
           steps:
-            - tool: Prying
+            - tool: Screwing
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+        - to: adttableoktoberfestorange
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Cutting
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
               doAfter: 1
 
     - node: adttableredwood
@@ -75,39 +75,16 @@
             - tool: Prying
               doAfter: 1
 
-    - node: adttableframe
-      entity: ADTTableFrame
+    - node: adttablewhitewood
+      entity: ADTTableWhiteWood
       edges:
-        - to: start
+        - to: adttableframe
           completed:
             - !type:SpawnPrototype
-                prototype: PartRodMetal
-                amount: 2
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-
-        - to: adttableoktoberfest
-          steps:
-            - material: WoodPlank
+              prototype: MaterialWoodPlank1
               amount: 1
-              doAfter: 1
-    - node: adttableframe
-      entity: ADTTableFrame
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-                prototype: PartRodMetal
-                amount: 2
           steps:
-            - tool: Anchoring
-              doAfter: 1
-
-        - to: adttableoktoberfestorange
-          steps:
-            - material: WoodPlank
-              amount: 1
+            - tool: Prying
               doAfter: 1
 
     - node: adttableoktoberfest

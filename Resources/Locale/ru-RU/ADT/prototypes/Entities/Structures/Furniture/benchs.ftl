@@ -2,10 +2,10 @@ ent-ADTBenchChurchLeftSide = церковная скамейка
     .suffix = Левая часть
     .desc = Простая, но красивая.
 
-ent-ADTBenchChurchMiddle = { ent-ADTChurchBenchLeftSide }
+ent-ADTBenchChurchMiddle = { ent-ADTBenchChurchLeftSide }
     .suffix = Середина
-    .desc = { ent-ADTChurchBenchLeftSide.desc }
+    .desc = { ent-ADTBenchChurchLeftSide.desc }
 
-ent-ADTBenchChurchRightSide = { ent-ADTChurchBenchLeftSide }
+ent-ADTBenchChurchRightSide = { ent-ADTBenchChurchLeftSide }
     .suffix = Правая часть
-    .desc = { ent-ADTChurchBenchLeftSide.desc }
+    .desc = { ent-ADTBenchChurchLeftSide.desc }
