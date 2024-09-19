@@ -967,7 +967,7 @@
     attackRate: 0.9
     damage:
       types:
-        Slash: 27
+        Slash: 24
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Clothing
