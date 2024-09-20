@@ -43,7 +43,20 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 4.5
-  - type: Perishable
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    - Draconic
+    - CintaTaj
+    understands:
+    - GalacticCommon
+    - Draconic
+    - CintaTaj
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
 
 - type: entity
   parent: BaseSpeciesDummy

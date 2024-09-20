@@ -6,6 +6,14 @@
   components:
   - type: HumanoidAppearance
     species: UrsusSpecies
+  - type: Inventory
+    speciesId: urs #для одежды на урсов
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   - type: Hunger
     starvationDamage:
       types:
@@ -51,6 +59,22 @@
     understands:
     - GalacticCommon
     - Urs
+  - type: Temperature
+    heatDamageThreshold: 320
+    coldDamageThreshold: 250
+    currentTemperature: 
+    specificHeat: 50
+    coldDamage:
+      types:
+        Cold: 0.005 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.1

@@ -98,6 +98,21 @@
     sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: kidneys
   - type: Metabolizer
-    maxReagents: 5
+    maxReagents: 1
     metabolizerTypes: [ Drask ]
     removeEmpty: true
+
+- type: entity
+  id: ADTOrganDraskLiver
+  parent: OrganHumanLiver
+  suffix: "drask"
+  name: liver
+  components:
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Drask ]
+    removeEmpty: true
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1

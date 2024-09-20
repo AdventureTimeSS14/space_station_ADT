@@ -5,6 +5,11 @@
   id: BaseMobDemon
   abstract: true
   components:
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
   - type: HumanoidAppearance
     species: DemonSpecies
   - type: Hunger
@@ -53,6 +58,21 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: Perishable
+  - type: NpcFactionMember
+    factions:
+      - NanoTrasen
+  - type: LanguageSpeaker
+    speaks:
+      - GalacticCommon
+      - Arkane
+    understands:
+      - GalacticCommon
+      - Arkane
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
 
 - type: entity
   save: false

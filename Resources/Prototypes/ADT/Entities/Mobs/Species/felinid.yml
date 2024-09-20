@@ -1,10 +1,35 @@
 - type: entity
   save: false
   name: Base felinid
-  parent: BaseMobHuman
-  id: MobFelinidBase
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobFelinid
   abstract: true
   components:
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-generic
+    interactSuccessSound: /Audio/ADT/Felinid/cat_purr1.ogg
+    messagePerceivedByOthers: petting-success-soft-floofy-others
+    interactSuccessSpawn: EffectHearts
+    interactDelay: 4
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.9
+    damageRecovery:
+      types:
+        Asphyxiation: -1.9
+  - type: Vocal
+    wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      195: Dead
   - type: Sprite
     netsync: false
     noRot: true
@@ -72,6 +97,21 @@
         damage: 300
       behaviors:
       - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -97,7 +137,6 @@
       types:
         Blunt: 0.9
         Slash: 5
-  - type: Blindable
   - type: Speech
     speechSounds: Alto
   - type: DamageOnHighSpeedImpact
@@ -106,13 +145,25 @@
         Blunt: 0.9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
-  - type: Perishable
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
       - id: FoodMeat
       - id: ClothingHeadHatCatEars
-  - type: WoundLicking
+  - type: NyaAccent
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - Nekomimetic
+    understands:
+    - GalacticCommon
+    - Nekomimetic
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1
+    short: true
+    shortscale: 0.8
+
 - type: entity
   save: false
   name: Felinid Dummy

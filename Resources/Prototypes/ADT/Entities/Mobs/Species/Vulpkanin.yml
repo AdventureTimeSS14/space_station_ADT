@@ -56,7 +56,30 @@
       drawdepth: Mobs
       scale: 0.95, 0.95
     - type: Wagging
-
+    - type: Inventory
+      speciesId: vulp
+    - type: InteractionPopup
+      successChance: 1
+      interactSuccessString: hugging-success-generic
+      interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+      messagePerceivedByOthers: hugging-success-generic-others
+    #- type: Vocal
+     # maleScream: /Audio/Voice/Human/malescream_1.ogg
+      #femaleScream: /Audio/Voice/Human/femalescream_2.ogg
+    # Frontier - languages mechanic
+    - type: LanguageSpeaker
+      speaks:
+      - GalacticCommon
+      - Canilunzt
+      understands:
+      - GalacticCommon
+      - Canilunzt
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 1.1
+      short: true
+      shortscale: 0.9
+      
 - type: entity
   save: false
   name: Vulpkanin McHands

@@ -4,6 +4,18 @@
   name: Urist McDrask
   abstract: true
   components:
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Input
+    context: "human"
+  - type: NpcFactionMember
+    factions:
+      - NanoTrasen
   - type: HumanoidAppearance
     species: DraskSpecies
   - type: Hunger
@@ -15,7 +27,6 @@
     sprite: ADT/Mobs/Species/Drask/parts.rsi
     state: full
   - type: Thirst
-  - type: Perishable
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -39,12 +50,20 @@
     coldDamageThreshold: 0
     currentTemperature: 273.15
     coldDamage: #per second, scales with temperature & other constants
-      types:
-        Cold : 0
+      groups:
+        Brute: -0.1
+        Burn: -0.1
+        Toxin: -0.05
+        Airloss: -0.05
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
-        Heat : 0.4
+        Heat : 0.6
+  - type: TemperatureSpeed
+    thresholds:
+      160: 0.8
+      140: 0.6
+      100: 0.4
   - type: ThermalRegulator
     normalBodyTemperature: 273.15
   - type: DamageVisuals
@@ -64,6 +83,18 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Drask
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - Drask
+    understands:
+    - GalacticCommon
+    - Drask
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.15
+    short: true
+    shortscale: 1
 
 - type: entity
   save: false
