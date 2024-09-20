@@ -80,7 +80,6 @@ namespace Content.IntegrationTests.Tests
             "Train",
             "Oasis",
             "Cog",
-            // "Cog",
             // ADT-Start
             "ADT_Astra",
             "ADT_Avrit",
