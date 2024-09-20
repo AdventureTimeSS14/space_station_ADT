@@ -8,16 +8,16 @@
   - type: StorageFill
     contents:
     - id: ADTFoodWeissWurst
-      amount: 6
+      amount: 5
     - id: ADTFoodBratWurst
-      amount: 6
+      amount: 5
     - id: ADTFoodBreadBrezel
-      amount: 4
+      amount: 5
     - id: ADTFoodBreadBrezelPoppySeeds
-      amount: 4
+      amount: 3
     - id: ADTFoodBreadBrezelSalt
-      amount: 4
+      amount: 3
     - id: ADTFoodBreadBrezelChocolate
-      amount: 4
+      amount: 3
     - id: ADTFoodBreadBrezelVanilla
-      amount: 4
+      amount: 3
