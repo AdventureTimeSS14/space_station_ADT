@@ -301,6 +301,8 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
+  - ADTAtmosphericTechnicianNeck # ADT-Loadouts
+  - ADTAtmosphericTechnicianGasMask # ADT-Loadouts
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
@@ -563,6 +565,12 @@
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
+
+- type: roleLoadout
+  id: RoleSurvivalVoxSupport
+  groups:
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalStandard
