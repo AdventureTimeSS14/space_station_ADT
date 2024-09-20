@@ -81,7 +81,7 @@
 - type: cargoProduct
   id: ADTFoodOktoberfestSnack
   icon:
-    sprite: ADT/Objects/Consumable/Food/Basked/misc.rsi
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
     state: brezel_salt
   product: ADTCrateOktoberfestSnack
   cost: 1500
