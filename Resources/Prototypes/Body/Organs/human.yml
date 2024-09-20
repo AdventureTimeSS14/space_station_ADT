@@ -71,14 +71,13 @@
     flavors:
       - people
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: brain
     entries:
       burger:
         name: food-sequence-content-brain
       taco:
         name: food-sequence-content-brain
+      Burger: Brain
+      Taco: Brain
 
 - type: entity
   id: OrganHumanEyes
@@ -129,13 +128,6 @@
     - state: appendix
     - state: appendix-inflamed
       visible: false
-  - type: FoodSequenceElement
-    entries:
-      burger:
-        name: food-sequence-burger-content-appendix
-        sprite:
-          sprite: Mobs/Species/Human/organs.rsi
-          state: appendix
 
 - type: entity
   id: OrganHumanEars
@@ -145,15 +137,6 @@
   components:
   - type: Sprite
     state: ears
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: ears
-    entries:
-      burger:
-        name: food-sequence-content-ears
-      taco:
-        name: food-sequence-content-ears
 
 - type: entity
   id: OrganHumanLungs

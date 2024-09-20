@@ -709,10 +709,6 @@
     damage:
       types:
         Blunt: 1 # bonk
-  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
-    tags:
-    - Bread
-    - ADTMothFriendlyFood
 # Tastes like France.
 
 - type: entity

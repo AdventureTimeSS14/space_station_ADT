@@ -3073,3 +3073,20 @@ Entries:
         type: Add}
     time: '2024-09-16T20:58:52Z'
     id: 362
+  - author: Friskis
+    changes:
+      - {message: 'Добавлен тенкодовый акцент. Он не доступен  Вульпам, Таярам, Ящеровидным
+          и Ниан.', type: Add}
+    time: '2024-09-18T10:01:24Z'
+    id: 363
+  - author: eddiemercury
+    changes:
+      - {message: 'Руководство NanoTrasen дополнило список изображений, транслируемых
+          в комнате ожидания, двумя тематическими картинами.', type: Add}
+    time: '2024-09-19T01:08:46Z'
+    id: 364
+  - author: PyotrIgn
+    changes:
+      - {message: Обновлена карта Alley, type: Tweak}
+    time: '2024-09-19T14:04:42Z'
+    id: 365
