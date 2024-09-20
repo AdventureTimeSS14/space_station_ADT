@@ -77,3 +77,13 @@
   cost: 1500
   category: cargoproduct-category-name-food
   group: market
+
+- type: cargoProduct
+  id: ADTFoodOktoberfestSnack
+  icon:
+    sprite: ADT/Objects/Consumable/Food/Basked/misc.rsi
+    state: brezel_salt
+  product: ADTCrateOktoberfestSnack
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market

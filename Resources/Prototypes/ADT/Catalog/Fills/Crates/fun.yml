@@ -1,0 +1,51 @@
+- type: entity
+  id: ADTCrateOktoberfestCloth
+  parent: CratePlastic
+  name: oktoberfest clothing crate
+  description: oktoberfest clothing crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTClothingUniformOktoberfestWhite
+      amount: 2
+    - id: ADTClothingUniformOktoberfestBlueCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestGreenVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestRedCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestGreenCheckered
+      amount: 2
+    - id: ADTClothingUniformOktoberfestBlueVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestRedVest
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShort
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortGreen
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortRed
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlShortBlue
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlBlue
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlRed
+      amount: 2
+    - id: ADTClothingUniformOktoberfestDirndlGreen
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHat
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatBlueBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatRedBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatGreenBorder
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatBlue
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatGreen
+      amount: 2
+    - id: ADTClothingHeadHatsBavarianHatRed
+      amount: 2
