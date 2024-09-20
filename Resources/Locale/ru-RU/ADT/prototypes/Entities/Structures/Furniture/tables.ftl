@@ -8,7 +8,7 @@ ent-ADTTableWhite = белый деревянный стол
     .desc = { ent-ADTRedTable }
 
 ent-ADTTableRoundPlastic = пластиковый круглый столик
-    .desc = Хорошо подойдет для маленького кафе.
+    .desc = { ent-ADTRedTable }
 
 ent-ADTTableRoundWood = деревянный круглый столик
     .desc = { ent-ADTRoundTablePlastic }
