@@ -1,1 +1,0 @@
-reagent-effect-status-effect-Adrenaline = адреналин
