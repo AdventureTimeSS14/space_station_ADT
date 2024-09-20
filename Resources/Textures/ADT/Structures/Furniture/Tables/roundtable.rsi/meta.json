@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:unlumy для Время Приключений MRP сервер",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "round_plastic"
+        },
+        {
+            "name": "round_glass"
+        },
+        {
+            "name": "round_wood"
+        }
+    ]
+}
+

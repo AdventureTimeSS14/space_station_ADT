@@ -46,3 +46,8 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
   - type: AlwaysHot
+  # Start ADT tweak
+  - type: Construction
+    graph: ADTFireplace
+    node: fireplace
+  # End ADT tweak

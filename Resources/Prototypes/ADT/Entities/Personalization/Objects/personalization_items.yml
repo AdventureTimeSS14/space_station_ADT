@@ -951,6 +951,25 @@
     - Katana
   - type: DisarmMalus
 
+
+# dedurog / Урог-Джаха
+- type: entity
+  name: Urog-Djah's gold crowbar
+  parent: Crowbar
+  id: ADTUrogCrowbarGold
+  components:
+    - type: Tag
+      tags:
+        - Crowbar
+    - type: Sprite
+      sprite: ADT/Personalization/gold-crowbar.rsi
+      state: icon
+    - type: Item
+      sprite: ADT/Personalization/gold-crowbar.rsi
+      size: Normal
+      heldPrefix: gold
+
+# for Filo
 - type: entity
   name: Owl's Scimitar
   parent: BaseItem
