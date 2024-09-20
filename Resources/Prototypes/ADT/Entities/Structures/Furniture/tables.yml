@@ -156,7 +156,7 @@
   - type: Physics
     bodyType: Static
   - type: Construction
-    graph: ADTRoundTable
+    graph: ADTTable
     node: adttableroundplastic
 
 
@@ -193,7 +193,7 @@
     sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_wood
   - type: Construction
-    graph: ADTRoundTable
+    graph: ADTTable
     node: adttableroundwood
 
 - type: entity
@@ -234,7 +234,7 @@
     sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_glass
   - type: Construction
-    graph: ADTRoundTable
+    graph: ADTTable
     node: adttableroundglass
 
 # OctoberFest
