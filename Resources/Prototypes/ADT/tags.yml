@@ -74,9 +74,6 @@
   id: Eyes
 
 - type: Tag
-  id: Brain
-
-- type: Tag
   id: GasMask
 
 - type: Tag

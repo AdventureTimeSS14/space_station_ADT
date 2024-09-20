@@ -6,6 +6,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.Magic;
 
@@ -31,7 +32,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
                 return;
             }
 
-            if (!_map.TryGetGrid(trans.GridUid, out var grid))
+            if (!TryComp<MapGridComponent>(trans.GridUid, out var grid))
                 continue;
 
             var tileref = grid.GetTileRef(trans.Coordinates);
