@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
   - type: TemperatureProtection
-    coefficient: 0.9
+    heatingCoefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
