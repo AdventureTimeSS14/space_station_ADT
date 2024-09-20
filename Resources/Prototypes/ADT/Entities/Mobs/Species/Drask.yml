@@ -51,10 +51,10 @@
     currentTemperature: 273.15
     coldDamage: #per second, scales with temperature & other constants
       groups:
-        Brute: -0.1
-        Burn: -0.1
-        Toxin: -0.05
-        Airloss: -0.05
+        Brute: -0.4
+        Burn: -0.4
+        Toxin: -0.2
+        Airloss: -0.2
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:

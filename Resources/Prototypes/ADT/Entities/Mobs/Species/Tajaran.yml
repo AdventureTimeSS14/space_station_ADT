@@ -30,7 +30,7 @@
           Piercing: 5
     - type: Temperature
       heatDamageThreshold: 400
-      coldDamageThreshold: 200
+      coldDamageThreshold: 240
       currentTemperature: 310.15
       specificHeat: 46
       coldDamage:
@@ -42,7 +42,11 @@
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
-    - type: Perishable
+    - type: TemperatureSpeed
+      thresholds:
+        273: 0.8
+        260: 0.6
+        240: 0.4
     - type: MobThresholds
       thresholds:
         0: Alive

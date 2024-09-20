@@ -37,7 +37,7 @@
           Piercing: 5
     - type: Temperature
       heatDamageThreshold: 400
-      coldDamageThreshold: 200
+      coldDamageThreshold: 230
       currentTemperature: 310.15
       specificHeat: 46
       coldDamage:
@@ -46,10 +46,14 @@
       heatDamage:
         types:
           Heat : 0.1 #per second, scales with temperature & other constants
+    - type: TemperatureSpeed
+      thresholds:
+        283: 0.8
+        260: 0.6
+        230: 0.4
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
-    - type: Perishable
     - type: Sprite
       netsync: false
       noRot: true
@@ -79,7 +83,7 @@
       tallscale: 1.1
       short: true
       shortscale: 0.9
-      
+
 - type: entity
   save: false
   name: Vulpkanin McHands

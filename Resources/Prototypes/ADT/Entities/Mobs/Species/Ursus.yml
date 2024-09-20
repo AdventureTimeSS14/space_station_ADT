@@ -62,7 +62,7 @@
   - type: Temperature
     heatDamageThreshold: 320
     coldDamageThreshold: 250
-    currentTemperature: 
+    currentTemperature:
     specificHeat: 50
     coldDamage:
       types:
@@ -70,6 +70,11 @@
     heatDamage:
       types:
         Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      283: 0.8
+      265: 0.6
+      250: 0.4
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
