@@ -838,7 +838,7 @@ public sealed class ChatUIController : UIController
             }
         }
 
-        // ADT-Tweak: возможность выделять сообщения в чате
+        // Start-ADT-Tweak: возможность выделять сообщения в чате
         if (
             (msg.Channel == ChatChannel.Radio || msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper)
             && _player.LocalEntity != null
@@ -853,6 +853,7 @@ public sealed class ChatUIController : UIController
                 }
             }
         }
+        // End-ADT-Tweak
 
         // Log all incoming chat to repopulate when filter is un-toggled
         if (!msg.HideChat)
