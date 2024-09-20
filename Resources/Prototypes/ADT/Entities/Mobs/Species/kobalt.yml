@@ -5,10 +5,10 @@
   id: BaseMobKobolt
   abstract: true
   components:
-  - type: HumanoidAppearance 
+  - type: HumanoidAppearance
     species: KoboltSpecies
   - type: Icon #
-    sprite: Mobs/Species/Reptilian/parts.rsi 
+    sprite: Mobs/Species/Reptilian/parts.rsi
     state: full
   - type: Sprite #особенность кобольда. в будущем заменить на sizeAtribute
     netsync: false
@@ -48,7 +48,7 @@
 - type: entity
   parent: BaseSpeciesDummy
   id: MobKoboltDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy reptilian meant to be used in character setup.
   components:
   - type: HumanoidAppearance

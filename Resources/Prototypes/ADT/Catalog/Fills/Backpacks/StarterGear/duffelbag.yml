@@ -11,7 +11,7 @@
       - id: SpaceCash500
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelFilled
   components:
@@ -21,7 +21,7 @@
       - id: SpaceCash500
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelBrigmedic
   id: ClothingBackpackDuffelBrigmedicFilled
   components:
@@ -34,7 +34,7 @@
       # - id: SpaceCash500
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelSecurity
   id: ADTClothingBackpackDuffelSeniorSecurityFilled
   components:

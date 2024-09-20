@@ -195,7 +195,7 @@
 ## hos
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
   id: EnergyShotgunStealObjective
   components:
