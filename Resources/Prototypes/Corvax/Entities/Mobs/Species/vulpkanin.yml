@@ -61,13 +61,13 @@
 #         Asphyxiation: -2.0
 #   - type: Wagging
 
-# #- type: entity
-# #  save: false
-# #  name: Urist McHands
-# #  parent: MobHumanDummy
-# #  id: MobVulpkaninDummy
-# #  noSpawn: true
-# #  description: A dummy vulpkanin meant to be used in character setup.
-# #  components:
-# #  - type: HumanoidAppearance
-# #    species: Vulpkanin
+#- type: entity
+#  save: false
+#  name: Urist McHands
+#  parent: MobHumanDummy
+#  id: MobVulpkaninDummy
+#  noSpawn: true
+#  description: A dummy vulpkanin meant to be used in character setup.
+#  components:
+#  - type: HumanoidAppearance
+#    species: Vulpkanin

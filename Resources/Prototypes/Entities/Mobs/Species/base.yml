@@ -214,6 +214,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
