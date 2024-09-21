@@ -373,6 +373,13 @@
     tags:
     - HideContextMenu
     - StationAi
+  # Start-ADT-Tweak: Ai chat
+  - type: HighlightWordsInChat
+    highlightWords:
+      '#e00':
+      - hl-words-ai-1
+      - hl-words-ai-2
+  # End-ADT-Tweak
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
