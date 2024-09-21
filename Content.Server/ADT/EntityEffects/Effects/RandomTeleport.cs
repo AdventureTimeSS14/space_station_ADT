@@ -25,7 +25,7 @@ namespace Content.Server.Chemistry.ReagentEffects
             var statusSys = args.EntityManager.EntitySysManager.GetEntitySystem<StatusEffectsSystem>();
             var shadekin = args.EntityManager.EntitySysManager.GetEntitySystem<ShadekinSystem>();
 
-            shadekin.TeleportRandomly(args.TargetEntity, 2f);
+            shadekin.TeleportRandomlyNoComp(args.TargetEntity, 2f);
         }
     }
 }

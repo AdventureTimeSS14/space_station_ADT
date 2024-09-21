@@ -9,6 +9,7 @@
     - id: CargoSaleComputerCircuitboard
     - id: CargoShuttleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
+    - id: SalvageMagnetMachineCircuitboard
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -265,7 +266,7 @@
     - id: ClothingOuterHardsuitMedical
     - id: OxygenTankFilled
 
-# No hardsuit locker      
+# No hardsuit locker
 - type: entity
   id: LockerChiefMedicalOfficerFilled
   suffix: Filled
@@ -322,7 +323,7 @@
     - id: ClothingOuterHardsuitRd
     - id: OxygenTankFilled
 
-# No hardsuit locker      
+# No hardsuit locker
 - type: entity
   id: LockerResearchDirectorFilled
   suffix: Filled
@@ -391,7 +392,7 @@
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
-# No hardsuit locker      
+# No hardsuit locker
 - type: entity
   id: LockerHeadOfSecurityFilled
   suffix: Filled

@@ -1026,6 +1026,7 @@
   - SecurityHelmet
   - SecurityBeret
   - SecurityHat
+  - TrooperHat
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1037,6 +1038,7 @@
   - SecurityJumpskirtGrey
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
+  - TrooperUniform
   # ADT-Loadouts-Start
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
