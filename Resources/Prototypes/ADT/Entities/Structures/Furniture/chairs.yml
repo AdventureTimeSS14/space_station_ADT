@@ -1,0 +1,200 @@
+# База
+- type: entity
+  name: adt chair base
+  id: ADTChairBase
+  parent: SeatBase
+  description: It looks comfy.
+  abstract: true
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+
+- type: entity
+  name: pizzeria chair
+  id: ADTChairPizzeria
+  parent: SeatBase
+  description: It looks spooky.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Иллюми
+    state: pizza_chair
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairpizzeria
+
+- type: entity
+  name: red chair
+  id: ADTChairRed
+  parent: SeatBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
+    state: white_chair
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairred
+
+- type: entity
+  name: white chair
+  id: ADTChairWhite
+  parent: SeatBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
+    state: white_chair
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairwhite
+
+# OctoberFest
+
+- type: entity
+  name: oktoberfest chair
+  id: ADTChairOktoberfest
+  parent: SeatBase
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
+    state: oct_chair_orange
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairoktoberfest
+
+# Sofas
+
+#кресла от Юны
+- type: entity
+  name: violet armchair
+  id: ADTArmchairViolet
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi #спрайт от yunachka
+    state: violet_armchair
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairviolet
+
+- type: entity
+  name: red armchair
+  id: ADTArmchairRed
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi #спрайт от yunachka
+    state: red_armchair
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairred
+
+- type: entity
+  name: leather armchair
+  id: ADTArmchairLeather
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi #спрайт от yunachka
+    state: brown_armchair
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairleather
+
+#New Year( ну походу новогодние были, я сюда закинул и обычное кресло, вроде от луны)
+- type: entity
+  name: black armchair
+  id: ADTArmchairBlack
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: black_armchair
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairblack
+
+- type: entity
+  name: white armchair
+  id: ADTArmchairWhite
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi #спрайт от lunalita
+    state: white_armchair
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairwhite
+
+- type: entity
+  name: white armchair
+  id: ADTArmchairWhite2
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi #спрайт от lunalita
+    state: white_armchair_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairwhite2
+
+- type: entity
+  name: brown armchair
+  id: ADTArmchairBrown
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi #спрайт от lunalita
+    state: brown_armchair
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairbrown
+
+- type: entity
+  name: brown armchair
+  id: ADTArmchairBrown2
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi #спрайт от lunalita
+    state: brown_armchair_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairbrown2
+
+- type: entity
+  name: blue armchair
+  id: ADTArmchairBlue
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi #спрайт от lunalita
+    state: blue_armchair
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairblue
+
+- type: entity
+  name: blue armchair
+  id: ADTArmchairBlue2
+  parent: ADTChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi #спрайт от lunalita
+    state: blue_armchair_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtarmchairblue2

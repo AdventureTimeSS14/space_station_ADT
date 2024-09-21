@@ -1,6 +1,1023 @@
+# sofa
+# sofa-black
+
 - type: construction
-  id: ADTDeckChairRecipe
+  name: sofa left side
+  id: ADTSofaBlackLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablackleft
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: sofa middle
+  id: ADTSofaBlackMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablackmiddle
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: sofa right side
+  id: ADTSofaBlackRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablackright
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-red
+
+- type: construction
+  name: red sofa left side
+  id: ADTSofaRedLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaredleft
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: red sofa middle
+  id: ADTSofaRedMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaredmiddle
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: red sofa right side
+  id: ADTSofaRedRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaredright
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-violet
+
+- type: construction
+  name: violet sofa left side
+  id: ADTVioletSofaLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofavioletleft
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: violet sofa middle
+  id: ADTSofaVioletMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofavioletmiddle
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: violet sofa right side
+  id: ADTSofaVioletRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofavioletright
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-leather
+
+- type: construction
+  name: leather sofa left side
+  id: ADTSofaLeatherLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaleatherleft
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: leather sofa middle
+  id: ADTSofaLeatherMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaleathermiddle
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: leather sofa right side
+  id: ADTSofaLeatherRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaleatherright
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-white
+
+- type: construction
+  name: white sofa left side
+  id: ADTSofaWhiteLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofawhiteleft
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white sofa right side
+  id: ADTSofaWhiteRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofawhiteright
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-white
+
+- type: construction
+  name: white sofa left side
+  id: ADTSofaWhiteLeftSideRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofawhiteleft2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_left_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white sofa right side
+  id: ADTSofaWhiteRightSideRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofawhiteright2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_right_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white sofa middle
+  id: ADTSofaWhiteMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofawhitemiddle
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white sofa left corner
+  id: ADTSofaWhiteLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofawhiteleftcorner
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_leftcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white sofa right corner
+  id: ADTSofaWhiteRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofawhiterightcorner
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_rightcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-blue
+
+- type: construction
+  name: blue sofa left side
+  id: ADTSofaBlueLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablueleft
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue sofa right side
+  id: ADTSofaBlueRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablueright
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue sofa left side
+  id: ADTSofaBlueLeftSideRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablueleft2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_left_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue sofa right side
+  id: ADTSofaBlueRightSideRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablueright2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_right_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue sofa middle
+  id: ADTSofaBlueMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabluemiddle
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue sofa left corner
+  id: ADTSofaBlueLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofablueleftcorner
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_leftcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue sofa right corner
+  id: ADTSofaBlueRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabluerightcorner
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_rightcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-brown
+- type: construction
+  name: brown sofa left side
+  id: ADTSofabrownLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabrownleft
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown sofa right side
+  id: ADTSofabrownRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabrownright
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown sofa left side
+  id: ADTSofabrownLeftSideRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabrownleft2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_left_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown sofa right side
+  id: ADTSofabrownRightSideRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabrownright2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_right_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown sofa middle
+  id: ADTSofabrownMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabrownmiddle
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown sofa left corner
+  id: ADTSofabrownLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabrownleftcorner
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_leftcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown sofa right corner
+  id: ADTSofabrownRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofabrownrightcorner
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_rightcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Chairs
+# From Yuna
+
+- type: construction
+  name: violet chair
+  id: ADTArmchairVioletRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairviolet
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
+    state: violet_armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: red chair
+  id: ADTArmchairRedRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairred
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
+    state: red_armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: leather chair
+  id: ADTArmchairLeatherRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairleather
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
+    state: brown_armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# From Luna
+
+- type: construction
+  name: black chair
+  id: ADTArmchairBlackRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairblack
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: black_armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white armchair
+  id: ADTArmchairWhiteRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairwhite
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: white_armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white armchair
+  id: ADTArmchairWhiteRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairwhite2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: white_armchair_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown armchair
+  id: ADTArmchairBrownRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairbrown
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: brown_armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: brown armchair
+  id: ADTArmchairBrownRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairbrown2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: brown_armchair_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue armchair
+  id: ADTArmchairBlueRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairblue
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: blue_armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: blue armchair
+  id: ADTArmchairBlueRecipe2
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtarmchairblue2
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: blue_armchair_02
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Tables
+
+- type: construction
+  name: plastic round table
+  id: ADTTableRoundPlasticRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableroundplastic
+  category: construction-category-furniture
+  description: Lets fall in 2470.
+  icon:
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_plastic
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: wood round table
+  id: ADTTableRoundWoodRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableroundwood
+  category: construction-category-furniture
+  description: Lets fall in 2470.
+  icon:
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_wood
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: glass round table
+  id: ADTTableRoundGlassRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableroundglass
+  category: construction-category-furniture
+  description: Lets fall in 2470.
+  icon:
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_glass
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white wood table
+  id: ADTTableWhiteWoodRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttablewhitewood
+  category: construction-category-furniture
+  description: A square piece of glass, standing on four metal legs.
+  icon:
+    sprite: ADT/Structures/Furniture/Tables/table_white_wood.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: red wood table
+  id: ADTTableRedWoodRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableredwood
+  category: construction-category-furniture
+  description: A square piece of glass, standing on four metal legs.
+  icon:
+    sprite: ADT/Structures/Furniture/Tables/table_red_wood.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Chairs
+
+- type: construction
+  name: pizza chair
+  id: ADTChairPizzeriaRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairpizzeria
+  category: construction-category-furniture
+  description: You can sit on this.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: pizza_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: white chair
+  id: ADTChairWhiteRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairwhite
+  category: construction-category-furniture
+  description: You can sit on this.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: white_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: red chair
+  id: ADTChairRedRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairred
+  category: construction-category-furniture
+  description: You can sit on this.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: red_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Benchs
+
+- type: construction
+  name: church bench left side
+  id: ADTBenchChurchLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtbenchchurchleft
+  category: construction-category-furniture
+  description: Simple, but beautiful.
+  icon:
+    sprite: ADT/Structures/Furniture/bench_church.rsi
+    state: bench_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: church bench middle
+  id: ADTBenchChurchMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtbenchchurchmiddle
+  category: construction-category-furniture
+  description: Simple, but beautiful.
+  icon:
+    sprite: ADT/Structures/Furniture/bench_church.rsi
+    state: bench_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: church bench right side
+  id: ADTBenchChurchRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtbenchchurchright
+  category: construction-category-furniture
+  description: Simple, but beautiful.
+  icon:
+    sprite: ADT/Structures/Furniture/bench_church.rsi
+    state: bench_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# OctoberFest
+
+- type: construction
+  name: oktoberfest chair
+  id: ADTChairOktoberfestRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairoktoberfest
+  category: construction-category-furniture
+  description: You can sit on this.
+  icon:
+    sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
+    state: oct_chair_orange
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: oktoberfest table
+  id: ADTTableOktoberfestRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableoktoberfest
+  category: construction-category-furniture
+  description: Do not apply fire to this. Rumour says it burns easily.
+  icon:
+    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: oktoberfest orange table
+  id: ADTTableOktoberfestOrangeRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableoktoberfestorange
+  category: construction-category-furniture
+  description: Do not apply fire to this. Rumour says it burns easily.
+  icon:
+    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table_orange.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Other
+
+- type: construction
+  name: fireplace
+  id: ADTFireplaceRecipe
+  graph: ADTFireplace
+  startNode: start
+  targetNode: fireplace
+  category: construction-category-furniture
+  description: A place that has fire. Cozy!
+  icon:
+    sprite: Structures/Decoration/fireplace.rsi
+    state: fireplace
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   name: deckchair
+  id: ADTDeckChairRecipe
   description: A deckchair for the acquisition of an even tan under the light of the nearest star.
   graph: adt_deckchair
   startNode: start
@@ -9,6 +1026,40 @@
   icon:
     sprite: ADT/Structures/Furniture/deckchair.rsi
     state: deckchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBonfireRecipe
+  name: bonfire
+  description: Just dont freeze.
+  graph: ADTBonfire
+  startNode: start
+  targetNode: bonfire
+  category: construction-category-misc
+  icon:
+    sprite: Structures/Decoration/bonfire.rsi
+    state: bonfire
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: disco ball
+  id: ADTDiscoBallRecipe
+  graph: ADTDiscoBallGraph
+  startNode: start
+  targetNode: adtdiscoball
+  category: construction-category-furniture
+  description: Lets fall in 2470.
+  icon:
+    sprite: ADT/Structures/Decoration/discoball.rsi
+    state: discoball
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
