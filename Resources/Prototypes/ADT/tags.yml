@@ -105,3 +105,9 @@
 
 - type: Tag
   id: Tongue
+
+- type: Tag
+  id: Poppy
+
+- type: Tag
+  id: Mask
