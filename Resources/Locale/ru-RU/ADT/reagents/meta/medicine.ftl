@@ -1,7 +1,3 @@
-flavor-complex-somesalty = солёненькое
-reagent-name-ultra-chloral-hydrate = Ультрахлоральгидрат
-reagent-desc-ultra-chloral-hydrate = Модифицированный хлоральгидрат. В малых дозах вызывает сонливость. В больших дозах усыпляет. Передозировки нет
-
 reagent-name-nitrofurfoll = нитрофурфол
 reagent-desc-nitrofurfoll = Антимикробный препарат, который зачастую используют для исцеления небольших ран. Становится более эффективным вместе с бикаридином.
 
@@ -40,3 +36,6 @@ reagent-desc-styptic-powder = При нанесении на кожу зажив
 
 reagent-name-silver-sulfadiazine = Сульфадиазин серебра
 reagent-desc-silver-sulfadiazine = При нанесении на кожу заживляет ожоги.
+
+reagent-name-detoxisol = Детоксизол
+reagent-desc-detoxisol = Препарат, синтезированный на основе растительных ферментов, с целью всеобщей детоксикации организма. Имеет небольшой побочный эффект в виде небольших потерь верхних слоёв эпителия.

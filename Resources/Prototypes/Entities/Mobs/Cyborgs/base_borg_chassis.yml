@@ -147,13 +147,29 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSilicon
-  - type: UnblockableSpeech
+# ADT borgs start
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBorg
+      params:
+        variation: 0.07
+        volume: -5
+#ADT borgs end
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+# Start ADT Tweak
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+# End ADT Tweak
+  - type: UnblockableSpeech
   - type: Construction
     graph: Cyborg
     containers:
@@ -234,7 +250,7 @@
     guides:
     - Cyborgs
     - Robotics
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:

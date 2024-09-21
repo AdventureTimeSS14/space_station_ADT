@@ -11,6 +11,7 @@
   cost: 7500
   recipeUnlocks:
   - MiningDrill
+  - MineralScannerEmpty
   - BorgModuleMining
   - BorgModuleGrapplingGun
   - OreProcessorIndustrialMachineCircuitboard
@@ -150,6 +151,8 @@
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  technologyPrerequisites:
+  - AtmosphericTech
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -159,13 +162,14 @@
     state: icon
   discipline: Industrial
   tier: 2
-  cost: 10000
+  cost: 10500 # ADT-RPD
   recipeUnlocks:
     - WelderExperimental
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
     - BorgModuleRCD
+    - ADTBorgModuleRPD # ADT-RPD
 
 - type: technology
   id: MassExcavation
@@ -179,6 +183,7 @@
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
+    - AdvancedMineralScannerEmpty
 
 # Tier 3
 

@@ -364,6 +364,13 @@ DoorRemoteFirefight: null
 # 2024-06-03
 AirlockServiceCaptainLocked: AirlockCaptainLocked
 
+#2024-06-05
+DisasterVictimSpawner: CommandVisitorSpawner
+LostCargoTechnicianSpawner: VisitorCargoTechnicianSpawner
+ClownTroupeSpawner: VisitorClownSpawner
+TravelingChefSpawner: VisitorChefSpawner
+SyndieDisasterVictimSpawner: SyndieVisitorSpawner
+
 # 2024-06-15
 ClothingOuterCoatInspector: ClothingOuterCoatJensen
 
@@ -435,12 +442,13 @@ ClothingBackpackDuffelSyndicateCostumeCentcom: null
 ClothingHeadsetAltCentComFake: null
 CentcomPDAFake: null
 CentcomIDCardSyndie: null
-# ADT 2024-08-13
-ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
 
-# ADT 2024-08-15
-NesBigThruster: ADTBigThruster
-NesMiniGyroscope: Gyroscope
+# 2024-09-06
+AntimovCircuitBoard: null
+OverlordCircuitBoard: null
+
+# 2024-09-08
+HatBase: null
 
 #ADT start
 # 2024-08-17
@@ -469,4 +477,15 @@ LGBTQFlag: DrinkBottleVodka
 ClothingOuterArmorHeavy: null
 ClothingOuterArmorHeavyRed: null
 ClothingOuterArmorHeavyGreen: null
+
+#2024-09-06
+
+RiotBulletShield: null
+
+# ADT 2024-08-13
+ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
+
+# ADT 2024-08-15
+NesBigThruster: ADTBigThruster
+NesMiniGyroscope: Gyroscope
 #ADT end

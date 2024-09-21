@@ -84,7 +84,7 @@
     - id: ClothingMaskClown
     - id: ClothingMaskMime
     - id: ClothingShoesClown
-    - id: ClothingUniformJumpskirtJanimaid
+    # - id: ClothingUniformJumpskirtJanimaid ADT Tweak
     - id: ClothingNeckCloakVoid
     - id: RevolverCapGun
     - id: BarberScissors
@@ -93,6 +93,7 @@
     - id: ClownRecorder
     - id: ClothingBeltSuspendersRed
     - id: ClothingBeltSuspendersBlack
+    - id: ADTClothingUniformJumpskirtJanimaid #ADT TweakRed
 
 - type: entity
   id: CrateServiceCustomSmokable

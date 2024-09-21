@@ -28,6 +28,7 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: GasBinaryBase
@@ -203,6 +204,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: StationAiWhitelist
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:

@@ -146,6 +146,9 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         var oldTags = _access.TryGetTags(targetId) ?? new List<ProtoId<AccessLevelPrototype>>();
         oldTags = oldTags.ToList();
 
+        /* ADT-Tweak: Для доступов, которые консоль не может изменить, не менять их. */
+        newAccessList.AddRange(oldTags.Except(component.AccessLevels.Intersect(oldTags)));
+
         var privilegedId = component.PrivilegedIdSlot.Item;
 
         if (oldTags.SequenceEqual(newAccessList))

@@ -2,7 +2,7 @@
   name: handcuffs
   description: Used to detain criminals and other assholes.
   id: Handcuffs
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityCommandContraband]
   components:
   - type: Item
     size: Small
@@ -97,6 +97,11 @@
   - type: Sprite
     sprite: Objects/Misc/zipties.rsi
     state: cuff
+# ADT secborg start
+  - type: Stack
+    stackType: Zipties
+    count: 1
+# ADT secborg end
 
 - type: entity
   id: BaseHandcuffsBroken

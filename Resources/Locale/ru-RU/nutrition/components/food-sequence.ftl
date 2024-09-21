@@ -73,7 +73,7 @@ food-sequence-content-capfruit = пистофруктом
 food-sequence-content-berries = ягодами
 food-sequence-content-spacemans-trumpet = космической трубкой
 food-sequence-content-cherry = вишней
-food-sequence-content-snail = snail
+food-sequence-content-snail = улиткой
 
 # BURGERS
 
@@ -82,6 +82,7 @@ food-sequence-burger-content-raw-meat = сыро
 food-sequence-burger-content-meat = мясо
 food-sequence-burger-content-carp = карпо
 food-sequence-burger-content-bear = медве
+food-sequence-burger-content-crab = crabs
 food-sequence-burger-content-penguin = пингви
 food-sequence-burger-content-corgi = корги
 food-sequence-burger-content-goliath = голи
@@ -111,7 +112,7 @@ food-sequence-burger-content-suppermatter = супер
 food-sequence-burger-content-hamster = хомяко
 food-sequence-burger-content-berries = ягод
 food-sequence-burger-content-spacemans-trumpet = космотруб
-food-sequence-burger-content-appendix = аппендиксо
+
 # TACO
 
 food-sequence-taco-gen = тако с { $content }
