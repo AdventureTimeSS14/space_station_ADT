@@ -13,7 +13,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Chat;
 using Content.Server.Chat;
 using System.Linq;
-using Robust.Shared.Serialization.Manager;
+using Content.Shared.Heretic;
 using Content.Shared.Alert;
 using Robust.Server.GameObjects;
 using Content.Server.Chat.Systems;
@@ -2672,6 +2672,11 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 _damageableSystem.TryChangeDamage(args.Target, damage);
             }
         }
+        if (TryComp<HereticComponent>(args.Target, out var heretic) && heretic.PathStage > 3)
+        {
+            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.Damage);
+            _damageableSystem.TryChangeDamage(args.Target, damage);
+        }
     }
 
     private void OnThrowHit(EntityUid uid, HolyDamageComponent component, ThrowDoHitEvent args)
@@ -2695,6 +2700,11 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.DamageToVessel);
                 _damageableSystem.TryChangeDamage(args.Target, damage);
             }
+        }
+        if (TryComp<HereticComponent>(args.Target, out var heretic) && heretic.PathStage > 3)
+        {
+            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.Damage);
+            _damageableSystem.TryChangeDamage(args.Target, damage);
         }
     }
 
@@ -2723,6 +2733,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.Damage);
                 _damageableSystem.TryChangeDamage(holder.Phantom, damage);
                 StopHaunt(holder.Phantom, ent);
+            }
+
+            if (TryComp<HereticComponent>(ent, out var heretic) && heretic.PathStage > 3)
+            {
+                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.Damage);
+                _damageableSystem.TryChangeDamage(ent, damage);
             }
 
             if (HasComp<VesselComponent>(ent))

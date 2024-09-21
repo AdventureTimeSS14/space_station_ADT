@@ -302,3 +302,24 @@
       modifiers:
         coefficients:
           Heat: 0.80
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskMad
+  name: abyssal mask
+  description: A mask created from suffering. When you look into its eyes, it looks back.
+  components:
+  - type: SelfUnremovableClothing
+  - type: Sprite
+    sprite: ADT/Heretic/mad_mask.rsi
+  - type: Clothing
+    sprite: ADT/Heretic/mad_mask.rsi
+  - type: BreathMask
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - Mask
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
