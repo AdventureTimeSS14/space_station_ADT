@@ -1035,7 +1035,7 @@
 - type: entity
   name: wide laser barrage
   id: BulletLaserSpread
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BulletLaser
   components:
   - type: ProjectileSpread
@@ -1057,7 +1057,7 @@
 - type: entity
   name: narrow laser barrage
   id: BulletLaserHeavySpread
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BulletLaser
   components:
   - type: ProjectileSpread
@@ -1068,7 +1068,7 @@
 - type: entity
   name: disabling laser barrage
   id: BulletDisablerSmgSpread
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BulletDisablerSmg
   components:
   - type: ProjectileSpread
