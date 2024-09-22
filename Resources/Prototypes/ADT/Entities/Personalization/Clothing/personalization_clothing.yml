@@ -436,7 +436,7 @@
   parent: [ClothingBeltBase, ClothingSlotBase]
   id: ADTClothingBeltZoroSheath
   suffix: Rip_Zoro
-  name: sheath оf Zoro's katana
+  name: The scabbard of the legendary katana
   description: The scabbard of a legendary swordsman...
   components:
   - type: Sprite

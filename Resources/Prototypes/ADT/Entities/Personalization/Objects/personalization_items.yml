@@ -953,7 +953,7 @@
 
 #Rip_Zoro
 - type: entity
-  name: Katana Zoro
+  name: The legendary katana
   parent: BaseSword
   id: ADTZoroKatana
   description: The katana of a great swordsman...
