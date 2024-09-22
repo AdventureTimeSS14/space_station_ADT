@@ -136,6 +136,9 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  # ADT-Loadouts-Start
+  - ADTHatBeretHOP
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPJumpsuit

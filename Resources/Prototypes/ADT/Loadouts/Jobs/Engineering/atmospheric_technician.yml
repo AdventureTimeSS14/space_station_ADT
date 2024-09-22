@@ -34,3 +34,9 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTMasterAtmos
+
+# Head
+- type: loadout
+  id: ADTHatBeretAtmos
+  equipment:
+    head: ADTClothingHeadHatsBeretAtmos
