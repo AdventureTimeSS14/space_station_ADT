@@ -28,7 +28,7 @@
   id: MaskOfMadness
   name: heretic-ritual-ash-mask
   requiredTags:
-    Mask: 1
+    GasMask: 1
     Candle: 4
     Stunbaton: 1
   output:
