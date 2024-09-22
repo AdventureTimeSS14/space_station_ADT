@@ -159,8 +159,8 @@
     parent: true
     components:
     - type: Stealth
-      minVisibility: 0.03 #ADT_Tweak
-      lastVisibility: 0.03 #ADT_Tweak
+      minVisibility: -0.4 #ADT_Tweak
+      lastVisibility: -0.4 #ADT_Tweak
   - type: PowerCellDraw
     drawRate: 1.8 # 200 seconds on the default cell
   - type: ToggleCellDraw

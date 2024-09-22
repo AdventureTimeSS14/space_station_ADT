@@ -298,11 +298,12 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - ADTAtmosphericTechnicianHead # ADT-Loadouts
+  - ADTAtmosphericTechnicianNeck # ADT-Loadouts
+  - ADTAtmosphericTechnicianGasMask # ADT-Loadouts
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
-  - ADTAtmosphericTechnicianNeck # ADT-Loadouts
-  - ADTAtmosphericTechnicianGasMask # ADT-Loadouts
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
