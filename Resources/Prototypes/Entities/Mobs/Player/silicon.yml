@@ -46,10 +46,6 @@
         type: GeneralStationRecordConsoleBoundUserInterface
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
-# Start ADT Tweak
-      enum.CommunicationsConsoleUiKey.Key:
-        type: CommunicationsConsoleBoundUserInterface
-# End ADT Tweak
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -58,13 +54,6 @@
         toggleAction: ActionAGhostShowCrewMonitoring
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
-# Start ADT Tweak
-      enum.CommunicationsConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowCommunications
-  - type: CommunicationsConsole
-    title: comms-console-announcement-title-ai
-    color: "#00bfff"
-# End ADT Tweak
 
 # Actions
 - type: entity
