@@ -66,7 +66,7 @@ ent-ADTFunCardDimonds2 = карта
     .desc = Это игральная карта. Что скрывается на лицевой стороне?
     .suffix = { "Карты" }
 
-ent-ADTFunCardClubs3 = { ent-ADTFunCardClubs2 }
+ent-ADTFunCardDimonds3 = { ent-ADTFunCardClubs2 }
     .desc = { ent-ADTFunCardClubs2.desc }
     .suffix = { "Карты" }
 
