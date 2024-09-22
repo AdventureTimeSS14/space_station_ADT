@@ -941,11 +941,35 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 15 
+        Slash: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     sprite: ADT/Personalization/bolper_katana.rsi
+  - type: Tag
+    tags:
+    - Katana
+  - type: DisarmMalus
+
+#Rip_Zoro
+- type: entity
+  name: Katana Zoro
+  parent: BaseSword
+  id: ADTZoroKatana
+  description: The katana of a great swordsman...
+  suffix: Rip_Zoro
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_katana.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 17
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: ADT/Personalization/rip_zoro_katana.rsi
   - type: Tag
     tags:
     - Katana
