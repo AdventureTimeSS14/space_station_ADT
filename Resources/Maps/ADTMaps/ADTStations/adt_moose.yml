@@ -5585,7 +5585,7 @@ entities:
       pos: 109.5,22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42740.457
+      secondsUntilStateChange: -42917.848
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5977,7 +5977,7 @@ entities:
       pos: 60.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40851.43
+      secondsUntilStateChange: -41028.82
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5988,7 +5988,7 @@ entities:
       pos: 60.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11623.571
+      secondsUntilStateChange: -11800.961
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -42274,7 +42274,7 @@ entities:
       - 6832
       - 53
     - type: Door
-      secondsUntilStateChange: -57673.652
+      secondsUntilStateChange: -57851.043
       state: Closing
   - uid: 6878
     components:
@@ -42287,7 +42287,7 @@ entities:
       - 6832
       - 53
     - type: Door
-      secondsUntilStateChange: -57656.25
+      secondsUntilStateChange: -57833.64
       state: Closing
   - uid: 6879
     components:
@@ -42381,7 +42381,7 @@ entities:
       - 6837
       - 54
     - type: Door
-      secondsUntilStateChange: -56603.11
+      secondsUntilStateChange: -56780.5
       state: Closing
   - uid: 6888
     components:
@@ -42592,7 +42592,7 @@ entities:
       - 77
       - 6842
     - type: Door
-      secondsUntilStateChange: -54232.71
+      secondsUntilStateChange: -54410.1
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 50062.9785103
@@ -42709,7 +42709,7 @@ entities:
       - 70
       - 6843
     - type: Door
-      secondsUntilStateChange: -54951.598
+      secondsUntilStateChange: -55128.99
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 49342.4078024
@@ -42822,7 +42822,7 @@ entities:
       - 6844
       - 65
     - type: Door
-      secondsUntilStateChange: -54447.28
+      secondsUntilStateChange: -54624.67
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 49846.7501552
@@ -43209,7 +43209,7 @@ entities:
       pos: 83.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2708.8975
+      secondsUntilStateChange: -2886.2869
       state: Closing
 - proto: FirelockEdge
   entities:
@@ -43387,7 +43387,7 @@ entities:
       pos: 106.5,30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3369.8396
+      secondsUntilStateChange: -3547.229
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -44609,7 +44609,7 @@ entities:
       pos: 108.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12557.499
+      secondsUntilStateChange: -12734.889
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -44742,7 +44742,7 @@ entities:
       pos: 79.5,-24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17792.113
+      secondsUntilStateChange: -17969.502
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -79585,6 +79585,34 @@ entities:
     components:
     - type: Transform
       pos: 103.5,25.5
+      parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 15307
+    components:
+    - type: Transform
+      pos: 54.5,18.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 15310
+    components:
+    - type: Transform
+      pos: 103.5,24.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 15308
+    components:
+    - type: Transform
+      pos: 74.5,-1.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 15309
+    components:
+    - type: Transform
+      pos: 78.5,-27.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:
