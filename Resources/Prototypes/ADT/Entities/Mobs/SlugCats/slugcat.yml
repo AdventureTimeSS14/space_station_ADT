@@ -1,11 +1,11 @@
 - type: entity
-  name: Slug cat
+  name: Slug Cat
   parent: SimpleMobBase
   id: ADTMobSlugCatCreek
-  description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, it's a very different creature. The pride of xenobiology. Very agile and intelligent, they come from a planet with a dangerous habitat. Loves spears.
+  description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: SmallMobs
     sprite: ADT/Mobs/slug-cat.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -18,9 +18,9 @@
           radius: 0.35
         density: 15
         mask:
-        - MobMask
+        - SmallMobMask
         layer:
-        - MobLayer
+        - SmallMobLayer
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -89,10 +89,13 @@
       types:
         Slash: 0
   - type: Muted
+  - type: NoSlip
         
 - type: entity
+  name: Slug Cat
   parent: ADTMobSlugCatCreek
   id: ADTMobSlugCatHoly
+  description: cat
   components:
   - type: Sprite
     layers:
@@ -109,8 +112,10 @@
 
 
 - type: entity
+  name: Slug Cat
   parent: ADTMobSlugCatCreek
   id: ADTMobSlugCatMonk
+  description: cat
   components:
   - type: Sprite
     layers:
@@ -126,8 +131,10 @@
         Base: dead-monk
 
 - type: entity
+  name: Slug Cat
   parent: ADTMobSlugCatCreek
   id: ADTMobSlugCatSonfariel
+  description: cat
   components:
   - type: Sprite
     layers:
@@ -143,8 +150,10 @@
         Base: dead-sonfariel
 
 - type: entity
+  name: Slug Cat
   parent: ADTMobSlugCatCreek
   id: ADTMobSlugCatSpearMaster
+  description: cat
   components:
   - type: Sprite
     layers:
@@ -160,8 +169,10 @@
         Base: dead-spear-master
 
 - type: entity
+  name: Slug Cat
   parent: ADTMobSlugCatCreek
   id: ADTMobSlugCatTechnician
+  description: cat
   components:
   - type: Sprite
     layers:

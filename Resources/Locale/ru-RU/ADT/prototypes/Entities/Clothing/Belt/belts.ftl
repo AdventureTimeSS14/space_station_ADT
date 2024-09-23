@@ -16,3 +16,7 @@ ent-ADTClothingBeltMedicalSecurityFilled = охранно-медицинский
 ent-ADTClothingBeltInvestigatorHolsterFill = кобура следователя СБ
     .desc = Кобура с табельным оружием следователя СБ - пистолетом с магазинами нелетальных и летальных патронов.
     .suffix = { "" }
+
+ent-ADTSyrelClothingBeltSheath = чехол боевого топор
+    .desc = Прочный кожанный чехол для боевого топора капитана.
+    .suffix = { "Именное, Syrel" }
