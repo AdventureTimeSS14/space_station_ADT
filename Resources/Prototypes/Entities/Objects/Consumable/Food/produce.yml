@@ -1464,6 +1464,7 @@
   - type: Tag
     tags:
     - Flower # TODO add "RedFlower" or "Poppy" tag, when other color flowers will be
+    - Poppy # good edit
   - type: FoodSequenceElement
     entries:
       Taco: Poppy

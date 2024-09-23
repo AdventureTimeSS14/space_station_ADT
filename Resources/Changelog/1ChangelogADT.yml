@@ -3141,3 +3141,46 @@ Entries:
       - {message: 'Подтянуты коммиты с Корвакса, 20.09.2024.', type: Tweak}
     time: '2024-09-21T13:51:55Z'
     id: 374
+  - author: PyotrIgn
+    changes:
+      - {message: Возвращены хеллоуинские тайлы, type: Add}
+      - {message: Для мапперов добавлены тайлы угловых каркасных решёток, type: Add}
+    time: '2024-09-21T19:15:20Z'
+    id: 375
+  - author: Шрёдька(Маппил Дмитрий Гетрих)
+    changes:
+      - {message: 'Добавлены камеры для ИИ. Карта: (Moose).', type: Add}
+      - {message: 'Изменены двери у каюты Мима, Клоуна и Музыканта. Карта: (Moose).',
+        type: Tweak}
+      - {message: 'Фикс мелких недоработок. Карта: (Moose).', type: Fix}
+      - {message: 'Убран спавн контрабанды в техах. Карта: (Moose).', type: Remove}
+      - {message: 'Главам было добавлен комод и кровать. Карта: (Moose).', type: Add}
+      - {message: 'Удалены именные вещи. Карта: (Moose).', type: Remove}
+      - {message: 'Бармен получил свой шкаф. Карта: (Moose).', type: Add}
+      - {message: 'Уменьшение количества мусора в отделах. Карта: (Moose).', type: Remove}
+      - {message: 'Каждый отдел получил консоль заказов КАРГО и проплат. Карта: (Moose).',
+        type: Add}
+      - {message: 'Убран спавн ревенанта раунд-стартом. Карта: (Moose).', type: Remove}
+      - {message: 'Фиксы атмоса в отделах. Карта: (Moose).', type: Fix}
+      - {message: 'Добавлены камеры для ИИ. Карта: (Aspid).', type: Add}
+      - {message: 'Фикс мелких недоработок. Карта: (Aspid).', type: Fix}
+      - {message: 'Убран спавн контрабанды в техах. Карта: (Aspid).', type: Remove}
+      - {message: 'Добавлена одна секретная комната. Карта: (Aspid).', type: Add}
+      - {message: 'Удалены именные вещи. Карта: (Aspid).', type: Remove}
+      - {message: 'Главам было добавлены комоды и кровать. Карта: (Aspid).', type: Add}
+      - {message: 'Бармен получил свой шкаф. Карта: (Aspid).', type: Add}
+      - {message: 'Убран спавн ревенанта раунд-стартом. Карта: (Aspid).', type: Remove}
+    time: '2024-09-22T12:52:20Z'
+    id: 376
+  - author: PyotrIgn
+    changes:
+      - {message: Возвращены игральные карты из старой сборки., type: Add}
+    time: '2024-09-22T13:21:25Z'
+    id: 377
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлены береты в лодауты ниндзи и главы персонала, type: Add}
+      - {message: Изменен костюм горничной в лодауте уборщика на наш, type: Tweak}
+      - {message: Улучшен стелс костюма ниндзи, type: Tweak}
+    time: '2024-09-22T13:21:41Z'
+    id: 378
