@@ -951,8 +951,7 @@
     - Katana
   - type: DisarmMalus
 
-katanazoro
-#Rip_Zoro
+ #Rip_Zoro
 - type: entity
   name: The legendary katana
   parent: BaseSword
