@@ -951,6 +951,7 @@
     - Katana
   - type: DisarmMalus
 
+katanazoro
 #Rip_Zoro
 - type: entity
   name: The legendary katana
@@ -973,4 +974,49 @@
   - type: Tag
     tags:
     - Katana
+
+# dedurog / Урог-Джаха
+- type: entity
+  name: Urog-Djah's gold crowbar
+  parent: Crowbar
+  id: ADTUrogCrowbarGold
+  components:
+    - type: Tag
+      tags:
+        - Crowbar
+    - type: Sprite
+      sprite: ADT/Personalization/gold-crowbar.rsi
+      state: icon
+    - type: Item
+      sprite: ADT/Personalization/gold-crowbar.rsi
+      size: Normal
+      heldPrefix: gold
+
+# for Filo
+- type: entity
+  name: Owl's Scimitar
+  parent: BaseItem
+  id: ADTOwlScimitar
+  suffix: Filo
+  description:
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/owl_scimitar/icon.rsi
+    state: icon
+    scale: 0.66, 0.66
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      types:
+        Slash: 24
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Clothing
+    sprite: ADT/Personalization/owl_scimitar/other.rsi
+    slots:
+    - Belt
+  - type: Item
+    size: Huge
+    sprite: ADT/Personalization/owl_scimitar/other.rsi
   - type: DisarmMalus

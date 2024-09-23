@@ -31,13 +31,18 @@
   - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
-  parent: GasBinaryBase
+  parent: [BaseMachinePowered, GasBinaryBase]
   id: GasPressurePump
   name: gas pump
   description: A pump that moves gas by pressure.
   placement:
     mode: SnapgridCenter
   components:
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Rotatable
+  - type: Transform
+    noRot: false
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
@@ -71,13 +76,18 @@
       path: /Audio/Ambience/Objects/gas_pump.ogg
 
 - type: entity
-  parent: GasBinaryBase
+  parent: [BaseMachinePowered, GasBinaryBase]
   id: GasVolumePump
   name: volumetric gas pump
   description: A pump that moves gas by volume.
   placement:
     mode: SnapgridCenter
   components:
+    - type: ApcPowerReceiver
+      powerLoad: 200
+    - type: Rotatable
+    - type: Transform
+      noRot: false
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
@@ -204,6 +214,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: StationAiWhitelist
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:

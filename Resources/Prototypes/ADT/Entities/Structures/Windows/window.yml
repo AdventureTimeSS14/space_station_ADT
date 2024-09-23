@@ -12,6 +12,12 @@
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
+  - type: DamageVisuals
+    thresholds: [8, 12, 24]
+    damageDivisor: 28
+    trackAllDamage: true
+    damageOverlay:
+      sprite: ADT/Structures/Windows/cracks_adt.rsi
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -38,12 +44,6 @@
   - type: IconSmooth
     base: swindow
   - type: Appearance
-  - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 28
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 150
 
@@ -86,5 +86,8 @@
     - South
     - East
   - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    damageDivisor: 28
+    trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi
