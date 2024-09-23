@@ -206,7 +206,7 @@
   loadouts:
   - ADTSecurityCadetNeck
 
-#Плащ и маска атмосианина
+#Плащ, берет и маска атмосианина
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianNeck
@@ -219,3 +219,9 @@
   name: loadout-group-atmospheric-technician-gasmask
   loadouts:
   - ADTMaskGasAtmosian
+
+- type: loadoutGroup
+  id: ADTAtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  loadouts:
+  - ADTHatBeretAtmos
