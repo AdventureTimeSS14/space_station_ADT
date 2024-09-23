@@ -1,3 +1,3 @@
-ent-ADTCrateOktoberfestCloth = ящик одежды для Октоберфеста
+ent-ADTCrateFunOktoberfestClothes = ящик одежды для Октоберфеста
     .desc = Ящик с набором мужской и женской традиционной одежды для Октоберфеста.
     .suffix = { "Октоберфест" }

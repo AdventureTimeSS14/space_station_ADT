@@ -1,9 +1,9 @@
 - type: cargoProduct
-  id: ADTFunOktoberfestCloth
+  id: ADTFunOktoberfestClothes
   icon:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi 
     state: icon
-  product: ADTCrateOktoberfestCloth
+  product: ADTCrateFunOktoberfestClothes
   cost: 750
   category: cargoproduct-category-name-fun
   group: market

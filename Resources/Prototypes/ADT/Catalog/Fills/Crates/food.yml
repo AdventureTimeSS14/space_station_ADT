@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTCrateOktoberfestSnack
+  id: ADTCrateFoodOktoberfestSnack
   parent: CratePlastic
   name: oktoberfest snack crate
   description: oktoberfest snack crate
@@ -7,17 +7,17 @@
   components:
   - type: StorageFill
     contents:
-    - id: ADTFoodWeissWurst
+    - id: ADTFoodMeatWeissWurst
       amount: 5
-    - id: ADTFoodBratWurst
+    - id: ADTFoodMeatBratWurst
       amount: 5
-    - id: ADTFoodBreadBrezel
+    - id: ADTFoodBakedBrezel
       amount: 5
-    - id: ADTFoodBreadBrezelPoppySeeds
+    - id: ADTFoodBakedBrezelPoppySeeds
       amount: 3
-    - id: ADTFoodBreadBrezelSalt
+    - id: ADTFoodBakedBrezelSalt
       amount: 3
-    - id: ADTFoodBreadBrezelChocolate
+    - id: ADTFoodBakedBrezelChocolate
       amount: 3
-    - id: ADTFoodBreadBrezelVanilla
+    - id: ADTFoodBakedBrezelVanilla
       amount: 3

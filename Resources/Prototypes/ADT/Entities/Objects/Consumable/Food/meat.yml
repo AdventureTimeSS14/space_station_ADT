@@ -1,7 +1,7 @@
 - type: entity
   name: weisswurst
   parent: FoodMeatBase
-  id: ADTFoodWeissWurst
+  id: ADTFoodMeatWeissWurst
   description: Traditional white Bavarian sausage made of veal, lard and spices.
   suffix: Oktoberfest
   components:
@@ -30,7 +30,7 @@
 - type: entity
   name: bratwurst
   parent: FoodMeatBase
-  id: ADTFoodBratWurst
+  id: ADTFoodMeatBratWurst
   description: Fried pork sausage, very appetizing, but greasy.
   suffix: Oktoberfest
   components:

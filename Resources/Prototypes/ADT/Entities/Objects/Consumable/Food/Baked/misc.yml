@@ -1,7 +1,7 @@
 - type: entity
   name: brezel
   parent: FoodBakedBase
-  id: ADTFoodBreadBrezel
+  id: ADTFoodBakedBrezel
   description: The usual pretzel, a popular snack at Oktoberfest.
   suffix: Oktoberfest
   components:
@@ -29,7 +29,7 @@
 - type: entity
   name: brezel with poppy seeds
   parent: FoodBakedBase
-  id: ADTFoodBreadBrezelPoppySeeds
+  id: ADTFoodBakedBrezelPoppySeeds
   description: The brezel with poppy seeds, a popular snack at Oktoberfest.
   suffix: Oktoberfest
   components:
@@ -58,7 +58,7 @@
 - type: entity
   name: brezel with salt
   parent: FoodBakedBase
-  id: ADTFoodBreadBrezelSalt
+  id: ADTFoodBakedBrezelSalt
   description: The brezel with salt, a popular snack at Oktoberfest.
   suffix: Oktoberfest
   components:
@@ -87,7 +87,7 @@
 - type: entity
   name: brezel with chocolate
   parent: FoodBakedBase
-  id: ADTFoodBreadBrezelChocolate
+  id: ADTFoodBakedBrezelChocolate
   description: The brezel with chocolate, a sweet snack for Oktoberfest.
   suffix: Oktoberfest
   components:
@@ -117,7 +117,7 @@
 - type: entity
   name: brezel with vanilla
   parent: FoodBakedBase
-  id: ADTFoodBreadBrezelVanilla
+  id: ADTFoodBakedBrezelVanilla
   description: Brezel with vanilla glaze, a sweet snack for Oktoberfest
   suffix: Oktoberfest
   components:

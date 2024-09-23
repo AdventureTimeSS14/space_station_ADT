@@ -1,6 +1,6 @@
-ent-ADTFoodWeissWurst = вайсвурст
+ent-ADTFoodMeatWeissWurst = вайсвурст
     .desc = Традиционная белая баварская колбаска из говядины, сала и специй.
     .suffix = { "Октоберфест" }
-ent-ADTFoodBratWurst = братвурст
+ent-ADTFoodMeatBratWurst = братвурст
     .desc = Зажаренная колбаска из свинины, очень жирная и аппетитная.
     .suffix = { "Октоберфест" }

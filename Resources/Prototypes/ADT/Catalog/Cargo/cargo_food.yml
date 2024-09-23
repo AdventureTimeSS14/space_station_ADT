@@ -83,7 +83,7 @@
   icon:
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
     state: brezel_salt
-  product: ADTCrateOktoberfestSnack
+  product: ADTCrateFoodOktoberfestSnack
   cost: 1500
   category: cargoproduct-category-name-food
   group: market
