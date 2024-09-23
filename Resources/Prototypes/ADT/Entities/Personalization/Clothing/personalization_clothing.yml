@@ -467,6 +467,19 @@
           tags:
           - Katana
   - type: Appearance
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingZoroJumpsuit
+  suffix: Rip_Zoro
+  name: The legendary business suit
+  description: A legendary, worn-out suit. All white and gilded. He smells like vanilla...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+
 #PushnoY
 - type: entity
   parent: ClothingHandsButcherable
