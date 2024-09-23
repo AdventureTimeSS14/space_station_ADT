@@ -26,3 +26,11 @@ flavor-complex-elderguards = как закон и очень странная с
 flavor-complex-ADTSawdust = как 24-ая смена за день в лютый мороз
 flavor-complex-limeshade = как теплая тень с лаймовым привкусом
 
+flavor-complex-glyphidstoutbeer = как хмель, солод, опьянение, темнота, опасность и дворфы
+flavor-complex-secunfilteredbeer = как хмель, солод и удар станбатоном
+flavor-complex-luckyjonnybeer = как хмель, солод и...а это что такое?
+flavor-complex-livseybeer = как хмель, солод и жидкость из криокамеры
+flavor-complex-classicpaulaner = как хмель, солод и традиция
+flavor-complex-technobeer = как хмель, солод и горячая зад...душа
+flavor-complex-sausagebeer = как хмель, солод и колбаска
+flavor-complex-goldenale = как эль, золото и исцеление

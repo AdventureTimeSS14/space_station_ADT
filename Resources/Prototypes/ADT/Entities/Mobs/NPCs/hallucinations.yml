@@ -5,7 +5,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   #- type: Hallucination
   - type: Fixtures
@@ -29,7 +29,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   #- type: LingHallucination
   - type: Fixtures
@@ -45,7 +45,7 @@
           - None
   - type: Visibility
     layer: 505
-  
+
       # Ling ents
 - type: entity
   parent: ADTBaseLingHallucination
@@ -53,7 +53,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -92,7 +92,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -124,7 +124,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Mobs/Demons/behonker.rsi
@@ -162,7 +162,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Objects/Fun/immovable_rod.rsi
@@ -193,7 +193,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -220,7 +220,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -247,7 +247,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -279,7 +279,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -306,7 +306,7 @@
   name: "???"
   description: "???"
   suffix: DO NOT MAP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -327,7 +327,7 @@
   - type: TimedDespawn
     lifetime: 10.0
   - type: MovementIgnoreGravity
-    gravityState: true 
+    gravityState: true
   - type: PointLight
     color: White
     radius: 1

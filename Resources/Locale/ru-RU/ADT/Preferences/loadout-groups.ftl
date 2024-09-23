@@ -17,6 +17,7 @@ loadout-group-blueshield-back = ОСЩ, рюкзак
 # Engineering
 loadout-group-atmospheric-technician-neck = Атмосферный техник, плащ
 loadout-group-atmospheric-technician-gasmask = Атмосферный техник, противогаз
+loadout-group-atmospheric-technician-head = Атмосферный техник, голова
 # Science
 loadout-group-roboticist-jumpsuit = Робототехник, комбинезон
 loadout-group-roboticist-outerclothing = Робототехник, верхняя одежда
