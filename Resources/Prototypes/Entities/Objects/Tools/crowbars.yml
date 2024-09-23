@@ -38,7 +38,7 @@
     - Belt
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
-    size: Small #ADT_Tweaks - ломы снова лезут в карман
+    size: Normal
     shape:
     - 0,0,0,1
 
@@ -72,7 +72,6 @@
     - state: cover-icon
       color: "#990000"
   - type: Item
-    size: Small # for pockets
     storedSprite:
       state: red-storage
       sprite: Objects/Tools/crowbar.rsi

@@ -2,7 +2,7 @@
   id: ActionPoltergeistMalf
   name: action-poltergeist-malf
   description: action-poltergeist-malf-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -18,7 +18,7 @@
   id: ActionPoltergeistNoisy
   name: action-poltergeist-noisy
   description: action-poltergeist-noisy-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -39,7 +39,7 @@
   id: ActionPoltergeistRestInPeace
   name: action-poltergeist-die
   description: action-poltergeist-die-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false

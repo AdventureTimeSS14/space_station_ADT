@@ -195,7 +195,7 @@
 ## hos
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
   id: EnergyShotgunStealObjective
   components:
@@ -283,7 +283,6 @@
 
 # Corvax-MRP-Start: Make nuke disk objective separate
 # - type: entity
-  # noSpawn: true
   # parent: BaseCaptainObjective
   # id: NukeDiskStealObjective
   # components:
