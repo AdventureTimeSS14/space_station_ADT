@@ -4,6 +4,7 @@
   # - Atlas
   # - Bagel
   # - Box
+  # - Cog
   # - Cluster
   # - Core
   # - Fland
@@ -33,3 +34,6 @@
   - ADT_Delta
   - ADT_Oasis
   - ADT_Gemini
+  - ADT_Aspid
+  - ADT_Moose
+  - ADT_Alley

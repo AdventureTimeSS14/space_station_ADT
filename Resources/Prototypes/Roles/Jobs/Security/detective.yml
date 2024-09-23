@@ -17,7 +17,8 @@
   - Maintenance
   - Service
   - Detective
-  - Cryogenics # ADT Tweak
+  - Cryogenics
+  - External
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

@@ -76,6 +76,14 @@
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
+- type: loadoutGroup
+  id: GroupPocketTankDouble
+  name: loadout-group-pocket-tank-double
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesPocketDoubleNitrogen
+  - LoadoutSpeciesPocketDoubleOxygen
+
 # Command
 - type: loadoutGroup
   id: CaptainHead
@@ -128,6 +136,9 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  # ADT-Loadouts-Start
+  - ADTHatBeretHOP
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -139,6 +150,12 @@
   - HoPJumpsuitTurtleneck
   - HoPJumpskirtTurtleneck
   # Corvax-Loadouts-End
+  # ADT-Loadouts-Start
+  - ADTJumpsuitHopWarm
+  - ADTJumpskirtHopWarm
+  - ADTJumpsuitHopAlt
+  - ADTJumpskirtHopAlt
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPNeck
@@ -147,6 +164,9 @@
   loadouts:
   - HoPCloak
   - HoPMantle
+  # ADT-Loadouts-Start
+  - ADTHoPAltCloak
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPBackpack
@@ -163,6 +183,9 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  # ADT-Loadouts-Start
+  - ADTCoatHOP
+  # ADT-Loadouts-End
 
 # Civilian
 - type: loadoutGroup
@@ -195,6 +218,13 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+
+- type: loadoutGroup
+  id: PassengerNeck
+  name: loadout-group-passenger-neck
+  minLimit: 0
+  loadouts:
+  - Mantle
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -353,6 +383,11 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
+  # ADT-Loadouts-Start
+  - ADTJanitorJumpsuitJanimaid
+  - ADTJanitorJumpsuitJanimaidmini
+  - ADTJanitorJumpsuitJanimaidElegant
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -415,13 +450,16 @@
   minLimit: 0
   loadouts:
   - JesterHat
+  - JesterAltHat
 
 - type: loadoutGroup
   id: ClownJumpsuit
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
+  - ClownSkirt
   - JesterSuit
+  - JesterAltSuit
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -498,6 +536,23 @@
   - MimeWintercoat
 
 - type: loadoutGroup
+  id: MimeBelt
+  name: loadout-group-mime-belt
+  loadouts:
+  - MimeSuspendersRed
+  - MimeSuspendersBlack
+
+- type: loadoutGroup
+  id: SurvivalMime
+  name: loadout-group-survival-mime
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMime
+  - EmergencyOxygenMime
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
   id: MusicianJumpsuit
   name: loadout-group-musician-jumpsuit
   loadouts:
@@ -554,6 +609,9 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  # ADT-Loadouts-Start
+  - ADTCargoTechnicianBeret
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -593,6 +651,9 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
+  # ADT-Loadouts-Start
+  - ADTCargoTechnicianBeret
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -755,6 +816,9 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  # ADT-Loadouts-Start
+  - ADTOuterAtmosianBomberJacket
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -973,6 +1037,7 @@
   - SecurityHelmet
   - SecurityBeret
   - SecurityHat
+  - TrooperHat
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -984,6 +1049,12 @@
   - SecurityJumpskirtGrey
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
+  - TrooperUniform
+  # ADT-Loadouts-Start
+  - ADTSecurityOfficerMogesBrown
+  - ADTSecurityOfficerMogesBlue
+  - ADTSecurityOfficerMogesGray
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1013,7 +1084,6 @@
   name: loadout-group-security-shoes
   loadouts:
   - JackSecBoots # Corvax
-  - CombatBoots
   - JackBoots
   - SecurityWinterBoots
 
@@ -1048,7 +1118,12 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
-  - DetectiveInvestigatorSuit # ADT-Loadout
+  # ADT-Loadouts-Start
+  - DetectiveInvestigatorSuit
+  - ADTSecurityOfficerMogesBrown
+  - ADTSecurityOfficerMogesBlue
+  - ADTSecurityOfficerMogesGray
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1077,6 +1152,13 @@
   - LoadoutSpeciesVoxNitrogen
   - ADTEmergencyMothSecurity #ADT_Species
   - ADTEmergencyIPCSecurity #ADT_Species
+
+- type: loadoutGroup
+  id: SecurityStar
+  name: loadout-group-security-star
+  minLimit: 0
+  loadouts:
+  - SecStar
 
 # Medical
 - type: loadoutGroup

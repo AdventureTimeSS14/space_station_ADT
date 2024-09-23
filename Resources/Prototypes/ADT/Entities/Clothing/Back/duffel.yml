@@ -14,3 +14,24 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/pathologist_duffel.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelDurathead
+  name: Durathead Duffel bag
+  description: A large duffel bag for holding extra tools and supplies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/duffel_durathead.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Construction
+    graph: DuffelDurathead
+    node: DuffelDurathead

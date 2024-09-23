@@ -34,6 +34,10 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+    # ADT-SlimeHair-Start
+      enum.SlimeHairUiKey.Key:
+        type: SlimeHairBoundUserInterface
+    # ADT-SlimeHair-End
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -67,6 +71,8 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#2cf274"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
     bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
   - type: Barotrauma
@@ -123,6 +129,7 @@
     understands:
     - GalacticCommon
     - Bubblish
+  - type: SlimeHair # ADT-SlimeHair
 
 - type: entity
   parent: MobHumanDummy

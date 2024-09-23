@@ -17,8 +17,6 @@
             prefixCreator: 'SS'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/corvax_emergency.yml
-        - type: StationArrivals
-          shuttlePath: /Maps/Shuttles/arrivals_corvaxsilly.yml
         - type: StationJobs
           availableJobs:
             # service
@@ -65,11 +63,12 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
-        - type: StationGoal
-          goals:
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - SolarPanels
+        #   - Artifacts
+        #   - Bank
+        #   - Zoo
+        #   - MiningOutpost
+        #   - Tesla

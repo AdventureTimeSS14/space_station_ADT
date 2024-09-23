@@ -1,6 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Content.Client.Corvax.Sponsors;
+using System.Diagnostics.CodeAnalysis;
 using Content.Client.Lobby;
+using Content.Client.Corvax.Sponsors;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
@@ -144,7 +144,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             reasons.Add(jobReason.ToMarkup());
         }
 
-        reason = reasons.Count == 0 ? null : FormattedMessage.FromMarkup(string.Join('\n', reasons));
+        reason = reasons.Count == 0 ? null : FormattedMessage.FromMarkupOrThrow(string.Join('\n', reasons));
         return reason == null;
     }
 

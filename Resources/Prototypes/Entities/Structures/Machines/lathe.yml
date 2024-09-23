@@ -89,7 +89,7 @@
   id: Autolathe
   parent: BaseLatheLube
   name: autolathe
-  description: It produces basic items using metal and glass.
+  description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -112,6 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -138,8 +139,6 @@
       - AirTank
       - GasAnalyzer
       - UtilityBelt
-      - Fulton
-      - FultonBeacon
       - Pickaxe
       - ModularReceiver
       - AppraisalTool
@@ -201,6 +200,7 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
+
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -227,6 +227,18 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
 
 - type: entity
   id: AutolatheHyperConvection
@@ -260,6 +272,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
+  - type: StationAiWhitelist #ADT-Tweak
   - type: MaterialStorage
     whitelist:
       tags:
@@ -318,6 +331,8 @@
       - PowerCellHigh
       - WeaponPistolCHIMP
       - ClothingMaskWeldingGas
+      - MineralScannerEmpty
+      - AdvancedMineralScannerEmpty
       - WeaponGauntletGorilla
       - SynthesizerInstrument
       - ClothingShoesBootsMagSci
@@ -330,8 +345,11 @@
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
+      #ADT plasmacutters start
+      - ADTWeaponCutter
+      - ADTWeaponCutterAdv
+      #ADT plasmacutters end
       - WeaponTetherGun
-      - WeaponGrapplingGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
@@ -470,6 +488,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
@@ -478,8 +497,8 @@
     - ProtolatheMachineCircuitboard
     - AutolatheMachineCircuitboard
     - CircuitImprinterMachineCircuitboard
+    - BiogeneratorMachineCircuitboard
     - OreProcessorMachineCircuitboard
-    - MaterialReclaimerMachineCircuitboard
     - ElectrolysisUnitMachineCircuitboard
     - CentrifugeMachineCircuitboard
     - ChemDispenserMachineCircuitboard
@@ -497,6 +516,8 @@
     - SodaDispenserMachineCircuitboard
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
+    - StationAnchorCircuitboard
+    - SalvageMagnetMachineCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -544,8 +565,6 @@
       - PortableGeneratorPacmanMachineCircuitboard
       - PortableGeneratorSuperPacmanMachineCircuitboard
       - PortableGeneratorJrPacmanMachineCircuitboard
-      - WallmountGeneratorElectronics
-      - WallmountGeneratorAPUElectronics
       - WallmountSubstationElectronics
       - PowerCageRechargerCircuitboard
       - EmitterCircuitboard
@@ -661,6 +680,18 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    #ADT secborg start
+    - ADTLeftArmBorgSecurity
+    - ADTRightArmBorgSecurity
+    - ADTLeftLegBorgSecurity
+    - ADTRightLegBorgSecurity
+    - ADTHeadBorgSecurity
+    - ADTTorsoBorgSecurity
+    #ADT secborg end
+    # ADT-Kerfus-Start
+    - ADTTorsoBorgKerfusNT
+    - ADTHeadBorgKerfusNT
+    # ADT-Kerfus-End
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -670,6 +701,7 @@
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
+    - ADTBorgModuleRPD # ADT-RPD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
@@ -698,6 +730,9 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    - ADTBorgModuleDisabler #ADT secborg
+    - ADTBorgModuleDetention #ADT secborg
+    - ADTBorgModuleHarm # ADT secborg
   - type: MaterialStorage
     whitelist:
       tags:
@@ -801,6 +836,10 @@
       - MagazineLightRifleEmpty
       - MagazinePistol
       - MagazinePistolEmpty
+      # Start ADT tweak
+      - ADTMagazineMagnum
+      - ADTMagazineMagnumEmpty
+      # End ADT tweak
       - MagazinePistolSubMachineGun
       - MagazinePistolSubMachineGunEmpty
       - MagazinePistolSubMachineGunTopMounted
@@ -825,6 +864,7 @@
       - BoxShotgunIncendiary
       - BoxShotgunUranium
       - BoxShellTranquilizer
+      - ClothingBackpackElectropack
       - ExplosivePayload
       - FlashPayload
       - GrenadeBlast
@@ -844,6 +884,10 @@
       - MagazineLightRifleUranium
       - MagazinePistolIncendiary
       - MagazinePistolUranium
+      # Start ADT tweak
+      - ADTMagazineMagnumIncendiary
+      - ADTMagazineMagnumUranium
+      # Start ADT tweak
       - MagazineRifleIncendiary
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
@@ -1215,6 +1259,70 @@
         - Ingot
 
 - type: entity
+  id: Biogenerator
+  parent: BaseLathe
+  name: biogenerator
+  description: Converts plants into biomass, which can be used to construct useful items.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/biofabricator.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: BiogeneratorMachineCircuitboard
+  - type: MaterialStorage
+    insertOnInteract: false
+    canEjectStoredMaterials: false
+  - type: ProduceMaterialExtractor
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beaker_slot: !type:ContainerSlot
+  - type: Lathe
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: building
+    staticRecipes:
+    - BioGenMilk
+    - BioGenMilkSoy
+    - BioGenEthanol
+    - BioGenCream
+    - BioGenBlackpepper
+    - BioGenEnzyme
+    - BioGenFlour
+    - BioGenSugar
+    - BioGenMonkeyCube
+    - BioGenKoboldCube
+    - BioGenMaterialCloth1
+    - BioGenMaterialCardboard1
+    - BioGenPaper
+    - BioGenPaperRolling1
+    - BioGenCandle
+    - BioGenPlantBGone
+    - BioGenWeedKiller
+    - BioGenPestKiller
+    - BioGenLeft4Zed
+    - BioGenEZNutrient
+    - BioGenRobustHarvest
+
+- type: entity
   parent: BaseLathe
   id: OreProcessor
   name: ore processor
@@ -1242,17 +1350,18 @@
     - type: Lathe
       idleState: icon
       runningState: building
+      defaultProductionAmount: 10
       staticRecipes:
-        - SheetSteel30
-        - SheetGlass30
-        - SheetRGlass30
-        - SheetPlasma30
-        - SheetPGlass30
-        - SheetRPGlass30
-        - SheetUranium30
-        - IngotGold30
-        - IngotSilver30
-        - MaterialBananium10
+        - SheetSteel
+        - SheetGlass1
+        - SheetRGlass
+        - SheetPlasma1
+        - SheetPGlass1
+        - SheetRPGlass1
+        - SheetUranium1
+        - IngotGold1
+        - IngotSilver1
+        - MaterialBananium1
         - MaterialDiamond
 
 - type: entity
@@ -1269,19 +1378,19 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
-      - SheetSteel30
-      - SheetGlass30
-      - SheetRGlass30
-      - SheetPlasma30
-      - SheetPGlass30
-      - SheetRPGlass30
-      - SheetPlasteel30
-      - SheetUranium30
-      - SheetUGlass30
-      - SheetRUGlass30
-      - IngotGold30
-      - IngotSilver30
-      - MaterialBananium10
+      - SheetSteel
+      - SheetGlass1
+      - SheetRGlass
+      - SheetPlasma1
+      - SheetPGlass1
+      - SheetRPGlass1
+      - SheetPlasteel1
+      - SheetUranium1
+      - SheetUGlass1
+      - SheetRUGlass1
+      - IngotGold1
+      - IngotSilver1
+      - MaterialBananium1
       - MaterialDiamond
 
 - type: entity

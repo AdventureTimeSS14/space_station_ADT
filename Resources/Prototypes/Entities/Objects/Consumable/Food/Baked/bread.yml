@@ -122,6 +122,67 @@
     - Slice
 
 - type: entity
+  name: cotton bread
+  parent: FoodBreadBase
+  id: FoodBreadCotton
+  description: Bread, but for moff.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cotton
+    - bread
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Sprite
+    layers:
+    - state: cotton
+  - type: SliceableFood
+    slice: FoodBreadCottonSlice
+  - type: Tag
+    tags:
+    - ClothMade
+    - Bread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10
+
+- type: entity
+  name: cotton bread slice
+  parent: FoodBreadSliceBase
+  id: FoodBreadCottonSlice
+  description: A slice of (maybe) delicious cotton bread.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cotton
+    - bread
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Sprite
+    layers:
+    - state: cotton-slice
+  - type: Tag
+    tags:
+    - ClothMade
+    - Bread
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Fiber
+          Quantity: 2
+
+- type: entity
   name: cornbread
   parent: FoodBreadBase
   id: FoodBreadCorn
@@ -352,6 +413,10 @@
     - state: plain
   - type: SliceableFood
     slice: FoodBreadPlainSlice
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - ADTMothFriendlyFood
 
 - type: entity
   name: bread slice
@@ -363,6 +428,11 @@
   - type: Sprite
     layers:
     - state: plain-slice
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 
 - type: entity
   name: sausage bread
@@ -624,6 +694,21 @@
           Quantity: 1
         - ReagentId: Blackpepper
           Quantity: 1
+  - type: Clothing
+    slots: [ BELT ]
+    equippedPrefix: baguette
+    quickEquip: false
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: baguette-inhand-left
+      right:
+      - state: baguette-inhand-right
+  - type: MeleeWeapon
+    wideAnimationRotation: -120
+    damage:
+      types:
+        Blunt: 1 # bonk
 # Tastes like France.
 
 - type: entity
@@ -647,6 +732,11 @@
           Quantity: 0.1
         - ReagentId: Blackpepper
           Quantity: 0.1
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 
 - type: entity
   name: buttered toast
@@ -669,6 +759,11 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 # Tastes like bread, butter.
 
 - type: entity
@@ -716,6 +811,11 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 5
+  - type: Tag #ADT_Tweak - делаем хлеб съедобным для молей
+    tags:
+    - Bread
+    - Slice
+    - ADTMothFriendlyFood
 # Tastes like garlic, Italy.
 
 - type: entity

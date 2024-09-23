@@ -384,6 +384,26 @@
 #    slots:
 #    - back
 
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: ADTClothingHandsBolperGloves
+  name: Bolper`s gloves
+  description: I`ll protect your hand.
+  suffix: Bolper
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/bolper_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/bolper_gloves.rsi
+  - type: Insulated
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95 
+
 #Pangaari
 - type: entity
   parent: ClothingUniformBase
@@ -444,3 +464,37 @@
           tags:
           - ADTSyrelBattleAxe
   - type: Appearance
+
+#PushnoY
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ADTClothingHandsPushnoYGloves
+  suffix: PushnoY
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pushnoY_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pushnoY_gloves.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPushnoYJumpsuit
+  suffix: PushnoY
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
+
+#Maki_gg
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatMaki
+  name: Maki coat
+  description: Maki coat.
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/maki_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/maki_coat.rsi

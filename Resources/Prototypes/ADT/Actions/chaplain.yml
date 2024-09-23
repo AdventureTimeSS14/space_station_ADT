@@ -2,7 +2,7 @@
   id: ActionChaplainBeliever
   name: action-chaplain-believer
   description: action-chaplain-believer-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -21,7 +21,7 @@
   id: ActionChaplainTransfer
   name: action-chaplain-transfer
   description: action-chaplain-transfer-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -40,7 +40,7 @@
   id: ActionChaplainHolyWater
   name: action-chaplain-holy-touch
   description: action-chaplain-holy-touch-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:

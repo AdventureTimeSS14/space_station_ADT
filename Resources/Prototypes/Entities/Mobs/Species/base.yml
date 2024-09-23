@@ -3,6 +3,7 @@
   parent:
   - BaseMob
   - MobDamageable
+  - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
   id: BaseMobSpecies
@@ -190,6 +191,9 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Goobstation - changelings & heretics
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -213,6 +217,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -289,6 +294,8 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: BloodCough # ADT Tweak
+    postingSayDamage: blood-cough
 
 - type: entity
   save: false

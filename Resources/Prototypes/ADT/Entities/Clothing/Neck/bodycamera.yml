@@ -1,0 +1,30 @@
+- type: entity
+  parent: Clothing
+  id: ADTClothingNeckBodyCamera
+  name: bodycamera
+  description: Wearable camera to ensure accountability and responsibility.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    state: icon
+    sprite: ADT/Clothing/Neck/bodycam.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/bodycam.rsi
+    quickEquip: true
+    slots:
+    - neck
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: true
+  - type: ActiveListener
+    range: 3
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 100
+  - type: StationAiVision
+  - type: Bodycam

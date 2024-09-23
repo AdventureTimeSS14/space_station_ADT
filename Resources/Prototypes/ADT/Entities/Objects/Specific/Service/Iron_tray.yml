@@ -1,0 +1,43 @@
+- type: entity
+  id: ADTIronTray
+  name: Iron tray
+  parent: BaseStorageItem
+  description: An iron tray to store and service food
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/iron_tray.rsi
+    state: icon
+  - type: Storage
+    grid:
+    - 0,0,4,3
+    maxItemSize: Huge
+#   TODO: ERROR FOOD & Drink нет таких тэгов
+#    whitelist:
+#      tags:
+#        - Food
+#        - Drink
+  - type: Item
+    size: Ginormous
+  #- type: ItemCooldown
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+
+- type: entity
+  id: ADTAntagIronTray
+  name: Particularly sharp tray
+  parent: [ADTIronTray, BaseSyndicateContraband]
+  description: An iron tray to store and service food
+  suffix: Антаг
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 8
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 20

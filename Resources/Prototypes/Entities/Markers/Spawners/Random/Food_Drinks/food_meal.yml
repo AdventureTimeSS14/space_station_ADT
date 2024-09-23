@@ -69,7 +69,7 @@
       - FoodSoupOnion
       - FoodSoupBisque
       - FoodSoupBungo
-      - FoodMealSoftTaco
+      - ADTFoodSoupSawdust #ADT tweak
       - FoodMealCornInButter
       - FoodSoupStew
     chance: 0.8

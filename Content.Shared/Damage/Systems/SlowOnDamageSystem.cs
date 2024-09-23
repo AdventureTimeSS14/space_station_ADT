@@ -1,8 +1,10 @@
+using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
+using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
-using Content.Shared.ADT.Damage.Components;
+//using Content.Shared.ADT.Damage.Components; //adt чо блять
 
 namespace Content.Shared.Damage
 {
@@ -16,8 +18,15 @@ namespace Content.Shared.Damage
 
             SubscribeLocalEvent<SlowOnDamageComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SlowOnDamageComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
-            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentStartup>(OnIgnoreStartup); //ADT-Medicine start
+
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, InventoryRelayedEvent<ModifySlowOnDamageSpeedEvent>>(OnModifySpeed);
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ClothingGotEquippedEvent>(OnGotEquipped);
+            SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
+
             SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentShutdown>(OnIgnoreShutdown);
+
+            SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentStartup>(OnIgnoreStartup); //ADT-Medicine start
             SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ModifySlowOnDamageSpeedEvent>(OnIgnoreModifySpeed); //ADT-Medicine end
         }
 
@@ -54,6 +63,32 @@ namespace Content.Shared.Damage
 
             _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
         }
+
+        private void OnModifySpeed(Entity<ClothingSlowOnDamageModifierComponent> ent, ref InventoryRelayedEvent<ModifySlowOnDamageSpeedEvent> args)
+        {
+            var dif = 1 - args.Args.Speed;
+            if (dif <= 0)
+                return;
+
+            // reduces the slowness modifier by the given coefficient
+            args.Args.Speed += dif * ent.Comp.Modifier;
+        }
+
+        private void OnExamined(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ExaminedEvent args)
+        {
+            var msg = Loc.GetString("slow-on-damage-modifier-examine", ("mod", (1 - ent.Comp.Modifier) * 100));
+            args.PushMarkup(msg);
+        }
+
+        private void OnGotEquipped(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ClothingGotEquippedEvent args)
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(args.Wearer);
+        }
+
+        private void OnGotUnequipped(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ClothingGotUnequippedEvent args)
+        {
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(args.Wearer);
+        }
         private void OnIgnoreStartup(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentStartup args) //ADT-Medicine start
         {
             _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
@@ -69,6 +104,7 @@ namespace Content.Shared.Damage
             args.Speed = 1f;
         }
     }
+
 
     [ByRefEvent]
     public record struct ModifySlowOnDamageSpeedEvent(float Speed) : IInventoryRelayEvent

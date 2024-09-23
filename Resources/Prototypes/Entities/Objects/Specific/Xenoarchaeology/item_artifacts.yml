@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseItem
   id: BaseXenoArtifactItem
   name: alien artifact
@@ -37,7 +37,7 @@
         friction: 0.2
   - type: Artifact
   - type: RandomArtifactSprite
-    maxSprite: 11
+    maxSprite: 13 #ADT_Tweak
     activationTime: 2.4
   - type: RandomSprite
     available:
@@ -147,6 +147,10 @@
         wizardball4: ""
         wizardball5: ""
         wizardball6: ""
+        bloodyone_piece1: ""    #ADT_Tweak
+        bloodyone_piece2: ""    #ADT_Tweak
+        forerunners_piece1: ""  #ADT_Tweak
+        forerunners_piece2: ""  #ADT_Tweak
   - type: Appearance
   - type: Item
     size: Normal
