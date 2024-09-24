@@ -396,13 +396,13 @@
   - type: Clothing
     sprite: ADT/Personalization/bolper_gloves.rsi
   - type: Insulated
-  - type: Armor 
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
-        Heat: 0.95 
+        Heat: 0.95
 
 #Pangaari
 - type: entity
@@ -431,6 +431,54 @@
     sprite: ADT/Personalization/rip_zoro_mantle.rsi
   - type: Item
     size: Normal
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltZoroSheath
+  suffix: Rip_Zoro
+  name: The scabbard of the legendary katana
+  description: The scabbard of a legendary swordsman...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_sheats.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_sheats.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Katana
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Katana
+  - type: Appearance
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformZoroJumpsuit
+  suffix: Rip_Zoro
+  name: The legendary business suit
+  description: A legendary, worn-out suit. All white and gilded. He smells like vanilla...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
 
 #PushnoY
 - type: entity
