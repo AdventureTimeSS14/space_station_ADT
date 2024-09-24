@@ -148,7 +148,7 @@
     rootTask:
       task: SimpleHostileCompound
   - type: TTS # Corvax-TTS
-    voice: neco_arc_2
+    voice: neco_arc_2 #ADT-Tweak
 
 - type: entity
   name: blue slime

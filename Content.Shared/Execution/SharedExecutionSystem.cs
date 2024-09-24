@@ -14,7 +14,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
-using System.Linq;
 
 namespace Content.Shared.Execution;
 
@@ -32,8 +31,6 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedExecutionSystem _execution = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -132,6 +129,7 @@ public sealed class SharedExecutionSystem : EntitySystem
 
         var bonus = melee.Damage * entity.Comp.DamageMultiplier - melee.Damage;
         args.Damage += bonus;
+        args.ResistanceBypass = true;
     }
 
     private void OnSuicideByEnvironment(Entity<ExecutionComponent> entity, ref SuicideByEnvironmentEvent args)

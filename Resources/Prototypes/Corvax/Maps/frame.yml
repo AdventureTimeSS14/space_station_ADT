@@ -65,6 +65,7 @@
             # cargo
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 2, 2 ]
-        - type: StationGoal
-          goals:
-          - FrameRepair
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - FrameRepair

@@ -2,7 +2,7 @@
   id: ActionJumpboots
   name: action-jump
   description: action-jump-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 45
@@ -21,7 +21,7 @@
   id: ActionJumpbootsSynd
   name: action-jump
   description: action-jump-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 15

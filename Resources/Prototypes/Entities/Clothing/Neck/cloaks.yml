@@ -197,8 +197,28 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/void.rsi
+  # ADT-START COMMENT FIX
+  # - type: ToggleableClothing
+  #   clothingPrototype: ClothingHeadHatHoodVoidCloak
+  #   requiredSlot:
+  #   - neck
+  #   slot: head
+  # - type: ContainerContainer
+  #   containers:
+  #     toggleable-clothing: !type:ContainerSlot {}
+  # ADT-END COMMENT
   - type: TypingIndicatorClothing
     proto: alien
+    #ADT Tweak Start
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingNeckVoidCloakHatHood
+    requiredSlot:
+    - neck
+    slot: head
+    #ADT Tweak End
 
 - type: entity
   parent: ClothingNeckBase
@@ -218,7 +238,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aro.rsi
 
-#ADT start 
+#ADT start
 
 # - type: entity
 #   parent: ClothingNeckBase

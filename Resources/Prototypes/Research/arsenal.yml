@@ -12,6 +12,7 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
+  - ADTWeaponCutter #ADT plasmacutter
   # These are roundstart but not replenishable for salvage
 
 - type: technology
@@ -27,6 +28,9 @@
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  # Start ADT tweak
+  - ADTMagazineMagnumIncendiary
+  # Start ADT tweak
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -46,6 +50,7 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  - ADTBorgModuleHarm #ADT secborg
 
 - type: technology
   id: NonlethalAmmunition
@@ -55,12 +60,14 @@
     state: beanbag
   discipline: Arsenal
   tier: 1
-  cost: 5000
+  cost: 8000 #ADT secborg
   recipeUnlocks:
   - MagazineShotgunBeanbag
-  - BoxShellTranquilizer 
-  - BoxBeanbag 
+  - BoxShellTranquilizer
+  - BoxBeanbag
   - WeaponDisabler
+  - ADTBorgModuleDisabler #ADT secborg
+  - ADTBorgModuleDetention #ADT secborg
 
 - type: technology
   id: UraniumMunitions
@@ -74,6 +81,9 @@
   recipeUnlocks:
   - MagazineRifleUranium
   - MagazinePistolUranium
+  # Start ADT tweak
+  - ADTMagazineMagnumUranium
+  # Start ADT tweak
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
@@ -115,6 +125,18 @@
   - ExplosivePayload
   - ChemicalPayload
 
+- type: technology
+  id: SpecialMeans
+  name: research-technology-special-means
+  icon:
+    sprite: Clothing/Back/Backpacks/electropack.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ClothingBackpackElectropack
+
 # Tier 2
 
 - type: technology
@@ -144,7 +166,7 @@
 - type: technology
   id: BasicShuttleArmament
   name: research-technology-basic-shuttle-armament
-  icon: 
+  icon:
     sprite: Structures/Power/cage_recharger.rsi
     state: full
   discipline: Arsenal
@@ -189,11 +211,11 @@
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
-  
+
 - type: technology
   id: AdvancedShuttleWeapon
   name: research-technology-advanced-shuttle-weapon
-  icon: 
+  icon:
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
     state: icon
   discipline: Arsenal

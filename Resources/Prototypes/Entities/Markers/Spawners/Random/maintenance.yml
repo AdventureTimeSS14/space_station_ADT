@@ -39,7 +39,8 @@
         - id: ClothingMaskRaven
         - id: ClothingMaskJackal
         - id: ClothingMaskBat
-      - id: ClothingBeltSuspenders
+      - id: ClothingBeltSuspendersRed
+      - id: ClothingBeltSuspendersBlack
       - id: ClothingEyesEyepatch
       - id: ClothingEyesGlasses
       - id: ClothingHandsGlovesLatex
@@ -96,27 +97,28 @@
       # Cloaks
       - !type:GroupSelector
         children:
+        - id: ClothingNeckCloakTrans
         - id: ClothingNeckCloakAdmin
         - id: ClothingNeckCloakMoth
         - id: ClothingNeckCloakVoid
         - id: ClothingNeckCloakGoliathCloak
-        #ADT start
-        # - id: ClothingNeckCloakTrans
-        # - id: ClothingNeckCloakAce
-        # - id: ClothingNeckCloakAro
+        - id: ClothingNeckCloakAce
+        - id: ClothingNeckCloakAro
+        # start adt tweak
         # - id: ClothingNeckCloakBi
         # - id: ClothingNeckCloakIntersex
         # - id: ClothingNeckCloakLesbian
-        # - id: ClothingNeckCloakGay
+        # - id: ClothingNeckCloakGay 
         # - id: ClothingNeckCloakEnby
         # - id: ClothingNeckCloakPan
-        #ADT end
+        # end adt tweak
       - id: ToySkeleton
       - id: Basketball
       - id: Football
       - id: BalloonNT
       - id: BalloonCorgi
       - id: MysteryFigureBox
+      - id: RubberChicken
       # Cult
       - !type:AllSelector
         children:
@@ -140,14 +142,19 @@
       # Pins
       - !type:GroupSelector
         children:
-        #ADT start
-        # - ClothingNeckCloakBi
-        # - ClothingNeckCloakIntersex
-        # - ClothingNeckCloakLesbian
-        # - ClothingNeckCloakGay
-        # - ClothingNeckCloakEnby
-        # - ClothingNeckCloakPan
-        #ADT end
+        # start adt tweak
+        # - id: ClothingNeckLGBTPin
+        # - id: ClothingNeckAromanticPin
+        # - id: ClothingNeckAsexualPin
+        # - id: ClothingNeckBisexualPin
+        # - id: ClothingNeckIntersexPin
+        # - id: ClothingNeckLesbianPin
+        # - id: ClothingNeckNonBinaryPin
+        # - id: ClothingNeckPansexualPin
+        # - id: ClothingNeckTransPin
+        # - id: ClothingNeckAutismPin
+        # - id: ClothingNeckGoldAutismPin
+        # end adt tweak
         # Corvax-Pins-Start
         - id: ClothingNeckUSSPPin
         - id: ClothingNeckDonkPin
@@ -171,6 +178,7 @@
       - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
+      - id: RubberStampGreytide
 
 - type: entity
   name: Maint Loot Spawner

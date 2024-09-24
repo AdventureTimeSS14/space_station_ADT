@@ -21,3 +21,14 @@ ent-ADTClothingHeadCapIlisium = фуражка
 ent-ADTClothingHeadHatsInvestigatorCap = фуражка следователя Службы Безопасности
     .desc = Слава NanoTrasen!
     .suffix = { "" }
+
+ent-ADTClothingHeadHatsBeretArmy = армейский берет
+    .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
+    .suffix = { "Новая Мекка" }
+
+ent-ADTClothingHeadHatsBeretSupply = берет отдела снабжения
+    .desc = Берет медного цвета с вышитой эмблемой отдела снабжения.
+ent-ADTClothingHeadHatsBeretAtmos = берет атмосферного техника
+    .desc = Голубой берет с вышитой эмблемой инжерного отдела. Пахнет фрезоном.
+ent-ADTClothingHeadHatsBeretHOP = берет главы персонала
+    .desc = Синий берет с вышитой командирской эмблемой. Холодная рассудительность и твердая рука - вот что главное.

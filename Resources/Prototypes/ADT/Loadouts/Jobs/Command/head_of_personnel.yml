@@ -1,0 +1,60 @@
+# Jumpsuit
+- type: loadout
+  id: ADTJumpsuitHopWarm
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitHopWarm
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP
+
+- type: loadout
+  id: ADTJumpskirtHopWarm
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtHopWarm
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP
+
+- type: loadout
+  id: ADTJumpsuitHopAlt
+  equipment:
+    jumpsuit: ADTClothingJumpsuitHopAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoP
+
+- type: loadout
+  id: ADTJumpskirtHopAlt
+  equipment:
+    jumpsuit: ADTClothingJumpskirtHopAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoP
+
+# Neck
+- type: loadout
+  id: ADTHoPAltCloak
+  equipment:
+    neck: ADTClothingNeckHoPAltCloak
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoP
+
+# Outerclothing
+- type: loadout
+  id: ADTCoatHOP
+  equipment:
+    outerClothing: ClothingOuterCoatHOP
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP
+
+#Head
+
+- type: loadout
+  id: ADTHatBeretHOP
+  equipment:
+    head: ADTClothingHeadHatsBeretHOP
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP

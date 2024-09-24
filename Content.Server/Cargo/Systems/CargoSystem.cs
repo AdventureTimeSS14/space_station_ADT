@@ -1,8 +1,5 @@
-using Content.Server.ADT.Economy; //ADT-Economy
-using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.GameTicking; //ADT-Economy
 using Content.Server.Popups;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Stack;
@@ -21,6 +18,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
+using Content.Server.GameTicking; //ADT-Economy
+using Content.Server.ADT.Economy; //ADT-Economy
 
 namespace Content.Server.Cargo.Systems;
 
@@ -33,7 +32,6 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
     [Dependency] private readonly DeviceLinkSystem _linker = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IdCardSystem _idCardSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly PaperSystem _paperSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;

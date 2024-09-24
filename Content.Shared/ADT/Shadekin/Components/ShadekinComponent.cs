@@ -7,30 +7,29 @@ namespace Content.Shared.ADT.Shadekin.Components;
 public sealed partial class ShadekinComponent : Component
 {
     #region Random occurrences
+    /// <summary>
+    /// Accumulator that indicates how long shadekin were with max energy level
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float MaxedPowerAccumulator = 0f;
 
+    /// <summary>
+    /// Teleport randomly if MaxedPowerAccumulator is greater
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxedPowerRoof = 0f;
+    public float MaxedPowerRoof = 60f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxedPowerRateMin = 45f;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxedPowerRateMax = 150f;
-
-
+    /// <summary>
+    /// Accumulator that indicates how long shadekin were with min energy level
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float MinPowerAccumulator = 0f;
 
+    /// <summary>
+    /// Blackeye if MinPowerAccumulator is greater
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinPowerRoof = 0f;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float MinPowerMin = 15f;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float MinPowerMax = 60f;
+    public float MinPowerRoof = 30f;
     #endregion
 
 
@@ -57,7 +56,7 @@ public sealed partial class ShadekinComponent : Component
     public float PowerLevel
     {
         get => _powerLevel;
-        set => _powerLevel = Math.Clamp(value, PowerLevelMin, PowerLevelMax);
+        set => _powerLevel = Math.Clamp(value, PowerThresholds[ShadekinPowerThreshold.Min], PowerThresholds[ShadekinPowerThreshold.Max]);
     }
     public float _powerLevel = 150f;
 
@@ -68,16 +67,16 @@ public sealed partial class ShadekinComponent : Component
     public float PowerLevelMax = PowerThresholds[ShadekinPowerThreshold.Max];
 
     /// <summary>
-    ///     Blackeyes if PowerLevel is this value.
+    ///     Blackeye chance if PowerLevel less than this value.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public float PowerLevelMin = PowerThresholds[ShadekinPowerThreshold.Min];
+    public float PowerLevelMin = PowerThresholds[ShadekinPowerThreshold.Tired];
 
     /// <summary>
     ///     How much energy is gained per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float PowerLevelGain = 0.75f;
+    public float PowerLevelGain = 0.5f;
 
     /// <summary>
     ///     Power gain multiplier
@@ -97,8 +96,17 @@ public sealed partial class ShadekinComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Blackeye = false;
 
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool RoundstartBlackeyeChecked = false;
 
-    public static readonly Dictionary<ShadekinPowerThreshold, float> PowerThresholds = new()
+    /// <summary>
+    /// Next second to gain energy
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public TimeSpan NextSecond = TimeSpan.Zero;
+
+
+    public static Dictionary<ShadekinPowerThreshold, float> PowerThresholds = new()
     {
         { ShadekinPowerThreshold.Max, 250.0f },
         { ShadekinPowerThreshold.Great, 200.0f },
@@ -107,6 +115,11 @@ public sealed partial class ShadekinComponent : Component
         { ShadekinPowerThreshold.Tired, 50.0f },
         { ShadekinPowerThreshold.Min, 0.0f },
     };
+    #endregion
+
+    #region Actions
+    public string ActionProto = "ActionShadekinTeleport";
+    public EntityUid? ActionEntity;
     #endregion
 }
 

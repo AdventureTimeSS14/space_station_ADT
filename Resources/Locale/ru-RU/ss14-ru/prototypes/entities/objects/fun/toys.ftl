@@ -1,7 +1,7 @@
 ent-BasePlushie = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
-ent-PlushieThrongler = The Throngler plushie
-    .desc = A stuffed toy to remind cargo techs of what they can no longer have.
+ent-PlushieThrongler = плюшевый Нагибатор
+    .desc = Мягкая игрушка, напоминающая грузчикам о том, чего они больше не могут иметь.
 ent-PlushieGhost = плюшевый призрак
     .desc = Начало вашей собственной БАНДЫ ПРИЗРАКОВ!
 ent-PlushieGhostRevenant = плюшевый ревенант
@@ -125,3 +125,5 @@ ent-PlushieHuman = плюшевый человек
     .desc = Плюшевый человек из войлока. Качество - ниже не бывает. Человек голый. Человек плачет. Человек кричит.
 ent-NewtonCradle = колыбель Ньютона
     .desc = Устройство, которое скучающие бумагомаратели используют, дабы напомнить себе, что время ещё не остановилось. Содержит гравитацию.
+ent-RubberChicken = rubber chicken
+    .desc = A stress inducing parody of nature's most delectable avian.

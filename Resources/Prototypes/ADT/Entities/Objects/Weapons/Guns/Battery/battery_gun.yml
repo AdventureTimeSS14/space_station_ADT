@@ -28,3 +28,94 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+
+
+- type: entity
+  name: laser rifle
+  parent: BaseWeaponBattery
+  id: ADTWeaponLaserCarbineBorg
+  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 62.5
+  - type: StaticPrice
+    price: 300
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+
+- type: entity
+  name: disabler
+  parent: WeaponDisabler
+  id: ADTWeaponDisablerBorg
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+
+- type: entity
+  name: Cutter
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponCutter
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,1,0,2
+      - 1,1,1,1
+      - 2,0,2,2
+    - type: MaterialStorage
+      storageLimit: 0
+      materialWhiteList: [RawPlasma, Plasma]
+      canEjectStoredMaterials: false
+    - type: BatteryRecharge
+      multiplier: 1.25
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Guns/Battery/cutter.rsi
+      state: icon
+    - type: Gun
+      fireRate: 0.6
+      soundGunshot:
+        path: /Audio/Weapons/plasma_cutter.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: ADTBulletCutter
+      fireCost: 100
+    - type: Battery
+      maxCharge: 2500
+      startingCharge: 2500
+    - type: Appearance
+
+- type: entity
+  name: Advanced Cutter
+  parent: ADTWeaponCutter
+  id: ADTWeaponCutterAdv
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
+      state: icon
+    - type: Gun
+      fireRate: 1
+      soundGunshot:
+        path: /Audio/Weapons/plasma_cutter.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: ADTBulletCutterAdv
+      fireCost: 75
+    - type: Appearance

@@ -16,7 +16,6 @@
   weight: -10
   roles:
   - Bartender
-  - Borg
   - Botanist
   - Boxer
   - Chaplain
@@ -34,19 +33,46 @@
   - ServiceWorker
 
 - type: department
+  id: CentralCommand
+  name: department-CentralCommand
+  description: department-CentralCommand-description
+  color: "#0c344d"
+  roles:
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  # - ERTChaplain # adt tweak, надо сначала добавить эту роль
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  editorHidden: true
+  weight: 120
+
+- type: department
   id: Command
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
   roles:
   - Captain
-  - CentralCommandOfficial
+  - IAA # Corvax-IAA
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  # - CentralCommandOfficial втф ADT
+  # - CBURN
+  # - ERTLeader
+  # - ERTChaplain
+  # - ERTJanitor
+  # - ERTMedical
+  # - ERTSecurity
+  # - ERTEngineer
+  # - DeathSquad
   - ADTBlueShieldOfficer # ADT-Roles
   primary: false
   weight: 100
@@ -61,7 +87,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
-  # - ADTSeniorEngineer # ADT Role
+  - ADTSeniorEngineer # ADT Role
 
 - type: department
   id: Medical
@@ -76,7 +102,7 @@
   - Psychologist
   - Paramedic
   - ADTPathologist # ADT Role
-  # - ADTSeniorPhysician # ADT Role
+  - ADTSeniorPhysician # ADT Role
 
 - type: department
   id: Security
@@ -92,7 +118,7 @@
   - Detective
   - Warden
   - Brigmedic # ADT rework brigmedic
-  # - ADTSeniorOfficer # ADT Role
+  - ADTSeniorOfficer # ADT Role
 
 - type: department
   id: Science
@@ -104,7 +130,16 @@
   - Scientist
   - ResearchAssistant
   - ADTRoboticist # ADT-Roles
-  # - ADTSeniorResearcher # ADT-Roles
+  - ADTSeniorResearcher # ADT-Roles
+
+- type: department
+  id: Silicon
+  name: department-Silicon
+  description: department-Silicon-description
+  color: "#D381C9"
+  roles:
+  - Borg
+  - StationAi
 
 - type: department
   id: Specific

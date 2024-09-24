@@ -1,6 +1,7 @@
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Inventory;
+using Content.Server.Medical;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -20,6 +21,10 @@ public sealed class InjectorsBlockerSystem : EntitySystem
     }
 
     private void OnInjectRelayAttempt(EntityUid uid, InjectorsBlockerComponent comp, InventoryRelayedEvent<InjectAttemptEvent> args)
+    {
+        args.Args.Cancel();
+    }
+    private void OnHealAttempt(EntityUid uid, InjectorsBlockerComponent comp, InventoryRelayedEvent<InjectAttemptEvent> args)
     {
         args.Args.Cancel();
     }

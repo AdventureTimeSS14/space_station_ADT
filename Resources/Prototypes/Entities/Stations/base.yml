@@ -47,14 +47,17 @@
     - type: GridSpawn
       groups:
         trade: !type:GridSpawnGroup
+          minimumDistance: 150
+          maximumDistance: 200
+          nameDataset: adt_trade_station
           addComponents:
             - type: ProtectedGrid
             - type: TradeStation
           paths:
-            - /Maps/Shuttles/trading_outpost.yml
-        mining: !type:GridSpawnGroup
-          paths:
-          - /Maps/Shuttles/corvax_mining.yml # Corvax-Mapping
+        # ADT Trade Station Start
+            # - /Maps/Shuttles/trading_outpost.yml
+            - /Maps/ADTMaps/Shuttles/adt_trade_outpost.yml
+        # ADT Trade Station End
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
@@ -73,8 +76,8 @@
           - /Maps/Ruins/whiteship_ancient.yml
           - /Maps/Ruins/whiteship_bluespacejumper.yml
         vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 400
-          maximumDistance: 450
+          minimumDistance: 300
+          maximumDistance: 350
           nameDataset: names_borer
           stationGrid: false
           addComponents:
@@ -83,6 +86,11 @@
             inherent: true
           protos:
           - VGRoid
+        # Corvax-Mining-Start
+        mining: !type:GridSpawnGroup
+          paths:
+          - /Maps/Shuttles/corvax_mining.yml
+        # Corvax-Mining-End
 
 - type: entity
   id: BaseStationCentcomm

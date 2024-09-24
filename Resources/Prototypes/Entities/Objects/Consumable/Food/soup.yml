@@ -234,6 +234,10 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 6
+  - type: Tag #ADT_Tweak - делаем салат Цезарь съедобным для молей
+    tags:
+    - ADTMothFriendlyFood
+    - Soup
 
 - type: entity
   name: kimchi salad
@@ -386,6 +390,10 @@
     layers:
     - state: bowl
     - state: rice
+  - type: Tag #ADT_Tweak - делаем салат Цезарь съедобным для молей
+    tags:
+    - ADTMothFriendlyFood
+    - Soup
 
 - type: entity
   name: egg-fried rice
@@ -534,6 +542,10 @@
           Quantity: 2
         - ReagentId: Milk
           Quantity: 10
+  - type: Tag #ADT_Tweak - делаем салат Цезарь съедобным для молей
+    tags:
+    - ADTMothFriendlyFood
+    - Soup
 
 - type: entity
   name: space liberty duff
@@ -1227,3 +1239,33 @@
     - Fruit
     - Soup
 # Tastes like bungo, hot curry.
+
+- type: entity
+  name: escargot
+  parent: FoodBowlBase
+  id: FoodSoupEscargot
+  description: A creamy and rich bowl of snails, bon appetit!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - creamy
+      - slimy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: escargot
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 6
+          - ReagentId: Vitamin
+            Quantity: 6
+          - ReagentId: Allicin
+            Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+    - Soup

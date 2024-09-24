@@ -2,3 +2,166 @@
   id: adtconsideredmilk
   flavorType: Complex
   description: flavor-complex-adtconsideredmilk
+
+#Безалкогольные коктейли от Кекса/Рамы
+- type: flavor
+  id: adt_summershade
+  flavorType: Complex
+  description: flavor-complex-summershade
+
+- type: flavor
+  id: adt_wintersun
+  flavorType: Complex
+  description: flavor-complex-wintersun
+
+- type: flavor
+  id: adt_hungoverangel
+  flavorType: Complex
+  description: flavor-complex-hungoverangel
+
+- type: flavor
+  id: adt_citrusbalance
+  flavorType: Complex
+  description: flavor-complex-citrusbalance
+
+- type: flavor
+  id: adt_dobtyidrink
+  flavorType: Complex
+  description: flavor-complex-dobtyidrink
+
+- type: flavor
+  id: adt_milkeclipse
+  flavorType: Complex
+  description: flavor-complex-milkeclipse
+
+- type: flavor
+  id: adt_arcticexlposion
+  flavorType: Complex
+  description: flavor-complex-arcticexlposion
+
+#Алкоголь базовый
+
+- type: flavor
+  id: adt_appleliqueur
+  flavorType: Complex
+  description: flavor-complex-appleliqueur
+
+#Алкогольные коктейли
+
+- type: flavor
+  id: adt_sugarknight
+  flavorType: Complex
+  description: flavor-complex-sugarknight
+
+- type: flavor
+  id: adt_grapelady
+  flavorType: Complex
+  description: flavor-complex-grapelady
+
+- type: flavor
+  id: adt_saturdaybaron
+  flavorType: Complex
+  description: flavor-complex-saturdaybaron
+
+- type: flavor
+  id: adt_arcticlatte
+  flavorType: Complex
+  description: flavor-complex-arcticlatte
+
+- type: flavor
+  id: adt_oolongtea
+  flavorType: Complex
+  description: flavor-complex-oolongtea
+
+- type: flavor
+  id: adt_azureblue
+  flavorType: Complex
+  description: flavor-complex-azureblue
+
+- type: flavor
+  id: adt_penetrationdrink
+  flavorType: Complex
+  description: flavor-complex-penetrationdrink
+
+- type: flavor
+  id: adt_eclipsedeclipse
+  flavorType: Complex
+  description: flavor-complex-eclipsedeclipse
+
+- type: flavor
+  id: adt_spacebush
+  flavorType: Complex
+  description: flavor-complex-spacebush
+
+- type: flavor
+  id: adt_businessconversation
+  flavorType: Complex
+  description: flavor-complex-businessconversation
+
+- type: flavor
+  id: adt_applemartini
+  flavorType: Complex
+  description: flavor-complex-applemartini
+
+- type: flavor
+  id: adt_bacardiapple
+  flavorType: Complex
+  description: flavor-complex-bacardiapple
+
+- type: flavor
+  id: adt_elderguards
+  flavorType: Complex
+  description: flavor-complex-elderguards
+
+- type: flavor
+  id: adt_limeshade
+  flavorType: Complex
+  description: flavor-complex-limeshade
+
+# Суп
+- type: flavor
+  id: ADTSawdust
+  flavorType: Complex
+  description: flavor-complex-ADTSawdust
+
+#Пиво Октоберфеста
+
+- type: flavor
+  id: adt_glyphidstoutbeer
+  flavorType: Complex
+  description: flavor-complex-glyphidstoutbeer
+
+- type: flavor
+  id: adt_secunfilteredbeer
+  flavorType: Complex
+  description: flavor-complex-secunfilteredbeer
+
+- type: flavor
+  id: adt_luckyjonnybeer
+  flavorType: Complex
+  description: flavor-complex-luckyjonnybeer
+
+- type: flavor
+  id: adt_livseybeer
+  flavorType: Complex
+  description: flavor-complex-livseybeer
+
+- type: flavor
+  id: adt_classicpaulaner
+  flavorType: Complex
+  description: flavor-complex-classicpaulaner
+
+- type: flavor
+  id: adt_technobeer
+  flavorType: Complex
+  description: flavor-complex-technobeer
+
+- type: flavor
+  id: adt_sausagebeer
+  flavorType: Complex
+  description: flavor-complex-sausagebeer
+
+- type: flavor
+  id: adt_goldenale
+  flavorType: Complex
+  description: flavor-complex-goldenale

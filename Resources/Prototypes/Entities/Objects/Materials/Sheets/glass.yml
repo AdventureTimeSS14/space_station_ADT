@@ -55,8 +55,8 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -2
-        Cold: -2
+        Heat: -5
+        Cold: -5
   # ADT IPC healing end
 
 - type: entity
@@ -187,8 +187,8 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -4
-        Cold: -4
+        Heat: -8
+        Cold: -8
   # ADT IPC healing end
 
 - type: entity
@@ -273,8 +273,8 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -2
-        Cold: -6
+        Heat: -5
+        Cold: -10
   # ADT IPC healing end
 
 - type: entity
@@ -348,8 +348,8 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -2
-        Cold: -8
+        Heat: -10
+        Cold: -15
   # ADT IPC healing end
 
 - type: entity
@@ -432,8 +432,8 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -6
-        Cold: -2
+        Heat: -10
+        Cold: -5
   # ADT IPC healing end
 
 - type: entity
@@ -495,8 +495,8 @@
       - ADTSiliconDamageContainer
     damage:
       types:
-        Heat: -8
-        Cold: -2
+        Heat: -15
+        Cold: -10
   # ADT IPC healing end
 
 - type: entity
