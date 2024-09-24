@@ -29,6 +29,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.DocumentPrinter;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Content.Server.Lathe
 {
@@ -178,7 +180,7 @@ namespace Content.Server.Lathe
             foreach (var (mat, amount) in recipe.Materials)
             {
                 var adjustedAmount = recipe.ApplyMaterialDiscount
-                    ? (int) (-amount * component.MaterialUseMultiplier)
+                    ? (int)(-amount * component.MaterialUseMultiplier)
                     : -amount;
 
                 _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
@@ -223,12 +225,20 @@ namespace Content.Server.Lathe
         {
             if (!Resolve(uid, ref comp, ref prodComp, false))
                 return;
-
             if (comp.CurrentRecipe != null)
             {
                 if (comp.CurrentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
+                    //KACHE BYYYYLAAAAAAAAAAAA, (Just a raising event for KRASIVOYE ISPOLNENIYE system of printing documents)
+                    if (TryComp<DocumentPrinterComponent>(uid, out var printerComponent))
+                    {
+                        var tuple = printerComponent.Queue.First();
+                        if (tuple.Item2.Result.Equals(resultProto))
+                            RaiseLocalEvent(uid, new PrintingDocumentEvent(result, tuple.Item1));
+                        printerComponent.Queue.Remove(tuple);
+                    }
+                    //
                     _stack.TryMergeToContacts(result);
                 }
 
@@ -388,6 +398,13 @@ namespace Content.Server.Lathe
                 }
             }
             TryStartProducing(uid, component);
+            //KACHEEEEE
+            if (TryComp<DocumentPrinterComponent>(uid, out var comp))
+            {
+                if (recipe is not null)
+                    comp.Queue.Add((args.Actor, recipe));
+            }
+            //
             UpdateUserInterfaceState(uid, component);
         }
 
