@@ -19,3 +19,4 @@ public sealed class PrintingDocumentEvent : EntityEventArgs
         Actor = actor;
     }
 }
+//(C) Korol_Charodey

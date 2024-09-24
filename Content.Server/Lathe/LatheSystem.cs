@@ -230,7 +230,7 @@ namespace Content.Server.Lathe
                 if (comp.CurrentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
-                    //KACHE BYYYYLAAAAAAAAAAAA, (Just a raising event for KRASIVOYE ISPOLNENIYE system of printing documents)
+                    //ADT tweak start
                     if (TryComp<DocumentPrinterComponent>(uid, out var printerComponent))
                     {
                         var tuple = printerComponent.Queue.First();
@@ -238,7 +238,7 @@ namespace Content.Server.Lathe
                             RaiseLocalEvent(uid, new PrintingDocumentEvent(result, tuple.Item1));
                         printerComponent.Queue.Remove(tuple);
                     }
-                    //
+                    //ADT tweak end
                     _stack.TryMergeToContacts(result);
                 }
 
@@ -398,13 +398,13 @@ namespace Content.Server.Lathe
                 }
             }
             TryStartProducing(uid, component);
-            //KACHEEEEE
+            //ADT Tweak start
             if (TryComp<DocumentPrinterComponent>(uid, out var comp))
             {
                 if (recipe is not null)
                     comp.Queue.Add((args.Actor, recipe));
             }
-            //
+            //ADT tweak end
             UpdateUserInterfaceState(uid, component);
         }
 
