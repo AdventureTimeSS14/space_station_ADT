@@ -34,3 +34,6 @@ flavor-complex-classicpaulaner = как хмель, солод и традици
 flavor-complex-technobeer = как хмель, солод и горячая зад...душа
 flavor-complex-sausagebeer = как хмель, солод и колбаска
 flavor-complex-goldenale = как эль, золото и исцеление
+
+flavor-base-adtpoppy = маково
+flavor-base-adtvanilla = ванильно
