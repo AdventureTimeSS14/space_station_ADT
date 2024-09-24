@@ -6,11 +6,11 @@
   - type: Projectile
     damage:
       types:
-        ADTTimeDespawn: 1
         Shock: 7
     soundHit:
       path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
     forceSound: true
+  - type: ProjectileDespawn
   - type: StaminaDamageOnCollide
     damage: 40 # 4 hits to stun
   - type: Sprite

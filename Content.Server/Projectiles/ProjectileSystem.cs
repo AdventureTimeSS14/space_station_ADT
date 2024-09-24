@@ -7,6 +7,7 @@ using Content.Shared.Database;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Content.Shared.ADT.TimeDespawnDamage;
 
 namespace Content.Server.Projectiles;
 

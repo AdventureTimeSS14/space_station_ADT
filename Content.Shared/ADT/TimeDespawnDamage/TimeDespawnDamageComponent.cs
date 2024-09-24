@@ -7,4 +7,6 @@ namespace Content.Shared.ADT.TimeDespawnDamage;
 [NetworkedComponent]
 public sealed partial class TimeDespawnDamageComponent : Component
 {
+    [DataField]
+    public int Count = 0;
 }
