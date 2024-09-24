@@ -470,7 +470,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingZoroUniform
+  id: ADTClothingUniformZoroJumpsuit
   suffix: Rip_Zoro
   name: The legendary business suit
   description: A legendary, worn-out suit. All white and gilded. He smells like vanilla...
