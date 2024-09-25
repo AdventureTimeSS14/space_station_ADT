@@ -496,6 +496,18 @@
   - type: StaticPrice
     price: 700
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitMimicry
+  name: mimicry suit
+  description: hz
+  suffix: Mimicry
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mimicry_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mimicry_suit.rsi
+
 # SPACE SEC
 - type: entity
   parent: ClothingUniformBase
