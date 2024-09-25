@@ -4,7 +4,6 @@ using Content.Server.Materials;
 using Content.Shared.Materials;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Components;
-using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Server.AruMoon.Plasmacutter
 {
