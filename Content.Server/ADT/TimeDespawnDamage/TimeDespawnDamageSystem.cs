@@ -43,7 +43,7 @@ public sealed class TimeDespawnDamageSystem : EntitySystem
         }
         else
         {
-            Log.Debug($"Сущность {ToPrettyString(uid)} не имеет компонента DamageableComponent.");
+            //Log.Debug($"Сущность {ToPrettyString(uid)} не имеет компонента DamageableComponent.");
         }
     }
 
