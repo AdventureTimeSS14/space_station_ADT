@@ -64,10 +64,11 @@ public sealed partial class ComponentalActionsSystem
     [Dependency] private readonly SpawnOnDespawnSystem _timeDespawnUid = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
+
     private void InitializeCompAbilities()
     {
         SubscribeLocalEvent<TeleportActComponent, CompTeleportActionEvent>(OnTeleport);
-        SubscribeLocalEvent<ProjectileActComponent, CompProjectileActionEvent>(OnProjectile);
+        //SubscribeLocalEvent<ProjectileActComponent, CompProjectileActionEvent>(OnProjectile);
         SubscribeLocalEvent<HealActComponent, CompHealActionEvent>(OnHeal);
         SubscribeLocalEvent<JumpActComponent, CompJumpActionEvent>(OnJump);
         SubscribeLocalEvent<StasisHealActComponent, CompStasisHealActionEvent>(OnStasisHeal);
@@ -99,63 +100,63 @@ public sealed partial class ComponentalActionsSystem
             }
         }
     }
-    private List<EntityCoordinates> GetSpawnPositions(TransformComponent casterXform, ComponentalActionsSpawnData data)
-    {
-        switch (data)
-        {
-            case TargetCasterPos:
-                return new List<EntityCoordinates>(1) { casterXform.Coordinates };
-            case TargetInFront:
-                {
-                    // This is shit but you get the idea.
-                    var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized());
+    // private List<EntityCoordinates> GetSpawnPositions(TransformComponent casterXform, ComponentalActionsSpawnData data)
+    // {
+    //     switch (data)
+    //     {
+    //         case TargetCasterPos:
+    //             return new List<EntityCoordinates>(1) { casterXform.Coordinates };
+    //         case TargetInFront:
+    //             {
+    //                 // This is shit but you get the idea.
+    //                 var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized());
 
-                    if (!_mapManager.TryGetGrid(casterXform.GridUid, out var mapGrid))
-                        return new List<EntityCoordinates>();
+    //                 if (!_mapManager.TryGetGrid(casterXform.GridUid, out var mapGrid))
+    //                     return new List<EntityCoordinates>();
 
-                    if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
-                        return new List<EntityCoordinates>();
+    //                 if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
+    //                     return new List<EntityCoordinates>();
 
-                    var tileIndex = tileReference.Value.GridIndices;
-                    var coords = mapGrid.GridTileToLocal(tileIndex);
-                    EntityCoordinates coordsPlus;
-                    EntityCoordinates coordsMinus;
+    //                 var tileIndex = tileReference.Value.GridIndices;
+    //                 var coords = mapGrid.GridTileToLocal(tileIndex);
+    //                 EntityCoordinates coordsPlus;
+    //                 EntityCoordinates coordsMinus;
 
-                    var dir = casterXform.LocalRotation.GetCardinalDir();
-                    switch (dir)
-                    {
-                        case Direction.North:
-                        case Direction.South:
-                            {
-                                coordsPlus = mapGrid.GridTileToLocal(tileIndex + (1, 0));
-                                coordsMinus = mapGrid.GridTileToLocal(tileIndex + (-1, 0));
-                                return new List<EntityCoordinates>(3)
-                        {
-                            coords,
-                            coordsPlus,
-                            coordsMinus,
-                        };
-                            }
-                        case Direction.East:
-                        case Direction.West:
-                            {
-                                coordsPlus = mapGrid.GridTileToLocal(tileIndex + (0, 1));
-                                coordsMinus = mapGrid.GridTileToLocal(tileIndex + (0, -1));
-                                return new List<EntityCoordinates>(3)
-                        {
-                            coords,
-                            coordsPlus,
-                            coordsMinus,
-                        };
-                            }
-                    }
+    //                 var dir = casterXform.LocalRotation.GetCardinalDir();
+    //                 switch (dir)
+    //                 {
+    //                     case Direction.North:
+    //                     case Direction.South:
+    //                         {
+    //                             coordsPlus = mapGrid.GridTileToLocal(tileIndex + (1, 0));
+    //                             coordsMinus = mapGrid.GridTileToLocal(tileIndex + (-1, 0));
+    //                             return new List<EntityCoordinates>(3)
+    //                     {
+    //                         coords,
+    //                         coordsPlus,
+    //                         coordsMinus,
+    //                     };
+    //                         }
+    //                     case Direction.East:
+    //                     case Direction.West:
+    //                         {
+    //                             coordsPlus = mapGrid.GridTileToLocal(tileIndex + (0, 1));
+    //                             coordsMinus = mapGrid.GridTileToLocal(tileIndex + (0, -1));
+    //                             return new List<EntityCoordinates>(3)
+    //                     {
+    //                         coords,
+    //                         coordsPlus,
+    //                         coordsMinus,
+    //                     };
+    //                         }
+    //                 }
 
-                    return new List<EntityCoordinates>();
-                }
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
+    //                 return new List<EntityCoordinates>();
+    //             }
+    //         default:
+    //             throw new ArgumentOutOfRangeException();
+    //     }
+    // }
 
 
     private void OnTeleport(EntityUid uid, TeleportActComponent component, CompTeleportActionEvent args)
@@ -165,7 +166,7 @@ public sealed partial class ComponentalActionsSystem
 
         var transform = Transform(uid);
 
-        if (transform.MapID != args.Target.GetMapId(EntityManager))
+        if (transform.MapID != _transformSystem.GetMapId(args.Target))
             return;
 
         _transformSystem.SetCoordinates(uid, args.Target);
@@ -174,31 +175,31 @@ public sealed partial class ComponentalActionsSystem
         args.Handled = true;
     }
 
-    private void OnProjectile(EntityUid uid, ProjectileActComponent component, CompProjectileActionEvent args)
-    {
-        if (args.Handled)
-            return;
+    // private void OnProjectile(EntityUid uid, ProjectileActComponent component, CompProjectileActionEvent args)
+    // {
+    //     if (args.Handled)
+    //         return;
 
-        args.Handled = true;
+    //     args.Handled = true;
 
-        var xform = Transform(uid);
-        var userVelocity = _physics.GetMapLinearVelocity(uid);
+    //     var xform = Transform(uid);
+    //     var userVelocity = _physics.GetMapLinearVelocity(uid);
 
-        foreach (var pos in GetSpawnPositions(xform, component.Pos))
-        {
-            // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-            var mapPos = pos.ToMap(EntityManager);
-            var spawnCoords = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _)
-                ? pos.WithEntityId(gridUid, EntityManager)
-                : new(_mapManager.GetMapEntityId(mapPos.MapId), mapPos.Position);
+    //     foreach (var pos in GetSpawnPositions(xform, component.Pos))
+    //     {
+    //         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
+    //         var mapPos = _transformSystem.ToMapCoordinates(args.Target);
+    //         var spawnCoords = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _)
+    //             ? pos.WithEntityId(gridUid, EntityManager)
+    //             : new(_mapManager.GetMapEntityId(mapPos.MapId), mapPos.Position);
 
-            var ent = Spawn(component.Prototype, spawnCoords);
-            var direction = args.Target.ToMapPos(EntityManager, _transformSystem) -
-                            spawnCoords.ToMapPos(EntityManager, _transformSystem);
-            _gunSystem.ShootProjectile(ent, direction, userVelocity, uid, uid);
-            _audio.PlayPvs(component.ShootSound, uid, AudioParams.Default.WithVolume(component.ShootVolume));
-        }
-    }
+    //         var ent = Spawn(component.Prototype, spawnCoords);
+    //         var direction = args.Target.ToMapPos(EntityManager, _transformSystem) -
+    //                         spawnCoords.ToMapPos(EntityManager, _transformSystem);
+    //         _gunSystem.ShootProjectile(ent, direction, userVelocity, uid, uid);
+    //         _audio.PlayPvs(component.ShootSound, uid, AudioParams.Default.WithVolume(component.ShootVolume));
+    //     }
+    // }
 
     public ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     public ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
@@ -229,7 +230,7 @@ public sealed partial class ComponentalActionsSystem
 
         var transform = Transform(uid);
 
-        if (transform.MapID != args.Target.GetMapId(EntityManager))
+        if (transform.MapID != _transformSystem.GetMapId(args.Target))
             return;
 
         _throwing.TryThrow(uid, args.Target, component.Strength);
