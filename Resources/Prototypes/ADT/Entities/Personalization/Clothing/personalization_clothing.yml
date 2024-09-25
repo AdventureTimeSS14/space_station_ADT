@@ -514,6 +514,7 @@
   - type: Clothing
     sprite: ADT/Personalization/maki_coat.rsi
 
+
 # Moon_so_red
 - type: entity
   parent: ClothingHeadBase
@@ -551,3 +552,37 @@
         Slash: 0.95
         Piercing: 0.95
         Cold: 0.95
+
+#Syrel
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
+  id: ADTSyrelClothingBeltSheath
+  name: axe sheath
+  description: A sturdy leather sheath for the captain's battle axe.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/syrel_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/syrel_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Battle Axe
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTSyrelBattleAxe
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - ADTSyrelBattleAxe
+  - type: Appearance
+
