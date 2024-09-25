@@ -297,7 +297,7 @@ public sealed partial class ComponentalActionsSystem
     {
         if (args.Handled)
             return;
-        _chat.TrySendInGameICMessage(uid, "щёлкает пальцами", InGameICChatType.Emote, ChatTransmitRange.HideChat);
+        _chat.TrySendInGameICMessage(uid, "щёлкает пальцами", InGameICChatType.Emote, ChatTransmitRange.Normal);
 
         if (!HasComp<TimedDespawnComponent>(uid))
         {
