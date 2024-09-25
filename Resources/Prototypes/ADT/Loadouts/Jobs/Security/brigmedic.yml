@@ -1,0 +1,110 @@
+# Head Готово ---
+
+- type: loadout
+  id: ADTHeadHatBeretBrigmedic
+  equipment:
+    head: ADTClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: ADTClotHeadHatBeretBrigmedic
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: ADTHeadHatBeretSecurityMedic
+  equipment:
+    head: ClothingHeadHatBeretSecurityMedic
+
+- type: loadout
+  id: ADTHeadHelmetSecurityMedic
+  equipment:
+    head: ClothingHeadHelmetSecurityMedic
+
+# Jumpsuit готово ---
+- type: loadout
+  id: ADTUniformJumpsuitBrigmedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+
+- type: loadout
+  id: ADTUniformJumpskirtBrigmedic
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBrigmedic
+
+- type: loadout
+  id: ADTUniformBrigmedicJumpsuitTurtleneck
+  equipment:
+    jumpsuit: ADTClothingUniformBrigmedicJumpsuitTurtleneck
+
+- type: loadout
+  id: ADTUniformSkirtBrigmedicJumpskirtTurtleneck
+  equipment:
+    jumpsuit: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
+
+# Neck готово ---
+- type: loadout
+  id: ADTNeckSecBadge
+  equipment:
+    neck: ADTClothingNeckSecBadge
+
+#- type: loadout
+#  id: ADTBrigmedicCloak
+#  equipment:
+#    neck: ADTClothingNeckCloakBrigmedic
+
+# Back ---
+#- type: loadout
+#  id: ADTBackpackBrigmedic
+#  equipment:
+#    back: ClothingBackpackBrigmedic
+
+#- type: loadout
+#  id: ADTBackpackDuffelBrigmedic
+#  equipment:
+#    back: ClothingBackpackDuffelBrigmedic
+
+#- type: loadout
+#  id: ADTBackpackSatchelBrigmedic
+#  equipment:
+#    back: ClothingBackpackSatchelBrigmedic
+
+# Eyes готово ---
+- type: loadout
+  id: ADTEyesGlassesMed
+  equipment:
+    back: ADTClothingEyesGlassesMed
+
+# Hands Gloves готово ---
+- type: loadout
+  id: ADTHandsGlovesLatex
+  equipment:
+    back: ClothingHandsGlovesLatex
+
+# PDA Ready ---
+- type: loadout
+  id: ADTBrigmedicPDA
+  equipment:
+    back: BrigmedicPDA
+
+# belt
+- type: loadout
+  id: ADTBeltMedicalFilled
+  equipment:
+    back: ClothingBeltMedicalFilled
+
+# outerwear Ready
+- type: loadout
+  id: ADTOuterCoatBrigmedicWB
+  equipment:
+    back: ADTClothingOuterCoatBrigmedicWB
+
+- type: loadout
+  id: ADTOuterVestSecurityMedic
+  equipment:
+    back: ClothingOuterVestSecurityMedic
+
+- type: loadout
+  id: ADTOuterCoatLabSecurityMedic
+  equipment:
+    back: ClothingOuterCoatLabSecurityMedic
+
