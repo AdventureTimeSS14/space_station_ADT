@@ -1,0 +1,55 @@
+# Закомментировал до того как найдется вариант решения проблемы интерфейса
+
+# - type: entity
+#   name: handheld salvage shuttle console
+#   parent: ADTComputerShuttleSalvage
+#   id: ADTHandheldComputerShuttleSalvage
+#   description: A hand-held computer to pilot salvage shuttle.
+#   components:
+#   # - type: ShuttleConsole
+#   # - type: ActivatableUI
+#   #   key: enum.ShuttleConsoleUiKey.Key
+#   #   inHandsOnly: true
+#   #   singleUser: true
+#   # - type: UserInterface
+#   #   interfaces:
+#   #       enum.ShuttleConsoleUiKey.Key:
+#   #         type: ShuttleConsoleBoundUserInterface
+#   # - type: RadarConsole
+#   #   maxRange: 256
+#   # - type: WorldLoader
+#   #   radius: 256
+#   - type: ItemSlots
+#     slots:
+#       # disk_slot:
+#       #   name: Disk
+#       #   insertSound:
+#       #     path: /Audio/Machines/terminal_insert_disc.ogg
+#       #   ejectSound:
+#       #     path: /Audio/Machines/terminal_insert_disc.ogg
+#       #   whitelist:
+#       #     components:
+#       #     - ShuttleDestinationCoordinates
+#       cell_slot:
+#         name: power-cell-slot-component-slot-name-default
+#         startingItem: PowerCellHigh
+#   - type: ContainerContainer
+#     containers:
+#       # board: !type:Container
+#       #   ents: []
+#       # disk_slot: !type:ContainerSlot {}
+#       cell_slot: !type:ContainerSlot { }
+#   - type: Sprite
+#     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+#     state: salvage
+#   - type: StaticPrice
+#     price: 500
+#   # - type: DroneConsole
+#   #   components:
+#   #     - type: SalvageShuttle
+#   - type: Item
+#     size: Small
+#   - type: PowerCellDraw
+#     drawRate: 0
+#     useRate: 20
+#   - type: ActivatableUIRequiresPowerCell

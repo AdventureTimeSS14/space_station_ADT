@@ -433,8 +433,8 @@ ClothingBeltSuspenders: ClothingBeltSuspendersRed
 ClothingNeckShockCollar: ClothingBackpackElectropack
 
 # 2024-08-22
-ComputerShuttleSalvage: null
-SalvageShuttleConsoleCircuitboard: null
+ComputerShuttleSalvage: ADTComputerShuttleSalvage #ADT-Tweak - частичный откат нерфа утилей
+SalvageShuttleConsoleCircuitboard: ADTSalvageShuttleConsoleCircuitboard #ADT-Tweak - частичный откат нерфа утилей
 SalvageShuttleCircuitboardStealObjective: null
 
 # 2024-08-28

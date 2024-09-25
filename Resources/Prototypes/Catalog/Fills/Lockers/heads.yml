@@ -28,6 +28,10 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    # ADT-Tweak Start - частичный откат нерфа утилей
+    - id: ADTSalvageShuttleConsoleCircuitboard
+    # - id: ADTHandheldComputerShuttleSalvage - закомментировано до нахождения решения проблемы с интерфейсом
+    # ADT-Tweak End - частичный откат нерфа утилей
 
 - type: entity
   id: LockerQuarterMasterFilled
