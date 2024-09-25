@@ -1,4 +1,5 @@
 using Content.Shared.Research.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.DocumentPrinter;
@@ -7,6 +8,8 @@ namespace Content.Shared.DocumentPrinter;
 public sealed partial class DocumentPrinterComponent : Component
 {
     public List<(EntityUid, LatheRecipePrototype)> Queue { get; set; } = new();
+    public SoundSpecifier SwitchSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
+    public bool IsOnAutocomplite = true;
 }
 
 public sealed class PrintingDocumentEvent : EntityEventArgs
