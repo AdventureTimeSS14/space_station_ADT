@@ -1,6 +1,7 @@
 - type: emote # эмоция work out
   id: WorkOut
   name: chat-emote-name-workout
+  icon: Interface/Emotes/ping.png
   chatMessages: ["качается"]
   chatTriggers:
     - works out
@@ -12,6 +13,7 @@
   id: Laugh-apathy
   name: chat-emote-name-laugh-apathy
   category: Vocal
+  icon: Interface/Emotes/laugh.png
   chatMessages: [выдавливает из себя смех]
   chatTriggers:
     - выдавливает из себя смех
@@ -20,6 +22,7 @@
   id: Scream-apathy
   name: chat-emote-name-scream-apathy
   category: Vocal
+  icon: Interface/Emotes/scream.png
   chatMessages: [наигранно кричит!]
   chatTriggers:
     - наигранно кричит!
@@ -28,6 +31,7 @@
   id: Sigh-apathy
   name: chat-emote-name-sigh-apathy
   category: Vocal
+  icon: Interface/Emotes/yawn.png
   chatMessages: [театрально вздыхает]
   chatTriggers:
     - театрально вздыхает
@@ -36,6 +40,7 @@
   id: Crying-apathy
   name: chat-emote-name-crying-apathy
   category: Vocal
+  icon: Interface/Emotes/cry.png
   chatMessages: [фальшиво плачет]
   chatTriggers:
     - фальшиво плачет
@@ -45,6 +50,7 @@
   id: Hiss
   name: chat-emote-name-hiss
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [шипит]
   chatTriggers:
     - шипит
@@ -55,6 +61,7 @@
   id: Meow
   name: chat-emote-name-meow
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [мяукает]
   chatTriggers:
     - мяу
@@ -72,6 +79,7 @@
   id: Mew
   name: chat-emote-name-mew
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [мякает]
   chatTriggers:
     - мя
@@ -89,6 +97,7 @@
   id: Growl
   name: chat-emote-name-growl
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [рычит]
   chatTriggers:
     - рычит
@@ -106,6 +115,7 @@
   id: Purr
   name: chat-emote-name-purr
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [мурчит]
   chatTriggers:
     - мур
@@ -117,6 +127,7 @@
   id: Heckaet
   name: chat-emote-name-heck
   category: Vocal
+  icon: Interface/Emotes/sigh.png
   chatMessages: [хекает]
   chatTriggers:
     - кхе
@@ -130,6 +141,7 @@
   id: Howl
   name: chat-emote-name-howl
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [воет]
   chatTriggers:
     - воет
@@ -140,6 +152,7 @@
   id: Whine
   name: chat-emote-name-whine
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [скулит]
   chatTriggers:
     - скул
@@ -153,6 +166,7 @@
   id: Bark
   name: chat-emote-name-bark
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [лает]
   chatTriggers:
     - лает
@@ -173,6 +187,7 @@
   id: SynthYes
   name: chat-emote-name-synth-yes
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [утвердительно пищит]
   chatTriggers:
     - утвердительно пищит
@@ -188,6 +203,7 @@
   id: SynthNo
   name: chat-emote-name-synth-no
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [отрицательно пищит]
   chatTriggers:
     - отрицательно пищит
@@ -203,6 +219,7 @@
   id: SighBuzz
   name: chat-emote-name-sigh-buzz
   category: Vocal
+  icon: Interface/Emotes/vocal.png
   chatMessages: [раздражённо жужжит]
   chatTriggers:
     - раздражённо жужжит
