@@ -108,3 +108,4 @@
       - Document
     storage:
       SheetPrinter: 0
+  - type: DocumentPrinter #DocumentPrinterComponent (ADT)
