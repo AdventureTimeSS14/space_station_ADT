@@ -346,3 +346,6 @@ ent-ADTOwlScimitar = Совиный клинок
 ent-ADTClothingUniformZoroJumpsuit = легендарный деловой костюм
     .desc = Легендарный, поношенный костюм. Весь белый с позолотой. От него пахнет ванилью...
     .suffix = Именное, Rip_Zoro.
+
+ent-ADTPlushieEmma = плюшевая Эмма
+    .desc = Кажется, она хочет заставить вас работать.

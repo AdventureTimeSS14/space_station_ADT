@@ -551,6 +551,23 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -618,6 +635,23 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 #ERT Security Hardsuit
 - type: entity
@@ -628,6 +662,23 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -638,6 +689,23 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 
 #ADT ert's end
