@@ -5,6 +5,6 @@
   description: A computer printed circuit board for a salvage shuttle console.
   components:
     - type: ComputerBoard
-      prototype: ComputerShuttleSalvage
+      prototype: ADTComputerShuttleSalvage
     # - type: StealTarget
     #   stealGroup: SalvageShuttleConsoleCircuitboard
