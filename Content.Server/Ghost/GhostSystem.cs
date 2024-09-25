@@ -35,6 +35,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Humanoid;
 
 namespace Content.Server.Ghost
 {
@@ -575,6 +576,15 @@ namespace Content.Server.Ghost
 
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
 
+                    // START-ADT-TWeak: Это блять ебучий щиткод для ХорниМух, Котька не кусай меня пожажуста >~<
+                    if (TryComp<HumanoidAppearanceComponent>(playerEntity, out var humanoid))
+                    {
+                        if (humanoid.Species == "Shadekin")
+                        {
+                            damage = new(_prototypeManager.Index<DamageTypePrototype>("Bloodloss"), dealtDamage);
+                        }
+                    }
+                    // END-ADT-Tweak
                     _damageable.TryChangeDamage(playerEntity, damage, true);
                 }
             }
