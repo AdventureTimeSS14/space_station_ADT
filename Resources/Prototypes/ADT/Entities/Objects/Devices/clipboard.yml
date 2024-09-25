@@ -1,6 +1,6 @@
 - type: entity
   id: ADTHoPClipboard
-  parent: [BoxFolderBase, BaseGrandTheftContraband]
+  parent: [BaseItem, BaseGrandTheftContraband]
   name: access digi-board
   description: A portable tablet for granting access.
   components:
