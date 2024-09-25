@@ -150,6 +150,7 @@
     - id: ClothingEyesHudCommand
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
+    - id: ADTHoPClipboard #ADT-Tweak
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
