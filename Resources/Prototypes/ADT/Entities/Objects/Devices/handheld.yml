@@ -476,9 +476,9 @@
   description: "fshhhshfpshhh."
   components:
   - type: Item
-    sprite: ADT/Objects/Device/ghost_radio.rsi
+    sprite: ADT/Objects/Devices/ghost_radio.rsi
   - type: Sprite
-    sprite: ADT/Objects/Device/ghost_radio.rsi
+    sprite: ADT/Objects/Devices/ghost_radio.rsi
     state: icon
     layers:
       - state: icon

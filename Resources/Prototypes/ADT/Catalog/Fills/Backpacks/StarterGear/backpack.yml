@@ -13,7 +13,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackFilled
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: StorageFill
     contents:
@@ -65,7 +65,7 @@
         - id: WeaponLaserGun
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackBrigmedic
   id: ClothingBackpackBrigmedicFilled
   components:
@@ -78,7 +78,7 @@
       # - id: SpaceCash500
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSecurity
   id: ADTClothingBackpackSeniorSecurityFilled
   components:

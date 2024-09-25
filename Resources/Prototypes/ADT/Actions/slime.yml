@@ -2,7 +2,7 @@
   id: ActionSlimeHair
   name: action-slime-hair
   description: action-slime-hair-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:

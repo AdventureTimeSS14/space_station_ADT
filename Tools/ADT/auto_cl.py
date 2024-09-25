@@ -176,7 +176,7 @@ async def fetch_pr_data(token, repo, pr_number):
         for number in range(1, pr_number + 1):
             tasks.append(fetch_single_pr(session, number))
 
-        with ThreadPoolExecutor(max_workers=32):
+        with ThreadPoolExecutor(max_workers=4):
             for result in await asyncio.gather(*tasks):
                 if result:
                     pr_data.append(result)

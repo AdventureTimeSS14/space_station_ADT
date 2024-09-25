@@ -20,3 +20,25 @@
     - type: Sprite
       sprite: ADT/Clothing/Neck/space_sec_token.rsi
 
+#Чокеры с Сирены для Стильномата
+- type: entity
+  parent: ClothingNeckBase
+  id: SirenaChokerWithSpike
+  name: Choker Spike
+  description: If you turn it back and forth, then it will be a weapon of torture
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Misc/choker_with_spike.rsi
+    - type: StaticPrice
+      price: 300
+
+- type: entity
+  parent: ClothingNeckBase
+  id: SirenaChokerWithHeart
+  name: Choker Heart
+  description: For good crew members
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Misc/choker_with_heart.rsi
+    - type: StaticPrice
+      price: 300

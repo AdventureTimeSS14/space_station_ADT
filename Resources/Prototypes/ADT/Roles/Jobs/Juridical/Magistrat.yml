@@ -7,6 +7,8 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 600000
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 30
     # - !type:DepartmentTimeRequirement
     #   department: Sponsor
     #   time: 10
