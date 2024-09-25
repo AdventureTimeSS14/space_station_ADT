@@ -1,6 +1,6 @@
 - type: entity
   id: ADTHoPClipboard
-  parent: [BoxFolderClipboard, BaseGrandTheftContraband]
+  parent: [BoxFolderBase, BaseGrandTheftContraband]
   name: access digi-board
   description: A portable tablet for granting access.
   components:
@@ -14,6 +14,8 @@
     sprite: ADT/Objects/Devices/hop_clipboard.rsi
     size: Normal
   - type: Clothing
+    slots: [belt]
+    quickEquip: false
     sprite: ADT/Objects/Devices/hop_clipboard.rsi
   - type: Storage
     grid:
