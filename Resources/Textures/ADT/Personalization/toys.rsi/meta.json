@@ -181,6 +181,9 @@
         {
             "name": "pochita-inhand-left",
             "directions": 4
+        },
+        {
+            "name": "plushie_emma"
         }
     ]
 }

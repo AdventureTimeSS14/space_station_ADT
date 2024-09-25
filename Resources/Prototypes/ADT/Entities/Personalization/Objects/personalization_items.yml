@@ -927,6 +927,23 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_liexer
 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieEmma
+  name: Emma
+  description: No
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_emma
+    scale: 0.9, 0.9
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+
 #Bolper
 - type: entity
   name: Bolper's katana
