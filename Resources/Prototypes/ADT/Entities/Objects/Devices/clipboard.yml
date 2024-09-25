@@ -17,12 +17,6 @@
     slots: [belt]
     quickEquip: false
     sprite: ADT/Objects/Devices/hop_clipboard.rsi
-  - type: Storage
-    grid:
-    - 0,0,4,3
-    quickInsert: true
-  - type: StorageFill
-    contents: [] #to override base clipboard fill
   - type: IdCardConsole
     privilegedIdSlot:
       name: id-card-console-privileged-id
