@@ -206,7 +206,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetHardsuitCybersunBodyGuard
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: cybersun bodyguard helmet
   description: A variant of the blood red helmet designed by the gorlax marauders to be exceptionally fireproof and pressure proof.
   components:
@@ -233,7 +233,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetHardsuitCybersunCrysis
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: cybersun crysis helmet
   components:
   - type: Sprite
@@ -261,7 +261,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetHardsuitSaibaSain
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: Saiba Sain elite hardsuit helm
   components:
   - type: Sprite
@@ -289,7 +289,7 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitSyndieCommander
   id: ADTClothingHeadHelmetHardsuitPioneerAgent
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: agent "Pioneer" hardsuit helmet
   description: agent "Pioneer" hardsuit helmet
   components:
