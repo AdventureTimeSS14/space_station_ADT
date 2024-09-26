@@ -260,30 +260,59 @@
   maxLimit: 1
   loadouts:
   - ADTNeckSecBadge
-  #- ADTBrigmedicCloak
 
   #back
 - type: loadoutGroup
   id: ADTBrigmedicBack
   name: БригМед, рюкзаки
-  minLimit: 0
+  minLimit: 1
   maxLimit: 1
   loadouts:
   - ADTBackpackBrigmedic
   - ADTBackpackDuffelBrigmedic
   - ADTBackpackSatchelBrigmedicFilled
 
-  # eyes, hand gloves, pda, belt
+  # gloves
 - type: loadoutGroup
-  id: ADTBrigmedicAnother
-  name: Иные вещи БригМеда
+  id: ADTBrigmedicGloves
+  name: Перчатки БригМеда
   minLimit: 0
-  maxLimit: 3
+  maxLimit: 1
+  loadouts:
+  - ADTHandsGlovesLatex
+  - ADTHandsGlovesNitrile
+  - ADTHandsGlovesCombat
+
+  # PDA
+- type: loadoutGroup
+  id: ADTBrigmedicPDA
+  name: PDA БригМеда
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBrigmedicPDA
+
+  # Eyes
+- type: loadoutGroup
+  id: ADTBrigmedicEyes
+  name: Очки БригМеда
+  minLimit: 0
+  maxLimit: 1
   loadouts:
   - ADTEyesGlassesMed
-  - ADTHandsGlovesLatex
-  - ADTBrigmedicPDA
+  - ADTEyesGlassesSecurity
+  - ADTEyesGlassesSunglasses
+
+  # belts
+- type: loadoutGroup
+  id: ADTBrigmedicBelts
+  name: Поясы БригМеда
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
   - ADTBeltMedicalFilled
+  - ADTBeltSecurityRPS
+  - ADTBeltSecurityForBrigmedic
 
   # outerwear
 - type: loadoutGroup

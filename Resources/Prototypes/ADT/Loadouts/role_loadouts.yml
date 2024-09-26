@@ -120,15 +120,20 @@
 - type: roleLoadout
   id: JobBrigmedic
   groups:
-  - Inventory # Corvax-Loadouts ---
-  - GroupTankHarness # ---
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
   # Bridmed spec outfit:
-  - ADTBrigmedicJumpsuit
   - ADTBrigmedicHead
   - ADTBrigmedicNeck
-  - ADTBrigmedicBack
-  - ADTBrigmedicAnother
+  - ADTBrigmedicJumpsuit
   - ADTBrigmedicOuterWear
+  - ADTBrigmedicBack
+  # Another stuffs
+  - ADTBrigmedicBelts
+  - ADTBrigmedicEyes
+  - ADTBrigmedicGloves
+  - ADTBrigmedicPDA
+  - ADTBrigmedicAnother
   # another:
   - SecurityShoes
   - SurvivalSecurity

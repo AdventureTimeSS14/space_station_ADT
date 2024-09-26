@@ -74,11 +74,31 @@
   equipment:
     back: ADTClothingEyesGlassesMed
 
+- type: loadout
+  id: ADTEyesGlassesSecurity
+  equipment:
+    back: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: ADTEyesGlassesSunglasses
+  equipment:
+    back: ClothingEyesGlassesSunglasses
+
 # Hands Gloves
 - type: loadout
   id: ADTHandsGlovesLatex
   equipment:
     back: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: ADTHandsGlovesNitrile
+  equipment:
+    back: ClothingHandsGlovesNitrile
+
+- type: loadout
+  id: ADTHandsGlovesCombat
+  equipment:
+    back: ClothingHandsGlovesCombat
 
 # PDA
 - type: loadout
@@ -91,6 +111,16 @@
   id: ADTBeltMedicalFilled
   equipment:
     back: ClothingBeltMedicalFilled
+
+- type: loadout
+  id: ADTBeltSecurityRPS
+  equipment:
+    back: ClothingBeltSecurityWebbingFilled
+
+- type: loadout
+  id: ADTBeltSecurityForBrigmedic
+  equipment:
+    back: ClothingBeltSecurityFilled
 
 # outerwear
 - type: loadout
