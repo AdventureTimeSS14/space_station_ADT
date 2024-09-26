@@ -313,5 +313,3 @@ Resources/MapImages
 
 # Direnv stuff
 .direnv/
-runserver.lnk
-*.lnk
