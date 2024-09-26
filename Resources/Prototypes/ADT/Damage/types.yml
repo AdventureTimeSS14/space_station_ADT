@@ -1,5 +1,0 @@
-- type: damageType
-  id: ADTTimeDespawn
-  name: damage-type-time-despawn
-  armorCoefficientPrice: 1
-  armorFlatPrice: 1

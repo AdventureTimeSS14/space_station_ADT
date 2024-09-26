@@ -1,5 +1,0 @@
-- type: damageGroup
-  id: ADTTime
-  name: damage-group-time
-  damageTypes:
-    - ADTTimeDespawn
