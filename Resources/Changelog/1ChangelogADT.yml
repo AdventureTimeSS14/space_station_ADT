@@ -3239,3 +3239,19 @@ Entries:
       - {message: Исправлено отсутствие на торговой станции вентиляторов, type: Fix}
     time: '2024-09-26T05:35:45Z'
     id: 388
+  - author: PyotrIgn
+    changes:
+      - {message: Ломики должны быть маленькими снова, type: Tweak}
+    time: '2024-09-26T11:41:53Z'
+    id: 389
+  - author: Mirokko
+    changes:
+      - {message: Добавлен перевод названия эмоций в меню эмоций, type: Add}
+    time: '2024-09-26T11:42:56Z'
+    id: 390
+  - author: KorolCharodey
+    changes:
+      - {message: 'Исправлен плазмакатер, принтеры не будут(не были и не могут) стрелять
+          плазмой!!!', type: Fix}
+    time: '2024-09-26T17:27:41Z'
+    id: 391
