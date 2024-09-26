@@ -11778,7 +11778,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -4527.1733
+      secondsUntilStateChange: -4582.573
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84687,7 +84687,7 @@ entities:
       pos: 41.5,-13.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -1139.6385
+      secondsUntilStateChange: -1195.0385
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -146094,17 +146094,6 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Chapel
-  - uid: 286
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 59.5,-4.5
-      parent: 8364
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: Library
   - uid: 287
     components:
     - type: Transform
