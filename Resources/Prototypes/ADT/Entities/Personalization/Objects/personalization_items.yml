@@ -1031,7 +1031,7 @@
       state: icon
     - type: Item
       sprite: ADT/Personalization/gold-crowbar.rsi
-      size: Normal
+      size: Small #ADT_Tweaks - ломы снова лезут в карман
       heldPrefix: gold
 
 # for Filo
