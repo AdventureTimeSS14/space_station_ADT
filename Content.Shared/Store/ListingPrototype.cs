@@ -5,6 +5,7 @@ using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Shared.Store;
 
@@ -39,7 +40,8 @@ public partial class ListingData : IEquatable<ListingData>
         other.Categories,
         other.OriginalCost,
         other.RestockTime,
-        other.DiscountDownTo
+        other.DiscountDownTo,
+        other.ProductHereticKnowledge ///goob edit
     )
     {
 
@@ -63,7 +65,8 @@ public partial class ListingData : IEquatable<ListingData>
         HashSet<ProtoId<StoreCategoryPrototype>> categories,
         IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
         TimeSpan restockTime,
-        Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo
+        Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
+        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge ///goob edit
     )
     {
         Name = name;
@@ -79,6 +82,7 @@ public partial class ListingData : IEquatable<ListingData>
         ProductEvent = productEvent;
         RaiseProductEventOnUser = raiseProductEventOnUser;
         PurchaseAmount = purchaseAmount;
+        ProductHereticKnowledge = productHereticKnowledge; //goob edit
         ID = id;
         Categories = categories.ToHashSet();
         OriginalCost = originalCost;
@@ -134,6 +138,13 @@ public partial class ListingData : IEquatable<ListingData>
     /// </summary>
     [DataField]
     public SpriteSpecifier? Icon;
+
+    // goobstation - heretics
+    // i am too tired of making separate systems for knowledge adding
+    // and all that shit. i've had like 4 failed attempts
+    // so i'm just gonna shitcode my way out of my misery
+    [DataField]
+    public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;
 
     /// <summary>
     /// The priority for what order the listings will show up in on the menu.
@@ -287,7 +298,8 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.Categories,
             listingData.OriginalCost,
             listingData.RestockTime,
-            listingData.DiscountDownTo
+            listingData.DiscountDownTo,
+            listingData.ProductHereticKnowledge  //goob edit
         )
     {
     }

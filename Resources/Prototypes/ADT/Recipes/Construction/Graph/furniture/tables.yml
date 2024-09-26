@@ -1,0 +1,175 @@
+- type: constructionGraph
+  id: ADTTable
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DeleteEntity {}
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: adttableroundplastic
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Plastic
+              amount: 4
+              doAfter: 4
+
+        - to: adttableroundwood
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 4
+
+        - to: adttableroundglass
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Glass
+              amount: 4
+              doAfter: 4
+
+    - node: adttableframe
+      entity: ADTTableFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+                prototype: PartRodMetal
+                amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+        - to: adttablewhitewood
+          steps:
+            - tool: Prying
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+        - to: adttableredwood
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+        - to: adttableoktoberfest
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+        - to: adttableoktoberfestorange
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Cutting
+              doAfter: 1
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+    - node: adttableroundplastic
+      entity: ADTTableRoundPlastic
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetPlastic1
+                amount: 4
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 4
+
+    - node: adttableroundwood
+      entity: ADTTableRoundWood
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: MaterialWoodPlank1
+                amount: 4
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 4
+
+    - node: adttableroundglass
+      entity: ADTTableRoundGlass
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetGlass1
+                amount: 4
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 4
+
+    - node: adttableredwood
+      entity: ADTTableRedWood
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+    - node: adttablewhitewood
+      entity: ADTTableWhiteWood
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+    - node: adttableoktoberfest
+      entity: ADTTableOktoberfest
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+    - node: adttableoktoberfestorange
+      entity: ADTTableOktoberfestOrange
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1

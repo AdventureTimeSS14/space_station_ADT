@@ -16,6 +16,7 @@ using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
+using Content.Shared.ADT.UI.Chat;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Damage.ForceSay;
@@ -836,6 +837,26 @@ public sealed class ChatUIController : UIController
                 }
             }
         }
+
+        // Start-ADT-Tweak: возможность выделять сообщения в чате
+        if (
+            (msg.Channel == ChatChannel.Radio || msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper)
+            && _player.LocalEntity != null
+            && _ent.TryGetComponent<HighlightWordsInChatComponent>(_player.LocalEntity.Value, out var hlWords)
+        )
+        {
+            foreach (var (color, locStrings) in hlWords.HighlightWords)
+            {
+                foreach (var locString in locStrings)
+                {
+                    var message = Loc.GetString(locString);
+                    if (SharedChatSystem.MessageTextContains(msg, message)) {
+                        msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, message, "color", color);
+                    }
+                }
+            }
+        }
+        // End-ADT-Tweak
 
         // Log all incoming chat to repopulate when filter is un-toggled
         if (!msg.HideChat)

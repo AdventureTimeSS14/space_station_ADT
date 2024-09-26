@@ -26,3 +26,5 @@
   - type: Eye
   - type: WirelessNetworkConnection
     range: 100
+  - type: StationAiVision
+  - type: Bodycam

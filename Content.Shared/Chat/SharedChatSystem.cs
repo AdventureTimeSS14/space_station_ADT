@@ -265,4 +265,11 @@ public abstract class SharedChatSystem : EntitySystem
         tagStart += tag.Length + 2;
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
+
+    // ADT-Tweak-Start: возможность выделять сообщения в чате
+    public static bool MessageTextContains(ChatMessage msg, string text)
+    {
+        return Regex.IsMatch(msg.Message, "(?>^|[ ,.!?])(" + text + ")(?>$|[ ,.!?])", RegexOptions.IgnoreCase);
+    }
+    // ADT-Tweak-End
 }

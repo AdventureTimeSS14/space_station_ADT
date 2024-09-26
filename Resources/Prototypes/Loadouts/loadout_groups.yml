@@ -76,6 +76,14 @@
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
+- type: loadoutGroup
+  id: GroupPocketTankDouble
+  name: loadout-group-pocket-tank-double
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesPocketDoubleNitrogen
+  - LoadoutSpeciesPocketDoubleOxygen
+
 # Command
 - type: loadoutGroup
   id: CaptainHead
@@ -128,6 +136,9 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  # ADT-Loadouts-Start
+  - ADTHatBeretHOP
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPJumpsuit
