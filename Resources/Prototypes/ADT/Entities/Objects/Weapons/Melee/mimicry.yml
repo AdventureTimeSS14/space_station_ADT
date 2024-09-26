@@ -90,4 +90,4 @@
       sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
       state: mimicria_tentacle_spawn
     - type: SpawnOnDespawn
-      prototype: MimicriaTentacle
+      prototype: ADTMimicryTentacle
