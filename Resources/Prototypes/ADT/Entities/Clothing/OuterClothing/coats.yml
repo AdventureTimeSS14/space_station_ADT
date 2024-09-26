@@ -141,3 +141,18 @@
       sprite: ADT/Clothing/OuterClothing/Coats/atmosian.rsi
     - type: Clothing
       sprite: ADT/Clothing/OuterClothing/Coats/atmosian.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatCyberSun
+  name: Cybersun laboratory coat
+  description: Cybersun laboratory coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcyber.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcyber.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75

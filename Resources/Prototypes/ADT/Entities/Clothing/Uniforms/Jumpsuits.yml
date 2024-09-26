@@ -754,3 +754,14 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redvest.rsi #спрайты от SHIONE
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redvest.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCyberSun
+  name: Cybersun jumpsuit
+  description: Simple and style.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi

@@ -230,3 +230,6 @@ ent-ADTClothingUniformOktoberfestBlueVest = костюм для Октоберф
 ent-ADTClothingUniformOktoberfestRedVest = костюм для Октоберфеста с красной жилеткой
     .desc = Традиционный баварский мужской костюм с короткими штанами и красной жилеткой.
     .suffix = { "Октоберфест" }
+
+ent-ADTClothingUniformCyberSun = костюм Киберсан
+    .desc = Костюм Киберсан, стильно и практично!
