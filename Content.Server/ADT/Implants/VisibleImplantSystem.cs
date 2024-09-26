@@ -20,6 +20,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Server.ADT.Implants;
 
@@ -37,6 +39,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -174,8 +177,10 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         if (comp.Active)
         {
             args.Damage.DamageDict.Clear();
+            if (!args.OriginalDamage.TryGetDamageInGroup(_proto.Index<DamageGroupPrototype>("Brute"), out var dmg) || dmg <= 5)
+                return;
             _explosion.QueueExplosion(_transform.GetMapCoordinates(uid), "Default", 2f, 1f, 0f, null, canCreateVacuum: false);
-            comp.DisableTime = _timing.CurTime + TimeSpan.FromSeconds(3);
+            comp.DisableTime = _timing.CurTime + TimeSpan.FromSeconds(2);
         }
     }
 
