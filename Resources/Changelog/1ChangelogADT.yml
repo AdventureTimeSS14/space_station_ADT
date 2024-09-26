@@ -3184,3 +3184,58 @@ Entries:
       - {message: Улучшен стелс костюма ниндзи, type: Tweak}
     time: '2024-09-22T13:21:41Z'
     id: 378
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлена новая станционная цель - список со множеством целей на
+          выбор для командования., type: Add}
+    time: '2024-09-23T10:54:00Z'
+    id: 379
+  - author: Шрёдька
+    changes:
+      - {message: 'Подтянуты коммиты с Корвакса, 23.09.2024.', type: Tweak}
+    time: '2024-09-23T18:23:03Z'
+    id: 380
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлены закуски к Октоберфесту, type: Add}
+    time: '2024-09-23T23:18:43Z'
+    id: 381
+  - author: RipZoro1
+    changes:
+      - {message: Добавлен костюмчик для меня, type: Add}
+    time: '2024-09-24T08:22:12Z'
+    id: 382
+  - author: Mirokko
+    changes:
+      - {message: Изменена система подсвечивания словосочетаний для ИИ., type: Tweak}
+    time: '2024-09-24T19:10:25Z'
+    id: 383
+  - author: Friskis
+    changes:
+      - {message: ГП получил планшет ID карт, type: Add}
+      - {message: Пофикшено отображение шлемов ОБР, type: Fix}
+    time: '2024-09-25T12:58:38Z'
+    id: 384
+  - author: KorolCharodey
+    changes:
+      - {message: 'Автозаполнение формы документов для принтера документов, на основе
+          данных пользователя который запустил на печать документ, а конкретно полей:
+          фио, должность, дата, номер станции.', type: Add}
+    time: '2024-09-25T16:20:09Z'
+    id: 385
+  - author: Inconnu
+    changes:
+      - {message: Добавлены слизне-котики. Мяу~, type: Add}
+    time: '2024-09-25T20:10:17Z'
+    id: 386
+  - author: Шрёдька
+    changes:
+      - {message: 'Подтянуты коммиты с Корвакса, 25.09.2024.', type: Tweak}
+    time: '2024-09-26T05:17:57Z'
+    id: 387
+  - author: PyotrIgn
+    changes:
+      - {message: 'Изменены карты Аллея, Бокс, Джемини, Мета и Аврит', type: Tweak}
+      - {message: Исправлено отсутствие на торговой станции вентиляторов, type: Fix}
+    time: '2024-09-26T05:35:45Z'
+    id: 388
