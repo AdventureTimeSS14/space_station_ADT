@@ -1,5 +1,4 @@
-# Head Готово ---
-
+# Head
 - type: loadout
   id: ADTHeadHatBeretBrigmedic
   equipment:
@@ -20,7 +19,7 @@
   equipment:
     head: ClothingHeadHelmetSecurityMedic
 
-# Jumpsuit готово ---
+# Jumpsuit
 - type: loadout
   id: ADTUniformJumpsuitBrigmedic
   equipment:
@@ -41,7 +40,7 @@
   equipment:
     jumpsuit: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
 
-# Neck готово ---
+# Neck
 - type: loadout
   id: ADTNeckSecBadge
   equipment:
@@ -52,35 +51,36 @@
 #  equipment:
 #    neck: ADTClothingNeckCloakBrigmedic
 
-# Back ---
-#- type: loadout
-#  id: ADTBackpackBrigmedic
-#  equipment:
-#    back: ClothingBackpackBrigmedic
+ #Back
 
-#- type: loadout
-#  id: ADTBackpackDuffelBrigmedic
-#  equipment:
-#    back: ClothingBackpackDuffelBrigmedic
+- type: loadout
+  id: ADTBackpackBrigmedic
+  equipment:
+    back: ClothingBackpackBrigmedic
 
-#- type: loadout
-#  id: ADTBackpackSatchelBrigmedic
-#  equipment:
-#    back: ClothingBackpackSatchelBrigmedic
+- type: loadout
+  id: ADTBackpackDuffelBrigmedic
+  equipment:
+    back: ClothingBackpackDuffelBrigmedic
 
-# Eyes готово ---
+- type: loadout
+  id: ADTBackpackSatchelBrigmedicFilled
+  equipment:
+    back: ClothingBackpackSatchelBrigmedicFilled
+
+# Eyes
 - type: loadout
   id: ADTEyesGlassesMed
   equipment:
     back: ADTClothingEyesGlassesMed
 
-# Hands Gloves готово ---
+# Hands Gloves
 - type: loadout
   id: ADTHandsGlovesLatex
   equipment:
     back: ClothingHandsGlovesLatex
 
-# PDA Ready ---
+# PDA
 - type: loadout
   id: ADTBrigmedicPDA
   equipment:
@@ -92,7 +92,7 @@
   equipment:
     back: ClothingBeltMedicalFilled
 
-# outerwear Ready
+# outerwear
 - type: loadout
   id: ADTOuterCoatBrigmedicWB
   equipment:

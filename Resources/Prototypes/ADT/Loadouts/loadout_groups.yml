@@ -240,7 +240,7 @@
   - ADTUniformBrigmedicJumpsuitTurtleneck
   - ADTUniformSkirtBrigmedicJumpskirtTurtleneck
 
-  #head --- y
+  #head
 - type: loadoutGroup
   id: ADTBrigmedicHead
   name: БригМед, голова
@@ -252,7 +252,7 @@
   - ADTHeadHatBeretSecurityMedic
   - ADTHeadHelmetSecurityMedic
 
-  #neck --- y
+  #neck
 - type: loadoutGroup
   id: ADTBrigmedicNeck
   name: БригМед, Шея
@@ -262,18 +262,18 @@
   - ADTNeckSecBadge
   #- ADTBrigmedicCloak
 
-  #back y
-#- type: loadoutGroup
-#  id: ADTBrigmedicBack
-#  name: БригМед, рюкзаки
-#  minLimit: 1
-#  maxLimit: 1
-#  loadouts:
-#  - BackpackBrigmedic
-#  - BackpackDuffelBrigmedic
-#  - BackpackSatchelBrigmedic
+  #back
+- type: loadoutGroup
+  id: ADTBrigmedicBack
+  name: БригМед, рюкзаки
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBackpackBrigmedic
+  - ADTBackpackDuffelBrigmedic
+  - ADTBackpackSatchelBrigmedicFilled
 
-  # eyes, hand gloves, pda, belt y
+  # eyes, hand gloves, pda, belt
 - type: loadoutGroup
   id: ADTBrigmedicAnother
   name: Иные вещи БригМеда

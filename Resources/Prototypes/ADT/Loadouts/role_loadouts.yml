@@ -126,7 +126,7 @@
   - ADTBrigmedicJumpsuit
   - ADTBrigmedicHead
   - ADTBrigmedicNeck
-  #- ADTBrigmedicBack
+  - ADTBrigmedicBack
   - ADTBrigmedicAnother
   - ADTBrigmedicOuterWear
   # another:
