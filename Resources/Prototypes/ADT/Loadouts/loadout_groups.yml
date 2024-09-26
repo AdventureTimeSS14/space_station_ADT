@@ -127,7 +127,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldJumpsuit
-  name: ОСЩ, комбинезоны
+  name: BlueshieldJumpsuit
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -138,7 +138,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldHead
-  name: ОСЩ, голова
+  name: BlueshieldHead
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -147,7 +147,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldNeck
-  name: ОСЩ, шея
+  name: BlueshieldNeck
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -155,7 +155,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldBack
-  name: ОСЩ, рюкзаки
+  name: BlueshieldBack
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -185,7 +185,7 @@
 # Warden
 - type: loadoutGroup
   id: WardenNeckADT
-  name: Варден, шея
+  name: WardenNeck
   minLimit: 0
   loadouts:
   - ADTWardenNeck
@@ -193,7 +193,7 @@
 # Security Oficer
 - type: loadoutGroup
   id: SecurityOfficerNeckADT
-  name: Офицер, шея
+  name: SecurityOfficerNeck
   minLimit: 0
   loadouts:
   - ADTSecurityOfficerNeck
@@ -201,7 +201,7 @@
 # Cadet Security Oficer
 - type: loadoutGroup
   id: SecurityCadetNeckADT
-  name: Кадет, шея
+  name: SecurityCadetNeck
   minLimit: 0
   loadouts:
   - ADTSecurityCadetNeck
@@ -210,19 +210,19 @@
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianNeck
-  name: Атмос Техник, шея
+  name: AtmosphericTechnicianNeck
   loadouts:
   - ADTCloakAtmosian
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianGasMask
-  name: Атмос Техник, Маска
+  name: AtmosphericTechnicianGasMask
   loadouts:
   - ADTMaskGasAtmosian
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianHead
-  name: Атмос Техник, голова
+  name: AtmosphericTechnicianHead
   loadouts:
   - ADTHatBeretAtmos
 
@@ -231,7 +231,7 @@
 #suit --- y
 - type: loadoutGroup
   id: ADTBrigmedicJumpsuit
-  name: БригМед, комбинезоны
+  name: BrigmedicJumpsuit
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -243,7 +243,7 @@
   #head
 - type: loadoutGroup
   id: ADTBrigmedicHead
-  name: БригМед, голова
+  name: BrigmedicHead
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -255,7 +255,7 @@
   #neck
 - type: loadoutGroup
   id: ADTBrigmedicNeck
-  name: БригМед, Шея
+  name: BrigmedicNeck
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -264,7 +264,7 @@
   #back
 - type: loadoutGroup
   id: ADTBrigmedicBack
-  name: БригМед, рюкзаки
+  name: BrigmedicBack
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -275,7 +275,7 @@
   # gloves
 - type: loadoutGroup
   id: ADTBrigmedicGloves
-  name: Перчатки БригМеда
+  name: BrigmedicGloves
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -286,7 +286,7 @@
   # PDA
 - type: loadoutGroup
   id: ADTBrigmedicPDA
-  name: PDA БригМеда
+  name: BrigmedicPDA
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -295,7 +295,7 @@
   # Eyes
 - type: loadoutGroup
   id: ADTBrigmedicEyes
-  name: Очки БригМеда
+  name: BrigmedicEyes
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -306,7 +306,7 @@
   # belts
 - type: loadoutGroup
   id: ADTBrigmedicBelts
-  name: Поясы БригМеда
+  name: BrigmedicBelts
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -317,7 +317,7 @@
   # outerwear
 - type: loadoutGroup
   id: ADTBrigmedicOuterWear
-  name: Вверх БригМеда
+  name: BrigmedicOuterWear
   minLimit: 0
   maxLimit: 1
   loadouts:
