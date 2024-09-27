@@ -122,4 +122,4 @@
       energy: 1.6
       color: "#43ccb5"
     - type: Computer
-      board: SecShuttleConsoleCircuitboard
+      board: ADTSecShuttleConsoleCircuitboard
