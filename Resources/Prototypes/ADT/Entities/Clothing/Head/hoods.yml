@@ -41,7 +41,4 @@
     - Snout
     - HeadTop
     - HeadSide
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: IdentityBlocker

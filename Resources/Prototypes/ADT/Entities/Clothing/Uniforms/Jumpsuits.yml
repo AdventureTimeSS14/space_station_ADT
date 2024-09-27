@@ -781,9 +781,12 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_org.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadSquidGameHood
-    # requiredSlot:
-    # - neck
+    requiredSlot:
+    - innerclothing
     slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
 
 - type: entity
   parent: ClothingUniformBase
