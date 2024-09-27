@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingSundownerShields
+  name: reactive shields
+  description: Impressive protection
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Implants/sundowner_shields.rsi
+  - type: Clothing
+    sprite: ADT/Implants/sundowner_shields.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.3
+        Heat: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
