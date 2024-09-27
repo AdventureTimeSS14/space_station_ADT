@@ -1,11 +1,11 @@
 - type: entity
   parent: CigPackBase
-  id: CMCigarettePackLuckySlothsMini
+  id: ADTCigarettePackLuckySlothsMini
   name: lucky sloths mini packet
   description: These four-packs of Luckies come in every MRE. They're not as good as the Habana Reals that come in the LACN MREs, but at least they're free.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths_4.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths_4.rsi
     layers:
     - state: closed
     - state: open
@@ -25,7 +25,7 @@
       visible: false
   - type: Storage
     grid:
-    - 0,0,7,1
+    - 0,0,3,0
     whitelist:
       tags:
       - Cigarette
@@ -42,21 +42,15 @@
     - cig2
     - cig3
     - cig4
-  - type: MREItem
-  - type: FixedItemSizeStorage
-  - type: InteractedBlacklist
-    blacklist:
-      components:
-      - Xeno
 
 - type: entity
   parent: CigPackBase
-  id: RMCCigarettePackLuckySloths
+  id: ADTCigarettePackLuckySloths
   name: lucky sloths packet
   description: Lucky Sloths Means Fine Tobacco! 9/10 doctors agree on Lucky Sloths...as the leading cause of marine lung cancer.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths.rsi
     layers:
     - state: closed
     - state: open
@@ -124,12 +118,8 @@
       visible: false
   - type: Storage
     grid:
-    - 0,0,19,1
+    - 0,0,9,1
     whitelist:
-      components:
-      - RMCLighter
-      tags:
-      - Cigarette
   - type: StorageFill
     contents:
     - id: Cigarette
@@ -159,25 +149,47 @@
     - cig18
     - cig19
     - cig20
-  - type: InteractedBlacklist
-    blacklist:
-      components:
-      - Xeno
 
 - type: entity
-  parent: RMCCigarettePackLuckySloths
-  id: RMCCigarettePackWeYaGold
+  parent: ADTCigarettePackLuckySloths
+  id: ADTCigarettePackWeYaGold
   name: We-Ya gold packet
   description: Paving Better Worlds, and rolling better cigarettes. These fancy cigarettes are Weston-Yamada's entry into the market. Comes backed by a fierce legal team.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_packet.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_packet.rsi
 
 - type: entity
-  parent: RMCCigarettePackLuckySloths
-  id: RMCCigarettePackExecutiveSelect
+  parent: ADTCigarettePackLuckySloths
+  id: ADTCigarettePackExecutiveSelect
   name: executive select packet
   description: These cigarettes are the height of luxury. They're smooth, they're cool, and they smell like victory...and cigarette smoke.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Cigarettes/executive_select.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select.rsi
+
+- type: entity
+  id: ADTLuckySlothsCigarette
+  parent: BaseCigar
+  name: lucky sloths cigarette
+  description: A roll of tobacco and nicotine.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    heldPrefix: unlit
+  - type: Construction
+    graph: smokeableCigarette
+    node: cigarette

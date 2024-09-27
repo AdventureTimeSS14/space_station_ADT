@@ -1,12 +1,12 @@
 # TODO RMC14 different light/burn chances per matchbook
 - type: entity
   parent: Matchbox
-  id: CMMatchBook
+  id: ADTMatchBook
   name: lucky sloths matchbook
   description: A small book of cheap paper matches. Good luck getting them to light. Made by Lucky Sloths, but you'll be anything but lucky when you burn your hand trying to light a match on this.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/matchbook.rsi
     layers:
     - state: mpacket
     - state: mpacket0
@@ -31,7 +31,7 @@
       visible: false
   - type: Item
     size: Tiny
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/matchbook.rsi
     heldPrefix: null
   - type: Storage
     grid:
@@ -54,53 +54,46 @@
     - mpacket4
     - mpacket5
     - mpacket6
-  - type: MREItem
-  - type: FixedItemSizeStorage
-  - type: InteractedBlacklist
-    blacklist:
-      components:
-      - Xeno
-
 - type: entity
-  parent: CMMatchBook
-  id: CMBrownMatchBook
+  parent: ADTMatchBook
+  id: ADTBrownMatchBook
   name: brown matchbook
   description: A small book of cheap paper matches. Good luck getting them to light. Made with generic brown paper.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
   - type: Item
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
 
 - type: entity
-  parent: CMMatchBook
-  id: CMExecutiveSelectMatchbook
+  parent: ADTMatchBook
+  id: ADTExecutiveSelectMatchbook
   name: executive select matchbook
   description: A small book of expensive paper matches. These ones light almost every time!
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
   - type: Item
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
 
 - type: entity
-  parent: CMMatchBook
-  id: CMElectroMatchbook
+  parent: ADTMatchBook
+  id: ADTElectroMatchbook
   name: Electro matchbook
   description: A small book of cheap paper matches. Good luck getting them to light.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
   - type: Item
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
 
 - type: entity
-  parent: CMMatchBook
-  id: CMExecutiveWEYAMatchbook
+  parent: ADTMatchBook
+  id: ADTExecutiveWEYAMatchbook
   name: We-Ya gold matchbook
   description: A small book of expensive paper matches. These ones light almost every time, or so the packaging claims.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi
   - type: Item
-    sprite: _RMC14/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi

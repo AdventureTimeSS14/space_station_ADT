@@ -1,11 +1,11 @@
 - type: entity
   parent: CigarCase
-  id: RMCCigarCase
+  id: ADTCigarCase
   name: cigar case
   description: A case for holding your cigars when you are not smoking them.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Cigars/cigar_case.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigars/cigar_case.rsi
     layers:
     - state: closed
     - state: open
@@ -34,7 +34,7 @@
       visible: false
   - type: Storage
     grid:
-    - 0,0,6,1
+    - 0,0,6,0
     whitelist:
       tags:
       - Cigar
@@ -54,19 +54,15 @@
     - cig5
     - cig6
     - cig7
-  - type: InteractedBlacklist
-    blacklist:
-      components:
-      - Xeno
 
 - type: entity
   parent: CigarCase
-  id: RMCTarbackCase
+  id: ADTTarbackCase
   name: tarbacks case
   description: Don't let the fancy box and piece of paper spouting nonsense about tradition and quality fool you. These stogies are bottom of the barrel. Rolled in Columbia..
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Consumable/Smokeables/Cigars/tarback_box.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigars/tarback_box.rsi
     layers:
     - state: closed
     - state: open
@@ -89,13 +85,13 @@
       visible: false
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,4,0
     whitelist:
       tags:
       - Cigar
   - type: StorageFill
     contents:
-    - id: CMTarbackCigar
+    - id: ADTTarbackCigar
       amount: 5
   - type: ItemCounter
     count:
@@ -107,7 +103,3 @@
     - cig3
     - cig4
     - cig5
-  - type: InteractedBlacklist
-    blacklist:
-      components:
-      - Xeno

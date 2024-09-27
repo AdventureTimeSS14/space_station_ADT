@@ -2,10 +2,10 @@
   name: match box
   description: matchbox
   parent: Matchbox
-  id: RMCMatchbox
+  id: ADTCMatchbox
   components:
   - type: Sprite
-    sprite:  _RMC14/Objects/Consumable/Smokeables/Matchboxes/matchbox.rsi
+    sprite:  ADT/Objects/Consumable/Smokeables/Matchboxes/matchbox.rsi
     layers:
     - state: matchbox
     - state: matchbox-open
@@ -49,7 +49,3 @@
     - matchbox4
     - matchbox5
     - matchbox6
-  - type: InteractedBlacklist
-    blacklist:
-      components:
-      - Xeno
