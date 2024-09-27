@@ -23,7 +23,7 @@ ent-ADTClothingOuterHardsuitCybersunCrysis = скафандр суперсолд
     .desc = Самая передовая, секретная технология CyberSun в сфере защиты. Кажется эта разработка ведёт к созданию супер солдат. Пахнет пластитаном и бесчестным боем
     .suffix = { "" }
 
-ent-ADTClothingOuterHardsuitSaibaSain = Элитный скафандр Сайба-Сайны
+ent-ADTClothingOuterHardsuitSaibaSain = элитный скафандр Сайба-Сайны
     .desc = Разработка из плазматических волокн, наномашин и кремния. Пахнет как цветение сакуры.
     .suffix = { "" }
 
