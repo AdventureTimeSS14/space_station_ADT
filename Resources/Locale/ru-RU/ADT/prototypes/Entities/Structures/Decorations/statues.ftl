@@ -4,4 +4,4 @@ ent-ADTStatueBeerMessiahLeft = статуя пивного мессии
 
 ent-ADTStatueBeerMessiahRight = статуя пивного мессии
     .desc = Древняя гранитная статуя высшего существа, дарующего первым людям ПИВО
-    .suffix = Октоберфест, Левая
+    .suffix = Октоберфест, Правая
