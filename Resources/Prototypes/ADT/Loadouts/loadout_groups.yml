@@ -127,7 +127,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldJumpsuit
-  name: BlueshieldJumpsuit
+  name: loadout-group-blueshield-jumpsuit
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -138,7 +138,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldHead
-  name: BlueshieldHead
+  name: loadout-group-blueshield-head
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -147,7 +147,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldNeck
-  name: BlueshieldNeck
+  name: loadout-group-blueshield-neck
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -155,7 +155,7 @@
 
 - type: loadoutGroup
   id: ADTBlueshieldBack
-  name: BlueshieldBack
+  name: loadout-group-blueshield-back
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -185,7 +185,7 @@
 # Warden
 - type: loadoutGroup
   id: WardenNeckADT
-  name: WardenNeck
+  name: loadout-warden-neck-adt
   minLimit: 0
   loadouts:
   - ADTWardenNeck
@@ -193,7 +193,7 @@
 # Security Oficer
 - type: loadoutGroup
   id: SecurityOfficerNeckADT
-  name: SecurityOfficerNeck
+  name: loadout-security-officer-neck-adt
   minLimit: 0
   loadouts:
   - ADTSecurityOfficerNeck
@@ -201,7 +201,7 @@
 # Cadet Security Oficer
 - type: loadoutGroup
   id: SecurityCadetNeckADT
-  name: SecurityCadetNeck
+  name: loadout-security-cadet-neck-adt
   minLimit: 0
   loadouts:
   - ADTSecurityCadetNeck
@@ -210,19 +210,19 @@
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianNeck
-  name: AtmosphericTechnicianNeck
+  name: loadout-group-atmospheric-technician-neck
   loadouts:
   - ADTCloakAtmosian
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianGasMask
-  name: AtmosphericTechnicianGasMask
+  name: loadout-group-atmospheric-technician-gasmask
   loadouts:
   - ADTMaskGasAtmosian
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianHead
-  name: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
   loadouts:
   - ADTHatBeretAtmos
 
@@ -231,7 +231,7 @@
 #suit --- y
 - type: loadoutGroup
   id: ADTBrigmedicJumpsuit
-  name: BrigmedicJumpsuit
+  name: loadout-brigmedic-jumpsuit-adt
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -243,7 +243,7 @@
   #head
 - type: loadoutGroup
   id: ADTBrigmedicHead
-  name: BrigmedicHead
+  name: loadout-brigmedic-head-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -255,7 +255,7 @@
   #neck
 - type: loadoutGroup
   id: ADTBrigmedicNeck
-  name: BrigmedicNeck
+  name: loadout-brigmedic-neck-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -264,7 +264,7 @@
   #back
 - type: loadoutGroup
   id: ADTBrigmedicBack
-  name: BrigmedicBack
+  name: loadout-brigmedic-back-adt
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -275,7 +275,7 @@
   # gloves
 - type: loadoutGroup
   id: ADTBrigmedicGloves
-  name: BrigmedicGloves
+  name: loadout-brigmedic-gloves-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -286,7 +286,7 @@
   # PDA
 - type: loadoutGroup
   id: ADTBrigmedicPDA
-  name: BrigmedicPDA
+  name: loadout-brigmedic-pda-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -295,7 +295,7 @@
   # Eyes
 - type: loadoutGroup
   id: ADTBrigmedicEyes
-  name: BrigmedicEyes
+  name: loadout-brigmedic-glasses-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -306,7 +306,7 @@
   # belts
 - type: loadoutGroup
   id: ADTBrigmedicBelts
-  name: BrigmedicBelts
+  name: loadout-brigmedic-belt-adt
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -317,7 +317,7 @@
   # outerwear
 - type: loadoutGroup
   id: ADTBrigmedicOuterWear
-  name: BrigmedicOuterWear
+  name: loadout-brigmedic-outerwear-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
