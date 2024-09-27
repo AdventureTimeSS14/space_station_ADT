@@ -168,28 +168,28 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select.rsi
 
-- type: entity
-  id: ADTLuckySlothsCigarette
-  parent: BaseCigar
-  name: lucky sloths cigarette
-  description: A roll of tobacco and nicotine.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
-    state: unlit-icon
-  - type: Tag
-    tags:
-      - Cigarette
-      - Trash
-  - type: SpaceGarbage
-  - type: Clothing
-    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
-    slots: [ mask ]
-    equippedPrefix: unlit
-  - type: Item
-    size: Tiny
-    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
-    heldPrefix: unlit
-  - type: Construction
-    graph: smokeableCigarette
-    node: cigarette
+# - type: entity
+#   id: ADTLuckySlothsCigarette
+#   parent: BaseCigar
+#   name: lucky sloths cigarette
+#   description: A roll of tobacco and nicotine.
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+#     state: unlit-icon
+#   - type: Tag
+#     tags:
+#       - Cigarette
+#       - Trash
+#   - type: SpaceGarbage
+#   - type: Clothing
+#     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+#     slots: [ mask ]
+#     equippedPrefix: unlit
+#   - type: Item
+#     size: Tiny
+#     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+#     heldPrefix: unlit
+#   - type: Construction
+#     graph: smokeableCigarette
+#     node: cigarette
