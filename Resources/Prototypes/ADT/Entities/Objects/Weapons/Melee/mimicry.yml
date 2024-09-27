@@ -19,6 +19,25 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
     size: Huge
+    #shitcode start
+  - type: BasicEntityAmmoProvider
+    proto: ADTMimicryTentacle
+    capacity: 3
+    count: 3
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    projectileSpeed: 4
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    #shitcode end
 
 - type: entity
   id: ADTActionTeatacles
@@ -41,7 +60,7 @@
   - type: Transform
     anchored: True
   - type: Physics
-    bodyType: Static
+    bodyType: D
     canCollide: true
   - type: InteractionOutline
   - type: Sprite
@@ -68,6 +87,8 @@
         Piercing: 20
   - type: SpawnOnDespawn
     prototype: ADTEffectiMicryTentacleRetract
+  - type: Projectile
+
 
 - type: entity
   id: ADTEffectiMicryTentacleRetract
