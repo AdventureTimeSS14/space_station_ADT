@@ -64,8 +64,8 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 12
-        Piercing: 5
+        Slash: 12   #ADT-Tweak
+        Piercing: 5 #ADT-Tweak
   - type: NpcFactionMember
     factions:
     - SimpleHostile
