@@ -19,7 +19,7 @@
        <Label Name="SharedConnections"/>
 
        <BoxContainer Align="Center">
-           <GridContainer Rows="5">
+           <GridContainer Rows="6"> <!-- ADT-Tweak -->
             <Button Name="NotesButton" Text="{Loc player-panel-show-notes}" SetWidth="136" Disabled="True"/>
             <Button Name="AhelpButton" Text="{Loc player-panel-help}" Disabled="True"/>
             <Button Name="FreezeButton" Text = "{Loc player-panel-freeze}" Disabled="True"/>
@@ -30,6 +30,7 @@
             <Button Name="FreezeAndMuteToggleButton" Text="{Loc player-panel-freeze-and-mute}" Disabled="True"/>
             <Button Name="BanButton" Text="{Loc player-panel-ban}" Disabled="True"/>
             <controls:ConfirmButton Name="RejuvenateButton" Text="{Loc player-panel-rejuvenate}" Disabled="True"/>
+            <Button Name="FollowButton" Text="{Loc player-pannel-follow}" /> <!-- ADT-Tweak -->
            </GridContainer>
        </BoxContainer>
     </BoxContainer>
