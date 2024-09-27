@@ -116,7 +116,13 @@ public abstract class SharedCrawlingSystem : EntitySystem
         if (_standing.IsDown(uid))
             args.DamageCoefficient *= component.DownedDamageCoefficient;
         else
-            _standing.Down(uid, dropHeldItems: false);
+        {
+            var ev = new ExplosionDownAttemptEvent(args.ExplosionPrototype);
+            RaiseLocalEvent(uid, ref ev);
+            if (!ev.Cancelled)
+                _standing.Down(uid, dropHeldItems: false);
+        }
+
     }
     private void OnCrawlSlowdownInit(EntityUid uid, CrawlingComponent component, ComponentInit args)
     {
