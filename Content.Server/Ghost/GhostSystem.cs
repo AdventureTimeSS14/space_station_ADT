@@ -577,9 +577,9 @@ namespace Content.Server.Ghost
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
 
                     // START-ADT-TWeak: Это блять ебучий щиткод для ХорниМух, Котька не кусай меня пожажуста >~<
-                    if (TryComp<OnGhostAttemtpDamageComponent>(playerEntity, out var damageComp) && damageComp.DamageType != null)
+                    if (TryComp<OnGhostAttemtpDamageComponent>(playerEntity, out var damageComp))
                     {
-                        damage = new(_prototypeManager.Index<DamageTypePrototype>(damageComp.DamageType), dealtDamage);
+                        damage = new(_prototypeManager.Index<DamageTypePrototype>(damageComp.BloodlossDamageGroup), dealtDamage);
                     }
                     // END-ADT-Tweak
                     _damageable.TryChangeDamage(playerEntity, damage, true);
