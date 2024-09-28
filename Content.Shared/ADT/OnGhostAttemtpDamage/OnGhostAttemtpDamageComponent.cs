@@ -9,5 +9,5 @@ namespace Content.Shared.ADT.OnGhostAttemtpDamage;
 public sealed partial class OnGhostAttemtpDamageComponent : Component
 {
     [DataField]
-    public ProtoId<DamageTypePrototype> BloodlossDamageGroup = "Bloodloss";
+    public ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
 }
