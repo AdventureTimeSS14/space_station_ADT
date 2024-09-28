@@ -12,6 +12,27 @@
     maxOnTileWhitelist:
       tags: [ Carpet ]
   metabolisms:
+    # Start ADT tweak
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Moth
+          shouldHave: true
+        key: Stutter
+        component: StutteringAccent
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Moth
+          shouldHave: true
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 8
+        refresh: false
+    # End ADT tweak
     Poison:
       effects:
       - !type:PopupMessage

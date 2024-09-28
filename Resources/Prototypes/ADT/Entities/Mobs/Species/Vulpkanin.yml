@@ -5,12 +5,6 @@
   id: BaseMobVulpkanin
   abstract: true
   components:
-    - type: HumanoidAppearance
-      species: VulpkaninSpecies
-    - type: Body
-      prototype: VulpkaninBody
-      requiredLegs: 2
-    - type: RoarAccent
     - type: Hunger
     - type: Thirst
     - type: Speech
@@ -25,7 +19,13 @@
       state: vulpkanin_m
     - type: Damageable
       damageContainer: Biological
-      damageModifierSet: Fur
+      damageModifierSet: Vulpkanin
+    - type: HumanoidAppearance
+      species: VulpkaninSpecies
+    - type: Body
+      prototype: VulpkaninBody
+      requiredLegs: 2
+    - type: RoarAccent
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -36,7 +36,7 @@
         types:
           Piercing: 5
     - type: Temperature
-      heatDamageThreshold: 400
+      heatDamageThreshold: 325
       coldDamageThreshold: 230
       currentTemperature: 310.15
       specificHeat: 46
@@ -80,7 +80,7 @@
       - Canilunzt
     - type: SizeAttributeWhitelist # Frontier
       tall: true
-      tallscale: 1.1
+      tallscale: 1
       short: true
       shortscale: 0.9
 

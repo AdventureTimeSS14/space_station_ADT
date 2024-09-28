@@ -18,7 +18,7 @@
       state: tajaran_m
     - type: Damageable
       damageContainer: Biological
-      damageModifierSet: Fur
+      damageModifierSet: Tajaran
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -56,7 +56,7 @@
       netsync: false
       noRot: true
       drawdepth: Mobs
-      scale: 0.95, 0.95
+      scale: 0.9, 0.9
     - type: Wagging
     - type: InteractionPopup
       successChance: 1
@@ -84,7 +84,7 @@
       - CintaTaj
     - type: SizeAttributeWhitelist # Frontier
       tall: true
-      tallscale: 1
+      tallscale: 0.95
       short: true
       shortscale: 0.85
 

@@ -5,13 +5,8 @@
   id: BaseMobFelinid
   abstract: true
   components:
-  - type: InteractionPopup
-    successChance: 1
-    interactSuccessString: petting-success-generic
-    interactSuccessSound: /Audio/ADT/Felinid/cat_purr1.ogg
-    messagePerceivedByOthers: petting-success-soft-floofy-others
-    interactSuccessSpawn: EffectHearts
-    interactDelay: 4
+  - type: HumanoidAppearance
+    species: Felinid
   - type: Respirator
     damage:
       types:
@@ -34,7 +29,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.98, 0.98
+    scale: 0.9, 0.9
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -87,14 +82,12 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
-  - type: HumanoidAppearance
-    species: Felinid
   - type: Destructible #процесс разрушения на органы
     thresholds:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt #при каком дамаге это происходит
-        damage: 300
+        damage: 350
       behaviors:
       - !type:GibBehavior { }
     - trigger:
@@ -124,6 +117,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.6
+    baseSprintSpeed : 4.6
   - type: Body
     prototype: Felinid
   - type: Damageable
@@ -150,6 +146,13 @@
     spawned:
       - id: FoodMeat
       - id: ClothingHeadHatCatEars
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-generic
+    interactSuccessSound: /Audio/ADT/Felinid/cat_purr1.ogg
+    messagePerceivedByOthers: petting-success-soft-floofy-others
+    interactSuccessSpawn: EffectHearts
+    interactDelay: 4
   - type: NyaAccent
   - type: LanguageSpeaker
     speaks:
@@ -176,7 +179,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1
+    scale: 0.9, 0.9
     layers:
       # TODO BODY Turn these into individual body parts?
         - map: [ "enum.HumanoidVisualLayers.Chest" ]

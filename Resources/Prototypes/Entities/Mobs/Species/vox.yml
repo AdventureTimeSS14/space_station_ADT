@@ -131,14 +131,19 @@
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
   #ADT Tweak start
-  - type: LanguageSpeaker 
+  - type: LanguageSpeaker
     speaks:
     - GalacticCommon
     - VoxPidgin
     understands:
     - GalacticCommon
-    - VoxPidgin   
-  #ADT Tweak end        
+    - VoxPidgin
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.05
+    short: true
+    shortscale: 0.95
+  #ADT Tweak end
 
 - type: entity
   parent: BaseSpeciesDummy

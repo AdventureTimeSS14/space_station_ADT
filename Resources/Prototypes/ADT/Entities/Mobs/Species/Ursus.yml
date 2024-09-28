@@ -6,14 +6,11 @@
   components:
   - type: HumanoidAppearance
     species: UrsusSpecies
-  - type: Inventory
-    speciesId: urs #для одежды на урсов
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      105: Critical
+      210: Dead
   - type: Hunger
     starvationDamage:
       types:
@@ -36,14 +33,30 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 6.5
+        Blunt: 4.5
         Slash: 3.5
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    scale: 1.03, 1.03
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.4
+    baseSprintSpeed : 4.3
   - type: DamageOnHighSpeedImpact
     damage:
       types:
         Blunt: 0.9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
+  - type: Inventory
+    speciesId: urs #для одежды на урсов
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Ursus
@@ -62,7 +75,7 @@
   - type: Temperature
     heatDamageThreshold: 320
     coldDamageThreshold: 250
-    currentTemperature:
+    currentTemperature: 310
     specificHeat: 50
     coldDamage:
       types:
@@ -82,9 +95,9 @@
     messagePerceivedByOthers: hugging-success-generic-others
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1.1
+    tallscale: 1.12
     short: true
-    shortscale: 0.9
+    shortscale: 0.98
 
 - type: entity
   save: false

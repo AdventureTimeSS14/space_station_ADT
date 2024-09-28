@@ -5,6 +5,8 @@
   id: BaseMobNovakid
   abstract: true
   components:
+  - type: HumanoidAppearance
+    species: NovakidSpecies
   - type: Hunger
     baseDecayRate: 0.025
     currentHunger: 400
@@ -18,8 +20,13 @@
       types:
         Cold: 0.12
         Caustic: 0.08
-  - type: HumanoidAppearance
-    species: NovakidSpecies
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
   - type: Bloodstream
     bloodReagent: Plasma
   - type: ZombieImmune
