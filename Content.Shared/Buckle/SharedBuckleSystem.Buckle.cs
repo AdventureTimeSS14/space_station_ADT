@@ -146,6 +146,11 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
+        // ADT Vehicles start
+        if (HasComp<RiderComponent>(buckle.Owner) && HasComp<VehicleComponent>(strapUid))
+            return;
+        // ADT Vehicles end
+
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
         if (delta > 1e-5)
             Unbuckle(buckle, (strapUid, strapComp), null);

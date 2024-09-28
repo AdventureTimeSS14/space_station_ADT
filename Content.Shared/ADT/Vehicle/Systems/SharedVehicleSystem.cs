@@ -53,8 +53,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         InitializeRider();
 
         SubscribeLocalEvent<VehicleComponent, ComponentStartup>(OnVehicleStartup);
-        SubscribeLocalEvent<VehicleComponent, BuckledEvent>(OnBuckled);
-        SubscribeLocalEvent<VehicleComponent, UnbuckledEvent>(OnUnBuckled);
+        SubscribeLocalEvent<VehicleComponent, StrappedEvent>(OnBuckled);
+        SubscribeLocalEvent<VehicleComponent, UnstrappedEvent>(OnUnBuckled);
 
         SubscribeLocalEvent<VehicleComponent, HonkActionEvent>(OnHonkAction);
         SubscribeLocalEvent<VehicleComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
@@ -107,7 +107,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     /// Give the user the rider component if they're buckling to the vehicle,
     /// otherwise remove it.
     /// </summary>
-    private void OnBuckled(EntityUid uid, VehicleComponent component, ref BuckledEvent args)
+    private void OnBuckled(EntityUid uid, VehicleComponent component, ref StrappedEvent args)
     {
         // Add Rider
         var rider = args.Buckle.Owner;
@@ -116,7 +116,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             // Add a virtual item to rider's hand, unbuckle if we can't.
             if (!_virtualItemSystem.TrySpawnVirtualItemInHand(uid, rider))
             {
-                _buckle.TryUnbuckle(uid, uid, true);
+                _buckle.TryUnbuckle(rider, uid, true);
                 return;
             }
         }
@@ -151,7 +151,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         _tagSystem.AddTag(uid, "DoorBumpOpener");
     }
 
-    private void OnUnBuckled(EntityUid uid, VehicleComponent component, ref UnbuckledEvent args)
+    private void OnUnBuckled(EntityUid uid, VehicleComponent component, ref UnstrappedEvent args)
     {
         // Remove rider
         var rider = args.Buckle.Owner;
