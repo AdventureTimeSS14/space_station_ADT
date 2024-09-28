@@ -230,3 +230,14 @@ ent-ADTClothingUniformOktoberfestBlueVest = костюм для Октоберф
 ent-ADTClothingUniformOktoberfestRedVest = костюм для Октоберфеста с красной жилеткой
     .desc = Традиционный баварский мужской костюм с короткими штанами и красной жилеткой.
     .suffix = { "Октоберфест" }
+
+ent-ADTClothingUniformCyberSun = костюм Киберсан
+    .desc = Костюм Киберсан, стильно и практично!
+
+ent-ADTClothingUniformSquidGameOrganizer = комбинезон организатора Игр Кальмара
+    .desc = Комбинезон для того, кто прячется за маской и испытывает худшее и лучшее в других.
+    .suffix = { "Игры Кальмара" }
+
+ent-ADTClothingUniformSquidGamePlayer = комбинезон игрока Игр Кальмара
+    .desc = Комбинезон для того, кто проверяет себя на прочность и готовность на все.
+    .suffix = { "Игры Кальмара" }
