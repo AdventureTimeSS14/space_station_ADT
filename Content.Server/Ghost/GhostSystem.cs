@@ -35,7 +35,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
-using Content.Shared.ADT.ShadekinNoAsphyxiation;
+using Content.Shared.ADT.OnGhostAttemtpDamage;
 
 namespace Content.Server.Ghost
 {
@@ -577,9 +577,9 @@ namespace Content.Server.Ghost
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
 
                     // START-ADT-TWeak: Это блять ебучий щиткод для ХорниМух, Котька не кусай меня пожажуста >~<
-                    if (TryComp<ShadekinNoAsphyxiationComponent>(playerEntity, out var _))
+                    if (TryComp<OnGhostAttemtpDamageComponent>(playerEntity, out var damageComp) && damageComp.DamageType != null)
                     {
-                        damage = new(_prototypeManager.Index<DamageTypePrototype>("Bloodloss"), dealtDamage);
+                        damage = new(_prototypeManager.Index<DamageTypePrototype>(damageComp.DamageType), dealtDamage);
                     }
                     // END-ADT-Tweak
                     _damageable.TryChangeDamage(playerEntity, damage, true);
