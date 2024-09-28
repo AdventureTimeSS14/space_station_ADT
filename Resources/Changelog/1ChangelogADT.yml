@@ -3205,3 +3205,79 @@ Entries:
       - {message: Добавлен костюмчик для меня, type: Add}
     time: '2024-09-24T08:22:12Z'
     id: 382
+  - author: Mirokko
+    changes:
+      - {message: Изменена система подсвечивания словосочетаний для ИИ., type: Tweak}
+    time: '2024-09-24T19:10:25Z'
+    id: 383
+  - author: Friskis
+    changes:
+      - {message: ГП получил планшет ID карт, type: Add}
+      - {message: Пофикшено отображение шлемов ОБР, type: Fix}
+    time: '2024-09-25T12:58:38Z'
+    id: 384
+  - author: KorolCharodey
+    changes:
+      - {message: 'Автозаполнение формы документов для принтера документов, на основе
+          данных пользователя который запустил на печать документ, а конкретно полей:
+          фио, должность, дата, номер станции.', type: Add}
+    time: '2024-09-25T16:20:09Z'
+    id: 385
+  - author: Inconnu
+    changes:
+      - {message: Добавлены слизне-котики. Мяу~, type: Add}
+    time: '2024-09-25T20:10:17Z'
+    id: 386
+  - author: Шрёдька
+    changes:
+      - {message: 'Подтянуты коммиты с Корвакса, 25.09.2024.', type: Tweak}
+    time: '2024-09-26T05:17:57Z'
+    id: 387
+  - author: PyotrIgn
+    changes:
+      - {message: 'Изменены карты Аллея, Бокс, Джемини, Мета и Аврит', type: Tweak}
+      - {message: Исправлено отсутствие на торговой станции вентиляторов, type: Fix}
+    time: '2024-09-26T05:35:45Z'
+    id: 388
+  - author: PyotrIgn
+    changes:
+      - {message: Ломики должны быть маленькими снова, type: Tweak}
+    time: '2024-09-26T11:41:53Z'
+    id: 389
+  - author: Mirokko
+    changes:
+      - {message: Добавлен перевод названия эмоций в меню эмоций, type: Add}
+    time: '2024-09-26T11:42:56Z'
+    id: 390
+  - author: KorolCharodey
+    changes:
+      - {message: 'Исправлен плазмакатер, принтеры не будут(не были и не могут) стрелять
+          плазмой!!!', type: Fix}
+    time: '2024-09-26T17:27:41Z'
+    id: 391
+  - author: Mirokko
+    changes:
+      - {message: Добавлена кнопка "следовать" админам в панель игрока., type: Add}
+    time: '2024-09-27T01:19:27Z'
+    id: 392
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлен наш шаттл утилизаторов, type: Add}
+      - {message: С карт удален разбитый шаттл утилизаторов, type: Remove}
+      - {message: Частично откачен нерф утилизаторов в плане стартового снаряжения
+          и содержания ресурсов в руде, type: Tweak}
+    time: '2024-09-27T10:58:34Z'
+    id: 393
+  - author: Friskis
+    changes:
+      - {message: Стан голиафа уменьшен с 5 секунд до 3. Урон и урон кровотечением
+          также был незначительно уменьшен., type: Tweak}
+    time: '2024-09-27T11:38:58Z'
+    id: 394
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлены ивентовые вещи Киберсана, type: Add}
+      - {message: Добавлены ивентовые вещи игр Кальмара, type: Add}
+      - {message: Добавлены ивентовые вещи для Октоберфеста, type: Add}
+    time: '2024-09-27T11:38:59Z'
+    id: 395

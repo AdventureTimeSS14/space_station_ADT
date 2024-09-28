@@ -1,0 +1,50 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by descente for Adventure Time server",
+    "states": [
+        {
+            "name": "mantis-hit",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "attack-fist-mistal",
+            "delays": [
+                [
+                    0.05,
+                    0.05,
+                    0.2,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "attack-crash-muscle",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "mantis-slash"
+        },
+        {
+            "name": "mistral-slash"
+        }
+    ]
+}
