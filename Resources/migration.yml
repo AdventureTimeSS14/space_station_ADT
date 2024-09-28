@@ -196,7 +196,7 @@ SpawnVehicleWheelchair: ADTSpawnVehicleWheelchair
 SpawnVehicleWheelchairFolded: ADTSpawnVehicleWheelchairFolded
 VehicleWheelchair: ADTVehicleWheelchair
 VehicleWheelchairFolded: ADTVehicleWheelchairFolded
-VehicleSecwayStealObjective: ADTVehicleSecwayStealObjective
+# VehicleSecwayStealObjective: ADTVehicleSecwayStealObjective
 VehicleKeyJanicart: ADTVehicleKeyJanicart
 VehicleKeySecway: ADTVehicleKeySecway
 VehicleKeyATV: ADTVehicleKeyATV

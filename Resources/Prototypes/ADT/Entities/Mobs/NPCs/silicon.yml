@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ MobSiliconBase, BaseVehicle]
+  parent: [ MobSiliconBase, ADTBaseVehicle]
   id: ADTMobSiliconBaseVehicle # for vehicles
   abstract: true
   components:

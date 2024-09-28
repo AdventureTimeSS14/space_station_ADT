@@ -405,7 +405,7 @@
           collection: MetalBreak
 
 - type: entity
-  parent: VehicleUnicycle
+  parent: ADTVehicleUnicycle
   id: ADTVehicleUnicycleFolded
   suffix: folded
   components:
