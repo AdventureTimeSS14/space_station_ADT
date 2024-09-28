@@ -1,6 +1,6 @@
 - type: entity
   name: Secway Spawner
-  id: SpawnVehicleSecway
+  id: ADTSpawnVehicleSecway
   parent: MarkerBase
   components:
   - type: Sprite
@@ -14,7 +14,7 @@
 
 - type: entity
   name: Janicart Spawner
-  id: SpawnVehicleJanicart
+  id: ADTSpawnVehicleJanicart
   parent: MarkerBase
   components:
   - type: Sprite
@@ -28,7 +28,7 @@
 
 - type: entity
   name: ATV Spawner
-  id: SpawnVehicleATV
+  id: ADTSpawnVehicleATV
   parent: MarkerBase
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 
 - type: entity
   name: Motobike Spawner
-  id: SpawnVehicleMotobike
+  id: ADTSpawnVehicleMotobike
   parent: MarkerBase
   components:
   - type: Sprite
@@ -56,7 +56,7 @@
 
 - type: entity
   name: Wheelchair Spawner
-  id: SpawnVehicleWheelchair
+  id: ADTSpawnVehicleWheelchair
   parent: MarkerBase
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
 
 - type: entity
   name: Wheelchair [Folded] Spawner
-  id: SpawnVehicleWheelchairFolded
+  id: ADTSpawnVehicleWheelchairFolded
   parent: MarkerBase
   components:
   - type: Sprite

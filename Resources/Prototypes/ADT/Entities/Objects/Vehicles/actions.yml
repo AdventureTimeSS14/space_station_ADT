@@ -1,5 +1,5 @@
 - type: entity
-  id: ActionVehicleHorn
+  id: ADTActionVehicleHorn
   name: Honk
   description: Honk!
   categories: [ HideSpawnMenu ]

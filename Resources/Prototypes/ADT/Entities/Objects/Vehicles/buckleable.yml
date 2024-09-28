@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseVehicle
+  id: ADTBaseVehicle
   save: false
   abstract: true
   components:
@@ -42,7 +42,7 @@
 
 - type: entity
   parent: BaseVehicle
-  id: BaseVehicleRideable
+  id: ADTBaseVehicleRideable
   abstract: true
   name: Vehicle
   components:
@@ -85,7 +85,7 @@
     price: 750 # Grand Theft Auto.
 
 - type: entity
-  id: VehicleJanicart
+  id: ADTVehicleJanicart
   parent: BaseVehicleRideable
   name: janicart
   description: The janitor's trusty steed.
@@ -160,7 +160,7 @@
   - type: Appearance
 
 - type: entity
-  id: VehicleJanicartDestroyed
+  id: ADTVehicleJanicartDestroyed
   parent: MachineFrameDestroyed
   name: destroyed janicart
   components:
@@ -169,7 +169,7 @@
     state: destroyed
 
 - type: entity
-  id: VehicleSecway
+  id: ADTVehicleSecway
   parent: BaseVehicleRideable
   name: secway
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
@@ -220,7 +220,7 @@
 
 - type: entity
   parent: BaseVehicleRideable
-  id: VehicleATV
+  id: ADTVehicleATV
   name: ATV
   description: All-Tile Vehicle.
   components:
@@ -267,7 +267,7 @@
             volume: -3
 
 - type: entity
-  id: VehicleSyndicateSegway
+  id: ADTVehicleSyndicateSegway
   parent: BaseVehicleRideable
   name: syndicate segway
   description: Be an enemy of the corporation, in style.
@@ -311,7 +311,7 @@
 
 - type: entity
   parent: BaseVehicleRideable
-  id: VehicleSkeletonMotorcycle
+  id: ADTVehicleSkeletonMotorcycle
   name: skeleton motorcycle
   description: Bad to the Bone.
   components:
@@ -356,7 +356,7 @@
               volume: -3
 
 - type: entity
-  id: VehicleUnicycle
+  id: ADTVehicleUnicycle
   parent: [BaseVehicleRideable, BaseFoldable, BaseItem]
   name: unicycle
   description: It only has one wheel!
@@ -406,14 +406,14 @@
 
 - type: entity
   parent: VehicleUnicycle
-  id: VehicleUnicycleFolded
+  id: ADTVehicleUnicycleFolded
   suffix: folded
   components:
   - type: Foldable
     folded: true
 
 - type: entity
-  id: VehicleWheelchair
+  id: ADTVehicleWheelchair
   parent: [BaseVehicleRideable, BaseFoldable, BaseItem]
   name: wheelchair
   description: A chair with big wheels. It looks like you can move in these on your own.
@@ -455,7 +455,7 @@
 
 - type: entity
   parent: VehicleWheelchair
-  id: VehicleWheelchairFolded
+  id: ADTVehicleWheelchairFolded
   suffix: folded
   components:
     - type: Foldable
