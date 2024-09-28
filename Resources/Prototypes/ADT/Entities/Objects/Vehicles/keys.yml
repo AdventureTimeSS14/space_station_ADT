@@ -43,7 +43,7 @@
     state: keys
 
 - type: entity
-  parent: VehicleKeyATV
+  parent: ADTVehicleKeyATV
   id: ADTVehicleKeySkeleton
   name: vehicle skeleton keys
   description: Unlock any vehicle.

@@ -16,7 +16,7 @@
     autoRot: true
 
 - type: entity
-  parent: MobSiliconBaseVehicle
+  parent: ADTMobSiliconBaseVehicle
   id: ADTMobTaxiBot
   name: taxibot
   description: Give a ride?

@@ -454,7 +454,7 @@
       price: 70
 
 - type: entity
-  parent: VehicleWheelchair
+  parent: ADTVehicleWheelchair
   id: ADTVehicleWheelchairFolded
   suffix: folded
   components:
