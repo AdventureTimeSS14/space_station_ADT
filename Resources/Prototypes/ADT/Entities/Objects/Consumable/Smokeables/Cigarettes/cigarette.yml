@@ -193,3 +193,29 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
+
+- type: entity
+  id: ADTWeYaGoldCigarette
+  parent: BaseCigar
+  name: lucky sloths cigarette
+  description: A roll of tobacco and nicotine.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_cigarette.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_cigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_cigarette.rsi
+    heldPrefix: unlit
+  - type: Construction
+    graph: smokeableCigarette
+    node: cigarette
