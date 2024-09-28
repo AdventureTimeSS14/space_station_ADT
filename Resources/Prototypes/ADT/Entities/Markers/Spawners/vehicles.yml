@@ -10,7 +10,7 @@
         state: keys
   - type: ConditionalSpawner
     prototypes:
-      - VehicleSecway
+      - ADTVehicleSecway
 
 - type: entity
   name: Janicart Spawner
@@ -24,7 +24,7 @@
         state: keys
   - type: ConditionalSpawner
     prototypes:
-      - VehicleJanicart
+      - ADTVehicleJanicart
 
 - type: entity
   name: ATV Spawner
@@ -38,7 +38,7 @@
         state: keys
   - type: ConditionalSpawner
     prototypes:
-      - VehicleATV
+      - ADTVehicleATV
 
 - type: entity
   name: Motobike Spawner
@@ -52,7 +52,7 @@
         state: keys
   - type: ConditionalSpawner
     prototypes:
-      - VehicleSkeletonMotorcycle
+      - ADTVehicleSkeletonMotorcycle
 
 - type: entity
   name: Wheelchair Spawner
@@ -66,7 +66,7 @@
         state: vehicle
   - type: ConditionalSpawner
     prototypes:
-      - VehicleWheelchair
+      - ADTVehicleWheelchair
 
 - type: entity
   name: Wheelchair [Folded] Spawner
@@ -80,4 +80,4 @@
         state: vehicle_folded
   - type: ConditionalSpawner
     prototypes:
-      - VehicleWheelchairFolded
+      - ADTVehicleWheelchairFolded
