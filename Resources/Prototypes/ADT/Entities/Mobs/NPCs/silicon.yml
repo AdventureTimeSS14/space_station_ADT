@@ -31,7 +31,7 @@
     description: ghost-role-information-taxibot-description
   - type: Strap
     buckleOffset: "0, 0"
-    maxBuckleDistance: 1
-  - type: Construction
-    graph: TaxiBot
-    node: bot
+    # maxBuckleDistance: 1
+  # - type: Construction
+  #   graph: TaxiBot
+  #   node: bot
