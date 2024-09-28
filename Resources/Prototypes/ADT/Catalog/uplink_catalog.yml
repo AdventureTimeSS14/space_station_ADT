@@ -32,3 +32,16 @@
     - Mime
     - Botanist
     - Bartender
+
+- type: listing
+  id: ADTUplinkSegway
+  name: uplink-segway-name
+  description: uplink-segway-desc
+  icon:
+    sprite: Objects/Vehicles/syndicatesegway.rsi
+    state: vehicle
+  productEntity: ADTVehicleSyndicateSegway
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkPointless

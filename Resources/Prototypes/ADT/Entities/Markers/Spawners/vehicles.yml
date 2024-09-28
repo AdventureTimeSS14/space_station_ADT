@@ -1,0 +1,83 @@
+- type: entity
+  name: Secway Spawner
+  id: ADTSpawnVehicleSecway
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/secway.rsi
+        state: keys
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTVehicleSecway
+
+- type: entity
+  name: Janicart Spawner
+  id: ADTSpawnVehicleJanicart
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/janicart.rsi
+        state: keys
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTVehicleJanicart
+
+- type: entity
+  name: ATV Spawner
+  id: ADTSpawnVehicleATV
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/atv.rsi
+        state: keys
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTVehicleATV
+
+- type: entity
+  name: Motobike Spawner
+  id: ADTSpawnVehicleMotobike
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/motorbike.rsi
+        state: keys
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTVehicleSkeletonMotorcycle
+
+- type: entity
+  name: Wheelchair Spawner
+  id: ADTSpawnVehicleWheelchair
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/wheelchair.rsi
+        state: vehicle
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTVehicleWheelchair
+
+- type: entity
+  name: Wheelchair [Folded] Spawner
+  id: ADTSpawnVehicleWheelchairFolded
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/wheelchair.rsi
+        state: vehicle_folded
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTVehicleWheelchairFolded

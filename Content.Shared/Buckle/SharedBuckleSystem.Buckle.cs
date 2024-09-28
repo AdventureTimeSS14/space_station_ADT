@@ -16,6 +16,7 @@ using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Vehicle.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -145,6 +146,11 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
+        // ADT Vehicles start
+        if (HasComp<RiderComponent>(buckle.Owner) && HasComp<VehicleComponent>(strapUid))
+            return;
+        // ADT Vehicles end
+
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
         if (delta > 1e-5)
             Unbuckle(buckle, (strapUid, strapComp), null);
@@ -172,6 +178,19 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleStandAttempt(EntityUid uid, BuckleComponent component, StandAttemptEvent args)
     {
+        // ADT vehicles start
+        //Let entities stand back up while on vehicles so that they can be knocked down when slept/stunned
+        //This prevents an exploit that allowed people to become partially invulnerable to stuns
+        //while on vehicles
+
+        if (component.BuckledTo != null)
+        {
+            var buckle = component.BuckledTo;
+            if (TryComp<VehicleComponent>(buckle, out _))
+                return;
+        }
+        // ADT vehicles end
+
         if (component.Buckled)
             args.Cancel();
     }
@@ -184,7 +203,8 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleUpdateCanMove(EntityUid uid, BuckleComponent component, UpdateCanMoveEvent args)
     {
-        if (component.Buckled)
+        if (component.Buckled &&
+            !HasComp<VehicleComponent>(component.BuckledTo)) // ADT vehicles back
             args.Cancel();
     }
 
