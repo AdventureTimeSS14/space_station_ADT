@@ -41,7 +41,7 @@
       - !type:ExplodeBehavior
 
 - type: entity
-  parent: BaseVehicle
+  parent: ADTBaseVehicle
   id: ADTBaseVehicleRideable
   abstract: true
   name: Vehicle
@@ -86,7 +86,7 @@
 
 - type: entity
   id: ADTVehicleJanicart
-  parent: BaseVehicleRideable
+  parent: ADTBaseVehicleRideable
   name: janicart
   description: The janitor's trusty steed.
   components:
@@ -170,7 +170,7 @@
 
 - type: entity
   id: ADTVehicleSecway
-  parent: BaseVehicleRideable
+  parent: ADTBaseVehicleRideable
   name: secway
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
   components:
@@ -219,7 +219,7 @@
     stealGroup: VehicleSecway
 
 - type: entity
-  parent: BaseVehicleRideable
+  parent: ADTBaseVehicleRideable
   id: ADTVehicleATV
   name: ATV
   description: All-Tile Vehicle.
@@ -268,7 +268,7 @@
 
 - type: entity
   id: ADTVehicleSyndicateSegway
-  parent: BaseVehicleRideable
+  parent: ADTBaseVehicleRideable
   name: syndicate segway
   description: Be an enemy of the corporation, in style.
   components:
@@ -310,7 +310,7 @@
               volume: -3
 
 - type: entity
-  parent: BaseVehicleRideable
+  parent: ADTBaseVehicleRideable
   id: ADTVehicleSkeletonMotorcycle
   name: skeleton motorcycle
   description: Bad to the Bone.
@@ -357,7 +357,7 @@
 
 - type: entity
   id: ADTVehicleUnicycle
-  parent: [BaseVehicleRideable, BaseFoldable, BaseItem]
+  parent: [ADTBaseVehicleRideable, BaseFoldable, BaseItem]
   name: unicycle
   description: It only has one wheel!
   components:
@@ -414,7 +414,7 @@
 
 - type: entity
   id: ADTVehicleWheelchair
-  parent: [BaseVehicleRideable, BaseFoldable, BaseItem]
+  parent: [ADTBaseVehicleRideable, BaseFoldable, BaseItem]
   name: wheelchair
   description: A chair with big wheels. It looks like you can move in these on your own.
   components:

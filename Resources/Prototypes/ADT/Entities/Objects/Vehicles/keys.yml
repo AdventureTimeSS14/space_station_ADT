@@ -15,7 +15,7 @@
     state: keys
 
 - type: entity
-  parent: VehicleKeyJanicart
+  parent: ADTVehicleKeyJanicart
   id: ADTVehicleKeySecway
   name: secway keys
   description: The keys to the future.
@@ -29,7 +29,7 @@
     state: keys
 
 - type: entity
-  parent: VehicleKeyJanicart
+  parent: ADTVehicleKeyJanicart
   id: ADTVehicleKeyATV
   name: ATV keys
   description: Think this looks like just one key? ATV keys means "actually two vehicle keys."
@@ -58,7 +58,7 @@
     - SkeletonMotorcycleKeys
 
 - type: entity
-  parent: VehicleKeyJanicart
+  parent: ADTVehicleKeyJanicart
   id: ADTVehicleKeySyndicateSegway
   name: syndicate segway keys
   description: Patterned after the iconic EMAG design.
@@ -72,7 +72,7 @@
       state: keys
 
 - type: entity
-  parent: VehicleKeyATV
+  parent: ADTVehicleKeyATV
   id: ADTVehicleKeySkeletonMotorcycle
   name: skeleton motorcycle keys
   description: A beautiful set of keys adorned with a skull.
