@@ -33,3 +33,7 @@
 #- type: animatedLobbyScreen
 #  id: FifthLobbyScreen
 #  path: Ohio/Lobby/backgrounds/5.rsi
+
+- type: animatedLobbyScreen
+  id: ADTCaiMia
+  path: /Textures/ADT/LobbyScreens/backgrounds/cai-mia.webp
