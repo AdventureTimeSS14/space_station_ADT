@@ -2,7 +2,7 @@
   id: ActionShadekinTeleport
   name: action-shadekin-teleport
   description: action-shadekin-teleport-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     icon:

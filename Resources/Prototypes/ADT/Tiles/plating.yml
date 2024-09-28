@@ -1,0 +1,63 @@
+- type: tile
+  id: ADTLatticeLeftUpper
+  name: tiles-lattice-left-upper
+  sprite: /Textures/ADT/Tiles/lattice_left_upper.png
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Cutting ]
+  weather: true
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  isSpace: true
+  itemDrop: PartRodMetal1
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTLatticeLeftLower
+  name: tiles-lattice-left-lower
+  sprite: /Textures/ADT/Tiles/lattice_left_lower.png
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Cutting ]
+  weather: true
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  isSpace: true
+  itemDrop: PartRodMetal1
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTLatticeRightUpper
+  name: tiles-lattice-right-upper
+  sprite: /Textures/ADT/Tiles/lattice_right_upper.png
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Cutting ]
+  weather: true
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  isSpace: true
+  itemDrop: PartRodMetal1
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTLatticeRightLower
+  name: tiles-lattice-right-lower
+  sprite: /Textures/ADT/Tiles/lattice_right_lower.png
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Cutting ]
+  weather: true
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  isSpace: true
+  itemDrop: PartRodMetal1
+  heatCapacity: 10000

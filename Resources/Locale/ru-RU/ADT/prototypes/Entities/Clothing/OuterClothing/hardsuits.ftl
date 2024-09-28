@@ -14,3 +14,19 @@ ent-ADTClothingOuterHardsuitIlisium = скафандр Иллизиума
 
 ent-ADTClothingOuterHardsuitInquisitory = скафандр инквизитора
     .desc = Покайся в своих грехах.
+
+ent-ADTClothingOuterHardsuitCybersunBodyGuard = скафандр телохранителя Cybersun
+    .desc = Тяжелобронированный скафандр элитного подразделения телохранителей Cybersun
+    .suffix = { "" }
+
+ent-ADTClothingOuterHardsuitCybersunCrysis = скафандр суперсолдата Cybersun
+    .desc = Самая передовая, секретная технология CyberSun в сфере защиты. Кажется эта разработка ведёт к созданию супер солдат. Пахнет пластитаном и бесчестным боем
+    .suffix = { "" }
+
+ent-ADTClothingOuterHardsuitSaibaSain = элитный скафандр Сайба-Сайны
+    .desc = Разработка из плазматических волокн, наномашин и кремния. Пахнет как цветение сакуры.
+    .suffix = { "" }
+
+ent-ADTClothingOuterHardsuitPioneerAgent = боевой скафандр агента "Пионер"
+    .desc = Специальный защитный скафандр на основе скафандра командира отряда быстрого реагирования NanoTrasen. Создан в единственном экземпляре для специального агента КиберСан.
+    .suffix = { "" }

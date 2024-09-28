@@ -21,6 +21,11 @@
       prob: 0.3
       rolls: !type:ConstantNumberSelector
         value: 3
+#ADT-Tweak Start - частичный откат нерфа утилей
+    - id: SeismicCharge
+    - id: OreBag
+      prob: 0.5
+#ADT-Tweak End - частичный откат нерфа утилей
 
 - type: entity
   id: LockerSalvageSpecialistFilledHardsuit

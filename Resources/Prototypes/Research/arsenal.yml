@@ -28,6 +28,9 @@
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  # Start ADT tweak
+  - ADTMagazineMagnumIncendiary
+  # Start ADT tweak
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -78,6 +81,9 @@
   recipeUnlocks:
   - MagazineRifleUranium
   - MagazinePistolUranium
+  # Start ADT tweak
+  - ADTMagazineMagnumUranium
+  # Start ADT tweak
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium

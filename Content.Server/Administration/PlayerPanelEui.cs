@@ -8,6 +8,7 @@ using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Eui;
+using Content.Shared.Follower;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 
@@ -141,6 +142,21 @@ public sealed class PlayerPanelEui : BaseEui
                     _entity.DeleteEntity(session.AttachedEntity);
                 }
                 break;
+            // ADT-Tweak-Start
+            case PlayerPanelFollowMessage:
+                if (!_admins.HasAdminFlag(Player, AdminFlags.Admin) ||
+                    !_player.TryGetSessionById(_targetPlayer.UserId, out session) ||
+                    session.AttachedEntity is null ||
+                    Player.AttachedEntity is null
+                )
+                    return;
+
+                if (!_entity.TrySystem<FollowerSystem>(out var follower))
+                    return;
+
+                follower.StartFollowingEntity((EntityUid)Player.AttachedEntity, (EntityUid)session.AttachedEntity);
+                break;
+            // ADT-Tweak-End
         }
     }
 

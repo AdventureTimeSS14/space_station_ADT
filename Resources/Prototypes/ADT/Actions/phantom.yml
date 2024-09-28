@@ -2,7 +2,7 @@
   id: ActionPhantomSelectStyle
   name: action-phantom-style
   description: action-phantom-style-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -17,7 +17,7 @@
   id: ActionPhantomHaunt
   name: action-phantom-haunt
   description: action-phantom-haunt-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -37,7 +37,7 @@
 #  id: ActionPhantomStopHaunt
 #  name: action-phantom-stop-haunt
 #  description: action-phantom-stop-haunt-desc
-#  noSpawn: true
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: InstantAction
 #    checkCanInteract: false
@@ -52,7 +52,7 @@
   id: ActionPhantomCycleVessels
   name: action-phantom-cycle-vessels
   description: action-phantom-cycle-vessels-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -67,7 +67,7 @@
   id: ActionPhantomHauntVessel
   name: action-phantom-haunt-vessel
   description: action-phantom-haunt-vessel-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -83,7 +83,7 @@
   id: ActionPhantomMakeVessel
   name: action-phantom-make-vessel
   description: action-phantom-make-vessel-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -99,7 +99,7 @@
   id: ActionPhantomParalysis
   name: action-phantom-paralysis
   description: action-phantom-paralysis-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -119,7 +119,7 @@
   id: ActionPhantomCorporeal
   name: action-phantom-corporeal
   description: action-phantom-corporeal-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -134,7 +134,7 @@
   id: ActionPhantomBreakdown
   name: action-phantom-breakdown
   description: action-phantom-breakdown-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -151,7 +151,7 @@
   id: ActionPhantomShieldBreak
   name: action-phantom-shield-break
   description: action-phantom-shield-break-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -166,7 +166,7 @@
   id: ActionPhantomClaws
   name: action-phantom-claws
   description: action-phantom-claws-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -181,7 +181,7 @@
   id: ActionPhantomInjury
   name: action-phantom-injury
   description: action-phantom-injury-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -197,7 +197,7 @@
   id: ActionPhantomStarvation
   name: action-phantom-starvation
   description: action-phantom-starvation-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -214,7 +214,7 @@
   id: ActionPhantomHeal
   name: action-phantom-heal
   description: action-phantom-heal-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -230,7 +230,7 @@
   id: ActionPhantomPuppeter
   name: action-phantom-puppeter
   description: action-phantom-puppeter-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -246,7 +246,7 @@
   id: ActionPhantomRepair
   name: action-phantom-repair
   description: action-phantom-repair-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -263,7 +263,7 @@
   id: ActionPhantomBlinding
   name: action-phantom-blinding
   description: action-phantom-blinding-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -280,7 +280,7 @@
   id: ActionPhantomPortal
   name: action-phantom-portal
   description: action-phantom-portal-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -296,7 +296,7 @@
   id: ActionPhantomHelpingHand
   name: action-phantom-help-hand
   description: action-phantom-help-hand-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -312,7 +312,7 @@
   id: ActionPhantomPsycho
   name: action-phantom-psycho
   description: action-phantom-psycho-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -328,7 +328,7 @@
   id: ActionPhantomControl
   name: action-phantom-control
   description: action-phantom-control-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -344,7 +344,7 @@
   id: ActionPhantomNightmare
   name: action-phantom-nightmare
   description: action-phantom-nightmare-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -360,7 +360,7 @@
   id: ActionPhantomTyrany
   name: action-phantom-tyrany
   description: action-phantom-tyrany-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -376,7 +376,7 @@
   id: ActionPhantomFreedom
   name: action-phantom-freedom
   description: action-phantom-freedom-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -392,7 +392,7 @@
   id: ActionPhantomOblivion
   name: "Все должны забыть"
   description: action-phantom-oblivion-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Tag
     tags:
@@ -410,7 +410,7 @@
   id: ActionPhantomDeathmatch
   name: "Смертельная битва!"
   description: action-phantom-deathmatch-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Tag
     tags:
@@ -428,7 +428,7 @@
   id: ActionPhantomHelpFin
   name: "Благославление"
   description: action-phantom-help-final-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Tag
     tags:
@@ -448,7 +448,7 @@
   id: ActionPhantomPupHeal
   name: action-phanton-heal-self
   description: action-phantom-heal-self-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -463,7 +463,7 @@
   id: ActionPhantomPupClaws
   name: action-phanton-claws-self
   description: action-phantom-claws-self-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false

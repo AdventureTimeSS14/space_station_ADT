@@ -15,53 +15,53 @@
 #       - state: equipped-MASK
 #   - type: BreathMask
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTSquidGameWorkerMask
-#   name: squid game worker mask
-#   description: squid game worker mask
-#   suffix: Halloween
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/squidgame_worker.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/squidgame_worker.rsi
-#     clothingVisuals:
-#       mask:
-#       - state: equipped-MASK
-#   - type: BreathMask
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskSquidGameWorker
+  name: squid game worker mask
+  description: squid game worker mask
+  suffix: Squid Games
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/squidgame_worker.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/squidgame_worker.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+  - type: BreathMask
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTSquidGameSoldierMask
-#   name: squid game soldier mask
-#   description: squid game soldier mask
-#   suffix: Halloween
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
-#     clothingVisuals:
-#       mask:
-#       - state: equipped-MASK
-#   - type: BreathMask
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskSquidGameSoldier
+  name: squid game soldier mask
+  description: squid game soldier mask
+  suffix: Squid Games
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/squidgame_soldier.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+  - type: BreathMask
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTSquidGameManagerMask
-#   name: squid game manager mask
-#   description: squid game manager mask
-#   suffix: Halloween
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/squidgame_manager.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/squidgame_manager.rsi
-#     clothingVisuals:
-#       mask:
-#       - state: equipped-MASK
-#   - type: BreathMask
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskSquidGameManager
+  name: squid game manager mask
+  description: squid game manager mask
+  suffix: Squid Games
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/squidgame_manager.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/squidgame_manager.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+  - type: BreathMask
 
 # - type: entity
 #   parent: WeldingMaskBase
@@ -302,3 +302,24 @@
       modifiers:
         coefficients:
           Heat: 0.80
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskMad
+  name: abyssal mask
+  description: A mask created from suffering. When you look into its eyes, it looks back.
+  components:
+  - type: SelfUnremovableClothing
+  - type: Sprite
+    sprite: ADT/Heretic/mad_mask.rsi
+  - type: Clothing
+    sprite: ADT/Heretic/mad_mask.rsi
+  - type: BreathMask
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - Mask
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
