@@ -17,7 +17,7 @@
 
 # новый красный вещ-мешок ADT.
 - type: entity
-  id: RedBrigmedicDuffelbagClothing
+  id: ADTClothingBackpackDuffelBrigmedicFilled
   suffix: Filled
   parent: ClothingBackpackDuffelBrigmedic
   name: brimedic duffelbag
