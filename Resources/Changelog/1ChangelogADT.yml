@@ -3281,3 +3281,13 @@ Entries:
       - {message: Добавлены ивентовые вещи для Октоберфеста, type: Add}
     time: '2024-09-27T11:38:59Z'
     id: 395
+  - author: PyotrIgn
+    changes:
+      - {message: Изменение шанса выпадения некоторых режимов в секрете, type: Tweak}
+    time: '2024-09-28T02:02:42Z'
+    id: 396
+  - author: Котя
+    changes:
+      - {message: Добавлен (возвращён) транспорт!, type: Add}
+    time: '2024-09-28T23:49:22Z'
+    id: 397
