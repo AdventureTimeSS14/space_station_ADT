@@ -5,6 +5,7 @@
   abstract: true
   name: Урист МакСумеречник
   components:
+  - type: OnGhostAttemtpDamage # При суициде будет нормально наносится урон не удушением а кровотечением.
   - type: HumanoidAppearance
     species: Shadekin
   - type: Hunger
