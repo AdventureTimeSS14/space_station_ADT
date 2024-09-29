@@ -19,7 +19,7 @@
       state: vulpkanin_m
     - type: Damageable
       damageContainer: Biological
-      damageModifierSet: Vulpkanin
+      damageModifierSet: ADTVulpkanin
     - type: HumanoidAppearance
       species: VulpkaninSpecies
     - type: Body

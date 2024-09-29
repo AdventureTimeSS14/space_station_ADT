@@ -16,7 +16,7 @@
       organs:
         lungs: OrganDraskLungs
         stomach: OrganDraskInnards
-        liver: ADTOrganDraskLiver
+        liver: OrganHumanLiver
         kidneys: OrganDraskKidneys
       connections:
       - right arm

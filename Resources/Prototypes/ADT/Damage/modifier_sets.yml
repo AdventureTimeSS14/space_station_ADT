@@ -9,7 +9,7 @@
     Poison: 1
 
 - type: damageModifierSet
-  id: Vulpkanin # просто разделяю урон, тк вульпы не имеют тех баффов что таяры
+  id: ADTVulpkanin # просто разделяю урон, тк вульпы не имеют тех баффов что таяры
   coefficients:
     Blunt: 0.95
     Piercing: 1
