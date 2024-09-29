@@ -118,7 +118,7 @@
 
   # brigmedic
 - type: roleLoadout
-  id: JobBrigmedic
+  id: job-name-ADTBrigmedic
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness

@@ -29,3 +29,5 @@ job-name-ADTSpaceSecService = сотрудник SPACE SEC
 
 job-name-ADTSecBorg = Киборг службы безопасности
 JobADTSecBorg = Киборг службы безопасности
+
+job-name-ADTBrigmedic = Бригмедик
