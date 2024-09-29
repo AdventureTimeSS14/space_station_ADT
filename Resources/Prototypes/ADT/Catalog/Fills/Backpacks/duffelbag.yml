@@ -15,3 +15,26 @@
       - id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
       - id: ClothingHeadHelmetSecurityMedic # Corvax-Resprite
 
+# новый красный вещ-мешок ADT.
+- type: entity
+  id: RedBrigmedicDuffelbagClothing
+  suffix: Filled
+  parent: ClothingBackpackDuffelBrigmedic
+  name: brimedic duffelbag
+  components:
+  - type: StorageFill
+    contents:
+      # Береты
+      - id: ADTClothingHeadHatBeretBrigmedic
+      - id: ClothingHeadHatBeretSecurityMedic
+      - id: ClothingHeadHatBeretBrigmedic
+      # + Очки
+      - id: ADTClothingEyesGlassesMed
+      # Одежда
+      - id: ClothingOuterCoatAMG
+      - id: ADTClothingOuterCoatBrigmedicWB
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ADTClothingUniformBrigmedicJumpsuitTurtleneck
+      - id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
+      - id: ClothingHeadHelmetSecurityMedic # Corvax-Resprite

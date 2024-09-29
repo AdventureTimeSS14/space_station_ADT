@@ -3,3 +3,6 @@ ent-ADTClothingBackpackDuffelBlueshield = вещмешок офицера син
 
 ent-ADTClothingBackpackDuffelDurathead = дюротканевый вещмешок
     .desc = Вещмешок выполненый из более прочной и эластичной дюраткани.
+
+ent-RedBrigmedicDuffelbagClothing = вещмешок бригмедика
+    .desc = Большой вещмешок ангела-хранителя брига, для хранения дополнительных медицинских принадлежностей.
