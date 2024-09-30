@@ -12,9 +12,6 @@
       steps:
       - minTemperature: 340
 
-  - node: shadekin steak
-    entity: ADTFoodMeatShadekinCooked
-
 - type: constructionGraph
   id: ShadekinCutlet
   start: start
