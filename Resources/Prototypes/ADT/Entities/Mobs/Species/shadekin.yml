@@ -94,8 +94,7 @@
       Female: FemaleHuman
       Unsexed: MaleHuman
   - type: InteractionPopup
-    successChance: 0.75
-    interactFailureString: petting-failure-generic
+    successChance: 1
     interactSuccessString: petting-success-soft-floofy
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: petting-success-soft-floofy-others

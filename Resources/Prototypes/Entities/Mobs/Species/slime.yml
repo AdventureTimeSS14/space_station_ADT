@@ -133,9 +133,9 @@
   - type: SlimeHair # ADT-SlimeHair
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1.12
+    tallscale: 1.05
     short: true
-    shortscale: 0.98
+    shortscale: 0.95
   #End ADT tweak
 
 - type: entity
