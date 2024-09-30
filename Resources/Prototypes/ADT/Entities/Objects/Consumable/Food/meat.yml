@@ -157,6 +157,7 @@
     graph: ShadekinCutlet
     node: shadekin cutlet
 
+- type: entity
   name: weisswurst
   parent: FoodMeatBase
   id: ADTFoodMeatWeissWurst
