@@ -1,0 +1,19 @@
+{
+    "version": 1,
+     "license": "CC0-1.0",
+    "copyright": "psychpsyo on Github/Twitter",
+    "size": {
+      "x": 1920,
+      "y": 1080
+    },
+    "states": [
+      {
+        "name": "janishootout",
+        "delays": [
+          [
+            0.1
+          ]
+        ]
+      }
+    ]
+  }

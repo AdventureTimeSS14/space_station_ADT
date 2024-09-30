@@ -1,0 +1,19 @@
+{
+    "version": 1,
+     "license": "CC-BY-NC-SA-3.0",
+    "copyright": "GetOutMarutak,aka.Snicket on Discord/github/Cara/Ko-fi",
+    "size": {
+      "x": 2560,
+      "y": 1440
+    },
+    "states": [
+      {
+        "name": "reclaimer-nuke",
+        "delays": [
+          [
+            0.1
+          ]
+        ]
+      }
+    ]
+  }

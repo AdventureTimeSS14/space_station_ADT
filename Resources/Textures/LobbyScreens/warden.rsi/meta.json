@@ -1,0 +1,19 @@
+{
+    "version": 1,
+     "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Solbusaur#4343 (220208697429852160) on discord",
+    "size": {
+      "x": 1600,
+      "y": 901
+    },
+    "states": [
+      {
+        "name": "warden",
+        "delays": [
+          [
+            0.1
+          ]
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,19 @@
+{
+    "version": 1,
+     "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Alekshhh github",
+    "size": {
+      "x": 1920,
+      "y": 1080
+    },
+    "states": [
+      {
+        "name": "susstation",
+        "delays": [
+          [
+            0.1
+          ]
+        ]
+      }
+    ]
+  }

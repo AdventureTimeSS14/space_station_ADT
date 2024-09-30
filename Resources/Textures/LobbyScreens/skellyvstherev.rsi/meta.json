@@ -1,0 +1,19 @@
+{
+    "version": 1,
+     "license": "CC-BY-SA-4.0",
+    "copyright": "Hannah 'FairlySadPanda' Dawson 2024",
+    "size": {
+      "x": 2560,
+      "y": 1440
+    },
+    "states": [
+      {
+        "name": "skellyvstherev",
+        "delays": [
+          [
+            0.1
+          ]
+        ]
+      }
+    ]
+  }
