@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made from author of discord:mnogo_znal для Время Приключений MRP",
+    "size": {
+        "x": 48,
+        "y": 80
+    },
+    "states": [
+        {
+            "name": "beer_messiah_left"
+        },
+        {
+            "name": "beer_messiah_right"
+        }
+    ]
+}

@@ -116,7 +116,7 @@
   - type: PhantomPuppet
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: ADTMobPhantomReincarnated
   name: PhantomReincarnated

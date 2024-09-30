@@ -1,23 +1,29 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Modified by discord:filokini",
+    "copyright": "[shadekin]Modified by discord:filokini, Created by discord:Празат Д.В. aka [767Sikon] (prazat911)",
     "size": {
-      "x": 32,
-      "y": 32
+        "x": 32,
+        "y": 32
     },
     "states": [
-      {
-        "name": "shadekin"
-      },
-      {
-        "name": "shadekin-cooked"
-      },
-      {
-        "name": "shadekincutlet"
-      },
-      {
-        "name": "shadekincutlet-cooked"
-      }
+        {
+            "name": "shadekin"
+        },
+        {
+            "name": "shadekin-cooked"
+        },
+        {
+            "name": "shadekincutlet"
+        },
+        {
+            "name": "shadekincutlet-cooked"
+        }
+        {
+            "name": "weisswurst"
+        },
+        {
+            "name": "bratwurst"
+        }
     ]
-  }
+}
