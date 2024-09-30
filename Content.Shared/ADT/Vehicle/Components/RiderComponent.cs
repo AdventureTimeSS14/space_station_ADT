@@ -15,7 +15,7 @@ public sealed partial class RiderComponent : Component
     /// </summary>
     [ViewVariables] public EntityUid? Vehicle;
 
-    public override bool SendOnlyToOwner => true;
+    //public override bool SendOnlyToOwner => true;
 }
 
 [Serializable, NetSerializable]
