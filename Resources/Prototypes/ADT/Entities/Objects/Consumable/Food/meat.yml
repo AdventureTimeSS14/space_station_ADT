@@ -96,7 +96,11 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        reagents:
+        - ReagentId: Nutriment
           Quantity: 4
+        - ReagentId: Protein
+          Quantity: 2
   - type: SliceableFood
     count: 3
     slice: FoodMeatCutletShadekinCooked
