@@ -26,5 +26,24 @@
     ClothingShoesBootsWinterSec: 2
     ClothingHeadHelmetJustice: 1
     ADTClothingKadet: 4 #ADT tweak
+    # brigmedic
+    ClothingBackpackDuffelBrigmedic: 3
+    ClothingBackpackSatchelBrigmedic: 3
+    ClothingBackpackBrigmedic: 3
+    # head
+    ClothingHeadHatBeretBrigmedic: 3
+    ClothingHeadHatBeretSecurityMedic: 3
+    ADTClothingHeadHatBeretBrigmedic: 3
+    ClothingHeadHelmetSecurityMedic: 3
+    # suit
+    ClothingUniformJumpsuitBrigmedic: 3
+    ClothingUniformJumpskirtBrigmedic: 3
+    ADTClothingUniformBrigmedicJumpsuitTurtleneck: 3
+    ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck: 3
+    # outer
+    ClothingOuterVestSecurityMedic: 2
+    ClothingOuterCoatAMG: 2
+    ClothingOuterVestArmorMedSec: 2
+    ADTClothingOuterCoatBrigmedicWB: 2
   contrabandInventory:
     ClothingMaskClownSecurity: 1
