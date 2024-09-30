@@ -58,7 +58,8 @@
             Paramedic: [ 1, 1 ]
             #silicon
             Borg: [ 2, 3 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+            StationAi: [ 1, 1 ]
+        #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
         # - type: StationGoal
         #   goals:
         #   - Shuttle

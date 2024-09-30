@@ -16,9 +16,11 @@ using Content.Shared.Vehicle.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Vehicle;
 
@@ -30,7 +32,7 @@ namespace Content.Shared.Vehicle;
 public abstract partial class SharedVehicleSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
-
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
@@ -125,7 +127,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         var riderComp = EnsureComp<RiderComponent>(rider);
         component.Rider = rider;
         component.LastRider = component.Rider;
-        Dirty(uid, component);
+        if (_netManager.IsServer)
+            Dirty(uid, component);
         Appearance.SetData(uid, VehicleVisuals.HideRider, true);
 
         _mover.SetRelay(rider, uid);
@@ -307,22 +310,42 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         // TODO: Strap should handle this but buckle E/C moment.
         var oldOffset = strap.BuckleOffset;
-
-        strap.BuckleOffset = xform.LocalRotation.Degrees switch
+        var rot = xform.LocalRotation.Degrees;
+        if (rot > 0)
         {
-            < 45f => new(0, component.SouthOverride),
-            <= 135f => component.BaseBuckleOffset,
-            < 225f => new(0, component.NorthOverride),
-            <= 315f => new(component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
-            _ => new(0, component.SouthOverride)
-        };
+            strap.BuckleOffset = xform.LocalRotation.Degrees switch
+            {
+                < 45f => new(0, component.SouthOverride),
+                <= 145f => component.BaseBuckleOffset,
+                < 225f => new(0, component.NorthOverride),
+                <= 325f => new(component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
+                _ => new(0, component.SouthOverride)
+            };
+        }
+        else
+        {
+            strap.BuckleOffset = xform.LocalRotation.Degrees switch
+            {
+                > -45f => new(0, component.SouthOverride),
+                >= -145f => new(component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
+                > -225f => new(0, component.NorthOverride),
+                >= -325f => component.BaseBuckleOffset,
+                _ => new(0, component.SouthOverride)
+            };
+        }
 
-        if (!oldOffset.Equals(strap.BuckleOffset))
+        if (!oldOffset.Equals(strap.BuckleOffset) && _netManager.IsServer)
             Dirty(uid, strap);
 
         foreach (var buckledEntity in strap.BuckledEntities)
         {
-            _transform.SetLocalPositionNoLerp(buckledEntity, strap.BuckleOffset);
+            if (_netManager.IsServer)
+            {
+                var coords = new EntityCoordinates(uid, strap.BuckleOffset);
+                _transform.SetCoordinates(buckledEntity, Transform(buckledEntity), coords);
+            }
+            else
+                _transform.SetLocalPositionNoLerp(buckledEntity, strap.BuckleOffset);
         }
     }
 
