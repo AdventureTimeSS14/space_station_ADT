@@ -12,6 +12,12 @@
     <!-- Background -->
     <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
                  Stretch="KeepAspectCovered" />
+    <!-- ADT-Tweak-Start -->
+    <BoxContainer Name="ShowInterfaceContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Vertical"
+                  Margin="10" Visible="False" >
+        <Button Name="ShowInterface" Text="{Loc 'ui-lobby-show-interface'}" Margin="5 5 5 5" MinWidth="50" MinHeight="5" VerticalAlignment="Bottom" />
+    </BoxContainer>
+    <!-- ADT-Tweak-End -->
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
                   Margin="10 10 10 10" SeparationOverride="2">
         <SplitContainer State="Auto" HorizontalExpand="True">
@@ -51,6 +57,7 @@
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                        <Button Name="HideInterface" Text="{Loc 'ui-lobby-hide-interface'}" Margin="3 3 3 3"/> <!-- ADT-Tweak -->
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
                         <PanelContainer StyleClasses="AngleRect">
                             <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
