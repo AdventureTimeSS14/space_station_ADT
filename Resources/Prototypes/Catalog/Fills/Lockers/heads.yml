@@ -385,6 +385,9 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    # ADT-SecShuttleStart
+    - id: ADTSecShuttleConsoleCircuitboard
+    # ADTSecShuttleEnd
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
