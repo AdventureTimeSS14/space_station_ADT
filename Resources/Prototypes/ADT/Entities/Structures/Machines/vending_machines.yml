@@ -80,8 +80,6 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-#  - type: Advertise
-#    pack: AutoTuneVendAds
   - type: Sprite
     sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi
     layers:
@@ -98,15 +96,13 @@
     color: "#4b93ad"
   - type: UserInterface
     interfaces:
-    - key: enum.VendingMachineUiKey.Key
-      type: VendingMachineBoundUserInterface
-    - key: enum.WiresUiKey.Key
-      type: WiresBoundUserInterface
-    - key: enum.InstrumentUiKey.Key
-      type: InstrumentBoundUserInterface
+      enum.VendingMachineUiKey.Key:
+        type: VendingMachineBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true
     handheld: false
-  - type: TTS
-    voice: bebey
