@@ -132,7 +132,7 @@
     damage:
       types:
         Blunt: 0.9
-        Slash: 5
+        Slash: 4
   - type: Speech
     speechSounds: Alto
   - type: DamageOnHighSpeedImpact
@@ -163,7 +163,7 @@
     - Nekomimetic
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1
+    tallscale: 0.95
     short: true
     shortscale: 0.8
 

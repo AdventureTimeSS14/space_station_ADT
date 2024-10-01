@@ -58,14 +58,13 @@
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 330
-    coldDamageThreshold: 0
+    coldDamageThreshold: 193
     currentTemperature: 273.15
     coldDamage: #per second, scales with temperature & other constants
       groups:
-        Brute: -0.4
-        Burn: -0.4
-        Toxin: -0.2
-        Airloss: -0.2
+        Brute: -0.25
+        Burn: -0.25
+        Toxin: -0.1
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
