@@ -9,8 +9,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      105: Critical
-      210: Dead
+      115: Critical
+      250: Dead
   - type: Hunger
     starvationDamage:
       types:
@@ -79,7 +79,7 @@
     specificHeat: 50
     coldDamage:
       types:
-        Cold: 0.005 #per second, scales with temperature & other constants
+        Cold: 0.01 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat: 1.5 #per second, scales with temperature & other constants

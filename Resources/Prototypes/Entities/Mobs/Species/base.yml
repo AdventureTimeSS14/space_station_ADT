@@ -256,9 +256,9 @@
   - type: Blindable
   # Other
   - type: Temperature
-    heatDamageThreshold: 335
+    heatDamageThreshold: 325
     coldDamageThreshold: 260
-    currentTemperature: 315.15
+    currentTemperature: 310.15
     specificHeat: 42
     coldDamage:
       types:
@@ -277,7 +277,7 @@
     implicitHeatRegulation: 500
     sweatHeatRegulation: 2000
     shiveringHeatRegulation: 2000
-    normalBodyTemperature: 315.15
+    normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 25
   - type: Perishable
   - type: Butcherable
