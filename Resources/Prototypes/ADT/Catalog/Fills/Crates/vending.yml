@@ -1,0 +1,8 @@
+- type: entity
+  id: CrateVendingMachineRestockAutoTuneVendFilled
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockAutoTuneVend
+        amount: 1

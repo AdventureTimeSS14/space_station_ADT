@@ -64,3 +64,49 @@
     color: "#c2adff"
   - type: TTS # Corvax-TTS
     voice: bebey
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineAutoTuneVend
+  name: AutoTune
+  description: feeling BASSed? time to TUNE into AutoVend! Take NOTES and let your audience TREBLE
+  components:
+  - type: Anchorable
+    delay: 999999
+  - type: VendingMachine
+    pack: AutoTuneVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+#  - type: Advertise
+#    pack: AutoTuneVendAds
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#4b93ad"
+  - type: UserInterface
+    interfaces:
+    - key: enum.VendingMachineUiKey.Key
+      type: VendingMachineBoundUserInterface
+    - key: enum.WiresUiKey.Key
+      type: WiresBoundUserInterface
+    - key: enum.InstrumentUiKey.Key
+      type: InstrumentBoundUserInterface
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    handheld: false
+  - type: TTS
+    voice: bebey
