@@ -31,3 +31,6 @@ preload_grids = false
 
 [admin]
 see_own_notes = true
+
+[discord]
+bans_webhook = "https://discord.com/api/webhooks/1105448231267205160/kiBITaVdAt0cjTrEJRozA-gDMVtEv5ZKCXePVnGQYoiDC6UPqKhBy9r0MvTePs9nxQ5i"
