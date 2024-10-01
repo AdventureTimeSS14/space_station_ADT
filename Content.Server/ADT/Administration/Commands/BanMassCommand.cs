@@ -45,6 +45,7 @@ public sealed class BanMassCommand : LocalizedCommands
         }
 
         reason = args[0];
+
         if (!uint.TryParse(args[1], out minutes))
         {
             shell.WriteLine(Loc.GetString("cmd-ban-invalid-minutes", ("minutes", args[1])));
@@ -54,21 +55,32 @@ public sealed class BanMassCommand : LocalizedCommands
 
         var player = shell.Player;
 
+        var targets = new List<string>();
         for (int i = 2; i < args.Length; i++)
         {
-            var target = args[i];
-            var located = await _locator.LookupIdByNameOrIdAsync(target);
+            targets.Add(args[i]);
+        }
+
+        var allTargets = argStr.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (var target in allTargets)
+        {
+            var trimmedTarget = target.Trim();
+            if (string.IsNullOrWhiteSpace(trimmedTarget))
+                continue;
+
+            var located = await _locator.LookupIdByNameOrIdAsync(trimmedTarget);
 
             if (located == null)
             {
-                shell.WriteError(Loc.GetString("cmd-ban-player", ("target", target)));
+                shell.WriteError(Loc.GetString("cmd-ban-player", ("target", trimmedTarget)));
                 continue;
             }
 
             var targetUid = located.UserId;
             var targetHWid = located.LastHWId;
 
-            _bans.CreateServerBan(targetUid, target, player?.UserId, null, targetHWid, minutes, severity, reason);
+            _bans.CreateServerBan(targetUid, trimmedTarget, player?.UserId, null, targetHWid, minutes, severity, reason);
         }
     }
 
