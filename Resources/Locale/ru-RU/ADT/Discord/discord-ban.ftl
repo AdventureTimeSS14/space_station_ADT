@@ -21,7 +21,7 @@ discord-ban-department-ban-username = Это департмент-бан
 discord-ban-department-ban-header = ### **Департмент-Бан | IDs { $banId }**
 discord-ban-department-ban-department = **Отдел:** { $department }
 
-#Ресурсы бана с панели
+# Ресурсы бана с панели
 discord-ban-panel-ban-username = Это бан (С панели)
 discord-ban-panel-ban-header = ### **UI-Бан** ###
 discord-ban-panel-ban-role-wrapper = { $role } (Роль, *ID: { $banId }*)

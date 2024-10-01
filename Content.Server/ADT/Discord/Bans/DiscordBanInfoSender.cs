@@ -16,12 +16,6 @@ public sealed class DiscordBanInfoSender : IDiscordBanInfoSender
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly DiscordWebhook _discord = default!;
-    private ISawmill _sawmill = default!;
-
-    public DiscordBanInfoSender()
-    {
-        Initialize();
-    }
 
     public async Task SendBanInfoAsync<TGenerator>(BanInfo info)
         where TGenerator : IDiscordBanPayloadGenerator, new()
@@ -41,14 +35,7 @@ public sealed class DiscordBanInfoSender : IDiscordBanInfoSender
 
         var payload = new TGenerator().Generate(info);
 
-        _sawmill.Debug(JsonSerializer.Serialize(info, new JsonSerializerOptions() { WriteIndented = true }));
-
         await _discord.CreateMessage(identifier, payload);
-    }
-
-    private void Initialize()
-    {
-        _sawmill = Logger.GetSawmill("admin.bans.discord");
     }
 
     private void AddAdditionalInfo(BanInfo info)
