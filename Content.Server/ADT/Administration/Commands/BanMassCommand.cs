@@ -1,4 +1,3 @@
-// ADT File
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
@@ -57,7 +56,7 @@ public sealed class BanMassCommand : LocalizedCommands
 
         for (int i = 2; i < args.Length; i++)
         {
-            var target = args[i]; // Get the current target string
+            var target = args[i];
             var located = await _locator.LookupIdByNameOrIdAsync(target);
 
             if (located == null)
