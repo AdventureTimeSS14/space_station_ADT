@@ -3291,3 +3291,34 @@ Entries:
       - {message: Добавлен (возвращён) транспорт!, type: Add}
     time: '2024-09-28T23:49:22Z'
     id: 397
+  - author: Шрёдька
+    changes:
+      - {message: 'Подтянуты коммиты с Корвакса, 29.09.2024.', type: Tweak}
+    time: '2024-09-29T09:20:37Z'
+    id: 398
+  - author: Kasey [Adnoda] Bitboxxer
+    changes:
+      - {message: Появился выбор одежды - предметов в меню настройки снаряжения Бригмедика
+          !, type: Add}
+    time: '2024-09-29T11:22:36Z'
+    id: 399
+  - author: eddiemercury
+    changes:
+      - {message: 'Руководство NanoTrasen вспомнило, что ОБР без пинпоинтера - как
+          дварф без пива. В базовое снаряжение всех ОБРовцев, включая Базовых и RIOT,
+          включены пинпоинтеры.', type: Add}
+    time: '2024-09-29T12:18:44Z'
+    id: 400
+  - author: Bolper
+    changes:
+      - {message: Добавлено веселье!, type: Add}
+      - {message: Удалено веселье!, type: Remove}
+      - {message: Изменено веселье!, type: Tweak}
+      - {message: Исправлено веселье!, type: Fix}
+    time: '2024-09-29T12:58:00Z'
+    id: 401
+  - author: FaDeOkno
+    changes:
+      - {message: Исправлено неправильное положение персонажей на транспорте, type: Fix}
+    time: '2024-09-29T13:16:13Z'
+    id: 402
