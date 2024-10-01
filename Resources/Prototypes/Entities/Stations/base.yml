@@ -92,6 +92,12 @@
           paths:
           - /Maps/ADTMaps/Shuttles/pioneer.yml
         # ADT-Mining-End
+        # ADT-Security-Start
+        security: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/sec_shuttle.yml
+        # ADT-Security-End
 
 - type: entity
   id: BaseStationCentcomm
