@@ -129,20 +129,18 @@ public sealed class BanPanelEui : BaseEui
         if (roles?.Count > 0)
         {
             var now = DateTimeOffset.UtcNow;
-
+            //Start-ADT-Tweak: логи банов для диса
             var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
-
             var startRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
             var currentRoleBanId = startRoleBanId;
-
             var rolesData = new List<string>();
-
+            //End-ADT-Tweak
             foreach (var role in roles)
             {
-                rolesData.Add(string.Format("{0}:{1}", role, currentRoleBanId++));
+                rolesData.Add(string.Format("{0}:{1}", role, currentRoleBanId++)); //ADT-Tweak
                 await _banManager.CreateRoleBan(targetUid, target, Player.UserId, addressRange, targetHWid, role, minutes, severity, reason, now);
             }
-
+            //Start-ADT-Tweak: логи банов для диса
             var roleBanInfo = new BanInfo
             {
                 BanId = string.Empty,
@@ -155,6 +153,7 @@ public sealed class BanPanelEui : BaseEui
             };
 
             await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(roleBanInfo);
+            //End-ADT-Tweak
 
             Close();
             return;

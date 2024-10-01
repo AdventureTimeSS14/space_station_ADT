@@ -91,12 +91,13 @@ public sealed class RoleBanCommand : IConsoleCommand
 
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
-
+        //Start-ADT-Tweak: логи банов для диса
         var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
         var newRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
+        //End-ADT-Tweak
 
         _bans.CreateRoleBan(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, job, minutes, severity, reason, DateTimeOffset.UtcNow);
-
+        //Start-ADT-Tweak: логи банов для диса
         var banInfo = new BanInfo
         {
             BanId = newRoleBanId is not null ? newRoleBanId.ToString()! : string.Empty,
@@ -109,6 +110,7 @@ public sealed class RoleBanCommand : IConsoleCommand
         };
 
         await _discordBanInfoSender.SendBanInfoAsync<RoleBanPayloadGenerator>(banInfo);
+        //End-ADT-Tweak
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

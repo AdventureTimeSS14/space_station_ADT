@@ -78,7 +78,7 @@ namespace Content.Server.IoC
             IoCManager.Register<JobWhitelistManager>();
             IoCManager.Register<PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
-            IoCManager.Register<IDiscordBanInfoSender, DiscordBanInfoSender>();
+            IoCManager.Register<IDiscordBanInfoSender, DiscordBanInfoSender>(); //ADT Tweak: логи банов для диса
         }
     }
 }

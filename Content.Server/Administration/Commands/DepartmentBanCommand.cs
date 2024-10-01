@@ -101,21 +101,18 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         // If you are trying to remove the following variable, please don't. It's there because the note system groups role bans by time, reason and banning admin.
         // Without it the note list will get needlessly cluttered.
         var now = DateTimeOffset.UtcNow;
-
+        //Start-ADT-Tweak: логи банов для диса
         var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
-
         var startRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
         var currentRoleBanId = startRoleBanId;
-
         var roleBanIds = new List<int?>();
-
+        //End-ADT-Tweak
         foreach (var job in departmentProto.Roles)
         {
-            roleBanIds.Add(currentRoleBanId++);
+            roleBanIds.Add(currentRoleBanId++); //ADT-Tweak
             _banManager.CreateRoleBan(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, job, minutes, severity, reason, now);
-
         }
-
+        //Start-ADT-Tweak: логи банов для диса
         var banInfo = new BanInfo
         {
             BanId = roleBanIds.Count > 0 ? string.Join(", ", roleBanIds) : string.Empty,
@@ -128,6 +125,7 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         };
 
         await _discordBanInfoSender.SendBanInfoAsync<DepartmentBanPayloadGenerator>(banInfo);
+        //End-ADT-Tweak
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

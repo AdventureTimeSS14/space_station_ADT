@@ -94,12 +94,13 @@ public sealed class BanCommand : LocalizedCommands
 
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
-
+        //Start-ADT-Tweak: логи банов для диса
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+        //End-ADT-Tweak
 
         _bans.CreateServerBan(targetUid, target, player?.UserId, null, targetHWid, minutes, severity, reason);
-
+        //Start-ADT-Tweak: логи банов для диса
         var banInfo = new BanInfo
         {
             BanId = newServerBanId.ToString()!,
@@ -111,6 +112,7 @@ public sealed class BanCommand : LocalizedCommands
         };
 
         await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
+        //End-ADT-Tweak
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
