@@ -1,10 +1,16 @@
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Random;
-
+using Content.Shared.Roles;
 namespace Content.Shared.Interaction
 {
     public partial class SharedInteractionSystem
     {
+        private void OnRoleAdded(EntityUid uid, ClumsyComponent component, RoleAddedEvent ev)
+        {
+            if (ev.Antagonist) {
+                RemCompDeferred<ClumsyComponent>(uid);
+            }
+        }
         public bool RollClumsy(ClumsyComponent component, float chance)
         {
             return component.Running && _random.Prob(chance);

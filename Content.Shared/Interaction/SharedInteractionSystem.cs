@@ -38,6 +38,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Roles;
 
 namespace Content.Shared.Interaction
 {
@@ -107,6 +108,8 @@ namespace Content.Shared.Interaction
             SubscribeLocalEvent<UnremoveableComponent, GotUnequippedEvent>(OnUnequip);
             SubscribeLocalEvent<UnremoveableComponent, GotUnequippedHandEvent>(OnUnequipHand);
             SubscribeLocalEvent<UnremoveableComponent, DroppedEvent>(OnDropped);
+
+            SubscribeLocalEvent<ClumsyComponent, RoleAddedEvent>(OnRoleAdded);
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.AltActivateItemInWorld,
