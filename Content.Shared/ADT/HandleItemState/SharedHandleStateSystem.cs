@@ -54,54 +54,30 @@ public abstract class SharedHandleItemStateSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<HandleItemStateComponent, ComponentGetState>(OnHandleItemGetState);
-        SubscribeLocalEvent<HandleItemStateComponent, ComponentHandleState>(OnHandleItemState);
         SubscribeLocalEvent<HandleItemStateComponent, UseInHandEvent>(OnHandleItemActivate);
     }
 
     private void OnHandleItemActivate(EntityUid uid, HandleItemStateComponent scanner, UseInHandEvent args)
     {
-        Log.Debug($"{uid} было OnHandleItemActivate перед if (args.Handled)");
+        Log.Debug($"{uid} зашли в OnHandleItemActivate");
         if (args.Handled)
             return;
 
-        Log.Debug($"{uid} было OnHandleItemActivate");
-
-        SetScannerEnabled(uid, !scanner.Enabled, scanner);
+        scanner.Enabled = !scanner.Enabled;
         args.Handled = true;
+
+        UpdateAppearance(uid, scanner);
+        Log.Debug($"{uid} КОНЕЦ в OnHandleItemActivate");
     }
 
-    private void SetScannerEnabled(EntityUid uid, bool enabled, HandleItemStateComponent? scanner = null)
+    private void UpdateAppearance(EntityUid uid, HandleItemStateComponent scanner)
     {
-        if (!Resolve(uid, ref scanner) || scanner.Enabled == enabled)
-            return;
-
-        scanner.Enabled = enabled;
-        Dirty(uid, scanner);
-
-        Log.Debug($"{uid} было SetScannerEnabled");
-
+        Log.Debug($"{uid} в UpdateAppearance");
         if (TryComp<AppearanceComponent>(uid, out var appearance))
         {
-            _appearance.SetData(uid, HandleItemStateVisual.Visual, scanner.Enabled ? HandleItemStateVisual.On : HandleItemStateVisual.Off, appearance);
-            Log.Debug($"{uid} было TryComp<AppearanceComponent>");
+            var visualState = scanner.Enabled ? HandleItemStateVisual.On : HandleItemStateVisual.Off;
+            _appearance.SetData(uid, HandleItemStateVisual.Visual, visualState, appearance);
         }
-    }
-
-    private void OnHandleItemGetState(EntityUid uid, HandleItemStateComponent scanner, ref ComponentGetState args)
-    {
-        args.State = new HandleItemState(scanner.Enabled);
-        Log.Debug($"{uid} было OnHandleItemGetState");
-    }
-
-    private void OnHandleItemState(EntityUid uid, HandleItemStateComponent scanner, ref ComponentHandleState args)
-    {
-        if (args.Current is not HandleItemState state)
-            return;
-
-        SetScannerEnabled(uid, state.Enabled, scanner);
-        Log.Debug($"{uid} было OnHandleItemState");
     }
 }
 
