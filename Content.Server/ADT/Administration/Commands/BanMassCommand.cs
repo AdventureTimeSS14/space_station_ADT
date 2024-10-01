@@ -54,14 +54,8 @@ public sealed class BanMassCommand : LocalizedCommands
         }
 
         var player = shell.Player;
-
         var targets = new List<string>();
-        for (int i = 2; i < args.Length; i++)
-        {
-            targets.Add(args[i]);
-        }
-
-        var allTargets = argStr.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        var allTargets = argStr.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var target in allTargets)
         {
