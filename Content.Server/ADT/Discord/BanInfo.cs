@@ -7,6 +7,7 @@ public sealed class BanInfo
 {
     public string BanId { get; set; } = default!;
     public string Target { get; set; } = default!;
+    public List<string> Targets { get; set; } = default!;
 
     [JsonIgnore]
     public ICommonSession? Player { get; set; }
