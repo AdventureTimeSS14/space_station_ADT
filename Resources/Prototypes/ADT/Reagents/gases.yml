@@ -9,6 +9,12 @@
     Gas:
       effects:
       - !type:GenericStatusEffect
+        # Filo tweak
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        # Filo tweak
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add

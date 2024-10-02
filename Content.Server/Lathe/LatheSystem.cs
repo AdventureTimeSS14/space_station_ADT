@@ -233,10 +233,14 @@ namespace Content.Server.Lathe
                     //ADT tweak start
                     if (TryComp<DocumentPrinterComponent>(uid, out var printerComponent))
                     {
-                        var tuple = printerComponent.Queue.First();
-                        if (tuple.Item2.Result.Equals(resultProto))
-                            RaiseLocalEvent(uid, new PrintingDocumentEvent(result, tuple.Item1));
-                        printerComponent.Queue.Remove(tuple);
+                        (EntityUid, LatheRecipePrototype) tuple;
+                        if (printerComponent.Queue.Count > 0)
+                        {
+                            tuple = printerComponent.Queue.First();
+                            if (tuple.Item2.Result.Equals(resultProto))
+                                RaiseLocalEvent(uid, new PrintingDocumentEvent(result, tuple.Item1));
+                            printerComponent.Queue.Remove(tuple);
+                        }
                     }
                     //ADT tweak end
                     _stack.TryMergeToContacts(result);
@@ -386,7 +390,16 @@ namespace Content.Server.Lathe
                 for (var i = 0; i < args.Quantity; i++)
                 {
                     if (TryAddToQueue(uid, recipe, component))
+                    {
                         count++;
+                        //ADT Tweak start
+                        if (TryComp<DocumentPrinterComponent>(uid, out var comp))
+                        {
+                            // if (recipe is not null) // А НАХУЯ Я ВООБЩЕ ЭТО НАПИСАЛ?
+                            comp.Queue.Add((args.Actor, recipe));
+                        }
+                        //ADT tweak end
+                    }
                     else
                         break;
                 }
@@ -398,13 +411,6 @@ namespace Content.Server.Lathe
                 }
             }
             TryStartProducing(uid, component);
-            //ADT Tweak start
-            if (TryComp<DocumentPrinterComponent>(uid, out var comp))
-            {
-                if (recipe is not null)
-                    comp.Queue.Add((args.Actor, recipe));
-            }
-            //ADT tweak end
             UpdateUserInterfaceState(uid, component);
         }
 

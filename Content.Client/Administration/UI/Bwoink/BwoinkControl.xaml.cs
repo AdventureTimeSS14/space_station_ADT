@@ -183,6 +183,14 @@ namespace Content.Client.Administration.UI.Bwoink
             {
                 uiController.PopOut();
             };
+
+            // ADT-Tweak-Start
+            Playerpanel.OnPressed += _ =>
+            {
+                if (_currentPlayer is not null)
+                    _console.ExecuteCommand($"playerpanel \"{_currentPlayer.Username}\"");
+            };
+            // ADT-Tweak-End
         }
 
         public void OnBwoink(NetUserId channel)
@@ -230,6 +238,11 @@ namespace Content.Client.Administration.UI.Bwoink
 
             Follow.Visible = _adminManager.CanCommand("follow");
             Follow.Disabled = !Follow.Visible || disabled;
+
+            // ADT-Tweak-Start
+            Playerpanel.Visible = _adminManager.HasFlag(AdminFlags.Ban);
+            Playerpanel.Disabled = !Playerpanel.Visible || disabled;
+            // ADT-Tweak-End
         }
 
         private string FormatTabTitle(ItemList.Item li, PlayerInfo? pl = default)

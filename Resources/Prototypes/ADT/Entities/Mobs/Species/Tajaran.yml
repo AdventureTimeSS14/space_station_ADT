@@ -18,7 +18,7 @@
       state: tajaran_m
     - type: Damageable
       damageContainer: Biological
-      damageModifierSet: Fur
+      damageModifierSet: Tajaran
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -30,7 +30,7 @@
           Piercing: 5
     - type: Temperature
       heatDamageThreshold: 400
-      coldDamageThreshold: 200
+      coldDamageThreshold: 240
       currentTemperature: 310.15
       specificHeat: 46
       coldDamage:
@@ -42,7 +42,11 @@
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
-    - type: Perishable
+    - type: TemperatureSpeed
+      thresholds:
+        273: 0.8
+        260: 0.6
+        240: 0.4
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -52,8 +56,37 @@
       netsync: false
       noRot: true
       drawdepth: Mobs
-      scale: 0.95, 0.95
+      scale: 0.9, 0.9
     - type: Wagging
+    - type: InteractionPopup
+      successChance: 1
+      interactSuccessString: petting-success-generic
+      interactSuccessSound: /Audio/ADT/Felinid/cat_purr1.ogg
+      messagePerceivedByOthers: petting-success-soft-floofy-others
+      interactSuccessSpawn: EffectHearts
+      interactDelay: 4
+    - type: Vocal
+      # maleScream: /Audio/Voice/Human/malescream_1.ogg
+      # femaleScream: /Audio/Voice/Human/femalescream_2.ogg
+      wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
+      sounds:
+        Male: ADTMaleTajaran
+        Female: ADTFemaleTajaran
+        Unsexed: ADTMaleTajaran
+    - type: LanguageSpeaker
+      speaks:
+      - GalacticCommon
+      - SikTaj
+      - CintaTaj
+      understands:
+      - GalacticCommon
+      - SikTaj
+      - CintaTaj
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 0.95
+      short: true
+      shortscale: 0.85
 
 - type: entity
   save: false
