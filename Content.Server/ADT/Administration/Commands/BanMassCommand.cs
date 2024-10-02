@@ -87,7 +87,7 @@ public sealed class BanMassCommand : LocalizedCommands
             //End-ADT-Tweak
 
             _bans.CreateServerBan(targetUid, trimmedTarget, player?.UserId, null, targetHWid, minutes, severity, reason);
-             //Start-ADT-Tweak: логи банов для диса
+            //Start-ADT-Tweak: логи банов для диса
             var banInfo = new BanInfo
             {
                 BanId = newServerBanId.ToString()!,
