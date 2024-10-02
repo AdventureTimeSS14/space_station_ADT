@@ -15,6 +15,7 @@
     - MeteorSwarmScheduler
 
 - type: gamePreset
+  showInVote: false # secret
   id: Heretic
   alias:
     - heretic
