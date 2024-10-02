@@ -87,19 +87,19 @@ public sealed class BanMassCommand : LocalizedCommands
             //End-ADT-Tweak
 
             _bans.CreateServerBan(targetUid, trimmedTarget, player?.UserId, null, targetHWid, minutes, severity, reason);
+             //Start-ADT-Tweak: логи банов для диса
+            var banInfo = new BanInfo
+            {
+                BanId = newServerBanId.ToString()!,
+                Target = target,
+                Player = player,
+                Minutes = minutes,
+                Reason = reason,
+                Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
+            };
+            await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
+            //End-ADT-Tweak
         }
-        //Start-ADT-Tweak: логи банов для диса
-        var banInfo = new BanInfo
-        {
-            //BanId = newServerBanId.ToString()!,
-            Targets = targets,
-            //Player = player,
-            Minutes = minutes,
-            Reason = reason,
-            Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
-        };
-        await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
-        //End-ADT-Tweak
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
