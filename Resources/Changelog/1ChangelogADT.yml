@@ -3382,3 +3382,8 @@ Entries:
       - {message: Пофикшены костыли на игральных картах., type: Fix}
     time: '2024-10-02T09:36:16Z'
     id: 412
+  - author: Mirokko
+    changes:
+      - {message: Исправлено заковывание стяжками., type: Fix}
+    time: '2024-10-02T10:08:50Z'
+    id: 413
