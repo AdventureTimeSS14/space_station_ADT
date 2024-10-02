@@ -1,4 +1,3 @@
-using Content.Shared.Interaction.Events;
 using Content.Shared.ADT.HandleItemState;
 using Content.Shared.Interaction;
 
@@ -32,7 +31,5 @@ public sealed class EnabledStateSystem : EntitySystem
         }
 
         args.Handled = true;
-
-        RaiseLocalEvent(ent, new EnabledStateChangedEvent(oldState, !oldState));
     }
 }
