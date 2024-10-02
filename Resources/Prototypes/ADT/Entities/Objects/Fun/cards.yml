@@ -6,21 +6,20 @@
   description: A high-tech scanning device that uses Terahertz Radiation to detect subfloor infrastructure.
   abstract: true
   components:
-  - type: Sprite #Resources/Textures/ADT/Objects/Fun/cards.rsi
+  - type: Sprite
     sprite: ADT/Objects/Fun/cards.rsi
     scale: 0.55, 0.55
     layers:
     - state: back-off
-      map: ["base"]
-  - type: TrayScanner
-    range: 0.000000000001
+      map: ["back-off"]
+  - type: EnabledState
   - type: Item
     size: Tiny
     sprite: ADT/Objects/Fun/cards.rsi
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs2-on }
           Off: { state: back-off }
@@ -193,7 +192,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs2-on }
           Off: { state: back-off }
@@ -204,7 +203,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs3-on }
           Off: { state: back-off }
@@ -215,7 +214,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs4-on }
           Off: { state: back-off }
@@ -226,7 +225,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs5-on }
           Off: { state: back-off }
@@ -237,7 +236,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs6-on }
           Off: { state: back-off }
@@ -248,7 +247,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs7-on }
           Off: { state: back-off }
@@ -259,7 +258,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs8-on }
           Off: { state: back-off }
@@ -270,7 +269,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs9-on }
           Off: { state: back-off }
@@ -281,7 +280,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: clubs10-on }
           Off: { state: back-off }
@@ -292,7 +291,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: aceofclubs-on }
           Off: { state: back-off }
@@ -303,7 +302,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: jackofclubs-on }
           Off: { state: back-off }
@@ -314,7 +313,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: queenofclubs-on }
           Off: { state: back-off }
@@ -325,7 +324,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: kingofclubs-on }
           Off: { state: back-off }
@@ -337,7 +336,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds2-on }
           Off: { state: back-off }
@@ -348,7 +347,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds3-on }
           Off: { state: back-off }
@@ -359,7 +358,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds4-on }
           Off: { state: back-off }
@@ -370,7 +369,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds5-on }
           Off: { state: back-off }
@@ -382,7 +381,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds6-on }
           Off: { state: back-off }
@@ -393,7 +392,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds7-on }
           Off: { state: back-off }
@@ -404,7 +403,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds8-on }
           Off: { state: back-off }
@@ -415,7 +414,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds9-on }
           Off: { state: back-off }
@@ -426,7 +425,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: dimonds10-on }
           Off: { state: back-off }
@@ -438,7 +437,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: aceofdimonds-on }
           Off: { state: back-off }
@@ -449,7 +448,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: jackofdimonds-on }
           Off: { state: back-off }
@@ -460,7 +459,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: kingofdimonds-on }
           Off: { state: back-off }
@@ -472,7 +471,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: queenofdimonds-on }
           Off: { state: back-off }
@@ -484,7 +483,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts2-on }
           Off: { state: back-off }
@@ -495,7 +494,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts3-on }
           Off: { state: back-off }
@@ -506,7 +505,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts4-on }
           Off: { state: back-off }
@@ -517,7 +516,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts5-on }
           Off: { state: back-off }
@@ -529,7 +528,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts6-on }
           Off: { state: back-off }
@@ -540,7 +539,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts7-on }
           Off: { state: back-off }
@@ -551,7 +550,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts8-on }
           Off: { state: back-off }
@@ -562,7 +561,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts9-on }
           Off: { state: back-off }
@@ -573,7 +572,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: hearts10-on }
           Off: { state: back-off }
@@ -585,7 +584,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: aceofhearts-on }
           Off: { state: back-off }
@@ -596,7 +595,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: jackofhearts-on }
           Off: { state: back-off }
@@ -607,7 +606,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: kingofhearts-on }
           Off: { state: back-off }
@@ -619,7 +618,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: queenofhearts-on }
           Off: { state: back-off }
@@ -631,7 +630,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades2-on }
           Off: { state: back-off }
@@ -642,7 +641,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades3-on }
           Off: { state: back-off }
@@ -653,7 +652,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades4-on }
           Off: { state: back-off }
@@ -664,7 +663,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades5-on }
           Off: { state: back-off }
@@ -676,7 +675,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades6-on }
           Off: { state: back-off }
@@ -687,7 +686,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades7-on }
           Off: { state: back-off }
@@ -698,7 +697,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades8-on }
           Off: { state: back-off }
@@ -709,7 +708,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades9-on }
           Off: { state: back-off }
@@ -720,7 +719,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: spades10-on }
           Off: { state: back-off }
@@ -732,7 +731,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: aceofspades-on }
           Off: { state: back-off }
@@ -743,7 +742,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: jackofspades-on }
           Off: { state: back-off }
@@ -754,7 +753,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: kingofspades-on }
           Off: { state: back-off }
@@ -766,19 +765,19 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: queenofspades-on }
           Off: { state: back-off }
 
-#Джокеры 
+#Джокеры
 - type: entity
   parent: ADTFunCardBase
   id: ADTFunCardBlackJoker
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: blackjoker-on }
           Off: { state: back-off }
@@ -789,7 +788,7 @@
   components:
   - type: GenericVisualizer
     visuals:
-      enum.TrayScannerVisual.Visual:
+      enum.HandleEnabledItemStateVisual.Visual:
         base:
           On: { state: redjoker-on }
           Off: { state: back-off }
