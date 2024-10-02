@@ -158,6 +158,14 @@
         - !type:ReagentThreshold
           reagent: Plasma
           min: 1
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: true
+        ratios:
+          BZ: 0.4
+          Plasma: -1.0
       # End ADT tweak
       # Cant be added until I add metabolism effects on reagent removal
       - !type:AdjustAlert
@@ -172,7 +180,6 @@
       methods: [ Touch ]
       effects:
       - !type:FlammableReaction
-
 
 - type: reagent
   id: Tritium
