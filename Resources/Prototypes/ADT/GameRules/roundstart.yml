@@ -51,7 +51,6 @@
 - type: entity
   parent: BaseHereticRule
   id: HereticGameRule
-  showInVote: false # secret
   components:
   - type: GameRule
     minPlayers: 25
