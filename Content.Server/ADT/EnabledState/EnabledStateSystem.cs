@@ -1,7 +1,7 @@
-using Content.Shared.ADT.HandleItemState;
+using Content.Shared.ADT.HandleItemStateVisual;
 using Content.Shared.Interaction;
 
-namespace Content.Server.ADT.Fun;
+namespace Content.Server.ADT.EnabledState;
 
 public sealed class EnabledStateSystem : EntitySystem
 {

@@ -1,4 +1,4 @@
-namespace Content.Server.ADT.Fun;
+namespace Content.Server.ADT.EnabledState;
 
 [RegisterComponent]
 public sealed partial class EnabledStateComponent : Component
