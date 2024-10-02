@@ -1,12 +1,4 @@
 - type: cargoProduct
-  id: ADTFunCrateWedding
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/white_bouquet.rsi
-    state: icon
-  product: ADTCrateWedding
-  cost: 1500
-  
-- type: cargoProduct
   id: ADTFunOktoberfestClothes
   icon:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi
@@ -32,6 +24,7 @@
     sprite: ADT/Objects/Weapons/Melee/white_bouquet.rsi
     state: icon
   product: ADTCrateWedding
+  category: cargoproduct-category-name-fun
   cost: 1500
   
 - type: cargoProduct
@@ -40,4 +33,5 @@
     sprite: ADT/Objects/Misc/RingBox.rsi
     state: box
   product: RingBox
+  category: cargoproduct-category-name-fun
   cost: 8000
