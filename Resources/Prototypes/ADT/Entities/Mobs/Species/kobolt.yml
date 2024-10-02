@@ -14,7 +14,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.8, 0.8
+    scale: 0.85, 0.85
   - type: Body
     prototype: Kobolt
     requiredLegs: 2
@@ -30,7 +30,7 @@
       types:
         Piercing: 5
   - type: Temperature
-    heatDamageThreshold: 400
+    heatDamageThreshold: 380
     coldDamageThreshold: 260  #starting temperature damage treshold
     currentTemperature: 310.15
     specificHeat: 46
@@ -43,7 +43,20 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 4.5
-  - type: Perishable
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    - Draconic
+    - CintaTaj
+    understands:
+    - GalacticCommon
+    - Draconic
+    - CintaTaj
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 0.9
+    short: true
+    shortscale: 0.8
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -53,3 +66,8 @@
   components:
   - type: HumanoidAppearance
     species: KoboltSpecies
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    scale: 0.85, 0.85
