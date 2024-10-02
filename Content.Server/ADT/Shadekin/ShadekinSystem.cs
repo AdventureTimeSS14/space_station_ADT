@@ -23,6 +23,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Mech.Components;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -126,9 +127,16 @@ public sealed partial class ShadekinSystem : EntitySystem
             return;
         // if (_interaction.InRangeUnobstructed(uid, args.Target, -1f))
         //     return;
+
+        if (HasComp<MechPilotComponent>(uid))
+        {
+            return;
+        }
+
         if (!TryUseAbility(uid, 50))
             return;
         args.Handled = true;
+
         if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
             _pulling.TryStopPull(puller.Pulling.Value, pullable);
         _transform.SetCoordinates(uid, args.Target);
@@ -161,7 +169,10 @@ public sealed partial class ShadekinSystem : EntitySystem
         var coordsValid = false;
         EntityCoordinates coords = Transform(uid).Coordinates;
 
-        if (TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable), true))
+        if (
+            (TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable), true))
+            || HasComp<MechPilotComponent>(uid)
+        )
         {
             comp.MaxedPowerAccumulator = 0f;
             return;
