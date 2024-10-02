@@ -51,6 +51,7 @@
 - type: entity
   parent: BaseHereticRule
   id: HereticGameRule
+  showInVote: false # secret
   components:
   - type: GameRule
     minPlayers: 25
@@ -67,3 +68,25 @@
       mindComponents:
       - type: HereticRole
         prototype: Heretic
+
+
+- type: entityTable
+  id: ExtendedGameRulesTable
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entity
+  id: ExtendedStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: ExtendedGameRulesTable

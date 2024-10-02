@@ -276,8 +276,8 @@
     children:
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
-      # - !type:NestedSelector # ADT Extended nerf
-      #   tableId: BasicAntagEventsTable
+      - !type:NestedSelector
+        tableId: BasicAntagEventsTable
       - !type:NestedSelector
         tableId: CargoGiftsTable
       - !type:NestedSelector

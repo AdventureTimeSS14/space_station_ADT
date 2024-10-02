@@ -3,7 +3,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: false # secret
+  showInVote: true 
   description: survival-description
   rules:
     - MeteorSwarmScheduler
@@ -77,7 +77,7 @@
   showInVote: true #2boring2vote
   description: extended-description
   rules:
-  - BasicStationEventScheduler
+  - ExtendedGameRulesTable #ADT extended
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
