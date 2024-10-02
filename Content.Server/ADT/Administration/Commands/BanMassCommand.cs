@@ -81,13 +81,13 @@ public sealed class BanMassCommand : LocalizedCommands
             var targetUid = located.UserId;
             var targetHWid = located.LastHWId;
 
-            //Start-ADT-Tweak: логи банов для диса
+            //Start логи банов для диса
             var lastServerBan = await _dbManager.GetLastServerBanAsync();
             var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
-            //End-ADT-Tweak
+            //End
 
             _bans.CreateServerBan(targetUid, trimmedTarget, player?.UserId, null, targetHWid, minutes, severity, reason);
-            //Start-ADT-Tweak: логи банов для диса
+            //Start логи банов для диса
             var banInfo = new BanInfo
             {
                 BanId = newServerBanId.ToString()!,
@@ -98,7 +98,7 @@ public sealed class BanMassCommand : LocalizedCommands
                 Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
             };
             await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
-            //End-ADT-Tweak
+            //End
         }
     }
 
