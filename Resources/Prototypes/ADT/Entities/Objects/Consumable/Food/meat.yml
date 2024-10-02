@@ -80,7 +80,7 @@
           Quantity: 3
   - type: SliceableFood
     count: 3
-    slice: FoodMeatShadekinCutletCooked
+    slice: ADTFoodMeatShadekinCutletCooked
   - type: FoodSequenceElement
     entries:
       Burger: ADTMeatShadekin
