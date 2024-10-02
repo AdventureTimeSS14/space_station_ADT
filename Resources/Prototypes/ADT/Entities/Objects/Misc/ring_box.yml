@@ -1,6 +1,6 @@
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
-  id: RingBox
+  id: ADTRingBox
   name: ring box
   description: very good.
   components:
@@ -20,13 +20,13 @@
     heldPrefix: box
   - type: StorageFill
     contents:
-    - id: ClothingHandsRingPlazma
+    - id: ADTClothingHandsRingPlazma
       amount: 1
-    - id: ClothingHandsRingEmerald
+    - id: ADTClothingHandsRingEmerald
       amount: 1
-    - id: ClothingHandsRingBlood
+    - id: ADTClothingHandsRingBlood
       amount: 1
-    - id: ClothingHandsRingTurk
+    - id: ADTClothingHandsRingTurk
       amount: 1
   - type: StaticPrice
     price: 500

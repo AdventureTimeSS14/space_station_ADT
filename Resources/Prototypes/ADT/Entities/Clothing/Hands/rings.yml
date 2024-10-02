@@ -1,11 +1,11 @@
 - type: entity
   parent: ClothingHandsBase
-  id: ClothingHandsRingBlood
+  id: ADTClothingHandsRingBlood
   name: blood ring
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/RingBlood.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
   - type: Clothing
     sprite: ADT/Clothing/Hands/RingBlood.rsi
   - type: Item
@@ -15,14 +15,14 @@
     
 - type: entity
   parent: ClothingHandsBase
-  id: ClothingHandsRingEmerald
+  id: ADTClothingHandsRingEmerald
   name: emerald ring
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/RingEmerald.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/RingEmerald.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
   - type: Item
     size: Tiny
   - type: StaticPrice
@@ -30,14 +30,14 @@
 
 - type: entity
   parent: ClothingHandsBase
-  id: ClothingHandsRingPlazma
+  id: ADTClothingHandsRingPlazma
   name: plazma ring
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/RingPlazma.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/RingPlazma.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
   - type: Item
     size: Tiny
   - type: StaticPrice
@@ -45,14 +45,14 @@
 
 - type: entity
   parent: ClothingHandsBase
-  id: ClothingHandsRingTurk
+  id: ADTClothingHandsRingTurk
   name: turk ring
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/RingTurk.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/RingTurk.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
   - type: Item
     size: Tiny
   - type: StaticPrice

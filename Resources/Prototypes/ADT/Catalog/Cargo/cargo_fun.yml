@@ -32,6 +32,6 @@
   icon:
     sprite: ADT/Objects/Misc/RingBox.rsi
     state: box
-  product: RingBox
+  product: ADTRingBox
   category: cargoproduct-category-name-fun
   cost: 8000
