@@ -346,7 +346,6 @@ namespace Content.Shared.Cuffs
                     return;
                 component = newComponent;
                 // ADT-Tweak-End
-
                 component.Used = true;
                 _audio.PlayPredicted(component.EndCuffSound, uid, user);
 
