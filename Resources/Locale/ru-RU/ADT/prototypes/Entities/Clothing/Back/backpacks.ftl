@@ -14,4 +14,3 @@ ent-ADTClothingBackpackBlackLadySatchel = черная дамская сумоч
 ent-ADTClothingBackpackLeatherLadySatchel = кожаный ранец
     .desc = Для тех, кто снова хочет оказаться в школе.
 
-ent-ADTClothingBackpackSeniorSecurityFilled = { ent-ClothingBackpackSecurity }
