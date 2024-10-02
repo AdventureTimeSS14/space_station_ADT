@@ -5,12 +5,6 @@
   id: BaseMobVulpkanin
   abstract: true
   components:
-    - type: HumanoidAppearance
-      species: VulpkaninSpecies
-    - type: Body
-      prototype: VulpkaninBody
-      requiredLegs: 2
-    - type: RoarAccent
     - type: Hunger
     - type: Thirst
     - type: Speech
@@ -25,7 +19,13 @@
       state: vulpkanin_m
     - type: Damageable
       damageContainer: Biological
-      damageModifierSet: Fur
+      damageModifierSet: ADTVulpkanin
+    - type: HumanoidAppearance
+      species: VulpkaninSpecies
+    - type: Body
+      prototype: VulpkaninBody
+      requiredLegs: 2
+    - type: RoarAccent
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -36,8 +36,8 @@
         types:
           Piercing: 5
     - type: Temperature
-      heatDamageThreshold: 400
-      coldDamageThreshold: 200
+      heatDamageThreshold: 325
+      coldDamageThreshold: 230
       currentTemperature: 310.15
       specificHeat: 46
       coldDamage:
@@ -46,16 +46,43 @@
       heatDamage:
         types:
           Heat : 0.1 #per second, scales with temperature & other constants
+    - type: TemperatureSpeed
+      thresholds:
+        283: 0.8
+        260: 0.6
+        230: 0.4
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
-    - type: Perishable
     - type: Sprite
       netsync: false
       noRot: true
       drawdepth: Mobs
       scale: 0.95, 0.95
     - type: Wagging
+    - type: Inventory
+      speciesId: vulp
+    - type: InteractionPopup
+      successChance: 1
+      interactSuccessString: hugging-success-generic
+      interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+      messagePerceivedByOthers: hugging-success-generic-others
+    #- type: Vocal
+     # maleScream: /Audio/Voice/Human/malescream_1.ogg
+      #femaleScream: /Audio/Voice/Human/femalescream_2.ogg
+    # Frontier - languages mechanic
+    - type: LanguageSpeaker
+      speaks:
+      - GalacticCommon
+      - Canilunzt
+      understands:
+      - GalacticCommon
+      - Canilunzt
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 1
+      short: true
+      shortscale: 0.9
 
 - type: entity
   save: false

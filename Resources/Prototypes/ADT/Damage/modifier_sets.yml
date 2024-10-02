@@ -1,49 +1,62 @@
 - type: damageModifierSet
-  id: Fur # 1) - ебучий годспид, балансим уроном. 2) - шерсть должна гореть
+  id: Tajaran # ослабление за счет скорости
   coefficients:
     Blunt: 1
     Piercing: 1.2
     Slash: 1.2
     Cold: 0.6
-    Heat: 1.5
+    Heat: 1.3
     Poison: 1
 
 - type: damageModifierSet
-  id: Kobalt # мне даже жаль кобальдов, но жизнь такова какова она какова и больше не какова
+  id: ADTVulpkanin # немного влияния шерсти на урон
   coefficients:
-    Blunt: 1
+    Blunt: 0.95
     Piercing: 1
-    Slash: 1.0
+    Slash: 1
+    Cold: 0.6
+    Heat: 1.3
+    Poison: 1
+
+- type: damageModifierSet
+  id: Kobalt # грубая кожа, но маленькие и мало хп
+  coefficients:
+    Blunt: 1.1
+    Piercing: 0.95
+    Slash: 0.9
     Cold: 1.5
     Heat: 0.9
     Poison: 1
     Bloodloss: 0.3
 
 - type: damageModifierSet
-  id: Demon # они вообще то мутанты, но кого ебёт так?
+  id: Demon # Обмен сопротивлений ну и они склонны к раку(?)
   coefficients:
     Blunt: 1
-    Piercing: 1
-    Slash: 1.0
-    Cold: 0.8
-    Heat: 0.8
+    Piercing: 1.1
+    Slash: 1.05
+    Cold: 0.7
+    Heat: 0.85
     Poison: 0.8
     Cellular: 1.5
 
 - type: damageModifierSet
-  id: Shadekin # пупупу
+  id: Shadekin # жертвы ради телепорта
   coefficients:
     Blunt: 1.2
     Piercing: 1.2
     Slash: 1.2
-    Cold: 0.8
-    Heat: 0.8
+    Cold: 0.7
+    Heat: 0.85
     Poison: 1
     Cellular: 1
 
 - type: damageModifierSet
-  id: Drask # саморезы
+  id: Drask # большие и хп больше + лечение, но медленнее и слабость к жаре
   coefficients:
+    Blunt: 1.1
+    Piercing: 0.85
+    Slash: 1.05
     Heat: 1.5
     Asphyxiation: 2.0
 
@@ -67,13 +80,13 @@
     Piercing: 10
 
 - type: damageModifierSet
-  id: Moth # Slightly worse at everything but cold
+  id: Moth # моли, слабее к острому и огню, быстрые в остутствии гравитации
   coefficients:
-    Blunt: 1
-    Piercing: 1.15
-    Slash: 1.15
+    Blunt: 0.9
+    Piercing: 1.1
+    Slash: 1.1
     Cold: 0.7
-    Heat: 1.5
+    Heat: 1.35
     Poison: 1.5
 
 - type: damageModifierSet
@@ -105,19 +118,22 @@
     Heat: 9
 
 - type: damageModifierSet
-  id: Ursus # мишк
+  id: Ursus # что то типо медленных танков, но слабы к проникающим.
   coefficients:
-    Blunt: 1.0
+    Blunt: 0.9
+    Slash: 0.8
+    Piercing: 1.15
+    Heat: 1.1
 
 - type: damageModifierSet
-  id: Felinid # мяу
+  id: Felinid # полу-люди полу-таяры
   coefficients:
     Blunt: 1.0
-    Piercing: 1.0
-    Slash: 1.0
-    Cold: 1.5
-    Heat: 1.0
-    Poison: 1.4
+    Piercing: 1.15
+    Slash: 1.1
+    Cold: 1.0
+    Heat: 1.2
+    Poison: 1.25
 
 - type: damageModifierSet
   id: Pretender

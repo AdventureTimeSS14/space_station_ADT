@@ -66,9 +66,15 @@
     heatDamage:
       types:
         Heat : 3 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      273: 0.8
+      255: 0.6
+      230: 0.4
   - type: Sprite # sprite again because we want different layer ordering
     noRot: true
     drawdepth: Mobs
+    scale: 0.93, 0.93
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -139,6 +145,11 @@
     understands:
     - GalacticCommon
     - Nian
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1
+    short: true
+    shortscale: 0.85
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -147,6 +158,10 @@
   components:
   - type: HumanoidAppearance
     species: Moth
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    scale: 0.93, 0.93
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

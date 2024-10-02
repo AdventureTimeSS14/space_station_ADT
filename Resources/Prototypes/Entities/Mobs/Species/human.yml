@@ -34,6 +34,14 @@
     understands:
     - GalacticCommon
     - SolCommon
+  #Start ADT tweak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.08
+    short: true
+    shortscale: 0.92
+  #End ADT tweak
+
 
 - type: entity
   parent: BaseSpeciesDummy
