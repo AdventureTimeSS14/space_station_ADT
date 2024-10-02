@@ -1,5 +1,3 @@
-using Robust.Shared.Serialization;
-
 namespace Content.Server.ADT.Fun;
 
 [RegisterComponent]

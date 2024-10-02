@@ -1,7 +1,5 @@
 using Content.Shared.Interaction.Events;
 using Content.Shared.ADT.HandleItemState;
-using Robust.Shared.Serialization;
-using Robust.Shared.GameStates;
 using Content.Shared.Interaction;
 
 namespace Content.Server.ADT.Fun;
