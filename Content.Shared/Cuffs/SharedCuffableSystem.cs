@@ -341,6 +341,11 @@ namespace Content.Shared.Cuffs
 
             if (!args.Cancelled && TryAddNewCuffs(target, user, uid, cuffable))
             {
+                // ADT-Tweak-Start: по механике, спавнятся новые наручники, у которых уже свой компонент. "Старый" уже не актуален.
+                if (!TryComp<HandcuffComponent>(cuffable.LastAddedCuffs, out var newComponent))
+                    return;
+                component = newComponent;
+                // ADT-Tweak-End
                 component.Used = true;
                 _audio.PlayPredicted(component.EndCuffSound, uid, user);
 
@@ -471,17 +476,9 @@ namespace Content.Shared.Cuffs
                 {
                     _stacks.Use(handcuff, 1, stackComp);
 
-                    if (_net.IsServer) /// let the server spawn because client mispredicts
-                    {
-                        var pos = Transform(target).Coordinates;
-                        handcuffsplit = Spawn("Zipties", pos); /// This should somehow get the proto ID instead of zipties, but fuck if I know how.
-                        return true;
-                    }
-                    else
-                    {
-                        handcuffsplit = null;
-                        return false;
-                    }
+                    var pos = Transform(target).Coordinates;
+                    handcuffsplit = Spawn(Prototype(handcuff)?.ID, pos);
+                    return true;
                 }
                 else
                 {
