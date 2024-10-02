@@ -13,7 +13,6 @@ public sealed class EnabledStateSystem : EntitySystem
 
     private void OnUseInHand(Entity<EnabledStateComponent> ent, ref ActivateInWorldEvent args)
     {
-        Log.Debug($"{ent} зашли в OnUseInHand");
         if (!Resolve(ent, ref ent.Comp!))
             return;
 
