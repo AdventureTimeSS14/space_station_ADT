@@ -2,7 +2,6 @@
   id: ShadekinSteak
   start: start
   graph:
-
   - node: start
     edges:
     - to: shadekin steak
@@ -11,6 +10,8 @@
         sound: /Audio/Effects/sizzle.ogg
       steps:
       - minTemperature: 340
+  - node: shadekin steak
+    entity: ADTFoodMeatShadekinCooked
 
 - type: constructionGraph
   id: ShadekinCutlet
@@ -25,4 +26,4 @@
       steps:
       - minTemperature: 340
   - node: shadekin cutlet
-    entity: ADTFoodMeatCutletShadekinCooked
+    entity: ADTFoodMeatShadekinCutletCooked

@@ -159,7 +159,7 @@
         conditions:
         - !type:OrganType
           type: Shadekin
-          shouldhave: true
+          shouldHave: true
         - !type:ReagentThreshold
           min: 15
         damage:
