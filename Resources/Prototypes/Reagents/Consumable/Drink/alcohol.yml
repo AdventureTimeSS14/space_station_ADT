@@ -191,6 +191,17 @@
         damage:
           groups:
             Brute: -1
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        - !type:OrganType
+          type: Drask
+        damage:
+          types:
+          Poison: 0.5
+      # End ADT tweak
       - !type:ChemVomit
         probability: 0.04
         conditions:

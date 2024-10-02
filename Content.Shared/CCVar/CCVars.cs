@@ -470,6 +470,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
 
+        /// <summary>
+        /// URL of the Discord webhook which will relay bans info to the channel.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordBansWebhook =
+            CVarDef.Create("discord.bans_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
         /*
         * Phantom
         */

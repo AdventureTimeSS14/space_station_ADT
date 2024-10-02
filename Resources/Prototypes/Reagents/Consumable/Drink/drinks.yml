@@ -454,7 +454,7 @@
         ignoreResistances: true
         damage:
           types:
-            Heat: 4
+            Heat: 1.5
         conditions:
         - !type:OrganType
           type: Novakid
@@ -465,7 +465,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 10 #Данный урон обусловлен тем, что есть такая вещь как регенерация, и челик очень плохо убивается. Возможны правки
+            Heat: 2 #Данный урон обусловлен тем, что есть такая вещь как регенерация, и челик очень плохо убивается. Возможны правки
         conditions:
         - !type:OrganType
           type: Novakid

@@ -37,7 +37,8 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Piercing: 5
+        Slash: 2
+        Piercing: 3
   - type: Temperature
     heatDamageThreshold: 400
     coldDamageThreshold: 193  #starting temperature damage treshold
@@ -49,10 +50,28 @@
     heatDamage:
       types:
         Heat : 0.3 #per second, scales with temperature & other constants
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
-  - type: Perishable
+  - type: LanguageSpeaker
+    speaks:
+      - GalacticCommon
+      - SolCommon
+      - Arkane
+    understands:
+      - GalacticCommon
+      - SolCommon
+      - Arkane
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.08
+    short: true
+    shortscale: 0.92
 
 - type: entity
   save: false
