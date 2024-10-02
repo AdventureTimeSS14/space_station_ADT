@@ -17,22 +17,13 @@
           Quantity: 1
   - type: SliceableFood
     count: 3
-    slice: ADTFoodMeatCutletShadekin
+    slice: ADTFoodMeatShadekinCutlet
   - type: InternalTemperature
     conductivity: 0.43
   - type: Tag
     tags:
     - Raw
     - Meat
-  - type: FoodSequenceElement
-    sprite:
-      sprite: ADT/Objects/Consumable/Food/meat.rsi
-      state: shadekin
-    entries:
-      burger:
-        name: food-sequence-burger-content-raw-meat-shadekin
-      taco:
-        name: food-sequence-content-raw-meat-shadekin
   - type: Construction
     graph: ShadekinSteak
     node: start
@@ -41,7 +32,7 @@
 - type: entity
   name: raw shadekin cutlet
   parent: FoodMeatBase
-  id: ADTFoodMeatCutletShadekin
+  id: ADTFoodMeatShadekinCutlet
   description: A raw shadekin cutlet.
   components:
   - type: Tag
@@ -60,20 +51,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: ADT/Objects/Consumable/Food/meat.rsi
-      state: shadekincutlet
-    entries:
-      burger:
-        name: food-sequence-burger-content-meat-shadekin
-      taco:
-        name: food-sequence-content-meat-shadekin
-      skewer:
-        name: food-sequence-content-meat-shadekin
-        sprite:
-          sprite: ADT/Objects/Consumable/Food/skewer.rsi
-          state: skewer-shadekin-meat
   - type: Construction
     graph: ShadekinCutlet
     node: start
@@ -98,26 +75,16 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 8
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 3
   - type: SliceableFood
     count: 3
-    slice: FoodMeatCutletShadekinCooked
+    slice: FoodMeatShadekinCutletCooked
   - type: FoodSequenceElement
-    sprite:
-      sprite: ADT/Objects/Consumable/Food/meat.rsi
-      state: shadekin-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-meat-shadekin
-      taco:
-        name: food-sequence-content-meat-shadekin
-      skewer:
-        name: food-sequence-content-meat-shadekin
-        sprite:
-          sprite: ADT/Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: ADTMeatShadekin
+      Taco: ADTMeatShadekin
   - type: Construction
     graph: ShadekinSteak
     node: shadekin steak
@@ -125,7 +92,7 @@
 - type: entity
   name: cutlet
   parent: FoodMeatBase
-  id: ADTFoodMeatCutletShadekinCooked
+  id: ADTFoodMeatShadekinCutletCooked
   description: A cooked meat cutlet. Needs some seasoning.
   components:
   - type: Tag
@@ -140,23 +107,13 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 3
         - ReagentId: Protein
           Quantity: 1
   - type: FoodSequenceElement
-    sprite:
-      sprite: ADT/Objects/Consumable/Food/meat.rsi
-      state: shadekincutlet-cooked
     entries:
-      burger:
-        sprite:
-          sprite: ADT/Objects/Consumable/Food/meat.rsi
-          state: shadekincutlet-cooked
-      skewer:
-        name: food-sequence-content-meat-shadekin
-        sprite:
-          sprite: ADT/Objects/Consumable/Food/meat.rsi
-          state: skewer-shadekin-meat
+      Burger: ADTShadekinCutlet
+      Taco: ADTShadekinCutlet
   - type: Construction
     graph: ShadekinCutlet
     node: shadekin cutlet
