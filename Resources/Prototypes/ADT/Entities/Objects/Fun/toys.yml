@@ -42,14 +42,14 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Reptilian/reptilian_screamogg
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
-      path: /Audio/Voice/Reptilian/reptilian_screamogg
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/Voice/Reptilian/reptilian_screamogg
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Reptilian/reptilian_screamogg
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
