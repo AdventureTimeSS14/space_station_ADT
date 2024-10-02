@@ -113,6 +113,9 @@
   id: ADTCardPlay
 
 - type: Tag
+  id: ADTCard
+
+- type: Tag
   id: ADTSyrelBattleAxe
 
 - type: Tag
