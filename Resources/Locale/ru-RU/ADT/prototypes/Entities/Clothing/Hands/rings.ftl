@@ -10,6 +10,3 @@ ent-ADTClothingHandsRingBlood = кольцо с кровавым алмазом
 ent-ADTClothingHandsRingTurk = кольцо с туркенитом
     .desc = Красивый кольцо ничем особенным не выделяется, но для своих цен они вполне приемлемы. На кольце виднеется торговый марка производителя "brothers S&K - jewelry factory".
     .suffix = { "" }
-ent-ADTRingBox = коробка с кольцами
-    .desc = Коробка, дороже чем твоя жизнь.
-    .suffix = { "" }

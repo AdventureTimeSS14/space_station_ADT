@@ -33,13 +33,6 @@
             - material: Durathread
               amount: 2
               doAfter: 1
-        - to: adtdeckchair
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 1
     - node: bed
       entity: Bed
       edges:
@@ -76,17 +69,6 @@
             - !type:SpawnPrototype
               prototype: MaterialDurathread1
               amount: 2
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: adtdeckchair
-      entity: ADTDeckChair
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
-              amount: 5
           steps:
             - tool: Screwing
               doAfter: 1

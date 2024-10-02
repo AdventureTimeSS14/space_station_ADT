@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: ADT/Objects/Misc/RingBox.rsi
+    sprite: ADT/Objects/Specific/Service/RingBox.rsi
     state: box
     layers:
     - state: box
@@ -15,7 +15,7 @@
   - type: Storage
     maxItemSize: Small
   - type: Item
-    sprite: ADT/Objects/Misc/RingBox.rsi
+    sprite: ADT/Objects/Specific/Service/RingBox.rsi
     size: Small
     heldPrefix: box
   - type: StorageFill

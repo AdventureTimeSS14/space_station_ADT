@@ -1,1 +1,0 @@
-ent-ADTFunCrateWedding = { ent-ADTCrateWedding }

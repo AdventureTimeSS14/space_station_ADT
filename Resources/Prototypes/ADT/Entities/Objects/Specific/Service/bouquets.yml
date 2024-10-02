@@ -1,12 +1,12 @@
 - type: entity
   parent: BaseItem
-  id: ADTObjectWeaponsMeleeWhiteBouquet  
+  id: ADTObjectWhiteBouquet  
   name: White bouquet
   description: Bouquet of white roses. Classic!
   components:
  # - type: Sharp
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/white_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.0 
@@ -15,18 +15,18 @@
         Slash: 1
   - type: Item
     size: Normal
-    sprite: ADT/Objects/Weapons/Melee/white_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
   - type: DisarmMalus
 
 - type: entity
   parent: BaseItem
-  id: ADTObjectWeaponsMeleeRoseBouquet
+  id: ADTObjectRoseBouquet
   name: Rose bouquet
   description: Delicate bouquet of pink hibiscus flowers. Especialy for her!
   components:
  # - type: Sharp
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/rose_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.0 
@@ -35,18 +35,18 @@
         Slash: 1
   - type: Item
     size: Normal
-    sprite: ADT/Objects/Weapons/Melee/rose_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
   - type: DisarmMalus
 
 - type: entity
   parent: BaseItem
-  id: ADTObjectWeaponsMeleeYellowBouquet
+  id: ADTObjectYellowBouquet
   name: Yellow bouquet
   description: This is a bouquet of yellow peonies. Especially for connoisseurs of peonies
   components:
  # - type: Sharp
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/yellow_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.0 
@@ -55,18 +55,18 @@
         Slash: 1
   - type: Item
     size: Normal
-    sprite: ADT/Objects/Weapons/Melee/yellow_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
   - type: DisarmMalus
 
 - type: entity
   parent: BaseItem
-  id: ADTObjectWeaponsMeleeBouquetWithBeer
+  id: ADTObjectBouquetWithBeer
   name: Bouquet with beer
   description: Be unique! GIve a bouquet that you can eat, at the same time knocking over a bottle of beer
   components:
  # - type: Sharp
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/bouquet_with_beer.rsi
+    sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.0 
@@ -75,18 +75,18 @@
         Slash: 1
   - type: Item
     size: Normal
-    sprite: ADT/Objects/Weapons/Melee/bouquet_with_beer.rsi
+    sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
   - type: DisarmMalus
 
 - type: entity
   parent: BaseItem
-  id: ADTObjectWeaponsMeleeBlackBouquet
+  id: ADTObjectBlackBouquet
   name: Black bouquet
   description: This roses are difinietly not colored, thay have always been like thah
   components:
  # - type: Sharp
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/black_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.0 
@@ -95,18 +95,18 @@
         Slash: 1
   - type: Item
     size: Normal
-    sprite: ADT/Objects/Weapons/Melee/black_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
   - type: DisarmMalus
 
 - type: entity
   parent: BaseItem
-  id: ADTObjectWeaponsMeleeLiliacBouquet
+  id: ADTObjectLiliacBouquet
   name: liliac roses bouquet
   description: This roses are difinietly not colored, thay have always been like thah
   components:
  # - type: Sharp
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/liliac_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.0 
@@ -115,5 +115,5 @@
         Slash: 1
   - type: Item
     size: Normal
-    sprite: ADT/Objects/Weapons/Melee/liliac_bouquet.rsi
+    sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
   - type: DisarmMalus

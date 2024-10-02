@@ -19,12 +19,12 @@
       - id: ADTClothingUniformBlackWeddingWomenSuit
       - id: ADTClothingUniformAiryBlackSuit
       - id: ADTClothingUniformAiryWhiteSuit
-      - id: ADTObjectWeaponsMeleeWhiteBouquet
-      - id: ADTObjectWeaponsMeleeRoseBouquet
-      - id: ADTObjectWeaponsMeleeYellowBouquet
-      - id: ADTObjectWeaponsMeleeBlackBouquet
-      - id: ADTObjectWeaponsMeleeBouquetWithBeer
-      - id: ADTObjectWeaponsMeleeLiliacBouquet
+      - id: ADTObjectWhiteBouquet
+      - id: ADTObjectRoseBouquet
+      - id: ADTObjectYellowBouquet
+      - id: ADTObjectBlackBouquet
+      - id: ADTObjectBouquetWithBeer
+      - id: ADTObjectLiliacBouquet
 
 - type: entity
   id: ADTCrateFunOktoberfestClothes
