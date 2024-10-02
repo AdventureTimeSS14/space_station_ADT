@@ -12,7 +12,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformJumpskirtBlueshieldJumpskirtTurtleneck
+  id: ADTClothingUniformJumpskirtTurtleneckBlueshield
   name: blueshield's turtleneck skirt
   description: blueshield's turtleneck
   components:
@@ -398,3 +398,89 @@
     - state: icon_vest
       map: ["foldedLayer"]
       visible: false
+
+#октоберфест
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShort
+  name: dirndl short
+  description: Traditional German dress with a short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshort.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshort.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShortGreen
+  name: dirndl short green
+  description: Traditional German dress with a green short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortgreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortgreen.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShortRed
+  name: dirndl short red
+  description: Traditional German dress with a red short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShortBlue
+  name: dirndl short blue
+  description: Traditional German dress with a blue short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlBlue
+  name: dirndl blue
+  description: Traditional German dress with a blue skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlRed
+  name: dirndl red
+  description: Traditional German dress with a red skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlGreen
+  name: dirndl green
+  description: Traditional German dress with a green skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE

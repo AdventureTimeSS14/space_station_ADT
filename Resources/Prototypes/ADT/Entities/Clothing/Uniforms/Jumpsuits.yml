@@ -23,7 +23,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformJumpsuitBlueshieldTurtleneck
+  id: ADTClothingUniformJumpsuitTurtleneckBlueshield
   name: blueshield's turtleneck
   description: blueshield's turtleneck
   components:
@@ -746,3 +746,134 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_gray.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/jumpsuit_sec_moges_gray.rsi
+
+#октоберфест
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestWhite
+  name: oktoberfest white suit
+  description: Traditional Bavarian men's suit with short trousers and a white shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_white.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_white.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestBlueCheckered
+  name: oktoberfest blue checkered suit
+  description: Traditional Bavarian men's suit with short trousers and a blue checkered shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_bluecheck.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_bluecheck.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestGreenVest
+  name: oktoberfest suit with a green vest
+  description: Traditional Bavarian men's suit with short trousers and a green vest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_greenvest.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_greenvest.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestRedCheckered
+  name: oktoberfest red checkered suit
+  description: Traditional Bavarian men's suit with short trousers and a red checkered shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redcheck.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redcheck.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestGreenCheckered
+  name: oktoberfest green checkered suit
+  description: Traditional Bavarian men's suit with short trousers and a green checkered shirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_greencheck.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_greencheck.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestBlueVest
+  name: oktoberfest suit with a blue vest
+  description: Traditional Bavarian men's suit with short trousers and a blue vest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_bluevest.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_bluevest.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestRedVest
+  name: oktoberfest suit with a red vest
+  description: Traditional Bavarian men's suit with short trousers and a red vest.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redvest.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redvest.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCyberSun
+  name: Cybersun jumpsuit
+  description: Simple and style.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi
+
+#Игры Кальмара
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSquidGameOrganizer
+  name: squid game organizer suit
+  description: squid game organizer suit
+  suffix: Squid Games
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_org.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_org.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadSquidGameHood
+    requiredSlot:
+    - innerclothing
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSquidGamePlayer
+  name: squid game player suit
+  description: squid game player suit
+  suffix: Squid Games
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi

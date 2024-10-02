@@ -1,0 +1,57 @@
+- type: entity
+  name: weisswurst
+  parent: FoodMeatBase
+  id: ADTFoodMeatWeissWurst
+  description: Traditional white Bavarian sausage made of veal, lard and spices.
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meat.rsi #спрайт от Празата
+    state: weisswurst
+  - type: FlavorProfile
+    flavors:
+      - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 8
+
+- type: entity
+  name: bratwurst
+  parent: FoodMeatBase
+  id: ADTFoodMeatBratWurst
+  description: Fried pork sausage, very appetizing, but greasy.
+  suffix: Oktoberfest
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meat.rsi  #спрайт от Празата
+    state: bratwurst
+  - type: FlavorProfile
+    flavors:
+      - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 8

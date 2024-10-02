@@ -10,7 +10,7 @@ namespace Content.Shared.Stealth.Components;
 /// Use other components (like StealthOnMove) to modify this component's visibility based on certain conditions.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedStealthSystem))]
+//[Access(typeof(SharedStealthSystem))] // ADT commented
 public sealed partial class StealthComponent : Component
 {
     /// <summary>

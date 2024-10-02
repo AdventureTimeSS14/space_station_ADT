@@ -191,34 +191,35 @@ SpyCrewMonitorEmpty: null
 SyndiCrewMonitor: null
 SyndiCrewMonitorEmpty: null
 
-SpawnVehicleWheelchair: null
-SpawnVehicleWheelchairFolded: null
-VehicleWheelchair: null
-VehicleWheelchairFolded: null
-VehicleSecwayStealObjective: null
-VehicleKeyJanicart: null
-VehicleKeySecway: null
-VehicleKeyATV: null
-VehicleKeySkeleton: null
-VehicleKeySyndicateSegway: null
-VehicleKeySkeletonMotorcycle: null
-VehicleSecway: null
-VehicleATV: null
-VehicleSyndicateSegway: null
-VehicleSkeletonMotorcycle: null
-VehicleUnicycle: null
-VehicleUnicycleFolded: null
-ActionVehicleHorn: null
-CrateFunATV: null
-CrateFunSyndicateSegway: null
-MobTaxiBot: null
+#ADT vehicles migration undone
+SpawnVehicleWheelchair: ADTSpawnVehicleWheelchair
+SpawnVehicleWheelchairFolded: ADTSpawnVehicleWheelchairFolded
+VehicleWheelchair: ADTVehicleWheelchair
+VehicleWheelchairFolded: ADTVehicleWheelchairFolded
+# VehicleSecwayStealObjective: ADTVehicleSecwayStealObjective
+VehicleKeyJanicart: ADTVehicleKeyJanicart
+VehicleKeySecway: ADTVehicleKeySecway
+VehicleKeyATV: ADTVehicleKeyATV
+VehicleKeySkeleton: ADTVehicleKeySkeleton
+VehicleKeySyndicateSegway: ADTVehicleKeySyndicateSegway
+VehicleKeySkeletonMotorcycle: ADTVehicleKeySkeletonMotorcycle
+VehicleSecway: ADTVehicleSecway
+VehicleATV: ADTVehicleATV
+VehicleSyndicateSegway: ADTVehicleSyndicateSegway
+VehicleSkeletonMotorcycle: ADTVehicleSkeletonMotorcycle
+VehicleUnicycle: ADTVehicleUnicycle
+VehicleUnicycleFolded: ADTVehicleUnicycleFolded
+ActionVehicleHorn: ADTActionVehicleHorn
+CrateFunATV: ADTCrateFunATV
+CrateFunSyndicateSegway: ADTCrateFunSyndicateSegway
+MobTaxiBot: ADTMobTaxiBot
 # MobSupplyBot: null
-SpawnVehicleMotobike: null
-SpawnVehicleATV: null
-SpawnVehicleSecway: null
-SpawnVehicleJanicart: null
-VehicleJanicart: null
-VehicleJanicartDestroyed: null
+SpawnVehicleMotobike: ADTSpawnVehicleMotobike
+SpawnVehicleATV: ADTSpawnVehicleATV
+SpawnVehicleSecway: ADTSpawnVehicleSecway
+SpawnVehicleJanicart: ADTSpawnVehicleJanicart
+VehicleJanicart: ADTVehicleJanicart
+VehicleJanicartDestroyed: ADTVehicleJanicartDestroyed
 
 # 2024-02-01
 YellowOxygenTank: OxygenTank
@@ -433,8 +434,8 @@ ClothingBeltSuspenders: ClothingBeltSuspendersRed
 ClothingNeckShockCollar: ClothingBackpackElectropack
 
 # 2024-08-22
-ComputerShuttleSalvage: null
-SalvageShuttleConsoleCircuitboard: null
+ComputerShuttleSalvage: ADTComputerShuttleSalvage #ADT-Tweak - частичный откат нерфа утилей
+SalvageShuttleConsoleCircuitboard: ADTSalvageShuttleConsoleCircuitboard #ADT-Tweak - частичный откат нерфа утилей
 SalvageShuttleCircuitboardStealObjective: null
 
 # 2024-08-28

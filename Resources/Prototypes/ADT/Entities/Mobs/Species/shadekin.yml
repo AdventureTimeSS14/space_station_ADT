@@ -5,6 +5,7 @@
   abstract: true
   name: Урист МакСумеречник
   components:
+  - type: OnGhostAttemtpDamage # При суициде будет нормально наносится урон не удушением а кровотечением.
   - type: HumanoidAppearance
     species: Shadekin
   - type: Hunger
@@ -15,6 +16,8 @@
   - type: Body
     prototype: Shadekin
     requiredLegs: 2
+  - type: Puller
+    needsHands: false
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -42,11 +45,6 @@
       types:
         Bloodloss:
           -0.25
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
   - type: Temperature
     heatDamageThreshold: 330
     coldDamageThreshold: 200
@@ -95,25 +93,8 @@
       Male: MaleHuman
       Female: FemaleHuman
       Unsexed: MaleHuman
-  - type: CombatMode
-    canDisarm: true
-  - type: MindContainer
-    showExamineInfo: true
-  - type: Input
-    context: "human"
-  - type: MobMover
-  - type: InputMover
-  - type: Alerts
-  - type: Actions
-  - type: CameraRecoil
-  - type: Examiner
-  - type: CanHostGuardian
-  - type: NpcFactionMember
-    factions:
-    - NanoTrasen
   - type: InteractionPopup
-    successChance: 0.75
-    interactFailureString: petting-failure-generic
+    successChance: 1
     interactSuccessString: petting-success-soft-floofy
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: petting-success-soft-floofy-others
