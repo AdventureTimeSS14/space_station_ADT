@@ -163,7 +163,7 @@
     weight: 6.5
     earliestStart: 40
     reoccurrenceDelay: 20
-    minimumPlayers: 20
+    minimumPlayers: 30 #ADT-Tweak 20 >>> 30
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
@@ -471,7 +471,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 20
+    minimumPlayers: 30 #ADT-Tweak 20 >>> 30
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
