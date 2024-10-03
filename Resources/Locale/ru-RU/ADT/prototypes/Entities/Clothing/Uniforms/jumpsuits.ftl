@@ -9,7 +9,7 @@ ent-ADTClothingUniformPathologistSuitAlt = чёрный костюм патол�
 ent-ADTClothingUniformJumpsuitBlueshield = костюм офицера "Синего Щита"
     .desc = Военные штаны и белая рубашка с погонами Офицера "Синего Щита", уже очень скоро она будет окроплена кроваво-алой кровью врагов НТ, перепутавших его с охранником продуктового магазина 21-го века.
 
-ent-ADTClothingUniformJumpsuitBlueshieldTurtleneck = водолазка офицера "Синего Щита"
+ent-ADTClothingUniformJumpsuitTurtleneckBlueshield = водолазка офицера "Синего Щита"
     .desc = Белая удобная водолазка Офицера"Синего Щита" с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
 
 ent-ADTClothingUniformJumpsuitAnarchyTshirt = черная футболка с символикой анархизма
@@ -82,66 +82,70 @@ ent-ADTClothingUniformTurleneckTactick = тактическая водолазк
     .desc = Тактическая и удобная водолазка с усиленной синтетической тканью.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckBlack = чёрная водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckBlack = чёрная водолазка
     .desc = Любимая одежда книжного червя.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckBlue = синяя водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckBlue = синяя водолазка
     .desc = Тёмный оттенок голубого.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckAzure = голубая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckAzure = голубая водолазка
     .desc = Яркий оттенок синего.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckGreen = зелёная водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckGreen = зелёная водолазка
     .desc = Дешёвый аналог водолазки Центрального Командования.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckOrange = оранжевая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckOrange = оранжевая водолазка
     .desc = Я не буду это комментировать.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckPurple = фиолетовая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckPurple = фиолетовая водолазка
     .desc = Почувстсвуй себя учёным РНД.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckRed = красная водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckRed = красная водолазка
     .desc = Хорошо маскирует следы крови.
     .suffix = { "" }
 
 
-ent-ADTClothingUniformTurtleneckYellow = жёлтая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckYellow = жёлтая водолазка
     .desc = Наполнена счастьем.
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckWhite = белая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckWhite = белая водолазка
     .desc = Тепло и уютно.
     .suffix = { "" }
 
 
-ent-ADTClothingUniformTurtleneckBrown = коричневая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckBrown = коричневая водолазка
     .desc = Знаешь ли ты, почему я ношу красное? Оно хорошо скрывает следы крови! И я вижу, что ты одета в коричневое...
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckGrey = серая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckGrey = серая водолазка
     .desc = Грей стиль?
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckAquamarine = аквамариновая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckAquamarine = аквамариновая водолазка
     .desc = Слишком ярко!
     .suffix = { "" }
 
-ent-ADTClothingUniformTurtleneckPink = розовая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckPink = розовая водолазка
     .desc = И кто это будет носить?
     .suffix = { "" }
 
-ent-ADTClothingUniformTurleneckBlackSleeveless = чёрная водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckBlackSleeveless = чёрная водолазка
     .desc = Практичная и удобная водолазка чёрного цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed".
     .suffix = { "" }
 
-ent-ADTClothingUniformTurleneckWhiteSleeveless = белая водолазка
+ent-ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless = белая водолазка
     .desc = Практичная и удобная водолазка белого цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed"..
+    .suffix = { "" }
+
+ent-ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless = чёрно-белая водолазка
+    .desc = Практичная и удобная водолазка чёрно-белого цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed"..
     .suffix = { "" }
 
 ent-ADTCEJumpsuitWarm = водолазка старшего инженера

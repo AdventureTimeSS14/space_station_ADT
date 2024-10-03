@@ -17,3 +17,4 @@ ent-ADTClothingBackpackLeatherLadySatchel = кожаный ранец
 ent-ADTClothingBackpackRadioTSF = рация-ретранслятор ТСФ
     .desc = Переносная рация с телефонным аппаратом, используемая в армии ТСФ. Радист может переносить её на своей спине.
     .suffix = { "ТСФ" }
+
