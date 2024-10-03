@@ -1,6 +1,5 @@
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Random;
-using Content.Shared.Roles;
 namespace Content.Shared.Interaction
 {
     public partial class SharedInteractionSystem
