@@ -1,0 +1,88 @@
+- type: construction
+  name: atmosphericMOD
+  id: ADTModsuitAtmospheric
+  graph: ADTModsuitAtmospheric
+  startNode: start
+  targetNode: adtmodsuitatmospheric
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/atmospheric.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: MOD "Cosmohonk"
+  id: ADTModsuitClown
+  graph: ADTModsuitClown
+  startNode: start
+  targetNode: adtmodsuitclown
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/clown.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: engineering MOD
+  id: ADTModsuitEngineering
+  graph: ADTModsuitEngineering
+  startNode: start
+  targetNode: adtmodsuitengineering
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/engineering.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: medical MOD
+  id: ADTModsuitMedical
+  graph: ADTModsuitMedical
+  startNode: start
+  targetNode: adtmodsuitmedical
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/medical.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: mining MOD
+  id: ADTModsuitMining
+  graph: ADTModsuitMining
+  startNode: start
+  targetNode: adtmodsuitmining
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/mining.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: officer MOD
+  id: ADTModsuitSecurity
+  graph: ADTModsuitSecurity
+  startNode: start
+  targetNode: adtmodsuitsecurity
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/security.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: standart MOD
+  id: ADTModsuitStandard
+  graph: ADTModsuitStandard
+  startNode: start
+  targetNode: adtmodsuitstandard
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/standart.rsi, state: icon }
+  objectType: Item
+
+
+- type: construction
+  name: standart MOD
+  id: ADTModsuitCience
+  graph: ADTModsuitCience
+  startNode: start
+  targetNode: adtmodsuitcience
+  category: construction-category-clothing
+  description: Modular Outerwear Device, AKA MODsuit.
+  icon: { sprite: ADT/Clothing/Back/Modsuit/cience.rsi, state: icon }
+  objectType: Item
