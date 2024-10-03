@@ -1,7 +1,7 @@
 # TODO RMC14 different light/burn chances per matchbook
 - type: entity
   parent: Matchbox
-  id: ADTMatchBook
+  id: ADTLuckySlothsMatchBook
   name: lucky sloths matchbook
   description: A small book of cheap paper matches. Good luck getting them to light. Made by Lucky Sloths, but you'll be anything but lucky when you burn your hand trying to light a match on this.
   components:
@@ -35,7 +35,7 @@
     heldPrefix: null
   - type: Storage
     grid:
-    - 0,0,13,1 # 7 slots
+    - 0,0,5,0
     whitelist:
       tags:
       - Matchstick
@@ -54,8 +54,9 @@
     - mpacket4
     - mpacket5
     - mpacket6
+
 - type: entity
-  parent: ADTMatchBook
+  parent: ADTLuckySlothsMatchBook
   id: ADTBrownMatchBook
   name: brown matchbook
   description: A small book of cheap paper matches. Good luck getting them to light. Made with generic brown paper.
@@ -66,7 +67,7 @@
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
 
 - type: entity
-  parent: ADTMatchBook
+  parent: ADTLuckySlothsMatchBook
   id: ADTExecutiveSelectMatchbook
   name: executive select matchbook
   description: A small book of expensive paper matches. These ones light almost every time!
@@ -77,7 +78,7 @@
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
 
 - type: entity
-  parent: ADTMatchBook
+  parent: ADTLuckySlothsMatchBook
   id: ADTElectroMatchbook
   name: Electro matchbook
   description: A small book of cheap paper matches. Good luck getting them to light.
@@ -88,7 +89,7 @@
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
 
 - type: entity
-  parent: ADTMatchBook
+  parent: ADTLuckySlothsMatchBook
   id: ADTExecutiveWEYAMatchbook
   name: We-Ya gold matchbook
   description: A small book of expensive paper matches. These ones light almost every time, or so the packaging claims.

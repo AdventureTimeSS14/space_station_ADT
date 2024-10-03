@@ -5,7 +5,7 @@
   description: These four-packs of Luckies come in every MRE. They're not as good as the Habana Reals that come in the LACN MREs, but at least they're free.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths_4.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths_packet_4.rsi
     layers:
     - state: closed
     - state: open
@@ -31,7 +31,7 @@
       - Cigarette
   - type: StorageFill
     contents:
-    - id: Cigarette
+    - id: ADTLuckySlothsCigarette
       amount: 4
   - type: ItemCounter
     count:
@@ -50,7 +50,7 @@
   description: Lucky Sloths Means Fine Tobacco! 9/10 doctors agree on Lucky Sloths...as the leading cause of marine lung cancer.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths_packet.rsi
     layers:
     - state: closed
     - state: open
@@ -122,7 +122,7 @@
     whitelist:
   - type: StorageFill
     contents:
-    - id: Cigarette
+    - id: ADTLuckySlothsCigarette
       amount: 20
   - type: ItemCounter
     count:
@@ -158,6 +158,10 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_packet.rsi
+  - type: StorageFill
+    contents:
+    - id: ADTWeYaGoldCigarette
+      amount: 20
 
 - type: entity
   parent: ADTCigarettePackLuckySloths
@@ -167,12 +171,16 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select.rsi
+  - type: StorageFill
+    contents:
+    - id: ADTExecutiveSelectCigarette
+      amount: 20
 
 - type: entity
   id: ADTLuckySlothsCigarette
   parent: BaseCigar
   name: lucky sloths cigarette
-  description: A roll of tobacco and nicotine.
+  description: We shorten the path to chronic diseases with pleasure and laziness!
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths_cigarette.rsi
@@ -197,8 +205,8 @@
 - type: entity
   id: ADTWeYaGoldCigarette
   parent: BaseCigar
-  name: lucky sloths cigarette
-  description: A roll of tobacco and nicotine.
+  name: We Ya Gold cigarette
+  description: For those who value health, but prefer to do it with a distorted taste!
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_cigarette.rsi
@@ -215,6 +223,32 @@
   - type: Item
     size: Tiny
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_cigarette.rsi
+    heldPrefix: unlit
+  - type: Construction
+    graph: smokeableCigarette
+    node: cigarette
+
+- type: entity
+  id: ADTExecutiveSelectCigarette
+  parent: BaseCigar
+  name: Executive select cigarette
+  description: Executive Select cigarettes are for those who want to rapidly climb the ladder of career diseases!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select_cigarette.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select_cigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select_cigarette.rsi
     heldPrefix: unlit
   - type: Construction
     graph: smokeableCigarette
