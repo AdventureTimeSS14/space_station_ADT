@@ -114,12 +114,6 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi
   - type: Gun
-    soundGunshot:
-      path: /Audio/ADT/Weapons/Guns/Gunshots/ar12_shoot.ogg
-      params:
-        volume: -4
-    soundEmpty:
-      path: /Audio/ADT/Weapons/Guns/Empty/ar12_empty.ogg
     fireRate: 6
   - type: ItemSlots
     slots:
@@ -157,10 +151,4 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifels/tar60sf.rsi
   - type: Gun
-    soundGunshot:
-      path: /Audio/ADT/Weapons/Guns/Gunshots/ar12_shoot.ogg
-      params:
-        volume: -4
-    soundEmpty:
-      path: /Audio/ADT/Weapons/Guns/Empty/ar12_empty.ogg
     fireRate: 5.5

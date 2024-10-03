@@ -127,7 +127,7 @@
   description: trader PDA
   components:
   - type: Sprite
-    sprite: ADT/Objects/Devices/trader_pda.rsi
+    sprite: ADT/Objects/Devices/pda.rsi
   - type: Pda
     id: ADTTraderIDCard
     state: pda-tradertsf

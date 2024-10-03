@@ -5,7 +5,7 @@
   description: sec badge
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/secbadge.rsi
+      sprite: ADT/Clothing/Neck/Specific/secbadge.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -14,7 +14,7 @@
   description:
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/armytoken.rsi
+      sprite: ADT/Clothing/Neck/Specific/armytoken.rsi
     - type: Clothing
       quickEquip: false
       slots:
@@ -38,4 +38,4 @@
   description: TSF patch
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/tsf_patch.rsi
+      sprite: ADT/Clothing/Neck/Specific/tsf_patch.rsi

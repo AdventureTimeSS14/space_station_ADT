@@ -157,7 +157,7 @@
   description: TraderIDCard
   components:
     - type: Sprite
-      sprite: ADT/Objects/Misc/trader_id.rsi
+      sprite: ADT/Objects/Misc/id_cards.rsi
       layers:
         - state: tsf
         - state: idtrader_tsf

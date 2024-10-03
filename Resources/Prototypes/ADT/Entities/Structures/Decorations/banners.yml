@@ -5,5 +5,5 @@
   description: tsf banner.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/tsf_banner.rsi
+    sprite: ADT/Structures/Decoration/banners.rsi
     state: humanflag
