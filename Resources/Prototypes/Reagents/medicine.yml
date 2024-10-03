@@ -143,12 +143,29 @@
             Brute: -2
       - !type:HealthChange
         conditions:
+      # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+      # End ADT tweak
         - !type:ReagentThreshold
           min: 15
         damage:
           types:
             Asphyxiation: 0.5
             Poison: 1.5
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            Poison: 2
+      # End ADT tweak
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -179,6 +196,11 @@
       effects:
         - !type:HealthChange
           conditions:
+          # Start ADT tweak
+          - !type:OrganType
+            type: Shadekin
+            shouldHave: false
+          # End ADT tweak
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
@@ -189,6 +211,22 @@
               Brute: -4
               Burn: -6
               Toxin: -4
+        # Start ADT tweak
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Shadekin
+            shouldHave: true
+          - !type:Temperature
+            max: 213.0
+          damage:
+            groups:
+              Brute: -4
+              Burn: -6
+              Toxin: -4
+            types:
+              Bloodloss: -5
+        # End ADT tweak
 
 - type: reagent
   id: Doxarubixadone
@@ -228,6 +266,11 @@
             Cold: -1.5
       - !type:HealthChange
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         - !type:ReagentThreshold
           min: 10
         damage:
@@ -236,6 +279,20 @@
             Cold: 2
           groups:
             Brute: 0.5
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 10
+        damage:
+          types:
+            Cold: 2.5
+          groups:
+            Brute: 1
+      # End ADT tweak
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -253,19 +310,50 @@
     Medicine:
       effects:
       - !type:HealthChange
+      # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+      # End ADT tweak
         damage:
           types:
             Asphyxiation: -1
             Bloodloss: -0.5
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
-            min: 20
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
+        - !type:ReagentThreshold
+          min: 20
         damage:
           types:
             Asphyxiation: 3
             Cold: 1
-
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          types:
+            Bloodloss: -1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          types:
+            Cold: 1.5
+            Poison: 2
+      # End ADT tweak
 - type: reagent
   id: DexalinPlus
   name: reagent-name-dexalin-plus
@@ -278,6 +366,12 @@
     Medicine:
       effects:
       - !type:HealthChange
+        # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         damage:
           types:
             Asphyxiation: -3.5
@@ -291,12 +385,39 @@
         amount: -3
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
-            min: 25
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
+        - !type:ReagentThreshold
+          min: 25
         damage:
           types:
             Asphyxiation: 5
             Cold: 3
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          types:
+            Poison: -0.5
+            Bloodloss: -5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          types:
+            Cold: 3.5
+            Poison: 4.5
+      # End ADT tweak
 
 # this ones a doozy
 - type: reagent
@@ -312,6 +433,11 @@
       effects:
       - !type:HealthChange
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
@@ -327,12 +453,47 @@
             Burn: -0.5
       - !type:HealthChange
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         - !type:ReagentThreshold
           min: 20
         damage:
           types:
             Asphyxiation: 1
             Poison: 1
+        # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentThreshold
+          min: 0
+          max: 20
+        damage:
+          types:
+            Poison: -0.75
+          groups:
+            Brute: -0.75
+            Burn: -0.75
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          groups:
+            Brute: 2
+          types:
+            Poison: 1
+      # End ADT tweak
       - !type:AdjustReagent
         reagent: HeartbreakerToxin
         amount: -2
@@ -423,6 +584,11 @@
       effects:
       - !type:HealthChange
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
@@ -430,7 +596,31 @@
           types:
             Asphyxiation: -5
       - !type:ModifyBleedAmount
+        # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         amount: -0.25
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:MobStateCondition
+          mobstate: Critical
+        damage:
+          types:
+            Bloodloss: -1
+      - !type:ModifyBleedAmount
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        amount: -0.75
+      # End ADT tweak
 
 - type: reagent
   id: Kelotane
@@ -581,6 +771,12 @@
     Medicine:
       effects:
       - !type:HealthChange
+        # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         damage:
           groups:
             Brute: -3.5
@@ -588,11 +784,38 @@
             Asphyxiation: -2.5
       - !type:HealthChange
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         - !type:ReagentThreshold
           min: 30
         damage:
           types:
             Asphyxiation: 3.5
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          groups:
+            Brute: -4
+          types:
+            Bloodloss: -1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 4
+      # End ADT tweak
       - !type:ModifyBleedAmount
         amount: -0.25
 
@@ -801,12 +1024,32 @@
     Medicine:
       effects:
       - !type:HealthChange
+        # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         damage:
           groups:
             Burn: -2
             Toxin: -2
             Airloss: -2
             Brute: -2
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          groups:
+            Burn: -2
+            Toxin: -2
+            Brute: -2
+          types:
+            Bloodloss: -1.5
+      # End ADT tweak
 
 - type: reagent
   id: Ultravasculine
@@ -1160,7 +1403,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 12
-          
+
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
