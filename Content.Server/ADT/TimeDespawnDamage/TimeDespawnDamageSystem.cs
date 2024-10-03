@@ -41,10 +41,6 @@ public sealed class TimeDespawnDamageSystem : EntitySystem
             EraseDeleteTime(uid);
             _audio.PlayPvs(igniteSound, uid);
         }
-        else
-        {
-            //Log.Debug($"Сущность {ToPrettyString(uid)} не имеет компонента DamageableComponent.");
-        }
     }
 
     private void EraseDeleteTime(EntityUid uid)
