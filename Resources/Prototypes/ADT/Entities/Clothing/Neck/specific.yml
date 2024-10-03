@@ -6,3 +6,36 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/secbadge.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckJeton
+  name: Jeton
+  description:
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/armytoken.rsi
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - idcard
+      - neck
+    # - type: IdCard
+    # - type: StationRecordKeyStorage
+    - type: Tag
+      tags:
+      - DoorBumpOpener
+    - type: Access
+      tags:
+      - Maintenance
+      - External
+      - Medical
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckTSFPatch
+  name: TSF patch
+  description: TSF patch
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/tsf_patch.rsi

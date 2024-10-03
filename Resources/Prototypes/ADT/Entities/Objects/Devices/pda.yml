@@ -119,3 +119,15 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-investigator
+
+- type: entity
+  parent: BasePDA
+  id: ADTTraderPDA
+  name: trader PDA
+  description: trader PDA
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/trader_pda.rsi
+  - type: Pda
+    id: ADTTraderIDCard
+    state: pda-tradertsf

@@ -41,3 +41,23 @@
   - type: Sprite
     sprite: ADT/Clothing/Back/pathologist_backpack.rsi
 
+# ТСФ
+# Блять да я хуй знает куда это сувать нахуй блять блять
+- type: entity
+  id: ADTClothingBackpackRadioTSF
+  name: TSF backpack radio
+  description: A handy bacpack radio
+  parent: ADTRadioHandheldTSF
+  components:
+  - type: Clothing
+    sprite: ADT/Objects/Device/tsf_radio_backpack.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: ADT/Objects/Device/tsf_radio_backpack.rsi
+    layers:
+    - state: icon

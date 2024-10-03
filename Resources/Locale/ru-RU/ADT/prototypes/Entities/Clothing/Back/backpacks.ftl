@@ -13,3 +13,7 @@ ent-ADTClothingBackpackBlackLadySatchel = черная дамская сумоч
 
 ent-ADTClothingBackpackLeatherLadySatchel = кожаный ранец
     .desc = Для тех, кто снова хочет оказаться в школе.
+
+ent-ADTClothingBackpackRadioTSF = рация-ретранслятор ТСФ
+    .desc = Переносная рация с телефонным аппаратом, используемая в армии ТСФ. Радист может переносить её на своей спине.
+    .suffix = { "ТСФ" }

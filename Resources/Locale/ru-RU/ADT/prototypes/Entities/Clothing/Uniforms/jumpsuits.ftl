@@ -241,3 +241,7 @@ ent-ADTClothingUniformSquidGameOrganizer = комбинезон организа
 ent-ADTClothingUniformSquidGamePlayer = комбинезон игрока Игр Кальмара
     .desc = Комбинезон для того, кто проверяет себя на прочность и готовность на все.
     .suffix = { "Игры Кальмара" }
+
+ent-ADTClothingUniformJumpsuitTrader = комбинезон торговца
+    .desc = Это комбинезон, который носят торговцы ТСФ
+    .suffix = { "ТСФ" }

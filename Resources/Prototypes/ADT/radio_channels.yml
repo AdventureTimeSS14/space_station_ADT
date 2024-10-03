@@ -21,3 +21,35 @@
   frequency: 1301
   color: "#690e0e"
   longRange: true
+
+- type: radioChannel
+  id: ADTTransSolar19482Channel
+  name: ТСФ 1948.2
+  keycode: '2'
+  frequency: 1947
+  color: "#75c1ff"
+  longRange: true
+
+- type: radioChannel
+  id: ADTTransSolar19487Channel
+  name: ТСФ 1948.7
+  keycode: '7'
+  frequency: 1948
+  color: "#75c1ff"
+  longRange: true
+
+- type: radioChannel
+  id: ADTTransSolar19489Channel
+  name: ТСФ 1948.9
+  keycode: '9'
+  frequency: 1949
+  color: "#75c1ff"
+  longRange: true
+
+- type: radioChannel
+  id: ADTTrader
+  name: chat-radio-trader
+  keycode: 'ъ'
+  frequency: 1673
+  color: "#b88646"
+  longRange: true
