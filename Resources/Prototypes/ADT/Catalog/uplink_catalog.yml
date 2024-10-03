@@ -45,3 +45,30 @@
     Telecrystal: 5
   categories:
   - UplinkPointless
+
+- type: listing
+  id: ADTUplinkSyndieCloak
+  name: uplink-syndiecloak-name
+  description: uplink-syndiecloak-desc
+  icon: { sprite: ADT/Clothing/Neck/Cloaks/syndicate_cloak.rsi, state: icon}
+  productEntity: ADTClothingNeckCloakSyndicate
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: ADTUplinkNukeOpsCloak
+  name: uplink-nukeopscloak-name
+  description: uplink-nukeopscloak-desc
+  icon: { sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi, state: icon}
+  productEntity: ADTClothingNeckCloakNukeOps
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

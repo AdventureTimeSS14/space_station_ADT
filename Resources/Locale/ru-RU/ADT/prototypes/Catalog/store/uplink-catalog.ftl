@@ -6,3 +6,9 @@ uplink-ADTAntagIronTray-desc = Железный поднос c очень ост
 
 uplink-segway-name = сегвей
 uplink-segway-desc = Транспорт, с которым вас уж точно заметят.
+
+uplink-syndiecloak-name = плащ Синдиката
+uplink-syndiecloak-desc = Злодействуй со стилем!
+
+uplink-nukeopscloak-name = плащ Ядерных Оперативников
+uplink-nukeopscloak-desc = Защитит тебя от холода на базе.
