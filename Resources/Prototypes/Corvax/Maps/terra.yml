@@ -34,14 +34,11 @@
           availableJobs:
             # command
             Captain: [ 1, 1 ]
-<<<<<<< HEAD
-=======
             IAA: [ 1, 1 ]
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 3 ]
             CargoTechnician: [ 2, 2 ]
->>>>>>> 5d546cfc8b1c0f7c5a7cf0c9733d656de2015d2b
             # engineering
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 2, 2 ]
@@ -62,21 +59,6 @@
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 2, 2 ]
             SecurityCadet: [ 1, 1 ]
-<<<<<<< HEAD
-            # cargo
-            Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 2, 3 ]
-            CargoTechnician: [ 2, 2 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
-        # - type: StationGoal
-        #   goals:
-        #   - SolarPanels
-        #   - Artifacts
-        #   - Bank
-        #   - Zoo
-        #   - MiningOutpost
-        #   - Tesla
-=======
             Detective: [ 1, 1 ]
             # service
             HeadOfPersonnel: [ 1, 1 ]
@@ -103,4 +85,3 @@
           - Zoo
           - MiningOutpost
           - Tesla
->>>>>>> 5d546cfc8b1c0f7c5a7cf0c9733d656de2015d2b

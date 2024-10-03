@@ -62,15 +62,6 @@
             Scientist: [ 1, 2 ]
             # security
             Pilot: [ 1, 1 ]
-<<<<<<< HEAD
-            # cargo
-            SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 2, 2 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
-        # - type: StationGoal
-        #   goals:
-        #   - FrameRepair
-=======
             # service
             Clown: [ 1, 1 ]
             # silicon
@@ -78,4 +69,3 @@
         - type: StationGoal
           goals:
           - FrameRepair
->>>>>>> 5d546cfc8b1c0f7c5a7cf0c9733d656de2015d2b

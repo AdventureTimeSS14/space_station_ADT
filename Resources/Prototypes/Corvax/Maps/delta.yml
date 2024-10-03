@@ -57,24 +57,6 @@
             Chef: [ 1, 2 ]
             Clown: [ 1, 1 ]
             Janitor: [ 1, 2 ]
-<<<<<<< HEAD
-            Mime: [ 1, 1 ]
-            Zookeeper: [ 1, 1 ]
-            Captain: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
-            ChiefEngineer: [ 1, 1 ]
-            StationEngineer: [ 5, 5 ]
-            ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 5, 5 ]
-            Chemist: [ 2, 2 ]
-            ResearchDirector: [ 1, 1 ]
-            Scientist: [ 6, 6 ]
-            HeadOfSecurity: [ 1, 1 ]
-            SecurityOfficer: [ 6, 6 ]
-            Chaplain: [ 1, 1 ]
-            Warden: [ 1, 1 ]
-=======
->>>>>>> 5d546cfc8b1c0f7c5a7cf0c9733d656de2015d2b
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
@@ -84,21 +66,6 @@
             Passenger: [ -1, -1 ]
             # silicon
             StationAi: [ 1, 1 ]
-<<<<<<< HEAD
-        #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
-        # - type: StationGoal
-        #   goals:
-        #   - Shuttle
-        #   - Singularity
-        #   - SolarPanels
-        #   - Artifacts
-        #   - Bank
-        #   - Zoo
-        #   - MiningOutpost
-        #   - Tesla
-        #   - XenobiologyRepair
-        #   - VirusologyAmbusol
-=======
             Borg: [ 2, 3 ]
         - type: StationGoal
           goals:
@@ -112,4 +79,3 @@
           - Tesla
           - XenobiologyRepair
           - VirusologyAmbusol
->>>>>>> 5d546cfc8b1c0f7c5a7cf0c9733d656de2015d2b

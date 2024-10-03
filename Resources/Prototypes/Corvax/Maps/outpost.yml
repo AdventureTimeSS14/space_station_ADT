@@ -21,24 +21,12 @@
           availableJobs:
             # command
             Captain: [ 1, 1 ]
-<<<<<<< HEAD
-            HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 1, 1 ]
-            Botanist: [ 2, 2 ]
-            Chef: [ 1, 1 ]
-            Janitor: [ 1, 2 ]
-            Chaplain: [ 1, 1 ]
-            Librarian: [ 1, 1 ]
-            ServiceWorker: [ 2, 2 ]
-            #engineering
-=======
             IAA: [ 1, 1 ]
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 4, 4 ]
             # engineering
->>>>>>> 5d546cfc8b1c0f7c5a7cf0c9733d656de2015d2b
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 3, 3 ]

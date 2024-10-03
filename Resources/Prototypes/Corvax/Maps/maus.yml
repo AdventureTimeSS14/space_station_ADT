@@ -21,16 +21,12 @@
           availableJobs:
             # command
             Captain: [ 1, 1 ]
-<<<<<<< HEAD
-            HeadOfPersonnel: [ 1, 1 ]
-=======
             IAA: [1, 1]
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 1, 3 ]
             CargoTechnician: [ 2, 2 ]
             # engineering
->>>>>>> 5d546cfc8b1c0f7c5a7cf0c9733d656de2015d2b
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 3 ]
             StationEngineer: [ 2, 3 ]
