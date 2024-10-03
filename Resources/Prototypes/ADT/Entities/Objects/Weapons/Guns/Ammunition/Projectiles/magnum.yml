@@ -1,7 +1,7 @@
 - type: entity
   id: ADTADTBulletMagnumHighVelocityTranquilizer
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
@@ -18,13 +18,6 @@
     layers:
     - state: adtomnilaser
       shader: unshaded
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        maxVol: 3
-        reagents:
-        - ReagentId: ADTChloralHydrate
-          Quantity: 3
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution

@@ -2,7 +2,7 @@
   id: CompActionTeleport
   name: action-teleport
   description: action-teleport-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 5
@@ -20,7 +20,7 @@
   id: CompActionShoot
   name: action-shoot
   description: action-shoot-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 2
@@ -38,7 +38,7 @@
   id: CompActionHeal
   name: action-heal
   description: action-heal-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -53,7 +53,7 @@
   id: CompActionJump
   name: action-jump
   description: action-jump-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 15
@@ -71,7 +71,7 @@
   id: CompActionStasisHeal
   name: action-stasis-heal
   description: action-stasis-heal-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -86,7 +86,7 @@
   id: CompActionStealth
   name: action-stealth
   description: action-stealth-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -101,7 +101,7 @@
   id: CompElectrionPulseAction
   name: action-levitation
   description: action-levitation-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
