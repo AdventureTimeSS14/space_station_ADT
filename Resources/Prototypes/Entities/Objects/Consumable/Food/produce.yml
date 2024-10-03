@@ -1469,9 +1469,6 @@
     entries:
       Taco: Poppy
       Burger: Poppy
-  - type: Tag # good edit
-    tags:
-    - poppy
 
 - type: entity
   name: lily
