@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  name: Urisst' Mzhand Kobolt
+  parent: BaseMobKobolt
+  id: MobKobolt
