@@ -220,10 +220,6 @@ namespace Content.Client.Lobby
             {
                 Lobby!.Background.Texture = null;
             }
-            else
-            {
-                Lobby!.Background.Texture = null;
-            }
 
         }
 
