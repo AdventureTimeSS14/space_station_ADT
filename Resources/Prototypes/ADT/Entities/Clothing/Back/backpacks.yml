@@ -50,7 +50,7 @@
   parent: ADTRadioHandheldTSF
   components:
   - type: Clothing
-    sprite: ADT/Objects/Device/tsf_radio_backpack.rsi
+    sprite: ADT/Objects/Devices/tsf_radio_backpack.rsi
     quickEquip: false
     slots:
     - Back
@@ -58,6 +58,5 @@
   - type: Item
     size: Ginormous
   - type: Sprite
-    sprite: ADT/Objects/Device/tsf_radio_backpack.rsi
-    layers:
-    - state: icon
+    sprite: ADT/Objects/Devices/tsf_radio_backpack.rsi
+    state: icon
