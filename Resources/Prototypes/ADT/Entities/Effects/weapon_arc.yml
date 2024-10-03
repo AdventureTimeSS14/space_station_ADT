@@ -1,0 +1,66 @@
+- type: entity
+  id: ADTWeaponArcMantisSlash
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/arcs.rsi
+      state: mantis-slash
+      drawdepth: Effects
+    - type: WeaponArcVisuals
+      animation: Slash
+
+- type: entity
+  id: ADTWeaponArcShockSlash
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/arcs.rsi
+      state: mistral-slash
+      drawdepth: Effects
+    - type: WeaponArcVisuals
+      animation: Thrust
+
+- type: entity
+  id: ADTWeaponArcShockFist
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: Sprite
+      sprite: ADT/Effects/arcs.rsi
+      state: attack-fist-mistal
+      drawdepth: Effects
+    - type: TimedDespawn
+      lifetime: 0.299
+
+- type: entity
+  id: ADTWeaponArcRedCrash
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: Sprite
+      sprite: ADT/Effects/arcs.rsi
+      state: attack-crash-muscle
+      drawdepth: Effects
+    - type: TimedDespawn
+      lifetime: 0.299
+
+- type: entity
+  id: ADTWeaponArcMantisHit
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: Sprite
+      sprite: ADT/Effects/arcs.rsi
+      state: mantis-hit
+      drawdepth: Effects
+    - type: TimedDespawn
+      lifetime: 0.299
+

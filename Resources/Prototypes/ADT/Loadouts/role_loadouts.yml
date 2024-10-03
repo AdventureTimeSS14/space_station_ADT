@@ -115,3 +115,26 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+
+  # brigmedic
+- type: roleLoadout
+  id: job-name-brigmedic
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  # Bridmed spec outfit:
+  - ADTBrigmedicHead
+  - ADTBrigmedicNeck
+  - ADTBrigmedicJumpsuit
+  - ADTBrigmedicOuterWear
+  - ADTBrigmedicBack
+  # Another stuffs
+  - ADTBrigmedicBelts
+  - ADTBrigmedicEyes
+  - ADTBrigmedicGloves
+  - ADTBrigmedicPDA
+  # another:
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity

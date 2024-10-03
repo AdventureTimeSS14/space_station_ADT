@@ -470,6 +470,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
 
+        /// <summary>
+        /// URL of the Discord webhook which will relay bans info to the channel.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordBansWebhook =
+            CVarDef.Create("discord.bans_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
         /*
         * Phantom
         */
@@ -880,7 +886,7 @@ namespace Content.Shared.CCVar
         ///     If 0, appearing as a new player is disabled.
         /// </summary>
         public static readonly CVarDef<int> NewPlayerThreshold =
-            CVarDef.Create("admin.new_player_threshold", 0, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("admin.new_player_threshold", 600, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER); // ADT-Tweak
 
         /// <summary>
         /// How long an admin client can go without any input before being considered AFK.
@@ -2106,7 +2112,7 @@ namespace Content.Shared.CCVar
         /// Link to site handling ban appeals. Shown in ban disconnect messages.
         /// </summary>
         public static readonly CVarDef<string> InfoLinksAppeal =
-            CVarDef.Create("infolinks.appeal", "", CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("infolinks.appeal", "https://discord.com/channels/901772674865455115/1245787985891561544", CVar.SERVER | CVar.REPLICATED); //ADT-Tweak: Ссылка на обжалование
 
         /*
          * CONFIG
