@@ -168,7 +168,8 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/bomber_tsf.rsi
   - type: TemperatureProtection
-    coefficient: 0.9
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:

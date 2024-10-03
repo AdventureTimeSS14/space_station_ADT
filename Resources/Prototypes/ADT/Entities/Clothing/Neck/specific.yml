@@ -33,7 +33,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ADTClothingNeckTSFPatch
+  id: ADTClothingNeckPatchTSF
   name: TSF patch
   description: TSF patch
   components:
