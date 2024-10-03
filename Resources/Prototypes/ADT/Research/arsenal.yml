@@ -11,3 +11,34 @@
     - ADTWeaponCutterAdv
   technologyPrerequisites:
     - SalvageWeapons
+
+- type: technology
+  id: ADTSecMODsuit
+  name: research-technology-security-modsuit
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: security
+  discipline: Arsenal
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+    - ADTModsuitPlateSecurity
+  technologyPrerequisites:
+    - ADTModsuitBase
+
+- type: technology
+  id: ADTSecMODsuitMODs
+  name: research-technology-security-modsuit-mods
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: no_baton
+  discipline: Arsenal
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+    - ADTModsuitModArmor
+    - ADTModsuitModSechud
+    - ADTModsuitModPowerKick
+    - ADTModsuitModStun
+  technologyPrerequisites:
+    - ADTSecMODsuit

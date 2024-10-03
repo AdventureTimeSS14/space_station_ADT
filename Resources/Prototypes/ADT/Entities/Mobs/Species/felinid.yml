@@ -25,6 +25,7 @@
       0: Alive
       90: Critical
       195: Dead
+  - type: WoundLicking
   - type: Sprite
     netsync: false
     noRot: true

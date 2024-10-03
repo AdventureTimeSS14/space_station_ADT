@@ -109,6 +109,24 @@ ent-ADTCapJumpskirtWarm = { ent-ADTCapJumpsuitWarm }
 ent-ClothingUniformJumpskirtBlueshieldTurtleneck = юбка-водолазка офицера синего щита
     .desc = Белая удобная водолазка с юбкой для Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
 
+ent-ADTClothingUniformWhiteShortWeddingDress = бело-золотое короткое свадебное платье
+    .desc = Белое платье с золотыми блестками. Для тех кто устал от платьев в пол!
+ent-ADTClothingUniformShortDressBlackGold = черно-золотое короткое свадебное платье
+    .desc = Специально для принцессы!
+ent-ADTClothingUniformBlackGhoticWeddingDress = чёрное готическое платье
+    .desc = Мортиша Аддамс ставит лайк. Лучше этого сексуального платья вы не найдете.
+ent-ADTClothingUniformWhiteGhoticWeddingDress = белое готическое платье
+    .desc = Это платье так подчеркивает твою фигуру! Ты будешь самой сексуальной невестой.
+ent-ADTClothingUniformLushRoseWeddingDress = пышное розовое платье
+    .desc = Специально для принцессы.
+ent-ADTClothingUniformLushWhiteWeddingDress = пышное белое платье
+    .desc = Ты выглядишь так нежно... Как зефир!
+ent-ADTClothingUniformRedCocktailDress = красное коктейльное платье
+    .desc = Девочка, это платье создано для вечеринки! Взорви танцпол!
+ent-ADTClothingUniformBlackElegantDress = элегантное черное платье
+    .desc = Оно не слишком короткое? Мою попу не видно?
+ent-ADTClothingUniformOrangeBeachSuit = оранжевый пляжный костюм
+    .desc = Цвет настроения оранжевый. Для любителей апельсинов и хорошего загара.
 ent-ADTClothingJumpskirtHopAlt = деловой костюм с юбкой главы персонала
     .desc = Качетсвенно сделанная униформа для тех глав персонала, что могут себе такую позволить.
 
