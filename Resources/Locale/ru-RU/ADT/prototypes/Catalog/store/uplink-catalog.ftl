@@ -3,3 +3,6 @@ uplink-jumpboots-desc = Прыжковые ботинки в раскраске 
 
 uplink-ADTAntagIronTray-name = Особо острый поднос
 uplink-ADTAntagIronTray-desc = Железный поднос c очень острыми краями.
+
+uplink-segway-name = сегвей
+uplink-segway-desc = Транспорт, с которым вас уж точно заметят.

@@ -1,5 +1,40 @@
+# Для разблокировки одежды ветерана СБ
+- type: loadoutEffectGroup
+  id: ADTSecurityVeteran
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 1080000 #300 hrs
+
 # Neck Security Officer ADT
 - type: loadout
   id: ADTSecurityOfficerNeck
   equipment:
     neck: ADTClothingNeckSecBadge
+
+# Jumpsuit
+- type: loadout
+  id: ADTSecurityOfficerMogesBrown
+  equipment:
+    jumpsuit: ADTClothingJumpsuitSecOffMogesBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
+
+- type: loadout
+  id: ADTSecurityOfficerMogesBlue
+  equipment:
+    jumpsuit: ADTClothingJumpsuitSecOffMogesBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
+
+- type: loadout
+  id: ADTSecurityOfficerMogesGray
+  equipment:
+    jumpsuit: ADTClothingJumpsuitSecOffMogesGray
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran

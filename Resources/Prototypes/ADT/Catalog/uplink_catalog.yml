@@ -21,7 +21,7 @@
   icon: { sprite: ADT/Objects/Specific/Service/iron_tray.rsi, state: icon}
   productEntity: ADTAntagIronTray
   cost:
-    Telecrystal: 2
+    Telecrystal: 3
   categories:
   - UplinkJob
   conditions:
@@ -31,3 +31,17 @@
     - Clown
     - Mime
     - Botanist
+    - Bartender
+
+- type: listing
+  id: ADTUplinkSegway
+  name: uplink-segway-name
+  description: uplink-segway-desc
+  icon:
+    sprite: Objects/Vehicles/syndicatesegway.rsi
+    state: vehicle
+  productEntity: ADTVehicleSyndicateSegway
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkPointless

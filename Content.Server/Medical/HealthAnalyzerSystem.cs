@@ -92,12 +92,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             BreakOnMove = true,
         });
         
-        if (args.Target == args.User || doAfterCancelled)
-            return;
-
-        if (args.Target == args.User || doAfterCancelled || uid.Comp.Silent)
-            return;
-
         if (args.Target == args.User || doAfterCancelled || uid.Comp.Silent)
             return;
 

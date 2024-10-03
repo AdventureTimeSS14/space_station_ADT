@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/urs_coat.rsi
   - type: TemperatureProtection
-    coefficient: 0.9
+    heatingCoefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
@@ -130,3 +130,29 @@
         Slash: 0.8
         Piercing: 0.7
         Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterAtmosianBomberJacket
+  name: atmosian bomber jacket
+  description: A thick, well-worn atmosian leather bomber jacket.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Coats/atmosian.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Coats/atmosian.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatCyberSun
+  name: Cybersun laboratory coat
+  description: Cybersun laboratory coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcyber.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcyber.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75

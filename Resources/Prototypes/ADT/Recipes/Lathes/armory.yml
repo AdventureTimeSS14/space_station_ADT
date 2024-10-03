@@ -1,0 +1,20 @@
+- type: latheRecipe
+  id: ADTWeaponCutter
+  result: ADTWeaponCutter
+  completetime: 10
+  materials:
+    Steel: 1100
+    Glass: 200
+    Gold: 300
+    Plasma: 800
+
+- type: latheRecipe
+  id: ADTWeaponCutterAdv
+  result: ADTWeaponCutterAdv
+  completetime: 10
+  materials:
+    Steel: 1700
+    Glass: 200
+    Gold: 300
+    Plasma: 900
+    Diamond: 200

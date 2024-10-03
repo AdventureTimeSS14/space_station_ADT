@@ -4,11 +4,21 @@
   components:
     - type: StationGoal
       goals:
-      - Shuttle
-      - Singularity
-      - SolarPanels
-      - Artifacts
-      - Bank
-      - Zoo
-      - MiningOutpost
-      - Tesla
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+      # - Shuttle
+      # - Singularity
+      # - SolarPanels
+      # - Artifacts
+      # - Bank
+      # - Zoo
+      # - MiningOutpost
+      # - Tesla
+      - ADTStationGoalTransitBase
+      - ADTStationGoalTransitResourses
+      - ADTStationGoalTransitUpgrade
+      - ADTStationGoalTransitServiceDecor
+      - ADTStationGoalTransitServiceTransport
+      - ADTStationGoalTransitArtifact
+      - ADTStationGoalTransitMedicine
+      - ADTStationGoalTransitContraband
+      - ADTStationGoalMultiple

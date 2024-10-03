@@ -39,3 +39,21 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/newmekkacloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckHoPAltCloak
+  name: HoP parade cloak
+  description: Cloak for Head of Personell for special events.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/HoP_alt_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingCloakAtmosian
+  name: atmosian's cloak
+  description: The cloak of a legendary Atmosian.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Cloaks/atmosian.rsi

@@ -8,6 +8,28 @@
       state: shadekin
 
 - type: marking
+  id: TailShadekinDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: default_dragon
+
+- type: marking
+  id: TailShadekinStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: default_striped
+
+- type: marking
   id: TailShadekinBig
   bodyPart: Tail
   markingCategory: Tail
@@ -15,6 +37,50 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
       state: shadekin_big
+
+- type: marking
+  id: TailShadekinBigSkeleton
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: big_skeleton
+
+- type: marking
+  id: TailShadekinBigOrbit
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: big_orbit
+
+- type: marking
+  id: TailShadekinBigStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: big_striped
+
+- type: marking
+  id: TailShadekinBigTwoColored
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: big_twocolored
 
 - type: marking
   id: TailShadekinBigFluff
@@ -26,6 +92,28 @@
       state: shadekin_big_fluff
 
 - type: marking
+  id: TailShadekinBigFluffArrowy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big_fluff
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: bigfluff_arrowy
+
+- type: marking
+  id: TailShadekinBigFluffSpirals
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: shadekin_big_fluff
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: bigfluff_spirals
+
+- type: marking
   id: TailShadekinShorter
   bodyPart: Tail
   markingCategory: Tail
@@ -35,6 +123,17 @@
       state: shadekin_shorter
 
 - type: marking
+  id: TailShadekinShorterBrush
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: shadekin_shorter
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: shorter_brush
+
+- type: marking
   id: TailShadekinMedium
   bodyPart: Tail
   markingCategory: Tail
@@ -42,3 +141,129 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shadekin_medium
+
+- type: marking
+  id: TailShadekinMediumTwoColored
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: shadekin_medium
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+      state: medium_twocolored
+
+- type: marking
+  id: TailShadekinSnail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_snail
+
+- type: marking
+  id: TailShadekinSnailGradient
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_snail
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: snail_gradient
+
+- type: marking
+  id: TailShadekinSnailSpotty
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_snail
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: snail_spotty
+
+- type: marking
+  id: TailShadekinSnailStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_snail
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: snail_striped
+
+- type: marking
+  id: TailShadekinFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_fluffy
+
+- type: marking
+  id: TailShadekinFluffyStainy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_fluffy
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: fluffy_stainy
+
+- type: marking
+  id: TailShadekinHook
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_hook
+
+- type: marking
+  id: TailShadekinHookLines
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_hook
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: hook_lines
+
+- type: marking
+  id: TailShadekinHookSnake
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_hook
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: hook_snake
+
+- type: marking
+  id: TailShadekinHookSpirals
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_hook
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: hook_spirals
+
+- type: marking
+  id: TailShadekinHookTraced
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: tail_hook
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: hook_traced

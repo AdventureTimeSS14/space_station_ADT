@@ -20,6 +20,8 @@
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
+      - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
+      - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
       # ADT-Tweak-Start
       - id: ADTClothingNeckBodyCamera #ADT bodycam
       - id: ADTBookSRPsec
@@ -28,6 +30,7 @@
         amount: 2
       - id: RemoteSignaller
         amount: 2
+      - id: ADTSecShuttleConsoleCircuitboard
       # ADT-Tweak-End
 
 - type: entity
@@ -61,6 +64,7 @@
         amount: 2
       - id: RemoteSignaller
         amount: 2
+      - id: ADTSecShuttleConsoleCircuitboard
       # ADT-Tweak-End
 
 - type: entity

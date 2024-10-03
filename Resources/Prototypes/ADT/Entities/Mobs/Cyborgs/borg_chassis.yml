@@ -24,6 +24,11 @@
       - ADTBorgModuleSecurity
     hasMindState: sec_e
     noMindState: sec_e_r
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
   - type: BorgTransponder
     sprite:
       sprite: ADT/Mobs/Cyborg/chassis.rsi
@@ -112,7 +117,7 @@
     - Service
     - Supply
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Command"], ["Research"], ["Service"], ["Medical"]]
   - type: Inventory
     templateId: borgTall
   - type: InteractionPopup
@@ -126,3 +131,14 @@
     maxItemSize: Huge
     storageOpenSound: /Audio/Machines/id_insert.ogg
     storageCloseSound: /Audio/Machines/id_insert.ogg
+    clickInsert: false
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

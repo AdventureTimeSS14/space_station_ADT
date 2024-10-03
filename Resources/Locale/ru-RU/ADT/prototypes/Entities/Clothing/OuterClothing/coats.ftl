@@ -21,3 +21,9 @@ ent-ADTClothingOuterCoatIlisium = плащ Иллизиума
 ent-ADTClothingOuterCoatInvestigator = бушлат следователя Службы Безопасности
     .desc = Один вид этого бушлата повышает вероятность чистосердечного признания подозреваемого на 50%.
     .suffix = { "" }
+
+ent-ClothingOuterAtmosianBomberJacket = куртка-бомбер атмосианина
+    .desc = Плотная, поношенная куртка-бомбер атмосианина.
+
+ent-ADTClothingOuterCoatCyberSun = лабораторный халат Киберсан
+    .desc = Лабораторный халат Киберсан, предоставляющий минимальную защиту от вредного воздействия.

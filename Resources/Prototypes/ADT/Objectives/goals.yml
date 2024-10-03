@@ -1,0 +1,38 @@
+# Цели в рамках теста станции без цели
+
+- type: stationGoal
+  id: ADTStationGoalTransitBase
+  text: adt-station-goal-transit-base
+
+- type: stationGoal
+  id: ADTStationGoalTransitResourses
+  text: adt-station-goal-transit-resourses
+
+- type: stationGoal
+  id: ADTStationGoalTransitUpgrade
+  text: adt-station-goal-transit-upgrade
+
+- type: stationGoal
+  id: ADTStationGoalTransitServiceDecor
+  text: adt-station-goal-transit-servicedecor
+
+- type: stationGoal
+  id: ADTStationGoalTransitServiceTransport
+  text: adt-station-goal-transit-servicetransport
+
+- type: stationGoal
+  id: ADTStationGoalTransitArtifact
+  text: adt-station-goal-transit-artifact
+
+- type: stationGoal
+  id: ADTStationGoalTransitMedicine
+  text: adt-station-goal-transit-medicine
+
+- type: stationGoal
+  id: ADTStationGoalTransitContraband
+  text: adt-station-goal-transit-contraband
+
+# Множественные цели
+- type: stationGoal
+  id: ADTStationGoalMultiple
+  text: adt-station-goal-multiple

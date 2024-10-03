@@ -58,15 +58,17 @@
             Paramedic: [ 1, 1 ]
             #silicon
             Borg: [ 2, 3 ]
-        - type: StationGoal
-          goals:
-          - Shuttle
-          - Singularity
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
-          - XenobiologyRepair
-          - VirusologyAmbusol
+            StationAi: [ 1, 1 ]
+        #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - Shuttle
+        #   - Singularity
+        #   - SolarPanels
+        #   - Artifacts
+        #   - Bank
+        #   - Zoo
+        #   - MiningOutpost
+        #   - Tesla
+        #   - XenobiologyRepair
+        #   - VirusologyAmbusol

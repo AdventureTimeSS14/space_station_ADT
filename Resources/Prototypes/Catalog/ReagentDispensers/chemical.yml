@@ -21,7 +21,8 @@
   # - JugSilicon
   # - JugSodium
   # - JugSulfur
-    - ADTReagentCanisterCarbon #ADT_Tweak, бутылки заменены на канистры
+    - ADTReagentCanisterAluminium #ADT_Tweak, бутылки заменены на канистры
+    - ADTReagentCanisterCarbon
     - ADTReagentCanisterChlorine
     - ADTReagentCanisterCopper
     - ADTReagentCanisterEthanol

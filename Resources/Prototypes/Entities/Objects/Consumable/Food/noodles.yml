@@ -32,6 +32,9 @@
       - pasta
   - type: Sprite
     state: boiled
+  - type: Tag #ADT_Tweak - делаем пасту съедобной для молей
+    tags:
+    - ADTMothFriendlyFood
 # Tastes like pasta.
 
 - type: entity
@@ -71,6 +74,9 @@
           Quantity: 12
         - ReagentId: Vitamin
           Quantity: 8
+  - type: Tag #ADT_Tweak - делаем пасту съедобной для молей
+    tags:
+    - ADTMothFriendlyFood
 # Tastes like pasta, bad humor.
 
 - type: entity
@@ -168,4 +174,7 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag #ADT_Tweak - делаем пасту съедобной для молей
+    tags:
+    - ADTMothFriendlyFood
 # Tastes like pasta, butter.

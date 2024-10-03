@@ -195,10 +195,10 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.MovePulledObject);
             AddButton(ContentKeyFunctions.ReleasePulledObject);
             AddButton(ContentKeyFunctions.Point);
-            AddButton(ContentKeyFunctions.ToggleCrawling);///ADT Crawling
             AddButton(ContentKeyFunctions.RotateObjectClockwise);
             AddButton(ContentKeyFunctions.RotateObjectCounterclockwise);
             AddButton(ContentKeyFunctions.FlipObject);
+            AddButton(ContentKeyFunctions.ToggleCrawling);///ADT Crawling
 
             AddHeader("ui-options-header-ui");
             AddButton(ContentKeyFunctions.FocusChat);

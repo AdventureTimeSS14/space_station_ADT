@@ -12,3 +12,9 @@ ent-ADTClothingNeckGothicCloak = готический плащ
 ent-ADTClothingNeckNewMekkaCloak = накидка Новой Мекки
     .desc = Зеленая накидка, очень удобная в носке. Скреплена застёжкой на шее.
     .suffix = { "Новая Мекка" }
+
+ent-ADTClothingNeckHoPAltCloak = торжественный плащ Главы Персонала
+    .desc = Плащ Главы Персонала для особых случаев
+    .suffix = { "" }
+ent-ClothingCloakAtmosian = плащ атмосианина
+    .desc = Плащ легендарного атмосианина.

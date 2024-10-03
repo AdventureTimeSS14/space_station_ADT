@@ -9,10 +9,10 @@
     state: plushie_ursus
 
 - type: entity
-  parent: BasePlushie
+  parent: PlushieSharkBlue
   id: ADTBlackSharkPlushie
   name: black shark plushie
-  description: Big and safe to have by your side if you want to discover the world below the surface of the ocean.
+  description: Just by looking at her, you feel uneasy, either from the desire to touch her, or from fear.
   components:
   - type: Sprite
     sprite: ADT/Objects/Fun/sharkplushie.rsi

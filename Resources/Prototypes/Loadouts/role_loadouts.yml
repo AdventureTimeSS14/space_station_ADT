@@ -298,6 +298,9 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - ADTAtmosphericTechnicianHead # ADT-Loadouts
+  - ADTAtmosphericTechnicianNeck # ADT-Loadouts
+  - ADTAtmosphericTechnicianGasMask # ADT-Loadouts
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -565,6 +568,12 @@
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
 - type: roleLoadout
+  id: RoleSurvivalVoxSupport
+  groups:
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
   id: RoleSurvivalStandard
   groups:
   - Survival
@@ -604,6 +613,13 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
 
 - type: roleLoadout
   id: RoleSurvivalEVA

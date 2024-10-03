@@ -1,0 +1,58 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTMantisDaggers
+  categories: [ HideSpawnMenu ]
+  name: mantis daggers
+  description: Back to 2077.
+  components:
+  - type: Sprite
+    sprite: ADT/Implants/mantis_daggers.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Implants/mantis_daggers.rsi
+  - type: MeleeWeapon
+    attackRate: 1.3
+    damage:
+      types:
+        Slash: 10
+        Poison: 2
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: ADTWeaponArcMantisHit
+    wideAnimation: ADTWeaponArcMantisSlash
+    customWideAnim: true
+    clickDamageModifier: 1.5
+  - type: FingerprintMask
+  - type: Reflect
+    reflectProb: .3
+    spread: 90
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTMistralFists
+  categories: [ HideSpawnMenu ]
+  name: shock fists
+  description: e
+  components:
+  - type: Sprite
+    sprite: ADT/Implants/mistral_fists.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Implants/mistral_fists.rsi
+  - type: MeleeWeapon
+    attackRate: 4.25
+    damage:
+      types:
+        Blunt: 2
+        Shock: 2
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: ADTWeaponArcShockFist
+    wideAnimation: ADTWeaponArcShockSlash
+    customWideAnim: true
+    clickDamageModifier: 1.5
+  - type: StaminaDamageOnHit
+    damage: 5
+  - type: FingerprintMask

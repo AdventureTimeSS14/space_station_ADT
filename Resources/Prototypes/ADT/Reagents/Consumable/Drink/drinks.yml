@@ -43,7 +43,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 320 #слегка согревает
+          max: 320 #слегка согревает
         amount: 2500
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/wintersun.rsi

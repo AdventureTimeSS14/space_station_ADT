@@ -151,5 +151,20 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-thief"),
         };
         args.Verbs.Add(thief);
+
+        // goobstation - heretics
+        Verb heretic = new()
+        {
+            Text = Loc.GetString("admin-verb-make-heretic"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Heretic/Blades/blade_blade.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<HereticRuleComponent>(targetPlayer, "Heretic");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-heretic"),
+        };
+        args.Verbs.Add(heretic);
     }
 }

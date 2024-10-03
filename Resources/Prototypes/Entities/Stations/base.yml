@@ -47,11 +47,17 @@
     - type: GridSpawn
       groups:
         trade: !type:GridSpawnGroup
+          minimumDistance: 150
+          maximumDistance: 200
+          nameGrid: false # ADT Trade Station Name
           addComponents:
             - type: ProtectedGrid
             - type: TradeStation
           paths:
-            - /Maps/Shuttles/trading_outpost.yml
+        # ADT Trade Station Start
+            # - /Maps/Shuttles/trading_outpost.yml
+            - /Maps/ADTMaps/Shuttles/adt_trade_outpost.yml
+        # ADT Trade Station End
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
@@ -80,11 +86,18 @@
             inherent: true
           protos:
           - VGRoid
-        # Corvax-Mining-Start
+        # ADT-Mining-Start
         mining: !type:GridSpawnGroup
+          nameGrid: false
           paths:
-          - /Maps/Shuttles/corvax_mining.yml
-        # Corvax-Mining-End
+          - /Maps/ADTMaps/Shuttles/pioneer.yml
+        # ADT-Mining-End
+        # ADT-Security-Start
+        security: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/sec_shuttle.yml
+        # ADT-Security-End
 
 - type: entity
   id: BaseStationCentcomm
