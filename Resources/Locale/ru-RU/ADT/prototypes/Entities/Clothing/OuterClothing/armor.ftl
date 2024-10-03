@@ -12,3 +12,6 @@ ent-ClothingOuterArmorAirsoftBlue = { ent-ClothingOuterArmorAirsoftRed }
     .desc = { ent-ClothingOuterArmorAirsoftRed.desc }
     .suffix = { ent-ClothingOuterArmorAirsoftRed.suffix }
 
+ent-ADTClothingGigaMuscles = мускулы
+    .desc = До ужаса огромные мускулы, нарощенные при помощи наномашин.
+

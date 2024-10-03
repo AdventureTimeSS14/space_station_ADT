@@ -18,3 +18,5 @@ ent-ClothingBackpackDuffelChemistryFilled = { ent-ClothingBackpackDuffelChemistr
     .desc = { ent-ClothingBackpackDuffelChemistry.desc }
 ent-ClothingBackpackDuffelSecurityFilledDetective = { ent-ClothingBackpackDuffelSecurity }
     .desc = { ent-ClothingBackpackDuffelSecurity.desc }
+ent-ADTClothingBackpackDuffelSeniorSecurityFilled = { ent-ClothingBackpackDuffelSecurity }
+    .desc = { ent-ClothingBackpackDuffelSecurity }

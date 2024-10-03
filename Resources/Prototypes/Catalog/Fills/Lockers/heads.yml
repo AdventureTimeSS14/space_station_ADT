@@ -28,6 +28,9 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    # ADT-Tweak Start - частичный откат нерфа утилей
+    - id: ADTSalvageShuttleConsoleCircuitboard
+    # ADT-Tweak End - частичный откат нерфа утилей
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -150,6 +153,7 @@
     - id: ClothingEyesHudCommand
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
+    - id: ADTHoPClipboard #ADT-Tweak
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -381,6 +385,9 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    # ADT-SecShuttle-Start
+    - id: ADTSecShuttleConsoleCircuitboard
+    # ADT-SecShuttle-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
