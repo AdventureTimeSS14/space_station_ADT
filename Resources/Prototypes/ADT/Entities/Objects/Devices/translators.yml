@@ -1,0 +1,468 @@
+# Translators
+- type: entity
+  id: TranslatorBase
+  categories: [ HideSpawnMenu  ]
+  parent: [ BaseItem ]
+  name: Translator
+  description: "Translates speech."
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/translator.rsi
+    state: icon
+    layers:
+      - state: icon
+      - state: translator
+        shader: unshaded
+        visible: false
+        map: [ "enum.ToggleVisuals.Layer", "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    toUnderstand:
+    - GalacticCommon
+    required:
+    - GalacticCommon
+    enabled: false
+  - type: ItemToggle
+
+- type: entity
+  id: Translator
+  categories: [ HideSpawnMenu  ]
+  parent: [ TranslatorBase, PowerCellSlotMediumItem ]
+  suffix: Powered
+  components:
+  - type: PowerCellDraw
+    drawRate: 0.5
+
+- type: entity
+  id: TranslatorEmpty
+  categories: [ HideSpawnMenu  ]
+  parent: [ Translator ]
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  id: BubblishTranslator
+  parent: [ Translator ]
+  name: Bubblish translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Bubblish
+    toUnderstand:
+    - GalacticCommon
+    - Bubblish
+    required:
+    - GalacticCommon
+    - Bubblish
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: MofficTranslator
+  parent: [ Translator ]
+  name: Moffic translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Moffic
+    toUnderstand:
+    - GalacticCommon
+    - Moffic
+    required:
+    - GalacticCommon
+    - Moffic
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: RootSpeakTranslator
+  parent: [ Translator ]
+  name: RootSpeak translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - RootSpeak
+    toUnderstand:
+    - GalacticCommon
+    - RootSpeak
+    required:
+    - GalacticCommon
+    - RootSpeak
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: NekomimeticTranslator
+  parent: [ Translator ]
+  name: Nekomimetic translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Nekomimetic
+    toUnderstand:
+    - GalacticCommon
+    - Nekomimetic
+    required:
+    - GalacticCommon
+    - Nekomimetic
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: DraconicTranslator
+  parent: [ Translator ]
+  name: Draconic translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Draconic
+    toUnderstand:
+    - GalacticCommon
+    - Draconic
+    required:
+    - GalacticCommon
+    - Draconic
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: CanilunztTranslator
+  parent: [ Translator ]
+  name: Canilunzt translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Canilunzt
+    toUnderstand:
+    - GalacticCommon
+    - Canilunzt
+    required:
+    - GalacticCommon
+    - Canilunzt
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: IPCTranslator
+  parent: [ Translator ]
+  name: IPC translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - RobotTalk
+    toUnderstand:
+    - GalacticCommon
+    - RobotTalk
+    required:
+    - GalacticCommon
+    - RobotTalk
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: FireTranslator
+  parent: [ Translator ]
+  name: Fire translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Fire
+    toUnderstand:
+    - GalacticCommon
+    - Fire
+    required:
+    - GalacticCommon
+    - Fire
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: SolCommonTranslator
+  parent: [ Translator ]
+  name: SolCommon translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - SolCommon
+    toUnderstand:
+    - GalacticCommon
+    - SolCommon
+    required:
+    - GalacticCommon
+    - SolCommon
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: VoxPidginTranslator
+  parent: [ Translator ]
+  name: VoxPidgin translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - VoxPidgin
+    toUnderstand:
+    - GalacticCommon
+    - VoxPidgin
+    required:
+    - GalacticCommon
+    - VoxPidgin
+  - type: StaticPrice
+    price: 1500
+
+# - type: entity
+#   id: ArachnidTranslator
+#   parent: [ Translator ]
+#   name: Arachnid translator
+#   description: "Translates speech."
+#   components:
+#   - type: HandheldTranslator
+#     toSpeak:
+#     - GalacticCommon
+#     - Moffic
+#     toUnderstand:
+#     - GalacticCommon
+#     - Moffic
+#     required:
+#     - GalacticCommon
+#     - Moffic
+#   - type: StaticPrice
+#     price: 1500
+
+- type: entity
+  id: DraskTranslator
+  parent: [ Translator ]
+  name: Drask translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Drask
+    toUnderstand:
+    - GalacticCommon
+    - Drask
+    required:
+    - GalacticCommon
+    - Drask
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: UrsTranslator
+  parent: [ Translator ]
+  name: Urs translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Urs
+    toUnderstand:
+    - GalacticCommon
+    - Urs
+    required:
+    - GalacticCommon
+    - Urs
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: ArkaneTranslator
+  parent: [ Translator ]
+  name: Arkane translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Arkane
+    toUnderstand:
+    - GalacticCommon
+    - Arkane
+    required:
+    - GalacticCommon
+    - Arkane
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: ShadekinTranslator
+  parent: [ Translator ]
+  name: Shadekin translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Shadekin
+    toUnderstand:
+    - GalacticCommon
+    - Shadekin
+    required:
+    - GalacticCommon
+    - Shadekin
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: DwarfTranslator
+  parent: [ Translator ]
+  name: Dwarf translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Dwarf
+    toUnderstand:
+    - GalacticCommon
+    - Dwarf
+    required:
+    - GalacticCommon
+    - Dwarf
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: CintaTajTranslator
+  parent: [ Translator ]
+  name: CintaTaj translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - CintaTaj
+    toUnderstand:
+    - GalacticCommon
+    - CintaTaj
+    required:
+    - GalacticCommon
+    - CintaTaj
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: NianTranslator
+  parent: [ Translator ]
+  name: Nian translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Nian
+    toUnderstand:
+    - GalacticCommon
+    - Nian
+    required:
+    - GalacticCommon
+    - Nian
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: SikTajTranslator
+  parent: [ Translator ]
+  name: SikTaj translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - SikTaj
+    toUnderstand:
+    - GalacticCommon
+    - SikTaj
+    required:
+    - GalacticCommon
+    - SikTaj
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: AnimalTranslator
+  parent: [ Translator ]
+  name: Animals translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Cat
+    - Dog
+    - Mothroach
+    - Monkey
+    - Bee
+    - Mouse
+    - Chicken
+    - Duck
+    - Cow
+    - Sheep
+    - Kangaroo
+    - Pig
+    toUnderstand:
+    - GalacticCommon
+    - Cat
+    - Dog
+    - Mothroach
+    - Mothroach
+    - Monkey
+    - Bee
+    - Mouse
+    - Chicken
+    - Duck
+    - Cow
+    - Sheep
+    - Kangaroo
+    - Pig
+    required:
+    - GalacticCommon
+    - Cat
+    - Dog
+    - Mothroach
+    - Mothroach
+    - Monkey
+    - Bee
+    - Mouse
+    - Chicken
+    - Duck
+    - Cow
+    - Sheep
+    - Kangaroo
+    - Pig
+  - type: StaticPrice
+    price: 1500

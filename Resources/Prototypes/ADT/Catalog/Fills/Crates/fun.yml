@@ -49,3 +49,31 @@
       amount: 1
     - id: ADTClothingHeadHatsBavarianHatRed
       amount: 2
+
+- type: entity
+  id: ADTCrateFunATV
+  parent: CrateLivestock
+  name: ATV crate
+  description: Just a quadrocycle
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTVehicleATV
+      amount: 1
+    - id: ADTVehicleKeyATV
+      amount: 1
+
+- type: entity
+  id: ADTCrateFunSyndicateSegway
+  parent: CrateLivestock
+  name: syndicate segway crate
+  description: Just a quadrocycle
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTVehicleSyndicateSegway
+      amount: 1
+    - id: ADTVehicleKeySyndicateSegway
+      amount: 1

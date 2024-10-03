@@ -1,6 +1,6 @@
 - type: latheRecipe
   id: GhostRadio
-  result: ADTGhostRadioEmtpy
+  result: ADTGhostRadioEmpty
   completetime: 2
   materials:
     Steel: 500

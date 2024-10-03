@@ -20,6 +20,7 @@
     - ADTGasVolumePump
     - ADTGasPassiveVent
     - ADTGasOutletInjector
+    - ADTRadiator
     - ADTGasVentPump
     - ADTGasValve
     - ADTGasVentScrubber
