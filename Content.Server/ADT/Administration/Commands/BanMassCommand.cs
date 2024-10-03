@@ -7,6 +7,10 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
+using Content.Server.Database;
 
 namespace Content.Server.Administration.Commands;
 
@@ -22,6 +26,9 @@ public sealed class BanMassCommand : LocalizedCommands
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+
+    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
 
     public override string Command => "banmass";
 
@@ -74,7 +81,24 @@ public sealed class BanMassCommand : LocalizedCommands
             var targetUid = located.UserId;
             var targetHWid = located.LastHWId;
 
+            //Start логи банов для диса
+            var lastServerBan = await _dbManager.GetLastServerBanAsync();
+            var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+            //End
+
             _bans.CreateServerBan(targetUid, trimmedTarget, player?.UserId, null, targetHWid, minutes, severity, reason);
+            //Start логи банов для диса
+            var banInfo = new BanInfo
+            {
+                BanId = newServerBanId.ToString()!,
+                Target = target,
+                Player = player,
+                Minutes = minutes,
+                Reason = reason,
+                Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
+            };
+            await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
+            //End
         }
     }
 

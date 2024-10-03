@@ -14,3 +14,5 @@ ent-ClothingBackpackSatchelHydroponicsFilled = { ent-ClothingBackpackSatchelHydr
     .desc = { ent-ClothingBackpackSatchelHydroponics.desc }
 ent-ClothingBackpackSatchelChemistryFilled = { ent-ClothingBackpackSatchelChemistry }
     .desc = { ent-ClothingBackpackSatchelChemistry.desc }
+ent-ADTClothingBackpackSatchelSeniorSecurityFilled = { ent-ClothingBackpackSatchelSecurity }
+    .desc = { ent-ClothingBackpackSatchelSecurity }
