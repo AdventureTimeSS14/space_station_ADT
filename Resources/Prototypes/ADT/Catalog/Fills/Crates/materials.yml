@@ -1,8 +1,0 @@
-- type: entity
-  id: CrateMaterialModCore
-  parent: CrateGenericSteel
-  components:
-  - type: StorageFill
-    contents:
-      - id: ADTModsuitCoreEnergy
-        amount: 2
