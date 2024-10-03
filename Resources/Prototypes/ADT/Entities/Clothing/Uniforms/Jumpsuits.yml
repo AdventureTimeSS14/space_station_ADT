@@ -23,7 +23,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformJumpsuitBlueshieldTurtleneck
+  id: ADTClothingUniformJumpsuitTurtleneckBlueshield
   name: blueshield's turtleneck
   description: blueshield's turtleneck
   components:
@@ -598,6 +598,84 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/investigator_suit.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlackWeddingSuit
+  name: Black Wedding Suit
+  description: A black suit for a significant event.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_wedding_suit_male.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_wedding_suit_male.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlueWeddingSuit
+  name: Blue Wedding suit
+  description: A blue suit for a significant event.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_wedding_suit_male.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_wedding_suit_male.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBrownWeddingSuit
+  name: Brown Wedding suit
+  description: A brown suit for a significant event.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/brown_wedding_suit_male.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/brown_wedding_suit_male.rsi
+
+#Luna
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformWhiteWeddingWomenSuit
+  name: White wedding women suit
+  description: This is a women's suit. For those who are tired of dresses. Looks sexy
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_wedding_women_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_wedding_women_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlackWeddingWomenSuit
+  name: Black wedding women suit
+  description: This is a women's suit. For those who are tired of dresses. Looks sexy
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_wedding_women_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_wedding_women_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAiryWhiteSuit
+  name: Airy White suit
+  description: The same, only white. Do not wear a black bra under a white sleeve!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/airy_white_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/airy_white_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAiryBlackSuit
+  name: Airy White suit
+  description: Gothic, strict, sexy. For those who like to show their beautiful bra.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/airy_black_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/airy_black_suit.rsi
+
 #Альтернативная одежда для ГП
 - type: entity
   parent: ClothingUniformBase
@@ -754,3 +832,48 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redvest.rsi #спрайты от SHIONE
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/oktoberfest_male_redvest.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformCyberSun
+  name: Cybersun jumpsuit
+  description: Simple and style.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/cybersun.rsi
+
+#Игры Кальмара
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSquidGameOrganizer
+  name: squid game organizer suit
+  description: squid game organizer suit
+  suffix: Squid Games
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_org.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_org.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadSquidGameHood
+    requiredSlot:
+    - innerclothing
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSquidGamePlayer
+  name: squid game player suit
+  description: squid game player suit
+  suffix: Squid Games
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
