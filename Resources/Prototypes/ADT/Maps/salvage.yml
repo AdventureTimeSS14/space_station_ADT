@@ -78,6 +78,21 @@
   mapPath: /Maps/ADTMaps/Salvage/medical_medium.yml
   sizeString: salvage-map-wreck-size-medium
 
+- type: salvageMap
+  id: ADT_PieceDebrisSec
+  mapPath: /Maps/ADTMaps/Salvage/piece_debris_sec.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_PieceDebrisMedical
+  mapPath: /Maps/ADTMaps/Salvage/piece_debris_med.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_PieceDebrisCommand
+  mapPath: /Maps/ADTMaps/Salvage/piece_debris_com.yml
+  sizeString: salvage-map-wreck-size-medium
+
 # """Large""" maps
 
 - type: salvageMap
