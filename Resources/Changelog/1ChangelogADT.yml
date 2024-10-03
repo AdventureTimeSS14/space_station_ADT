@@ -3438,3 +3438,13 @@ Entries:
       - {message: Вернул фелинидам зализывание ран., type: Fix}
     time: '2024-10-03T16:53:56Z'
     id: 420
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлены обломки от наших мапперов, type: Add}
+    time: '2024-10-03T17:49:09Z'
+    id: 421
+  - author: Шрёдька
+    changes:
+      - {message: Моды временно выведены., type: Remove}
+    time: '2024-10-03T19:57:01Z'
+    id: 422
