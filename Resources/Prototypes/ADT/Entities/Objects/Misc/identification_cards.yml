@@ -159,8 +159,8 @@
     - type: Sprite
       sprite: ADT/Objects/Misc/id_cards.rsi
       layers:
-        - state: tsf
-        - state: idtrader_tsf
+        - state: tsf_trader
+        - state: id-trader-tsf
     - type: IdCard
       jobTitle: Торговец
     - type: Access
