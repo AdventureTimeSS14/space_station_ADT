@@ -109,7 +109,7 @@ namespace Content.Shared.Interaction
             SubscribeLocalEvent<UnremoveableComponent, GotUnequippedHandEvent>(OnUnequipHand);
             SubscribeLocalEvent<UnremoveableComponent, DroppedEvent>(OnDropped);
 
-            SubscribeLocalEvent<ClumsyComponent, RoleAddedEvent>(OnRoleAdded);
+            SubscribeLocalEvent<ClumsyComponent, RoleAddedEvent>(OnRoleAdded); // ADT-Tweak
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.AltActivateItemInWorld,
@@ -1346,6 +1346,16 @@ namespace Content.Shared.Interaction
         {
             return _actionBlockerSystem.CanComplexInteract(user);
         }
+
+//      Start-ADT-Tweak У антагонистов больше не может быть компонента Clumsy
+        private void OnRoleAdded(EntityUid uid, ClumsyComponent component, RoleAddedEvent ev)
+        {
+            if (ev.Antagonist)
+            {
+                RemCompDeferred<ClumsyComponent>(uid);
+            }
+        }
+//      End-ADT-Tweak
     }
 
     /// <summary>
