@@ -3448,3 +3448,8 @@ Entries:
       - {message: Моды временно выведены., type: Remove}
     time: '2024-10-03T19:57:01Z'
     id: 422
+  - author: Шрёдька
+    changes:
+      - {message: 'Подтянуты коммиты с Корвакса, 03.10.2024.', type: Tweak}
+    time: '2024-10-03T20:47:03Z'
+    id: 423
