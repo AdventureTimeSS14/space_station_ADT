@@ -243,21 +243,11 @@ public sealed partial class ComponentalActionsSystem
         if (args.Handled)
             return;
 
-        if (component.Active)
-        {
-            var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-            var sprintSpeed = component.BaseSprintSpeed;
-            var walkSpeed = component.BaseWalkSpeed;
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
-        }
+        var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
+        var sprintSpeed = component.Active ? component.BaseSprintSpeed : component.SpeedModifier;
+        var walkSpeed = component.Active ? component.BaseWalkSpeed : component.SpeedModifier;
 
-        if (!component.Active)
-        {
-            var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-            var sprintSpeed = component.SpeedModifier;
-            var walkSpeed = component.SpeedModifier;
-            _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
-        }
+        _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
 
         component.Active = !component.Active;
 
