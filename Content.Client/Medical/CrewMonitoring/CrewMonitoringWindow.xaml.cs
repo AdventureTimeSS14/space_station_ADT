@@ -65,7 +65,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             TryToScrollToFocus();
     }
 
-    public void ShowSensors(List<SuitSensorStatus> sensors, EntityUid monitor, EntityCoordinates? monitorCoords)
+    public void ShowSensors(List<SuitSensorStatus> sensors, EntityUid monitor, EntityCoordinates? monitorCoords, bool isEmagged) // ADT-Tweak
     {
         ClearOutDatedData();
 
@@ -77,6 +77,26 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         }
 
         NoServerLabel.Visible = false;
+        // ADT-Tweak-Start
+        if (!isEmagged)
+        {
+            sensors = sensors.Where(s => s.Mode != SuitSensorMode.SensorOff).ToList();
+            foreach (var sensor in sensors)
+            {
+                switch (sensor.Mode)
+                {
+                    case SuitSensorMode.SensorBinary:
+                        sensor.Coordinates = null;
+                        sensor.TotalDamage = null;
+                        sensor.TotalDamageThreshold = null;
+                        break;
+                    case SuitSensorMode.SensorVitals:
+                        sensor.Coordinates = null;
+                        break;
+                }
+            }
+        }
+        // ADT-Tweak-End
 
         // Order sensor data
         var orderedSensors = sensors.OrderBy(n => n.Name).OrderBy(j => j.Job);
