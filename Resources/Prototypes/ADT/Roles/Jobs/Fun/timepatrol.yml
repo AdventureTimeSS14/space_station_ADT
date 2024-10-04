@@ -1,29 +1,3 @@
-- type: startingGear
-  id: ADTTimePatrolGear
-  equipment:
-    #suitstorage: OxygenTankFilled
-    back: ADTClothingBackpackTimePatrol
-    #id: ADTSecurityCybPDA #ADTSecurityCybPDA
-    belt: ADTADTWeaponPulseCarabinUSSP
-    #pocket1: ADtWeaponSecCyborg
-    #pocket2: WeaponDisabler
-    neck: ADTClothingNeckMantleHOSShoulderTimePatrol
-    mask: ADTChronosMask
-    jumpsuit: ClothingUniformJumpsuitOperative
-    shoes: ADTClothingShoesBootsCombatNeCkoll
-    #head: ADTClothingHeadHelmetHardsuitDeathsquad
-    eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ADTClothingOuterHardsuitDeathsquad
-    #id: CentcomPDA
-    #ears: ClothingHeadsetAltCentCom
-    pocket1: EnergySword
-    pocket2: EmergencyOxygenTankFilled
-    #underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
-    #socks: ClothingUnderwearSocksNormal
-  #underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
-  #underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
-
 - type: job
   id: ADTJobTimePatrol
   name: job-name-time-patrol
@@ -51,3 +25,29 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ADTTimePatrolGear
+  equipment:
+    #suitstorage: OxygenTankFilled
+    back: ADTClothingBackpackTimePatrol
+    #id: ADTSecurityCybPDA #ADTSecurityCybPDA
+    belt: ADTADTWeaponPulseCarabinUSSP
+    #pocket1: ADtWeaponSecCyborg
+    #pocket2: WeaponDisabler
+    neck: ADTClothingNeckMantleHOSShoulderTimePatrol
+    mask: ADTChronosMask
+    jumpsuit: ClothingUniformJumpsuitOperative
+    shoes: ADTClothingShoesBootsCombatNeCkoll
+    #head: ADTClothingHeadHelmetHardsuitDeathsquad
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ADTClothingOuterHardsuitDeathsquad
+    #id: CentcomPDA
+    #ears: ClothingHeadsetAltCentCom
+    pocket1: EnergySword
+    pocket2: EmergencyOxygenTankFilled
+    #underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    #socks: ClothingUnderwearSocksNormal
+  #underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  #underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
