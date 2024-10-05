@@ -51,6 +51,18 @@
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
+  #ADT-Tweak-Start
+  - type: Badgeable
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+  #ADT-Tweak-End
 
 #Hazard vest
 - type: entity

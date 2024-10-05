@@ -33,6 +33,17 @@
         Slash: 0.8
         Piercing: 0.7
         Heat: 0.85
+  - type: Badgeable
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+
 
 #толстовки-топки от Празата
 - type: entity

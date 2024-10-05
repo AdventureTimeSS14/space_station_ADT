@@ -21,6 +21,18 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  #ADT-Tweak-Start
+  - type: Badgeable
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+  #ADT-Tweak-End
 
 #Alternate / slim basic armor vest
 - type: entity

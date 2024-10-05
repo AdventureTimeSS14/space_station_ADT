@@ -15,6 +15,18 @@
           Slash: 0.7
           Piercing: 0.4
           Heat: 0.7
+    #ADT-Tweak-Start
+    - type: Badgeable
+    - type: ItemSlots
+      slots:
+        badge:
+          name: Badge
+          insertVerbText: attach-to-armor
+          ejectVerbText: unattach-to-armor
+          whitelist:
+            tags:
+            - ADTBadge
+    #ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
@@ -69,6 +81,16 @@
           Slash: 0.8
           Piercing: 0.6
           Heat: 0.9
+    - type: Badgeable
+    - type: ItemSlots
+      slots:
+        badge:
+          name: Badge
+          insertVerbText: attach-to-armor
+          ejectVerbText: unattach-to-armor
+          whitelist:
+            tags:
+            - ADTBadge
 
 - type: entity
   parent: ClothingOuterStorageBase
