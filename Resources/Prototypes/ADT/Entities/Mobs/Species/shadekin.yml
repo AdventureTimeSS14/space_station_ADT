@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  parent: BaseMobHuman
+  parent: BaseMobSpeciesOrganic
   id: BaseMobShadekin
   abstract: true
   name: Урист МакСумеречник
@@ -10,6 +10,11 @@
     species: Shadekin
   - type: Hunger
   - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: ADTFoodMeatShadekin
+      amount: 4
   - type: Icon
     sprite: ADT/Mobs/Species/Shadekin/parts.rsi
     state: full
@@ -26,8 +31,8 @@
       140: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.85
-      64: 0.65
+      42: 0.85
+      58: 0.65
   - type: Damageable
     damageContainer: Biological # Shadekin
     damageModifierSet: Shadekin
@@ -47,7 +52,7 @@
           -0.25
   - type: Temperature
     heatDamageThreshold: 330
-    coldDamageThreshold: 200
+    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
     coldDamage:
@@ -56,6 +61,11 @@
     heatDamage:
       types:
         Heat : 0.25 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      273: 0.8
+      260: 0.6
+      230: 0.4
   - type: Fixtures
     fixtures:
       fix1:
