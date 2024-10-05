@@ -40,7 +40,8 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi
   - type: Magboots
-    toggleAction: ActionToggleADTMagboots
+  - type: ToggleClothing
+    action: ADTActionToggleMagbootsAdvSynd
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
