@@ -1,8 +1,18 @@
 - type: entity
+  id: BaseSyringeProjctile
+  parent: BaseBullet
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: syringeproj
+
+- type: entity
   id: SyringeGunProject
   name: Syrgine
-  noSpawn: true
-  parent: syringeprojctile
+  categories: [ HideSpawnMenu ]
+  parent: BaseSyringeProjctile
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
