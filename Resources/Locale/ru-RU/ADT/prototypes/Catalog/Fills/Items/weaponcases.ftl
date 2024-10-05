@@ -4,40 +4,40 @@ ent-WeaponCaseNTM90 = оружейный кейс
 
 ent-WeaponCaseNTLecter = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Лектер" }
 
 ent-WeaponCaseNTnPulseCarbine = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Импульсник" }
 
 ent-WeaponCaseNTMateba = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Матеба" }
 
 ent-WeaponCaseNTAPAmmo = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Анти-Броня" }
 
 ent-WeaponCaseNTDisabler = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Дизейблеры" }
 
 ent-WeaponCaseNTDeagle = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Дигл" }
 
 ent-WeaponCaseNTIonRifle = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { Ионная винтовка" }
 
 ent-WeaponCaseNTDrozd = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Дрозд" }
 
 ent-WeaponCaseBulldog = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "Бульдог" }
 
 ent-ADTWeaponCaseAR12 = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { "M90" }
+    .suffix = { "AR-12" }
