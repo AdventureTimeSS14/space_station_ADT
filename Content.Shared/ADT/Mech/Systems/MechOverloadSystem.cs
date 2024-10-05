@@ -59,18 +59,20 @@ public sealed class MechOverloadSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<MechOverloadComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<MechOverloadComponent, MechComponent>();
         while (query.MoveNext(out var uid, out var overload, out var mech))
         {
+            if (!overload.Overload)
+                continue;
             overload.Accumulator += frameTime;
             if (overload.Accumulator < 1f)
                 continue;
             overload.Accumulator = 0f;
 
-            if (overload.Overload)
-            {
-                _damageable.TryChangeDamage(uid, overload.DamagePerSpeed, ignoreResistances: true);
-            }
+            var dmg = mech.MechToPilotDamageMultiplier;
+            mech.MechToPilotDamageMultiplier = 0f;
+            _damageable.TryChangeDamage(uid, overload.DamagePerSpeed, ignoreResistances: true);
+            mech.MechToPilotDamageMultiplier = dmg;
         }
     }
 }

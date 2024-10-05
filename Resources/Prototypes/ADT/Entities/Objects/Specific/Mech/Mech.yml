@@ -446,7 +446,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellMicroreactor
+      - PowerCellHigh
 
 - type: entity
   id: ADTMechSeraph
@@ -493,7 +493,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellMicroreactor
+      - PowerCellHigh
 
 #Мехи Синдиката
 
@@ -607,7 +607,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellMicroreactor
+      - PowerCellHigh
   - type: Mech
     modifiers:
       coefficients:
