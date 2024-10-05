@@ -147,18 +147,6 @@
   - MechEquipmentHumanGrabber
 
 - type: technology
-  id: ADTMechTechnologySyringegun
-  name: research-technology-mech-syringegun
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/dnasyringegun.rsi
-    state: icon
-  discipline: CivilianServices
-  tier: 2
-  cost: 3500
-  recipeUnlocks:
-  - DnaSyringeGun
-
-- type: technology
   id: ADTMechTechnologySleeper
   name: research-technology-mech-sleeper
   icon:

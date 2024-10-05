@@ -458,18 +458,6 @@
 #Оборудование
 
 - type: latheRecipe
-  id: DnaSyringeGun
-  result: DnaSyringeGun
-  category: Mech
-  completetime: 3
-  materials:
-    Steel: 350
-    Plastic: 350
-    Glass: 200
-    Plasma: 100
-    Silver: 100
-
-- type: latheRecipe
   id: MechEquipmentHumanGrabber
   result: MechEquipmentHumanGrabber
   category: Mech
