@@ -146,6 +146,9 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_teleport
   - type: MechCatapult
+  - type: Tag
+    tags:
+      - ADTMechEquipmentGeneral
 
 - type: entity
   name: навесной слипер

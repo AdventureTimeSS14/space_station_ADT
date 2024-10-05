@@ -131,6 +131,10 @@
         Piercing: 0.9
         Shock: 0.9
         Structural: 0.7
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentIndustrial
     # ADT end
     baseState: ripley
     openState: ripley-open
@@ -139,6 +143,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
