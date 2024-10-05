@@ -232,7 +232,7 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public bool ClumsyProof = false;
-
+    //ADT TWEAK START
     /// <summary>
     /// ADT. personableWeapon field
     /// </summary>
@@ -244,6 +244,22 @@ public sealed partial class GunComponent : Component
     /// </summary>
     //[DataField("gunOwner"), ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? GunOwner = null;
+
+    /// <summary>
+    /// ADT. personableWeapon emagged
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool IsEmagged = false;
+
+    /// <summary>
+    /// Emag sound effects.
+    /// </summary>
+    [DataField("sparkSound")]
+    public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks")
+    {
+        Params = AudioParams.Default.WithVolume(8),
+    };
+    //ADT END
 }
 
 [Flags]
