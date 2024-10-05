@@ -15,11 +15,16 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Access.Systems;
+using Content.Shared.Damage;
+using Robust.Shared.Random;
+using Content.Shared.Overlays;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -28,6 +33,7 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public abstract class SharedMechSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -39,7 +45,6 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -101,7 +106,6 @@ public abstract class SharedMechSystem : EntitySystem
     {
         BreakMech(uid, component);
     }
-
     private void OnGetAdditionalAccess(EntityUid uid, MechComponent component, ref GetAdditionalAccessEvent args)
     {
         var pilot = component.PilotSlot.ContainedEntity;
@@ -132,6 +136,13 @@ public abstract class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
+        // ADT Content start
+        _actions.AddAction(pilot, ref component.MechInhaleActionEntity, component.MechInhaleAction, mech);
+        _actions.AddAction(pilot, ref component.MechTurnLightsActionEntity, component.MechTurnLightsAction, mech);
+
+        var ev = new MechSetupEvent(pilot);
+        RaiseLocalEvent(mech, ref ev);
+        // ADT Content end
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -188,7 +199,15 @@ public abstract class SharedMechSystem : EntitySystem
         component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
             ? null
             : allEquipment[equipmentIndex];
-
+        // ADT Content start
+        while (TryComp<MechEquipmentComponent>(component.CurrentSelectedEquipment, out var equipment) && equipment.CanBeUsed == false)
+        {
+            equipmentIndex++;
+            component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
+                ? null
+                : allEquipment[equipmentIndex];
+        }
+        // ADT Content end
         var popupString = component.CurrentSelectedEquipment != null
             ? Loc.GetString("mech-equipment-select-popup", ("item", component.CurrentSelectedEquipment))
             : Loc.GetString("mech-equipment-select-none-popup");
@@ -390,6 +409,12 @@ public abstract class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot);
         _container.RemoveEntity(uid, pilot);
         UpdateAppearance(uid, component);
+        // ADT Content start
+        if (HasComp<ShowHealthBarsComponent>(pilot))
+        {
+            RemComp<ShowHealthBarsComponent>(pilot);
+        }
+        // ADT Content end
         return true;
     }
 

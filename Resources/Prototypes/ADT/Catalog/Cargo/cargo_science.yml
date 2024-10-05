@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTMechFabricator
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: science
+  product: ADTCrateMechFabricator
+  cost: 500
+  category: cargoproduct-category-name-science
+  group: market

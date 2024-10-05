@@ -1,0 +1,302 @@
+- type: technology
+  id: ADTMechFabricator
+  name: Производство продвинутых мехов
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: clarke
+  discipline: Experimental
+  tier: 1
+  cost: 3500
+  recipeUnlocks:
+  - ADTExosuitFabricatorMachineCircuitboard
+
+- type: technology
+  id: ADTGygaxTechnology
+  name: ADT-research-technology-gigax
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: gygax
+  discipline: Arsenal
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ADTGygaxHarness
+  - ADTGygaxLArm
+  - ADTGygaxRArm
+  - ADTGygaxLLeg
+  - ADTGygaxRLeg
+  - ADTGygaxArmorPlates
+  - ADTGygaxHead
+  - ADTGygaxCentralElectronics
+  - ADTGygaxPeripheralsElectronics
+
+- type: technology
+  id: ADTOdysseusTechnology
+  name: ADT-research-technology-odysseus
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: odysseus
+  discipline: Biochemical
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ADTOdysseusHarness
+  - ADTOdysseusLArm
+  - ADTOdysseusRArm
+  - ADTOdysseusLLeg
+  - ADTOdysseusRLeg
+  - ADTOdysseusHead
+  - ADTOdysseusCentralElectronics
+  - ADTOdysseusPeripheralsElectronics
+
+# - type: technology
+#   id: ADTMedgunTechnology
+#   name: ADT-research-technology-medgun
+#   icon:
+#     sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#     state: mecha_medigun
+#   discipline: Biochemical
+#   tier: 3
+#   cost: 25000
+#   recipeUnlocks:
+#   - ADTMechGunMedigun
+
+- type: technology
+  id: ADTClarkeTechnology
+  name: ADT-research-technology-clarke
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: clarke
+  discipline: Industrial
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ADTClarkeHarness
+  - ADTClarkeLArm
+  - ADTClarkeRArm
+  - ADTClarkeLTread
+  - ADTClarkeRTread
+  - ADTClarkeHead
+  - ADTClarkeCentralElectronics
+  - ADTClarkePeripheralsElectronics
+
+- type: technology
+  id: ADTDurandTechnology
+  name: ADT-research-technology-durand
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: durand
+  discipline: Arsenal
+  tier: 2
+  cost: 30000
+  recipeUnlocks:
+  - ADTDurandHarness
+  - ADTDurandLArm
+  - ADTDurandRArm
+  - ADTDurandLLeg
+  - ADTDurandRLeg
+  - ADTDurandHead
+  - ADTDurandArmorPlates
+  - ADTDurandCentralElectronics
+  - ADTDurandPeripheralsElectronics
+
+- type: technology
+  id: ADTPhazonTechnology
+  name: ADT-research-technology-phazon
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: phazon
+  discipline: Arsenal
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - ADTPhazonHarness
+  - ADTPhazonLArm
+  - ADTPhazonRArm
+  - ADTPhazonLLeg
+  - ADTPhazonRLeg
+  - ADTPhazonHead
+  - ADTPhazonArmorPlates
+  - ADTPhazonCentralElectronics
+  - ADTPhazonPeripheralsElectronics
+  - ADTPhazonWeaponControlElectronics
+
+- type: technology
+  id: ADTRileyMk2Technology
+  name: ADT-research-technology-ripleymk2
+  icon:
+    sprite: ADT/Objects/Specific/Mech/modification_kits.rsi
+    state: ripley_mkii
+  discipline: Industrial
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ADTRipleyMk2ModificationKit
+
+#technologies
+- type: technology
+  id: ADTMechTechnologyCarrier
+  name: Навесные переноски
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_humanstealer
+  discipline: Biochemical
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - MechEquipmentHumanGrabber
+
+- type: technology
+  id: ADTMechTechnologySyringegun
+  name: Навесные шприцеметы
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/dnasyringegun.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - DnaSyringeGun
+
+- type: technology
+  id: ADTMechTechnologySleeper
+  name: Навесные слиперы
+  icon:
+    sprite: Structures/cryostorage.rsi
+    state: sleeper_0
+  discipline: Biochemical
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - MechEquipmentHumanSleeper
+
+- type: technology
+  id: ADTMechTechnologyMedigun
+  name: Заживляющие лазеры
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_medigun
+  discipline: Biochemical
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ADTMechGunMedigun
+
+- type: technology
+  id: ADTMechTechnologyCutters
+  name: Плазменные резаки
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_plasmacutter
+  discipline: Industrial
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ADTMechWeaponCutter
+
+- type: technology
+  id: ADTMechTechnologyDrill
+  name: Тяжёлые буры
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_drill
+  discipline: Industrial
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - MechEquipmentDrill
+
+- type: technology
+  id: ADTMechTechnologyDrillDiamond
+  name: Алмазные буры
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_diamond_drill
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - MechEquipmentDiamondDrill
+
+- type: technology
+  id: ADTMechTechnologyArmor
+  name: Бронирование мехов
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_abooster_proj
+  discipline: Industrial
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - MechEquipmentArmorMelee
+  - MechEquipmentArmorRange
+
+- type: technology
+  id: ADTMechTechnologyCatapult
+  name: Гравитационные катапульты
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_teleport
+  discipline: Industrial
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - MechEquipmentGravipult
+
+#Технологии оружия
+
+- type: technology
+  id: ADTMechEnergyGunSmallTechnology
+  name: Легкое энергооружие меха
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_laser
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ADTMechGunImmolatorLaser
+  - ADTMechGunPeacemakerDisabler
+
+- type: technology
+  id: ADTMechEnergyGunHeavyTechnology
+  name: Тяжелое энергооружие меха
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_pulse
+  discipline: Arsenal
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ADTMechGunSolarisLaserCannon
+  - ADTMechGunHeavyPulseRifle
+  - ADTMechGunTeslaCannon
+
+- type: technology
+  id: ADTMechGunSmallTechnology
+  name: Легкое оружие меха
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_scatter
+  discipline: Arsenal
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ADTMechGunScattershot
+  - ADTMechGunUltraAC2
+  - ADTMechGunFNX99Hades
+
+- type: technology
+  id: ADTMechGunHeavyTechnology
+  name: Тяжелое оружие меха
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_missilerack_six
+  discipline: Arsenal
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - ADTMechGunMHAR21
+  - ADTMechGunSGL6
+  - ADTMechGunSRM8
+  - ADTMechGunBRM6

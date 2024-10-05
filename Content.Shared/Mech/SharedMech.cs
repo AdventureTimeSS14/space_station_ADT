@@ -60,3 +60,26 @@ public sealed partial class MechOpenUiEvent : InstantActionEvent
 public sealed partial class MechEjectPilotEvent : InstantActionEvent
 {
 }
+
+// ADT Content start
+public sealed partial class MechInhaleEvent : InstantActionEvent
+{
+}
+
+public sealed partial class MechTurnLightsEvent : InstantActionEvent
+{
+}
+
+/// <summary>
+/// Raised on mech equipment destruction.
+/// </summary>
+[ByRefEvent]
+public record struct MechEquipmentDestroyedEvent();
+
+/// <summary>
+/// Raised on the mech during pilot setup
+/// </summary>
+/// <param name="Mech"></param>
+[ByRefEvent]
+public record struct MechSetupEvent(EntityUid Pilot);
+// ADT Content end

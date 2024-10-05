@@ -1,4 +1,5 @@
 using Content.Server.Popups;
+using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
@@ -10,7 +11,7 @@ namespace Content.Server.Mech.Systems;
 /// <summary>
 /// Handles the insertion of mech equipment into mechs.
 /// </summary>
-public sealed class MechEquipmentSystem : EntitySystem
+public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Parent changed
 {
     [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -20,6 +21,8 @@ public sealed class MechEquipmentSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();  // ADT fix I guess?
+
         SubscribeLocalEvent<MechEquipmentComponent, AfterInteractEvent>(OnUsed);
         SubscribeLocalEvent<MechEquipmentComponent, InsertEquipmentEvent>(OnInsertEquipment);
     }

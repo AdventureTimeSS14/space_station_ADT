@@ -123,6 +123,15 @@
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    # ADT start
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.9
+        Structural: 0.7
+    # ADT end
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
