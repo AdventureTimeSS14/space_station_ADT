@@ -136,19 +136,19 @@
   - type: MechEquipment
     canBeUsed: false
 
-- type: entity
-  name: гравитационная катапульта
-  parent: BaseMechEquipment
-  id: MechEquipmentGravipult
-  description: Запустите себя в полёт!
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_teleport
-  - type: MechCatapult
-  - type: Tag
-    tags:
-      - ADTMechEquipmentGeneral
+# - type: entity
+#   name: гравитационная катапульта
+#   parent: BaseMechEquipment
+#   id: MechEquipmentGravipult
+#   description: Запустите себя в полёт!
+#   components:
+#   - type: Sprite
+#     sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#     state: mecha_teleport
+#   - type: MechCatapult
+#   - type: Tag
+#     tags:
+#       - ADTMechEquipmentGeneral
 
 - type: entity
   name: навесной слипер
@@ -208,79 +208,11 @@
   - type: Tag
     tags:
       - ADTMechEquipmentMed
-# - type: hitscan
-#   id: ADTHealMechGun
-#   damage:
-#     types:
-#       Blunt: -2
-#       Slash: -2
-#       Piercing: -2
-#       Heat: -2
-#       Radiation: -2
-#       Caustic: -2
-#       Bloodloss: -2
-#       Asphyxiation: -2
-#       Cellular: -2
-#       Cold: -2
-#       Shock: -2
-#       Poison: -2
-#   bloodlossModifier: -2
-#   muzzleFlash:
-#     sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
-#     state: muzzle_heal
-#   travelFlash:
-#     sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
-#     state: beam_heal
-#   impactFlash:
-#     sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
-#     state: impact_heal
-
-- type: entity
-  name: Syringe gun
-  parent: BaseWeaponSubMachineGun
-  id: DnaSyringeGun
-  description: Syringe gun provided by NT specifically for medics. Can store two cartridges. Uses syringe cartridges
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/SMGs/dnasyringegun.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/SMGs/dnasyringegun.rsi
-  - type: Gun
-    fireRate: 2
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/syringeproj.ogg
-  - type: ItemSlots
-    slots:
-      gun_chamber:
-        name: Chamber
-        startingItem: Syringecartridge
-        priority: 1
-        whitelist:
-          tags:
-            - Syringecartridge
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
   - type: MechGun
-  - type: MechEquipment
-  - type: Tag
-    tags:
-      - ADTMechEquipmentMed
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - Syringecartridge
-    capacity: 7
+    batteryUsageMultiplier: 2.5
 
 - type: entity
   name: бур

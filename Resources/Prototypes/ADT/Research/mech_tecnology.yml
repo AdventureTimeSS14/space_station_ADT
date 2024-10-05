@@ -231,17 +231,17 @@
   - MechEquipmentArmorMelee
   - MechEquipmentArmorRange
 
-- type: technology
-  id: ADTMechTechnologyCatapult
-  name: research-technology-mech-catapult
-  icon:
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_teleport
-  discipline: Industrial
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - MechEquipmentGravipult
+# - type: technology
+#   id: ADTMechTechnologyCatapult
+#   name: research-technology-mech-catapult
+#   icon:
+#     sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#     state: mecha_teleport
+#   discipline: Industrial
+#   tier: 2
+#   cost: 5000
+#   recipeUnlocks:
+#   - MechEquipmentGravipult
 
 #Технологии оружия
 

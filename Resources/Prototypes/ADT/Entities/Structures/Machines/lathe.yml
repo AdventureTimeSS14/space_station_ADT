@@ -210,6 +210,7 @@
     - ADTMechGunSGL6
     - ADTMechGunSRM8
     - ADTMechGunBRM6
+    # - MechEquipmentGravipult
   - type: MaterialStorage
     whitelist:
       tags:

@@ -21,10 +21,10 @@ public sealed class MechCatapultSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MechCatapultComponent, AfterInteractEvent>(OnInteract);
+        SubscribeLocalEvent<MechCatapultComponent, AfterInteractUsingEvent>(OnInteract);
     }
 
-    private void OnInteract(EntityUid uid, MechCatapultComponent component, AfterInteractEvent args)
+    private void OnInteract(EntityUid uid, MechCatapultComponent component, AfterInteractUsingEvent args)
     {
         if (args.Handled)
             return;

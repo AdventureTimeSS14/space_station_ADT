@@ -8,6 +8,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Stunnable;
 using Robust.Shared.Containers;
+using Content.Shared.ADT.Mech.Equipment.Components;
 
 namespace Content.Server.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
@@ -75,6 +76,8 @@ public sealed class MechGunSystem : EntitySystem
 
         if (chargeDelta <= 0 || mech.Energy - chargeDelta < 0)
             return;
+        if (TryComp<MechGunComponent>(uid, out var mechGun))
+            chargeDelta *= mechGun.BatteryUsageMultiplier;
 
         if (!_mech.TryChangeEnergy(mechEquipment.EquipmentOwner.Value, -chargeDelta, mech))
             return;
