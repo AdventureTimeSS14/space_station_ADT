@@ -52,20 +52,17 @@ public class BadgeableSystem : EntitySystem
         if (!ExamineSystem.IsInDetailsRange(ev.Examiner, entity))
         {
             if (component.NotInDetailsText != String.Empty)
-                ev.PushMarkup(Loc.GetString(component.NotInDetailsText, ("badgeNumber", badgeNumber)));
+                ev.PushMarkup(Loc.GetString(component.NotInDetailsText, ("badgeNumber", badgeNumber)), -5);
 
             return;
         }
 
         if (component.InDetailsText != String.Empty)
-            ev.PushMarkup(Loc.GetString(component.InDetailsText, ("badgeNumber", badgeNumber)));
+            ev.PushMarkup(Loc.GetString(component.InDetailsText, ("badgeNumber", badgeNumber)), -5);
     }
 
     protected void HandleEntityExaminedEvent(EntityUid entity, InventoryComponent _, ExaminedEvent ev)
     {
-        if (!ExamineSystem.IsInDetailsRange(ev.Examiner, entity))
-            return;
-
         var enumerator = InventorySystem.GetSlotEnumerator(entity, SlotFlags.OUTERCLOTHING);
         while (enumerator.MoveNext(out var container))
         {
@@ -76,7 +73,13 @@ public class BadgeableSystem : EntitySystem
                 continue;
 
             if (GetBadgeNumber(container.ContainedEntity.Value, out var badgeNumber))
-                ev.PushMarkup("На бронежилете закреплён значок №" + badgeNumber, 5);
+            {
+                if (ExamineSystem.IsInDetailsRange(ev.Examiner, entity))
+                    ev.PushMarkup(Loc.GetString(vest.InDetailsText, ("badgeNumber", badgeNumber)), -5);
+                else
+                    ev.PushMarkup(Loc.GetString(vest.NotInDetailsText, ("badgeNumber", badgeNumber)), -5);
+            }
+
         }
     }
 }
