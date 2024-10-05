@@ -153,7 +153,7 @@
 - type: listing
   id: ADTBoberJawOfLife
   name: boobr-JawsOfLife-name
-  description:  boobr-JawsOfLife-desc
+  description: boobr-JawsOfLife-desc
   productEntity: JawsOfLife
   cost:
     Productunit: 4
@@ -162,8 +162,8 @@
 
 - type: listing
   id: ADTBoberGrenadeShrapnel
-  name: boobr-granade-nameboobr-granade
-  description:  boobr-JawsOfLife-desc
+  name: boobr-grenade-name
+  description: boobr-grenade-desc
   productEntity: GrenadeShrapnel
   cost:
     Productunit: 3
@@ -174,7 +174,7 @@
   id: ADTBoberc4
   name: boobr-c4-name
   productEntity: C4
-  description:  boobr-c4-desc
+  description: boobr-c4-desc
   cost:
     Productunit: 1
   categories:
