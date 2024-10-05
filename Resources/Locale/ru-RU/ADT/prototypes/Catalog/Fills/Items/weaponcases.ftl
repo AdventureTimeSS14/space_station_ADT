@@ -28,7 +28,7 @@ ent-WeaponCaseNTDeagle = { WeaponCaseNTM90 }
 
 ent-WeaponCaseNTIonRifle = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
-    .suffix = { Ионная винтовка" }
+    .suffix = { "Ионная винтовка" }
 
 ent-WeaponCaseNTDrozd = { WeaponCaseNTM90 }
     .desc = { WeaponCaseNTM90.desc }.
