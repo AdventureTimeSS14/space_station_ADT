@@ -230,10 +230,9 @@
     state: science
   - type: MachineBoard
     prototype: ADTExosuitFabricator
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 3
-    materialRequirements:
       Glass: 5
   - type: GuideHelp
     guides:

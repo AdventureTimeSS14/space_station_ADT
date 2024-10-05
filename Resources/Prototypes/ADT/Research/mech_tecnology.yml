@@ -1,6 +1,6 @@
 - type: technology
   id: ADTMechFabricator
-  name: Производство продвинутых мехов
+  name: research-technology-mech-fabricator
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: clarke
@@ -12,7 +12,7 @@
 
 - type: technology
   id: ADTGygaxTechnology
-  name: ADT-research-technology-gigax
+  name: research-technology-mech-gygax
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: gygax
@@ -32,7 +32,7 @@
 
 - type: technology
   id: ADTOdysseusTechnology
-  name: ADT-research-technology-odysseus
+  name: research-technology-mech-odysseus
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: odysseus
@@ -51,7 +51,7 @@
 
 # - type: technology
 #   id: ADTMedgunTechnology
-#   name: ADT-research-technology-medgun
+#   name: ADT-research-technology-mech-medgun
 #   icon:
 #     sprite: Objects/Specific/Mech/mecha_equipment.rsi
 #     state: mecha_medigun
@@ -63,7 +63,7 @@
 
 - type: technology
   id: ADTClarkeTechnology
-  name: ADT-research-technology-clarke
+  name: research-technology-mech-clarke
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: clarke
@@ -82,7 +82,7 @@
 
 - type: technology
   id: ADTDurandTechnology
-  name: ADT-research-technology-durand
+  name: research-technology-mech-durand
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: durand
@@ -102,7 +102,7 @@
 
 - type: technology
   id: ADTPhazonTechnology
-  name: ADT-research-technology-phazon
+  name: research-technology-mech-phazon
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: phazon
@@ -123,7 +123,7 @@
 
 - type: technology
   id: ADTRileyMk2Technology
-  name: ADT-research-technology-ripleymk2
+  name: research-technology-mech-ripleymk2
   icon:
     sprite: ADT/Objects/Specific/Mech/modification_kits.rsi
     state: ripley_mkii
@@ -136,7 +136,7 @@
 #technologies
 - type: technology
   id: ADTMechTechnologyCarrier
-  name: Навесные переноски
+  name: research-technology-mech-carrier
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_humanstealer
@@ -148,7 +148,7 @@
 
 - type: technology
   id: ADTMechTechnologySyringegun
-  name: Навесные шприцеметы
+  name: research-technology-mech-syringegun
   icon:
     sprite: Objects/Weapons/Guns/SMGs/dnasyringegun.rsi
     state: icon
@@ -160,7 +160,7 @@
 
 - type: technology
   id: ADTMechTechnologySleeper
-  name: Навесные слиперы
+  name: research-technology-mech-sleeper
   icon:
     sprite: Structures/cryostorage.rsi
     state: sleeper_0
@@ -172,7 +172,7 @@
 
 - type: technology
   id: ADTMechTechnologyMedigun
-  name: Заживляющие лазеры
+  name: research-technology-mech-medigun
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_medigun
@@ -184,7 +184,7 @@
 
 - type: technology
   id: ADTMechTechnologyCutters
-  name: Плазменные резаки
+  name: research-technology-mech-cutters
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_plasmacutter
@@ -196,7 +196,7 @@
 
 - type: technology
   id: ADTMechTechnologyDrill
-  name: Тяжёлые буры
+  name: research-technology-mech-drill
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_drill
@@ -208,7 +208,7 @@
 
 - type: technology
   id: ADTMechTechnologyDrillDiamond
-  name: Алмазные буры
+  name: research-technology-mech-diamond-drill
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_diamond_drill
@@ -220,7 +220,7 @@
 
 - type: technology
   id: ADTMechTechnologyArmor
-  name: Бронирование мехов
+  name: research-technology-mech-armor
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_abooster_proj
@@ -233,7 +233,7 @@
 
 - type: technology
   id: ADTMechTechnologyCatapult
-  name: Гравитационные катапульты
+  name: research-technology-mech-catapult
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_teleport
@@ -247,7 +247,7 @@
 
 - type: technology
   id: ADTMechEnergyGunSmallTechnology
-  name: Легкое энергооружие меха
+  name: research-technology-mech-energy-gun-small
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_laser
@@ -260,7 +260,7 @@
 
 - type: technology
   id: ADTMechEnergyGunHeavyTechnology
-  name: Тяжелое энергооружие меха
+  name: research-technology-mech-energy-gun-heavy
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_pulse
@@ -274,7 +274,7 @@
 
 - type: technology
   id: ADTMechGunSmallTechnology
-  name: Легкое оружие меха
+  name: research-technology-mech-gun-small
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_scatter
@@ -288,7 +288,7 @@
 
 - type: technology
   id: ADTMechGunHeavyTechnology
-  name: Тяжелое оружие меха
+  name: research-technology-mech-gun-heavy
   icon:
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_missilerack_six

@@ -17,10 +17,13 @@
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store
-    preset: ADTStorePresetUplinkMech
+    categories:
+    - ADTUplinkMechMechs
+    - ADTUplinkMechWeapon
+    - ADTUplinkMechEquipment
     balance:
       Telecrystal: 0
-    storeCordsSpawn: true
+    #storeCordsSpawn: true
   - type: Fixtures
     fixtures:
       fix1:
