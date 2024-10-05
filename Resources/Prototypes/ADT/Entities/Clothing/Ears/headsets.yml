@@ -90,3 +90,42 @@
       sprite: ADT/Clothing/Ears/Headsets/space_sec_headset_full.rsi
     - type: Clothing
       sprite: ADT/Clothing/Ears/Headsets/space_sec_headset_full.rsi
+
+# ТСФ
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTClothingHeadsetTSF
+  name: TSF forces headset
+  description: A headset for TSF forces.
+  suffix: TSF
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+        - ADTEncryptionKeyTSF
+    - type: Sprite
+      sprite: ADT/Clothing/Ears/Headsets/armyheadset.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Ears/Headsets/armyheadset.rsi
+    - type: RadioSpeaker
+      channels:
+      - ADTTransSolar19482Channel
+      - ADTTransSolar19487Channel
+      - ADTTransSolar19489Channel
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTClothingHeadsetTrader
+  name: trader headset
+  description: A headset used by trader.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTEncryptionKeyTrader
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: ADT/Clothing/Ears/Headsets/trader.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Ears/Headsets/trader.rsi

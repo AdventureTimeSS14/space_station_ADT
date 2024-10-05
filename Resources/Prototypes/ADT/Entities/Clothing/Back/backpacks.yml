@@ -42,7 +42,7 @@
     sprite: ADT/Clothing/Back/pathologist_backpack.rsi
 
 - type: entity
-  parent: ClothingBackpackERTLeader # ADTADTClothingBackpackSecurityCybBase
+  parent: ClothingBackpackERTLeader
   id: ADTClothingBackpackTimePatrol
   name: backpack time patrol
   description: desc
