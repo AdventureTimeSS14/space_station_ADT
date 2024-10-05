@@ -5,3 +5,11 @@
   completetime: 3
   materials:
     Steel: 3000
+
+- type: latheRecipe
+  id: Syringecartridge
+  result: Syringecartridge
+  completetime: 1
+  materials:
+    Plastic: 75
+    Glass: 75

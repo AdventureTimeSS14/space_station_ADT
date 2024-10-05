@@ -416,6 +416,7 @@
       - PhantomHud
       - EctoShield
       # ^^ ADT Phantom ^^
+      - Syringecartridge  # ADT Suringe cartridge
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag

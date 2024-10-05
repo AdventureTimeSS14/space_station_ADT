@@ -100,6 +100,10 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentIndustrial
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.2
@@ -112,10 +116,6 @@
     baseSprintSpeed: 5.5
   - type: ExplosionResistance
     damageCoefficient: 0.4
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentIndustrial
 
 - type: entity
   id: ADTMechClarkeBattery
@@ -163,6 +163,10 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.2
@@ -177,10 +181,6 @@
     damageCoefficient: 0.4
   - type: AccessReader
     access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
 
 - type: entity
   id: ADTMechDurandBattery
