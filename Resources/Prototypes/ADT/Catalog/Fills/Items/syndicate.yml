@@ -1,0 +1,30 @@
+- type: entity
+  parent: ToolboxSyndicate
+  id: ADTToolboxSyndicateFilledThief # 10 TC
+  name: Thieving bundle
+  description: Everything you need to become a better thief version.
+  components:
+  - type: StorageFill
+    contents:
+      - id: StorageImplanter
+      - id: ThievingGloves
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Welder
+      - id: Wirecutter
+      - id: Multitool
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingMaskGasSyndicate
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSyndicateFilledEscapist # 15 TC
+  name: Escapist bundle
+  description: For those who already got in or afraid of troubles.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmpImplanter
+      - id: FreedomImplanter
+      - id: DnaScramblerImplanter

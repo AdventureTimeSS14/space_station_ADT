@@ -107,6 +107,17 @@
   categories:
   - ADTUplinkERTWeapon
 
+- type: listing
+  id: ADTBoberAR12
+  name: boobr-ar12-name
+  description: boobr-ar12-desc
+  icon: { sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi, state: base }
+  productEntity: ADTWeaponCaseAR12
+  cost:
+    Productunit: 27
+  categories:
+  - ADTUplinkERTWeapon
+
 # misc
 
 - type: listing
@@ -198,3 +209,5 @@
     Productunit: 2
   categories:
   - ADTUplinkERTMisc
+
+

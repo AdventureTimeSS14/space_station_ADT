@@ -27,3 +27,45 @@
   - type: InstantAction
     icon: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }
     iconOn: ADT/Clothing/Shoes/Boots/magboots-ert.rsi/icon-on.png
+
+- type: entity
+  parent: ClothingShoesBootsMagSyndie
+  id: ADTClothingShoesBootsMagAdvSynd
+  name: advanced syndicate magboots
+  description: State-of-the-art magnetic boots that do not slow down their wearer. Made by gorlax for gorlax
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi
+  - type: Magboots
+    toggleAction: ActionToggleADTMagboots
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      # 8 minutes of thrust
+      volume: 3
+      temperature: 293.15
+      moles:
+        - 0.615413716 # oxygen
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 4500
+  - type: ToggleClothing
+    action: ADTActionToggleMagbootsAdvSynd
+
+- type: entity
+  id: ADTActionToggleMagbootsAdvSynd
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: { sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi, state: icon }
+      iconOn: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi/icon-on.png

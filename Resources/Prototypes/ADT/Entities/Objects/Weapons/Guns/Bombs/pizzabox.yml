@@ -1,0 +1,19 @@
+- type: entity
+  name: Pizza box
+  parent: BaseItem
+  id: ADTExplosivePizzabox
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Bombs/explosivepizzabox.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 120
+    canCreateVacuum: false
+  - type: OnUseTimerTrigger
+    delay: 0.1
