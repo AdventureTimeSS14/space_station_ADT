@@ -30,6 +30,18 @@ public abstract partial class SharedGunSystem
 
     private void OnAltVerb(EntityUid uid, GunComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
+        ///ADT-Personal-Gun block start
+        if (component.Personable)
+        {
+            AlternativeVerb verbPersonalize = new()
+            {
+                Act = () => MakeWeaponPersonal(uid, component, args.User),
+                Text = Loc.GetString("gun-personalize-verb"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
+            };
+            args.Verbs.Add(verbPersonalize);
+        }
+        ///ADT-Personal-Gun block end
         if (!args.CanAccess || !args.CanInteract || component.SelectedMode == component.AvailableModes)
             return;
 
@@ -84,6 +96,22 @@ public abstract partial class SharedGunSystem
         Popup(Loc.GetString("gun-selected-mode", ("mode", GetLocSelector(fire))), uid, user);
         Dirty(uid, component);
     }
+    // ADT-Personal-Gun block start
+    /// <summary>
+    /// ADT, modern. This method makes weapon personal, making everyone except user not able to shoot with it.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="user"></param>
+    private void MakeWeaponPersonal(EntityUid uid, GunComponent component, EntityUid? user = null)
+    {
+        if (component.GunOwner != null)
+            return;
+        component.GunOwner = user;
+        Popup(Loc.GetString("gun-was-personalized"), uid, user);
+        Dirty(uid, component);
+    }
+    // ADT-Personal-Gun block end
 
     /// <summary>
     /// Cycles the gun's <see cref="SelectiveFire"/> to the next available one.

@@ -94,7 +94,8 @@
     - type: Gun
       fireRate: 1.5
       soundGunshot:
-        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg #/Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
+        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
+      personable: true
     - type: ProjectileBatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150

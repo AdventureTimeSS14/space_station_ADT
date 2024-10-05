@@ -34,6 +34,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Mobs.Components; //ADT Tweak block personal gun
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -229,6 +230,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
             return;
+        ///ADT-Personal-Gun block start
+        if (gun.Personable)
+        {
+            if (gun.GunOwner?.Id != user.Id)
+                return;
+        }
+        ///ADT-Personal-Gun block end
 
         var toCoordinates = gun.ShootCoordinates;
 
