@@ -384,7 +384,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         PopupSystem.PopupEntity(Loc.GetString("gun-component-upgrade-emag"), uid);
 
         component.IsEmagged = true;
-        //UpdateUserInterface(uid, component);
         ev.Handled = true;
     }
     // ADT Tweak emagged persoanl block end
