@@ -120,7 +120,7 @@
 
 - type: Tag
   id: JanicartKeys
-
+  
 #mech_gygax
 
 - type: Tag
@@ -271,3 +271,7 @@
 
 - type: Tag
   id: ADTMechEquipmentSec
+
+- type: Tag
+  id: ADTMagazineRifleAR12
+

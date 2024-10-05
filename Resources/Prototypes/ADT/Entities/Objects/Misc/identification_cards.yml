@@ -149,3 +149,21 @@
     tags:
     - SpaceSecOfficial
     - SpaceSecMaintenance
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTTraderIDCard
+  name: TraderIDCard
+  description: TraderIDCard
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: tsf_trader
+        - state: id-trader-tsf
+    - type: IdCard
+      jobTitle: Торговец
+    - type: Access
+      tags:
+      - ADTTrader
+      - External
