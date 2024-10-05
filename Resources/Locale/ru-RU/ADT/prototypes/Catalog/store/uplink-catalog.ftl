@@ -6,3 +6,6 @@ uplink-ADTAntagIronTray-desc = Железный поднос c очень ост
 
 uplink-segway-name = сегвей
 uplink-segway-desc = Транспорт, с которым вас уж точно заметят.
+
+uplink-toolboxmaterial-name = Тулбокс с материалами
+uplink-toolboxmaterial-desc = Содержит в себе инстурменты и различные материалы: сталь, пласталь, провода, урановое стекло. Неплохоой вариант для починки КПБ.
