@@ -40,17 +40,18 @@ public sealed class MechDrillSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<MechDrillComponent, AfterInteractEvent>(OnInteract);
+        SubscribeLocalEvent<MechDrillComponent, UserActivateInWorldEvent>(OnInteract);
         SubscribeLocalEvent<MechDrillComponent, MechDrillDoAfterEvent>(OnDoAfter);
     }
 
     /// <summary>
     /// When mecha driver uses the tool
     /// </summary>
-    private void OnInteract(EntityUid uid, MechDrillComponent component, AfterInteractEvent args)
+    private void OnInteract(EntityUid uid, MechDrillComponent component, UserActivateInWorldEvent args)
     {
-        if (args.Handled || args.Target is not { } target)
+        if (args.Handled)
             return;
+        var target = args.Target;
 
         if (!TryComp<MechComponent>(args.User, out var mech))
             return;
@@ -59,14 +60,14 @@ public sealed class MechDrillSystem : EntitySystem
         if (mech.Energy + component.DrillEnergyDelta < 0)
             return;
 
-        if (!_interaction.InRangeUnobstructed(args.User, args.Target.Value))
+        if (!_interaction.InRangeUnobstructed(args.User, target))
             return;
 
         args.Handled = true;
         component.Token = new();
-        var damageRequired = _destructible.DestroyedAt(args.Target.Value);
+        var damageRequired = _destructible.DestroyedAt(target);
         var damageTime = (damageRequired / component.DrillSpeedMultilire).Float();
-        if (HasComp<GatherableComponent>(args.Target) || HasComp<MobStateComponent>(args.Target))
+        if (HasComp<GatherableComponent>(args.Target) || HasComp<MobStateComponent>(target))
             damageTime = 0.5f;
         var doAfter = new DoAfterArgs(EntityManager, args.User, damageTime, new MechDrillDoAfterEvent(), uid, target: target, used: uid)
         {
