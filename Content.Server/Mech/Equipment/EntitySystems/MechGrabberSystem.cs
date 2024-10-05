@@ -16,6 +16,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Content.Server.Body.Systems;
 
 namespace Content.Server.Mech.Equipment.EntitySystems;
 
@@ -83,7 +84,11 @@ public sealed class MechGrabberSystem : EntitySystem
         var xform = Transform(toRemove);
         _transform.AttachToGridOrMap(toRemove, xform);
         var (mechPos, mechRot) = _transform.GetWorldPositionRotation(mechxform);
-
+        if (component.SlowMetabolism)
+        {
+            var metabolicEvent = new ApplyMetabolicMultiplierEvent(toRemove, 0.4f, false);
+            RaiseLocalEvent(toRemove, ref metabolicEvent);
+        }
         var offset = mechPos + mechRot.RotateVec(component.DepositOffset);
         _transform.SetWorldPositionRotation(toRemove, offset, Angle.Zero);
         _mech.UpdateUserInterface(mech);
@@ -132,13 +137,17 @@ public sealed class MechGrabberSystem : EntitySystem
         if (args.Target == args.User || component.DoAfter != null)
             return;
 
-        if (TryComp<PhysicsComponent>(target, out var physics) && physics.BodyType == BodyType.Static ||
+        if (!component.GrabMobs &&
+            TryComp<PhysicsComponent>(target, out var physics) && physics.BodyType == BodyType.Static ||
             HasComp<WallMountComponent>(target) ||
             HasComp<MobStateComponent>(target))
         {
-            return;
+            if (component.GrabMobs &&
+            !HasComp<MobStateComponent>(target))
+            {
+                return;
+            }
         }
-
         if (Transform(target).Anchored)
             return;
 
@@ -183,6 +192,11 @@ public sealed class MechGrabberSystem : EntitySystem
             return;
 
         _container.Insert(args.Args.Target.Value, component.ItemContainer);
+        if (component.SlowMetabolism && args.Target.HasValue)
+        {
+            var metabolicEvent = new ApplyMetabolicMultiplierEvent(args.Target.Value, 0.4f, false);
+            RaiseLocalEvent(args.Target.Value, ref metabolicEvent);
+        }
         _mech.UpdateUserInterface(equipmentComponent.EquipmentOwner.Value);
 
         args.Handled = true;

@@ -33,7 +33,7 @@ public sealed partial class MechDrillComponent : Component
     /// The sound played when a mech is drilling something
     /// </summary>
     [DataField("drillSound")]
-    public SoundSpecifier DrillSound = new SoundPathSpecifier("/Audio/Mecha/mecha_drill.ogg");
+    public SoundSpecifier DrillSound = new SoundPathSpecifier("/Audio/ADT/Mecha/mecha_drill.ogg");
 
     public AudioComponent? AudioStream;
 

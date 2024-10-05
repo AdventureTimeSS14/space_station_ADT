@@ -25,6 +25,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Server.Body.Systems;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -40,6 +41,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     private const float DamagePitchVariation = 0.05f;
     public const float GunClumsyChance = 0.5f;
@@ -238,6 +240,11 @@ public sealed partial class GunSystem : SharedGunSystem
                         var hitName = ToPrettyString(hitEntity);
                         if (dmg != null)
                             dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);
+
+                        // ADT hitscan bloodloss modifiers start
+                        if (hitscan.BloodlossModifier.HasValue)
+                            _bloodstream.TryModifyBleedAmount(hitEntity, hitscan.BloodlossModifier.Value);
+                        // ADT bloodloss modifiers end
 
                         // check null again, as TryChangeDamage returns modified damage values
                         if (dmg != null)

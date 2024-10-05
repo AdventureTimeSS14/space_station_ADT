@@ -361,7 +361,7 @@
     availableModes:
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rocket.rsi
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticAmmoProvider

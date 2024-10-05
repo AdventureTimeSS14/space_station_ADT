@@ -2,7 +2,7 @@
 #   id: ActionMechCycleEquipment
 #   name: Cycle
 #   description: Cycles currently selected equipment
-#   noSpawn: true
+#   categories: [ HideSpawnMenu ]
 #   components:
 #   - type: InstantAction
 #     itemIconStyle: NoItem
@@ -16,7 +16,7 @@
 #   id: ActionMechOpenUI
 #   name: Control Panel
 #   description: Opens the control panel for the mech
-#   noSpawn: true
+#   categories: [ HideSpawnMenu ]
 #   components:
 #   - type: InstantAction
 #     itemIconStyle: NoItem
@@ -30,7 +30,7 @@
 #   id: ActionMechEject
 #   name: Eject
 #   description: Ejects the pilot from the mech
-#   noSpawn: true
+#   categories: [ HideSpawnMenu ]
 #   components:
 #   - type: InstantAction
 #     itemIconStyle: NoItem
@@ -43,7 +43,7 @@
   id: ActionMechInhale
   name: Toggle tightness
   description: "*задыхается*"
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -57,7 +57,7 @@
   id: ActionMechTurnLights
   name: Turn lights
   description: Мои глазаааа!!!
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -71,7 +71,7 @@
   id: ActionMechOverload
   name: Toggle overload
   description: Deja vu I've just been in this place before Higher on the street And I know it's my time to go
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -85,7 +85,7 @@
   id: ActionMechPhaze
   name: Toggle phaze
   description: is this a noclip??? No, this is phaze
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: NoItem

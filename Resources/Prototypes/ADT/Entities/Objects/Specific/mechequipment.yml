@@ -41,7 +41,7 @@
   id: BulletCutter
   name: cutter bolt
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: Not too bad, but you still don't want to get hit by it.
   components:
   - type: Reflective

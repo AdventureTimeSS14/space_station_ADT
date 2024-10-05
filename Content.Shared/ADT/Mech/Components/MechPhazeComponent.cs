@@ -33,7 +33,7 @@ public sealed partial class MechPhazeComponent : Component
     /// The sound played when a mech is entered phaze
     /// </summary>
     [DataField("phazingSound")]
-    public SoundSpecifier PhazingSound = new SoundPathSpecifier("/Audio/Mecha/mecha_drill.ogg");
+    public SoundSpecifier PhazingSound = new SoundPathSpecifier("/Audio/ADT/Mecha/mecha_drill.ogg");
 
     [DataField]
     public string PhazingState = "phazon-phase";

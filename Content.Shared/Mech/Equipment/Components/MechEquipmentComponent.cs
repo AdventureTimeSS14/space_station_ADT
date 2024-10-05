@@ -21,7 +21,7 @@ public sealed partial class MechEquipmentComponent : Component
     [ViewVariables] public EntityUid? EquipmentOwner;
 
     // ADT Content start
-    [DataField("canbeused")]
+    [DataField("canBeUsed")]
     public bool CanBeUsed = true;
     // ADT Content end
 }
