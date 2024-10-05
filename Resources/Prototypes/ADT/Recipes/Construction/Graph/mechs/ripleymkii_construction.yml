@@ -7,7 +7,7 @@
     edges:
     - to: ripley_mkii
       steps:
-      - tool: Anchoring
+      - tool: Welding
         doAfter: 1
 
       - tool: Prying

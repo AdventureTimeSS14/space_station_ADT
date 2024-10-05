@@ -3,7 +3,7 @@
   id: ADTGygaxHarness
   result: ADTGygaxHarness
   category: ADTMechGygax
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 2500
     Glass: 1200
@@ -13,7 +13,7 @@
   id: ADTGygaxLArm
   result: ADTGygaxLArm
   category: ADTMechGygax
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Glass: 1000
@@ -22,7 +22,7 @@
   id: ADTGygaxLLeg
   result: ADTGygaxLLeg
   category: ADTMechGygax
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Glass: 1000
@@ -31,7 +31,7 @@
   id: ADTGygaxRLeg
   result: ADTGygaxRLeg
   category: ADTMechGygax
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Glass: 1000
@@ -40,7 +40,7 @@
   id: ADTGygaxRArm
   result: ADTGygaxRArm
   category: ADTMechGygax
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Glass: 1000
@@ -49,7 +49,7 @@
   id: ADTGygaxArmorPlates
   result: ADTGygaxArmorPlates
   category: ADTMechGygax
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Plasteel: 1500
@@ -58,7 +58,7 @@
   id: ADTGygaxHead
   result: ADTGygaxHead
   category: ADTMechGygax
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 500
     Glass: 300
@@ -68,7 +68,7 @@
   id: ADTGygaxCentralElectronics
   result: ADTGygaxCentralElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 100
     Glass: 1000
@@ -78,7 +78,7 @@
   id: ADTGygaxPeripheralsElectronics
   result: ADTGygaxPeripheralsElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 100
     Glass: 1000
@@ -89,7 +89,7 @@
   id: ADTOdysseusHarness
   result: ADTOdysseusHarness
   category: ADTMechOdysseus
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 2500
     Glass: 1200
@@ -99,7 +99,7 @@
   id: ADTOdysseusLArm
   result: ADTOdysseusLArm
   category: ADTMechOdysseus
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -108,7 +108,7 @@
   id: ADTOdysseusLLeg
   result: ADTOdysseusLLeg
   category: ADTMechOdysseus
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -117,7 +117,7 @@
   id: ADTOdysseusRLeg
   result: ADTOdysseusRLeg
   category: ADTMechOdysseus
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -126,7 +126,7 @@
   id: ADTOdysseusRArm
   result: ADTOdysseusRArm
   category: ADTMechOdysseus
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -144,7 +144,7 @@
   id: ADTOdysseusHead
   result: ADTOdysseusHead
   category: ADTMechOdysseus
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 500
     Glass: 300
@@ -153,7 +153,7 @@
   id: ADTOdysseusCentralElectronics
   result: ADTOdysseusCentralElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 100
     Glass: 1000
@@ -163,7 +163,7 @@
   id: ADTOdysseusPeripheralsElectronics
   result: ADTOdysseusPeripheralsElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 100
     Glass: 1000
@@ -175,7 +175,7 @@
   id: ADTMechGunMedigun
   result: ADTMechGunMedigun
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 750
     Plastic: 750
@@ -188,7 +188,7 @@
   id: ADTClarkeHarness
   result: ADTClarkeHarness
   category: ADTMechClarke
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 3000
     Silver: 1000
@@ -198,7 +198,7 @@
   id: ADTClarkeLArm
   result: ADTClarkeLArm
   category: ADTMechClarke
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -207,7 +207,7 @@
   id: ADTClarkeRArm
   result: ADTClarkeRArm
   category: ADTMechClarke
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -216,7 +216,7 @@
   id: ADTClarkeLTread
   result: ADTClarkeLTread
   category: ADTMechClarke
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -225,7 +225,7 @@
   id: ADTClarkeRTread
   result: ADTClarkeRTread
   category: ADTMechClarke
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 500
@@ -234,7 +234,7 @@
   id: ADTClarkeHead
   result: ADTClarkeHead
   category: ADTMechClarke
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1000
     Glass: 1000
@@ -243,7 +243,7 @@
   id: ADTClarkeCentralElectronics
   result: ADTClarkeCentralElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 100
     Glass: 1000
@@ -253,7 +253,7 @@
   id: ADTClarkePeripheralsElectronics
   result: ADTClarkePeripheralsElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 100
     Glass: 1000
@@ -264,7 +264,7 @@
   id: ADTDurandHarness
   result: ADTDurandHarness
   category: ADTMechDurand
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Glass: 1500
@@ -275,7 +275,7 @@
   id: ADTDurandLArm
   result: ADTDurandLArm
   category: ADTMechDurand
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Silver: 500
@@ -284,7 +284,7 @@
   id: ADTDurandLLeg
   result: ADTDurandLLeg
   category: ADTMechDurand
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Silver: 500
@@ -293,7 +293,7 @@
   id: ADTDurandRLeg
   result: ADTDurandRLeg
   category: ADTMechDurand
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Silver: 500
@@ -302,7 +302,7 @@
   id: ADTDurandRArm
   result: ADTDurandRArm
   category: ADTMechDurand
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Silver: 500
@@ -311,7 +311,7 @@
   id: ADTDurandArmorPlates
   result: ADTDurandArmorPlates
   category: ADTMechDurand
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 2000
     Plasteel: 2500
@@ -321,7 +321,7 @@
   id: ADTDurandHead
   result: ADTDurandHead
   category: ADTMechDurand
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 500
     Glass: 1500
@@ -331,7 +331,7 @@
   id: ADTDurandCentralElectronics
   result: ADTDurandCentralElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 300
     Glass: 1000
@@ -341,7 +341,7 @@
   id: ADTDurandPeripheralsElectronics
   result: ADTDurandPeripheralsElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 300
     Glass: 1000
@@ -352,7 +352,7 @@
   id: ADTPhazonHarness
   result: ADTPhazonHarness
   category: ADTMechPhazon
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 2500
     Glass: 2000
@@ -362,7 +362,7 @@
   id: ADTPhazonLArm
   result: ADTPhazonLArm
   category: ADTMechPhazon
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Plasma: 500
@@ -371,7 +371,7 @@
   id: ADTPhazonLLeg
   result: ADTPhazonLLeg
   category: ADTMechPhazon
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Plasma: 500
@@ -380,7 +380,7 @@
   id: ADTPhazonRLeg
   result: ADTPhazonRLeg
   category: ADTMechPhazon
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Plasma: 500
@@ -389,7 +389,7 @@
   id: ADTPhazonRArm
   result: ADTPhazonRArm
   category: ADTMechPhazon
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Plasma: 500
@@ -398,7 +398,7 @@
   id: ADTPhazonArmorPlates
   result: ADTPhazonArmorPlates
   category: ADTMechPhazon
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 2000
     Plasteel: 2500
@@ -408,7 +408,7 @@
   id: ADTPhazonHead
   result: ADTPhazonHead
   category: ADTMechPhazon
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 500
     Glass: 1500
@@ -418,7 +418,7 @@
   id: ADTPhazonCentralElectronics
   result: ADTPhazonCentralElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 300
     Glass: 1000
@@ -428,7 +428,7 @@
   id: ADTPhazonPeripheralsElectronics
   result: ADTPhazonPeripheralsElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 300
     Glass: 1000
@@ -438,7 +438,7 @@
   id: ADTPhazonWeaponControlElectronics
   result: ADTPhazonWeaponControlElectronics
   category: Circuitry
-  completetime: 4
+  completetime: 2
   materials:
     Steel: 300
     Glass: 1000
@@ -449,7 +449,7 @@
   id: ADTRipleyMk2ModificationKit
   result: ADTRipleyMk2ModificationKit
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 2000
     Glass: 2000
@@ -461,7 +461,7 @@
   id: DnaSyringeGun
   result: DnaSyringeGun
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 350
     Plastic: 350
@@ -473,7 +473,7 @@
   id: MechEquipmentHumanGrabber
   result: MechEquipmentHumanGrabber
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 450
     Plastic: 550
@@ -484,7 +484,7 @@
   id: MechEquipmentHumanSleeper
   result: MechEquipmentHumanSleeper
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 750
     Plastic: 750
@@ -495,7 +495,7 @@
   id: ADTMechWeaponCutter
   result: ADTMechWeaponCutter
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 1050
     Plastic: 150
@@ -507,7 +507,7 @@
   id: MechEquipmentArmorRange
   result: MechEquipmentArmorRange
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 2050
     Plastic: 150
@@ -517,7 +517,7 @@
   id: MechEquipmentArmorMelee
   result: MechEquipmentArmorMelee
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 2050
     Plastic: 150
@@ -527,7 +527,7 @@
   id: MechEquipmentDrill
   result: MechEquipmentDrill
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 2050
     Plastic: 150
@@ -537,7 +537,7 @@
   id: MechEquipmentDiamondDrill
   result: MechEquipmentDiamondDrill
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 2050
     Plastic: 150
@@ -548,7 +548,7 @@
   id: MechEquipmentGravipult
   result: MechEquipmentGravipult
   category: Mech
-  completetime: 7
+  completetime: 3
   materials:
     Steel: 650
     Plastic: 150
@@ -560,7 +560,7 @@
   id: ADTMechGunImmolatorLaser
   result: ADTMechGunImmolatorLaserCrate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 2000
     Plastic: 1000
@@ -570,7 +570,7 @@
   id: ADTMechGunPeacemakerDisabler
   result: ADTMechGunPeacemakerDisablerCrate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 1500
     Plastic: 1000
@@ -580,7 +580,7 @@
   id: ADTMechGunSolarisLaserCannon
   result: ADTMechGunSolarisLaserCannonCrate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 3000
     Plastic: 1500
@@ -590,7 +590,7 @@
   id: ADTMechGunHeavyPulseRifle
   result: ADTMechGunHeavyPulseRifleCrate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 3000
     Plastic: 1500
@@ -601,7 +601,7 @@
   id: ADTMechGunTeslaCannon
   result: ADTMechGunTeslaCannonCrate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 3000
     Plastic: 1500
@@ -612,7 +612,7 @@
   id: ADTMechGunScattershot
   result: ADTMechGunScattershotCrate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 4500
     Plastic: 3000
@@ -621,7 +621,7 @@
   id: ADTMechGunUltraAC2
   result: ADTMechGunUltraAC2Crate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 3000
     Plastic: 3000
@@ -630,7 +630,7 @@
   id: ADTMechGunFNX99Hades
   result: ADTMechGunFNX99HadesCrate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 6000
     Plastic: 3000
@@ -639,7 +639,7 @@
   id: ADTMechGunMHAR21
   result: ADTMechGunMHAR21Crate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 6000
     Plastic: 3000
@@ -649,7 +649,7 @@
   id: ADTMechGunSGL6
   result: ADTMechGunSGL6Crate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 6000
     Plastic: 3000
@@ -659,7 +659,7 @@
   id: ADTMechGunBRM6
   result: ADTMechGunBRM6Crate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 3000
     Plastic: 3000
@@ -669,7 +669,7 @@
   id: ADTMechGunSRM8
   result: ADTMechGunSRM8Crate
   category: Mech
-  completetime: 10
+  completetime: 4
   materials:
     Steel: 9000
     Plastic: 3000

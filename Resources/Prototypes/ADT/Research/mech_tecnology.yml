@@ -121,17 +121,17 @@
   - ADTPhazonPeripheralsElectronics
   - ADTPhazonWeaponControlElectronics
 
-- type: technology
-  id: ADTRileyMk2Technology
-  name: research-technology-mech-ripleymk2
-  icon:
-    sprite: ADT/Objects/Specific/Mech/modification_kits.rsi
-    state: ripley_mkii
-  discipline: Industrial
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - ADTRipleyMk2ModificationKit
+# - type: technology
+#   id: ADTRileyMk2Technology
+#   name: research-technology-mech-ripleymk2
+#   icon:
+#     sprite: ADT/Objects/Specific/Mech/modification_kits.rsi
+#     state: ripley_mkii
+#   discipline: Industrial
+#   tier: 2
+#   cost: 5000
+#   recipeUnlocks:
+#   - ADTRipleyMk2ModificationKit
 
 #technologies
 - type: technology

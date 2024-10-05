@@ -42,8 +42,8 @@ public sealed class MechArmorSystem : EntitySystem
     {
         if (!TryComp<MechComponent>(args.Mech, out var mech))
             return;
-        component.OriginalModifiers = null;
         mech.Modifiers = component.OriginalModifiers;
+        component.OriginalModifiers = null;
     }
 
     private DamageModifierSet SumModifierSets(DamageModifierSet modifier1, DamageModifierSet modifier2)
