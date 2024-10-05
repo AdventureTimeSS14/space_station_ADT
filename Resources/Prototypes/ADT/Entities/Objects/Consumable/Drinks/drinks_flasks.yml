@@ -1,0 +1,9 @@
+- type: entity
+  parent: FlaskBase
+  id: ADTDrinkFlaskArmy
+  name: Flask
+  description: ''
+  components:
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/armyflask.rsi

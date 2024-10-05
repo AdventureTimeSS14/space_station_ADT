@@ -3,3 +3,7 @@ ent-ADTVendingMachinePatholoDrobe = ПатологоШкаф
 
 ent-ADTVendingMachinePrazatClothing = СтильноМат
     .desc = Особый вид автомата с одеждой, выдающий нестандартную одежду. Одобрен бюро по контролю за стилем NanoTrasen.
+
+ent-ADTVendingMachineTSFArmoury = оружейная ТСФ
+    .desc = Связанный с удаленным хранилищем шкаф, используемый для выдачи оружия и экипировки бойцов ТСФ.
+    .suffix = { "ТСФ" }

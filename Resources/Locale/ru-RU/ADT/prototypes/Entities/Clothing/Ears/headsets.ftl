@@ -17,3 +17,11 @@ ent-ADTSpaceSecClothingHeadset = гарнитура SPACE SEC
     .desc = Модифицированный модульный интерком, надеваемый на голову. Принимает ключи шифрования.
 ent-ADTSpaceSecClothingHeadsetFull = полноразмерная гарнитура SPACE SEC
     .desc = Модифицированный модульный интерком, надеваемый на голову. Принимает ключи шифрования.
+
+ent-ADTClothingHeadsetTSF = гарнитура ТСФ
+    .desc = Компактная гарнитура армии ТСФ с тремя каналами связи.
+    .suffix = { "ТСФ" }
+
+ent-ADTClothingHeadsetTrader = гарнитура торговцев
+    .desc = Гарнитура, используемая торговцами.
+    .suffix = { "ТСФ" }
