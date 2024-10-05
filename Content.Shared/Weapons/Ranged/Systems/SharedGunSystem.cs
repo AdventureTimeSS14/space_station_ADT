@@ -377,7 +377,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     // ADT Tweak emagged persoanl block Start
     private void OnEmaggedPersonalGun(EntityUid uid, GunComponent component, GotEmaggedEvent ev)
     {
-        if (ev.Handled || component.IsEmagged)
+        if ((ev.Handled || component.IsEmagged) && component.Personable)
             return;
 
         _audio.PlayPvs(component.SparkSound, uid);
