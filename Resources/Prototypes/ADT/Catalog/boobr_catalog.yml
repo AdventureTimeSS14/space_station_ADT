@@ -210,4 +210,12 @@
   categories:
   - ADTUplinkERTMisc
 
-
+- type: listing
+  id: ADTBoberPortableRecharger
+  name: boobr-portable-recharger-name
+  description:  boobr-portable-recharger-desc
+  productEntity: PortableRecharger
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTMisc
