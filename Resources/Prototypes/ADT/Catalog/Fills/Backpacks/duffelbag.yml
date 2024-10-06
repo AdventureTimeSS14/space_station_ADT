@@ -15,3 +15,169 @@
       - id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
       - id: ClothingHeadHelmetSecurityMedic # Corvax-Resprite
 
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledAKMS
+  name: AKMS bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleAk
+      - id: MagazineLightRifle
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledHristov
+  name: Hristov bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponSniperHristovAdvanced
+      - id: ADTMagazineHristovAdvanced
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledC20Ammo
+  name: C20 Ammo Bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolSubMachineGun
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmo
+  name: Buldog Ammo Bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineShotgunSlug
+      - id: MagazineShotgunSlug
+      - id: MagazineShotgun
+      - id: MagazineShotgun
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledBuldogAmmoXL
+  name: Buldog XL Ammo Bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMagazineShotgunSlugXL
+      - id: ADTMagazineShotgunSlugXL
+      - id: ADTMagazineShotgunXL
+        amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledXC67
+  name: xC-67 rifle bundle
+  description: bundle with a prototype xC-67 assault fifle and two mags #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponRifleXC67
+      - id: ADTMagazineRifleExtended
+        amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledXC67Ammo
+  name: xC-67 extended magazine bundle
+  description: Duffelbag with a three extended 6.5 mm mag for xC-67
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMagazineRifleExtended
+        amount: 3
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateAmmoBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledSmokeGrenade
+  name: набор дымовых гранат синдиката
+  description: Набор из шести дымовых гранат синдиката
+  components:
+  - type: StorageFill
+    contents:
+      - id: SmokeGrenade
+        amount: 6
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledMaid # 20 TC
+  name: Maid bundle
+  description: Good syndie.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatCatEars
+      - id: ClothingUniformJumpskirtElegantMaid
+      - id: ClothingUnderSocksCoder
+      - id: SirenaChokerWithHeart
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledStealth # 12 TC
+  name: Stealth bundle
+  description: I'm tired of creating descs
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponPistolCobra
+      - id: Fulton
+      - id: FultonBeacon
+      - id: ADTStealthBoxBox
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledIntruder # 20 TC
+  name: Intruder bundle
+  description: I'm tired of creating descs
+  components:
+  - type: StorageFill
+    contents:
+      - id: Emag
+      - id: SyndicateJawsOfLife
+      - id: C4
+      - id: C4
+      - id: Flash
+      - id: ClothingEyesGlassesSunglasses
+      - id: AgentIDCard
+      - id: RadioJammer
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledBlackmail # 15 TC
+  name: Blackmail bundle
+  description: I'm tired of creating descs
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskGasVoiceChameleon
+      - id: RemoteSignallerAdvanced
+      - id: RemoteSignallerAdvanced
+      - id: C4
+      - id: C4
+      - id: C4
+      - id: AgentIDCard
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledElite
+  name: Syndicate elite bundle
+  description: "For those who knows at armor." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitSyndieElite
+      - id: ADTClothingShoesBootsMagAdvSynd
+      - id: EnergyShield
+      - id: EnergySword
