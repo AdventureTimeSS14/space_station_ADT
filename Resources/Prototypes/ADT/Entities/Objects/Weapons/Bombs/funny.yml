@@ -4,7 +4,7 @@
   id: ADTExplosivePizzabox
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Bombs/explosivepizzabox.rsi
+    sprite: ADT/Objects/Weapons/Bombs/Funny/explosivepizzabox.rsi
     state: icon
   - type: Item
     size: Small

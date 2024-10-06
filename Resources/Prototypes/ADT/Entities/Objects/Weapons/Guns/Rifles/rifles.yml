@@ -5,7 +5,7 @@
   description: Made specially for GhostBusters
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ecto_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -13,7 +13,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ecto_rifle.rsi
     size: Huge
   - type: MagazineVisuals
     magState: mag
@@ -45,7 +45,7 @@
     containers:
       gun_magazine: !type:ContainerSlot
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ecto_rifle.rsi
     quickEquip: false
     slots:
     - Back
@@ -105,14 +105,14 @@
   description: AR-12
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi
   - type: Gun
     fireRate: 6
   - type: ItemSlots
@@ -142,14 +142,14 @@
   description: TAR-60SF
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifels/tar60sf.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Rifels/tar60sf.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
   - type: Gun
     fireRate: 5.5
 
@@ -160,14 +160,14 @@
   description: A high end prototipe assault rifle. Uses .20 rifle ammo.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifels/xc67.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Rifels/xc67.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
   - type: Gun
     #minAngle: 2
     #maxAngle: 8
