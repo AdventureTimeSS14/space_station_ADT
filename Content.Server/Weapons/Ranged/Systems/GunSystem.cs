@@ -148,7 +148,12 @@ public sealed partial class GunSystem : SharedGunSystem
                     else
                     {
                         userImpulse = false;
-                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        if (TryComp<MechComponent>(user, out var cmech))    // ADT Mech gun sound fix
+                        {
+                            Audio.PlayPredicted(gun.SoundEmpty, gunUid, cmech.PilotSlot.ContainedEntity);
+                        }
+                        else
+                            Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
                     }
 
                     // Something like ballistic might want to leave it in the container still
@@ -278,7 +283,12 @@ public sealed partial class GunSystem : SharedGunSystem
                         FireEffects(fromEffect, hitscan.MaxLength, dir.ToAngle(), hitscan);
                     }
 
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                    if (TryComp<MechComponent>(user, out var hmech))
+                    {
+                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, hmech.PilotSlot.ContainedEntity);
+                    }
+                    else
+                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

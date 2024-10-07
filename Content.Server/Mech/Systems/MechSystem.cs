@@ -342,6 +342,8 @@ public sealed partial class MechSystem : SharedMechSystem
         {
             EquipmentStates = ev.States
         };
+        Dirty(uid, component);
+
         _ui.SetUiState(uid, MechUiKey.Key, state);
     }
 

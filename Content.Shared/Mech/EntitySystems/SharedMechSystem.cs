@@ -297,8 +297,8 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        if (component.Energy + delta < 0)
-            return false;
+        // if (component.Energy + delta < 0)    // ADT Commented
+        //     return false;                    // Почему тут стоит эта проверка, если используется Math.Clamp()?
 
         component.Energy = FixedPoint2.Clamp(component.Energy + delta, 0, component.MaxEnergy);
         Dirty(uid, component);

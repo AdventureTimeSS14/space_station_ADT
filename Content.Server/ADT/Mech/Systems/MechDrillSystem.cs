@@ -21,7 +21,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Server.ADT.Mech.Equipment.Components;
 
-namespace Content.Server.Mech.Equipment.EntitySystems;
+namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 
 /// <summary>
 /// Handles <see cref="MechDrillComponent"/> and all related UI logic
@@ -106,6 +106,8 @@ public sealed class MechDrillSystem : EntitySystem
 
         if (!_mech.TryChangeEnergy(equipmentComponent.EquipmentOwner.Value, component.DrillEnergyDelta))
             return;
+        if (Comp<MechComponent>(equipmentComponent.EquipmentOwner.Value).Energy <= 0)
+            args.Repeat = false;
 
         _damageable.TryChangeDamage(args.Target, component.DamageToDrilled, ignoreResistances: false);
         _mech.UpdateUserInterface(equipmentComponent.EquipmentOwner.Value);

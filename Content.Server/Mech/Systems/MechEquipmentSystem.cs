@@ -1,7 +1,9 @@
+using Content.Server.Mech.Equipment.Components;
 using Content.Server.Popups;
 using Content.Shared.ADT.Mech.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Whitelist;
@@ -26,7 +28,10 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
         SubscribeLocalEvent<MechEquipmentComponent, AfterInteractEvent>(OnUsed);
         SubscribeLocalEvent<MechEquipmentComponent, InsertEquipmentEvent>(OnInsertEquipment);
 
+        // ADT Content start
         SubscribeLocalEvent<MechEquipmentComponent, EntityTerminatingEvent>(OnTerminating);
+        SubscribeLocalEvent<MechEquipmentComponent, MechEquipmentUiStateReadyEvent>(OnGetUIState);
+        // ADT Content end
     }
 
     private void OnUsed(EntityUid uid, MechEquipmentComponent component, AfterInteractEvent args)
@@ -71,6 +76,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
         args.Handled = true;
     }
 
+    // ADT Content start
     private void OnTerminating(EntityUid uid, MechEquipmentComponent comp, ref EntityTerminatingEvent args)
     {
         if (comp.EquipmentOwner.HasValue)
@@ -78,4 +84,13 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
             _mech.UpdateUserInterface(comp.EquipmentOwner.Value);
         }
     }
+
+    private void OnGetUIState(EntityUid uid, MechEquipmentComponent component, MechEquipmentUiStateReadyEvent args)
+    {
+        if (HasComp<MechGrabberComponent>(uid)) // Мне лень делать нормальную проверку, как-нибудь потом будет.
+            return;
+
+        args.States.Add(GetNetEntity(uid), null);
+    }
+    // ADT Content end
 }

@@ -64,5 +64,12 @@ public sealed partial class MechGrabberComponent : Component
     /// </summary>
     [DataField]
     public bool SlowMetabolism = false;
+
+    /// <summary>
+    /// Time that takes to escape the grabber
+    /// </summary>
+    [DataField("baseResistTime")]
+    public float BaseResistTime = 5f;
+
     // ADT Content End
 }

@@ -10,7 +10,7 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Containers;
 using Content.Shared.ADT.Mech.Equipment.Components;
 
-namespace Content.Server.Mech.Equipment.EntitySystems;
+namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;

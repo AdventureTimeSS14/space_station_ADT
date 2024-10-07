@@ -13,7 +13,7 @@ public enum MechUiKey : byte
 /// </summary>
 public sealed class MechEquipmentUiStateReadyEvent : EntityEventArgs
 {
-    public Dictionary<NetEntity, BoundUserInterfaceState> States = new();
+    public Dictionary<NetEntity, BoundUserInterfaceState?> States = new();  // ADT Mech UI Fix
 }
 
 /// <summary>
@@ -106,7 +106,7 @@ public sealed class MechSoundboardPlayMessage : MechEquipmentUiMessage
 [Serializable, NetSerializable]
 public sealed class MechBoundUiState : BoundUserInterfaceState
 {
-    public Dictionary<NetEntity, BoundUserInterfaceState> EquipmentStates = new();
+    public Dictionary<NetEntity, BoundUserInterfaceState?> EquipmentStates = new(); // ADT Mech UI Fix
 }
 
 [Serializable, NetSerializable]

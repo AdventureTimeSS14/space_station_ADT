@@ -25,7 +25,7 @@ public sealed class SharedMechGunSystem : EntitySystem
             return;
         }
 
-        if (mech.Energy.Float() <= 20f)
+        if (mech.Energy.Float() <= 0f)
             args.Cancel();
     }
 
