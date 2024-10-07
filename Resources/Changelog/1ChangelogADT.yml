@@ -3491,3 +3491,8 @@ Entries:
           Синдикекская.', type: Add}
     time: '2024-10-06T17:09:47Z'
     id: 429
+  - author: FrisKisDr
+    changes:
+      - {message: 'Аллея временно выведена из пулла карт, до переработки.', type: Tweak}
+    time: '2024-10-07T07:32:03Z'
+    id: 430
