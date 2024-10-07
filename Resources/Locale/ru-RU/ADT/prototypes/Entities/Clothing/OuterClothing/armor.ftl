@@ -12,3 +12,9 @@ ent-ClothingOuterArmorAirsoftBlue = { ent-ClothingOuterArmorAirsoftRed }
     .desc = { ent-ClothingOuterArmorAirsoftRed.desc }
     .suffix = { ent-ClothingOuterArmorAirsoftRed.suffix }
 
+ent-ADTClothingGigaMuscles = мускулы
+    .desc = До ужаса огромные мускулы, нарощенные при помощи наномашин.
+
+ent-ADTClothingOuterArmorTSF = бронежилет армии ТСФ
+    .desc = Стандартный бронежилет пехотинца Транс-Солнечной Федерации.
+    .suffix = { "ТСФ" }

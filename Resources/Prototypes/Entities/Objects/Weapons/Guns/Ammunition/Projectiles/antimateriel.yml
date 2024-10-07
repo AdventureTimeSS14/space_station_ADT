@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
+        Piercing: 75 # ADT tweak
         Structural: 30
   - type: StaminaDamageOnCollide
     damage: 35

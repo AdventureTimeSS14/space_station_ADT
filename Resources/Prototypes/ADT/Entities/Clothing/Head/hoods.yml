@@ -19,3 +19,26 @@
     - Snout
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadSquidGameHood
+  name: squid game hood
+  description: squid game hood
+  suffix: Squid Games
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/squidgame.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/squidgame.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: IdentityBlocker

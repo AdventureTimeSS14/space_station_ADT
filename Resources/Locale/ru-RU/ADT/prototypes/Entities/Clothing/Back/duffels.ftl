@@ -3,3 +3,4 @@ ent-ADTClothingBackpackDuffelBlueshield = вещмешок офицера син
 
 ent-ADTClothingBackpackDuffelDurathead = дюротканевый вещмешок
     .desc = Вещмешок выполненый из более прочной и эластичной дюраткани.
+

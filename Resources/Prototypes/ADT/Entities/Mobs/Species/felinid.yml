@@ -1,15 +1,36 @@
 - type: entity
   save: false
   name: Base felinid
-  parent: BaseMobHuman
-  id: MobFelinidBase
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobFelinid
   abstract: true
   components:
+  - type: HumanoidAppearance
+    species: Felinid
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.9
+    damageRecovery:
+      types:
+        Asphyxiation: -1.9
+  - type: Vocal
+    wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      195: Dead
+  - type: WoundLicking
   - type: Sprite
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.98, 0.98
+    scale: 0.9, 0.9
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -62,16 +83,29 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
-  - type: HumanoidAppearance
-    species: Felinid
   - type: Destructible #процесс разрушения на органы
     thresholds:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt #при каком дамаге это происходит
-        damage: 300
+        damage: 350
       behaviors:
       - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -84,6 +118,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.6
+    baseSprintSpeed : 4.6
   - type: Body
     prototype: Felinid
   - type: Damageable
@@ -96,8 +133,7 @@
     damage:
       types:
         Blunt: 0.9
-        Slash: 5
-  - type: Blindable
+        Slash: 4
   - type: Speech
     speechSounds: Alto
   - type: DamageOnHighSpeedImpact
@@ -106,13 +142,32 @@
         Blunt: 0.9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
-  - type: Perishable
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
       - id: FoodMeat
       - id: ClothingHeadHatCatEars
-  - type: WoundLicking
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-generic
+    interactSuccessSound: /Audio/ADT/Felinid/cat_purr1.ogg
+    messagePerceivedByOthers: petting-success-soft-floofy-others
+    interactSuccessSpawn: EffectHearts
+    interactDelay: 4
+  - type: NyaAccent
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - Nekomimetic
+    understands:
+    - GalacticCommon
+    - Nekomimetic
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 0.95
+    short: true
+    shortscale: 0.8
+
 - type: entity
   save: false
   name: Felinid Dummy
@@ -125,7 +180,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1
+    scale: 0.9, 0.9
     layers:
       # TODO BODY Turn these into individual body parts?
         - map: [ "enum.HumanoidVisualLayers.Chest" ]

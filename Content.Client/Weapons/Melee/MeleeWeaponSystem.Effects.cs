@@ -47,7 +47,8 @@ public sealed partial class MeleeWeaponSystem
         if (arcComponent.Animation != WeaponArcAnimation.None
             && TryComp(weapon, out MeleeWeaponComponent? meleeWeaponComponent))
         {
-            if (user != weapon
+            if (user != weapon &&
+                !meleeWeaponComponent.CustomWideAnim    // ADT tweak
                 && TryComp(weapon, out SpriteComponent? weaponSpriteComponent))
                 sprite.CopyFrom(weaponSpriteComponent);
 

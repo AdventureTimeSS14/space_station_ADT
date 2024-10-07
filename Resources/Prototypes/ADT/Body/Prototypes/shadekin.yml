@@ -8,8 +8,8 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: ADTOrganShadekinBrain
+        eyes: ADTOrganShadekinEyes
     torso:
       part: TorsoShadekin
       connections:
@@ -18,11 +18,11 @@
       - left leg
       - right leg
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        stomach: OrganHumanStomach
-        liver:  OrganHumanLiver
-        kidneys: OrganHumanKidneys
+        heart: ADTOrganShadekinHeart
+        lungs: ADTOrganShadekinLungs
+        stomach: ADTOrganShadekinStomach
+        liver: ADTOrganShadekinLiver
+        kidneys: ADTOrganShadekinKidneys
     right arm:
       part: RightArmShadekin
       connections:

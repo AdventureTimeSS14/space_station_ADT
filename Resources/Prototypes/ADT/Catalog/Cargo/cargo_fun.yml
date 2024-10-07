@@ -1,9 +1,37 @@
 - type: cargoProduct
   id: ADTFunOktoberfestClothes
   icon:
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi
     state: icon
   product: ADTCrateFunOktoberfestClothes
   cost: 750
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: ADTFunATV
+  icon:
+    sprite: Objects/Vehicles/atv.rsi
+    state: keys
+  product: ADTCrateFunATV
+  cost: 3500
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTFunCrateWedding
+  icon:
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
+    state: icon
+  product: ADTCrateWedding
+  category: cargoproduct-category-name-fun
+  cost: 1500
+  
+- type: cargoProduct
+  id: FunRingBox
+  icon:
+    sprite: ADT/Objects/Specific/Service/RingBox.rsi
+    state: box
+  product: ADTRingBox
+  category: cargoproduct-category-name-fun
+  cost: 8000
