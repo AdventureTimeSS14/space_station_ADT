@@ -43,3 +43,39 @@
     layers:
     - state: crypt_silver
     - state: rd_label
+
+# ТСФ
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyTSF
+  name: TSF encryption key
+  description: An encryption key used by TSF.
+  suffix: TSF
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTTransSolar19482Channel
+      - ADTTransSolar19487Channel
+      - ADTTransSolar19489Channel
+      - Common
+      defaultChannel: Common
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyTrader
+  name: trader encryption key
+  description: An encryption key used by trader.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTTrader
+    defaultChannel: ADTTrader
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: cargo_label
