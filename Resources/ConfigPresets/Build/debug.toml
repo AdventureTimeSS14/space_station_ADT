@@ -6,4 +6,4 @@ enabled = false
 auto_call_time = 0
 
 [sponsor]
-api_url = ""
+api_url = "http://5.180.174.139:3080/api"
