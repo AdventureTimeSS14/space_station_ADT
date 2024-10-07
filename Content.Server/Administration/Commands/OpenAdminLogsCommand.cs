@@ -23,5 +23,8 @@ public sealed class OpenAdminLogsCommand : IConsoleCommand
         var eui = IoCManager.Resolve<EuiManager>();
         var ui = new AdminLogsEui();
         eui.OpenEui(ui, player);
+
+        if (args.Length == 1)
+            ui.SetLogFilter(search: args[0]);
     }
 }
