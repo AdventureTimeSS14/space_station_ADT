@@ -12,13 +12,14 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobADTPathologist 
+  id: JobADTPathologist
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - PathologHead
   - MedicalMask
   - PathologJumpsuit
+  - ClothingOuterCoatRobo
   - MedicalGloves
   - PathologBackpack
   - PathologWindbreaker
