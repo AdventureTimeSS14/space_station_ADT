@@ -81,6 +81,7 @@
           Slash: 0.8
           Piercing: 0.6
           Heat: 0.9
+    #ADT-Tweak-Start
     - type: Badgeable
     - type: ItemSlots
       slots:
@@ -91,6 +92,7 @@
           whitelist:
             tags:
             - ADTBadge
+    #ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterStorageBase
