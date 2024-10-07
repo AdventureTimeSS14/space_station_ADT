@@ -48,18 +48,18 @@ public abstract class SharedMechEquipmentSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<MechOverloadComponent, MechSetupEvent>(SetupOverloadUser);
-        SubscribeLocalEvent<MechPhazeComponent, MechSetupEvent>(SetupPhaseUser);
+        SubscribeLocalEvent<MechOverloadComponent, SetupMechUserEvent>(SetupOverloadUser);
+        SubscribeLocalEvent<MechPhazeComponent, SetupMechUserEvent>(SetupPhaseUser);
         SubscribeLocalEvent<MechPhazeComponent, ComponentStartup>(StartupPhaze);
     }
 
-    private void SetupOverloadUser(EntityUid uid, MechOverloadComponent comp, ref MechSetupEvent args)
+    private void SetupOverloadUser(EntityUid uid, MechOverloadComponent comp, ref SetupMechUserEvent args)
     {
         var pilot = args.Pilot;
         _actions.AddAction(pilot, ref comp.MechOverloadActionEntity, comp.MechOverloadAction, uid);
     }
 
-    private void SetupPhaseUser(EntityUid uid, MechPhazeComponent comp, ref MechSetupEvent args)
+    private void SetupPhaseUser(EntityUid uid, MechPhazeComponent comp, ref SetupMechUserEvent args)
     {
         var pilot = args.Pilot;
         _actions.AddAction(pilot, ref comp.MechPhazeActionEntity, comp.MechPhazeAction, uid);

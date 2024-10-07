@@ -189,6 +189,12 @@
     pilotWhitelist:
       components:
       - HumanoidAppearance
+    # ADT Start
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentClown
+    # ADT End
 
 - type: entity
   parent: MechHonker

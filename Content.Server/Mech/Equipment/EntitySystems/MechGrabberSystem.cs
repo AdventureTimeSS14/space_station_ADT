@@ -43,6 +43,8 @@ public sealed class MechGrabberSystem : EntitySystem
 
         SubscribeLocalEvent<MechGrabberComponent, UserActivateInWorldEvent>(OnInteract);
         SubscribeLocalEvent<MechGrabberComponent, GrabberDoAfterEvent>(OnMechGrab);
+
+        SubscribeLocalEvent<MechGrabberComponent, EntityTerminatingEvent>(OnTerminating);
     }
 
     private void OnGrabberMessage(EntityUid uid, MechGrabberComponent component, MechEquipmentUiMessageRelayEvent args)
@@ -86,7 +88,7 @@ public sealed class MechGrabberSystem : EntitySystem
         var (mechPos, mechRot) = _transform.GetWorldPositionRotation(mechxform);
         if (component.SlowMetabolism)
         {
-            var metabolicEvent = new ApplyMetabolicMultiplierEvent(toRemove, 0.4f, false);
+            var metabolicEvent = new ApplyMetabolicMultiplierEvent(toRemove, 0.4f, true);
             RaiseLocalEvent(toRemove, ref metabolicEvent);
         }
         var offset = mechPos + mechRot.RotateVec(component.DepositOffset);
@@ -137,17 +139,18 @@ public sealed class MechGrabberSystem : EntitySystem
         if (args.Target == args.User || component.DoAfter != null)
             return;
 
-        if (!component.GrabMobs &&
-            TryComp<PhysicsComponent>(target, out var physics) && physics.BodyType == BodyType.Static ||
-            HasComp<WallMountComponent>(target) ||
-            HasComp<MobStateComponent>(target))
-        {
-            if (component.GrabMobs &&
-            !HasComp<MobStateComponent>(target))
-            {
-                return;
-            }
-        }
+        if (TryComp<PhysicsComponent>(target, out var physics) && physics.BodyType == BodyType.Static)
+            return;
+
+        if (HasComp<WallMountComponent>(target))
+            return;
+
+        if (HasComp<MobStateComponent>(target) && !component.GrabMobs)
+            return;
+
+        if (HasComp<MechComponent>(target))
+            return;
+
         if (Transform(target).Anchored)
             return;
 
@@ -200,5 +203,10 @@ public sealed class MechGrabberSystem : EntitySystem
         _mech.UpdateUserInterface(equipmentComponent.EquipmentOwner.Value);
 
         args.Handled = true;
+    }
+
+    private void OnTerminating(EntityUid uid, MechGrabberComponent comp, ref EntityTerminatingEvent args)
+    {
+        _container.EmptyContainer(comp.ItemContainer, true);
     }
 }

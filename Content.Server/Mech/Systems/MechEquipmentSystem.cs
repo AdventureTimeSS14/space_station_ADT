@@ -25,6 +25,8 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
 
         SubscribeLocalEvent<MechEquipmentComponent, AfterInteractEvent>(OnUsed);
         SubscribeLocalEvent<MechEquipmentComponent, InsertEquipmentEvent>(OnInsertEquipment);
+
+        SubscribeLocalEvent<MechEquipmentComponent, EntityTerminatingEvent>(OnTerminating);
     }
 
     private void OnUsed(EntityUid uid, MechEquipmentComponent component, AfterInteractEvent args)
@@ -67,5 +69,13 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
         _mech.InsertEquipment(args.Args.Target.Value, uid);
 
         args.Handled = true;
+    }
+
+    private void OnTerminating(EntityUid uid, MechEquipmentComponent comp, ref EntityTerminatingEvent args)
+    {
+        if (comp.EquipmentOwner.HasValue)
+        {
+            _mech.UpdateUserInterface(comp.EquipmentOwner.Value);
+        }
     }
 }

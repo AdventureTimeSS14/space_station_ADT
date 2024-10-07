@@ -4,6 +4,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 using Content.Shared.Throwing;
 using Content.Server.ADT.Mech.Equipment.Components;
+using Content.Shared.ADT.Mech.Equipment.Components;
 
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;

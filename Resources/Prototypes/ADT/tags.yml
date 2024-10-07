@@ -273,4 +273,7 @@
   id: ADTMechEquipmentSec
 
 - type: Tag
+  id: ADTMechEquipmentClown
+
+- type: Tag
   id: ADTMagazineRifleAR12

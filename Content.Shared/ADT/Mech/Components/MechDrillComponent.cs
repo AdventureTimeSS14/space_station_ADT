@@ -2,6 +2,7 @@ using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Content.Shared.Damage;
+using Robust.Shared.GameStates;
 
 namespace Content.Server.ADT.Mech.Equipment.Components;
 
@@ -9,7 +10,7 @@ namespace Content.Server.ADT.Mech.Equipment.Components;
 /// A piece of mech equipment that grabs entities and stores them
 /// inside of a container so large objects can be moved.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class MechDrillComponent : Component
 {
     /// <summary>

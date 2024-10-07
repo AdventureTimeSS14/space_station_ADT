@@ -58,7 +58,7 @@ public sealed partial class MechMenu : FancyWindow
         if (!_ent.TryGetComponent<MechComponent>(_mech, out var mechComp))
             return;
 
-        EquipmentControlContainer.Children.Clear();
+        EquipmentControlContainer.DisposeAllChildren();
         foreach (var ent in mechComp.EquipmentContainer.ContainedEntities)
         {
             if (!_ent.TryGetComponent<MetaDataComponent>(ent, out var metaData))

@@ -1,9 +1,11 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.ADT.Mech.Equipment.Components;
 
 /// <summary>
 /// A gun. For a mech.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class MechGunComponent : Component
 {
     [DataField]

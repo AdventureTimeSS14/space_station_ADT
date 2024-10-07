@@ -26,6 +26,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
 using Content.Server.Body.Systems;
+using Content.Shared.Mech.Components;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -316,7 +317,10 @@ public sealed partial class GunSystem : SharedGunSystem
             }
 
             MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
-            Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+            if (TryComp<MechComponent>(user, out var mech)) // ADT Mech gun fix
+                Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, mech.PilotSlot.ContainedEntity);
+            else
+                Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
         }
     }
 

@@ -96,7 +96,7 @@
   - type: MechGun
   - type: Tag
     tags:
-      - ADTMechEquipmentService
+      - ADTMechEquipmentClown
 
 - type: entity
   name: противоударная броня меха
@@ -203,8 +203,8 @@
     proto: ADTHealMechGun
     fireCost: 5
   - type: Battery
-    maxCharge: 5
-    startingCharge: 5
+    maxCharge: 10
+    startingCharge: 10
   - type: Tag
     tags:
       - ADTMechEquipmentMed
