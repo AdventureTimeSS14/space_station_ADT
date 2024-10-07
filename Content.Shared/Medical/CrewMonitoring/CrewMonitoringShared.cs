@@ -13,9 +13,11 @@ public enum CrewMonitoringUIKey
 public sealed class CrewMonitoringState : BoundUserInterfaceState
 {
     public List<SuitSensorStatus> Sensors;
+    public bool IsEmagged; // ADT-Tweak
 
-    public CrewMonitoringState(List<SuitSensorStatus> sensors)
+    public CrewMonitoringState(List<SuitSensorStatus> sensors, bool isEmagged) // ADT-Tweak
     {
         Sensors = sensors;
+        IsEmagged = isEmagged; // ADT-Tweak
     }
 }
