@@ -21,3 +21,15 @@ ent-ClothingCloakAtmosian = плащ атмосианина
 
 ent-ADTClothingNeckMantleHOSShoulderTimePatrol = мантия стража времени
     .desc = Плащ путника из далекого будущего. Края этого плаща светятся, но навряд ли вы успеете это разглядеть.
+
+ent-ADTClothingNeckCloakSyndicate = плащ Синдиката
+    .desc = Антагонизируй со стилем!
+    .suffix = { "" }
+
+ent-ADTClothingNeckCloakNukeOps = плащ Ядерных Оперативников
+    .desc = Согреет вас холодными вечерами на базе Ядерных Оперативников.
+    .suffix = { "" }
+
+ent-ADTClothingNeckCloakKnight = плащ рыцаря
+    .desc = Шёлковый и внушительный рыцарский плащ. За честь короны!
+    .suffix = { "" }
