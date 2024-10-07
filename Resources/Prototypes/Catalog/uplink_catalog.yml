@@ -157,6 +157,13 @@
     Telecrystal: 12
   categories:
   - UplinkWeaponry
+  # Start ADT tweak
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  # End ADT tweak
 
 - type: listing
   id: UplinkC20RBundle
