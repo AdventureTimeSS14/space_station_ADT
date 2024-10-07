@@ -7,6 +7,10 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
+using Content.Server.Database;
 
 namespace Content.Server.Administration.Commands;
 
@@ -22,6 +26,9 @@ public sealed class BanMassCommand : LocalizedCommands
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+
+    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
 
     public override string Command => "banmass";
 
@@ -45,6 +52,7 @@ public sealed class BanMassCommand : LocalizedCommands
         }
 
         reason = args[0];
+
         if (!uint.TryParse(args[1], out minutes))
         {
             shell.WriteLine(Loc.GetString("cmd-ban-invalid-minutes", ("minutes", args[1])));
@@ -53,22 +61,44 @@ public sealed class BanMassCommand : LocalizedCommands
         }
 
         var player = shell.Player;
+        var targets = new List<string>();
+        var allTargets = argStr.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-        for (int i = 2; i < args.Length; i++)
+        foreach (var target in allTargets)
         {
-            var target = args[i];
-            var located = await _locator.LookupIdByNameOrIdAsync(target);
+            var trimmedTarget = target.Trim();
+            if (string.IsNullOrWhiteSpace(trimmedTarget))
+                continue;
+
+            var located = await _locator.LookupIdByNameOrIdAsync(trimmedTarget);
 
             if (located == null)
             {
-                shell.WriteError(Loc.GetString("cmd-ban-player", ("target", target)));
+                shell.WriteError(Loc.GetString("cmd-ban-player", ("target", trimmedTarget)));
                 continue;
             }
 
             var targetUid = located.UserId;
             var targetHWid = located.LastHWId;
 
-            _bans.CreateServerBan(targetUid, target, player?.UserId, null, targetHWid, minutes, severity, reason);
+            //Start логи банов для диса
+            var lastServerBan = await _dbManager.GetLastServerBanAsync();
+            var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+            //End
+
+            _bans.CreateServerBan(targetUid, trimmedTarget, player?.UserId, null, targetHWid, minutes, severity, reason);
+            //Start логи банов для диса
+            var banInfo = new BanInfo
+            {
+                BanId = newServerBanId.ToString()!,
+                Target = target,
+                Player = player,
+                Minutes = minutes,
+                Reason = reason,
+                Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
+            };
+            await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
+            //End
         }
     }
 

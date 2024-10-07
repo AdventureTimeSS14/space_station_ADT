@@ -23,12 +23,12 @@
 - type: loadout
   id: ADTBlueshieldJumpsuitTurtleneck
   equipment:
-    jumpsuit: ADTClothingUniformJumpsuitBlueshieldTurtleneck
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckBlueshield
 
 - type: loadout
   id: ADTBlueshieldJumpskirtTurtleneck
   equipment:
-    jumpsuit: ADTClothingUniformJumpskirtBlueshieldJumpskirtTurtleneck
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckBlueshield
 
 # Neck
 - type: loadout

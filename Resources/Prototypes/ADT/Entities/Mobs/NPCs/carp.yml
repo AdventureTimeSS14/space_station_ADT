@@ -1,0 +1,42 @@
+- type: entity
+  name: Carpcat
+  parent: BaseMobCarp
+  id: ADTMobCarpNukie
+  description: This poor carp is homestucked.
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        65: Dead
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-information-carpcat-name
+      description: ghost-role-information-carpcat-description
+    - type: Body
+      prototype: Bloodsucker
+      requiredLegs: 1
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: ADT/Mobs/Aliens/carpcat.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+
+- type: entity
+  name: CarpCat Spawner
+  id: ADTSpawnMobCarpCat
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: icon
+      sprite: Mobs/Aliens/Carps/magic.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobCarpNukie

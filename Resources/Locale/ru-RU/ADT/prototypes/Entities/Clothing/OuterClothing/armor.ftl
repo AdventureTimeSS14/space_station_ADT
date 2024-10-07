@@ -15,3 +15,6 @@ ent-ClothingOuterArmorAirsoftBlue = { ent-ClothingOuterArmorAirsoftRed }
 ent-ADTClothingGigaMuscles = мускулы
     .desc = До ужаса огромные мускулы, нарощенные при помощи наномашин.
 
+ent-ADTClothingOuterArmorTSF = бронежилет армии ТСФ
+    .desc = Стандартный бронежилет пехотинца Транс-Солнечной Федерации.
+    .suffix = { "ТСФ" }

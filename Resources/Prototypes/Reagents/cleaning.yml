@@ -49,10 +49,35 @@
   boilingPoint: 100.0
   meltingPoint: 60.0
   metabolisms:
+    # Start ADT tweak
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Drask
+          shouldHave: true
+        key: Stutter
+        component: StutteringAccent
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Drask
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 9
+        refresh: false
+  # End ADT tweak
     Food:
       effects:
       - !type:ChemVomit
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Drask
+          shouldHave: false
+        # End ADT tweak
         - !type:ReagentThreshold
           min: 6
         probability: 0.20
@@ -60,6 +85,11 @@
       effects:
       - !type:ChemVomit
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Drask
+          shouldHave: false
+        # End ADT tweak
         - !type:ReagentThreshold
           min: 6
         probability: 0.20

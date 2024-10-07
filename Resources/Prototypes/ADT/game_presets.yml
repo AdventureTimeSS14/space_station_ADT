@@ -15,12 +15,12 @@
     - MeteorSwarmScheduler
 
 - type: gamePreset
+  showInVote: false # secret
   id: Heretic
   alias:
     - heretic
   name: heretic-title
   minPlayers: 25
-  showInVote: true
   description: heretic-title
   rules:
     - HereticGameRule

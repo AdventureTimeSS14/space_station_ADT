@@ -27,3 +27,7 @@ ent-ClothingOuterAtmosianBomberJacket = куртка-бомбер атмосиа
 
 ent-ADTClothingOuterCoatCyberSun = лабораторный халат Киберсан
     .desc = Лабораторный халат Киберсан, предоставляющий минимальную защиту от вредного воздействия.
+
+ent-ADTClothingOuterCoatTrader = бомбер торговца
+    .desc = Куртка-бомбер торговцев ТСФ
+    .suffix = { "ТСФ" }

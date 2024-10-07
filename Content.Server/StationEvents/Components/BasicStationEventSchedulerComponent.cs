@@ -17,7 +17,7 @@ public sealed partial class BasicStationEventSchedulerComponent : Component
     /// The minimum and maximum time between rule starts in seconds.
     /// </summary>
     [DataField]
-    public MinMax MinMaxEventTiming = new(3 * 60, 10 * 60);
+    public MinMax MinMaxEventTiming = new(6 * 60, 15 * 60); /// ADT-Tweak - 3 * 60 >>> 6 * 60 и 10 * 60 >>> 15 * 60 - тестируем уменьшение частоты событий
 
     /// <summary>
     /// How long until the next check for an event runs, is initially set based on MinimumTimeUntilFirstEvent & MinMaxEventTiming.

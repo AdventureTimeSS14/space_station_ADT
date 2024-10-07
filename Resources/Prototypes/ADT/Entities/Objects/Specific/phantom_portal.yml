@@ -27,4 +27,5 @@
   - type: PhantomPortal
   - type: Visibility
     layer: 4 #phantom vessels' layer
+  - type: NeverPreventAnchor # ADT anchor fix
 
