@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckScarfBase
+  name:  Base scarf
+  description: Just base scarf...
+  abstract: true
+
+- type: entity
+  parent: ADTClothingNeckScarfBase
+  id: ADTClothingNeckScarfUnrobust
+  name:  unrobust scarf
+  description: A scarf confirming that its wearer is worthy of the title of the chief unrobust in the galaxy, who has not won a single battle. The scarf is a stigma that its wearer will always be doomed to failure and ridicule from others. However, he will wear it with pride and dignity, ready for the next failure.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Scarfs/unrobust_scarf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Scarfs/unrobust_scarf.rsi
+
+- type: entity
+  parent: ADTClothingNeckScarfBase
+  id: ADTClothingNeckScarfWindy
+  name:  a windy scarf
+  description: It's don't seem to be a wind here...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Scarfs/windyscarf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Scarfs/windyscarf.rsi

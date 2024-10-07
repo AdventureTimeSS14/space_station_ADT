@@ -41,6 +41,7 @@
             Zookeeper: [ 1, 1 ]
             # command
             Captain: [ 1, 1 ]
+            #IAA: [ 1, 1 ] #ADT FIX
             # engineering
             AtmosphericTechnician: [ 1, 1 ]
             # medical
@@ -60,12 +61,11 @@
             # cargo
             SalvageSpecialist: [ 1, 1 ]
             CargoTechnician: [ 3, 3 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
-        # - type: StationGoal
-        #   goals:
-        #     - Artifacts
-        #     - XenobiologyRepair
-        #     - VirusologyAmbusol
+        - type: StationGoal
+          goals:
+            - Artifacts
+            - XenobiologyRepair
+            - VirusologyAmbusol
     Payback:
       stationProto: NanotrasenStationNoArrivals
       components:
@@ -102,7 +102,7 @@
             Musician: [ 1, 1 ]
             # command
             Captain: [ 1, 1 ]
-            #IAA: [ 1, 1 ]
+            IAA: [ 1, 1 ]
             # engineering
             AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 2, 2 ]
@@ -119,10 +119,9 @@
             # cargo
             SalvageSpecialist: [ 1, 1 ]
             CargoTechnician: [ 2, 3 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
-        # - type: StationGoal
-        #   goals:
-        #     - SectorSecurity
+        - type: StationGoal
+          goals:
+            - SectorSecurity
     Lumber:
       stationProto: NanotrasenStationNoArrivals
       components:
@@ -177,7 +176,7 @@
             Musician: [ 1, 1 ]
             # command
             Captain: [ 1, 1 ]
-            #IAA: [ 1, 1 ]
+            IAA: [ 1, 1 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 3 ]
@@ -194,12 +193,11 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 4 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
-        # - type: StationGoal
-        #   goals:
-        #     - Shuttle
-        #     - Singularity
-        #     - SolarPanels
-        #     - Zoo
-        #     - MiningOutpost
-        #     - Tesla
+        - type: StationGoal
+          goals:
+            - Shuttle
+            - Singularity
+            - SolarPanels
+            - Zoo
+            - MiningOutpost
+            - Tesla

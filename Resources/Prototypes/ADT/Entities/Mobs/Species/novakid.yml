@@ -5,6 +5,8 @@
   id: BaseMobNovakid
   abstract: true
   components:
+  - type: HumanoidAppearance
+    species: NovakidSpecies
   - type: Hunger
     baseDecayRate: 0.025
     currentHunger: 400
@@ -18,8 +20,13 @@
       types:
         Cold: 0.12
         Caustic: 0.08
-  - type: HumanoidAppearance
-    species: NovakidSpecies
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
   - type: Bloodstream
     bloodReagent: Plasma
   - type: ZombieImmune
@@ -72,7 +79,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
-  - type: Perishable
   - type: Barotrauma
     damage:
       types:
@@ -93,7 +99,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 4 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
+            Heat: 0.3 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -113,14 +119,28 @@
       - !type:SpawnEntitiesBehavior
         spawn:
             Ash:
-              min: 1
-              max: 1
-      - !type:GibBehavior { }
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
+              min: 3
+              max: 6
+      - !type:BurnBodyBehavior { }
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - Fire
+    understands:
+    - GalacticCommon
+    - Fire
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
+  - type: BloodCough
+    postingSayDamage: blood-cough-novakid
 
 
 - type: entity

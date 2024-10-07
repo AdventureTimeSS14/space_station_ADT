@@ -64,3 +64,24 @@
     color: "#c2adff"
   - type: TTS # Corvax-TTS
     voice: bebey
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineTSFArmoury
+  name: TSF Armoury
+  description: TSF Armoury
+  components:
+  - type: VendingMachine
+    pack: ADTTSFArmouryInventory
+    offState: off
+    brokenState: broken
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/tsf_armoury.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "base"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
