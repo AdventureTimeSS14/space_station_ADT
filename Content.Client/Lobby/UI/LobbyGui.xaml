@@ -13,9 +13,10 @@
     <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
                  Stretch="KeepAspectCovered" />
     <!-- ADT-Tweak-Start -->
-    <BoxContainer Name="ShowInterfaceContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Vertical"
+    <BoxContainer Name="ShowInterfaceContainer" VerticalExpand="True" Orientation="Horizontal"
                   Margin="10" Visible="False" >
-        <Button Name="ShowInterface" Text="{Loc 'ui-lobby-show-interface'}" Margin="5 5 5 5" MinWidth="50" MinHeight="5" VerticalAlignment="Bottom" />
+        <Control VerticalExpand="True" Name="ShowInterfacePading" />
+        <Button Name="ShowInterface" Text="{Loc 'ui-lobby-show-interface'}" Margin="3" MaxWidth="150" MinWidth="50" MinHeight="5" VerticalAlignment="Bottom" />
     </BoxContainer>
     <!-- ADT-Tweak-End -->
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"

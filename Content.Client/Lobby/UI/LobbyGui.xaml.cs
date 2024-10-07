@@ -19,6 +19,8 @@ namespace Content.Client.Lobby.UI
             IoCManager.InjectDependencies(this);
             SetAnchorPreset(MainContainer, LayoutPreset.Wide);
             SetAnchorPreset(Background, LayoutPreset.Wide);
+            SetAnchorPreset(ShowInterfaceContainer, LayoutPreset.Wide); // ADT-Tweak
+            SetAnchorPreset(ShowInterface, LayoutPreset.BottomLeft); // ADT-Tweak
 
             LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
 
@@ -83,7 +85,7 @@ namespace Content.Client.Lobby.UI
             ///  The character setup state.
             /// </summary>
             CharacterSetup,
-            ScreenSaver // ADT-Tweak
+            ScreenSaver, // ADT-Tweak
         }
     }
 }
