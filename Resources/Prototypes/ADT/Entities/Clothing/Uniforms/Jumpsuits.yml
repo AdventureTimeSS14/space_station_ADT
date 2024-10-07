@@ -877,3 +877,16 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
+
+# ТСФ
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTrader
+  name: trader jumpsuit
+  description: trader.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi

@@ -19,6 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
+using Content.Shared.ADT.Construction;
 
 namespace Content.Shared.Construction.EntitySystems;
 
@@ -288,7 +289,8 @@ public sealed partial class AnchorableSystem : EntitySystem
         {
             if (!_physicsQuery.TryGetComponent(ent, out var body) ||
                 !body.CanCollide ||
-                !body.Hard)
+                !body.Hard ||
+                HasComp<NeverPreventAnchorComponent>(ent))  // ADT Puddle anchor fix
             {
                 continue;
             }
