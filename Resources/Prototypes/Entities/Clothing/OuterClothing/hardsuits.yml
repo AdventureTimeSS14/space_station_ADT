@@ -573,8 +573,6 @@
         Caustic: 0.5
     staminaModifier: 0.3  # ADT
   - type: Item
-    size: Normal
-  - type: ClothingSpeedModifier
     size: Huge
   - type: ClothingSpeedModifier # ADT tweak
     walkModifier: 1.0
