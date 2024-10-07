@@ -537,6 +537,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: ClothingSpeedModifier # ADT tweak
+    walkModifier: 1.0
+    sprintModifier: 1.0
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -572,8 +575,10 @@
   - type: Item
     size: Normal
   - type: ClothingSpeedModifier
+    size: Huge
+  - type: ClothingSpeedModifier # ADT tweak
     walkModifier: 1.0
-    sprintModifier: 0.9
+    sprintModifier: 1.0
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite

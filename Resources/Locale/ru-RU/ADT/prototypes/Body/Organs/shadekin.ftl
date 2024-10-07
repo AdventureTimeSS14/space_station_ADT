@@ -1,0 +1,14 @@
+ent-ADTOrganShadekinHeart = сердце
+    .desc = Сердце? Кажется что оно лежит здесь уже не первый день.
+ent-ADTOrganShadekinStomach = желудок
+    .desc = Выглядит будто он меньше чем обычно..
+ent-ADTOrganShadekinLungs = воздушный мешочек
+    .desc = И это лёгкие? Больше похоже на шутку.
+ent-ADTOrganShadekinEyes = глаза
+    .desc = Разве они не были другого цвета?..
+ent-ADTOrganShadekinKidneys = почки
+    .desc = Кто-то точно не следил за тем что он ест.
+ent-ADTOrganShadekinBrain = мозги
+    .desc = А если его съесть, то я смогу так же как они?
+ent-ADTOrganShadekinLiver = печень
+    .desc = Интересно, за сколько же его можно продать...

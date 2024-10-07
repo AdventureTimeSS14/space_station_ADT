@@ -23,3 +23,7 @@ ent-ADTSpaceSecCommanderIDCard = ID карта командира SPACE SEC
     .desc = Карта, необходимая для доступа в различные области станции.
 ent-ADTSpaceSecServiceIDCard = ID карта сотрудника SPACE SEC
     .desc = Карта, необходимая для доступа в различные области станции.
+
+ent-ADTTraderIDCard = ID карта торговца
+    .desc = ID карта торговца
+    .suffix = { "ТСФ" }
