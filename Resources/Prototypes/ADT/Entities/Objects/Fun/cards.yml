@@ -27,6 +27,7 @@
     tags:
       - WhitelistChameleon
       - ADTCardPlay
+      - ADTCard
   - type: StaticPrice
     price: 1
 
@@ -64,7 +65,7 @@
     areaInsert: true
     whitelist:
       tags:
-        - ADTCardPlay
+        - ADTCard
   - type: Dumpable
 
 - type: entity
