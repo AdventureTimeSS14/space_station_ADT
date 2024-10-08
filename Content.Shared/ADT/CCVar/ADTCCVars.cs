@@ -29,6 +29,9 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    public static readonly CVarDef<float> BoomBoxVolume =
+        CVarDef.Create("audio.boomboxvolume", 1f, CVar.CLIENTONLY | CVar.REPLICATED);
+
     /*
     * Radial menu
     */

@@ -10,7 +10,7 @@ namespace Content.Server.Radio.Components;
 ///     Listens for local chat messages and relays them to some radio frequency
 /// </summary>
 [RegisterComponent]
-[Access(typeof(RadioDeviceSystem))]
+// [Access(typeof(RadioDeviceSystem))] ADT-Boombox-tweak
 public sealed partial class RadioMicrophoneComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
