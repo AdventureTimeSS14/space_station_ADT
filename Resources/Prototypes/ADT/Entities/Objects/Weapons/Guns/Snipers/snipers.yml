@@ -1,0 +1,56 @@
+- type: entity
+  name: semi-aito Hristov
+  parent: BaseItem
+  id: ADTWeaponSniperHristovAdvanced
+  description: A portable anti-material rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-material ammo upgraded by gorlax marodeurs.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Snipers/new_hristov.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Snipers/new_hristov.rsi
+    slots:
+    - Back
+    quickEquip: false
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -44
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineHristovAdvanced
+        priority: 2
+        whitelist:
+          tags:
+          - ADTMagazineHristov
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000
