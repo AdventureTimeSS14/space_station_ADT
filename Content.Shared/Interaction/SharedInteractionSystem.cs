@@ -38,7 +38,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Roles;
 
 namespace Content.Shared.Interaction
 {
@@ -108,8 +107,6 @@ namespace Content.Shared.Interaction
             SubscribeLocalEvent<UnremoveableComponent, GotUnequippedEvent>(OnUnequip);
             SubscribeLocalEvent<UnremoveableComponent, GotUnequippedHandEvent>(OnUnequipHand);
             SubscribeLocalEvent<UnremoveableComponent, DroppedEvent>(OnDropped);
-
-            SubscribeLocalEvent<ClumsyComponent, RoleAddedEvent>(OnRoleAdded); // ADT-Tweak
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.AltActivateItemInWorld,
@@ -1346,16 +1343,6 @@ namespace Content.Shared.Interaction
         {
             return _actionBlockerSystem.CanComplexInteract(user);
         }
-
-//      Start-ADT-Tweak У антагонистов больше не может быть компонента Clumsy
-        private void OnRoleAdded(EntityUid uid, ClumsyComponent component, RoleAddedEvent ev)
-        {
-            if (ev.Antagonist)
-            {
-                RemCompDeferred<ClumsyComponent>(uid);
-            }
-        }
-//      End-ADT-Tweak
     }
 
     /// <summary>
