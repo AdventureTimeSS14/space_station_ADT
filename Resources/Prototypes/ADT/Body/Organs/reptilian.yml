@@ -4,6 +4,8 @@
   name: heart
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    state: heart-on
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [ Reptilian, Animal ]
