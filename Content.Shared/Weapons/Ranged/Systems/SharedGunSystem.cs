@@ -379,7 +379,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         if ((ev.Handled || component.IsEmagged) && component.Personable)
             return;
-
         _audio.PlayPvs(component.SparkSound, uid);
         PopupSystem.PopupEntity(Loc.GetString("gun-component-upgrade-emag"), uid);
         component.IsEmagged = true;
