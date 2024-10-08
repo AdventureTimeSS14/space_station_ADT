@@ -1,4 +1,124 @@
 - type: entity
+  name: raw shadekin meat
+  parent: FoodMeatRawBase
+  id: ADTFoodMeatShadekin
+  description: A slab of raw shadekin meat.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meat.rsi
+    state: shadekin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 7
+        - ReagentId: Fat
+          Quantity: 1
+  - type: SliceableFood
+    count: 3
+    slice: ADTFoodMeatShadekinCutlet
+  - type: InternalTemperature
+    conductivity: 0.43
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Construction
+    graph: ShadekinSteak
+    node: start
+    defaultTarget: shadekin steak
+
+- type: entity
+  name: raw shadekin cutlet
+  parent: FoodMeatBase
+  id: ADTFoodMeatShadekinCutlet
+  description: A raw shadekin cutlet.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Cutlet
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meat.rsi
+    state: shadekincutlet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
+        - ReagentId: Fat
+          Quantity: 1
+  - type: Construction
+    graph: ShadekinCutlet
+    node: start
+    defaultTarget: shadekin cutlet
+
+- type: entity
+  name: shadekin steak
+  parent: FoodMeatBase
+  id: ADTFoodMeatShadekinCooked
+  description: A cooked slab of shadekin. It looks like meat with wine.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Steak
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meat.rsi
+    layers:
+    - state: shadekin-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 3
+  - type: SliceableFood
+    count: 3
+    slice: ADTFoodMeatShadekinCutletCooked
+  - type: FoodSequenceElement
+    entries:
+      Burger: ADTMeatShadekin
+      Taco: ADTMeatShadekin
+  - type: Construction
+    graph: ShadekinSteak
+    node: shadekin steak
+
+- type: entity
+  name: cutlet
+  parent: FoodMeatBase
+  id: ADTFoodMeatShadekinCutletCooked
+  description: A cooked meat cutlet. Needs some seasoning.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Cutlet
+    - Meat
+  - type: Sprite
+    state: cutlet-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 1
+  - type: FoodSequenceElement
+    entries:
+      Burger: ADTShadekinCutlet
+      Taco: ADTShadekinCutlet
+  - type: Construction
+    graph: ShadekinCutlet
+    node: shadekin cutlet
+
+- type: entity
   name: weisswurst
   parent: FoodMeatBase
   id: ADTFoodMeatWeissWurst

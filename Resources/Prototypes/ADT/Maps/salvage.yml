@@ -1,0 +1,116 @@
+# "Small"-class maps - Max size square: 7x7, indicated size: 3.5
+
+- type: salvageMap
+  id: ADT_BarSmall
+  mapPath: /Maps/ADTMaps/Salvage/bar_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_CyberduneSmall
+  mapPath: /Maps/ADTMaps/Salvage/cyberdune_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_EngiSinguloSmall
+  mapPath: /Maps/ADTMaps/Salvage/engi_singulo_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_EngiSmall
+  mapPath: /Maps/ADTMaps/Salvage/engi_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_MiningSmall
+  mapPath: /Maps/ADTMaps/Salvage/mining_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_ClownIncidentSmall
+  mapPath: /Maps/ADTMaps/Salvage/clownincident_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_MiningSmall2
+  mapPath: /Maps/ADTMaps/Salvage/mining_small2.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_RatvarSmall
+  mapPath: /Maps/ADTMaps/Salvage/ratvar_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_SecHosSmall
+  mapPath: /Maps/ADTMaps/Salvage/sec_hos_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_SyndicateSmall
+  mapPath: /Maps/ADTMaps/Salvage/syndicate_small.yml
+  sizeString: salvage-map-wreck-size-small
+
+
+# "Medium"-class maps - Max size square: 15x15, indicated size: 7.5
+
+- type: salvageMap
+  id: ADT_ResearchMedium
+  mapPath: /Maps/ADTMaps/Salvage/research_medium.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_SecArmoryMedium
+  mapPath: /Maps/ADTMaps/Salvage/sec_armory_medium.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_ShuttleAIMedium
+  mapPath: /Maps/ADTMaps/Salvage/shuttle_ai_medium.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_EngineerMedium
+  mapPath: /Maps/ADTMaps/Salvage/engi_medium.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_MedicalMedium
+  mapPath: /Maps/ADTMaps/Salvage/medical_medium.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_PieceDebrisSec
+  mapPath: /Maps/ADTMaps/Salvage/piece_debris_sec.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_PieceDebrisMedical
+  mapPath: /Maps/ADTMaps/Salvage/piece_debris_med.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: ADT_PieceDebrisCommand
+  mapPath: /Maps/ADTMaps/Salvage/piece_debris_com.yml
+  sizeString: salvage-map-wreck-size-medium
+
+# """Large""" maps
+
+- type: salvageMap
+  id: ADT_SecLarge
+  mapPath: /Maps/ADTMaps/Salvage/sec_large.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_Service1Large
+  mapPath: /Maps/ADTMaps/Salvage/service1_large.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_Service2Large
+  mapPath: /Maps/ADTMaps/Salvage/service2_large.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_SyndicateLarge
+  mapPath: /Maps/ADTMaps/Salvage/syndicate_large.yml
+  sizeString: salvage-map-wreck-size-large
