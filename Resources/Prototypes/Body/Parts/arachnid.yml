@@ -91,7 +91,8 @@
     sprite: Mobs/Species/Arachnid/parts.rsi
     state: "l_leg"
   - type: MovementBodyPart
-
+    walkSpeed : 2.5
+    sprintSpeed : 4.4
 - type: entity
   id: RightLegArachnid
   name: "right arachnid leg"
@@ -101,6 +102,8 @@
     sprite: Mobs/Species/Arachnid/parts.rsi
     state: "r_leg"
   - type: MovementBodyPart
+    walkSpeed : 2.5
+    sprintSpeed : 4.4
 
 - type: entity
   id: LeftFootArachnid

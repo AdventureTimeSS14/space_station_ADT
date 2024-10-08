@@ -9,14 +9,10 @@
   - type: Sprite
     scale: 1.07, 1.07
   - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.05
-        Bloodloss: 0.05
+  - type: Thirst
   - type: Icon
     sprite: ADT/Mobs/Species/Drask/parts.rsi
     state: full
-  - type: Thirst
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -52,9 +48,10 @@
       types:
         Blunt: 10
   - type: Bloodstream
+    bloodMaxVolume: 250
     bloodReagent: Cryoxadone
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.3
+    baseWalkSpeed : 2.3
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 330
@@ -74,8 +71,24 @@
       160: 0.8
       140: 0.6
       100: 0.4
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      62: 0.85
+      84: 0.65
   - type: ThermalRegulator
     normalBodyTemperature: 273.15
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 225 # bigger density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

@@ -13,7 +13,7 @@
     torso:
       part: TorsoReptilian
       organs:
-        heart: OrganAnimalHeart
+        heart: ADTOrganReptilianHeart
         lungs: OrganHumanLungs
         stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
