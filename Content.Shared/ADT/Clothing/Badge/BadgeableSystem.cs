@@ -37,11 +37,7 @@ public class BadgeableSystem : EntitySystem
         if (badge is null)
             return false;
 
-        if (!TryComp<BadgeComponent>(badge, out var badgeComponent))
-            return false;
-
-        badgeNumber = badgeComponent.BadgeNumber;
-        return true;
+        return BadgeSystem.GetBadgeNumber(badge.Value, out badgeNumber);
     }
 
     protected void HandleExaminedEvent(EntityUid entity, BadgeableComponent component, ExaminedEvent ev)

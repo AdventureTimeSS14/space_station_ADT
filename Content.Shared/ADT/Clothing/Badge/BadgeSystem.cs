@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Examine;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -15,29 +16,45 @@ public sealed class BadgeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BadgeComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<BadgeComponent, ComponentStartup>(OnStartup);
     }
 
     private void OnExamined(EntityUid uid, BadgeComponent component, ExaminedEvent args)
     {
+        if (!GetBadgeNumber(uid, out var badgeNumber, component))
+            return;
+
         if (!ExamineSystem.IsInDetailsRange(args.Examiner, uid))
         {
             if (component.NotInDetailsText != String.Empty)
-                args.PushMarkup(Loc.GetString(component.NotInDetailsText, ("badgeNumber", component.BadgeNumber)));
+                args.PushMarkup(Loc.GetString(component.NotInDetailsText, ("badgeNumber", badgeNumber)));
 
             return;
         }
 
         if (component.InDetailsText != String.Empty)
-            args.PushMarkup(Loc.GetString(component.InDetailsText, ("badgeNumber", component.BadgeNumber)));
+            args.PushMarkup(Loc.GetString(component.InDetailsText, ("badgeNumber", badgeNumber)));
     }
 
-    private void OnStartup(EntityUid badge, BadgeComponent component, ComponentStartup args)
+    public bool GetBadgeNumber(EntityUid badge, [NotNullWhen(true)] out string? badgeNumber, BadgeComponent? component = null)
     {
-        if (_net.IsClient)
-            return;
+        badgeNumber = null;
+        if (!Resolve(badge, ref component))
+            return false;
 
-        component.BadgeNumber = badge.Id + "-" + Random.Next(100, 99999) + "/" + Random.Next(1, 50);
-        Dirty(badge, component);
+        if (component.BadgeNumber == String.Empty)
+        {
+            if (_net.IsClient)
+                return false;
+            component.BadgeNumber = GenerateBadgeNumber(badge, component);
+            Dirty(badge, component);
+        }
+
+        badgeNumber = component.BadgeNumber;
+        return true;
+    }
+
+    private string GenerateBadgeNumber(EntityUid badge, BadgeComponent component)
+    {
+        return badge.Id + "-" + Random.Next(100, 99999) + "/" + Random.Next(1, 50);
     }
 }
