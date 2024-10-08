@@ -6,6 +6,9 @@
   components:
   - type: HumanoidAppearance
     species: UrsusSpecies
+  - type: NpcFactionMember
+    factions:
+    - Ursus
   - type: MobThresholds
     thresholds:
       0: Alive

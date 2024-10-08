@@ -18,7 +18,7 @@
   name: reagent-name-zessul-blood
   group: Medicine
   desc: reagent-desc-zessul-blood
-  physicalDesc: reagent-physical-desc-bloody
+  physicalDesc: reagent-physical-desc-pungent
   flavor: metallic
   color: "#800000"
   metabolisms:
@@ -35,7 +35,7 @@
             Brute: -0.2
           types:
             Cold: -0.2
-            Poison: 0.5
+            Poison: 0.4
       - !type:AdjustTemperature
         conditions:
         - !type:OrganType
@@ -52,7 +52,7 @@
   name: reagent-name-corelander-blood
   group: Medicine
   desc: reagent-desc-corelander-blood
-  physicalDesc: reagent-physical-desc-bloody
+  physicalDesc: reagent-physical-desc-viscous
   flavor: metallic
   color: "#800000"
   metabolisms:
@@ -66,10 +66,10 @@
           shouldHave: false
         damage:
           groups:
-            Brute: -0.6
+            Brute: -0.4
           types:
-            Cold: -0.1
-            Poison: 0.8
+            Cold: -0.15
+            Poison: 0.6
       - !type:AdjustTemperature
         conditions:
         - !type:OrganType
