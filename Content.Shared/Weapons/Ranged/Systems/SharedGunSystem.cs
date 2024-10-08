@@ -382,7 +382,6 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         _audio.PlayPvs(component.SparkSound, uid);
         PopupSystem.PopupEntity(Loc.GetString("gun-component-upgrade-emag"), uid);
-
         component.IsEmagged = true;
         ev.Handled = true;
     }
