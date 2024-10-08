@@ -32,7 +32,7 @@
   - ADT_Packed
   - ADT_Train
   - ADT_Delta
-  - ADT_Oasis
+  # - ADT_Oasis удалён чтоб жизнь малиной не казалась
   - ADT_Gemini
   - ADT_Aspid
   - ADT_Moose

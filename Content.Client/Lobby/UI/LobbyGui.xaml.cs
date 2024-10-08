@@ -71,8 +71,8 @@ namespace Content.Client.Lobby.UI
                     ShowInterfaceContainer.Visible = true;
                     MainContainer.Visible = false;
                     break;
+                // ADT-Tweak-End
             }
-            // ADT-Tweak-End
         }
 
         public enum LobbyGuiState : byte
