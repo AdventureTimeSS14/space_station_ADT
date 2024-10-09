@@ -1,0 +1,18 @@
+- type: entity
+  parent: ToolboxSyndicate
+  id: ADTToolboxSyndicateFilledThief # 10 TC
+  name: Thieving bundle
+  description: Everything you need to become a better thief version.
+  components:
+  - type: StorageFill
+    contents:
+      - id: StorageImplanter
+      - id: ThievingGloves
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Welder
+      - id: Wirecutter
+      - id: Multitool
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingMaskGasSyndicate
