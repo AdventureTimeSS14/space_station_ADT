@@ -40,7 +40,12 @@ public sealed partial class FultonComponent : Component
         Components = new[]
         {
             "Item",
-            "Anchorable"
+            "Anchorable",
+            "Machine",
+            "Computer",
+            "VendingMachine",
+            "AtmosDevice",
+            "RadiationReceiver"
         }
     };
 

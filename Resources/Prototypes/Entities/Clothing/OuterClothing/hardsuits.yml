@@ -519,6 +519,7 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: DNALocker
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -537,6 +538,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: DNALocker
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -577,6 +579,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
+  - type: DNALocker
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -610,6 +613,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: DNALocker
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -643,6 +647,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: DNALocker
 
 #Wizard Hardsuit
 - type: entity
@@ -785,6 +790,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: DNALocker
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -799,6 +805,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
+  - type: DNALocker
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -813,6 +820,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: DNALocker
 
 #ERT Medic Hardsuit
 - type: entity
@@ -827,6 +835,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+  - type: DNALocker
 
 #ERT Security Hardsuit
 - type: entity
@@ -845,6 +854,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: DNALocker
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -859,6 +869,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: DNALocker
 
 #Deathsquad
 - type: entity
@@ -896,6 +907,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
+  - type: DNALocker
 
 #CBURN Hardsuit
 - type: entity
