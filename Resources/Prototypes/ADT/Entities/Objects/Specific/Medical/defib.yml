@@ -28,3 +28,29 @@
     useRate: 333 #~1 использование на маленькой
   - type: StealTarget
     stealGroup: ADTMobileDefibrillator
+
+- type: entity
+  id: ADTHandDefibrillator
+  name:
+  description:
+  parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
+  components:
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/defibsyndi.rsi
+  - type: Defibrillator
+    zapHeal:
+      types:
+        Asphyxiation: -50
+    writheDuration: 5
+    zapDamage: 15
+    zapDelay: 2
+    doAfterDuration: 1
+  - type: MultiHandedItem
+  - type: PowerCellDraw
+    useRate: 200

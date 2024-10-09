@@ -113,6 +113,9 @@
   id: ADTCardPlay
 
 - type: Tag
+  id: ADTCard
+
+- type: Tag
   id: ADTSyrelBattleAxe
 
 - type: Tag
@@ -120,6 +123,12 @@
 
 - type: Tag
   id: JanicartKeys
+
+- type: Tag
+  id: ADTMagazineRifleExtended
+
+- type: Tag
+  id: ADTMagazineHristov
 
 - type: Tag
   id: ADTMagazineRifleAR12
