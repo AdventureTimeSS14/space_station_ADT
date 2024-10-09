@@ -13,7 +13,7 @@
     torso:
       part: TorsoReptilian
       organs:
-        heart: ADTOrganReptilianHeart
+        heart: ADTOrganReptilianHeart # ADT tweak
         lungs: OrganHumanLungs
         stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
