@@ -586,3 +586,36 @@
           - ADTSyrelBattleAxe
   - type: Appearance
 
+#cherreshnia (она же Ума)
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitUmaSport
+  name: dark sporting clothing
+  description: dark sporting clothing
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uma_sport_clothing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/uma_sport_clothing.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckUmaChoker
+  name: Uma`s choker
+  description: Uma`s choker
+  suffix: Sponsor, Uma
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Misc/uma_choker.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorUma
+  name: Uma`s armor vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/uma_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/uma_armor.rsi

@@ -265,3 +265,7 @@ ent-ADTClothingUniformSquidGamePlayer = комбинезон игрока Игр
 ent-ADTClothingUniformJumpsuitTrader = комбинезон торговца
     .desc = Это комбинезон, который носят торговцы ТСФ
     .suffix = { "ТСФ" }
+
+ent-ADTClothingUniformJumpsuitUmaSport = тёмная спортивная форма
+    .desc = Облегающая спортивная форма, позволяющая телу дышать при интенсивных тренировках. Выглядит ухоженной и на удивление чистой. От неё исходит приятный запах.
+    .suffix = { "Спонсорское, Ума" }

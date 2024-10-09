@@ -106,9 +106,16 @@
       - ADTPosterPanem
       - ADTPosterGasAttack
       - ADTPosterNoGood
+    chance: 0.8
+    rarePrototypes:
+      - ADTPosterContrabandUmaHot
+      - ADTPosterContrabandUmaPress
+      - ADTPosterContrabandUmaSport
+      - ADTPosterContrabandUmaAndAzalia
+      - ADTPosterContrabandUmaRabbit
+      - ADTPosterContrabandUmaOnBeach
+    rareChance: 0.2
       #ADT tweak ^^^
-    chance: 1
-
 - type: entity
   parent: MarkerBase
   id: RandomPosterLegit
