@@ -67,7 +67,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         component.Locked = false;
         _audioSystem.PlayPvs(component.EmagSound, uid);
         var userUid = args.UserUid;
-        Timer.Spawn(3000, () =>
+        Timer.Spawn(1500, () =>
         {
             _audioSystem.PlayPvs(component.LockSound, uid);
             var selfMessage = Loc.GetString("dna-locker-unlock");
