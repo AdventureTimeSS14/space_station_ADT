@@ -42,7 +42,7 @@
 
 #Detective's vest
 - type: entity
-  parent: [ClothingOuterArmorBasic, BaseRestrictedContraband]
+  parent: [ClothingOuterArmorBasic, BaseRestrictedContraband, BadgeOnClothing]
   id: ClothingOuterVestDetective
   name: detective's vest
   description: A hard-boiled private investigator's armored vest.
@@ -51,18 +51,6 @@
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
-  #ADT-Tweak-Start
-  - type: Badgeable
-  - type: ItemSlots
-    slots:
-      badge:
-        name: Badge
-        insertVerbText: attach-to-armor
-        ejectVerbText: unattach-to-armor
-        whitelist:
-          tags:
-          - ADTBadge
-  #ADT-Tweak-End
 
 #Hazard vest
 - type: entity

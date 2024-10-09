@@ -3,7 +3,7 @@
 
 #Basic armor vest
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseRestrictedContraband, BadgeOnClothing]
   id: ClothingOuterArmorBasic
   name: armor vest
   description: A standard Type I armored vest that provides decent protection against most types of damage.
@@ -21,18 +21,6 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
-  #ADT-Tweak-Start
-  - type: Badgeable
-  - type: ItemSlots
-    slots:
-      badge:
-        name: Badge
-        insertVerbText: attach-to-armor
-        ejectVerbText: unattach-to-armor
-        whitelist:
-          tags:
-          - ADTBadge
-  #ADT-Tweak-End
 
 #Alternate / slim basic armor vest
 - type: entity

@@ -19,6 +19,21 @@
     damageCoefficient: 0.80
 
 - type: entity
+  abstract: true
+  id: BadgeOnClothing
+  components:
+  - type: Badgeable
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+
+- type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
   id: ClothingOuterArmorAirsoftBlue
   name: airsoft suit
