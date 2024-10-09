@@ -6,12 +6,12 @@
 #     sprite: NES/GraviCore.rsi
 #     state: GraviCore
 
-# - type: stealTargetGroup
-#   id: MobileDefibrillator
-#   name: переносной дефибриллятор
-#   sprite:
-#     sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi
-#     state: icon
+- type: stealTargetGroup
+  id: ADTMobileDefibrillator
+  name: переносной дефибриллятор
+  sprite:
+    sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi
+    state: icon
 
 - type: stealTargetGroup
   id: ADTClothingMaskGasCE

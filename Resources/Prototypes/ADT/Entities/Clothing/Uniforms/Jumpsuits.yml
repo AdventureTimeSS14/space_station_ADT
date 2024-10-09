@@ -552,28 +552,6 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/space_sec_officer.rsi
 
-- type: entity
-  parent: ClothingUniformBase
-  id: ADTClothingUniformPathologistSuit
-  name: pathologist jumpsuit
-  description: A lightweight jumpsuit for a morgue worker
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ADTClothingUniformPathologistSuitAlt
-  name: pathologist jumpsuit
-  description: A lightweight jumpsuit for a morgue worker. A darker version.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
-
 #Brigmed
 - type: entity
   parent: ClothingUniformBase
@@ -890,3 +868,38 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
+
+# Med
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformHikeformCmo
+  name: chief medical officer's hiking uniform
+  description: Shirt and baggy pants. Perfect for working in and out of medical departament.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hike_uniform_cmo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hike_uniform_cmo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSuit
+  name: pathologist jumpsuit
+  description: A lightweight jumpsuit for a morgue worker
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSuitAlt
+  name: pathologist jumpsuit
+  description: A lightweight jumpsuit for a morgue worker. A darker version.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi

@@ -1,0 +1,52 @@
+- type: entity
+  id: ADTDyloveneBiomicineBottle
+  name: dylovene & biomicine bottle
+  parent: ADTPlasticBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dylovene
+          Quantity: 15
+        - ReagentId: ADTMBiomicine
+          Quantity: 15
+
+
+#стеклянные ADT
+- type: entity
+  id: ADTMorphineBottle
+  name: morphine bottle
+  parent: ADTGlassBottle
+  description: A small bottle with morphine.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/glass-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-morphine
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ADTMorphine
+          Quantity: 30
+
+- type: entity
+  id: ADTOmnizineBottle
+  name: omnizine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 30

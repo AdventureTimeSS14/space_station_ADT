@@ -1,0 +1,11 @@
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: ADTCMODefibrillatorStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ChiefMedicalOfficer
+  - type: StealCondition
+    stealGroup: ADTMobileDefibrillator
+    prototype: ADTMobileDefibrillator
+    owner: job-name-cmo
