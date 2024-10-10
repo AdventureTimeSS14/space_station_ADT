@@ -24,6 +24,8 @@ using Content.Server.Speech.Components;
 using Content.Server.Radio.Components;
 using Content.Server.DeviceLinking.Components;
 using Content.Server.DeviceLinking.Systems;
+using Content.Shared.ADT.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.BoomBox;
 
@@ -36,6 +38,7 @@ public sealed class BoomBoxSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     public override void Initialize()
     {
@@ -217,6 +220,7 @@ public sealed class BoomBoxSystem : EntitySystem
 
         if (component.Inserted && !component.Enabled)
         {
+            component.Volume = _cfg.GetCVar(ADTCCVars.BoomBoxVolume);
             component.Enabled = true;
 
             _popup.PopupEntity(Loc.GetString("boombox-on"), uid);
