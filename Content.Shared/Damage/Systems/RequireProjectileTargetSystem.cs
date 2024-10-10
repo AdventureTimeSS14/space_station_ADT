@@ -9,6 +9,7 @@ namespace Content.Shared.Damage.Components;
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -26,9 +27,19 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             return;
 
         var other = args.OtherEntity;
-        if (TryComp(other, out ProjectileComponent? projectile) &&
-            CompOrNull<TargetedProjectileComponent>(other)?.Target != ent)
+        if (TryComp(other, out ProjectileComponent? projectile))
         {
+            // ADT Crawling abuse fix start
+            if (TryComp<TargetedProjectileComponent>(other, out var targeted) && targeted.TargetCoords != null)
+            {
+                foreach (var item in _lookup.GetEntitiesInRange(targeted.TargetCoords.Value, 0.5f))
+                {
+                    if (item == ent.Owner)
+                        return;
+                }
+            }
+            // ADT Crawling abuse fix end
+
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)
