@@ -1,47 +1,49 @@
-- type: lobbyBackground
+# Start ADT Tweak - Изменил IPrototype: lobbyBackgront на animatedLobbyScreen
+- type: animatedLobbyScreen
   id: Warden
-  background: /Textures/LobbyScreens/warden.webp
+  path: /Textures/LobbyScreens/warden.rsi
 
-- type: lobbyBackground
-  id: Pharmacy
-  background: /Textures/LobbyScreens/pharmacy.webp
+# - type: animatedLobbyScreen # В ADT Есть уже такой фон
+#   id: Pharmacy
+#   path: /Textures/LobbyScreens/pharmacy.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: SSXIV
-  background: /Textures/LobbyScreens/ssxiv.webp
+  path: /Textures/LobbyScreens/ssxiv.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: Susstation
-  background: /Textures/LobbyScreens/susstation.webp
+  path: /Textures/LobbyScreens/susstation.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: SkellyVsTheRev
-  background: /Textures/LobbyScreens/skellyvstherev.webp
+  path: /Textures/LobbyScreens/skellyvstherev.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: Doomed
-  background: /Textures/LobbyScreens/doomed.webp
+  path: /Textures/LobbyScreens/doomed.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: Blueprint
-  background: /Textures/LobbyScreens/blueprint.webp
+  path: /Textures/LobbyScreens/blueprint.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: Behonker
-  background: /Textures/LobbyScreens/behonker.webp
+  path: /Textures/LobbyScreens/behonker.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: TerminalStation
-  background: /Textures/LobbyScreens/terminalstation.webp
+  path: /Textures/LobbyScreens/terminalstation.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: JustAWeekAway
-  background: /Textures/LobbyScreens/justaweekaway.webp
+  path: /Textures/LobbyScreens/justaweekaway.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: JaniShootout
-  background: /Textures/LobbyScreens/janishootout.webp
+  path: /Textures/LobbyScreens/janishootout.rsi
 
-- type: lobbyBackground
+- type: animatedLobbyScreen
   id: ReclaimerNuke
-  background: /Textures/LobbyScreens/reclaimer-nuke.webp
+  path: /Textures/LobbyScreens/reclaimer-nuke.rsi
+# End ADT Tweak

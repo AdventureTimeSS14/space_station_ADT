@@ -1,0 +1,19 @@
+{
+    "version": 1,
+     "license": "CC-BY-NC-SA-3.0",
+    "copyright": "brainfood1183 github",
+    "size": {
+      "x": 1920,
+      "y": 1080
+    },
+    "states": [
+      {
+        "name": "doomed",
+        "delays": [
+          [
+            0.1
+          ]
+        ]
+      }
+    ]
+  }

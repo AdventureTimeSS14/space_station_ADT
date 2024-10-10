@@ -1,0 +1,19 @@
+{
+    "version": 1,
+     "license": "CC-BY-NC-SA-3.0",
+    "copyright": "InCrah on twitter / @in_crah",
+    "size": {
+      "x": 3508,
+      "y": 1900
+    },
+    "states": [
+      {
+        "name": "behonker",
+        "delays": [
+          [
+            0.1
+          ]
+        ]
+      }
+    ]
+  }
