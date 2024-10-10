@@ -30,7 +30,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/airsoft_blue_armor.rsi
   - type: GroupExamine
-  
+
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
   id: ClothingOuterArmorAirsoftRed
@@ -43,3 +43,64 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/airsoft_red_armor.rsi
   - type: GroupExamine
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingGigaMuscles
+  name: muscles
+  description: I dunno how to describe this shish
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/muscles.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/muscles.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.8
+    staminaModifier: 0.15
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+        Structural: 20
+    soundHit:
+      collection: Punch
+    angle: 0
+    animation: ADTWeaponArcRedCrash
+    wideAnimation: ADTWeaponArcRedCrash
+    customWideAnim: true
+    clickDamageModifier: 1.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: Jumpboots
+    jumpAction: ActionMusclesJump
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorTSF
+  name: TSF bulletproof vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/tsf_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/tsf_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+  - type: Item
+    size: Large

@@ -18,3 +18,4 @@ metabolizer-type-tajaran = Таяран
 metabolizer-type-reptilian = Унатх
 metabolizer-type-ursus = Урс
 metabolizer-type-felinid = Фелинид
+metabolizer-type-shadekin = Сумеречник

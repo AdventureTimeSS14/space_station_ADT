@@ -5,7 +5,7 @@
   description: High-tech recharger adapted for portability.
   components:
   - type: Item
-    size: Huge
+    size: Ginormous # ADT tweak
   - type: Sprite
     sprite: Objects/Power/portable_recharger.rsi
     state: charging
@@ -15,6 +15,7 @@
     slots:
     - back
   - type: Charger
+    chargeRate: 25 # ADT tweak
     slotId: charger_slot
     portable: true
   - type: PowerChargerVisuals
