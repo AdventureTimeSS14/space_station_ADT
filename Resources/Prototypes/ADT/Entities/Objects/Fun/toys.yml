@@ -23,3 +23,27 @@
     tags:
       - PlushieSharkBlack
       - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNekoArc
+  name: Neko Arc
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/nekoArc.rsi
+    state: PlushieArc
+  - type: EmitSoundOnUse
+    sound:
+      collection: ADTArk
+  - type: EmitSoundOnLand
+    sound:
+      collection: ADTArk
+  - type: EmitSoundOnActivate
+    sound:
+      collection: ADTArk
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ADTArk
+  - type: UseDelay
+    delay: 2.0  
