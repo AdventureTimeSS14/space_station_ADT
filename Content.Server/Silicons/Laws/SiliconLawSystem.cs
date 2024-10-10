@@ -21,6 +21,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -34,6 +36,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -286,17 +289,30 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     protected override void OnUpdaterInsert(Entity<SiliconLawUpdaterComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
         // TODO: Prediction dump this
-        if (!TryComp(args.Entity, out SiliconLawProviderComponent? provider))
+        if (!TryComp(args.Entity, out SiliconLawBoundComponent? provider)) //ADT custom AI law
             return;
 
-        var lawset = GetLawset(provider.Laws).Laws;
+        var lawset = GetLaws(args.Entity, provider).Laws; //ADT custom AI law
         var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
 
         while (query.MoveNext(out var update))
         {
             SetLaws(lawset, update);
         }
+        ///ADT AI Custom law start
+        UpdateBorgsNTLaws(lawset); 
     }
+    private void UpdateBorgsNTLaws(List<SiliconLaw> newLaws)
+    {
+        var headRevs = AllEntityQuery<SiliconLawProviderComponent, NpcFactionMemberComponent>();
+        while (headRevs.MoveNext(out var uid, out var lawprov, out _))
+        {
+            if (_faction.IsMember(uid, "NanoTrasen") && lawprov.Lawset != null)
+                lawprov.Lawset.Laws = newLaws;
+        }
+        return;
+    }
+        ///ADT AI Custom law end
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]
