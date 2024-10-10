@@ -7,7 +7,9 @@ using Robust.Server.GameObjects;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.ComponentalActions.Components;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Content.Shared.Actions;
+using Content.Shared.Administration;
+using Content.Server.Administration.Managers;
 
 namespace Content.Server.Administration.Systems;
 
@@ -15,6 +17,7 @@ public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly IAdminManager _admins = default!;
 
 
     // All antag verbs have names so invokeverb works.
@@ -24,7 +27,7 @@ public sealed partial class AdminVerbSystem
             return;
 
         var player = actor.PlayerSession;
-
+        //var hasBan = _admins.HasAdminFlag(player, AdminFlags.Ban);
         if (_adminManager.IsAdmin(player))
         {
             if (TryComp(args.Target, out ActorComponent? targetActor))
@@ -52,7 +55,11 @@ public sealed partial class AdminVerbSystem
                         var targetMind = _mindSystem.GetMind(args.Target);
                         _audio.PlayPvs("/Audio/Magic/forcewall.ogg", mobUid);
 
-                        EnsureComp<TeleportActComponent>(mobUid);
+                        EnsureComp<TeleportActComponent>(mobUid, out var teleport);
+                        if (teleport?.ActionEntity != null)
+                        {
+                            EnsureComp<WorldTargetActionComponent>(teleport.ActionEntity.Value).UseDelay = TimeSpan.FromSeconds(1);
+                        }
                         EnsureComp<ElectrionPulseActComponent>(mobUid);
 
                         if (targetMind != null)
