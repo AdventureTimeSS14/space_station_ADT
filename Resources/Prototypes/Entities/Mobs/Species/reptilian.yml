@@ -15,10 +15,6 @@
   - type: Puller
     needsHands: false
   - type: Thirst
-  # Start ADT tweak
-  - type: Sprite
-    scale: 1.05, 1.05
-  # End ADT tweak
   - type: Icon
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: full
@@ -87,6 +83,31 @@
     - Draconic
     - CintaTaj
   #Start ADT tweak
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damageCap: 45
+    damage:
+      types:
+        Cold: -0.06
+      groups:
+        Brute: -0.08
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 215 #weighs more than humans
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Sprite
+    scale: 1.05, 1.05
+  - type: Bloodstream
+    bloodReagent: ADTZessulsBlood
   - type: InjectorsBlocker
   - type: SizeAttributeWhitelist # Frontier
     tall: true

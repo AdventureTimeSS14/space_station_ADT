@@ -40,24 +40,26 @@
         Slash: 2
         Piercing: 3
   - type: Temperature
-    heatDamageThreshold: 400
-    coldDamageThreshold: 193  #starting temperature damage treshold
+    heatDamageThreshold: 363
+    coldDamageThreshold: 250  #starting temperature damage treshold
     currentTemperature: 310.15
     specificHeat: 46
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.2 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 0.3 #per second, scales with temperature & other constants
+        Heat : 0.1 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      285: 0.8
+      268: 0.6
+      250: 0.4
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.5
   - type: LanguageSpeaker
     speaks:
       - GalacticCommon

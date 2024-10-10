@@ -83,6 +83,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
+  # Start ADT tweak
+  - type: NpcFactionMember
+    factions:
+    - ADTSpaceMobs
+  # End ADT tweak
   - type: DamageStateVisuals
     states:
       Alive:
@@ -133,6 +138,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
+  # Start ADT tweak
+  - type: NpcFactionMember
+    factions:
+    - ADTSpaceMobs
+  # End ADT tweak
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg

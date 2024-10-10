@@ -6,6 +6,13 @@
   abstract: true
   components:
     - type: Hunger
+      baseDecayRate: 0.045
+      thresholds:
+        Overfed: 225
+        Okay: 175
+        Peckish: 125
+        Starving: 75
+        Dead: 0
     - type: Thirst
     - type: Speech
       speechSounds: Vulpa

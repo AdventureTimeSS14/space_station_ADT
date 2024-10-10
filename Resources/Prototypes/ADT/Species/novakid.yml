@@ -18,7 +18,7 @@
   id: MobNovakidSprites
   sprites:
     Head: MobNovakidHead
-    Hair: MobHumanoidAnyMarking
+    Hair: MobNovakidAnyMarkingFollowSkin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -67,6 +67,9 @@
       points: 2
       required: false
 
+- type: humanoidBaseSprite
+  id: MobNovakidAnyMarkingFollowSkin
+  markingsMatchSkin: true
 
 - type: humanoidBaseSprite
   id: MobNovakidHead

@@ -10,3 +10,71 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-ferrous
   slippery: false
+
+# Кровь унатхов
+
+- type: reagent
+  id: ADTZessulsBlood
+  name: reagent-name-zessul-blood
+  group: Medicine
+  desc: reagent-desc-zessul-blood
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: metallic
+  color: "#800000"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: false
+        damage:
+          groups:
+            Brute: -0.2
+          types:
+            Cold: -0.2
+            Poison: 0.4
+      - !type:AdjustTemperature
+        conditions:
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: false
+        - !type:Temperature
+          max: 370
+        amount: 10000 # thermal energy, not temperature!
+
+# Кровь полукровок (кобольды)
+
+- type: reagent
+  id: ADTCorelanderBlood
+  name: reagent-name-corelander-blood
+  group: Medicine
+  desc: reagent-desc-corelander-blood
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: metallic
+  color: "#800000"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: false
+        damage:
+          groups:
+            Brute: -0.4
+          types:
+            Cold: -0.15
+            Poison: 0.6
+      - !type:AdjustTemperature
+        conditions:
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: false
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent

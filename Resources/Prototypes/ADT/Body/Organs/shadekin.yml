@@ -27,6 +27,11 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
 
 - type: entity
   id: ADTOrganShadekinBrain
@@ -51,6 +56,11 @@
   - type: FlavorProfile
     flavors:
       - people
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Brain
 
 - type: entity
   id: ADTOrganShadekinStomach
@@ -78,6 +88,11 @@
     groups:
     - id: Food
     - id: Drink
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
 
 - type: entity
   id: ADTOrganShadekinLiver
@@ -95,6 +110,11 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Liver
 
 - type: entity
   id: ADTOrganShadekinHeart
@@ -113,6 +133,11 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
 
 - type: entity
   id: ADTOrganShadekinKidneys
@@ -130,6 +155,11 @@
     maxReagents: 5
     metabolizerTypes: [ Shadekin ]
     removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Kidneys
 
 - type: entity
   id: ADTOrganShadekinEyes
@@ -142,3 +172,8 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
