@@ -84,3 +84,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakPonchoBlue
+  name: blue poncho
+  description: Blue poncho
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/blue_poncho.rsi
