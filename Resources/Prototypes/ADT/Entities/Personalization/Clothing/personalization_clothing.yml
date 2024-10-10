@@ -595,9 +595,9 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/uma_sport_clothing.rsi
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/uma_sport_clothing.rsi
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -607,7 +607,7 @@
   suffix: Sponsor, Uma
   components:
     - type: Sprite
-      sprite: ADT/Clothing/Neck/Misc/uma_choker.rsi
+      sprite: ADT/Personalization/uma_choker.rsi
 
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -616,6 +616,6 @@
   description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Armor/uma_armor.rsi
+    sprite: ADT/Personalization/uma_armor.rsi
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Armor/uma_armor.rsi
+    sprite: ADT/Personalization/uma_armor.rsi
