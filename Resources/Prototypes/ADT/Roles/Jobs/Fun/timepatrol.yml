@@ -45,8 +45,9 @@
     outerClothing: ADTClothingOuterHardsuitDeathsquad
     #id: CentcomPDA
     #ears: ClothingHeadsetAltCentCom
+    suitstorage: EmergencyOxygenTankFilled
     pocket1: EnergySword
-    pocket2: EmergencyOxygenTankFilled
+    pocket2: MindFlushingFlash
     #underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
     #socks: ClothingUnderwearSocksNormal
   #underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
