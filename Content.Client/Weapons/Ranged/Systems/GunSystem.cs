@@ -5,6 +5,7 @@ using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
+using Content.Shared.Mech.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -224,8 +225,16 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         SetCartridgeSpent(ent!.Value, cartridge, true);
                         MuzzleFlash(gunUid, cartridge, worldAngle, user);
-                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-                        Recoil(user, direction, gun.CameraRecoilScalarModified);
+                        if (TryComp<MechComponent>(user, out var cmech))    // ADT Mechs
+                        {
+                            Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, cmech.PilotSlot.ContainedEntity);
+                            Recoil(cmech.PilotSlot.ContainedEntity, direction, gun.CameraRecoilScalarModified);
+                        }
+                        else
+                        {
+                            Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                            Recoil(user, direction, gun.CameraRecoilScalarModified);
+                        }
                         // TODO: Can't predict entity deletions.
                         //if (cartridge.DeleteOnSpawn)
                         //    Del(cartridge.Owner);
@@ -242,16 +251,32 @@ public sealed partial class GunSystem : SharedGunSystem
                     break;
                 case AmmoComponent newAmmo:
                     MuzzleFlash(gunUid, newAmmo, worldAngle, user);
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-                    Recoil(user, direction, gun.CameraRecoilScalarModified);
+                    if (TryComp<MechComponent>(user, out var mech)) // ADT Mechs
+                    {
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, mech.PilotSlot.ContainedEntity);
+                        Recoil(mech.PilotSlot.ContainedEntity, direction, gun.CameraRecoilScalarModified);
+                    }
+                    else
+                    {
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                        Recoil(user, direction, gun.CameraRecoilScalarModified);
+                    }
                     if (IsClientSide(ent!.Value))
                         Del(ent.Value);
                     else
                         RemoveShootable(ent.Value);
                     break;
                 case HitscanPrototype:
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-                    Recoil(user, direction, gun.CameraRecoilScalarModified);
+                    if (TryComp<MechComponent>(user, out var hmech)) // ADT Mechs
+                    {
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, hmech.PilotSlot.ContainedEntity);
+                        Recoil(hmech.PilotSlot.ContainedEntity, direction, gun.CameraRecoilScalarModified);
+                    }
+                    else
+                    {
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                        Recoil(user, direction, gun.CameraRecoilScalarModified);
+                    }
                     break;
             }
         }
