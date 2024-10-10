@@ -116,6 +116,7 @@
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Item
+#    size: Ginormous |ADT-tweak
     size: Huge
   - type: Armor
     modifiers:
