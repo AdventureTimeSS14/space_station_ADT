@@ -573,9 +573,9 @@
     staminaModifier: 0.3  # ADT
   - type: Item
     size: Huge
-  - type: ClothingSpeedModifier
+  - type: ClothingSpeedModifier # ADT tweak
     walkModifier: 1.0
-    sprintModifier: 0.9
+    sprintModifier: 1.0
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
