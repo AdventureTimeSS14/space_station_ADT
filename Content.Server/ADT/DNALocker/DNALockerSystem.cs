@@ -22,6 +22,7 @@ public sealed partial class DNALockerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        
         SubscribeLocalEvent<DNALockerComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
         SubscribeLocalEvent<DNALockerComponent, GotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<DNALockerComponent, GotEmaggedEvent>(OnGotEmagged);
@@ -101,10 +102,18 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void MakeUnlocked(EntityUid uid, DNALockerComponent component, EntityUid userUid)
     {
-        var unlocked = Loc.GetString("dna-locker-unlock");
-
-        _audioSystem.PlayPvs(component.LockSound, userUid);
-        _popup.PopupEntity(unlocked, uid, userUid);
-        component.Locked = false;
+        if (TryComp<DnaComponent>(userUid, out var userDNAComponent) && component.DNA == userDNAComponent.DNA)
+        {
+            var unlocked = Loc.GetString("dna-locker-unlock");
+            _audioSystem.PlayPvs(component.LockSound, userUid);
+            _popup.PopupEntity(unlocked, uid, userUid);
+            component.Locked = false;
+        }
+        else
+        {
+            var denied = Loc.GetString("dna-locker-explode");
+            _audioSystem.PlayPvs(component.deniedSound, userUid);
+            _popup.PopupEntity(denied, uid, userUid);
+        }
     }
 }

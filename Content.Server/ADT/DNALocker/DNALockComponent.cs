@@ -17,9 +17,12 @@ public sealed partial class DNALockerComponent : Component
     [DataField("lockSound")]
     public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/ADT/dna-lock.ogg");
 
-    [DataField]
+    [DataField("emagSound")]
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
 
-    [DataField]
+    [DataField("lockerExplodeSound")]
     public SoundSpecifier LockerExplodeSound = new SoundPathSpecifier("/Audio/Effects/Grenades/SelfDestruct/SDS_Charge.ogg");
+
+    [DataField("deniedSound")]
+    public SoundSpecifier deniedSound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 }
