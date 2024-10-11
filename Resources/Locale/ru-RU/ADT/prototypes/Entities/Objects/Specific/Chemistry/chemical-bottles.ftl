@@ -1,9 +1,3 @@
-ent-ADTPillCanister = баночка для таблеток
-    .desc = Вмещает до 9 таблеток.
-    .suffix = { "" }
-ent-ADTVitaminCanister = баночка витаминов
-    .desc = Содержит полезные витаминки.
-    .suffix = { "" }
 ent-ADTAgolatineCanister = баночка аголатина
     .desc = Содержит относительно полезные антидепрессанты.
     .suffix = { "" }
