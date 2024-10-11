@@ -110,6 +110,7 @@
   - ScienceLabCoat
   - ScienceWintercoat
   - RoboticistWintercoat
+  - RoboticistLabCoat
 
 - type: loadoutGroup
   id: RobohandsGloves

@@ -63,6 +63,11 @@
 
 
 - type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
+  id: ADTClothingOuterCoatLabPathologistOpened
+  name: pathologist's lab coat
+
+- type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterCoatBrigmedicWB
   name: brigmedic windbreaker
