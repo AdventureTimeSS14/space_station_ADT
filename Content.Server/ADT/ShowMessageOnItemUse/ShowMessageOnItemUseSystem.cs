@@ -6,6 +6,9 @@ using Content.Shared.Flash;
 using Content.Shared.StatusEffect;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
+using Content.Server.Electrocution;
+using Content.Shared.Movement.Components;
+using Content.Server.Flash;
 
 namespace Content.Server.ADT.ShowMessageOnItemUse;
 
@@ -15,6 +18,8 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private readonly FlashSystem _flashSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -44,6 +49,17 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
                     _euiManager.OpenEui(new AdtAmnesiaEui(), session);
                     Console.WriteLine($"entity {entity} mind was flushed.");
                 }
+            }
+
+            if (TryComp<InputMoverComponent>(entity, out var _))
+            {
+                _electrocutionSystem.TryDoElectrocution(entity, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
+            }
+
+
+            if (TryComp<InputMoverComponent>(entity, out var _))
+            {
+                _flashSystem.FlashArea(entity, args.User, component.Range, component.FlashDuration, component.SlowTo, false);
             }
 
         }

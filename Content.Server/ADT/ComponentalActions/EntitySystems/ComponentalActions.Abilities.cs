@@ -17,7 +17,6 @@ using Robust.Shared.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Maps;
 using Robust.Server.GameObjects;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -29,6 +28,7 @@ using Content.Server.Lightning;
 using Robust.Shared.Timing;
 using Robust.Shared.Spawners;
 using Content.Server.Spawners.EntitySystems;
+using Content.Shared.StatusEffect;
 
 
 namespace Content.Server.ComponentalActions.EntitySystems;
@@ -60,10 +60,11 @@ public sealed partial class ComponentalActionsSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
     [Dependency] private readonly SpawnOnDespawnSystem _timeDespawnUid = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
 
     private void InitializeCompAbilities()
     {
@@ -294,6 +295,21 @@ public sealed partial class ComponentalActionsSystem
             var despawn = AddComp<TimedDespawnComponent>(uid);
             despawn.Lifetime = 1.5f;
             _audio.PlayPvs(component.IgniteSound, uid);
+        }
+
+        var transform = EntityManager.GetComponent<TransformComponent>(uid);
+        var flashableQuery = GetEntityQuery<StatusEffectsComponent>();
+
+        foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, component.Range))
+        {
+            if (!flashableQuery.TryGetComponent(entity, out var _))
+                continue;
+            if (entity == args.Performer)
+                continue;
+            if (TryComp<InputMoverComponent>(entity, out var _))
+            {
+                _electrocutionSystem.TryDoElectrocution(entity, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
+            }
         }
 
         args.Handled = true;

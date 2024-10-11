@@ -8,4 +8,12 @@ public sealed partial class MindFlushComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float Range { get; set; } = 7f;
 
+    [DataField("duration")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int FlashDuration { get; set; } = 5000;
+
+    [DataField("slowTo")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SlowTo { get; set; } = 0.5f;
+
 }

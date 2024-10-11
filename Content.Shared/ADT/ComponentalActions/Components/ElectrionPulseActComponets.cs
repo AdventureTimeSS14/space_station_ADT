@@ -25,4 +25,8 @@ public sealed partial class ElectrionPulseActComponent : Component
 
     [DataField]
     public SoundSpecifier IgniteSound = new SoundPathSpecifier("/Audio/Magic/forcewall.ogg");
+
+    [DataField("range")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Range { get; set; } = 7f;
 }
