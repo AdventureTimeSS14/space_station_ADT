@@ -19,7 +19,7 @@
 
 - type: entity
   parent: ClothingBackpack
-  id: ADTClothingSatchelParamedic
+  id: ADTClothingBackpackSatchelParamedic
   name: paramedical satchel
   description: A satchel to store some paramedical equipment.
   components:

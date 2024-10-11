@@ -65,6 +65,8 @@
   - type: TTS # Corvax-TTS
     voice: bebey
 
+# Оружейная тсф
+
 - type: entity
   parent: VendingMachine
   id: ADTVendingMachineTSFArmoury
@@ -85,3 +87,71 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+# Таблеткомат
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachinePill
+  name: Pill-O-Mat
+  description: (Almost) A practical solution to many of your sores.
+  components:
+  - type: VendingMachine
+    pack: PillInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    ejectState: eject-unshaded
+    ejectDelay: 0.6
+  - type: Advertise
+    pack: PillAds
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/pillomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#a1e1f0"
+  - type: StaticPrice
+    price: 2600
+
+# Парашкаф
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineParaDrobe
+  name: ParaDrobe
+  description: A vending machine that dispences new clothing for paramedics.
+  components:
+  - type: VendingMachine
+    pack: ParadrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: MediDrobeAds
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/paradrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#1ca9d4"

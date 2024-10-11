@@ -22,8 +22,10 @@
   id: ParamedicGear
   equipment:
     id: ParamedicPDA
-    ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalEMTFilled
+# ADT tweak Start
+    ears: ADTClothingHeadsetParamedic
+#    belt: ClothingBeltMedicalEMTFilled
+# ADT tweak End
   storage:
     back:
     - EmergencyRollerBedSpawnFolded

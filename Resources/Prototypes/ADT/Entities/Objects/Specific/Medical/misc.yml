@@ -2,7 +2,7 @@
   name: box of medical treatment
   parent: BaseStorageItem
   id: ADTBriefcaseMedical
-  description: A plastic a box with bottles with medicaments.
+  description: A plastic a box for medicaments.
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/briefcase_medical.rsi
@@ -27,9 +27,3 @@
         - Brutepack
         - Bloodpack
         - Medipen
-  - type: StorageFill
-    contents:
-      - id: ADTMorphineBottle
-      - id: ADTDyloveneBiomicineBottle
-      - id: EpinephrineChemistryBottle
-      - id: ADTOmnizineBottle

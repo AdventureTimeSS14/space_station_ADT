@@ -2,7 +2,7 @@
   id: ADTMobileDefibrillator
   name: mobile defibrillator
   description: Mobile version of defibrillator. Can be fixed on your belt, a medical one and even fits in pockets! #somehow
-  parent: [ BaseDefibrillator, PowerCellSlotSmallItem ]
+  parent: BaseDefibrillator
   components:
   - type: Item
     size: Small
@@ -21,11 +21,8 @@
       types:
         Asphyxiation: -20
     doAfterDuration: 1.5
-    chargeSound:
-      path: /Audio/ADT/Items/Medical/Defibs/mob-defib_charge.ogg
+    zapDelay: 6
   - type: MultiHandedItem
-  - type: PowerCellDraw
-    useRate: 333 #~1 использование на маленькой
   - type: StealTarget
     stealGroup: ADTMobileDefibrillator
 

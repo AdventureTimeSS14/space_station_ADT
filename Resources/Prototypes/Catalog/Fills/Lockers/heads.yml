@@ -254,12 +254,14 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
-    # ADT-WikiBooks-Start
+    # ADT tweak Start
+    - id: ADTBriefcaseBrownHikingCmoFilled
+    - id: ADTBriefcaseMedicalFilled
     - id: ADTBookSRPcmd
     - id: ADTBookSRPmed
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
+    # ADT tweak End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

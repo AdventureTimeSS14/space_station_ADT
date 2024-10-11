@@ -445,6 +445,7 @@
   - ChiefMedicalOfficerJumpsuit
   - MedicalGloves
   - MedicalBackpack
+  - ADTMedicalBelt # ADT tweak
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
@@ -463,6 +464,7 @@
   - MedicalDoctorJumpsuit
   - MedicalGloves
   - MedicalBackpack
+  - ADTMedicalBelt # ADT tweak
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
@@ -478,6 +480,7 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
+  - ADTMedicalBelt # ADT tweak
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -507,7 +510,11 @@
   - MedicalMask
   - ParamedicJumpsuit
   - MedicalGloves
-  - MedicalBackpack
+  # ADT tweak Start
+  - ADTParamedicBelt
+  - ADTParamedicBackpack
+#  - MedicalBackpack   Закоментил для нашего
+  # ADT tweak End
   - ParamedicOuterClothing
   - ParamedicShoes
   - Glasses

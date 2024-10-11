@@ -20,25 +20,6 @@
       tags:
         - ADTPatch
 
-#PatchPackFilled
-
-- type: entity
-  name: patch pack
-  id: ADTPatchPackFilled
-  suffix: Filled
-  parent: ADTPatchPack
-  components:
-  - type: StorageFill
-    contents:
-      - id: ADTPatchHealing
-        amount: 1
-      - id: ADTPatchBurn
-        amount: 1
-      - id: ADTPatchHealingMini
-        amount: 2
-      - id: ADTPatchBurnMini
-        amount: 2
-
 #BasePatch
 
 - type: entity

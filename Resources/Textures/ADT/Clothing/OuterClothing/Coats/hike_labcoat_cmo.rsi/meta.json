@@ -24,6 +24,18 @@
         {
             "name": "equipped-OUTERCLOTHING",
             "directions": 4
+        },
+        {
+            "name": "open-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "open-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "open-equipped-OUTERCLOTHING",
+            "directions": 4
         }
     ]
 }

@@ -39,7 +39,7 @@
 #заполненные упаковки
 - type: entity
   name: sodiumizole pack
-  id: ADTMSodiumizolePack
+  id: ADTSodiumizolePack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -49,12 +49,12 @@
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
   - type: StorageFill
     contents:
-      - id: ADTMSodiumizolePill
+      - id: ADTSodiumizolePill
         amount: 10
 
 - type: entity
   name: nitrofurfoll pack
-  id: ADTMNitrofurfollPack
+  id: ADTNitrofurfollPack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -64,12 +64,12 @@
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
   - type: StorageFill
     contents:
-      - id: ADTMNitrofurfollPill
+      - id: ADTNitrofurfollPill
         amount: 10
 
 - type: entity
   name: anelgesin pack
-  id: ADTMAnelgesinPack
+  id: ADTAnelgesinPack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -79,12 +79,12 @@
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
   - type: StorageFill
     contents:
-      - id: ADTMAnelgesinPill
+      - id: ADTAnelgesinPill
         amount: 10
 
 - type: entity
   name: minoxide pack
-  id: ADTMMinoxidePack
+  id: ADTMinoxidePack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -94,12 +94,12 @@
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
   - type: StorageFill
     contents:
-      - id: ADTMMinoxidePill
+      - id: ADTMinoxidePill
         amount: 10
 
 - type: entity
   name: diethamilate pack
-  id: ADTMDiethamilatePack
+  id: ADTDiethamilatePack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -109,12 +109,12 @@
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
   - type: StorageFill
     contents:
-      - id: ADTMDiethamilatePill
+      - id: ADTDiethamilatePill
         amount: 10
 
 - type: entity
   name: haloperidol pack
-  id: ADTMHaloperidolPack
+  id: ADTHaloperidolPack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -124,12 +124,12 @@
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
   - type: StorageFill
     contents:
-      - id: ADTMHaloperidolPill
+      - id: ADTHaloperidolPill
         amount: 10
 
 - type: entity
   name: charcoal pack
-  id: ADTMCharcoalPack
+  id: ADTCharcoalPack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -144,7 +144,7 @@
 
 - type: entity
   name: ethylredoxrazine pack
-  id: ADTMEthylredoxrazinePack
+  id: ADTEthylredoxrazinePack
   parent: ADTPillPack
   components:
   - type: Sprite
@@ -154,13 +154,13 @@
     sprite: ADT/Objects/Specific/Chemistry/packs.rsi
   - type: StorageFill
     contents:
-      - id: ADTMEthylredoxrazinePill
+      - id: ADTEthylredoxrazinePill
         amount: 10
 
 #баночка
 - type: entity
   name: vitamin canister
-  id: ADTMVitaminCanister
+  id: ADTVitaminCanister
   parent: ADTPillCanister
   description: Contains healthy vitamins for you.
   components:
@@ -171,12 +171,12 @@
     sprite: ADT/Objects/Specific/Chemistry/pills.rsi
   - type: StorageFill
     contents:
-      - id: ADTMVitaminPill
+      - id: ADTVitaminPill
         amount: 10
 
 - type: entity
   name: agolatine canister
-  id: ADTMAgolatineCanister
+  id: ADTAgolatineCanister
   parent: ADTPillCanister
   description: Contains (almost) healthy antidepressants for you.
   components:
@@ -187,27 +187,27 @@
     sprite: ADT/Objects/Specific/Chemistry/pills.rsi
   - type: StorageFill
     contents:
-      - id: ADTMAgolatinePill
+      - id: ADTAgolatinePill
         amount: 10
 
 # пиллюли.
 - type: entity
   name: pill
   parent: Pill
-  id: ADTMPillBase
+  id: ADTPillBase
   abstract: true
   description: It's not a suppository.
 
 - type: entity
   name: sodiumizole pill
-  parent: ADTMPillBase
-  id: ADTMSodiumizolePill
+  parent: ADTPillBase
+  id: ADTSodiumizolePill
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
-        - ReagentId: ADTMSodiumizole
+        - ReagentId: ADTSodiumizole
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -215,14 +215,14 @@
 
 - type: entity
   name: nitrofurfoll pill
-  parent: ADTMPillBase
-  id: ADTMNitrofurfollPill
+  parent: ADTPillBase
+  id: ADTNitrofurfollPill
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
-        - ReagentId: ADTMNitrofurfoll
+        - ReagentId: ADTNitrofurfoll
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -230,14 +230,14 @@
 
 - type: entity
   name: anelgesin pill
-  parent: ADTMPillBase
-  id: ADTMAnelgesinPill
+  parent: ADTPillBase
+  id: ADTAnelgesinPill
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
-        - ReagentId: ADTMAnelgesin
+        - ReagentId: ADTAnelgesin
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -245,14 +245,14 @@
 
 - type: entity
   name: minoxide pill
-  parent: ADTMPillBase
-  id: ADTMMinoxidePill
+  parent: ADTPillBase
+  id: ADTMinoxidePill
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
-        - ReagentId: ADTMMinoxide
+        - ReagentId: ADTMinoxide
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -260,14 +260,14 @@
 
 - type: entity
   name: diethamilate pill
-  parent: ADTMPillBase
-  id: ADTMDiethamilatePill
+  parent: ADTPillBase
+  id: ADTDiethamilatePill
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
-        - ReagentId: ADTMDiethamilate
+        - ReagentId: ADTDiethamilate
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -275,14 +275,14 @@
 
 - type: entity
   name: haloperidol pill
-  parent: ADTMPillBase
-  id: ADTMHaloperidolPill
+  parent: ADTPillBase
+  id: ADTHaloperidolPill
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
-        - ReagentId: ADTMHaloperidol
+        - ReagentId: Haloperidol
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -290,8 +290,8 @@
 
 - type: entity
   name: ethylredoxrazine pill
-  parent: ADTMPillBase
-  id: ADTMEthylredoxrazinePill
+  parent: ADTPillBase
+  id: ADTEthylredoxrazinePill
   components:
   - type: SolutionContainerManager
     solutions:
@@ -305,14 +305,14 @@
 
 - type: entity
   name: agolatine pill
-  parent: ADTMPillBase
-  id: ADTMAgolatinePill
+  parent: ADTPillBase
+  id: ADTAgolatinePill
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
-        - ReagentId: ADTMAgolatine
+        - ReagentId: ADTAgolatine
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -320,8 +320,8 @@
 
 - type: entity
   name: vitamin pill
-  parent: ADTMPillBase
-  id: ADTMVitaminPill
+  parent: ADTPillBase
+  id: ADTVitaminPill
   description: Found in healthy, complete meals.
   components:
   - type: SolutionContainerManager

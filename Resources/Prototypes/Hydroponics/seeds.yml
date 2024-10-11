@@ -937,6 +937,7 @@
     - LeavesCannabis
   mutationPrototypes:
     - rainbowCannabis
+    - ADTCannabisWhite
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 8
@@ -1153,6 +1154,7 @@
     - FoodPoppy
   mutationPrototypes:
     - lily
+    - ADTPapaverSomniferum
   lifespan: 25
   maturation: 10
   production: 3

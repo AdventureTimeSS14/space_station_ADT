@@ -36,7 +36,6 @@
     solutions:
       drink:
         maxVol: 30
-  - type: Appearance
   - type: MixableSolution
     solution: drink
   - type: RefillableSolution
