@@ -114,9 +114,11 @@ ent-PillBicaridine = таблетка
 ent-PillCanisterBicaridine = баночка для таблеток
     .suffix = Бикаридин 10 ед, 5 шт
     .desc = { ent-PillCanister.desc }
-ent-PillCharcoal = таблетка
+# ADT tweak start
+ent-PillCharcoal = таблетка угля
     .desc = { ent-Pill.desc }
     .suffix = Уголь 10 ед
+# ADT tweak end
 ent-PillCanisterCharcoal = баночка для таблеток
     .suffix = Уголь 10 ед, 3
     .desc = { ent-PillCanister.desc }

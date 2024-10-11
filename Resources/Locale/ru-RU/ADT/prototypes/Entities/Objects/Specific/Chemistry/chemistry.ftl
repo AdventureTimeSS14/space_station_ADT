@@ -16,5 +16,3 @@ ent-ADTAgolatinePill = таблетка аголатина
     .desc = { ent-Pill.desc }
 ent-ADTVitaminPill = таблетка витаминов
     .desc = { ent-Pill.desc }
-ent-PillCharcoal = таблетка угля (10)
-    .desc = { ent-Pill.desc }
