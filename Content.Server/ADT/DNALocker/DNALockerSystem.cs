@@ -22,42 +22,50 @@ public sealed partial class DNALockerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<DNALockerComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
         SubscribeLocalEvent<DNALockerComponent, GotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<DNALockerComponent, GotEmaggedEvent>(OnGotEmagged);
     }
 
+    public void LockDNA(EntityUid uid, DNALockerComponent component, EntityUid equipee)
+    {
+        var dna = EnsureComp<DnaComponent>(equipee);
+        component.DNA = dna.DNA;
+        component.Locked = true;
+        _audioSystem.PlayPvs(component.LockSound, uid);
+        var selfMessage = Loc.GetString("dna-locker-success");
+        _popup.PopupEntity(selfMessage, equipee, equipee);
+    }
+
+    public void ExplodeLocker(EntityUid uid, DNALockerComponent component, EntityUid equipee)
+    {
+        EnsureComp<UnremoveableComponent>(uid);
+        var selfMessage = Loc.GetString("dna-locker-explode");
+        var unremoveableMessage = Loc.GetString("dna-locker-unremoveable");
+
+        _popup.PopupEntity(unremoveableMessage, equipee, equipee, PopupType.LargeCaution);
+        _audioSystem.PlayPvs(component.LockerExplodeSound, uid);
+        Timer.Spawn(3000, () =>
+        {
+            _popup.PopupEntity(selfMessage, equipee, equipee, PopupType.LargeCaution);
+            _explosion.QueueExplosion(equipee, "Default", 200f, 10f, 100f, 1f);
+            QueueDel(uid);
+        });
+    }
+
     private void OnEquip(EntityUid uid, DNALockerComponent component, GotEquippedEvent args)
     {
-        if (component.Locked == false)
+        if (!component.Locked)
         {
-            var dna = EnsureComp<DnaComponent>(args.Equipee);
-            component.DNA = dna.DNA;
-            component.Locked = true;
-            _audioSystem.PlayPvs(component.LockSound, uid);
-            var selfMessage = Loc.GetString("dna-locker-success");
-            _popup.PopupEntity(selfMessage, args.Equipee, args.Equipee);
+            LockDNA(uid, component, args.Equipee);
         }
-
-        if (component.Locked == true)
+        else
         {
             var dna = EnsureComp<DnaComponent>(args.Equipee);
-
             if (component.DNA != null && component.DNA != dna.DNA)
             {
-                EnsureComp<UnremoveableComponent>(uid);
-                var selfMessage = Loc.GetString("dna-locker-explode");
-                var unremoveableMessage = Loc.GetString("dna-locker-unremoveable");
-
-                _popup.PopupEntity(unremoveableMessage, args.Equipee, args.Equipee, PopupType.LargeCaution);
-                _audioSystem.PlayPvs(component.LockerExplodeSound, uid);
-                Timer.Spawn(3000, () =>
-                {
-                    _popup.PopupEntity(selfMessage, args.Equipee, args.Equipee, PopupType.LargeCaution);
-                    _explosion.QueueExplosion(args.Equipee, "Default", 200f, 10f, 100f, 1f);
-                    QueueDel(uid);
-                });
+                ExplodeLocker(uid, component, args.Equipee);
             }
         }
     }
@@ -112,7 +120,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         else
         {
             var denied = Loc.GetString("dna-locker-explode");
-            _audioSystem.PlayPvs(component.deniedSound, userUid);
+            _audioSystem.PlayPvs(component.DeniedSound, userUid);
             _popup.PopupEntity(denied, uid, userUid);
         }
     }

@@ -24,5 +24,5 @@ public sealed partial class DNALockerComponent : Component
     public SoundSpecifier LockerExplodeSound = new SoundPathSpecifier("/Audio/Effects/Grenades/SelfDestruct/SDS_Charge.ogg");
 
     [DataField("deniedSound")]
-    public SoundSpecifier deniedSound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
+    public SoundSpecifier DeniedSound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 }
