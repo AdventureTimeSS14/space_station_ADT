@@ -190,7 +190,12 @@
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: top
+            state: underweart
+      underwearb:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: underwearb
       socks:
         sizeMaps:
           32:
@@ -226,12 +231,19 @@
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
-            state: top
+            state: underweart
+      underwearb:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: underwearb
       socks:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: socks
+
+
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:
@@ -322,3 +334,18 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: head
+      underweart:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: underweart
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: socks
+      underwearb:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: underwearb
