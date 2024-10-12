@@ -1,38 +1,6 @@
 # Sirena
 
 - type: entity
-  abstract: true
-  parent: Clothing
-  id: ADTClothingUnderwearSocksBase
-  name: based socks
-  description: "You should not see this. If you see it, let Neko Dar#8948 know."
-  components:
-  - type: Sprite
-    state: icon
-  - type: Item
-    size: Tiny
-  - type: Clothing
-    slots: [socks]
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: MaterialCloth1
-      amount: 1
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-  - type: Tag
-    tags:
-      - ClothMade
-      - ADTSocks
-
-- type: entity
   parent: ADTClothingUnderwearSocksBase
   id: ADTClothingUnderwearSocksHigh
   name: high socks
@@ -101,7 +69,7 @@
 #New Year
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksBeige
+  id: ADTClothingUnderwearSocksChristmasBeige
   name: beige socks
   description: Feels warm from thick wool inside.
   suffix: New Year
@@ -111,7 +79,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksBlue
+  id: ADTClothingUnderwearSocksChristmasBlue
   name: blue socks
   description: Blue like ice, warm like holidays.
   suffix: New Year
@@ -121,7 +89,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksFingerless
+  id: ADTClothingUnderwearSocksChristmasFingerless
   name: fingerless socks
   description: Claws won't stop holidays!
   suffix: New Year
@@ -131,7 +99,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksGnome
+  id: ADTClothingUnderwearSocksChristmasGnome
   name: gnome socks
   description: Made for walking in ice caves in Santa's residence.
   suffix: New Year
@@ -141,7 +109,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksGreen
+  id: ADTClothingUnderwearSocksChristmasGreen
   name: green socks
   description: A real Elf wears this.
   suffix: New Year
@@ -151,7 +119,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksRed
+  id: ADTClothingUnderwearSocksChristmasRed
   name: red socks
   description: Traditional New Year holiday socks.
   suffix: New Year
@@ -161,7 +129,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksRedWhite
+  id: ADTClothingUnderwearSocksChristmasRedWhite
   name: red socks with white stripe
   description: Just a red socks.
   suffix: New Year
@@ -171,7 +139,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksFingerlessStripped
+  id: ADTClothingUnderwearSocksChristmasFingerlessStripped
   name: fingerless stripped socks
   description: Socks for those, whose claws won't let them to warm legs.
   suffix: New Year
@@ -181,7 +149,7 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksStripped
+  id: ADTClothingUnderwearSocksChristmasStripped
   name: stripped socks
   description: A holiday stripped socks.
   suffix: New Year
@@ -275,3 +243,81 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/socks_rabbit.rsi
+
+# TGS
+
+## Носки
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyBlue
+  name: blue socks
+  description: Comfy blue socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyblue.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyGrey
+  name: grey socks
+  description: Comfy grey socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfygrey.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyRed
+  name: red socks
+  description: Comfy red socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyred.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyViolet
+  name: violet socks
+  description: Comfy violet socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyviolet.rsi
+
+## Чулки
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyBlue
+  name: blue knee socks
+  description: Comfy blue knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyblue.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyGrey
+  name: grey knee socks
+  description: Comfy grey knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfygrey.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyRed
+  name: red knee socks
+  description: Comfy red knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyred.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyViolet
+  name: violet knee socks
+  description: Comfy violet knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyviolet.rsi

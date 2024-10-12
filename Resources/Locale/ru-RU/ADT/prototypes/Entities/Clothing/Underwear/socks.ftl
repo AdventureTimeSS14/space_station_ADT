@@ -62,3 +62,21 @@ ent-ADTClothingUnderwearSocksStockingsBlueshield = чулки офицера "С
     .desc = Тёплые чулочки Для самой лучшей защитницы.
 ent-ADTClothingUnderwearSocksComfy = чулки для когтистых
     .desc = Идеально подходят для тех кто желает держать ноги в еще большем тепле.
+
+ent-ADTClothingUnderwearSocksComfyBlue = синие носки
+    .desc = Комфортные синие носочки.
+ent-ADTClothingUnderwearSocksComfyGrey = серые носки
+    .desc = Комфортные серые носочки.
+ent-ADTClothingUnderwearSocksComfyRed = красные носки
+    .desc = Комфортные красные носочки.
+ent-ADTClothingUnderwearSocksComfyViolet = фиолетовые носки
+    .desc = Комфортные фиолетовые носочки.
+
+ent-ADTClothingUnderwearSocksKneeComfyBlue = синие чулки
+    .desc = Комфортные синие чулочки.
+ent-ADTClothingUnderwearSocksKneeComfyGrey = серые чулки
+    .desc = Комфортные серые чулочки.
+ent-ADTClothingUnderwearSocksKneeComfyRed = красные чулки
+    .desc = Комфортные красные чулочки.
+ent-ADTClothingUnderwearSocksKneeComfyViolet = фиолетовые чулки
+    .desc = Комфортные фиолетовые чулочки.

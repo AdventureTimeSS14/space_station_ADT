@@ -59,11 +59,6 @@
   equipment:
     underwearb: ADTClothingUnderwearBottomPantiesComfyWhite
 
-- type: loadout
-  id: ADTUnderwearPantiesLace
-  equipment:
-    underwearb: ADTClothingUnderwearBottomPantiesLace
-
 ## главы
 
 - type: loadout
@@ -128,52 +123,47 @@
   equipment:
     underweart: ADTClothingUnderwearTopBraSportsAlternative
 
-- type: loadout
-  id: ADTUnderwearBraLace
-  equipment:
-    underweart: ADTClothingUnderwearTopBraLace
-
 ## главы
 
 - type: loadout
   id: ADTUnderwearBraQM
   equipment:
-    underwearb: ADTClothingUnderwearTopBraQM
+    underweart: ADTClothingUnderwearTopBraQM
 
 - type: loadout
   id: ADTUnderwearBraRD
   equipment:
-    underwearb: ADTClothingUnderwearTopBraRD
+    underweart: ADTClothingUnderwearTopBraRD
 
 - type: loadout
   id: ADTUnderwearBraCap
   equipment:
-    underwearb: ADTClothingUnderwearTopBraCap
+    underweart: ADTClothingUnderwearTopBraCap
 
 - type: loadout
   id: ADTUnderwearBraHOP
   equipment:
-    underwearb: ADTClothingUnderwearTopBraHOP
+    underweart: ADTClothingUnderwearTopBraHOP
 
 - type: loadout
   id: ADTUnderwearBraHOS
   equipment:
-    underwearb: ADTClothingUnderwearTopBraHOS
+    underweart: ADTClothingUnderwearTopBraHOS
 
 - type: loadout
   id: ADTUnderwearBraCMO
   equipment:
-    underwearb: ADTClothingUnderwearTopBraCMO
+    underweart: ADTClothingUnderwearTopBraCMO
 
 - type: loadout
   id: ADTUnderwearBraCE
   equipment:
-    underwearb: ADTClothingUnderwearTopBraCE
+    underweart: ADTClothingUnderwearTopBraCE
 
 - type: loadout
   id: ADTUnderwearBraBlueshield
   equipment:
-    underwearb: ADTClothingUnderwearTopBraBlueshield
+    underweart: ADTClothingUnderwearTopBraBlueshield
 
 # Всякие чулки и другая подобная хуэта.
 

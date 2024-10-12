@@ -335,7 +335,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
 
@@ -349,7 +348,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
 
 - type: loadoutGroup
   id: ADTSocks
@@ -374,7 +372,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersQM
@@ -387,7 +384,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersRD
@@ -400,7 +396,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersCap
@@ -413,7 +408,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersHOP
@@ -426,7 +420,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersHOS
@@ -439,7 +432,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersCMO
@@ -452,7 +444,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersCE
@@ -465,7 +456,6 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesLace
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersBlueshield
@@ -483,7 +473,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraQM
 
 - type: loadoutGroup
@@ -496,7 +485,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraRD
 
 - type: loadoutGroup
@@ -509,7 +497,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraCap
 
 - type: loadoutGroup
@@ -522,7 +509,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraHOP
 
 - type: loadoutGroup
@@ -535,7 +521,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraHOS
 
 - type: loadoutGroup
@@ -548,7 +533,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraCMO
 
 - type: loadoutGroup
@@ -561,7 +545,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraCE
 
 - type: loadoutGroup
@@ -574,7 +557,6 @@
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraLace
   - ADTUnderwearBraBlueshield
 
 ### Чулки
