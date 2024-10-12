@@ -19,6 +19,8 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: StaticPrice
+    price: 150
 
 - type: entity
   name: We-Ya executive zippo lighter
@@ -28,3 +30,5 @@
   components:
   - type: Sprite
     sprite:  ADT/Objects/Tools/Lighters/execzippo.rsi
+  - type: StaticPrice
+    price: 300

@@ -54,6 +54,8 @@
     - cig5
     - cig6
     - cig7
+  - type: StaticPrice
+    price: 200
 
 - type: entity
   parent: CigarCase

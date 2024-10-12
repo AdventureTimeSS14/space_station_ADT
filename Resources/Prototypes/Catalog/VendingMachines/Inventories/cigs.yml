@@ -16,8 +16,8 @@
     ADTCigarCase: 1 #ADT Tweak
     SmokingPipeFilledTobacco: 1
     Vape: 1
-    Matchbox: 5
     # ADT Tweak Start
+    # Matchbox: 5
     ADTBrownMatchBook: 5
     ADTElectroMatchbook: 2
     ADTLuckySlothsMatchBook: 2

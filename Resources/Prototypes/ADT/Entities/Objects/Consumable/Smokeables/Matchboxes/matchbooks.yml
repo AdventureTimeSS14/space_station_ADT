@@ -54,6 +54,8 @@
     - mpacket4
     - mpacket5
     - mpacket6
+  - type: StaticPrice
+    price: 30
 
 - type: entity
   parent: ADTLuckySlothsMatchBook
@@ -65,6 +67,8 @@
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
   - type: Item
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTLuckySlothsMatchBook
@@ -76,6 +80,9 @@
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
   - type: Item
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
+  - type: StaticPrice
+    price: 60
+
 
 - type: entity
   parent: ADTLuckySlothsMatchBook
@@ -87,6 +94,8 @@
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
   - type: Item
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
+  - type: StaticPrice
+    price: 20
 
 - type: entity
   parent: ADTLuckySlothsMatchBook
@@ -98,3 +107,5 @@
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi
   - type: Item
     sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi
+  - type: StaticPrice
+    price: 30
