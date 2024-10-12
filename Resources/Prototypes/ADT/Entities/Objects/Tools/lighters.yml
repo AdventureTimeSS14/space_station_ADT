@@ -20,7 +20,7 @@
       visible: false
       shader: unshaded
   - type: StaticPrice
-    price: 150
+    price: 120
 
 - type: entity
   name: We-Ya executive zippo lighter

@@ -90,7 +90,7 @@
   - type: ItemTogglePointLight
   # ADT Tweak Start
   - type: StaticPrice
-    price: 120
+    price: 80
   # ADT Tweak END
 
 - type: entity
