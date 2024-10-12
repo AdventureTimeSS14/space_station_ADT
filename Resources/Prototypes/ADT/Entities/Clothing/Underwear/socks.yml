@@ -1,0 +1,277 @@
+# Sirena
+
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTClothingUnderwearSocksBase
+  name: based socks
+  description: "You should not see this. If you see it, let Neko Dar#8948 know."
+  components:
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Clothing
+    slots: [socks]
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+      - ClothMade
+      - ADTSocks
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHigh
+  name: high socks
+  description: Nanotrasen high socks for station employees. Painted white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksknee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksNormal
+  name: socks
+  description: Standard Nanotrasen socks for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksnorm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksShort
+  name: short socks
+  description: Nanotrasen short socks for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksshort.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThigh
+  name: stockings
+  description: Standard Nanotrasen stockings for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksthigh.rsi
+
+# Wizards
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksBee # HACK
+  name: bee socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: Clothing/Under/Socks/bee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksCoder # HACK
+  name: coder socks
+  description: It's time to code sisters!!11!
+  components:
+  - type: Sprite
+    sprite: Clothing/Under/Socks/coder.rsi
+
+#приколы празата
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksLaceThigh
+  name: lace stockings
+  description: Good looking lace stockings.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/lace_socks_thigh.rsi
+
+#New Year
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksBeige
+  name: beige socks
+  description: Feels warm from thick wool inside.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_beige.rsi #Спрайты от dion_clawed
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksBlue
+  name: blue socks
+  description: Blue like ice, warm like holidays.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_blue.rsi #Спрайты от dion_clawed
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksFingerless
+  name: fingerless socks
+  description: Claws won't stop holidays!
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_fingerless.rsi #Спрайты от dion_clawed
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksGnome
+  name: gnome socks
+  description: Made for walking in ice caves in Santa's residence.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_gnome.rsi #Спрайты от dion_clawed
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksGreen
+  name: green socks
+  description: A real Elf wears this.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_green.rsi #Спрайты от dion_clawed
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksRed
+  name: red socks
+  description: Traditional New Year holiday socks.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_red.rsi #Спрайты от dion_clawed
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksRedWhite
+  name: red socks with white stripe
+  description: Just a red socks.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_redwhite.rsi #Спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksFingerlessStripped
+  name: fingerless stripped socks
+  description: Socks for those, whose claws won't let them to warm legs.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_fingerless_stripped.rsi #Спрайты от prazat911
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStripped
+  name: stripped socks
+  description: A holiday stripped socks.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_stripped.rsi #Спрайты от prazat911
+
+#День Святого Валентина
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHeart
+  name: socks with hearts
+  description: socks with hearts
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_heart.rsi #Спрайты от lunalita
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsHeart
+  name: stockings with hearts
+  description: socks with hearts
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/stockings_heart.rsi #Спрайты от lunalita
+
+#Stockings
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsRed
+  name: red stockings
+  description: Red lace stockings. Not for a standart shift
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/red_stockings.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsBlack
+  name: black stockings
+  description: Black lace stockings. Not for a standart shift
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/black_stockings.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsWhite
+  name: white stockings
+  description: White lace stockings. With a pink bow
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/white_stockings.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfy
+  name: socks for comfort
+  description: Socks for programmers with a cutout for the sharp claws of the Vulpkanin! They smell like tangerines.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_liexer.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsBlueshield
+  name: blueshield's stockings
+  description: Excellent warm stockings for the most beautiful guardian.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/stockings_blueshield.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksBlueshield
+  name: blueshield's socks
+  description: Excellent warm socks for the most beautiful guardian.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_blueshield.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksRabbit
+  name: rabbit socks
+  description: Cool rabbit socks
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_rabbit.rsi

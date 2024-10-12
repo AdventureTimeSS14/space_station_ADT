@@ -99,9 +99,12 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "underwearb" ] #Sirena
+    - map: [ "underweart" ] #Sirena
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "socks" ] #Sirena
     - map: ["jumpsuit"]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: [ "gloves" ]
@@ -181,6 +184,16 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: head
+      underweart:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: top
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: socks
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -207,6 +220,16 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: head
+      underweart:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: top
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: socks
   # Frontier - languages mechanic
   - type: LanguageSpeaker
     speaks:

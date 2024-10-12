@@ -8,6 +8,38 @@
       uiWindowPos: 1,0
       strippingWindowPos: 1,3
       displayName: Shoes
+    # ADT tweak start
+    - name: socks #Sirena slot
+      slotTexture: socks
+      slotFlags: SOCKS
+      stripTime: 6
+      uiWindowPos: 4,1
+      strippingWindowPos: 2,4
+      displayName: Socks
+      whitelist:
+        tags:
+          - ADTSocks
+    - name: underwearb #Sirena slot
+      slotTexture: underwearb
+      slotFlags: UNDERWEARB
+      stripTime: 6
+      uiWindowPos: 4,2
+      strippingWindowPos: 0,4
+      displayName: Panties
+      whitelist:
+        tags:
+          - ADTUnderwearB
+    - name: underweart #Sirena slot
+      slotTexture: underweart
+      slotFlags: UNDERWEART
+      stripTime: 6
+      uiWindowPos: 4,3
+      strippingWindowPos: 1,4
+      displayName: Bra
+      whitelist:
+        tags:
+          - ADTUnderwearT
+# ADT tweak end
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING
@@ -60,7 +92,7 @@
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 2,1
-      strippingWindowPos: 2,4
+      strippingWindowPos: 2,5 # ADT tweak
       dependsOn: jumpsuit
       displayName: ID
     - name: belt
@@ -70,7 +102,7 @@
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 3,1
-      strippingWindowPos: 1,5
+      strippingWindowPos: 1,6 # ADT tweak
       displayName: Belt
     - name: back
       slotTexture: back
@@ -79,7 +111,7 @@
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 3,0
-      strippingWindowPos: 0,5
+      strippingWindowPos: 0,6 # ADT tweak
       displayName: Back
 
     - name: pocket4
@@ -114,7 +146,7 @@
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 0,3
-      strippingWindowPos: 0,4
+      strippingWindowPos: 0,5 # ADT tweak
       dependsOn: jumpsuit
       displayName: Pocket 1
       stripHidden: true
@@ -125,7 +157,7 @@
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 2,3
-      strippingWindowPos: 1,4
+      strippingWindowPos: 1,5 # ADT tweak
       dependsOn: jumpsuit
       displayName: Pocket 2
       stripHidden: true
@@ -135,7 +167,7 @@
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 2,0
-      strippingWindowPos: 2,5
+      strippingWindowPos: 2,6 # ADT tweak
       dependsOn: outerClothing
       dependsOnComponents:
       - type: AllowSuitStorage

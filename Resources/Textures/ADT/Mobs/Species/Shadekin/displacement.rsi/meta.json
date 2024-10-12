@@ -25,6 +25,14 @@
         {
             "name": "head",
             "directions": 4
+        },
+        {
+            "name": "top",
+            "directions": 4
+        },
+        {
+            "name": "socks",
+            "directions": 4
         }
     ]
 }
