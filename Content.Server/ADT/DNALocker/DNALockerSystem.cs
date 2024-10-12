@@ -41,7 +41,7 @@ public sealed partial class DNALockerSystem : EntitySystem
     public void ExplodeLocker(EntityUid uid, DNALockerComponent component, EntityUid equipee)
     {
         EnsureComp<UnremoveableComponent>(uid);
-        var selfMessage = Loc.GetString("dna-locker-explode");
+        var selfMessage = Loc.GetString("dna-locker-failure");
         var unremoveableMessage = Loc.GetString("dna-locker-unremoveable");
 
         _popup.PopupEntity(unremoveableMessage, equipee, equipee, PopupType.LargeCaution);
@@ -59,14 +59,13 @@ public sealed partial class DNALockerSystem : EntitySystem
         if (!component.Locked)
         {
             LockDNA(uid, component, args.Equipee);
+            return;
         }
-        else
+
+        var dna = EnsureComp<DnaComponent>(args.Equipee);
+        if (component.DNA != null && component.DNA != dna.DNA)
         {
-            var dna = EnsureComp<DnaComponent>(args.Equipee);
-            if (component.DNA != null && component.DNA != dna.DNA)
-            {
-                ExplodeLocker(uid, component, args.Equipee);
-            }
+            ExplodeLocker(uid, component, args.Equipee);
         }
     }
 
@@ -96,16 +95,16 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void OnAltVerb(EntityUid uid, DNALockerComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (component.Locked)
+        if (!component.Locked)
+            return;
+
+        AlternativeVerb verbDNALock = new()
         {
-            AlternativeVerb verbDNALock = new()
-            {
-                Act = () => MakeUnlocked(uid, component, args.User),
-                Text = Loc.GetString("dna-locker-verb-name"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
-            };
-            args.Verbs.Add(verbDNALock);
-        }
+            Act = () => MakeUnlocked(uid, component, args.User),
+            Text = Loc.GetString("dna-locker-verb-name"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
+        };
+        args.Verbs.Add(verbDNALock);
     }
 
     private void MakeUnlocked(EntityUid uid, DNALockerComponent component, EntityUid userUid)
@@ -119,7 +118,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         }
         else
         {
-            var denied = Loc.GetString("dna-locker-explode");
+            var denied = Loc.GetString("dna-locker-failure");
             _audioSystem.PlayPvs(component.DeniedSound, userUid);
             _popup.PopupEntity(denied, uid, userUid);
         }
