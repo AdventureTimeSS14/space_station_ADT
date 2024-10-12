@@ -121,6 +121,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/sportsbrablack.rsi
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: ADTClothingUnderwearTopBase
@@ -130,6 +132,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/peabra.rsi
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: ADTClothingUnderwearTopBase
@@ -139,6 +143,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/lace_bra.rsi
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: ADTClothingUnderwearTopBase
@@ -166,6 +172,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/red_bra.rsi
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: ADTClothingUnderwearTopBase
@@ -175,6 +183,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/black_bra.rsi
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: ADTClothingUnderwearTopBase

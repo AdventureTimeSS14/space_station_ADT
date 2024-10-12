@@ -175,6 +175,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/lace_panties.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 100
 
 #New Year.
 - type: entity
@@ -213,6 +215,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/red_panties.rsi
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -222,6 +226,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/black_panties.rsi
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase

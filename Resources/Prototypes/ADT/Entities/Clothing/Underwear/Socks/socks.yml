@@ -243,6 +243,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/socks_rabbit.rsi
+  - type: StaticPrice
+    price: 120
 
 # TGS
 
