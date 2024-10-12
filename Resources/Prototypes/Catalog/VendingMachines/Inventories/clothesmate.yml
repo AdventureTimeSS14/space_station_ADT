@@ -25,8 +25,9 @@
     ADTClothingHeadHatBeretBlackCivilian: 2 # ADT Кастомный чёрный берет
     ClothingBackpackSatchelLeather: 2
 # ADT бельё/обмотки/плащи/носки начало
-
+    ADTClothingUnderwearBottomBoxersWhite: 4
     ADTClothingUnderwearBottomPantiesWhiteComfy: 4
+    ADTClothingUnderwearTopBraWhite: 4
     ADTClothingUnderwearTopBraComfyWhite: 4
 # конец белья
     ADTClothingNeckDarkGreyCloak: 1
