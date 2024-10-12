@@ -26,7 +26,7 @@
     ClothingBackpackSatchelLeather: 2
 # ADT бельё/обмотки/плащи/носки начало
 
-    ADTClothingUnderwearPantiesWhiteComfy: 4
+    ADTClothingUnderwearBottomPantiesWhiteComfy: 4
     ADTClothingUnderwearTopBraComfyWhite: 4
 # конец белья
     ADTClothingNeckDarkGreyCloak: 1
