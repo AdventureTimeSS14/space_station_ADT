@@ -170,7 +170,7 @@
   description: These cigarettes are the height of luxury. They're smooth, they're cool, and they smell like victory...and cigarette smoke.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select.rsi
+    sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select_packet.rsi
   - type: StorageFill
     contents:
     - id: ADTExecutiveSelectCigarette
