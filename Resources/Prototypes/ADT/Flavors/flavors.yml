@@ -112,3 +112,66 @@
   id: adt_elderguards
   flavorType: Complex
   description: flavor-complex-elderguards
+
+- type: flavor
+  id: adt_limeshade
+  flavorType: Complex
+  description: flavor-complex-limeshade
+
+# Суп
+- type: flavor
+  id: ADTSawdust
+  flavorType: Complex
+  description: flavor-complex-ADTSawdust
+
+#Пиво Октоберфеста
+
+- type: flavor
+  id: adt_glyphidstoutbeer
+  flavorType: Complex
+  description: flavor-complex-glyphidstoutbeer
+
+- type: flavor
+  id: adt_secunfilteredbeer
+  flavorType: Complex
+  description: flavor-complex-secunfilteredbeer
+
+- type: flavor
+  id: adt_luckyjonnybeer
+  flavorType: Complex
+  description: flavor-complex-luckyjonnybeer
+
+- type: flavor
+  id: adt_livseybeer
+  flavorType: Complex
+  description: flavor-complex-livseybeer
+
+- type: flavor
+  id: adt_classicpaulaner
+  flavorType: Complex
+  description: flavor-complex-classicpaulaner
+
+- type: flavor
+  id: adt_technobeer
+  flavorType: Complex
+  description: flavor-complex-technobeer
+
+- type: flavor
+  id: adt_sausagebeer
+  flavorType: Complex
+  description: flavor-complex-sausagebeer
+
+- type: flavor
+  id: adt_goldenale
+  flavorType: Complex
+  description: flavor-complex-goldenale
+  
+- type: flavor
+  id: adt_poppy
+  flavorType: Base
+  description: flavor-base-adtpoppy
+
+- type: flavor
+  id: adt_vanilla
+  flavorType: Base
+  description: flavor-base-adtvanilla

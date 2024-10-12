@@ -165,6 +165,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+        blacklist: # ADT plasmacutters start
+          components:
+          - BatteryRecharge # ADT plasmacutters end
 
 - type: entity
   parent: BaseItemRecharger
@@ -191,6 +194,8 @@
         blacklist:
           tags:
           - PotatoBattery
+          components: # ADT plasmacutters
+          - BatteryRecharge # ADT plasmacutters
 
 - type: entity
   parent: BaseItemRecharger

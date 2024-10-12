@@ -36,3 +36,6 @@ reagent-desc-styptic-powder = При нанесении на кожу зажив
 
 reagent-name-silver-sulfadiazine = Сульфадиазин серебра
 reagent-desc-silver-sulfadiazine = При нанесении на кожу заживляет ожоги.
+
+reagent-name-detoxisol = Детоксизол
+reagent-desc-detoxisol = Препарат, синтезированный на основе растительных ферментов, с целью всеобщей детоксикации организма. Имеет небольшой побочный эффект в виде небольших потерь верхних слоёв эпителия.

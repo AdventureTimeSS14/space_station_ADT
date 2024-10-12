@@ -8,10 +8,10 @@
   markingLimits: MobShadekinMarkingLimits
   dollPrototype: MobShadekinDummy
   skinColoration: Hues
-  maleFirstNames: names_shadekin
-  femaleFirstNames: names_shadekin
-  maleLastNames: names_arachnid_last # Corvax-LastnameGender
-  femaleLastNames: names_arachnid_last # Corvax-LastnameGender
+  maleFirstNames: names_shadekin_male_first
+  femaleFirstNames: names_shadekin_female_first
+  maleLastNames: names_shadekin_male_last
+  femaleLastNames: names_shadekin_female_last
   minAge: 18
   maxAge: 80
   youngAge: 30
@@ -25,10 +25,10 @@
   id: MobShadekinSprites
   sprites:
     Head: MobShadekinHead
-    Snout: MobShadekinAnyMarkingFollowSkin
-    HeadTop: MobShadekinAnyMarkingFollowSkin
-    HeadSide: MobShadekinAnyMarkingFollowSkin
-    Tail: MobShadekinAnyMarkingFollowSkin
+    Snout: MobShadekinAnyMarking
+    HeadTop: MobShadekinAnyMarking
+    HeadSide: MobShadekinAnyMarking
+    Tail: MobShadekinAnyMarking
     Chest: MobShadekinTorso
     Eyes: MobShadekinEyes
     LArm: MobShadekinLArm
@@ -67,13 +67,12 @@
     Arms:
       points: 0
       required: false
+    Overlay:
+      points: 1
+      required: false
 
 - type: humanoidBaseSprite
   id: MobShadekinAnyMarking
-
-- type: humanoidBaseSprite
-  id: MobShadekinAnyMarkingFollowSkin
-  markingsMatchSkin: true
 
 - type: humanoidBaseSprite
   id: MobShadekinHead

@@ -12,7 +12,7 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobADTPathologist 
+  id: JobADTPathologist
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -69,7 +69,6 @@
   - MedicalGloves
   - MedicalBackpack
   - MedicalDoctorOuterClothing
-  - MedicalDoctorJumpsuit
   - Trinkets
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
@@ -116,3 +115,26 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+
+  # brigmedic
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  # Bridmed spec outfit:
+  - ADTBrigmedicHead
+  - ADTBrigmedicNeck
+  - ADTBrigmedicJumpsuit
+  - ADTBrigmedicOuterWear
+  - ADTBrigmedicBack
+  # Another stuffs
+  - ADTBrigmedicBelts
+  - ADTBrigmedicEyes
+  - ADTBrigmedicGloves
+  - ADTBrigmedicPDA
+  # another:
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity

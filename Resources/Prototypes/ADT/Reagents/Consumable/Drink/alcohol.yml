@@ -371,3 +371,267 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+
+- type: reagent
+  id: ADTLimeShade
+  name: lime-shade-name
+  parent: BaseAlcohol
+  desc: lime-shade-desc
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: adt_limeshade
+  color: "#5c1e52"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+      - !type:RandomTeleport
+        probability: 0.35
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+
+#Пиво октоберфеста
+
+- type: reagent
+  id: ADTGoldenAle
+  name: golden-ale-name
+  parent: BaseAlcohol
+  desc: golden-ale-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_goldenale
+  color: "#663100"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1.5
+          types:
+            Poison: -0.7 ##Should be about what it was when it healed the toxin group
+            Heat: -0.7
+            Shock: -0.7
+            Cold: -0.7
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/goldenale.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+
+- type: reagent
+  id: ADTSausageBeer
+  name: sausage-beer-name
+  parent: BaseAlcohol
+  desc: sausage-beer-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_sausagebeer
+  color: "#cfa85f"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/sausagebeer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTTechnoBeer
+  name: techo-beer-name
+  parent: BaseAlcohol
+  desc: techo-beer-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_technobeer
+  color: "#cfa85f"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 360 #очень греет
+        amount: 5000
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/technarbeer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTClassicPaulanerBeer
+  name: classic-paulaner-name
+  parent: BaseAlcohol
+  desc: classic-paulaner-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_classicpaulaner
+  color: "#cfa85f"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.1
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/classicalpaulaner.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTLivseyBeer
+  name: livsey-beer-name
+  parent: BaseAlcohol
+  desc: livsey-beer-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_livseybeer
+  color: "#cfa85f"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 263.15
+        amount: -10000
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/doctorlivsey.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTLuckyJonnyBeer
+  name: lucky-jonny-name
+  parent: BaseAlcohol
+  desc: lucky-jonny-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_luckyjonnybeer
+  color: "#cfa85f"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/luckyjonny.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTSecUnfilteredBeer
+  name: sec-unfiltered-name
+  parent: BaseAlcohol
+  desc: sec-unfiltered-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_secunfilteredbeer
+  color: "#cfa85f"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/secbeer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTGlyphidStoutBeer
+  name: glyphid-stout-name
+  parent: BaseAlcohol
+  desc: glyphid-stout-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_glyphidstoutbeer
+  color: "#cfa85f"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.35
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.9 ##Should be about what it was when it healed the toxin group
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

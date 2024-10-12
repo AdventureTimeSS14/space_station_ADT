@@ -12,7 +12,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformJumpskirtBlueshieldJumpskirtTurtleneck
+  id: ADTClothingUniformJumpskirtTurtleneckBlueshield
   name: blueshield's turtleneck skirt
   description: blueshield's turtleneck
   components:
@@ -42,7 +42,7 @@
   description: Warm and comfy.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
   - type: StaticPrice
@@ -55,7 +55,7 @@
   description: Brighter shade of blue.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi
   - type: StaticPrice
@@ -68,7 +68,7 @@
   description: Filled with happines.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi
   - type: StaticPrice
@@ -81,7 +81,7 @@
   description: Cheaper analog of CentComm turtleneck.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi
   - type: StaticPrice
@@ -94,7 +94,7 @@
   description: -Ya know why i wear red? It hides blood well! -But that's brown color...
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi
   - type: StaticPrice
@@ -107,7 +107,7 @@
   description: Hides blood of clowns well!
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi
   - type: StaticPrice
@@ -120,7 +120,7 @@
   description: I don't want to talk about it.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi
   - type: StaticPrice
@@ -133,7 +133,7 @@
   description: Who would wear this?
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi
   - type: StaticPrice
@@ -146,7 +146,7 @@
   description: Grey style?
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi
   - type: StaticPrice
@@ -159,7 +159,7 @@
   description: Darker shade of azure.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi
   - type: StaticPrice
@@ -172,7 +172,7 @@
   description: Feel yourself like a real scientist.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi
   - type: StaticPrice
@@ -185,7 +185,7 @@
   description: Favourite clothes of bookworms.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi 
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi
   - type: StaticPrice
@@ -249,3 +249,238 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brigmed.rsi
+
+# Luna
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformLushWhiteWeddingDress
+  name: Lush white wedding dress
+  description: You look so tender.. like a marshmallow!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/lush_white_wedding_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/lush_white_wedding_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformLushRoseWeddingDress
+  name: Rose white wedding dress
+  description: Specially for a princess!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/lush_rose_wedding_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/lush_rose_wedding_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformWhiteGhoticWeddingDress
+  name: White ghotic wedding dress
+  description: This dress really flatters your figure. YOu will be the sexiest bride
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/white_ghotic_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/white_ghotic_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlackGhoticWeddingDress
+  name: Black ghotic wedding dress
+  description: Morticia Addams likes. You will not find better than this sexy dress
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/black_ghotic_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/black_ghotic_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformWhiteShortWeddingDress
+  name: White short wedding dress
+  description: White dress with gold sequins. For those who are tired of floor length dresses!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/white_short_wedding_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/white_short_wedding_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformShortDressBlackGold
+  name: Rose white wedding dress
+  description: Specially for a princess!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/shortdressblackgold.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/shortdressblackgold.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformRedCocktailDress
+  name: Red Cocktail Dress
+  description: Girl, this dress is made for this party! Blow up the dance floor!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/red_cocktail_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/red_cocktail_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformBlackElegantDress
+  name: Black Elegant Dress
+  description: Isn't it too short? Can't see my behind?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/black_elegant_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/black_elegant_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOrangeBeachSuit
+  name: Orange Beach Suit
+  description: The mood color is orange. For the fans of oranges and a good tan.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/orange_beach_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/orange_beach_suit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtJanimaid
+  name: janitorial maid uniform
+  description: For professionals, not the posers.
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/janimaid.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/janimaid.rsi
+
+#Альтернативная одежда для ГП
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpskirtHopWarm
+  name: hop jumpskirt warm
+  description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_hop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_hop.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseFoldable ]
+  id: ADTClothingJumpskirtHopAlt
+  name: head of personell's business suit
+  description: Fancy.
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-put-on-verb
+    foldVerbText: fold-pull-off-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: vest
+    foldedHeldPrefix: vest
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_alt_hop.rsi
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_alt_hop.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_vest
+      map: ["foldedLayer"]
+      visible: false
+
+#октоберфест
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShort
+  name: dirndl short
+  description: Traditional German dress with a short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshort.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshort.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShortGreen
+  name: dirndl short green
+  description: Traditional German dress with a green short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortgreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortgreen.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShortRed
+  name: dirndl short red
+  description: Traditional German dress with a red short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlShortBlue
+  name: dirndl short blue
+  description: Traditional German dress with a blue short skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlBlue
+  name: dirndl blue
+  description: Traditional German dress with a blue skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlRed
+  name: dirndl red
+  description: Traditional German dress with a red skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformOktoberfestDirndlGreen
+  name: dirndl green
+  description: Traditional German dress with a green skirt.
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE

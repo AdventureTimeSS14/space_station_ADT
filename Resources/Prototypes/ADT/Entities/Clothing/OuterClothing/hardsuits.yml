@@ -16,7 +16,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
   - type: TemperatureProtection
-    coefficient: 0.01
+    heatingCoefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:
@@ -49,7 +49,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
   - type: TemperatureProtection
-    coefficient: 0.01
+    heatingCoefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:
@@ -82,7 +82,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 10000
   - type: TemperatureProtection
-    coefficient: 0.01
+    heatingCoefficient: 0.01
   - type: Armor
     modifiers:
       coefficients:
@@ -172,7 +172,7 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
   - type: Armor
     modifiers:
       coefficients:
@@ -180,7 +180,148 @@
         Slash: 0.65
         Heat: 0.35
         Radiation: 0.85
+    staminaModifier: 1
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetIlisium
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitInquisitory
+  name: inquisitory hardsuit
+  description: Repent of your sins.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+    staminaModifier: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitInquisitory
+
+#Скафандры Киберсана
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitCybersunBodyGuard
+  name: cybersun bodyguard hardsuit
+  description: An upgraded version of the blood red hardsuit that features enhanced fireproofing, pressure resist, and superior armor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersunbodyguard.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersunbodyguard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.3
+        Radiation: 0.20
+    staminaModifier: 0.3  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitCybersunBodyGuard
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitCybersunCrysis
+  name: cybersun supersoldier's hardsuit
+  description: CyberSun's most advanced, secret security technology. It seems this development is leading to the creation of super soldiers. It smells of plastitan and dishonorable fight
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersun_crysis_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/cybersun_crysis_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.55
+    sprintModifier: 0.55
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+    staminaModifier: 0.3  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitCybersunCrysis
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ADTClothingOuterHardsuitPioneerAgent
+  name: agent "Pioneer" hardsuit
+  description: agent "Pioneer" hardsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pioneeragent.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/pioneeragent.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitPioneerAgent
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitSaibaSain
+  name: Saiba Sain elite hardsuit
+  description: Produced from plasmatic fibers, nanomachines and silicon. Smells like cherry blossom
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/saiba_sain_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/saiba_sain_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.55
+    sprintModifier: 0.55
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+    staminaModifier: 0.3  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitSaibaSain

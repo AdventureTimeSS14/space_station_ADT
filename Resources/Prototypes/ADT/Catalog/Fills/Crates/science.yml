@@ -1,0 +1,51 @@
+- type: entity
+  id: ADTCrateScienceLawsAiEmpty
+  parent: CrateBaseSecure
+  name: ai laws secure crate
+  description: A crate for AI laws plates. Requires Science access to open.
+  components:
+  - type: Icon
+    sprite: ADT/Structures/Storage/Crates/scicrate_secure_ai_plates.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Storage/Crates/scicrate_secure_ai_plates.rsi
+  - type: AccessReader
+    access: [["Research"]]
+
+- type: entity
+  id: ADTCrateScienceLawsAiFilled
+  parent: CrateBaseSecure
+  name: ai laws secure crate
+  description: A crate for AI laws plates. Requires Science access to open.
+  components:
+  - type: Icon
+    sprite: ADT/Structures/Storage/Crates/scicrate_secure_ai_plates.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Storage/Crates/scicrate_secure_ai_plates.rsi
+  - type: AccessReader
+    access: [["Research"]]
+  - type: StorageFill
+    contents:
+      - id: AsimovCircuitBoard
+        amount: 1
+      - id: CorporateCircuitBoard
+        amount: 1
+      - id: NTDefaultCircuitBoard
+        amount: 1
+      - id: CommandmentCircuitBoard
+        amount: 1
+      - id: PaladinCircuitBoard
+        amount: 1
+      - id: LiveLetLiveCircuitBoard
+        amount: 1
+      - id: StationEfficiencyCircuitBoard
+        amount: 1
+      - id: RobocopCircuitBoard
+        amount: 1
+      - id: OverlordCircuitBoard
+        amount: 1
+      - id: DungeonMasterCircuitBoard
+        amount: 1
+      - id: ArtistCircuitBoard
+        amount: 1
+      - id: NutimovCircuitBoard
+        amount: 1

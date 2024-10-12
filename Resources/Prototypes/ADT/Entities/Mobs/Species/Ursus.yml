@@ -6,12 +6,25 @@
   components:
   - type: HumanoidAppearance
     species: UrsusSpecies
+  - type: NpcFactionMember
+    factions:
+    - Ursus
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      115: Critical
+      250: Dead
+  - type: Bloodstream
+    bloodMaxVolume: 235
+    bloodReagent: Blood
   - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.05
-        Bloodloss: 0.05
     baseDecayRate: 0.0983
+    thresholds:
+      Overfed: 300
+      Okay: 250
+      Peckish: 175
+      Starving: 125
+      Dead: 0
   - type: Thirst
     #baseDecayRate: 0.0083
   - type: Icon
@@ -28,14 +41,42 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 6.5
+        Blunt: 4.5
         Slash: 3.5
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    scale: 1.03, 1.03
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.4
+    baseSprintSpeed : 4.3
   - type: DamageOnHighSpeedImpact
     damage:
       types:
         Blunt: 0.9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
+  - type: Inventory
+    speciesId: urs #для одежды на урсов
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250 # bigger density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Ursus
@@ -51,11 +92,38 @@
     understands:
     - GalacticCommon
     - Urs
+  - type: Temperature
+    heatDamageThreshold: 320
+    coldDamageThreshold: 250
+    currentTemperature: 310
+    specificHeat: 50
+    coldDamage:
+      types:
+        Cold: 0.01 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      283: 0.8
+      265: 0.6
+      250: 0.4
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      64: 0.85
+      86: 0.65
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1.1
+    tallscale: 1.12
+    tallDensity: 1.5
     short: true
-    shortscale: 0.9
+    shortscale: 0.98
+    shortDensity: 0.7
 
 - type: entity
   save: false

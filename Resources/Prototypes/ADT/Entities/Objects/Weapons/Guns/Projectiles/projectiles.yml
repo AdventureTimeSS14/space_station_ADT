@@ -54,7 +54,7 @@
   id: ADTBaseBulletRubber
   name: base bullet rubber
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -68,3 +68,47 @@
       path: /Audio/Weapons/Guns/Hits/snap.ogg
   - type: StaminaDamageOnCollide
     damage: 22 # 5 hits to stun sounds reasonable
+
+- type: entity
+  id: ADTBulletCutter
+  name: cutter bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Reflective
+    reflective:
+      - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: "#9f1e86"
+  - type: GatheringProjectile
+    amount: 40
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 15
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: PointLight
+    radius: 2
+    color: purple
+    energy: 1
+
+- type: entity
+  id: ADTBulletCutterAdv
+  name: cutter bolt advanced
+  parent: ADTBulletCutter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
+  - type: TimedDespawn
+    lifetime: 0.25

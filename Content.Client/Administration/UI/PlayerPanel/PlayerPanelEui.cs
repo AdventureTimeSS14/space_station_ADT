@@ -40,6 +40,7 @@ public sealed class PlayerPanelEui : BaseEui
         PlayerPanel.OnDelete+= () => SendMessage(new PlayerPanelDeleteMessage());
 
         PlayerPanel.OnClose += () => SendMessage(new CloseEuiMessage());
+        PlayerPanel.OnFollow += id => SendMessage(new PlayerPanelFollowMessage()); // ADT-Tweak
     }
 
     public override void Opened()

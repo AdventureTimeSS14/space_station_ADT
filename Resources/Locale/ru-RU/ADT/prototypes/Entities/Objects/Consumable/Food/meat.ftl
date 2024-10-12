@@ -1,0 +1,14 @@
+ent-ADTFoodMeatShadekin = сырое мясо сумеречника
+    .desc = Кусок когда-то бывший частью необычного существа.
+ent-ADTFoodMeatShadekinCutlet = сырая котлета из сумеречника
+    .desc = Тонко нарезанный кусочек амбиций.
+ent-ADTFoodMeatShadekinCooked = стейк из сумеречника
+    .desc = Приготовленный стейк. Выглядит не очень аппетитно.
+ent-ADTFoodMeatShadekinCutletCooked = котлета из сумеречника
+    .desc = Выглядит как неудачная попытка пошутить.
+ent-ADTFoodMeatWeissWurst = вайсвурст
+    .desc = Традиционная белая баварская колбаска из говядины, сала и специй.
+    .suffix = { "Октоберфест" }
+ent-ADTFoodMeatBratWurst = братвурст
+    .desc = Зажаренная колбаска из свинины, очень жирная и аппетитная.
+    .suffix = { "Октоберфест" }

@@ -34,7 +34,7 @@
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
       durationOfIncident: 10, 30
-  cost: -2  # ADT Quirks
+  cost: -1  # ADT Quirks
 
 - type: trait
   id: Unrevivable

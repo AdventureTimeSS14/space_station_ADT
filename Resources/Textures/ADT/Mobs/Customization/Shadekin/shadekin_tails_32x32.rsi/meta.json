@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made team Adventure Time",
+    "copyright": "Made team Adventure Time. medium_twocolored and shorter_brush made by discord:filokini",
     "size": {
         "x": 32,
         "y": 32
@@ -12,7 +12,15 @@
             "directions": 4
         },
         {
+            "name": "medium_twocolored",
+            "directions": 4
+        },
+        {
             "name": "shadekin_shorter",
+            "directions": 4
+        },
+        {
+            "name": "shorter_brush",
             "directions": 4
         }
     ]

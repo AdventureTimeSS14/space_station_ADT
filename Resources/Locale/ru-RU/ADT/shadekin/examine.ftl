@@ -1,0 +1,5 @@
+shadekin-examine-self-max = [color=white]Вы переполняетесь энергией! У вас {$power} энергии.[/color]
+shadekin-examine-self-good = [color=white]Вы чувствуете себя хорошо. У вас {$power} энергии.[/color]
+shadekin-examine-self-okay = [color=white]Вы в порядке. У вас {$power} энергии.[/color]
+shadekin-examine-self-bad = [color=white]Вы достаточно сильно устали. У вас {$power} энергии.[/color]
+shadekin-examine-self-worst = [color=red]Вы выбились из сил! У вас {$power} энергии.[/color]

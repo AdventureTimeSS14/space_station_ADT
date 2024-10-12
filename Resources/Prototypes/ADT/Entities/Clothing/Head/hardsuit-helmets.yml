@@ -13,7 +13,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    heatingCoefficient: 0.005
   - type: Armor
     modifiers:
       coefficients:
@@ -26,7 +26,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetIlisium
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: helmet
   description: Ilisium
   suffix: Ilisium
@@ -52,7 +52,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ADTClothingHeadHelmetHardsuitBlueshield
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: blueshield hardsuit helmet
   description:
   components:
@@ -99,7 +99,7 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ADTSpaceSecPilotHelm
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: space sec pilot helmet
   description: Looks like something that inspires order.
   components:
@@ -125,7 +125,7 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ADTSpaceSecOfficerHelm
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: space sec officer helmet
   description: Looks like something that inspires order.
   components:
@@ -151,7 +151,7 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ADTSpaceSecCommanderHelm
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: space sec commander helmet
   description: Looks like something that inspires order.
   components:
@@ -173,3 +173,136 @@
         Caustic: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ADTClothingHeadHelmetHardsuitInquisitory
+  categories: [ HideSpawnMenu ]
+  name: inquisitor hardsuit helmet
+  description: You have been given power over destinies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/inquisitoryhead.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/inquisitoryhead.rsi
+  - type: PointLight
+    color: white
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+
+#Шлемы скафандров Киберсана
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ADTClothingHeadHelmetHardsuitCybersunBodyGuard
+  categories: [ HideSpawnMenu ]
+  name: cybersun bodyguard helmet
+  description: A variant of the blood red helmet designed by the gorlax marauders to be exceptionally fireproof and pressure proof.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/cybersunbodyguard.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/cybersunbodyguard.rsi
+  - type: PointLight
+    color: red
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.5
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ADTClothingHeadHelmetHardsuitCybersunCrysis
+  categories: [ HideSpawnMenu ]
+  name: cybersun crysis helmet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/cybersun_crysis_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/cybersun_crysis_head.rsi
+  - type: PointLight
+    color: red
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ADTClothingHeadHelmetHardsuitSaibaSain
+  categories: [ HideSpawnMenu ]
+  name: Saiba Sain elite hardsuit helm
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/saiba_sain_hardsuit_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/saiba_sain_hardsuit_helmet.rsi
+  - type: PointLight
+    color: red
+    radius: 9
+    energy: 4
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  id: ADTClothingHeadHelmetHardsuitPioneerAgent
+  categories: [ HideSpawnMenu ]
+  name: agent "Pioneer" hardsuit helmet
+  description: agent "Pioneer" hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/pioneeragenthelmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/pioneeragenthelmet.rsi
+  - type: PointLight
+    color: cyan
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8

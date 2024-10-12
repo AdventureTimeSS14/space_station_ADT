@@ -1,0 +1,16 @@
+- type: entity
+  parent: Bed
+  id: ADTDeckChair
+  name: deckchair
+  description: A deckchair for the acquisition of an even tan under the light of the nearest star.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/deckchair.rsi
+    state: deckchair
+  - type: Construction
+    graph: adt_deckchair
+    node: adtdeckchair
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: "0,-0.15"
