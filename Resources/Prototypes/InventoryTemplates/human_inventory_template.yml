@@ -34,7 +34,7 @@
       slotFlags: UNDERWEART
       stripTime: 6
       uiWindowPos: 3,2
-      strippingWindowPos: 2,4
+      strippingWindowPos: 0,4
       displayName: Bra
       whitelist:
         tags:
