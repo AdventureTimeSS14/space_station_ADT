@@ -29,20 +29,6 @@
     ADTClothingUnderwearPantiesWhiteComfy: 4
     ADTClothingUnderwearTopBraComfyWhite: 4
 # конец белья
-# ADT начало носков
-    ADTClothingUnderwearSocksShort: 2
-    ADTClothingUnderwearSocksHigh: 2
-    ADTClothingUnderwearSocksThigh: 2
-    ADTClothingUnderwearSocksStockingsWhite: 2
-    ADTClothingUnderwearSocksComfyBlue: 2
-    ADTClothingUnderwearSocksComfyGrey: 2
-    ADTClothingUnderwearSocksComfyRed: 2
-    ADTClothingUnderwearSocksComfyViolet: 2
-    ADTClothingUnderwearSocksKneeComfyBlue: 2
-    ADTClothingUnderwearSocksKneeComfyGrey: 2
-    ADTClothingUnderwearSocksKneeComfyRed: 2
-    ADTClothingUnderwearSocksKneeComfyViolet: 2
-# ADT конец носков
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
 # ADT бельё/обмотки/плащи/носки конец
@@ -95,6 +81,20 @@
     ClothingUniformJumpsuitCasualRed: 2
     ClothingUniformJumpskirtCasualRed: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
+# ADT начало носков
+    ADTClothingUnderwearSocksShort: 2
+    ADTClothingUnderwearSocksHigh: 2
+    ADTClothingUnderwearSocksThigh: 2
+    ADTClothingUnderwearSocksStockingsWhite: 2
+    ADTClothingUnderwearSocksComfyBlue: 2
+    ADTClothingUnderwearSocksComfyGrey: 2
+    ADTClothingUnderwearSocksComfyRed: 2
+    ADTClothingUnderwearSocksComfyViolet: 2
+    ADTClothingUnderwearSocksKneeComfyBlue: 2
+    ADTClothingUnderwearSocksKneeComfyGrey: 2
+    ADTClothingUnderwearSocksKneeComfyRed: 2
+    ADTClothingUnderwearSocksKneeComfyViolet: 2
+# ADT конец носков
     # ADT бельё/обмотки/плащи начало
     ADTClothingFootWrapsWhite: 2
     ADTClothingFootWrapsHighWhite: 2

@@ -26,7 +26,7 @@
   description: Standard station captain's underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/capitan_boxers.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/capitan_boxers.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -35,7 +35,7 @@
   description: Standard station chief engineer underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/ce_boxers.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/ce_boxers.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -44,7 +44,7 @@
   description: Standard station chief physician's underwear. For some reason they smell like chloral hydrate...
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/cmo_boxers.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/cmo_boxers.rsi
     state: icon
 
 - type: entity
@@ -54,7 +54,7 @@
   description: The standard underwear of the station's chief of staff.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/hop_boxers.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/hop_boxers.rsi
     state: icon
 
 - type: entity
@@ -64,7 +64,7 @@
   description: Standard station head of security underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/hos_boxers.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/hos_boxers.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -73,7 +73,7 @@
   description: Standard station quartermaster underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/qm_boxers.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/qm_boxers.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -82,7 +82,7 @@
   description: Standard research director's underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/rd_boxers.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/rd_boxers.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -91,7 +91,7 @@
   description: Standard station captain underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/capitan_panties.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/capitan_panties.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -100,7 +100,7 @@
   description: Standard station chief engineer underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/ce_panties.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/ce_panties.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -109,7 +109,7 @@
   description: Standard station chief physician's underwear. For some reason they smell like chloral hydrate...
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/cmo_panties.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/cmo_panties.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -118,7 +118,7 @@
   description: The standard underwear of the station's chief of staff.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/hop_panties.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/hop_panties.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -127,7 +127,7 @@
   description: Standard station head of security underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/hos_panties.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/hos_panties.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -136,7 +136,7 @@
   description: Standard station quartermaster underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/qm_panties.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/qm_panties.rsi
 
 - type: entity
   parent: ADTClothingUnderwearBottomBase
@@ -145,7 +145,7 @@
   description: Standard research director's underwear.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Underwear/Bottom/heads/rd_panties.rsi
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/rd_panties.rsi
 
 # ADT
 
