@@ -31,7 +31,7 @@ public sealed partial class SharedDNAGunLockerSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-        Log.Debug($"{ToPrettyString(uid)} было завладето {ToPrettyString(args.User)}");
+        //Log.Debug($"{ToPrettyString(uid)} было завладето {ToPrettyString(args.User)}");
         if (TryComp<GunComponent>(uid, out var compGun))
         {
             MakeWeaponPersonal(uid, compGun, component, args.User);
