@@ -185,11 +185,13 @@ namespace Content.Server.GameTicking
 
         public bool UserHasJoinedGame(NetUserId userId)
         {
-            // Sunrise-Edit: Я не понимаю почему, но PlayerGameStatuses[userId] может вернуть ошибку.
             // => PlayerGameStatuses[userId] == PlayerGameStatus.JoinedGame;
+
+            // ADT-Tweak-start
             if (!PlayerGameStatuses.TryGetValue(userId, out var status))
                 return false;
             return status == PlayerGameStatus.JoinedGame;
         }
+            // ADT-Tweak-end
     }
 }
