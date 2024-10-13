@@ -1080,6 +1080,7 @@
     folded: true
   - type: Item
     size: Normal
+  - type: Strap
 
 - type: entity
   parent: BasePlushie
