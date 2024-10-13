@@ -1036,6 +1036,15 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: open_overlay
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
   - type: Pullable
   - type: AntiRottingContainer
   - type: ItemSlots
@@ -1059,6 +1068,18 @@
     quickEquip: false
     slots:
     - back
+
+- type: entity
+  id: ADTBedSleepingBagBoboFolded
+  name: sleeping bag fold
+  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
+  parent: ADTBedSleepingBagBobo
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: BasePlushie
