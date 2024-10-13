@@ -12,7 +12,5 @@ ent-ADTHaloperidolPill = таблетка галоперидола
     .desc = { ent-Pill.desc }
 ent-ADTEthylredoxrazinePill = таблетка этилредоксразина
     .desc = { ent-Pill.desc }
-ent-ADTAgolatinePill = таблетка аголатина
-    .desc = { ent-Pill.desc }
 ent-ADTVitaminPill = таблетка витаминов
     .desc = { ent-Pill.desc }

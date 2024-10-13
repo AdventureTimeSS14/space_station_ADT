@@ -174,22 +174,6 @@
       - id: ADTVitaminPill
         amount: 10
 
-- type: entity
-  name: agolatine canister
-  id: ADTAgolatineCanister
-  parent: ADTPillCanister
-  description: Contains (almost) healthy antidepressants for you.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Specific/Chemistry/pills.rsi
-    state: agolatine-canister
-  - type: Item
-    sprite: ADT/Objects/Specific/Chemistry/pills.rsi
-  - type: StorageFill
-    contents:
-      - id: ADTAgolatinePill
-        amount: 10
-
 # пиллюли.
 - type: entity
   name: pill
@@ -302,21 +286,6 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill17
-
-- type: entity
-  name: agolatine pill
-  parent: ADTPillBase
-  id: ADTAgolatinePill
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: ADTAgolatine
-          Quantity: 10
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill7
 
 - type: entity
   name: vitamin pill
