@@ -9,6 +9,10 @@ using Robust.Shared.Random;
 using Content.Shared.Stunnable;
 using Robust.Shared.Containers;
 using Content.Shared.ADT.Mech.Equipment.Components;
+using Content.Shared.ADT.Weapons.Ranged.Components;
+using Content.Shared.Mech;
+using Content.Shared.ADT.Mech;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
@@ -20,12 +24,32 @@ public sealed class MechGunSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _guns = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MechEquipmentComponent, GunShotEvent>(MechGunShot);
+
+        SubscribeLocalEvent<ProjectileMechAmmoProviderComponent, MechEquipmentUiStateReadyEvent>(OnUiStateReady);
+        SubscribeNetworkEvent<MechGunReloadMessage>(OnReload);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ProjectileMechAmmoProviderComponent>();
+        while (query.MoveNext(out var uid, out var gun))
+        {
+            if (gun.Reloading && gun.ReloadEnd <= _timing.CurTime)
+            {
+                gun.Reloading = false;
+                gun.Shots = gun.Capacity;
+                Dirty(uid, gun);
+            }
+        }
+    }
     private void MechGunShot(EntityUid uid, MechEquipmentComponent component, ref GunShotEvent args)
     {
         if (!component.EquipmentOwner.HasValue)
@@ -45,6 +69,10 @@ public sealed class MechGunSystem : EntitySystem
             ChargeGunBattery(uid, battery);
             return;
         }
+        if (HasComp<ProjectileMechAmmoProviderComponent>(uid))
+            _mech.UpdateUserInterface(component.EquipmentOwner.Value);
+
+
         // In most guns the ammo itself isn't shot but turned into cassings
         // and a new projectile is spawned instead, meaning that args.Ammo
         // is most likely inside the equipment container (for some odd reason)
@@ -83,5 +111,26 @@ public sealed class MechGunSystem : EntitySystem
             return;
 
         _battery.SetCharge(uid, component.MaxCharge, component);
+    }
+
+    private void OnUiStateReady(EntityUid uid, ProjectileMechAmmoProviderComponent component, MechEquipmentUiStateReadyEvent args)
+    {
+        var state = new MechGunUiState
+        {
+            ReloadTime = component.ReloadTime,
+            Shots = component.Shots,
+            Capacity = component.Capacity,
+        };
+        args.States.Add(GetNetEntity(uid), state);
+    }
+
+    private void OnReload(MechGunReloadMessage args)
+    {
+        var uid = GetEntity(args.Equipment);
+        var comp = EnsureComp<ProjectileMechAmmoProviderComponent>(uid);
+
+        comp.Reloading = true;
+        comp.ReloadEnd = _timing.CurTime + TimeSpan.FromSeconds(comp.ReloadTime);
+        Dirty(uid, comp);
     }
 }

@@ -11,6 +11,13 @@ public sealed partial class MechGunComponent : Component
     [DataField]
     public float BatteryUsageMultiplier = 1f;
 }
+
+public enum MechShootType
+{
+    Projectile,
+    Hitscan,
+}
+
 public sealed class MechShootEvent : CancellableEntityEventArgs
 {
     public EntityUid User;

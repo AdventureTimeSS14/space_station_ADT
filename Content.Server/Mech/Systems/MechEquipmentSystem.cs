@@ -1,6 +1,7 @@
 using Content.Server.Mech.Equipment.Components;
 using Content.Server.Popups;
 using Content.Shared.ADT.Mech.EntitySystems;
+using Content.Shared.ADT.Weapons.Ranged.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mech;
@@ -88,6 +89,8 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
     private void OnGetUIState(EntityUid uid, MechEquipmentComponent component, MechEquipmentUiStateReadyEvent args)
     {
         if (HasComp<MechGrabberComponent>(uid)) // Мне лень делать нормальную проверку, как-нибудь потом будет.
+            return;
+        if (HasComp<ProjectileMechAmmoProviderComponent>(uid))
             return;
 
         args.States.Add(GetNetEntity(uid), null);

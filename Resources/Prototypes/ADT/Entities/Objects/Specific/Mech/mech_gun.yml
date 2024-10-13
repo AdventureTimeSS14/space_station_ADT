@@ -216,8 +216,12 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    capacity: 160
+  - type: ProjectileMechAmmoProvider
+    proto: BulletPistol
+    shots: 35
+    capacity: 35
+  - type: UIFragment
+    ui: !type:MechGunUi
   - type: StaticPrice
     price: 500
 
