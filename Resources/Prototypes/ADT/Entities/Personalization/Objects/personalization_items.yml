@@ -985,7 +985,7 @@
 
   # Спальник для Бобо
 - type: entity
-  id: BedSleepingBagBobo
+  id: ADTBedSleepingBagBobo
   parent: BaseDeployFoldable
   name: sleeping bag
   description: This is a special cocoon blanket that keeps a person warm during sleep.
