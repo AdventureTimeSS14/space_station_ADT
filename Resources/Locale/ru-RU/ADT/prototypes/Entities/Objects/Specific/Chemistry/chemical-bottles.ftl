@@ -2,9 +2,6 @@
 ent-ADTPlasticBottle = пластиковая бутылочка
     .desc = Небольшая пластиковая бутылочка.
     .suffix = { "" }
-ent-ADTAgolatineCanister = баночка аголатина
-    .desc = Содержит относительно полезные антидепрессанты.
-    .suffix = { "" }
 
 ent-ADTObjectsSpecificArithrazineChemistryBottle = бутылочка аритразина
     .desc = "Маленькая бутылочка"
