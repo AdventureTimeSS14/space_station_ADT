@@ -378,14 +378,15 @@
     tags:
     - Trash
     - VimPilot
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 10
-      behaviors:
-      - !type:GibBehavior { }
+  # - type: Destructible
+  #   thresholds:
+  #   - trigger:
+  #       !type:DamageTypeTrigger
+  #       damageType: Blunt
+  #       damage: 10
+  #     behaviors:
+  #     - !type:GibBehavior { }
+  # ADT-Tweak
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
