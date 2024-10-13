@@ -12,7 +12,7 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobADTPathologist 
+  id: JobADTPathologist
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -118,7 +118,7 @@
 
   # brigmedic
 - type: roleLoadout
-  id: job-name-brigmedic
+  id: JobBrigmedic
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness

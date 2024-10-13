@@ -8,10 +8,6 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.05
-        Bloodloss: 0.05
   - type: Thirst
   - type: Icon
     sprite: ADT/Mobs/Species/Moth/parts.rsi
@@ -35,6 +31,7 @@
     - id: FoodMeat
       amount: 5
   - type: Bloodstream
+    bloodMaxVolume: 190
     bloodReagent: InsectBlood
   - type: DamageVisuals
     damageOverlayGroups:
