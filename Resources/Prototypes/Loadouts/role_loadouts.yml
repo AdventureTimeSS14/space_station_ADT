@@ -8,6 +8,11 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+  # ADT underwear tweak start
+  - ADTTopCap
+  - ADTBottomCap
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -24,6 +29,11 @@
   - HoPBackpack
   - HoPOuterClothing
   - Glasses
+  # ADT underwear tweak start
+  - ADTTopHOP
+  - ADTBottomHOP
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -47,6 +57,11 @@
   - PassengerOuterClothing
   - PassengerShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -61,6 +76,11 @@
   - CommonBackpack
   - BartenderOuterClothing
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -73,6 +93,11 @@
   - BartenderJumpsuit
   - CommonBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -88,6 +113,11 @@
   - CommonBackpack
   - ChefOuterClothing
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -100,6 +130,11 @@
   - LibrarianJumpsuit
   - CommonBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -113,6 +148,11 @@
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -129,6 +169,11 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -144,6 +189,11 @@
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - JanitorPlunger
@@ -159,6 +209,11 @@
   - BotanistBackpack
   - BotanistOuterClothing
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -174,6 +229,11 @@
   - ClownOuterClothing
   - ClownShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalClown
   - Trinkets
 
@@ -189,6 +249,11 @@
   - MimeOuterClothing
   - MimeBelt
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMime
   - Trinkets
 
@@ -201,6 +266,11 @@
   - CommonBackpack
   - MusicianOuterClothing
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - Instruments
@@ -219,6 +289,11 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTopQM
+  - ADTBottomQM
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -234,6 +309,11 @@
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -247,6 +327,11 @@
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -263,6 +348,11 @@
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
+  # ADT underwear tweak start
+  - ADTTopCE
+  - ADTBottomCE
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -274,6 +364,11 @@
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -289,6 +384,11 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -305,6 +405,11 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -323,6 +428,11 @@
   - ScientistGloves
   - ResearchDirectorShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTopRD
+  - ADTBottomRD
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -341,6 +451,11 @@
   - ScientistShoes
   - ScientistPDA
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -353,6 +468,11 @@
   - ResearchAssistantJumpsuit
   - ScientistBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -369,6 +489,11 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
+  # ADT underwear tweak start
+  - ADTTopHOS
+  - ADTBottomHOS
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -384,6 +509,11 @@
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -401,6 +531,11 @@
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -418,6 +553,11 @@
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -431,6 +571,11 @@
   - SecurityBackpack
   - SurvivalSecurity
   - Trinkets
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - GroupSpeciesBreathToolSecurity
   - SecurityCadetNeckADT # ADT-Loadouts
 
@@ -450,6 +595,11 @@
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTopCMO
+  - ADTBottomCMO
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -469,6 +619,11 @@
   - MedicalShoes
   - MedicalDoctorPDA
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -482,6 +637,11 @@
   - MedicalBackpack
   - ADTMedicalBelt # ADT tweak
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -497,6 +657,11 @@
   - ChemistBackpack
   - ChemistOuterClothing
   - MedicalShoes
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -518,6 +683,11 @@
   - ParamedicOuterClothing
   - ParamedicShoes
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -530,6 +700,11 @@
   - GroupTankHarness
   - CommonBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -542,6 +717,11 @@
   - ReporterJumpsuit
   - CommonBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -554,6 +734,11 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -567,6 +752,11 @@
   - BoxerGloves
   - CommonBackpack
   - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool

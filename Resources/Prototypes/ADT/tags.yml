@@ -138,3 +138,13 @@
 
 - type: Tag
   id: ADTPatch
+
+- type: Tag
+  id: ADTUnderwearB
+
+- type: Tag
+  id: ADTUnderwearT
+
+- type: Tag
+  id: ADTSocks
+
