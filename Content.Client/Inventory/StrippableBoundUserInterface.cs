@@ -62,7 +62,7 @@ namespace Content.Client.Inventory
             _strippingMenu.OnDirty += UpdateMenu;
             _strippingMenu.Title = Loc.GetString("strippable-bound-user-interface-stripping-menu-title", ("ownerName", Identity.Name(Owner, EntMan)));
 
-            _strippingMenu?.OpenCenteredLeft();
+            _strippingMenu?.OpenCenteredAt(new Vector2(0.25f, 0.25f)); // ADT tweak
         }
 
         protected override void Dispose(bool disposing)
@@ -150,7 +150,7 @@ namespace Content.Client.Inventory
             // for now: shit-code
             // this breaks for drones (too many hands, lots of empty vertical space), and looks shit for monkeys and the like.
             // but the window is realizable, so eh.
-            _strippingMenu.SetSize = new Vector2(220, snare?.IsEnsnared == true ? 550 : 530);
+            _strippingMenu.SetSize = new Vector2(220, snare?.IsEnsnared == true ? 620 : 600); // ADT tweak
         }
 
         private void AddHandButton(Hand hand)

@@ -1,7 +1,9 @@
 # Errors
 
 # Miscellaneous
-
+loadout-group-top-adt = Нижнее белье(Верх)
+loadout-group-bottom-adt = Нижнее белье(Низ)
+loadout-group-socks-adt = Носки
 # Command
 ent-MagistratNeck = Галстуки
 ent-MagistratJumpsuit = Костюмы
