@@ -243,10 +243,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (dnaGunComp.GunOwner?.Id != user.Id)
             {
                 _electrocutionSystem.TryDoElectrocution(user, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
-                _popup.PopupPredicted(Loc.GetString("gun-personalize-fuck"), gunUid, user);
+                _popup.PopupClient(Loc.GetString("gun-personalize-fuck"), user);
                 _audio.PlayPredicted(dnaGunComp.ElectricSound, gunUid, user);
-                Dirty(user, gun);
-                Dirty(gunUid, gun);
+                //Dirty(user, dnaGunComp);
                 return;
             }
         }
