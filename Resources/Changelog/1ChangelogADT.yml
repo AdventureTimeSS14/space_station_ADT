@@ -3570,3 +3570,25 @@ Entries:
           цены на табак были повышены. Слава ТСФ!!', type: Add}
     time: '2024-10-13T10:27:21Z'
     id: 440
+  - author: Kasey [Adnoda] Bitboxxer
+    changes:
+      - {message: 'Раскладной спальный мешок Бобо, плюшевая игрушка Бобо', type: Add}
+    time: '2024-10-13T16:15:29Z'
+    id: 441
+  - author: Mirokko
+    changes:
+      - {message: Госты теперь могут смотреть в свой КПК., type: Fix}
+    time: '2024-10-13T16:20:41Z'
+    id: 442
+  - author: FaDeOkno
+    changes:
+      - {message: Фантом больше не завершает раунд финалкой, type: Tweak}
+      - {message: Фантом теперь есть в секрете, type: Tweak}
+    time: '2024-10-13T16:48:50Z'
+    id: 443
+  - author: Mirokko
+    changes:
+      - {message: Теперь можно емагнуть монитор экипажа и он станет показывать всех.,
+        type: Add}
+    time: '2024-10-13T17:10:46Z'
+    id: 444
