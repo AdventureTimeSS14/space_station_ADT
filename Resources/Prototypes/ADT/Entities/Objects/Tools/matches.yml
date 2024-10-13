@@ -2,7 +2,7 @@
   name: match box
   description: matchbox
   parent: Matchbox
-  id: ADTCMatchbox
+  id: ADTMatchbox
   components:
   - type: Sprite
     sprite:  ADT/Objects/Consumable/Smokeables/Matchboxes/matchbox.rsi
@@ -49,3 +49,5 @@
     - matchbox4
     - matchbox5
     - matchbox6
+  - type: StaticPrice
+    price: 20
