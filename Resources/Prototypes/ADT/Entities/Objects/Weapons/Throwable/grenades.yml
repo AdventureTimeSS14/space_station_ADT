@@ -1,0 +1,19 @@
+- type: entity
+  name: trick grenade kega
+  description: All the grenade without any of the boom.
+  parent: GrenadeBase
+  id: ADTGrenadeKega
+  suffix: Адмемы
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Grenades/grenade.rsi
+  - type: DeleteOnTrigger
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/ADT/Effects/kega.ogg
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg

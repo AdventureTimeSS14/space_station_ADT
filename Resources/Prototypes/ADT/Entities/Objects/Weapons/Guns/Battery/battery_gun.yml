@@ -95,7 +95,6 @@
       fireRate: 1.5
       soundGunshot:
         path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
-      personable: true
     - type: ProjectileBatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150
@@ -107,7 +106,8 @@
     - type: Battery
       maxCharge: 2000
       startingCharge: 2000
- 
+    - type: DNAGunLocker
+
 - type: entity
   name: Cutter
   parent: BaseWeaponBatterySmall

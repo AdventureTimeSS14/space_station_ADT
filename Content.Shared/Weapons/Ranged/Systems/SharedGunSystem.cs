@@ -35,9 +35,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Mobs.Components; //ADT Tweak block personal gun
-using Content.Shared.Emag.Systems; //ADT Tweak emagged personal gun
-//using Content.Server.Popups; // ADT Tweak
+using Content.Shared.ADT.DNAGunLocker;
+using Content.Shared.Electrocution;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -71,6 +70,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     // ADT-Tweak-Start
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     // ADT-Tweak-End
 
     private const float InteractNextFire = 0.3f;
@@ -104,7 +106,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<GunComponent, GotEmaggedEvent>(OnEmaggedPersonalGun);
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -257,10 +258,17 @@ public abstract partial class SharedGunSystem : EntitySystem
             !_actionBlockerSystem.CanAttack(user))
             return;
         ///ADT-Personal-Gun block start
-        if (gun.Personable && !gun.IsEmagged)
+        if (TryComp<DNAGunLockerComponent>(gunUid, out var dnaGunComp) && !dnaGunComp.IsEmagged)
         {
-            if (gun.GunOwner?.Id != user.Id)
+            if (dnaGunComp.GunOwner?.Id != user.Id)
+            {
+                _electrocutionSystem.TryDoElectrocution(user, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
+                _popup.PopupPredicted(Loc.GetString("gun-personalize-fuck"), gunUid, user);
+                _audio.PlayPredicted(dnaGunComp.ElectricSound, gunUid, user);
+                Dirty(user, gun);
+                Dirty(gunUid, gun);
                 return;
+            }
         }
         ///ADT-Personal-Gun block end
 
@@ -394,19 +402,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         Dirty(gunUid, gun);
     }
-    // ADT Tweak emagged persoanl block Start
-    private void OnEmaggedPersonalGun(EntityUid uid, GunComponent component, GotEmaggedEvent ev)
-    {
-        if ((ev.Handled || component.IsEmagged) && component.Personable)
-            return;
 
-        _audio.PlayPvs(component.SparkSound, uid);
-        PopupSystem.PopupEntity(Loc.GetString("gun-component-upgrade-emag"), uid);
-
-        component.IsEmagged = true;
-        ev.Handled = true;
-    }
-    // ADT Tweak emagged persoanl block end
     public void Shoot(
         EntityUid gunUid,
         GunComponent gun,

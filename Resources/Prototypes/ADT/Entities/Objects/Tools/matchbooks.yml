@@ -1,0 +1,111 @@
+# TODO RMC14 different light/burn chances per matchbook
+- type: entity
+  parent: Matchbox
+  id: ADTLuckySlothsMatchBook
+  name: lucky sloths matchbook
+  description: A small book of cheap paper matches. Good luck getting them to light. Made by Lucky Sloths, but you'll be anything but lucky when you burn your hand trying to light a match on this.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/matchbook.rsi
+    layers:
+    - state: mpacket
+    - state: mpacket0
+      map: ["openLayer"]
+    - state: mpacket1
+      map: ["mpacket1"]
+      visible: false
+    - state: mpacket2
+      map: ["mpacket2"]
+      visible: false
+    - state: mpacket3
+      map: ["mpacket3"]
+      visible: false
+    - state: mpacket4
+      map: ["mpacket4"]
+      visible: false
+    - state: mpacket5
+      map: ["mpacket5"]
+      visible: false
+    - state: mpacket6
+      map: ["mpacket6"]
+      visible: false
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/matchbook.rsi
+    heldPrefix: null
+  - type: Storage
+    grid:
+    - 0,0,5,0
+    whitelist:
+      tags:
+      - Matchstick
+  - type: StorageFill
+    contents:
+    - id: Matchstick
+      amount: 6
+  - type: ItemCounter
+    count:
+      tags: [Matchstick]
+    composite: true
+    layerStates:
+    - mpacket1
+    - mpacket2
+    - mpacket3
+    - mpacket4
+    - mpacket5
+    - mpacket6
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTLuckySlothsMatchBook
+  id: ADTBrownMatchBook
+  name: brown matchbook
+  description: A small book of cheap paper matches. Good luck getting them to light. Made with generic brown paper.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/brown_matchbook.rsi
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTLuckySlothsMatchBook
+  id: ADTExecutiveSelectMatchbook
+  name: executive select matchbook
+  description: A small book of expensive paper matches. These ones light almost every time!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/executive_select_matchbook.rsi
+  - type: StaticPrice
+    price: 60
+
+
+- type: entity
+  parent: ADTLuckySlothsMatchBook
+  id: ADTElectroMatchbook
+  name: Electro matchbook
+  description: A small book of cheap paper matches. Good luck getting them to light.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/electro_matchbook.rsi
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: ADTLuckySlothsMatchBook
+  id: ADTExecutiveWEYAMatchbook
+  name: We-Ya gold matchbook
+  description: A small book of expensive paper matches. These ones light almost every time, or so the packaging claims.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi
+  - type: Item
+    sprite: ADT/Objects/Consumable/Smokeables/Matchboxes/we_ya_matchbook.rsi
+  - type: StaticPrice
+    price: 30
