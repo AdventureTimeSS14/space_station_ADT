@@ -8,7 +8,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.DocumentPrinter;
-
 public sealed class DocumentPrinterSystem : EntitySystem
 {
     const int TIME_YEAR_SPACE_STATION_ADT = 544;
@@ -27,7 +26,6 @@ public sealed class DocumentPrinterSystem : EntitySystem
 
     public void AddVerbOnOff(EntityUid uid, DocumentPrinterComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess) return;
         AlternativeVerb verb = new();
         if (component.IsOnAutocomplite)
         {
@@ -75,32 +73,48 @@ public sealed class DocumentPrinterSystem : EntitySystem
             }
             DateTime time = DateTime.UtcNow.AddYears(TIME_YEAR_SPACE_STATION_ADT).AddHours(3);
             text = text.Replace("$time$", $"{_gameTiming.CurTime.Subtract(_ticker.RoundStartTimeSpan).ToString("hh\\:mm\\:ss")} | {(time.Day < 10 ? $"0{time.Day}" : time.Day)}.{(time.Month < 10 ? $"0{time.Month}" : time.Month)}.{time.Year}");
-            if (pda?.StationName is not null)
+            if (pda is not null)
             {
-                text = text.Replace("Station XX-000", pda.StationName);
-            }
-            if (meta_id is null)
-            {
-                text = text.Replace("$name$", "");
-                text = text.Replace("$job$", "");
-            }
-            else
-            {
-                int startIndex = meta_id.EntityName.IndexOf("("); int endIndex = meta_id.EntityName.IndexOf(")");
-                if (startIndex.Equals(-1) || startIndex.Equals(-1))
+                if (pda?.StationName is not null)
+                {
+                    text = text.Replace("Station XX-000", pda.StationName);
+                }
+                if (meta_id is null)
                 {
                     text = text.Replace("$name$", "");
                     text = text.Replace("$job$", "");
                 }
                 else
                 {
-                    string id_card_word = "ID карта ";
-                    text = text.Replace("$name$", meta_id.EntityName.Replace(id_card_word, "").Substring(0, startIndex - id_card_word.Length - 2));
-                    text = text.Replace("$job$", meta_id.EntityName.Substring(startIndex + 1, endIndex - startIndex - 1));
+                    int startIndex = meta_id.EntityName.IndexOf("("); int endIndex = meta_id.EntityName.IndexOf(")");
+                    if (startIndex.Equals(-1) || endIndex.Equals(-1))
+                    {
+                        text = text.Replace("$name$", "");
+                        text = text.Replace("$job$", "");
+                    }
+                    else
+                    {
+                        string id_card_word = "ID карта ";
+                        if (startIndex - id_card_word.Length - 2 > 0)
+                            text = text.Replace("$name$", meta_id.EntityName.Replace(id_card_word, "").Substring(0, startIndex - id_card_word.Length - 2));
+                        else
+                            text = text.Replace("$name$", "");
+                        if (startIndex + 1 != endIndex)
+                            text = text.Replace("$job$", meta_id.EntityName.Substring(startIndex + 1, endIndex - startIndex - 1));
+
+                        else
+                            text = text.Replace("$name$", "");
+                    }
                 }
+                paperComponent.Content = text;
+                // if (!TryComp<MetaDataComponent>(args.Actor, out var comp)) return; // was for test, STFU JUST LEAVE IT HERE
             }
-            paperComponent.Content = text;
-            // if (!TryComp<MetaDataComponent>(args.Actor, out var comp)) return; // was for test, STFU JUST LEAVE IT HERE
+            else
+            {
+                text = text.Replace("$name$", "");
+                text = text.Replace("$job$", "");
+                paperComponent.Content = text;
+            }
         }
         else
         {
@@ -112,38 +126,4 @@ public sealed class DocumentPrinterSystem : EntitySystem
     }
 }
 
-/*                                         ████▒
-                             ░             ████▓             ░
-                          █████   ░░▒▓▓▓███████████▓▓▒▒░    █████
-                          ░█████████████████████████████████████
-                       ░▒████████████▓▓▒▒░░  ▓███████████████████▓▒
-             ░▓█▓   ▒█████████▓▒░            ▓███████████████████████▓░  ░▓█▓░
-            ░█████████████▒                  ▓████████████████████████████████░
-              ░███████▓░               ░▒▓▓███     ░░▓██████████████████████
-             ▒██████▒      ░    ▓██▓▓▓████████          ░▒█████████████▓█████▒
-           ▒██████░       ░███▒█████▓▒ ▒██████             ░▒███████████▒░▓████▓
-    ▒█▓░ ░██████░           ▒██████████  █████                ░▓█████████▓ ░█████  ░▓█░
-   ▒██████████▓          ▒███▓ ████████░ █████                   ▓█████████░ ██████████░
-      ░██████░          ██████▒ ███████▓ ▒███▓                    ▒█████████▒ ██████░
-       █████░      ░   ░███████▒ ░▒▓████▒░ ░░▓                    ▒██████████░ █████
-      █████▒     ░█▒▓█  ██████████▒ ░▒█████▒██                    ████████████  █████
-     ▓█████      ░█░  █ ▒███████████▓▓████████                   ▒████████████▓ ▒████░
-     █████▒       ░▒░▒█▓██████████████████████         ░█▒░      ▓█████████████  ████▓
-▓▓▓▓▓█████       ▒▓ ███▒▒▓█████▓░░   ░ ░▒█████         ▓████     ██████████████  █████▒▓▓▓      ©Korol_Charodey
-██████████░    ████▒█████▓████░ ▒ ▒░░▒ ▒ ░▒███        ▓█████░    ██████████████  █████████
-     █████▒  ░██▓  ▓███████████ ▓░▒░░▒ ▓ █████     ▒████████     ▒▒▒▓██████████  █████
-     ▒█████  ██▓       ░███████ ▓ ▒░▒▒ ▓ ▓███▒ ▓█████████████        █████████▓ ▒████
-      █████░ ██░     ░▒▓███████░░ ░░░▒ ░ ▓░░▒█       ░░░░▒▒▒░        █████████  █████
-      ░█████░▓██      ▒██████████▓▓░  ▓▓█▒▒▓▒███░██▓▓▒▓▒▒░░         █████████  █████
-   ▓█████████ ░██▓░  ░▓███████▒░████▒ █████▒▒██▓ █▓▒░▒▒▓█████▓    ▓█████████░ ▓████████▒
-   ░████▓█████░ ▒███████████▒░▒░▓▓███████▓▒▒██           ██████▓███████████  █████▓████
-         ░█████▓         ▓   ███▓▒██████▒█████       ▒░▒░▓███████████████▒ ░█████    ░
-           ▒█████▒       ▓░░█░▒▓██▓▓▓▓█▓█▓██▓▓      ▓ ▒ ▒██████████████▓░░█████░
-             ▒█████▓      ▓░░▓▒▒██░▒ ░▒ ░░░▒░▒ ░▒  ▓   ██████████████▓░▒█████▒
-              ████████▒           ▓▓▒░▓░▒░▒▒▒░  ▒  ▒░▒▒████████████▓▒▓██████▓
-            ▓████▓▓██████▓░        ░  ░ ░  ░ ▓░ ▒███████████████████████▓█████▒
-              ▒▒    ░▓███████▓▒              ▓███████████████████████▒░    ▒░
-                        ░▓██████████▓▒░░     ▓███████████████████▒░
-                         ░█████████████████████████████████▓█████
-                         █████     ░░▒▒▓▓███████▓█▓▓▒▒░░     ████▓
-                                           ████▒   */
+//(C) Korol_Charodey
