@@ -132,3 +132,12 @@
 
 - type: Tag
   id: ADTMagazineRifleAR12
+
+- type: Tag
+  id: ADTUnderwearB
+
+- type: Tag
+  id: ADTUnderwearT
+
+- type: Tag
+  id: ADTSocks
