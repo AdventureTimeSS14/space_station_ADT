@@ -1,0 +1,13 @@
+- type: technology
+  id: ADTCloning
+  name: research-technology-medical-cloning-adt
+  icon:
+    sprite: /Structures/Machines/scanner.rsi
+    state: closed
+  discipline: CivilianServices
+  tier: 3
+  cost: 9000
+  recipeUnlocks:
+  - CloningPodMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
