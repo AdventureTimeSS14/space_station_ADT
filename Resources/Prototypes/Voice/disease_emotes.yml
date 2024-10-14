@@ -26,8 +26,8 @@
     - кашлянул
     # Corvax-Localization-End
     # Start-ADT-Tweak-AddComp-BloodCough
-    - Кашляет кровью
-    - Кашляет плазмой
+    - кашляет кровью
+    - кашляет плазмой
     # End-ADT-Tweak-AddComp-BloodCough
 
 - type: emote

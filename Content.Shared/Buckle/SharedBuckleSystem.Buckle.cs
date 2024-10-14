@@ -16,6 +16,7 @@ using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Vehicle.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -145,6 +146,11 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
+        // ADT Vehicles start
+        if (HasComp<RiderComponent>(buckle.Owner) && HasComp<VehicleComponent>(strapUid))
+            return;
+        // ADT Vehicles end
+
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
         if (delta > 1e-5)
             Unbuckle(buckle, (strapUid, strapComp), null);
@@ -172,6 +178,19 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleStandAttempt(EntityUid uid, BuckleComponent component, StandAttemptEvent args)
     {
+        // ADT vehicles start
+        //Let entities stand back up while on vehicles so that they can be knocked down when slept/stunned
+        //This prevents an exploit that allowed people to become partially invulnerable to stuns
+        //while on vehicles
+
+        if (component.BuckledTo != null)
+        {
+            var buckle = component.BuckledTo;
+            if (TryComp<VehicleComponent>(buckle, out _))
+                return;
+        }
+        // ADT vehicles end
+
         if (component.Buckled)
             args.Cancel();
     }
@@ -184,7 +203,8 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleUpdateCanMove(EntityUid uid, BuckleComponent component, UpdateCanMoveEvent args)
     {
-        if (component.Buckled)
+        if (component.Buckled &&
+            !HasComp<VehicleComponent>(component.BuckledTo)) // ADT vehicles back
             args.Cancel();
     }
 
@@ -242,8 +262,9 @@ public abstract partial class SharedBuckleSystem
         if (_whitelistSystem.IsWhitelistFail(strapComp.Whitelist, buckleUid) ||
             _whitelistSystem.IsBlacklistPass(strapComp.Blacklist, buckleUid))
         {
-            if (_netManager.IsServer && popup && user != null)
-                _popup.PopupEntity(Loc.GetString("buckle-component-cannot-fit-message"), user.Value, user.Value, PopupType.Medium);
+            if (popup)
+                _popup.PopupClient(Loc.GetString("buckle-component-cannot-fit-message"), user, PopupType.Medium);
+
             return false;
         }
 
@@ -261,23 +282,24 @@ public abstract partial class SharedBuckleSystem
 
         if (user != null && !HasComp<HandsComponent>(user))
         {
-            // PopupPredicted when
-            if (_netManager.IsServer && popup)
-                _popup.PopupEntity(Loc.GetString("buckle-component-no-hands-message"), user.Value, user.Value);
+            if (popup)
+                _popup.PopupClient(Loc.GetString("buckle-component-no-hands-message"), user);
+
             return false;
         }
 
         if (buckleComp.Buckled)
         {
-            if (_netManager.IsClient || popup || user == null)
-                return false;
-
-            var message = Loc.GetString(buckleUid == user
+            if (popup)
+            {
+                var message = Loc.GetString(buckleUid == user
                     ? "buckle-component-already-buckled-message"
                     : "buckle-component-other-already-buckled-message",
                 ("owner", Identity.Entity(buckleUid, EntityManager)));
 
-            _popup.PopupEntity(message, user.Value, user.Value);
+                _popup.PopupClient(message, user);
+            }
+
             return false;
         }
 
@@ -291,29 +313,30 @@ public abstract partial class SharedBuckleSystem
                 continue;
             }
 
-            if (_netManager.IsClient || popup || user == null)
-                return false;
-
-            var message = Loc.GetString(buckleUid == user
+            if (popup)
+            {
+                var message = Loc.GetString(buckleUid == user
                     ? "buckle-component-cannot-buckle-message"
                     : "buckle-component-other-cannot-buckle-message",
                 ("owner", Identity.Entity(buckleUid, EntityManager)));
 
-            _popup.PopupEntity(message, user.Value, user.Value);
+                _popup.PopupClient(message, user);
+            }
+
             return false;
         }
 
         if (!StrapHasSpace(strapUid, buckleComp, strapComp))
         {
-            if (_netManager.IsClient || popup || user == null)
-                return false;
-
-            var message = Loc.GetString(buckleUid == user
-                    ? "buckle-component-cannot-fit-message"
-                    : "buckle-component-other-cannot-fit-message",
+            if (popup)
+            {
+                var message = Loc.GetString(buckleUid == user
+                    ? "buckle-component-cannot-buckle-message"
+                    : "buckle-component-other-cannot-buckle-message",
                 ("owner", Identity.Entity(buckleUid, EntityManager)));
 
-            _popup.PopupEntity(message, user.Value, user.Value);
+                _popup.PopupClient(message, user);
+            }
 
             return false;
         }

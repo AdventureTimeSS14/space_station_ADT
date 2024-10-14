@@ -1,0 +1,29 @@
+- files: ["lattice_left_upper.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["lattice_right_upper.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["lattice_left_lower.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["lattice_right_lower.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["blackorange.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["yelloworange"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"

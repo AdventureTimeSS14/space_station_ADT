@@ -8,11 +8,21 @@
     - type: MothAccent
 
 - type: trait
-  id: ADTDeutscAccent 
-  name: trait-deutsch-name
-  description: trait-deutsch-desc
+  id: ADTNyaAccent
+  name: trait-nya-accent-name
+  description: trait-nya-accent-desc
   category: SpeechTraits
-  cost: 1
+  cost: 2
   components:
-    - type: DeutschAccent
+    - type: NyaAccent
+
+# Визарды добавили свой немецкий язык
+# - type: trait
+#   id: ADTDeutscAccent
+#   name: trait-deutsch-name
+#   description: trait-deutsch-desc
+#   category: SpeechTraits
+#   cost: 1
+#   components:
+#     - type: DeutschAccent
 

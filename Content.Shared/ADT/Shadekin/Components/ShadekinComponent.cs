@@ -17,7 +17,7 @@ public sealed partial class ShadekinComponent : Component
     /// Teleport randomly if MaxedPowerAccumulator is greater
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxedPowerRoof = 45f;
+    public float MaxedPowerRoof = 60f;
 
     /// <summary>
     /// Accumulator that indicates how long shadekin were with min energy level

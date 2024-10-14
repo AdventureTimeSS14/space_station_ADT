@@ -1,0 +1,35 @@
+- type: latheRecipe
+  id: ADTMagazineMagnumEmpty
+  result: MagazineMagnumEmpty
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  id: ADTMagazineMagnum
+  result: MagazineMagnum
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 170
+
+- type: latheRecipe
+  id: ADTMagazineMagnumIncendiary
+  result: ADTMagazineMagnumIncendiary
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 25
+    Plastic: 145
+
+- type: latheRecipe
+  id: ADTMagazineMagnumUranium
+  result: MagazineMagnumUranium
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 25
+    Plastic: 145
+    Uranium: 125
+

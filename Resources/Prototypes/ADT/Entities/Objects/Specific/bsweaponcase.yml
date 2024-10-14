@@ -22,7 +22,7 @@
     - 3,0,6,1
   - type: StorageFill
     contents:
-      - id: ADTWeaponSaberRevBlueshield
-      - id: ADTPowerCellLasgunRevolver
-      - id: ADTPowerCellLasgunRevolver
-      - id: ADTPowerCellLasgunRevolver
+     - id: ADTWeaponSaberRevBlueshield
+     - id: ADTPowerCellLasgunRevolver
+     - id: ADTPowerCellLasgunRevolver
+     - id: ADTPowerCellLasgunRevolver

@@ -8,7 +8,7 @@
   - type: Pullable
   - type: Anchorable
   - type: Sprite
-    sprite: Structures/Storage/morgue.rsi
+    sprite: ADT/Structures/Storage/morgue.rsi #ADT morgue resprite
     layers:
     - state: morgue_closed
       map: ["enum.MorgueVisualLayers.Base"]
@@ -82,7 +82,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Storage/morgue.rsi
+    sprite: ADT/Structures/Storage/morgue.rsi #ADT morgue resprite
     layers:
     - state: crema_closed
       map: ["enum.CrematoriumVisualLayers.Base", "enum.StorageVisualLayers.Base"]

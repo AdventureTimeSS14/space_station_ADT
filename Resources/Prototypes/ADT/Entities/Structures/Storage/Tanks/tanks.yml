@@ -1,0 +1,137 @@
+#Пивные бочки
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankGoldenAle
+  name: golden ale tank
+  description: golden ale tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTGoldenAle
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: goldenale
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankSausage
+  name: sausage beer tank
+  description: sausage beer tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTSausageBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: sausagebeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankTechno
+  name: techno beer tank
+  description: techno beer tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTTechnoBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: technobeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankClassicPaulaner
+  name: paulaner beer tank
+  description: paulaner beer tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTClassicPaulanerBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: paulanerbeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankLivsey
+  name: livsey beer tank
+  description: livsey beer tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTLivseyBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: livseybeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankLuckyJonny
+  name: lucky jonny beer tank
+  description: lucky jonny beer tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTLuckyJonnyBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: luckyjonnybeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankSecUnfiltered
+  name: sec unfiltered beer tank
+  description: sec unfiltered beer tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTSecUnfilteredBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: secunfilteredbeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankGlyphidStout
+  name: glyphid stout tank
+  description: glyphid stout tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTGlyphidStoutBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: glyphidstout

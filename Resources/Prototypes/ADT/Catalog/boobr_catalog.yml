@@ -107,6 +107,17 @@
   categories:
   - ADTUplinkERTWeapon
 
+- type: listing
+  id: ADTBoberAR12
+  name: boobr-ar12-name
+  description: boobr-ar12-desc
+  icon: { sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi, state: base }
+  productEntity: ADTWeaponCaseAR12
+  cost:
+    Productunit: 27
+  categories:
+  - ADTUplinkERTWeapon
+
 # misc
 
 - type: listing
@@ -142,7 +153,7 @@
 - type: listing
   id: ADTBoberJawOfLife
   name: boobr-JawsOfLife-name
-  description:  boobr-JawsOfLife-desc
+  description: boobr-JawsOfLife-desc
   productEntity: JawsOfLife
   cost:
     Productunit: 4
@@ -151,8 +162,8 @@
 
 - type: listing
   id: ADTBoberGrenadeShrapnel
-  name: boobr-granade-nameboobr-granade
-  description:  boobr-JawsOfLife-desc
+  name: boobr-grenade-name
+  description: boobr-grenade-desc
   productEntity: GrenadeShrapnel
   cost:
     Productunit: 3
@@ -163,7 +174,7 @@
   id: ADTBoberc4
   name: boobr-c4-name
   productEntity: C4
-  description:  boobr-c4-desc
+  description: boobr-c4-desc
   cost:
     Productunit: 1
   categories:
@@ -196,5 +207,15 @@
   description:  boobr-medikit-desc
   cost:
     Productunit: 2
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberPortableRecharger
+  name: boobr-portable-recharger-name
+  description:  boobr-portable-recharger-desc
+  productEntity: PortableRecharger
+  cost:
+    Productunit: 5
   categories:
   - ADTUplinkERTMisc

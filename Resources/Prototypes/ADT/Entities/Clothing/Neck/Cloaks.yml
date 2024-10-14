@@ -39,3 +39,48 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/newmekkacloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckHoPAltCloak
+  name: HoP parade cloak
+  description: Cloak for Head of Personell for special events.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/HoP_alt_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingCloakAtmosian
+  name: atmosian's cloak
+  description: The cloak of a legendary Atmosian.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Cloaks/atmosian.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakKnight
+  name: Knight's cloak
+  description: Silky and imposing knight's cloak. For the honor of the crown!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/knight_cloak.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakSyndicate
+  name: syndicate cloak
+  description: Antagonize with style!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/syndicate_cloak.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakNukeOps
+  name: nuke ops cloak
+  description: Protect from cold evening on a nukie planet.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka

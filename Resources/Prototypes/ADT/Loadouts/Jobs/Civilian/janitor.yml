@@ -1,0 +1,50 @@
+- type: loadoutEffectGroup
+  id: ADTJanitorialMaidDress50hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 180000 #50 часов
+
+- type: loadoutEffectGroup
+  id: ADTJanitorialMaidDress75hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 270000 #75 часов
+
+- type: loadoutEffectGroup
+  id: ADTJanitorialMaidDress100hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 360000 #100 часов
+
+- type: loadout
+  id: ADTJanitorJumpsuitJanimaid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTJanitorialMaidDress50hours
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtJanimaid
+
+- type: loadout
+  id: ADTJanitorJumpsuitJanimaidmini
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTJanitorialMaidDress75hours
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaidmini
+
+- type: loadout
+  id: ADTJanitorJumpsuitJanimaidElegant
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTJanitorialMaidDress100hours
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtElegantMaid

@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: adt_deckchair
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtdeckchair
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 1
+    - node: adtdeckchair
+      entity: ADTDeckChair
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 1
