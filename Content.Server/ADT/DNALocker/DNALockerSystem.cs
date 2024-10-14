@@ -28,7 +28,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         SubscribeLocalEvent<DNALockerComponent, GotEmaggedEvent>(OnGotEmagged);
     }
 
-    public void LockDNA(EntityUid uid, DNALockerComponent component, EntityUid equipee)
+    public void LockEntity(EntityUid uid, DNALockerComponent component, EntityUid equipee)
     {
         var dna = EnsureComp<DnaComponent>(equipee);
         component.DNA = dna.DNA;
@@ -38,7 +38,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         _popup.PopupEntity(selfMessage, equipee, equipee);
     }
 
-    public void ExplodeLocker(EntityUid uid, DNALockerComponent component, EntityUid equipee)
+    public void UnlockEntity(EntityUid uid, DNALockerComponent component, EntityUid equipee)
     {
         EnsureComp<UnremoveableComponent>(uid);
         var selfMessage = Loc.GetString("dna-locker-failure");
