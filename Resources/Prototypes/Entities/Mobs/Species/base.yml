@@ -194,6 +194,8 @@
       # Goobstation - changelings & heretics
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto

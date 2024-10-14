@@ -202,6 +202,7 @@
     tags:
     - ClownMask
     - WhitelistChameleon
+    - Mask
   - type: HideLayerClothing
     slots:
     - Snout
