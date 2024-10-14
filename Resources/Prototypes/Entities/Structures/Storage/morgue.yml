@@ -49,6 +49,7 @@
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -73,6 +74,22 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
+  - type: ItemSlots
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: Attach Label
+      ejectVerbText: Remove Label
+      whitelist:
+        components:
+        - Paper
+  - type: ItemMapper
+    mapLayers:
+      morgue_paper:
+        whitelist:
+          tags:
+            - Document
+    sprite: ADT/Structures/Storage/morgue.rsi
+# ADT tweak
 
 - type: entity
   id: Crematorium

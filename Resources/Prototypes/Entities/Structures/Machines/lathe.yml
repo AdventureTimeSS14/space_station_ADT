@@ -997,6 +997,7 @@
     staticRecipes:
       - Brutepack
       - Ointment
+      - ADTAntibioticOintment # ADT tweak
       - Gauze
       - HandLabeler
       - Defibrillator
@@ -1009,9 +1010,15 @@
       - LargeBeaker
       - Dropper
       - Jug
+      - ADTSmallSyringe # ADT tweak
       - Syringe
       - Implanter
       - PillCanister
+      # Start ADT tweak
+      - ADTPillCanister
+      - ADTPillPack
+      - ADTPlasticBottle
+      # End ADT tweak
       - BodyBag
       - ChemistryEmptyBottle01
       - RollerBedSpawnFolded

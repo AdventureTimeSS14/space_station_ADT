@@ -1,0 +1,48 @@
+- type: entity
+  name: antibiotic ointment
+  description: Used to treat blunt and burn traumas.
+  parent: ADTBaseHealingItem
+  id: ADTAntibioticOintment
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    state: antib_ointment
+  - type: Item
+    heldPrefix: antib_ointment
+  - type: Healing #по факту, эта штука может вылечить аж 210 урона за 10 штук, но учитывая то, что кислотные раны очень редки, то где-то 190, что тоже достаточно.
+    damageContainers:
+      - Biological
+    damage:
+      groups:
+        Brute: -9 #по 3 в каждом уроне.
+        Burn: -12 #по 3 в каждом уроне. даже кислотных.
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: ADTAntibioticOintment
+    count: 10
+  - type: StackPrice
+    price: 10
+
+- type: entity
+  id: ADTAntibioticOintment1
+  parent: ADTAntibioticOintment
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: ADTAntibioticOintment
+    count: 1
+
+#стаки
+- type: stack
+  id: ADTAntibioticOintment
+  name: antibiotic ointment
+  icon: { sprite: "/Textures/ADT/Objects/Specific/Medical/medical.rsi", state: antib_ointment }
+  spawn: ADTAntibioticOintment
+  maxCount: 10
+  itemSize: 1

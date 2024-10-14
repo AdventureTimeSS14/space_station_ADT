@@ -7,5 +7,3 @@
     job: ChiefMedicalOfficer
   - type: StealCondition
     stealGroup: ADTMobileDefibrillator
-    prototype: ADTMobileDefibrillator
-    owner: job-name-cmo

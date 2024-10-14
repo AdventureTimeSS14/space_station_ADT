@@ -12,6 +12,8 @@
         amount: 2
       - id: Ointment
         amount: 2
+      - id: ADTAntibioticOintment
+        amount: 1
       - id: Bloodpack
         amount: 2
       - id: Gauze
@@ -31,6 +33,8 @@
         amount: 2
       - id: Ointment
         amount: 2
+      - id: ADTAntibioticOintment
+        amount: 1
       - id: Bloodpack
         amount: 2
       - id: Gauze
