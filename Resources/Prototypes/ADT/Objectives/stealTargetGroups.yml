@@ -8,7 +8,7 @@
 
 - type: stealTargetGroup
   id: ADTMobileDefibrillator
-  name: переносной дефибриллятор
+  name: steal-target-groups-adt-mobile-defibrillator
   sprite:
     sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi
     state: icon

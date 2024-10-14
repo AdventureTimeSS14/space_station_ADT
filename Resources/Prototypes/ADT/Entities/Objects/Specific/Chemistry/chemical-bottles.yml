@@ -74,7 +74,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: Plastic
+          path: /Audio/Effects/metal_break1.ogg
           params:
             volume: -4
       - !type:SpillBehavior { }

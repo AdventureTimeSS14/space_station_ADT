@@ -39,15 +39,6 @@
     sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi # Corvax-Resprite: Fix path
     state: dried
 
-#стак сушёной
-- type: stack
-  id: ADTLeavesCannabisWhiteDried
-  name: dried cannabis leaves
-  icon: { sprite: /Textures/ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi, state: dried }
-  spawn: ADTLeavesCannabisWhiteDried
-  maxCount: 5
-  itemSize: 5
-
 #измельчённый ееееееееееееееееееееееееееееееееееееее
 - type: entity
   name: ground cannabis white
@@ -78,11 +69,3 @@
       - Smokable
   - type: Item
     size: Tiny
-
-- type: stack
-  id: ADTGroundCannabisWhite
-  name: ground cannabis white
-  icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
-  spawn: ADTGroundCannabisWhite
-  maxCount:
-  itemSize: 1

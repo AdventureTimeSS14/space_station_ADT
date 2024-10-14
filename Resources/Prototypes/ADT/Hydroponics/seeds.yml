@@ -18,7 +18,7 @@
     Nutriment:
       Min: 1
       Max: 2
-      Potencydivisor: 50
+      PotencyDivisor: 50
     Toxin:
       Min: 1
       Max: 4

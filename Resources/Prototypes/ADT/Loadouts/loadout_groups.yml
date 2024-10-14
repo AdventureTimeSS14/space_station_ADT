@@ -66,7 +66,7 @@
 
 - type: loadoutGroup
   id: ADTMedicalBelt
-  name: loadout-group-medical-belt
+  name: loadout-group-medical-belt-adt
   minLimit: 1
   loadouts:
   - ADTMedicalBelt
@@ -74,7 +74,7 @@
 
 - type: loadoutGroup
   id: ADTParamedicBelt
-  name: loadout-group-paramedic-belt
+  name: loadout-group-paramedic-belt-adt
   minLimit: 1
   loadouts:
   - ADTParamedicBeltEMT
@@ -82,7 +82,7 @@
 
 - type: loadoutGroup
   id: ADTParamedicBackpack
-  name: loadout-group-paramedic-backpack
+  name: loadout-group-paramedic-backpack-adt
   minLimit: 1
   loadouts:
   - ADTParamedicBackpack
