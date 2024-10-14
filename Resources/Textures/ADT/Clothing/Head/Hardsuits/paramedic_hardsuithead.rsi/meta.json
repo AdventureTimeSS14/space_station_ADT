@@ -2,6 +2,7 @@
     "version": 1,
     "license": "CC-BY-SA-3.0",
     "copyright": "Created by discord:Празат Д.В. aka [767Sikon] (prazat911)",
+
     "size": {
         "x": 32,
         "y": 32
@@ -11,23 +12,22 @@
             "name": "icon"
         },
         {
-            "name": "equipped-OUTERCLOTHING",
+            "name": "icon-flash"
+        },
+        {
+            "name": "equipped-HELMET",
             "directions": 4
         },
         {
-            "name": "equipped-OUTERCLOTHING-vox",
+            "name": "on-equipped-HELMET",
             "directions": 4
         },
         {
-            "name": "inhand-left",
+            "name": "equipped-HELMET-vox",
             "directions": 4
         },
         {
-            "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-PAI",
+            "name": "on-equipped-HELMET-vox",
             "directions": 4
         }
     ]

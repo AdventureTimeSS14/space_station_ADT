@@ -1,4 +1,18 @@
 - type: entity
+  parent: BaseItem
+  id: ADTBaseHealingItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medical.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Medical/medical.rsi
+    heldPrefix: med_tourniqet
+  - type: StaticPrice
+    price: 0
+
+- type: entity
   name: antibiotic ointment
   description: Used to treat blunt and burn traumas.
   parent: ADTBaseHealingItem
