@@ -200,7 +200,7 @@
   id: ArmorerRitual
   name: heretic-ritual-side-armor
   icon: 
-    sprite: _ADT/Heretic/eldritch_armor.rsi
+    sprite: ADT/Heretic/eldritch_armor.rsi
     state: icon
   requiredTags:
     Table: 1
