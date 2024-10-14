@@ -58,14 +58,14 @@ public sealed partial class DNALockerSystem : EntitySystem
     {
         if (!component.Locked)
         {
-            LockDNA(uid, component, args.Equipee);
+            LockEntity(uid, component, args.Equipee);
             return;
         }
 
         var dna = EnsureComp<DnaComponent>(args.Equipee);
         if (component.DNA != null && component.DNA != dna.DNA)
         {
-            ExplodeLocker(uid, component, args.Equipee);
+            UnlockEntity(uid, component, args.Equipee);
         }
     }
 
