@@ -435,14 +435,30 @@ public sealed partial class RevenantSystem
             return;
 
         args.Handled = true;
+        /* Revenant tweak
 
+                foreach (var ent in _lookup.GetEntitiesInRange(uid, component.LockRadius))
+                {
+                    if (!TryComp<DoorComponent>(ent, out var door))
+                        continue;
+                    if (door.State == DoorState.Closed)
+                        _weld.SetWeldedState(ent, true);
+                    _audio.PlayPvs(component.LockSound, ent);
+                }
+            }
+
+        */
         foreach (var ent in _lookup.GetEntitiesInRange(uid, component.LockRadius))
         {
             if (!TryComp<DoorComponent>(ent, out var door))
                 continue;
-            if (door.State == DoorState.Closed)
-                _weld.SetWeldedState(ent, true);
-            _audio.PlayPvs(component.LockSound, ent);
+            if (!TryComp<DoorBoltComponent>(ent, out var boltsComp))
+                continue;
+            if (!boltsComp.BoltWireCut && door.State == DoorState.Closed && !boltsComp.BoltsDown)
+            {
+                _door.SetBoltsDown((ent, boltsComp), true, uid);
+                _audio.PlayPvs(component.LockSound, ent);
+            }
         }
     }
     // ADT Revenant abilities end

@@ -202,7 +202,7 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-    - Mask
+    - Mask # goob-edit
   - type: HideLayerClothing
     slots:
     - Snout
