@@ -3592,3 +3592,19 @@ Entries:
         type: Add}
     time: '2024-10-13T17:10:46Z'
     id: 444
+  - author: Котя
+    changes:
+      - {message: Удалены "описания контрабанды" при осмотре., type: Remove}
+    time: '2024-10-13T17:23:36Z'
+    id: 445
+  - author: Filo
+    changes:
+      - {message: Возвращено нижнее бельё. Время проверить лоадауты и одеждоматы.,
+        type: Add}
+    time: '2024-10-13T17:27:42Z'
+    id: 446
+  - author: Inconnu
+    changes:
+      - {message: 'Исправлен спам ивентами. Гойда?', type: Fix}
+    time: '2024-10-13T23:08:02Z'
+    id: 447
