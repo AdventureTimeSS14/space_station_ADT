@@ -36,6 +36,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
 using Content.Shared.Electrocution;
+using Content.Shared.CombatMode;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -72,6 +73,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combatModeOff = default!;
     // ADT-Tweak-End
 
     private const float InteractNextFire = 0.3f;
@@ -245,7 +247,10 @@ public abstract partial class SharedGunSystem : EntitySystem
                 _electrocutionSystem.TryDoElectrocution(user, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
                 _popup.PopupClient(Loc.GetString("gun-personalize-fuck"), user);
                 _audio.PlayPredicted(dnaGunComp.ElectricSound, gunUid, user);
-                //Dirty(user, dnaGunComp);
+
+                if (TryComp<CombatModeComponent>(user, out var combatModeComp))
+                    _combatModeOff.SetInCombatMode(user, false);
+
                 return;
             }
         }
