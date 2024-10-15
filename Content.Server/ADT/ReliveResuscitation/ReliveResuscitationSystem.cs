@@ -30,7 +30,7 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
     }
 
     /// <summary>
-    /// Обрабатывает событие получения альтернативных действий для сущности(ПКМ).
+    /// Обрабатывает событие получения альтернативных действий для сущности (на ПКМ).
     /// Если сущность находится в критическом состоянии, добавляет возможность провести сердечно-лёгочную реанимацию.
     /// </summary>
     /// <param name="uid">Идентификатор сущности, на которой выполняется действие.</param>
@@ -42,8 +42,9 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
             return;
 
         // TODO: Можно конечно всё усложнить с дыханием, и чекать совпадает ли оно...
-        if (!HasComp<LungComponent>(uid) || !HasComp<LungComponent>(args.User))
-            return;
+        if (!HasComp<LungComponent>(uid) || !HasComp<LungComponent>(args.User)
+        || !HasComp<ReliveResuscitationComponent>(args.User)) return;   // Думаю что юзер тоже такой компонент должен иметь...
+                                                                        // проблем в будущем не должно создать
 
         AlternativeVerb verbPersonalize = new()
         {
