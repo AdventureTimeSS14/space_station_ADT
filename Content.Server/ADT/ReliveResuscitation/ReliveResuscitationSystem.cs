@@ -10,7 +10,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.DoAfter;
-using Robust.Shared.Toolshed.Commands.Generic.ListGeneration;
+using Content.Server.Body.Components;
 
 
 namespace Content.Server.ADT.ReliveResuscitation;
@@ -41,9 +41,14 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState != MobState.Critical)
             return;
 
+        // TODO: Можно конечно всё усложнить с дыханием, и чекать совпадает ли оно...
+        if (!HasComp<LungComponent>(uid) || !HasComp<LungComponent>(args.User))
+            return;
+
         AlternativeVerb verbPersonalize = new()
         {
             Act = () => Relive(uid, args.User, component, mobState),
+            // TODO: перенести в ftl
             Text = Loc.GetString("Сердечно-лёгочная реанимация"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
         };
@@ -92,13 +97,14 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
 
         if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState != MobState.Critical)
         {
-            // TODO: Места для супер попапа чтобы прервать. by Mirokko <3
-            // . . .
+            // TODO: Места для супер попапа чтобы прервать. by Mirokko <3. Мэээъъъъ
+            // . . . . .
 
             args.Repeat = false;
             return;
         }
 
+        // TODO: Перенести всё в компонент
         FixedPoint2 asphyxiationHeal = -20;
         FixedPoint2 bluntDamage = 3;
         DamageSpecifier damageAsphyxiation = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), asphyxiationHeal);
