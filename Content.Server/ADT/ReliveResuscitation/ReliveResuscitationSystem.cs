@@ -66,7 +66,7 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(stringLoc, uid, user);
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent() {Repeat = true}, uid, target: uid, used: user)
+            new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent() { Repeat = true }, uid, target: uid, used: user)
             {
                 NeedHand = true,
                 BreakOnMove = true,
