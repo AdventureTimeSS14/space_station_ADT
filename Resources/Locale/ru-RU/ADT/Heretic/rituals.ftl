@@ -8,13 +8,14 @@ heretic-ritual-noritual = Ритуал не выбран!
 
 heretic-ritual-basic-sacrifice = Сердцебиение Мансуса
 heretic-ritual-basic-focus = Янтарная Призма
-heretic-ritual-basic-codex = Кодекс Цикатрикс
+heretic-ritual-basic-heart = Беспокойное сердцебиение
 
 heretic-ritual-fail-sacrifice = Нет тела для жертвоприношения.
 heretic-ritual-fail-reagentpuddle = Не имеется следующего реагента: {$reagentname}.
 heretic-ritual-fail-temperature-hot = Здесь слишком жарко.
 heretic-ritual-fail-temperature-cold = Здесь недостаточно холодно.
 heretic-ritual-fail-sacrifice-ash = Недостаточно мертвых или горящих.
+heretic-ritual-fail-sacrifice-ineligible = Руна отказывается принять эту жертву.
 
 ## side quests
 heretic-ritual-side-knowledge = Ритуал Знания

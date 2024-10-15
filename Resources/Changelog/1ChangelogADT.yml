@@ -3603,3 +3603,8 @@ Entries:
         type: Add}
     time: '2024-10-13T17:27:42Z'
     id: 446
+  - author: Inconnu
+    changes:
+      - {message: 'Исправлен спам ивентами. Гойда?', type: Fix}
+    time: '2024-10-13T23:08:02Z'
+    id: 447

@@ -90,7 +90,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // damage closest ones
         foreach (var pookie in topPriority)
             if (TryComp<DamageableComponent>(pookie, out var dmg))
-                _dmg.SetAllDamage(pookie, dmg, dmg.TotalDamage + .5f);
+                _dmg.SetAllDamage(pookie, dmg, dmg.TotalDamage + .2f);
 
         // stun close-mid range
         foreach (var pookie in midPriority)
