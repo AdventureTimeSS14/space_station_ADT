@@ -131,8 +131,6 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         var doAfterEventArgs =
             new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent(), uid, target: uid, used: user)
             {
-                // Didn't break on damage as they may be trying to prevent it and
-                // not being able to heal your own ticking damage would be frustrating.
                 NeedHand = true,
                 BreakOnMove = true,
                 BreakOnWeightlessMove = false,
@@ -140,13 +138,21 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
             };
         _doAfter.TryStartDoAfter(doAfterEventArgs);
     }
-    private void DoRelive(EntityUid uid, ReliveResuscitationComponent component, ref ReliveDoAfterEvent agrs)
+    private void DoRelive(EntityUid uid, ReliveResuscitationComponent component, ref ReliveDoAfterEvent args)
     {
+        if (args.Handled || args.Cancelled)
+            return;
+
         FixedPoint2 asphyxiationHeal = -20;
-        FixedPoint2 bluntDamage = 5;
+        FixedPoint2 bluntDamage = 3;
         DamageSpecifier damageAsphyxiation = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), asphyxiationHeal);
         DamageSpecifier damageBlunt = new(_prototypeManager.Index<DamageTypePrototype>("Blunt"), bluntDamage);
         _damageable.TryChangeDamage(uid, damageAsphyxiation, true);
         _damageable.TryChangeDamage(uid, damageBlunt, true);
+
+        args.Handled = true;
+
+        if (args.Used != null)
+            Relive(uid, args.Used.Value, component);
     }
 }
