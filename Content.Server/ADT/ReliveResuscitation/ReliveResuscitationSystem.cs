@@ -10,6 +10,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.DoAfter;
+using Robust.Shared.Toolshed.Commands.Generic.ListGeneration;
 
 
 namespace Content.Server.ADT.ReliveResuscitation;
@@ -37,18 +38,15 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
     /// <param name="args">Событие, содержащее информацию о доступных альтернативных действиях.</param>
     private void OnAltVerbs(EntityUid uid, ReliveResuscitationComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (TryComp<MobStateComponent>(uid, out var mobState))
+        if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState == MobState.Critical)
         {
-            if (mobState.CurrentState == MobState.Critical)
+            AlternativeVerb verbPersonalize = new()
             {
-                AlternativeVerb verbPersonalize = new()
-                {
-                    Act = () => Relive(uid, args.User, component),
-                    Text = Loc.GetString("Сердечно-лёгочная реанимация"),
-                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
-                };
-                args.Verbs.Add(verbPersonalize);
-            }
+                Act = () => Relive(uid, args.User, component),
+                Text = Loc.GetString("Сердечно-лёгочная реанимация"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
+            };
+            args.Verbs.Add(verbPersonalize);
         }
     }
 
@@ -84,20 +82,23 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
     /// <param name="args">Событие, содержащее информацию о выполнении действия.</param>
     private void DoRelive(EntityUid uid, ReliveResuscitationComponent component, ref ReliveDoAfterEvent args)
     {
-        if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState == MobState.Critical)
+        if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState != MobState.Critical)
         {
-            if (args.Handled || args.Cancelled)
-                return;
-
-            FixedPoint2 asphyxiationHeal = -20;
-            FixedPoint2 bluntDamage = 3;
-            DamageSpecifier damageAsphyxiation = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), asphyxiationHeal);
-            DamageSpecifier damageBlunt = new(_prototypeManager.Index<DamageTypePrototype>("Blunt"), bluntDamage);
-            _damageable.TryChangeDamage(uid, damageAsphyxiation, true);
-            _damageable.TryChangeDamage(uid, damageBlunt, true);
-
-            args.Handled = true;
-            args.Repeat = true;
+            args.Repeat = false;
+            return;
         }
+
+        if (args.Handled || args.Cancelled)
+            return;
+
+        FixedPoint2 asphyxiationHeal = -20;
+        FixedPoint2 bluntDamage = 3;
+        DamageSpecifier damageAsphyxiation = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), asphyxiationHeal);
+        DamageSpecifier damageBlunt = new(_prototypeManager.Index<DamageTypePrototype>("Blunt"), bluntDamage);
+        _damageable.TryChangeDamage(uid, damageAsphyxiation, true);
+        _damageable.TryChangeDamage(uid, damageBlunt, true);
+
+        args.Handled = true;
+        args.Repeat = true;
     }
 }
