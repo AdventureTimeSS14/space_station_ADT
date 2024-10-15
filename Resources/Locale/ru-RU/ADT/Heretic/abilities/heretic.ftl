@@ -17,6 +17,11 @@ heretic-manselink-fail-nomind = У этого существа отсутств�
 heretic-manselink-start = Вы начинаете связывать разум существа со своим.
 heretic-manselink-start-target = Вы чувствуете, как ваш разум куда-то утягивает...
 
+heretic-livingheart-notargets = Нет доступных целей. Посетите руну.
+heretic-livingheart-offstation = {$state} в направлении к {$direction}у!
+heretic-livingheart-onstation = {$state} в направелии к {$direction}у!
+heretic-livingheart-unknown = Он... не в этой реальности.
+
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
 
