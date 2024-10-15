@@ -56,6 +56,7 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void OnEquip(EntityUid uid, DNALockerComponent component, GotEquippedEvent args)
     {
+        Log.Debug($"{args.Slot}");
         if (!component.Locked)
         {
             LockDNA(uid, component, args.Equipee);
@@ -72,7 +73,19 @@ public sealed partial class DNALockerSystem : EntitySystem
     private void OnGotEmagged(EntityUid uid, DNALockerComponent component, ref GotEmaggedEvent args)
     {
         var ifEquipped = Loc.GetString("dna-locker-equipped");
-        if (!(_inventorySystem.TryGetSlotEntity(args.UserUid, "outerClothing", out var slotItem) && slotItem == uid))
+        var slotsToCheck = new[] { "shoes", "gloves", "mask", "eyes", "jumpsuit", "outerClothing", "head" }; // список слотов для проверки
+        bool foundInSlot = false;
+
+        foreach (var slot in slotsToCheck)
+        {
+            if (_inventorySystem.TryGetSlotEntity(args.UserUid, slot, out var slotItem) && slotItem == uid)
+            {
+                foundInSlot = true;
+                break;
+            }
+        }
+
+        if (!foundInSlot)
         {
             component.Locked = false;
             _audioSystem.PlayPvs(component.EmagSound, uid);
