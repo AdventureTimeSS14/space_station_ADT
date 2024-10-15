@@ -28,6 +28,13 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         SubscribeLocalEvent<ReliveResuscitationComponent, ReliveDoAfterEvent>(DoRelive);
     }
 
+    /// <summary>
+    /// Обрабатывает событие получения альтернативных действий для сущности(ПКМ).
+    /// Если сущность находится в критическом состоянии, добавляет возможность провести сердечно-лёгочную реанимацию.
+    /// </summary>
+    /// <param name="uid">Идентификатор сущности, на которой выполняется действие.</param>
+    /// <param name="component">Компонент реанимации, связанный с сущностью.</param>
+    /// <param name="args">Событие, содержащее информацию о доступных альтернативных действиях.</param>
     private void OnAltVerbs(EntityUid uid, ReliveResuscitationComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (TryComp<MobStateComponent>(uid, out var mobState))
@@ -45,6 +52,13 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Начинает процесс реанимации сущности. Отправляет сообщение пользователю и запускает таймер действия.
+    /// </summary>
+    /// <param name="uid">Идентификатор сущности, которую пытаются реанимировать.</param>
+    /// <param name="user">Идентификатор пользователя, который проводит реанимацию.</param>
+    /// <param name="component">Компонент реанимации, связанный с сущностью.</param>
+    /// <param name="mobState">Компонент состояния сущности, указывающий текущее состояние.</param>
     private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component, MobStateComponent mobState)
     {
         var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
@@ -60,6 +74,14 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);
     }
+
+    /// <summary>
+    /// Завершает процесс реанимации, нанося урон от удушения и добавляя грубый урон.
+    /// Проверяет состояние сущности перед применением урона.
+    /// </summary>
+    /// <param name="uid">Идентификатор сущности, которую пытаются реанимировать.</param>
+    /// <param name="component">Компонент реанимации, связанный с сущностью.</param>
+    /// <param name="args">Событие, содержащее информацию о выполнении действия.</param>
     private void DoRelive(EntityUid uid, ReliveResuscitationComponent component, ref ReliveDoAfterEvent args)
     {
         if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState == MobState.Critical)
