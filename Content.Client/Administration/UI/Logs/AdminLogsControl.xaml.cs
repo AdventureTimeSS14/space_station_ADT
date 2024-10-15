@@ -59,7 +59,7 @@ public sealed partial class AdminLogsControl : Control
 
     public HashSet<LogType> SelectedTypes { get; } = new();
 
-    public HashSet<Guid> SelectedPlayers { get; } = new();
+    public HashSet<Guid> SelectedPlayers { get; set; } = new();
 
     public HashSet<LogImpact> SelectedImpacts { get; } = new();
 
@@ -207,6 +207,12 @@ public sealed partial class AdminLogsControl : Control
             }
         }
 
+        UpdateLogs();
+    }
+
+    public void SetPlayersSelection(HashSet<Guid> selectedPlayers)
+    {
+        SelectedPlayers = selectedPlayers;
         UpdateLogs();
     }
 

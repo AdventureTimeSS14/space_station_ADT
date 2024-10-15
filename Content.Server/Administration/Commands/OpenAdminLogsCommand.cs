@@ -1,6 +1,7 @@
 ﻿using Content.Server.Administration.Logs;
 using Content.Server.EUI;
 using Content.Shared.Administration;
+using Robust.Server.Player;
 using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands;
@@ -25,6 +26,10 @@ public sealed class OpenAdminLogsCommand : IConsoleCommand
         eui.OpenEui(ui, player);
 
         if (args.Length == 1)
-            ui.SetLogFilter(search: args[0]);
+        {
+            var pm = IoCManager.Resolve<IPlayerManager>();
+            if (pm.TryGetPlayerDataByUsername(args[0], out var playerData))
+                ui.SetLogFilter(selectedPlayers: [playerData.UserId.UserId], search: "test");
+        }
     }
 }
