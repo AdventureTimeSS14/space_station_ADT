@@ -90,6 +90,7 @@
       tallscale: 1
       short: true
       shortscale: 0.9
+    - type: ReliveResuscitation
 
 - type: entity
   save: false

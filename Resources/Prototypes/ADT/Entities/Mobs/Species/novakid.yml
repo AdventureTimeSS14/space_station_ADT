@@ -147,6 +147,7 @@
     shortscale: 0.9
   - type: BloodCough
     postingSayDamage: blood-cough-novakid
+  - type: ReliveResuscitation
 
 
 - type: entity

@@ -147,6 +147,7 @@
     tallscale: 1
     short: true
     shortscale: 0.85
+  - type: ReliveResuscitation
 
 - type: entity
   parent: BaseSpeciesDummy
