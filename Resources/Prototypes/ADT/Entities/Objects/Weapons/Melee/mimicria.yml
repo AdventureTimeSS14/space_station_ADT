@@ -1,7 +1,7 @@
 - type: entity
   name: Mimicria
   parent: BaseSword
-  id: ADTWeaponSworldLobotomy
+  id: ADTWeaponSworldMimicry
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
@@ -13,7 +13,7 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: DisarmMalus
   - type: Spellbook
-    LearnTime: 0.1
+    LearnTime: 0.01
     spellActions:
       ADTActionTeatacles: -1
   - type: Item
@@ -23,6 +23,7 @@
 - type: entity
   id: ADTActionTeatacles
   name: tentacles
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 10
@@ -31,12 +32,13 @@
       sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
       state: icon
     event: !type:InstantSpawnSpellEvent
-      prototype: MimicriaTentacle
+      prototype: ADTEffectiMicriaTentacleSpawn
       posData: !type:TargetInFront
   
 - type: entity
   id: ADTMimicriaTentacle
   name: tentacle
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
     anchored: True
@@ -90,4 +92,4 @@
       sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
       state: mimicria_tentacle_spawn
     - type: SpawnOnDespawn
-      prototype: MimicriaTentacle
+      prototype: ADTMimicriaTentacle
