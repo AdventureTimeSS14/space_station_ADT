@@ -13,7 +13,7 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: DisarmMalus
   - type: Spellbook
-    LearnTime: 0.01
+    learnTime: 0.01
     spellActions:
       ADTActionTeatacles: -1
   - type: Item
