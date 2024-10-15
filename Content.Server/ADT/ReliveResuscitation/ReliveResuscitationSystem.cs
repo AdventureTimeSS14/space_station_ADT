@@ -36,7 +36,7 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
             {
                 AlternativeVerb verbPersonalize = new()
                 {
-                    Act = () => Relive(uid, args.User, component),
+                    Act = () => Relive(uid, args.User, component, mobState),
                     Text = Loc.GetString("Сердечно-лёгочная реанимация"),
                     Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
                 };
@@ -45,19 +45,22 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         }
     }
 
-    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component)
+    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component, MobStateComponent mobState)
     {
-        var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
-        _popup.PopupEntity(stringLoc, uid, user);
-        var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent(), uid, target: uid, used: user)
-            {
-                NeedHand = true,
-                BreakOnMove = true,
-                BreakOnWeightlessMove = false,
-                BreakOnDamage = true,
-            };
-        _doAfter.TryStartDoAfter(doAfterEventArgs);
+        if (mobState.CurrentState == MobState.Critical)
+        {
+            var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
+            _popup.PopupEntity(stringLoc, uid, user);
+            var doAfterEventArgs =
+                new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent(), uid, target: uid, used: user)
+                {
+                    NeedHand = true,
+                    BreakOnMove = true,
+                    BreakOnWeightlessMove = false,
+                    BreakOnDamage = true,
+                };
+            _doAfter.TryStartDoAfter(doAfterEventArgs);
+        }
     }
     private void DoRelive(EntityUid uid, ReliveResuscitationComponent component, ref ReliveDoAfterEvent args)
     {
@@ -72,8 +75,6 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         _damageable.TryChangeDamage(uid, damageBlunt, true);
 
         args.Handled = true;
-
-        if (args.Used != null)
-            Relive(uid, args.Used.Value, component);
+        args.Repeat = true;
     }
 }
