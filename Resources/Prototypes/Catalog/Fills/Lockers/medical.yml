@@ -12,8 +12,12 @@
         amount: 2
       - id: Ointment
         amount: 2
+      # ADT tweak Start
       - id: ADTAntibioticOintment
         amount: 1
+      - id: ADTPatchPackFilled
+        amount: 1
+      # ADT tweak End
       - id: Bloodpack
         amount: 2
       - id: Gauze
@@ -33,8 +37,12 @@
         amount: 2
       - id: Ointment
         amount: 2
+      # ADT tweak Start
       - id: ADTAntibioticOintment
         amount: 1
+      - id: ADTPatchPackFilled
+        amount: 1
+      # ADT tweak End
       - id: Bloodpack
         amount: 2
       - id: Gauze
@@ -118,6 +126,7 @@
   - type: StorageFill
     contents:
       - id: BoxSyringe
+      - id: ADTSmallSyringeBox # ADT tweak
       - id: BoxBeaker
       - id: BoxBeaker
         prob: 0.3
@@ -144,6 +153,7 @@
       - id: ClothingOuterHardsuitVoidParamed
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
+      - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic

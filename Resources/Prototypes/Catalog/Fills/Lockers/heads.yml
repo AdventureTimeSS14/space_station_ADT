@@ -255,6 +255,7 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     # ADT tweak Start
+    - id: ADTMobileDefibrillator
     - id: ADTBriefcaseBrownHikingCmoFilled
     - id: ADTBriefcaseMedicalFilled
     - id: ADTBookSRPcmd
