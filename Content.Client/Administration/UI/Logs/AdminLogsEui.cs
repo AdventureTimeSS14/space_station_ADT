@@ -115,14 +115,18 @@ public sealed class AdminLogsEui : BaseEui
             return;
         }
 
+        var oldSelection = new HashSet<Guid>(LogsControl.SelectedPlayers); // ADT-Tweak
         LogsControl.SetCurrentRound(s.RoundId);
         LogsControl.SetPlayers(s.Players);
         LogsControl.UpdateCount(round: s.RoundLogs);
 
         if (!FirstState)
-        {
             return;
-        }
+
+        // ADT-Tweak-Start
+        if (oldSelection.Count() > 0)
+            LogsControl.SetPlayersSelection(oldSelection);
+        // ADT-Tweak-End
 
         FirstState = false;
         LogsControl.SetRoundSpinBox(s.RoundId);

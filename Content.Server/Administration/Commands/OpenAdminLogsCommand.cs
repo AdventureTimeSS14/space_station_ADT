@@ -25,11 +25,13 @@ public sealed class OpenAdminLogsCommand : IConsoleCommand
         var ui = new AdminLogsEui();
         eui.OpenEui(ui, player);
 
+        // ADT-Tweak-Start
         if (args.Length == 1)
         {
             var pm = IoCManager.Resolve<IPlayerManager>();
             if (pm.TryGetPlayerDataByUsername(args[0], out var playerData))
-                ui.SetLogFilter(selectedPlayers: [playerData.UserId.UserId], search: "test");
+                ui.SetLogFilter(selectedPlayers: [playerData.UserId.UserId]);
         }
+        // ADT-Tweak-End
     }
 }

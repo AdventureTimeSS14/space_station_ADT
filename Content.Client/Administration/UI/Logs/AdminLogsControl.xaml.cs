@@ -59,7 +59,7 @@ public sealed partial class AdminLogsControl : Control
 
     public HashSet<LogType> SelectedTypes { get; } = new();
 
-    public HashSet<Guid> SelectedPlayers { get; set; } = new();
+    public HashSet<Guid> SelectedPlayers { get; set; } = new(); // ADT-Tweak
 
     public HashSet<LogImpact> SelectedImpacts { get; } = new();
 
@@ -210,11 +210,12 @@ public sealed partial class AdminLogsControl : Control
         UpdateLogs();
     }
 
+    // ADT-Tweak-Start
     public void SetPlayersSelection(HashSet<Guid> selectedPlayers)
     {
         SelectedPlayers = selectedPlayers;
-        UpdateLogs();
     }
+    // ADT-Tweak-End
 
     public void UpdateTypes()
     {
@@ -447,7 +448,7 @@ public sealed partial class AdminLogsControl : Control
             var button = new AdminLogPlayerButton(id)
             {
                 Text = name,
-                Pressed = allSelected
+                Pressed = SelectedPlayers.Contains(id),
             };
 
             if (allSelected)
