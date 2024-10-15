@@ -180,3 +180,30 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTJasonBomber
+  name: maniac bomber
+  description: maniac bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTStudentBomber
+  name: student bomber
+  description: student bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
