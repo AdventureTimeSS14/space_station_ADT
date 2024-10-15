@@ -47,34 +47,35 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
 
     private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component, MobStateComponent mobState)
     {
-        if (mobState.CurrentState == MobState.Critical)
-        {
-            var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
-            _popup.PopupEntity(stringLoc, uid, user);
-            var doAfterEventArgs =
-                new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent(), uid, target: uid, used: user)
-                {
-                    NeedHand = true,
-                    BreakOnMove = true,
-                    BreakOnWeightlessMove = false,
-                    BreakOnDamage = true,
-                };
-            _doAfter.TryStartDoAfter(doAfterEventArgs);
-        }
+        var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
+        _popup.PopupEntity(stringLoc, uid, user);
+        var doAfterEventArgs =
+            new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent(), uid, target: uid, used: user)
+            {
+                NeedHand = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                BreakOnDamage = true,
+            };
+
+        _doAfter.TryStartDoAfter(doAfterEventArgs);
     }
     private void DoRelive(EntityUid uid, ReliveResuscitationComponent component, ref ReliveDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled)
-            return;
+        if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState == MobState.Critical)
+        {
+            if (args.Handled || args.Cancelled)
+                return;
 
-        FixedPoint2 asphyxiationHeal = -20;
-        FixedPoint2 bluntDamage = 3;
-        DamageSpecifier damageAsphyxiation = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), asphyxiationHeal);
-        DamageSpecifier damageBlunt = new(_prototypeManager.Index<DamageTypePrototype>("Blunt"), bluntDamage);
-        _damageable.TryChangeDamage(uid, damageAsphyxiation, true);
-        _damageable.TryChangeDamage(uid, damageBlunt, true);
+            FixedPoint2 asphyxiationHeal = -20;
+            FixedPoint2 bluntDamage = 3;
+            DamageSpecifier damageAsphyxiation = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), asphyxiationHeal);
+            DamageSpecifier damageBlunt = new(_prototypeManager.Index<DamageTypePrototype>("Blunt"), bluntDamage);
+            _damageable.TryChangeDamage(uid, damageAsphyxiation, true);
+            _damageable.TryChangeDamage(uid, damageBlunt, true);
 
-        args.Handled = true;
-        args.Repeat = true;
+            args.Handled = true;
+            args.Repeat = true;
+        }
     }
 }
