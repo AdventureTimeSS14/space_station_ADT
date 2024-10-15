@@ -43,7 +43,7 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
             {
                 AlternativeVerb verbPersonalize = new()
                 {
-                    Act = () => Relive(uid, args.User, component, mobState),
+                    Act = () => Relive(uid, args.User, component),
                     Text = Loc.GetString("Сердечно-лёгочная реанимация"),
                     Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
                 };
@@ -59,7 +59,7 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
     /// <param name="user">Идентификатор пользователя, который проводит реанимацию.</param>
     /// <param name="component">Компонент реанимации, связанный с сущностью.</param>
     /// <param name="mobState">Компонент состояния сущности, указывающий текущее состояние.</param>
-    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component, MobStateComponent mobState)
+    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component)
     {
         var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(stringLoc, uid, user);
