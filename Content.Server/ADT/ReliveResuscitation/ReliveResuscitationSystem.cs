@@ -109,13 +109,13 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
 
     private void OnAltVerbs(EntityUid uid, ReliveResuscitationComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (TryComp<MobStateComponent>(uid, out var mobState) && TryComp<MetaDataComponent>(args.User, out var metaDataUser) && TryComp<MetaDataComponent>(uid, out var metaDataTarget))
+        if (TryComp<MobStateComponent>(uid, out var mobState))
         {
             if (mobState.CurrentState == MobState.Critical)
             {
                 AlternativeVerb verbPersonalize = new()
                 {
-                    Act = () => Relive(uid, args.User, component, metaDataUser, metaDataTarget),
+                    Act = () => Relive(uid, args.User, component),
                     Text = Loc.GetString("Сердечно-лёгочная реанимация"),
                     Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
                 };
@@ -124,10 +124,10 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         }
     }
 
-    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component, MetaDataComponent metaDataUser, MetaDataComponent metaDataTarget)
+    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component)
     {
-        //var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
-        _popup.PopupEntity($"{metaDataUser.EntityName} делает сердечно-лёгочную реанимацию {metaDataTarget.EntityName}", uid, user);
+        var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
+        _popup.PopupEntity(stringLoc, uid, user);
         var doAfterEventArgs =
             new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent(), uid, target: uid, used: user)
             {
