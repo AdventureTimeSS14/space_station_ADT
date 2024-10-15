@@ -7,3 +7,7 @@ ent-ADTVendingMachinePrazatClothing = СтильноМат
 ent-ADTVendingMachineTSFArmoury = оружейная ТСФ
     .desc = Связанный с удаленным хранилищем шкаф, используемый для выдачи оружия и экипировки бойцов ТСФ.
     .suffix = { "ТСФ" }
+
+ent-ADTVendingMachineHalloween = Хеллоуиномат
+    .suffix = Хеллоуин
+    .desc = Торговый автомат со всем, что нужно для Хеллоуина.

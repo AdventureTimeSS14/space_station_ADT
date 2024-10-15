@@ -85,3 +85,39 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+
+      # halloween
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineHalloween
+  name: HalloMate
+  description: A vending machine for Halloween things.
+  components:
+  - type: VendingMachine
+    pack: ADTHalloweenMateInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  #- type: Advertise
+  #  pack: ClothesMateAds
+  - type: Speech
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/halloweenmat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#c2adff"
