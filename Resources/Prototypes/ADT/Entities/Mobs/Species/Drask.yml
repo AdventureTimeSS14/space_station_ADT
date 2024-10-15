@@ -122,6 +122,7 @@
     tallscale: 1.15
     short: true
     shortscale: 1
+  - type: ReliveResuscitation
 
 - type: entity
   save: false
