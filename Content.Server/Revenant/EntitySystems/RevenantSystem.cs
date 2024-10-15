@@ -180,7 +180,7 @@ public sealed partial class RevenantSystem : EntitySystem
         var tileref = Transform(uid).Coordinates.GetTileRef();
         if (tileref != null)
         {
-            if(_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
+            if (_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
             {
                 _popup.PopupEntity(Loc.GetString("revenant-in-solid"), uid, uid);
                 return false;
@@ -197,9 +197,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
     private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEvent args)
     {
-        if (!TryComp<StoreComponent>(uid, out var store))
-            return;
-        _store.ToggleUi(uid, uid, store);
+        _store.OnInternalShop(uid);
     }
 
     private void OnSinguloConsumeAttempt(EntityUid uid, RevenantComponent component, ref EventHorizonAttemptConsumeEntityEvent args) // ADT

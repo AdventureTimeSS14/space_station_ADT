@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using Content.Shared.Humanoid;
 
 namespace Content.Shared.Polymorph;
 
@@ -24,6 +25,14 @@ public sealed partial class PolymorphPrototype : IPrototype, IInheritingPrototyp
     [DataField(required: true, serverOnly: true)]
     public PolymorphConfiguration Configuration = new();
 
+    public struct PolymorphHumanoidData
+    {
+        public EntityPrototype? EntityPrototype;
+        public MetaDataComponent? MetaDataComponent;
+        public HumanoidAppearanceComponent? HumanoidAppearanceComponent;
+        public string? DNA;
+        public EntityUid? EntityUid;
+    }
 }
 
 /// <summary>
