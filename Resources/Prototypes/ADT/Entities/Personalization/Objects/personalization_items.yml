@@ -1061,7 +1061,7 @@
         Poison: -0.1
         Blunt: -0.1
   - type: Strap
-    enabled: false
+    enabled: true
     position: Down
     rotation: -90
   # Слоты
