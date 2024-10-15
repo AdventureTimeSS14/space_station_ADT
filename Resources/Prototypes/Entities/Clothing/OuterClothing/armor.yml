@@ -125,9 +125,9 @@
     staminaModifier: 0.3  # ADT-Tweak
   - type: ExplosionResistance
     damageCoefficient: 0.35
-  - type: ClothingSpeedModifier # ADT-Tweak
-    walkModifier: 1.0
-    sprintModifier: 1.0
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0 # ADT-Tweak 0.9>1.0
+    sprintModifier: 1.0 # ADT-Tweak 0.9>1.0
   #Shoulder mounted flashlight
   - type: ToggleableLightVisuals
     spriteLayer: light
