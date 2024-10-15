@@ -1,9 +1,13 @@
 using Robust.Shared.GameStates;
-using Content.Shared.DoAfter;
 
 namespace Content.Shared.ADT.ReliveResuscitation;
 
 [RegisterComponent, NetworkedComponent]
+/// <summary>
+/// Этот компонент вешается на сущность, при крит состоянии у неё, можно попробовать провести СЛР(Сердечно-лёгочную реанимацию),
+/// и попытаться реанимировать убирая удушение взамен на добавление грубого урона.
+/// by Шрёдька <3 (Schrodinger71)
+/// </summary>
 public sealed partial class ReliveResuscitationComponent : Component
 {
     /// <summary>
