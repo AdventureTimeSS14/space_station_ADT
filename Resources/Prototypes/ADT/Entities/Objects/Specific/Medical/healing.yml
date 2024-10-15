@@ -51,12 +51,3 @@
   - type: Stack
     stackType: ADTAntibioticOintment
     count: 1
-
-#стаки
-- type: stack
-  id: ADTAntibioticOintment
-  name: antibiotic ointment
-  icon: { sprite: "/Textures/ADT/Objects/Specific/Medical/medical.rsi", state: antib_ointment }
-  spawn: ADTAntibioticOintment
-  maxCount: 10
-  itemSize: 1
