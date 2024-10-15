@@ -38,16 +38,17 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
     /// <param name="args">Событие, содержащее информацию о доступных альтернативных действиях.</param>
     private void OnAltVerbs(EntityUid uid, ReliveResuscitationComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState == MobState.Critical)
+        if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState != MobState.Critical)
+            return;
+
+        AlternativeVerb verbPersonalize = new()
         {
-            AlternativeVerb verbPersonalize = new()
-            {
-                Act = () => Relive(uid, args.User, component),
-                Text = Loc.GetString("Сердечно-лёгочная реанимация"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
-            };
-            args.Verbs.Add(verbPersonalize);
-        }
+            Act = () => Relive(uid, args.User, component, mobState),
+            Text = Loc.GetString("Сердечно-лёгочная реанимация"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
+        };
+
+        args.Verbs.Add(verbPersonalize);
     }
 
     /// <summary>
@@ -57,18 +58,22 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
     /// <param name="user">Идентификатор пользователя, который проводит реанимацию.</param>
     /// <param name="component">Компонент реанимации, связанный с сущностью.</param>
     /// <param name="mobState">Компонент состояния сущности, указывающий текущее состояние.</param>
-    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component)
+    private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component, MobStateComponent mobState)
     {
+        if (mobState.CurrentState != MobState.Critical)
+            return;
+
         var stringLoc = Loc.GetString("relive-start-message", ("user", Identity.Entity(user, EntityManager)), ("name", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(stringLoc, uid, user);
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent(), uid, target: uid, used: user)
+            new DoAfterArgs(EntityManager, user, component.Delay, new ReliveDoAfterEvent() {Repeat = true}, uid, target: uid, used: user)
             {
                 NeedHand = true,
                 BreakOnMove = true,
                 BreakOnWeightlessMove = false,
                 BreakOnDamage = true,
             };
+
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);
     }
@@ -82,14 +87,17 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
     /// <param name="args">Событие, содержащее информацию о выполнении действия.</param>
     private void DoRelive(EntityUid uid, ReliveResuscitationComponent component, ref ReliveDoAfterEvent args)
     {
+        if (args.Handled || args.Cancelled)
+            return;
+
         if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState != MobState.Critical)
         {
+            // TODO: Места для супер попапа чтобы прервать. by Mirokko <3
+            // . . .
+
             args.Repeat = false;
             return;
         }
-
-        if (args.Handled || args.Cancelled)
-            return;
 
         FixedPoint2 asphyxiationHeal = -20;
         FixedPoint2 bluntDamage = 3;
@@ -99,6 +107,5 @@ public sealed partial class ReliveResuscitationSystem : EntitySystem
         _damageable.TryChangeDamage(uid, damageBlunt, true);
 
         args.Handled = true;
-        args.Repeat = true;
     }
 }
