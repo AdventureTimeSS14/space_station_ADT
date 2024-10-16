@@ -1,4 +1,4 @@
-- type: ghostbarMapPool
+- type: ghostBarMapPool
   id: DefaultGhostbarMapPool
   maps:
   - GhostbarMapGoob            
