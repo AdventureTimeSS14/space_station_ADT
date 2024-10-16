@@ -448,7 +448,7 @@ public sealed partial class AdminLogsControl : Control
             var button = new AdminLogPlayerButton(id)
             {
                 Text = name,
-                Pressed = SelectedPlayers.Contains(id),
+                Pressed = SelectedPlayers.Contains(id), // ADT-Tweak
             };
 
             if (allSelected)
