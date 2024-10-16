@@ -66,8 +66,8 @@ public sealed partial class SharedReliveResuscitationSystem : EntitySystem
     /// <param name="mobState">Компонент состояния сущности, указывающий текущее состояние.</param>
     private void Relive(EntityUid uid, EntityUid user, ReliveResuscitationComponent component, MobStateComponent mobState)
     {
-        // if (!_timing.IsFirstTimePredicted)
-        //     return;
+        if (!_timing.IsFirstTimePredicted)
+            return;
 
         if (mobState.CurrentState != MobState.Critical)
             return;
