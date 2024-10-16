@@ -24,17 +24,15 @@
 # ADT сумки конец
     ADTClothingHeadHatBeretBlackCivilian: 2 # ADT Кастомный чёрный берет
     ClothingBackpackSatchelLeather: 2
-# ADT бельё/обмотки/плащи начало
-    # ADTClothingUnderwearRedLacePanties: 2
-    # ADTClothingUnderwearTopLaceBraRed: 2
-    # ADTClothingUnderwearBlackLacePanties: 2 # TODO: Убрать комменты после добавления ниженго белья
-    # ADTClothingUnderwearTopLaceBraBlack: 2
-    # ADTClothingUnderwearWhiteComfyPanties: 2
-    # ADTClothingUnderwearTopComfyWhiteBra: 2
+# ADT бельё/обмотки/плащи/носки начало
+    ADTClothingUnderwearBottomBoxersWhite: 4
+    ADTClothingUnderwearBottomPantiesComfyWhite: 4
+    ADTClothingUnderwearTopBraWhite: 4
+    ADTClothingUnderwearTopBraComfyWhite: 4
 # конец белья
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
-# ADT бельё/обмотки/плащи конец
+# ADT бельё/обмотки/плащи/носки конец
     ADTClothingSandals: 2
     ClothingRandomSpawner: 8
     ClothingHeadHatBeret: 4
@@ -84,6 +82,20 @@
     ClothingUniformJumpsuitCasualRed: 2
     ClothingUniformJumpskirtCasualRed: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
+# ADT начало носков
+    ADTClothingUnderwearSocksShort: 2
+    ADTClothingUnderwearSocksHigh: 2
+    ADTClothingUnderwearSocksThigh: 2
+    ADTClothingUnderwearSocksStockingsWhite: 2
+    ADTClothingUnderwearSocksComfyBlue: 2
+    ADTClothingUnderwearSocksComfyGrey: 2
+    ADTClothingUnderwearSocksComfyRed: 2
+    ADTClothingUnderwearSocksComfyViolet: 2
+    ADTClothingUnderwearSocksKneeComfyBlue: 2
+    ADTClothingUnderwearSocksKneeComfyGrey: 2
+    ADTClothingUnderwearSocksKneeComfyRed: 2
+    ADTClothingUnderwearSocksKneeComfyViolet: 2
+# ADT конец носков
     # ADT бельё/обмотки/плащи начало
     ADTClothingFootWrapsWhite: 2
     ADTClothingFootWrapsHighWhite: 2

@@ -428,7 +428,7 @@ namespace Content.Shared.CCVar
         /// If true, contraband severity can be viewed in the examine menu
         /// </summary>
         public static readonly CVarDef<bool> ContrabandExamine =
-            CVarDef.Create("game.contraband_examine", true, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("game.contraband_examine", false, CVar.SERVER | CVar.REPLICATED); ///ADT no wizard cringe
 
         /*
          * Discord
@@ -469,6 +469,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        /// URL of the Discord webhook which will relay bans info to the channel.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordBansWebhook =
+            CVarDef.Create("discord.bans_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
         /*
         * Phantom
@@ -2106,7 +2112,7 @@ namespace Content.Shared.CCVar
         /// Link to site handling ban appeals. Shown in ban disconnect messages.
         /// </summary>
         public static readonly CVarDef<string> InfoLinksAppeal =
-            CVarDef.Create("infolinks.appeal", "", CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("infolinks.appeal", "https://discord.com/channels/901772674865455115/1245787985891561544", CVar.SERVER | CVar.REPLICATED); //ADT-Tweak: Ссылка на обжалование
 
         /*
          * CONFIG

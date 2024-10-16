@@ -7,3 +7,7 @@
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
     state: icon
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 100
+  # ADT Tweak END

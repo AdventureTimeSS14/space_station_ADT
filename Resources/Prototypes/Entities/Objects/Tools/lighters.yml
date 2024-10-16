@@ -88,6 +88,10 @@
     radius: 1.1 #smallest possible
     color: orange
   - type: ItemTogglePointLight
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 80
+  # ADT Tweak END
 
 - type: entity
   name: cheap lighter
@@ -117,6 +121,10 @@
         - ReagentId: WeldingFuel
           Quantity: 4
         maxVol: 4 #uses less fuel than a welder, so this isnt as bad as it looks
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 40
+  # ADT Tweak END
 
 - type: entity
   name: flippo lighter

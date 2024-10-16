@@ -10,6 +10,11 @@
     - type: Body
       prototype: Tajaran
       requiredLegs: 2
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        80: Critical
+        200: Dead
     - type: RoarAccent
     - type: Hunger
     - type: Thirst
@@ -18,7 +23,7 @@
       state: tajaran_m
     - type: Damageable
       damageContainer: Biological
-      damageModifierSet: Fur
+      damageModifierSet: Tajaran
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -29,8 +34,8 @@
         types:
           Piercing: 5
     - type: Temperature
-      heatDamageThreshold: 400
-      coldDamageThreshold: 200
+      heatDamageThreshold: 325
+      coldDamageThreshold: 240
       currentTemperature: 310.15
       specificHeat: 46
       coldDamage:
@@ -42,18 +47,62 @@
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
-    - type: Perishable
-    - type: MobThresholds
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 145 #lower density
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        42: 0.85
+        60: 0.65
+    - type: TemperatureSpeed
       thresholds:
-        0: Alive
-        80: Critical
-        200: Dead
+        273: 0.8
+        260: 0.6
+        240: 0.4
     - type: Sprite
       netsync: false
       noRot: true
       drawdepth: Mobs
-      scale: 0.95, 0.95
+      scale: 0.9, 0.9
     - type: Wagging
+    - type: InteractionPopup
+      successChance: 1
+      interactSuccessString: petting-success-generic
+      interactSuccessSound: /Audio/ADT/Felinid/cat_purr1.ogg
+      messagePerceivedByOthers: petting-success-soft-floofy-others
+      interactSuccessSpawn: EffectHearts
+      interactDelay: 4
+    - type: Vocal
+      # maleScream: /Audio/Voice/Human/malescream_1.ogg
+      # femaleScream: /Audio/Voice/Human/femalescream_2.ogg
+      wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
+      sounds:
+        Male: ADTMaleTajaran
+        Female: ADTFemaleTajaran
+        Unsexed: ADTMaleTajaran
+    - type: LanguageSpeaker
+      speaks:
+      - GalacticCommon
+      - SikTaj
+      - CintaTaj
+      understands:
+      - GalacticCommon
+      - SikTaj
+      - CintaTaj
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 0.95
+      short: true
+      shortscale: 0.85
 
 - type: entity
   save: false

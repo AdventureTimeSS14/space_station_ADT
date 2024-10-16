@@ -103,7 +103,7 @@
   discountDownTo:
     Telecrystal: 4
   cost:
-    Telecrystal: 8
+    Telecrystal: 6 # ADT-Tweak 8>6
   categories:
   - UplinkWeaponry
 
@@ -157,6 +157,13 @@
     Telecrystal: 12
   categories:
   - UplinkWeaponry
+  # Start ADT tweak
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  # End ADT tweak
 
 - type: listing
   id: UplinkC20RBundle
@@ -636,7 +643,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 5>4
   categories:
   - UplinkChemicals
 
@@ -649,7 +656,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkChemicals
 
@@ -662,7 +669,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkChemicals
 
@@ -699,9 +706,9 @@
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 12
+    Telecrystal: 6
   cost:
-    Telecrystal: 20
+    Telecrystal: 12 # ADT-Tweak 20>12
   categories:
   - UplinkChemicals
   conditions:
@@ -1539,7 +1546,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateRaidBundle
   cost:
-    Telecrystal: 8
+    Telecrystal: 12 # ADT-Tweak 8>13
   categories:
   - UplinkWearables
   conditions:

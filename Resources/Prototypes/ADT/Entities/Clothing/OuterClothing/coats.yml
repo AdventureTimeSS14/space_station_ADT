@@ -74,6 +74,11 @@
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
 
 - type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
+  id: ADTClothingOuterCoatLabPathologistOpened
+  name: pathologist's lab coat
+
+- type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterCoatBrigmedicWB
   name: brigmedic windbreaker
@@ -156,3 +161,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatTrader
+  name: trader
+  description: trader.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/bomber_tsf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/bomber_tsf.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90

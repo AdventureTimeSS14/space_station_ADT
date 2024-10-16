@@ -514,6 +514,45 @@
   - type: Clothing
     sprite: ADT/Personalization/maki_coat.rsi
 
+
+# Moon_so_red
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatMoon_so_redHat
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_hat.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesMoon_so_redGlasses
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterMoon_so_redCoat
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Cold: 0.95
+
 #Syrel
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
@@ -546,3 +585,37 @@
           tags:
           - ADTSyrelBattleAxe
   - type: Appearance
+
+#cherreshnia (она же Ума)
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitUmaSport
+  name: dark sporting clothing
+  description: dark sporting clothing
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckUmaChoker
+  name: Uma`s choker
+  description: Uma`s choker
+  suffix: Sponsor, Uma
+  components:
+    - type: Sprite
+      sprite: ADT/Personalization/uma_choker.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorUma
+  name: Uma`s armor vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_armor.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/uma_armor.rsi

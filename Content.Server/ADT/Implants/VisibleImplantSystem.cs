@@ -176,8 +176,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 
         if (comp.Active)
         {
-            args.Damage.DamageDict.Clear();
-            if (!args.OriginalDamage.TryGetDamageInGroup(_proto.Index<DamageGroupPrototype>("Brute"), out var dmg) || dmg <= 5)
+            if (!args.OriginalDamage.AnyPositive() || args.OriginalDamage.GetTotal() <= 5)
                 return;
             _explosion.QueueExplosion(_transform.GetMapCoordinates(uid), "Default", 2f, 1f, 0f, null, canCreateVacuum: false);
             comp.DisableTime = _timing.CurTime + TimeSpan.FromSeconds(2);

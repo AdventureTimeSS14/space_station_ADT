@@ -18,3 +18,15 @@ ent-ADTClothingNeckHoPAltCloak = торжественный плащ Главы 
     .suffix = { "" }
 ent-ClothingCloakAtmosian = плащ атмосианина
     .desc = Плащ легендарного атмосианина.
+
+ent-ADTClothingNeckCloakSyndicate = плащ Синдиката
+    .desc = Антагонизируй со стилем!
+    .suffix = { "" }
+
+ent-ADTClothingNeckCloakNukeOps = плащ Ядерных Оперативников
+    .desc = Согреет вас холодными вечерами на базе Ядерных Оперативников.
+    .suffix = { "" }
+
+ent-ADTClothingNeckCloakKnight = плащ рыцаря
+    .desc = Шёлковый и внушительный рыцарский плащ. За честь короны!
+    .suffix = { "" }
