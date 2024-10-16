@@ -7,7 +7,7 @@ namespace Content.Server.ADT.Ghostbar;
 /// прототип со списком карт для пулла гостбаров
 /// </summary>
 [Prototype("ghostBarMapPool")]
-public sealed partial class GhostBarMapPoolPrototype : IPrototype
+public sealed partial class GhostBarMapPoolPrototype : Prototype
 {
 
     [IdDataField]
