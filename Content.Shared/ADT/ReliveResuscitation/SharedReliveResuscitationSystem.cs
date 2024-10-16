@@ -1,5 +1,3 @@
-using Content.Server.Body.Components;
-using Content.Shared.ADT.ReliveResuscitation;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
@@ -14,10 +12,9 @@ using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 
 
-namespace Content.Server.ADT.ReliveResuscitation;
+namespace Content.Shared.ADT.ReliveResuscitation;
 
-//SharedReliveResuscitationSystem
-public sealed partial class ReliveResuscitationSystem : EntitySystem
+public sealed partial class SharedReliveResuscitationSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
