@@ -5,6 +5,7 @@ namespace Content.Server.ADT.Ghostbar;
 
 /// <summary>
 /// прототип самих гост баров
+/// <see cref="Content.Server.ADT.Ghostbar.GhostBarSystem"/>
 /// </summary>
 [Prototype("ghostbarMap")]
 public sealed partial class GhostBarMapPrototype : IPrototype
@@ -25,3 +26,4 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     [DataField("pacified")]
     public bool Pacified = false;
 }
+
