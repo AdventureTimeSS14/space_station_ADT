@@ -45,7 +45,7 @@ namespace Content.Client.Paper.UI
             typeof(ColorTag),
             typeof(HeadingTag),
             typeof(ItalicTag),
-            typeof(MonospaceTag),
+            typeof(MonospaceTag), // ADT-Tweak
         };
 
         public event Action<string>? OnSaved;
