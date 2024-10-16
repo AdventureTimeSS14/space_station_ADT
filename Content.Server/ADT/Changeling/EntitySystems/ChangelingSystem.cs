@@ -26,6 +26,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Hands.Components;
 using Content.Server.Hands.Systems;
+using Content.Shared.Store;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -58,7 +59,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, ChangelingComponent component, ComponentStartup args)
     {
-        _uplink.AddUplink(uid, FixedPoint2.New(10), ChangelingShopPresetPrototype, uid, EvolutionPointsCurrencyPrototype); // not really an 'uplink', but it's there to add the evolution menu
         StealDNA(uid, component);
 
         RemComp<HungerComponent>(uid);
@@ -96,7 +96,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (regenCap)
             float.Min(component.Chemicals, component.MaxChemicals);
 
-        _alerts.ShowAlert(uid, AlertType.Chemicals, (short) Math.Clamp(Math.Round(component.Chemicals / 10.7f), 0, 7));
+        _alerts.ShowAlert(uid, _proto.Index<AlertPrototype>("Chemicals"), (short) Math.Clamp(Math.Round(component.Chemicals / 10.7f), 0, 7));
 
         return true;
     }
@@ -299,12 +299,6 @@ public sealed partial class ChangelingSystem : EntitySystem
             newLingComponent.LingArmorActive = component.LingArmorActive;
             RemComp(uid, component);
 
-            if (TryComp(uid, out StoreComponent? storeComp))
-            {
-                var copiedStoreComponent = (Component) _serialization.CreateCopy(storeComp, notNullableOverride: true);
-                RemComp<StoreComponent>(transformedUid.Value);
-                EntityManager.AddComponent(transformedUid.Value, copiedStoreComponent);
-            }
 
             if (TryComp(uid, out StealthComponent? stealthComp)) // copy over stealth status
             {

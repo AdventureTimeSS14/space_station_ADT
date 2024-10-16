@@ -18,8 +18,6 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
 
-    [Dependency] private readonly ChangelingRuleSystem _lingsRule = default!;
-
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultTraitorRule = "Traitor";
 
@@ -168,7 +166,6 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
-    }
 
         Verb changeling = new()
         {
@@ -177,15 +174,11 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Weapons/Melee/armblade.rsi"), "icon"),
             Act = () =>
             {
-                if (!_minds.TryGetSession(targetMindComp.Mind, out var session))
-                    return;
-                // if its not a humanoid dont make it a changeling
-                var isHuman = HasComp<HumanoidAppearanceComponent>(args.Target);
-                if (isHuman)
-                    _lingsRule.MakeChangeling(session);
+                _antag.ForceMakeAntag<ChangelingRuleComponent>(targetPlayer, "Changeling");
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-make-changeling"),
         };
         args.Verbs.Add(changeling);
+    }
 }

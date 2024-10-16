@@ -3,12 +3,15 @@ using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
+using Content.Shared.Store;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
 [RegisterComponent, Access(typeof(ChangelingRuleSystem))]
 public sealed partial class ChangelingRuleComponent : Component
 {
+    public readonly List<EntityUid> Minds = new();
     public readonly List<EntityUid> ChangelingMinds = new();
 
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<AntagPrototype>))]
@@ -23,4 +26,15 @@ public sealed partial class ChangelingRuleComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier ChangelingStartSound = new SoundPathSpecifier("/Audio/Ambience/Antag/changeling_start.ogg");
+
+    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
+    {
+        "ChangelingAbilities"
+    };
+    public readonly List<ProtoId<EntityPrototype>> Objectives = new()
+{
+    "EscapeLingShuttleObjective",
+    "KillRandomPersonObjectiveLing",
+    "SmileExtractStealObjective"
+};
 }

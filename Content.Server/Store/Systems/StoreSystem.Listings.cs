@@ -8,7 +8,6 @@ namespace Content.Server.Store.Systems;
 
 public sealed partial class StoreSystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
 
     /// <summary>
     /// Refreshes all listings on a store.

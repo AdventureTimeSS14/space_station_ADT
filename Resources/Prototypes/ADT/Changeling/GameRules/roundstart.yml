@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseGameRule
+  id: Heretic
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 30
+      max: 60
+  - type: AntagSelection
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 5
+      playerRatio: 20
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+        prototype: Heretic
+
+- type: entity
+  parent: BaseGameRule
+  id: Changeling
+  noSpawn: true
+  components:
+  - type: ChangelingRule
+  - type: ThiefRule #the thieves come as an extension of another gamemode
+    ruleChance: 0.5
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 30
+      max: 60

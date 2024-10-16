@@ -62,7 +62,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             grammar.Gender = sourceHumanoid.Gender;
         }
 
-        Dirty(targetHumanoid);
+        Dirty<HumanoidAppearanceComponent>(targetHumanoid);
     }
 
     /// <summary>
@@ -105,7 +105,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     }
 
     /// <summary>
-    ///     Removes a marking from a humanoid by category and index.
+    /// ///     Removes a marking from a humanoid by category and index.
     /// </summary>
     /// <param name="uid">Humanoid mob's UID</param>
     /// <param name="category">Category of the marking</param>

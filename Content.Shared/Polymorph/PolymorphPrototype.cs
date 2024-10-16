@@ -25,14 +25,6 @@ public sealed partial class PolymorphPrototype : IPrototype, IInheritingPrototyp
     [DataField(required: true, serverOnly: true)]
     public PolymorphConfiguration Configuration = new();
 
-    public struct PolymorphHumanoidData
-    {
-        public EntityPrototype? EntityPrototype;
-        public MetaDataComponent? MetaDataComponent;
-        public HumanoidAppearanceComponent? HumanoidAppearanceComponent;
-        public string? DNA;
-        public EntityUid? EntityUid;
-    }
 }
 
 /// <summary>
@@ -131,4 +123,13 @@ public enum PolymorphInventoryChange : byte
     None,
     Drop,
     Transfer,
+}
+
+public struct PolymorphHumanoidData
+{
+    public EntityPrototype? EntityPrototype;
+    public MetaDataComponent? MetaDataComponent;
+    public HumanoidAppearanceComponent? HumanoidAppearanceComponent;
+    public string? DNA;
+    public EntityUid? EntityUid;
 }

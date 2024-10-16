@@ -201,4 +201,7 @@ public sealed partial class ChangelingComponent : Component
 
     [DataField]
     public float Accumulator = 0f;
+
+    [DataField]
+    public int StartingBalance = 10;
 }
