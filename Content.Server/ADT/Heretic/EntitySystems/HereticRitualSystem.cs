@@ -12,6 +12,7 @@ using System.Linq;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
 using Content.Shared.ADT.Heretic.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -24,6 +25,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/ADT/Heretic/castsummon.ogg");
 
@@ -75,6 +77,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
             // check for matching tags
             foreach (var tag in requiredTags)
             {
+                if (_container.IsEntityInContainer(look))
+                    continue;
                 if (!TryComp<TagComponent>(look, out var tags))
                     continue;
                 var ltags = tags.Tags;

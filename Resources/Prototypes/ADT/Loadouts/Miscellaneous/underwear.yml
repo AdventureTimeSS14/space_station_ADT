@@ -1,0 +1,205 @@
+# Трусы...
+
+- type: loadout
+  id: ADTUnderwearBoxersWhite
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+
+## главы
+
+- type: loadout
+  id: ADTUnderwearBoxersQM
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersQM
+
+- type: loadout
+  id: ADTUnderwearBoxersRD
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersRD
+
+- type: loadout
+  id: ADTUnderwearBoxersCap
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersCap
+
+- type: loadout
+  id: ADTUnderwearBoxersHOP
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersHOP
+
+- type: loadout
+  id: ADTUnderwearBoxersHOS
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersHOS
+
+- type: loadout
+  id: ADTUnderwearBoxersCMO
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersCMO
+
+- type: loadout
+  id: ADTUnderwearBoxersCE
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersCE
+
+- type: loadout
+  id: ADTUnderwearBoxersBlueshield
+  equipment:
+    underwearb: ADTClothingUnderwearBottomBoxersBlueshield
+
+# Трусики OwO
+
+- type: loadout
+  id: ADTUnderwearPantiesWhite
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesWhite
+
+- type: loadout
+  id: ADTUnderwearPantiesComfyWhite
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesComfyWhite
+
+## главы
+
+- type: loadout
+  id: ADTUnderwearPantiesQM
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesQM
+
+- type: loadout
+  id: ADTUnderwearPantiesRD
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesRD
+
+- type: loadout
+  id: ADTUnderwearPantiesCap
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesCap
+
+- type: loadout
+  id: ADTUnderwearPantiesHOP
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesHOP
+
+- type: loadout
+  id: ADTUnderwearPantiesHOS
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesHOS
+
+- type: loadout
+  id: ADTUnderwearPantiesCMO
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesCMO
+
+- type: loadout
+  id: ADTUnderwearPantiesCE
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesCE
+
+- type: loadout
+  id: ADTUnderwearPantiesBlueshield
+  equipment:
+    underwearb: ADTClothingUnderwearBottomPantiesBlueshield
+
+# Лифчики
+
+- type: loadout
+  id: ADTUnderwearBraWhite
+  equipment:
+    underweart: ADTClothingUnderwearTopBraWhite
+
+- type: loadout
+  id: ADTUnderwearBraComfyWhite
+  equipment:
+    underweart: ADTClothingUnderwearTopBraComfyWhite
+
+- type: loadout
+  id: ADTUnderwearBraSports
+  equipment:
+    underweart: ADTClothingUnderwearTopBraSports
+
+- type: loadout
+  id: ADTUnderwearBraSportsAlternative
+  equipment:
+    underweart: ADTClothingUnderwearTopBraSportsAlternative
+
+## главы
+
+- type: loadout
+  id: ADTUnderwearBraQM
+  equipment:
+    underweart: ADTClothingUnderwearTopBraQM
+
+- type: loadout
+  id: ADTUnderwearBraRD
+  equipment:
+    underweart: ADTClothingUnderwearTopBraRD
+
+- type: loadout
+  id: ADTUnderwearBraCap
+  equipment:
+    underweart: ADTClothingUnderwearTopBraCap
+
+- type: loadout
+  id: ADTUnderwearBraHOP
+  equipment:
+    underweart: ADTClothingUnderwearTopBraHOP
+
+- type: loadout
+  id: ADTUnderwearBraHOS
+  equipment:
+    underweart: ADTClothingUnderwearTopBraHOS
+
+- type: loadout
+  id: ADTUnderwearBraCMO
+  equipment:
+    underweart: ADTClothingUnderwearTopBraCMO
+
+- type: loadout
+  id: ADTUnderwearBraCE
+  equipment:
+    underweart: ADTClothingUnderwearTopBraCE
+
+- type: loadout
+  id: ADTUnderwearBraBlueshield
+  equipment:
+    underweart: ADTClothingUnderwearTopBraBlueshield
+
+# Всякие чулки и другая подобная хуэта.
+
+- type: loadout
+  id: ADTUnderwearSocksHigh
+  equipment:
+    socks: ADTClothingUnderwearSocksHigh
+
+- type: loadout
+  id: ADTUnderwearSocksShort
+  equipment:
+    socks: ADTClothingUnderwearSocksShort
+
+- type: loadout
+  id: ADTUnderwearSocksThigh
+  equipment:
+    socks: ADTClothingUnderwearSocksThigh
+
+- type: loadout
+  id: ADTUnderwearSocksNormal
+  equipment:
+    socks: ADTClothingUnderwearSocksNormal
+
+- type: loadout
+  id: ADTUnderwearStockings
+  equipment:
+    socks: ADTClothingUnderwearSocksStockingsWhite
+
+# главы.. ну пусть будет, пока тут только синяя лепеха
+
+- type: loadout
+  id: ADTUnderwearStockingsBlueshield
+  equipment:
+    socks: ADTClothingUnderwearSocksStockingsBlueshield
+
+- type: loadout
+  id: ADTUnderwearSocksBlueshield
+  equipment:
+    socks: ADTClothingUnderwearSocksBlueshield
