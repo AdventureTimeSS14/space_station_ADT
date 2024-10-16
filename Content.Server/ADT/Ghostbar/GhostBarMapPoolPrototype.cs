@@ -13,6 +13,6 @@ public sealed partial class GhostBarMapPoolPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("maps", customTypeSerializer:typeof(PrototypeIdHashSetSerializer<GhostBarMapPrototype>), required: true)]
+    [DataField("maps", required: true)]
     public HashSet<string> Maps = new(0);
 }
