@@ -431,3 +431,13 @@
     Telecrystal: 20
   categories:
     - UplinkPointless
+
+- type: listing
+  id: ADTUplinkSyndicateHelmet
+  name: uplink-syndicate-helmet-name
+  description: uplink-syndicate-helmet-desc
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  cost:
+    Telecrystal: 2
+  categories:
+    - UplinkWearables
