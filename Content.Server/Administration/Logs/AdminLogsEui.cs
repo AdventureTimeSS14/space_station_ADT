@@ -142,13 +142,13 @@ public sealed class AdminLogsEui : BaseEui
         }
     }
 
-    public void SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null, HashSet<Guid>? selectedPlayers = null)
+    public void SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null, HashSet<Guid>? selectedPlayers = null) // ADT-Tweak
     {
         var message = new SetLogFilter(
             search,
             invertTypes,
             types,
-            selectedPlayers);
+            selectedPlayers); // ADT-Tweak
 
         SendMessage(message);
     }

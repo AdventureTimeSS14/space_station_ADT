@@ -28,18 +28,18 @@ public static class AdminLogsEuiMsg
     [Serializable, NetSerializable]
     public sealed class SetLogFilter : EuiMessageBase
     {
-        public SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null, HashSet<Guid>? selectedPlayers = null)
+        public SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null, HashSet<Guid>? selectedPlayers = null) // ADT-Tweak
         {
             Search = search;
             InvertTypes = invertTypes;
             Types = types;
-            SelectedPlayers = selectedPlayers;
+            SelectedPlayers = selectedPlayers; // ADT-Tweak
         }
 
         public string? Search { get; set; }
         public bool InvertTypes { get; set; }
         public HashSet<LogType>? Types { get; set; }
-        public HashSet<Guid>? SelectedPlayers { get; set; }
+        public HashSet<Guid>? SelectedPlayers { get; set; } // ADT-Tweak
     }
 
     [Serializable, NetSerializable]
