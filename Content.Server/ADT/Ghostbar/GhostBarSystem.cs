@@ -34,15 +34,6 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    private static readonly List<JobComponent> _jobComponents = new()
-    {
-        new JobComponent { Prototype = "Passenger" },
-        new JobComponent { Prototype = "Bartender" },
-        new JobComponent { Prototype = "Botanist" },
-        new JobComponent { Prototype = "Chef" },
-        new JobComponent { Prototype = "Janitor" }
-    };
-
     public override void Initialize()
     {
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
@@ -54,10 +45,8 @@ public sealed class GhostBarSystem : EntitySystem
     {
         List<GhostBarMapPrototype> maplist = new List<GhostBarMapPrototype>();
 
-        foreach (var proto in _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>())
-        {
+        foreach (var proto in _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>()) ///костыльный метод, т.к. прототип пулла карт ломал тесты
             maplist.Add(proto);
-        }
         var mapprotostr = _random.Pick(maplist);
         var mapproto = _prototypeManager.Index<GhostBarMapPrototype>(mapprotostr); ///да, я знаю, что тут лишняя переменная, но при её удалении вылезает куча ошибок
         _GhostBarMap = mapproto;
@@ -97,7 +86,7 @@ public sealed class GhostBarSystem : EntitySystem
 
 
         var randomSpawnPoint = _random.Pick(spawnPoints);
-        var randomJob = _random.Pick(_jobComponents);
+        var randomJob = _random.Pick(_GhostBarMap.Jobs);
         var profile = _ticker.GetPlayerProfile(args.SenderSession);
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
 

@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
+using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 
 namespace Content.Server.ADT.Ghostbar;
 
@@ -25,5 +26,15 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     /// </summary>
     [DataField("pacified")]
     public bool Pacified = false;
+
+    [DataField]
+    public List<JobComponent> Jobs = new()
+    {
+        new JobComponent { Prototype = "Passenger" },
+        new JobComponent { Prototype = "Bartender" },
+        new JobComponent { Prototype = "Botanist" },
+        new JobComponent { Prototype = "Chef" },
+        new JobComponent { Prototype = "Janitor" }
+    };
 }
 
