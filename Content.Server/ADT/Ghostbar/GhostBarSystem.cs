@@ -52,8 +52,13 @@ public sealed class GhostBarSystem : EntitySystem
     public GhostBarMapPrototype? _GhostBarMap;
     private GhostBarMapPrototype GetRandomMapProto() ///метод нужен на старте всего этого чтобы выбрать карту и передать её прототип в _GhostBarMap
     {
-        var mappoolproto = _prototypeManager.Index<GhostBarMapPoolPrototype>("DefaultGhostbarMapPool");
-        var mapprotostr = _random.Pick(mappoolproto.Maps);
+        List<GhostBarMapPrototype> maplist = new List<GhostBarMapPrototype>();
+
+        foreach (var proto in _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>())
+        {
+            maplist.Add(proto);
+        }
+        var mapprotostr = _random.Pick(maplist);
         var mapproto = _prototypeManager.Index<GhostBarMapPrototype>(mapprotostr); ///да, я знаю, что тут лишняя переменная, но при её удалении вылезает куча ошибок
         _GhostBarMap = mapproto;
         return mapproto;
