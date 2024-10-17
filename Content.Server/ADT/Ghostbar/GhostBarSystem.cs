@@ -20,11 +20,13 @@ using Content.Server.Antag.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Weather;
 
 namespace Content.Server.ADT.Ghostbar;
 
 public sealed class GhostBarSystem : EntitySystem
 {
+    [Dependency] private readonly SharedWeatherSystem _weathersystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -57,9 +59,18 @@ public sealed class GhostBarSystem : EntitySystem
         _mapSystem.CreateMap(out var mapId);
         var options = new MapLoadOptions { LoadMap = true };
         var mapProto = GetRandomMapProto();
+        if (mapProto == null) /// тут проверки и загрузки переменных
+            return;
 
-        if (_mapLoader.TryLoad(mapId, mapProto.Path, out _, options))
+        if (_mapLoader.TryLoad(mapId, mapProto.Path, out _, options)) /// тут карту загружает
+        {
             _mapSystem.SetPaused(mapId, false);
+            if (_prototypeManager.TryIndex<WeatherPrototype>(mapProto.Weather, out var weatherProto)) ///тут погода работеат
+            {
+                TimeSpan? endTime = null;
+                _weathersystem.SetWeather(mapId, weatherProto, endTime);
+            }
+        }
     }
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)

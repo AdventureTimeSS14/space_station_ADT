@@ -27,6 +27,9 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     [DataField("pacified")]
     public bool Pacified = false;
 
+    /// <summary>
+    /// список профессий, которые могут быть в гостбаре
+    /// </summary>
     [DataField]
     public List<JobComponent> Jobs = new()
     {
@@ -36,5 +39,11 @@ public sealed partial class GhostBarMapPrototype : IPrototype
         new JobComponent { Prototype = "Chef" },
         new JobComponent { Prototype = "Janitor" }
     };
+
+    /// <summary>
+    /// погода на карте. если не заполнять строку - её не будет.
+    /// </summary>
+    [DataField("weather")]
+    public string Weather = string.Empty;
 }
 
