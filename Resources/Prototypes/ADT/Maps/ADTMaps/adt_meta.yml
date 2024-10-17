@@ -2,7 +2,7 @@
   id: ADT_Meta
   mapName: 'Meta Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_meta.yml
-  minPlayers: 30
+  minPlayers: 10
   maxPlayers: 80
   stations:
     ADT_Meta:
