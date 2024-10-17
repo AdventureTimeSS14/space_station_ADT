@@ -1,0 +1,29 @@
+- type: entity
+  name: Papaver somniferum
+  parent: FoodProduceBase
+  id: ADTFoodPapaverSomniferum
+  description: A flower which extracts used in making medicine. And narcotics.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - Bitter
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 16
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Toxin
+          Quantity: 4
+        - ReagentId: ADTOpium
+          Quantity: 10
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
+  - type: Produce
+    seedId: ADTPapaverSomniferum
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Flower

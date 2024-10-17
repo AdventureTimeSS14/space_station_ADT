@@ -1,0 +1,21 @@
+- type: latheRecipe
+  id: ADTPillCanister
+  result: ADTPillCanister
+  completetime: 2
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: ADTPlasticBottle
+  result: ADTPlasticBottle
+  completetime: 2
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: ADTPillPack
+  result: ADTPillPack
+  completetime: 2
+  materials:
+    Plastic: 100
+

@@ -1,0 +1,45 @@
+- type: entity
+  name: small syringe
+  description: A small syringe to take.. you guessed it, small samples of liquid.
+  parent: BaseItem
+  id: ADTSmallSyringe
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/syringe.rsi
+    layers:
+      - state: fill-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: syringe_base
+        map: ["enum.SolutionContainerLayers.Base"]
+  - type: Icon
+    sprite: ADT/Objects/Specific/Chemistry/syringe.rsi
+    state: "syringe_base"
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Chemistry/syringe.rsi
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 5
+  - type: FitsInDispenser
+    solution: injector
+  - type: Injector
+    minTransferAmount: 1
+    maxTransferAmount: 5
+    delay: 3
+    transferAmount: 1
+    injectOnly: false
+  - type: Appearance
+  - type: ExaminableSolution
+    solution: injector
+  - type: Spillable
+    solution: injector
+  - type: TrashOnSolutionEmpty
+    solution: injector
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+  - type: Tag
+    tags:
+    - Syringe

@@ -25,3 +25,6 @@ ent-ADTClothingHeadsetTSF = гарнитура ТСФ
 ent-ADTClothingHeadsetTrader = гарнитура торговцев
     .desc = Гарнитура, используемая торговцами.
     .suffix = { "ТСФ" }
+
+ent-ADTClothingHeadsetParamedic = гарнитура парамедика
+    .desc = Гарнитура, используемая парамедиками.

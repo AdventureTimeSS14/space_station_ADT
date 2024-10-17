@@ -1,4 +1,32 @@
 - type: entity
+  id: ADTMobileDefibrillator
+  name: mobile defibrillator
+  description: Mobile version of defibrillator. Can be fixed on your belt, a medical one and even fits in pockets! #somehow
+  parent: BaseDefibrillator
+  components:
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+  - type: Tag
+    tags:
+    - Defibrillator
+    - ADTMobileDefibrillator
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi
+  - type: Defibrillator
+    zapHeal:
+      types:
+        Asphyxiation: -20
+    doAfterDuration: 1.5
+    zapDelay: 6
+  - type: MultiHandedItem
+  - type: StealTarget
+    stealGroup: ADTMobileDefibrillator
+
+- type: entity
   id: ADTHandDefibrillator
   name:
   description:

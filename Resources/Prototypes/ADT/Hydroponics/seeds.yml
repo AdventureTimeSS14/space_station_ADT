@@ -1,0 +1,58 @@
+- type: seed
+  id: ADTPapaverSomniferum
+  name: seeds-papaver-somniferum-name
+  noun: seeds-noun-seeds
+  displayName: seeds-papaver-somniferum-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
+  packetPrototype: ADTPapaverSomniferumSeeds
+  productPrototypes:
+    - ADTFoodPapaverSomniferum
+  lifespan: 25
+  maturation: 10
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 0.60
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 50
+    Toxin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 5
+    ADTMOpium:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 5
+
+- type: seed
+  id: ADTCannabisWhite
+  name: seeds-cannabiswhite-name
+  noun: seeds-noun-seeds
+  displayName: seeds-cannabiswhite-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
+  packetPrototype: ADTcannabiswhiteSeeds
+  productPrototypes:
+    - ADTLeavesCannabisWhite
+  harvestRepeat: Repeat
+  lifespan: 75
+  maturation: 8
+  production: 15
+  yield: 2
+  potency: 30
+  growthStages: 2
+  waterConsumption: 0.40
+  idealLight: 9
+  idealHeat: 298
+  chemicals:
+    THC:
+      Min: 5
+      Max: 15
+      PotencyDivisor: 15
+    Omnizine:
+      Min: 3
+      Max: 8
+      PotencyDivisor: 15

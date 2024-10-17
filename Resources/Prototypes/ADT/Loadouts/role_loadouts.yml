@@ -87,6 +87,7 @@
   - MedicalMask
   - MedicalDoctorJumpsuit
   - MedicalGloves
+  - ADTMedicalBelt # ADT tweak
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - Trinkets

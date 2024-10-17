@@ -185,6 +185,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#0091ff"
+  worksOnTheDead: true
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -5
@@ -207,10 +208,10 @@
           damage:
           # todo scale with temp like SS13
             groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+              Airloss: -1
+              Brute: -1
+              Burn: -1.2
+              Toxin: -0.8
         # Start ADT tweak
         - !type:HealthChange
           conditions:
@@ -221,11 +222,11 @@
             max: 213.0
           damage:
             groups:
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+              Brute: -1
+              Burn: -1.2
+              Toxin: -0.8
             types:
-              Bloodloss: -5
+              Bloodloss: -1
         # End ADT tweak
 
 - type: reagent
@@ -236,6 +237,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
+  worksOnTheDead: true
   metabolisms:
     Medicine:
       effects:
@@ -245,7 +247,7 @@
             max: 213.0
           damage:
             types:
-             Cellular: -2
+             Cellular: -3 # ADT tweak
 
 - type: reagent
   id: Dermaline

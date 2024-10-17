@@ -1,0 +1,6 @@
+- type: localizedDataset
+  id: PillAds
+  values:
+    prefix: advertisement-pill-
+    count: 4
+

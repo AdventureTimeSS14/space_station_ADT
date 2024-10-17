@@ -1,0 +1,63 @@
+- type: entity
+  parent: BaseItem
+  id: ADTSecuredVendingMachineRestock
+  abstract: true
+  name: secured vending machine restock box
+  description: A secured box for restocking vending machines with corporate goodies, the contents of the box gets destroyed if it's hit by force.
+  components:
+  - type: VendingMachineRestock
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi # Update this later with a new sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+  - type: CargoSellBlacklist
+  - type: StaticPrice
+    price: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Weapons/genhit2.ogg
+    soundSwing:
+      path: /Audio/Weapons/punchmiss.ogg
+  - type: Item
+    size: Large
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTScrapSecuredBox:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTSecuredVendingMachineRestock
+  id: ADTSecuredVendingMachineRestockCiviMedVend
+  name: CiviMed restock box
+  description: A box containing medical supplies for the CiviMed vending machine. A label reads THE BOX IS TAMPER PROOF AND WILL DESTROY IT'S CONTENT ON HARM.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - ADTCiviMedVendInventory
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_civimed
