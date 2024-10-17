@@ -937,7 +937,7 @@
     - LeavesCannabis
   mutationPrototypes:
     - rainbowCannabis
-    - ADTCannabisWhite
+    - ADTCannabisWhite # ADT tweak
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 8
@@ -1154,7 +1154,7 @@
     - FoodPoppy
   mutationPrototypes:
     - lily
-    - ADTPapaverSomniferum
+    - ADTPapaverSomniferum # ADT tweak
   lifespan: 25
   maturation: 10
   production: 3
