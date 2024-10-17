@@ -2,7 +2,7 @@
   id: ADT_Oasis
   mapName: 'Oasis'
   mapPath: /Maps/ADTMaps/ADTStations/adt_oasis.yml
-  minPlayers: 25
+  minPlayers: 45
   stations:
     ADT_Oasis:
       stationProto: StandardNanotrasenStation

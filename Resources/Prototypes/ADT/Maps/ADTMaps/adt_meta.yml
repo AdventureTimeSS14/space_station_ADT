@@ -2,7 +2,8 @@
   id: ADT_Meta
   mapName: 'Meta Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_meta.yml
-  minPlayers: 10
+  minPlayers: 30
+  maxPlayers: 80
   stations:
     ADT_Meta:
       stationProto: StandardNanotrasenStation

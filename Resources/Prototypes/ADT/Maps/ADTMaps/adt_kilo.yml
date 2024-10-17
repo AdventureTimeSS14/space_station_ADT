@@ -2,7 +2,7 @@
   id: ADT_kilo
   mapName: 'kilostation'
   mapPath: /Maps/ADTMaps/ADTStations/adt_kilostation.yml
-  minPlayers: 10
+  minPlayers: 30
   maxPlayers: 80
   stations:
     ADT_kilo:
