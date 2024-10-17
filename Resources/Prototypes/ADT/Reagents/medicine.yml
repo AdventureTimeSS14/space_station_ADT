@@ -517,7 +517,7 @@
   name: reagent-name-arazine
   group: Medicine
   desc: reagent-desc-arazine
-  physicalDesc: reagent-physical-desc-murky
+  physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#ff6d05"
   worksOnTheDead: true
@@ -538,7 +538,7 @@
   name: reagent-name-mezadrozine
   group: Medicine
   desc: reagent-desc-mezadrozine
-  physicalDesc: reagent-physical-desc-murky
+  physicalDesc: reagent-physical-desc-acrid
   flavor: medicine
   color: "#47061a"
   worksOnTheDead: true
@@ -569,7 +569,7 @@
   name: reagent-name-alomicine
   group: Medicine
   desc: reagent-desc-alomicine
-  physicalDesc: reagent-physical-desc-murky
+  physicalDesc: reagent-physical-desc-exotic-smelling
   flavor: medicine
   color: "#b315c2"
   worksOnTheDead: true
@@ -596,7 +596,7 @@
   name: reagent-name-miadinol
   group: Medicine
   desc: reagent-desc-miadinol
-  physicalDesc: reagent-physical-desc-murky
+  physicalDesc: reagent-physical-desc-strong-smelling
   flavor: medicine
   color: "#111b30"
   worksOnTheDead: true
