@@ -26,7 +26,6 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Hands.Components;
 using Content.Server.Hands.Systems;
-using Content.Shared.Store;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -96,7 +95,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (regenCap)
             float.Min(component.Chemicals, component.MaxChemicals);
 
-        _alerts.ShowAlert(uid, _proto.Index<AlertPrototype>("Chemicals"), (short) Math.Clamp(Math.Round(component.Chemicals / 10.7f), 0, 7));
+        _alerts.ShowAlert(uid, _proto.Index<AlertPrototype>("Chemicals"), (short)Math.Clamp(Math.Round(component.Chemicals / 10.7f), 0, 7));
 
         return true;
     }
@@ -304,11 +303,11 @@ public sealed partial class ChangelingSystem : EntitySystem
             {
                 if (TryComp(uid, out StealthOnMoveComponent? stealthOnMoveComp))
                 {
-                    var copiedStealthComponent = (Component) _serialization.CreateCopy(stealthComp, notNullableOverride: true);
+                    var copiedStealthComponent = (Component)_serialization.CreateCopy(stealthComp, notNullableOverride: true);
                     EntityManager.AddComponent(transformedUid.Value, copiedStealthComponent);
                     RemComp(uid, stealthComp);
 
-                    var copiedStealthOnMoveComponent = (Component) _serialization.CreateCopy(stealthOnMoveComp, notNullableOverride: true);
+                    var copiedStealthOnMoveComponent = (Component)_serialization.CreateCopy(stealthOnMoveComp, notNullableOverride: true);
                     EntityManager.AddComponent(transformedUid.Value, copiedStealthOnMoveComponent);
                     RemComp(uid, stealthOnMoveComp);
                 }

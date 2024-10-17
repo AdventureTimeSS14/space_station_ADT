@@ -16,7 +16,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: //ADT/Changeling/actions_ling.rsi
+      sprite: ADT/Changeling/actions_ling.rsi
       state: absorb_dna
     whitelist:
       components:
@@ -33,7 +33,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: /ADT/Changeling/actions_ling.rsi
+      sprite: ADT/Changeling/actions_ling.rsi
       state: cycle
     event: !type:ChangelingCycleDNAActionEvent
     useDelay: 1
@@ -46,7 +46,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: /ADT/Changeling/actions_ling.rsi
+      sprite: ADT/Changeling/actions_ling.rsi
       state: transform
     event: !type:ChangelingTransformActionEvent
     useDelay: 5
@@ -60,7 +60,7 @@
   - type: InstantAction
     checkCanInteract: false
     icon:
-      sprite: /ADT/Changeling/actions_ling.rsi
+      sprite: ADT/Changeling/actions_ling.rsi
       state: regenerate
     event: !type:LingRegenerateActionEvent
     useDelay: 115
@@ -73,7 +73,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: /ADT/Changeling/actions_ling.rsi
+      sprite: ADT/Changeling/actions_ling.rsi
       state: sting_extract
     whitelist:
       components:
@@ -116,7 +116,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: /ADT/Changeling/actions_ling.rsi
+      sprite: ADT/Changeling/actions_ling.rsi
       state: chameleon
     event: !type:LingInvisibleActionEvent
     useDelay: 1
@@ -129,7 +129,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: //ADT/Changeling/actions_ling.rsi
+      sprite: ADT/Changeling/actions_ling.rsi
       state: emp
     useDelay: 15
     event: !type:LingEMPActionEvent

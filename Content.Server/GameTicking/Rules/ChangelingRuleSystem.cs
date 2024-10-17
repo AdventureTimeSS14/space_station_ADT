@@ -7,57 +7,34 @@ using Content.Shared.CCVar;
 using Content.Shared.Roles;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
-using Robust.Shared.Audio;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using System.Text;
-using System.Linq;
-using Content.Server.Antag;
 using Content.Server.Chat.Managers;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.GameTicking.Components;
-using Content.Server.Mind;
-using Content.Server.NPC.Systems;
-using Content.Server.Objectives;
-using Content.Shared.IdentityManagement;
-using Content.Server.Roles;
-using Content.Server.Shuttles.Components;
-using Content.Shared.CCVar;
-using Content.Shared.Dataset;
-using Content.Shared.Mind;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Objectives.Components;
 using Content.Shared.Changeling.Components;
-using Content.Shared.Preferences;
-using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
-using Robust.Server.Player;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
-using Content.Server.Actions;
 using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Prototypes;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponent>
 {
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
-    [Dependency] private readonly SharedJobSystem _jobSystem = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
 
+    public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoints";
+
+    public readonly ProtoId<NpcFactionPrototype> SyndicateFactionId = "Syndicate";
+
+    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
     private int PlayersPerLing => _cfg.GetCVar(CCVars.ChangelingPlayersPerChangeling);
     private int MaxChangelings => _cfg.GetCVar(CCVars.ChangelingMaxChangelings);
 
@@ -80,33 +57,51 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     public bool TryMakeChangeling(EntityUid target, ChangelingRuleComponent rule)
     {
-        if (!_mindSystem.TryGetMind(target, out var mindId, out var mind))
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _antagSelection.SendBriefing(target, Loc.GetString("changeling-role-greeting"), Color.Purple, rule.ChangelingStartSound);
+        // briefing
+        if (HasComp<MetaDataComponent>(target))
+        {
+            var briefingShort = Loc.GetString("heretic-role-greeting-short");
 
-        _npcFaction.RemoveFaction(target, "NanoTrasen", false);
-        _npcFaction.AddFaction(target, "Syndicate");
+            _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting-fluff"), Color.MediumPurple, null);
+            _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting"), Color.Red, rule.ChangelingStartSound);
+
+            if (_mind.TryGetRole<RoleBriefingComponent>(mindId, out var rbc))
+                rbc.Briefing += $"\n{briefingShort}";
+            else _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
+        }
+
+        _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
+        _npcFaction.AddFaction(target, SyndicateFactionId);
 
         // Ensure Changeling component and role
         EnsureComp<ChangelingComponent>(target);
-        _roleSystem.MindAddRole(mindId, new ChangelingRoleComponent(), mind);
+        _role.MindAddRole(mindId, new ChangelingRoleComponent(), mind);
 
-        // Assign objectives and other components
+        var store = EnsureComp<StoreComponent>(target);
+        foreach (var category in rule.StoreCategories)
+            store.Categories.Add(category);
+        store.CurrencyWhitelist.Add(Currency);
+        store.Balance.Add(Currency, 2);
+
         rule.Minds.Add(mindId);
 
         foreach (var objective in rule.Objectives)
-            _mindSystem.TryAddObjective(mindId, mind, objective);
+            _mind.TryAddObjective(mindId, mind, objective);
 
         return true;
     }
 
+
     public void OnObjectivesTextPrepend(Entity<ChangelingRuleComponent> ent, ref ObjectivesTextPrependEvent args)
     {
         var sb = new StringBuilder();
+
         foreach (var changeling in EntityQuery<ChangelingComponent>())
         {
-            if (!_mindSystem.TryGetMind(changeling.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(changeling.Owner, out var mindId, out var mind))
                 continue;
 
             var objectiveText = Loc.GetString("changeling-objective-assignment");
