@@ -565,10 +565,10 @@
           type: Add
 
 - type: reagent
-  id: ADTAlomicin
-  name: reagent-name-alomicin
+  id: ADTAlomicine
+  name: reagent-name-alomicine
   group: Medicine
-  desc: reagent-desc-alomicin
+  desc: reagent-desc-alomicine
   physicalDesc: reagent-physical-desc-murky
   flavor: medicine
   color: "#b315c2"

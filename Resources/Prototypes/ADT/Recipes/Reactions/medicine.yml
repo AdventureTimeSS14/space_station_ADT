@@ -213,7 +213,7 @@
     ADTMezadrozine: 4
 
 - type: reaction
-  id: ADTAlomicin
+  id: ADTAlomicine
   reactants:
     Insuzine:
       amount: 1
@@ -224,7 +224,7 @@
     Phenol:
       amount: 1
   products:
-    ADTAlomicin: 4
+    ADTAlomicine: 4
 
 - type: reaction
   id: ADTMiadinol
