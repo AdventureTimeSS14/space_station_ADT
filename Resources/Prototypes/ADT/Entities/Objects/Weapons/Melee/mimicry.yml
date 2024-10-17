@@ -1,0 +1,114 @@
+- type: entity
+  name: Mimicry
+  parent: BaseSword
+  id: ADTWeaponSworldLobotomy
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus
+  - type: Spellbook
+    LearnTime: 0.1
+    spellActions:
+      ADTActionTeatacles: -1
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
+    size: Huge
+    #shitcode start
+  - type: BasicEntityAmmoProvider
+    proto: ADTMimicryTentacle
+    capacity: 3
+    count: 3
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    projectileSpeed: 4
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    #shitcode end
+
+- type: entity
+  id: ADTActionTeatacles
+  name: tentacles
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
+      state: icon
+    event: !type:InstantSpawnSpellEvent
+      prototype: ADTMimicryTentacle
+      posData: !type:TargetInFront
+
+- type: entity
+  id: ADTMimicryTentacle
+  name: tentacle
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: D
+    canCollide: true
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
+    layers:
+    - state: mimicria_tentacle_wiggle
+  - type: Fixtures
+    fixtures:
+      fix:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - Impassable
+        layer:
+        - Impassable
+        hard: false
+  - type: TimedDespawn #do this shit by hand because of fucking course.
+    lifetime: 1
+  - type: DamageContacts
+    damage:
+      types:
+        Slash: 20
+        Piercing: 20
+  - type: SpawnOnDespawn
+    prototype: ADTEffectiMicryTentacleRetract
+  - type: Projectile
+
+
+- type: entity
+  id: ADTEffectiMicryTentacleRetract
+  parent: BaseEffectGoliathTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
+    state: mimicria_tentacle_retract
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: ADTEffectiMicriaTentacleSpawn
+  parent: BaseEffectGoliathTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: tentacle
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/mimicry_sword.rsi
+      state: mimicria_tentacle_spawn
+    - type: SpawnOnDespawn
+      prototype: ADTMimicryTentacle
