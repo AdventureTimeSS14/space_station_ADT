@@ -21,4 +21,10 @@ public sealed partial class ClumsyComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier ClumsySound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
+
+    /// <summary>
+    /// ADT-Clumsy-Tweak: Is the player an antagonist
+    /// </summary>
+    [DataField]
+    public bool Antagonist = false;
 }

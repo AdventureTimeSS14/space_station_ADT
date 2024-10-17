@@ -1,10 +1,17 @@
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Random;
+using Content.Shared.Roles; // ADT-Clumsy-Tweak
 
 namespace Content.Shared.Interaction
 {
     public partial class SharedInteractionSystem
     {
+        // ADT-Clumsy-Tweak-Start
+        private void OnRoleAdded(EntityUid uid, ClumsyComponent component, RoleAddedEvent ev)
+        {
+            component.Antagonist = ev.Antagonist;
+        }
+        // ADT-Clumsy-Tweak-End
         public bool RollClumsy(ClumsyComponent component, float chance)
         {
             return component.Running && _random.Prob(chance);
