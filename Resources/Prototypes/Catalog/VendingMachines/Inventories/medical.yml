@@ -2,11 +2,18 @@
   id: NanoMedPlusInventory
   startingInventory:
     HandheldHealthAnalyzer: 3
+    ADTPatchPackFilled: 3 # ADT tweak
     Brutepack: 5
     Ointment: 5
+    ADTAntibioticOintment: 5 # ADT tweak
     Bloodpack: 5
     EpinephrineChemistryBottle: 3
     Syringe: 5
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
-
+  # ADT tweak Start
+  emaggedInventory:
+    ADTMorphineBottle: 1
+    OmnizineChemisrtyBottle: 1
+    ADTPatchHonk: 3
+  # ADT tweak End

@@ -3,6 +3,10 @@ ent-ADTPlasticBottle = пластиковая бутылочка
     .desc = Небольшая пластиковая бутылочка.
     .suffix = { "" }
 
+ent-ADTGlassBottle = стеклянная бутылочка
+    .desc = Небольшая стеклянная бутылочка.
+    .suffix = { "" }
+
 ent-ADTObjectsSpecificArithrazineChemistryBottle = бутылочка аритразина
     .desc = "Маленькая бутылочка"
 ent-ADTObjectsSpecificBicaridineChemistryBottle = бутылочка бикаридина

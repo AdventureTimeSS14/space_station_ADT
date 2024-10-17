@@ -302,3 +302,72 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill16
+
+# Пилюля для ГраждоМеда # Убрать и заменить на норм настройку цен в вендомате как будет возможность.
+
+- type: entity
+  name: pill Tricordrazine
+  parent: PillTricordrazine
+  id: ADTPillTricordrazine
+  components:
+  - type: Pill
+    pillType: 0
+  - type: Label
+    currentLabel:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 10
+  - type: StaticPrice
+    price: 7
+
+- type: entity
+  name: ephedrine pill
+  parent: ADTPillBase
+  id: ADTEphedrinePill
+  description: Feel the speed!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ephedrine
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/pills.rsi
+    state: pill16
+
+- type: entity
+  name: toxin pill
+  parent: ADTPillBase
+  id: ADTToxinPill
+  description: Whoops. he-he
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/pills.rsi
+    state: pill14
+
+- type: entity
+  name: happiness pill
+  parent: ADTPillBase
+  id: ADTHappinessPill
+  description: Feel the speed!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Happiness
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/pills.rsi
+    state: pill11

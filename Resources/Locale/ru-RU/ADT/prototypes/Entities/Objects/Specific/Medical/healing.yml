@@ -1,5 +1,0 @@
-ent-ADTAntibioticOintment = антибиотическая мазь
-    .desc = Используется для лечения как ушибов, порезов, уколов, так и ожогов.
-ent-ADTAntibioticOintment1 = { ent-ADTAntibioticOintment }
-    .desc = { ent-ADTAntibioticOintment.desc }
-    .suffix = Один

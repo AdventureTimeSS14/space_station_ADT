@@ -2,11 +2,11 @@ ent-ADTPatchPack = коробка пластырей
     .desc = Коробка для хранения медицинских пластырей.
     .suffix = { "" }
 
-ent-ADTPatchHealing = заживляющий пластырь
+ent-ADTPatchHealing = пластырь
     .desc = Помогает при грубых травмах.
     .suffix = { "" }
 
-ent-ADTPatchHealingMini = заживляющий мини-пластырь
+ent-ADTPatchHealingMini = мини-пластырь от ушибов
     .desc = Помогает при грубых травмах.
     .suffix = { "" }
 

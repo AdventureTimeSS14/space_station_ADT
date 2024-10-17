@@ -11,3 +11,6 @@ ent-ADTVendingMachineParaDrobe = ПараШкаф
     .desc = Стильная одежда для экстренных медицинских вызовов.
 ent-ADTVendingMachinePatholoDrobe = ПатологоШкаф
     .desc = Самая стильная одежда в самом отдалёном месте медицинского отдела.
+
+ent-ADTVendingMachineCiviMedVend = ГраждоМед
+    .desc = Создан специально чтобы облегчить ваш бала.. боль.

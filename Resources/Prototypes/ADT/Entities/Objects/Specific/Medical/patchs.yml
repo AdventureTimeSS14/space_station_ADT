@@ -50,6 +50,8 @@
   - type: Extractable
     grindableSolutionName: pen
   - type: Appearance
+  - type: StaticPrice
+    price: 10
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -73,10 +75,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 18
         reagents:
         - ReagentId: ADTStypticPowder
-          Quantity: 20
+          Quantity: 18
 
 #Patch healing small
 
@@ -93,7 +95,7 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 10
         reagents:
         - ReagentId: ADTStypticPowder
           Quantity: 10
@@ -113,10 +115,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 14
         reagents:
         - ReagentId: ADTSilverSulfadiazine
-          Quantity: 20
+          Quantity: 14
 
 #Patch burn small
 
@@ -133,10 +135,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 7
         reagents:
         - ReagentId: ADTSilverSulfadiazine
-          Quantity: 10
+          Quantity: 7
 
 #honk honk?
 
@@ -153,7 +155,7 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 6
         reagents:
         - ReagentId: Honk
           Quantity: 6
