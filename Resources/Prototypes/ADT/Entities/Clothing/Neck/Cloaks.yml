@@ -84,3 +84,18 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTVergileCloak
+  name: Vergile cloak
+  description: Vergile cloak
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi

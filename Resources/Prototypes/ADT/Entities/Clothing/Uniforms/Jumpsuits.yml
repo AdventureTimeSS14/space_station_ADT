@@ -890,3 +890,200 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
+
+
+#halloween
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTOtherworldClownCostume
+  name: otherworldly clown costume
+  description: A costume of an ancient being who came from another dimension to frighten people and feed on their fears... sounds like the work of a clown!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/otherworld_clown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/otherworld_clown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTBioMercUniform
+  name: bio-mercenary uniform
+  description: Congratulations, you were born in this world where the value of life is zero. In this world, everything is already rotten, and everything is in eternal stagnation, and there is no need to hurry and make the world better or worse. You can only exist in this world, saturated with hatred for everything. You are just a biomass among other biomass.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bio_merc.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bio_merc.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJasonCostume
+  name: maniac costume
+  description: Wear a hockey player mask and kill the victims with a machete.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jason.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/jason.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTVyasovCostume
+  name: Vyasov costume
+  description: A nightmate on the Vyasov station!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vyasov.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vyasov.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHotlineMiamiUniform
+  name: student uniform
+  description: A legend told, that this uniform wear a Miami killer
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hotlinemiami.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/hotlinemiami.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTServantOfEvilUniform
+  name: suit of the servant of evil
+  description: suit of the servant of evil
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/servant_evil.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/servant_evil.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTDudeShirt
+  name: dude's t-shirt
+  description: dude's t-shirt
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dude_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dude_shirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSquidGameOrganizerSuit
+  name: squid game organizer suit
+  description: squid game organizer suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_org.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_org.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSquidGamePlayerSuit
+  name: squid game player suit
+  description: squid game player suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTTagillaSuit
+  name: Tagilla pants
+  description: Tagilla pants
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tagilla_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tagilla_pants.rsi
+  #- type: Storage
+  #  capacity: 5
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTDJClownSuit
+  name: DJ clown suit
+  description: DJ clown suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/djclown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/djclown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTVampireSuit
+  name: vampire suit
+  description: vampire suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vampire_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vampire_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTVergileSuit
+  name: Vergile suit
+  description: Vergile suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vergile_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/vergile_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTXenomorphSuit
+  name: xenomorph suit
+  description: xenomorph suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/xenomorph_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/xenomorph_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenMichaelMyersSuit
+  name: Michael Myers suit
+  description: Michael Myers suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/michael_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/michael_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTJumpsuitHunterDemon
+  name: qm jumpsuit warm
+  description: A sharp turtleneck made for the hardy work environment of supply.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/suit_hunterdemon.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/suit_hunterdemon.rsi
