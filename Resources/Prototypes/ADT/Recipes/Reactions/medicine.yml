@@ -169,10 +169,11 @@
   products:
     ADTSilverSulfadiazine: 5
 
+# КриоПрепараты
 - type: reaction
   id: ADTDetoxisol
   reactants:
-    Ultravasculine:
+    Diethylamine:
       amount: 1
     Diphenhydramine:
       amount: 1
@@ -182,3 +183,59 @@
       amount: 1
   products:
     ADTDetoxisol: 4
+
+- type: reaction
+  id: ADTArazine
+  reactants:
+    Arithrazine:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Gold:
+      amount: 1
+  products:
+    ADTArazine: 4
+
+- type: reaction
+  id: ADTMezadrozine
+  reactants:
+    Razorium:
+      amount: 1
+    Silver:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTMezadrozine: 4
+
+- type: reaction
+  id: ADTAlomicin
+  reactants:
+    Insuzine:
+      amount: 1
+    Sigynate:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Phenol:
+      amount: 1
+  products:
+    ADTAlomicin: 4
+
+- type: reaction
+  id: ADTMiadinol
+  reactants:
+    Kelotane:
+      amount: 1
+    Leporazine:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Phenol:
+      amount: 1
+  products:
+    ADTMiadinol: 4
