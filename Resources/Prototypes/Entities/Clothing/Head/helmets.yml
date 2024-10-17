@@ -386,6 +386,7 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.85
+    staminaModifier: 0.3  # ADT-Tweak
 
 #Bone Helmet
 - type: entity
