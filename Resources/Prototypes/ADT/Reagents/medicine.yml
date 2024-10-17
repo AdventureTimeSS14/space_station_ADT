@@ -554,10 +554,14 @@
             groups:
               Brute: -9.6
             types:
-              Caustic: 1.5
+              Caustic: 1.0
         - !type:GenericStatusEffect
-          key: Stun
-          time: 90
+          key: Stutter
+          component: StutteringAccent
+          time: 60
+          type: Add
+        - !type:Jitter
+          time: 60
           type: Add
 
 - type: reagent
@@ -584,7 +588,7 @@
         - !type:GenericStatusEffect
           key: TemporaryBlindness
           component: TemporaryBlindness
-          time: 5
+          time: 60
           type: Add
 
 - type: reagent
@@ -610,5 +614,5 @@
         - !type:GenericStatusEffect
           key: Stutter
           component: StutteringAccent
-          time: 3
+          time: 60
           type: Add
