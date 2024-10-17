@@ -132,3 +132,6 @@
 
 - type: Tag
   id: ADTMagazineRifleAR12
+
+- type: Tag
+  id: ChangelingBlacklist

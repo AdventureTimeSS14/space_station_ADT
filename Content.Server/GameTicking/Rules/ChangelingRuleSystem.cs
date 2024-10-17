@@ -49,10 +49,6 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
     private void OnAntagSelect(Entity<ChangelingRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         TryMakeChangeling(args.EntityUid, ent.Comp);
-
-        for (int i = 0; i < _random.Next(6, 12); i++)
-            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-                Spawn("ChangelingInfluence", coords);
     }
 
     public bool TryMakeChangeling(EntityUid target, ChangelingRuleComponent rule)
@@ -78,7 +74,6 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         // Ensure Changeling component and role
         EnsureComp<ChangelingComponent>(target);
-        _role.MindAddRole(mindId, new ChangelingRoleComponent(), mind);
 
         var store = EnsureComp<StoreComponent>(target);
         foreach (var category in rule.StoreCategories)

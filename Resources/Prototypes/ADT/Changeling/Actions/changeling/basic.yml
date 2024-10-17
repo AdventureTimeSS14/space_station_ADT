@@ -1,7 +1,7 @@
 - type: entity
   id: ActionChangelingEvolutionMenu
-  name: Evolution Menu
-  description: Opens the evolution menu, where you can evolve your body to fit your environment.
+  name: action-evolution-menu
+  description: action-evolution-menu-decs
   noSpawn: true
   components:
   - type: InstantAction
@@ -10,14 +10,15 @@
 
 - type: entity
   id: ActionChangelingAbsorb
-  name: Absorb DNA
-  description: Absorbs the DNA of the targeted person. They must be in critical or dead and be a humanoid in order to absorb.
+  name: action-absorb-dna
+  description: action-absorb-dna-desc
   noSpawn: true
   components:
   - type: EntityTargetAction
     icon:
       sprite: ADT/Changeling/actions_ling.rsi
       state: absorb_dna
+    itemIconStyle: BigAction
     whitelist:
       components:
       - Body
@@ -27,34 +28,36 @@
 
 - type: entity
   id: ActionChangelingCycleDNA
-  name: Cycle DNA
-  description: Cycles through your available DNA strands.
+  name: action-cycle-dna
+  description: action-cycle-dna-desc
   noSpawn: true
   components:
   - type: InstantAction
     icon:
       sprite: ADT/Changeling/actions_ling.rsi
       state: cycle
+    itemIconStyle: BigAction
     event: !type:ChangelingCycleDNAActionEvent
     useDelay: 1
 
 - type: entity
   id: ActionChangelingTransform
-  name: Transform
-  description: Transforms your appearance to the selected DNA strand. Uses 5 chemicals.
+  name: action-transform
+  description: action-transform-desc
   noSpawn: true
   components:
   - type: InstantAction
     icon:
       sprite: ADT/Changeling/actions_ling.rsi
       state: transform
+    itemIconStyle: BigAction
     event: !type:ChangelingTransformActionEvent
     useDelay: 5
 
 - type: entity
   id: ActionLingRegenerate
-  name: Regenerate
-  description: Rapidly regenerate, healing major wounds and restoring blood volume. Uses 10 chemicals and can only be used when in a critical condition.
+  name: action-regenerate
+  description: action-regenerate-desc
   noSpawn: true
   components:
   - type: InstantAction
@@ -62,19 +65,21 @@
     icon:
       sprite: ADT/Changeling/actions_ling.rsi
       state: regenerate
+    itemIconStyle: BigAction
     event: !type:LingRegenerateActionEvent
     useDelay: 115
 
 - type: entity
   id: ActionLingStingExtract
-  name: Extract DNA Sting
-  description: Extracts the DNA of the target victim. It will not inform the victim they have been stung. Uses 25 chemicals.
+  name: action-extract-dna-sting
+  description: action-extract-dna-sting-desc
   noSpawn: true
   components:
   - type: EntityTargetAction
     icon:
       sprite: ADT/Changeling/actions_ling.rsi
       state: sting_extract
+    itemIconStyle: BigAction
     whitelist:
       components:
       - Body
@@ -84,52 +89,155 @@
 
 - type: entity
   id: ActionArmBlade
-  name: Toggle Arm Blade
-  description: Transforms one of your free arms into a grotesque blade made out of bone and flesh. It can also be used to pry open doors. Uses 20 chemicals.
+  name: action-toggle-arm-blade
+  description: action-toggle-arm-blade-desc
   noSpawn: true
   components:
   - type: InstantAction
     icon:
       sprite: Objects/Weapons/Melee/armblade.rsi
       state: icon
+    itemIconStyle: BigAction
     event: !type:ArmBladeActionEvent
     useDelay: 1
 
 - type: entity
   id: ActionLingArmor
-  name: Toggle Chitinous Armor
-  description: Inflates your body into an all-consuming chitinous mass of armor. Uses 20 chemicals and slows down chemical regeneration by 25% when active.
+  name: action-toggle-chitinous-armor
+  description: action-toggle-chitinous-armor-desc
   noSpawn: true
   components:
   - type: InstantAction
     icon:
       sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
       state: icon
+    itemIconStyle: BigAction
     event: !type:LingArmorActionEvent
     useDelay: 15
 
 - type: entity
   id: ActionLingInvisible
-  name: Toggle Chameleon Skin
-  description: Your skin pigmentation rapidly changes to suit your current environment, becoming invisible after a few seconds of standing still. Uses 25 chemicals.
+  name: action-toggle-chameleon-skin
+  description: action-toggle-chameleon-skin-desc
   noSpawn: true
   components:
   - type: InstantAction
     icon:
       sprite: ADT/Changeling/actions_ling.rsi
       state: chameleon
+    itemIconStyle: BigAction
     event: !type:LingInvisibleActionEvent
     useDelay: 1
 
 - type: entity
   id: ActionLingEMP
-  name: Activate Dissonant Shriek
-  description: You shift your vocal cords to release a high-frequency sound that overloads nearby electronics. Uses 20 chemicals.
+  name: action-activate-dissonant-shriek
+  description: action-activate-dissonant-shriek-desc
   noSpawn: true
   components:
   - type: InstantAction
     icon:
       sprite: ADT/Changeling/actions_ling.rsi
       state: emp
+    itemIconStyle: BigAction
     useDelay: 15
     event: !type:LingEMPActionEvent
+
+    # Stasis Death
+- type: entity
+  id: ActionStasisDeath
+  name: action-stasis-death
+  description: action-stasis-death-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Changeling/actions_ling.rsi
+      state: stasis
+    itemIconStyle: BigAction
+    event: !type:StasisDeathActionEvent
+    useDelay: 90
+
+    # Blind sting
+- type: entity
+  id: ActionLingBlindSting
+  name: action-blind-sting
+  description: action-blind-sting-desc
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/actions_ling.rsi
+      state: sting_blind
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:BlindStingEvent
+    useDelay: 2
+    canTargetSelf: false
+
+    # Adrenaline
+- type: entity
+  id: ActionLingAdrenaline
+  name: action-adrenaline
+  description: action-adrenaline-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/actions_ling.rsi
+      state: epinephrine_overdose
+    itemIconStyle: BigAction
+    event: !type:AdrenalineActionEvent
+    useDelay: 30
+
+    # Refresh
+- type: entity
+  id: ActionLingRefresh
+  name: action-refresh-ling
+  description: action-refresh-ling-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/actions_ling.rsi
+      state: refresh_dna
+    itemIconStyle: BigAction
+    event: !type:ChangelingRefreshActionEvent
+    useDelay: 5
+
+    # Fleshmend
+- type: entity
+  id: ActionLingOmnizine
+  name: action-omnizine
+  description: action-omnizine-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    event: !type:OmniHealActionEvent
+    useDelay: 30
+
+    # Mute sting
+- type: entity
+  id: ActionLingMuteSting
+  name: action-mute-sting
+  description: action-mute-sting-desc
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/actions_ling.rsi
+      state: sting_mute
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:MuteStingEvent
+    useDelay: 5
+    canTargetSelf: false

@@ -50,7 +50,16 @@
       "name": "sting_transform"
     },
     {
-      "name": "sting_cryo"
+        "name": "sting_cryo"
+    },
+    {
+        "name": "epinephrine_overdose"
+    },
+    {
+        "name": "refresh_dna"
+    },
+    {
+        "name": "fleshmend"
     }
   ]
 }

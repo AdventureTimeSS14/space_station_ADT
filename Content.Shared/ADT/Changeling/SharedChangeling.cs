@@ -12,6 +12,15 @@ public sealed partial class LingStingExtractActionEvent : EntityTargetActionEven
 {
 }
 
+public sealed partial class BlindStingEvent : EntityTargetActionEvent
+{
+}
+
+public sealed partial class MuteStingEvent : EntityTargetActionEvent
+{
+}
+
+
 [Serializable, NetSerializable]
 public sealed partial class AbsorbDoAfterEvent : SimpleDoAfterEvent
 {
@@ -45,5 +54,21 @@ public sealed partial class LingInvisibleActionEvent : InstantActionEvent
 }
 
 public sealed partial class LingEMPActionEvent : InstantActionEvent
+{
+}
+
+public sealed partial class StasisDeathActionEvent : InstantActionEvent
+{
+}
+
+public sealed partial class AdrenalineActionEvent : InstantActionEvent
+{
+}
+
+public sealed partial class OmniHealActionEvent : InstantActionEvent
+{
+}
+
+public sealed partial class ChangelingRefreshActionEvent : InstantActionEvent
 {
 }

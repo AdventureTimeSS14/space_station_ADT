@@ -7,9 +7,6 @@ using Content.Shared.Changeling.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Content.Shared.Store;
-using Content.Server.Traitor.Uplink;
-using Content.Shared.Damage;
-using Content.Server.Body.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
@@ -18,30 +15,34 @@ using Content.Server.Polymorph.Systems;
 using System.Linq;
 using Content.Shared.Polymorph;
 using Content.Server.Forensics;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Actions;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Alert;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Hands.Components;
-using Content.Server.Hands.Systems;
+using Content.Shared.Tag;
+using Content.Server.Body.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Chemistry.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -79,12 +80,14 @@ public sealed partial class ChangelingSystem : EntitySystem
     [ValidatePrototypeId<EntityPrototype>]
     private const string ChangelingTransformActionId = "ActionChangelingTransform";
 
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string ChangelingRefreshActionId = "ActionLingRefresh";
+
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string ChangelingDNAStingActionId = "ActionLingStingExtract";
+
     [ValidatePrototypeId<CurrencyPrototype>]
     public const string EvolutionPointsCurrencyPrototype = "EvolutionPoints";
-
-    [ValidatePrototypeId<StorePresetPrototype>]
-    public const string ChangelingShopPresetPrototype = "StorePresetChangeling";
-
     public bool ChangeChemicalsAmount(EntityUid uid, float amount, ChangelingComponent? component = null, bool regenCap = true)
     {
         if (!Resolve(uid, ref component))
@@ -143,6 +146,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         _action.AddAction(uid, ChangelingAbsorbActionId);
         _action.AddAction(uid, ChangelingDNACycleActionId);
         _action.AddAction(uid, ChangelingTransformActionId);
+        _action.AddAction(uid, ChangelingDNAStingActionId);
+        _action.AddAction(uid, ChangelingRefreshActionId);
     }
 
     private void OnShop(EntityUid uid, ChangelingComponent component, ChangelingEvolutionMenuActionEvent args)
@@ -202,6 +207,14 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
+        if (_tagSystem.HasTag(target, "ChangelingBlacklist"))
+        {
+            var selfMessage = Loc.GetString("changeling-dna-sting-fail-nodna", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return false;
+        }
+
+
         var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(target);
         if (newHumanoidData == null)
             return false;
@@ -236,16 +249,18 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (selectedHumanoidData.MetaDataComponent == null)
             return;
 
-        var selfMessage = Loc.GetString("changeling-dna-switchdna", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
+         var selfMessage = Loc.GetString("changeling-dna-switchdna", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
         _popup.PopupEntity(selfMessage, uid, uid);
     }
 
     public void OnTransform(EntityUid uid, ChangelingComponent component, ChangelingTransformActionEvent args)
     {
+        var selectedHumanoidData = component.StoredDNA[component.SelectedDNA];
+        var transformedUid = _polymorph.PolymorphEntityAsHumanoid(uid, selectedHumanoidData);
+
         if (args.Handled)
             return;
 
-        var selectedHumanoidData = component.StoredDNA[component.SelectedDNA];
         var dnaComp = EnsureComp<DnaComponent>(uid);
 
         if (selectedHumanoidData.EntityPrototype == null)
@@ -262,52 +277,38 @@ public sealed partial class ChangelingSystem : EntitySystem
             var selfMessage = Loc.GetString("changeling-transform-fail", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
             _popup.PopupEntity(selfMessage, uid, uid);
         }
-        if (component.LingArmorActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-        if (component.ArmBladeActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-
         else
         {
+        if (!TryUseAbility(uid, component, component.ChemicalsCostFive))
+            return;
 
-            if (!TryUseAbility(uid, component, component.ChemicalsCostFive))
-                return;
+        args.Handled = true;
 
-            args.Handled = true;
+        if (transformedUid == null)
+            return;
 
-            var transformedUid = _polymorph.PolymorphEntityAsHumanoid(uid, selectedHumanoidData);
-            if (transformedUid == null)
-                return;
+        var selfMessage = Loc.GetString("changeling-transform-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
+        _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
 
-            var selfMessage = Loc.GetString("changeling-transform-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-            _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
-
-            var newLingComponent = EnsureComp<ChangelingComponent>(transformedUid.Value);
-            newLingComponent.Chemicals = component.Chemicals;
-            newLingComponent.ChemicalsPerSecond = component.ChemicalsPerSecond;
-            newLingComponent.StoredDNA = component.StoredDNA;
-            newLingComponent.SelectedDNA = component.SelectedDNA;
-            newLingComponent.ArmBladeActive = component.ArmBladeActive;
-            newLingComponent.ChameleonSkinActive = component.ChameleonSkinActive;
-            newLingComponent.LingArmorActive = component.LingArmorActive;
-            RemComp(uid, component);
-
+        var newLingComponent = EnsureComp<ChangelingComponent>(transformedUid.Value);
+        newLingComponent.Chemicals = component.Chemicals;
+        newLingComponent.ChemicalsPerSecond = component.ChemicalsPerSecond;
+        newLingComponent.StoredDNA = component.StoredDNA;
+        newLingComponent.SelectedDNA = component.SelectedDNA;
+        newLingComponent.ArmBladeActive = component.ArmBladeActive;
+        newLingComponent.ChameleonSkinActive = component.ChameleonSkinActive;
+        newLingComponent.LingArmorActive = component.LingArmorActive;
+        RemComp(uid, component);
 
             if (TryComp(uid, out StealthComponent? stealthComp)) // copy over stealth status
             {
                 if (TryComp(uid, out StealthOnMoveComponent? stealthOnMoveComp))
                 {
-                    var copiedStealthComponent = (Component)_serialization.CreateCopy(stealthComp, notNullableOverride: true);
+                    var copiedStealthComponent = (Component) _serialization.CreateCopy(stealthComp, notNullableOverride: true);
                     EntityManager.AddComponent(transformedUid.Value, copiedStealthComponent);
                     RemComp(uid, stealthComp);
 
-                    var copiedStealthOnMoveComponent = (Component)_serialization.CreateCopy(stealthOnMoveComp, notNullableOverride: true);
+                    var copiedStealthOnMoveComponent = (Component) _serialization.CreateCopy(stealthOnMoveComp, notNullableOverride: true);
                     EntityManager.AddComponent(transformedUid.Value, copiedStealthOnMoveComponent);
                     RemComp(uid, stealthOnMoveComp);
                 }
@@ -321,6 +322,148 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (newLingComponent.LingArmorActive)
                 SpawnLingArmor(transformedUid.Value, inventory);
 
+            if (newLingComponent.ArmBladeActive)
+                SpawnArmBlade(transformedUid.Value);
+        }
+    }
+
+    public bool BlindSting(EntityUid uid, EntityUid target, ChangelingComponent component)  /// Ослепление
+    {
+        if (!TryComp<MetaDataComponent>(target, out var metaData))
+            return false;
+        if (!TryComp<HumanoidAppearanceComponent>(target, out var humanoidappearance))
+        {
+            return false;
+        }
+
+        if (_tagSystem.HasTag(target, "ChangelingBlacklist"))
+        {
+            var selfMessage = Loc.GetString("changeling-dna-sting-fail-nodna", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return false;
+        }
+
+        if (HasComp<ChangelingComponent>(target))
+        {
+            var selfMessage = Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+
+            var targetMessage = Loc.GetString("changeling-sting-fail-target");
+            _popup.PopupEntity(targetMessage, target, target);
+            return false;
+        }
+
+        if (!TryComp<StatusEffectsComponent>(target, out var statusComp))
+            return false;
+
+        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, TemporaryBlindnessSystem.BlindingStatusEffect, component.BlindStingDuration, true, statusComp);
+        return true;
+    }
+
+    public bool MuteSting(EntityUid uid, EntityUid target, ChangelingComponent component)  /// чел ты в муте
+    {
+        if (!TryComp<MetaDataComponent>(target, out var metaData))
+            return false;
+        if (!TryComp<HumanoidAppearanceComponent>(target, out var humanoidappearance))
+        {
+            return false;
+        }
+
+        if (_tagSystem.HasTag(target, "ChangelingBlacklist"))
+        {
+            var selfMessage = Loc.GetString("changeling-dna-sting-fail-nodna", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return false;
+        }
+
+        if (HasComp<ChangelingComponent>(target))
+        {
+            var selfMessage = Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+
+            var targetMessage = Loc.GetString("changeling-sting-fail-target");
+            _popup.PopupEntity(targetMessage, target, target);
+            return false;
+        }
+
+        if (!_entityManager.TryGetComponent<BloodstreamComponent>(target, out var bloodstream))
+            return false;
+
+        var muteInjection = new Solution(component.ChemicalMute, component.MuteAmount);
+        _bloodstreamSystem.TryAddToChemicals(target, muteInjection, bloodstream);
+
+        return true;
+    }
+
+
+    public bool Adrenaline(EntityUid uid, ChangelingComponent component)    /// Адреналин
+    {
+        if (!TryComp<MetaDataComponent>(uid, out var metaData))
+            return false;
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidappearance))
+        {
+            return false;
+        }
+
+        if (_tagSystem.HasTag(uid, "ChangelingBlacklist"))
+        {
+            return false;
+        }
+        if (!_entityManager.TryGetComponent<BloodstreamComponent>(uid, out var bloodstream))
+            return false;
+        var adrenalineInjection = new Solution(component.ChemicalMorphine, component.AdrenalineAmount);
+        _bloodstreamSystem.TryAddToChemicals(uid, adrenalineInjection, bloodstream);
+
+        var adrenalineInjectionTr = new Solution(component.ChemicalTranex, component.AdrenalineAmount);
+        _bloodstreamSystem.TryAddToChemicals(uid, adrenalineInjectionTr, bloodstream);
+
+        return true;
+    }
+
+    public bool OmniHeal(EntityUid uid, ChangelingComponent component)    /// Омнизин
+    {
+        if (!TryComp<MetaDataComponent>(uid, out var metaData))
+            return false;
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidappearance))
+        {
+            return false;
+        }
+
+        if (_tagSystem.HasTag(uid, "ChangelingBlacklist"))
+        {
+            return false;
+        }
+        if (!_entityManager.TryGetComponent<BloodstreamComponent>(uid, out var bloodstream))
+            return false;
+        var omnizineInjection = new Solution(component.ChemicalOmni, component.OmnizineAmount);
+        _bloodstreamSystem.TryAddToChemicals(uid, omnizineInjection, bloodstream);
+
+        return true;
+    }
+
+    public bool Refresh(EntityUid uid, ChangelingComponent component)   /// Очистка
+    {
+        if (!component.CanRefresh)
+        {
+            var selfMessage = Loc.GetString("changeling-refresh-not-ready");
+            _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
+            return false;
+        }
+        else
+        {
+            component.StoredDNA = new List<PolymorphHumanoidData>();    /// Создание нового ДНК списка
+            StealDNA(uid, component);   /// Сохранение ДНК текущего тела
+
+
+            _store.TryAddCurrency(new Dictionary<string, FixedPoint2>   /// Костыльно перевёл сюда получение очков
+            { {EvolutionPointsCurrencyPrototype, component.AbsorbedMobPointsAmount} }, uid);
+
+            /// Удаление всех способностей - нихуя не понял, потом сделаю. Надеюсь.
+
+            component.CanRefresh = false;
+
+            component.SelectedDNA = 0;
+            return true;
         }
     }
 }

@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server.Antag.Components;
 using Content.Shared.Players;
-using Content.Server.GameTicking.Rules; // убрать
+
 namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem

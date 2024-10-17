@@ -1,10 +1,10 @@
 - type: listing
   id: ChangelingDNAExtract
-  name: Extract DNA Sting
-  description: Silently stings the victim to extract their genetic information. Uses 25 chemicals on sting.
+  name: extract-dna-string
+  description: extract-dna-string-desc
   productAction: ActionLingStingExtract
   cost:
-    EvolutionPoints: 1
+    EvolutionPoints: 4
   categories:
   - ChangelingAbilities
   conditions:
@@ -13,11 +13,11 @@
 
 - type: listing
   id: ChangelingArmBlade
-  name: Arm Blade
-  description: Transform one of your arms into a grotesque blade made out of bone and flesh. Cuts through people as a hot knife through butter. Uses 20 chemicals on activation.
+  name: arm-blade
+  description: arm-blade-desc
   productAction: ActionArmBlade
   cost:
-    EvolutionPoints: 2
+    EvolutionPoints: 6
   categories:
   - ChangelingAbilities
   conditions:
@@ -26,11 +26,11 @@
 
 - type: listing
   id: ChangelingArmor
-  name: Chitinous Armor
-  description: Inflates your body into an all-consuming chitinous mass of armor. Provides a lot of protection, but slows you down by 35%. Uses 20 chemicals on activation.
+  name: chitinous-armor
+  description: chitinous-armor-desc
   productAction: ActionLingArmor
   cost:
-    EvolutionPoints: 1
+    EvolutionPoints: 6
   categories:
   - ChangelingAbilities
   conditions:
@@ -39,9 +39,36 @@
 
 - type: listing
   id: ChangelingChameleonSkin
-  name: Chameleon Skin
-  description: Your skin pigmentation rapidly changes to suit your current environment, becoming invisible after a few seconds of standing still. Uses 25 chemicals on activation.
+  name: chameleon-skin
+  description: chameleon-skin-desc
   productAction: ActionLingInvisible
+  cost:
+    EvolutionPoints: 4
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ChangelingEMP
+  name: dissonant-shriek
+  description: dissonant-shriek-desc
+  productAction: ActionLingEMP
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: ChangelingBlindSting
+  name: blind-sting
+  description: blind-sting-desc
+  productAction: ActionLingBlindSting
   cost:
     EvolutionPoints: 2
   categories:
@@ -51,12 +78,38 @@
     stock: 1
 
 - type: listing
-  id: ChangelingEMP
-  name: Dissonant Shriek
-  description: You release a high-frequency sound which disables technology in the surrounding area, including radio headsets. Uses 20 chemicals on activation.
-  productAction: ActionLingEMP
+  id: ChangelingAdrenaline
+  name: adrenaline-cl
+  description: adrenaline-cl-desc
+  productAction: ActionLingAdrenaline
   cost:
     EvolutionPoints: 1
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ChangelingOmnizine
+  name: omnizine-cl
+  description: omnizine-cl-desc
+  productAction: ActionLingOmnizine
+  cost:
+    EvolutionPoints: 3
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ChangelingMuteSting
+  name: mute-sting
+  description: mute-sting-desc
+  productAction: ActionLingMuteSting
+  cost:
+    EvolutionPoints: 2
   categories:
   - ChangelingAbilities
   conditions:

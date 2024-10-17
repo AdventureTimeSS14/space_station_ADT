@@ -314,7 +314,9 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
 
-        SendToPausedMap(uid, targetTransformComp);
+        EnsurePausedMap();
+        if (PausedMap != null)
+            _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
 
         return child;
     }
