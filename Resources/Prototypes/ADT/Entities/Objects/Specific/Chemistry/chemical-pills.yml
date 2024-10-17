@@ -339,6 +339,8 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill16
+  - type: StaticPrice
+    price: 7
 
 - type: entity
   name: toxin pill
@@ -355,6 +357,8 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill14
+  - type: StaticPrice
+    price: 7
 
 - type: entity
   name: happiness pill
@@ -371,3 +375,5 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill11
+  - type: StaticPrice
+    price: 7
