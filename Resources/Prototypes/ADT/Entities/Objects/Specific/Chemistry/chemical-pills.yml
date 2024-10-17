@@ -322,7 +322,7 @@
         - ReagentId: Tricordrazine
           Quantity: 10
   - type: StaticPrice
-    price: 7
+    price: 5
 
 - type: entity
   name: ephedrine pill
