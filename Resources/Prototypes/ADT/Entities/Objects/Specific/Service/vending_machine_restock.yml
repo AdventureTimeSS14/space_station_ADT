@@ -61,3 +61,5 @@
     - state: green_bit
       shader: unshaded
     - state: refill_civimed
+  - type: StaticPrice
+    price: -1500
