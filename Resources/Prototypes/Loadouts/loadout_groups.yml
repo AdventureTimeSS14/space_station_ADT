@@ -1189,6 +1189,7 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - ADTCMOLabcoatHike # ADT tweak
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck

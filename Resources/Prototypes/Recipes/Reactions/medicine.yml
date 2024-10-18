@@ -59,14 +59,12 @@
   reactants:
     Stellibinin: # ADT tweak Может сделать новое особое растение для крио, но это лишь в планах.
       amount: 1
-    Dexalin:
-      amount: 1
+    DexalinPlus: # ADT tweak
+      amount: 2 # ADT tweak
     Water:
-      amount: 1
-    Ultravasculine: # ADT tweak
-      amount: 1
+      amount: 2 # ADT tweak
   products:
-    Cryoxadone: 4 # ADT tweak
+    Cryoxadone: 5 # ADT tweak
 
 - type: reaction
   id: Doxarubixadone
