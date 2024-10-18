@@ -9,3 +9,9 @@
     sprite: ADT/Clothing/Shoes/Boots/newmekka.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/newmekka.rsi  #спрайты от prazat911
+
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ADTClothingShoesBootsCombatNeCkoll
+  components:
+  - type: NoSlip
