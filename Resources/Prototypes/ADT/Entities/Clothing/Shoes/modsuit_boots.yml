@@ -1,0 +1,135 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: ADTClothingModsuitShoesBase
+  name: base MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/standart.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/standart.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: StaticPrice
+    price: 750
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavy
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesAtmos
+  name: atmos MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/atmospheric.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/atmospheric.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: [ClothingShoesClown, ADTClothingModsuitShoesBase]  
+  id: ADTClothingModsuitShoesClown
+  name: clown MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/clown.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/clown.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesEngineering
+  name: engineering MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/engineering.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/engineering.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesMedical
+  name: medical MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/medical.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/medical.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesMining
+  name: mining MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesSecurity
+  name: security MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesCience
+  name: cience MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/cience.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Boots/Modsuit/cience.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
