@@ -58,9 +58,9 @@
   description: A void helmet made for paramedics.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/paramedhelm.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/paramedic_hardsuithead.rsi # ADT tweak респрайт от празата
   - type: Clothing
-    sprite: Clothing/Head/Helmets/paramedhelm.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/paramedic_hardsuithead.rsi # ADT tweak респрайт от празата
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

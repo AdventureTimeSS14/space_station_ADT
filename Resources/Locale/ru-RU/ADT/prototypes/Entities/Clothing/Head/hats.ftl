@@ -11,8 +11,24 @@ ent-ADTClothingHeadHatGreyFlatCap = серая плоская кепка
 ent-ADTClothingHeadHatBeretBrigmedic = берет бригмедика
     .desc = Красный берет с ярким белым крестом, показывающий всем что вы - Медик. К сожалению, это не защищает вас от пули, ведь здесь не работают земные конвенции. Зато служит отличной мешенью.
 
+ent-ADTClothingHeadHatsParamedicBeret = берет парамедика
+    .desc = Берет, связанный с постоянной медицинской работой.
+
+ent-ADTClothingHeadHatsBeretSupply = берет отдела снабжения
+    .desc = Берет медного цвета с вышитой эмблемой отдела снабжения.
+
+ent-ADTClothingHeadHatsBeretAtmos = берет атмосферного техника
+    .desc = Голубой берет с вышитой эмблемой инжерного отдела. Пахнет фрезоном.
+
+ent-ADTClothingHeadHatsBeretHOP = берет главы персонала
+    .desc = Синий берет с вышитой командирской эмблемой. Холодная рассудительность и твердая рука - вот что главное.
+
 ent-ADTClothingHeadHatBeretBlackCivilian = чёрный берет
     .desc = Этот тёмный берет из мягкой ткани прилегает к голове как уютный оберег от холода. Его простой и классический дизайн делает его универсальным аксессуаром для любого стиля одежды.
+
+ent-ADTClothingHeadHatsBeretArmy = армейский берет
+    .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
+    .suffix = { "Новая Мекка" }
 
 ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
@@ -21,17 +37,6 @@ ent-ADTClothingHeadCapIlisium = фуражка
 ent-ADTClothingHeadHatsInvestigatorCap = фуражка следователя Службы Безопасности
     .desc = Слава NanoTrasen!
     .suffix = { "" }
-
-ent-ADTClothingHeadHatsBeretArmy = армейский берет
-    .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
-    .suffix = { "Новая Мекка" }
-
-ent-ADTClothingHeadHatsBeretSupply = берет отдела снабжения
-    .desc = Берет медного цвета с вышитой эмблемой отдела снабжения.
-ent-ADTClothingHeadHatsBeretAtmos = берет атмосферного техника
-    .desc = Голубой берет с вышитой эмблемой инжерного отдела. Пахнет фрезоном.
-ent-ADTClothingHeadHatsBeretHOP = берет главы персонала
-    .desc = Синий берет с вышитой командирской эмблемой. Холодная рассудительность и твердая рука - вот что главное.
 
 ent-ADTClothingHeadHatsBavarianHat = баварская шляпа
     .desc = Традиционная баварская шляпа.

@@ -171,6 +171,20 @@
     tags:
       - HamsterWearable
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsParamedicBeret
+  name: paramedic's beret
+  description: A blue beret of a constantly busy job.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_paramedic.rsi #спрайты от prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_paramedic.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
 #октоберфест
 
 - type: entity

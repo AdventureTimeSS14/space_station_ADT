@@ -1,0 +1,9 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseTraitorStealObjective
+  id: ADTCMODefibrillatorStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ChiefMedicalOfficer
+  - type: StealCondition
+    stealGroup: ADTMobileDefibrillator

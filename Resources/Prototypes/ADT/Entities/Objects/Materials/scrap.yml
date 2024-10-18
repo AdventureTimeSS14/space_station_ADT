@@ -1,0 +1,17 @@
+# TODO Сделать общий парент со спрайтами если будете добавлять еще мусор всякий.
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapSecuredBox
+  name: broken secure box
+  description: Just empty box
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/securedbox.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Huge
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 400 # 4 sheets
+

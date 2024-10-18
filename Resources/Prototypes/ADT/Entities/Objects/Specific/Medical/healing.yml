@@ -1,0 +1,124 @@
+- type: entity
+  parent: BaseItem
+  id: ADTBaseHealingItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medical.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Medical/medical.rsi
+    heldPrefix: med_tourniqet
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  name: antibiotic ointment
+  description: Used to treat blunt and burn traumas.
+  parent: ADTBaseHealingItem
+  id: ADTAntibioticOintment
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    state: antib_ointment
+  - type: Item
+    heldPrefix: antib_ointment
+  - type: Healing #по факту, эта штука может вылечить аж 210 урона за 10 штук, но учитывая то, что кислотные раны очень редки, то где-то 190, что тоже достаточно.
+    damageContainers:
+      - Biological
+    damage:
+      groups:
+        Brute: -9 #по 3 в каждом уроне.
+        Burn: -12 #по 3 в каждом уроне. даже кислотных.
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: ADTAntibioticOintment
+    count: 10
+  - type: StackPrice
+    price: 10
+
+- type: entity
+  id: ADTAntibioticOintment1
+  parent: ADTAntibioticOintment
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: ADTAntibioticOintment
+    count: 1
+
+# Стаки Для ГраждоМеда # Убрать и заменить на норм настройку цен в вендомате как будет возможность.
+
+- type: entity
+  id: ADTBloodpack1
+  parent: Bloodpack
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Bloodpack
+    count: 1
+  - type: StackPrice
+    price: 12
+
+- type: entity
+  id: ADTOintment1
+  parent: Ointment
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Ointment
+    count: 1
+  - type: StackPrice
+    price: 9
+
+- type: entity
+  id: ADTGauze1
+  parent: Gauze
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+  - type: StackPrice
+    price: 13
+
+- type: entity
+  id: ADTBrutepack1
+  parent: Brutepack
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Brutepack
+    count: 1
+  - type: StackPrice
+    price: 9
+
+# Емагнутые хилки для граждомеда
+
+- type: entity
+  id: ADTBrutepackAdvanced1
+  parent: MedicatedSuture
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: MedicatedSuture
+    count: 1
+  - type: StackPrice
+    price: 5
+
+- type: entity
+  id: ADTOintmentAdvanced1
+  parent: RegenerativeMesh
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: RegenerativeMesh
+    count: 1
+  - type: StackPrice
+    price: 5
+
+
