@@ -10,4 +10,4 @@
       - sprite: Mobs/Ghosts/ghost_human.rsi
         state: icon
     state: observer
-  - type: GhostBarSpawn
+  - type: GhostBarSpawnPoint

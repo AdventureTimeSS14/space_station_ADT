@@ -4,7 +4,7 @@ namespace Content.Server.ADT.Ghostbar.Components;
 /// Target for ghosts to spawn at
 /// </summary>
 [RegisterComponent]
-public sealed partial class GhostBarSpawnComponent : Component
+public sealed partial class GhostBarSpawnPointComponent : Component
 {
 
 }

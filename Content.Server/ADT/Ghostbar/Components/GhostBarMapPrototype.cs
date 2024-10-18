@@ -28,6 +28,12 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     public bool Pacified = false;
 
     /// <summary>
+    /// добавляет игрокам призрачную прозрачность, лучше не ставить меньше 0.8f
+    /// </summary>
+    [DataField("ghosted")]
+    public float Ghosted = 1f;
+
+    /// <summary>
     /// список профессий, которые могут быть в гостбаре
     /// </summary>
     [DataField]
@@ -45,5 +51,11 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     /// </summary>
     [DataField("weather")]
     public string Weather = string.Empty;
+
+    /// <summary>
+    /// компоненты, добавляемые при заходе в гостбар человека(ТОЛЬКО КАСТОМНЫЕ, все компоненты туда лучше не добавлять)
+    /// </summary>
+    [DataField("componentsadd")]
+    public ComponentRegistry Componentsadd = new();
 }
 
