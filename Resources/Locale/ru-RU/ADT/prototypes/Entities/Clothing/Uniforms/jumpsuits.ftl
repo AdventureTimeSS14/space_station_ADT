@@ -265,3 +265,6 @@ ent-ADTClothingUniformSquidGamePlayer = комбинезон игрока Игр
 ent-ADTClothingUniformJumpsuitTrader = комбинезон торговца
     .desc = Это комбинезон, который носят торговцы ТСФ
     .suffix = { "ТСФ" }
+
+ent-ADTClothingUniformMimicry = мимикрический комбинезон
+    .desc = На вид как деловой костюм что агрессивно сшили из плоти, выглядит ужасно!
