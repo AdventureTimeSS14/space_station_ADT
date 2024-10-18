@@ -62,8 +62,6 @@
   - type: Stack
     stackType: Bloodpack
     count: 1
-  - type: StaticPrice
-    price: 12
   - type: StackPrice
     price: 12
 
@@ -75,8 +73,6 @@
   - type: Stack
     stackType: Ointment
     count: 1
-  - type: StaticPrice
-    price: 9
   - type: StackPrice
     price: 9
 
@@ -87,8 +83,6 @@
   components:
   - type: Stack
     count: 1
-  - type: StaticPrice
-    price: 13
   - type: StackPrice
     price: 13
 
@@ -100,8 +94,6 @@
   - type: Stack
     stackType: Brutepack
     count: 1
-  - type: StaticPrice
-    price: 9
   - type: StackPrice
     price: 9
 
