@@ -562,7 +562,6 @@
           type: Add
         - !type:Jitter
           time: 60
-          type: Add
 
 - type: reagent
   id: ADTAlomicine
