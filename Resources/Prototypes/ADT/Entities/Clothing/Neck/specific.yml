@@ -6,6 +6,10 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Specific/secbadge.rsi
+    - type: Badge
+    - type: Tag
+      tags:
+      - ADTBadge
 
 - type: entity
   parent: ClothingNeckBase
