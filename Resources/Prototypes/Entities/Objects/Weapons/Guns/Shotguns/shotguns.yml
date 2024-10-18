@@ -108,12 +108,14 @@
   description: An immortal classic. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
   - type: Item
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
@@ -173,11 +175,11 @@
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/pump.rsi # ADT tweak
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/pump.rsi # ADT tweak
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/pump.rsi # ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: BallisticAmmoProvider
     capacity: 4
@@ -195,12 +197,12 @@
   description: Groovy! Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Item
     size: Small
-    sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Gun
     fireRate: 4
     soundGunshot: # Corvax-Guns
