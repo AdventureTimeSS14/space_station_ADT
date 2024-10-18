@@ -15,11 +15,16 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Access.Systems;
+using Content.Shared.Damage;
+using Robust.Shared.Random;
+using Content.Shared.Overlays;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -28,6 +33,7 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public abstract class SharedMechSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -39,11 +45,10 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
+        // SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
         SubscribeLocalEvent<MechComponent, MechEjectPilotEvent>(OnEjectPilotEvent);
         SubscribeLocalEvent<MechComponent, UserActivateInWorldEvent>(RelayInteractionEvent);
         SubscribeLocalEvent<MechComponent, ComponentStartup>(OnStartup);
@@ -55,15 +60,17 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, GetMeleeWeaponEvent>(OnGetMeleeWeapon);
         SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnCanAttackFromContainer);
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
+
+        SubscribeNetworkEvent<SelectMechEquipmentEvent>(OnMechEquipSelected);
     }
 
-    private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
-    {
-        if (args.Handled)
-            return;
-        args.Handled = true;
-        CycleEquipment(uid);
-    }
+    // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
+    // {
+    //     if (args.Handled)
+    //         return;
+    //     args.Handled = true;
+    //     CycleEquipment(uid);
+    // }
 
     private void OnEjectPilotEvent(EntityUid uid, MechComponent component, MechEjectPilotEvent args)
     {
@@ -101,7 +108,6 @@ public abstract class SharedMechSystem : EntitySystem
     {
         BreakMech(uid, component);
     }
-
     private void OnGetAdditionalAccess(EntityUid uid, MechComponent component, ref GetAdditionalAccessEvent args)
     {
         var pilot = component.PilotSlot.ContainedEntity;
@@ -132,6 +138,13 @@ public abstract class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
+        // ADT Content start
+        _actions.AddAction(pilot, ref component.MechInhaleActionEntity, component.MechInhaleAction, mech);
+        _actions.AddAction(pilot, ref component.MechTurnLightsActionEntity, component.MechTurnLightsAction, mech);
+
+        var ev = new SetupMechUserEvent(pilot);
+        RaiseLocalEvent(mech, ref ev);
+        // ADT Content end
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -188,7 +201,15 @@ public abstract class SharedMechSystem : EntitySystem
         component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
             ? null
             : allEquipment[equipmentIndex];
-
+        // ADT Content start
+        while (TryComp<MechEquipmentComponent>(component.CurrentSelectedEquipment, out var equipment) && equipment.CanBeUsed == false)
+        {
+            equipmentIndex++;
+            component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
+                ? null
+                : allEquipment[equipmentIndex];
+        }
+        // ADT Content end
         var popupString = component.CurrentSelectedEquipment != null
             ? Loc.GetString("mech-equipment-select-popup", ("item", component.CurrentSelectedEquipment))
             : Loc.GetString("mech-equipment-select-none-popup");
@@ -276,8 +297,8 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        if (component.Energy + delta < 0)
-            return false;
+        // if (component.Energy + delta < 0)    // ADT Commented
+        //     return false;                    // Почему тут стоит эта проверка, если используется Math.Clamp()?
 
         component.Energy = FixedPoint2.Clamp(component.Energy + delta, 0, component.MaxEnergy);
         Dirty(uid, component);
@@ -390,6 +411,18 @@ public abstract class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot);
         _container.RemoveEntity(uid, pilot);
         UpdateAppearance(uid, component);
+        // ADT Content start
+        if (_net.IsClient && _timing.IsFirstTimePredicted)
+        {
+            var ev = new CloseMechMenuEvent();
+            RaiseLocalEvent(pilot, ev);
+        }
+
+        if (HasComp<ShowHealthBarsComponent>(pilot))
+        {
+            RemComp<ShowHealthBarsComponent>(pilot);
+        }
+        // ADT Content end
         return true;
     }
 
@@ -449,6 +482,54 @@ public abstract class SharedMechSystem : EntitySystem
         args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
     }
 
+    // ADT Content start
+
+    /// <summary>
+    /// Handles mech equipment selection in radial menu.
+    /// </summary>
+    /// <param name="ev"></param>
+    private void OnMechEquipSelected(SelectMechEquipmentEvent ev)
+    {
+        var uid = GetEntity(ev.User);
+
+        if (!TryComp<MechPilotComponent>(uid, out var pilot))
+            return;
+
+        var mechUid = pilot.Mech;
+        if (!TryComp<MechComponent>(mechUid, out var mech))
+            return;
+
+        if (ev.Equipment == null)
+        {
+            mech.CurrentSelectedEquipment = null;
+
+            var popup = Loc.GetString("mech-equipment-select-none-popup");
+
+            if (_timing.IsFirstTimePredicted)
+                _popup.PopupEntity(popup, uid, uid);
+
+            if (_net.IsServer)
+                Dirty(mechUid, mech);
+            return;
+        }
+
+        var entity = GetEntity(ev.Equipment.Value);
+
+        if (!mech.EquipmentContainer.Contains(entity))
+            Log.Error("Mech does not have selected equipment");
+        mech.CurrentSelectedEquipment = entity;
+
+        var popupString = mech.CurrentSelectedEquipment != null
+            ? Loc.GetString("mech-equipment-select-popup", ("item", mech.CurrentSelectedEquipment))
+            : Loc.GetString("mech-equipment-select-none-popup");
+
+        if (_timing.IsFirstTimePredicted)
+            _popup.PopupEntity(popupString, uid, uid);
+
+        if (_net.IsServer)
+            Dirty(mechUid, mech);
+    }
+    // ADT Content end
 }
 
 /// <summary>
