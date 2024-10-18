@@ -115,8 +115,6 @@
   - type: Stack
     stackType: MedicatedSuture
     count: 1
-  - type: StaticPrice
-    price: 5
   - type: StackPrice
     price: 5
 
@@ -128,8 +126,6 @@
   - type: Stack
     stackType: RegenerativeMesh
     count: 1
-  - type: StaticPrice
-    price: 5
   - type: StackPrice
     price: 5
 
