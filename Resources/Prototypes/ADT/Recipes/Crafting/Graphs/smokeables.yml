@@ -27,7 +27,7 @@
             - material: ADTGroundCannabisWhite
               doAfter: 2
     - node: joint
-      entity: ADTJoint
+      entity: ADTJointWhite
 
 - type: constructionGraph
   id: ADTsmokeableBlunt
@@ -41,4 +41,4 @@
             - material: ADTGroundCannabisWhite
               doAfter: 2
     - node: blunt
-      entity: ADTBlunt
+      entity: ADTBluntWhite
