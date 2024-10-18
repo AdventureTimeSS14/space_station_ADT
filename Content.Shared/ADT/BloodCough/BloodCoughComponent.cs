@@ -1,8 +1,12 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.BloodCough;
 
+/// <summary>
+/// Компонент, который отслеживает состояние сущности и воспроизводит эмоцию о плохом состоянии, если у сущности больше 70 грубого урона.
+/// принимает поле postingSayDamage, то сообщение которое будет воспроиводиться эмоцией сущности.
+/// by Шрёдька :з (Schrodinger71)
+/// </summary>
 [RegisterComponent]
 [NetworkedComponent]
 public sealed partial class BloodCoughComponent : Component
