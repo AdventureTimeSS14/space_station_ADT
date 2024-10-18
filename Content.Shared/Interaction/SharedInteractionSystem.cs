@@ -109,7 +109,7 @@ namespace Content.Shared.Interaction
             SubscribeLocalEvent<UnremoveableComponent, GotUnequippedHandEvent>(OnUnequipHand);
             SubscribeLocalEvent<UnremoveableComponent, DroppedEvent>(OnDropped);
 
-            SubscribeLocalEvent<ClumsyComponent, RoleAddedEvent>(OnRoleAdded); // ADT-Clumsy-Tweak
+            SubscribeLocalEvent<ClumsyComponent, MindIsAntagonistEvent>(MindIsAntagonist); // ADT-Clumsy-Tweak
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.AltActivateItemInWorld,

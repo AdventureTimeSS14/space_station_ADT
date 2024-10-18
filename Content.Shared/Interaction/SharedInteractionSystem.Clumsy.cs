@@ -7,9 +7,9 @@ namespace Content.Shared.Interaction
     public partial class SharedInteractionSystem
     {
         // ADT-Clumsy-Tweak-Start
-        private void OnRoleAdded(EntityUid uid, ClumsyComponent component, RoleAddedEvent ev)
+        private void MindIsAntagonist(EntityUid uid, ClumsyComponent component, MindIsAntagonistEvent ev)
         {
-            component.Antagonist = ev.Antagonist;
+            component.Antagonist = ev.IsAntagonist;
         }
         // ADT-Clumsy-Tweak-End
         public bool RollClumsy(ClumsyComponent component, float chance)
