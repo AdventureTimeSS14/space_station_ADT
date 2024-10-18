@@ -1,0 +1,14 @@
+- type: loadout
+  id: ADTCMOJumpsuitHike
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitCMOHike
+
+- type: loadout
+  id: ADTCMOJumpskirtHike
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtCMOHike
+
+- type: loadout
+  id: ADTCMOHighBoots
+  equipment:
+    shoes: ADTClothingShoesHighboots

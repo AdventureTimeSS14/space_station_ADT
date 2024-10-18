@@ -32,9 +32,9 @@ ent-ADTClothingOuterCoatTrader = бомбер торговца
     .desc = Куртка-бомбер торговцев ТСФ
     .suffix = { "ТСФ" }
 
-ent-ADTClothingOuterCoatHikeLabcoatCmo = походный халат главного врача
+ent-ADTClothingOuterCoatLabcoatCMOHike = походный халат главного врача
     .desc = Частично открытый халат. Не сковывает движения.
 
-ent-ADTClothingOuterCoatHikeLabcoatCmoOpened = походный халат главного врача
+ent-ADTClothingOuterCoatLabcoatCMOHikeOpened = походный халат главного врача
     .desc = Частично открытый халат. Не сковывает движения.
     .suffix = {"Раскрытый"}

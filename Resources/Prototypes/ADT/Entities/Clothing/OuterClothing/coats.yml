@@ -174,7 +174,7 @@
 
 - type: entity
   parent: ClothingOuterCoatLab
-  id: ADTClothingOuterCoatHikeLabcoatCmo
+  id: ADTClothingOuterCoatLabcoatCMOHike
   name: chief medical officer's hiking lab coat
   description: Partially open labcoat. Does not hinder movement.
   components:
@@ -182,6 +182,11 @@
     sprite: ADT/Clothing/OuterClothing/Coats/hike_labcoat_cmo.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/hike_labcoat_cmo.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLabcoatCMOHike]
+  id: ADTClothingOuterCoatLabcoatCMOHikeOpened
+  name: chief medical officer's hiking lab coat
 
 - type: entity
   parent: ClothingOuterCoatLab
@@ -195,7 +200,3 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
 
-- type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatHikeLabcoatCmo]
-  id: ADTClothingOuterCoatHikeLabcoatCmoOpened
-  name: chief medical officer's hiking lab coat

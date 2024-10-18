@@ -873,7 +873,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformHikeformCmo
+  id: ADTClothingUniformJumpsuitCMOHike
   name: chief medical officer's hiking uniform
   description: Shirt and baggy pants. Perfect for working in and out of medical departament.
   components:

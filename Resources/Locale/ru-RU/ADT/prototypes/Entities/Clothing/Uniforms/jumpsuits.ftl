@@ -266,6 +266,6 @@ ent-ADTClothingUniformJumpsuitTrader = комбинезон торговца
     .desc = Это комбинезон, который носят торговцы ТСФ
     .suffix = { "ТСФ" }
 
-ent-ADTClothingUniformHikeformCmo = походный костюм главного врача
+ent-ADTClothingUniformJumpsuitCMOHike = походный костюм главного врача
     .desc = Рубашка и мешковитые штаны, отлично подходящие для активной работы как вне, так и внутри своего отдела.
     .suffix = { "" }

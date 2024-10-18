@@ -55,7 +55,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ADTClothingOuterCoatHikeLabcoatCmo
-      - id: ADTClothingUniformHikeJumpskirtCmo
-      - id: ADTClothingUniformHikeformCmo
-      - id: ADTClothingHighboots
+      - id: ADTClothingOuterCoatLabcoatCMOHike
+      - id: ADTClothingUniformJumpskirtCMOHike
+      - id: ADTClothingUniformJumpsuitCMOHike
+      - id: ADTClothingShoesHighboots

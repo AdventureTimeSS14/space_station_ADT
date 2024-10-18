@@ -1177,6 +1177,10 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
+  # ADT tweak start
+  - ADTCMOJumpsuitHike
+  - ADTCMOJumpskirtHike
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1200,6 +1204,7 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  - ADTCMOHighBoots # ADT tweak
 
 - type: loadoutGroup
   id: MedicalDoctorHead

@@ -467,7 +467,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformHikeJumpskirtCmo
+  id: ADTClothingUniformJumpskirtCMOHike
   name: chief medical officer's hiking jumpskirt
   description: Shirt and baggy skirt. Perfect for working in and out of medical departament.
   components:
