@@ -1,0 +1,47 @@
+# halloween
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTClothingUnderwearBroomBase
+  name: based socks # что ? При чем тут вообще носки...
+  description: "You should not see this. If you see it, let Neko Dar#8948 know."
+  components:
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Tiny
+  # - type: Tag
+  #   tags:
+  #     - socks
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+
+
+
+- type: entity
+  parent: Crowbar
+  id: ADTHalloweenBroom
+  name: witch broom
+  description: time to fly
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/broom.rsi
+  #- type: ClothingSpeedModifier
+  #  walkModifier: 0.9
+  #  sprintModifier: 1.2

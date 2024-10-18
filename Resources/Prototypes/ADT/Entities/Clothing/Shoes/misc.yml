@@ -49,3 +49,30 @@
     sprite: ADT/Clothing/Shoes/Boots/sandals.rsi
   - type: StaticPrice
     price: 10
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClownNightmareShoes
+  name: clown nightmare shoes
+  description: No way.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Misc/clownnightmareshoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Misc/clownnightmareshoes.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTGreyClownPsyhoShoes
+  name: grey clown psyho shoes
+  description: grey clown psyho shoes
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi

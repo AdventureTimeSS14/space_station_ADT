@@ -1,0 +1,49 @@
+- type: entity
+  parent: MobAdultSlimes
+  id: ADTMobAdultSlimesGreenHalloween
+  name: green halloween slime
+  description: green halloween slime
+  suffix: Halloween
+  components:
+    - type: Sprite
+      sprite: ADT/Mobs/halloween_slime.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: green_adult_slime
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: green_adult_slime
+        Dead:
+          Base: green_adult_slime_dead
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 6
+          Structural: 4
+          Caustic: 1
+          Poison: 4
+    # Frontier - languages mechanic
+    - type: LanguageSpeaker
+      speaks:
+      - Bubblish
+      understands:
+      - Bubblish
+
+- type: entity
+  parent: ADTMobAdultSlimesGreenHalloween
+  id: ADTMobAdultSlimesGreenHalloweenAngry
+  name: green halloween slime angry
+  suffix: Angry
+  components:
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: GhostRole
+      description: ghost-role-information-angry-slimes-description
+    # Frontier - languages mechanic
+    - type: LanguageSpeaker
+      speaks:
+      - Bubblish
+      understands:
+      - Bubblish

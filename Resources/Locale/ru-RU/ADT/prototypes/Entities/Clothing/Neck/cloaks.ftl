@@ -30,3 +30,8 @@ ent-ADTClothingNeckCloakNukeOps = плащ Ядерных Оперативник
 ent-ADTClothingNeckCloakKnight = плащ рыцаря
     .desc = Шёлковый и внушительный рыцарский плащ. За честь короны!
     .suffix = { "" }
+
+
+ent-ADTVergileCloak = плащ темного убийцы
+    .suffix = Хеллоуин
+    .desc = Длинный тёмно-синий плащ с серебряными пуговицами и белым вышитым узором, похожим на змею.

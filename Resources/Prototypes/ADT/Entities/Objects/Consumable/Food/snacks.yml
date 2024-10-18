@@ -502,3 +502,254 @@
     state: two-trash
 
 
+    # halloween
+
+- type: entity
+  name: black candies
+  parent: FoodSnackBase
+  id: ADTFoodSnackBlackCandies
+  description: black candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies
+    state: black
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+
+- type: entity
+  name: green candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackGreenCandies
+  description: green candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: green
+
+- type: entity
+  name: red candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackRedCandies
+  description: red candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: red
+
+- type: entity
+  name: violet candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackVioletCandies
+  description: violet candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: violet
+
+- type: entity
+  name: yellow candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackYellowCandies
+  description: yellow candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: yellow
+
+- type: entity
+  name: bat gingerbread
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackBatGingerBread
+  description: bat gingerbread
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    state: bat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+
+- type: entity
+  name: scull gingerbread
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackScullGingerBread
+  description: scull gingerbread
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: scull
+
+- type: entity
+  name: pumpkin gingerbread
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackPumpkinGingerBread
+  description: pumpkin gingerbread
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: pumpkin
+
+- type: entity
+  name: chocolate bunny
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackBunnyCandies
+  description: chocolate bunny
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: bunny
+
+- type: entity
+  name: chocolate coin
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackCoinCandies
+  description: chocolate coin
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: coin
+
+- type: entity
+  name: jelly brains
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackBrains
+  description: jelly brains
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: brains
+
+- type: entity
+  name: jelly heart
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackHeart
+  description: jelly heart
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: heart
+
+- type: entity
+  name: jelly worms
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackWorms
+  description: jelly worms
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: worms
+
+- type: entity
+  name: caramel stick
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackHLCaramel
+  description: caramel stick
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: hl_caramel
+
+- type: entity
+  name: caramel stick
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackMintCaramel
+  description: caramel stick
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: mint_caramel
+
+- type: entity
+  name: jelly eyes
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackEyes
+  description: jelly eyes
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: eyes
+
+- type: entity
+  name: candy blue
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyBlue
+  description: candy blue
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: candyblue
+
+- type: entity
+  name: candy gow
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyGoW
+  description: candy gow
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: candygow
+
+- type: entity
+  name: candy green
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyGreen
+  description: candy green
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: candygreen
+
+- type: entity
+  name: candy mine
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyMine
+  description: candy mine
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: candymine
+
+- type: entity
+  name: candy red
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyRed
+  description: candy red
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: candyred
