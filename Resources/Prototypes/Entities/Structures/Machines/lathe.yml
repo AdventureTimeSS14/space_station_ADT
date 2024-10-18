@@ -1018,6 +1018,7 @@
       - ADTPillCanister
       - ADTPillPack
       - ADTPlasticBottle
+      - ADTBaseChemistryEmptyVial
       # End ADT tweak
       - BodyBag
       - ChemistryEmptyBottle01

@@ -57,7 +57,7 @@
 - type: reaction
   id: Cryoxadone
   reactants:
-    Stellibinin: # ADT tweak Может сделать новое особое растение для крио, но это лишь в планах.
+    Siderlac: # ADT tweak Может сделать новое особое растение для крио, но это лишь в планах.
       amount: 1
     DexalinPlus: # ADT tweak
       amount: 2 # ADT tweak
