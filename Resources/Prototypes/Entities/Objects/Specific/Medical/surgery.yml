@@ -219,6 +219,10 @@
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
     speedModifier: 1.5
+#ADT chainsaw
+  - type: Tag
+    tags:
+    - SawElectric
 
 - type: entity
   name: advanced circular saw
