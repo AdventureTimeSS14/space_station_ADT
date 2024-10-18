@@ -39,18 +39,15 @@ namespace Content.Client.VendingMachines
 
             _menu.OpenCenteredLeft();
         }
+        // ADT START COmmented
+        // public void Refresh()
+        // {
+        //     var system = EntMan.System<VendingMachineSystem>();
+        //     _cachedInventory = system.GetAllInventory(Owner);
 
-        protected override void UpdateState(BoundUserInterfaceState state)
-        {
-            base.UpdateState(state);
-
-            if (state is not VendingMachineInterfaceState newState)
-                return;
-
-            _cachedInventory = newState.Inventory;
-
-            _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
-        }
+        //     _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
+        // }
+        // ADT END
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
         {

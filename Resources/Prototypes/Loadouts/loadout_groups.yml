@@ -20,6 +20,7 @@
   # - ClothingNeckAromanticPin
   # - ClothingNeckAsexualPin
   # - ClothingNeckBisexualPin
+  # - ClothingNeckGayPin
   # - ClothingNeckIntersexPin
   # - ClothingNeckLesbianPin
   # - ClothingNeckNonBinaryPin
@@ -1132,6 +1133,7 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
 
 - type: loadoutGroup
