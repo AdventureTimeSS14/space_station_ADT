@@ -1,4 +1,4 @@
-ent-ADTSmallSyringe - маленький шприц
+ent-ADTSmallSyringe = маленький шприц
     .desc = Используется для точечных манипулиций с препаратами
 
 ent-ADTSodiumizolePill = таблетка натримизола
