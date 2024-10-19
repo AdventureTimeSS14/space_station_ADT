@@ -19,6 +19,8 @@ using Content.Shared.Stealth.Components;
 using Content.Server.Stealth;
 using Content.Server.Popups;
 using Content.Shared.NameModifier.EntitySystems;
+using System.Linq;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.Ghostbar;
 
@@ -35,57 +37,55 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    public GhostBarMapPrototype? _GhostBarMap = null; /// его значение нельзя объявить методом. Много проб, ни одна из них не успешна, даже в гугле информации про такое нету.
+    public GhostBarMapPrototype? GhostBarMap; /// его значение нельзя объявить методом. Много проб, ни одна из них не успешна, даже в гугле информации про такое нету.
     public override void Initialize()
     {
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
-        SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
+
+        SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
     }
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _mapSystem.CreateMap(out var mapId);
         var options = new MapLoadOptions { LoadMap = true };
-        if (_GhostBarMap == null) /// оно будет менять через менеджер при последующих раундах, первый раз такое использует потому что будет вылет, если использовать менеджер
-        {
-            List<GhostBarMapPrototype> maplist = new List<GhostBarMapPrototype>();
 
-            foreach (var proto in _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>())
-            {
-                if (_GhostBarMap == proto)
-                    continue;
-                maplist.Add(proto);
-            }
-            var mapprotostr = _random.Pick(maplist);
-            _GhostBarMap = _prototypeManager.Index<GhostBarMapPrototype>(mapprotostr);
-        }
-        var mapProto = _GhostBarMap;
+        var mapList = _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>().ToList();
+        GhostBarMap = _random.Pick(mapList);
 
-        if (_mapLoader.TryLoad(mapId, mapProto.Path, out _, options)) 
+        var mapProto = GhostBarMap;
+
+        if (_mapLoader.TryLoad(mapId, mapProto.Path, out _, options))
         {
             _mapSystem.SetPaused(mapId, false);
-            if (_prototypeManager.TryIndex<WeatherPrototype>(mapProto.Weather, out var weatherProto)) 
+            if (mapProto.Weather.HasValue)
             {
                 TimeSpan? endTime = null;
-                _weathersystem.SetWeather(mapId, weatherProto, endTime);
+                _weathersystem.SetWeather(mapId, _prototypeManager.Index(mapProto.Weather.Value), endTime);
             }
         }
     }
 
+    private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
+    {
+        QueueDel(uid);
+        Spawn("PolymorphAshJauntAnimation", Transform(uid).Coordinates);    // Спавн пепла при удалении, дабы выглядело чутка лучше
+    }
+
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)
     {
-        if (!_entityManager.HasComponent<GhostComponent>(args.SenderSession.AttachedEntity))
+        if (!HasComp<GhostComponent>(args.SenderSession.AttachedEntity))
         {
             Log.Warning($"User {args.SenderSession.Name} tried to spawn at ghost bar without being a ghost.");
             return;
         }
-        if (_GhostBarMap == null)
+        if (GhostBarMap == null)
             return;
         var spawnPoints = new List<EntityCoordinates>();
-        var query = EntityQueryEnumerator<GhostBarSpawnPointComponent>();
-        while (query.MoveNext(out var ent, out _))
+        var query = EntityQueryEnumerator<GhostBarSpawnPointComponent, TransformComponent>();
+        while (query.MoveNext(out var ent, out _, out var xform))
         {
-            spawnPoints.Add(_entityManager.GetComponent<TransformComponent>(ent).Coordinates);
+            spawnPoints.Add(xform.Coordinates);
         }
 
         if (spawnPoints.Count == 0)
@@ -96,19 +96,19 @@ public sealed class GhostBarSystem : EntitySystem
 
 
         var randomSpawnPoint = _random.Pick(spawnPoints);
-        var randomJob = _random.Pick(_GhostBarMap.Jobs);
+        var randomJob = _random.Pick(GhostBarMap.Jobs);
         var profile = _ticker.GetPlayerProfile(args.SenderSession);
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
 
-        _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
-        _entityManager.EnsureComponent<MindShieldComponent>(mobUid);
-        _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
-        if (_GhostBarMap.Pacified)
-            _entityManager.EnsureComponent<PacifiedComponent>(mobUid);
-        if (_GhostBarMap.Ghosted != 1f)
+        EnsureComp<GhostBarPlayerComponent>(mobUid);
+        EnsureComp<MindShieldComponent>(mobUid);
+        EnsureComp<AntagImmuneComponent>(mobUid);
+        if (GhostBarMap.Pacified)
+            EnsureComp<PacifiedComponent>(mobUid);
+        if (GhostBarMap.Ghosted != 1f)
         {
-            _entityManager.EnsureComponent<StealthComponent>(mobUid);
-            _stealth.SetVisibility(mobUid, _GhostBarMap.Ghosted);
+            EnsureComp<StealthComponent>(mobUid);
+            _stealth.SetVisibility(mobUid, GhostBarMap.Ghosted);
 
         }
         var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
@@ -118,11 +118,6 @@ public sealed class GhostBarSystem : EntitySystem
         {
             _mindSystem.TransferTo(targetMind.Value, mobUid, true);
         }
-    }
-
-    private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
-    {
-        _entityManager.QueueDeleteEntity(uid);
     }
 }
 

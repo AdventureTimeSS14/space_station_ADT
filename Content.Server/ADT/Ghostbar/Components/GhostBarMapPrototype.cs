@@ -1,12 +1,13 @@
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Weather;
 
 namespace Content.Server.ADT.Ghostbar;
 
 /// <summary>
 /// прототип самих гост баров
-/// <see cref="Content.Server.ADT.Ghostbar.GhostBarSystem"/>
+/// <see cref="GhostBarSystem"/>
 /// </summary>
 [Prototype("ghostbarMap")]
 public sealed partial class GhostBarMapPrototype : IPrototype
@@ -50,7 +51,7 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     /// погода на карте. если не заполнять строку - её не будет.
     /// </summary>
     [DataField("weather")]
-    public string Weather = string.Empty;
+    public ProtoId<WeatherPrototype>? Weather = null;
 
     /// <summary>
     /// компоненты, добавляемые при заходе в гостбар человека(ТОЛЬКО КАСТОМНЫЕ, все компоненты туда лучше не добавлять)
