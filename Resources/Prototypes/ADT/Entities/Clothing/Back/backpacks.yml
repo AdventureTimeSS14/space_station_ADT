@@ -33,6 +33,7 @@
   - type: StaticPrice
     price: 5
 
+# Med
 
 - type: entity
   parent: ClothingBackpackMedical
@@ -40,3 +41,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/pathologist_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackParamedic
+  name: paramedical backpack
+  description: Backpack to store some paramedical equipment.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/paramedic_backpack.rsi
