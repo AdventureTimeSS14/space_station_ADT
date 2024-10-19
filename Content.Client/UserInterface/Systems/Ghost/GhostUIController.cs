@@ -9,7 +9,7 @@ using Robust.Client.UserInterface.Controllers;
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
+public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem> // ADT - now this class is partial
 {
     [Dependency] private readonly IEntityNetworkManager _net = default!;
     [UISystemDependency] private readonly GhostSystem? _system = default;
@@ -29,11 +29,13 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void OnScreenLoad()
     {
         LoadGui();
+        LoadGhostbarGui();  // ADT ghostbar
     }
 
     private void OnScreenUnload()
     {
         UnloadGui();
+        UnloadGhostbarGui();    // ADT ghostbar
     }
 
     public void OnSystemLoaded(GhostSystem system)
@@ -125,8 +127,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
-        Gui.GhostBarPressed += GhostBarPressed; // Goobstation - Ghost Bar
-        Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // Goobstation - Ghost Bar
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
 
@@ -141,8 +141,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed -= RequestWarps;
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
-        Gui.GhostBarPressed -= GhostBarPressed; // Goobstation - Ghost Bar
-        Gui.GhostBarWindow.SpawnButtonPressed -= GhostBarSpawnPressed; // Goobstation - Ghost Bar
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
 
         Gui.Hide();
@@ -163,15 +161,5 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void GhostRolesPressed()
     {
         _system?.OpenGhostRoles();
-    }
-
-    private void GhostBarPressed() // Goobstation - Ghost Bar
-    {
-        Gui?.GhostBarWindow.OpenCentered();
-    }
-
-    private void GhostBarSpawnPressed() // Goobstation - Ghost Bar
-    {
-        _system?.GhostBarSpawn();
     }
 }
