@@ -80,10 +80,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
     // ADT Content start
     private void OnTerminating(EntityUid uid, MechEquipmentComponent comp, ref EntityTerminatingEvent args)
     {
-        if (comp.EquipmentOwner.HasValue)
-        {
-            _mech.UpdateUserInterface(comp.EquipmentOwner.Value);
-        }
+        _mech.UpdateUserInterfaceByEquipment(uid);
     }
 
     private void OnGetUIState(EntityUid uid, MechEquipmentComponent component, MechEquipmentUiStateReadyEvent args)

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mech;
 using Robust.Shared.Serialization;
 
@@ -9,6 +10,8 @@ public sealed class MechGunUiState : BoundUserInterfaceState
     public int Capacity;
     public int Shots;
     public float ReloadTime;
+    public bool Reloading = false;
+    public TimeSpan? ReloadEndTime = null;
 }
 
 [Serializable, NetSerializable]

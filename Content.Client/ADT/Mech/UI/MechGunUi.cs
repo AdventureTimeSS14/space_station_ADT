@@ -27,7 +27,8 @@ public sealed partial class MechGunUi : UIFragment
         _fragment.ReloadAction += _ =>
         {
             var entManager = IoCManager.Resolve<IEntityManager>();
-            userInterface.SendMessage(new MechGunReloadMessage(entManager.GetNetEntity(fragmentOwner.Value)));
+            userInterface.SendPredictedMessage(new MechGunReloadMessage(entManager.GetNetEntity(fragmentOwner.Value)));
+            _fragment.StartTimer();
         };
     }
 

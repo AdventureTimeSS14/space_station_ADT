@@ -28,6 +28,8 @@ using Robust.Server.Audio;
 using Content.Shared.Access.Systems;
 using Content.Shared.Access.Components;
 using Robust.Shared.Random;
+using Content.Shared.ADT.Mech;
+using Content.Shared.Mech.Equipment.Components;
 
 namespace Content.Server.Mech.Systems;
 
@@ -84,8 +86,9 @@ public sealed partial class MechSystem : SharedMechSystem
         // ADT Content end
 
         #region Equipment UI message relays
-        SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);
-        SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
+        // SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);    // ADT - Moved to Shared
+        // SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);  // ADT - Moved to Shared
+        // SubscribeLocalEvent<MechComponent, MechGunReloadMessage>(ReceiveEquipmentUiMesssages);  // ADT mech gun
         #endregion
     }
 
@@ -312,18 +315,19 @@ public sealed partial class MechSystem : SharedMechSystem
         UpdateUserInterface(uid, component);
     }
 
-    private void ReceiveEquipmentUiMesssages<T>(EntityUid uid, MechComponent component, T args) where T : MechEquipmentUiMessage
-    {
-        var ev = new MechEquipmentUiMessageRelayEvent(args);
-        var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
-        var argEquip = GetEntity(args.Equipment);
+    // ADT Moved to shared
+    // private void ReceiveEquipmentUiMesssages<T>(EntityUid uid, MechComponent component, T args) where T : MechEquipmentUiMessage
+    // {
+    //     var ev = new MechEquipmentUiMessageRelayEvent(args);
+    //     var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
+    //     var argEquip = GetEntity(args.Equipment);
 
-        foreach (var equipment in allEquipment)
-        {
-            if (argEquip == equipment)
-                RaiseLocalEvent(equipment, ev);
-        }
-    }
+    //     foreach (var equipment in allEquipment)
+    //     {
+    //         if (argEquip == equipment)
+    //             RaiseLocalEvent(equipment, ev);
+    //     }
+    // }
 
     public override void UpdateUserInterface(EntityUid uid, MechComponent? component = null)
     {
@@ -415,7 +419,7 @@ public sealed partial class MechSystem : SharedMechSystem
     }
 
     #region Atmos Handling
-    // private void OnInhale(EntityUid uid, MechPilotComponent component, InhaleLocationEvent args)
+    // private void OnInhale(EntityUid uid, MechPilotComponent component, InhaleLocationEvent args) // ADT - Moved to shared
     // {
     //     if (!TryComp<MechComponent>(component.Mech, out var mech) ||
     //         !TryComp<MechAirComponent>(component.Mech, out var mechAir))
@@ -517,5 +521,18 @@ public sealed partial class MechSystem : SharedMechSystem
         Spawn("EffectEmpPulse", Transform(uid).Coordinates);
     }
 
+    public override void UpdateUserInterfaceByEquipment(EntityUid equipmentUid)
+    {
+        base.UpdateUserInterfaceByEquipment(equipmentUid);
+
+        if (!TryComp<MechEquipmentComponent>(equipmentUid, out var comp))
+        {
+            Log.Error("Could not find mech equipment owner to update UI.");
+            return;
+        }
+        if (!comp.EquipmentOwner.HasValue)
+            return;
+        UpdateUserInterface(comp.EquipmentOwner.Value);
+    }
     // ADT Content end
 }

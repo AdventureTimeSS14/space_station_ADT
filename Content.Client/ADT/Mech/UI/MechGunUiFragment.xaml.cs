@@ -19,15 +19,12 @@ public sealed partial class MechGunUiFragment : BoxContainer
     public event Action<EntityUid?>? ReloadAction;
     public EntityUid? FragmentOwner;
     private StartEndTime _reloadTimer;
-    private StyleBoxFlat _barStyle;
     public float ReloadTime = 10f;
 
     public MechGunUiFragment()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        _barStyle = new StyleBoxFlat(Color.LimeGreen);
-        ReloadBar.ForegroundStyleBoxOverride = _barStyle;
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -37,40 +34,35 @@ public sealed partial class MechGunUiFragment : BoxContainer
         var curTime = _timing.CurTime;
 
         var progress = _reloadTimer.ProgressAt(curTime);
-        ReloadBar.Value = float.IsFinite(progress) ? progress : 1;
 
-        ReloadButton.OnPressed += _ => StartReloading(FragmentOwner);
+        ReloadButton.OnPressed += _ => ReloadAction?.Invoke(FragmentOwner);
 
         if (progress >= 1 && ReloadButton.Disabled)
         {
             ReloadButton.Disabled = false;
-            _barStyle = new StyleBoxFlat(Color.LimeGreen);
         }
-    }
-    private void StartReloading(EntityUid? uid)
-    {
-        ReloadAction?.Invoke(uid);
-        StartTimer(ReloadTime);
     }
     public void UpdateContents(MechGunUiState state)
     {
         ReloadTime = state.ReloadTime;
 
-        if (state.Shots >= state.Capacity * 0.7)
-            _barStyle = new StyleBoxFlat(Color.LimeGreen);
-        else if (state.Shots >= state.Capacity * 0.4)
-            _barStyle = new StyleBoxFlat(Color.PaleGoldenrod);
-        else
-            _barStyle = new StyleBoxFlat(Color.OrangeRed);
+        if (state.Reloading && state.ReloadEndTime != null)
+        {
+            ShotsCount.Text = Loc.GetString("mech-gun-ui-reloading");
+            _reloadTimer.End = state.ReloadEndTime.Value;
+            _reloadTimer.Start = state.ReloadEndTime.Value - TimeSpan.FromSeconds(ReloadTime);
+            ReloadButton.Disabled = true;
+            return;
+        }
 
+        ShotsCount.Text = $"{state.Shots} / {state.Capacity}";
     }
 
-    public void StartTimer(float time)
+    public void StartTimer()
     {
         var curTime = _timing.CurTime;
         _reloadTimer.Start = curTime;
-        _reloadTimer.End = curTime + TimeSpan.FromSeconds(time);
-        _barStyle = new StyleBoxFlat(Color.Yellow);
+        _reloadTimer.End = curTime + TimeSpan.FromSeconds(ReloadTime);
         ReloadButton.Disabled = true;
     }
 }

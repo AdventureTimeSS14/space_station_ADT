@@ -19,13 +19,16 @@ public sealed class MechEquipmentUiStateReadyEvent : EntityEventArgs
 /// <summary>
 /// Event raised to relay an equipment ui message
 /// </summary>
+[Serializable, NetSerializable] // ADT Mech predict
 public sealed class MechEquipmentUiMessageRelayEvent : EntityEventArgs
 {
     public MechEquipmentUiMessage Message;
+    public NetEntity? Pilot;
 
-    public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message)
+    public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message, NetEntity? pilot)
     {
         Message = message;
+        Pilot = pilot;
     }
 }
 

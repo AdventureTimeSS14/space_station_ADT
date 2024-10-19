@@ -13,6 +13,8 @@ using Content.Shared.ADT.Weapons.Ranged.Components;
 using Content.Shared.Mech;
 using Content.Shared.ADT.Mech;
 using Robust.Shared.Timing;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
@@ -25,6 +27,7 @@ public sealed class MechGunSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -32,7 +35,7 @@ public sealed class MechGunSystem : EntitySystem
         SubscribeLocalEvent<MechEquipmentComponent, GunShotEvent>(MechGunShot);
 
         SubscribeLocalEvent<ProjectileMechAmmoProviderComponent, MechEquipmentUiStateReadyEvent>(OnUiStateReady);
-        SubscribeNetworkEvent<MechGunReloadMessage>(OnReload);
+        SubscribeLocalEvent<ProjectileMechAmmoProviderComponent, MechEquipmentUiMessageRelayEvent>(OnReload);
     }
 
     public override void Update(float frameTime)
@@ -47,6 +50,7 @@ public sealed class MechGunSystem : EntitySystem
                 gun.Reloading = false;
                 gun.Shots = gun.Capacity;
                 Dirty(uid, gun);
+                _mech.UpdateUserInterfaceByEquipment(uid);
             }
         }
     }
@@ -120,17 +124,30 @@ public sealed class MechGunSystem : EntitySystem
             ReloadTime = component.ReloadTime,
             Shots = component.Shots,
             Capacity = component.Capacity,
+            Reloading = component.Reloading,
+            ReloadEndTime = component.Reloading ? component.ReloadEnd : null,
         };
         args.States.Add(GetNetEntity(uid), state);
     }
 
-    private void OnReload(MechGunReloadMessage args)
+    private void OnReload(EntityUid uid, ProjectileMechAmmoProviderComponent comp, MechEquipmentUiMessageRelayEvent args)
     {
-        var uid = GetEntity(args.Equipment);
-        var comp = EnsureComp<ProjectileMechAmmoProviderComponent>(uid);
+        if (args.Message is not MechGunReloadMessage msg)
+            return;
+        if (!TryComp<MechEquipmentComponent>(uid, out var equip) || !equip.EquipmentOwner.HasValue)
+            return;
+
+        if (!_mech.TryChangeEnergy(equip.EquipmentOwner.Value, comp.ReloadCost))
+        {
+            var pilot = GetEntity(args.Pilot) ?? EntityUid.Invalid;
+            _audio.PlayEntity("/Audio/Machines/Nuke/angry_beep.ogg", pilot, equip.EquipmentOwner.Value);
+            _mech.UpdateUserInterfaceByEquipment(uid);
+            return;
+        }
 
         comp.Reloading = true;
         comp.ReloadEnd = _timing.CurTime + TimeSpan.FromSeconds(comp.ReloadTime);
         Dirty(uid, comp);
+        _mech.UpdateUserInterfaceByEquipment(uid);
     }
 }

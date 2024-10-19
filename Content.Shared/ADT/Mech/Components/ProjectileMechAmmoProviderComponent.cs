@@ -5,8 +5,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.ADT.Weapons.Ranged.Components;
 
+/// <summary>
+/// Позволяет оружию меха стрелять проджектайлами.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ProjectileMechAmmoProviderComponent : AmmoProviderComponent
+public sealed partial class ProjectileMechAmmoProviderComponent : MechAmmoProviderComponent
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = default!;
@@ -26,4 +29,7 @@ public sealed partial class ProjectileMechAmmoProviderComponent : AmmoProviderCo
 
     [ViewVariables]
     public bool Reloading = false;
+
+    [DataField]
+    public float ReloadCost = 120f;
 }

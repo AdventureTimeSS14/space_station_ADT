@@ -25,6 +25,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Random;
 using Content.Shared.Overlays;
 using Content.Shared.Whitelist;
+using Content.Shared.ADT.Mech;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -62,6 +63,10 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
 
         SubscribeNetworkEvent<SelectMechEquipmentEvent>(OnMechEquipSelected);
+
+        SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);
+        SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
+        SubscribeLocalEvent<MechComponent, MechGunReloadMessage>(ReceiveEquipmentUiMesssages);  // ADT mech gun
     }
 
     // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
@@ -528,6 +533,23 @@ public abstract class SharedMechSystem : EntitySystem
 
         if (_net.IsServer)
             Dirty(mechUid, mech);
+    }
+
+    private void ReceiveEquipmentUiMesssages<T>(EntityUid uid, MechComponent component, T args) where T : MechEquipmentUiMessage
+    {
+        var ev = new MechEquipmentUiMessageRelayEvent(args, GetNetEntity(component.PilotSlot.ContainedEntity));
+        var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
+        var argEquip = GetEntity(args.Equipment);
+
+        foreach (var equipment in allEquipment)
+        {
+            if (argEquip == equipment)
+                RaiseLocalEvent(equipment, ev);
+        }
+    }
+
+    public virtual void UpdateUserInterfaceByEquipment(EntityUid uid)
+    {
     }
     // ADT Content end
 }

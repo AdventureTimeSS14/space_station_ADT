@@ -25,18 +25,22 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: AmmoCounter
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun
-    capacity: 7
+  - type: ProjectileMechAmmoProvider
     proto: ShellShotgun
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
+    shots: 35
+    capacity: 35
+  # - type: BallisticAmmoProvider
+  #   whitelist:
+  #     tags:
+  #     - ShellShotgun
+  #   capacity: 7
+  #   proto: ShellShotgun
+  #   soundInsert:
+  #     path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  # - type: ContainerContainer
+  #   containers:
+  #     ballistic-ammo: !type:Container
+  #       ents: []
   - type: StaticPrice
     price: 500
   - type: UseDelay
@@ -71,9 +75,9 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+  # - type: Battery
+  #   maxCharge: 1000
+  #   startingCharge: 1000
   - type: Appearance
   - type: StaticPrice
     price: 500
@@ -97,12 +101,12 @@
     availableModes:
     - FullAuto
     fireRate: 4
-  - type: HitscanBatteryAmmoProvider
+  - type: HitscanMechAmmoProvider
     proto: RedLaser
     fireCost: 15
-  - type: Battery
-    maxCharge: 30
-    startingCharge: 30
+  # - type: Battery
+  #   maxCharge: 30
+  #   startingCharge: 30
 
 - type: entity
   name: CH-LC "Solaris" Laser Cannon
@@ -117,12 +121,12 @@
     fireRate: 2.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: HitscanMechAmmoProvider
     proto: RedHeavyLaser
     fireCost: 30
-  - type: Battery
-    maxCharge: 60
-    startingCharge: 60
+  # - type: Battery
+  #   maxCharge: 60
+  #   startingCharge: 60
 
 - type: entity
   name: eZ-13 mk2 Heavy pulse rifle
@@ -140,12 +144,12 @@
     fireRate: 4.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: HitscanMechAmmoProvider
     proto: Pulse
     fireCost: 100
-  - type: Battery
-    maxCharge: 200
-    startingCharge: 200
+  # - type: Battery
+  #   maxCharge: 200
+  #   startingCharge: 200
 
 - type: entity
   name: disabler "Peacemaker"
@@ -163,12 +167,14 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: ProjectileMechAmmoProvider
     proto: BulletDisabler
-    fireCost: 15
-  - type: Battery
-    maxCharge: 30
-    startingCharge: 30
+    shots: 12
+    capacity: 12
+    reloadCost: 150
+    reloadTime: 4
+  - type: UIFragment
+    ui: !type:MechGunUi
 
 - type: entity
   name: MKI Tesla Cannon
@@ -189,13 +195,13 @@
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
-  - type: ProjectileBatteryAmmoProvider
+  - type: ProjectileMechAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 150
-  - type: Battery
-    maxCharge: 300
-    startingCharge: 300
-
+    shots: 12
+    capacity: 12
+    reloadCost: 300
+  - type: UIFragment
+    ui: !type:MechGunUi
 #Огнестрельное
 
 - type: entity
@@ -217,9 +223,9 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: ProjectileMechAmmoProvider
-    proto: BulletPistol
-    shots: 35
-    capacity: 35
+    proto: ShellShotgun
+    shots: 12
+    capacity: 12
   - type: UIFragment
     ui: !type:MechGunUi
   - type: StaticPrice
@@ -243,12 +249,12 @@
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgePistol
-    capacity: 600
-    proto: CartridgePistol
+  - type: ProjectileMechAmmoProvider
+    shots: 30
+    capacity: 30
+    proto: BulletPistol
+  - type: UIFragment
+    ui: !type:MechGunUi
 
 - type: entity
   name: FNX-99 "Hades" Carbine
@@ -268,12 +274,12 @@
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeRifle
-    capacity: 120
-    proto: CartridgeRifleIncendiary
+  - type: ProjectileMechAmmoProvider
+    proto: BulletPistolIncendiary
+    shots: 45
+    capacity: 45
+  - type: UIFragment
+    ui: !type:MechGunUi
 
 - type: entity
   name: mHAR-21 "Ma Deuce" Heavy Antimaterial Rifle
@@ -293,12 +299,12 @@
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeAntiMateriel
-    capacity: 30
-    proto: CartridgeAntiMateriel
+  - type: ProjectileMechAmmoProvider
+    proto: BulletAntiMateriel
+    shots: 7
+    capacity: 7
+  - type: UIFragment
+    ui: !type:MechGunUi
 
 - type: entity
   name: SGL-6 Grenade Launcher
@@ -318,12 +324,12 @@
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - Grenade
-    capacity: 12
+  - type: ProjectileMechAmmoProvider
     proto: GrenadeFlash
+    shots: 3
+    capacity: 3
+  - type: UIFragment
+    ui: !type:MechGunUi
 
 - type: entity
   name: SRM-8 Missile Rack
@@ -343,12 +349,12 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeRocket
-    capacity: 9
-    proto: CartridgeRocket
+  - type: ProjectileMechAmmoProvider
+    proto: BulletRocket
+    shots: 2
+    capacity: 2
+  - type: UIFragment
+    ui: !type:MechGunUi
 
 - type: entity
   name: BRM-6 Missile Rack
@@ -368,12 +374,12 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - Grenade
-    capacity: 6
+  - type: ProjectileMechAmmoProvider
     proto: GrenadeBaton
+    shots: 3
+    capacity: 3
+  - type: UIFragment
+    ui: !type:MechGunUi
 
 # #Медиган
 

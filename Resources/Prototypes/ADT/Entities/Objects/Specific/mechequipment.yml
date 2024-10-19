@@ -20,18 +20,17 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-  - type: ProjectileBatteryAmmoProvider
+  - type: ProjectileMechAmmoProvider
     proto: BulletCutter
-    fireCost: 5
+    shots: 40
+    capacity: 40
+    reloadCost: 100
+    reloadTime: 5
+  - type: UIFragment
+    ui: !type:MechGunUi
   - type: Appearance
   - type: MechEquipment
-  - type: UIFragment
   - type: MechGun
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75
-  - type: Battery
-    maxCharge: 10
-    startingCharge: 10
   - type: Tag
     tags:
       - ADTMechEquipmentSec
@@ -84,9 +83,11 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-  - type: BallisticAmmoProvider
-    capacity: 200
+  - type: ProjectileMechAmmoProvider
     proto: FoodPieBananaCream
+    shots: 12
+    capacity: 12
+    reloadCost: 100
   - type: Appearance
   - type: MechEquipment
   - type: UIFragment
@@ -200,12 +201,9 @@
     fireRate: 5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: HitscanMechAmmoProvider
     proto: ADTHealMechGun
     fireCost: 5
-  - type: Battery
-    maxCharge: 10
-    startingCharge: 10
   - type: Tag
     tags:
       - ADTMechEquipmentMed
