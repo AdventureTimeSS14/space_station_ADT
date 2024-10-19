@@ -30,7 +30,12 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     public void LockEntity(EntityUid uid, DNALockerComponent component, EntityUid equipee)
     {
-        var dna = EnsureComp<DnaComponent>(equipee);
+        if (!TryComp<DnaComponent>(equipee, out var dna))
+        {
+            ExplodeEntity(uid, component, equipee);
+            return;
+        }
+
         component.DNA = dna.DNA;
         component.Locked = true;
         _audioSystem.PlayPvs(component.LockSound, uid);
@@ -38,7 +43,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         _popup.PopupEntity(selfMessage, equipee, equipee);
     }
 
-    public void UnlockEntity(EntityUid uid, DNALockerComponent component, EntityUid equipee)
+    public void ExplodeEntity(EntityUid uid, DNALockerComponent component, EntityUid equipee)
     {
         EnsureComp<UnremoveableComponent>(uid);
         var selfMessage = Loc.GetString("dna-locker-failure");
@@ -63,29 +68,18 @@ public sealed partial class DNALockerSystem : EntitySystem
             return;
         }
 
-        var dna = EnsureComp<DnaComponent>(args.Equipee);
-        if (component.DNA != null && component.DNA != dna.DNA)
+        if (TryComp<DnaComponent>(args.Equipee, out var dna))
         {
-            UnlockEntity(uid, component, args.Equipee);
+            if (component.DNA != null && component.DNA != dna.DNA)
+            {
+                ExplodeEntity(uid, component, args.Equipee);
+            }
         }
     }
 
     private void OnGotEmagged(EntityUid uid, DNALockerComponent component, ref GotEmaggedEvent args)
     {
-        var ifEquipped = Loc.GetString("dna-locker-equipped");
-        var slotsToCheck = new[] { "shoes", "gloves", "mask", "eyes", "jumpsuit", "outerClothing", "head" }; // список слотов для проверки
-        bool foundInSlot = false;
-
-        foreach (var slot in slotsToCheck)
-        {
-            if (_inventorySystem.TryGetSlotEntity(args.UserUid, slot, out var slotItem) && slotItem == uid)
-            {
-                foundInSlot = true;
-                break;
-            }
-        }
-
-        if (!foundInSlot)
+        if (component.CanBeEmagged)
         {
             component.Locked = false;
             _audioSystem.PlayPvs(component.EmagSound, uid);
@@ -98,11 +92,6 @@ public sealed partial class DNALockerSystem : EntitySystem
             });
             args.Repeatable = true;
             args.Handled = true;
-        }
-        else
-        {
-            _audioSystem.PlayPvs(component.EmagSound, uid);
-            _popup.PopupEntity(ifEquipped, uid, args.UserUid);
         }
     }
 

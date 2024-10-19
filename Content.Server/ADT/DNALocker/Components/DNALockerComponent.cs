@@ -14,6 +14,9 @@ public sealed partial class DNALockerComponent : Component
     [DataField]
     public bool IsEquipped = false;
 
+    [DataField]
+    public bool CanBeEmagged = true;
+
     [DataField("lockSound")]
     public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/ADT/dna-lock.ogg");
 
