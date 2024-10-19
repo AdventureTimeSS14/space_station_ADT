@@ -17,6 +17,8 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Weather;
 using Content.Shared.Stealth.Components;
 using Content.Server.Stealth;
+using Content.Server.Popups;
+using Content.Shared.NameModifier.EntitySystems;
 
 namespace Content.Server.ADT.Ghostbar;
 
@@ -32,6 +34,7 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     public GhostBarMapPrototype? _GhostBarMap = null; /// его значение нельзя объявить методом. Много проб, ни одна из них не успешна, даже в гугле информации про такое нету.
     public override void Initialize()
     {
@@ -39,24 +42,24 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
-    private GhostBarMapPrototype GetRandomMapProto() ///метод нужен на старте всего этого чтобы выбрать карту и передать её прототип в _GhostBarMap
-    {
-        List<GhostBarMapPrototype> maplist = new List<GhostBarMapPrototype>();
-
-        foreach (var proto in _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>()) ///костыльный метод, т.к. прототип пулла карт ломал тесты
-            maplist.Add(proto);
-        var mapprotostr = _random.Pick(maplist);
-        var mapproto = _prototypeManager.Index<GhostBarMapPrototype>(mapprotostr); ///да, я знаю, что тут лишняя переменная, но при её удалении вылезает куча ошибок
-        return mapproto;
-    }
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _mapSystem.CreateMap(out var mapId);
         var options = new MapLoadOptions { LoadMap = true };
-        var mapProto = GetRandomMapProto();
-        _GhostBarMap = mapProto;
-        if (mapProto == null) /// тут проверки и загрузки переменных
-            return;
+        if (_GhostBarMap == null) /// оно будет менять через менеджер при последующих раундах, первый раз такое использует потому что будет вылет, если использовать менеджер
+        {
+            List<GhostBarMapPrototype> maplist = new List<GhostBarMapPrototype>();
+
+            foreach (var proto in _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>())
+            {
+                if (_GhostBarMap == proto)
+                    continue;
+                maplist.Add(proto);
+            }
+            var mapprotostr = _random.Pick(maplist);
+            _GhostBarMap = _prototypeManager.Index<GhostBarMapPrototype>(mapprotostr);
+        }
+        var mapProto = _GhostBarMap;
 
         if (_mapLoader.TryLoad(mapId, mapProto.Path, out _, options)) 
         {
@@ -119,7 +122,7 @@ public sealed class GhostBarSystem : EntitySystem
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
     {
-        _entityManager.DeleteEntity(uid);
+        _entityManager.QueueDeleteEntity(uid);
     }
 }
 
