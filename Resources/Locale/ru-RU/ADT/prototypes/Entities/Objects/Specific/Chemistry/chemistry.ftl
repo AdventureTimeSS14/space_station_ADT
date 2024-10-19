@@ -1,3 +1,6 @@
+ent-ADTSmallSyringe - маленький шприц
+    .desc = Используется для точечных манипулиций с препаратами
+
 ent-ADTSodiumizolePill = таблетка натримизола
     .desc = { ent-Pill.desc }
 ent-ADTNitrofurfollPill = таблетка нитрофурфолла
