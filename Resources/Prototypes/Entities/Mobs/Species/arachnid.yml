@@ -91,6 +91,11 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # ADT tweak start
+      - map: [ "underwearb" ] #Sirena
+      - map: [ "underweart" ] #Sirena
+      - map: [ "socks" ] #Sirena
+      # ADT tweak end
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]

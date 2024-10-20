@@ -10,6 +10,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
 using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Input;
+using Content.Client.ADT.UserInterface.RichText;
 
 namespace Content.Client.Paper.UI
 {
@@ -43,7 +44,8 @@ namespace Content.Client.Paper.UI
             typeof(BulletTag),
             typeof(ColorTag),
             typeof(HeadingTag),
-            typeof(ItalicTag)
+            typeof(ItalicTag),
+            typeof(MonospaceTag), // ADT-Tweak
         };
 
         public event Action<string>? OnSaved;

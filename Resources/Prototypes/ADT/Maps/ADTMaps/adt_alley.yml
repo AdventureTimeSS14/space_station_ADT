@@ -4,7 +4,7 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_alley.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 30
+  minPlayers: 60
   stations:
     ADT_Alley:
       stationProto: StandardNanotrasenStation
