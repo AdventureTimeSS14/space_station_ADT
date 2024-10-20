@@ -36,6 +36,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
+using Content.Shared.Interaction;
 
 namespace Content.Server.Chat.Systems;
 

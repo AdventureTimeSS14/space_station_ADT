@@ -1,8 +1,8 @@
-using Content.Shared.Roles;
+// using Content.Shared.Roles;
 
-namespace Content.Server.Roles;
+// namespace Content.Server.Roles;
 
-[RegisterComponent, ExclusiveAntagonist]
-public sealed partial class HereticRoleComponent : AntagonistRoleComponent
-{
-}
+// [RegisterComponent, ExclusiveAntagonist]
+// public sealed partial class HereticRoleComponent : AntagonistRoleComponent
+// {
+// }

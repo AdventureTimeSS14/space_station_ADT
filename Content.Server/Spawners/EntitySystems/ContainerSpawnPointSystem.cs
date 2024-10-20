@@ -1,4 +1,4 @@
-﻿using Content.Server.GameTicking;
+﻿﻿using Content.Server.GameTicking;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Preferences;
@@ -25,18 +25,7 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new []{ typeof(SpawnPointSystem) });
     }
 
-    public void HandlePlayerSpawning(PlayerSpawningEvent args)   // ADT station AI tweak
-    {
-        if (args.Job != null &&
-            args.Job.Prototype.HasValue &&
-            _proto.Index(args.Job.Prototype.Value).ContainerInsert)
-            HandlePlayerSpawning(args, true);   // ADT station AI tweak
-        else
-            HandlePlayerSpawning(args, false);   // ADT station AI tweak
-    }
-
-    // ADT station AI tweak start
-    public void HandlePlayerSpawning(PlayerSpawningEvent args, bool forceJob = false)
+    public void HandlePlayerSpawning(PlayerSpawningEvent args)
     {
         if (args.SpawnResult != null)
             return;
@@ -65,10 +54,10 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
                 continue;
             }
 
-                if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
-                {
-                    possibleContainers.Add((uid, spawnPoint, container, xform));
-                }
+            if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
+            {
+                possibleContainers.Add((uid, spawnPoint, container, xform));
+            }
 
             if (_gameTicker.RunLevel != GameRunLevel.InRound &&
                 spawnPoint.SpawnType == SpawnPointType.Job &&
@@ -104,5 +93,4 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         Del(args.SpawnResult);
         args.SpawnResult = null;
     }
-    // ADT station AI tweak end
 }

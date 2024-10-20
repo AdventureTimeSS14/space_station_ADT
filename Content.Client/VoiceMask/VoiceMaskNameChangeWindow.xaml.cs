@@ -145,8 +145,8 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         }
     }
     // ADT Barks end
-
-    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb) // Corvax-TTS
+    // public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb) // Corvax-TTS
+    public void UpdateState(string name, string voice, string? verb) // Corvax-TTS
     {
         NameSelector.Text = name;
         _verb = verb;
@@ -166,11 +166,11 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             VoiceSelector.Select(voiceIdx);
         // Corvax-TTS-End
 
-        // ADT Barks start
-        var barkIdx = _barks.FindIndex(b => b.ID == barkId);
-        if (barkIdx != -1)
-            BarkSelector.Select(barkIdx);
-        PitchSelector.SetText(barkPitch.ToString());
-        // ADT Barks end
+        // // ADT Barks start
+        // var barkIdx = _barks.FindIndex(b => b.ID == barkId);
+        // if (barkIdx != -1)
+        //     BarkSelector.Select(barkIdx);
+        // PitchSelector.SetText(barkPitch.ToString());
+        // // ADT Barks end
     }
 }

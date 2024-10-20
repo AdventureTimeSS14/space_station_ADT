@@ -80,6 +80,63 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
+        public void Populate(List<VendingMachineInventoryEntry> inventory)
+        {
+            if (inventory.Count == 0 && VendingContents.Visible)
+            {
+                SearchBar.Visible = false;
+                VendingContents.Visible = false;
+
+                var outOfStockLabel = new Label()
+                {
+                    Text = Loc.GetString("vending-machine-component-try-eject-out-of-stock"),
+                    Margin = new Thickness(4, 4),
+                    HorizontalExpand = true,
+                    VerticalAlignment = VAlignment.Stretch,
+                    HorizontalAlignment = HAlignment.Center
+                };
+
+                MainContainer.AddChild(outOfStockLabel);
+
+                SetSizeAfterUpdate(outOfStockLabel.Text.Length, 0);
+
+                return;
+            }
+
+            var longestEntry = string.Empty;
+            var listData = new List<VendorItemsListData>();
+
+            for (var i = 0; i < inventory.Count; i++)
+            {
+                var entry = inventory[i];
+
+                if (!_prototypeManager.TryIndex(entry.ID, out var prototype))
+                    continue;
+
+                if (!_dummies.TryGetValue(entry.ID, out var dummy))
+                {
+                    dummy = _entityManager.Spawn(entry.ID);
+                    _dummies.Add(entry.ID, dummy);
+                }
+
+                var itemName = Identity.Name(dummy, _entityManager);
+                var itemText = $"{itemName} [{entry.Amount}]";
+
+                if (itemText.Length > longestEntry.Length)
+                    longestEntry = itemText;
+
+                listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
+            }
+
+            VendingContents.PopulateList(listData);
+
+            SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
+        }
+
+        /// <summary>
+        /// Populates the list of available items on the vending machine interface
+        /// and sets icons based on their prototypes
+        /// </summary>
         public void Populate(EntityUid entityUid, List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits)
         {
             //ADT-Economy-Start
