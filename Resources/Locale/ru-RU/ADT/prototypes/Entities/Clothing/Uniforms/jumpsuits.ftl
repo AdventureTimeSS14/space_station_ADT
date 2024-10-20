@@ -330,3 +330,8 @@ ent-ADTHalloweenMichaelMyersSuit = костюм Майкла Майерса
 ent-ADTJumpsuitHunterDemon = костюм охотника на демонов
     .suffix = Хеллоуин
     .desc = Служебный костюм "Охотники на Демонов Общественной Безопасности" или же "Охотник на Демонов". Выглядит потрепанно.
+
+
+ent-ADTClothingUniformAbibasBlackSuit = черный спортивный костюм
+    .desc = Спортивка для четких пацанов
+    .suffix = { "" }

@@ -154,3 +154,7 @@ ent-ADTClothingUniformOktoberfestDirndlGreen = дирндль с зеленой 
 ent-ADTClothingUniformOktoberfestDirndlRed = дирндль с красной юбкой
     .desc = Стилизованное под традиционный наряд платье с красной юбкой.
     .suffix = { "Октоберфест" }
+
+ent-ADTClothingUniformRabbitDress = кроличий купальник
+    .desc = А куда здесь крепить КПК?
+    .suffix = { "" }

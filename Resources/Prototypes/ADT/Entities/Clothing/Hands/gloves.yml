@@ -60,3 +60,17 @@
     sprite: ADT/Clothing/Hands/Gloves/red_martial_gloves.rsi
   - type: Fiber
     fiberMaterial: fibers-synthetic
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsFingerlessCombat
+  name: fingerless combat gloves
+  description: These tactical gloves are fireproof and shockproof, and have become much cooler.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black

@@ -265,11 +265,11 @@
       amount: 1
     - id: ADTClothingHeadSquidGame
       amount: 1
-    - id: ADTSquidGameWorkerMask
+    - id: ADTClothingMaskSquidGameWorker
       amount: 1
-    - id: ADTSquidGameSoldierMask
+    - id: ADTClothingMaskSquidGameSoldier
       amount: 1
-    - id: ADTSquidGameManagerMask
+    - id: ADTClothingMaskSquidGameManager
       amount: 1
     - id: ClothingHandsGlovesColorBlack
       amount: 1

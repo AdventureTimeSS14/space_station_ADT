@@ -1087,3 +1087,15 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/suit_hunterdemon.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/suit_hunterdemon.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformAbibasBlackSuit
+  name: black sport suit
+  description: Sportsuit for real buddies.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_abibas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_abibas.rsi
