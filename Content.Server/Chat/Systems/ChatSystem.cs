@@ -39,7 +39,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
-using Content.Shared.Sirena.CollectiveMind;
+using Content.Shared.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -285,9 +285,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             case InGameICChatType.Emote:
                 SendEntityEmote(source, sanitizedMessage, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);     // ADT Languages
                 break;
+            // ADT-CollectiveMind-Tweak-Start
             case InGameICChatType.CollectiveMind:
                 SendCollectiveMindChat(source, message, false);
                 break;
+            // ADT-CollectiveMind-Tweak-End
         }
     }
 
@@ -438,6 +440,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
+    // ADT-CollectiveMind-Tweak-Start
     public void SendCollectiveMindChat(EntityUid source, string message, bool hideChat)
     {
         if (!TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp))
@@ -508,6 +511,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             admins,
             channelProto.Color);
     }
+    // ADT-CollectiveMind-Tweak-End
     private void SendEntitySpeak(
         EntityUid source,
         string originalMessage,

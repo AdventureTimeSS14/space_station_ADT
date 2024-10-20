@@ -14,7 +14,7 @@ internal sealed class ChatManager : IChatManager
     [Dependency] private readonly IEntitySystemManager _systems = default!;
 
     private ISawmill _sawmill = default!;
-    public event Action? PermissionsUpdated;
+    public event Action? PermissionsUpdated; // ADT-CollectiveMind-Tweak
 
     public void Initialize()
     {
@@ -77,8 +77,10 @@ internal sealed class ChatManager : IChatManager
         }
     }
 
-        public void UpdatePermissions()
-        {
-            PermissionsUpdated?.Invoke();
-        }
+// ADT-CollectiveMind-Tweak-Start
+    public void UpdatePermissions()
+    {
+        PermissionsUpdated?.Invoke();
+    }
+// ADT-CollectiveMind-Tweak-End
 }

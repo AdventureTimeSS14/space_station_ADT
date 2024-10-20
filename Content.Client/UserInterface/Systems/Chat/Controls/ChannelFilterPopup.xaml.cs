@@ -16,7 +16,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.Whisper,
         ChatChannel.Emotes,
         ChatChannel.Radio,
-        ChatChannel.CollectiveMind,
+        ChatChannel.CollectiveMind, // ADT-CollectiveMind-Tweak
         ChatChannel.Notifications,
         ChatChannel.LOOC,
         ChatChannel.OOC,

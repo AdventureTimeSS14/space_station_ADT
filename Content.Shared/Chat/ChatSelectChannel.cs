@@ -44,7 +44,7 @@
         /// <summary>
         ///     CollectiveMind
         /// </summary>
-        CollectiveMind = ChatChannel.CollectiveMind,
+        CollectiveMind = ChatChannel.CollectiveMind,    // ADT-CollectiveMind-Tweak
 
         /// <summary>
         ///     Deadchat

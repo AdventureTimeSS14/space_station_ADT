@@ -11,7 +11,7 @@ public sealed partial class CollectiveMindComponent : Component
     public string Channel = string.Empty;
 
     [DataField]
-    public bool ShowName = false;
+    public bool ShowName = true;
 
     [DataField]
     public bool ShowRank = false;
