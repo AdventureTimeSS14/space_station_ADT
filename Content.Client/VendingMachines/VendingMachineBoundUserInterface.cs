@@ -40,14 +40,10 @@ namespace Content.Client.VendingMachines
             _menu.OpenCenteredLeft();
         }
 
-        protected override void UpdateState(BoundUserInterfaceState state)
+        public void Refresh()
         {
-            base.UpdateState(state);
-
-            if (state is not VendingMachineInterfaceState newState)
-                return;
-
-            _cachedInventory = newState.Inventory;
+            var system = EntMan.System<VendingMachineSystem>();
+            _cachedInventory = system.GetAllInventory(Owner);
 
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
