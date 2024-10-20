@@ -2,6 +2,8 @@
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Robust.Client.GameObjects;
+using Robust.Client.Player;
+using Robust.Shared.Audio.Systems;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.Mech;
@@ -10,6 +12,9 @@ namespace Content.Client.Mech;
 public sealed class MechSystem : SharedMechSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -17,6 +22,8 @@ public sealed class MechSystem : SharedMechSystem
         base.Initialize();
 
         SubscribeLocalEvent<MechComponent, AppearanceChangeEvent>(OnAppearanceChanged);
+        SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
+        SubscribeLocalEvent<MechComponent, MechEquipmentDestroyedEvent>(OnEquipmentDestroyed);
     }
 
     private void OnAppearanceChanged(EntityUid uid, MechComponent component, ref AppearanceChangeEvent args)
@@ -24,7 +31,7 @@ public sealed class MechSystem : SharedMechSystem
         if (args.Sprite == null)
             return;
 
-        if (!args.Sprite.TryGetLayer((int) MechVisualLayers.Base, out var layer))
+        if (!args.Sprite.TryGetLayer((int)MechVisualLayers.Base, out var layer))
             return;
 
         var state = component.BaseState;
@@ -41,6 +48,29 @@ public sealed class MechSystem : SharedMechSystem
         }
 
         layer.SetState(state);
-        args.Sprite.DrawDepth = (int) drawDepth;
+        args.Sprite.DrawDepth = (int)drawDepth;
+    }
+
+    private void OnMechEntry(EntityUid uid, MechComponent component, MechEntryEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+        var player = _playerManager.LocalSession;
+        var playerEntity = player?.AttachedEntity;
+        if (playerEntity == null)
+        {
+            return;
+        }
+        _audio.PlayPredicted(component.MechEntrySound, uid, playerEntity);
+    }
+    private void OnEquipmentDestroyed(EntityUid uid, MechComponent component, MechEquipmentDestroyedEvent args)
+    {
+        var player = _playerManager.LocalSession;
+        var playerEntity = player?.AttachedEntity;
+        if (playerEntity == null)
+        {
+            return;
+        }
+        _audio.PlayPredicted(component.MechEntrySound, uid, playerEntity);
     }
 }
