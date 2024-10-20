@@ -1,4 +1,71 @@
 - type: entity
+  id: LingUntActionStealth
+  name: action-stealth
+  description: action-stealth-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: chameleon
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:CompInvisibilityActionEvent
+    useDelay: 30
+
+- type: entity
+  id: LingUntActionStasisHeal
+  name: action-stasis-heal
+  description: action-stasis-heal-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:CompStasisHealActionEvent
+    useDelay: 5
+
+- type: entity
+  id: LingUntActionJump
+  name: action-jump
+  description: action-jump-desc
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    useDelay: 75
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: icon
+    event: !type:CompJumpActionEvent
+
+- type: entity
+  id: LingUntActionShoot
+  name: action-shoot
+  description: action-shoot-desc
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    useDelay: 60
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+      state: icon
+    event: !type:CompProjectileActionEvent
+
+
+- type: entity
   id: ActionChangelingEvolutionMenu
   name: action-evolution-menu
   description: action-evolution-menu-decs
@@ -7,6 +74,7 @@
   - type: InstantAction
     icon: Interface/Actions/shop.png
     event: !type:ChangelingEvolutionMenuActionEvent
+    priority: -70
 
 - type: entity
   id: ActionChangelingAbsorb
@@ -16,7 +84,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: absorb_dna
     itemIconStyle: BigAction
     whitelist:
@@ -25,6 +93,7 @@
     event: !type:LingAbsorbActionEvent
     useDelay: 5
     canTargetSelf: false
+    priority: -60
 
 - type: entity
   id: ActionChangelingCycleDNA
@@ -34,25 +103,27 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: cycle
     itemIconStyle: BigAction
     event: !type:ChangelingCycleDNAActionEvent
     useDelay: 1
+    priority: -69
 
-- type: entity
-  id: ActionChangelingTransform
-  name: action-transform
-  description: action-transform-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/actions_ling.rsi
-      state: transform
-    itemIconStyle: BigAction
-    event: !type:ChangelingTransformActionEvent
-    useDelay: 5
+# - type: entity ### это действие удалено всвязи с заменой UI выбора формы и трансформации генокрада.
+#   id: ActionChangelingTransform
+#   name: action-transform
+#   description: action-transform-desc
+#   noSpawn: true
+#   components:
+#   - type: InstantAction
+#     icon:
+#       sprite: Interface/Actions/actions_ling.rsi
+#       state: transform
+#     itemIconStyle: BigAction
+#     event: !type:ChangelingTransformActionEvent
+#     useDelay: 5
+#     priority: -68
 
 - type: entity
   id: ActionLingRegenerate
@@ -63,11 +134,12 @@
   - type: InstantAction
     checkCanInteract: false
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: regenerate
     itemIconStyle: BigAction
     event: !type:LingRegenerateActionEvent
     useDelay: 115
+    priority: -66
 
 - type: entity
   id: ActionLingStingExtract
@@ -77,7 +149,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: sting_extract
     itemIconStyle: BigAction
     whitelist:
@@ -86,6 +158,7 @@
     event: !type:LingStingExtractActionEvent
     useDelay: 30
     canTargetSelf: false
+    priority: -65
 
 - type: entity
   id: ActionArmBlade
@@ -100,6 +173,7 @@
     itemIconStyle: BigAction
     event: !type:ArmBladeActionEvent
     useDelay: 1
+    priority: -50
 
 - type: entity
   id: ActionLingArmor
@@ -114,6 +188,7 @@
     itemIconStyle: BigAction
     event: !type:LingArmorActionEvent
     useDelay: 15
+    priority: -49
 
 - type: entity
   id: ActionLingInvisible
@@ -123,11 +198,12 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: chameleon
     itemIconStyle: BigAction
     event: !type:LingInvisibleActionEvent
     useDelay: 1
+    priority: -48
 
 - type: entity
   id: ActionLingEMP
@@ -137,13 +213,14 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: emp
     itemIconStyle: BigAction
     useDelay: 15
     event: !type:LingEMPActionEvent
+    priority: -47
 
-    # Stasis Death
+    # Stasis
 - type: entity
   id: ActionStasisDeath
   name: action-stasis-death
@@ -153,11 +230,12 @@
   - type: InstantAction
     checkCanInteract: false
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: stasis
     itemIconStyle: BigAction
     event: !type:StasisDeathActionEvent
     useDelay: 90
+    priority: -46
 
     # Blind sting
 - type: entity
@@ -168,7 +246,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: sting_blind
     itemIconStyle: BigAction
     whitelist:
@@ -177,6 +255,7 @@
     event: !type:BlindStingEvent
     useDelay: 2
     canTargetSelf: false
+    priority: -64
 
     # Adrenaline
 - type: entity
@@ -187,11 +266,12 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: epinephrine_overdose
     itemIconStyle: BigAction
     event: !type:AdrenalineActionEvent
-    useDelay: 30
+    useDelay: 90
+    priority: -45
 
     # Refresh
 - type: entity
@@ -202,11 +282,12 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: refresh_dna
     itemIconStyle: BigAction
     event: !type:ChangelingRefreshActionEvent
     useDelay: 5
+    priority: -66
 
     # Fleshmend
 - type: entity
@@ -217,11 +298,12 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
     event: !type:OmniHealActionEvent
-    useDelay: 30
+    useDelay: 90
+    priority: -44
 
     # Mute sting
 - type: entity
@@ -232,7 +314,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Changeling/actions_ling.rsi
+      sprite: Interface/Actions/actions_ling.rsi
       state: sting_mute
     itemIconStyle: BigAction
     whitelist:
@@ -241,3 +323,197 @@
     event: !type:MuteStingEvent
     useDelay: 5
     canTargetSelf: false
+    priority: -63
+
+    # Drug sting
+- type: entity
+  id: ActionLingDrugSting
+  name: action-drug-sting
+  description: action-drug-sting-desc
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: sting_hallucination
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:DrugStingEvent
+    useDelay: 5
+    canTargetSelf: false
+    priority: -62
+
+    # Muscles
+- type: entity
+  id: ActionLingMuscles
+  name: action-muscles
+  description: action-muscles-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: strained_muscles
+    itemIconStyle: BigAction
+    event: !type:ChangelingMusclesActionEvent
+    useDelay: 1
+    priority: -43
+
+    # Lesser form
+- type: entity
+  id: ActionLingLesserForm
+  name: action-lesser-form
+  description: action-lesser-form-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: lesser_form
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:ChangelingLesserFormActionEvent
+    useDelay: 10
+    priority: -67
+
+    # Arm shield
+- type: entity
+  id: ActionArmShield
+  name: action-toggle-arm-shield
+  description: action-toggle-arm-shield-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Objects/Weapons/Melee/armshield.rsi
+      state: icon
+    itemIconStyle: BigAction
+    event: !type:ArmShieldActionEvent
+    useDelay: 1
+    priority: -51
+
+    # Last Resort
+- type: entity
+  id: ActionLingLastResort
+  name: action-resort
+  description: action-resort-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: last_resort
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LastResortActionEvent
+    useDelay: 1
+    priority: -61
+
+    # Lay eggs
+- type: entity
+  id: ActionLingEggs
+  name: action-eggs
+  description: action-eggs-desc
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: last_resort
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:LingEggActionEvent
+    useDelay: 5
+    canTargetSelf: false
+
+    # Hatch
+- type: entity
+  id: ActionLingHatch
+  name: action-hatch
+  description: action-hatch-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: last_resort
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingHatchActionEvent
+    useDelay: 180
+    priority: -99
+
+    # Fast Hatch
+- type: entity
+  id: ActionLingHatchFast
+  name: action-hatch
+  description: action-hatch-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: last_resort
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingHatchActionEvent
+    useDelay: 60
+    priority: -99
+
+    # Biodegrade
+- type: entity
+  id: ActionLingBiodegrade
+  name: action-biodegrade
+  description: action-biodegrade-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: biodegrade
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingBiodegradeActionEvent
+    useDelay: 60
+    priority: -55
+
+    # Resonant Shriek
+- type: entity
+  id: ActionLingResonant
+  name: action-resonant
+  description: action-resonant-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: resonant_shriek
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingResonantShriekEvent
+    useDelay: 30
+    priority: -54
+
+    # Transform Sting
+- type: entity
+  id: ActionLingTransformSting
+  name: action-transform-sting
+  description: action-transform-sting-desc
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: sting_transform
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:TransformationStingEvent
+    useDelay: 180
+    canTargetSelf: false
+    priority: -54

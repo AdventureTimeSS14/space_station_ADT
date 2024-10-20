@@ -73,6 +73,8 @@ public sealed partial class StoreComponent : Component
     [ViewVariables, DataField]
     public bool RefundAllowed;
 
+    [ViewVariables, DataField("refundPossible")]
+    public bool RefundPossible;
     /// <summary>
     ///     Checks if store can be opened by the account owner only.
     ///     Not meant to be used with uplinks.
