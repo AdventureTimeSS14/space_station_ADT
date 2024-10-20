@@ -84,8 +84,16 @@
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo.
   components:
+  # ADT tweak Start
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/inspector.rsi # ADT tweak
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  # ADT tweak End
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/inspector.rsi # ADT tweak
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: RevolverAmmoProvider
@@ -99,13 +107,14 @@
   id: WeaponRevolverMateba
   description: The iconic sidearm of the dreaded death squads. Uses .45 magnum ammo.
   components:
-  # ADT tweak End
+  # ADT tweak Start
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi
     size: Small
     shape:
     - 0,0,1,0
     - 0,1,0,1
+  # ADT tweak End
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
   - type: Clothing
