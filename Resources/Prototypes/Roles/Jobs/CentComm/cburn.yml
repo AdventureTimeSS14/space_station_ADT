@@ -30,8 +30,13 @@
     belt: ClothingBeltBandolier
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
+    - BoxSurvivalEngineering
+    - WeaponShotgunEnforcer
     - BoxShotgunIncendiary
+    - MagazineShotgunIncendiary
+    - MagazineShotgun
+    - Chainsaw
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
+    - RadioHandheld
