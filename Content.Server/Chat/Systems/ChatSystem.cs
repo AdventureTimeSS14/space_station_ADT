@@ -39,6 +39,10 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
+using Content.Shared.Sirena.CollectiveMind;
+using System.Globalization;
+using System.Linq;
+using System.Text;
 
 namespace Content.Server.Chat.Systems;
 
@@ -281,6 +285,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             case InGameICChatType.Emote:
                 SendEntityEmote(source, sanitizedMessage, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);     // ADT Languages
                 break;
+            case InGameICChatType.CollectiveMind:
+                SendCollectiveMindChat(source, message, false);
+                break;
         }
     }
 
@@ -431,6 +438,76 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
+    public void SendCollectiveMindChat(EntityUid source, string message, bool hideChat)
+    {
+        if (!TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp))
+            return;
+
+        var clients = Filter.Empty();
+        var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
+        while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
+        {
+            if (collectMindComp.Channel == sourseCollectiveMindComp.Channel)
+            {
+                clients.AddPlayer(actorComp.PlayerSession);
+            }
+        }
+
+        var admins = _adminManager.ActiveAdmins
+            .Select(p => p.Channel);
+        string messageWrap;
+        string adminMessageWrap;
+
+        var channelProto = IoCManager.Resolve<IPrototypeManager>().Index<RadioChannelPrototype>(sourseCollectiveMindComp.Channel);
+
+        messageWrap =
+            sourseCollectiveMindComp.ShowRank && sourseCollectiveMindComp.ShowName ?
+                Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank-name",
+                ("source", source),
+                ("rank", Loc.GetString(sourseCollectiveMindComp.RankName)),
+                ("message", message),
+                ("channel", channelProto.LocalizedName)) :
+
+            sourseCollectiveMindComp.ShowName ?
+                Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-name",
+                ("source", source),
+                ("message", message),
+                ("channel", channelProto.LocalizedName)) :
+
+            sourseCollectiveMindComp.ShowRank ?
+                Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank",
+                ("rank", Loc.GetString(sourseCollectiveMindComp.RankName)),
+                ("message", message),
+                ("channel", channelProto.LocalizedName)) :
+
+           Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message", ("message", message), ("channel", channelProto.LocalizedName));
+
+        adminMessageWrap = Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-admin",
+            ("source", source),
+            ("rank", Loc.GetString(sourseCollectiveMindComp.RankName)),
+            ("message", message),
+            ("channel", channelProto.LocalizedName));
+
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
+
+        _chatManager.ChatMessageToManyFiltered(clients,
+            ChatChannel.CollectiveMind,
+            message,
+            messageWrap,
+            source,
+            hideChat,
+            true,
+            channelProto.Color);
+
+        _chatManager.ChatMessageToMany(ChatChannel.CollectiveMind,
+            message,
+            adminMessageWrap,
+            source,
+            hideChat,
+            true,
+            admins,
+            channelProto.Color);
+    }
     private void SendEntitySpeak(
         EntityUid source,
         string originalMessage,
@@ -1131,7 +1208,8 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper
+    Whisper,
+    CollectiveMind
 }
 
 /// <summary>
