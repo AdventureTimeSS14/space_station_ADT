@@ -61,17 +61,11 @@
   - type: StaticPrice
     price: 800
 
+
 - type: entity
-  parent: ClothingOuterCoatLab
-  id: ADTClothingOuterCoatLabPathologist
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
+  id: ADTClothingOuterCoatLabPathologistOpened
   name: pathologist's lab coat
-  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
-    state: icon-open
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -175,3 +169,34 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+
+# Med
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabcoatCMOHike
+  name: chief medical officer's hiking lab coat
+  description: Partially open labcoat. Does not hinder movement.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/hike_labcoat_cmo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/hike_labcoat_cmo.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLabcoatCMOHike]
+  id: ADTClothingOuterCoatLabcoatCMOHikeOpened
+  name: chief medical officer's hiking lab coat
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabPathologist
+  name: pathologist's lab coat
+  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+    state: icon-open
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+
