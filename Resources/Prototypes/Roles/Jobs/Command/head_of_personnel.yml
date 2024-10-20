@@ -57,7 +57,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: PhantomTyranyTarget # ADT Phantom
+      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: HoPGear

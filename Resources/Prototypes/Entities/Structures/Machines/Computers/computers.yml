@@ -18,7 +18,7 @@
       state: atmos_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: GenericVisualizer
     visuals:
       enum.ComputerVisuals.Powered:
@@ -296,7 +296,7 @@
         type: PowerMonitoringConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -361,7 +361,7 @@
   - type: GuideHelp
     guides:
     - CriminalRecords
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -387,7 +387,7 @@
   - type: GuideHelp
     guides:
     - Forensics
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -427,7 +427,7 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 1200
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -469,7 +469,7 @@
     board: ResearchComputerCircuitboard
   - type: AccessReader
     access: [["Research"]]
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -527,7 +527,7 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -715,7 +715,7 @@
     radius: 1.5
     energy: 1.6
     color: "#e6e227"
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -750,7 +750,7 @@
     radius: 1.5
     energy: 1.6
     color: "#e6e227"
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   id: ComputerCargoShuttle
@@ -811,7 +811,7 @@
       state: generic_panel_open
   - type: CargoOrderConsole
   - type: BankClient
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: ActiveRadio
     channels:
     - Supply
@@ -1229,7 +1229,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: RoboticsConsole
     transmitFrequencyId: CyborgControl
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: Computer
     board: RoboticsConsoleCircuitboard
   - type: AccessReader # only used for dangerous things
