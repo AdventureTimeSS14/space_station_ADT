@@ -331,7 +331,7 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
-            targeted.TargetCoords = gun.ShootCoordinates;
+            targeted.TargetCoords = gun.ShootCoordinates; // ADT-Crawling-Abuse-Tweak
             Dirty(uid, targeted);
         }
 
