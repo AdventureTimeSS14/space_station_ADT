@@ -463,6 +463,16 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformRabbitDress
+  name: rabbit black dress
+  description: soo...how pick a PDA in this?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rabbit_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rabbit_dress.rsi
 # Med
 
 - type: entity

@@ -1,0 +1,76 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRabbitGloves
+  name: Rabbit Gloves
+  description: Shhh. Furry.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/rabbit_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/rabbit_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTBioMercGloves
+  name: fingerless tactical bio-fabric gloves
+  description: If you thought that this glove is environmentally friendly, then you are very mistaken. This glove is made of a fabric with an admixture of biomass, which strongly resembles leather. Moreover, this "skin" is unnaturally warm...
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/biomerc_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/biomerc_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTVyazovGloves
+  name: gloves from the dimension of nightmares
+  description: The right glove has blades, it seems, with which its former owner dealt with his victims.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/vyazov_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/vyazov_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 8
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    animation: WeaponArcFist
+
+- type: entity
+  parent: ClothingHandsGlovesBoxingRed
+  id: ADTRedMartialArtsGloves
+  name: red gloves for martial arts
+  description: red gloves for martial arts
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/red_martial_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/red_martial_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsFingerlessCombat
+  name: fingerless combat gloves
+  description: These tactical gloves are fireproof and shockproof, and have become much cooler.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/fingerless_combat.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black

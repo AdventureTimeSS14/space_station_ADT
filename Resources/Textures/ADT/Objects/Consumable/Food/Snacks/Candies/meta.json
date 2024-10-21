@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911 and uma_eso_stabler для Времени Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "black"
+        },
+        {
+            "name": "bat"
+        },
+        {
+            "name": "red"
+        },
+        {
+            "name": "green"
+        },
+        {
+            "name": "yellow"
+        },
+        {
+            "name": "violet"
+        },
+        {
+            "name": "scull"
+        },
+        {
+            "name": "pumpkin"
+        },
+        {
+            "name": "candyblue"
+        },
+        {
+            "name": "candygow"
+        },
+        {
+            "name": "candygreen"
+        },
+        {
+            "name": "candymine"
+        },
+        {
+            "name": "candyred"
+        },
+        {
+            "name": "eyes"
+        },
+        {
+            "name": "bunny"
+        },
+        {
+            "name": "brains"
+        },
+        {
+            "name": "coin"
+        },
+        {
+            "name": "heart"
+        },
+        {
+            "name": "hl_caramel"
+        },
+        {
+            "name": "mint_caramel"
+        },
+        {
+            "name": "worms"
+        }
+    ]
+}
+
