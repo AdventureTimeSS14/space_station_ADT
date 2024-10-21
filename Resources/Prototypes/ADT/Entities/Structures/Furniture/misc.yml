@@ -1,0 +1,49 @@
+# Праздничный Диско-шар
+
+- type: entity
+  id: ADTDiscoBall
+  parent: BaseStructureDynamic
+  name: disco ball
+  description: disco ball
+  #abstract: true
+  components:
+  - type: Transform
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 190
+        mask:
+        - Impassable
+  - type: Sprite
+    drawdepth: Overdoors
+    #offset: "0.0,0.3"
+    sprite: ADT/Structures/Decoration/discoball.rsi
+    state: discoball
+    noRot: true
+  - type: Anchorable
+  - type: PointLight
+    radius: 8
+    energy: 4
+  - type: RgbLightController
+    layers: [ 0 ]
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic # The pot. Not the plant. Or is it plastic?
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: ADTDiscoBallGraph
+    node: adtdiscoball

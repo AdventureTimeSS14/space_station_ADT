@@ -170,3 +170,4 @@
   - type: Tag
     tags:
     - DNASolutionScannable
+  - type: NeverPreventAnchor # ADT anchor fix

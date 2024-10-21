@@ -4,10 +4,6 @@
 - type: statusEffect
   id: ADTStarvation
 
-- type: statusEffect
-  id: Adrenaline
-  alert: Adrenaline
-
 # Simple Station
 
 - type: statusEffect

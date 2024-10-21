@@ -21,7 +21,7 @@
   id: OuijaBoardBackground
   name: checkerboard
   parent: BaseBoardTabletop
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Objects/Fun/Tabletop/ouija_background.rsi

@@ -1,0 +1,77 @@
+- type: entity
+  id: ActionToggleMantisDaggers
+  name: action-mantis-daggers
+  description: action-mantis-daggers-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/mantis_daggers.rsi
+      state: icon
+    itemIconStyle: BigAction
+    event: !type:ToggleMantisDaggersEvent
+    useDelay: 1
+
+- type: entity
+  id: ActionToggleSundownerShields
+  name: action-sundowner-shields
+  description: action-sundowner-shields-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/sundowner_shields.rsi
+      state: icon
+    iconOn:
+      sprite: ADT/Interface/Actions/sundowner_shields.rsi
+      state: icon-ON
+    itemIconStyle: BigAction
+    event: !type:ToggleSundownerShieldsEvent
+    useDelay: 5
+
+- type: entity
+  id: ActionToggleMuscles
+  name: action-muscles
+  description: action-muscles-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/muscles_implant.rsi
+      state: icon
+    itemIconStyle: BigAction
+    event: !type:ToggleMusclesEvent
+    useDelay: 15
+
+- type: entity
+  id: ActionMusclesJump
+  name: action-jump
+  description: action-jump-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: ADT/Interface/Actions/muscles_implant.rsi
+      state: jump-icon
+    event: !type:JumpbootsActionEvent
+
+- type: entity
+  id: ActionToggleCompStealth
+  name: action-stealth
+  description: action-stealth-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/stealth.rsi
+      state: icon
+    itemIconStyle: BigAction
+    event: !type:ToggleCompStealthEvent
+    useDelay: 1

@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ADTSalvageShuttleConsoleCircuitboard
+  name: salvage shuttle console board
+  description: A computer printed circuit board for a salvage shuttle console.
+  components:
+    - type: ComputerBoard
+      prototype: ADTComputerShuttleSalvage
+    # - type: StealTarget
+    #   stealGroup: SalvageShuttleConsoleCircuitboard
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ADTSecShuttleConsoleCircuitboard
+  name: sec shuttle console board
+  description: A computer printed circuit board for a sec shuttle console.
+  components:
+    - type: ComputerBoard
+      prototype: ADTComputerSecShuttle

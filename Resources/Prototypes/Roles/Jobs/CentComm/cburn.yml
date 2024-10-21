@@ -32,6 +32,7 @@
     back:
     - BoxSurvivalEngineering
     - WeaponShotgunEnforcer
+    - WeaponShotgunDoubleBarreled
     - BoxShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
