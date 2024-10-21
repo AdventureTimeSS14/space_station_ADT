@@ -227,3 +227,34 @@
     sprite: ADT/Clothing/Belt/killa_webbing.rsi
   - type: Clothing
     sprite: ADT/Clothing/Belt/killa_webbing.rsi
+    
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltMedicalBag
+  name: medical bag
+  description: Small but capacious bag to hold various medical equipment. It even has some place for a tablet for paper!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - Folder
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+  - type: Appearance
