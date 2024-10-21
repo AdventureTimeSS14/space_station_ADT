@@ -795,3 +795,65 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/poster_syndicate.rsi
     state: gasattack
+
+#спонсорские контрабандные постеры с Умой
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaHot
+  name: Uma`s poster 1
+  description: Uma`s poster 1
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umahot_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaPress
+  name: Uma`s poster 2
+  description: Uma`s poster 2
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umapress_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaSport
+  name: Uma`s poster 3
+  description: Uma`s poster 3
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umasport_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaAndAzalia
+  name: Uma`s poster 4
+  description: Uma`s poster 4
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umaazalia_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaRabbit
+  name: Uma`s poster 5
+  description: Uma`s poster 5
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umarabbit_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaOnBeach
+  name: Uma`s poster 6
+  description: Uma`s poster 6
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umaonbeach_contraband #Спрайт от Празата

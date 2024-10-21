@@ -45,6 +45,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed : 4.4
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ADTArachnid
   # End ADT tweak
   # Damage (Self)
   - type: Bloodstream
@@ -88,6 +91,11 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # ADT tweak start
+      - map: [ "underwearb" ] #Sirena
+      - map: [ "underweart" ] #Sirena
+      - map: [ "socks" ] #Sirena
+      # ADT tweak end
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]

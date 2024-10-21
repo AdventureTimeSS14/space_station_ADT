@@ -132,3 +132,21 @@
 
 - type: Tag
   id: ADTMagazineRifleAR12
+
+- type: Tag
+  id: ADTMobileDefibrillator
+
+- type: Tag
+  id: ADTPatch
+
+- type: Tag
+  id: ADTUnderwearB
+
+- type: Tag
+  id: ADTUnderwearT
+
+- type: Tag
+  id: ADTSocks
+
+- type: Tag
+  id: ADTMedipen

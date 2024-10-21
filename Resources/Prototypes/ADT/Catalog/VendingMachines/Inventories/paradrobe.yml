@@ -1,0 +1,14 @@
+- type: vendingMachineInventory
+  id: ParadrobeInventory
+  startingInventory:
+    ADTClothingBackpackParamedic: 2
+    ADTClothingBackpackDuffelParamedic: 2
+    ADTClothingBackpackSatchelParamedic: 2
+    ClothingUniformJumpsuitParamedic: 2
+    ClothingUniformJumpskirtParamedic: 2
+    ClothingShoesColorWhite: 2
+    ClothingOuterWinterPara: 2
+    ClothingOuterCoatParamedicWB: 2
+    ClothingHeadHatParamedicsoft: 2
+    ADTClothingHeadHatsParamedicBeret: 2
+    ADTClothingHeadsetParamedic: 2

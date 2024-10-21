@@ -47,6 +47,9 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
         {"suitstorage", "SUITSTORAGE"},
+        {"socks", "SOCKS"}, // ADT-TWEAK
+        {"underweart", "UNDERWEART"}, // ADT-TWEAK
+        {"underwearb", "UNDERWEARB"}, // ADT-TWEAK
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;
