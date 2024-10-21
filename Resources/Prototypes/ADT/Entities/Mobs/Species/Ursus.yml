@@ -124,6 +124,7 @@
     short: true
     shortscale: 0.98
     shortDensity: 0.7
+  - type: ReliveResuscitation
 
 - type: entity
   save: false
