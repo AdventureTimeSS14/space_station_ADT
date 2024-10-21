@@ -125,6 +125,9 @@
   id: JanicartKeys
 
 - type: Tag
+  id: ADTBadge
+
+- type: Tag
   id: ADTMagazineRifleExtended
 
 - type: Tag
