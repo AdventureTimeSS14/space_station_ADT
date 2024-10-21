@@ -99,7 +99,31 @@
   components:
   - type: VendingMachine
     pack: ADTHalloweenMateInventory
-=======
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  #- type: Advertise
+  #  pack: ClothesMateAds
+  - type: Speech
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/halloweenmat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#c2adff"
+
 # Таблеткомат
 
 - type: entity
@@ -114,14 +138,6 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
-  #- type: Advertise
-  #  pack: ClothesMateAds
-  - type: Speech
-  - type: Tag
-    tags:
-      - WhitelistChameleon
-  - type: Sprite
-    sprite: ADT/Structures/Machines/VendingMachines/halloweenmat.rsi
     ejectState: eject-unshaded
     ejectDelay: 0.6
   - type: Advertise
@@ -169,17 +185,15 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-
-- type: PointLight
-    radius: 1.8
-    energy: 1.6
-    color: "#c2adff"
   - type: AccessReader
     access: [["Medical"]]
   - type: PointLight
     radius: 1.8
     energy: 1.6
     color: "#1ca9d4"
+  - type: StaticPrice
+    price: 2600
+
 
 # ГраждоМед
 

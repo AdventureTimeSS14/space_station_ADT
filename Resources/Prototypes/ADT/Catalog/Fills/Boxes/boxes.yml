@@ -263,7 +263,7 @@
     contents:
     - id: ADTSquidGameOrganizerSuit
       amount: 1
-    - id: ADTClothingHeadSquidGame
+    - id: ADTClothingHeadSquidGameHood
       amount: 1
     - id: ADTClothingMaskSquidGameWorker
       amount: 1
