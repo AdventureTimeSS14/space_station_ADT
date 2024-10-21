@@ -25,6 +25,7 @@ using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
 using Content.Server.Disposal.Unit.Components;
+using Content.Shared.Bed.Cryostorage;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -69,6 +70,8 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (comp.Blackeye)
                 continue;
             if (_mobState.IsIncapacitated(uid))
+                continue;
+            if (HasComp<CryostorageContainedComponent>(uid))
                 continue;
 
             _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
