@@ -37,7 +37,7 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    public GhostBarMapPrototype? GhostBarMap; /// его значение нельзя объявить методом. Много проб, ни одна из них не успешна, даже в гугле информации про такое нету.
+    public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
     public override void Initialize()
     {
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
@@ -55,21 +55,18 @@ public sealed class GhostBarSystem : EntitySystem
 
         var mapProto = GhostBarMap;
 
-        if (_mapLoader.TryLoad(mapId, mapProto.Path, out _, options))
-        {
-            _mapSystem.SetPaused(mapId, false);
-            if (mapProto.Weather.HasValue)
-            {
-                TimeSpan? endTime = null;
-                _weathersystem.SetWeather(mapId, _prototypeManager.Index(mapProto.Weather.Value), endTime);
-            }
-        }
+        if (!_mapLoader.TryLoad(mapId, mapProto.Path, out _, options))
+            return;
+
+        _mapSystem.SetPaused(mapId, false);
+        if (mapProto.Weather.HasValue)
+            _weathersystem.SetWeather(mapId, _prototypeManager.Index(mapProto.Weather.Value), null);
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
     {
         QueueDel(uid);
-        Spawn("PolymorphAshJauntAnimation", Transform(uid).Coordinates);    // Спавн пепла при удалении, дабы выглядело чутка лучше
+        Spawn("PolymorphAshJauntAnimation", Transform(uid).Coordinates);    // Сугубо визуал
     }
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)
@@ -109,7 +106,6 @@ public sealed class GhostBarSystem : EntitySystem
         {
             EnsureComp<StealthComponent>(mobUid);
             _stealth.SetVisibility(mobUid, GhostBarMap.Ghosted);
-
         }
         var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
 
