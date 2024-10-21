@@ -115,14 +115,18 @@ public sealed class AdminLogsEui : BaseEui
             return;
         }
 
+        var oldSelection = new HashSet<Guid>(LogsControl.SelectedPlayers); // ADT-Tweak
         LogsControl.SetCurrentRound(s.RoundId);
         LogsControl.SetPlayers(s.Players);
         LogsControl.UpdateCount(round: s.RoundLogs);
 
+        // ADT-Tweak-Start
         if (!FirstState)
-        {
             return;
-        }
+
+        if (oldSelection.Count() > 0)
+            LogsControl.SetPlayersSelection(oldSelection);
+        // ADT-Tweak-End
 
         FirstState = false;
         LogsControl.SetRoundSpinBox(s.RoundId);
@@ -155,6 +159,10 @@ public sealed class AdminLogsEui : BaseEui
                 if (setLogFilter.Types != null)
                     LogsControl.SetTypesSelection(setLogFilter.Types, setLogFilter.InvertTypes);
 
+                // ADT-Tweak-Start
+                if (setLogFilter.SelectedPlayers != null)
+                    LogsControl.SetPlayersSelection(setLogFilter.SelectedPlayers);
+                // ADT-Tweak-End
                 break;
         }
     }
