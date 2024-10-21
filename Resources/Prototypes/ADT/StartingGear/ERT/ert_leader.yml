@@ -17,11 +17,15 @@
   storage:
     back:
     - BoxSurvivalEngineering
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunBulldog
     - BoxShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
+    - Chainsaw
+    - MedkitCombatFilled
+    - MagazineShotgun
+    - MagazineShotgunIncendiary
     - RadioHandheld
     # underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
   # underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
