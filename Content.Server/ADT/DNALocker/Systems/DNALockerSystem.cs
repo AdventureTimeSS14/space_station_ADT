@@ -37,7 +37,6 @@ public sealed partial class DNALockerSystem : EntitySystem
         }
 
         component.DNA = dna.DNA;
-        component.Locked = true;
         _audioSystem.PlayPvs(component.LockSound, uid);
         var selfMessage = Loc.GetString("dna-locker-success");
         _popup.PopupEntity(selfMessage, equipee, equipee);
@@ -62,7 +61,7 @@ public sealed partial class DNALockerSystem : EntitySystem
     private void OnEquip(EntityUid uid, DNALockerComponent component, GotEquippedEvent args)
     {
         Log.Debug($"{args.Slot}");
-        if (!component.Locked)
+        if (!component.IsLocked)
         {
             LockEntity(uid, component, args.Equipee);
             return;
@@ -79,25 +78,25 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, DNALockerComponent component, ref GotEmaggedEvent args)
     {
-        if (component.CanBeEmagged)
+        if (!component.CanBeEmagged)
+            return;
+
+        component.DNA = string.Empty;
+        _audioSystem.PlayPvs(component.EmagSound, uid);
+        var userUid = args.UserUid;
+        Timer.Spawn(1500, () =>
         {
-            component.Locked = false;
-            _audioSystem.PlayPvs(component.EmagSound, uid);
-            var userUid = args.UserUid;
-            Timer.Spawn(1500, () =>
-            {
-                _audioSystem.PlayPvs(component.LockSound, uid);
-                var selfMessage = Loc.GetString("dna-locker-unlock");
-                _popup.PopupEntity(selfMessage, uid, userUid);
-            });
-            args.Repeatable = true;
-            args.Handled = true;
-        }
+            _audioSystem.PlayPvs(component.LockSound, uid);
+            var selfMessage = Loc.GetString("dna-locker-unlock");
+            _popup.PopupEntity(selfMessage, uid, userUid);
+        });
+        args.Repeatable = true;
+        args.Handled = true;
     }
 
     private void OnAltVerb(EntityUid uid, DNALockerComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!component.Locked)
+        if (!component.IsLocked)
             return;
 
         AlternativeVerb verbDNALock = new()
@@ -116,7 +115,7 @@ public sealed partial class DNALockerSystem : EntitySystem
             var unlocked = Loc.GetString("dna-locker-unlock");
             _audioSystem.PlayPvs(component.LockSound, userUid);
             _popup.PopupEntity(unlocked, uid, userUid);
-            component.Locked = false;
+            component.DNA = string.Empty;
         }
         else
         {

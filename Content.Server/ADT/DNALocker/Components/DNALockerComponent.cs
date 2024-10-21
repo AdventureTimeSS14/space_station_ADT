@@ -6,10 +6,9 @@ namespace Content.Server.DNALocker;
 public sealed partial class DNALockerComponent : Component
 {
     [DataField]
-    public string? DNA;
+    public string DNA = string.Empty;
 
-    [DataField]
-    public bool Locked = false;
+    public bool IsLocked => DNA != string.Empty;
 
     [DataField]
     public bool IsEquipped = false;
