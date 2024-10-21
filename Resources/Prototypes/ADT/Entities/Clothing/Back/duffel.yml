@@ -9,13 +9,6 @@
     sprite: ADT/Clothing/Back/blueshield_duffel.rsi
 
 - type: entity
-  parent: ClothingBackpackDuffelMedical
-  id: ADTClothingBackpackDuffelPathologist
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Back/pathologist_duffel.rsi
-
-- type: entity
   parent: ClothingBackpackDuffel
   id: ADTClothingBackpackDuffelDurathead
   name: Durathead Duffel bag
@@ -35,3 +28,21 @@
   - type: Construction
     graph: DuffelDurathead
     node: DuffelDurathead
+
+# Med
+
+- type: entity
+  parent: ClothingBackpackDuffelMedical
+  id: ADTClothingBackpackDuffelPathologist
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/pathologist_duffel.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelParamedic
+  name: parsmedical duffel bag
+  description: A large duffel bag to hold paramedical equipment
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/paramedic_duffel.rsi
