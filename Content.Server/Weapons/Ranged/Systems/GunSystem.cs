@@ -40,7 +40,6 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-
     private const float DamagePitchVariation = 0.05f;
     public const float GunClumsyChance = 0.5f;
 
@@ -71,9 +70,12 @@ public sealed partial class GunSystem : SharedGunSystem
     {
         userImpulse = true;
 
+        if (user == null)
+            return;
+
         // Try a clumsy roll
         // TODO: Who put this here
-        if (TryComp<ClumsyComponent>(user, out var clumsy) && gun.ClumsyProof == false && !clumsy.Antagonist)
+        if (TryComp<ClumsyComponent>(user, out var clumsy) && gun.ClumsyProof == false && !_interaction.GetAntagonistStatus(user.Value, clumsy))
         {
             for (var i = 0; i < ammo.Count; i++)
             {
