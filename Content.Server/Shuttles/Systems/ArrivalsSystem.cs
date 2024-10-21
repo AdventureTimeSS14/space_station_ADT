@@ -342,15 +342,15 @@ public sealed class ArrivalsSystem : EntitySystem
         if (!Enabled || _ticker.RunLevel != GameRunLevel.InRound)
             return;
 
-        // ADT station AI tweak start
-        if (ev.Job != null &&
-            ev.Job.Prototype.HasValue &&
-            _protoManager.Index(ev.Job.Prototype.Value).ContainerInsert)
-        {
-            _containerSpawnPointSystem.HandlePlayerSpawning(ev, true);
-            return;
-        }
-        // ADT station AI tweak end
+        // // ADT station AI tweak start
+        // if (ev.Job != null &&
+        //     ev.Job.Prototype.HasValue &&
+        //     _protoManager.Index(ev.Job.Prototype.Value).ContainerInsert)
+        // {
+        //     _containerSpawnPointSystem.HandlePlayerSpawning(ev, true);
+        //     return;
+        // }
+        // // ADT station AI tweak end
 
         if (!HasComp<StationArrivalsComponent>(ev.Station))
             return;

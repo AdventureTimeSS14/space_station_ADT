@@ -30,3 +30,10 @@ job-name-ADTSpaceSecService = сотрудник SPACE SEC
 job-name-ADTSecBorg = Киборг службы безопасности
 JobADTSecBorg = Киборг службы безопасности
 
+# Job titles
+cadet-space-sec = Кадет SPACE SEC
+officer-space-sec = Офицер SPACE SEC
+pilot-space-sec = Пилот SPACE SEC
+commander-space-sec = Командир SPACE SEC
+member-space-sec = Сотрудник SPACE SEC
+trader-tsf = Торговец

@@ -10,7 +10,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
+    //[Dependency] private readonly HereticSystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -24,8 +24,8 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!HasComp<HereticComponent>(args.User))
-            return;
+        // if (!HasComp<HereticComponent>(args.User))
+        //     return;
 
         if (ent.Comp.Spent)
             return;
@@ -57,7 +57,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         var ev = new CheckMagicItemEvent();
         RaiseLocalEvent(args.User, ev);
 
-        _heretic.UpdateKnowledge(args.User, heretic, ev.Handled ? 2 : 1);
+        //_heretic.UpdateKnowledge(args.User, heretic, ev.Handled ? 2 : 1);
 
         Spawn("EldritchInfluenceIntermediate", Transform((EntityUid) args.Target).Coordinates);
         QueueDel(args.Target);

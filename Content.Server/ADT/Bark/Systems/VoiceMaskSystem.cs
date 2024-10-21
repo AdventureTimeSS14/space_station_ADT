@@ -1,81 +1,81 @@
-using Content.Shared.ADT.CCVar;
-using Content.Shared.VoiceMask;
-using Content.Server.ADT.SpeechBarks;
-using Content.Shared.ADT.SpeechBarks;
-using Robust.Shared.Configuration;
+// using Content.Shared.ADT.CCVar;
+// using Content.Shared.VoiceMask;
+// using Content.Server.ADT.SpeechBarks;
+// using Content.Shared.ADT.SpeechBarks;
+// using Robust.Shared.Configuration;
 
-namespace Content.Server.VoiceMask;
+// namespace Content.Server.VoiceMask;
 
-public partial class VoiceMaskSystem
-{
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    private void InitializeBarks()
-    {
-        SubscribeLocalEvent<VoiceMaskComponent, TransformSpeakerBarkEvent>(OnSpeakerVoiceTransform);
-        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeBarkMessage>(OnChangeBark);
-        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeBarkPitchMessage>(OnChangePitch);
-    }
+// public partial class VoiceMaskSystem
+// {
+//     [Dependency] private readonly IConfigurationManager _cfg = default!;
+//     private void InitializeBarks()
+//     {
+//         SubscribeLocalEvent<VoiceMaskComponent, TransformSpeakerBarkEvent>(OnSpeakerVoiceTransform);
+//         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeBarkMessage>(OnChangeBark);
+//         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeBarkPitchMessage>(OnChangePitch);
+//     }
 
-    private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, TransformSpeakerBarkEvent args)
-    {
-        if (component.Enabled)
-        {
-            args.Pitch = Math.Clamp(component.BarkPitch, _cfg.GetCVar(ADTCCVars.BarksMaxPitch), _cfg.GetCVar(ADTCCVars.BarksMaxPitch));
+//     private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, TransformSpeakerBarkEvent args)
+//     {
+//         if (component.Enabled)
+//         {
+//             args.Pitch = Math.Clamp(component.BarkPitch, _cfg.GetCVar(ADTCCVars.BarksMaxPitch), _cfg.GetCVar(ADTCCVars.BarksMaxPitch));
 
-            if (!_proto.TryIndex<BarkPrototype>(component.BarkId, out var proto))
-                return;
+//             if (!_proto.TryIndex<BarkPrototype>(component.BarkId, out var proto))
+//                 return;
 
-            args.Sound = proto.Sound;
-        }
-    }
+//             args.Sound = proto.Sound;
+//         }
+//     }
 
-    private void OnChangeBark(EntityUid uid, VoiceMaskComponent component, VoiceMaskChangeBarkMessage message)
-    {
-        component.BarkId = message.Proto;
-        
-        _popupSystem.PopupEntity(Loc.GetString("voice-mask-voice-popup-success"), uid);
+//     private void OnChangeBark(EntityUid uid, VoiceMaskComponent component, VoiceMaskChangeBarkMessage message)
+//     {
+//         component.BarkId = message.Proto;
 
-        TrySetLastKnownBark(uid, message.Proto);
+//         _popupSystem.PopupEntity(Loc.GetString("voice-mask-voice-popup-success"), uid);
 
-        UpdateUI(uid, component);
-    }
+//         TrySetLastKnownBark(uid, message.Proto);
 
-    private void TrySetLastKnownBark(EntityUid maskWearer, string voiceId)
-    {
-        if (!HasComp<VoiceMaskComponent>(maskWearer)
-            || !_inventory.TryGetSlotEntity(maskWearer, MaskSlot, out var maskEntity)
-            || !TryComp<VoiceMaskerComponent>(maskEntity, out var maskComp))
-        {
-            return;
-        }
+//         UpdateUI(uid, component);
+//     }
 
-        maskComp.LastSetVoice = voiceId;
-    }
+//     private void TrySetLastKnownBark(EntityUid maskWearer, string voiceId)
+//     {
+//         if (!HasComp<VoiceMaskComponent>(maskWearer)
+//             || !_inventory.TryGetSlotEntity(maskWearer, MaskSlot, out var maskEntity)
+//             || !TryComp<VoiceMaskerComponent>(maskEntity, out var maskComp))
+//         {
+//             return;
+//         }
 
-    private void OnChangePitch(EntityUid uid, VoiceMaskComponent component, VoiceMaskChangeBarkPitchMessage message)
-    {
-        if (!float.TryParse(message.Pitch, out var item))
-            return;
+//         maskComp.LastSetVoice = voiceId;
+//     }
 
-        component.BarkPitch = item;
+//     private void OnChangePitch(EntityUid uid, VoiceMaskComponent component, VoiceMaskChangeBarkPitchMessage message)
+//     {
+//         if (!float.TryParse(message.Pitch, out var item))
+//             return;
 
-        _popupSystem.PopupEntity(Loc.GetString("voice-mask-voice-popup-success"), uid);
+//         component.BarkPitch = item;
 
-        TrySetLastKnownPitch(uid, item);
+//         _popupSystem.PopupEntity(Loc.GetString("voice-mask-voice-popup-success"), uid);
 
-        UpdateUI(uid, component);
-    }
+//         TrySetLastKnownPitch(uid, item);
 
-    private void TrySetLastKnownPitch(EntityUid maskWearer, float pitch)
-    {
-        if (!HasComp<VoiceMaskComponent>(maskWearer)
-            || !_inventory.TryGetSlotEntity(maskWearer, MaskSlot, out var maskEntity)
-            || !TryComp<VoiceMaskerComponent>(maskEntity, out var maskComp))
-        {
-            return;
-        }
+//         UpdateUI(uid, component);
+//     }
 
-        maskComp.LastSetPitch = pitch;
-    }
+//     private void TrySetLastKnownPitch(EntityUid maskWearer, float pitch)
+//     {
+//         if (!HasComp<VoiceMaskComponent>(maskWearer)
+//             || !_inventory.TryGetSlotEntity(maskWearer, MaskSlot, out var maskEntity)
+//             || !TryComp<VoiceMaskerComponent>(maskEntity, out var maskComp))
+//         {
+//             return;
+//         }
 
-}
+//         maskComp.LastSetPitch = pitch;
+//     }
+
+// }
