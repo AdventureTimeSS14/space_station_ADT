@@ -5,7 +5,7 @@ using Content.Shared.Changeling.Components;
 namespace Content.Server.Changeling.EntitySystems;
 
 [DataDefinition]
-public sealed partial class DNARefresh : IAlertClick
+public sealed partial class DNARefresh : BaseAlertEvent
 {
     public void AlertClicked(EntityUid player)
     {

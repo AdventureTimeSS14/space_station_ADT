@@ -7,7 +7,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
-// using Content.Shared.NarcoticEffects.Components;
+using Content.Shared.NarcoticEffects.Components;
 using Robust.Shared.Physics.Systems;
 using Content.Shared.Changeling.Components;
 using Robust.Shared.Timing;
@@ -32,7 +32,7 @@ public sealed class LingHallucinationSystem : EntitySystem
         // Allow this entity to be seen by other ghosts.
         var visibility = EnsureComp<VisibilityComponent>(uid);
 
-        _visibilitySystem.RemoveLayer((uid, visibility), (ushort) VisibilityFlags.Normal, false);
+        _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
         _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
     }
 

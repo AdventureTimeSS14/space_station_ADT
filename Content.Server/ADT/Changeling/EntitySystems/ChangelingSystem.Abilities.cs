@@ -29,6 +29,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Rejuvenate;
 using Content.Server.Cuffs;
 using Content.Shared.Polymorph;
+using Content.Shared.Store.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -265,7 +266,7 @@ public sealed partial class ChangelingSystem
                 var selfMessage = Loc.GetString("changeling-dna-success", ("target", Identity.Entity(target, EntityManager)));
                 _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
                 component.CanRefresh = true;
-                _alertsSystem.ShowAlert(uid, AlertType.ADTAlertLingRefresh);
+                _alertsSystem.ShowAlert(uid, _proto.Index<AlertPrototype>("ADTAlertLingRefresh"));
                 component.AbsorbedDnaModifier = component.AbsorbedDnaModifier + 1;
             }
         }
@@ -1031,8 +1032,8 @@ public sealed partial class ChangelingSystem
         var doAfter = new DoAfterArgs(EntityManager, uid, component.BiodegradeDuration, new BiodegradeDoAfterEvent(), uid, target: uid)
         {
             DistanceThreshold = 2,
-            BreakOnUserMove = true,
-            BreakOnTargetMove = true,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
             BreakOnDamage = true,
             AttemptFrequency = AttemptFrequency.StartAndEnd,
             RequireCanInteract = false

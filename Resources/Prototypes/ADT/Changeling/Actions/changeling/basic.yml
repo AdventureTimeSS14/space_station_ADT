@@ -1,71 +1,4 @@
 - type: entity
-  id: LingUntActionStealth
-  name: action-stealth
-  description: action-stealth-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: chameleon
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:CompInvisibilityActionEvent
-    useDelay: 30
-
-- type: entity
-  id: LingUntActionStasisHeal
-  name: action-stasis-heal
-  description: action-stasis-heal-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: fleshmend
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:CompStasisHealActionEvent
-    useDelay: 5
-
-- type: entity
-  id: LingUntActionJump
-  name: action-jump
-  description: action-jump-desc
-  noSpawn: true
-  components:
-  - type: WorldTargetAction
-    useDelay: 75
-    range: 16 # default examine-range.
-    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
-    itemIconStyle: BigAction
-    checkCanAccess: false
-    repeat: true
-    icon:
-      sprite: Clothing/Shoes/Boots/combatboots.rsi
-      state: icon
-    event: !type:CompJumpActionEvent
-
-- type: entity
-  id: LingUntActionShoot
-  name: action-shoot
-  description: action-shoot-desc
-  noSpawn: true
-  components:
-  - type: WorldTargetAction
-    useDelay: 60
-    range: 16 # default examine-range.
-    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
-    itemIconStyle: BigAction
-    checkCanAccess: false
-    repeat: true
-    icon:
-      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
-      state: icon
-    event: !type:CompProjectileActionEvent
-
-
-- type: entity
   id: ActionChangelingEvolutionMenu
   name: action-evolution-menu
   description: action-evolution-menu-decs
@@ -110,20 +43,20 @@
     useDelay: 1
     priority: -69
 
-# - type: entity ### это действие удалено всвязи с заменой UI выбора формы и трансформации генокрада.
-#   id: ActionChangelingTransform
-#   name: action-transform
-#   description: action-transform-desc
-#   noSpawn: true
-#   components:
-#   - type: InstantAction
-#     icon:
-#       sprite: Interface/Actions/actions_ling.rsi
-#       state: transform
-#     itemIconStyle: BigAction
-#     event: !type:ChangelingTransformActionEvent
-#     useDelay: 5
-#     priority: -68
+- type: entity
+  id: ActionChangelingTransform
+  name: action-transform
+  description: action-transform-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Interface/Actions/actions_ling.rsi
+      state: transform
+    itemIconStyle: BigAction
+    event: !type:ChangelingTransformActionEvent
+    useDelay: 5
+    priority: -68
 
 - type: entity
   id: ActionLingRegenerate
@@ -219,8 +152,7 @@
     useDelay: 15
     event: !type:LingEMPActionEvent
     priority: -47
-
-    # Stasis
+    # Stasis Death
 - type: entity
   id: ActionStasisDeath
   name: action-stasis-death
@@ -463,57 +395,3 @@
     event: !type:LingHatchActionEvent
     useDelay: 60
     priority: -99
-
-    # Biodegrade
-- type: entity
-  id: ActionLingBiodegrade
-  name: action-biodegrade
-  description: action-biodegrade-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: biodegrade
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:LingBiodegradeActionEvent
-    useDelay: 60
-    priority: -55
-
-    # Resonant Shriek
-- type: entity
-  id: ActionLingResonant
-  name: action-resonant
-  description: action-resonant-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: resonant_shriek
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:LingResonantShriekEvent
-    useDelay: 30
-    priority: -54
-
-    # Transform Sting
-- type: entity
-  id: ActionLingTransformSting
-  name: action-transform-sting
-  description: action-transform-sting-desc
-  noSpawn: true
-  components:
-  - type: EntityTargetAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: sting_transform
-    itemIconStyle: BigAction
-    whitelist:
-      components:
-      - Body
-    event: !type:TransformationStingEvent
-    useDelay: 180
-    canTargetSelf: false
-    priority: -54

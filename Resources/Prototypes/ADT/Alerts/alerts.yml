@@ -179,8 +179,11 @@
 
 - type: alert
   id: ADTAlertApathy
-  name: bebe
-  description: bebe
+  icons:
+    - sprite: /Textures/ADT/Interface/alerts.rsi
+      state: apathy
+  name: alerts-apathy-name
+  description: alerts-apathy-desc
 
 - type: alert
   id: ADTAlertLingRefresh

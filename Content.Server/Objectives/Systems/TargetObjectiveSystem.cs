@@ -4,6 +4,7 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.GameObjects;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.Forensics;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -39,6 +40,22 @@ public sealed class TargetObjectiveSystem : EntitySystem
             return;
 
         comp.Target = target;
+    }
+
+    /// <summary>
+    /// Sets the Target field for the title and other components to use.
+    /// </summary>
+    public void SetTargetDna(EntityUid uid, EntityUid target, TargetObjectiveComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        if (!TryComp<DnaComponent>(target, out var reqiredDna))
+            return;
+
+        comp.Target = target;
+
+        comp.TargetDNA = reqiredDna.DNA;
     }
 
     /// <summary>
