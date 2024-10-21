@@ -753,6 +753,32 @@ entities:
     - type: Transform
       pos: 26.5,-34.5
       parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 947
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,-29.5
+      parent: 1
+  - uid: 948
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,-29.5
+      parent: 1
+  - uid: 949
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 25.5,-16.5
+      parent: 1
+  - uid: 950
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 25.5,-14.5
+      parent: 1
 - proto: BookRandom
   entities:
   - uid: 33
@@ -2784,6 +2810,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 26.5,-13.5
       parent: 1
+- proto: CrateFoodSoftdrinks
+  entities:
+  - uid: 958
+    components:
+    - type: Transform
+      pos: 34.5,-37.5
+      parent: 1
 - proto: DrinkManlyDorfGlass
   entities:
   - uid: 382
@@ -4366,6 +4399,20 @@ entities:
     - type: Transform
       pos: 26.44136,-25.873493
       parent: 1
+- proto: PlushieLizard
+  entities:
+  - uid: 956
+    components:
+    - type: Transform
+      pos: 34.900097,-37.59542
+      parent: 1
+- proto: PlushieLizardMirrored
+  entities:
+  - uid: 957
+    components:
+    - type: Transform
+      pos: 34.05763,-37.56938
+      parent: 1
 - proto: PlushieSpaceLizard
   entities:
   - uid: 643
@@ -4615,6 +4662,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 30.5,-25.5
       parent: 1
+  - uid: 951
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,-31.5
+      parent: 1
+  - uid: 952
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 27.5,-20.5
+      parent: 1
 - proto: ReinforcedWindow
   entities:
   - uid: 684
@@ -4801,6 +4860,28 @@ entities:
     components:
     - type: Transform
       pos: 26.5,-33.5
+      parent: 1
+- proto: SignEngineering
+  entities:
+  - uid: 954
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 30.5,-28.5
+      parent: 1
+  - uid: 955
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 24.5,-34.5
+      parent: 1
+- proto: SignGravity
+  entities:
+  - uid: 953
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 32.5,-32.5
       parent: 1
 - proto: SignSpace
   entities:

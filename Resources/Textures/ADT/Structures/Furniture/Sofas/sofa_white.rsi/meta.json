@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by discord - lunalita.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "whitesofa_left",
+      "directions": 4
+    },
+    {
+      "name": "whitesofa_left_02",
+      "directions": 4
+    },
+    {
+      "name": "whitesofa_right",
+      "directions": 4
+    },
+    {
+      "name": "whitesofa_right_02",
+      "directions": 4
+    },
+    {
+      "name": "whitesofa_middle",
+      "directions": 4
+    },
+    {
+      "name": "whitesofa_leftcorner",
+      "directions": 4
+    },
+    {
+      "name": "whitesofa_rightcorner",
+      "directions": 4
+    }
+  ]
+}

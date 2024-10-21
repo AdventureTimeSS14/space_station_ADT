@@ -28,9 +28,14 @@
 # Mask
 - type: loadout
   id: ADTMaskGasAtmosian
-  storage:
-    back:
-    - ClothingMaskGasAtmosian
+  equipment:
+    pocket1: ClothingMaskGasAtmosian
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTMasterAtmos
+
+# Head
+- type: loadout
+  id: ADTHatBeretAtmos
+  equipment:
+    head: ADTClothingHeadHatsBeretAtmos

@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
-﻿using System.Diagnostics.CodeAnalysis;
-using Content.Client.Corvax.Sponsors;
 using Content.Client.Lobby;
+using Content.Client.Corvax.Sponsors;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;

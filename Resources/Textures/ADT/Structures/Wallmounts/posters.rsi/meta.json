@@ -6,39 +6,57 @@
     "x": 32,
     "y": 32
   },
-  "states": [
-    {
-        "name": "poster_adtgreatfood_legit"
-    },
-    {
-        "name": "poster_adtturnonsensors_legit"
-    },
-    {
-        "name": "poster_adtoktoberfest_legit"
-    },
-    {
-        "name": "poster_adtoktoberfest2_legit"
-    },
-    {
-        "name": "poster_efficiencydiagram_legit"
-    },
-    {
-        "name": "poster_adtlusttayaran_contraband"
-    },
-    {
-        "name": "poster_adtfearthem_contraband"
-    },
-    {
-        "name": "poster_adtsilence_contraband"
-    },
-    {
-        "name": "poster_adtlustuma_contraband"
-    },
-    {
-        "name": "poster_adtlustardeco_contraband"
-    },
-    {
-        "name": "quadro_electronics"
-    }
-  ]
+    "states": [
+        {
+            "name": "poster_adtgreatfood_legit"
+        },
+        {
+            "name": "poster_adtturnonsensors_legit"
+        },
+        {
+            "name": "poster_adtoktoberfest_legit"
+        },
+        {
+            "name": "poster_adtoktoberfest2_legit"
+        },
+        {
+            "name": "poster_efficiencydiagram_legit"
+        },
+        {
+            "name": "poster_adtlusttayaran_contraband"
+        },
+        {
+            "name": "poster_adtfearthem_contraband"
+        },
+        {
+            "name": "poster_adtsilence_contraband"
+        },
+        {
+            "name": "poster_adtlustuma_contraband"
+        },
+        {
+            "name": "poster_adtlustardeco_contraband"
+        },
+        {
+            "name": "quadro_electronics"
+        },
+        {
+            "name": "poster_umahot_contraband"
+        },
+        {
+            "name": "poster_umapress_contraband"
+        },
+        {
+            "name": "poster_umasport_contraband"
+        },
+        {
+            "name": "poster_umaazalia_contraband"
+        },
+        {
+            "name": "poster_umarabbit_contraband"
+        },
+        {
+            "name": "poster_umaonbeach_contraband"
+        }
+    ]
 }

@@ -39,3 +39,53 @@
         tableId: BasicAntagEventsTable
       - !type:NestedSelector
         tableId: CargoGiftsTable
+
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseHereticRule
+  components:
+  - type: HereticRule
+  - type: AntagSelection
+
+- type: entity
+  parent: BaseHereticRule
+  id: HereticGameRule
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 8
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        - BibleUser
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+        prototype: Heretic
+
+
+- type: entityTable
+  id: ExtendedGameRulesTable
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entity
+  id: ExtendedStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: ExtendedGameRulesTable

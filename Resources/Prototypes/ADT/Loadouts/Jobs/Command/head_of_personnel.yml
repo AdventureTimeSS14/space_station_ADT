@@ -48,3 +48,13 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ProfessionalHoP
+
+#Head
+
+- type: loadout
+  id: ADTHatBeretHOP
+  equipment:
+    head: ADTClothingHeadHatsBeretHOP
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP

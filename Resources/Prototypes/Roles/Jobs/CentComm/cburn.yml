@@ -31,12 +31,13 @@
   storage:
     back:
     - BoxSurvivalEngineering
+    - WeaponShotgunDoubleBarreled
+    - BoxShotgunIncendiary
+    - GrenadeFlashBang
+    - PillAmbuzolPlus
+    - PillAmbuzol
     - WeaponShotgunEnforcer #ADT-tweak
     - Chainsaw #ADT-tweak
     - MedkitCombatFilled #ADT-tweak
     - MagazineShotgun #ADT-tweak
     - MagazineShotgunIncendiary #ADT-tweak
-    - BoxShotgunIncendiary
-    - GrenadeFlashBang
-    - PillAmbuzolPlus
-    - PillAmbuzol

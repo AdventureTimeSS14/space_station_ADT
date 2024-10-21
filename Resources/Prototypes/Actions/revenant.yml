@@ -47,7 +47,7 @@
   id: ActionRevenantMalfunction
   name: revenant-malfunction
   description: revenant-malfunction-action-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -63,7 +63,7 @@
   id: ActionRevenantHysteria
   name: revenant-hysteria
   description: revenant-hysteria-action-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -77,7 +77,7 @@
   id: ActionRevenantSmoke
   name: revenant-smoke
   description: revenant-smoke-action-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -91,7 +91,7 @@
   id: ActionRevenantLock
   name: revenant-lock
   description: revenant-lock-action-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:

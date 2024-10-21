@@ -32,7 +32,7 @@
       # - id: SpaceCash500
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSatchelSecurity
   id: ADTClothingBackpackSatchelSeniorSecurityFilled
   components:
