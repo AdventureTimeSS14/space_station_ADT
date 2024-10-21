@@ -22,6 +22,7 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
+    public const char CollectiveMindPrefix = '+'; // ADT-CollectiveMind-Tweak
     public const char DefaultChannelKey = 'р'; // Corvax-Localization
     // Corvax-TTS-Start: Moved from Server to Shared
     public const int VoiceRange = 10; // how far voice goes in world units
