@@ -244,10 +244,12 @@
     boltClosed: null
   - type: Gun
     fireRate: 5.5
-    minAngle: 1
-    maxAngle: 6
-    angleIncrease: 1.5
-    angleDecay: 6
+    # ADT-Tweak-Start
+    minAngle: 10
+    maxAngle: 30
+    angleIncrease: 4.0
+    angleDecay: 14
+    # ADT-Tweak-End
     selectedMode: FullAuto
     shotsPerBurst: 5
     availableModes:
