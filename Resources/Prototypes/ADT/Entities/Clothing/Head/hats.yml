@@ -354,3 +354,16 @@
     sprite: ADT/Clothing/Head/Hats/zombie_head.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/zombie_head.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatChainSaw
+  name: fox head
+  description: "It's a fox head. Snort snort snort!"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: IngestionBlocker
+
