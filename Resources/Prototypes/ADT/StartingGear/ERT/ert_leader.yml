@@ -17,12 +17,12 @@
   storage:
     back:
     - BoxSurvivalEngineering
-    - WeaponShotgunBulldog #ADT-tweak
+    - WeaponShotgunBulldog 
     - BoxShotgunIncendiary
     - Chainsaw #ADT-tweak
-    - MedkitCombatFilled #ADT-tweak
-    - MagazineShotgun #ADT-tweak
-    - MagazineShotgunIncendiary #ADT-tweak
+    - MedkitCombatFilled 
+    - MagazineShotgun 
+    - MagazineShotgunIncendiary 
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
