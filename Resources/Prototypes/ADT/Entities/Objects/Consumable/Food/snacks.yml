@@ -14,7 +14,7 @@
   - type: Food
     trash:
       - ADTFoodPacketChipsTrash
-
+ 
 - type: entity
   name: chips
   parent: ADTFoodSnackChipsBase
