@@ -1546,7 +1546,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateRaidBundle
   cost:
-    Telecrystal: 12 # ADT-Tweak 8>13
+    Telecrystal: 8 # ADT-Tweak
   categories:
   - UplinkWearables
   conditions:
