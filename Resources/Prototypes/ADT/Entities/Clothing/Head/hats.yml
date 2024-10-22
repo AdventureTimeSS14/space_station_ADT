@@ -284,3 +284,86 @@
     sprite: ADT/Clothing/Head/Hats/trader.rsi #спрайты от prazat911
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/trader.rsi
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadVyasovHat
+  name: shabby fedora
+  description: It looks very shabby brown in color, it smells like a nightmare straight from Vyazova Street
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/vyazovhat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/vyazovhat.rsi
+
+- type: entity
+  parent: ADTClothingHeadUSSPjuggernautHelmetArmored
+  id: ADTClothingHeadKillaHelmet
+  name: Killa helmet
+  description: Killa helmet
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/killahelmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/killahelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95
+        Heat: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadXenomorph
+  name: Xenomorph head
+  description: Xenomorph head
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/xeno_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/xeno_head.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadZombie
+  name: zombie head
+  description: zombie head
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/zombie_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/zombie_head.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatChainSaw
+  name: fox head
+  description: "It's a fox head. Snort snort snort!"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: IngestionBlocker
+
