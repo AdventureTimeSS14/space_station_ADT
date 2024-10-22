@@ -1,0 +1,20 @@
+- type: entity
+  parent: SeedBase
+  name: packet of papaver somniferum seeds
+  id: ADTPapaverSomniferumSeeds
+  components:
+    - type: Seed
+      seedId: ADTPapaverSomniferum
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/papaver_somniferum.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of cannabis white seeds
+  description: "Sweet."
+  id: ADTcannabiswhiteSeeds
+  components:
+    - type: Seed
+      seedId: ADTCannabisWhite
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
