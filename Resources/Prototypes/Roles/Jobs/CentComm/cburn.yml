@@ -36,8 +36,10 @@
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
-    - WeaponShotgunEnforcer #ADT-tweak
-    - Chainsaw #ADT-tweak
-    - MedkitCombatFilled #ADT-tweak
-    - MagazineShotgun #ADT-tweak
-    - MagazineShotgunIncendiary #ADT-tweak
+    # ADT Tweak (Add) start 
+    - WeaponShotgunEnforcer
+    - Chainsaw
+    - MedkitCombatFilled
+    - MagazineShotgun
+    - MagazineShotgunIncendiary
+    # ADT Tweak (Add) end
