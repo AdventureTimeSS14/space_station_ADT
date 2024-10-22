@@ -30,7 +30,7 @@
     belt: ClothingBeltBandolier
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalEngineering #ADT-tweak
     - WeaponShotgunDoubleBarreled
     - BoxShotgunIncendiary
     - GrenadeFlashBang
