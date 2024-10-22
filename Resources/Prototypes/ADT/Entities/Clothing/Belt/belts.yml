@@ -211,3 +211,50 @@
     maxItemSize: Small
   - type: Item
     size: Small
+
+#РПС Киллы
+
+- type: entity
+  id: ADTClothingBeltKilla
+  parent: ClothingBeltMilitaryWebbing
+  name: Triton belt
+  description: Triton belt
+  suffix: Halloween
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+    
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltMedicalBag
+  name: medical bag
+  description: Small but capacious bag to hold various medical equipment. It even has some place for a tablet for paper!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - Folder
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+  - type: Appearance
