@@ -5,10 +5,10 @@
   description: THIS IS SPOOKY MONTH!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/SkidAndPump.rsi
+    sprite: ADT/Objects/Fun/skidandpump.rsi
     state: icon
   - type: Item
-    sprite: ADT/Objects/Fun/SkidAndPump.rsi
+    sprite: ADT/Objects/Fun/skidandpump.rsi
   - type: AmbientSound
     enabled: true
     volume: -6
