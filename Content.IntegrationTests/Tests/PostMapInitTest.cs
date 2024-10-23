@@ -99,7 +99,8 @@ namespace Content.IntegrationTests.Tests
             "ADT_Gemini",
             "ADT_Aspid",
             "ADT_Moose",
-            "ADT_Alley"
+            "ADT_Alley",
+            "ADT_kilo"
             // ADT-End
         };
 

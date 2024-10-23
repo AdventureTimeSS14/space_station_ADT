@@ -57,6 +57,7 @@
   color: "#334E6D"
   roles:
   - Captain
+  - Magistrat # ADT tweak
   - IAA # Corvax-IAA
   - ChiefEngineer
   - ChiefMedicalOfficer

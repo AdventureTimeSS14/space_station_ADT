@@ -141,3 +141,22 @@
 
 - type: Tag
   id: GlassesBlocker
+
+- type: Tag
+  id: ADTMobileDefibrillator
+
+- type: Tag
+  id: ADTPatch
+
+- type: Tag
+  id: ADTUnderwearB
+
+- type: Tag
+  id: ADTUnderwearT
+
+- type: Tag
+  id: ADTSocks
+
+- type: Tag
+  id: ADTMedipen
+
