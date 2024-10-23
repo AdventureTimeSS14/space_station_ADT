@@ -44,6 +44,9 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     public void ExplodeEntity(EntityUid uid, DNALockerComponent component, EntityUid equipee)
     {
+        if (!component.IsLocked)
+            return;
+
         EnsureComp<UnremoveableComponent>(uid);
         var selfMessage = Loc.GetString("dna-locker-failure");
         var unremoveableMessage = Loc.GetString("dna-locker-unremoveable");
