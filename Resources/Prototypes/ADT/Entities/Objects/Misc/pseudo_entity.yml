@@ -1,6 +1,6 @@
 - type: entity
   id: PseudoEntity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Damageable
     damageContainer: Biological
@@ -36,7 +36,7 @@
 - type: entity
   id: PseudoEntityPhantomLight
   parent: PseudoEntity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
     color: Cyan

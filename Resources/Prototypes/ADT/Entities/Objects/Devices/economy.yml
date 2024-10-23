@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: ADTBaseDepartmentBudgetCard
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: BankCard
       startingBalance: 5000
@@ -33,7 +33,7 @@
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
   id: ADTCargoBudgetCard
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: cargo budget card
   components:
     - type: Sprite
@@ -45,7 +45,7 @@
   parent: ADTBaseDepartmentBudgetCard
   id: ADTCivilianBudgetCard
   name: civilian budget card
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       state: srv_budget
@@ -56,7 +56,7 @@
   parent: ADTBaseDepartmentBudgetCard
   id: ADTEngineeringBudgetCard
   name: engineering budget card
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       state: eng_budget
@@ -67,7 +67,7 @@
   parent: ADTBaseDepartmentBudgetCard
   id: ADTMedicalBudgetCard
   name: medical budget card
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       state: med_budget
@@ -78,7 +78,7 @@
   parent: ADTBaseDepartmentBudgetCard
   id: ADTScienceBudgetCard
   name: science budget card
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       state: sci_budget
@@ -89,7 +89,7 @@
   parent: ADTBaseDepartmentBudgetCard
   id: ADTSecurityBudgetCard
   name: security budget card
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       state: sec_budget

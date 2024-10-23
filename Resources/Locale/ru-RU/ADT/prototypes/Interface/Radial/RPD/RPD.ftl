@@ -37,3 +37,4 @@ rpd-component-AirSensor = { ent-AirSensor }
 rpd-component-FloorDrain = { ent-FloorDrain }
 rpd-component-AirAlarm = { ent-AirAlarm }
 rpd-component-SignalControlledValve = { ent-SignalControlledValve }
+rpd-component-Radiator = { ent-HeatExchanger }

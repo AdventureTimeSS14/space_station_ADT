@@ -263,7 +263,7 @@
 # Corvax-HiddenDesc-End
 
 - type: entity
-  parent: [ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband]
+  parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]
   id: ClothingHandsGlovesCombat
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
@@ -421,6 +421,7 @@
     damage:
       types:
        Blunt: 8
+       Structural: 10 # ADT-Tweak
     soundHit:
       collection: Punch
     animation: WeaponArcFist

@@ -23,6 +23,7 @@
     - FootstepSound
     - DoorBumpOpener
     - SpiderCraft
+    - AnomalyHost
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -40,6 +41,14 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPieReaction
+  # Start ADT tweak
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed : 4.4
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ADTArachnid
+  # End ADT tweak
   # Damage (Self)
   - type: Bloodstream
     bloodReagent: CopperBlood
@@ -50,8 +59,9 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Piercing: 5
+        Piercing: 7 # ADT tweak
   # Visual & Audio
+
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -71,6 +81,7 @@
   - type: TypingIndicator
     proto: spider
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
+    scale: 1.07, 1.07 # ADT tweak
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -80,6 +91,11 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # ADT tweak start
+      - map: [ "underwearb" ] #Sirena
+      - map: [ "underweart" ] #Sirena
+      - map: [ "socks" ] #Sirena
+      # ADT tweak end
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -121,6 +137,13 @@
     understands:
     - GalacticCommon
     - Moffic
+  #Start ADT tweak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.15
+    short: true
+    shortscale: 0.98
+  #End ADT tweak
 
 - type: entity
   parent: BaseSpeciesDummy

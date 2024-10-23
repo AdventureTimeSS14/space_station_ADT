@@ -32,6 +32,8 @@
     states:
       Alive:
         Base: bat
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -62,11 +64,6 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Mouse
-    understands:
-    - Mouse
 
 - type: entity
   name: bee
@@ -76,7 +73,7 @@
   components:
   - type: CombatMode
   - type: MovementSpeedModifier
-    baseWalkSpeed : 7
+    baseWalkSpeed : 3
     baseSprintSpeed : 7
   - type: Sprite
     drawdepth: Mobs
@@ -106,6 +103,8 @@
     states:
       Alive:
         Base: 0
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Item
@@ -340,12 +339,14 @@
       0: Alive
       1: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 5
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 5
   - type: DamageStateVisuals
     states:
       Alive:
         Base: cockroach
+      Critical:
+        Base: cockroach_dead
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
@@ -377,14 +378,15 @@
     tags:
     - Trash
     - VimPilot
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 10
-      behaviors:
-      - !type:GibBehavior { }
+  # - type: Destructible
+  #   thresholds:
+  #   - trigger:
+  #       !type:DamageTypeTrigger
+  #       damageType: Blunt
+  #       damage: 10
+  #     behaviors:
+  #     - !type:GibBehavior { }
+  # ADT-Tweak
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
@@ -518,7 +520,7 @@
     accent: zombieMoth
   - type: Vocal
     sounds:
-      # Start-ADT Tweak Нианы 
+      # Start-ADT Tweak Нианы
       Male: MaleMoth
       Female: FemaleMoth
       Unsexed: MaleMoth
@@ -634,6 +636,8 @@
     states:
       Alive:
         Base: duck-0
+      Critical:
+        Base: dead-0
       Dead:
         Base: dead-0
   - type: Butcherable
@@ -674,6 +678,8 @@
     states:
       Alive:
         Base: duck-1
+      Critical:
+        Base: dead-1
       Dead:
         Base: dead-1
 
@@ -691,6 +697,8 @@
     states:
       Alive:
         Base: duck-2
+      Critical:
+        Base: dead-2
       Dead:
         Base: dead-2
 
@@ -718,7 +726,7 @@
   description: Despite popular misconceptions, it's not actually made of butter.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 6
+    baseWalkSpeed : 3
     baseSprintSpeed : 6
   - type: Sprite
     drawdepth: Mobs
@@ -750,6 +758,8 @@
     states:
       Alive:
         Base: butterfly
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Bloodstream
@@ -796,6 +806,8 @@
     states:
       Alive:
         Base: cow
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: SolutionContainerManager
@@ -878,6 +890,8 @@
     states:
       Alive:
         Base: crab
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -1026,6 +1040,8 @@
     states:
       Alive:
         Base: goose
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -1099,11 +1115,6 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Monkey
-    understands:
-    - Monkey
 
 - type: entity
   name: kangaroo
@@ -1308,6 +1319,7 @@
     tags:
     - VimPilot
     - DoorBumpOpener
+    - AnomalyHost
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -1351,11 +1363,6 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Monkey
-    understands:
-    - Monkey
 
 
 - type: entity
@@ -1387,12 +1394,6 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Monkey
-    understands:
-    - GalacticCommon
-    - Monkey
 
 - type: entity
   id: MobMonkeySyndicateAgent
@@ -1552,9 +1553,6 @@
     - Syndicate
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
-  - type: LanguageSpeaker # Frontier
-    understands:
-    - GalacticCommon
 
 - type: entity
   id: MobKoboldSyndicateAgent
@@ -1658,7 +1656,7 @@
       10: Critical
       20: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 5
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 5
   - type: DamageStateVisuals
     states:
@@ -1745,30 +1743,14 @@
     price: 50
   - type: BadFood
   - type: NonSpreaderZombie
-  - type: PreventSpiller
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Mouse
-    understands:
-    - Mouse
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-0
     entries:
-      burger:
-        name: food-sequence-burger-content-rat
-      taco:
-        name: food-sequence-content-rat
-      skewer:
-        name: food-sequence-content-rat
-        sprite: 
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-rat
-
+      Taco: RatTaco
+      Burger: RatBurger
+      Skewer: RatSkewer
 
 - type: entity
   parent: MobMouse
@@ -1825,10 +1807,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-1
 
 - type: entity
   parent: MobMouse
@@ -1858,10 +1836,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-2
 
 - type: entity
   name: cancer mouse
@@ -1929,6 +1903,8 @@
     states:
       Alive:
         Base: lizard
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -1983,6 +1959,8 @@
     states:
       Alive:
         Base: slug
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -2004,7 +1982,7 @@
   description: Hop hop hop. Lookin' moist.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4
+    baseWalkSpeed: 3
     baseSprintSpeed: 6
   - type: Sprite
     drawdepth: Mobs
@@ -2035,6 +2013,8 @@
     states:
       Alive:
         Base: frog
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -2062,7 +2042,7 @@
   description: Infiltrates your domain, spies on you, and somehow still a cool pet.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 6
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 6
   - type: Sprite
     drawdepth: Mobs
@@ -2085,6 +2065,8 @@
     states:
       Alive:
         Base: parrot
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -2136,6 +2118,8 @@
     states:
       Alive:
         Base: penguin
+      Critical:
+        Base: penguin_dead
       Dead:
         Base: penguin_dead
   - type: Butcherable
@@ -2174,7 +2158,7 @@
   description: A small penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5
+    baseWalkSpeed: 3
     baseSprintSpeed: 5
   - type: InputMover
   - type: MobMover
@@ -2205,6 +2189,8 @@
     states:
       Alive:
         Base: penguin
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: MeleeWeapon
@@ -2321,6 +2307,8 @@
     states:
       Alive:
         Base: tarantula
+      Critical:
+        Base: tarantula_dead
       Dead:
         Base: tarantula_dead
   - type: Butcherable
@@ -2446,6 +2434,8 @@
       states:
         Alive:
           Base: clown
+        Critical:
+          Base: dead
         Dead:
           Base: dead
     - type: MobThresholds
@@ -2515,6 +2505,8 @@
     states:
       Alive:
         Base: possum
+      Critical:
+        Base: possum_dead
       Dead:
         Base: possum_dead
   - type: Butcherable
@@ -2550,6 +2542,8 @@
     states:
       Alive:
         Base: possum_old
+      Critical:
+        Base: possum_dead_old
       Dead:
         Base: possum_dead_old
 
@@ -2584,6 +2578,8 @@
     states:
       Alive:
         Base: raccoon
+      Critical:
+        Base: raccoon_dead
       Dead:
         Base: raccoon_dead
   - type: Butcherable
@@ -2642,6 +2638,8 @@
     states:
       Alive:
         Base: fox
+      Critical:
+        Base: fox_dead
       Dead:
         Base: fox_dead
   - type: Butcherable
@@ -2713,6 +2711,8 @@
     states:
       Alive:
         Base: corgi
+      Critical:
+        Base: corgi_dead
       Dead:
         Base: corgi_dead
   - type: Butcherable
@@ -2737,11 +2737,6 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Dog
-    understands:
-    - Dog
 
 - type: entity
   name: corrupted corgi
@@ -2759,6 +2754,8 @@
     states:
       Alive:
         Base: narsian
+      Critical:
+        Base: narsian_dead
       Dead:
         Base: narsian_dead
   - type: MeleeWeapon
@@ -2860,6 +2857,8 @@
     states:
       Alive:
         Base: cat
+      Critical:
+        Base: cat_dead
       Dead:
         Base: cat_dead
   - type: Speech
@@ -2895,11 +2894,6 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Cat
-    understands:
-    - Cat
 
 - type: entity
   name: calico cat
@@ -2915,6 +2909,8 @@
     states:
       Alive:
         Base: cat2
+      Critical:
+        Base: cat2_dead
       Dead:
         Base: cat2_dead
 
@@ -2932,6 +2928,8 @@
     states:
       Alive:
         Base: syndicat
+      Critical:
+        Base: syndicat_dead
       Dead:
         Base: syndicat_dead
   - type: GhostRole
@@ -2977,6 +2975,8 @@
     states:
       Alive:
         Base: spacecat
+      Critical:
+        Base: spacecat_dead
       Dead:
         Base: spacecat_dead
   - type: Temperature
@@ -2987,7 +2987,7 @@
       - DoorBumpOpener
   - type: MovementAlwaysTouching
   - type: PressureImmunity
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: Insulated
   - type: InteractionPopup
     successChance: 0.7
@@ -3014,6 +3014,8 @@
     states:
       Alive:
         Base: caracal_flop
+      Critical:
+        Base: caracal_dead
       Dead:
         Base: caracal_dead
 
@@ -3057,7 +3059,7 @@
   description: Very slow animal. For people with low energy.
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1
+    baseWalkSpeed : 0.5
     baseSprintSpeed : 1
   - type: Sprite
     drawdepth: Mobs
@@ -3084,6 +3086,8 @@
     states:
       Alive:
         Base: sloth
+      Critical:
+        Base: sloth_dead
       Dead:
         Base: sloth_dead
   - type: Butcherable
@@ -3135,6 +3139,8 @@
     states:
       Alive:
         Base: ferret
+      Critical:
+        Base: ferret_dead
       Dead:
         Base: ferret_dead
   - type: Butcherable
@@ -3217,7 +3223,7 @@
       40: Critical
       60: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4
+    baseWalkSpeed : 2.5
     baseSprintSpeed : 4
   - type: Inventory
     speciesId: hamster
@@ -3298,15 +3304,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/hamster.rsi
-      state: dead-0
-    entries:
-      burger:
-        name: food-sequence-burger-content-hamster
-      taco:
-        name: food-sequence-content-hamster
 
 - type: entity
   name: pig
@@ -3350,6 +3347,8 @@
     states:
       Alive:
         Base: pig
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable

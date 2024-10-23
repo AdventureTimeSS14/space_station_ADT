@@ -1,0 +1,18 @@
+- type: vendingMachineInventory
+  id: ADTTSFArmouryInventory
+  startingInventory:
+    ADTWeaponRifleTAR60SF: 5
+    ADTWeaponRifleAR12: 2
+    ADTMagazineRifleAR12: 28
+    MagazineBoxRifle: 7
+    MagazineBoxRifleBig: 3
+    ADTClothingNeckPatchTSF: 7
+    ADTClothingBeltWarTSF: 7
+    ADTClothingBeltMagTSF: 7
+    ADTClothingBeltMedTSF: 7
+    ADTClothingOuterArmorTSF: 7
+    ADTClothingHeadHelmetTSF: 7
+    ADTClothingNeckJeton: 7
+    ADTClothingHeadsetTSF: 7
+    ClothingHandsGlovesCombat: 7
+    ClothingShoesBootsJack: 7

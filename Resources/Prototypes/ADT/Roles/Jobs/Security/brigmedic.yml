@@ -28,15 +28,8 @@
   id: BrigmedicGear
   equipment:
     jumpsuit: ADTClothingUniformBrigmedicJumpsuitTurtleneck
-    outerClothing: ADTClothingOuterCoatBrigmedicWB
-    back: ClothingBackpackBrigmedicFilled
-    shoes: ClothingShoesBootsJackSec
-    gloves: ClothingHandsGlovesLatex
-    eyes: ADTClothingEyesGlassesMed
-    head: ADTClothingHeadHatBeretBrigmedic
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
-    belt: ClothingBeltMedicalFilled
     pocket1: WeaponPistolMk58
 #    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
 #    socks: ClothingUnderwearSocksNormal
@@ -45,3 +38,4 @@
 #  innerClothingSkirt: ADTClothingUniformSkirtBrigmedicTurtleneck
 #  satchel: ClothingBackpackSatchelBrigmedicFilled
 #  duffelbag: ClothingBackpackDuffelBrigmedicFilled
+

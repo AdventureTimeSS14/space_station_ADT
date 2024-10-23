@@ -1,0 +1,140 @@
+# Head
+- type: loadout
+  id: ADTHeadHatBeretBrigmedic
+  equipment:
+    head: ADTClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: ADTClotHeadHatBeretBrigmedic
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: ADTHeadHatBeretSecurityMedic
+  equipment:
+    head: ClothingHeadHatBeretSecurityMedic
+
+- type: loadout
+  id: ADTHeadHelmetSecurityMedic
+  equipment:
+    head: ClothingHeadHelmetSecurityMedic
+
+# Jumpsuit
+- type: loadout
+  id: ADTUniformJumpsuitBrigmedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+
+- type: loadout
+  id: ADTUniformJumpskirtBrigmedic
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBrigmedic
+
+- type: loadout
+  id: ADTUniformBrigmedicJumpsuitTurtleneck
+  equipment:
+    jumpsuit: ADTClothingUniformBrigmedicJumpsuitTurtleneck
+
+- type: loadout
+  id: ADTUniformSkirtBrigmedicJumpskirtTurtleneck
+  equipment:
+    jumpsuit: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
+
+# Neck
+- type: loadout
+  id: ADTNeckSecBadge
+  equipment:
+    neck: ADTClothingNeckSecBadge
+
+#- type: loadout
+#  id: ADTBrigmedicCloak
+#  equipment:
+#    neck: ADTClothingNeckCloakBrigmedic
+
+ #Back
+
+- type: loadout
+  id: ADTBackpackBrigmedic
+  equipment:
+    back: ClothingBackpackBrigmedic
+
+- type: loadout
+  id: ADTBackpackDuffelBrigmedic
+  equipment:
+    back: ClothingBackpackDuffelBrigmedic
+
+- type: loadout
+  id: ADTBackpackSatchelBrigmedicFilled
+  equipment:
+    back: ClothingBackpackSatchelBrigmedicFilled
+
+# Eyes
+- type: loadout
+  id: ADTEyesGlassesMed
+  equipment:
+    back: ADTClothingEyesGlassesMed
+
+- type: loadout
+  id: ADTEyesGlassesSecurity
+  equipment:
+    back: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: ADTEyesGlassesSunglasses
+  equipment:
+    back: ClothingEyesGlassesSunglasses
+
+# Hands Gloves
+- type: loadout
+  id: ADTHandsGlovesLatex
+  equipment:
+    back: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: ADTHandsGlovesNitrile
+  equipment:
+    back: ClothingHandsGlovesNitrile
+
+- type: loadout
+  id: ADTHandsGlovesCombat
+  equipment:
+    back: ClothingHandsGlovesCombat
+
+# PDA
+- type: loadout
+  id: ADTBrigmedicPDA
+  equipment:
+    back: BrigmedicPDA
+
+# belt
+- type: loadout
+  id: ADTBeltMedicalFilled
+  equipment:
+    back: ClothingBeltMedicalFilled
+
+- type: loadout
+  id: ADTBeltSecurityRPS
+  equipment:
+    back: ClothingBeltSecurityWebbingFilled
+
+- type: loadout
+  id: ADTBeltSecurityForBrigmedic
+  equipment:
+    back: ClothingBeltSecurityFilled
+
+# outerwear
+- type: loadout
+  id: ADTOuterCoatBrigmedicWB
+  equipment:
+    back: ADTClothingOuterCoatBrigmedicWB
+
+- type: loadout
+  id: ADTOuterVestSecurityMedic
+  equipment:
+    back: ClothingOuterVestSecurityMedic
+
+- type: loadout
+  id: ADTOuterCoatLabSecurityMedic
+  equipment:
+    back: ClothingOuterCoatLabSecurityMedic
+
