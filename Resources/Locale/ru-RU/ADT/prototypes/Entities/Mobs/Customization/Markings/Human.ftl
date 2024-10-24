@@ -6,6 +6,7 @@ marking-HumanPiercingNippleR = Правый сосок
 marking-HumanPiercingNipple = Сосок
 
 marking-ADTFoxTail = Лисий хвост
+marking-ADTMilkyTail = Шипастый хвост
 
 # Аргументации
 marking-AugmentsRoboticArmRight-r_roboarm = Аугментация, правая рука (Робот)
