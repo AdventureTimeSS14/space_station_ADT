@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
+using Content.Server.Botany.Components;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
@@ -343,6 +344,9 @@ public sealed partial class StoreSystem
             component.RefundAllowed = false;
             UpdateUserInterface(buyer, uid, component);
         }
+
+        if (!component.RefundPossible)
+            return;
 
         if (!component.RefundAllowed || component.BoughtEntities.Count == 0)
             return;

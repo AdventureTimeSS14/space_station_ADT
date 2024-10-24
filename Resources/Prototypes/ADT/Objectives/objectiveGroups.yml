@@ -26,3 +26,40 @@
     PhantomStartNightmareObjective: 1
     PhantomReincarnateObjective: 1
     PhantomTyranyObjective: 1
+
+# Changeling
+- type: weightedRandom
+  id: ChangelingObjectiveGroups
+  weights:
+    ChangelingObjectiveGroupKill: 1
+    ChangelingObjectiveGroupState: 1
+    ChangelingObjectiveGroupSteal: 1
+    ChangelingObjectiveGroupPersonalitySteal: 1
+    ChangelingObjectiveGroupAbsorbDna: 1     # почему ты блять не работаешь
+
+- type: weightedRandom
+  id: ChangelingObjectiveGroupSteal
+  weights:
+    CommandIDStealObjective: 1
+    SmileExtractStealObjective: 1
+
+- type: weightedRandom
+  id: ChangelingObjectiveGroupKill
+  weights:
+    KillRandomPersonObjectiveLing: 1
+
+- type: weightedRandom
+  id: ChangelingObjectiveGroupState
+  weights:
+    EscapeLingShuttleObjective: 1
+
+- type: weightedRandom
+  id: ChangelingObjectiveGroupPersonalitySteal
+  weights:
+    StealRandomPersonalityObjectiveLing: 1
+    #StealRandomHeadPersonalityObjectiveLing: 1
+
+- type: weightedRandom
+  id: ChangelingObjectiveGroupAbsorbDna
+  weights:
+    DnaAbsorbObjective: 1

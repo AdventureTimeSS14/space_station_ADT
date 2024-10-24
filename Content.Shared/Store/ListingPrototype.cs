@@ -164,6 +164,9 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public EntProtoId? ProductAction;
 
+    [DataField("mindAction")]
+    public bool MindAction = true;
+
     /// <summary>
     /// The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
     /// upgrade or to use standalone as an upgrade

@@ -1,0 +1,262 @@
+- type: reagent
+  id: HallucinationTestReagent
+  name: reagent-name-nicotine
+  group: Narcotics
+  desc: reagent-desc-nicotine
+  flavor: bitter
+  color: "#C0C0C0"
+  physicalDesc: reagent-physical-desc-strong-smelling
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: ADTHallucinations
+        component: NarcoHallucinations
+        type: Add
+        time: 15
+        refresh: false
+
+      # Base
+- type: entity
+  parent: BaseMob
+  id: ADTBaseEntityHallucination
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Hallucination
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        mask:
+          - MobMask
+        layer:
+          - None
+  - type: TimedDespawn
+    lifetime: 15.0
+
+      # Standart mob
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTHallucinationMobEcho
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Aliens/abomination.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: echo
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: echo
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.0
+    baseSprintSpeed: 4.7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+
+      # Standart mob
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTHallucinationMobDistorted
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Aliens/abomination.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: distorted
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: distorted
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.0
+    baseSprintSpeed: 4.7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+
+
+      # Base
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTBaseLingHallucination
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: LingHallucination
+
+      # Ling ents
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationMobSpider
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 45.0
+
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationMobSlime
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/slimes.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: blue_adult_slime
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 45.0
+
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationMobBehonker
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Demons/behonker.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+    weightlessModifier: 1.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 45.0
+
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationRod
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/immovable_rod.rsi
+    state: icon
+    noRot: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 30
+    baseSprintSpeed: 50
+    weightlessModifier: 15
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 25.0

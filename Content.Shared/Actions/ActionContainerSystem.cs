@@ -237,6 +237,20 @@ public sealed class ActionContainerSystem : EntitySystem
 
         DebugTools.AssertOwner(uid, comp);
         comp ??= EnsureComp<ActionsContainerComponent>(uid);
+
+        // ADT-Tweak-Changeling-start
+        if (!TryComp<MetaDataComponent>(actionId, out var actionMetaData))
+            return false;
+        if (!TryPrototype(actionId, out var actionPrototype, actionMetaData))
+            return false;
+
+        if (HasAction(uid, actionPrototype.ID))
+        {
+            Log.Debug($"Tried to insert action {ToPrettyString(actionId)} into {ToPrettyString(uid)}. Failed due to duplicate actions.");
+            return false;
+        }
+        // ADT-Tweak-Changeling-end
+
         if (!_container.Insert(actionId, comp.Container))
         {
             Log.Error($"Failed to insert action {ToPrettyString(actionId)} into {ToPrettyString(uid)}");
@@ -248,6 +262,31 @@ public sealed class ActionContainerSystem : EntitySystem
         DebugTools.Assert(action.Container == uid);
 
         return true;
+    }
+
+    /// <summary>
+    /// Checks if the given entity has an action prototype in their actions container.
+    /// </summary>
+    public bool HasAction(EntityUid uid, string prototypeID, ActionsContainerComponent? actionsContainerComp = null)
+    {
+        if (!Resolve(uid, ref actionsContainerComp, false))
+            return false;
+
+        foreach (var act in actionsContainerComp.Container.ContainedEntities.ToArray())
+        {
+            if (TryComp<MetaDataComponent>(act, out var metaDataComponent))
+            {
+                if (TryPrototype(act, out var actPrototype, metaDataComponent))
+                {
+                    if (prototypeID == actPrototype.ID)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     /// <summary>

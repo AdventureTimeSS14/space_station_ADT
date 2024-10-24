@@ -25,6 +25,7 @@
     - alertType: Magboots
     - alertType: Pacified
     - alertType: Crawling #ADT crawling
+    - alertType: Chemicals # ADT Changeling
 - type: entity
   id: AlertSpriteView
   categories: [ HideSpawnMenu ]
