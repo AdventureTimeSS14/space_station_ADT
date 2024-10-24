@@ -3726,3 +3726,15 @@ Entries:
           после смерти!', type: Add}
     time: '2024-10-22T20:43:51Z'
     id: 461
+  - author: Rip_Zoro
+    changes:
+      - {message: НТ Изменило комплектацию вещей в вещмешке отряда РХБЗЗ, type: Tweak}
+      - {message: НТ усилило экзокостюмы отряда РХБЗЗ, type: Tweak}
+    time: '2024-10-23T13:46:51Z'
+    id: 462
+  - author: Inconnu
+    changes:
+      - {message: Исправлен баг с взрывом ДНК Замка при отсутствии компонента ДНК,
+        type: Fix}
+    time: '2024-10-23T16:01:47Z'
+    id: 463
