@@ -75,6 +75,13 @@ public sealed partial class AudioTab : Control
             SliderVolumeInterface,
             scale: ContentAudioSystem.InterfaceMultiplier);
 
+//      ADT-BoomBox-Tweak-Start
+        Control.AddOptionPercentSlider(
+            ADTCCVars.BoomBoxVolume,
+            SliderVolumeBoombox,
+            scale: ContentAudioSystem.BoomboxMultiplier);
+//      ADT-BoomBox-Tweak-End
+
         Control.AddOptionSlider(
             CCVars.MaxAmbientSources,
             SliderMaxAmbienceSounds,
