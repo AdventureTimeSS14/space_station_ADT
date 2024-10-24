@@ -86,3 +86,22 @@
     state: milky_tail
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_tail_secondary
+
+- type: marking
+  id: ADTMilkyEars
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_ears
+
+- type: marking
+  id: ADTMilkyHorns
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_horns
+
