@@ -8,7 +8,6 @@ using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.ADT.Silicon.Components;
-using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
 

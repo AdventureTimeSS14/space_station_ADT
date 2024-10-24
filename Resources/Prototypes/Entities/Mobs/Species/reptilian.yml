@@ -114,6 +114,7 @@
     tallscale: 1.12
     short: true
     shortscale: 0.98
+  - type: ReliveResuscitation
   #End ADT tweak
 
 - type: entity

@@ -70,6 +70,7 @@
     understands:
     - GalacticCommon
     - Dwarf
+  - type: ReliveResuscitation
 
 - type: entity
   parent: BaseSpeciesDummy
