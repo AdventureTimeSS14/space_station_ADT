@@ -136,60 +136,11 @@ public sealed partial class ChangelingComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ChangelingLastResortActionEntity;
 
-    ///[DataField]
-    ///public EntProtoId ChangelingArmBladeAction = "ActionArmBlade";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingArmBladeActionEntity;
-
-    ///[DataField]
-    ///public EntProtoId ChangelingArmorActionAction = "ActionLingArmor";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingArmorActionActionEntity;
-
-    ///[DataField]
-    ///public EntProtoId ChangelingInvisibleAction = "ActionLingInvisible";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingInvisibleActionEntity;
-
-    ///[DataField]
-    ///public EntProtoId ChangelingEMPAction= "ActionLingEMP";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingEMPActionEntity;
-
     [DataField]
     public EntProtoId ChangelingStasisDeathAction = "ActionStasisDeath";
 
     [DataField, AutoNetworkedField]
     public EntityUid? ChangelingStasisDeathActionEntity;
-
-    ///[DataField]
-    ///public EntProtoId ChangelingBlindStingAction = "ActionLingBlindSting";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingBlindStingActionEntity;
-
-    ///[DataField]
-    ///public EntProtoId ChangelingAdrenalineAction = "ActionLingAdrenaline";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingAdrenalineActionEntity;
-
-    ///[DataField]
-    ///public EntProtoId ChangelingOmniHealAction = "ActionLingOmnizine";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingOmniHealActionEntity;
-
-    ///[DataField]
-    ///public EntProtoId ChangelingMuteStingAction = "ActionLingMuteSting";
-
-    ///[DataField, AutoNetworkedField]
-    ///public EntityUid? ChangelingMuteStingActionEntity;
-
     #endregion
 
     #region Chemical Costs
@@ -368,11 +319,13 @@ public sealed partial class ChangelingComponent : Component
     public bool MusclesActive = false;
 
     [DataField]
-    public float MusclesModifier = 2f;
+    public float MusclesModifier = 1.4f;
 
     [DataField]
     public float MusclesStaminaDamage = 3f;
 
+    [ViewVariables]
+    public TimeSpan NextMusclesDamage = TimeSpan.Zero;
     #endregion
 
     #region Changeling Chemicals

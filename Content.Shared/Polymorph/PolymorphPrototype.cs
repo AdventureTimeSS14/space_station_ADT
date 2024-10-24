@@ -127,9 +127,9 @@ public enum PolymorphInventoryChange : byte
 
 public struct PolymorphHumanoidData
 {
-    public EntityPrototype? EntityPrototype;
-    public MetaDataComponent? MetaDataComponent;
-    public HumanoidAppearanceComponent? HumanoidAppearanceComponent;
-    public string? DNA;
-    public EntityUid? EntityUid;
+    public EntityPrototype EntityPrototype;
+    public MetaDataComponent MetaDataComponent;
+    public HumanoidAppearanceComponent HumanoidAppearanceComponent;
+    public string DNA;
+    public EntityUid EntityUid;
 }

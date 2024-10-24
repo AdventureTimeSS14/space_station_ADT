@@ -90,7 +90,7 @@ public sealed partial class AdrenalineActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class OmniHealActionEvent : InstantActionEvent
+public sealed partial class FleshmendActionEvent : InstantActionEvent
 {
 }
 

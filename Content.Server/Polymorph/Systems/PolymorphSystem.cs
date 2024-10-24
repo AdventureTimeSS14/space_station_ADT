@@ -274,19 +274,8 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <param name="data">The humanoid data</param>
     public EntityUid? PolymorphEntityAsHumanoid(EntityUid uid, PolymorphHumanoidData data)
     {
-        if (data.EntityPrototype == null)
-            return null;
-        if (data.HumanoidAppearanceComponent == null)
-            return null;
-        if (data.MetaDataComponent == null)
-            return null;
-        if (data.DNA == null)
-            return null;
-        if (data.EntityUid == null)
-            return null;
-
         var targetTransformComp = Transform(uid);
-        var child = data.EntityUid.Value;
+        var child = data.EntityUid;
 
         RetrievePausedEntity(uid, child);
 

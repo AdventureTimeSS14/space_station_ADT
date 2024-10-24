@@ -10,6 +10,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Store;
 
 namespace Content.Server.Store.Systems;
 
@@ -176,6 +177,62 @@ public sealed partial class StoreSystem : EntitySystem
         UpdateUserInterface(null, uid, store);
         return true;
     }
+
+    // ADT changeling start
+    public bool TryAddStore(EntityUid uid,
+                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
+                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
+                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
+                            bool allowRefund,
+                            bool ownerOnly)
+    {
+        if (HasComp<StoreComponent>(uid))
+            return false;
+
+        AddStore(uid, currencyWhitelist, categories, balance, allowRefund, ownerOnly);
+
+        return true;
+    }
+
+    public void AddStore(EntityUid uid,
+                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
+                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
+                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
+                            bool allowRefund,
+                            bool ownerOnly)
+    {
+        var comp = new StoreComponent();
+        comp.CurrencyWhitelist = currencyWhitelist;
+        comp.Categories = categories;
+        comp.Balance = balance;
+        comp.RefundAllowed = allowRefund;
+        comp.OwnerOnly = ownerOnly;
+
+        AddComp(uid, comp);
+    }
+
+    public bool TrySetCurrency(Dictionary<string, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
+    {
+        if (!Resolve(uid, ref store))
+            return false;
+
+        //verify these before values are modified
+        foreach (var type in currency)
+        {
+            if (!store.CurrencyWhitelist.Contains(type.Key))
+                return false;
+        }
+
+        foreach (var type in currency)
+        {
+            if (!store.Balance.TryAdd(type.Key, type.Value))
+                store.Balance[type.Key] = type.Value;
+        }
+
+        UpdateUserInterface(null, uid, store);
+        return true;
+    }
+    // ADT changeling end
 }
 
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
