@@ -13,6 +13,8 @@
       types:
         Blunt: 2
         Structural: 5
+  - type: StaticPrice
+    price: 24
   #- type: ClothingSpeedModifier
   #  walkModifier: 0.9
   #  sprintModifier: 1.2

@@ -13,6 +13,7 @@
     sprite: ADT/Objects/Consumable/Food/Baked/pumpkin_pie.rsi
     state: pumpkin_pie
   - type: SliceableFood
+    count: 1
     slice: ADTFoodPiePumpkinSlice
   - type: Tag
     tags:
