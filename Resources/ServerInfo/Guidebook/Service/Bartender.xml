@@ -6,9 +6,9 @@
 Реагенты для напитков можно найти в разных местах:
 </Box>
 <Box>
-<GuideEntityEmbed Entity="BoozeDispenser"/>
-<GuideEntityEmbed Entity="SodaDispenser"/>
-<GuideEntityEmbed Entity="VendingMachineBooze"/>
+<GuideEntityEmbed Entity="BoozeDispenser" Caption="Раздатчик алкоголя"/>
+<GuideEntityEmbed Entity="soda_dispenser" Caption="Раздатчик безалкоголя"/>
+<GuideEntityEmbed Entity="VendingMachineBooze" Caption="АлкоМат"/>
 </Box>
 
 <Box>

@@ -5,9 +5,9 @@
   ## Снаряжение
   Для обезвреживания требуются два основных инструмента, однако для идентификации проводов очень полезен мультитул.
   <Box>
-    <GuideEntityEmbed Entity="Wirecutter"/>
-    <GuideEntityEmbed Entity="Screwdriver"/>
-    <GuideEntityEmbed Entity="Multitool"/>
+    <GuideEntityEmbed Entity="Wirecutter" Caption="Кусачки"/>
+    <GuideEntityEmbed Entity="Screwdriver"Caption="Отвёртка"/>
+    <GuideEntityEmbed Entity="Multitool" Caption="Мультитул"/>
   </Box>
 
   Что касается защитного снаряжения, то [color=yellow]сапёрный костюм[/color] или любое другое защитное снаряжение поможет вам не превратиться в кровавое облачко если что-то пойдёт не так.
