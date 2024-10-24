@@ -39,9 +39,6 @@ public sealed partial class ChangelingSystem
 {
     private void InitializeLingAbilities()
     {
-        //проверяет есть ли активные абилки в виде щита или руки-клинка, удаляет их после смерти.
-        SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobState);
-
         SubscribeLocalEvent<ChangelingComponent, LingAbsorbActionEvent>(StartAbsorbing);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDoAfterEvent>(OnAbsorbDoAfter);
 
@@ -57,21 +54,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, LingBiodegradeActionEvent>(OnBiodegrade);
         SubscribeLocalEvent<ChangelingComponent, BiodegradeDoAfterEvent>(OnBiodegradeDoAfter);
         SubscribeLocalEvent<ChangelingComponent, TransformationStingEvent>(OnTransformSting);
-    }
-
-    private void OnMobState(EntityUid uid, ChangelingComponent component, MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead)
-        {
-            RemoveBladeEntity(uid, component);
-            RemoveShieldEntity(uid, component);
-
-            component.ArmBladeActive = false;
-            component.ArmShieldActive = false;
-        }
-
-        if (args.NewMobState != MobState.Dead && component.StasisDeathActive)
-            component.StasisDeathActive = false;
     }
 
     private void StartAbsorbing(EntityUid uid, ChangelingComponent component, LingAbsorbActionEvent args)   // Начало поглощения
@@ -621,49 +603,33 @@ public sealed partial class ChangelingSystem
         {
             var selfMessage = Loc.GetString("changeling-transform-sting-fail-already", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
-        }
-
-        else if (!HasComp<HumanoidAppearanceComponent>(target))
-        {
-            var selfMessageFailNoHuman = Loc.GetString("changeling-transform-sting-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
-            _popup.PopupEntity(selfMessageFailNoHuman, uid, uid);
             return;
         }
 
-        else if (_tagSystem.HasTag(target, "ChangelingBlacklist"))
-        {
-            var selfMessage = Loc.GetString("changeling-transform-sting-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
-            _popup.PopupEntity(selfMessage, uid, uid);
+        if (!TryUseAbility(uid, component, component.ChemicalsCostFifty))
             return;
-        }
 
-        else
+        args.Handled = true;
+
+        if (selectedHumanoidData.EntityUid == null)
+            return;
+
+        var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(selectedHumanoidData.EntityUid);
+        if (newHumanoidData == null)
+            return;
+
+        var transformedUid = _polymorph.PolymorphEntityAsHumanoid(target, newHumanoidData.Value);
+        if (transformedUid == null)
+            return;
+
+        if (selectedHumanoidData.MetaDataComponent != null)
         {
-            if (!TryUseAbility(uid, component, component.ChemicalsCostFifty))
-                return;
-
-            args.Handled = true;
-
-            if (selectedHumanoidData.EntityUid == null)
-                return;
-
-            var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(selectedHumanoidData.EntityUid);
-            if (newHumanoidData == null)
-                return;
-
-            var transformedUid = _polymorph.PolymorphEntityAsHumanoid(target, newHumanoidData.Value);
-            if (transformedUid == null)
-                return;
-
-            if (selectedHumanoidData.MetaDataComponent != null)
-            {
-                var selfMessage = Loc.GetString("changeling-transform-sting-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-                _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
-            }
-
-            if (!TryComp(transformedUid.Value, out InventoryComponent? inventory))
-                return;
+            var selfMessage = Loc.GetString("changeling-transform-sting-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
+            _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
         }
+
+        if (!TryComp(transformedUid.Value, out InventoryComponent? inventory))
+            return;
     }
 
 }

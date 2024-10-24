@@ -139,18 +139,19 @@ public sealed partial class RequestChangelingFormsMenuEvent : EntityEventArgs
 
     public NetEntity Target;
 
-    [Serializable]
-    public struct HDATA
-    {
-        public NetEntity NetEntity;
-        public string Name;
-        public string Species;
-        public HumanoidCharacterProfile Profile;
-    }
     public RequestChangelingFormsMenuEvent(NetEntity target)
     {
         Target = target;
     }
+}
+
+[Serializable, NetSerializable]
+public sealed class HDATA(NetEntity netEntity, string name, string species, HumanoidCharacterProfile profile)
+{
+    public NetEntity NetEntity = netEntity;
+    public string Name = name;
+    public string Species = species;
+    public HumanoidCharacterProfile Profile = profile;
 }
 
 

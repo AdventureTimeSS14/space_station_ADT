@@ -233,7 +233,7 @@
       sprite: Interface/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
-    event: !type:OmniHealActionEvent
+    event: !type:FleshmendActionEvent
     useDelay: 90
     priority: -44
 

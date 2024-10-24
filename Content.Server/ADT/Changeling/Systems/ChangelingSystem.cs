@@ -50,6 +50,7 @@ using Content.Server.Cuffs;
 using Robust.Shared.Timing;
 using Content.Server.ADT.Hallucinations;
 using Content.Shared.Gibbing.Systems;
+using Content.Shared.Mobs;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -106,6 +107,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformActionEvent>(OnTransform);
 
         SubscribeNetworkEvent<SelectChangelingFormEvent>(OnSelectChangelingForm);
+        SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobState);
 
         InitializeLingAbilities();
     }
@@ -132,7 +134,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         _store.TryAddStore(uid,
                             new HashSet<ProtoId<CurrencyPrototype>> { "EvolutionPoints" },
                             new HashSet<ProtoId<StoreCategoryPrototype>> { "ChangelingAbilities" },
-                            new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { {"EvolutionPoints", 10 } },
+                            new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } },
                             false, false);
     }
 
@@ -152,7 +154,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (regenCap)
             float.Min(component.Chemicals, component.MaxChemicals);
 
-        _alerts.ShowAlert(uid, _proto.Index<AlertPrototype>("Chemicals"), (short) Math.Clamp(Math.Round(component.Chemicals / 10.7f), 0, 7));
+        _alerts.ShowAlert(uid, _proto.Index<AlertPrototype>("Chemicals"), (short)Math.Clamp(Math.Round(component.Chemicals / 10.7f), 0, 7));
 
         return true;
     }
@@ -317,7 +319,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (args.Handled)
             return;
 
-
         if (EntityManager.TryGetComponent<ActorComponent?>(uid, out var actorComponent))
         {
             var ev = new RequestChangelingFormsMenuEvent(GetNetEntity(uid));
@@ -325,38 +326,64 @@ public sealed partial class ChangelingSystem : EntitySystem
             foreach (var item in component.StoredDNA)
             {
                 var netEntity = GetNetEntity(item.EntityUid);
-                HumanoidCharacterAppearance hca = new();
-                if (item.HumanoidAppearanceComponent == null)
-                    continue;
 
-                if (item.HumanoidAppearanceComponent.MarkingSet.Markings.TryGetValue(MarkingCategories.FacialHair, out var facialHair))
-                    if (facialHair.TryGetValue(0, out var marking))
-                    {
-                        hca = hca.WithFacialHairStyleName(marking.MarkingId);
-                        hca = hca.WithFacialHairColor(marking.MarkingColors.First());
-                    }
-                if (item.HumanoidAppearanceComponent.MarkingSet.Markings.TryGetValue(MarkingCategories.Hair, out var hair))
-                    if (hair.TryGetValue(0, out var marking))
-                    {
-                        hca = hca.WithHairStyleName(marking.MarkingId);
-                        hca = hca.WithHairColor(marking.MarkingColors.First());
-                    }
-
-                hca = hca.WithSkinColor(item.HumanoidAppearanceComponent.SkinColor);
-
-                ev.HumanoidData.Add(new()
-                {
-                    NetEntity = netEntity,
-                    Name = Name(item.EntityUid),
-                    Species = item.HumanoidAppearanceComponent.Species.Id,
-                    Profile = new HumanoidCharacterProfile().WithCharacterAppearance(hca).WithSpecies(item.HumanoidAppearanceComponent.Species.Id)
-                });
+                ev.HumanoidData.Add(new(
+                    netEntity,
+                    Name(item.EntityUid),
+                    item.HumanoidAppearanceComponent.Species.Id,
+                    BuildProfile(item)));
             }
 
             // реализовать сортировку
             RaiseNetworkEvent(ev, actorComponent.PlayerSession);
         }
         args.Handled = true;
+    }
+
+    public HumanoidCharacterProfile BuildProfile(PolymorphHumanoidData data)
+    {
+        HumanoidCharacterAppearance hca = new();
+        var humanoid = data.HumanoidAppearanceComponent;
+
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.FacialHair, out var facialHair))
+            if (facialHair.TryGetValue(0, out var marking))
+            {
+                hca = hca.WithFacialHairStyleName(marking.MarkingId);
+                hca = hca.WithFacialHairColor(marking.MarkingColors.First());
+            }
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Hair, out var hair))
+            if (hair.TryGetValue(0, out var marking))
+            {
+                hca = hca.WithHairStyleName(marking.MarkingId);
+                hca = hca.WithHairColor(marking.MarkingColors.First());
+            }
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var head))
+            hca = hca.WithMarkings(head);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.HeadSide, out var headSide))
+            hca = hca.WithMarkings(headSide);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.HeadTop, out var headTop))
+            hca = hca.WithMarkings(headTop);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Snout, out var snout))
+            hca = hca.WithMarkings(snout);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Chest, out var chest))
+            hca = hca.WithMarkings(chest);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Arms, out var arms))
+            hca = hca.WithMarkings(arms);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Legs, out var legs))
+            hca = hca.WithMarkings(legs);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Tail, out var tail))
+            hca = hca.WithMarkings(tail);
+        if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Overlay, out var overlay))
+            hca = hca.WithMarkings(overlay);
+
+        hca = hca.WithSkinColor(humanoid.SkinColor);
+        hca = hca.WithEyeColor(humanoid.EyeColor);
+
+        return new HumanoidCharacterProfile().
+                WithCharacterAppearance(hca).
+                WithSpecies(data.HumanoidAppearanceComponent.Species).
+                WithSex(data.HumanoidAppearanceComponent.Sex).
+                WithName(data.MetaDataComponent.EntityName);
     }
 
     public void TransformChangeling(EntityUid uid, ChangelingComponent component, SelectChangelingFormEvent ev)
@@ -373,31 +400,6 @@ public sealed partial class ChangelingSystem : EntitySystem
                     return;
 
                 var dnaComp = EnsureComp<DnaComponent>(uid);
-
-                if (selectedHumanoidData.EntityPrototype == null)
-                {
-                    var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-                    _popup.PopupEntity(selfFailMessage, uid, uid);
-                    return;
-                }
-                if (selectedHumanoidData.HumanoidAppearanceComponent == null)
-                {
-                    var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-                    _popup.PopupEntity(selfFailMessage, uid, uid);
-                    return;
-                }
-                if (selectedHumanoidData.MetaDataComponent == null)
-                {
-                    var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-                    _popup.PopupEntity(selfFailMessage, uid, uid);
-                    return;
-                }
-                if (selectedHumanoidData.DNA == null)
-                {
-                    var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-                    _popup.PopupEntity(selfFailMessage, uid, uid);
-                    return;
-                }
 
                 if (selectedHumanoidData.DNA == dnaComp.DNA)
                 {
@@ -445,34 +447,24 @@ public sealed partial class ChangelingSystem : EntitySystem
                     var selfMessage = Loc.GetString("changeling-transform-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
                     _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
 
-                    var newLingComponent = EnsureComp<ChangelingComponent>(transformedUid.Value);
-                    newLingComponent.Chemicals = component.Chemicals;
-                    newLingComponent.ChemicalsPerSecond = component.ChemicalsPerSecond;
-                    newLingComponent.StoredDNA = component.StoredDNA;
-                    newLingComponent.SelectedDNA = component.SelectedDNA;
-                    newLingComponent.ArmBladeActive = component.ArmBladeActive;
-                    newLingComponent.ChameleonSkinActive = component.ChameleonSkinActive;
-                    newLingComponent.LingArmorActive = component.LingArmorActive;
-                    newLingComponent.CanRefresh = component.CanRefresh;
-                    newLingComponent.AbsorbedDnaModifier = component.AbsorbedDnaModifier;
+                    var newComp = _serialization.CreateCopy(component, notNullableOverride: true);
                     RemComp(uid, component);
+                    AddComp(transformedUid.Value, newComp);
 
                     if (TryComp(uid, out StoreComponent? storeComp))
                     {
-                        var copiedStoreComponent = (Component) _serialization.CreateCopy(storeComp, notNullableOverride: true);
+                        var copiedStoreComponent = (Component)_serialization.CreateCopy(storeComp, notNullableOverride: true);
                         RemComp<StoreComponent>(transformedUid.Value);
                         EntityManager.AddComponent(transformedUid.Value, copiedStoreComponent);
                     }
 
                     _actionContainer.TransferAllActionsWithNewAttached(uid, transformedUid.Value, transformedUid.Value);
-
-                    if (!TryComp(transformedUid.Value, out InventoryComponent? inventory))
-                        return;
                 }
             }
             i++;
         }
     }
+
     public void OnTransform(EntityUid uid, ChangelingComponent component, ChangelingTransformActionEvent args)
     {
         var selectedHumanoidData = component.StoredDNA[component.SelectedDNA];
@@ -480,31 +472,6 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
 
         var dnaComp = EnsureComp<DnaComponent>(uid);
-
-        if (selectedHumanoidData.EntityPrototype == null)
-        {
-            var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-            _popup.PopupEntity(selfFailMessage, uid, uid);
-            return;
-        }
-        if (selectedHumanoidData.HumanoidAppearanceComponent == null)
-        {
-            var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-            _popup.PopupEntity(selfFailMessage, uid, uid);
-            return;
-        }
-        if (selectedHumanoidData.MetaDataComponent == null)
-        {
-            var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-            _popup.PopupEntity(selfFailMessage, uid, uid);
-            return;
-        }
-        if (selectedHumanoidData.DNA == null)
-        {
-            var selfFailMessage = Loc.GetString("changeling-nodna-saved");
-            _popup.PopupEntity(selfFailMessage, uid, uid);
-            return;
-        }
 
         if (selectedHumanoidData.DNA == dnaComp.DNA)
         {
@@ -566,7 +533,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
             if (TryComp(uid, out StoreComponent? storeComp))
             {
-                var copiedStoreComponent = (Component) _serialization.CreateCopy(storeComp, notNullableOverride: true);
+                var copiedStoreComponent = (Component)_serialization.CreateCopy(storeComp, notNullableOverride: true);
                 RemComp<StoreComponent>(transformedUid.Value);
                 EntityManager.AddComponent(transformedUid.Value, copiedStoreComponent);
             }
@@ -576,6 +543,21 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (!TryComp(transformedUid.Value, out InventoryComponent? inventory))
                 return;
         }
+    }
+
+    private void OnMobState(EntityUid uid, ChangelingComponent component, MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+        {
+            RemoveBladeEntity(uid, component);
+            RemoveShieldEntity(uid, component);
+
+            component.ArmBladeActive = false;
+            component.ArmShieldActive = false;
+        }
+
+        if (args.NewMobState != MobState.Dead && component.StasisDeathActive)
+            component.StasisDeathActive = false;
     }
 
     public const string LingSlugId = "ChangelingHeadslug";
@@ -591,46 +573,4 @@ public sealed partial class ChangelingSystem : EntitySystem
     //         _mindSystem.TransferTo(mindId, slug, mind: mind);
     //     return true;
     // }
-
-    public const string LingMonkeyId = "MobMonkeyChangeling";
-
-    public bool SpawnLingMonkey(EntityUid uid, ChangelingComponent component)
-    {
-        var slug = Spawn(LingMonkeyId, Transform(uid).Coordinates);
-
-        var newLingComponent = EnsureComp<ChangelingComponent>(slug);
-        newLingComponent.Chemicals = component.Chemicals;
-        newLingComponent.ChemicalsPerSecond = component.ChemicalsPerSecond;
-        newLingComponent.StoredDNA = component.StoredDNA;
-        newLingComponent.SelectedDNA = component.SelectedDNA;
-        newLingComponent.ArmBladeActive = component.ArmBladeActive;
-        newLingComponent.ChameleonSkinActive = component.ChameleonSkinActive;
-        newLingComponent.LingArmorActive = component.LingArmorActive;
-        newLingComponent.CanRefresh = component.CanRefresh;
-        newLingComponent.LesserFormActive = !component.LesserFormActive;
-        newLingComponent.AbsorbedDnaModifier = component.AbsorbedDnaModifier;
-
-
-        RemComp(uid, component);
-
-        _action.AddAction(slug, ref component.ChangelingLesserFormActionEntity, component.ChangelingLesserFormAction);
-
-
-        newLingComponent.StoredDNA = new List<PolymorphHumanoidData>();    /// Создание нового ДНК списка
-        var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(uid);
-        if (newHumanoidData == null)
-            return false;
-
-        else
-        {
-            newLingComponent.StoredDNA.Add(newHumanoidData.Value);
-        }
-
-        if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
-            _mindSystem.TransferTo(mindId, slug, mind: mind);
-        if (mind != null)
-            mind.PreventGhosting = false;
-        return true;
-    }
-
 }
