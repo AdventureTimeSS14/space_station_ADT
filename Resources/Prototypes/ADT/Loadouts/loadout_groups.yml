@@ -307,16 +307,6 @@
   loadouts:
   - ADTHandsGlovesLatex
   - ADTHandsGlovesNitrile
-  - ADTHandsGlovesCombat
-
-  # PDA
-- type: loadoutGroup
-  id: ADTBrigmedicPDA
-  name: loadout-brigmedic-pda-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTBrigmedicPDA
 
   # Eyes
 - type: loadoutGroup
@@ -337,8 +327,7 @@
   maxLimit: 1
   loadouts:
   - ADTBeltMedicalFilled
-  - ADTBeltSecurityRPS
-  - ADTBeltSecurityForBrigmedic
+  - ADTMedicalBeltBag
 
   # outerwear
 - type: loadoutGroup

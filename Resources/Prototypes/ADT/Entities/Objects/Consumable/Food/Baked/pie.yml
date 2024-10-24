@@ -18,6 +18,8 @@
     tags:
     - Fruit
     - Pie
+  - type: StaticPrice
+    price: 5
 
 - type: entity
   name: slice of pumpkin pie

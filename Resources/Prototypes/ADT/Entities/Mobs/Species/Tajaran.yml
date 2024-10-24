@@ -25,14 +25,12 @@
       damageContainer: Biological
       damageModifierSet: Tajaran
     - type: MeleeWeapon
-      hidden: true
       soundHit:
-        path: /Audio/Weapons/pierce.ogg
-      angle: 30
-      animation: WeaponArcPunch
+        path: /Audio/Weapons/slash.ogg
+      animation: WeaponArcClaw
       damage:
         types:
-          Piercing: 5
+          Slash: 5
     - type: Temperature
       heatDamageThreshold: 325
       coldDamageThreshold: 240

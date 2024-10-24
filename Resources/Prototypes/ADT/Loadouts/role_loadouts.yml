@@ -170,10 +170,9 @@
   - ADTBrigmedicOuterWear
   - ADTBrigmedicBack
   # Another stuffs
-  - ADTBrigmedicBelts
+  - ADTMedicalBelt
   - ADTBrigmedicEyes
   - ADTBrigmedicGloves
-  - ADTBrigmedicPDA
   # another:
   - SecurityShoes
   - SurvivalSecurity

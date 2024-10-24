@@ -9,7 +9,7 @@
     - type: Clothing
       sprite: ADT/Clothing/Neck/Misc/gold_chain.rsi #спрайты от prazat911
     - type: StaticPrice
-      price: 500
+      price: 75
 
 - type: entity
   parent: ClothingNeckBase
@@ -30,7 +30,7 @@
     - type: Sprite
       sprite: ADT/Clothing/Neck/Misc/choker_with_spike.rsi
     - type: StaticPrice
-      price: 300
+      price: 40
 
 - type: entity
   parent: ClothingNeckBase
@@ -41,7 +41,7 @@
     - type: Sprite
       sprite: ADT/Clothing/Neck/Misc/choker_with_heart.rsi
     - type: StaticPrice
-      price: 300
+      price: 40
 
 
       # halloween

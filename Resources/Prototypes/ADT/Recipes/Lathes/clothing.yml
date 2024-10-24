@@ -1,0 +1,135 @@
+# basebackpacksrecipe
+
+- type: latheRecipe
+  abstract: true
+  id: ADTBaseBackpackRecipe
+  completetime: 4
+  materials:
+    Cloth: 800
+
+- type: latheRecipe
+  abstract: true
+  id: ADTBaseBackpackSatchelRecipe
+  completetime: 4
+  materials:
+    Cloth: 900
+
+- type: latheRecipe
+  abstract: true
+  id: ADTBaseBackpackDuffelRecipe
+  completetime: 4
+  materials:
+    Cloth: 1000
+
+# result
+
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpack
+  result: ClothingBackpack
+
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpackSecurity
+  result: ClothingBackpackSecurity
+
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpackScience
+  result: ClothingBackpackScience
+
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpackCargo
+  result: ClothingBackpackCargo
+
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpackMedical
+  result: ClothingBackpackMedical
+
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpackEngineering
+  result: ClothingBackpackEngineering
+
+# satchels
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchel
+  result: ClothingBackpackSatchel
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchelSecurity
+  result: ClothingBackpackSatchelSecurity
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchelScience
+  result: ClothingBackpackSatchelScience
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchelCargo
+  result: ClothingBackpackSatchelCargo
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchelMedical
+  result: ClothingBackpackSatchelMedical
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchelEngineering
+  result: ClothingBackpackSatchelEngineering
+
+# Duffel
+
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffel
+  result: ClothingBackpackDuffel
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffelSecurity
+  result: ClothingBackpackDuffelSecurity
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffelScience
+  result: ClothingBackpackDuffelScience
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffelCargo
+  result: ClothingBackpackDuffelCargo
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffelMedical
+  result: ClothingBackpackDuffelMedical
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffelEngineering
+  result: ClothingBackpackDuffelEngineering
+
+- type: latheRecipe
+  id: ADTClothingBackpackDuffelSyndicate
+  result: ClothingBackpackDuffelSyndicate
+  completetime: 4
+  materials:
+    Cloth: 500
+    Durathread: 1000
+
+- type: latheRecipe
+  id: ADTClothingBackpackDuffelDurathead
+  result: ADTClothingBackpackDuffelDurathead
+  completetime: 4
+  materials:
+    Cloth: 500
+    Durathread: 1000

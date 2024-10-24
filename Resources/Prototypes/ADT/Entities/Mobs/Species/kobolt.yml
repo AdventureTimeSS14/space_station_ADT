@@ -72,6 +72,13 @@
           - MobMask
         layer:
           - MobLayer
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#801900"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: TemperatureSpeed
     thresholds:
       283: 0.8

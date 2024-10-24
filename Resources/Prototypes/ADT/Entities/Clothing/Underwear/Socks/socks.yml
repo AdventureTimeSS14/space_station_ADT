@@ -40,21 +40,12 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ClothingUnderwearSocksBee # HACK
+  id: ADTClothingUnderwearSocksBee # HACK
   name: bee socks
   description: Make them loins buzz!
   components:
   - type: Sprite
-    sprite: Clothing/Under/Socks/bee.rsi
-
-- type: entity
-  parent: ADTClothingUnderwearSocksBase
-  id: ClothingUnderwearSocksCoder # HACK
-  name: coder socks
-  description: It's time to code sisters!!11!
-  components:
-  - type: Sprite
-    sprite: Clothing/Under/Socks/coder.rsi
+    sprite: ADT/Clothing/Underwear/Socks/socksbee.rsi
 
 #приколы празата
 - type: entity
@@ -244,7 +235,7 @@
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/socks_rabbit.rsi
   - type: StaticPrice
-    price: 120
+    price: 26
 
 # TGS
 

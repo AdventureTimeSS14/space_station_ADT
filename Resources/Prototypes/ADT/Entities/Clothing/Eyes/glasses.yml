@@ -26,7 +26,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi #спрайты от dion_clawed
   - type: StaticPrice
-    price: 200
+    price: 25
 
 - type: entity
   parent: ClothingEyesBase

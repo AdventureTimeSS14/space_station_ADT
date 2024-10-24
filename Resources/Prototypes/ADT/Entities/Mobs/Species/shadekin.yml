@@ -158,7 +158,14 @@
     messagePerceivedByOthers: petting-success-soft-floofy-others
   - type: MovementSpeedModifier
     baseWalkSpeed : 4.5
-    baseSprintSpeed : 2.7
+    baseSprintSpeed : 2.5
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#3C0F24"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Inventory
     displacements:
       jumpsuit:

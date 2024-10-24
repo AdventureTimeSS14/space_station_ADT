@@ -95,6 +95,9 @@
     ADTClothingUnderwearSocksKneeComfyGrey: 2
     ADTClothingUnderwearSocksKneeComfyRed: 2
     ADTClothingUnderwearSocksKneeComfyViolet: 2
+    ADTClothingUnderwearSocksBee: 2
+    ClothingUnderSocksBee: 2
+    ClothingUnderSocksCoder: 1
 # ADT конец носков
     # ADT бельё/обмотки/плащи начало
     ADTClothingFootWrapsWhite: 2
