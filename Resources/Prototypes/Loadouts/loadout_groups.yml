@@ -6,6 +6,8 @@
   maxLimit: 3
   loadouts:
   - SpaceLaw # Corvax-HyperLink
+  - FlowerWreath
+  - Hairflower
   - PlushieLizard
   - PlushieSpaceLizard
   - Lighter
@@ -1132,6 +1134,7 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
 
 - type: loadoutGroup

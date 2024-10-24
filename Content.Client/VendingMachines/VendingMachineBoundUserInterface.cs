@@ -40,6 +40,14 @@ namespace Content.Client.VendingMachines
             _menu.OpenCenteredLeft();
         }
 
+        public void Refresh()
+        {
+            var system = EntMan.System<VendingMachineSystem>();
+            _cachedInventory = system.GetAllInventory(Owner);
+
+            _menu?.Populate(_cachedInventory);
+        }
+
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);

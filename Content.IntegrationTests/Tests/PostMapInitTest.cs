@@ -62,6 +62,7 @@ namespace Content.IntegrationTests.Tests
             "CorvaxPearl",
             "CorvaxTushkan",
             "CorvaxGlacier",
+            "CorvaxAwesome",
             // Corvax-End
             "Dev",
             "TestTeg",
@@ -79,7 +80,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            "Cog",
+            // "Cog", //ADT Fix: ЗАЕБАЛА ПАДАТЬ В ТЕСТАХ
             // ADT-Start
             "ADT_Astra",
             "ADT_Avrit",

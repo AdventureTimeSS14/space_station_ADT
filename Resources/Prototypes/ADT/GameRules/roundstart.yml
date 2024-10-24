@@ -1,33 +1,33 @@
-- type: entity
-  abstract: true
-  parent: BaseGameRule
-  id: BasePhantomRule
-  components:
-  - type: PhantomRule
-  - type: AntagSelection
-  - type: AntagSpawnEntityRule
-    prototype: ADTMobPhantom
+# - type: entity
+#   abstract: true
+#   parent: BaseGameRule
+#   id: BasePhantomRule
+#   components:
+#   - type: PhantomRule
+#   - type: AntagSelection
+#   - type: AntagSpawnEntityRule
+#     prototype: ADTMobPhantom
 
-- type: entity
-  parent: BasePhantomRule
-  id: PhantomGameRule
-  components:
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ Phantom ]
-      spawnerPrototype: SpawnPointGhostPhantom
-      max: 1
-      components:
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindComponents:
-      - type: PhantomRole
-        prototype: Phantom
-  - type: AntagRandomSpawn
+# - type: entity
+#   parent: BasePhantomRule
+#   id: PhantomGameRule
+#   components:
+#   - type: GameRule
+#     minPlayers: 25
+#   - type: AntagSelection
+#     selectionTime: PrePlayerSpawn
+#     definitions:
+#     - prefRoles: [ Phantom ]
+#       spawnerPrototype: SpawnPointGhostPhantom
+#       max: 1
+#       components:
+#       - type: NpcFactionMember
+#         factions:
+#         - Syndicate
+#       mindComponents:
+#       - type: PhantomRole
+#         prototype: Phantom
+#   - type: AntagRandomSpawn
 
 - type: entityTable
   id: RampingGameRulesTable
@@ -40,33 +40,33 @@
       - !type:NestedSelector
         tableId: CargoGiftsTable
 
-- type: entity
-  abstract: true
-  parent: BaseGameRule
-  id: BaseHereticRule
-  components:
-  - type: HereticRule
-  - type: AntagSelection
+# - type: entity
+#   abstract: true
+#   parent: BaseGameRule
+#   id: BaseHereticRule
+#   components:
+#   - type: HereticRule
+#   - type: AntagSelection
 
-- type: entity
-  parent: BaseHereticRule
-  id: HereticGameRule
-  components:
-  - type: GameRule
-    minPlayers: 25
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 8
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        - BibleUser
-      lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
-        prototype: Heretic
+# - type: entity
+#   parent: BaseHereticRule
+#   id: HereticGameRule
+#   components:
+#   - type: GameRule
+#     minPlayers: 25
+#   - type: AntagSelection
+#     definitions:
+#     - prefRoles: [ Heretic ]
+#       max: 8
+#       playerRatio: 15
+#       blacklist:
+#         components:
+#         - AntagImmune
+#         - BibleUser
+#       lateJoinAdditional: true
+#       mindComponents:
+#       - type: HereticRole
+#         prototype: Heretic
 
 
 - type: entityTable

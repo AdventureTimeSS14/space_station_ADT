@@ -18,7 +18,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private IPrototypeManager _prot = default!;
     private IRobustRandom _rand = default!;
     private EntityLookupSystem _lookup = default!;
-    private HereticSystem _heretic = default!;
+    //private HereticSystem _heretic = default!;
 
     // this is basically a ripoff from hereticritualsystem
     public override bool Execute(RitualData args, out string? outstr)
@@ -26,7 +26,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         _prot = IoCManager.Resolve<IPrototypeManager>();
         _rand = IoCManager.Resolve<IRobustRandom>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
-        _heretic = args.EntityManager.System<HereticSystem>();
+        //_heretic = args.EntityManager.System<HereticSystem>();
 
         outstr = null;
 
@@ -82,8 +82,8 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
             args.EntityManager.QueueDeleteEntity(ent);
         toDelete = new();
 
-        if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-            _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
+        // if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+        //     _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
 
         // reset tags
         requiredTags = new();
