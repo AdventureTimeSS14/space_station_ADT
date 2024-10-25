@@ -43,6 +43,7 @@ using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Stunnable;
+using Content.Server.Power.Components; // ADT-Revenant-Tweak
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -61,7 +62,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly WeldableSystem _weld = default!;
+//    [Dependency] private readonly WeldableSystem _weld = default!;     ADT-Revenant-Tweak
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
@@ -454,7 +455,9 @@ public sealed partial class RevenantSystem
                 continue;
             if (!TryComp<DoorBoltComponent>(ent, out var boltsComp))
                 continue;
-            if (!boltsComp.BoltWireCut && door.State == DoorState.Closed && !boltsComp.BoltsDown)
+            if (!TryComp<ApcPowerReceiverComponent>(ent, out var powerComp))
+                continue;
+            if (!boltsComp.BoltWireCut && door.State == DoorState.Closed && !boltsComp.BoltsDown && powerComp.Powered)
             {
                 _door.SetBoltsDown((ent, boltsComp), true, uid);
                 _audio.PlayPvs(component.LockSound, ent);

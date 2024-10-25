@@ -1,0 +1,32 @@
+- type: radioChannel
+  id: DionsCollectiveMind
+  name: collective-mind-dionas
+  frequency: 1331
+  keycode: 't'
+  color: "#3de500"
+  longRange: true
+
+- type: radioChannel
+  id: CarpCollectiveMind
+  name: collective-mind-carp
+  frequency: 1332
+  keycode: 'q'
+  color: "#ba66ff"
+  longRange: true
+
+- type: radioChannel
+  id: XenoCollectiveMind
+  name: collective-mind-xeno
+  frequency: 1333
+  keycode: 'e'
+  color: "#ba66ff"
+  longRange: true
+
+# в комментариях до добавления генокрадов
+# - type: radioChannel
+#   id: ChangelingCollectiveMind
+#   name: collective-mind-ling
+#   frequency: 1334
+#   keycode: 'x'
+#   color: "#e56000"
+#   longRange: true

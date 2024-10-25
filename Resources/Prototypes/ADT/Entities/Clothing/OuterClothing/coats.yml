@@ -46,7 +46,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/gray_sweatshirttop.rsi
   - type: StaticPrice
-    price: 800
+    price: 65
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -59,7 +59,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/black_sweatshirttop.rsi
   - type: StaticPrice
-    price: 800
+    price: 65
 
 
 - type: entity
@@ -170,6 +170,32 @@
         Slash: 0.95
         Heat: 0.90
 
+
+    # halloween
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTJasonBomber
+  name: maniac bomber
+  description: maniac bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTStudentBomber
+  name: student bomber
+  description: student bomber
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
 # Med
 
 - type: entity

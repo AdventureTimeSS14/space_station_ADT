@@ -51,9 +51,7 @@ ent-ADTClothingUnderwearSocksStockingsHeart = длинные чулки с се�
 ent-ADTClothingUnderwearSocksRabbit = носки с кроликами
     .desc = Теплый и необычные носочки в виде кроликов.
 
-ent-ClothingUnderwearSocksCoder = носочки для програмиста
-    .desc = Пришло время отдаться коду!11!!
-ent-ClothingUnderwearSocksBee = носочки с пчёлами
+ent-ADTClothingUnderwearSocksBee = носочки с пчёлами
     .desc = Заставь их загудеть от волнения.
 
 ent-ADTClothingUnderwearSocksBlueshield = носки офицера "Синего Щита"
