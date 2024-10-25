@@ -38,3 +38,5 @@
     tags:
     - Fruit
     - Pie
+  - type: StaticPrice
+    price: 1

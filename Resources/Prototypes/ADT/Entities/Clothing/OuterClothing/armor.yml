@@ -171,9 +171,6 @@
       coefficients:
         Blunt: 0.95
         Slash: 0.95
-        Piercing: 0.80
+        Piercing: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
