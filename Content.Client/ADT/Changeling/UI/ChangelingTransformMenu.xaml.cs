@@ -31,6 +31,8 @@ public sealed partial class ChangelingTransformMenu : RadialMenu
     private readonly HumanoidAppearanceSystem _appearanceSystem;
     private readonly SpriteSystem _spriteSystem;
     public List<NetEntity> Forms = new();
+    public ChangelingMenuType Type = ChangelingMenuType.Transform;
+    public NetEntity Target = NetEntity.Invalid;
 
     public event Action<NetEntity>? OnSelectForm;
 

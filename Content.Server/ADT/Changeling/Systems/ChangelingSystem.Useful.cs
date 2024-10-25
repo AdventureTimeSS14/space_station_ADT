@@ -495,7 +495,24 @@ public sealed partial class ChangelingSystem
         }
         else
         {
-            // todo открытие радиального меню
+            if (TryComp<ActorComponent>(uid, out var actorComponent))
+            {
+                var ev = new RequestChangelingFormsMenuEvent(GetNetEntity(uid), ChangelingMenuType.HumanForm);
+
+                foreach (var item in component.StoredDNA)
+                {
+                    var netEntity = GetNetEntity(item.EntityUid);
+
+                    ev.HumanoidData.Add(new(
+                        netEntity,
+                        Name(item.EntityUid),
+                        item.HumanoidAppearanceComponent.Species.Id,
+                        BuildProfile(item)));
+                }
+
+                // реализовать сортировку
+                RaiseNetworkEvent(ev, actorComponent.PlayerSession);
+            }
         }
     }
     private void OnLastResort(EntityUid uid, ChangelingComponent component, LastResortActionEvent args)
@@ -600,21 +617,23 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        if (selectedHumanoidData.EntityUid == null)
-            return;
-
-        var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(selectedHumanoidData.EntityUid);
-        if (newHumanoidData == null)
-            return;
-
-        var transformedUid = _polymorph.PolymorphEntityAsHumanoid(target, newHumanoidData.Value);
-        if (transformedUid == null)
-            return;
-
-        if (selectedHumanoidData.MetaDataComponent != null)
+        if (TryComp<ActorComponent>(uid, out var actorComponent))
         {
-            var selfMessage = Loc.GetString("changeling-transform-sting-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-            _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
+            var ev = new RequestChangelingFormsMenuEvent(GetNetEntity(uid), ChangelingMenuType.Sting);
+
+            foreach (var item in component.StoredDNA)
+            {
+                var netEntity = GetNetEntity(item.EntityUid);
+
+                ev.HumanoidData.Add(new(
+                    netEntity,
+                    Name(item.EntityUid),
+                    item.HumanoidAppearanceComponent.Species.Id,
+                    BuildProfile(item)));
+            }
+
+            // реализовать сортировку
+            RaiseNetworkEvent(ev, actorComponent.PlayerSession);
         }
     }
 }

@@ -36,6 +36,10 @@ public sealed class ChangelingTransformUIController : UIController//, IOnStateCh
             _menu.OnClose += OnWindowClosed;
             _menu.OnOpen += OnWindowOpen;
             _menu.OnSelectForm += OnSelectForm;
+
+            _menu.Type = ev.Type;
+            _menu.Target = ev.Target;
+
             _menu.Populate(ev);
 
             _menu.OpenCentered();
@@ -71,9 +75,14 @@ public sealed class ChangelingTransformUIController : UIController//, IOnStateCh
 
     private void OnSelectForm(NetEntity ent)
     {
-        var player = _playerManager.LocalSession?.AttachedEntity ?? EntityUid.Invalid;
+        if (_menu == null)
+            return;
 
-        var ev = new SelectChangelingFormEvent(_entityManager.GetNetEntity(player), ent);
+        var player = _entityManager.GetNetEntity(_playerManager.LocalSession?.AttachedEntity ?? EntityUid.Invalid);
+        if (_menu.Type == ChangelingMenuType.Sting)
+            player = _menu.Target;
+
+        var ev = new SelectChangelingFormEvent(player, ent, _menu.Type);
         _entityManager.RaisePredictiveEvent(ev);
 
         CloseMenu();

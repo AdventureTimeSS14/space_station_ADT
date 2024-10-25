@@ -138,11 +138,21 @@ public sealed partial class RequestChangelingFormsMenuEvent : EntityEventArgs
     public List<HDATA> HumanoidData = new();
 
     public NetEntity Target;
+    public ChangelingMenuType Type;
 
-    public RequestChangelingFormsMenuEvent(NetEntity target)
+    public RequestChangelingFormsMenuEvent(NetEntity target, ChangelingMenuType type)
     {
         Target = target;
+        Type = type;
     }
+}
+
+[Serializable, NetSerializable]
+public enum ChangelingMenuType : byte
+{
+    Transform,
+    HumanForm,
+    Sting,
 }
 
 [Serializable, NetSerializable]
@@ -166,10 +176,12 @@ public sealed partial class SelectChangelingFormEvent : EntityEventArgs
     public NetEntity Target;
 
     public bool Handled = false;
+    public ChangelingMenuType Type;
 
-    public SelectChangelingFormEvent(NetEntity target, NetEntity entitySelected)
+    public SelectChangelingFormEvent(NetEntity target, NetEntity entitySelected, ChangelingMenuType type)
     {
         Target = target;
         EntitySelected = entitySelected;
+        Type = type;
     }
 }
