@@ -87,6 +87,7 @@
   - MedicalMask
   - MedicalDoctorJumpsuit
   - MedicalGloves
+  - ADTMedicalBelt # ADT tweak
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - Trinkets
@@ -169,10 +170,9 @@
   - ADTBrigmedicOuterWear
   - ADTBrigmedicBack
   # Another stuffs
-  - ADTBrigmedicBelts
+  - ADTMedicalBelt
   - ADTBrigmedicEyes
   - ADTBrigmedicGloves
-  - ADTBrigmedicPDA
   # another:
   - SecurityShoes
   - SurvivalSecurity
