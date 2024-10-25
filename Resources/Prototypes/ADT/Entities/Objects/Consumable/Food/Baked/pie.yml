@@ -38,5 +38,6 @@
     tags:
     - Fruit
     - Pie
+    - Slice
   - type: StaticPrice
     price: 1
