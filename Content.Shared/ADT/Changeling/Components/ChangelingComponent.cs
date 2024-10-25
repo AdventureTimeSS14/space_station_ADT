@@ -4,10 +4,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Changeling.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(true)]
 public sealed partial class ChangelingComponent : Component
 {

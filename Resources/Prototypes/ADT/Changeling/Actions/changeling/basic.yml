@@ -5,7 +5,9 @@
   noSpawn: true
   components:
   - type: InstantAction
-    icon: Interface/Actions/shop.png
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: changelingsting
     event: !type:ChangelingEvolutionMenuActionEvent
     priority: -70
 
@@ -17,7 +19,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: absorb_dna
     itemIconStyle: BigAction
     whitelist:
@@ -36,8 +38,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: cycle
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: transform
     itemIconStyle: BigAction
     event: !type:ChangelingCycleDNAActionEvent
     useDelay: 1
@@ -51,7 +53,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: transform
     itemIconStyle: BigAction
     event: !type:ChangelingTransformActionEvent
@@ -67,7 +69,7 @@
   - type: InstantAction
     checkCanInteract: false
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: regenerate
     itemIconStyle: BigAction
     event: !type:LingRegenerateActionEvent
@@ -82,7 +84,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: sting_extract
     itemIconStyle: BigAction
     whitelist:
@@ -101,8 +103,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Objects/Weapons/Melee/armblade.rsi
-      state: icon
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: armblade
     itemIconStyle: BigAction
     event: !type:ArmBladeActionEvent
     useDelay: 1
@@ -116,8 +118,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
-      state: icon
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: chitinous_armor
     itemIconStyle: BigAction
     event: !type:LingArmorActionEvent
     useDelay: 15
@@ -131,8 +133,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: chameleon
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: chameleon_skin
     itemIconStyle: BigAction
     event: !type:LingInvisibleActionEvent
     useDelay: 1
@@ -146,13 +148,14 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: emp
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: dissonant_shriek
     itemIconStyle: BigAction
     useDelay: 15
     event: !type:LingEMPActionEvent
     priority: -47
     # Stasis Death
+
 - type: entity
   id: ActionStasisDeath
   name: action-stasis-death
@@ -162,8 +165,11 @@
   - type: InstantAction
     checkCanInteract: false
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: stasis
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: fake_death
+    iconOn:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: revive
     itemIconStyle: BigAction
     event: !type:StasisDeathActionEvent
     useDelay: 90
@@ -178,7 +184,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: sting_blind
     itemIconStyle: BigAction
     whitelist:
@@ -198,28 +204,28 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: epinephrine_overdose
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: adrenaline
     itemIconStyle: BigAction
     event: !type:AdrenalineActionEvent
     useDelay: 90
     priority: -45
 
     # Refresh
-- type: entity
-  id: ActionLingRefresh
-  name: action-refresh-ling
-  description: action-refresh-ling-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: refresh_dna
-    itemIconStyle: BigAction
-    event: !type:ChangelingRefreshActionEvent
-    useDelay: 5
-    priority: -66
+# - type: entity
+#   id: ActionLingRefresh
+#   name: action-refresh-ling
+#   description: action-refresh-ling-desc
+#   noSpawn: true
+#   components:
+#   - type: InstantAction
+#     icon:
+#       sprite: ADT/Interface/Actions/actions_ling.rsi
+#       state: refresh_dna
+#     itemIconStyle: BigAction
+#     event: !type:ChangelingRefreshActionEvent
+#     useDelay: 5
+#     priority: -66
 
     # Fleshmend
 - type: entity
@@ -230,7 +236,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
     event: !type:FleshmendActionEvent
@@ -246,7 +252,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: sting_mute
     itemIconStyle: BigAction
     whitelist:
@@ -266,7 +272,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: sting_hallucination
     itemIconStyle: BigAction
     whitelist:
@@ -286,7 +292,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: strained_muscles
     itemIconStyle: BigAction
     event: !type:ChangelingMusclesActionEvent
@@ -302,7 +308,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: lesser_form
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -319,8 +325,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Objects/Weapons/Melee/armshield.rsi
-      state: icon
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: organic_shield
     itemIconStyle: BigAction
     event: !type:ArmShieldActionEvent
     useDelay: 1
@@ -335,7 +341,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Interface/Actions/actions_ling.rsi
       state: last_resort
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -343,55 +349,56 @@
     useDelay: 1
     priority: -61
 
-    # Lay eggs
+    # Biodegrade
 - type: entity
-  id: ActionLingEggs
-  name: action-eggs
-  description: action-eggs-desc
+  id: ActionLingBiodegrade
+  name: action-biodegrade
+  description: action-biodegrade-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: biodegrade
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingBiodegradeActionEvent
+    useDelay: 10
+    priority: -61
+
+    # Resonant
+- type: entity
+  id: ActionLingResonant
+  name: action-resonant
+  description: action-resonant-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: resonant_shriek
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingResonantShriekEvent
+    useDelay: 10
+    priority: -61
+
+    # TSting
+- type: entity
+  id: ActionLingTransformSting
+  name: action-transform-sting
+  description: action-transform-sting-desc
   noSpawn: true
   components:
   - type: EntityTargetAction
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: last_resort
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: sting_transform
     itemIconStyle: BigAction
+    event: !type:TransformationStingEvent
     whitelist:
       components:
       - Body
-    event: !type:LingEggActionEvent
-    useDelay: 5
     canTargetSelf: false
-
-    # Hatch
-- type: entity
-  id: ActionLingHatch
-  name: action-hatch
-  description: action-hatch-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: last_resort
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:LingHatchActionEvent
-    useDelay: 180
-    priority: -99
-
-    # Fast Hatch
-- type: entity
-  id: ActionLingHatchFast
-  name: action-hatch
-  description: action-hatch-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Interface/Actions/actions_ling.rsi
-      state: last_resort
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:LingHatchActionEvent
-    useDelay: 60
-    priority: -99
+    useDelay: 10
+    priority: -61

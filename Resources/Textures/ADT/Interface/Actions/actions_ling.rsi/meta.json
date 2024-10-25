@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "taken from tg at https://github.com/tgstation/tgstation/commit/3e9ea4d77cdf4173777e665b2b4f4ba8cecf2c03#diff-06a6d3876124f6bb0adf70a4dffab8d82b9a7ae0abf9ec0ebc22211ca9d8ad4b. Sprites made by KREKS (#.kreks. discord), ported to Space Station 14 by Username228 (#serj3428 discord)",
+  "states": [
+    {
+      "name": "absorb_dna"
+    },
+    {
+      "name": "adrenaline"
+    },
+    {
+      "name": "armblade"
+    },
+    {
+      "name": "augmented_eyesight"
+    },
+    {
+      "name": "biodegrade"
+    },
+    {
+      "name": "chameleon_skin"
+    },
+    {
+      "name": "changeling_channel"
+    },
+    {
+      "name": "chitinous_armor"
+    },
+    {
+      "name": "changelingsting"
+    },
+    {
+      "name": "darkness_adaptation"
+    },
+    {
+      "name": "digital_camo"
+    },
+    {
+      "name": "dissonant_shriek"
+    },
+    {
+      "name": "fake_death"
+    },
+    {
+      "name": "fleshmend"
+    },
+    {
+      "name": "hive_absorb"
+    },
+    {
+      "name": "hive_head"
+    },
+    {
+      "name": "hive_link"
+    },
+    {
+      "name": "human_form"
+    },
+    {
+      "name": "lesser_form"
+    },
+    {
+      "name": "last_resort"
+    },
+    {
+      "name": "mimic_voice"
+    },
+    {
+      "name": "organic_shield"
+    },
+    {
+      "name": "organic_suit"
+    },
+    {
+      "name": "panacea"
+    },
+    {
+      "name": "regenerate"
+    },
+    {
+      "name": "resonant_shriek"
+    },
+    {
+      "name": "revive"
+    },
+    {
+      "name": "spread_infestation"
+    },
+    {
+      "name": "sting_armblade"
+    },
+    {
+      "name": "sting_blind"
+    },
+    {
+      "name": "sting_cryo"
+    },
+    {
+      "name": "sting_extract"
+    },
+    {
+      "name": "sting_lsd"
+    },
+    {
+      "name": "sting_mute"
+    },
+    {
+      "name": "sting_transform"
+    },
+    {
+      "name": "strained_muscles"
+    },
+    {
+      "name": "tentacle"
+    },
+    {
+      "name": "transform"
+    }
+  ]
+}

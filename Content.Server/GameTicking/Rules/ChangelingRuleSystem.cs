@@ -75,11 +75,11 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         // Ensure Changeling component and role
         EnsureComp<ChangelingComponent>(target);
 
-        var store = EnsureComp<StoreComponent>(target);
-        foreach (var category in rule.StoreCategories)
-            store.Categories.Add(category);
-        store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 2);
+        // var store = EnsureComp<StoreComponent>(target);
+        // foreach (var category in rule.StoreCategories)
+        //     store.Categories.Add(category);
+        // store.CurrencyWhitelist.Add(Currency);
+        // store.Balance.Add(Currency, 2);
 
         rule.Minds.Add(mindId);
 

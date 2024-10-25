@@ -40,7 +40,7 @@ namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem
 {
-    private void InitializeLingCombatAbilities()
+    private void InitializeCombatAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, LingEMPActionEvent>(OnLingEmp);
         SubscribeLocalEvent<ChangelingComponent, LingResonantShriekEvent>(OnResonantShriek);

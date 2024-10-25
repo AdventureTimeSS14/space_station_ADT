@@ -37,7 +37,7 @@ namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem
 {
-    private void InitializeLingAbilities()
+    private void InitializeUsefulAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, LingAbsorbActionEvent>(StartAbsorbing);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDoAfterEvent>(OnAbsorbDoAfter);
@@ -491,18 +491,7 @@ public sealed partial class ChangelingSystem
             var selfMessage = Loc.GetString("changeling-lesser-form-activate-monkey");
             _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
 
-            var copiedComp = _serialization.CreateCopy(component, notNullableOverride: true);
-            RemComp(uid, component);
-            AddComp(transformedUid.Value, copiedComp);
-
-            if (TryComp<StoreComponent>(uid, out var storeComp))
-            {
-                var copiedStoreComponent = (Component) _serialization.CreateCopy(storeComp, notNullableOverride: true);
-                RemComp<StoreComponent>(transformedUid.Value);
-                AddComp(transformedUid.Value, copiedStoreComponent);
-            }
-
-            _actionContainer.TransferAllActionsWithNewAttached(uid, transformedUid.Value, transformedUid.Value);
+            CopyLing(uid, transformedUid.Value);
         }
         else
         {
@@ -564,7 +553,7 @@ public sealed partial class ChangelingSystem
 
         _doAfter.TryStartDoAfter(doAfter);
     }
-    private void OnBiodegradeDoAfter(EntityUid uid, ChangelingComponent component, BiodegradeDoAfterEvent args)     // DoAfter, та полоска над персонажем
+    private void OnBiodegradeDoAfter(EntityUid uid, ChangelingComponent component, BiodegradeDoAfterEvent args)
     {
         if (args.Handled || args.Args.Target == null)
             return;
@@ -627,9 +616,5 @@ public sealed partial class ChangelingSystem
             var selfMessage = Loc.GetString("changeling-transform-sting-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
             _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
         }
-
-        if (!TryComp(transformedUid.Value, out InventoryComponent? inventory))
-            return;
     }
-
 }
