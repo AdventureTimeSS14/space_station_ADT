@@ -299,7 +299,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_pants.rsi
   - type: StaticPrice
-    price: 300
+    price: 40
 
 - type: entity
   parent: ClothingUniformBase
@@ -312,7 +312,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/denim_jumpsuit.rsi
   - type: StaticPrice
-    price: 500
+    price: 40
 
 - type: entity
   parent: ClothingUniformBase
@@ -325,7 +325,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/camo_suit.rsi
   - type: StaticPrice
-    price: 500
+    price: 40
 
 - type: entity
   parent: ClothingUniformBase
@@ -338,7 +338,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/desert_camo_suit.rsi
   - type: StaticPrice
-    price: 500
+    price: 40
 
 - type: entity
   parent: ClothingUniformBase
@@ -351,7 +351,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/serious_suit.rsi
   - type: StaticPrice
-    price: 500
+    price: 40
 
 - type: entity
   parent: ClothingUniformBase
@@ -364,7 +364,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 600
+    price: 45
 
 - type: entity
   parent: ClothingUniformBase
@@ -377,7 +377,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 600
+    price: 45
 
 - type: entity
   parent: ClothingUniformBase
@@ -390,7 +390,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 600
+    price: 45
 
 - type: entity
   parent: ClothingUniformBase
@@ -403,7 +403,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 600
+    price: 45
 
 - type: entity
   parent: ClothingUniformBase
@@ -416,7 +416,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 700
+    price: 55
 
 - type: entity
   parent: ClothingUniformBase
@@ -429,7 +429,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 700
+    price: 55
 
 - type: entity
   parent: ClothingUniformBase
@@ -442,7 +442,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/hawaiian_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 800
+    price: 60
 
 - type: entity
   parent: ClothingUniformBase
@@ -455,7 +455,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/gothic_attire.rsi #спрайты от dion_clawed
   - type: StaticPrice
-    price: 700
+    price: 55
 
 - type: entity
   parent: ClothingUniformBase
@@ -468,7 +468,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_suit.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 700
+    price: 55
 
 - type: entity
   parent: ClothingUniformBase
@@ -481,7 +481,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/old_brown_shirt.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 700
+    price: 55
 
 - type: entity
   parent: ClothingUniformBase
@@ -494,7 +494,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/sweatshirt_bright.rsi #спрайты от dion_clawed
   - type: StaticPrice
-    price: 700
+    price: 55
 
 # SPACE SEC
 - type: entity
