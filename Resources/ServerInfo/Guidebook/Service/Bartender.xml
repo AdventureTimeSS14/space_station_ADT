@@ -7,7 +7,7 @@
 </Box>
 <Box>
 <GuideEntityEmbed Entity="BoozeDispenser" Caption="Раздатчик алкоголя"/>
-<GuideEntityEmbed Entity="soda_dispenser" Caption="Раздатчик безалкоголя"/>
+<GuideEntityEmbed Entity="SodaDispenser" Caption="Раздатчик безалкоголя"/>
 <GuideEntityEmbed Entity="VendingMachineBooze" Caption="АлкоМат"/>
 </Box>
 
