@@ -177,6 +177,6 @@
     sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-spacesec-service
+    - state: id-guardofficer
   - type: PresetIdCard
     job: ADTGuardOfficer
