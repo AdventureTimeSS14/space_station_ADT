@@ -54,7 +54,7 @@
   desc: reagent-desc-corelander-blood
   physicalDesc: reagent-physical-desc-viscous
   flavor: metallic
-  color: "#800000"
+  color: "#801900"
   metabolisms:
     Medicine:
       metabolismRate: 0.5

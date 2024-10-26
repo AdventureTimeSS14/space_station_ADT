@@ -64,6 +64,31 @@
   - BlueShoes
   - MedicalWinterBoots
 
+- type: loadoutGroup
+  id: ADTMedicalBelt
+  name: loadout-group-medical-belt-adt
+  minLimit: 1
+  loadouts:
+  - ADTMedicalBelt
+  - ADTMedicalBeltBag
+
+- type: loadoutGroup
+  id: ADTParamedicBelt
+  name: loadout-group-paramedic-belt-adt
+  minLimit: 1
+  loadouts:
+  - ADTParamedicBeltEMT
+  - ADTParamedicBeltEMTBag
+
+- type: loadoutGroup
+  id: ADTParamedicBackpack
+  name: loadout-group-paramedic-backpack-adt
+  minLimit: 1
+  loadouts:
+  - ADTParamedicBackpack
+  - ADTParamedicSatchel
+  - ADTParamedicDuffel
+
 #Science
 
 - type: loadoutGroup
@@ -282,16 +307,6 @@
   loadouts:
   - ADTHandsGlovesLatex
   - ADTHandsGlovesNitrile
-  - ADTHandsGlovesCombat
-
-  # PDA
-- type: loadoutGroup
-  id: ADTBrigmedicPDA
-  name: loadout-brigmedic-pda-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTBrigmedicPDA
 
   # Eyes
 - type: loadoutGroup
@@ -312,8 +327,7 @@
   maxLimit: 1
   loadouts:
   - ADTBeltMedicalFilled
-  - ADTBeltSecurityRPS
-  - ADTBeltSecurityForBrigmedic
+  - ADTMedicalBeltBag
 
   # outerwear
 - type: loadoutGroup

@@ -219,28 +219,6 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformPathologistSkirt
-  name: pathologist jumpskirt
-  description: A lightweight jumpskirt for a morgue worker
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ADTClothingUniformPathologistSkirtAlt
-  name: pathologist jumpskirt
-  description: A lightweight jumpskirt for a morgue worker. A darker version.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
-
-- type: entity
-  parent: ClothingUniformBase
   id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
   name: brigmedic turtleneck
   description: Comfortable and warm turtleneck. Especially for the guardian angel.
@@ -484,3 +462,48 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformRabbitDress
+  name: rabbit black dress
+  description: soo...how pick a PDA in this?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rabbit_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/rabbit_dress.rsi
+# Med
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpskirtCMOHike
+  name: chief medical officer's hiking jumpskirt
+  description: Shirt and baggy skirt. Perfect for working in and out of medical departament.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/hike_jumpskirt_cmo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/hike_jumpskirt_cmo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSkirt
+  name: pathologist jumpskirt
+  description: A lightweight jumpskirt for a morgue worker
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformPathologistSkirtAlt
+  name: pathologist jumpskirt
+  description: A lightweight jumpskirt for a morgue worker. A darker version.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi

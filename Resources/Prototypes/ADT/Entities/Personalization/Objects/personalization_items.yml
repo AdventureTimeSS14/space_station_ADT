@@ -1061,6 +1061,7 @@
         Poison: -0.1
         Blunt: -0.1
   - type: Strap
+    enabled: true
     position: Down
     rotation: -90
   # Слоты
@@ -1081,6 +1082,7 @@
   - type: Item
     size: Normal
   - type: Strap
+    enabled: false
 
 - type: entity
   parent: BasePlushie
