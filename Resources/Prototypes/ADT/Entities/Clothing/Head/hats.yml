@@ -127,6 +127,18 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/armyberet.rsi
 
+#Фуражка надзирателя
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGuardOfficer
+  name: guard officer cap
+  description: Glory to NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap.rsi
+
 #Береты профессий
 
 - type: entity

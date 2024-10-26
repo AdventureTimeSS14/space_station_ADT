@@ -167,3 +167,16 @@
       tags:
       - ADTTrader
       - External
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTGuardOfficerIDCard
+  name: guard officer ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: id-spacesec-service
+  - type: PresetIdCard
+    job: ADTGuardOfficer

@@ -1,0 +1,11 @@
+# Head
+- type: loadout
+  id: ADTHeadHatGuardOfficer
+  equipment:
+    head: ADTClothingHeadHatsGuardOfficer
+
+# Jumpsuit
+- type: loadout
+  id: ADTUniformJumpsuitGuardOfficer
+  equipment:
+    jumpsuit: ADTClothingUniformGuardOfficer

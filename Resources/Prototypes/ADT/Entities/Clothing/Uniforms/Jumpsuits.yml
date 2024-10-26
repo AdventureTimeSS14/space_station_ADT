@@ -856,6 +856,18 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
 
+# Униформа надзирателя
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformGuardOfficer
+  name: squid game player suit
+  description: squid game player suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+
 # ТСФ
 
 - type: entity
