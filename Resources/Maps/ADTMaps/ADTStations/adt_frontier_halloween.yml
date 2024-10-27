@@ -1,4 +1,4 @@
-meta:
+аmeta:
   format: 6
   postmapinit: false
 tilemap:
@@ -81783,36 +81783,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.5,-37.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 12091
-      - 111
   - uid: 12150
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 30.5,-25.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 12091
-      - 111
   - uid: 12151
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,-39.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 12091
-      - 111
   - uid: 12152
     components:
     - type: Transform
@@ -81820,8 +81802,6 @@ entities:
       pos: 30.5,-31.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -81832,8 +81812,6 @@ entities:
       pos: 28.5,-20.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -81846,8 +81824,6 @@ entities:
       pos: 27.5,-20.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -81860,8 +81836,6 @@ entities:
       pos: 21.5,-19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -82554,8 +82528,6 @@ entities:
       pos: 112.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 137
       - 12118
@@ -83092,8 +83064,6 @@ entities:
       pos: 23.5,-31.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -83104,8 +83074,6 @@ entities:
       pos: 25.5,-27.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -83116,8 +83084,6 @@ entities:
       pos: 25.5,-29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -84012,8 +83978,6 @@ entities:
       pos: 112.5,-1.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12119
       - 139
@@ -84042,8 +84006,6 @@ entities:
       pos: 117.5,-3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 26113
       - 12120
@@ -84372,8 +84334,6 @@ entities:
       pos: 133.5,-34.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12124
       - 145
@@ -105942,8 +105902,6 @@ entities:
       pos: 25.5,-33.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -105956,8 +105914,6 @@ entities:
       pos: 26.5,-27.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -107401,8 +107357,6 @@ entities:
       pos: 25.5,-32.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
@@ -107415,8 +107369,6 @@ entities:
       pos: 28.5,-28.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12091
       - 111
