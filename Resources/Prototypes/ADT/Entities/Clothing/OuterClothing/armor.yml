@@ -150,3 +150,73 @@
     damageCoefficient: 0.80
   - type: Item
     size: Large
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTTagillaArmor
+  name: Tagilla bulletproof vest
+  description: Tagilla bulletproof vest
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/tagilla_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/tagilla_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  #- type: Storage
+  #  capacity: 12
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTKillaArmor
+  name: Killa armor vest
+  description: Killa armor vest
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/killa_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/killa_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTCSIJArmor
+  name: CSIJ bulletproof vest
+  description: No one knows what this bulletproof vest is made of, and it's better not to know... On the back there are the initials CS - 'Cruelty Squad'.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

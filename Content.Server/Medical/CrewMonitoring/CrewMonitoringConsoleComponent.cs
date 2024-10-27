@@ -1,4 +1,5 @@
 using Content.Shared.Medical.SuitSensor;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -16,4 +17,19 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [DataField("sensorTimeout"), ViewVariables(VVAccess.ReadWrite)]
     public float SensorTimeout = 10f;
+
+
+    // ADT-Tweak-Start
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool IsEmagged = false;
+
+    /// <summary>
+    /// Emag sound effects.
+    /// </summary>
+    [DataField("sparkSound")]
+    public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks")
+    {
+        Params = AudioParams.Default.WithVolume(8),
+    };
+    // ADT-Tweak-End
 }
