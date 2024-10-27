@@ -1,7 +1,9 @@
 # Errors
 
 # Miscellaneous
-
+loadout-group-top-adt = Нижнее белье(Верх)
+loadout-group-bottom-adt = Нижнее белье(Низ)
+loadout-group-socks-adt = Носки
 # Command
 ent-MagistratNeck = Галстуки
 ent-MagistratJumpsuit = Костюмы
@@ -37,6 +39,9 @@ loadout-brigmedic-glasses-adt = Бригмедик, очки
 loadout-brigmedic-belt-adt = Бригмедик, поясы
 loadout-brigmedic-outerwear-adt = Бригмедик, верхняя одежда
 # Medical
+loadout-group-medical-belt-adt = Врач, пояс
+loadout-group-paramedic-belt-adt = Парамедик, пояс
+loadout-group-paramedic-backpack-adt = Парамедик, рюкзак
 loadout-group-patholog-head = Патологоанатом, голова
 loadout-group-patholog-jumpsuit = Патологоанатом, комбинезон
 loadout-group-patholog-outerclothing = Патологоанатом, верхняя одежда

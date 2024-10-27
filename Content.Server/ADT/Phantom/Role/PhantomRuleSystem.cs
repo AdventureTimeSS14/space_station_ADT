@@ -210,15 +210,12 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         }
     }
 
-    private void SetWinType(EntityUid uid, PhantomWinType type, PhantomRuleComponent? component = null, bool endRound = true)
+    private void SetWinType(EntityUid uid, PhantomWinType type, PhantomRuleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
 
         component.WinType = type;
-
-        if (endRound && (type == PhantomWinType.CrewMajor || type == PhantomWinType.PhantomMajor))
-            _roundEndSystem.EndRound();
     }
 
     private void OnCommandMobStateChanged(EntityUid uid, PhantomTyranyTargetComponent comp, MobStateChangedEvent ev)

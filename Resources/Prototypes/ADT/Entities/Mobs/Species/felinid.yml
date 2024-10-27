@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: Felinid
+  - type: Hunger
+  - type: Thirst
   - type: Respirator
     damage:
       types:
@@ -25,6 +27,7 @@
       0: Alive
       90: Critical
       195: Dead
+  - type: WoundLicking
   - type: Sprite
     netsync: false
     noRot: true
@@ -120,8 +123,15 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.6
     baseSprintSpeed : 4.6
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      48: 0.85
+      64: 0.65
   - type: Body
     prototype: Felinid
+  - type: Bloodstream
+    bloodMaxVolume: 170
+    bloodReagent: Blood
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Felinid

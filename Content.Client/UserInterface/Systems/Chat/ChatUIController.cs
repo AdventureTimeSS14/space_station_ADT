@@ -41,6 +41,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Client.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
+using System.Globalization;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -66,6 +70,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly TransformSystem? _transform = default;
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
+    [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!; // ADT-CollectiveMind-Tweak
 
     [ValidatePrototypeId<ColorPalettePrototype>]
     private const string ChatNamePalette = "ChatNames";
@@ -78,6 +83,7 @@ public sealed class ChatUIController : UIController
     {
         {SharedChatSystem.LocalPrefix, ChatSelectChannel.Local},
         {SharedChatSystem.WhisperPrefix, ChatSelectChannel.Whisper},
+        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind}, // ADT-CollectiveMind-Tweak
         {SharedChatSystem.ConsolePrefix, ChatSelectChannel.Console},
         {SharedChatSystem.LOOCPrefix, ChatSelectChannel.LOOC},
         {SharedChatSystem.OOCPrefix, ChatSelectChannel.OOC},
@@ -92,6 +98,7 @@ public sealed class ChatUIController : UIController
     {
         {ChatSelectChannel.Local, SharedChatSystem.LocalPrefix},
         {ChatSelectChannel.Whisper, SharedChatSystem.WhisperPrefix},
+        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix}, // ADT-CollectiveMind-Tweak
         {ChatSelectChannel.Console, SharedChatSystem.ConsolePrefix},
         {ChatSelectChannel.LOOC, SharedChatSystem.LOOCPrefix},
         {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
@@ -203,6 +210,9 @@ public sealed class ChatUIController : UIController
 
         _input.SetInputCommand(ContentKeyFunctions.FocusWhisperChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Whisper)));
+
+        _input.SetInputCommand(ContentKeyFunctions.FocusCollectiveMind, // ADT-CollectiveMind-Tweak
+            InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.CollectiveMind))); // ADT-CollectiveMind-Tweak
 
         _input.SetInputCommand(ContentKeyFunctions.FocusLOOC,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.LOOC)));
@@ -558,7 +568,15 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminAlert;
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
+            FilterableChannels |= ChatChannel.CollectiveMind; // ADT-CollectiveMind-Tweak
         }
+        // ADT-CollectiveMind-Tweak-Start
+        if (_collectiveMind != null)
+        {
+            CanSendChannels |= ChatSelectChannel.CollectiveMind;
+            FilterableChannels |= ChatChannel.CollectiveMind;
+        }
+        // ADT-CollectiveMind-Tweak-End
 
         SelectableChannels = CanSendChannels;
 

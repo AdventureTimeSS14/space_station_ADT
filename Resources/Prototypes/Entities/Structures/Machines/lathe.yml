@@ -998,6 +998,7 @@
     staticRecipes:
       - Brutepack
       - Ointment
+      - ADTAntibioticOintment # ADT tweak
       - Gauze
       - HandLabeler
       - Defibrillator
@@ -1010,9 +1011,16 @@
       - LargeBeaker
       - Dropper
       - Jug
+      - ADTSmallSyringe # ADT tweak
       - Syringe
       - Implanter
       - PillCanister
+      # Start ADT tweak
+      - ADTPillCanister
+      - ADTPillPack
+      - ADTPlasticBottle
+      - ADTBaseChemistryEmptyVial
+      # End ADT tweak
       - BodyBag
       - ChemistryEmptyBottle01
       - RollerBedSpawnFolded
@@ -1228,6 +1236,27 @@
       - ClothingUniformJumpsuitRDClassical
       - ClothingUniformJumpskirtRDClassical
       # Corvax-Clothing-End
+      # ADT Backpacks Start
+      - ADTClothingBackpack
+      - ADTClothingBackpackSecurity
+      - ADTClothingBackpackScience
+      - ADTClothingBackpackCargo
+      - ADTClothingBackpackMedical
+      - ADTClothingBackpackEngineering
+      - ADTClothingBackpackSatchel
+      - ADTClothingBackpackSatchelSecurity
+      - ADTClothingBackpackSatchelScience
+      - ADTClothingBackpackSatchelCargo
+      - ADTClothingBackpackSatchelMedical
+      - ADTClothingBackpackSatchelEngineering
+      - ADTClothingBackpackDuffel
+      - ADTClothingBackpackDuffelSecurity
+      - ADTClothingBackpackDuffelScience
+      - ADTClothingBackpackDuffelCargo
+      - ADTClothingBackpackDuffelMedical
+      - ADTClothingBackpackDuffelEngineering
+      - ADTClothingBackpackDuffelDurathead
+      # ADT Backpacks End
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - ClothingHeadHatCentcomcap
@@ -1252,6 +1281,7 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      - ADTClothingBackpackDuffelSyndicate # ADT tweak
   - type: MaterialStorage
     whitelist:
       tags:

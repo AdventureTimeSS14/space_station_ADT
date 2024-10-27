@@ -17,3 +17,31 @@
   cost: 3500
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: ADTFunCrateWedding
+  icon:
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
+    state: icon
+  product: ADTCrateWedding
+  category: cargoproduct-category-name-fun
+  cost: 1500
+  
+- type: cargoProduct
+  id: FunRingBox
+  icon:
+    sprite: ADT/Objects/Specific/Service/RingBox.rsi
+    state: box
+  product: ADTRingBox
+  category: cargoproduct-category-name-fun
+  cost: 8000
+
+- type: cargoProduct
+  id: ADTFunHalloweenCloth
+  icon:
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: pennywise
+  product: ADTCrateHalloweenCloth
+  cost: 4250
+  category: cargoproduct-category-name-fun
+  group: market

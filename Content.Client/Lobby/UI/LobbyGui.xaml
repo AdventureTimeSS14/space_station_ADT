@@ -8,12 +8,17 @@
     xmlns:style="clr-namespace:Content.Client.Stylesheets"
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
-    xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
-    xmlns:ui="clr-namespace:Content.Client.ADT.UI"
-    xmlns:animatedBackground="clr-namespace:Content.Client.ADT.UI.AnimatedBackground">
+    xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets">
     <!-- Background -->
-    <animatedBackground:AnimatedBackgroundControl Access="Public" Name="Background" VerticalExpand="True" HorizontalExpand="True"
-                                  Stretch="KeepAspectCovered" />
+    <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
+                 Stretch="KeepAspectCovered" />
+    <!-- ADT-Tweak-Start -->
+    <BoxContainer Name="ShowInterfaceContainer" VerticalExpand="True" Orientation="Horizontal"
+                  Margin="10" Visible="False" >
+        <Control VerticalExpand="True" Name="ShowInterfacePading" />
+        <Button Name="ShowInterface" Text="{Loc 'ui-lobby-show-interface'}" Margin="3" MaxWidth="150" MinWidth="50" MinHeight="5" VerticalAlignment="Bottom" />
+    </BoxContainer>
+    <!-- ADT-Tweak-End -->
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
                   Margin="10 10 10 10" SeparationOverride="2">
         <SplitContainer State="Auto" HorizontalExpand="True">
@@ -53,6 +58,7 @@
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                        <Button Name="HideInterface" Text="{Loc 'ui-lobby-hide-interface'}" Margin="3 3 3 3"/> <!-- ADT-Tweak -->
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
                         <PanelContainer StyleClasses="AngleRect">
                             <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />

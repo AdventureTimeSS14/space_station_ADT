@@ -40,6 +40,10 @@
         path: /Audio/Weapons/Guns/Empty/empty.ogg
       ejectSound:
         path: /Audio/Weapons/Guns/Empty/empty.ogg
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 100
+  # ADT Tweak END
 
 - type: entity
   id: SmokingPipeFilledCannabis

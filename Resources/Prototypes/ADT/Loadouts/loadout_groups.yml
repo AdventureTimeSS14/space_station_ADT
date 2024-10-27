@@ -64,6 +64,31 @@
   - BlueShoes
   - MedicalWinterBoots
 
+- type: loadoutGroup
+  id: ADTMedicalBelt
+  name: loadout-group-medical-belt-adt
+  minLimit: 1
+  loadouts:
+  - ADTMedicalBelt
+  - ADTMedicalBeltBag
+
+- type: loadoutGroup
+  id: ADTParamedicBelt
+  name: loadout-group-paramedic-belt-adt
+  minLimit: 1
+  loadouts:
+  - ADTParamedicBeltEMT
+  - ADTParamedicBeltEMTBag
+
+- type: loadoutGroup
+  id: ADTParamedicBackpack
+  name: loadout-group-paramedic-backpack-adt
+  minLimit: 1
+  loadouts:
+  - ADTParamedicBackpack
+  - ADTParamedicSatchel
+  - ADTParamedicDuffel
+
 #Science
 
 - type: loadoutGroup
@@ -85,6 +110,7 @@
   - ScienceLabCoat
   - ScienceWintercoat
   - RoboticistWintercoat
+  - RoboticistLabCoat
 
 - type: loadoutGroup
   id: RobohandsGloves
@@ -281,16 +307,6 @@
   loadouts:
   - ADTHandsGlovesLatex
   - ADTHandsGlovesNitrile
-  - ADTHandsGlovesCombat
-
-  # PDA
-- type: loadoutGroup
-  id: ADTBrigmedicPDA
-  name: loadout-brigmedic-pda-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTBrigmedicPDA
 
   # Eyes
 - type: loadoutGroup
@@ -311,8 +327,7 @@
   maxLimit: 1
   loadouts:
   - ADTBeltMedicalFilled
-  - ADTBeltSecurityRPS
-  - ADTBeltSecurityForBrigmedic
+  - ADTMedicalBeltBag
 
   # outerwear
 - type: loadoutGroup
@@ -324,3 +339,252 @@
   - ADTOuterCoatBrigmedicWB
   - ADTOuterVestSecurityMedic
   - ADTOuterCoatLabSecurityMedic
+
+# Underwear
+
+- type: loadoutGroup
+  id: ADTBottom
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+
+- type: loadoutGroup
+  id: ADTTop
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+
+- type: loadoutGroup
+  id: ADTSocks
+  name: loadout-group-socks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+
+## Бельё для глав
+
+### Низ
+
+- type: loadoutGroup
+  id: ADTBottomQM
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersQM
+  - ADTUnderwearPantiesQM
+
+- type: loadoutGroup
+  id: ADTBottomRD
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersRD
+  - ADTUnderwearPantiesRD
+
+- type: loadoutGroup
+  id: ADTBottomCap
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersCap
+  - ADTUnderwearPantiesCap
+
+- type: loadoutGroup
+  id: ADTBottomHOP
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersHOP
+  - ADTUnderwearPantiesHOP
+
+- type: loadoutGroup
+  id: ADTBottomHOS
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersHOS
+  - ADTUnderwearPantiesHOS
+
+- type: loadoutGroup
+  id: ADTBottomCMO
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersCMO
+  - ADTUnderwearPantiesCMO
+
+- type: loadoutGroup
+  id: ADTBottomCE
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersCE
+  - ADTUnderwearPantiesCE
+
+- type: loadoutGroup
+  id: ADTBottomBlueshield
+  name: loadout-group-bottom-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearBoxersBlueshield
+  - ADTUnderwearPantiesBlueshield
+
+### Топ
+
+- type: loadoutGroup
+  id: ADTTopQM
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraQM
+
+- type: loadoutGroup
+  id: ADTTopRD
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraRD
+
+- type: loadoutGroup
+  id: ADTTopCap
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraCap
+
+- type: loadoutGroup
+  id: ADTTopHOP
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraHOP
+
+- type: loadoutGroup
+  id: ADTTopHOS
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraHOS
+
+- type: loadoutGroup
+  id: ADTTopCMO
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraCMO
+
+- type: loadoutGroup
+  id: ADTTopCE
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraCE
+
+- type: loadoutGroup
+  id: ADTTopBlueshield
+  name: loadout-group-top-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearBraWhite
+  - ADTUnderwearBraComfyWhite
+  - ADTUnderwearBraSports
+  - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraBlueshield
+
+### Чулки
+
+- type: loadoutGroup
+  id: ADTSocksBlueshield
+  name: loadout-group-socks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+  - ADTUnderwearSocksBlueshield
+  - ADTUnderwearStockingsBlueshield

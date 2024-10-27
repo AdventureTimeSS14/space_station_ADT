@@ -33,6 +33,7 @@
       - WhitelistChameleon
   - type: Sprite
     sprite: ADT/Clothing/Head/hoods/squidgame.rsi
+    state: icon
   - type: Clothing
     sprite: ADT/Clothing/Head/hoods/squidgame.rsi
   - type: HideLayerClothing

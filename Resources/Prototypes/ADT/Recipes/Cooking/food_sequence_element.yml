@@ -1,0 +1,18 @@
+- type: foodSequenceElement
+  id: ADTMeatShadekin
+  sprites:
+  - sprite: ADT/Objects/Consumable/Food/meat.rsi
+    state: shadekin-cooked
+  tags:
+  - Cooked
+  - Meat
+
+- type: foodSequenceElement
+  id: ADTShadekinCutlet
+  sprites:
+  - sprite: ADT/Objects/Consumable/Food/meat.rsi
+    state: shadekincutlet-cooked
+  tags:
+  - Cooked
+  - Cutlet
+  - Meat
