@@ -10,12 +10,6 @@ FILE_PATH = Path(__file__).resolve()
 CHANGELOG_PATH = FILE_PATH.parents[2] / "Resources" / "Changelog" / "1ChangelogADT.yml"
 OLD_CHANGELOG_PATH = FILE_PATH.parent / "cl_old.yml"
 
-rate_limit_info = {
-    "limit": 5000,
-    "remaining": 5000,
-    "reset_time": datetime.now(timezone.utc),
-}
-
 class NoDatesSafeLoader(yaml.SafeLoader):
     @classmethod
     def remove_implicit_resolver(cls, tag_to_remove):
@@ -45,26 +39,20 @@ def represent_multiline_string(dumper, data):
 MyDumper.add_representer(dict, represent_dict_compact)
 MyDumper.add_representer(str, represent_multiline_string)
 
-async def handle_rate_limit(response):
-    global rate_limit_info
-
-    rate_limit_info["limit"] = int(response.headers.get("x-ratelimit-limit", rate_limit_info["limit"]))
-    rate_limit_info["remaining"] = int(response.headers.get("x-ratelimit-remaining", rate_limit_info["remaining"]))
-    reset_timestamp = int(response.headers.get("x-ratelimit-reset", rate_limit_info["reset_time"].timestamp()))
-    rate_limit_info["reset_time"] = datetime.fromtimestamp(reset_timestamp, tz=timezone.utc)
-
-    logging.info(f"Rate limit updated: {rate_limit_info['remaining']} remaining out of {rate_limit_info['limit']}.")
-
 async def check_rate_limit(session: aiohttp.ClientSession):
-    global rate_limit_info
     async with session.get("https://api.github.com/rate_limit") as response:
         if response.status == 200:
             data = await response.json()
-            rate_limit_info["limit"] = data["rate"]["limit"]
-            rate_limit_info["remaining"] = data["rate"]["remaining"]
+            limit = data["rate"]["limit"]
+            remaining = data["rate"]["remaining"]
             reset_timestamp = data["rate"]["reset"]
-            rate_limit_info["reset_time"] = datetime.fromtimestamp(reset_timestamp, tz=timezone.utc)
-            logging.info(f"Rate limit checked: {rate_limit_info['remaining']} remaining out of {rate_limit_info['limit']}.")
+            reset_time = datetime.fromtimestamp(reset_timestamp, tz=timezone.utc)
+            logging.info(f"Rate limit checked: {remaining} remaining out of {limit}.")
+        
+            if remaining <= 10:
+                reset_in = (reset_time - datetime.now(timezone.utc)).total_seconds()
+                logging.warning(f"Rate limit exceeded. Waiting {reset_in:.2f} seconds.")
+                await asyncio.sleep(max(reset_in, 1))
         
         else:
             logging.error(f"Error checking rate limit: {response.status}")
@@ -75,8 +63,6 @@ async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3):
         await check_rate_limit(session)
 
         async with session.get(url) as response:
-            await handle_rate_limit(response)
-
             if response.status == 404:
                 logging.info(f"{url} not found (404). Skipping.")
                 return None
@@ -87,7 +73,6 @@ async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3):
 
             if response.status in {403, 429}:
                 logging.warning(f"Received status {response.status} from {url}. Checking rate limit and retrying.")
-                await check_rate_limit(session)
                 continue  
             
             logging.error(f"Error fetching {url}: {response.status}")
