@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/light_shoes.rsi
   - type: StaticPrice
-    price: 120
+    price: 15
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -22,7 +22,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/white_sandals.rsi  #спрайты от dion_clawed
   - type: StaticPrice
-    price: 240
+    price: 23
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -35,7 +35,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/black_boots.rsi  #спрайты от dion_clawed
   - type: StaticPrice
-    price: 240
+    price: 23
 
 - type: entity
   parent: ClothingShoesBaseButcherable
