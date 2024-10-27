@@ -37,6 +37,7 @@
   description: A vending machine for specific clothing.
   components:
   - type: VendingMachine
+    priceMultiplier: 0.8
     pack: ADTPrazatClothesMateInventory
     offState: off
     brokenState: broken
@@ -64,6 +65,8 @@
     color: "#c2adff"
   - type: TTS # Corvax-TTS
     voice: bebey
+  - type: StaticPrice
+    price: -4000
 
 # Оружейная тсф
 
