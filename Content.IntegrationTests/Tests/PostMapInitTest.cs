@@ -81,6 +81,7 @@ namespace Content.IntegrationTests.Tests
             "Oasis",
             "Cog",
             // ADT-Start
+            "ADT_FrontierHalloween",
             "ADT_Astra",
             "ADT_Avrit",
             "ADT_Bagel",
