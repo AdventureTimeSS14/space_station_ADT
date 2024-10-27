@@ -1,0 +1,201 @@
+- type: entity
+  name: Slug Cat
+  parent: SimpleMobBase
+  id: ADTMobSlugCatCreek
+  description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: ADT/Mobs/slug-cat.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: creek
+    - map: [ "mask" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        mask:
+        - MobMask
+        layer:
+        - SmallMobLayer
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+    - CannotSuicide
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: creek
+      Critical:
+        Base: dead-creek
+      Dead:
+        Base: dead-creek
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+     path: /Audio/Animals/cat_meow.ogg
+    interactFailureSound:
+      path: /Audio/Animals/cat_hiss.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: MobPrice
+    price: 2000
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: Inventory
+    templateId: ADTSlugCat
+  - type: Body
+    prototype: Primate
+  - type: Hands
+    showInHands: true
+  - type: Insulated
+  - type: InventorySlots
+  - type: Stripping
+  - type: Strippable
+  - type: ComplexInteraction
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: StatusIcon
+  - type: InputMover
+  - type: MobMover
+  - type: Clickable
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 0
+  - type: Muted
+  - type: NoSlip
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Clumsy
+    clumsyDamage:
+      types:
+        Blunt: 20
+        Piercing: 15
+      groups:
+        Burn: 15
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatCreek
+  id: ADTMobSlugCatHoly
+  description: cat
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: holy
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: holy
+      Critical:
+        Base: dead-holy
+      Dead:
+        Base: dead-holy
+
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatCreek
+  id: ADTMobSlugCatMonk
+  description: cat
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: monk
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: monk
+      Critical:
+        Base: dead-monk
+      Dead:
+        Base: dead-monk
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatCreek
+  id: ADTMobSlugCatSonfariel
+  description: cat
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: sonfariel
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: sonfariel
+      Critical:
+        Base: dead-sonfariel
+      Dead:
+        Base: dead-sonfariel
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatCreek
+  id: ADTMobSlugCatSpearMaster
+  description: cat
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: spear-master
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spear-master
+      Critical:
+        Base: dead-spear-master
+      Dead:
+        Base: dead-spear-master
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatCreek
+  id: ADTMobSlugCatTechnician
+  description: cat
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: technician
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: technician
+      Critical:
+        Base: dead-technician
+      Dead:
+        Base: dead-technician

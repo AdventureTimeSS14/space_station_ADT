@@ -2,7 +2,7 @@
   id: ADT_Core
   mapName: 'Core'
   mapPath: /Maps/ADTMaps/ADTStations/adt_core.yml
-  minPlayers: 20
+  minPlayers: 25
   maxPlayers: 80
   stations:
     ADT_Core:

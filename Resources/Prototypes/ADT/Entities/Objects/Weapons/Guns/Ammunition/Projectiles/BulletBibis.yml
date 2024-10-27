@@ -2,7 +2,7 @@
   id: ADTBulletBibis
   name: bibis ball
   parent: ADTBaseBulletRubber
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:

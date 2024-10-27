@@ -1,4 +1,4 @@
 - type: entity
   id: OrganKoboltStomach
   parent: OrganReptilianStomach
-  noSpawn: true
+  categories: [ HideSpawnMenu ]

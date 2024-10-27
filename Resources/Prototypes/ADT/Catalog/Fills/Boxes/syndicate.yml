@@ -1,0 +1,11 @@
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSyndicateFilledEscapist # 15 TC
+  name: Escapist bundle
+  description: For those who already got in or afraid of troubles.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmpImplanter
+      - id: FreedomImplanter
+      - id: DnaScramblerImplanter

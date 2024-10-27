@@ -617,7 +617,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTBZCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -626,7 +626,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTPluoxiumCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     state: darkblue-1
@@ -634,7 +634,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTHydrogenCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -643,7 +643,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTNitriumCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -652,7 +652,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTHealiumCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -661,7 +661,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTHyperNobliumCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -670,7 +670,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTProtoNitrateCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -679,7 +679,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTZaukerCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -688,7 +688,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTHalonCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -697,7 +697,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTHeliumCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi
@@ -706,7 +706,7 @@
 - type: entity
   parent: GasCanisterBrokenBase
   id: ADTAntiNobliumCanisterBroken
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Structures/Storage/canister.rsi

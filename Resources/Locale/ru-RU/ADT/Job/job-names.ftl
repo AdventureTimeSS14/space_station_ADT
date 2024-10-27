@@ -1,7 +1,6 @@
 job-name-ADTPathologist = Патологоанатом
 JobADTPathologist = Патологоанатом
 
-job-name-roboticist = Робототехник
 JobRoboticist = Робототехник
 
 job-name-magistrat = Магистрат
@@ -28,9 +27,6 @@ job-name-ADTSpaceSecPilot = пилот SPACE SEC
 job-name-ADTSpaceSecCommander = командир SPACE SEC
 job-name-ADTSpaceSecService = сотрудник SPACE SEC
 
-
-job-name-station-ai = ИИ Станции
-JobStationAi = ИИ Станции
-
 job-name-ADTSecBorg = Киборг службы безопасности
 JobADTSecBorg = Киборг службы безопасности
+

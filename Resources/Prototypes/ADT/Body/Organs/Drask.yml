@@ -8,6 +8,11 @@
   - type: Sprite
     sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: eyes
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
 
 - type: entity
   id: OrganDraskLungs
@@ -42,6 +47,11 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
 
 - type: entity
   id: OrganDraskHeart
@@ -60,6 +70,11 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
 
 - type: entity
   id: OrganDraskInnards
@@ -87,6 +102,11 @@
     groups:
     - id: Food
     - id: Drink
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
 
 - type: entity
   id: OrganDraskKidneys
@@ -98,6 +118,12 @@
     sprite: ADT/Mobs/Species/Drask/organs.rsi
     state: kidneys
   - type: Metabolizer
-    maxReagents: 5
+    maxReagents: 1
     metabolizerTypes: [ Drask ]
     removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Kidneys
+

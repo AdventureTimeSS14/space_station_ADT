@@ -17,8 +17,12 @@
   storage:
     back:
     - BoxSurvivalEngineering
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunBulldog 
     - BoxShotgunIncendiary
+    - Chainsaw 
+    - MedkitCombatFilled 
+    - MagazineShotgun 
+    - MagazineShotgunIncendiary 
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol

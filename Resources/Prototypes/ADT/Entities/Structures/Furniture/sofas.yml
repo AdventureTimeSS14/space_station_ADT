@@ -1,0 +1,428 @@
+# База
+- type: entity
+  name: adt base sofa
+  id: ADTSofaBase
+  parent: SeatBase
+  description: It looks comfy.
+  abstract: true
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+
+- type: entity
+  name: sofa left side
+  id: ADTSofaBlackLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablackleft
+
+- type: entity
+  name: sofa middle
+  id: ADTSofaBlackMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablackmiddle
+
+- type: entity
+  name: sofa right side
+  id: ADTSofaBlackRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablackright
+
+#red sofa
+- type: entity
+  name: red sofa left side
+  id: ADTSofaRedLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaredleft
+
+- type: entity
+  name: red sofa middle
+  id: ADTSofaRedMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaredmiddle
+
+- type: entity
+  name: red sofa right side
+  id: ADTSofaRedRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaredright
+
+#violet sofa
+- type: entity
+  name: violet sofa left side
+  id: ADTSofaVioletLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofavioletleft
+
+- type: entity
+  name: violet sofa middle
+  id: ADTSofaVioletMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofavioletmiddle
+
+- type: entity
+  name: violet sofa right side
+  id: ADTSofaVioletRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofavioletright
+
+#leather sofa
+- type: entity
+  name: leather sofa left side
+  id: ADTSofaLeatherLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaleatherleft
+
+- type: entity
+  name: leather sofa middle
+  id: ADTSofaLeatherMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaleathermiddle
+
+- type: entity
+  name: leather sofa right side
+  id: ADTSofaLeatherRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaleatherright
+
+#Диваны от lunalita
+##ёмаё, сколько тут файлов и строчек. Буду помечать комментариями, чтобы просто не сойти с ума.
+
+#Белый.
+##боковые стороны.
+- type: entity
+  name: white sofa left side
+  id: ADTSofaWhiteLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofawhiteleft
+
+- type: entity
+  name: white sofa right side
+  id: ADTSofaWhiteRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofawhiteright
+
+- type: entity
+  name: white sofa left side
+  id: ADTSofaWhiteLeftSide2
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_left_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofawhiteleft2
+
+- type: entity
+  name: white sofa right side
+  id: ADTSofaWhiteRightSide2
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_right_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofawhiteright2
+
+##середина.
+- type: entity
+  name: white sofa middle
+  id: ADTSofaWhiteMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofawhitemiddle
+
+##углы.
+- type: entity
+  name: white sofa right corner
+  id: ADTSofaWhiteRightCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_rightcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofawhiterightcorner
+
+- type: entity
+  name: white sofa left corner
+  id: ADTSofaWhiteLeftCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
+    state: whitesofa_leftcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofawhiteleftcorner
+
+#Голубой.
+##боковушки.
+- type: entity
+  name: blue sofa left side #я извиняюсь, но это синий. Прям, синий-синий, не голубой.
+  id: ADTSofaBlueLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablueleft
+
+- type: entity
+  name: blue sofa right side
+  id: ADTSofaBlueRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablueright
+
+- type: entity
+  name: blue sofa left side
+  id: ADTSofaBlueLeftSide2
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_left_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablueleft2
+
+- type: entity
+  name: blue sofa right side
+  id: ADTSofaBlueRightSide2
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_right_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablueright2
+
+##Середина.
+- type: entity
+  name: blue sofa middle
+  id: ADTSofaBlueMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabluemiddle
+
+##Углы
+- type: entity
+  name: blue sofa right corner
+  id: ADTSofaBlueRightCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_rightcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabluerightcorner
+
+- type: entity
+  name: blue sofa left corner
+  id: ADTSofaBlueLeftCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
+    state: bluesofa_leftcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofablueleftcorner
+
+#Коричневый.
+##Стороны
+- type: entity
+  name: brown sofa left side
+  id: ADTSofaBrownLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabrownleft
+
+- type: entity
+  name: brown sofa right side
+  id: ADTSofaBrownRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabrownright
+
+- type: entity
+  name: brown sofa left side
+  id: ADTSofaBrownLeftSide2
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_left_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabrownleft2
+
+- type: entity
+  name: brown sofa right side
+  id: ADTSofaBrownRightSide2
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_right_02
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabrownright2
+
+##Середина.
+- type: entity
+  name: brown sofa middle
+  id: ADTSofaBrownMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabrownmiddle
+
+##Углы
+- type: entity
+  name: brown sofa right corner
+  id: ADTSofaBrownRightCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_rightcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabrownrightcorner
+
+- type: entity
+  name: brown sofa left corner
+  id: ADTSofaBrownLeftCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_leftcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofabrownleftcorner

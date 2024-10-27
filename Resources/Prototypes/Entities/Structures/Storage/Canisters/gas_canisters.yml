@@ -100,7 +100,6 @@
             - GasTank
     - type: StaticPrice
       price: 250 #ADT Tweak
-      # price: 1000
     - type: AccessReader
       access: [["Atmospherics"], ["Engineering"], ["Research"]]
     - type: Lock

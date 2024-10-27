@@ -1,10 +1,15 @@
 ent-OrganDraskEyes = глаза
     .desc = Я тебя вижу!
+    .suffix = { "Драск" }
 ent-OrganDraskLungs = лёгкие
     .desc = Фильтрует кислород из атмосферы, который затем поступает в кровь для использования в качестве переносчика электронов.
-ent-OrganDraskHeart = сердце
+    .suffix = { "Драск" }
+ent-OrganDraskHeart = сердце драска
     .desc = Мне жаль того бессердечного ублюдка, который его потерял.
+    .suffix = { "Драск" }
 ent-OrganDraskInnards = внутренности
     .desc = Мерзость.
+    .suffix = { "Драск" }
 ent-OrganDraskKidneys = почки
     .desc = Выводят токсины из кровеносной системы.
+    .suffix = { "Драск" }
