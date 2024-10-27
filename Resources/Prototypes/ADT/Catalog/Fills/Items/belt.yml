@@ -21,3 +21,33 @@
     contents:
         - id: WeaponPistolMk58
         - id: MagazinePistol
+
+- type: entity
+  id: ADTClothingBeltMedicalBagFilled
+  parent: ADTClothingBeltMedicalBag
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
+        amount: 1
+      - id: Bloodpack
+        amount: 1
+      - id: Gauze
+      - id: EmergencyMedipen
+
+- type: entity
+  id: ADTClothingBeltMedicalBagEMTFilled
+  parent: ADTClothingBeltMedicalBag
+  suffix: Filled, Paramedic
+  components:
+  - type: StorageFill
+    contents:
+      - id: Brutepack
+      - id: Ointment
+      - id: Bloodpack
+      - id: Gauze
+      - id: EmergencyMedipen
+        amount: 3
