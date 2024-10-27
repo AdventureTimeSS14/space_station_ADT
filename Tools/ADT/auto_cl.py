@@ -49,7 +49,7 @@ async def check_rate_limit(session: aiohttp.ClientSession):
             reset_time = datetime.fromtimestamp(reset_timestamp, tz=timezone.utc)
             logging.info(f"Rate limit checked: {remaining} remaining out of {limit}.")
         
-            if remaining <= 10:
+            if remaining == 0:
                 reset_in = (reset_time - datetime.now(timezone.utc)).total_seconds()
                 logging.warning(f"Rate limit exceeded. Waiting {reset_in:.2f} seconds.")
                 await asyncio.sleep(max(reset_in, 1))
