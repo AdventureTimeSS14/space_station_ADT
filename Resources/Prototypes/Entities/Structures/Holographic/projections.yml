@@ -25,6 +25,7 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Holosign #ADT-Tweak
 
 - type: entity
   id: HoloFan
