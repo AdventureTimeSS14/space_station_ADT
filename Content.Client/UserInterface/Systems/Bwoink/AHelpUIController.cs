@@ -240,8 +240,8 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         helper.WindowRoot = _uiManager.CreateWindowRoot(helper.ClydeWindow);
         helper.WindowRoot.AddChild(helper.Control);
 
-        helper.Control.PopOut.Disabled = true;
-        helper.Control.PopOut.Visible = false;
+        // helper.Control.PopOut.Disabled = true; //ADT-Tweak
+        // helper.Control.PopOut.Visible = false; //ADT-Tweak
     }
 
     private void UnreadAHelpReceived()
