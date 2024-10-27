@@ -42,7 +42,7 @@ jobs:
 
     - name: Run post-merge script
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GIT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: python Tools/ADT/auto_cl.py "${{ secrets.PAT_CL_TOKEN }}" "${{ github.repository }}"
 
     - name: Configure Git
@@ -60,15 +60,15 @@ jobs:
     - name: Push changes to a new branch
       if: steps.commit-changes.outcome == 'success'
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GIT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git push https://x-access-token:${{ secrets.TOKEN_GIT }}@github.com/${{ github.repository }} update-changelog --force
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} update-changelog --force
 
     - name: Create Pull Request
       if: steps.commit-changes.outcome == 'success'
       uses: peter-evans/create-pull-request@v4
       with:
-        token: ${{ secrets.TOKEN_GIT }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         base: master
         branch: update-changelog
         commit-message: "Auto cl update"
