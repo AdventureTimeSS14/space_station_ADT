@@ -55,16 +55,24 @@ async def handle_rate_limit(response):
 
     logging.info(f"Rate limit updated: {rate_limit_info['remaining']} remaining out of {rate_limit_info['limit']}.")
 
-async def check_rate_limit():
+async def check_rate_limit(session: aiohttp.ClientSession):
     global rate_limit_info
-    if rate_limit_info["remaining"] == 0:
-        reset_in = (rate_limit_info["reset_time"] - datetime.now(timezone.utc)).total_seconds()
-        logging.warning(f"Rate limit exceeded. Waiting {reset_in:.2f} seconds.")
-        await asyncio.sleep(max(reset_in, 1))
+    async with session.get("https://api.github.com/rate_limit") as response:
+        if response.status == 200:
+            data = await response.json()
+            rate_limit_info["limit"] = data["rate"]["limit"]
+            rate_limit_info["remaining"] = data["rate"]["remaining"]
+            reset_timestamp = data["rate"]["reset"]
+            rate_limit_info["reset_time"] = datetime.fromtimestamp(reset_timestamp, tz=timezone.utc)
+            logging.info(f"Rate limit checked: {rate_limit_info['remaining']} remaining out of {rate_limit_info['limit']}.")
+        
+        else:
+            logging.error(f"Error checking rate limit: {response.status}")
+            response.raise_for_status()
 
-async def fetch_with_retry(session, url, retries=3):
+async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3):
     for attempt in range(retries):
-        await check_rate_limit() 
+        await check_rate_limit(session)
 
         async with session.get(url) as response:
             await handle_rate_limit(response)
@@ -76,16 +84,21 @@ async def fetch_with_retry(session, url, retries=3):
             elif response.status == 200:
                 logging.info(f"Successfully fetched data from {url}.")
                 return await response.json()
+
+            if response.status in {403, 429}:
+                logging.warning(f"Received status {response.status} from {url}. Checking rate limit and retrying.")
+                await check_rate_limit(session)
+                continue  
             
             logging.error(f"Error fetching {url}: {response.status}")
             response.raise_for_status()
 
-async def get_latest_pr_number(session, repo):
+async def get_latest_pr_number(session: aiohttp.ClientSession, repo):
     url = f"https://api.github.com/repos/{repo}/pulls?state=all&sort=created&direction=desc&per_page=1"
     pr_list = await fetch_with_retry(session, url)
     return pr_list[0]["number"] if pr_list else None
 
-async def get_pr_info(session, repo, pr_number):
+async def get_pr_info(session: aiohttp.ClientSession, repo, pr_number):
     url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
     return await fetch_with_retry(session, url)
 
