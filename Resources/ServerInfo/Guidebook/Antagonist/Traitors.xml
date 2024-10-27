@@ -65,10 +65,6 @@
   <Box>
     <GuideEntityEmbed Entity="HandTeleporter" Caption="Ручной Телепорт"/>
   </Box>
-  - Украсть [color=#a4885c]Чрезвычайные приказы по безопасности[/color] Главы службы безопасности.
-  <Box>
-    <GuideEntityEmbed Entity="BookSecretDocuments" Caption="Чрезвычайные приказы по безопасности"/>
-  </Box>
   - Украсть [color=#a4885c]ID карту главы персонала[/color].
   <Box>
     <GuideEntityEmbed Entity="HoPIDCard" Caption="ID карта главы персонала"/>
@@ -89,10 +85,6 @@
   - Украсть [color=#a4885c]Портативный планшет заказов[/color] Квартирмейстера.
   <Box>
   <GuideEntityEmbed Entity="BoxFolderQmClipboard" Caption="Портативный планшет заказов"/>
-  </Box>
-  - Украсть [color=#a4885c]Гравитационное ядро[/color], подорвав Генератор Гравитации.
-  <Box>
-  <GuideEntityEmbed Entity="NesGravityGeneratorCore" Caption="Гравитационное ядро"/>
   </Box>
 
 </Document>
