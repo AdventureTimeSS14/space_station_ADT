@@ -33,7 +33,9 @@ job-name-janitor = уборщик
 job-name-chaplain = священник
 job-name-botanist = ботаник
 job-name-bartender = бармен
+ADTtweak
 job-name-passenger = ассистент
+ADTtweak
 job-name-salvagespec = утилизатор
 job-name-station-ai = ИИ станции
 job-name-qm = квартирмейстер
