@@ -3768,3 +3768,39 @@ Entries:
         type: Tweak}
     time: '2024-10-25T23:21:26Z'
     id: 466
+  - author: Mirokko
+    changes:
+      - {message: Добавлена кнопка в АХ для открытия логов конкретного игрока., type: Add}
+    time: '2024-10-26T19:22:49Z'
+    id: 467
+  - author: Mirokko
+    changes:
+      - {message: 'Теперь сумеречники не копят энергию, пока находятся в криохранилище.',
+        type: Fix}
+    time: '2024-10-26T19:23:26Z'
+    id: 468
+  - author: jungarikjan
+    changes:
+      - {message: Исправил айдишник в GuideEntityEmbed, type: Fix}
+    time: '2024-10-27T03:10:00Z'
+    id: 469
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлена именная одежда для Шредингера, type: Add}
+    time: '2024-10-27T05:55:34Z'
+    id: 470
+  - author: KorolCharodey
+    changes:
+      - {message: Исправлены некоторые проблемы с принтером., type: Fix}
+    time: '2024-10-27T07:37:15Z'
+    id: 471
+  - author: PyotrIgn
+    changes:
+      - {message: Добавлено хеллоуинские версии некоторых карт, type: Add}
+    time: '2024-10-27T07:52:17Z'
+    id: 472
+  - author: Mirokko
+    changes:
+      - {message: Теперь голобарьеры не стакаются, type: Fix}
+    time: '2024-10-27T07:56:50Z'
+    id: 473
