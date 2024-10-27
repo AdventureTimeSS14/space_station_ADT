@@ -75,6 +75,15 @@
           Searching: { state: pai-searching-overlay }
           On: { state: pai-on-overlay }
   - type: StationMap
+  # ADT-Tweak-start
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+  # ADT-Tweak-end
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

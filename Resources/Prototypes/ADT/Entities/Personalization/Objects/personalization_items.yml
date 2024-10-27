@@ -1245,3 +1245,16 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: ADT/Personalization/uma_pistol.rsi
+
+#Vladya (Урог-Джах)
+- type: entity
+  parent: IDCardStandard
+  id: ADTBartenderIDCardUrog
+  name: bartender ID card Urog
+  suffix: Именное, Урог-Джах
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/urog_card.rsi
+    state: icon
+  - type: PresetIdCard
+    job: Bartender

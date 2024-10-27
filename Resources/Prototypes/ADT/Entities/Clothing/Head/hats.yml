@@ -43,7 +43,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 150
+    price: 15
 
 - type: entity
   parent: ClothingHeadBase
@@ -56,7 +56,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 150
+    price: 15
 
 - type: entity
   parent: ClothingHeadBase
