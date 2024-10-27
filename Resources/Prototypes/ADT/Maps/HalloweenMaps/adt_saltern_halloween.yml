@@ -1,6 +1,6 @@
 - type: gameMap
   id: ADT_SalternHalloween
-  mapName: 'Saltern'
+  mapName: 'Halloween Saltern'
   mapPath: /Maps/ADTMaps/ADTStations/adt_saltern_halloween.yml
   minPlayers: 0
   maxPlayers: 35
