@@ -38,6 +38,14 @@
     tags:
     - FootstepSound
     - DoorBumpOpener
+  # ADT tweak start
+  - type: Prying # Open door from xeno.yml.
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  # ADT tweak End
   - type: Butcherable
     butcheringType: Knife
     spawned:
