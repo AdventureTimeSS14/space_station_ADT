@@ -93,7 +93,7 @@
     - id: ClownRecorder
     - id: ClothingBeltSuspendersRed
     - id: ClothingBeltSuspendersBlack
-    - id: ADTClothingUniformJumpskirtJanimaid #ADT Tweak
+    - id: ADTClothingUniformJumpskirtJanimaid #ADT TweakRed
 
 - type: entity
   id: CrateServiceCustomSmokable

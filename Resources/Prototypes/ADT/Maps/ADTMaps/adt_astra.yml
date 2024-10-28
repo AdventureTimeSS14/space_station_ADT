@@ -4,7 +4,7 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_astra.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 30
+  minPlayers: 50
   stations:
     ADT_Astra:
       stationProto: StandardNanotrasenStation

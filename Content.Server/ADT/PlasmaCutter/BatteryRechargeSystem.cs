@@ -30,10 +30,11 @@ namespace Content.Server.AruMoon.Plasmacutter
         private void OnMaterialAmountChanged(EntityUid uid, MaterialStorageComponent component, MaterialEntityInsertedEvent args)
         {
             if (component.MaterialWhiteList != null)
-                foreach (var fuelType in component.MaterialWhiteList)
-                {
-                    FuelAddCharge(uid, fuelType);
-                }
+                if (TryComp<BatteryRechargeComponent>(uid, out var comp))
+                    foreach (var fuelType in component.MaterialWhiteList)
+                    {
+                        FuelAddCharge(uid, fuelType, comp);
+                    }
         }
 
         private void OnChargeChanged(EntityUid uid, BatteryRechargeComponent component, ChargeChangedEvent args)
@@ -56,11 +57,8 @@ namespace Content.Server.AruMoon.Plasmacutter
         private void FuelAddCharge(
             EntityUid uid,
             string fuelType,
-            BatteryRechargeComponent? recharge = null)
+            BatteryRechargeComponent recharge)
         {
-            if (!Resolve(uid, ref recharge))
-                return;
-
             var availableMaterial = _materialStorage.GetMaterialAmount(uid, fuelType);
             var chargePerMaterial = availableMaterial * recharge.Multiplier;
 

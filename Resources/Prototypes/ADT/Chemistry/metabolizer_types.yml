@@ -80,3 +80,8 @@
 - type: metabolizerType
   id: Felinid
   name: metabolizer-type-felinid
+
+- type: metabolizerType
+  id: Shadekin
+  name: metabolizer-type-shadekin
+

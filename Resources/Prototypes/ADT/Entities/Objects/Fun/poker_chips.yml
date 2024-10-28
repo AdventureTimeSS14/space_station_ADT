@@ -1,0 +1,360 @@
+- type: entity
+  name: 1 speso casino chip
+  parent: BaseItem
+  id: ADTFunCasinoChipBase
+  suffix: Cards
+  description: A piece of plastic for gambling.
+  # abstract: true
+  components:
+  - type: Sprite #Resources/Textures/ADT/Objects/Fun/cards.rsi
+    sprite: ADT/Objects/Fun/casino_chips.rsi
+    # scale: 0.55, 0.55
+    state: playing_chips1_5
+    layers:
+    - state: playing_chips1_1
+      map: ["base"]
+  - type: Item
+    size: Tiny
+    # sprite: ADT/Objects/Fun/casino_chips.rsi
+  - type: Appearance
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - ADTCardPlay
+  # - type: StaticPrice
+  #   price: 1
+  - type: Stack
+    stackType: ADTCasinoChip1
+    baseLayer: base
+    count: 1
+    layerStates:
+    - playing_chips1_0
+    - playing_chips1_1
+    - playing_chips1_2
+    - playing_chips1_3
+    - playing_chips1_4
+    - playing_chips1_5
+    - playing_chips1_6
+    - playing_chips1_7
+    - playing_chips1_8
+    - playing_chips1_9
+    - playing_chips1_10
+
+- type: stack
+  id: ADTCasinoChip1
+  name: casino_chip_1
+  spawn: ADTFunCasinoChipBase
+  maxCount: 10
+  # itemSize: 1
+
+- type: stack
+  id: ADTCasinoChip5
+  name: casino_chip_5
+  spawn: ADTFunCasinoChip5
+  maxCount: 10
+  # itemSize: 1
+
+- type: stack
+  id: ADTCasinoChip10
+  name: casino_chip_10
+  spawn: ADTFunCasinoChip10
+  maxCount: 10
+  # itemSize: 1
+
+- type: stack
+  id: ADTCasinoChip50
+  name: casino_chip_50
+  spawn: ADTFunCasinoChip50
+  maxCount: 10
+  # itemSize: 1
+
+- type: stack
+  id: ADTCasinoChip100
+  name: casino_chip_100
+  spawn: ADTFunCasinoChip100
+  maxCount: 10
+  # itemSize: 1
+
+- type: entity
+  name: 5 speso casino chip
+  parent: BaseItem
+  id: ADTFunCasinoChip5
+  suffix: Cards
+  description: A piece of plastic for gambling.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/casino_chips.rsi
+    state: playing_chips5_5
+    layers:
+    - state: playing_chips5_1
+      map: ["base"]
+  - type: Item
+    size: Tiny
+  - type: Appearance
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - ADTCardPlay
+  # - type: StaticPrice
+  #   price: 1
+  - type: Stack
+    stackType: ADTCasinoChip5
+    baseLayer: base
+    count: 1
+    layerStates:
+    - playing_chips5_0
+    - playing_chips5_1
+    - playing_chips5_2
+    - playing_chips5_3
+    - playing_chips5_4
+    - playing_chips5_5
+    - playing_chips5_6
+    - playing_chips5_7
+    - playing_chips5_8
+    - playing_chips5_9
+    - playing_chips5_10
+
+- type: entity
+  name: 10 speso casino chip
+  parent: BaseItem
+  id: ADTFunCasinoChip10
+  suffix: Cards
+  description: A piece of plastic for gambling.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/casino_chips.rsi
+    state: playing_chips10_5
+    layers:
+    - state: playing_chips10_1
+      map: ["base"]
+  - type: Item
+    size: Tiny
+  - type: Appearance
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - ADTCardPlay
+  # - type: StaticPrice
+  #   price: 1
+  - type: Stack
+    stackType: ADTCasinoChip10
+    baseLayer: base
+    count: 1
+    layerStates:
+    - playing_chips10_0
+    - playing_chips10_1
+    - playing_chips10_2
+    - playing_chips10_3
+    - playing_chips10_4
+    - playing_chips10_5
+    - playing_chips10_6
+    - playing_chips10_7
+    - playing_chips10_8
+    - playing_chips10_9
+    - playing_chips10_10
+
+- type: entity
+  name: 50 speso casino chip
+  parent: BaseItem
+  id: ADTFunCasinoChip50
+  suffix: Cards
+  description: A piece of plastic for gambling.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/casino_chips.rsi
+    state: playing_chips50_5
+    layers:
+    - state: playing_chips50_1
+      map: ["base"]
+  - type: Item
+    size: Tiny
+  - type: Appearance
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - ADTCardPlay
+  # - type: StaticPrice
+  #   price: 1
+  - type: Stack
+    stackType: ADTCasinoChip50
+    baseLayer: base
+    count: 1
+    layerStates:
+    - playing_chips50_0
+    - playing_chips50_1
+    - playing_chips50_2
+    - playing_chips50_3
+    - playing_chips50_4
+    - playing_chips50_5
+    - playing_chips50_6
+    - playing_chips50_7
+    - playing_chips50_8
+    - playing_chips50_9
+    - playing_chips50_10
+
+- type: entity
+  name: 100 speso casino chip
+  parent: BaseItem
+  id: ADTFunCasinoChip100
+  suffix: Cards
+  description: A piece of plastic for gambling.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/casino_chips.rsi
+    state: playing_chips100_5
+    layers:
+    - state: playing_chips100_1
+      map: ["base"]
+  - type: Item
+    size: Tiny
+  - type: Appearance
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - ADTCardPlay
+  # - type: StaticPrice
+  #   price: 1
+  - type: Stack
+    stackType: ADTCasinoChip100
+    baseLayer: base
+    count: 1
+    layerStates:
+    - playing_chips100_0
+    - playing_chips100_1
+    - playing_chips100_2
+    - playing_chips100_3
+    - playing_chips100_4
+    - playing_chips100_5
+    - playing_chips100_6
+    - playing_chips100_7
+    - playing_chips100_8
+    - playing_chips100_9
+    - playing_chips100_10
+
+- type: entity
+  name: dealer chip
+  parent: BaseItem
+  id: ADTFunDealerChip
+  suffix: Cards
+  description: A piece of plastic for gambling.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/casino_chips.rsi
+    state: dealer
+  - type: Item
+    size: Tiny
+  - type: Appearance
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - ADTCardPlay
+  # - type: StaticPrice
+  #   price: 1
+
+- type: entity
+  parent: ADTFunCasinoChipBase
+  id: ADTFunCasinoChip1stack
+  name: 1 speso casino chip
+  suffix: Cards, 10
+  components:
+  - type: Sprite
+    state: playing_chips1_10
+  - type: Stack
+    stackType: ADTCasinoChip1
+    count: 10
+  # - type: StaticPrice
+  #   price: 0
+
+- type: entity
+  parent: ADTFunCasinoChip5
+  id: ADTFunCasinoChip5stack
+  name: 5 speso casino chip
+  suffix: Cards, 10
+  components:
+  - type: Sprite
+    state: playing_chips5_10
+  - type: Stack
+    stackType: ADTCasinoChip5
+    count: 10
+  # - type: StaticPrice
+  #   price: 0
+
+- type: entity
+  parent: ADTFunCasinoChip10
+  id: ADTFunCasinoChip10stack
+  name: 10 speso casino chip
+  suffix: Cards, 10
+  components:
+  - type: Sprite
+    state: playing_chips10_10
+  - type: Stack
+    stackType: ADTCasinoChip10
+    count: 10
+  # - type: StaticPrice
+  #   price: 0
+
+- type: entity
+  parent: ADTFunCasinoChip50
+  id: ADTFunCasinoChip50stack
+  name: 50 speso casino chip
+  suffix: Cards, 10
+  components:
+  - type: Sprite
+    state: playing_chips50_10
+  - type: Stack
+    stackType: ADTCasinoChip50
+    count: 10
+  # - type: StaticPrice
+  #   price: 0
+
+- type: entity
+  parent: ADTFunCasinoChip100
+  id: ADTFunCasinoChip100stack
+  name: 100 speso casino chip
+  suffix: Cards, 10
+  components:
+  - type: Sprite
+    state: playing_chips100_10
+  - type: Stack
+    stackType: ADTCasinoChip100
+    count: 10
+  # - type: StaticPrice
+  #   price: 0
+
+- type: entity
+  id: ADTFunPokerBox
+  parent: BaseStorageItem
+  name: poker box
+  description: A box for playing poker
+  suffix: Cards
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/poker_box.rsi
+    state: box
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,3
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: StorageFill
+    contents:
+    - id: ADTFunCardsBoxFull54
+      amount: 1
+    - id: d6Dice
+      amount: 2
+    - id: ADTFunCasinoChip1stack
+      amount: 4
+    - id: ADTFunCasinoChip5stack
+      amount: 4
+    - id: ADTFunCasinoChip10stack
+      amount: 4
+    - id: ADTFunCasinoChip50stack
+      amount: 4
+    - id: ADTFunCasinoChip100stack
+      amount: 4
+    - id: ADTFunDealerChip
+      amount: 1

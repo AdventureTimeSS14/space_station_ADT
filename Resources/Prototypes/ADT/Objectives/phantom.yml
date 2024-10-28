@@ -11,7 +11,7 @@
       - PhantomRole
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: KillPhantomImmunePersonObjective
   description: phantom-kill-objective-desc
@@ -28,7 +28,7 @@
   - type: KillPhantomImmunePersonCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: PhantomKeepAliveObjective
   description: phantom-keep-alive-objective-desc
@@ -50,7 +50,7 @@
       - PhantomNightmareStartedCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: PhantomMakeVesselObjective
   description: phantom-make-vessel-objective-desc
@@ -72,7 +72,7 @@
       - PhantomNightmareStartedCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective, BaseLivingObjective]
   id: PhantomEscapeShuttleObjective
   name: phantom-escape-objective-name
@@ -86,7 +86,7 @@
   - type: EscapeShuttleCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BasePhantomObjective
   id: PhantomStartNightmareObjective
   name: phantom-nightmare-objective-name
@@ -105,7 +105,7 @@
   - type: PhantomNightmareStartedCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BasePhantomObjective
   id: PhantomReincarnateObjective
   name: phantom-reincarnate-objective-name
@@ -120,7 +120,7 @@
   - type: PhantomReincarnateCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BasePhantomObjective
   id: PhantomTyranyObjective
   name: phantom-tyrany-objective-name

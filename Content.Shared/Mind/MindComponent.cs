@@ -72,20 +72,20 @@ public sealed partial class MindComponent : Component
     [DataField]
     public TimeSpan? TimeOfDeath { get; set; }
 
-        //ADT-Economy-Start
-        [ViewVariables]
-        public IEnumerable<Memory> AllMemories => Memories;
+    //ADT-Economy-Start
+    [ViewVariables]
+    public IEnumerable<Memory> AllMemories => Memories;
 
-        public void AddMemory(Memory memory)
+    public void AddMemory(Memory memory)
+    {
+        if (Memories.Contains(memory))
         {
-            if (Memories.Contains(memory))
-            {
-                return;
-            }
-
-            Memories.Add(memory);
+            return;
         }
-        //ADT-Economy-End
+
+        Memories.Add(memory);
+    }
+    //ADT-Economy-End
 
     /// <summary>
     ///     The entity currently owned by this mind.

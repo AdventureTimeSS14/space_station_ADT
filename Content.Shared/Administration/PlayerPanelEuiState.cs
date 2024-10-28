@@ -52,3 +52,8 @@ public sealed class PlayerPanelDeleteMessage : EuiMessageBase;
 
 [Serializable, NetSerializable]
 public sealed class PlayerPanelRejuvenationMessage: EuiMessageBase;
+
+// ADT-Tweak-Start
+[Serializable, NetSerializable]
+public sealed class PlayerPanelFollowMessage: EuiMessageBase;
+// ADT-Tweak-End

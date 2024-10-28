@@ -7,6 +7,8 @@
     ADTClothingNeckGoldChain: 5
     ADTClothingNeckBlueTie: 5
     ADTClothingNeckGoldTie: 5
+    SirenaChokerWithSpike: 5
+    SirenaChokerWithHeart: 5
     ADTClothingUniformJumpsuitDenimPants: 5
     ADTClothingUniformJumpsuitDenim: 5
     ADTClothingUniformJumpsuitCamouflageTshirt: 5
@@ -31,5 +33,15 @@
     ADTClothingFootLightShoes: 5
     ADTClothingFootWhiteSandals: 5
     ADTClothingFootBlackBoots: 5
+  # Бельё
+    ADTClothingUnderwearBottomPantiesLace: 2
+    ADTClothingUnderwearBottomPantiesLaceRed: 2
+    ADTClothingUnderwearBottomPantiesLaceBlack: 2
+    ADTClothingUnderwearTopBraLaceRed: 2
+    ADTClothingUnderwearTopBraLaceBlack: 2
+    ADTClothingUnderwearTopBraSportsBlack: 2
+    ADTClothingUnderwearTopBraPea: 2
+    ADTClothingUnderwearTopBraLace: 2
+    ADTClothingUnderwearSocksRabbit: 2
   contrabandInventory:
     ADTClothingUniformJumpsuitAnarchyTshirt: 3

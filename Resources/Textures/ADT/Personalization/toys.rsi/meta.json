@@ -98,6 +98,9 @@
             "name": "plushie_timrika"
         },
         {
+            "name": "plushie_bobo"
+        },
+        {
             "name": "plushie_amira"
         },
         {
@@ -181,6 +184,9 @@
         {
             "name": "pochita-inhand-left",
             "directions": 4
+        },
+        {
+            "name": "plushie_emma"
         }
     ]
 }

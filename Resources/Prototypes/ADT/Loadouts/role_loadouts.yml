@@ -10,9 +10,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
 
 - type: roleLoadout
-  id: JobADTPathologist 
+  id: JobADTPathologist
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -27,6 +32,11 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
 
 - type: roleLoadout
   id: JobADTRoboticist
@@ -44,6 +54,11 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
 
 - type: roleLoadout
   id: JobADTBlueShieldOfficer
@@ -57,6 +72,11 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  # ADT underwear tweak start
+  - ADTTopBlueshield
+  - ADTBottomBlueshield
+  - ADTSocksBlueshield
+  # ADT underwear tweak end
 
 - type: roleLoadout
   id: JobADTSeniorPhysician
@@ -67,12 +87,18 @@
   - MedicalMask
   - MedicalDoctorJumpsuit
   - MedicalGloves
+  - ADTMedicalBelt # ADT tweak
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - Trinkets
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - MedicalShoes
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
 
 - type: roleLoadout
   id: JobADTSeniorResearcher
@@ -88,6 +114,11 @@
   - ScientistShoes
   - Survival
   - Trinkets
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
 
 - type: roleLoadout
   id: JobADTSeniorEngineer
@@ -101,6 +132,11 @@
   - StationEngineerShoes
   - Survival
   - Trinkets
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
 
 - type: roleLoadout
   id: JobADTSeniorOfficer
@@ -115,3 +151,35 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+
+  # brigmedic
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  # Bridmed spec outfit:
+  - ADTBrigmedicHead
+  - ADTBrigmedicNeck
+  - ADTBrigmedicJumpsuit
+  - ADTBrigmedicOuterWear
+  - ADTBrigmedicBack
+  # Another stuffs
+  - ADTMedicalBelt
+  - ADTBrigmedicEyes
+  - ADTBrigmedicGloves
+  # another:
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end

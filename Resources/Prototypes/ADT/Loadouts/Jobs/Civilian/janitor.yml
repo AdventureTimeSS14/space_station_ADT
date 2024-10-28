@@ -31,7 +31,7 @@
   - !type:GroupLoadoutEffect
     proto: ADTJanitorialMaidDress50hours
   equipment:
-    jumpsuit: ClothingUniformJumpskirtJanimaid
+    jumpsuit: ADTClothingUniformJumpskirtJanimaid
 
 - type: loadout
   id: ADTJanitorJumpsuitJanimaidmini

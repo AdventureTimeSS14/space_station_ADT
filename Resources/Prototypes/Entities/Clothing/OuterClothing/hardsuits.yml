@@ -43,7 +43,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
   - type: FireProtection
     reduction: 0.8
   - type: ExplosionResistance
@@ -182,7 +183,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
 
@@ -194,9 +196,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -225,9 +227,9 @@
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -257,9 +259,9 @@
   description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-warden.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-warden.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -423,9 +425,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-red.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-red.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -517,6 +519,7 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: DNALocker # ADT-Tweak
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -535,6 +538,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: ClothingSpeedModifier # ADT tweak
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: DNALocker # ADT-Tweak
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -551,7 +558,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection
@@ -568,12 +576,13 @@
     staminaModifier: 0.3  # ADT
   - type: Item
     size: Huge
-  - type: ClothingSpeedModifier
+  - type: ClothingSpeedModifier # ADT tweak
     walkModifier: 1.0
-    sprintModifier: 0.9
+    sprintModifier: 1.0
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
+  - type: DNALocker # ADT-Tweak
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -607,6 +616,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: DNALocker # ADT-Tweak
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -640,6 +650,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: DNALocker # ADT-Tweak
 
 #Wizard Hardsuit
 - type: entity
@@ -771,7 +782,7 @@
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndieCommander
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieCommander ]
   id: ClothingOuterHardsuitERTLeader
   name: ERT leader's hardsuit
   description: A protective hardsuit worn by the leader of an emergency response team.
@@ -782,10 +793,11 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: DNALocker # ADT-Tweak
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitJuggernaut
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitJuggernaut ]
   id: ClothingOuterHardsuitERTChaplain
   name: ERT chaplain's hardsuit
   description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
@@ -796,6 +808,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
+  - type: DNALocker # ADT-Tweak
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -810,10 +823,11 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: DNALocker # ADT-Tweak
 
 #ERT Medic Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndieMedic
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieMedic ]
   id: ClothingOuterHardsuitERTMedical
   name: ERT medic's hardsuit
   description: A protective hardsuit worn by the medics of an emergency response team.
@@ -824,10 +838,11 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+  - type: DNALocker # ADT-Tweak
 
 #ERT Security Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndie
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTSecurity
   name: ERT security's hardsuit
   description: A protective hardsuit worn by the security officers of an emergency response team.
@@ -842,6 +857,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: DNALocker # ADT-Tweak
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -856,10 +872,11 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: DNALocker # ADT-Tweak
 
 #Deathsquad
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitDeathsquad
   name: death squad hardsuit
   description: An advanced hardsuit favored by commandos for use in special operations.
@@ -872,7 +889,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection
@@ -892,10 +910,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
+  - type: DNALocker # ADT-Tweak
 
 #CBURN Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitCBURN
   name: CBURN exosuit
   description: A lightweight yet strong exosuit used for special cleanup operations.
@@ -908,20 +927,21 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 0.1
-        Cold: 0.1
-        Shock: 0.1
+        Blunt: 0.4 #ADT-tweak 0.7 -> 0.4
+        Slash: 0.4 #ADT-tweak 0.7 -> 0.4
+        Piercing: 0.4 #ADT-tweak 0.6 -> 0.4
+        Heat: 0.3 #ADT-tweak 0.05 -> 0.3
+        Cold: 0.3 #ADT-tweak 0.1 -> 0.3
+        Shock: 0.3 #ADT-tweak 0.1 -> 0.3
         Radiation: 0.1
-        Caustic: 0.1
+        Caustic: 0.3 #ADT-tweak
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

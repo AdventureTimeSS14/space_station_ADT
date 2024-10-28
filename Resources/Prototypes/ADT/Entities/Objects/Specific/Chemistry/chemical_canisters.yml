@@ -36,7 +36,7 @@
   parent: ADTReagentCanister
   name: canister (carbon)
   id: ADTReagentCanisterCarbon
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Label
     currentLabel: reagent-name-carbon
@@ -51,7 +51,7 @@
   parent: ADTReagentCanister
   name: canister (iodine)
   id: ADTReagentCanisterIodine
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-iodine
@@ -66,7 +66,7 @@
   parent: ADTReagentCanister
   name: canister (fluorine)
   id: ADTReagentCanisterFluorine
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-fluorine
@@ -81,7 +81,7 @@
   parent: ADTReagentCanister
   name: canister (chlorine)
   id: ADTReagentCanisterChlorine
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-chlorine
@@ -96,7 +96,7 @@
   parent: ADTReagentCanister
   name: canister (aluminium)
   id: ADTReagentCanisterAluminium
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-aluminium
@@ -111,7 +111,7 @@
   parent: ADTReagentCanister
   name: canister (phosphorus)
   id: ADTReagentCanisterPhosphorus
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-phosphorus
@@ -126,7 +126,7 @@
   parent: ADTReagentCanister
   name: canister (sulfur)
   id: ADTReagentCanisterSulfur
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-sulfur
@@ -141,7 +141,7 @@
   parent: ADTReagentCanister
   name: canister (silicon)
   id: ADTReagentCanisterSilicon
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-silicon
@@ -156,7 +156,7 @@
   parent: ADTReagentCanister
   name: canister (hydrogen)
   id: ADTReagentCanisterHydrogen
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-hydrogen
@@ -171,7 +171,7 @@
   parent: ADTReagentCanister
   name: canister (lithium)
   id: ADTReagentCanisterLithium
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-lithium
@@ -186,7 +186,7 @@
   parent: ADTReagentCanister
   name: canister (sodium)
   id: ADTReagentCanisterSodium
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-sodium
@@ -201,7 +201,7 @@
   parent: ADTReagentCanister
   name: canister (potassium)
   id: ADTReagentCanisterPotassium
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-potassium
@@ -216,7 +216,7 @@
   parent: ADTReagentCanister
   name: canister (radium)
   id: ADTReagentCanisterRadium
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-radium
@@ -231,7 +231,7 @@
   parent: ADTReagentCanister
   name: canister (iron)
   id: ADTReagentCanisterIron
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-iron
@@ -246,7 +246,7 @@
   parent: ADTReagentCanister
   name: canister (copper)
   id: ADTReagentCanisterCopper
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-copper
@@ -261,7 +261,7 @@
   parent: ADTReagentCanister
   name: canister (gold)
   id: ADTReagentCanisterGold
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-gold
@@ -276,7 +276,7 @@
   parent: ADTReagentCanister
   name: canister (mercury)
   id: ADTReagentCanisterMercury
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-mercury
@@ -291,7 +291,7 @@
   parent: ADTReagentCanister
   name: canister (silver)
   id: ADTReagentCanisterSilver
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-silver
@@ -306,7 +306,7 @@
   parent: ADTReagentCanister
   name: canister (ethanol)
   id: ADTReagentCanisterEthanol
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-ethanol
@@ -321,7 +321,7 @@
   parent: ADTReagentCanister
   name: canister (sugar)
   id: ADTReagentCanisterSugar
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-sugar
@@ -336,7 +336,7 @@
   parent: ADTReagentCanister
   name: canister (nitrogen)
   id: ADTReagentCanisterNitrogen
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-nitrogen
@@ -351,7 +351,7 @@
   parent: ADTReagentCanister
   name: canister (oxygen)
   id: ADTReagentCanisterOxygen
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Label
       currentLabel: reagent-name-oxygen

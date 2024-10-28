@@ -19,17 +19,31 @@ namespace Content.Client.Lobby.UI
             IoCManager.InjectDependencies(this);
             SetAnchorPreset(MainContainer, LayoutPreset.Wide);
             SetAnchorPreset(Background, LayoutPreset.Wide);
+            SetAnchorPreset(ShowInterfaceContainer, LayoutPreset.Wide); // ADT-Tweak
+            SetAnchorPreset(ShowInterface, LayoutPreset.BottomLeft); // ADT-Tweak
 
             LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
 
             LeaveButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
             OptionsButton.OnPressed += _ => UserInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
+            // ADT-Tweak-Start
+            HideInterface.OnPressed += _ => {
+                SwitchState(LobbyGuiState.ScreenSaver);
+            };
+            ShowInterface.OnPressed += _ => {
+                SwitchState(LobbyGuiState.Default);
+            };
+            // ADT-Tweak-End
         }
 
         public void SwitchState(LobbyGuiState state)
         {
             DefaultState.Visible = false;
             CharacterSetupState.Visible = false;
+            // ADT-Tweak-Start
+            ShowInterfaceContainer.Visible = false;
+            MainContainer.Visible = true;
+            // ADT-Tweak-End
 
             switch (state)
             {
@@ -51,6 +65,13 @@ namespace Content.Client.Lobby.UI
                     UserInterfaceManager.GetUIController<LobbyUIController>().ReloadCharacterSetup();
 
                     break;
+
+                // ADT-Tweak-Start
+                case LobbyGuiState.ScreenSaver:
+                    ShowInterfaceContainer.Visible = true;
+                    MainContainer.Visible = false;
+                    break;
+                // ADT-Tweak-End
             }
         }
 
@@ -63,7 +84,8 @@ namespace Content.Client.Lobby.UI
             /// <summary>
             ///  The character setup state.
             /// </summary>
-            CharacterSetup
+            CharacterSetup,
+            ScreenSaver, // ADT-Tweak
         }
     }
 }

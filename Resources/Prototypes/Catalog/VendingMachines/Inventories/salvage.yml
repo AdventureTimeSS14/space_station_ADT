@@ -1,11 +1,12 @@
-﻿- type: vendingMachineInventory
+- type: vendingMachineInventory
   id: SalvageEquipmentInventory
   startingInventory:
     Crowbar: 2
     Pickaxe: 4
-    OreBag: 2
+    OreBag: 4 # ADT_Tweak - было 2
     Flare: 4
     FlashlightLantern: 2
+    Floodlight: 2 # ADT_Tweak
     HandheldGPSBasic: 2
     RadioHandheld: 2
     WeaponGrapplingGun: 2

@@ -106,6 +106,12 @@
       - ADTPosterPanem
       - ADTPosterGasAttack
       - ADTPosterNoGood
+      - ADTPosterContrabandUmaHot
+      - ADTPosterContrabandUmaPress
+      - ADTPosterContrabandUmaSport
+      - ADTPosterContrabandUmaAndAzalia
+      - ADTPosterContrabandUmaRabbit
+      - ADTPosterContrabandUmaOnBeach
       #ADT tweak ^^^
     chance: 1
 

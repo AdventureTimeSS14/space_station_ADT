@@ -31,3 +31,8 @@
 - type: stationGoal
   id: ADTStationGoalTransitContraband
   text: adt-station-goal-transit-contraband
+
+# Множественные цели
+- type: stationGoal
+  id: ADTStationGoalMultiple
+  text: adt-station-goal-multiple
