@@ -123,6 +123,7 @@
     - FootstepSound
     - DoorBumpOpener
     - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
   - type: Inventory
     templateId: ipc
   - type: SizeAttributeWhitelist # Frontier

@@ -396,8 +396,11 @@ public sealed partial class ChangelingSystem
 
     private void RemoveBladeEntity(EntityUid uid, ChangelingComponent component)
     {
+        if (!component.BladeEntity.HasValue)
+            return;
         QueueDel(component.BladeEntity);
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
+        component.ArmBladeActive = false;
 
         var othersMessage = Loc.GetString("changeling-armblade-retract-others", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
@@ -408,8 +411,11 @@ public sealed partial class ChangelingSystem
 
     private void RemoveShieldEntity(EntityUid uid, ChangelingComponent component)
     {
+        if (!component.ShieldEntity.HasValue)
+            return;
         QueueDel(component.ShieldEntity);
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
+        component.ArmShieldActive = false;
 
         var othersMessage = Loc.GetString("changeling-armshield-retract-others", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);

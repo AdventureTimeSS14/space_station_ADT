@@ -248,3 +248,17 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: ChangelingDigiCamp
+  name: digi-camo-cl
+  description: digi-camo-cl-desc
+  productAction: ActionLingDigitalCamouflage
+  mindAction: false
+  cost:
+    EvolutionPoints: 1
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

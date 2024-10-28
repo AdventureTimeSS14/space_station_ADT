@@ -129,6 +129,10 @@ public sealed partial class LingResonantShriekEvent : InstantActionEvent
 {
 }
 
+public sealed partial class LingSiliconStealthEvent : InstantActionEvent
+{
+}
+
 /// <summary>
 /// This event carries humanoid information list of entities, which DNA were stolen. Used for radial UI of "The genestealer".
 /// </summary>

@@ -160,3 +160,5 @@
 - type: Tag
   id: ADTMedipen
 
+- type: Tag
+  id: ADTSiliconStealthWhitelist

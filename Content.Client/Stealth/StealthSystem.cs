@@ -2,8 +2,10 @@ using Content.Client.Interactable.Components;
 using Content.Client.StatusIcon;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Stealth;
@@ -12,6 +14,8 @@ public sealed class StealthSystem : SharedStealthSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private ShaderInstance _shader = default!;
 

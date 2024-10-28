@@ -245,6 +245,7 @@
     - DoorBumpOpener
     - FootstepSound
     - CanPilot
+    - ADTSiliconStealthWhitelist  # ADT tweak
   - type: Emoting
   # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMind

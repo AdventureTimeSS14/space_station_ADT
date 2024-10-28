@@ -2,6 +2,7 @@ using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
 
@@ -98,13 +99,15 @@ public abstract class SharedStealthSystem : EntitySystem
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
     {
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled);
+        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled, component.ExaminedDesc);
     }
 
     private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
     {
         if (args.Current is not StealthComponentState cast)
             return;
+
+        component.ExaminedDesc = cast.Desc;     // ADT
 
         SetEnabled(uid, cast.Enabled, component);
         component.LastVisibility = cast.Visibility;

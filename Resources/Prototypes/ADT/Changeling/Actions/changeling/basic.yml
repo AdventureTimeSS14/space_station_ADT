@@ -68,6 +68,7 @@
   components:
   - type: InstantAction
     checkCanInteract: false
+    checkConsciousness: false
     icon:
       sprite: ADT/Interface/Actions/actions_ling.rsi
       state: regenerate
@@ -164,6 +165,7 @@
   components:
   - type: InstantAction
     checkCanInteract: false
+    checkConsciousness: false
     icon:
       sprite: ADT/Interface/Actions/actions_ling.rsi
       state: fake_death
@@ -273,7 +275,7 @@
   - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_ling.rsi
-      state: sting_hallucination
+      state: sting_lsd
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -400,5 +402,22 @@
       components:
       - Body
     canTargetSelf: false
+    useDelay: 10
+    priority: -61
+
+    # DigiCamo
+- type: entity
+  id: ActionLingDigitalCamouflage
+  name: action-digi-camo
+  description: action-digi-camo-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: digital_camo
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingSiliconStealthEvent
     useDelay: 10
     priority: -61

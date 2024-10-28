@@ -373,6 +373,7 @@
     tags:
     - HideContextMenu
     - StationAi
+    - ADTSiliconStealthWhitelist  # ADT tweak
   # Start-ADT-Tweak: Ai chat
   - type: HighlightWordsInChat
     highlightWords:

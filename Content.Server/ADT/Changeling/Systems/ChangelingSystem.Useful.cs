@@ -32,6 +32,7 @@ using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Gibbing.Events;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -54,6 +55,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, LingBiodegradeActionEvent>(OnBiodegrade);
         SubscribeLocalEvent<ChangelingComponent, BiodegradeDoAfterEvent>(OnBiodegradeDoAfter);
         SubscribeLocalEvent<ChangelingComponent, TransformationStingEvent>(OnTransformSting);
+        SubscribeLocalEvent<ChangelingComponent, LingSiliconStealthEvent>(OnSiliconInvisible);
     }
 
     private void StartAbsorbing(EntityUid uid, ChangelingComponent component, LingAbsorbActionEvent args)   // Начало поглощения
@@ -184,7 +186,7 @@ public sealed partial class ChangelingSystem
 
                 if (TryComp<StoreComponent>(uid, out var store))
                 {
-                    _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { EvolutionPointsCurrencyPrototype, component.AbsorbedChangelingPointsAmount } }, uid, store);
+                    _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", component.AbsorbedChangelingPointsAmount } }, uid, store);
                     _store.UpdateUserInterface(uid, uid, store);
                 }
             }
@@ -193,7 +195,6 @@ public sealed partial class ChangelingSystem
                 var selfMessage = Loc.GetString("changeling-dna-success", ("target", Identity.Entity(target, EntityManager)));
                 _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
                 component.CanRefresh = true;
-                _alertsSystem.ShowAlert(uid, _proto.Index<AlertPrototype>("ADTAlertLingRefresh"));
                 component.AbsorbedDnaModifier = component.AbsorbedDnaModifier + 1;
             }
         }
@@ -260,6 +261,12 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
+        if (component.SiliconStealthEnabled)
+        {
+            var selfMessage = Loc.GetString("changeling-chameleon-fail-silicon-stealth-active");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
 
         if (!TryUseAbility(uid, component, component.ChemicalsCostTwentyFive, !component.ChameleonSkinActive))
             return;
@@ -286,7 +293,6 @@ public sealed partial class ChangelingSystem
         component.ChameleonSkinActive = !component.ChameleonSkinActive;
     }
 
-    // changeling stings
     private void OnLingDNASting(EntityUid uid, ChangelingComponent component, LingStingExtractActionEvent args)
     {
         if (args.Handled)
@@ -354,7 +360,6 @@ public sealed partial class ChangelingSystem
 
             _mobState.ChangeMobState(uid, MobState.Dead);
 
-
             var selfMessage = Loc.GetString("changeling-stasis-death-self-success");  /// всё, я спать откисать, адьос
             _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
         }
@@ -384,6 +389,7 @@ public sealed partial class ChangelingSystem
                 mind.PreventGhosting = false;
         }
 
+        _action.SetToggled(component.ChangelingStasisDeathActionEntity, component.StasisDeathActive);
     }
 
     private void OnMuteSting(EntityUid uid, ChangelingComponent component, MuteStingEvent args)
@@ -480,6 +486,14 @@ public sealed partial class ChangelingSystem
         }
 
         component.LesserFormActive = !component.LesserFormActive;
+        foreach (var item in component.BoughtActions)
+        {
+            if (!item.HasValue)
+                continue;
+
+            if (TryPrototype(item.Value, out var proto) && proto.ID == "ActionLingLesserForm")
+                _action.SetToggled(item, component.LesserFormActive);
+        }
         args.Handled = true;
 
         if (component.LesserFormActive)
@@ -515,6 +529,7 @@ public sealed partial class ChangelingSystem
             }
         }
     }
+
     private void OnLastResort(EntityUid uid, ChangelingComponent component, LastResortActionEvent args)
     {
         if (args.Handled)
@@ -570,6 +585,7 @@ public sealed partial class ChangelingSystem
 
         _doAfter.TryStartDoAfter(doAfter);
     }
+
     private void OnBiodegradeDoAfter(EntityUid uid, ChangelingComponent component, BiodegradeDoAfterEvent args)
     {
         if (args.Handled || args.Args.Target == null)
@@ -589,7 +605,6 @@ public sealed partial class ChangelingSystem
             return;
         _cuffable.Uncuff(target, uid, cuffs.LastAddedCuffs, cuffs, handcuffs);
     }
-
 
     public void OnTransformSting(EntityUid uid, ChangelingComponent component, TransformationStingEvent args)
     {
@@ -619,7 +634,7 @@ public sealed partial class ChangelingSystem
 
         if (TryComp<ActorComponent>(uid, out var actorComponent))
         {
-            var ev = new RequestChangelingFormsMenuEvent(GetNetEntity(uid), ChangelingMenuType.Sting);
+            var ev = new RequestChangelingFormsMenuEvent(GetNetEntity(target), ChangelingMenuType.Sting);
 
             foreach (var item in component.StoredDNA)
             {
@@ -635,5 +650,57 @@ public sealed partial class ChangelingSystem
             // реализовать сортировку
             RaiseNetworkEvent(ev, actorComponent.PlayerSession);
         }
+    }
+
+    private void OnSiliconInvisible(EntityUid uid, ChangelingComponent component, LingSiliconStealthEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (component.LesserFormActive)
+        {
+            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+        if (component.ChameleonSkinActive)
+        {
+            var selfMessage = Loc.GetString("changeling-silicon-stealth-fail-chameleon-active");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (!TryUseAbility(uid, component, component.ChemicalsCostTwentyFive, !component.ChameleonSkinActive))
+            return;
+
+        args.Handled = true;
+
+        var stealth = new StealthComponent();
+
+        var message = Loc.GetString(!component.SiliconStealthEnabled ? "changeling-chameleon-toggle-on" : "changeling-chameleon-toggle-off");
+        _popup.PopupEntity(message, uid, uid);
+
+        component.SiliconStealthEnabled = !component.SiliconStealthEnabled;
+
+        if (component.SiliconStealthEnabled)
+        {
+            var wl = new EntityWhitelist
+            {
+                Tags = new() { "ADTSiliconStealthWhitelist" }
+            };
+            stealth.Whitelist = wl;
+            stealth.ExaminedDesc = Loc.GetString("changeling-digital-camo-examine");
+            AddComp(uid, stealth);
+            _stealth.SetVisibility(uid, -1f);
+
+            Dirty(uid, stealth);
+
+            _stealth.SetEnabled(uid, true);
+        }
+        else
+        {
+            RemCompDeferred<StealthComponent>(uid);
+        }
+
     }
 }

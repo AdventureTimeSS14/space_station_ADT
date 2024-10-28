@@ -15,46 +15,44 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// The amount of chemicals the ling has.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Chemicals = 20f;
 
-    [DataField]
     public float Accumulator = 0f;
 
     /// <summary>
     /// The amount of chemicals passively generated per second
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float ChemicalsPerSecond = 0.5f;
 
     /// <summary>
     /// The lings's current max amount of chemicals.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float MaxChemicals = 75f;
 
     /// <summary>
     /// The maximum amount of DNA strands a ling can have at one time
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int DNAStrandCap = 7;
 
     /// <summary>
     /// List of stolen DNA
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public List<PolymorphHumanoidData> StoredDNA = new List<PolymorphHumanoidData>();
 
     /// <summary>
     /// The DNA index that the changeling currently has selected
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int SelectedDNA = 0;
 
     /// </summary>
     /// Flesh sound
     /// </summary>
-    [DataField]
     public SoundSpecifier? SoundFlesh = new SoundPathSpecifier("/Audio/Effects/blobattack.ogg")
     {
         Params = AudioParams.Default.WithVolume(-3f),
@@ -63,13 +61,11 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     /// Flesh sound
     /// </summary>
-    [DataField]
     public SoundSpecifier? SoundFleshQuiet = new SoundPathSpecifier("/Audio/Effects/blobattack.ogg")
     {
         Params = AudioParams.Default.WithVolume(-1f),
     };
 
-    [DataField]
     public SoundSpecifier? SoundResonant = new SoundPathSpecifier("/Audio/ADT/resonant.ogg")
     {
         Params = AudioParams.Default.WithVolume(-3f),
@@ -78,92 +74,65 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// Blind sting duration
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan BlindStingDuration = TimeSpan.FromSeconds(18);
 
     /// <summary>
     /// Refresh ability
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool CanRefresh = false;
 
     #region Actions
-
-    [DataField]
     public EntProtoId ChangelingEvolutionMenuAction = "ActionChangelingEvolutionMenu";
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingEvolutionMenuActionEntity;
 
-    [DataField]
     public EntProtoId ChangelingRegenAction = "ActionLingRegenerate";
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingRegenActionEntity;
 
-    [DataField]
     public EntProtoId ChangelingAbsorbAction = "ActionChangelingAbsorb";
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingAbsorbActionEntity;
 
-    [DataField]
     public EntProtoId ChangelingDNACycleAction = "ActionChangelingCycleDNA";
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingDNACycleActionEntity;
 
-    [DataField]
-    public EntProtoId ChangelingRefreshAction = "ActionLingRefresh";
-
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingRefreshActionEntity;
 
-    [DataField]
     public EntProtoId ChangelingDNAStingAction = "ActionLingStingExtract";
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingDNAStingActionEntity;
 
-    [DataField]
-    public EntProtoId ChangelingLesserFormAction = "ActionLingLesserForm";
-
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingLesserFormActionEntity;
 
-    [DataField]
-    public EntProtoId ChangelingLastResortAction = "ActionLingLastResort";
-
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingLastResortActionEntity;
 
-    [DataField]
     public EntProtoId ChangelingStasisDeathAction = "ActionStasisDeath";
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ChangelingStasisDeathActionEntity;
+
+    public List<EntityUid?> BoughtActions = new();
     #endregion
 
     #region Chemical Costs
-    [DataField]
     public float ChemicalsCostFree = 0;
-
-    [DataField]
     public float ChemicalsCostFive = -5f;
-
-    [DataField]
     public float ChemicalsCostTen = -10f;
-
-    [DataField]
     public float ChemicalsCostFifteen = -15f;
-
-    [DataField]
     public float ChemicalsCostTwenty = -20f;
-
-    [DataField]
     public float ChemicalsCostTwentyFive = -25f;
-
-    [DataField]
     public float ChemicalsCostFifty = -50f;
     #endregion
 
@@ -171,34 +140,32 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// How long an absorb stage takes, in seconds.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int AbsorbDuration = 10;
 
     /// <summary>
     /// The stage of absorbing that the changeling is on. Maximum of 2 stages.
     /// </summary>
-    [DataField]
     public int AbsorbStage = 0;
 
     /// <summary>
     /// The amount of genetic damage the target gains when they're absorbed.
     /// </summary>
-    [DataField]
     public float AbsorbGeneticDmg = 200.0f;
 
     /// <summary>
     /// The amount of evolution points the changeling gains when they absorb another changeling.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float AbsorbedChangelingPointsAmount = 5.0f;
 
     /// <summary>
     /// The amount of evolution points the changeling gains when they absorb somebody.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float AbsorbedMobPointsAmount = 2.0f;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float AbsorbedDnaModifier = 0f;
 
     #endregion
@@ -207,31 +174,30 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// The amount of burn damage is healed when the regenerate ability is sucesssfully used.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float RegenerateBurnHealAmount = -100f;
 
     /// <summary>
     /// The amount of brute damage is healed when the regenerate ability is sucesssfully used.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float RegenerateBruteHealAmount = -125f;
 
     /// <summary>
     /// The amount of blood volume that is gained when the regenerate ability is sucesssfully used.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float RegenerateBloodVolumeHealAmount = 1000f;
 
     /// <summary>
     /// The amount of bleeding that is reduced when the regenerate ability is sucesssfully used.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float RegenerateBleedReduceAmount = -1000f;
 
     /// <summary>
     /// Sound that plays when the ling uses the regenerate ability.
     /// </summary>
-    [DataField]
     public SoundSpecifier? SoundRegenerate = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg")
     {
         Params = AudioParams.Default.WithVolume(-3f),
@@ -242,10 +208,10 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// If the ling has an active armblade or not.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool ArmBladeActive = false;
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? BladeEntity;
 
     #endregion
@@ -254,13 +220,13 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// The amount of chemical regeneration is reduced when the ling armor is active.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float LingArmorRegenCost = 0.125f;
 
     /// <summary>
     /// If the ling has the armor on or not.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool LingArmorActive = false;
     #endregion
 
@@ -268,19 +234,17 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// If the ling has chameleon skin active or not.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool ChameleonSkinActive = false;
 
     /// <summary>
     /// How fast the changeling will turn invisible from standing still when using chameleon skin.
     /// </summary>
-    [DataField]
     public float ChameleonSkinPassiveVisibilityRate = -0.10f;
 
     /// <summary>
     /// How fast the changeling will turn visible from movement when using chameleon skin.
     /// </summary>
-    [DataField]
     public float ChameleonSkinMovementVisibilityRate = 0.60f;
     #endregion
 
@@ -288,85 +252,48 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// Range of the Dissonant Shriek's EMP in tiles.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float DissonantShriekEmpRange = 5f;
 
     /// <summary>
     /// Power consumed from batteries by the Dissonant Shriek's EMP
     /// </summary>
-    [DataField]
     public float DissonantShriekEmpConsumption = 50000f;
 
     /// <summary>
     /// How long the Dissonant Shriek's EMP effects last for
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float DissonantShriekEmpDuration = 12f;
     #endregion
 
     #region Stasis Death Ability
 
-    [DataField]
-    public float StasisDeathDamageAmount = 10000f;    /// Damage gain to die
-
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool StasisDeathActive = false;      /// Is ling dead or alive
 
     #endregion
 
     #region Muscles Ability
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool MusclesActive = false;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float MusclesModifier = 1.4f;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float MusclesStaminaDamage = 3f;
 
-    [ViewVariables]
     public TimeSpan NextMusclesDamage = TimeSpan.Zero;
-    #endregion
-
-    #region Changeling Chemicals
-
-    [DataField("chemicalMorphine", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string ChemicalMorphine = "ADTMMorphine";
-
-    [DataField("chemicalTranex", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string ChemicalTranex = "TranexamicAcid";
-
-    [DataField("chemicalOmnizine", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string ChemicalOmni = "Omnizine";
-
-    [DataField("chemicalMute", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string ChemicalMute = "MuteToxin";
-
-    [DataField("chemicalDrug", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string ChemicalSpaceDrugs = "LingDrugs";
-
-    #endregion
-
-    #region Changeling Chemicals Amount
-
-    [ViewVariables(VVAccess.ReadWrite), DataField("adrenalineAmount")]
-    public float AdrenalineAmount = 5f;
-
-    [ViewVariables(VVAccess.ReadWrite), DataField("muteAmount")]
-    public float MuteAmount = 20f;
-
-    [ViewVariables(VVAccess.ReadWrite), DataField("drugAmount")]
-    public float SpaceDrugsAmount = 50f;
-
     #endregion
 
     #region Lesser Form Ability
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool LesserFormActive = false;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public string LesserFormMob = "ChangelingLesserForm";
 
 
@@ -376,38 +303,17 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// If the ling has an active armblade or not.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public bool ArmShieldActive = false;
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? ShieldEntity;
 
     #endregion
 
-    [DataField]
-    public float GibDamage = 5000f;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool SiliconStealthEnabled = false;
 
-    [DataField]
-    public bool EggedBody = false;
-
-    [DataField]
-    public bool EggsReady = false;
-
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int BiodegradeDuration = 3;
-
-    [DataField]
-    public string HiveMind = "ChangelingCollectiveMind";
-
-    [DataField]
-    public bool ShowName = false;
-
-    [DataField]
-    public bool ShowRank = true;
-
-    [DataField]
-    public string RankName = "collective-mind-ling-rank";
-
-
-
 }
