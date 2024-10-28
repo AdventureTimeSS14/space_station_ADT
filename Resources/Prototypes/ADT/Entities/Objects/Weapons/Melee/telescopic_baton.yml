@@ -11,7 +11,7 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: SwitchableWeapon
     openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
-    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg" 
+    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
     #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
     damageOpen:
       types:
@@ -22,7 +22,7 @@
     staminaDamageFolded: 0
     staminaDamageOpen: 35
     sizeOpened: Normal
-    sizeClosed: Small 
+    sizeClosed: Small
   - type: StaminaDamageOnHit
     damage: 0
   - type: MeleeWeapon
@@ -43,3 +43,6 @@
         enum.ToggleVisuals.Layer:
           True: {state: telescope_on}
           False: {state: telescope_off}
+  - type: Tag
+    tags:
+      - ADTtelescopicBaton
