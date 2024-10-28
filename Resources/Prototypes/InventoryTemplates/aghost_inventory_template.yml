@@ -32,7 +32,7 @@
       uiWindowPos: 0,1
       strippingWindowPos: 1,1
       displayName: Mask
-    - name: eyes
+    - name: eyes #ADT-Tweak
       slotTexture: glasses
       slotFlags: EYES
       stripTime: 3
