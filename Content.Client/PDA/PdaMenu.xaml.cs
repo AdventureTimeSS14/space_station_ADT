@@ -32,6 +32,7 @@ namespace Content.Client.PDA
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
+        private string _instructions_for_commands = Loc.GetString("comp-pda-ui-unknown"); //ADT инструкция для командывания станции
         
 
         private int _currentView;
@@ -112,6 +113,7 @@ namespace Content.Client.PDA
             StationAlertLevelButton.OnPressed += _ =>
             {
                 _clipboard.SetText(_alertLevel);
+
             };
 
             StationTimeButton.OnPressed += _ =>
@@ -123,6 +125,21 @@ namespace Content.Client.PDA
             StationAlertLevelInstructionsButton.OnPressed += _ =>
             {
                 _clipboard.SetText(_instructions);
+
+                switch (_jobTitle) //ADT test 
+                {
+                    case "Капитан":
+                    {
+                        _clipboard.SetText(_instructions_for_commands)
+                        break;
+                    }
+
+                    case "Главный Врач":
+                    {
+                        _clipboard.SetText(_instructions_for_commands)
+                        break;
+                    }
+                }                
             };
 
             
@@ -181,6 +198,27 @@ namespace Content.Client.PDA
             StationAlertLevelInstructions.SetMarkup(Loc.GetString(
                 "comp-pda-ui-station-alert-level-instructions",
                 ("instructions", _instructions))
+
+            switch (_jobTitle) //ADT test 
+                {
+                    case "Капитан":
+                    {
+                        _instructions_for_commands = Loc.GetString($"{alertLevelKey}-instructions-commander-station");
+                        StationAlertLevelInstructions.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-station-alert-level-instructions-commander-station",
+                        ("instructions", _instructions_for_commands))
+                        break;
+                    }
+
+                    case "Главный Врач":
+                    {
+                        _instructions_for_commands = Loc.GetString($"{alertLevelKey}-instructions-commander-station");
+                        StationAlertLevelInstructions.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-station-alert-level-instructions-commander-station",
+                        ("instructions", _instructions_for_commands))
+                        break;
+                    }
+                }     
             );
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
