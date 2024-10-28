@@ -82,6 +82,9 @@ namespace Content.IntegrationTests.Tests
             "Oasis",
             // "Cog", //ADT Fix: ЗАЕБАЛА ПАДАТЬ В ТЕСТАХ
             // ADT-Start
+            "ADT_FrontierHalloween",
+            "ADT_TrainHalloween",
+            "ADT_SalternHalloween",
             "ADT_Astra",
             "ADT_Avrit",
             "ADT_Bagel",

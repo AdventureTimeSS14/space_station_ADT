@@ -1,0 +1,20 @@
+# halloween
+- type: entity
+  parent: [BaseBallBat, ClothingHandsBase]
+  id: ADTHalloweenBroom
+  name: witch broom
+  description: time to fly
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/broom.rsi
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2
+        Structural: 5
+  - type: StaticPrice
+    price: 25
+  #- type: ClothingSpeedModifier
+  #  walkModifier: 0.9
+  #  sprintModifier: 1.2

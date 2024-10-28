@@ -30,8 +30,16 @@
     belt: ClothingBeltBandolier
   storage:
     back:
+    - BoxSurvivalEngineering #ADT-tweak
     - WeaponShotgunDoubleBarreled
     - BoxShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
+    # ADT Tweak (Add) start 
+    - WeaponShotgunEnforcer
+    - Chainsaw
+    - MedkitCombatFilled
+    - MagazineShotgun
+    - MagazineShotgunIncendiary
+    # ADT Tweak (Add) end

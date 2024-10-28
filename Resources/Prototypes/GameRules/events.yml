@@ -366,6 +366,10 @@
       prob: 0.02
     - id: MobAdultSlimesYellowAngry
       prob: 0.02
+      # halloween
+      # ADT Tweak
+    - id: ADTMobAdultSlimesGreenHalloweenAngry
+      prob: 0.04
 
 - type: entity
   id: SnakeSpawn

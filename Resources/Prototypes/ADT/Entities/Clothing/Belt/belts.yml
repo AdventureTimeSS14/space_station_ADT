@@ -133,7 +133,7 @@
     sprite: ADT/Clothing/Belt/black_suspenders.rsi #спрайты от prazat911
     quickEquip: true
   - type: StaticPrice
-    price: 160
+    price: 15
 
 - type: entity
   parent: ClothingBeltBase
@@ -147,7 +147,7 @@
     sprite: ADT/Clothing/Belt/leather_suspenders.rsi #спрайты от prazat911
     quickEquip: true
   - type: StaticPrice
-    price: 160
+    price: 15
 
 # Разгрузка и подсумки ТСФ
 
@@ -211,6 +211,22 @@
     maxItemSize: Small
   - type: Item
     size: Small
+
+#РПС Киллы
+
+- type: entity
+  id: ADTClothingBeltKilla
+  parent: ClothingBeltMilitaryWebbing
+  name: Triton belt
+  description: Triton belt
+  suffix: Halloween
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase

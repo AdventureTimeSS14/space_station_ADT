@@ -519,6 +519,7 @@
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
+    - ADTCustomLawCircuitBoard # ADT tweak
     - SalvageMagnetMachineCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
@@ -1237,6 +1238,27 @@
       - ClothingUniformJumpsuitRDClassical
       - ClothingUniformJumpskirtRDClassical
       # Corvax-Clothing-End
+      # ADT Backpacks Start
+      - ADTClothingBackpack
+      - ADTClothingBackpackSecurity
+      - ADTClothingBackpackScience
+      - ADTClothingBackpackCargo
+      - ADTClothingBackpackMedical
+      - ADTClothingBackpackEngineering
+      - ADTClothingBackpackSatchel
+      - ADTClothingBackpackSatchelSecurity
+      - ADTClothingBackpackSatchelScience
+      - ADTClothingBackpackSatchelCargo
+      - ADTClothingBackpackSatchelMedical
+      - ADTClothingBackpackSatchelEngineering
+      - ADTClothingBackpackDuffel
+      - ADTClothingBackpackDuffelSecurity
+      - ADTClothingBackpackDuffelScience
+      - ADTClothingBackpackDuffelCargo
+      - ADTClothingBackpackDuffelMedical
+      - ADTClothingBackpackDuffelEngineering
+      - ADTClothingBackpackDuffelDurathead
+      # ADT Backpacks End
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - ClothingHeadHatCentcomcap
@@ -1261,6 +1283,7 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      - ADTClothingBackpackDuffelSyndicate # ADT tweak
   - type: MaterialStorage
     whitelist:
       tags:

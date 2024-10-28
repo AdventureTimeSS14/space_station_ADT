@@ -75,6 +75,16 @@
     whitelist:
       components:
         - SecretStash
+  # ADT-Tweak-start
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+  # ADT-Tweak-end
+
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

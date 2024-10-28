@@ -128,6 +128,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("stationGoal"); // Corvax-StationGoal
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
+            _prototypeManager.RegisterIgnore("ghostbarMap"); ///ADT-ghostber
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
