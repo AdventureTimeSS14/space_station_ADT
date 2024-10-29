@@ -3818,3 +3818,44 @@ Entries:
           законов!, type: Add}
     time: '2024-10-27T09:04:19Z'
     id: 475
+  - author: Rip_Zoro
+    changes:
+      - {message: Добавлен перевод ионной винтовки., type: Add}
+      - {message: Добавлен перевод валюты аплинка ОБР., type: Add}
+    time: '2024-10-27T21:48:43Z'
+    id: 476
+  - author: Tamioki
+    changes:
+      - {message: Добавлена игрушка Скида и Тыковки, type: Add}
+    time: '2024-10-28T14:35:36Z'
+    id: 477
+  - author: Filo
+    changes:
+      - {message: Добавлен продвинутый голопроектор в аплинк ОБР, type: Add}
+      - {message: Убран Бронебойный набор из аплинка ОБР, type: Remove}
+      - {message: Парамедик получил доступ в космос., type: Tweak}
+      - {message: 'Пассажиры приняли переименование в Ассистентов за доступ в тех
+          тоннели, хотя обязанностей у них не прибавилось.', type: Tweak}
+    time: '2024-10-28T14:35:36Z'
+    id: 478
+  - author: Kasey [Adnoda] Bitboxxer
+    changes:
+      - {message: Теперь метелочка ведьмы исправлена !, type: Fix}
+    time: '2024-10-28T18:11:13Z'
+    id: 479
+  - author: Filo
+    changes:
+      - {message: Добавлена возможность вскрытия запитанных шлюзов для слаймов из
+          вентиляций ( Alt+ЛКМ по шлюзу. ), type: Add}
+    time: '2024-10-29T06:30:34Z'
+    id: 480
+  - author: Шрёдька
+    changes:
+      - {message: Добавлена новая команда sendert для вызова ОБР., type: Add}
+    time: '2024-10-29T15:48:24Z'
+    id: 481
+  - author: Mirokko
+    changes:
+      - {message: Исправлен визуальный баг при переливании жидкости., type: Fix}
+    time: '2024-10-29T15:48:24Z'
+    id: 482

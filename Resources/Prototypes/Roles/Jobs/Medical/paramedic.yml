@@ -16,6 +16,7 @@
   access:
   - Medical
   - Maintenance
+  - External # ADT tweak
   extendedAccess:
   - Chemistry
 
