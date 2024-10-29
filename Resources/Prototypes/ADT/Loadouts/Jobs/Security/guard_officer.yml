@@ -5,7 +5,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: ADTGuardOfficer
+      role: JobADTGuardOfficer
       time: 36000 # 600 минут
 
 # Head
