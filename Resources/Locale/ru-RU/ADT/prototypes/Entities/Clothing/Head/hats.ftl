@@ -33,6 +33,9 @@ ent-ADTClothingHeadHatsBeretArmy = армейский берет
 ent-ADTClothingHeadHatsGuardOfficer = кепка надзирателя
     .desc = Такая же кепка, как и у других сотрудников службы безопасности, но оранжевого цвета.
 
+ent-ADTClothingHeadHatsGuardOfficerMaster = фуражка надзирателя
+    .desc = Оранжевая фуражка, выдаётся заслуженным надзиратилям, которые много работали..
+
 ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
     .desc = Тёмная фуражка офицера Иллизиума.

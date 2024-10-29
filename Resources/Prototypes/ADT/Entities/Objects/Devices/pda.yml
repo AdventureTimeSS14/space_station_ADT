@@ -141,8 +141,8 @@
   components:
   - type: Pda
     id: ADTGuardOfficerIDCard
-    state: pda-investigator
+    state: pda-guardofficer
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
-    state: pda-investigator
+    state: pda-guardofficer
