@@ -73,6 +73,7 @@
 - type: Tag
   id: ADTtelescopicBaton
 
+- type: Tag
   id: Eyes
 
 - type: Tag
