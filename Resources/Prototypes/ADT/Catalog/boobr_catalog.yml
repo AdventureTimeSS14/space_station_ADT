@@ -44,6 +44,7 @@
 
 - type: listing
   id: ADTBoberAP
+  abstract: true # Убрано до реворка ББ
   name: boobr-ap-name
   description: boobr-ap-desc
   productEntity: WeaponCaseNTAPAmmo
@@ -111,7 +112,7 @@
   id: ADTBoberAR12
   name: boobr-ar12-name
   description: boobr-ar12-desc
-  icon: { sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi, state: base }
+  icon: { sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi, state: icon }
   productEntity: ADTWeaponCaseAR12
   cost:
     Productunit: 27
@@ -215,6 +216,16 @@
   name: boobr-portable-recharger-name
   description:  boobr-portable-recharger-desc
   productEntity: PortableRecharger
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberHoloprojector
+  name: boobr-holo-projector-name
+  description:  boobr-holo-projector-desc
+  productEntity: ADTAdvancedHoloprojectorField
   cost:
     Productunit: 5
   categories:

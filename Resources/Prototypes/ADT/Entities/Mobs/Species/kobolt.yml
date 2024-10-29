@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: KoboltSpecies
+  - type: Hunger
+  - type: Thirst
   - type: Icon #
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: full
@@ -18,6 +20,24 @@
   - type: Body
     prototype: Kobolt
     requiredLegs: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      85: Critical
+      180: Dead
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damageCap: 20
+    damage:
+      types:
+        Heat: -0.04
+        Cold: -0.04
+      groups:
+        Brute: -0.08
+  - type: Bloodstream
+    bloodMaxVolume: 175
+    bloodReagent: ADTCorelanderBlood
 #  - type: DiseaseCarrier непонятная недобавленная херня
 #    diseaseResist: 0.1
   - type: MeleeWeapon
@@ -40,6 +60,30 @@
     heatDamage:
       types:
         Heat : 0.1 #per second, scales with temperature & other constants
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 140 #lower density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#801900"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: TemperatureSpeed
+    thresholds:
+      283: 0.8
+      260: 0.6
+      230: 0.4
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 4.5

@@ -62,6 +62,10 @@
     - cigar7
     - cigar8
   - type: Appearance
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 180
+  # ADT Tweak END
 
 - type: entity
   id: CigarGoldCase

@@ -20,6 +20,26 @@
       types:
         Cold: 0.12
         Caustic: 0.08
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ADTNovakid
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      300: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+            Ash:
+              min: 3
+              max: 6
+      - !type:BurnBodyBehavior { }
   - type: Respirator
     damage:
       types:
@@ -28,6 +48,7 @@
       types:
         Asphyxiation: -0.5
   - type: Bloodstream
+    bloodMaxVolume: 300
     bloodReagent: Plasma
   - type: ZombieImmune
   - type: NovakidGlowing # see NovakidFeaturesSystem.cs
@@ -51,9 +72,6 @@
       Male: MaleNovakid
       Female: FemaleNovakid
       Unsexed: UnisexNovakid
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Demon # Потому что. Я зол, эта штука ломала мне мозг на протяжении двух часов, пока я искал ошибку >:c
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -74,6 +92,11 @@
     heatDamage:
       types:
         Heat : 0.2 #per second, scales with temperature & other constants.
+  - type: TemperatureSpeed
+    thresholds:
+      273: 0.8
+      263: 0.6
+      250: 0.4
   - type: FlashImmunity
   - type: EyeProtection
   - type: MovementSpeedModifier
@@ -99,29 +122,19 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.3 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
+            Сold: 0.12 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
       - !type:PopupMessage
         type: Local
         visualType: Large
         messages: [ "novakid-hurt-by-water-popup" ]
         probability: 0.25
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      100: Critical
-      300: Dead
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-            Ash:
-              min: 3
-              max: 6
-      - !type:BurnBodyBehavior { }
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#7e009e"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic

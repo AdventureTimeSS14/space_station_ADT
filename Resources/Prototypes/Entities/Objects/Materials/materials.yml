@@ -86,6 +86,7 @@
       - Biological
     damage:
       types:
+        Blunt: 0 # ADT tweak
         Slash: -0.5
         Piercing: -0.5
     bloodlossModifier: -4

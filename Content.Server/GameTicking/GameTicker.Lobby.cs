@@ -183,17 +183,17 @@ namespace Content.Server.GameTicking
         public bool UserHasJoinedGame(ICommonSession session)
             => UserHasJoinedGame(session.UserId);
 
-		public bool UserHasJoinedGame(NetUserId userId)
-		{
+        public bool UserHasJoinedGame(NetUserId userId)
+        {
             // ADT-Tweak-Start
-			if (!PlayerGameStatuses.TryGetValue(userId, out var status))
-			{
-				PlayerGameStatuses[userId] = PlayerGameStatus.NotReadyToPlay;
-				return false;
-			}
+            if (!_playerGameStatuses.TryGetValue(userId, out var status))
+            {
+                _playerGameStatuses[userId] = PlayerGameStatus.NotReadyToPlay;
+                return false;
+            }
 
-			return status == PlayerGameStatus.JoinedGame;
+            return status == PlayerGameStatus.JoinedGame;
             // ADT-Tweak-End
-		}
-	}
+        }
+    }
 }

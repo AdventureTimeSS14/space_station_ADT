@@ -135,8 +135,8 @@
       partType: Leg
       symmetry: Left
     - type: MovementBodyPart
-      walkSpeed: 2.7
-      sprintSpeed: 4.6
+      walkSpeed: 2.4
+      sprintSpeed: 4.3
 
 - type: entity
   id: RightLegUrsus
@@ -154,8 +154,8 @@
       partType: Leg
       symmetry: Right
     - type: MovementBodyPart
-      walkSpeed: 2.7
-      sprintSpeed: 4.6
+      walkSpeed: 2.4
+      sprintSpeed: 4.3
 
 - type: entity
   id: LeftFootUrsus
