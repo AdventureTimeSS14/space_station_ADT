@@ -15,6 +15,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using System.Numerics;
 using Content.Server.Chat.Managers;
+using Robust.Shared.ContentPack;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -27,6 +28,7 @@ public sealed class SendERTCommand : IConsoleCommand
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IResourceManager _resourceManager = default!;
 
     public string Command => "sendert";
     public string Description => Loc.GetString("send-ert-description");
@@ -35,16 +37,23 @@ public sealed class SendERTCommand : IConsoleCommand
     {
         #region Setup vars
         string audioPath = "";
-        string defaultGridPath = "/Maps/ADTMaps/Shuttles", defaultAudioPath = "/Audio/Corvax/Adminbuse";
+        string defaultGridPath = "/Maps/ADTMaps/Shuttles/ERT", defaultAudioPath = "/Audio/Corvax/Adminbuse";
         string alertLevelCode = "gamma";
         int volume = 0;
-        bool isLoadGrid = false, isAnnounce = true, isPlayAudio = true, isSetAlertLevel = false, playAuidoFromAnnouncement = false;
-        Color announceColor = Color.DarkOrange;
+        bool isLoadGrid = false, isAnnounce = true, isPlayAudio = true, isSetAlertLevel = true, playAuidoFromAnnouncement = false;
+        Color announceColor = Color.SeaBlue;
         #endregion
 
         var player = shell.Player;
         if (player?.AttachedEntity == null) // Are we the server's console?
         { shell.WriteLine(Loc.GetString("shell-only-players-can-run-this-command")); return; }
+
+        var stationUid = _system.GetEntitySystem<StationSystem>().GetOwningStation(player.AttachedEntity.Value);
+        if (stationUid == null)
+        {
+            shell.WriteLine(Loc.GetString("cmd-setalertlevel-invalid-grid"));
+            return;
+        }
 
         #region Set isAnnounce
         switch (args.Length)
@@ -70,6 +79,11 @@ public sealed class SendERTCommand : IConsoleCommand
                 isLoadGrid = true;
                 break;
 
+            case "default-rev":
+                audioPath = $"{defaultAudioPath}/yesert.ogg";
+                isLoadGrid = true;
+                break;
+
             case "security":
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
@@ -90,15 +104,18 @@ public sealed class SendERTCommand : IConsoleCommand
                 isLoadGrid = true;
                 break;
 
+            case "chaplain":
+                audioPath = $"{defaultAudioPath}/yesert.ogg";
+                isLoadGrid = true;
+                break;
+
             case "cbun":
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
                 break;
 
             case "deathsquad":
-                isSetAlertLevel = true;
-                isPlayAudio = false;
-                alertLevelCode = "epsilon";
+                //alertLevelCode = "epsilon";
                 announceColor = Color.White;
                 isLoadGrid = true;
                 break;
@@ -107,6 +124,7 @@ public sealed class SendERTCommand : IConsoleCommand
                 audioPath = $"{defaultAudioPath}/noert.ogg";
                 isAnnounce = true;
 				isLoadGrid = false;
+                isSetAlertLevel = false;
                 break;
 
             default:
@@ -120,32 +138,28 @@ public sealed class SendERTCommand : IConsoleCommand
         #region Command's body
         if (isLoadGrid) // Create grid & map
         {
-            var mapId = _mapManager.CreateMap();
-
-            _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapEntityId(mapId), Loc.GetString("sent-ert-map-name"));
             var gridPath = $"{defaultGridPath}/{args[0].ToLower()}.yml";
+            if (!_resourceManager.TryContentFileRead(gridPath, out var _))
+            {
+                shell.WriteError(Loc.GetString("send-ert-erttype-error-path"));
+                shell.WriteError($"No map found: {gridPath}");
+                return;
+            }
+
+            var mapId = _mapManager.CreateMap();
+            _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapEntityId(mapId), Loc.GetString("sent-ert-map-name"));
             var girdOptions = new MapLoadOptions();
             girdOptions.Offset = new Vector2(0, 0);
             girdOptions.Rotation = Angle.FromDegrees(0);
             _system.GetEntitySystem<MapLoaderSystem>().Load(mapId, gridPath, girdOptions);
-
-            //var options = new MapLoadOptions { LoadMap = true };
-
-            //_mapSystem.SetPaused(mapId, false);
-
             shell.WriteLine($"Карта {gridPath} успешно загружена! :з");
-            _chat.SendAdminAlert($"Админ {player.Name} вызвал {args[0].ToLower()}. ID новой карты {mapId}."); //{_entMan.ToPrettyString(_masterController.Value)}");
-
-            //var mapUid = _mapSystem.GetMap(mapId);
-            //var entPlayer = _entManager.(shell.Player);
-            //_xformSystem.SetCoordinates(entPlayer, new EntityCoordinates(mapUid, Vector2.One));
+            _chat.SendAdminAlert($"Админ {player.Name} вызвал {args[0].ToLower()}. Карте 'Сектор патрулирования' было присовино ID: {mapId}. Точка телепортации для призраков появилась на шаттле.");
         }
 
         if (isAnnounce) // Write announce & play audio
         {
             if (isSetAlertLevel)
             {
-                var stationUid = _system.GetEntitySystem<StationSystem>().GetOwningStation(player.AttachedEntity.Value);
                 if (stationUid == null) { shell.WriteLine(Loc.GetString("sent-ert-invalid-grid")); return; } //We are on station?
                 _system.GetEntitySystem<AlertLevelSystem>().SetLevel(stationUid.Value, alertLevelCode, false, true, true, true);
             }
@@ -174,10 +188,12 @@ public sealed class SendERTCommand : IConsoleCommand
             var type = new CompletionOption[]
             {
                 new("Default", Loc.GetString("send-ert-hint-type-default")),
+                new("Default-rev", Loc.GetString("send-ert-hint-type-default-rev")),
                 new("Security", Loc.GetString("send-ert-hint-type-security")),
                 new("Engineer", Loc.GetString("send-ert-hint-type-engineer")),
                 new("Medical", Loc.GetString("send-ert-hint-type-medical")),
                 new("Janitor", Loc.GetString("send-ert-hint-type-janitor")),
+                new("Chaplain", Loc.GetString("send-ert-hint-type-chaplain")),
                 new("CBUN", Loc.GetString("send-ert-hint-type-cbrn")),
                 new("DeathSquad", Loc.GetString("send-ert-hint-type-deathsquad")),
                 new("Denial", Loc.GetString("send-ert-hint-type-denial")),

@@ -818,6 +818,13 @@ entities:
     - type: Transform
       pos: 2.110353,1.7365365
       parent: 2
+- proto: ADTWarpPointBeaconERTShuttle
+  entities:
+  - uid: 1085
+    components:
+    - type: Transform
+      pos: 1.5,-4.5
+      parent: 2
 - proto: AirAlarm
   entities:
   - uid: 267
