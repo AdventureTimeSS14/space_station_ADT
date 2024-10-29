@@ -150,6 +150,12 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+  # ADT-CollectiveMind-Tweak-Start
+    - type: CollectiveMind
+      channel: CarpCollectiveMind
+      showRank: true
+      rankName: collective-mind-dragon-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   parent: BaseMobDragon
