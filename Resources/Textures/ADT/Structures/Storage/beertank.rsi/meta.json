@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "By prazat911 and omenscheme for Adventure Time MRP Server",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "goldenale"
+        },
+        {
+            "name": "sausagebeer"
+        },
+        {
+            "name": "technobeer"
+        },
+        {
+            "name": "paulanerbeer"
+        },
+        {
+            "name": "livseybeer"
+        },
+        {
+            "name": "luckyjonnybeer"
+        },
+        {
+            "name": "secunfilteredbeer"
+        },
+        {
+            "name": "glyphidstout"
+        }
+    ]
+}

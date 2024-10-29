@@ -4,7 +4,7 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_gemini.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 20
+  minPlayers: 25
   stations:
     Gemini:
       stationProto: StandardNanotrasenStation
@@ -60,6 +60,7 @@
             ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]

@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: ADTBonfire
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: bonfire
+          steps:
+            - material: WoodPlank
+              amount: 15
+              doAfter: 3
+    - node: bonfire
+      entity: Bonfire
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 10
+          steps:
+            - tool: Prying
+              doAfter: 2

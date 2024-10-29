@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Clipboard sprites are by Endecc (Github) for SS14 Wizard's Den, taken from https://github.com/space-wizards/space-station-14/pull/21023, hop_clipboard is a modified version of the qm_clipboard.rsi from Friskis",
+    "size":
+    {
+    "x": 32,
+    "y": 32
+    },
+    "states": [
+    {
+    "name": "hop_clipboard"
+    },
+    {
+    "name": "hop_clipboard-unshaded"
+    },
+    {
+    "name": "equipped-BELT",
+    "directions": 4
+    },
+    {
+    "name": "inhand-left",
+    "directions": 4
+    },
+    {
+    "name": "inhand-right",
+    "directions": 4
+    }
+    ]
+}

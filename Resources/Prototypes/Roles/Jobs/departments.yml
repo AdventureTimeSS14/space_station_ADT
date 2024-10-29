@@ -33,19 +33,47 @@
   - ServiceWorker
 
 - type: department
+  id: CentralCommand
+  name: department-CentralCommand
+  description: department-CentralCommand-description
+  color: "#0c344d"
+  roles:
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  # - ERTChaplain # adt tweak, надо сначала добавить эту роль
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  editorHidden: true
+  weight: 120
+
+- type: department
   id: Command
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
   roles:
   - Captain
-  - CentralCommandOfficial
+  - Magistrat # ADT tweak
+  - IAA # Corvax-IAA
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  # - CentralCommandOfficial втф ADT
+  # - CBURN
+  # - ERTLeader
+  # - ERTChaplain
+  # - ERTJanitor
+  # - ERTMedical
+  # - ERTSecurity
+  # - ERTEngineer
+  # - DeathSquad
   - ADTBlueShieldOfficer # ADT-Roles
   primary: false
   weight: 100
@@ -92,6 +120,7 @@
   - Warden
   - Brigmedic # ADT rework brigmedic
   - ADTSeniorOfficer # ADT Role
+  - ADTGuardOfficer # ADT Role
 
 - type: department
   id: Science

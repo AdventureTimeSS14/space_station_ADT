@@ -6,3 +6,5 @@ unfold-verb = Разложить
 fold-flip-verb = Перевернуть
 fold-zip-verb = Застегнуть
 fold-unzip-verb = Расстегнуть
+fold-pull-off-verb = Снять
+fold-put-on-verb = Надеть

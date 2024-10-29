@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseStructureDynamic
   id: BaseXenoArtifact
   name: alien artifact
@@ -47,7 +47,7 @@
     - type: InteractionOutline
     - type: Artifact
     - type: RandomArtifactSprite
-      maxSprite: 36
+      maxSprite: 40 #ADT_Tweak
     - type: RandomSprite
       available:
       - enum.ArtifactsVisualLayers.Effect:

@@ -25,8 +25,8 @@
   category: Quirks
   components:
     - type: Sprinter
-      modifier: 1.1
-  cost: 2
+      modifier: 1.05
+  cost: 4
 
 - type: trait
   id: ADTFastLockers

@@ -1,0 +1,119 @@
+- type: entity
+  parent: BaseItem
+  id: ADTObjectWhiteBouquet  
+  name: White bouquet
+  description: Bouquet of white roses. Classic!
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectRoseBouquet
+  name: Rose bouquet
+  description: Delicate bouquet of pink hibiscus flowers. Especialy for her!
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectYellowBouquet
+  name: Yellow bouquet
+  description: This is a bouquet of yellow peonies. Especially for connoisseurs of peonies
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectBouquetWithBeer
+  name: Bouquet with beer
+  description: Be unique! GIve a bouquet that you can eat, at the same time knocking over a bottle of beer
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectBlackBouquet
+  name: Black bouquet
+  description: This roses are difinietly not colored, thay have always been like thah
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectLiliacBouquet
+  name: liliac roses bouquet
+  description: This roses are difinietly not colored, thay have always been like thah
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0 
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
+  - type: DisarmMalus

@@ -54,7 +54,7 @@
                                HorizontalExpand="True"
                                VerticalExpand="True"
                                Access="Public"
-                               Columns="3" />
+                               Columns="4" /> <!-- ADT-Tweak: make it 4 columns so it looks and feels like old reagent dispenser -->
             </ScrollContainer>
             <ScrollContainer HScrollEnabled="False"
                              HorizontalExpand="True"

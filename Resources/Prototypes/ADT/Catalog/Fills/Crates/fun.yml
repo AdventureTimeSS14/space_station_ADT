@@ -1,0 +1,141 @@
+- type: entity
+  id: ADTCrateWedding
+  parent: CrateGenericSteel
+  name: wedding crate
+  description: Contains a set of wedding dresses and bouquets for the bride!
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingUniformWhiteShortWeddingDress
+      - id: ADTClothingUniformShortDressBlackGold
+      - id: ADTClothingUniformBlackGhoticWeddingDress
+      - id: ADTClothingUniformWhiteGhoticWeddingDress
+      - id: ADTClothingUniformLushRoseWeddingDress
+      - id: ADTClothingUniformLushWhiteWeddingDress
+      - id: ADTClothingUniformBlackElegantDress
+      - id: ADTClothingUniformBlackWeddingSuit
+      - id: ADTClothingUniformBlueWeddingSuit
+      - id: ADTClothingUniformBrownWeddingSuit
+      - id: ADTClothingUniformBlackWeddingWomenSuit
+      - id: ADTClothingUniformAiryBlackSuit
+      - id: ADTClothingUniformAiryWhiteSuit
+      - id: ADTObjectWhiteBouquet
+      - id: ADTObjectRoseBouquet
+      - id: ADTObjectYellowBouquet
+      - id: ADTObjectBlackBouquet
+      - id: ADTObjectBouquetWithBeer
+      - id: ADTObjectLiliacBouquet
+
+- type: entity
+  id: ADTCrateFunOktoberfestClothes
+  parent: CratePlastic
+  name: oktoberfest clothing crate
+  description: oktoberfest clothing crate
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTClothingUniformOktoberfestWhite
+      amount: 1
+    - id: ADTClothingUniformOktoberfestBlueCheckered
+      amount: 1
+    - id: ADTClothingUniformOktoberfestGreenVest
+      amount: 1
+    - id: ADTClothingUniformOktoberfestRedCheckered
+      amount: 1
+    - id: ADTClothingUniformOktoberfestGreenCheckered
+      amount: 1
+    - id: ADTClothingUniformOktoberfestBlueVest
+      amount: 1
+    - id: ADTClothingUniformOktoberfestRedVest
+      amount: 1
+    - id: ADTClothingUniformOktoberfestDirndlShort
+      amount: 1
+    - id: ADTClothingUniformOktoberfestDirndlShortGreen
+      amount: 1
+    - id: ADTClothingUniformOktoberfestDirndlShortRed
+      amount: 1
+    - id: ADTClothingUniformOktoberfestDirndlShortBlue
+      amount: 1
+    - id: ADTClothingUniformOktoberfestDirndlBlue
+      amount: 1
+    - id: ADTClothingUniformOktoberfestDirndlRed
+      amount: 1
+    - id: ADTClothingUniformOktoberfestDirndlGreen
+      amount: 1
+    - id: ADTClothingHeadHatsBavarianHat
+      amount: 1
+    - id: ADTClothingHeadHatsBavarianHatBlueBorder
+      amount: 1
+    - id: ADTClothingHeadHatsBavarianHatRedBorder
+      amount: 1
+    - id: ADTClothingHeadHatsBavarianHatGreenBorder
+      amount: 1
+    - id: ADTClothingHeadHatsBavarianHatBlue
+      amount: 1
+    - id: ADTClothingHeadHatsBavarianHatGreen
+      amount: 1
+    - id: ADTClothingHeadHatsBavarianHatRed
+      amount: 2
+
+- type: entity
+  id: ADTCrateFunATV
+  parent: CrateLivestock
+  name: ATV crate
+  description: Just a quadrocycle
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTVehicleATV
+      amount: 1
+    - id: ADTVehicleKeyATV
+      amount: 1
+
+- type: entity
+  id: ADTCrateFunSyndicateSegway
+  parent: CrateLivestock
+  name: syndicate segway crate
+  description: Just a quadrocycle
+  suffix: Oktoberfest
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTVehicleSyndicateSegway
+      amount: 1
+    - id: ADTVehicleKeySyndicateSegway
+      amount: 1
+
+# halloween
+
+- type: entity
+  id: ADTCrateHalloweenCloth
+  parent: CratePlastic
+  name: halloween clothing crate
+  description: halloween clothing crate
+  suffix: Halloween
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoxHalloweenCandy
+      amount: 4
+    - id: ADTBoxNightmareClown
+    - id: ADTBoxCrueltySquad
+    - id: ADTBoxJason
+    - id: ADTBoxVyazov
+    - id: ADTBoxHotlineMiami
+    - id: ADTBoxKilla
+    - id: ADTBoxServantOfEvil
+    - id: ADTBoxDude
+    - id: ADTBoxSquidPlayers
+    - id: ADTBoxSquidOrganizer
+    - id: ADTBoxTagilla
+    - id: ADTBoxNevadaClown
+    - id: ADTBoxTransilvania
+    - id: ADTBoxVergile
+    - id: ADTXenoBox
+    - id: ADTSuperstarPoliceBox
+    - id: ADTSuperstarPoliceWingmanBox
+    - id: ADTBunnyDancerBox
+    - id: ADTPayDayBox
+    - id: ADTChainSawManBox

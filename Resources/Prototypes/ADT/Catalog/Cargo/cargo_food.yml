@@ -1,0 +1,99 @@
+- type: cargoProduct
+  id: ADTFoodBeerTankGoldenAle
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: goldenale
+  product: ADTBeerTankGoldenAle
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankSausage
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: sausagebeer
+  product: ADTBeerTankSausage
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankTechno
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: technobeer
+  product: ADTBeerTankTechno
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankClassicPaulaner
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: paulanerbeer
+  product: ADTBeerTankClassicPaulaner
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankLivsey
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: livseybeer
+  product: ADTBeerTankLivsey
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankLuckyJonny
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: luckyjonnybeer
+  product: ADTBeerTankLuckyJonny
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankSecUnfiltered
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: secunfilteredbeer
+  product: ADTBeerTankSecUnfiltered
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankGlyphidStout
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: glyphidstout
+  product: ADTBeerTankGlyphidStout
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodOktoberfestSnack
+  icon:
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
+    state: brezel_salt
+  product: ADTCrateFoodOktoberfestSnack
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoHalloweenSnack
+  icon:
+    sprite: ADT/Objects/Misc/halloween_smilecandy_bowl.rsi
+    state: icon-0
+  product: ADTCrateHalloweenFood
+  cost: 2300
+  category: cargoproduct-category-name-food
+  group: market

@@ -195,16 +195,17 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.MovePulledObject);
             AddButton(ContentKeyFunctions.ReleasePulledObject);
             AddButton(ContentKeyFunctions.Point);
-            AddButton(ContentKeyFunctions.ToggleCrawling);///ADT Crawling
             AddButton(ContentKeyFunctions.RotateObjectClockwise);
             AddButton(ContentKeyFunctions.RotateObjectCounterclockwise);
             AddButton(ContentKeyFunctions.FlipObject);
+            AddButton(ContentKeyFunctions.ToggleCrawling);///ADT Crawling
 
             AddHeader("ui-options-header-ui");
             AddButton(ContentKeyFunctions.FocusChat);
             AddButton(ContentKeyFunctions.FocusLocalChat);
             AddButton(ContentKeyFunctions.FocusEmote);
             AddButton(ContentKeyFunctions.FocusWhisperChat);
+            AddButton(ContentKeyFunctions.FocusCollectiveMind); // ADT-CollectiveMind-Tweak
             AddButton(ContentKeyFunctions.FocusRadio);
             AddButton(ContentKeyFunctions.FocusLOOC);
             AddButton(ContentKeyFunctions.FocusOOC);

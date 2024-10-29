@@ -305,9 +305,26 @@
     Poison:
       effects:
       - !type:HealthChange
+        # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         damage:
           types:
             Asphyxiation: 5
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          types:
+            Poison: 3
+            Cold: 1
+      # End ADT tweak
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -323,9 +340,27 @@
     Poison:
       effects:
       - !type:HealthChange
+        # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         damage:
           groups:
             Airloss: 10
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          types:
+            Bloodloss: 3
+            Poison: 3.5
+            Cold: 2
+      # End ADT tweak
 
 - type: reagent
   id: MindbreakerToxin
@@ -367,6 +402,11 @@
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
+        # Start ADT tweak
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         - !type:ReagentThreshold
           min: 45
         damage:
@@ -374,6 +414,19 @@
             Brute: 2
             Toxin: 2
             Airloss: 2
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 45
+        damage:
+          groups:
+            Brute: 3
+            Toxin: 2
+      # End ADT tweak
       - !type:PopupMessage
         type: Local
         messages: [ "histamine-effect-light-itchiness" ]
@@ -402,8 +455,6 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
-          min: 1
         - !type:OrganType
           type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
@@ -412,8 +463,6 @@
       - !type:ChemVomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
-          - !type:ReagentThreshold
-            min: 3
           - !type:OrganType
             type: Animal
 
@@ -625,9 +674,26 @@
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
       - !type:HealthChange
+        # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        # End ADT tweak
         damage:
           groups:
             Airloss: 2
+      # Start ADT tweak
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          types:
+            Poison: 1.25
+            Cold: 0.5
+      # End ADT tweak
 
 - type: reagent
   id: Tazinide

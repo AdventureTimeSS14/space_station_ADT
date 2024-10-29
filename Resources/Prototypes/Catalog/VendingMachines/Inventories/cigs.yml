@@ -6,13 +6,32 @@
     CigPackBlue: 2
     CigPackBlack: 2
     CigPackMixed: 2
+    # ADT Tweak Start
+    ADTCigarettePackLuckySlothsMini: 2
+    ADTCigarettePackLuckySloths: 2
+    ADTCigarettePackWeYaGold: 2
+    ADTCigarettePackExecutiveSelect: 2
+    # ADT Tweak End
     CigarCase: 1
+    ADTCigarCase: 1 #ADT Tweak
     SmokingPipeFilledTobacco: 1
     Vape: 1
-    Matchbox: 5
+    # ADT Tweak Start
+    # Matchbox: 5
+    ADTMatchbox: 5
+    ADTBrownMatchBook: 5
+    ADTElectroMatchbook: 2
+    ADTLuckySlothsMatchBook: 2
+    ADTExecutiveWEYAMatchbook: 2
+    ADTExecutiveSelectMatchbook: 2
+    # ADT Tweak End
     PackPaperRollingFilters: 3
     CheapLighter: 4
     Lighter: 2
-    FlippoLighter: 2
+    # ADT Tweak Start
+    ADTZippo: 2
+    ADTZippoExec: 1
+    # FlippoLighter: 2
+    # ADT Tweak End
   emaggedInventory:
     CigPackSyndicate: 1

@@ -76,6 +76,14 @@
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
+- type: loadoutGroup
+  id: GroupPocketTankDouble
+  name: loadout-group-pocket-tank-double
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesPocketDoubleNitrogen
+  - LoadoutSpeciesPocketDoubleOxygen
+
 # Command
 - type: loadoutGroup
   id: CaptainHead
@@ -128,6 +136,9 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  # ADT-Loadouts-Start
+  - ADTHatBeretHOP
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -139,6 +150,12 @@
   - HoPJumpsuitTurtleneck
   - HoPJumpskirtTurtleneck
   # Corvax-Loadouts-End
+  # ADT-Loadouts-Start
+  - ADTJumpsuitHopWarm
+  - ADTJumpskirtHopWarm
+  - ADTJumpsuitHopAlt
+  - ADTJumpskirtHopAlt
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPNeck
@@ -147,6 +164,9 @@
   loadouts:
   - HoPCloak
   - HoPMantle
+  # ADT-Loadouts-Start
+  - ADTHoPAltCloak
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: HoPBackpack
@@ -163,6 +183,9 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  # ADT-Loadouts-Start
+  - ADTCoatHOP
+  # ADT-Loadouts-End
 
 # Civilian
 - type: loadoutGroup
@@ -360,6 +383,11 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
+  # ADT-Loadouts-Start
+  - ADTJanitorJumpsuitJanimaid
+  - ADTJanitorJumpsuitJanimaidmini
+  - ADTJanitorJumpsuitJanimaidElegant
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -581,6 +609,9 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  # ADT-Loadouts-Start
+  - ADTCargoTechnicianBeret
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -620,6 +651,9 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
+  # ADT-Loadouts-Start
+  - ADTCargoTechnicianBeret
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -782,6 +816,9 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  # ADT-Loadouts-Start
+  - ADTOuterAtmosianBomberJacket
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1000,6 +1037,7 @@
   - SecurityHelmet
   - SecurityBeret
   - SecurityHat
+  - TrooperHat
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1011,6 +1049,12 @@
   - SecurityJumpskirtGrey
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
+  - TrooperUniform
+  # ADT-Loadouts-Start
+  - ADTSecurityOfficerMogesBrown
+  - ADTSecurityOfficerMogesBlue
+  - ADTSecurityOfficerMogesGray
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1074,7 +1118,12 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
-  - DetectiveInvestigatorSuit # ADT-Loadout
+  # ADT-Loadouts-Start
+  - DetectiveInvestigatorSuit
+  - ADTSecurityOfficerMogesBrown
+  - ADTSecurityOfficerMogesBlue
+  - ADTSecurityOfficerMogesGray
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1128,6 +1177,10 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
+  # ADT tweak start
+  - ADTCMOJumpsuitHike
+  - ADTCMOJumpskirtHike
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1136,6 +1189,7 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - ADTCMOLabcoatHike # ADT tweak
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1151,6 +1205,7 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  - ADTCMOHighBoots # ADT tweak
 
 - type: loadoutGroup
   id: MedicalDoctorHead

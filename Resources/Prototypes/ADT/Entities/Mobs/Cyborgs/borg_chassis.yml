@@ -24,6 +24,11 @@
       - ADTBorgModuleSecurity
     hasMindState: sec_e
     noMindState: sec_e_r
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
   - type: BorgTransponder
     sprite:
       sprite: ADT/Mobs/Cyborg/chassis.rsi

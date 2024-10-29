@@ -1,0 +1,59 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRingBlood
+  name: blood ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/RingBlood.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+    
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRingEmerald
+  name: emerald ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRingPlazma
+  name: plazma ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsRingTurk
+  name: turk ring
+  description: Good ring.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1000

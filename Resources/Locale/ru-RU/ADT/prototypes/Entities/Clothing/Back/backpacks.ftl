@@ -13,3 +13,6 @@ ent-ADTClothingBackpackBlackLadySatchel = черная дамская сумоч
 
 ent-ADTClothingBackpackLeatherLadySatchel = кожаный ранец
     .desc = Для тех, кто снова хочет оказаться в школе.
+
+ent-ADTClothingBackpackParamedic = рюкзак парамедика
+    .desc = Рюкзак, изготовленный для экстренных вызовов медицинской помощи.

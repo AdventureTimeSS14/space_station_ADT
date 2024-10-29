@@ -165,6 +165,30 @@
         Piercing: 0.7
         Heat: 0.8
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsSatanHoop
+  name: hoop with spikes
+  description: hoop with spikes
+  suffix: Именное, Schrodinger
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/hoop_spikes.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/hoop_spikes.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSatanSuit
+  name: black suit with red shirt
+  description: black suit with red shirt
+  suffix: Именное, Schrodinger
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/satan_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/satan_suit.rsi
+
 # Pyotr
 - type: entity
   parent: ClothingOuterStorageBase
@@ -396,13 +420,13 @@
   - type: Clothing
     sprite: ADT/Personalization/bolper_gloves.rsi
   - type: Insulated
-  - type: Armor 
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
-        Heat: 0.95 
+        Heat: 0.95
 
 #Pangaari
 - type: entity
@@ -432,6 +456,54 @@
   - type: Item
     size: Normal
 
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltZoroSheath
+  suffix: Rip_Zoro
+  name: The scabbard of the legendary katana
+  description: The scabbard of a legendary swordsman...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_sheats.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_sheats.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Katana
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Katana
+  - type: Appearance
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformZoroJumpsuit
+  suffix: Rip_Zoro
+  name: The legendary business suit
+  description: A legendary, worn-out suit. All white and gilded. He smells like vanilla...
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+
 #PushnoY
 - type: entity
   parent: ClothingHandsButcherable
@@ -452,3 +524,122 @@
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
   - type: Clothing
     sprite: ADT/Personalization/pushnoY_jumpsuit.rsi
+
+#Maki_gg
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatMaki
+  name: Maki coat
+  description: Maki coat.
+  suffix: Personal
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/maki_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/maki_coat.rsi
+
+
+# Moon_so_red
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatMoon_so_redHat
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_hat.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesMoon_so_redGlasses
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_glasses.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterMoon_so_redCoat
+  suffix: Moon_so_red
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/moon_so_red_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/moon_so_red_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Cold: 0.95
+
+#Syrel
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
+  id: ADTSyrelClothingBeltSheath
+  name: axe sheath
+  description: A sturdy leather sheath for the captain's battle axe.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/syrel_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/syrel_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Battle Axe
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTSyrelBattleAxe
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - ADTSyrelBattleAxe
+  - type: Appearance
+
+#cherreshnia (она же Ума)
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitUmaSport
+  name: dark sporting clothing
+  description: dark sporting clothing
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckUmaChoker
+  name: Uma`s choker
+  description: Uma`s choker
+  suffix: Sponsor, Uma
+  components:
+    - type: Sprite
+      sprite: ADT/Personalization/uma_choker.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorUma
+  name: Uma`s armor vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_armor.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/uma_armor.rsi

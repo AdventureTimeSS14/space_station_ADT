@@ -129,3 +129,15 @@
       layers:
         - state: green
         - state: secborg
+
+- type: entity
+  id: SpawnPointADTGuardOfficer
+  parent: ADTSpawnPointJobBase
+  name: spawn job guard oficcer
+  components:
+    - type: SpawnPoint
+      job_id: ADTGuardOfficer
+    - type: Sprite
+      layers:
+      - state: green
+      - state: guardofficer

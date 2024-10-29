@@ -35,7 +35,7 @@ namespace Content.Client.VendingMachines
             _menu.OnClose += Close; //ADT-Economy
             _menu.OnItemSelected += OnItemSelected;
             _menu.OnWithdraw += SendMessage; //ADT-Economy
-            _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits);
+            _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
 
             _menu.OpenCenteredLeft();
         }
@@ -49,7 +49,7 @@ namespace Content.Client.VendingMachines
 
             _cachedInventory = newState.Inventory;
 
-            _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits);
+            _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)

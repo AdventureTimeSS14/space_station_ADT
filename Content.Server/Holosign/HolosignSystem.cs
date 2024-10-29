@@ -4,6 +4,7 @@ using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.Interaction;
 using Content.Shared.Storage;
+using System.Linq;
 
 namespace Content.Server.Holosign;
 
@@ -11,6 +12,7 @@ public sealed class HolosignSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // ADT-Tweak
 
 
     public override void Initialize()
@@ -41,13 +43,21 @@ public sealed class HolosignSystem : EntitySystem
 
     private void OnBeforeInteract(EntityUid uid, HolosignProjectorComponent component, BeforeRangedInteractEvent args)
     {
-
-        if (args.Handled
+        // ADT-Tweak-Start
+        if (
+            args.Handled
             || !args.CanReach // prevent placing out of range
             || HasComp<StorageComponent>(args.Target) // if it's a storage component like a bag, we ignore usage so it can be stored
-            || !_powerCell.TryUseCharge(uid, component.ChargeUse) // if no battery or no charge, doesn't work
-            )
+        )
             return;
+
+        var entities = _lookup.GetEntitiesInRange(args.ClickLocation.SnapToGrid(EntityManager), .1f).ToList().Where(e => HasComp<HolosignComponent>(e));
+        if (
+            entities.Any()
+            || !_powerCell.TryUseCharge(uid, component.ChargeUse) // if no battery or no charge, doesn't work
+        )
+            return;
+        // ADT-Tweak-End
 
         // places the holographic sign at the click location, snapped to grid.
         // overlapping of the same holo on one tile remains allowed to allow holofan refreshes

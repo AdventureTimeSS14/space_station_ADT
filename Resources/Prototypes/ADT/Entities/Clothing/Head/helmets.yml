@@ -9,3 +9,50 @@
     sprite: ADT/Clothing/Head/Helmets/helmetSolder.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Helmets/helmetSolder.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetTSF
+  name: TSF helmet
+  description: Standard security gear. Protects the head from impacts.
+  suffix: TSF
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/tsf_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/tsf_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+#head hat armored
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadUSSPjuggernautHelmetArmored
+  name: USSP Armored jugger hard helmet
+  description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/ussphelmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/ussphelmet.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Armor #Copied from the sec helmet, as it's hard to give these sane values without locational damage existing.
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: GroupExamine

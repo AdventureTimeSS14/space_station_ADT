@@ -13,6 +13,8 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Network;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
+using Content.Client.Administration.UI.Logs;
+using Content.Client.Eui;
 
 namespace Content.Client.Administration.UI.Bwoink
 {
@@ -179,10 +181,19 @@ namespace Content.Client.Administration.UI.Bwoink
                     _console.ExecuteCommand($"respawn \"{_currentPlayer.Username}\"");
             };
 
-            PopOut.OnPressed += _ =>
+            // ADT-Tweak-Start
+            Logs.OnPressed += _ =>
             {
-                uiController.PopOut();
+                if (_currentPlayer is not null)
+                _console.ExecuteCommand($"adminlogs \"{_currentPlayer.Username}\"");
             };
+
+            Playerpanel.OnPressed += _ =>
+            {
+                if (_currentPlayer is not null)
+                    _console.ExecuteCommand($"playerpanel \"{_currentPlayer.Username}\"");
+            };
+            // ADT-Tweak-End
         }
 
         public void OnBwoink(NetUserId channel)
@@ -230,6 +241,14 @@ namespace Content.Client.Administration.UI.Bwoink
 
             Follow.Visible = _adminManager.CanCommand("follow");
             Follow.Disabled = !Follow.Visible || disabled;
+
+            // ADT-Tweak-Start
+            Logs.Visible = _adminManager.HasFlag(AdminFlags.Logs);
+            Logs.Disabled = !Logs.Visible || disabled;
+
+            Playerpanel.Visible = _adminManager.HasFlag(AdminFlags.Ban);
+            Playerpanel.Disabled = !Playerpanel.Visible || disabled;
+            // ADT-Tweak-End
         }
 
         private string FormatTabTitle(ItemList.Item li, PlayerInfo? pl = default)

@@ -8,7 +8,7 @@
   - type: Pullable
   - type: Anchorable
   - type: Sprite
-    sprite: Structures/Storage/morgue.rsi
+    sprite: ADT/Structures/Storage/morgue.rsi #ADT morgue resprite
     layers:
     - state: morgue_closed
       map: ["enum.MorgueVisualLayers.Base"]
@@ -49,6 +49,7 @@
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
+      paper_label: !type:ContainerSlot # ADT tweak
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -73,6 +74,23 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
+# ADT tweak Start
+  - type: ItemSlots
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: Attach Label
+      ejectVerbText: Remove Label
+      whitelist:
+        components:
+        - Paper
+  - type: ItemMapper
+    mapLayers:
+      morgue_paper:
+        whitelist:
+          tags:
+            - Document
+    sprite: ADT/Structures/Storage/morgue.rsi
+# ADT tweak End
 
 - type: entity
   id: Crematorium
@@ -82,7 +100,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Storage/morgue.rsi
+    sprite: ADT/Structures/Storage/morgue.rsi #ADT morgue resprite
     layers:
     - state: crema_closed
       map: ["enum.CrematoriumVisualLayers.Base", "enum.StorageVisualLayers.Base"]

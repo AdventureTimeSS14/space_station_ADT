@@ -26,6 +26,6 @@
   category: Quirks
   components:
   - type: Snoring
-  cost: -1  # ADT quirks
+  cost: 0  # ADT quirks
   speciesBlacklist:
   - IPC

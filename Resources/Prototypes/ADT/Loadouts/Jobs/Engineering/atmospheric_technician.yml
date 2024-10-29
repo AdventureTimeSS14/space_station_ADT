@@ -1,0 +1,41 @@
+- type: loadoutEffectGroup
+  id: ADTMasterAtmos
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 180000 #50 часов
+
+# OuterClothing
+- type: loadout
+  id: ADTOuterAtmosianBomberJacket
+  equipment:
+    outerClothing: ClothingOuterAtmosianBomberJacket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMasterAtmos
+
+# Neck
+- type: loadout
+  id: ADTCloakAtmosian
+  equipment:
+    neck: ClothingCloakAtmosian
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMasterAtmos
+
+# Mask
+- type: loadout
+  id: ADTMaskGasAtmosian
+  equipment:
+    pocket1: ClothingMaskGasAtmosian
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMasterAtmos
+
+# Head
+- type: loadout
+  id: ADTHatBeretAtmos
+  equipment:
+    head: ADTClothingHeadHatsBeretAtmos

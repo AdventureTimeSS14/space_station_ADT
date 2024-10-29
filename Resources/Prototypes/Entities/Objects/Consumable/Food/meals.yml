@@ -37,6 +37,9 @@
       - potatoes
   - type: Sprite
     state: loadedbakedpotato
+  - type: Tag #ADT_Tweak - делаем картофельные блюда съедобными для молей
+    tags:
+    - ADTMothFriendlyFood
 # Tastes like potato.
 
 - type: entity
@@ -51,6 +54,9 @@
       - salty
   - type: Sprite
     state: fries
+  - type: Tag #ADT_Tweak - делаем картофельные блюда съедобными для молей
+    tags:
+    - ADTMothFriendlyFood
 # Tastes like fries, salt.
 
 - type: entity
@@ -66,6 +72,9 @@
       - cheesy
   - type: Sprite
     state: fries-cheesy
+  - type: Tag #ADT_Tweak - делаем картофельные блюда съедобными для молей
+    tags:
+    - ADTMothFriendlyFood
 # Tastes like fries, cheese.
 
 - type: entity
@@ -83,6 +92,7 @@
   - type: Tag
     tags:
     - CarrotFries
+    - ADTMothFriendlyFood #ADT_Tweak - делаем морковный фри съедобными для молей
   - type: SolutionContainerManager
     solutions:
       food:
@@ -215,6 +225,9 @@
       - potatoes
   - type: Sprite
     state: yakiimo
+  - type: Tag #ADT_Tweak - делаем картофельные блюда съедобными для молей
+    tags:
+    - ADTMothFriendlyFood
 # Tastes like sweet potato.
 
 - type: entity

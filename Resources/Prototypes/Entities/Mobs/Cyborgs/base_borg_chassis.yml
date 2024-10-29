@@ -158,6 +158,17 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+# Start ADT Tweak
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+    understands:
+    - GalacticCommon
+    - BorgTalk
+    - RobotTalk
+# End ADT Tweak
   - type: UnblockableSpeech
   - type: Construction
     graph: Cyborg
@@ -235,11 +246,17 @@
     - FootstepSound
     - CanPilot
   - type: Emoting
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    channel: Binary
+    showRank: true
+    rankName: collective-mind-borg-rank
+  # ADT-CollectiveMind-Tweak-End
   - type: GuideHelp
     guides:
     - Cyborgs
     - Robotics
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:

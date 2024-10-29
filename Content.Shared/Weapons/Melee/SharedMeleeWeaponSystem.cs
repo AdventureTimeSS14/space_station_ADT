@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Implants;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -299,6 +300,32 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return true;
         }
 
+        // ADT memplants start
+        if (_inventory.TryGetSlotEntity(entity, "outerClothing", out var outer) &&
+            TryComp<MeleeWeaponComponent>(outer, out var outerMelee))
+        {
+            weaponUid = outer.Value;
+            melee = outerMelee;
+            return true;
+        }
+
+        if (TryComp<MantisDaggersComponent>(entity, out var mantisComp) &&
+            mantisComp.Active &&
+            TryComp<MeleeWeaponComponent>(mantisComp.InnateWeapon, out var daggersMelee))
+        {
+            weaponUid = mantisComp.InnateWeapon.Value;
+            melee = daggersMelee;
+            return true;
+        }
+
+        if (TryComp<MistralFistsComponent>(entity, out var fistsComp) &&
+            TryComp<MeleeWeaponComponent>(fistsComp.InnateWeapon, out var fistsMelee))
+        {
+            weaponUid = fistsComp.InnateWeapon.Value;
+            melee = fistsMelee;
+            return true;
+        }
+        // ADT memplants end
         // Use our own melee
         if (TryComp(entity, out melee))
         {

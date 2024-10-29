@@ -47,3 +47,8 @@
     Scientist: 300
     ResearchAssistant: 200
     Brigmedic: 400
+    ADTSeniorEngineer: 450
+    ADTSeniorPhysician: 450
+    ADTSeniorResearcher: 450
+    ADTSeniorOfficer: 450
+    ADTGuardOfficer: 375
