@@ -408,8 +408,18 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+# ADT tweak start Разные пауки
+#    - id: MobGiantSpiderAngry
+#      prob: 0.05
+    - id: ADTMobHunterSpiderAngry
+      prob: 0.025
+    - id: ADTMobGuardSpiderAngry
+      prob: 0.0225
+    - id: ADTMobTarantulaSpiderAngry
+      prob: 0.00125
+    - id: ADTMobViperSpiderAngry
+      prob: 0.00125
+# ADT tweak end Разные пауки
 
 - type: entity
   id: SpiderClownSpawn
@@ -425,7 +435,7 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobClownSpider
+    - id: ADTMobClownSpider # ADT tweak
       prob: 0.05
 
 # ADT zombie remove

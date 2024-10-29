@@ -2276,6 +2276,7 @@
   name: tarantula
   parent: [ SimpleMobBase, MobCombat ]
   id: MobGiantSpider
+  abstract: true # ADT tweak для разных пауков
   description: Widely recognized to be the literal worst thing in existence.
   components:
   - type: Sprite
@@ -2395,6 +2396,7 @@
   name: tarantula
   parent: MobGiantSpider
   id: MobGiantSpiderAngry
+  abstract: true # ADT tweak для разных пауков
   suffix: Angry
   components:
     - type: NpcFactionMember
@@ -2418,6 +2420,7 @@
   name: clown spider
   parent: MobGiantSpiderAngry
   id: MobClownSpider
+  abstract: true # ADT tweak для разных пауков
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
     - type: Sprite
@@ -2464,7 +2467,7 @@
 
 - type: entity
   name: wizard spider
-  parent: MobGiantSpider
+  parent: ADTMobBaseSpider # ADT tweak для разных пауков
   id: MobGiantSpiderWizard
   description: This spider looks a little magical
   suffix: Wizard
