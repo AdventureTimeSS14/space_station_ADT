@@ -17,7 +17,7 @@ ert-send-default-announcer = Центральное командование
 
 # ERT type: default-rev
 ert-send-default-rev-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-default-announcer = Центральное командование
+ert-send-default-rev-announcer = Центральное командование
 
 # ERT type: security
 ert-send-security-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
