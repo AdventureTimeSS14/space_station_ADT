@@ -10,7 +10,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic, BadgeOnClothingWithContainer]
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic, BadgeOnClothingWithContainer] #ADT-Tweak
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -25,6 +25,7 @@
     - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
+   #ADT-Tweak-Start
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -35,6 +36,7 @@
         showEnts: False
         occludes: True
         ent: null
+   #ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
@@ -100,7 +102,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, ]
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -109,6 +111,7 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+   #ADT-Tweak-Start
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -119,6 +122,7 @@
         showEnts: False
         occludes: True
         ent: null
+   #ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase

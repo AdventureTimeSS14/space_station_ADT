@@ -18,6 +18,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.80
 
+#ADT-Tweak-Start
 - type: entity
   abstract: true
   id: BadgeOnClothing
@@ -63,6 +64,7 @@
         whitelist:
           tags:
           - ADTBadge
+#ADT-Tweak-End
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]

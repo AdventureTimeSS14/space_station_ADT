@@ -17,7 +17,7 @@
         Heat: 0.90
 
 - type: entity
-  parent: [ClothingOuterStorageBase, ]
+  parent: ClothingOuterStorageBase
   id: ADTClothingKadet
   name: kadet greatcoat
   description: a greatcoat made for recruits to the security service. It is very similar to the overcoat of the junior ranks of RIA
@@ -33,7 +33,6 @@
         Slash: 0.8
         Piercing: 0.7
         Heat: 0.85
-
 
 #толстовки-топки от Празата
 - type: entity

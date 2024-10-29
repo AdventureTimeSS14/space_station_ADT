@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterCoatHoSTrench, BadgeOnClothingWithContainer]
+  parent: [ClothingOuterCoatHoSTrench, BadgeOnClothingWithContainer] #ADT-Tweak
   id: ClothingOuterCoatHoSGreatcoat
   name: armored greatcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -15,6 +15,7 @@
           Slash: 0.7
           Piercing: 0.4
           Heat: 0.7
+    #ADT-Tweak-Start
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -25,6 +26,7 @@
           showEnts: False
           occludes: True
           ent: null
+    #ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
@@ -63,7 +65,7 @@
           Heat: 0.8
 
 - type: entity
-  parent: [ClothingOuterStorageBase, BadgeOnClothingWithContainer]
+  parent: [ClothingOuterStorageBase, BadgeOnClothingWithContainer] #ADT-Tweak
   id: ClothingOuterCoatSecurityOvercoat
   name: security overcoat
   description: Lightly armored leather overcoat meant as casual wear for high-ranking officers. Bears the crest of Nanotrasen Security.
@@ -79,6 +81,7 @@
           Slash: 0.8
           Piercing: 0.6
           Heat: 0.9
+    #ADT-Tweak-Start
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -89,6 +92,7 @@
           showEnts: False
           occludes: True
           ent: null
+    #ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterStorageBase
