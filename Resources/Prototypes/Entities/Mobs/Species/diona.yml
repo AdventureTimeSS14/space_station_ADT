@@ -124,6 +124,12 @@
     short: true
     shortscale: 0.92
   #End ADT tweak
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    channel: DionsCollectiveMind
+    showRank: false
+    rankName: collective-mind-burrower-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   parent: BaseSpeciesDummy

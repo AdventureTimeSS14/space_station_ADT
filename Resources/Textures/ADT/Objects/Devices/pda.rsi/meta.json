@@ -72,6 +72,9 @@
             "name": "pda-tradertsf"
         },
         {
+            "name": "pda-guardofficer"
+        },
+        {
             "name": "equipped-IDCARD",
             "directions": 4
         }
