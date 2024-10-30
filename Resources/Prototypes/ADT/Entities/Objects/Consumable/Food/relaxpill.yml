@@ -15,4 +15,4 @@
       food:
         reagents:
         - ReagentId: THC
-          Quantity: 50
+          Quantity: 25
