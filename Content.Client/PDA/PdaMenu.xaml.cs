@@ -10,6 +10,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 
+
 namespace Content.Client.PDA
 {
     [GenerateTypedNameReferences]
@@ -25,20 +26,39 @@ namespace Content.Client.PDA
         public const int SettingsView = 2;
         public const int ProgramContentView = 3;
 
-
         private string _pdaOwner = Loc.GetString("comp-pda-ui-unknown");
         private string _owner = Loc.GetString("comp-pda-ui-unknown");
         private string _jobTitle = Loc.GetString("comp-pda-ui-unassigned");
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
-        
+        private string _instructionsForCommands = Loc.GetString("comp-pda-ui-for-commands-unknown"); // ADT
+        private string _instructionsForCapitan = Loc.GetString("comp-pda-ui-for-capitan-unknown");
 
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
         public event Action<EntityUid>? OnUninstallButtonPressed;
         public event Action<EntityUid>? OnInstallButtonPressed;
+
+
+        private bool IsCapitan(string jobTitle) // ADT START Капитан
+        {
+            return jobTitle.Equals("Капитан", StringComparison.OrdinalIgnoreCase);
+
+        } // ADT END
+
+        private bool IsCommand(string jobTitle) // ADT START Главы
+        {
+            return jobTitle.Equals("Главный врач", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Квартирмейстер", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Старший инженер", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Научный руководитель", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Глава службы безопасности", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Глава персонала", StringComparison.OrdinalIgnoreCase);
+                
+        } // ADT END
+
         public PdaMenu()
         {
             IoCManager.InjectDependencies(this);
@@ -54,7 +74,6 @@ namespace Content.Client.PDA
             EjectPaiButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/pai.png"));
             ProgramCloseButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/Nano/cross.svg.png"));
 
-
             HomeButton.OnPressed += _ => ToHomeScreen();
 
             ProgramListButton.OnPressed += _ =>
@@ -66,7 +85,6 @@ namespace Content.Client.PDA
 
                 ChangeView(ProgramListView);
             };
-
 
             SettingsButton.OnPressed += _ =>
             {
@@ -125,12 +143,11 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
             };
 
-            
-
-
             HideAllViews();
             ToHomeScreen();
         }
+
+
 
         public void UpdateState(PdaUpdateState state)
         {
@@ -143,7 +160,6 @@ namespace Content.Client.PDA
                     ("actualOwnerName", _pdaOwner)));
             }
 
-
             if (state.PdaOwnerInfo.IdOwner != null || state.PdaOwnerInfo.JobTitle != null)
             {
                 _owner = state.PdaOwnerInfo.IdOwner ?? Loc.GetString("comp-pda-ui-unknown");
@@ -151,7 +167,26 @@ namespace Content.Client.PDA
                 IdInfoLabel.SetMarkup(Loc.GetString("comp-pda-ui",
                     ("owner", _owner),
                     ("jobTitle", _jobTitle)));
+
+                // Инструкции "comp-pda-ui-for-commands (-unknown)" для ролей
+                if (IsCapitan(_jobTitle) || IsCommand(_jobTitle))
+                {
+                    if (IsCapitan(_jobTitle))
+                    {
+                        _instructionsForCapitan = Loc.GetString("comp-pda-ui-for-capitan");
+                    }
+
+                    if (IsCommand(_jobTitle))
+                    {
+                        _instructionsForCommands = Loc.GetString("comp-pda-ui-for-commands");
+                    }
+                }
+                else
+                {
+                    _instructionsForCommands = Loc.GetString("comp-pda-ui-for-commands-unknown");
+                } // ADT END
             }
+            
             else
             {
                 IdInfoLabel.SetMarkup(Loc.GetString("comp-pda-ui-blank"));
@@ -160,7 +195,6 @@ namespace Content.Client.PDA
             _stationName = state.StationName ?? Loc.GetString("comp-pda-ui-unknown");
             StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",
                 ("station", _stationName)));
-            
 
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
@@ -177,11 +211,38 @@ namespace Content.Client.PDA
                 ("color", alertColor),
                 ("level", _alertLevel)
             ));
-            _instructions = Loc.GetString($"{alertLevelKey}-instructions");
-            StationAlertLevelInstructions.SetMarkup(Loc.GetString(
-                "comp-pda-ui-station-alert-level-instructions",
-                ("instructions", _instructions))
-            );
+
+            if (IsCapitan(_jobTitle) || IsCommand(_jobTitle)) // ADT START
+            {
+                if (IsCapitan(_jobTitle))
+                {
+                    _instructionsForCapitan = Loc.GetString($"{alertLevelKey}-instructions-for-capitan");
+                    StationAlertLevelInstructionsForCapitan.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-for-capitan",
+                        ("instructionsForCapitan", _instructionsForCapitan))
+                    );
+                }
+
+                if (IsCommand(_jobTitle))
+                {
+                    // Установка текста инструкций для команд
+                    _instructionsForCommands = Loc.GetString($"{alertLevelKey}-instructions-for-commands");
+                    StationAlertLevelInstructionsForCommands.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-for-commands",
+                        ("instructionsForCommands", _instructionsForCommands))
+                    );
+                } 
+            }
+            else // ADT END
+            {
+                _instructions = Loc.GetString($"{alertLevelKey}-instructions");
+                StationAlertLevelInstructions.SetMarkup(Loc.GetString(
+                    "comp-pda-ui-station-alert-level-instructions",
+                    ("instructions", _instructions))
+                );
+
+            }
+
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
 
@@ -299,7 +360,6 @@ namespace Content.Client.PDA
             ProgramTitle.LabelText = title;
             ChangeView(ProgramContentView);
         }
-
 
         /// <summary>
         /// Changes the current view to the given view number
