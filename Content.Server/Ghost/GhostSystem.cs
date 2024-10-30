@@ -36,7 +36,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.OnGhostAttemtpDamage;
-using Content.Server.NoGhostFollow;
+using Content.Server.HideGhostWarp;
 
 namespace Content.Server.Ghost
 {
@@ -308,9 +308,9 @@ namespace Content.Server.Ghost
             }
 
             var target = GetEntity(msg.Target);
-            if (HasComp<NoGhostFollowComponent>(target)) return; // ADT TWEAK: НАХЕР ГОСТОВ ЗАЕБАЛИ,
+            if (HasComp<HideGhostWarpComponent>(target)) return; // ADT TWEAK: НАХЕР ГОСТОВ ЗАЕБАЛИ,
                                                                  // не сможет тепнуться к нему так как вышли из функции
-                                                                 // если цель "target" имеет NoGhostFollow Comp
+                                                                 // если цель "target" имеет HideGhostWarp Comp
             if (!Exists(target))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to an invalid entity id: {msg.Target}");
