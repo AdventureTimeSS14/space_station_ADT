@@ -12,3 +12,4 @@ public sealed class AdditionalMapPrototype : IPrototype
     [DataField("maps")]
     public List<ProtoId<GameMapPrototype>> MapProtoIds = new();
 }
+
