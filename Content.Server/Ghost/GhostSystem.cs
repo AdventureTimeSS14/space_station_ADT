@@ -308,9 +308,10 @@ namespace Content.Server.Ghost
             }
 
             var target = GetEntity(msg.Target);
-            if (HasComp<HideGhostWarpComponent>(target)) return; // ADT TWEAK: НАХЕР ГОСТОВ ЗАЕБАЛИ,
-                                                                 // не сможет тепнуться к нему так как вышли из функции
-                                                                 // если цель "target" имеет HideGhostWarp Comp
+            if (HasComp<HideGhostWarpComponent>(target)) return;    // ADT TWEAK: НАХЕР ГОСТОВ ЗАЕБАЛИ,
+                                                                    // не сможет тепнуться к нему так как вышли из функции
+                                                                    // если цель "target" имеет HideGhostWarp Comp
+
             if (!Exists(target))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to an invalid entity id: {msg.Target}");
@@ -368,6 +369,10 @@ namespace Content.Server.Ghost
                     continue;
 
                 if (attached == except) continue;
+
+                if (HasComp<HideGhostWarpComponent>(attached)) continue;    // ADT TWEAK: НАХЕР ГОСТОВ ЗАЕБАЛИ,
+                                                                            // не сможет тепнуться к нему так как вышли из функции
+                                                                            // если цель "attached" имеет HideGhostWarp Comp
 
                 TryComp<MindContainerComponent>(attached, out var mind);
 
