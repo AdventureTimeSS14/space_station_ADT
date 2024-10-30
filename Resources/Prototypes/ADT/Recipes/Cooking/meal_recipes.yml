@@ -22,3 +22,15 @@
   solids:
     FoodBowlBig: 1
     MaterialWoodPlank1: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodRelaxpill
+  name: relax pill
+  result: ADTPillRelax
+  time: 15
+  reagents:
+    Water: 15
+  solids:
+    LeavesCannabis: 3
+    LeavesTobacco: 2
+    GroundCannabis: 1
