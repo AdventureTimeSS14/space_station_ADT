@@ -1,7 +1,7 @@
 - type: entity
   name: TelescopicBaton
   parent: BaseItem
-  id: ADTtelescopicBaton
+  id: ADTTelescopicBaton
   description: Big, dangerous telescopic baton. Can be stored in pockets when turned off.
   components:
   - type: Sprite
