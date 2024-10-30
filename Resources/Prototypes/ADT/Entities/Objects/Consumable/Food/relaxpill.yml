@@ -8,7 +8,7 @@
     flavors:
       - ADTRelax
   - type: Sprite
-    sprite: ADT\Objects\Consumable\Food\servicepill.rsi
+    sprite: ADT/Objects/Consumable/Food/servicepill.rsi
     state: relaxpill
   - type: SolutionContainerManager
     solutions:
