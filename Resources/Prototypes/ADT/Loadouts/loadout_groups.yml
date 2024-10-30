@@ -178,6 +178,7 @@
   maxLimit: 1
   loadouts:
   - ADTBlueshieldCloak
+  - ADTBlueshieldCloakSecond
 
 - type: loadoutGroup
   id: ADTBlueshieldBack
@@ -588,3 +589,28 @@
   - ADTUnderwearStockings
   - ADTUnderwearSocksBlueshield
   - ADTUnderwearStockingsBlueshield
+
+
+## Надзиратель
+# Голова
+
+  #head
+- type: loadoutGroup
+  id: ADTGuardOfficerHead
+  name: loadout-guardofficer-head-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTHeadHatGuardOfficer
+  - ADTHeadHatGuardOfficerMaster
+
+
+# Униформа
+- type: loadoutGroup
+  id: ADTGuardOfficerJumpsuit
+  name: loadout-guardofficer-jumpsuit-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTUniformJumpsuitGuardOfficer
+  - ADTUniformJumpsuitGuardOfficerMaster

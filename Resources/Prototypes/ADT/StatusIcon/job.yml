@@ -22,6 +22,14 @@
     state: ADTPathologist
   jobName: job-name-ADTPathologist
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTGuardOfficer
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: GuardOfficer
+  jobName: job-name-guard-officer
+
 #SPACE SEC
 
 - type: jobIcon
