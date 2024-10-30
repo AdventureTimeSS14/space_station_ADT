@@ -24,7 +24,7 @@
     MaterialWoodPlank1: 1
 
 - type: microwaveMealRecipe
-  id: ADTFoodRelaxpill
+  id: ADTFoodRelaxPillRecipe
   name: relax pill
   result: ADTPillRelax
   time: 15
