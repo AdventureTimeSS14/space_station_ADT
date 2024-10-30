@@ -152,7 +152,13 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
-    
+# ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    channel: CarpCollectiveMind
+    showRank: true
+    rankName: collective-mind-dragon-rank
+# ADT-CollectiveMind-Tweak-End
+
 - type: entity
   parent: BaseMobDragon
   id: MobDragon

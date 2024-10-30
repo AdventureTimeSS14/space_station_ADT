@@ -98,8 +98,6 @@
         prob: 0.6
       - id: BookSpaceLaw
         prob: 0.5
-      - id: ADTClothingNeckBodyCamera # ADT bodycam
-        prob: 0.3
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
