@@ -45,4 +45,4 @@
           False: {state: telescope_off}
   - type: Tag
     tags:
-      - ADTtelescopicBaton
+      - ADTTelescopicBaton
