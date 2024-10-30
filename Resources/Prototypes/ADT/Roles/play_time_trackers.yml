@@ -27,3 +27,6 @@
 
 - type: playTimeTracker
   id: ADTJobSecBorg
+
+- type: playTimeTracker
+  id: JobADTGuardOfficer

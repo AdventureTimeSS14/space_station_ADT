@@ -30,6 +30,12 @@ ent-ADTClothingHeadHatsBeretArmy = армейский берет
     .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
     .suffix = { "Новая Мекка" }
 
+ent-ADTClothingHeadHatsGuardOfficer = кепка надзирателя
+    .desc = Такая же кепка, как и у других сотрудников службы безопасности, но оранжевого цвета.
+
+ent-ADTClothingHeadHatsGuardOfficerMaster = фуражка надзирателя
+    .desc = Фуражка тюремного надзирателя, которая выдается сотрудникам с опытом работы.
+
 ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
     .desc = Тёмная фуражка офицера Иллизиума.
