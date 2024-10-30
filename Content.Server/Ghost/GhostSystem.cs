@@ -36,7 +36,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.OnGhostAttemtpDamage;
-using Content.Server.HideGhostWarp;
+using Content.Server.ADT.Ghost;
 
 namespace Content.Server.Ghost
 {

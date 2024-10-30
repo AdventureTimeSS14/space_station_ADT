@@ -1,4 +1,4 @@
-namespace Content.Server.HideGhostWarp;
+namespace Content.Server.ADT.Ghost;
 
 /// <summary>
 ///  Вешаем на сущность, и к ней нельзя будет тепнуться через "Телепорт призрака".
