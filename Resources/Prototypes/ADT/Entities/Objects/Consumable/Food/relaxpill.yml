@@ -9,7 +9,7 @@
       - ADTRelax
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/servicepill.rsi
-    state: relaxpill
+    state: pill1
   - type: SolutionContainerManager
     solutions:
       food:
