@@ -66,6 +66,7 @@
             Pilot: [ 1, 1]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]

@@ -480,6 +480,7 @@
         - CombatKnife
         - Truncheon
         - ADTLasgunRevolverCell #ADT Tweak
+        - ADTCartridgeBibis # ADT Tweak
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -488,7 +489,6 @@
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
-        - ADTCartridgeBibis # ADT Tweak
         - DoorRemote
         - Whistle
         - HolosignProjector

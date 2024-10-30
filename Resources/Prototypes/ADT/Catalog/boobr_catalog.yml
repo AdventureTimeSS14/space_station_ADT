@@ -35,7 +35,7 @@
   id: ADTBoberMateba
   name: boobr-mateba-name
   description: boobr-mateba-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
   productEntity: WeaponCaseNTMateba
   cost:
     Productunit: 10
