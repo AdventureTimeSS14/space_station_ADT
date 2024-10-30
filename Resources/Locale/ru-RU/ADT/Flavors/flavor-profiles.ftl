@@ -36,5 +36,5 @@ flavor-complex-sausagebeer = как хмель, солод и колбаска
 flavor-complex-goldenale = как эль, золото и исцеление
 
 flavor-base-adtpoppy = маково
-flavor-complex-adtrelaxing = как довольно сильный и наркотик
+flavor-complex-adtrelaxing = как довольно сильный наркотик
 flavor-base-adtvanilla = ванильно
