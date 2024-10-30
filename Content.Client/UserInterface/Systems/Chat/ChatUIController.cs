@@ -42,6 +42,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Client.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
+using Content.Shared.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
@@ -571,7 +572,7 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.CollectiveMind; // ADT-CollectiveMind-Tweak
         }
         // ADT-CollectiveMind-Tweak-Start
-        if (_collectiveMind != null)
+        if (_collectiveMind != null && EntityManager.HasComponent<CollectiveMindComponent>(_player.LocalEntity))
         {
             CanSendChannels |= ChatSelectChannel.CollectiveMind;
             FilterableChannels |= ChatChannel.CollectiveMind;

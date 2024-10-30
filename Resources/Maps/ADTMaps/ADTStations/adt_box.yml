@@ -11832,7 +11832,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4689.4385
+      secondsUntilStateChange: -4706.4385
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84741,7 +84741,7 @@ entities:
       pos: 41.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1301.9036
+      secondsUntilStateChange: -1318.9036
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -124936,6 +124936,10 @@ entities:
           showEnts: False
           occludes: True
           ents: []
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
   - uid: 19031
     components:
     - type: Transform
@@ -144200,6 +144204,13 @@ entities:
     components:
     - type: Transform
       pos: 21.5,-18.5
+      parent: 2
+- proto: SpawnPointADTGuardOfficer
+  entities:
+  - uid: 27672
+    components:
+    - type: Transform
+      pos: 7.5,36.5
       parent: 2
 - proto: SpawnPointADTPathologist
   entities:
