@@ -26,6 +26,7 @@
     capacity: 40
     reloadCost: 100
     reloadTime: 5
+    ammoType: plasma
   - type: UIFragment
     ui: !type:MechGunUi
   - type: Appearance
@@ -118,6 +119,8 @@
         Heat: 0.3
   - type: MechEquipment
     canBeUsed: false
+  - type: MechMagazine
+    magazinetype: lightrifle
 
 - type: entity
   name: противопульная броня меха

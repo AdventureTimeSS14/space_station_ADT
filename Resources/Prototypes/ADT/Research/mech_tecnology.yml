@@ -1,16 +1,4 @@
 - type: technology
-  id: ADTMechFabricator
-  name: research-technology-mech-fabricator
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: clarke
-  discipline: Experimental
-  tier: 1
-  cost: 3500
-  recipeUnlocks:
-  - ADTExosuitFabricatorMachineCircuitboard
-
-- type: technology
   id: ADTGygaxTechnology
   name: research-technology-mech-gygax
   icon:
@@ -181,6 +169,7 @@
   cost: 3500
   recipeUnlocks:
   - ADTMechWeaponCutter
+  - ADTBoxPlasmaBox
 
 - type: technology
   id: ADTMechTechnologyDrill
@@ -257,7 +246,6 @@
   cost: 20000
   recipeUnlocks:
   - ADTMechGunSolarisLaserCannon
-  - ADTMechGunHeavyPulseRifle
   - ADTMechGunTeslaCannon
 
 - type: technology
@@ -272,7 +260,10 @@
   recipeUnlocks:
   - ADTMechGunScattershot
   - ADTMechGunUltraAC2
+  - ADTBoxAmmoScattershot
+  - ADTBoxAmmoAC2Ultra
   - ADTMechGunFNX99Hades
+  - ADTBoxAmmoHades
 
 - type: technology
   id: ADTMechGunHeavyTechnology
@@ -288,3 +279,5 @@
   - ADTMechGunSGL6
   - ADTMechGunSRM8
   - ADTMechGunBRM6
+  - ADTBoxAmmoSniper
+  - ADTBoxAmmoGranade

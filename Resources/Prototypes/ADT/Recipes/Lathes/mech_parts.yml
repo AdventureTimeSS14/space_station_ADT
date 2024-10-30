@@ -575,17 +575,6 @@
     Gold: 1000
 
 - type: latheRecipe
-  id: ADTMechGunHeavyPulseRifle
-  result: ADTMechGunHeavyPulseRifleCrate
-  category: Mech
-  completetime: 4
-  materials:
-    Steel: 3000
-    Plastic: 1500
-    Silver: 1000
-    Plasma: 500
-
-- type: latheRecipe
   id: ADTMechGunTeslaCannon
   result: ADTMechGunTeslaCannonCrate
   category: Mech
@@ -662,3 +651,61 @@
     Steel: 9000
     Plastic: 3000
     Gold: 1000
+
+- type: latheRecipe
+  id: ADTBoxAmmoAC2Ultra
+  result: ADTBoxAmmoAC2Ultra
+  category: Mech
+  completetime: 1
+  materials:
+    Steel: 350
+    Plastic: 100
+
+- type: latheRecipe
+  id: ADTBoxAmmoScattershot
+  result: ADTBoxAmmoScattershot
+  category: Mech
+  completetime: 1
+  materials:
+    Steel: 350
+    Plastic: 100
+
+- type: latheRecipe
+  id: ADTBoxAmmoHades
+  result: ADTBoxAmmoHades
+  category: Mech
+  completetime: 1
+  materials:
+    Steel: 350
+    Plastic: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: ADTBoxAmmoSniper
+  result: ADTBoxAmmoSniper
+  category: Mech
+  completetime: 1
+  materials:
+    Steel: 400
+    Plastic: 150
+
+- type: latheRecipe
+  id: ADTBoxAmmoGranade
+  result: ADTBoxAmmoGranade
+  category: Mech
+  completetime: 1
+  materials:
+    Steel: 400
+    Plastic: 150
+    Plasma: 100
+    Glass: 100
+
+- type: latheRecipe
+  id: ADTBoxPlasmaBox
+  result: ADTBoxPlasmaBox
+  category: Mech
+  completetime: 1
+  materials:
+    Plastic: 150
+    Plasma: 300
+    Glass: 200

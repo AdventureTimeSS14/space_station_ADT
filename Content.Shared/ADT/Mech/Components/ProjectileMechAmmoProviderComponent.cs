@@ -2,6 +2,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.Weapons.Ranged.Components;
 
@@ -31,5 +32,14 @@ public sealed partial class ProjectileMechAmmoProviderComponent : MechAmmoProvid
     public bool Reloading = false;
 
     [DataField]
-    public float ReloadCost = 120f;
+    public string AmmoContainerId = "storagebase";
+
+    [DataField]
+    public string AmmoType = "lightrifle";
+
+    [DataField]
+    public SoundSpecifier NoAmmoForReload = new SoundPathSpecifier("/Audio/Machines/Nuke/angry_beep.ogg");
+
+    [DataField]
+    public SoundSpecifier ReloadSound = new SoundPathSpecifier("/Audio/Mecha/sound_mecha_hydraulic.ogg");
 }

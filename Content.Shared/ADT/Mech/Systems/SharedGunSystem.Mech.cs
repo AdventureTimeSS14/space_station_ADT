@@ -64,8 +64,6 @@ public abstract partial class SharedGunSystem
     private void OnTakeAmmo(EntityUid uid, MechAmmoProviderComponent component, TakeAmmoEvent args)
     {
         var equipmentComp = Comp<MechEquipmentComponent>(uid);
-        if (!equipmentComp.EquipmentOwner.HasValue)
-            return;
 
         switch (component)
         {
@@ -92,6 +90,8 @@ public abstract partial class SharedGunSystem
                 for (var i = 0; i < args.Shots; i++)
                 {
                     args.Ammo.Add(GetShootable(hitscan, args.Coordinates));
+                    if (!equipmentComp.EquipmentOwner.HasValue)
+                        break;
                     if (!_mech.TryChangeEnergy(equipmentComp.EquipmentOwner.Value, -hitscan.ShotCost))
                         break;
                 }

@@ -26,6 +26,9 @@ using Robust.Shared.Random;
 using Content.Shared.Overlays;
 using Content.Shared.Whitelist;
 using Content.Shared.ADT.Mech;
+using Content.Shared.Storage;
+using  Content.Shared.Lock;
+using System.Linq;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -67,6 +70,7 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);
         SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
         SubscribeLocalEvent<MechComponent, MechGunReloadMessage>(ReceiveEquipmentUiMesssages);  // ADT mech gun
+        SubscribeLocalEvent<MechComponent, StorageInteractAttemptEvent>(OnStorageInteract); ///ADT mechs
     }
 
     // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
@@ -537,6 +541,8 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void ReceiveEquipmentUiMesssages<T>(EntityUid uid, MechComponent component, T args) where T : MechEquipmentUiMessage
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         var ev = new MechEquipmentUiMessageRelayEvent(args, GetNetEntity(component.PilotSlot.ContainedEntity));
         var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
         var argEquip = GetEntity(args.Equipment);
@@ -550,6 +556,11 @@ public abstract class SharedMechSystem : EntitySystem
 
     public virtual void UpdateUserInterfaceByEquipment(EntityUid uid)
     {
+    }
+    protected void OnStorageInteract(EntityUid uid, MechComponent component, ref StorageInteractAttemptEvent args)
+    {
+        if (component.PilotSlot.ContainedEntity.HasValue)
+            args.Cancelled = true;
     }
     // ADT Content end
 }

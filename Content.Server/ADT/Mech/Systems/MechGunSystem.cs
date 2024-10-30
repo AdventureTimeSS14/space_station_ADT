@@ -14,7 +14,8 @@ using Content.Shared.Mech;
 using Content.Shared.ADT.Mech;
 using Robust.Shared.Timing;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
+using Robust.Shared.Containers;
+using Content.Server.ADT.Mech.Equipment.Components;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
@@ -134,20 +135,55 @@ public sealed class MechGunSystem : EntitySystem
     {
         if (args.Message is not MechGunReloadMessage msg)
             return;
+        if (comp.Reloading)
+            return;
         if (!TryComp<MechEquipmentComponent>(uid, out var equip) || !equip.EquipmentOwner.HasValue)
             return;
-
-        if (!_mech.TryChangeEnergy(equip.EquipmentOwner.Value, comp.ReloadCost))
+        if (!_timing.IsFirstTimePredicted)
         {
-            var pilot = GetEntity(args.Pilot) ?? EntityUid.Invalid;
-            _audio.PlayEntity("/Audio/Machines/Nuke/angry_beep.ogg", pilot, equip.EquipmentOwner.Value);
+            _mech.UpdateUserInterfaceByEquipment(uid);
+            return;
+        }
+        if (comp.Shots >= comp.Capacity)
+        {
             _mech.UpdateUserInterfaceByEquipment(uid);
             return;
         }
 
+        var magazine = TryMagazine(equip.EquipmentOwner.Value, comp);
+        if (magazine == null || !_mech.TryChangeEnergy(equip.EquipmentOwner.Value, -comp.Capacity))
+        {
+            var pilot = GetEntity(args.Pilot) ?? EntityUid.Invalid;
+            _audio.PlayPredicted(comp.NoAmmoForReload, pilot, equip.EquipmentOwner.Value);
+            _mech.UpdateUserInterfaceByEquipment(uid);
+            return;
+        }
+        else if (magazine != null)
+            QueueDel(magazine);
+
         comp.Reloading = true;
         comp.ReloadEnd = _timing.CurTime + TimeSpan.FromSeconds(comp.ReloadTime);
+        _audio.PlayPvs(comp.ReloadSound, uid);
         Dirty(uid, comp);
         _mech.UpdateUserInterfaceByEquipment(uid);
+    }
+
+    private EntityUid? TryMagazine(EntityUid mech, ProjectileMechAmmoProviderComponent comp)
+    {
+        _container.TryGetContainer(mech, comp.AmmoContainerId, out var mechcontainer);
+
+        if (mechcontainer == null)
+            return null;
+
+        foreach (var magazine in mechcontainer.ContainedEntities)
+        {
+            if (!TryComp<MechMagazineComponent>(magazine, out var magazinecomp))
+                continue;
+            if (comp.AmmoType != magazinecomp.MagazineType)
+                continue;
+            QueueDel(magazine);
+            return magazine;
+        }
+        return null;
     }
 }

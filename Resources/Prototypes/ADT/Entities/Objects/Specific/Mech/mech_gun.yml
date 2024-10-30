@@ -226,6 +226,7 @@
     proto: ShellShotgun
     shots: 12
     capacity: 12
+    ammoType: shotgun
   - type: UIFragment
     ui: !type:MechGunUi
   - type: StaticPrice
@@ -278,6 +279,7 @@
     proto: BulletPistolIncendiary
     shots: 45
     capacity: 45
+    ammoType: lightrifleincendiary
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -303,6 +305,7 @@
     proto: BulletAntiMateriel
     shots: 7
     capacity: 7
+    ammoType: sniper
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -328,6 +331,7 @@
     proto: GrenadeFlash
     shots: 3
     capacity: 3
+    ammoType: granade
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -353,6 +357,7 @@
     proto: BulletRocket
     shots: 2
     capacity: 2
+    ammoType: granade
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -374,10 +379,12 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
+    ammoType: granade
   - type: ProjectileMechAmmoProvider
     proto: GrenadeBaton
     shots: 3
     capacity: 3
+    ammoType: granade
   - type: UIFragment
     ui: !type:MechGunUi
 

@@ -2,13 +2,9 @@ ent-ADTSecurityTechFabCircuitboard = охранный ТехФаб (машинн
     .desc = Печатная плата охранного ТехФаба.
 ent-ADTCircuitImprinterMachineCircuitboard = принтер схем (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
-ent-ADTExosuitFabricatorMachineCircuitboard = фабрикатор мехов (машинная плата)
-    .desc = { ent-BaseMachineCircuitboard.desc }
 
 ent-ADTCircuitImprinter = принтер схем
     .desc = Печатает платы для машин.
-ent-ADTExosuitFabricator = фабрикатор мехов
-    .desc = Печатает запчасти для продвинутых мехов.
 ent-ADTSecurityTechFab = охранный ТехФаб
     .desc = Печатает снаряжение для службы безопасности и некоторые базовые вещи.
 
