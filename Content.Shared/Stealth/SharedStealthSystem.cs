@@ -99,15 +99,13 @@ public abstract class SharedStealthSystem : EntitySystem
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
     {
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled, component.ExaminedDesc);
+        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled);
     }
 
     private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
     {
         if (args.Current is not StealthComponentState cast)
             return;
-
-        component.ExaminedDesc = cast.Desc;     // ADT
 
         SetEnabled(uid, cast.Enabled, component);
         component.LastVisibility = cast.Visibility;

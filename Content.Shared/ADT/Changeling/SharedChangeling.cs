@@ -129,10 +129,6 @@ public sealed partial class LingResonantShriekEvent : InstantActionEvent
 {
 }
 
-public sealed partial class LingSiliconStealthEvent : InstantActionEvent
-{
-}
-
 /// <summary>
 /// This event carries humanoid information list of entities, which DNA were stolen. Used for radial UI of "The genestealer".
 /// </summary>
@@ -188,4 +184,10 @@ public sealed partial class SelectChangelingFormEvent : EntityEventArgs
         EntitySelected = entitySelected;
         Type = type;
     }
+}
+
+[NetSerializable, Serializable]
+[DataDefinition]
+public sealed partial class ChangelingRefreshEvent : EntityEventArgs
+{
 }

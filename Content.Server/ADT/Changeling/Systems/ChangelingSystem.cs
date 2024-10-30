@@ -107,6 +107,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobState);
         SubscribeLocalEvent<ChangelingComponent, ActionBoughtEvent>(OnActionBought);
+        SubscribeLocalEvent<ChangelingComponent, ChangelingRefreshEvent>(OnRefresh);
 
         SubscribeLocalEvent<ChangelingComponent, ChangelingEvolutionMenuActionEvent>(OnShop);
         SubscribeLocalEvent<ChangelingComponent, ChangelingCycleDNAActionEvent>(OnCycleDNA);
@@ -275,6 +276,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             RemoveShieldEntity(uid, component);
             RemCompDeferred<StealthComponent>(uid);
             RemCompDeferred<StealthOnMoveComponent>(uid);
+            component.ChameleonSkinActive = false;
             return;
         }
 
@@ -288,6 +290,47 @@ public sealed partial class ChangelingSystem : EntitySystem
     private void OnActionBought(EntityUid uid, ChangelingComponent component, ref ActionBoughtEvent args)
     {
         component.BoughtActions.Add(args.ActionEntity);
+    }
+
+    private void OnRefresh(EntityUid uid, ChangelingComponent component, ChangelingRefreshEvent args)
+    {
+        if (!component.CanRefresh)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-cant-refresh"), uid, uid);
+            return;
+        }
+
+        foreach (var item in component.BoughtActions)
+        {
+            _action.RemoveAction(item);
+        }
+
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+
+        RemoveBladeEntity(uid, component);
+        RemoveShieldEntity(uid, component);
+        RemCompDeferred<StealthComponent>(uid);
+        RemCompDeferred<StealthOnMoveComponent>(uid);
+        component.ChameleonSkinActive = false;
+
+        if (component.LingArmorActive)
+        {
+            _inventorySystem.TryUnequip(uid, "head", true, true, false);
+            _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
+            TryUseAbility(uid, component, 0f, false, component.LingArmorRegenCost);
+            component.LingArmorActive = false;
+        }
+
+        _store.CloseUi(uid);
+        RemComp<StoreComponent>(uid);   // Да, я не нашёл ничего лучше, чем сделать всё так
+        _store.TryAddStore(uid,
+                            new HashSet<ProtoId<CurrencyPrototype>> { "EvolutionPoints" },
+                            new HashSet<ProtoId<StoreCategoryPrototype>> { "ChangelingAbilities" },
+                            new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } },
+                            false, false);
+
+        component.CanRefresh = false;
     }
 
     private void OnSelectChangelingForm(SelectChangelingFormEvent ev)

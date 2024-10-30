@@ -13,8 +13,8 @@
 
 - type: listing
   id: ChangelingArmBlade
-  name: arm-blade
-  description: arm-blade-desc
+  name: listing-arm-blade
+  description: listing-arm-blade-desc
   productAction: ActionArmBlade
   mindAction: false
   cost:
@@ -27,8 +27,8 @@
 
 - type: listing
   id: ChangelingArmor
-  name: chitinous-armor
-  description: chitinous-armor-desc
+  name: listing-chitinous-armor
+  description: listing-chitinous-armor-desc
   productAction: ActionLingArmor
   mindAction: false
   cost:
@@ -41,8 +41,8 @@
 
 - type: listing
   id: ChangelingChameleonSkin
-  name: chameleon-skin
-  description: chameleon-skin-desc
+  name: listing-chameleon-skin
+  description: listing-chameleon-skin-desc
   productAction: ActionLingInvisible
   mindAction: false
   cost:
@@ -55,8 +55,8 @@
 
 - type: listing
   id: ChangelingEMP
-  name: dissonant-shriek
-  description: dissonant-shriek-desc
+  name: listing-dissonant-shriek
+  description: listing-dissonant-shriek-desc
   productAction: ActionLingEMP
   mindAction: false
   cost:
@@ -83,8 +83,8 @@
 
 - type: listing
   id: ChangelingBlindSting
-  name: blind-sting
-  description: blind-sting-desc
+  name: listing-blind-sting
+  description: listing-blind-sting-desc
   productAction: ActionLingBlindSting
   mindAction: false
   cost:
@@ -97,8 +97,8 @@
 
 - type: listing
   id: ChangelingAdrenaline
-  name: adrenaline-cl
-  description: adrenaline-cl-desc
+  name: listing-adrenaline
+  description: listing-adrenaline-desc
   productAction: ActionLingAdrenaline
   mindAction: false
   cost:
@@ -110,10 +110,10 @@
     stock: 1
 
 - type: listing
-  id: ChangelingOmnizine
-  name: omnizine-cl
-  description: omnizine-cl-desc
-  productAction: ActionLingOmnizine
+  id: ChangelingFleshmend
+  name: listing-fleshmend
+  description: listing-fleshmend-desc
+  productAction: ActionLingFleshmend
   mindAction: false
   cost:
     EvolutionPoints: 3
@@ -125,8 +125,8 @@
 
 - type: listing
   id: ChangelingMuteSting
-  name: mute-sting
-  description: mute-sting-desc
+  name: listing-mute-sting
+  description: listing-mute-sting-desc
   productAction: ActionLingMuteSting
   mindAction: false
   cost:
@@ -139,8 +139,8 @@
 
 - type: listing
   id: ChangelingMuscles
-  name: muscles-cl
-  description: muscles-cl-desc
+  name: listing-strained-muscles
+  description: listing-strained-muscles-desc
   productAction: ActionLingMuscles
   mindAction: false
   cost:
@@ -153,8 +153,8 @@
 
 - type: listing
   id: ChangelingLesserForm
-  name: lesser-form
-  description: lesser-form-desc
+  name: listing-lesser-form
+  description: listing-lesser-form-desc
   productAction: ActionLingLesserForm
   mindAction: false
   cost:
@@ -167,8 +167,8 @@
 
 - type: listing
   id: ChangelingDrugSting
-  name: drug-sting
-  description: drug-sting-desc
+  name: listing-drug-sting
+  description: listing-drug-sting-desc
   productAction: ActionLingDrugSting
   mindAction: false
   cost:
@@ -181,8 +181,8 @@
 
 - type: listing
   id: ChangelingArmShield
-  name: arm-shield
-  description: arm-shield-desc
+  name: listing-arm-shield
+  description: listing-arm-shield-desc
   productAction: ActionArmShield
   mindAction: false
   cost:
@@ -195,8 +195,8 @@
 
 - type: listing
   id: ChangelingLastResort
-  name: resort-cl
-  description: resort-cl-desc
+  name: listing-last-resort
+  description: listing-resort-desc
   productAction: ActionLingLastResort
   mindAction: false
   cost:
@@ -209,8 +209,8 @@
 
 - type: listing
   id: ChangelingBiodegrade
-  name: biodegrade-cl
-  description: biodegrade-cl-desc
+  name: listing-biodegrade
+  description: listing-biodegrade-desc
   productAction: ActionLingBiodegrade
   mindAction: false
   cost:
@@ -223,8 +223,8 @@
 
 - type: listing
   id: ChangelingResonant
-  name: resonant-cl
-  description: resonant-cl-desc
+  name: listing-resonant-shriek
+  description: listing-resonant-shriek-desc
   productAction: ActionLingResonant
   mindAction: false
   cost:
@@ -237,8 +237,8 @@
 
 - type: listing
   id: ChangelingTransformSting
-  name: transform-sting-cl
-  description: transform-sting-cl-desc
+  name: listing-transform-sting
+  description: listing-transform-sting-desc
   productAction: ActionLingTransformSting
   mindAction: false
   cost:
@@ -250,15 +250,13 @@
     stock: 1
 
 - type: listing
-  id: ChangelingDigiCamp
-  name: digi-camo-cl
-  description: digi-camo-cl-desc
-  productAction: ActionLingDigitalCamouflage
-  mindAction: false
+  id: ChangelingRefresh
+  name: changeling-refresh
+  description: changeling-refresh-desc
+  productEvent: !type:ChangelingRefreshEvent
+  raiseOnBuyer: true
   cost:
-    EvolutionPoints: 1
+    EvolutionPoints: 0
   categories:
   - ChangelingAbilities
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+  icon: Interface/Actions/firestarter.png

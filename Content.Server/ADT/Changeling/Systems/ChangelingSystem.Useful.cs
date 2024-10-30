@@ -55,7 +55,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, LingBiodegradeActionEvent>(OnBiodegrade);
         SubscribeLocalEvent<ChangelingComponent, BiodegradeDoAfterEvent>(OnBiodegradeDoAfter);
         SubscribeLocalEvent<ChangelingComponent, TransformationStingEvent>(OnTransformSting);
-        SubscribeLocalEvent<ChangelingComponent, LingSiliconStealthEvent>(OnSiliconInvisible);
     }
 
     private void StartAbsorbing(EntityUid uid, ChangelingComponent component, LingAbsorbActionEvent args)   // Начало поглощения
@@ -650,57 +649,5 @@ public sealed partial class ChangelingSystem
             // реализовать сортировку
             RaiseNetworkEvent(ev, actorComponent.PlayerSession);
         }
-    }
-
-    private void OnSiliconInvisible(EntityUid uid, ChangelingComponent component, LingSiliconStealthEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (component.LesserFormActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
-            _popup.PopupEntity(selfMessage, uid, uid);
-            return;
-        }
-        if (component.ChameleonSkinActive)
-        {
-            var selfMessage = Loc.GetString("changeling-silicon-stealth-fail-chameleon-active");
-            _popup.PopupEntity(selfMessage, uid, uid);
-            return;
-        }
-
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwentyFive, !component.ChameleonSkinActive))
-            return;
-
-        args.Handled = true;
-
-        var stealth = new StealthComponent();
-
-        var message = Loc.GetString(!component.SiliconStealthEnabled ? "changeling-chameleon-toggle-on" : "changeling-chameleon-toggle-off");
-        _popup.PopupEntity(message, uid, uid);
-
-        component.SiliconStealthEnabled = !component.SiliconStealthEnabled;
-
-        if (component.SiliconStealthEnabled)
-        {
-            var wl = new EntityWhitelist
-            {
-                Tags = new() { "ADTSiliconStealthWhitelist" }
-            };
-            stealth.Whitelist = wl;
-            stealth.ExaminedDesc = Loc.GetString("changeling-digital-camo-examine");
-            AddComp(uid, stealth);
-            _stealth.SetVisibility(uid, -1f);
-
-            Dirty(uid, stealth);
-
-            _stealth.SetEnabled(uid, true);
-        }
-        else
-        {
-            RemCompDeferred<StealthComponent>(uid);
-        }
-
     }
 }

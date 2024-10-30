@@ -2,7 +2,7 @@
   id: ActionChangelingEvolutionMenu
   name: action-evolution-menu
   description: action-evolution-menu-decs
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -15,7 +15,7 @@
   id: ActionChangelingAbsorb
   name: action-absorb-dna
   description: action-absorb-dna-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -34,7 +34,7 @@
   id: ActionChangelingCycleDNA
   name: action-cycle-dna
   description: action-cycle-dna-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -49,7 +49,7 @@
   id: ActionChangelingTransform
   name: action-transform
   description: action-transform-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -64,7 +64,7 @@
   id: ActionLingRegenerate
   name: action-regenerate
   description: action-regenerate-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -81,7 +81,7 @@
   id: ActionLingStingExtract
   name: action-extract-dna-sting
   description: action-extract-dna-sting-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -100,7 +100,7 @@
   id: ActionArmBlade
   name: action-toggle-arm-blade
   description: action-toggle-arm-blade-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -115,7 +115,7 @@
   id: ActionLingArmor
   name: action-toggle-chitinous-armor
   description: action-toggle-chitinous-armor-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -130,7 +130,7 @@
   id: ActionLingInvisible
   name: action-toggle-chameleon-skin
   description: action-toggle-chameleon-skin-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -145,7 +145,7 @@
   id: ActionLingEMP
   name: action-activate-dissonant-shriek
   description: action-activate-dissonant-shriek-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -161,7 +161,7 @@
   id: ActionStasisDeath
   name: action-stasis-death
   description: action-stasis-death-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -182,7 +182,7 @@
   id: ActionLingBlindSting
   name: action-blind-sting
   description: action-blind-sting-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -202,7 +202,7 @@
   id: ActionLingAdrenaline
   name: action-adrenaline
   description: action-adrenaline-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -218,7 +218,7 @@
 #   id: ActionLingRefresh
 #   name: action-refresh-ling
 #   description: action-refresh-ling-desc
-#   noSpawn: true
+#   categories: [ HideSpawnMenu ]
 #   components:
 #   - type: InstantAction
 #     icon:
@@ -231,10 +231,10 @@
 
     # Fleshmend
 - type: entity
-  id: ActionLingOmnizine
+  id: ActionLingFleshmend
   name: action-omnizine
   description: action-omnizine-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -250,7 +250,7 @@
   id: ActionLingMuteSting
   name: action-mute-sting
   description: action-mute-sting-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -270,7 +270,7 @@
   id: ActionLingDrugSting
   name: action-drug-sting
   description: action-drug-sting-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -290,7 +290,7 @@
   id: ActionLingMuscles
   name: action-muscles
   description: action-muscles-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -306,7 +306,7 @@
   id: ActionLingLesserForm
   name: action-lesser-form
   description: action-lesser-form-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -323,7 +323,7 @@
   id: ActionArmShield
   name: action-toggle-arm-shield
   description: action-toggle-arm-shield-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -339,7 +339,7 @@
   id: ActionLingLastResort
   name: action-resort
   description: action-resort-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -356,7 +356,7 @@
   id: ActionLingBiodegrade
   name: action-biodegrade
   description: action-biodegrade-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -373,7 +373,7 @@
   id: ActionLingResonant
   name: action-resonant
   description: action-resonant-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -390,7 +390,7 @@
   id: ActionLingTransformSting
   name: action-transform-sting
   description: action-transform-sting-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon:
@@ -402,22 +402,5 @@
       components:
       - Body
     canTargetSelf: false
-    useDelay: 10
-    priority: -61
-
-    # DigiCamo
-- type: entity
-  id: ActionLingDigitalCamouflage
-  name: action-digi-camo
-  description: action-digi-camo-desc
-  noSpawn: true
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
-      state: digital_camo
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:LingSiliconStealthEvent
     useDelay: 10
     priority: -61
