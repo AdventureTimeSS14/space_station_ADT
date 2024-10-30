@@ -10,7 +10,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.ADT.Language;  // ADT Languages
-using Content.Shared.ADT.Language;  // ADT Languages
+using Content.Shared.ADT.Language;
+using Content.Shared.Inventory;  // ADT Languages
 
 namespace Content.Server.Corvax.TTS;
 
@@ -162,10 +163,4 @@ public sealed partial class TTSSystem : EntitySystem
 
         return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized);
     }
-}
-
-public sealed class TransformSpeakerVoiceEvent(EntityUid sender, string voiceId) : EntityEventArgs
-{
-    public EntityUid Sender = sender;
-    public string VoiceId = voiceId;
 }

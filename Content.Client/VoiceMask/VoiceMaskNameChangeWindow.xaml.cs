@@ -53,6 +53,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         if (IoCManager.Resolve<IConfigurationManager>().GetCVar(ADTCCVars.BarksEnabled))
         {
             BarksContainer.Visible = true;
+            BarksPitchContainer.Visible = true;
             ReloadBarks(IoCManager.Resolve<IPrototypeManager>());
         }
         // ADT Barks end
@@ -145,8 +146,8 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         }
     }
     // ADT Barks end
-    // public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb) // Corvax-TTS
-    public void UpdateState(string name, string voice, string? verb) // Corvax-TTS
+    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb) // Corvax-TTS
+    // public void UpdateState(string name, string voice, string? verb) // Corvax-TTS
     {
         NameSelector.Text = name;
         _verb = verb;
@@ -167,10 +168,10 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         // Corvax-TTS-End
 
         // // ADT Barks start
-        // var barkIdx = _barks.FindIndex(b => b.ID == barkId);
-        // if (barkIdx != -1)
-        //     BarkSelector.Select(barkIdx);
-        // PitchSelector.SetText(barkPitch.ToString());
+        var barkIdx = _barks.FindIndex(b => b.ID == barkId);
+        if (barkIdx != -1)
+            BarkSelector.Select(barkIdx);
+        PitchSelector.SetText(barkPitch.ToString());
         // // ADT Barks end
     }
 }

@@ -1,33 +1,37 @@
-# - type: entity
-#   abstract: true
-#   parent: BaseGameRule
-#   id: BasePhantomRule
-#   components:
-#   - type: PhantomRule
-#   - type: AntagSelection
-#   - type: AntagSpawnEntityRule
-#     prototype: ADTMobPhantom
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BasePhantomRule
+  components:
+  - type: PhantomRule
+  - type: AntagSelection
+  - type: AntagSpawnEntityRule
+    prototype: ADTMobPhantom
 
-# - type: entity
-#   parent: BasePhantomRule
-#   id: PhantomGameRule
-#   components:
-#   - type: GameRule
-#     minPlayers: 25
-#   - type: AntagSelection
-#     selectionTime: PrePlayerSpawn
-#     definitions:
-#     - prefRoles: [ Phantom ]
-#       spawnerPrototype: SpawnPointGhostPhantom
-#       max: 1
-#       components:
-#       - type: NpcFactionMember
-#         factions:
-#         - Syndicate
-#       mindComponents:
-#       - type: PhantomRole
-#         prototype: Phantom
-#   - type: AntagRandomSpawn
+- type: entity
+  parent: BasePhantomRule
+  id: PhantomGameRule
+  components:
+  - type: GameRule
+    minPlayers: 1
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ Phantom ]
+      spawnerPrototype: SpawnPointGhostPhantom
+      max: 1
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: PhantomRole
+        prototype: Phantom
+      mindRoles:
+      - MindRolePhantom
+  - type: AntagRandomSpawn
+  - type: AntagSpawnEntityRule
+    prototype: ADTMobPhantom
 
 - type: entityTable
   id: RampingGameRulesTable

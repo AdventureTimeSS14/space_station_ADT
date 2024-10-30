@@ -1,10 +1,14 @@
-namespace Content.Server.ADT.SpeechBarks;
+using Content.Shared.Inventory;
 
-public sealed class TransformSpeakerBarkEvent : EntityEventArgs
+namespace Content.Shared.ADT.SpeechBarks;
+
+public sealed class TransformSpeakerBarkEvent : EntityEventArgs, IInventoryRelayEvent
 {
     public EntityUid Sender;
     public string Sound;
     public float Pitch;
+
+    public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
 
     public TransformSpeakerBarkEvent(EntityUid sender, string sound, float pitch)
     {

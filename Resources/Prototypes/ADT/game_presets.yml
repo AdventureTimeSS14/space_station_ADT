@@ -1,18 +1,18 @@
-# - type: gamePreset
-#   id: Phantom
-#   alias:
-#     - phantom
-#     - ghosts
-#   name: phantom-title
-#   minPlayers: 25
-#   showInVote: false
-#   description: phantom-description
-#   rules:
-#     - PhantomGameRule
-#     - BasicRoundstartVariation
-#     - SubGamemodesRule
-#     - BasicStationEventScheduler
-#     - MeteorSwarmScheduler
+- type: gamePreset
+  id: Phantom
+  alias:
+    - phantom
+    - ghosts
+  name: phantom-title
+  minPlayers: 1
+  showInVote: true
+  description: phantom-description
+  rules:
+    - PhantomGameRule
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
 
 # - type: gamePreset
 #   showInVote: false # secret
