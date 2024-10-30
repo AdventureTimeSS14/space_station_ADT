@@ -3,6 +3,7 @@
   mapName: 'Meta Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_meta.yml
   minPlayers: 10
+  maxPlayers: 80
   stations:
     ADT_Meta:
       stationProto: StandardNanotrasenStation
@@ -57,6 +58,7 @@
             SecurityCadet: [ 3, 6 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
             #Lawyer: [ 2, 2 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]

@@ -15,10 +15,11 @@
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
     - id: ADTClothingNeckCloakBlueshield
+    - id: ADTClothingNeckCloakSecondBlueshield
     - id: ADTClothingOuterWinterBlueshield
     - id: ClothingShoesBootsJack
-    - id: ADTClothingUniformJumpskirtBlueshieldJumpskirtTurtleneck
-    - id: ADTClothingUniformJumpsuitBlueshieldTurtleneck
+    - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
+    - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
 
 - type: entity
   id: ADTLockerBlueshieldFilled
@@ -35,7 +36,8 @@
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
     - id: ADTClothingNeckCloakBlueshield
+    - id: ADTClothingNeckCloakSecondBlueshield
     - id: ADTClothingOuterWinterBlueshield
     - id: ClothingShoesBootsJack
-    - id: ADTClothingUniformJumpskirtBlueshieldJumpskirtTurtleneck
-    - id: ADTClothingUniformJumpsuitBlueshieldTurtleneck
+    - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
+    - id: ADTClothingUniformJumpsuitTurtleneckBlueshield

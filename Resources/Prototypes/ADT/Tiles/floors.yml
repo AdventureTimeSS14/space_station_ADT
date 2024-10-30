@@ -1,0 +1,33 @@
+- type: tile
+  id: ADTFloorBlackOrange
+  name: tiles-blackorange-floor
+  sprite: /Textures/ADT/Tiles/blackorange.png
+  variants: 3
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorYellowOrange
+  name: tiles-yelloworange-floor
+  sprite: /Textures/ADT/Tiles/yelloworange.png
+  variants: 3
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000

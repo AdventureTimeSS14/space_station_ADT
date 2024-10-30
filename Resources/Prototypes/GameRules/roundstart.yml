@@ -22,6 +22,8 @@
     rules:
     - id: Thief
       prob: 0.5
+    - id: Heretic # goob edit
+      prob: 0.2
 
 - type: entity
   id: DeathMatch31
@@ -104,7 +106,7 @@
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFull
       roleLoadout:
-      - RoleSurvivalSyndicate
+      - RoleSurvivalNukie
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -122,7 +124,7 @@
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFull
       roleLoadout:
-      - RoleSurvivalSyndicate
+      - RoleSurvivalNukie
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -142,7 +144,7 @@
       playerRatio: 10
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
-      - RoleSurvivalSyndicate
+      - RoleSurvivalNukie
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -274,10 +276,15 @@
     children:
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
-      # - !type:NestedSelector  # ADT Extended nerf
-      #   tableId: BasicAntagEventsTable
+      - !type:NestedSelector
+        tableId: BasicAntagEventsTable
       - !type:NestedSelector
         tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
 
 - type: entityTable
   id: SpaceTrafficControlTable
@@ -287,7 +294,7 @@
         tableId: UnknownShuttlesFriendlyTable
       - !type:NestedSelector
         tableId: UnknownShuttlesFreelanceTable
-      # - !type:NestedSelector  # ADT tweak
+      # - !type:NestedSelector # ADT tweak
       #   tableId: UnknownShuttlesHostileTable
 
 - type: entity
@@ -311,10 +318,10 @@
   parent: BaseGameRule                  # we can remerge this with the other schedulers, but it will silently fail due to that limitation without a separate scheduler to balance atm.
   components:
   - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 1200 # 20 mins
+    minimumTimeUntilFirstEvent: 2700 # 45 mins #shows up like half way through shift.
     minMaxEventTiming:
-      min: 600 # 10 mins
-      max: 1800 # 30 mins
+      min: 3600 # ADT_Tweak 20 >> 60 min
+      max: 7200 # 120 mins # you probably arent getting a second visitor shuttle in one round, but it is possible.
     scheduledGameRules: !type:NestedSelector
       tableId: SpaceTrafficControlTable
 
@@ -325,8 +332,8 @@
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 1200 # 20 mins
     minMaxEventTiming:
-      min: 600 # 10 mins
-      max: 1800 # 30 mins
+      min: 3600 # ADT_Tweak 10 >> 60 min
+      max: 7200 # ADT_Tweak 10 >> 120 min
     scheduledGameRules: !type:NestedSelector
       tableId: UnknownShuttlesFriendlyTable
 

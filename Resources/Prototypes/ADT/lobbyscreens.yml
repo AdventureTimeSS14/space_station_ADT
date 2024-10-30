@@ -10,4 +10,10 @@
   id: NOGORLEX
   background: /Textures/ADT/LobbyScreens/NOGORLEX.webp
 
+- type: lobbyBackground
+  id: detective
+  background: /Textures/ADT/LobbyScreens/detective.webp
 
+- type: lobbyBackground
+  id: starbow
+  background: /Textures/ADT/LobbyScreens/starbow.webp

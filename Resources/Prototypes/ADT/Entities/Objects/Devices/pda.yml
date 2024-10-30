@@ -119,3 +119,30 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-investigator
+
+- type: entity
+  parent: BasePDA
+  id: ADTTraderPDA
+  name: trader PDA
+  description: trader PDA
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+  - type: Pda
+    id: ADTTraderIDCard
+    state: pda-tradertsf
+
+# КПК надзирателя
+- type: entity
+  parent: ADTBasePDA
+  id: ADTGuardOfficerPDA
+  name: guard officer PDA
+  description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
+  components:
+  - type: Pda
+    id: ADTGuardOfficerIDCard
+    state: pda-guardofficer
+  - type: PdaBorderColor
+    borderColor: "#774705"
+  - type: Icon
+    state: pda-guardofficer

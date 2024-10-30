@@ -77,3 +77,23 @@
   cost: 1500
   category: cargoproduct-category-name-food
   group: market
+
+- type: cargoProduct
+  id: ADTFoodOktoberfestSnack
+  icon:
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
+    state: brezel_salt
+  product: ADTCrateFoodOktoberfestSnack
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoHalloweenSnack
+  icon:
+    sprite: ADT/Objects/Misc/halloween_smilecandy_bowl.rsi
+    state: icon-0
+  product: ADTCrateHalloweenFood
+  cost: 2300
+  category: cargoproduct-category-name-food
+  group: market

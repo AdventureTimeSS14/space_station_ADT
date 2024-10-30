@@ -43,7 +43,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/cinnamon_flat_cap.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 150
+    price: 15
 
 - type: entity
   parent: ClothingHeadBase
@@ -56,7 +56,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/grey_flat_cap.rsi #спрайты от prazat911
   - type: StaticPrice
-    price: 150
+    price: 15
 
 - type: entity
   parent: ClothingHeadBase
@@ -127,6 +127,29 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/armyberet.rsi
 
+# Фуражки надзирателя
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGuardOfficer
+  name: guard officer cap
+  description: Glory to NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGuardOfficerMaster
+  name: guard officer cap master
+  description: Glory to NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap_master.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap_master.rsi
+
 #Береты профессий
 
 - type: entity
@@ -170,3 +193,200 @@
   - type: Tag
     tags:
       - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsParamedicBeret
+  name: paramedic's beret
+  description: A blue beret of a constantly busy job.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_paramedic.rsi #спрайты от prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_paramedic.rsi
+  - type: Tag
+    tags:
+      - HamsterWearable
+
+#октоберфест
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHat
+  name: bavarian hat
+  description: Traditional bavarian hat
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bavarian_hat.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bavarian_hat.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatBlueBorder
+  name: bavarian hat with blue border
+  description: Traditional bavarian hat with a blue border
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatborderblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatborderblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatRedBorder
+  name: bavarian hat with red border
+  description: Traditional bavarian hat with a red border
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatborderred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatborderred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatGreenBorder
+  name: bavarian hat with green border
+  description: Traditional bavarian hat with a green border
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatbordergreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatbordergreen.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatBlue
+  name: bavarian blue hat
+  description: Traditional bavarian blue hat with a feather
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatblue.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatblue.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatGreen
+  name: bavarian green hat
+  description: Traditional bavarian green hat with a feather
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatgreen.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatgreen.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsBavarianHatRed
+  name: bavarian red hat
+  description: Traditional bavarian red hat with a feather
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatred.rsi #спрайты от SHIONE
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/bavarian_hatred.rsi #спрайты от SHIONE
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatTrader
+  name: hat
+  description: trader.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/trader.rsi #спрайты от prazat911
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/trader.rsi
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadVyasovHat
+  name: shabby fedora
+  description: It looks very shabby brown in color, it smells like a nightmare straight from Vyazova Street
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/vyazovhat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/vyazovhat.rsi
+
+- type: entity
+  parent: ADTClothingHeadUSSPjuggernautHelmetArmored
+  id: ADTClothingHeadKillaHelmet
+  name: Killa helmet
+  description: Killa helmet
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/killahelmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/killahelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95
+        Heat: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadXenomorph
+  name: Xenomorph head
+  description: Xenomorph head
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/xeno_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/xeno_head.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadZombie
+  name: zombie head
+  description: zombie head
+  suffix: Halloween
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/zombie_head.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/zombie_head.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatChainSaw
+  name: fox head
+  description: "It's a fox head. Snort snort snort!"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
+  - type: IngestionBlocker
+

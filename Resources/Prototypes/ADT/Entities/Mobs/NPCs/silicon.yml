@@ -1,0 +1,37 @@
+- type: entity
+  parent: [ MobSiliconBase, ADTBaseVehicle]
+  id: ADTMobSiliconBaseVehicle # for vehicles
+  abstract: true
+  components:
+  - type: NoSlip
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 3.5
+    softness: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+
+- type: entity
+  parent: ADTMobSiliconBaseVehicle
+  id: ADTMobTaxiBot
+  name: taxibot
+  description: Give a ride?
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/Bots/taxibot.rsi
+    layers:
+    - state: taxibot
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+  - type: GhostRole
+    name: ghost-role-information-taxibot-name
+    description: ghost-role-information-taxibot-description
+  - type: Strap
+    buckleOffset: "0, 0"
+    # maxBuckleDistance: 1
+  # - type: Construction
+  #   graph: TaxiBot
+  #   node: bot

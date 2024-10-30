@@ -49,7 +49,7 @@
         trade: !type:GridSpawnGroup
           minimumDistance: 150
           maximumDistance: 200
-          nameDataset: adt_trade_station
+          nameGrid: false # ADT Trade Station Name
           addComponents:
             - type: ProtectedGrid
             - type: TradeStation
@@ -86,11 +86,18 @@
             inherent: true
           protos:
           - VGRoid
-        # Corvax-Mining-Start
+        # ADT-Mining-Start
         mining: !type:GridSpawnGroup
+          nameGrid: false
           paths:
-          - /Maps/Shuttles/corvax_mining.yml
-        # Corvax-Mining-End
+          - /Maps/ADTMaps/Shuttles/pioneer.yml
+        # ADT-Mining-End
+        # ADT-Security-Start
+        security: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/sec_shuttle.yml
+        # ADT-Security-End
 
 - type: entity
   id: BaseStationCentcomm

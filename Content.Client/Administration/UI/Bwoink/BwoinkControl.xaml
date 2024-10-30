@@ -9,8 +9,10 @@
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
                     <CheckBox Visible="True" Name="PlaySound" Access="Public" Text="{Loc 'admin-bwoink-play-sound'}" Pressed="True" />
                     <Control HorizontalExpand="True" MinWidth="5" />
-                    <Button Visible="True" Name="PopOut" Access="Public" Text="{Loc 'admin-logs-pop-out'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" />
+                    <!-- <Button Visible="True" Name="PopOut" Access="Public" Text="{Loc 'admin-logs-pop-out'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" /> --> <!-- ADT-Tweak -->
+                    <Button Visible="True" Name="Logs" Access="Public" Text="{Loc 'admin-player-actions-open-logs'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" /> <!-- ADT-Tweak -->
                     <Control HorizontalExpand="True" />
+                    <Button Visible="False" Name="Playerpanel" Text="{Loc 'admin-player-actions-open-playerpanel'}" StyleClasses="OpenRight" /> <!-- ADT-Tweak -->
                     <Button Visible="False" Name="Bans" Text="{Loc 'admin-player-actions-bans'}" StyleClasses="OpenRight" />
                     <Button Visible="False" Name="Notes" Text="{Loc 'admin-player-actions-notes'}" StyleClasses="OpenBoth" />
                     <Button Visible="False" Name="Kick" Text="{Loc 'admin-player-actions-kick'}" StyleClasses="OpenBoth" />

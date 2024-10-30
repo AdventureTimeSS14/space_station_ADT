@@ -9,6 +9,7 @@
     - id: CargoSaleComputerCircuitboard
     - id: CargoShuttleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
+    - id: SalvageMagnetMachineCircuitboard
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -27,6 +28,9 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    # ADT-Tweak Start - частичный откат нерфа утилей
+    - id: ADTSalvageShuttleConsoleCircuitboard
+    # ADT-Tweak End - частичный откат нерфа утилей
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -149,6 +153,7 @@
     - id: ClothingEyesHudCommand
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
+    - id: ADTHoPClipboard #ADT-Tweak
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -249,12 +254,15 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
-    # ADT-WikiBooks-Start
+    # ADT tweak Start
+    - id: ADTMobileDefibrillator
+    - id: ADTBriefcaseBrownHikingCmoFilled
+    - id: ADTBriefcaseMedicalFilled
     - id: ADTBookSRPcmd
     - id: ADTBookSRPmed
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
+    # ADT tweak End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -265,7 +273,7 @@
     - id: ClothingOuterHardsuitMedical
     - id: OxygenTankFilled
 
-# No hardsuit locker      
+# No hardsuit locker
 - type: entity
   id: LockerChiefMedicalOfficerFilled
   suffix: Filled
@@ -322,7 +330,7 @@
     - id: ClothingOuterHardsuitRd
     - id: OxygenTankFilled
 
-# No hardsuit locker      
+# No hardsuit locker
 - type: entity
   id: LockerResearchDirectorFilled
   suffix: Filled
@@ -380,6 +388,9 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    # ADT-SecShuttle-Start
+    - id: ADTSecShuttleConsoleCircuitboard
+    # ADT-SecShuttle-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -391,7 +402,7 @@
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
-# No hardsuit locker      
+# No hardsuit locker
 - type: entity
   id: LockerHeadOfSecurityFilled
   suffix: Filled

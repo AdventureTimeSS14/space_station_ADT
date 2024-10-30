@@ -99,7 +99,7 @@
     makeSentient: true
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
+    rules: ghost-role-information-rules-default-team-antagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -124,6 +124,12 @@
     - Xeno
     understands:
     - Xeno
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    channel: XenoCollectiveMind
+    showRank: true
+    rankName: collective-mind-burrower-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   name: praetorian
@@ -157,6 +163,10 @@
         - MobMask
         layer:
         - MobLayer
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    rankName: collective-mind-praetorian-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   name: drone
@@ -194,6 +204,10 @@
         - MobMask
         layer:
         - MobLayer
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    rankName: collective-mind-drone-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   name: queen
@@ -233,6 +247,11 @@
   - type: Tag
     tags:
     - CannotSuicide
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    rankName: collective-mind-queen-rank
+  # ADT-CollectiveMind-Tweak-End
+
 
 - type: entity
   name: ravager
@@ -270,6 +289,10 @@
         - MobMask
         layer:
         - MobLayer
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    rankName: collective-mind-ravager-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   name: runner
@@ -300,6 +323,10 @@
         - MobMask
         layer:
         - MobLayer
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    rankName: collective-mind-runner-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   name: rouny
@@ -315,6 +342,10 @@
     spawned:
     - id: FoodMeatRouny
       amount: 3
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    rankName: collective-mind-rouny-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   name: spitter
@@ -362,6 +393,10 @@
         - MobMask
         layer:
         - MobLayer
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMind
+    rankName: collective-mind-spitter-rank
+  # ADT-CollectiveMind-Tweak-End
 
 - type: entity
   name: space adder

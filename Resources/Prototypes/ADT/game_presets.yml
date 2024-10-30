@@ -5,10 +5,25 @@
     - ghosts
   name: phantom-title
   minPlayers: 25
-  showInVote: true
+  showInVote: false
   description: phantom-description
   rules:
     - PhantomGameRule
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+
+- type: gamePreset
+  showInVote: false # secret
+  id: Heretic
+  alias:
+    - heretic
+  name: heretic-title
+  minPlayers: 25
+  description: heretic-title
+  rules:
+    - HereticGameRule
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler

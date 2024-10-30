@@ -112,11 +112,19 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  # ADT tweak start
   - type: LanguageSpeaker # ADT
     speaks:
     - Bubblish
     understands:
     - Bubblish
+  - type: Prying # Open door from xeno.yml.
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  # ADT tweak end
 
 - type: entity
   name: basic slime
@@ -148,7 +156,7 @@
     rootTask:
       task: SimpleHostileCompound
   - type: TTS # Corvax-TTS
-    voice: neco_arc_2
+    voice: neco_arc_2 #ADT-Tweak
 
 - type: entity
   name: blue slime

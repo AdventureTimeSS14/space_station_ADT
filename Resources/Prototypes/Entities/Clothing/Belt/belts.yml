@@ -475,10 +475,12 @@
         - Sidearm
         - MagazinePistol
         - MagazineMagnum
+        - ADTTelescopicBaton #ADT-Tweak
         - ADTMagazineRifleBibis # ADT Tweak
         - CombatKnife
         - Truncheon
         - ADTLasgunRevolverCell #ADT Tweak
+        - ADTCartridgeBibis # ADT Tweak
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -487,7 +489,6 @@
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
-        - ADTCartridgeBibis # ADT Tweak
         - DoorRemote
         - Whistle
         - HolosignProjector
@@ -624,7 +625,7 @@
     sprite: Clothing/Belt/securitywebbing.rsi
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
   id: ClothingBeltMercWebbing
   name: mercenary webbing
   description: Ideal for storing everything from ammo to weapons and combat essentials.

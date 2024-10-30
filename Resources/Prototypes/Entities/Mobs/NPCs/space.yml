@@ -83,6 +83,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
+  # Start ADT tweak
+  - type: NpcFactionMember
+    factions:
+    - ADTSpaceMobs
+  # End ADT tweak
   - type: DamageStateVisuals
     states:
       Alive:
@@ -133,6 +138,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
+  # Start ADT tweak
+  - type: NpcFactionMember
+    factions:
+    - ADTSpaceMobs
+  # End ADT tweak
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -394,6 +404,7 @@
     description: ghost-role-information-snail-description
     rules: ghost-role-information-freeagent-rules
   - type: GhostTakeoverAvailable
+  - type: Emoting
   - type: Sprite
     drawdepth: SmallMobs
     sprite: Mobs/Animals/snail.rsi
@@ -491,7 +502,6 @@
     price: 50
   - type: BadFood
   - type: NonSpreaderZombie
-  - type: PreventSpiller
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -513,7 +523,7 @@
         visualType: Large
         messages: [ "snail-hurt-by-salt-popup" ]
         probability: 0.66
-    
+
 - type: entity
   parent: MobSnail
   id: MobSnailInstantDeath
@@ -548,9 +558,9 @@
       Alive:
         Base: spacesnail
       Critical:
-        Base: spacesnaildead
+        Base: spacedead
       Dead:
-        Base: spacesnaildead
+        Base: spacedead
   - type: MovementSpeedModifier
     baseWalkSpeed : 5 #he go fast, also they cant slip so its probably fine.
     baseSprintSpeed : 7

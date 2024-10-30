@@ -1,0 +1,37 @@
+# Крутой надзиратель
+- type: loadoutEffectGroup
+  id: MasterGuardOfficer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTGuardOfficer
+      time: 36000 # 600 минут
+
+# Head
+- type: loadout
+  id: ADTHeadHatGuardOfficer
+  equipment:
+    head: ADTClothingHeadHatsGuardOfficer
+
+- type: loadout
+  id: ADTHeadHatGuardOfficerMaster
+  equipment:
+    head: ADTClothingHeadHatsGuardOfficerMaster
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterGuardOfficer # Нужно наиграть 600 минут на надзирателе для открытия
+
+# Jumpsuit
+- type: loadout
+  id: ADTUniformJumpsuitGuardOfficer
+  equipment:
+    jumpsuit: ADTClothingUniformGuardOfficer
+
+- type: loadout
+  id: ADTUniformJumpsuitGuardOfficerMaster
+  equipment:
+    jumpsuit: ADTClothingUniformGuardOfficerMaster
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterGuardOfficer # Нужно наиграть 600 минут на надзирателе для открытия

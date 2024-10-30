@@ -14,7 +14,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
-using System.Linq;
 
 namespace Content.Shared.Execution;
 

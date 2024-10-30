@@ -23,6 +23,7 @@
     - FootstepSound
     - DoorBumpOpener
     - SpiderCraft
+    - AnomalyHost
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -40,6 +41,14 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPieReaction
+  # Start ADT tweak
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed : 4.4
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ADTArachnid
+  # End ADT tweak
   # Damage (Self)
   - type: Bloodstream
     bloodReagent: CopperBlood
@@ -50,8 +59,9 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Piercing: 5
+        Piercing: 7 # ADT tweak
   # Visual & Audio
+
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -71,6 +81,7 @@
   - type: TypingIndicator
     proto: spider
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
+    scale: 1.07, 1.07 # ADT tweak
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -80,6 +91,11 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # ADT tweak start
+      - map: [ "underwearb" ] #Sirena
+      - map: [ "underweart" ] #Sirena
+      - map: [ "socks" ] #Sirena
+      # ADT tweak end
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -121,6 +137,13 @@
     understands:
     - GalacticCommon
     - Moffic
+  #Start ADT tweak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.15
+    short: true
+    shortscale: 0.98
+  #End ADT tweak
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -129,6 +152,55 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
-
+  # Start ADT tweak
+  - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
+    scale: 1.07, 1.07 # ADT tweak
+    layers:
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # ADT tweak start
+      - map: [ "underwearb" ] #Sirena
+      - map: [ "underweart" ] #Sirena
+      - map: [ "socks" ] #Sirena
+      # ADT tweak end
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ] # Mentioned in moth code: This needs renaming lol.
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_arachnid"
+        visible: false
+  # End ADT tweak
 
 #>88w88<

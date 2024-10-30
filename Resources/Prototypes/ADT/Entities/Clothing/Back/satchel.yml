@@ -8,6 +8,8 @@
   - type: Sprite
     sprite: ADT/Clothing/Back/blueshield_satchel.rsi
 
+# Med
+
 - type: entity
   parent: ClothingBackpackSatchelMedical
   id: ADTClothingBackpackSatchelPathologist
@@ -24,3 +26,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/centcom_satchel.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackSatchelParamedic
+  name: paramedical satchel
+  description: A satchel to store some paramedical equipment.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/paramedic_satchel.rsi

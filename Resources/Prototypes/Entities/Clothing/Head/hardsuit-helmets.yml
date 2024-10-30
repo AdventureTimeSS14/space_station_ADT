@@ -60,7 +60,8 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
   - type: FireProtection
     reduction: 0.2
 
@@ -164,10 +165,36 @@
   name: security hardsuit helmet
   description: Armored hardsuit helmet for security needs.
   components:
+# ADT Tweak START
+#  - type: Sprite
+#    sprite: /Clothing/Head/Hardsuits/security.rsi Закоменчено для ADT
+#  - type: Clothing
+#    sprite: /Clothing/Head/Hardsuits/security.rsi Закоменчено для ADT
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/security.rsi # ADT Tweak
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/security.rsi # ADT Tweak
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+# ADT Tweak END
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -189,9 +216,9 @@
   description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: PointLight
     color: "#00FFFF"
   - type: Armor
@@ -214,10 +241,36 @@
   name: warden's hardsuit helmet
   description: A modified riot helmet. Oddly comfortable.
   components:
+# ADT Tweak START
+#  - type: Sprite
+#    sprite: Clothing/Head/Hardsuits/security-warden.rsi Закоменчено для ADT
+#  - type: Clothing
+#    sprite: Clothing/Head/Hardsuits/security-warden.rsi Закоменчено для ADT
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/security-warden.rsi # ADT Tweak
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/security-warden.rsi # ADT Tweak
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+# ADT Tweak END
   - type: PointLight
     color: cyan # Corvax-Resprite
   - type: PressureProtection
@@ -306,10 +359,36 @@
   name: head of security's hardsuit helmet
   description: Security hardsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS.
   components:
+# ADT Tweak START
+#  - type: Sprite
+#    sprite: Clothing/Head/Hardsuits/security-red.rsi Закоменчено для ADT
+#  - type: Clothing
+#    sprite: Clothing/Head/Hardsuits/security-red.rsi Закоменчено для ADT
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/security-red.rsi # ADT Tweak
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/Head/Hardsuits/security-red.rsi # ADT Tweak
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+# ADT Tweak END
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -407,7 +486,8 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
   - type: FireProtection
     reduction: 0.2
   - type: Armor
@@ -542,17 +622,34 @@
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitERTEngineer
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTLeader
   name: ERT leader hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTChaplain
   name: ERT chaplain hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -566,7 +663,7 @@
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTEngineer
   name: ERT engineer hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -609,39 +706,90 @@
 
 #ERT Medical Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitERTEngineer
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite ]
   id: ClothingHeadHelmetHardsuitERTMedical
   name: ERT medic hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 #ERT Security Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitERTEngineer
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTSecurity
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitERTEngineer
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTJanitor
   name: ERT janitor hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PointLight
+    color: "#fff7cd"
 
 
 #ADT ert's end
 #CBURN Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetCBURN
   name: CBURN exosuit helmet
   description: A pressure resistant and fireproof hood worn by special cleanup units.
@@ -668,7 +816,8 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
   - type: Armor
     modifiers:
       coefficients:
@@ -679,7 +828,7 @@
 
 #Deathsquad Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase # Corvax-Resprite
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ] # Corvax-Resprite
   id: ClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -709,7 +858,7 @@
 #MISC. HARDSUITS
 #Clown Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSecurity
+  parent: ClothingHeadHardsuitWithLightBase # ADT tweak
   id: ClothingHeadHelmetHardsuitClown
   name: clown hardsuit helmet
   description: A clown hardsuit helmet.
@@ -726,7 +875,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSecurity
+  parent: ClothingHeadHardsuitWithLightBase # ADT tweak
   id: ClothingHeadHelmetHardsuitMime
   name: mime hardsuit helmet
   description: A mime hardsuit helmet.

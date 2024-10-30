@@ -16,6 +16,7 @@ using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
+using Content.Shared.ADT.UI.Chat;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Damage.ForceSay;
@@ -40,6 +41,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Client.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
+using Content.Shared.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
+using System.Globalization;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -65,6 +71,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly TransformSystem? _transform = default;
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
+    [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!; // ADT-CollectiveMind-Tweak
 
     [ValidatePrototypeId<ColorPalettePrototype>]
     private const string ChatNamePalette = "ChatNames";
@@ -77,6 +84,7 @@ public sealed class ChatUIController : UIController
     {
         {SharedChatSystem.LocalPrefix, ChatSelectChannel.Local},
         {SharedChatSystem.WhisperPrefix, ChatSelectChannel.Whisper},
+        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind}, // ADT-CollectiveMind-Tweak
         {SharedChatSystem.ConsolePrefix, ChatSelectChannel.Console},
         {SharedChatSystem.LOOCPrefix, ChatSelectChannel.LOOC},
         {SharedChatSystem.OOCPrefix, ChatSelectChannel.OOC},
@@ -91,6 +99,7 @@ public sealed class ChatUIController : UIController
     {
         {ChatSelectChannel.Local, SharedChatSystem.LocalPrefix},
         {ChatSelectChannel.Whisper, SharedChatSystem.WhisperPrefix},
+        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix}, // ADT-CollectiveMind-Tweak
         {ChatSelectChannel.Console, SharedChatSystem.ConsolePrefix},
         {ChatSelectChannel.LOOC, SharedChatSystem.LOOCPrefix},
         {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
@@ -202,6 +211,9 @@ public sealed class ChatUIController : UIController
 
         _input.SetInputCommand(ContentKeyFunctions.FocusWhisperChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Whisper)));
+
+        _input.SetInputCommand(ContentKeyFunctions.FocusCollectiveMind, // ADT-CollectiveMind-Tweak
+            InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.CollectiveMind))); // ADT-CollectiveMind-Tweak
 
         _input.SetInputCommand(ContentKeyFunctions.FocusLOOC,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.LOOC)));
@@ -557,7 +569,15 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminAlert;
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
+            FilterableChannels |= ChatChannel.CollectiveMind; // ADT-CollectiveMind-Tweak
         }
+        // ADT-CollectiveMind-Tweak-Start
+        if (_collectiveMind != null && EntityManager.HasComponent<CollectiveMindComponent>(_player.LocalEntity))
+        {
+            CanSendChannels |= ChatSelectChannel.CollectiveMind;
+            FilterableChannels |= ChatChannel.CollectiveMind;
+        }
+        // ADT-CollectiveMind-Tweak-End
 
         SelectableChannels = CanSendChannels;
 
@@ -836,6 +856,26 @@ public sealed class ChatUIController : UIController
                 }
             }
         }
+
+        // Start-ADT-Tweak: возможность выделять сообщения в чате
+        if (
+            (msg.Channel == ChatChannel.Radio || msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper)
+            && _player.LocalEntity != null
+            && _ent.TryGetComponent<HighlightWordsInChatComponent>(_player.LocalEntity.Value, out var hlWords)
+        )
+        {
+            foreach (var (color, locStrings) in hlWords.HighlightWords)
+            {
+                foreach (var locString in locStrings)
+                {
+                    var message = Loc.GetString(locString);
+                    if (SharedChatSystem.MessageTextContains(msg, message)) {
+                        msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, message, "color", color);
+                    }
+                }
+            }
+        }
+        // End-ADT-Tweak
 
         // Log all incoming chat to repopulate when filter is un-toggled
         if (!msg.HideChat)

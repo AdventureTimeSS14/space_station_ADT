@@ -3,7 +3,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: false # secret
+  showInVote: true 
   description: survival-description
   rules:
     - MeteorSwarmScheduler
@@ -52,7 +52,7 @@
   - badidea
   - punishment
   name: aller-at-once-title
-  description: all-at-once-description
+  description: aller-at-once-description
   showInVote: false #Please god dont do this
   rules:
     - Nukeops
@@ -77,8 +77,9 @@
   showInVote: true #2boring2vote
   description: extended-description
   rules:
-  - BasicStationEventScheduler
-  - SpaceTrafficControlFriendlyEventScheduler
+  - ExtendedStationEventScheduler #ADT extended
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset

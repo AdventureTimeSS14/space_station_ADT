@@ -117,4 +117,18 @@
     - id: WeaponShotgunBulldog
     - id: MagazineShotgun
       amount: 2
-    - id: MagazineShotgunBeanbag
+#   - id: MagazineShotgunBeanbag
+    - id: MagazineShotgunSlug
+      amount: 2
+
+- type: entity
+  id: ADTWeaponCaseAR12
+  name: weapon case
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTWeaponRifleAR12
+    - id: ADTMagazineRifleAR12
+      amount: 4
