@@ -14,3 +14,12 @@
   id: MusicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterMusician
+
+- type: loadoutEffectGroup
+  id: SuperSynthesizerInstrument
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: Musician
+      time: 72000 #20 hrs
