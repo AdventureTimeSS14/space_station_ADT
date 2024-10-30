@@ -5,10 +5,10 @@
         "y": 32
     },
     "license": "CC-BY-NC-SA-4.0",
-    "copyright": "Created by Sh4zik.",
+    "copyright": "Relax Pill Created by Sh4zik.",
     "states": [
         {
-            "name": "pill"
+            "name": "relaxpill"
         }
     ]
 }
