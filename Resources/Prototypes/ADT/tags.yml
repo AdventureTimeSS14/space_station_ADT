@@ -71,6 +71,9 @@
   id: ADTBorgKerfusNTHead
 
 - type: Tag
+  id: ADTTelescopicBaton
+
+- type: Tag
   id: Eyes
 
 - type: Tag
