@@ -415,4 +415,4 @@ ent-ADTBartenderIDCardUrog = диск Урог-Джаха
 
 ent-ADTPlushieHollowing = плюшевый Ткач
     .desc = Плюшевая игрушка всем своим видом говорит, что сделана кем-то вручную. Неумело, но очень старательно.
-	.suffix = { "Именное, Hollowing" }
+    .suffix = { "Именное, Hollowing" }
