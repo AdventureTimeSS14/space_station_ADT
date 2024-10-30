@@ -1,11 +1,11 @@
 {
     "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by Sh4zik",
     "size": {
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-NC-SA-4.0",
-    "copyright": "Relax Pill Created by Sh4zik.",
     "states": [
         {
             "name": "relaxpill"
