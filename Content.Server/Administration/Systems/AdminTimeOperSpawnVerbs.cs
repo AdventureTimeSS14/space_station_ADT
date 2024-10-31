@@ -4,13 +4,12 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.ComponentalActions.Components;
 using Content.Shared.Actions;
-using Content.Shared.Administration;
 using Content.Server.Administration.Managers;
 
+// ADT Content: Time Patrol "ОБВА" by Schrodinger71
 namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
