@@ -288,8 +288,8 @@
     # Muscles
 - type: entity
   id: ActionLingMuscles
-  name: action-muscles
-  description: action-muscles-desc
+  name: action-lingmuscles
+  description: action-lingmuscles-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -404,3 +404,19 @@
     canTargetSelf: false
     useDelay: 10
     priority: -61
+
+    # Arm Hammer
+- type: entity
+  id: ActionArmHammer
+  name: action-toggle-arm-hammer
+  description: action-toggle-arm-hammer-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: armhammer
+    itemIconStyle: BigAction
+    event: !type:ArmShieldActionEvent # поменяешь потом
+    useDelay: 1
+    priority: -51

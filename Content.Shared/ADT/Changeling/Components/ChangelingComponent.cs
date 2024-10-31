@@ -294,7 +294,7 @@ public sealed partial class ChangelingComponent : Component
     public bool LesserFormActive = false;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public string LesserFormMob = "ChangelingLesserForm";
+    public string LesserFormMob = "ADTChangelingLesserForm";
 
 
     #endregion

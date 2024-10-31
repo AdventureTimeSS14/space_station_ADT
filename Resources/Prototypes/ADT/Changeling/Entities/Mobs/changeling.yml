@@ -1,5 +1,5 @@
 - type: entity
-  id: MobMonkeyChangeling
+  id: ADTMobMonkeyChangeling
   parent: MobMonkey
   suffix: changeling
   noSpawn: true
@@ -12,9 +12,9 @@
     - Monkey
 
 - type: polymorph
-  id: ChangelingLesserForm
+  id: ADTChangelingLesserForm
   configuration:
-    entity: MobMonkeyChangeling
+    entity: ADTMobMonkeyChangeling
     forced: true
     inventory: Drop
     allowRepeatedMorphs: true
@@ -22,7 +22,7 @@
 - type: entity
   name: changeling slug
   parent: SimpleMobBase
-  id: ChangelingHeadslug
+  id: ADTChangelingHeadslug
   description: e
   components:
   - type: Body
@@ -81,9 +81,9 @@
       Dead:
         Base: headslug_dead
   - type: Food
-  - type: Tag
-    tags:
-    - ShoesRequiredStepTriggerImmune
+  # - type: Tag
+  #   tags:
+  #   - ShoesRequiredStepTriggerImmune # По-моему из за этой хуйни падал сервер
   - type: Respirator
     damage:
       types:
@@ -101,7 +101,6 @@
       Female: Mouse
       Unsexed: Mouse
     wilhelmProbability: 0.001
-  # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
   - type: Bloodstream
     bloodMaxVolume: 50
@@ -122,13 +121,12 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Piercing: 10
-  # - type: LingSlug
+        Piercing: 0 # ну а хули
 
 - type: entity
   name: changeling slug
   parent: SimpleMobBase
-  id: ChangelingHeadslugSpread
+  id: ADTChangelingHeadslugSpread
   suffix: Spreader
   description: e
   components:
@@ -139,7 +137,7 @@
     speechVerb: SmallMob
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: ADT/Mobs/Aliens/headslug.rsi
+    sprite: ADT/Changeling/headslug.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headslug
@@ -188,9 +186,9 @@
       Dead:
         Base: headslug_dead
   - type: Food
-  - type: Tag
-    tags:
-    - ShoesRequiredStepTriggerImmune
+  # - type: Tag
+  #   tags:
+  #   - ShoesRequiredStepTriggerImmune # По-моему из за этой хуйни падал сервер
   - type: Respirator
     damage:
       types:
@@ -208,7 +206,6 @@
       Female: Mouse
       Unsexed: Mouse
     wilhelmProbability: 0.001
-  # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
   - type: Bloodstream
     bloodMaxVolume: 50
@@ -229,45 +226,11 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Piercing: 10
-  # - type: LingSlug
-  #   spread: true
-  #   eggsAction: ActionLingHatchFast
-
-# - type: entity
-#   parent: ChangelingHeadslug
-#   id: ChangelingHeadslugMidround
-#   suffix: Ghost role
-#   components:
-#   - type: GenericAntag
-#     rule: LingMidround
-
-# - type: entity
-#   parent: BaseGameRule
-#   id: MidroundChangelingSpawn
-#   noSpawn: true
-#   components:
-#   - type: StationEvent
-#     weight: 10
-#     duration: 1
-#     earliestStart: 30
-#     minimumPlayers: 40
-#   - type: RandomSpawnRule
-#     prototype: SpawnPointGhostLing
-
-# - type: entity
-#   noSpawn: true
-#   parent: BaseGameRule
-#   id: LingMidround
-#   components:
-#   - type: GenericAntagRule
-#     agentName: ling-round-end-agent-name
-#     objectives:
-#     - EscapeLingShuttleObjective
+        Piercing: 0 # ну а хули
 
 - type: entity
   parent: MarkerBase
-  id: SpawnPointGhostLing
+  id: ADTSpawnPointGhostLing
   name: changeling spawn point
   components:
   - type: GhostRole
@@ -277,7 +240,7 @@
   - type: GhostRoleMobSpawner
     prototype: ChangelingHeadslugMidround
   - type: Sprite
-    sprite: ADT/Mobs/Aliens/headslug.rsi
+    sprite: ADT/Changeling/headslug.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headslug

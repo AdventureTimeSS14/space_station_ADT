@@ -129,7 +129,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        var message = Loc.GetString("changeling-muscles");
+        var message = Loc.GetString("changeling-lingmuscles");
         _popup.PopupEntity(message, uid, uid);
 
         component.MusclesActive = !component.MusclesActive;
@@ -367,7 +367,7 @@ public sealed partial class ChangelingSystem
     #region Misc
     public bool SpawnArmBlade(EntityUid uid, ChangelingComponent component)
     {
-        var armblade = Spawn("ArmBlade", Transform(uid).Coordinates);
+        var armblade = Spawn("ADTArmBlade", Transform(uid).Coordinates);
         EnsureComp<UnremoveableComponent>(armblade);
         RemComp<DestructibleComponent>(armblade);
         if (!_handsSystem.TryPickupAnyHand(uid, armblade))
@@ -382,7 +382,7 @@ public sealed partial class ChangelingSystem
 
     public bool SpawnArmShield(EntityUid uid, ChangelingComponent component)
     {
-        var armshield = Spawn("ArmShield", Transform(uid).Coordinates);
+        var armshield = Spawn("ADTArmShield", Transform(uid).Coordinates);
         EnsureComp<UnremoveableComponent>(armshield);
 
         if (!_handsSystem.TryPickupAnyHand(uid, armshield))

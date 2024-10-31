@@ -541,7 +541,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        var slug = Spawn("ChangelingHeadslug", Transform(uid).Coordinates);
+        var slug = Spawn("ADTChangelingHeadslug", Transform(uid).Coordinates);
         _mindSystem.TransferTo(mindId, slug);
 
         _gib.TryGibEntity(uid, uid, GibType.Gib, GibContentsOption.Drop, out _);
