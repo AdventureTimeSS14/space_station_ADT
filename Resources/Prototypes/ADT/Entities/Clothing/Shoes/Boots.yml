@@ -10,7 +10,11 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/newmekka.rsi  #спрайты от prazat911
 
-# Med
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ADTClothingShoesBootsCombatTimePatrol
+  components:
+  - type: NoSlip
 
 - type: entity
   parent: ClothingShoesBaseButcherable
