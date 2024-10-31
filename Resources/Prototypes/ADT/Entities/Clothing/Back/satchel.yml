@@ -25,7 +25,7 @@
   description: Green satchel. He smells fresh
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Back/centcom_satchel.rsi
+    sprite: Clothing/Back/Satchels/centcom_satchel.rsi
 
 - type: entity
   parent: ClothingBackpack
