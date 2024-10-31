@@ -1258,3 +1258,14 @@
     state: icon
   - type: PresetIdCard
     job: Bartender
+
+# Hollowing
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieHollowing
+  name: Weaver
+  description: weaver
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_hollowing
