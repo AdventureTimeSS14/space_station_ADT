@@ -59,10 +59,9 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         // briefing
         if (HasComp<MetaDataComponent>(target))
         {
-            var briefingShort = Loc.GetString("heretic-role-greeting-short");
+            var briefingShort = Loc.GetString("changeling-role-greeting-short");
 
-            _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting-fluff"), Color.MediumPurple, null);
-            _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting"), Color.Red, rule.ChangelingStartSound);
+            _antag.SendBriefing(target, Loc.GetString("changeling-role-greeting"), Color.Red, rule.ChangelingStartSound);
 
             if (_mind.TryGetRole<RoleBriefingComponent>(mindId, out var rbc))
                 rbc.Briefing += $"\n{briefingShort}";
@@ -74,12 +73,6 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         // Ensure Changeling component and role
         EnsureComp<ChangelingComponent>(target);
-
-        // var store = EnsureComp<StoreComponent>(target);
-        // foreach (var category in rule.StoreCategories)
-        //     store.Categories.Add(category);
-        // store.CurrencyWhitelist.Add(Currency);
-        // store.Balance.Add(Currency, 2);
 
         rule.Minds.Add(mindId);
 

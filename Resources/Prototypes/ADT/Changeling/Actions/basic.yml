@@ -6,7 +6,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: changelingsting
     event: !type:ChangelingEvolutionMenuActionEvent
     priority: -70
@@ -19,7 +19,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: absorb_dna
     itemIconStyle: BigAction
     whitelist:
@@ -38,7 +38,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: transform
     itemIconStyle: BigAction
     event: !type:ChangelingCycleDNAActionEvent
@@ -53,7 +53,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: transform
     itemIconStyle: BigAction
     event: !type:ChangelingTransformActionEvent
@@ -70,7 +70,7 @@
     checkCanInteract: false
     checkConsciousness: false
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: regenerate
     itemIconStyle: BigAction
     event: !type:LingRegenerateActionEvent
@@ -85,7 +85,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: sting_extract
     itemIconStyle: BigAction
     whitelist:
@@ -104,7 +104,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: armblade
     itemIconStyle: BigAction
     event: !type:ArmBladeActionEvent
@@ -119,7 +119,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: chitinous_armor
     itemIconStyle: BigAction
     event: !type:LingArmorActionEvent
@@ -134,7 +134,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: chameleon_skin
     itemIconStyle: BigAction
     event: !type:LingInvisibleActionEvent
@@ -149,7 +149,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: dissonant_shriek
     itemIconStyle: BigAction
     useDelay: 15
@@ -167,10 +167,10 @@
     checkCanInteract: false
     checkConsciousness: false
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: fake_death
     iconOn:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: revive
     itemIconStyle: BigAction
     event: !type:StasisDeathActionEvent
@@ -186,7 +186,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: sting_blind
     itemIconStyle: BigAction
     whitelist:
@@ -206,7 +206,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: adrenaline
     itemIconStyle: BigAction
     event: !type:AdrenalineActionEvent
@@ -238,7 +238,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
     event: !type:FleshmendActionEvent
@@ -254,7 +254,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: sting_mute
     itemIconStyle: BigAction
     whitelist:
@@ -274,7 +274,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: sting_lsd
     itemIconStyle: BigAction
     whitelist:
@@ -294,7 +294,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: strained_muscles
     itemIconStyle: BigAction
     event: !type:ChangelingMusclesActionEvent
@@ -310,7 +310,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: lesser_form
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -327,7 +327,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: organic_shield
     itemIconStyle: BigAction
     event: !type:ArmShieldActionEvent
@@ -343,7 +343,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: last_resort
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -360,7 +360,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: biodegrade
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -377,7 +377,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: resonant_shriek
     itemIconStyle: BigAction
     checkCanInteract: false
@@ -394,7 +394,7 @@
   components:
   - type: EntityTargetAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: sting_transform
     itemIconStyle: BigAction
     event: !type:TransformationStingEvent
@@ -414,7 +414,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: armhammer
     itemIconStyle: BigAction
     event: !type:ArmShieldActionEvent # поменяешь потом

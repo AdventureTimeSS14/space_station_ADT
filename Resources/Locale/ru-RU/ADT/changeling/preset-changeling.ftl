@@ -7,15 +7,6 @@ changelings-title = Генокрады
 changelings-description = дурацкие воришки ДНК
 changelings-not-enough-ready-players = Недостаточно игроков нажали "Готов"! Всего было {$readyPlayersCount} готовых игроков из {$minimumPlayers} нужных. Режим "Генокрады" не запустится.
 changelings-no-one-ready = Никто не нажал "Готов"! Режим "Генокрады" начать нельзя.
-# Mix Preset
-traitorchangeling-title = Предатели и генокрады
-traitorchangeling-description = Среди нас есть предатели и генокрады...
-nukeopschangeling-title = Ядерные оперативники и генокрады
-nukeopschangeling-description = Ядерные оперативники и генокрады нацелились на станцию.
-revchangeling-title = Революционеры и генокрады
-revchangeling-description = Революционеры и генокрады среди нас.
-zombiechangeling-title = Зомби и генокрады
-zombiechangeling-description = На станции появились генокрады и ожившие мертвецы!
 # Ling role
 changeling-role-greeting =
     Вы являетесь Генокрадом, впитавшим форму {$character-name} и превратившимся в него.
