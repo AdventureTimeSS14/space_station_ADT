@@ -32,17 +32,17 @@
     #suitstorage: OxygenTankFilled
     back: ADTClothingBackpackTimePatrol
     #id: ADTSecurityCybPDA #ADTSecurityCybPDA
-    belt: ADTADTWeaponPulseCarabinUSSP
+    belt: ADTWeaponPulseTimePatrol
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
-    neck: ADTClothingNeckMantleHOSShoulderTimePatrol
+    neck: ADTClothingNeckMantleTimePatrol
     mask: ADTChronosMask
     jumpsuit: ClothingUniformJumpsuitOperative
-    shoes: ADTClothingShoesBootsCombatNeCkoll
+    shoes: ADTClothingShoesBootsCombatTimePatrol
     #head: ADTClothingHeadHelmetHardsuitDeathsquad
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ADTClothingOuterHardsuitDeathsquad
+    outerClothing: ADTClothingOuterHardsuitTimePatrol
     #id: CentcomPDA
     #ears: ClothingHeadsetAltCentCom
     suitstorage: EmergencyOxygenTankFilled

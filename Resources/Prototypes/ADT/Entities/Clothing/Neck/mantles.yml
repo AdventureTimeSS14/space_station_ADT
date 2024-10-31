@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingNeckMantleHOSShoulder
-  id: ADTClothingNeckMantleHOSShoulderTimePatrol
+  id: ADTClothingNeckMantleTimePatrol
   name: Mantle time patrol
   description: desc
   suffix: "ОБВА"

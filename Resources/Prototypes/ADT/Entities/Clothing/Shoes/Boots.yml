@@ -12,7 +12,7 @@
 
 - type: entity
   parent: ClothingShoesBootsCombat
-  id: ADTClothingShoesBootsCombatNeCkoll
+  id: ADTClothingShoesBootsCombatTimePatrol
   components:
   - type: NoSlip
 

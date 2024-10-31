@@ -15,7 +15,7 @@ ent-ADTWeaponLaserCarbineBorg = лазерная винтовка борга
 ent-ADTWeaponDisablerBorg = дизаблер борга
     .desc = дизаблер, не требующий зарядки.
 
-ent-ADTADTWeaponPulseCarabinUSSP = дезинтегратор стража времени
+ent-ADTWeaponPulseTimePatrol = дезинтегратор стража времени
     .desc = Стреляеет ионизированными, заряжеными кварками снарядами, и по заверению Центкома гарантирует "безболезненное" растворение из времени и пространства.
     .suffix = { "ОБВА" }
 

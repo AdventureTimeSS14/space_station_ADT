@@ -218,7 +218,7 @@
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ADTClothingOuterHardsuitDeathsquad
+  id: ADTClothingOuterHardsuitTimePatrol
   name: deathsquad hardsuit
   description: An advanced hardsuit favored by commandos for use in special operations.
   components:

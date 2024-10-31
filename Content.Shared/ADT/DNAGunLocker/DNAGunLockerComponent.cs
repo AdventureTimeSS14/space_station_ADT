@@ -23,7 +23,7 @@ public sealed partial class DNAGunLockerComponent : Component
     };
 
     [DataField("lockSound")]
-    public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/ADT/Effects/DNALocker/dna-lock.ogg");
+    public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/ADT/dna-lock.ogg");
 
     [DataField("electricSound")]
     public SoundSpecifier ElectricSound = new SoundPathSpecifier("/Audio/Effects/PowerSink/electric.ogg");
