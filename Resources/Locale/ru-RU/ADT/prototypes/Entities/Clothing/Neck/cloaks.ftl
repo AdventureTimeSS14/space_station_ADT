@@ -3,7 +3,7 @@ ent-ADTClothingNeckCloakBlueshield = накидка офицера синего 
 
 ent-ADTClothingNeckCloakSecondBlueshield = плащ офицера синего щита
     .desc = Этот плащ выполнен из темно-синей ткани, а на его спине изображен величественный белый щит. Он станет символом вашего статуса и защиты, подчеркивая вашу преданность делу.
-    
+
 ent-ADTClothingNeckDarkGreyCloak = темно-серый плащ
     .desc = Даже грейтайд заслуживает иметь свой плащ.
     .suffix = { "" }
@@ -21,6 +21,9 @@ ent-ADTClothingNeckHoPAltCloak = торжественный плащ Главы 
     .suffix = { "" }
 ent-ClothingCloakAtmosian = плащ атмосианина
     .desc = Плащ легендарного атмосианина.
+
+ent-ADTClothingNeckMantleTimePatrol = мантия стража времени
+    .desc = Плащ путника из далекого будущего. Края этого плаща светятся, но навряд ли вы успеете это разглядеть.
 
 ent-ADTClothingNeckCloakSyndicate = плащ Синдиката
     .desc = Антагонизируй со стилем!
