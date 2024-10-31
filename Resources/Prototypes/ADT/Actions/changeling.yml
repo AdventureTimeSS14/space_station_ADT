@@ -407,7 +407,7 @@
 
     # Arm Hammer
 - type: entity
-  id: ActionArmHammer
+  id: ActionArmace
   name: action-toggle-arm-hammer
   description: action-toggle-arm-hammer-desc
   categories: [ HideSpawnMenu ]
@@ -417,6 +417,6 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: armhammer
     itemIconStyle: BigAction
-    event: !type:ArmShieldActionEvent # поменяешь потом
+    event: !type:ArmaceActionEvent
     useDelay: 1
     priority: -51

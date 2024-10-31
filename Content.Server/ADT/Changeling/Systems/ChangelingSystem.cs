@@ -1,13 +1,11 @@
 using Content.Server.Actions;
 using Content.Shared.Inventory;
-using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Changeling;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Popups;
 using Content.Shared.Store;
 using Content.Server.Traitor.Uplink;
-using Content.Server.Body.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
@@ -23,10 +21,6 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Tag;
 using Content.Shared.StatusEffect;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
@@ -53,7 +47,6 @@ using Content.Shared.Gibbing.Systems;
 using Content.Shared.Mobs;
 using Content.Server.Stealth;
 using Content.Server.ADT.Store;
-using Content.Shared.Examine;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -167,6 +160,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         _action.AddAction(uid, ref component.ChangelingDNAStingActionEntity, component.ChangelingDNAStingAction);
         _action.AddAction(uid, ref component.ChangelingDNACycleActionEntity, component.ChangelingDNACycleAction);
         _action.AddAction(uid, ref component.ChangelingStasisDeathActionEntity, component.ChangelingStasisDeathAction);
+
+        component.BasicTransferredActions.Add(component.ChangelingEvolutionMenuActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingRegenActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingAbsorbActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingDNAStingActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingDNACycleActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingStasisDeathActionEntity);
     }
 
     private void OnShutdown(EntityUid uid, ChangelingComponent component, ComponentShutdown args)
@@ -395,8 +395,17 @@ public sealed partial class ChangelingSystem : EntitySystem
             }
         }
 
+        foreach (var basic in comp.BasicTransferredActions)
+        {
+            if (basic.HasValue)
+                _actionContainer.TransferActionWithNewAttached(basic.Value, to, to);
+        }
+        foreach (var item in comp.BoughtActions)
+        {
+            if (item.HasValue)
+                _actionContainer.TransferActionWithNewAttached(item.Value, to, to);
+        }
 
-        _actionContainer.TransferAllActionsWithNewAttached(from, to, to);
     }
 
     private HumanoidCharacterProfile BuildProfile(PolymorphHumanoidData data)

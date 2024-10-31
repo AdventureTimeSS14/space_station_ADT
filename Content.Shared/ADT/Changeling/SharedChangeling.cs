@@ -1,9 +1,6 @@
 using Content.Shared.Actions;
-using Content.Shared.Changeling.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Changeling;
@@ -107,6 +104,10 @@ public sealed partial class ChangelingLesserFormActionEvent : InstantActionEvent
 }
 
 public sealed partial class ArmShieldActionEvent : InstantActionEvent
+{
+}
+
+public sealed partial class ArmaceActionEvent : InstantActionEvent
 {
 }
 

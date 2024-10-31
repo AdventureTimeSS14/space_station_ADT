@@ -250,6 +250,20 @@
     stock: 1
 
 - type: listing
+  id: ChangelingArmace
+  name: listing-arm-mace
+  description: listing-arm-mace-desc
+  productAction: ActionArmace
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: ChangelingRefresh
   name: changeling-refresh
   description: changeling-refresh-desc
@@ -260,3 +274,5 @@
   categories:
   - ChangelingAbilities
   icon: Interface/Actions/firestarter.png
+  conditions:
+  - !type:ChangelingCanRefreshCondition

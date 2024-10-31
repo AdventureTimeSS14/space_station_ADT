@@ -1,38 +1,21 @@
 using Content.Shared.Changeling.Components;
 using Content.Shared.Changeling;
-using Content.Shared.Inventory;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Hands.Components;
-using Content.Server.Hands.Systems;
-using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Server.Body.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Content.Shared.IdentityManagement;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Stealth.Components;
-using Content.Server.Emp;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Server.Forensics;
 using Content.Shared.FixedPoint;
-using Content.Server.Store.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Mobs;
-using Content.Server.Destructible;
-using Content.Server.Ghost.Components;
-using Content.Shared.Alert;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Rejuvenate;
-using Content.Server.Cuffs;
-using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
-using Content.Server.Body.Components;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.Whitelist;
+using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -282,6 +265,7 @@ public sealed partial class ChangelingSystem
         {
             stealthonmove.PassiveVisibilityRate = component.ChameleonSkinPassiveVisibilityRate;
             stealthonmove.MovementVisibilityRate = component.ChameleonSkinMovementVisibilityRate;
+            stealth.MinVisibility = -1f;
         }
         else
         {
@@ -406,7 +390,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _status.TryAddStatusEffect(target, "Muted", TimeSpan.FromSeconds(45), true);
+        _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(45), true);
 
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);

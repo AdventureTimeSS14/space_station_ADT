@@ -5,6 +5,7 @@ using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Changeling.Components;
 
@@ -124,6 +125,8 @@ public sealed partial class ChangelingComponent : Component
     public EntityUid? ChangelingStasisDeathActionEntity;
 
     public List<EntityUid?> BoughtActions = new();
+
+    public List<EntityUid?> BasicTransferredActions = new();
     #endregion
 
     #region Chemical Costs
@@ -216,6 +219,17 @@ public sealed partial class ChangelingComponent : Component
 
     #endregion
 
+    #region Armace Ability
+    /// <summary>
+    /// If the ling has an active armace or not.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool ArmaceActive = false;
+
+    [AutoNetworkedField]
+    public EntityUid? ArmaceEntity;
+    #endregion
+
     #region Chitinous Armor Ability
     /// <summary>
     /// The amount of chemical regeneration is reduced when the ling armor is active.
@@ -240,7 +254,7 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     /// How fast the changeling will turn invisible from standing still when using chameleon skin.
     /// </summary>
-    public float ChameleonSkinPassiveVisibilityRate = -0.10f;
+    public float ChameleonSkinPassiveVisibilityRate = -0.15f;
 
     /// <summary>
     /// How fast the changeling will turn visible from movement when using chameleon skin.
