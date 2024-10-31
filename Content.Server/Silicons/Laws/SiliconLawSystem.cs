@@ -36,7 +36,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     /// <inheritdoc/>
@@ -299,7 +298,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             SetLaws(lawset, update);
         }
         ///ADT AI Custom law start
-        UpdateBorgsNTLaws(lawset); 
+        UpdateBorgsNTLaws(lawset);
     }
     private void UpdateBorgsNTLaws(List<SiliconLaw> newLaws)
     {

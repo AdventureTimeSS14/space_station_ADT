@@ -48,6 +48,7 @@ namespace Content.Client.VendingMachines
             _menu?.Populate(_cachedInventory);
         }
 
+        // START-ADT-TWEAK
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
@@ -59,6 +60,7 @@ namespace Content.Client.VendingMachines
 
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
+        // END-ADT-TWEAK
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
         {

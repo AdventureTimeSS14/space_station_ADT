@@ -133,6 +133,7 @@ namespace Content.Client.VendingMachines.UI
             SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
         }
 
+        #region START ADT TWEAK
         /// <summary>
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
@@ -213,6 +214,7 @@ namespace Content.Client.VendingMachines.UI
 
             SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
         }
+        #endregion END
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
         {
