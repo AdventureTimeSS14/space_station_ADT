@@ -353,8 +353,8 @@
       0: Alive
       30: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.3
-    baseSprintSpeed : 4.3
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 3.9
   - type: SlowOnDamage
     speedModifierThresholds:
       18: 0.7

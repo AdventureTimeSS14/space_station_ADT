@@ -17,6 +17,7 @@
     - id: MouseMigration
     - id: PowerGridCheck
     - id: RandomSentience
+    - id: ADTNeutralSpiderSpawn # ADT Tweak нейтральные паучки
     - id: SlimesSpawn
     - id: SolarFlare
     - id: SnakeSpawn
