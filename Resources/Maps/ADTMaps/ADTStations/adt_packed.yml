@@ -40682,7 +40682,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1865.5775
+      secondsUntilStateChange: -1879.9109
       state: Closing
   - uid: 6232
     components:
@@ -58137,7 +58137,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2365.7485
+      secondsUntilStateChange: -2380.0818
       state: Closing
   - uid: 8874
     components:
@@ -68513,6 +68513,13 @@ entities:
     components:
     - type: Transform
       pos: 50.5,-8.5
+      parent: 2
+- proto: SpawnPointADTGuardOfficer
+  entities:
+  - uid: 13376
+    components:
+    - type: Transform
+      pos: 33.5,19.5
       parent: 2
 - proto: SpawnPointADTPathologist
   entities:
