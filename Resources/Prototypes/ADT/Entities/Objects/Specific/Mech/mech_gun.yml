@@ -25,10 +25,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: AmmoCounter
-  - type: ProjectileMechAmmoProvider
-    proto: ShellShotgun
-    shots: 35
-    capacity: 35
   # - type: BallisticAmmoProvider
   #   whitelist:
   #     tags:
@@ -167,14 +163,9 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileMechAmmoProvider
+  - type: BatteryMechAmmoProvider
     proto: BulletDisabler
-    shots: 12
-    capacity: 12
-    reloadCost: 150
-    reloadTime: 4
-  - type: UIFragment
-    ui: !type:MechGunUi
+    fireCost: 30
 
 - type: entity
   name: MKI Tesla Cannon
@@ -195,13 +186,9 @@
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
-  - type: ProjectileMechAmmoProvider
+  - type: BatteryMechAmmoProvider
     proto: TeslaGunBullet
-    shots: 12
-    capacity: 12
-    reloadCost: 300
-  - type: UIFragment
-    ui: !type:MechGunUi
+    fireCost: 100
 #Огнестрельное
 
 - type: entity
@@ -222,7 +209,7 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: ShellShotgun
     shots: 12
     capacity: 12
@@ -250,10 +237,11 @@
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     shots: 30
     capacity: 30
     proto: BulletPistol
+    reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -275,11 +263,12 @@
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: BulletPistolIncendiary
     shots: 45
     capacity: 45
     ammoType: lightrifleincendiary
+    reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -301,7 +290,7 @@
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: BulletAntiMateriel
     shots: 7
     capacity: 7
@@ -327,11 +316,12 @@
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: GrenadeFlash
     shots: 3
     capacity: 3
     ammoType: granade
+    reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -353,11 +343,12 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: BulletRocket
     shots: 2
     capacity: 2
     ammoType: granade
+    reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
 
@@ -380,11 +371,12 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     ammoType: granade
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: GrenadeBaton
     shots: 3
     capacity: 3
     ammoType: granade
+    reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
 

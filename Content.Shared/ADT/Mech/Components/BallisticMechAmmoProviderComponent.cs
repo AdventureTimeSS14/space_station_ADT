@@ -10,7 +10,7 @@ namespace Content.Shared.ADT.Weapons.Ranged.Components;
 /// Позволяет оружию меха стрелять проджектайлами.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ProjectileMechAmmoProviderComponent : MechAmmoProviderComponent
+public sealed partial class BallisticMechAmmoProviderComponent : MechAmmoProviderComponent
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = default!;

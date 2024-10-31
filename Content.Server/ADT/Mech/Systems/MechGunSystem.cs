@@ -35,15 +35,15 @@ public sealed class MechGunSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<MechEquipmentComponent, GunShotEvent>(MechGunShot);
 
-        SubscribeLocalEvent<ProjectileMechAmmoProviderComponent, MechEquipmentUiStateReadyEvent>(OnUiStateReady);
-        SubscribeLocalEvent<ProjectileMechAmmoProviderComponent, MechEquipmentUiMessageRelayEvent>(OnReload);
+        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, MechEquipmentUiStateReadyEvent>(OnUiStateReady);
+        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, MechEquipmentUiMessageRelayEvent>(OnReload);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ProjectileMechAmmoProviderComponent>();
+        var query = EntityQueryEnumerator<BallisticMechAmmoProviderComponent>();
         while (query.MoveNext(out var uid, out var gun))
         {
             if (gun.Reloading && gun.ReloadEnd <= _timing.CurTime)
@@ -74,7 +74,7 @@ public sealed class MechGunSystem : EntitySystem
             ChargeGunBattery(uid, battery);
             return;
         }
-        if (HasComp<ProjectileMechAmmoProviderComponent>(uid))
+        if (HasComp<BallisticMechAmmoProviderComponent>(uid))
             _mech.UpdateUserInterface(component.EquipmentOwner.Value);
 
 
@@ -118,7 +118,7 @@ public sealed class MechGunSystem : EntitySystem
         _battery.SetCharge(uid, component.MaxCharge, component);
     }
 
-    private void OnUiStateReady(EntityUid uid, ProjectileMechAmmoProviderComponent component, MechEquipmentUiStateReadyEvent args)
+    private void OnUiStateReady(EntityUid uid, BallisticMechAmmoProviderComponent component, MechEquipmentUiStateReadyEvent args)
     {
         var state = new MechGunUiState
         {
@@ -131,7 +131,7 @@ public sealed class MechGunSystem : EntitySystem
         args.States.Add(GetNetEntity(uid), state);
     }
 
-    private void OnReload(EntityUid uid, ProjectileMechAmmoProviderComponent comp, MechEquipmentUiMessageRelayEvent args)
+    private void OnReload(EntityUid uid, BallisticMechAmmoProviderComponent comp, MechEquipmentUiMessageRelayEvent args)
     {
         if (args.Message is not MechGunReloadMessage msg)
             return;
@@ -168,7 +168,7 @@ public sealed class MechGunSystem : EntitySystem
         _mech.UpdateUserInterfaceByEquipment(uid);
     }
 
-    private EntityUid? TryMagazine(EntityUid mech, ProjectileMechAmmoProviderComponent comp)
+    private EntityUid? TryMagazine(EntityUid mech, BallisticMechAmmoProviderComponent comp)
     {
         _container.TryGetContainer(mech, comp.AmmoContainerId, out var mechcontainer);
 

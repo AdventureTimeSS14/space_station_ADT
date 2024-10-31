@@ -21,12 +21,14 @@ public abstract partial class SharedGunSystem
         base.Initialize();
         SubscribeLocalEvent<MechGunComponent, ShotAttemptedEvent>(OnShotAttempt);
 
-        SubscribeLocalEvent<ProjectileMechAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
-        SubscribeLocalEvent<ProjectileMechAmmoProviderComponent, GetAmmoCountEvent>(OnMechAmmoCount);
+        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
+        SubscribeLocalEvent<BallisticMechAmmoProviderComponent, GetAmmoCountEvent>(OnMechAmmoCount);
+
+        SubscribeLocalEvent<BatteryMechAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
+        SubscribeLocalEvent<BatteryMechAmmoProviderComponent, GetAmmoCountEvent>(OnMechAmmoCount);
 
         SubscribeLocalEvent<HitscanMechAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
         SubscribeLocalEvent<HitscanMechAmmoProviderComponent, GetAmmoCountEvent>(OnMechAmmoCount);
-
     }
 
     private void OnShotAttempt(EntityUid uid, MechGunComponent comp, ref ShotAttemptedEvent args)
@@ -40,7 +42,7 @@ public abstract partial class SharedGunSystem
         if (mech.Energy.Float() <= 0f)
             args.Cancel();
 
-        if (TryComp<ProjectileMechAmmoProviderComponent>(uid, out var projMech) && projMech.Shots <= 0)
+        if (TryComp<BallisticMechAmmoProviderComponent>(uid, out var projMech) && projMech.Shots <= 0)
             args.Cancel();
     }
 
@@ -48,11 +50,15 @@ public abstract partial class SharedGunSystem
     {
         switch (component)
         {
-            case ProjectileMechAmmoProviderComponent projectile:
+            case BallisticMechAmmoProviderComponent projectile:
                 args.Count = projectile.Shots;
                 args.Capacity = projectile.Capacity;
                 break;
-            case HitscanMechAmmoProviderComponent hitscan:
+            case BatteryMechAmmoProviderComponent:
+                args.Count = 5;
+                args.Capacity = 5;
+                break;
+            case HitscanMechAmmoProviderComponent:
                 args.Count = 5;
                 args.Capacity = 5;
                 break;
@@ -67,7 +73,7 @@ public abstract partial class SharedGunSystem
 
         switch (component)
         {
-            case ProjectileMechAmmoProviderComponent projectile:
+            case BallisticMechAmmoProviderComponent projectile:
                 var shots = Math.Min(args.Shots, projectile.Shots);
 
                 // Don't dirty if it's an empty fire.
@@ -81,6 +87,19 @@ public abstract partial class SharedGunSystem
                 {
                     args.Ammo.Add(GetShootable(projectile, args.Coordinates));
                     projectile.Shots--;
+                }
+                break;
+            case BatteryMechAmmoProviderComponent battery:
+                if (args.Shots == 0)
+                    return;
+
+                for (var i = 0; i < args.Shots; i++)
+                {
+                    args.Ammo.Add(GetShootable(battery, args.Coordinates));
+                    if (!equipmentComp.EquipmentOwner.HasValue)
+                        break;
+                    if (!_mech.TryChangeEnergy(equipmentComp.EquipmentOwner.Value, -battery.ShotCost))
+                        break;
                 }
                 break;
             case HitscanMechAmmoProviderComponent hitscan:
@@ -108,9 +127,12 @@ public abstract partial class SharedGunSystem
     {
         switch (component)
         {
-            case ProjectileMechAmmoProviderComponent proj:
+            case BallisticMechAmmoProviderComponent proj:
                 var ent = Spawn(proj.Prototype, coordinates);
                 return (ent, EnsureShootable(ent));
+            case BatteryMechAmmoProviderComponent battery:
+                var entBattery = Spawn(battery.Prototype, coordinates);
+                return (entBattery, EnsureShootable(entBattery));
             case HitscanMechAmmoProviderComponent hitscan:
                 return (null, ProtoManager.Index(hitscan.Proto));
             default:

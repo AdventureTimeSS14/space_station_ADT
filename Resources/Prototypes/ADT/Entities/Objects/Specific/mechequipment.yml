@@ -20,7 +20,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: BulletCutter
     shots: 40
     capacity: 40
@@ -84,7 +84,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-  - type: ProjectileMechAmmoProvider
+  - type: BallisticMechAmmoProvider
     proto: FoodPieBananaCream
     shots: 12
     capacity: 12

@@ -87,7 +87,7 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
     {
         if (HasComp<MechGrabberComponent>(uid)) // Мне лень делать нормальную проверку, как-нибудь потом будет.
             return;
-        if (HasComp<ProjectileMechAmmoProviderComponent>(uid))
+        if (HasComp<BallisticMechAmmoProviderComponent>(uid))
             return;
 
         args.States.Add(GetNetEntity(uid), null);
