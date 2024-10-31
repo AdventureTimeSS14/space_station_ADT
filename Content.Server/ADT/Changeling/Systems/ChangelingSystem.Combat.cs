@@ -3,33 +3,14 @@ using Content.Shared.Changeling;
 using Content.Shared.Inventory;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Hands.Components;
-using Content.Server.Hands.Systems;
-using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Server.Body.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Content.Shared.IdentityManagement;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Stealth.Components;
-using Content.Server.Emp;
-using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
-using Content.Server.Forensics;
 using Content.Shared.FixedPoint;
-using Content.Server.Store.Components;
 using Content.Shared.Chemistry.Components;
-using Content.Server.Fluids.EntitySystems;
-using Content.Shared.Mobs;
 using Content.Server.Destructible;
-using Content.Server.Ghost.Components;
-using Content.Shared.Alert;
-using Content.Shared.Cuffs.Components;
-using Content.Shared.Rejuvenate;
-using Content.Server.Cuffs;
-using Content.Shared.Polymorph;
-using Content.Shared.Store.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.ADT.Damage.Events;
 using Content.Shared.StatusEffect;
@@ -50,6 +31,7 @@ public sealed partial class ChangelingSystem
 
         SubscribeLocalEvent<ChangelingComponent, ArmBladeActionEvent>(OnArmBladeAction);
         SubscribeLocalEvent<ChangelingComponent, ArmShieldActionEvent>(OnArmShieldAction);
+        SubscribeLocalEvent<ChangelingComponent, ArmaceActionEvent>(OnArmaceAction);
         SubscribeLocalEvent<ChangelingComponent, LingArmorActionEvent>(OnLingArmorAction);
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
@@ -267,6 +249,45 @@ public sealed partial class ChangelingSystem
             RemoveShieldEntity(uid, component);
     }
 
+    private void OnArmaceAction(EntityUid uid, ChangelingComponent component, ArmaceActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (component.LesserFormActive)
+        {
+            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.ArmBladeActive))
+            return;
+
+        args.Handled = true;
+
+        component.ArmaceActive = !component.ArmaceActive;
+
+        if (component.ArmaceActive)
+        {
+            if (!SpawnArmace(uid, component))
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-armace-fail"), uid, uid);
+                return;
+            }
+
+            _audioSystem.PlayPvs(component.SoundFlesh, uid);
+
+            var othersMessage = Loc.GetString("changeling-armace-success-others", ("user", Identity.Entity(uid, EntityManager)));
+            _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
+
+            var selfMessage = Loc.GetString("changeling-armace-success-self");
+            _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
+        }
+        else
+            RemoveArmaceEntity(uid, component);
+    }
+
     private void OnLingArmorAction(EntityUid uid, ChangelingComponent component, LingArmorActionEvent args)
     {
         if (args.Handled)
@@ -394,6 +415,20 @@ public sealed partial class ChangelingSystem
         return true;
     }
 
+    public bool SpawnArmace(EntityUid uid, ChangelingComponent component)
+    {
+        var mace = Spawn("ADTArmace", Transform(uid).Coordinates);
+        EnsureComp<UnremoveableComponent>(mace);
+
+        if (!_handsSystem.TryPickupAnyHand(uid, mace))
+        {
+            QueueDel(mace);
+            return false;
+        }
+        component.ArmaceEntity = mace;
+        return true;
+    }
+
     private void RemoveBladeEntity(EntityUid uid, ChangelingComponent component)
     {
         if (!component.BladeEntity.HasValue)
@@ -421,6 +456,21 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
 
         var selfMessage = Loc.GetString("changeling-armshield-retract-self");
+        _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
+    }
+
+    private void RemoveArmaceEntity(EntityUid uid, ChangelingComponent component)
+    {
+        if (!component.ArmaceEntity.HasValue)
+            return;
+        QueueDel(component.ArmaceEntity);
+        _audioSystem.PlayPvs(component.SoundFlesh, uid);
+        component.ArmaceActive = false;
+
+        var othersMessage = Loc.GetString("changeling-armace-retract-others", ("user", Identity.Entity(uid, EntityManager)));
+        _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
+
+        var selfMessage = Loc.GetString("changeling-armace-retract-self");
         _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
     }
 

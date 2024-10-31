@@ -28,9 +28,9 @@
     malus: 0
 
 - type: entity
-  name: arm hammer
+  name: arm mace
   parent: BaseItem
-  id: ADTArmHammer
+  id: ADTArmace
   description: Meat.
   components:
   - type: Sprite
@@ -58,3 +58,11 @@
     speedModifier: 0.75
   - type: MeleeThrowOnHit
     speed: 5
+    lifetime: 1
+    collideDamage:
+      types:
+        Blunt: 12
+    toCollideDamage:
+      types:
+        Blunt: 50
+    downOnHit: true
