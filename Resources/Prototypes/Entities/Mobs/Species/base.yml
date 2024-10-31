@@ -299,8 +299,11 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: BloodCough # ADT Tweak
+  # Start-ADT Tweak
+  - type: BloodCough
     postingSayDamage: blood-cough
+  - type: TimeDespawnDamage
+  # End-ADT Tweak
 
 - type: entity
   save: false

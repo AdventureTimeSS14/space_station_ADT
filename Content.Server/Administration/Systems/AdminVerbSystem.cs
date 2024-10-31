@@ -88,6 +88,7 @@ namespace Content.Server.Administration.Systems
             AddSmiteVerbs(ev);
             AddTricksVerbs(ev);
             AddAntagVerbs(ev);
+            AddAdminTimeOperSpawnVerbs(ev); // ADT-Tweak
         }
 
         private void AddAdminVerbs(GetVerbsEvent<Verb> args)
