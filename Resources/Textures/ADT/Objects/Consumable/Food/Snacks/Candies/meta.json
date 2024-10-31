@@ -50,6 +50,12 @@
             "name": "eyes"
         },
         {
+            "name": "marmalade_eyes-2"
+        },
+        {
+            "name": "marmalade_eyes-1"
+        },
+        {
             "name": "bunny"
         },
         {
@@ -66,6 +72,36 @@
         },
         {
             "name": "mint_caramel"
+        },
+        {
+            "name": "c_coin-packed"
+        },
+        {
+            "name": "candy_corn"
+        },
+        {
+            "name": "cookie_ghost"
+        },
+        {
+            "name": "cookie_knight"
+        },
+        {
+            "name": "cookie_spider"
+        },
+        {
+            "name": "jelly-spooky"
+        },
+        {
+            "name": "muffin_pump"
+        },
+        {
+            "name": "pretzelpump"
+        },
+        {
+            "name": "spooky"
+        },
+        {
+            "name": "cookie_blackcat"
         },
         {
             "name": "worms"

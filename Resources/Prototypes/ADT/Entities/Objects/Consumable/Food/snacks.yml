@@ -735,6 +735,127 @@
     state: candygreen
 
 - type: entity
+  name: ADTCandy-SpookyNAME
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandySpooky
+  description: ADTCandy-SpookyDESC
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: spooky
+
+- type: entity
+  name: ADTCandy-pretzelName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyPretzelscary
+  description: ADTCandy-pretzelDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: pretzelpump
+
+- type: entity
+  name: ADTCandy-muffinName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyMuffin
+  description: ADTCandy-muffinDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: muffin_pump
+
+- type: entity
+  name: ADTCandy-OneeyeName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyOneeye
+  description: ADTCandy-OneeyeDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: marmalade_eyes-1
+
+- type: entity
+  name: ADTCandy-TwoeyeName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyTwoeye
+  description: ADTCandy-TwoeyeDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: marmalade_eyes-2
+
+- type: entity
+  name: ADTCandy-SpookyJellyName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandySpookyJelly
+  description: ADTCandy-SpookyJellyDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: jelly-spooky
+
+- type: entity
+  name: ADTCandy-knightName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyKnight
+  description: ADTCandy-KnightDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: cookie_knight
+
+- type: entity
+  name: ADTCandy-SpiderName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandySpider
+  description: ADTCandy-SpiderDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: cookie_spider
+
+- type: entity
+  name: ADTCandy-GhostName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyGhost
+  description: ADTCandy-GhostDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: cookie_ghost
+
+- type: entity
+  name: ADTCandy-catName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandycat
+  description: ADTCandy-catDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: cookie_blackcat
+
+- type: entity
+  name: ADTCandy-ccornName
+  parent: ADTFoodSnackBatGingerBread
+  id: ADTFoodSnackCandyccorn
+  description: ADTCandy-ccornDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT\Objects\Consumable\Food\Snacks\Candies
+    state: candy_corn
+
+- type: entity
   name: candy mine
   parent: ADTFoodSnackBatGingerBread
   id: ADTFoodSnackCandyMine
