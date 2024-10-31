@@ -49,7 +49,7 @@ public sealed partial class AdminVerbSystem
                         var stationUid = _stations.GetOwningStation(args.Target);
                         string? jobId = "ADTJobTimePatrol";
                         var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-                        var job = new JobComponent {Prototype = jobId};
+                        var job = new JobPrototype {ID = jobId};
                         var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
                         var mobUid = _spawning.SpawnPlayerMob(coords.Value, job, profile, stationUid);
                         var targetMind = _mindSystem.GetMind(args.Target);
