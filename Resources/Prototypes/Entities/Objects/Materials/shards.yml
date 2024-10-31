@@ -201,6 +201,11 @@
     refineResult:
     - id: SheetGlass1
     - id: SheetUranium1
+# ADT-Tweak-start # Uranium ore is radioactive. So the shard must be too.
+  - type: RadiationSource
+    intensity: 0.7
+    slope: 0.3
+# ADT-Tweak-end
   - type: DamageUserOnTrigger
     damage:
       types:

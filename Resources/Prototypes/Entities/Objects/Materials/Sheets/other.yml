@@ -208,6 +208,11 @@
   - type: PhysicalComposition
     materialComposition:
       Uranium: 100
+# ADT-Tweak-start # Uranium ore is radioactive. So the sheet must be too.
+  - type: RadiationSource
+    intensity: 1.7
+    slope: 0.3
+# ADT-Tweak-end
   - type: Stack
     stackType: Uranium
     baseLayer: base
