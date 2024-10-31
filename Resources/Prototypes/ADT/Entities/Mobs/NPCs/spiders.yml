@@ -206,7 +206,7 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: .25
+    transferAmount: 0.25
     solution: melee
 
 - type: entity
@@ -251,7 +251,7 @@
     solutions:
       melee:
         reagents:
-        - ReagentId: ADTVenom
+        - ReagentId: ADTLatrotoxin
           Quantity: 100
   - type: MeleeChemicalInjector
     transferAmount: 4
@@ -309,76 +309,83 @@
         Piercing: 24
 
 - type: entity
-  name: hunter
-  parent: ADTMobHunterSpider
-  id: ADTMobHunterSpiderAngry
-  suffix: Angry
+  name: little spider
+  parent: ADTMobBaseSpider
+  id: ADTMobMiniSpider
   components:
-    - type: NpcFactionMember
-      factions:
-        - Xeno
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-    - type: GhostRole
-      makeSentient: true
-      name: ghost-role-information-giant-spider-name
-      description: ghost-role-information-giant-spider-description
-    - type: GhostTakeoverAvailable
-
-- type: entity
-  name: guard
-  parent: ADTMobGuardSpider
-  id: ADTMobGuardSpiderAngry
-  suffix: Angry
-  components:
-    - type: NpcFactionMember
-      factions:
-        - Xeno
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-    - type: GhostRole
-      makeSentient: true
-      name: ghost-role-information-giant-spider-name
-      description: ghost-role-information-giant-spider-description
-    - type: GhostTakeoverAvailable
-
-- type: entity
-  name: viper
-  parent: ADTMobViperSpider
-  id: ADTMobViperSpiderAngry
-  suffix: Angry
-  components:
-    - type: NpcFactionMember
-      factions:
-        - Xeno
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-    - type: GhostRole
-      makeSentient: true
-      name: ghost-role-information-giant-spider-name
-      description: ghost-role-information-giant-spider-description
-    - type: GhostTakeoverAvailable
-
-- type: entity
-  name: tarantula
-  parent: ADTMobTarantulaSpider
-  id: ADTMobTarantulaSpiderAngry
-  suffix: Angry
-  components:
-    - type: NpcFactionMember
-      factions:
-        - Xeno
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-    - type: GhostRole
-      makeSentient: true
-      name: ghost-role-information-giant-spider-name
-      description: ghost-role-information-giant-spider-description
-    - type: GhostTakeoverAvailable
+  - type: Sprite
+    drawdepth: SmallMobs
+    scale: 0.8, 0.8
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mini
+      sprite: ADT/Mobs/Animals/minispider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mini-moving
+    noMovementLayers:
+      movement:
+        state: mini
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 80
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mini
+      Dead:
+        Base: mini_dead
+  - type: MultiHandedItem
+  - type: Item
+    sprite: ADT/Mobs/Animals/minispider.rsi
+    size: Huge
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.3
+    baseSprintSpeed : 4.3
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      18: 0.7
+      25: 0.5
+  - type: NPCRetaliation
+    attackMemoryLength: 15
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 4.8
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 30
+  - type: MeleeChemicalInjector
+    transferAmount: 0.75
+    solution: melee
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-mini-spider-name
+    description: ghost-role-information-mini-spider-description
+    rules: ghost-role-information-freeagent-rules
+  - type: GhostTakeoverAvailable
 
 - type: entity
   name: clown spider
@@ -445,4 +452,81 @@
       makeSentient: true
       name: ghost-role-information-giant-spider-name
       description: ghost-role-information-giant-spider-description
+      rules: ghost-role-information-giant-spider-rules
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  name: hunter
+  parent: ADTMobHunterSpider
+  id: ADTMobHunterSpiderAngry
+  suffix: Angry
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Xeno
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-giant-spider-name
+    description: ghost-role-information-giant-spider-description
+    rules: ghost-role-information-giant-spider-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: guard
+  parent: ADTMobGuardSpider
+  id: ADTMobGuardSpiderAngry
+  suffix: Angry
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Xeno
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: GhostRole
+      makeSentient: true
+      name: ghost-role-information-giant-spider-name
+      description: ghost-role-information-giant-spider-description
+      rules: ghost-role-information-giant-spider-rules
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  name: viper
+  parent: ADTMobViperSpider
+  id: ADTMobViperSpiderAngry
+  suffix: Angry
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Xeno
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: GhostRole
+      makeSentient: true
+      name: ghost-role-information-giant-spider-name
+      description: ghost-role-information-giant-spider-description
+      rules: ghost-role-information-giant-spider-rules
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  name: tarantula
+  parent: ADTMobTarantulaSpider
+  id: ADTMobTarantulaSpiderAngry
+  suffix: Angry
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Xeno
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: GhostRole
+      makeSentient: true
+      name: ghost-role-information-giant-spider-name
+      description: ghost-role-information-giant-spider-description
+      rules: ghost-role-information-giant-spider-rules
     - type: GhostTakeoverAvailable
