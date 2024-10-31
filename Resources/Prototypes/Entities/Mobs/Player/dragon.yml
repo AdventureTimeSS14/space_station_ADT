@@ -108,6 +108,8 @@
     coldDamageThreshold: -800
   - type: FlashImmunity
   - type: EyeProtection
+  - type: Damageable
+    damageModifierSet: ADTDragonDamageSet
 # ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
@@ -120,8 +122,6 @@
     - RadiationProtection
     - Drowsiness
     - Adrenaline #ADT-Medicine
-  - type: Damageable
-    damageModifierSet: ADTDragonDamageSet
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
@@ -144,7 +144,7 @@
     altDisarm: false
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    range: 2
+    range: 2 # ADT-Tweak
     damage:
       types:
         Piercing: 15
