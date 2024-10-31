@@ -36,7 +36,7 @@ namespace Content.Server.Heretic.Ritual;
 
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
-    //protected HereticSystem _heretic = default!;
+    protected HereticSystem _heretic = default!;
     protected DamageableSystem _damage = default!;
     protected EntityLookupSystem _lookup = default!;
     [Dependency] protected IPrototypeManager _proto = default!;
@@ -46,7 +46,7 @@ namespace Content.Server.Heretic.Ritual;
     public override bool Execute(RitualData args, out string? outstr)
     {
         _mind = args.EntityManager.System<SharedMindSystem>();
-        //_heretic = args.EntityManager.System<HereticSystem>();
+        _heretic = args.EntityManager.System<HereticSystem>();
         _damage = args.EntityManager.System<DamageableSystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _proto = IoCManager.Resolve<IPrototypeManager>();
@@ -101,8 +101,8 @@ namespace Content.Server.Heretic.Ritual;
                 _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
             }
 
-            // if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-            //     _heretic.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
+            if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+                _heretic.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
 
             // update objectives
             if (_mind.TryGetMind(args.Performer, out var mindId, out var mind))
