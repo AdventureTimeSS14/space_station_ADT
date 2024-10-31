@@ -414,11 +414,6 @@
     radius: 2.0
     energy: 7.5
     color: "#52ff39"
-# ADT-Tweak-start # Uranium ore is radioactive. So the anomaly must be too.
-  - type: RadiationSource
-    intensity: 2
-    slope: 0.3
-# ADT-Tweak-end
   - type: EntitySpawnAnomaly
     entries:
     - settings:
