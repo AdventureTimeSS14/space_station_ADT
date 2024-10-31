@@ -1,4 +1,3 @@
-using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -11,7 +10,7 @@ namespace Content.Shared.Stealth.Components;
 /// Use other components (like StealthOnMove) to modify this component's visibility based on certain conditions.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-// [Access(typeof(SharedStealthSystem))] // ADT commented
+//[Access(typeof(SharedStealthSystem))] // ADT TWEAK снимаю доступы
 public sealed partial class StealthComponent : Component
 {
     /// <summary>
@@ -82,7 +81,7 @@ public sealed class StealthComponentState : ComponentState
     public readonly TimeSpan? LastUpdated;
     public readonly bool Enabled;
 
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled) // ADT
+    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled)
     {
         Visibility = stealthLevel;
         LastUpdated = lastUpdated;
