@@ -16,6 +16,7 @@ using Content.Shared.ADT.Damage.Events;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -134,7 +135,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _status.TryAddStatusEffect(uid, "Adrenaline", TimeSpan.FromMinutes(1), false);
+        _status.TryAddStatusEffect<IgnoreSlowOnDamageComponent>(uid, "Adrenaline", TimeSpan.FromMinutes(1), false);
         var selfMessage = Loc.GetString("changeling-adrenaline-self-success");
         _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
     }

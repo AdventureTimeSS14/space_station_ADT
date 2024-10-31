@@ -160,6 +160,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         _action.AddAction(uid, ref component.ChangelingDNAStingActionEntity, component.ChangelingDNAStingAction);
         _action.AddAction(uid, ref component.ChangelingDNACycleActionEntity, component.ChangelingDNACycleAction);
         _action.AddAction(uid, ref component.ChangelingStasisDeathActionEntity, component.ChangelingStasisDeathAction);
+
+        component.BasicTransferredActions.Add(component.ChangelingEvolutionMenuActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingRegenActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingAbsorbActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingDNAStingActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingDNACycleActionEntity);
+        component.BasicTransferredActions.Add(component.ChangelingStasisDeathActionEntity);
     }
 
     private void OnShutdown(EntityUid uid, ChangelingComponent component, ComponentShutdown args)
@@ -388,8 +395,17 @@ public sealed partial class ChangelingSystem : EntitySystem
             }
         }
 
+        foreach (var basic in comp.BasicTransferredActions)
+        {
+            if (basic.HasValue)
+                _actionContainer.TransferActionWithNewAttached(basic.Value, to, to);
+        }
+        foreach (var item in comp.BoughtActions)
+        {
+            if (item.HasValue)
+                _actionContainer.TransferActionWithNewAttached(item.Value, to, to);
+        }
 
-        _actionContainer.TransferAllActionsWithNewAttached(from, to, to);
     }
 
     private HumanoidCharacterProfile BuildProfile(PolymorphHumanoidData data)

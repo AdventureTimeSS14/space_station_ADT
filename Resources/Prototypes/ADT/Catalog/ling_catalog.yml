@@ -274,3 +274,5 @@
   categories:
   - ChangelingAbilities
   icon: Interface/Actions/firestarter.png
+  conditions:
+  - !type:ChangelingCanRefreshCondition

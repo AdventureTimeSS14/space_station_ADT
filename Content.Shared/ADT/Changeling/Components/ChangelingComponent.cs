@@ -5,6 +5,7 @@ using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Changeling.Components;
 
@@ -124,6 +125,8 @@ public sealed partial class ChangelingComponent : Component
     public EntityUid? ChangelingStasisDeathActionEntity;
 
     public List<EntityUid?> BoughtActions = new();
+
+    public List<EntityUid?> BasicTransferredActions = new();
     #endregion
 
     #region Chemical Costs

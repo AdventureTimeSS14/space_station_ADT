@@ -15,6 +15,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Store.Components;
 using Content.Shared.Gibbing.Events;
+using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -389,7 +390,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _status.TryAddStatusEffect(target, "Muted", TimeSpan.FromSeconds(45), true);
+        _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(45), true);
 
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);
