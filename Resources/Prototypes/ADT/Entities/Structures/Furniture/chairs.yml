@@ -198,3 +198,20 @@
   - type: Construction
     graph: ADTSeat
     node: adtarmchairblue2
+
+- type: entity
+  name: spider stool
+  id: ADTSpiderStool
+  parent: SeatBase
+  description: It looks spooky.
+  suffix: Halloween
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/spider_stool.rsi #спрайт от Умы
+    state: icon

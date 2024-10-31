@@ -17,3 +17,6 @@ ent-ADTClothingBackpackLeatherLadySatchel = кожаный ранец
 ent-ADTClothingBackpackTimePatrol = рюкзак стража времени
     .desc = Просто вместительный рюкзак.
     .suffix = { "ОБВА" }
+
+ent-ADTClothingBackpackParamedic = рюкзак парамедика
+    .desc = Рюкзак, изготовленный для экстренных вызовов медицинской помощи.

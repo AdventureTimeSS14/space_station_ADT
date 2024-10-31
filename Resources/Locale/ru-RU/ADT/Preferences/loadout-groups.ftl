@@ -28,6 +28,8 @@ loadout-group-roboticist-gloves = Робототехник, перчатки
 loadout-warden-neck-adt = Смотритель, шея
 loadout-security-officer-neck-adt = Офицер СБ, шея
 loadout-security-cadet-neck-adt = Кадет СБ, шея
+loadout-guardofficer-head-adt = Надзиратель, голова
+loadout-guardofficer-jumpsuit-adt = Надзиратель, комбинезон
 # Brigmedic
 loadout-brigmedic-jumpsuit-adt = Бригмедик, комбинезон
 loadout-brigmedic-head-adt = Бригмедик, голова
@@ -39,6 +41,9 @@ loadout-brigmedic-glasses-adt = Бригмедик, очки
 loadout-brigmedic-belt-adt = Бригмедик, поясы
 loadout-brigmedic-outerwear-adt = Бригмедик, верхняя одежда
 # Medical
+loadout-group-medical-belt-adt = Врач, пояс
+loadout-group-paramedic-belt-adt = Парамедик, пояс
+loadout-group-paramedic-backpack-adt = Парамедик, рюкзак
 loadout-group-patholog-head = Патологоанатом, голова
 loadout-group-patholog-jumpsuit = Патологоанатом, комбинезон
 loadout-group-patholog-outerclothing = Патологоанатом, верхняя одежда

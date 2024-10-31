@@ -1,0 +1,82 @@
+# halloween
+
+- type: entity
+  name: Jason's machete
+  parent: Machete
+  id: ADTJasonMachette
+  description: The machete of one of the most terrifying maniacs. There is a small inscription "polyurethane" on the side.
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.2
+    angle: 75
+    damage:
+      types:
+        Blunt: 0.5
+    soundHit:
+      collection: BoxingHit
+  - type: StaminaDamageOnHit
+    damage: 8
+
+- type: entity
+  name: Tagilla 's sledgehammer
+  parent: BaseItem
+  id: ADTTagillaSledgehammerReal
+  description: The hammer is coated with urethane, which provides a "thud" using steel balls to dampen the impact and reduce the vibration of the recoil in the handle.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/tagilla_sledge.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.4
+    angle: 75
+    damage:
+      types:
+        Blunt: 25
+        Structural: 15
+  - type: StaminaDamageOnHit
+    damage: 25
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 10
+        Structural: 35
+  - type: Item
+    size: Huge
+  - type: DisarmMalus
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+
+- type: entity
+  name: Tagilla 's sledgehammer
+  parent: ADTTagillaSledgehammerReal
+  id: ADTTagillaSledgehammerToy
+  description: The hammer is coated with urethane, which provides a "thud" using steel balls to dampen the impact and reduce the vibration of the recoil in the handle.
+  suffix: Halloween
+  components:
+  - type: StaminaDamageOnHit
+    damage: 5
+  - type: Appearance
+  - type: DisarmMalus
+    malus: 0
+  - type: MeleeWeapon
+    soundHit:
+      collection: RubberHammer
+      params:
+          variation: 0.03
+          volume: 3
+    soundNoDamage:
+      collection: RubberHammer
+      params:
+         variation: 0.03
+         volume: 3
+    damage:
+      types:
+        Blunt: 0.01
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 0.1

@@ -1,0 +1,23 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTHelloweenPlantRandom
+  name: random helloween decor spawner
+  #decription: random helloween decor spawner
+  suffix: Helloween
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Structures/Decoration/Plants/potted_plant_helloween.rsi
+        state: plant1
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - ADTHalloweenPumpkinLight1
+      - ADTHalloweenPumpkinLight2
+      - ADTHalloweenPumpkinLight3
+      - ADTHalloweenPumpkinLight4
+      - ADTHalloweenPumpkinLight5
+      - ADTHalloweenPottedPlant1
+      - ADTHalloweenPottedPlant2
+    chance: 1

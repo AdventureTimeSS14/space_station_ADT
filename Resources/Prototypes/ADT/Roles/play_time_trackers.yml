@@ -30,3 +30,7 @@
 
 - type: playTimeTracker
   id: JobTimePatrol
+  
+- type: playTimeTracker
+  id: JobADTGuardOfficer
+  

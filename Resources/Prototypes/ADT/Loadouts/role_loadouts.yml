@@ -87,6 +87,7 @@
   - MedicalMask
   - MedicalDoctorJumpsuit
   - MedicalGloves
+  - ADTMedicalBelt # ADT tweak
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - Trinkets
@@ -169,15 +170,33 @@
   - ADTBrigmedicOuterWear
   - ADTBrigmedicBack
   # Another stuffs
-  - ADTBrigmedicBelts
+  - ADTMedicalBelt
   - ADTBrigmedicEyes
   - ADTBrigmedicGloves
-  - ADTBrigmedicPDA
   # another:
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+
+- type: roleLoadout
+  id: JobADTGuardOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ADTGuardOfficerHead
+  - ADTGuardOfficerJumpsuit
+  - ADTSeniorSecurityOuterClothing
+  - SecurityBelt
+  - SecurityBackpack
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
