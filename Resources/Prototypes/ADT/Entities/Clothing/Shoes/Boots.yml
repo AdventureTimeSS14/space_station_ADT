@@ -11,6 +11,16 @@
     sprite: ADT/Clothing/Shoes/Boots/newmekka.rsi  #спрайты от prazat911
 
 - type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootMimicry
+  name: mimicry boot
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/mimicry.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/mimicry.rsi 
+
+- type: entity
   parent: ClothingShoesBootsCombat
   id: ADTClothingShoesBootsCombatTimePatrol
   components:

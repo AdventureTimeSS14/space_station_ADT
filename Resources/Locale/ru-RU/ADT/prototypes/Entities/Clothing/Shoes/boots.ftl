@@ -19,3 +19,7 @@ ent-ADTClothingShoesHighboots = походные сапоги
 ent-ADTClothingShoesSollux = двойная обувь
     .desc = Это просто две кроссовки, одна черная, другая белая.
     .suffix = Хеллоуин
+
+ent-ADTClothingFootMimicry = мимикрические туфли
+    .desc = Пара туфель что были созданы буквально из кожи человека, выглядит ужасно!
+    .suffix = { "" }

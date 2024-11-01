@@ -266,6 +266,9 @@ ent-ADTClothingUniformJumpsuitTrader = комбинезон торговца
     .desc = Это комбинезон, который носят торговцы ТСФ
     .suffix = { "ТСФ" }
 
+ent-ADTClothingUniformMimicry = мимикрический комбинезон
+    .desc = На вид как деловой костюм что агрессивно сшили из плоти, выглядит ужасно!
+
 ent-ADTClothingUniformGuardOfficer = комбинезон надзирателя
     .desc = Ничем не примечательная оранжевая униформа тюремного охранника.
 
@@ -354,3 +357,4 @@ ent-ADTClothingUniformSollux = футболка тролля Близнеца
 ent-ADTClothingUniformSwimsuitWinth = купальник ведьмочки
     .desc = Точно не для повседневного ношения, так ведь?..
     .suffix = Хеллоуин
+

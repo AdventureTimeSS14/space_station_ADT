@@ -53,6 +53,15 @@
     - WhitelistChameleon
     - HudMedical
 
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesMimicry
+  name: mimicy glasses
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
 
     # halloween
 
