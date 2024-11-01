@@ -63,43 +63,43 @@
   - type: TimedDespawn
     lifetime: 0.2
 
-- type: entity
-  name: бананомёт
-  parent: BaseItem
-  id: WeaponMechClowneBanana
-  description: БАМ!
-  components:
-  - type: Sprite
-    netsync: false
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_bananamrtr
-  - type: Item
-    size: Large
-  - type: AmmoCounter
-  - type: Gun
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
-    fireRate: 1
-    projectileSpeed: 40
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-  - type: BallisticMechAmmoProvider
-    proto: FoodPieBananaCream
-    shots: 12
-    capacity: 12
-    reloadCost: 100
-  - type: Appearance
-  - type: MechEquipment
-  - type: UIFragment
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
-  - type: MechGun
-  - type: Tag
-    tags:
-      - ADTMechEquipmentClown
+# - type: entity
+#   name: бананомёт
+#   parent: BaseItem
+#   id: WeaponMechClowneBanana
+#   description: БАМ!
+#   components:
+#   - type: Sprite
+#     netsync: false
+#     sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#     state: mecha_bananamrtr
+#   - type: Item
+#     size: Large
+#   - type: AmmoCounter
+#   - type: Gun
+#     soundGunshot:
+#       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+#     fireRate: 1
+#     projectileSpeed: 40
+#     selectedMode: FullAuto
+#     availableModes:
+#       - FullAuto
+#   - type: BallisticMechAmmoProvider
+#     proto: FoodPieBananaCream
+#     shots: 12
+#     capacity: 12
+#     reloadCost: 100
+#   - type: Appearance
+#   - type: MechEquipment
+#   - type: UIFragment
+#   - type: ContainerContainer
+#     containers:
+#       ballistic-ammo: !type:Container
+#         ents: []
+#   - type: MechGun
+#   - type: Tag
+#     tags:
+#       - ADTMechEquipmentClown
 
 - type: entity
   name: противоударная броня меха
