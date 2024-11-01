@@ -25,6 +25,18 @@
         {
             "name": "head",
             "directions": 4
+        },
+        {
+            "name": "underweart",
+            "directions": 4
+        },
+        {
+            "name": "underwearb",
+            "directions": 4
+        },
+        {
+            "name": "socks",
+            "directions": 4
         }
     ]
 }

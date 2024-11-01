@@ -71,6 +71,9 @@
   id: ADTBorgKerfusNTHead
 
 - type: Tag
+  id: ADTTelescopicBaton
+
+- type: Tag
   id: Eyes
 
 - type: Tag
@@ -111,6 +114,9 @@
 
 - type: Tag
   id: ADTCardPlay
+
+- type: Tag
+  id: ADTCard
 
 - type: Tag
   id: ADTSyrelBattleAxe
@@ -276,4 +282,31 @@
   id: ADTMechEquipmentClown
 
 - type: Tag
+  id: ADTBadge
+
+- type: Tag
+  id: ADTMagazineRifleExtended
+
+- type: Tag
+  id: ADTMagazineHristov
+
+- type: Tag
   id: ADTMagazineRifleAR12
+
+- type: Tag
+  id: ADTMobileDefibrillator
+
+- type: Tag
+  id: ADTPatch
+
+- type: Tag
+  id: ADTUnderwearB
+
+- type: Tag
+  id: ADTUnderwearT
+
+- type: Tag
+  id: ADTSocks
+
+- type: Tag
+  id: ADTMedipen

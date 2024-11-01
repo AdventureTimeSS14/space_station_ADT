@@ -43,6 +43,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private const float DamagePitchVariation = 0.05f;
     public const float GunClumsyChance = 0.5f;
@@ -76,7 +77,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         // Try a clumsy roll
         // TODO: Who put this here
-        if (TryComp<ClumsyComponent>(user, out var clumsy) && gun.ClumsyProof == false)
+        if (TryComp<ClumsyComponent>(user, out var clumsy) && gun.ClumsyProof == false && !_interaction.GetAntagonistStatus(user.Value, clumsy)) // ADT-Clumsy-Tweak
         {
             for (var i = 0; i < ammo.Count; i++)
             {
@@ -199,12 +200,23 @@ public sealed partial class GunSystem : SharedGunSystem
                                 // Checks if the laser should pass over unless targeted by its user
                                 foreach (var collide in rayCastResults)
                                 {
+                                    // ADT Crawling abuse fix start
+                                    foreach (var item in _lookup.GetEntitiesInRange(toCoordinates, 0.5f))
+                                    {
+                                        if (item == collide.HitEntity && TryComp<RequireProjectileTargetComponent>(item, out var require) && require.Active)
+                                        {
+                                            result = collide;
+                                            break;
+                                        }
+                                    }
+                                    if (result.Equals(collide))
+                                        break;
+                                    // ADT Crawling abuse fix end
                                     if (collide.HitEntity != gun.Target &&
                                         CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true)
                                     {
                                         continue;
                                     }
-
                                     result = collide;
                                     break;
                                 }
@@ -340,6 +352,7 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
+            targeted.TargetCoords = gun.ShootCoordinates; // ADT-Crawling-Abuse-Tweak
             Dirty(uid, targeted);
         }
 

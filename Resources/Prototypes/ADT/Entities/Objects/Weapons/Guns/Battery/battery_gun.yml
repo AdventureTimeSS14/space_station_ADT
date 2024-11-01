@@ -29,7 +29,6 @@
     maxCharge: 5000
     startingCharge: 5000
 
-
 - type: entity
   name: laser rifle
   parent: BaseWeaponBattery
@@ -68,6 +67,46 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
+
+- type: entity
+  name: disabler
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponPulseTimePatrol
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  suffix: "ОБВА"
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 50
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Guns/Battery/tsd_gun.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: ADT/Objects/Weapons/Guns/Battery/tsd_gun.rsi
+      quickEquip: false
+      slots:
+        - Belt
+    - type: Gun
+      fireRate: 1.5
+      soundGunshot:
+        path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: ADTADTBulletMagnumHighVelocityTranquilizer
+      fireCost: 150
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
+    - type: Appearance
+    - type: Battery
+      maxCharge: 2000
+      startingCharge: 2000
+    - type: DNAGunLocker
 
 - type: entity
   name: Cutter
