@@ -123,6 +123,9 @@
     },
 	{
 		"name": "armhammer"
+	},
+	{
+		"name": "background"
 	}
   ]
 }
