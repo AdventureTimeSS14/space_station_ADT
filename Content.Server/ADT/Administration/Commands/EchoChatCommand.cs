@@ -5,8 +5,28 @@ using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Content.Server.Chat.Systems;
-using Serilog;
-using FastAccessors;
+using Content.Server.Administration.Managers;
+using Content.Shared.Players;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Runtime.InteropServices;
+using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
+using Content.Server.Administration.Systems;
+using Content.Server.Corvax.Sponsors;
+using Content.Server.MoMMI;
+using Content.Server.Players.RateLimiting;
+using Content.Server.Preferences.Managers;
+using Content.Shared.Administration;
+using Content.Shared.CCVar;
+using Content.Shared.Chat;
+using Content.Shared.Database;
+using Content.Shared.Mind;
+using Robust.Shared.Configuration;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Robust.Shared.Replays;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -22,6 +42,7 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "echo_chat";
 
@@ -36,24 +57,33 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
         if (!TryParseUid(args[0], shell, _entManager, out var entityUid))
             return;
 
-        var massaged = args[1];
-
+        var message = args[1];
         if (args[2] == "emote")
         {
-            _chatSystem.TrySendInGameICMessage(entityUid.Value, massaged, InGameICChatType.Emote, ChatTransmitRange.Normal);
-            shell.WriteLine($"зашли сюда (args[2] == emote)");
+            _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Emote, ChatTransmitRange.Normal);
         }
         else if (args[2] == "speak")
         {
-            _chatSystem.TrySendInGameICMessage(entityUid.Value, massaged, InGameICChatType.Speak, ChatTransmitRange.Normal);
-            shell.WriteLine($"зашли сюда (args[2] == speak)");
+            _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Speak, ChatTransmitRange.Normal);
+        }
+        else if (args[2] == "whisper")
+        {
+            _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Whisper, ChatTransmitRange.Normal);
         }
 
-        shell.WriteLine($"Инфа о переменных: \nargs[0]: {args[0]} \nargs[1]: {massaged} \nargs[2]: {args[2]}");
-        Log.Information($"Инфа о переменных: args[0]: {args[0]} args[1]: {massaged} args[2]: {args[2]}");
-        Log.Debug($"Инфа о переменных: args[0]: {args[0]} args[1]: {massaged} args[2]: {args[2]}");
+        var player = shell.Player;
+        if (player != null)
+        {
+            var sessionPlayer = _playerManager.GetSessionById(player.UserId);
+            var adminData = _adminManager.GetAdminData(sessionPlayer);
+            var senderPermission = adminData?.HasFlag(AdminFlags.Permissions) ?? false; // Default to false if null
 
-        //_adminLogger.Add(LogType.Chat, LogImpact.Low, $"Server announcement: {message}");
+            // Log only if the user doesn't have the Permissions flag
+            if (!senderPermission)
+            {
+                _adminLogger.Add(LogType.Chat, LogImpact.High, $"Server announcement: {player.Name} ({player.UserId}) used the command to make {entityUid.Value} say: \"{message}\" as {args[2]}.");
+            }
+        }
     }
 
     private bool TryParseUid(string str, IConsoleShell shell,
@@ -75,5 +105,32 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
 
         entityUid = EntityUid.Invalid;
         return false;
+    }
+
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        if (args.Length == 1)
+        {
+            var options = _playerManager.Sessions.Select(c => c.Name).OrderBy(c => c).ToArray();
+            return CompletionResult.FromHintOptions(
+                options,
+                LocalizationManager.GetString("echo_chat-hint"));
+        }
+
+        if (args.Length == 2)
+            return CompletionResult.FromHint(Loc.GetString("echo_chat-message-help"));
+
+        if (args.Length == 3)
+        {
+            var isAnnounce = new CompletionOption[]
+            {
+                new("speak", Loc.GetString("echo_chat-speak-help")),
+                new("emote", Loc.GetString("echo_chat-emote-help")),
+                new("whisper", Loc.GetString("echo_chat-whisper-help"))
+            };
+            return CompletionResult.FromHintOptions(isAnnounce, Loc.GetString("echo_chat-why-help"));
+        }
+
+        return CompletionResult.Empty;
     }
 }
