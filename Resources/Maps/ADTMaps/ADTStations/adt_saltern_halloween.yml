@@ -4014,7 +4014,7 @@ entities:
     - type: Transform
       pos: -17.51016,8.750168
       parent: 1
-- proto: ADTFoodSnackScullGingerBread
+- proto: ADTFoodCookieSkull
   entities:
   - uid: 11899
     components:

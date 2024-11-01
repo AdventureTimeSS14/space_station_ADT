@@ -5948,7 +5948,7 @@ entities:
     - type: Transform
       pos: -2.4274218,-72.46243
       parent: 1
-- proto: ADTFoodSnackEyes
+- proto: ADTFoodSnackCandyEyes
   entities:
   - uid: 17831
     components:
