@@ -5,7 +5,7 @@
   description: A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/armblade.rsi
+    sprite: ADT/Changeling/Objects/armblade.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 90
@@ -16,7 +16,7 @@
         Piercing: 15
   - type: Item
     size: Ginormous
-    sprite: ADT/Objects/Weapons/Melee/armblade.rsi
+    sprite: ADT/Changeling/Objects/armblade.rsi
   - type: Tool
     qualities:
     - Prying
@@ -34,7 +34,7 @@
   description: Meat.
   components:
   - type: Sprite
-    sprite: ADT/Changeling/armmace.rsi
+    sprite: ADT/Changeling/Objects/armmace.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -46,7 +46,7 @@
       collection: MetalThud
   - type: Item
     size: Ginormous
-    sprite: ADT/Changeling/armmace.rsi
+    sprite: ADT/Changeling/Objects/armmace.rsi
     inhandVisuals:
       left:
       - state: inhand-left
@@ -57,8 +57,8 @@
     - Rolling
     speedModifier: 0.75
   - type: MeleeThrowOnHit
-    speed: 5
-    lifetime: 1
+    speed: 15
+    lifetime: 0.5
     collideDamage:
       types:
         Blunt: 12

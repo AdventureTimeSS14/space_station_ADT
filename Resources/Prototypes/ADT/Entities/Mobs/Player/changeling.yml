@@ -32,7 +32,7 @@
     speechVerb: SmallMob
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: ADT/Changeling/headslug.rsi
+    sprite: ADT/Changeling/Mobs/headslug.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headslug
@@ -137,7 +137,7 @@
     speechVerb: SmallMob
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: ADT/Changeling/headslug.rsi
+    sprite: ADT/Changeling/Mobs/headslug.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headslug
@@ -240,7 +240,7 @@
   - type: GhostRoleMobSpawner
     prototype: ChangelingHeadslugMidround
   - type: Sprite
-    sprite: ADT/Changeling/headslug.rsi
+    sprite: ADT/Changeling/Mobs/headslug.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headslug

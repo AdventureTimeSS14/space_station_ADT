@@ -20,7 +20,7 @@
     difficulty: 1.5
     unique: true
     icon:
-      sprite: Interface/Actions/actions_ling.rsi
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: absorb_dna
   - type: AbsorbDnaCondition
     objectiveText: absorb-dna-name

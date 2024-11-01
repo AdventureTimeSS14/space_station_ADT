@@ -7,4 +7,4 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 270000 #75 hrs
-  guides: [ Heretics ]
+  #guides: [ Heretics ] закомменчено до появления гайда

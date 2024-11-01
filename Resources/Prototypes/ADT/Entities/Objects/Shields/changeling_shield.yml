@@ -1,13 +1,14 @@
 - type: entity
   name: armshield
+  parent: BaseItem
   id: ADTArmShield
   description: Meat.
   components:
     - type: Sprite
-      sprite: ADT/Changeling/armshield.rsi
+      sprite: ADT/Changeling/Objects/armshield.rsi
       state: icon
     - type: Item
-      sprite: ADT/Changeling/armshield.rsi
+      sprite: ADT/Changeling/Objects/armshield.rsi
       inhandVisuals:
         left:
         - state: inhand-left
@@ -32,3 +33,5 @@
           Slash: 0.5
           Piercing: 0.5
           Heat: 1
+    - type: Damageable
+      damageContainer: Shield
