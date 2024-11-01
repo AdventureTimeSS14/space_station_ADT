@@ -49,8 +49,8 @@
     JugSodium: 2
     JugSugar: 3
     JugSulfur: 1
-    JugWeldingFuel: 3
-    SheetPlasma1: 4
+    JugWeldingFuel: 3 # ADT-Tweak
+    SheetPlasma1: 4 # ADT-Tweak
   emaggedInventory:
     PaxChemistryBottle: 3
     MuteToxinChemistryBottle: 3
