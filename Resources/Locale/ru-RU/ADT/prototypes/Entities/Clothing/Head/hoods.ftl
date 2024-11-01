@@ -7,7 +7,3 @@ ent-ClothingHeadHatHoodHeretic = зловещий капюшон
 ent-ADTClothingHeadSquidGameHood = капюшон организатора Игр Кальмара
     .suffix = Игры Кальмара
     .desc = Капюшон организаторов Игр Кальмара, позволяющий скрыть личность.
-
-ent-ADTClothingHeadHatHoodRedhat = капюшон красной шапочки
-    .suffix = Хеллоуин
-    .desc = Бабушка, почему у тебя такие большие глаза? Чтобы лучше видеть мелких
