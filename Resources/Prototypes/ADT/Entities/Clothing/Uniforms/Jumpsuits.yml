@@ -879,6 +879,17 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer_master.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformGreyGuardOfficer
+  name: grey uniform guard officer
+  description: grey uniform guard officer
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+
 # ТСФ
 
 - type: entity

@@ -1,0 +1,54 @@
+- type: job
+  id: ADTJobTimePatrol
+  name: job-name-time-patrol
+  description: job-description-magistrat
+  playTimeTracker: JobTimePatrol
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 600000
+  startingGear: ADTTimePatrolGear
+  icon: "JobIconMagistrat"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+    - Command
+    - Brig
+    - Maintenance
+    - Service
+    - Security
+    - Magistrate
+    - Lawyer
+    - IAA
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ADTTimePatrolGear
+  equipment:
+    #suitstorage: OxygenTankFilled
+    back: ADTClothingBackpackTimePatrol
+    #id: ADTSecurityCybPDA #ADTSecurityCybPDA
+    belt: ADTWeaponPulseTimePatrol
+    #pocket1: ADtWeaponSecCyborg
+    #pocket2: WeaponDisabler
+    neck: ADTClothingNeckMantleTimePatrol
+    mask: ADTChronosMask
+    jumpsuit: ClothingUniformJumpsuitOperative
+    shoes: ADTClothingShoesBootsCombatTimePatrol
+    #head: ADTClothingHeadHelmetHardsuitDeathsquad
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterHardsuitTimePatrol
+    #id: CentcomPDA
+    #ears: ClothingHeadsetAltCentCom
+    suitstorage: EmergencyOxygenTankFilled
+    pocket1: EnergySword
+    pocket2: MindFlushingFlash
+    #underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+    #socks: ClothingUnderwearSocksNormal
+  #underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  #underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear

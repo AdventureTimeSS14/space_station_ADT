@@ -150,6 +150,17 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/guard_officer_cap_master.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadGreyHatsGuardOfficer
+  name: grey guard officer cap
+  description: Glory to NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/grey_guard_officer_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/grey_guard_officer_cap.rsi
+
 #Береты профессий
 
 - type: entity

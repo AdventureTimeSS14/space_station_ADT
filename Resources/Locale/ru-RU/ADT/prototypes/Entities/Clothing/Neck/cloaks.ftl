@@ -22,6 +22,9 @@ ent-ADTClothingNeckHoPAltCloak = торжественный плащ Главы 
 ent-ClothingCloakAtmosian = плащ атмосианина
     .desc = Плащ легендарного атмосианина.
 
+ent-ADTClothingNeckMantleTimePatrol = мантия стража времени
+    .desc = Плащ путника из далекого будущего. Края этого плаща светятся, но навряд ли вы успеете это разглядеть.
+
 ent-ADTClothingNeckCloakSyndicate = плащ Синдиката
     .desc = Антагонизируй со стилем!
     .suffix = { "" }
