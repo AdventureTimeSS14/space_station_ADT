@@ -3894,7 +3894,7 @@ entities:
     - type: Transform
       pos: -10.59676,0.46899384
       parent: 1
-- proto: ADTFoodSnackBatGingerBread
+- proto: ADTFoodSnackCandyBat
   entities:
   - uid: 11890
     components:
