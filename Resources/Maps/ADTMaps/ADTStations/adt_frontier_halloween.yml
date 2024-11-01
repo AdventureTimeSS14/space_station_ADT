@@ -10633,7 +10633,7 @@ entities:
     - type: Transform
       pos: 22.5,-25.5
       parent: 2
-- proto: ADTHalloweenPosterRandom2
+- proto: ADTHalloweenPosterRandom
   entities:
   - uid: 12536
     components:
