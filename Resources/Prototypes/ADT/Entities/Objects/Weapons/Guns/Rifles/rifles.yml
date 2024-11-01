@@ -5,7 +5,7 @@
   description: Made specially for GhostBusters
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ecto_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -13,7 +13,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ecto_rifle.rsi
     size: Huge
   - type: MagazineVisuals
     magState: mag
@@ -45,7 +45,7 @@
     containers:
       gun_magazine: !type:ContainerSlot
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ecto_rifle.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ecto_rifle.rsi
     quickEquip: false
     slots:
     - Back
@@ -105,14 +105,14 @@
   description: AR-12
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Rifels/ar12.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi
   - type: Gun
     fireRate: 6
   - type: ItemSlots
@@ -142,13 +142,69 @@
   description: TAR-60SF
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifels/tar60sf.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Rifels/tar60sf.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
   - type: Gun
     fireRate: 5.5
+
+- type: entity
+  name: xC67
+  parent: BaseWeaponRifle
+  id: ADTWeaponRifleXC67
+  description: A high end prototipe assault rifle. Uses .20 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
+  - type: Gun
+    #minAngle: 2
+    #maxAngle: 8
+    fireRate: 6
+    #angleIncrease: 1
+    #angleDecay: 12
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleExtended
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifle
+            - ADTMagazineRifleExtended
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

@@ -14,6 +14,10 @@
       makeSentient: true
       name: ghost-role-information-carpcat-name
       description: ghost-role-information-carpcat-description
+      rules: ghost-role-information-carpcat-rules
+      raffle:
+        settings: short
+    - type: GhostTakeoverAvailable
     - type: Body
       prototype: Bloodsucker
       requiredLegs: 1

@@ -2,7 +2,10 @@
   id: NanoMedInventory
   startingInventory:
     Brutepack: 3
-    Ointment: 3
+    # ADT tweak start
+    Ointment: 2
+    ADTAntibioticOintment: 2
+    # ADT tweak end
     Bloodpack: 3
     EpinephrineChemistryBottle: 3
     Syringe: 3

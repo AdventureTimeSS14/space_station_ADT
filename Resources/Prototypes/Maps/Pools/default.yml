@@ -19,6 +19,9 @@
   # - Train
 # adt_maps
   # - ADT_Astra в комментерии до ремапа
+  - ADT_FrontierHalloween
+  - ADT_TrainHalloween
+  - ADT_SalternHalloween
   - ADT_Avrit
   - ADT_Bagel
   - ADT_Box
@@ -28,12 +31,12 @@
   - ADT_Marathon
   - ADT_Meta
   - ADT_Origin
-  - ADT_Saltern
+  # - ADT_Saltern - до конца хеллоуинских дней
   - ADT_Packed
-  - ADT_Train
+  # - ADT_Train - до конца хеллоуинских дней
   - ADT_Delta
-  - ADT_Oasis
+  # - ADT_Oasis удалён чтоб жизнь малиной не казалась
   - ADT_Gemini
   - ADT_Aspid
   - ADT_Moose
-  - ADT_Alley
+  # - ADT_Alley до ремонта
