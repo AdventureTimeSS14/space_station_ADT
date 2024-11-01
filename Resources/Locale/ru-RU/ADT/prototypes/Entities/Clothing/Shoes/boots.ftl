@@ -13,9 +13,5 @@ ent-ADTClothingShoesBootsMagAdvSynd = улучшенные магнитные б
     .desc = Созданые благодаря ревёрс инженерингу, эти ботинки защитят вас как от условий отсутвия гравитации, так и от клоунов.
     .suffix = { "" }
 
-ent-ADTClothingShoesHighboots = походные сапоги
+ent-ADTClothingShoesHighboots = Походные сапоги
     .desc = Пара высоких сапог, чтобы не заморать ноги во время ходьбы по лужам крови.
-
-ent-ADTClothingShoesSollux = двойная обувь
-    .desc = Это просто две кроссовки, одна черная, другая белая.
-    .suffix = Хеллоуин

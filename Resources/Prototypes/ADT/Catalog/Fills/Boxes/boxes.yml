@@ -482,50 +482,32 @@
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: base
   - type: Storage
-    whitelist:
-      tags:
-      - ADTCandies
     maxItemSize: Normal
     grid:
-    - 0,0,5,5
+    - 0,0,20,0
   - type: StorageFill
     contents:
-    - id: ADTFoodSnackCandyBat
-    - id: ADTFoodSnackCandyYellow
-    - id: ADTFoodSnackCandyGreen
-    - id: ADTFoodSnackCandyApple
-    - id: ADTFoodSnackCandyEyes2
-    - id: ADTFoodSnackCandyEyes
-    - id: ADTFoodSnackCandyEyes1
-    - id: ADTFoodSnackMintCaramel
-    - id: ADTFoodSnackHLCaramel
-    - id: ADTFoodSnackWorms
-    - id: ADTFoodSnackHeart
     - id: ADTFoodSnackBlackCandies
-    - id: ADTFoodCookieGhost
-    - id: ADTFoodCookieBlackcat
-    - id: ADTFoodSnackCandyRed
-    - id: ADTFoodSnackBunny
-    - id: ADTFoodSnackCandyPurple
-    - id: ADTFoodSnackCandyPumpkin
-    - id: ADTFoodSnackCandyKinito
-    - id: ADTFoodCookieSpider
-    - id: ADTFoodDonutSpooky
-    - id: ADTFoodCookieKnight
-    - id: ADTFoodCookiePumpkin
-    - id: ADTFoodCookieSkull
-    - id: ADTFoodSnackCandyСorn
-    - id: ADTFoodDonutJellySpooky
-    - id: ADTFoodBakedMuffinPumpkin
-    - id: ADTFoodSnackBrains
-    - id: ADTFoodSnackCoinCandies
-    - id: ADTFoodSnackYellowCandies
-    - id: ADTFoodSnackVioletCandies
-    - id: ADTFoodSnackCandyGoW
-    - id: ADTFoodSnackCandyBlue
-    - id: ADTFoodSnackCandyMine
-    - id: ADTFoodSnackRedCandies
     - id: ADTFoodSnackGreenCandies
+    - id: ADTFoodSnackRedCandies
+    - id: ADTFoodSnackVioletCandies
+    - id: ADTFoodSnackYellowCandies
+    - id: ADTFoodSnackBatGingerBread
+    - id: ADTFoodSnackScullGingerBread
+    - id: ADTFoodSnackPumpkinGingerBread
+    - id: ADTFoodSnackBunnyCandies
+    - id: ADTFoodSnackCoinCandies
+    - id: ADTFoodSnackBrains
+    - id: ADTFoodSnackHeart
+    - id: ADTFoodSnackWorms
+    - id: ADTFoodSnackHLCaramel
+    - id: ADTFoodSnackMintCaramel
+    - id: ADTFoodSnackEyes
+    - id: ADTFoodSnackCandyBlue
+    - id: ADTFoodSnackCandyGoW
+    - id: ADTFoodSnackCandyGreen
+    - id: ADTFoodSnackCandyMine
+    - id: ADTFoodSnackCandyRed
 
 - type: entity
   id: ADTPayDayBox
@@ -604,43 +586,3 @@
       amount: 1
     - id: ADTHalloweenMichaelMyersSuit
       amount: 1
-
-- type: entity
-  id: ADTBoxRedHat
-  parent: ADTBoxNightmareClown
-  name: red box
-  description: red hat box
-  suffix: Halloweeen
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: redhat
-    #layers:
-    #- state: base
-    #- state: harry
-  - type: StorageFill
-    contents:
-    - id: ADTClothingNeckCloakRedhat
-      amount: 1
-    - id: ADTClothingHeadHatHoodRedhat
-      amount: 1
-
-- type: entity
-  id: ADTBoxSollux
-  parent: ADTBoxNightmareClown
-  name: sollux box
-  description: sollux box
-  suffix: Halloweeen
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: sollux
-    #layers:
-    #- state: base
-    #- state: harry
-  - type: StorageFill
-    contents:
-    - id: ADTClothingEyesGlassesSollux
-    - id: ADTClothingHeadHatHornsSollux
-    - id: ADTClothingShoesSollux
-    - id: ADTClothingUniformSollux

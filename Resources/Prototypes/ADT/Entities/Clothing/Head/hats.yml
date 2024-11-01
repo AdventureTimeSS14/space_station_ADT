@@ -401,26 +401,3 @@
     sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
   - type: IngestionBlocker
 
-- type: entity
-  parent: ClothingHeadBase
-  id: ADTClothingHeadHatWinth
-  name: winth hat
-  suffix: Halloween
-  description: winth hat
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/winth_hat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/winth_hat.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ADTClothingHeadHatHornsSollux
-  name: sollux hat
-  description: sollux hat
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/sollux_captor.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/sollux_captor.rsi
