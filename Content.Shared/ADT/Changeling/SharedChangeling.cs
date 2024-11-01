@@ -115,13 +115,6 @@ public sealed partial class LastResortActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class LingEggSpawnActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LingHatchActionEvent : InstantActionEvent
-{
-}
 public sealed partial class LingBiodegradeActionEvent : InstantActionEvent
 {
 }
