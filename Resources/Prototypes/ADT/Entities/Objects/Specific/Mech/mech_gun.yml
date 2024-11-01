@@ -370,7 +370,6 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-    ammoType: granade
   - type: BallisticMechAmmoProvider
     proto: GrenadeBaton
     shots: 3

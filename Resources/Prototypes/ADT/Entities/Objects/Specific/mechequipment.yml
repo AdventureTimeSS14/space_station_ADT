@@ -24,7 +24,7 @@
     proto: BulletCutter
     shots: 40
     capacity: 40
-    reloadCost: 100
+    #reloadCost: 100
     reloadTime: 5
     ammoType: plasma
   - type: UIFragment
