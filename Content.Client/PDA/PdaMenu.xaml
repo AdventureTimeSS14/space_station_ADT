@@ -46,12 +46,18 @@
             <ContainerButton Name="StationAlertLevelInstructionsButton">
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
-            <ContainerButton Name="StationAlertLevelInstructionsButtonForCommands">
+            <ContainerButton Name="StationAlertLevelInstructionsButtonForCommands"> <!-- ADT START-->
                 <RichTextLabel Name="StationAlertLevelInstructionsForCommands" Access="Public"/>
             </ContainerButton>
             <ContainerButton Name="StationAlertLevelInstructionsButtonForCapitan">
                 <RichTextLabel Name="StationAlertLevelInstructionsForCapitan" Access="Public"/>
             </ContainerButton>
+            <ContainerButton Name="StationAlertLevelInstructionsButtonForSecurity">
+                <RichTextLabel Name="StationAlertLevelInstructionsForSecurity" Access="Public"/>
+            </ContainerButton>
+            <ContainerButton Name="StationAlertLevelInstructionsButtonForAnother">
+                <RichTextLabel Name="StationAlertLevelInstructionsForAnother" Access="Public"/>
+            </ContainerButton> <!-- ADT END -->
         </BoxContainer>
         <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
             <BoxContainer Orientation="Vertical"
