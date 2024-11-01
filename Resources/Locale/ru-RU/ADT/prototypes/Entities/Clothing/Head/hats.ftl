@@ -36,7 +36,7 @@ ent-ADTClothingHeadHatsGuardOfficer = кепка надзирателя
 ent-ADTClothingHeadHatsGuardOfficerMaster = фуражка надзирателя
     .desc = Фуражка тюремного надзирателя, которая выдается сотрудникам с опытом работы.
 
-ent-ADTClothingHeadGreyHatsGuardOfficerMaster = серая фуражка надзирателя
+ent-ADTClothingHeadGreyHatsGuardOfficer = серая фуражка надзирателя
     .desc = Серая фуражка тюремного надзирателя, которая выдается сотрудникам с чуть меньшим опытом работы.
 
 ent-ADTClothingHeadCapIlisium = фуражка

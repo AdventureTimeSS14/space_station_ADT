@@ -272,7 +272,7 @@ ent-ADTClothingUniformGuardOfficer = комбинезон надзирателя
 ent-ADTClothingUniformGuardOfficerMaster = комбинезон заслуженного надзирателя
     .desc = Обновленная оранжевая форма тюремного охранника для сотрудников с опытом работы, украшенная черными полосками на рукавах, символизирующая годы службы и опыт.
 
-ent-ADTClothingGreyUniformGuardOfficer = серый комбинезон заслуженного надзирателя
+ent-ADTClothingUniformGreyGuardOfficer = серый комбинезон заслуженного надзирателя
     .desc = Обновленная серая форма тюремного охранника для сотрудников с чуть меньшим опытом работы, но всё же заслуженным.
 
 ent-ADTOtherworldClownCostume = костюм потустороннего клоуна
