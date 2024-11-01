@@ -10,7 +10,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic]
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic, BadgeOnClothingWithContainer] #ADT-Tweak
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -25,9 +25,21 @@
     - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
+   #ADT-Tweak-Start
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+   #ADT-Tweak-End
 
 - type: entity
-  parent: [ClothingOuterCoatDetectiveLoadout]
+  parent: ClothingOuterCoatDetectiveLoadout
   id: ClothingOuterCoatDetectiveLoadoutGrey
   name: noir trenchcoat
   description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 speos.
@@ -99,6 +111,18 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+   #ADT-Tweak-Start
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+   #ADT-Tweak-End
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
