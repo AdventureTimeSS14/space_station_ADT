@@ -3940,3 +3940,9 @@ Entries:
           +4 (4)', type: Tweak}
     time: '2024-11-01T12:57:04Z'
     id: 494
+  - author: Шрёдька
+    changes:
+      - {message: 'Новая команда для админов ''echo_chat'', с админ флагом Fun.',
+        type: Add}
+    time: '2024-11-01T22:27:35Z'
+    id: 495
