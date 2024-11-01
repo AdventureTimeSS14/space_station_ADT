@@ -23,6 +23,9 @@ public sealed partial class ChangelingRuleComponent : Component
 {
     "EscapeLingShuttleObjective",
     "KillRandomPersonObjectiveLing",
-    "SmileExtractStealObjective"
+    "SmileExtractStealObjective",
+    "DnaAbsorbObjective",
+    "StealRandomPersonalityObjectiveLing",
+    "CommandIDStealObjective"
 };
 }

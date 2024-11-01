@@ -420,6 +420,10 @@
         type: Add
         time: 2.5
         refresh: false
+      - !type:GenericStatusEffect
+        key: ADTHallucinations
+        type: Remove
+        time: 7
       - !type:PopupMessage
         type: Local
         visualType: Small

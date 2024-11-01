@@ -6,8 +6,6 @@ absorb-dna-desc = Нам нужно { $count } полностью поглощё
 
 ling-kill-desc = Мы должны убить их.
 objective-condition-steal-personality-title = Украдите личность { $targetName }, в должности { CAPITALIZE($job) }.
-ling-steal-personality-desc = Нам нужно это тело.
-
 objective-condition-steal-head-personality-title = Украдите личность { $targetName }, в должности { CAPITALIZE($job) }. Цель НЕ ДОЛЖНА пережить смену.
 ling-steal-personality-desc = Нам нужно это тело.
 

@@ -261,6 +261,12 @@
         type: Add
         time: 16
         refresh: false
+      - !type:GenericStatusEffect
+        key: ADTHallucinations
+        component: LingHallucinations
+        type: Add
+        time: 4
+        refresh: false
 
 - type: reagent
   id: Nicotine
@@ -321,6 +327,12 @@
         type: Add
         time: 5
         refresh: false
+      - !type:GenericStatusEffect
+        key: ADTHallucinations
+        component: LingHallucinations
+        type: Add
+        time: 4
+        refresh: false
 
 - type: reagent
   id: Bananadine
@@ -338,6 +350,12 @@
         component: SeeingRainbows
         type: Add
         time: 5
+        refresh: false
+      - !type:GenericStatusEffect
+        key: ADTHallucinations
+        component: LingHallucinations
+        type: Add
+        time: 4
         refresh: false
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
@@ -517,4 +535,10 @@
         component: SeeingRainbows
         type: Add
         time: 5
+        refresh: false
+      - !type:GenericStatusEffect
+        key: ADTHallucinations
+        component: LingHallucinations
+        type: Add
+        time: 4
         refresh: false
