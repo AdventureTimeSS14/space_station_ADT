@@ -115,12 +115,12 @@
     allowed:
     - SlowedDown
     - Stutter
-    - Electrocution
+    # - Electrocution # ADT-Tweak - ъуъ
     # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
     # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???
-    - Pacified
+    # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
     - RadiationProtection
-    - Drowsiness
+    # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
     - Adrenaline #ADT-Medicine
   - type: Metabolizer
     solutionOnBody: false
