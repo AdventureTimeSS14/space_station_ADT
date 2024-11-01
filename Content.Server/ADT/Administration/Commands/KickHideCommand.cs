@@ -3,10 +3,9 @@ using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Content.Server.GhostKick;
-using Serilog;
-using Robust.Shared.Player;
+using Content.Server.Administration;
 
-namespace Content.Server.Administration.Commands;
+namespace Content.Server.ADT.Administration.Commands;
 
 // Команда для тихого кика
 // Автор: Discord: schrodinger71

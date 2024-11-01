@@ -5,14 +5,14 @@ using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Console;
-
+using Content.Server.Administration;
 using Content.Server.ADT.Discord;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Discord.Bans.PayloadGenerators;
 using Content.Server.Database;
+using Robust.Shared.Console;
 
-namespace Content.Server.Administration.Commands;
+namespace Content.Server.ADT.Administration.Commands;
 
 // Команда для массового бана игроков
 // Автор: Discord: schrodinger71
