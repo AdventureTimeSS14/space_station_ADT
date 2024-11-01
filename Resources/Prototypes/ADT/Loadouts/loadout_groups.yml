@@ -603,6 +603,7 @@
   loadouts:
   - ADTHeadHatGuardOfficer
   - ADTHeadHatGuardOfficerMaster
+  - ADTHeadHatGuardGreyOfficer
 
 
 # Униформа
@@ -614,3 +615,4 @@
   loadouts:
   - ADTUniformJumpsuitGuardOfficer
   - ADTUniformJumpsuitGuardOfficerMaster
+  - ADTUniformJumpsuitGreyGuardOfficer
