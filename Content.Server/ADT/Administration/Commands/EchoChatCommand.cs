@@ -1,31 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration;
-using Content.Shared.Administration.Logs;
+using Content.Server.Administration.Logs;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Content.Server.Chat.Systems;
 using Content.Server.Administration.Managers;
-using Content.Shared.Players;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Runtime.InteropServices;
-using Content.Server.Administration.Logs;
-using Content.Server.Administration.Managers;
-using Content.Server.Administration.Systems;
-using Content.Server.Corvax.Sponsors;
-using Content.Server.MoMMI;
-using Content.Server.Players.RateLimiting;
-using Content.Server.Preferences.Managers;
-using Content.Shared.Administration;
-using Content.Shared.CCVar;
-using Content.Shared.Chat;
 using Content.Shared.Database;
-using Content.Shared.Mind;
-using Robust.Shared.Configuration;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Administration.Commands;
@@ -39,25 +21,28 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "echo_chat";
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 3)
+        // Проверяем количество аргументов
+        if (args.Length != 3 && !(args.Length == 4 && args[3] == "false"))
         {
-            shell.WriteLine(Help);
+            shell.WriteLine("Error: invalid arguments! Maximum 3.");
             return;
         }
 
+        // Парсим UID
         if (!TryParseUid(args[0], shell, _entManager, out var entityUid))
             return;
 
         var message = args[1];
+
+        // Обрабатываем тип сообщения
         if (args[2] == "emote")
         {
             _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Emote, ChatTransmitRange.Normal);
@@ -71,19 +56,19 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
             _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Whisper, ChatTransmitRange.Normal);
         }
 
-        var player = shell.Player;
-        if (player != null)
+        // Проверяем, нужно ли добавлять запись в логи
+        if (args.Length == 4 && args[3] == "false")
         {
-            var sessionPlayer = _playerManager.GetSessionById(player.UserId);
-            var adminData = _adminManager.GetAdminData(sessionPlayer);
-            var senderPermission = adminData?.HasFlag(AdminFlags.Permissions) ?? false; // Default to false if null
-
-            // Log only if the user doesn't have the Permissions flag
-            if (!senderPermission)
-            {
-                _adminLogger.Add(LogType.Chat, LogImpact.High, $"Server announcement: {player.Name} ({player.UserId}) used the command to make {entityUid.Value} say: \"{message}\" as {args[2]}.");
-            }
+            // Не добавляем в логи
+            return;
         }
+
+        // Логируем сообщение
+        _adminLogger.Add(
+            LogType.AdminMessage,
+            LogImpact.Low,
+            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command echo_chat to make ({_entManager.ToPrettyString(entityUid.Value)}) to say: {message} as {args[2]}."
+        );
     }
 
     private bool TryParseUid(string str, IConsoleShell shell,
