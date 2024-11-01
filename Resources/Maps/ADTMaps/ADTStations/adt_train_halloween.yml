@@ -5710,7 +5710,7 @@ entities:
     - type: Transform
       pos: 14.1192255,-150.72914
       parent: 1
-- proto: ADTFoodSnackBatGingerBread
+- proto: ADTFoodSnackCandyBat
   entities:
   - uid: 17621
     components:
@@ -5761,7 +5761,7 @@ entities:
     - type: Transform
       pos: -7.7945504,-124.506226
       parent: 1
-- proto: ADTFoodSnackBunnyCandies
+- proto: ADTFoodSnackBunny
   entities:
   - uid: 12470
     components:
@@ -6019,7 +6019,7 @@ entities:
     - type: Transform
       pos: 6.583015,-95.19791
       parent: 1
-- proto: ADTFoodSnackPumpkinGingerBread
+- proto: ADTFoodCookiePumpkin
   entities:
   - uid: 12469
     components:
@@ -6044,7 +6044,7 @@ entities:
     - type: Transform
       pos: 22.641611,-297.38995
       parent: 1
-- proto: ADTFoodSnackScullGingerBread
+- proto: ADTFoodCookieSkull
   entities:
   - uid: 17422
     components:

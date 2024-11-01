@@ -22,3 +22,14 @@
     sprite: ADT/Clothing/Shoes/Boots/highboots.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/highboots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesSollux
+  name: Highboots
+  description: a pair of highboot to walk on blood puddles
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
