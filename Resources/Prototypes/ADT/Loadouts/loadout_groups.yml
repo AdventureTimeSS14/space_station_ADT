@@ -602,8 +602,8 @@
   maxLimit: 1
   loadouts:
   - ADTHeadHatGuardOfficer
-  - ADTHeadHatGuardOfficerMaster
   - ADTHeadHatGuardGreyOfficer
+  - ADTHeadHatGuardOfficerMaster
 
 
 # Униформа
@@ -614,5 +614,5 @@
   maxLimit: 1
   loadouts:
   - ADTUniformJumpsuitGuardOfficer
-  - ADTUniformJumpsuitGuardOfficerMaster
   - ADTUniformJumpsuitGreyGuardOfficer
+  - ADTUniformJumpsuitGuardOfficerMaster
