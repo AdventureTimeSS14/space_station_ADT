@@ -19,21 +19,6 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
     size: Huge
-
-- type: entity
-  id: ADTActionTeatacles
-  name: tentacles
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 10
-    itemIconStyle: BigAction
-    icon:
-      sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
-      state: icon
-    event: !type:InstantSpawnSpellEvent
-      prototype: ADTEffectiMicriaTentacleSpawn
-      posData: !type:TargetInFront
   
 - type: entity
   id: ADTMimicriaTentacle
@@ -71,25 +56,3 @@
   - type: SpawnOnDespawn
     prototype: ADTEffectiMicriaTentacleRetract
 
-- type: entity
-  id: ADTEffectiMicriaTentacleRetract
-  parent: BaseEffectGoliathTentacleSpawn
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
-    state: mimicria_tentacle_retract
-  - type: EffectVisuals
-  - type: AnimationPlayer
-
-- type: entity
-  id: ADTEffectiMicriaTentacleSpawn
-  parent: BaseEffectGoliathTentacleSpawn
-  categories: [ HideSpawnMenu ]
-  name: tentacle
-  components:
-    - type: Sprite
-      sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
-      state: mimicria_tentacle_spawn
-    - type: SpawnOnDespawn
-      prototype: ADTMimicriaTentacle
