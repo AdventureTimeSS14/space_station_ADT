@@ -9,6 +9,9 @@
     state: icon
   - type: MechMagazine
     magazinetype: lightrifle
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
 
 - type: entity
   parent: BaseItem
@@ -21,6 +24,9 @@
     state: icon
   - type: MechMagazine
     magazinetype: shotgun
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
 
 - type: entity
   parent: BaseItem
@@ -32,6 +38,9 @@
     state: icon
   - type: MechMagazine
     magazinetype: lightrifleincendiary
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
 
 - type: entity
   parent: BaseItem
@@ -44,6 +53,9 @@
     state: icon
   - type: MechMagazine
     magazinetype: sniper
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
 
 - type: entity
   parent: BaseItem
@@ -56,6 +68,9 @@
     state: icon
   - type: MechMagazine
     magazinetype: granade
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
 
 - type: entity
   parent: BaseItem
@@ -68,3 +83,6 @@
     state: icon
   - type: MechMagazine
     magazinetype: plasma
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container

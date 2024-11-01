@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.ADT.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent]
+[NetworkedComponent]
 public abstract partial class MechAmmoProviderComponent : AmmoProviderComponent
 {
 }

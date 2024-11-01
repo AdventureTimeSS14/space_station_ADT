@@ -734,25 +734,7 @@
     - ADTBorgModuleDisabler #ADT secborg
     - ADTBorgModuleDetention #ADT secborg
     - ADTBorgModuleHarm # ADT secborg
-    - RipleyHarness #ADT mech start
-    - RipleyLArm
-    - RipleyRArm
-    - RipleyLLeg
-    - RipleyRLeg
-    - MechEquipmentGrabber
-    - HonkerHarness
-    - HonkerLArm
-    - HonkerRArm
-    - HonkerLLeg
-    - HonkerRLeg
-    - MechEquipmentHorn
-    - MechEquipmentGrabberSmall
-    - HamtrHarness
-    - HamtrLArm
-    - HamtrRArm
-    - HamtrLLeg
-    - HamtrRLeg
-    - VimHarness
+    # ADT mech start
     - ADTGygaxHarness
     - ADTGygaxLArm
     - ADTGygaxRArm
@@ -815,12 +797,14 @@
     - ADTMechGunMHAR21
     - ADTMechGunSGL6
     - ADTMechGunBRM6
+    - ADTMechGunSRM8
     - ADTBoxAmmoAC2Ultra
     - ADTBoxAmmoScattershot
     - ADTBoxAmmoHades
     - ADTBoxAmmoSniper
     - ADTBoxAmmoGranade
-    - ADTBoxPlasmaBox # ADT mech end
+    - ADTBoxPlasmaBox 
+    # ADT mech end
   - type: MaterialStorage
     whitelist:
       tags:
