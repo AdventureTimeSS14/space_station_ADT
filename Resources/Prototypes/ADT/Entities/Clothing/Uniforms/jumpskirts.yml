@@ -507,15 +507,3 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ADTClothingUniformSkirtRedHat
-  name: redhat jumpskirt
-  description: redhat skirt
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/redhat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/redhat.rsi
-

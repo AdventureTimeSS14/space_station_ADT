@@ -81,16 +81,3 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ADTClothingEyesGlassesSollux
-  name: welding glasses
-  description: welding glasses
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi

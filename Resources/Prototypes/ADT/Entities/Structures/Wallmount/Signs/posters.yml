@@ -476,31 +476,9 @@
 
 - type: entity
   parent: ADTPosterBase
-  id: ADTPosterHappyHalloween2
-  name: happy halloween
-  description: happy halloween
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
-    state: happyhalloween-2
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterHappyHalloween3
-  name: happy halloween
-  description: happy halloween2
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
-    state: happyhalloween-3
-
-- type: entity
-  parent: ADTPosterBase
   id: ADTPosterTayarHalloween
   name: happy halloween
-  description: happy halloween3
+  description: happy halloween
   suffix: Halloween
   components:
   - type: Sprite

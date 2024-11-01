@@ -20,15 +20,3 @@ ent-ADTHalloweenPumpkinLight4 = тыквенный светильник
 ent-ADTHalloweenPumpkinLight5 = тыквенный светильник
     .suffix = Хеллоуин
     .desc = Фонарь, сделанный из тыквы.
-
-ent-ADTHalloweenCarvedPumpkinSmile = вырезанная тыква
-    .suffix = Хеллоуин
-    .desc = Тыква с вырезом в виде страшного лица
-
-ent-ADTHalloweenCarvedPumpkinCube = { ent-ADTHalloweenCarvedPumpkinSmile }
-    .suffix = { ent-ADTHalloweenCarvedPumpkinSmile.suffix }
-    .desc = { ent-ADTHalloweenCarvedPumpkinSmile.desc }
-
-ent-ADTHalloweenCarvedPumpkinWily = { ent-ADTHalloweenCarvedPumpkinSmile }
-    .suffix = { ent-ADTHalloweenCarvedPumpkinSmile.suffix }
-    .desc = { ent-ADTHalloweenCarvedPumpkinSmile.desc }

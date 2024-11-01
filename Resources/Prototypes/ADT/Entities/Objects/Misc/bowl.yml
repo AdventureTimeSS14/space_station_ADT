@@ -17,7 +17,6 @@
         - Pill
       tags:
         - FoodSnack
-        - ADTCandies
   - type: Appearance
   - type: StorageFillVisualizer
     maxFillLevels: 4
