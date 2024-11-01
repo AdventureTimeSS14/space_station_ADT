@@ -23,3 +23,15 @@
     FoodMeat: 1
     FoodApple: 1
     HeadVulpkanin: 1
+    
+#Тестовое заданеи
+- type: microwaveMealRecipe
+  id: ADTFoodVulpixSoupRecipe
+  name: vulpix recipe
+  result: ADTFoodVulpix
+  time: 15
+  solids:
+    FoodPlateSmall: 1
+    FoodCheeseSlice: 1
+    FoodOnion: 1
+    ADTOrganVulpkaninAnimalLiver: 1
