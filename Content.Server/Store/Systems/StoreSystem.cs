@@ -211,7 +211,7 @@ public sealed partial class StoreSystem : EntitySystem
         AddComp(uid, comp);
     }
 
-    public bool TrySetCurrency(Dictionary<string, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
+    public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
     {
         if (!Resolve(uid, ref store))
             return false;
@@ -232,6 +232,21 @@ public sealed partial class StoreSystem : EntitySystem
         UpdateUserInterface(null, uid, store);
         return true;
     }
+
+    public bool TryRefreshStoreStock(EntityUid uid, StoreComponent? store = null)
+    {
+        if (!Resolve(uid, ref store))
+            return false;
+
+        foreach (var item in store.FullListingsCatalog)
+        {
+            item.PurchaseAmount = 0;
+        }
+
+        UpdateUserInterface(null, uid, store);
+        return true;
+    }
+
     // ADT changeling end
 }
 

@@ -283,7 +283,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
 
-        if (!TryStingTarget(uid, target, component))
+        if (!TryStingTarget(uid, target))
             return;
 
         var dnaCompTarget = EnsureComp<DnaComponent>(target);
@@ -382,7 +382,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
 
-        if (!TryStingTarget(uid, target, component))
+        if (!TryStingTarget(uid, target))
             return;
 
         if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
@@ -404,7 +404,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
 
-        if (!TryStingTarget(uid, target, component))
+        if (!TryStingTarget(uid, target))
             return;
 
         if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
@@ -598,7 +598,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
 
-        if (!TryStingTarget(uid, target, component))
+        if (!TryStingTarget(uid, target))
             return;
 
         var dnaComp = EnsureComp<DnaComponent>(target);

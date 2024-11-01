@@ -117,6 +117,9 @@ public sealed partial class ChangelingSystem
 
         component.MusclesActive = !component.MusclesActive;
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+        if (!component.MusclesActive)
+            _stun.TryParalyze(uid, TimeSpan.FromSeconds(4), true);
+
     }
 
     private void OnAdrenaline(EntityUid uid, ChangelingComponent component, AdrenalineActionEvent args)
@@ -147,7 +150,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
 
-        if (!TryStingTarget(uid, target, component))
+        if (!TryStingTarget(uid, target))
             return;
 
         if (!TryUseAbility(uid, component, component.ChemicalsCostFifteen))

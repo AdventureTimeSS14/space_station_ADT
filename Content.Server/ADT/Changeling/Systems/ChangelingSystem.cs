@@ -113,29 +113,23 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         InitializeUsefulAbilities();
         InitializeCombatAbilities();
+        InitializeSlug();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ChangelingComponent>();
-        while (query.MoveNext(out var uid, out var ling))
+        var lingQuery = EntityQueryEnumerator<ChangelingComponent>();
+        while (lingQuery.MoveNext(out var uid, out var comp))
         {
-            ling.Accumulator += frameTime;
+            UpdateChangeling(uid, frameTime, comp);
+        }
 
-            if (ling.Accumulator <= 1)
-                continue;
-            ling.Accumulator -= 1;
-
-            if (_mobState.IsDead(uid)) // if ling is dead dont regenerate chemicals
-                continue;
-
-            if (ling.Chemicals < ling.MaxChemicals)
-                ChangeChemicalsAmount(uid, ling.ChemicalsPerSecond, ling, regenCap: true);
-
-            if (ling.MusclesActive)
-                _stamina.TakeStaminaDamage(uid, ling.MusclesStaminaDamage, null, null, null, false);
+        var slugQuery = EntityQueryEnumerator<ChangelingHeadslugComponent>();
+        while (slugQuery.MoveNext(out var uid, out var comp))
+        {
+            UpdateChangelingHeadslug(uid, frameTime, comp);
         }
     }
 
@@ -306,6 +300,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         foreach (var item in component.BoughtActions)
         {
             _action.RemoveAction(item);
+            QueueDel(item);
         }
 
         if (!TryComp<StoreComponent>(uid, out var store))
@@ -313,6 +308,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         RemoveBladeEntity(uid, component);
         RemoveShieldEntity(uid, component);
+        RemoveArmaceEntity(uid, component);
         RemCompDeferred<StealthComponent>(uid);
         RemCompDeferred<StealthOnMoveComponent>(uid);
         component.ChameleonSkinActive = false;
@@ -325,13 +321,8 @@ public sealed partial class ChangelingSystem : EntitySystem
             component.LingArmorActive = false;
         }
 
-        _store.CloseUi(uid);
-        RemComp<StoreComponent>(uid);   // Да, я не нашёл ничего лучше, чем сделать всё так
-        _store.TryAddStore(uid,
-                            new HashSet<ProtoId<CurrencyPrototype>> { "EvolutionPoints" },
-                            new HashSet<ProtoId<StoreCategoryPrototype>> { "ChangelingAbilities" },
-                            new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } },
-                            false, false);
+        _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } }, uid);
+        _store.TryRefreshStoreStock(uid);
 
         component.CanRefresh = false;
     }
@@ -531,7 +522,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         return;
     }
 
-    private bool TryStingTarget(EntityUid uid, EntityUid target, ChangelingComponent component)
+    private bool TryStingTarget(EntityUid uid, EntityUid target)
     {
         if (HasComp<ChangelingComponent>(target))
         {
@@ -632,5 +623,27 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
 
         return true;
+    }
+
+    private void UpdateChangeling(EntityUid uid, float frameTime, ChangelingComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.Accumulator += frameTime;
+
+        if (comp.Accumulator <= 1)
+            return;
+        comp.Accumulator -= 1;
+
+        if (_mobState.IsDead(uid)) // if ling is dead dont regenerate chemicals
+            return;
+
+        if (comp.Chemicals < comp.MaxChemicals)
+            ChangeChemicalsAmount(uid, comp.ChemicalsPerSecond, comp, regenCap: true);
+
+        if (comp.MusclesActive)
+            _stamina.TakeStaminaDamage(uid, comp.MusclesStaminaDamage, null, null, null, false);
+
     }
 }

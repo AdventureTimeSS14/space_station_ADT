@@ -3,9 +3,8 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.Changeling.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingHeadslugContainerComponent : Component
 {
-    [AutoNetworkedField]
     public Container? Container;
 }
