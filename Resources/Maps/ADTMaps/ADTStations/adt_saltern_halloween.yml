@@ -3894,7 +3894,7 @@ entities:
     - type: Transform
       pos: -10.59676,0.46899384
       parent: 1
-- proto: ADTFoodSnackBatGingerBread
+- proto: ADTFoodSnackCandyBat
   entities:
   - uid: 11890
     components:
@@ -3932,7 +3932,7 @@ entities:
     - type: Transform
       pos: 45.957027,-26.973541
       parent: 1
-- proto: ADTFoodSnackBunnyCandies
+- proto: ADTFoodSnackBunny
   entities:
   - uid: 11895
     components:
@@ -4014,7 +4014,7 @@ entities:
     - type: Transform
       pos: -17.51016,8.750168
       parent: 1
-- proto: ADTFoodSnackScullGingerBread
+- proto: ADTFoodCookieSkull
   entities:
   - uid: 11899
     components:

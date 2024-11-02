@@ -22,6 +22,11 @@
   - !type:GroupLoadoutEffect
     proto: MasterGuardOfficer # Нужно наиграть 600 минут на надзирателе для открытия
 
+- type: loadout
+  id: ADTHeadHatGuardGreyOfficer
+  equipment:
+    head: ADTClothingHeadGreyHatsGuardOfficer
+
 # Jumpsuit
 - type: loadout
   id: ADTUniformJumpsuitGuardOfficer
@@ -35,3 +40,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterGuardOfficer # Нужно наиграть 600 минут на надзирателе для открытия
+
+- type: loadout
+  id: ADTUniformJumpsuitGreyGuardOfficer
+  equipment:
+    jumpsuit: ADTClothingUniformGreyGuardOfficer
