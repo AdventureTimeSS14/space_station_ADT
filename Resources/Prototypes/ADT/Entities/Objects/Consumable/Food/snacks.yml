@@ -516,7 +516,7 @@
     flavors:
       - sweet
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/candy.rsi
+    sprite: ADT/Objects/Consumable/Food/Snacks/candy.rsi
     state: black
   - type: Item
   - type: SolutionContainerManager
@@ -709,7 +709,7 @@
   suffix: Halloween
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/candysticks.rsi
+    sprite: ADT/Objects/Consumable/Food/Snacks/candy.rsi
     layers:
     - state: trach
     - state: candy_red
