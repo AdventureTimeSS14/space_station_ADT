@@ -621,9 +621,8 @@
   - type: StorageFill
     contents:
     - id: ADTClothingNeckCloakRedhat
-      amount: 1
     - id: ADTClothingHeadHatHoodRedhat
-      amount: 1
+    - id: ADTClothingUniformJumpSkirtRedHat
 
 - type: entity
   id: ADTBoxSollux
@@ -642,5 +641,5 @@
     contents:
     - id: ADTClothingEyesGlassesSollux
     - id: ADTClothingHeadHatHornsSollux
-    - id: ADTClothingShoesSollux
-    - id: ADTClothingUniformSollux
+    - id: ADTClothingShoesBootsSollux
+    - id: ADTClothingUniformJumpsuitSollux

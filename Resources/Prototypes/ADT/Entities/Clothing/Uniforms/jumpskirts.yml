@@ -510,7 +510,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformSkirtRedHat
+  id: ADTClothingUniformJumpSkirtRedHat
   name: redhat jumpskirt
   description: redhat skirt
   components:

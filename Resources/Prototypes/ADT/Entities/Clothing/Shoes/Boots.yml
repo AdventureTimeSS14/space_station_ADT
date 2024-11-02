@@ -29,7 +29,7 @@
 
 - type: entity
   parent: ClothingShoesBaseButcherable
-  id: ADTClothingShoesSollux
+  id: ADTClothingShoesBootsSollux
   name: Highboots
   description: a pair of highboot to walk on blood puddles
   components:

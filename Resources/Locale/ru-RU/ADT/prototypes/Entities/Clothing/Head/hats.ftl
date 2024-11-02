@@ -95,8 +95,8 @@ ent-ADTClothingHeadHatChainSaw = голова демона-бензопилы
 
 ent-ADTClothingHeadHatHornsSollux = Рога тролля
     .suffix = Хеллоуин
-    .desc = Я в нем выгляжу глуп0
+    .desc = Я в нем выгляжу глуп0.
 
 ent-ADTClothingHeadHatWinth = шляпа ведьмочки
     .suffix = Хеллоуин
-    .desc = Для самых открытых ведьмочек
+    .desc = Для самых открытых ведьмочек.

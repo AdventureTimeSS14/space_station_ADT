@@ -1148,7 +1148,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformSollux
+  id: ADTClothingUniformJumpsuitSollux
   name: sollux suit
   description: suit
   components:
@@ -1157,7 +1157,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/sollux_captor.rsi
 
-# swimsuit
+# swimsuit при накоплении создать отдельный раздел
 
 - type: entity
   parent: ClothingUniformBase

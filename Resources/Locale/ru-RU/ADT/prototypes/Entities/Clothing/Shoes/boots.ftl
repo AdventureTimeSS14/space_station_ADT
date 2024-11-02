@@ -16,6 +16,6 @@ ent-ADTClothingShoesBootsMagAdvSynd = улучшенные магнитные б
 ent-ADTClothingShoesHighboots = походные сапоги
     .desc = Пара высоких сапог, чтобы не заморать ноги во время ходьбы по лужам крови.
 
-ent-ADTClothingShoesSollux = двойная обувь
+ent-ADTClothingShoesBootsSollux = двойная обувь
     .desc = Это просто две кроссовки, одна черная, другая белая.
     .suffix = Хеллоуин
