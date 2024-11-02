@@ -15,3 +15,7 @@ ent-ADTVyazovGloves = перчатки из измерения кошмаров
 
 ent-ADTClothingHandsFingerlessCombat = беспалые боевые перчатки
     .desc = Эти тактические перчатки огнеупорные и ударопрочные, и стали намного круче.
+
+ent-ADTClothingHandsEmpressOfLightGloves = перчатки Императрицы света
+    .suffix = Хеллоуин
+    .desc = Величественно-синие.
