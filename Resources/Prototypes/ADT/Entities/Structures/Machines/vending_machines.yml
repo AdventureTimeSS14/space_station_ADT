@@ -256,7 +256,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: ADT\Structures\Machines\VendingMachines\icecream.rsi
+    sprite: ADT/Structures/Machines/VendingMachines/icecream.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
