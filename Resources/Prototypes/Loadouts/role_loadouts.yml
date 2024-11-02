@@ -372,7 +372,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
-  - EngineeringBelt # ADT-TWEAK
+  - ADTEngineeringBelt # ADT-TWEAK
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -393,7 +393,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
-  - EngineeringBelt # ADT-TWEAK
+  - ADTEngineeringBelt # ADT-TWEAK
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -415,7 +415,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
-  - EngineeringBelt # ADT-TWEAK
+  - ADTEngineeringBelt # ADT-TWEAK
 
 # Science
 - type: roleLoadout

@@ -849,11 +849,11 @@
 
 # ADT-TWEAK-START
 - type: loadoutGroup
-  id: EngineeringBelt
+  id: ADTEngineeringBelt
   name: loadout-group-engineering-belt
   loadouts:
-  - BeltUtility
-  - BeltUtilityWebbing
+  - ADTBeltUtility
+  - ADTBeltUtilityWebbing
 # ADT-TWEAK-END
 
 # Science
