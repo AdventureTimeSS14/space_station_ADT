@@ -119,8 +119,8 @@
   maximumTemperature: 27.85
   minimumRequirements:
   - 0     # oxygen
-  - 10    # nitrogen
-  - 0     # carbon dioxide
+  - 0    # nitrogen
+  - 10     # carbon dioxide
   - 0     # plasma
   - 5     # tritium
   - 0     # vapor
