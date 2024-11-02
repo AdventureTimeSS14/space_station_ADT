@@ -70,7 +70,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-        prototype: Heretic
 
 
 - type: entityTable
