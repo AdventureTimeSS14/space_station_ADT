@@ -93,3 +93,14 @@ ent-ADTClothingHeadHatChainSaw = голова демона-бензопилы
     .suffix = Хеллоуин
     .desc = Весь ад содрогается от его рева, даже демоны помнят его после перерождения!
 
+ent-ADTClothingHeadHatPoliceHat = кепка полицейского
+    .suffix = Хеллоуин
+    .desc = Кепка полицейского. Надеюсь, у него хорошие намерения.
+
+ent-ADTClothingHeadEmpressOfLightHelmet = коронет Императрицы света
+    .suffix = Хеллоуин
+    .desc = Величественно.
+
+ent-ADTClothingHeadLethalCompanyHelmet = шлем сотрудника Смертельной компании
+    .suffix = Хеллоуин
+    .desc = Шлем как шлем. Кажется, его кто-то до меня носил...

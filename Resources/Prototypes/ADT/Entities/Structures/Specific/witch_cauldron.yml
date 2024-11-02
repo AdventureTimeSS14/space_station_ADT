@@ -1,0 +1,64 @@
+# ADT ADD FOR HALLOWEEN
+# ВЕДЬМИН КОТЁЛ
+
+- type: entity
+  name: ведьмин котел
+  id: ADTWitchCauldron
+  parent: [BaseStructureDynamic, StructureWheeled]
+  description: Хочется приготовить чего-то такого... Магического...
+  suffix: Хеллоуин
+  components:
+    - type: Sprite
+      noRot: true
+      sprite: ADT/Structures/dispensers.rsi
+      state: industrial-working
+    - type: InteractionOutline
+    - type: Spillable
+      solution: bucket
+      spillDelay: 3.0
+      spillWhenThrown: false
+    - type: SolutionContainerManager
+      solutions:
+        bucket:
+          maxVol: 800
+          reagents:
+            - ReagentId: Water
+              Quantity: 600 # 3 quarters full at roundstart to make it more appealing
+    - type: DrainableSolution
+      solution: bucket
+    - type: RefillableSolution
+      solution: bucket
+    - type: ExaminableSolution
+      solution: bucket
+    - type: Tag
+      tags:
+        - Wringer
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 400
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:EmptyAllContainersBehaviour
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+    - type: Appearance
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+    - type: Drink
+      solution: bucket
+    - type: DnaSubstanceTrace
