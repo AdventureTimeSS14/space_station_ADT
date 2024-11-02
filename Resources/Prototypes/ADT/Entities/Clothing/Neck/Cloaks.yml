@@ -108,3 +108,24 @@
     sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakRedhat
+  name: redhat cloak
+  description: redhat cloak
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodRedhat
+    requiredSlot:
+    - neck
+    slot: head
+
