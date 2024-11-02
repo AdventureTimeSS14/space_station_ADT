@@ -164,7 +164,7 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public EntProtoId? ProductAction;
 
-    [DataField("mindAction")]
+    [DataField("mindAction")] // ADT-Changeling-Tweak
     public bool MindAction = true;
 
     /// <summary>

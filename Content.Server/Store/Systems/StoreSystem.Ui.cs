@@ -1,8 +1,8 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
-using Content.Server.ADT.Store;
-using Content.Server.Botany.Components;
+using Content.Server.ADT.Store; // ADT-Changeling-Tweak
+using Content.Server.Botany.Components; // ADT-Changeling-Tweak
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
@@ -221,7 +221,7 @@ public sealed partial class StoreSystem
             EntityUid? actionId;
             // I guess we just allow duplicate actions?
             // Allow duplicate actions and just have a single list buy for the buy-once ones.
-            if (!_mind.TryGetMind(buyer, out var mind, out _) || !listing.MindAction)
+            if (!_mind.TryGetMind(buyer, out var mind, out _) || !listing.MindAction) // ADT-Changeling-Tweak
                 actionId = _actions.AddAction(buyer, listing.ProductAction);
             else
                 actionId = _actionContainer.AddAction(mind, listing.ProductAction);
@@ -351,7 +351,7 @@ public sealed partial class StoreSystem
             UpdateUserInterface(buyer, uid, component);
         }
 
-        if (!component.RefundPossible)
+        if (!component.RefundPossible) // ADT-Changeling-Tweak
             return;
 
         if (!component.RefundAllowed || component.BoughtEntities.Count == 0)

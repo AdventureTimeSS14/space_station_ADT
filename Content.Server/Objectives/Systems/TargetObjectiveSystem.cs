@@ -4,7 +4,7 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.GameObjects;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Forensics;
+using Content.Server.Forensics; // ADT-Changeling-Tweak
 
 namespace Content.Server.Objectives.Systems;
 
@@ -41,7 +41,7 @@ public sealed class TargetObjectiveSystem : EntitySystem
 
         comp.Target = target;
     }
-
+    // ADT-Changeling-Tweak-Start
     /// <summary>
     /// Sets the Target field for the title and other components to use.
     /// </summary>
@@ -57,6 +57,7 @@ public sealed class TargetObjectiveSystem : EntitySystem
 
         comp.TargetDNA = reqiredDna.DNA;
     }
+    // ADT-Changeling-Tweak-End
 
     /// <summary>
     /// Gets the target from the component.

@@ -1,21 +1,21 @@
-using Content.Shared.Examine;
-using System.Linq;
-using Content.Shared.Decals;
+using Content.Shared.Examine; // ADT-Changeling-Tweak
+using System.Linq; // ADT-Changeling-Tweak
+using Content.Shared.Decals; // ADT-Changeling-Tweak
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.IdentityManagement;
+using Content.Shared.IdentityManagement; // ADT-Changeling-Tweak
 using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Shared.GameObjects.Components.Localization;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes; // ADT-Changeling-Tweak
 
 namespace Content.Server.Humanoid;
 
 public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 {
     [Dependency] private readonly MarkingManager _markingManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // ADT-Changeling-Tweak
 
     public override void Initialize()
     {
@@ -26,6 +26,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         //SubscribeLocalEvent<HumanoidAppearanceComponent, ExaminedEvent>(OnExamined);
     }
 
+    // ADT-Changeling-Tweak-Start
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
         var identity = Identity.Entity(uid, EntityManager);
@@ -34,6 +35,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
     }
+    // ADT-Changeling-Tweak-End
 
     // this was done enough times that it only made sense to do it here
 
@@ -44,6 +46,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="target">Target entity to apply the source entity's appearance to.</param>
     /// <param name="sourceHumanoid">Source entity's humanoid component.</param>
     /// <param name="targetHumanoid">Target entity's humanoid component.</param>
+
+    // ADT-Changeling-Tweak-Start
     public void SetAppearance(HumanoidAppearanceComponent sourceHumanoid, HumanoidAppearanceComponent targetHumanoid)
     {
 
@@ -64,6 +68,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         Dirty(targetHumanoid.Owner, targetHumanoid);
     }
+    // ADT-Changeling-Tweak-End
 
     /// <summary>
     ///     Clones a humanoid's appearance to a target mob, provided they both have humanoid components.
@@ -72,6 +77,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="target">Target entity to apply the source entity's appearance to.</param>
     /// <param name="sourceHumanoid">Source entity's humanoid component.</param>
     /// <param name="targetHumanoid">Target entity's humanoid component.</param>
+
+    // ADT-Changeling-Tweak-Start
     public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
         HumanoidAppearanceComponent? targetHumanoid = null)
     {
@@ -82,6 +89,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         SetAppearance(sourceHumanoid, targetHumanoid);
     }
+    // ADT-Changeling-Tweak-End
 
     /// <summary>
     ///     Removes a marking from a humanoid by ID.
@@ -105,7 +113,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     }
 
     /// <summary>
-    /// ///     Removes a marking from a humanoid by category and index.
+    ///     Removes a marking from a humanoid by category and index.
     /// </summary>
     /// <param name="uid">Humanoid mob's UID</param>
     /// <param name="category">Category of the marking</param>
@@ -181,6 +189,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         Dirty(uid, humanoid);
     }
 
+    // ADT-Changeling-Tweak-Start
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.
     /// </summary>
@@ -218,4 +227,5 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         return Loc.GetString("identity-age-old");
     }
+    // ADT-Changeling-Tweak-End
 }

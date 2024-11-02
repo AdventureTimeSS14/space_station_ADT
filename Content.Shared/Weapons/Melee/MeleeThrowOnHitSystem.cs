@@ -20,8 +20,8 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // ADT-Changeling-Tweak
+    [Dependency] private readonly DamageableSystem _damage = default!; // ADT-Changeling-Tweak
 
     /// <inheritdoc/>
     public override void Initialize()

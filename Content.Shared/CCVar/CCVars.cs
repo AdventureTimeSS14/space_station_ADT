@@ -2239,21 +2239,5 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> DebugPow3rDisableParallel =
             CVarDef.Create("debug.pow3r_disable_parallel", true, CVar.SERVERONLY);
-
-        /*
-        * Changelings
-        */
-
-        public static readonly CVarDef<int> ChangelingMinPlayers =
-            CVarDef.Create("changeling.min_players", 5);
-
-        public static readonly CVarDef<int> ChangelingMaxChangelings =
-            CVarDef.Create("changeling.max_lings", 8); // Assuming average server maxes somewhere from like 50-80 people
-
-        public static readonly CVarDef<int> ChangelingPlayersPerChangeling =
-            CVarDef.Create("changeling.players_per_traitor", 5);
-
-        public static readonly CVarDef<int> ChangelingMaxPicks =
-            CVarDef.Create("changeling.max_picks", 20);
     }
 }

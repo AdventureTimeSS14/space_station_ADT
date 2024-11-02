@@ -3,7 +3,6 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
-using Content.Shared.CCVar;
 using Content.Shared.Roles;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -35,8 +34,6 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
     public readonly ProtoId<NpcFactionPrototype> SyndicateFactionId = "Syndicate";
 
     public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
-    private int PlayersPerLing => _cfg.GetCVar(CCVars.ChangelingPlayersPerChangeling);
-    private int MaxChangelings => _cfg.GetCVar(CCVars.ChangelingMaxChangelings);
 
     public override void Initialize()
     {
@@ -65,7 +62,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
             if (_mind.TryGetRole<RoleBriefingComponent>(mindId, out var rbc))
                 rbc.Briefing += $"\n{briefingShort}";
-            else _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
+            else _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true); // под апстрим поменять в скобках на (mindId, briefingShort, mind, true);
         }
 
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);

@@ -10,8 +10,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Server.Antag.Components;
-using Content.Shared.Players;
 
 namespace Content.Server.Administration.Systems;
 
@@ -38,8 +36,10 @@ public sealed partial class AdminVerbSystem
     [ValidatePrototypeId<StartingGearPrototype>]
     private const string PirateGearId = "PirateGear";
 
+    // ADT-Changeling-Tweak-Start
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultChangelingRule = "Changeling";
+    // ADT-Changeling-Tweak-End
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
@@ -172,6 +172,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(heretic);
 
+        // ADT-Changeling-Tweak-Start
         Verb changeling = new()
         {
             Text = Loc.GetString("admin-verb-text-make-changeling"),
@@ -185,5 +186,6 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-changeling"),
         };
         args.Verbs.Add(changeling);
+        // ADT-Changeling-Tweak-End
     }
 }

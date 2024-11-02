@@ -1,6 +1,6 @@
 using Content.Server.Actions;
 using Content.Server.Humanoid;
-using Content.Shared.Humanoid;
+using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Nutrition;
@@ -23,9 +23,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Server.Forensics;
-using Content.Shared.Mindshield.Components;
-using Robust.Shared.Serialization.Manager;
+using Content.Server.Forensics; // ADT-Changeling-Tweak
+using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
+using Robust.Shared.Serialization.Manager; // ADT-Changeling-Tweak
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -49,7 +49,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
     public override void Initialize()
@@ -259,7 +259,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             _humanoid.CloneAppearance(uid, child);
         }
-
+    // ADT-Changeling-Tweak-Start
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
         SendToPausedMap(uid, targetTransformComp);
@@ -299,7 +299,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             if (!_hands.TryPickupAnyHand(child, hand))
                 _hands.TryDrop(uid, hand, checkActionBlocker: false);
         }
-
+        // ADT-Changeling-Tweak-End
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
 
@@ -309,7 +309,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         return child;
     }
-
+    // ADT-Changeling-Tweak-Start
     /// <summary>
     /// Sends the given entity to a pauses map
     /// </summary>
@@ -341,6 +341,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (_container.TryGetContainingContainer(user, out var cont))
             _container.Insert(target, cont);
     }
+    // ADT-Changeling-Tweak-End
 
     /// <summary>
     /// Reverts a polymorphed entity back into its original form
@@ -462,6 +463,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
             _actions.RemoveAction(target, val);
     }
+
+    // ADT-Changeling-Tweak-Start
     /// <summary>
     /// Registers PolymorphHumanoidData from an EntityUid, provived they have all the needed components
     /// </summary>
@@ -529,6 +532,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         return newHumanoidData;
     }
+    // ADT-Changeling-Tweak-End
 }
 
 // goob edit

@@ -31,8 +31,8 @@ namespace Content.Server.Inventory
             var enumerator = new InventorySlotEnumerator(source.Comp);
             while (enumerator.NextItem(out var item, out var slot))
             {
-                if (!TryEquip(target, item, slot.Name , true, true, inventory: target.Comp))
-                    TryUnequip(source, slot.Name, true, true, inventory: source.Comp);
+                if (!TryEquip(target, item, slot.Name , true, true, inventory: target.Comp)) // ADT-Changeling-Tweak
+                    TryUnequip(source, slot.Name, true, true, inventory: source.Comp); // ADT-Changeling-Tweak
             }
         }
     }

@@ -90,24 +90,28 @@
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
 
+ - type: entity
+   abstract: true
+   parent: BaseGameRule
+   id: BaseChangelingRule
+   components:
+   - type: ChangelingRule
+   - type: AntagSelection
+
 - type: entity
-  parent: BaseGameRule
+  parent: BaseChangelingRule
   id: Changeling
   components:
-  - type: ChangelingRule
-  - type: ThiefRule #the thieves come as an extension of another gamemode
-    ruleChance: 0.5
   - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 30
-      max: 60
+    minPlayers: 25
   - type: AntagSelection
-    agentName: ling-round-end-name
     definitions:
     - prefRoles: [ Changeling ]
       max: 5
-      playerRatio: 20
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
       lateJoinAdditional: true
       mindComponents:
       - type: ChangelingRole

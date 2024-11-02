@@ -19,6 +19,6 @@ public sealed partial class TargetObjectiveComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Target;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public string? TargetDNA;
+    [DataField, ViewVariables(VVAccess.ReadWrite)] // ADT-Changeling-Tweak
+    public string? TargetDNA; 
 }
