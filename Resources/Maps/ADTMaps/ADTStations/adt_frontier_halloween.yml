@@ -9101,7 +9101,7 @@ entities:
     - type: Transform
       pos: 12.538712,-28.138226
       parent: 2
-- proto: ADTFoodSnackBunnyCandies
+- proto: ADTFoodSnackBunny
   entities:
   - uid: 17884
     components:
@@ -9335,7 +9335,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 143.6484,-15.107738
       parent: 2
-- proto: ADTFoodSnackPumpkinGingerBread
+- proto: ADTFoodCookiePumpkin
   entities:
   - uid: 17873
     components:
@@ -10633,7 +10633,7 @@ entities:
     - type: Transform
       pos: 22.5,-25.5
       parent: 2
-- proto: ADTHalloweenPosterRandom2
+- proto: ADTHalloweenPosterRandom
   entities:
   - uid: 12536
     components:
