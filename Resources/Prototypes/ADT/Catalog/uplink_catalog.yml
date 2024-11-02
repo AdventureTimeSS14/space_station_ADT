@@ -407,7 +407,8 @@
     Telecrystal: 5
   categories:
   - UplinkPointless
-  
+
+- type: listing
   id: ADTUplinkSyndieCloak
   name: uplink-syndiecloak-name
   description: uplink-syndiecloak-desc
