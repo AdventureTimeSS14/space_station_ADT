@@ -215,7 +215,7 @@
   id: ADTUplinkToolboxMaterial
   name: uplink-toolboxmaterial-name
   description: uplink-toolboxmaterial-desc
-  productEntity: ToolboxSyndicateMaterialFilled
+  productEntity: ADTToolboxSyndicateMaterialFilled
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 3
