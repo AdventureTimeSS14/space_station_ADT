@@ -37,8 +37,8 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 5
+    baseWalkSpeed: 3.5 # ADT-Tweak 3 -> 3.5
+    baseSprintSpeed: 5.5 # ADT-Tweak 5 -> 5.5
     weightlessModifier: 1.5
   - type: RandomSprite
     available:
@@ -72,7 +72,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.40
-        density: 100
+        density: 200 # ADT-Tweak
         mask:
         - FlyingMobMask
         layer:
@@ -90,25 +90,38 @@
       500: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.7
-      400: 0.5
-  # disable taking damage from fire, since its a fire breathing dragon
+      250: 0.85 # ADT-Tweak (less slow 250: 0.7 ---> 250: 0.85)
+      350: 0.7 # ADT-Tweak (add new threshold)
+      430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
+# ADT-Tweak-start
+# disable taking damage from fire, since its a fire breathing dragon. # also it can't be lit on fire
   - type: Flammable
+    fireSpread: false
+    canResistFire: true
+    alwaysCombustible: false
+    canExtinguish: true
+    resisting: false
     damage:
       types: {}
+  - type: Temperature
+    heatDamageThreshold: 800
+    coldDamageThreshold: -800
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Damageable
+    damageModifierSet: ADTDragonDamageSet
+# ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
     - SlowedDown
     - Stutter
-    - Electrocution
-    - ForcedSleep
-    - TemporaryBlindness
-    - Pacified
+    # - Electrocution # ADT-Tweak - ъуъ
+    # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
+    # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???
+    # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
     - RadiationProtection
-    - Drowsiness
+    # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
     - Adrenaline #ADT-Medicine
-  - type: Temperature
-    heatDamageThreshold: 800
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
@@ -131,6 +144,7 @@
     altDisarm: false
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    range: 2 # ADT-Tweak
     damage:
       types:
         Piercing: 15
