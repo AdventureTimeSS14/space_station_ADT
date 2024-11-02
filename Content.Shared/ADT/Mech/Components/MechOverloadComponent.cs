@@ -1,6 +1,5 @@
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 

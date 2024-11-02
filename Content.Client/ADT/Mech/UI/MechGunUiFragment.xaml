@@ -7,7 +7,7 @@
         <Label Name="ShotsCount" HorizontalAlignment="Left" StyleClasses="LabelSubText" Margin="5"></Label>
         <Button Name="ReloadButton" HorizontalExpand="True"
                 Margin="5"
-                Text="mech-reload-button"
+                Text="{Loc 'mech-reload-button'}"
                 HorizontalAlignment="Right"/>
         <Label Name="SpaceLabel" HorizontalAlignment="Right" StyleClasses="LabelSubText"></Label>
     </BoxContainer>

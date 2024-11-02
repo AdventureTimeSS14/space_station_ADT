@@ -1,4 +1,3 @@
-using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

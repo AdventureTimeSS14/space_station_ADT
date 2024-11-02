@@ -14,7 +14,6 @@ using Content.Shared.Mech;
 using Content.Shared.ADT.Mech;
 using Robust.Shared.Timing;
 using Robust.Server.Audio;
-using Robust.Shared.Containers;
 using Content.Server.ADT.Mech.Equipment.Components;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
@@ -24,7 +23,6 @@ public sealed class MechGunSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly SharedGunSystem _guns = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

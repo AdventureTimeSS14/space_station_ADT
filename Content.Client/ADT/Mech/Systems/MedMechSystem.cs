@@ -1,9 +1,4 @@
-﻿using Content.Shared.Mech;
-using Content.Shared.Mech.Components;
-using Content.Shared.Mech.EntitySystems;
-using Robust.Client.GameObjects;
-using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
-using Robust.Shared.Audio.Systems;
+﻿using Content.Shared.Mech.EntitySystems;
 using Robust.Client.Player;
 using Content.Shared.Overlays;
 
@@ -12,8 +7,6 @@ namespace Content.Shared.Mech;
 /// <inheritdoc/>
 public sealed class MechMedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     /// <inheritdoc/>

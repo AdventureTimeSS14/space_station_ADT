@@ -1,17 +1,11 @@
 using Content.Server.Popups;
-using Content.Shared.Storage.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Inventory;
 using Content.Shared.Movement.Events;
 using Content.Shared.Resist;
-using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Content.Server.ADT.Mech.Components;
 using Content.Server.Mech.Equipment.Components;
-using Robust.Server.GameObjects;
 
 namespace Content.Server.Resist;
 
@@ -21,7 +15,6 @@ public sealed class EscapeMechSystem : EntitySystem // Копия существ
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {

@@ -1,22 +1,12 @@
-using System.Threading;
-using Content.Server.Gatherable;
 using Content.Server.Destructible;
 using Content.Server.Gatherable.Components;
-using Content.Shared.Destructible;
-using Content.Shared.EntityList;
 using Content.Server.Interaction;
-using Content.Server.Mech.Components;
-using Content.Server.Mech.Equipment.Components;
 using Content.Server.Mech.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.Tag;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Server.ADT.Mech.Equipment.Components;
@@ -34,7 +24,6 @@ public sealed class MechDrillSystem : EntitySystem
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DestructibleSystem _destructible = default!;
-    [Dependency] private readonly GatherableSystem _gatherableSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
     /// <inheritdoc/>

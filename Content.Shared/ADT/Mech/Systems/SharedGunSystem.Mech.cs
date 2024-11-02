@@ -1,12 +1,9 @@
 using Content.Shared.ADT.Mech.Equipment.Components;
 using Content.Shared.ADT.Weapons.Ranged.Components;
-using Content.Shared.Examine;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mech.Equipment.Components;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 

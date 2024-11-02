@@ -1,7 +1,5 @@
 using Content.Shared.Actions;
 using Content.Shared.Mech.Components;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Damage;
 using Content.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
@@ -17,8 +15,6 @@ namespace Content.Shared.Mech.EntitySystems;
 /// </summary>
 public sealed class MechPhazeSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMechSystem _mech = default!;
     [Dependency] private readonly INetManager _netMan = default!;
