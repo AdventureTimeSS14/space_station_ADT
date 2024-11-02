@@ -211,6 +211,19 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: ADTUplinkToolboxMaterial
+  name: uplink-toolboxmaterial-name
+  description: uplink-toolboxmaterial-desc
+  productEntity: ToolboxSyndicateMaterialFilled
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
+  
 #UplinkChemicals
 
 - type: listing
@@ -394,19 +407,6 @@
     Telecrystal: 5
   categories:
   - UplinkPointless
-
-- type: listing
-  id: UplinkToolboxMaterial
-  name: uplink-toolboxmaterial-name
-  description: uplink-toolboxmaterial-desc
-  productEntity: ToolboxSyndicateMaterialFilled
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkWearables
   
   id: ADTUplinkSyndieCloak
   name: uplink-syndiecloak-name
