@@ -41,16 +41,3 @@
   id: WhiteShoes
   equipment:
     shoes: ClothingShoesColorWhite
-
-# ADT-Tweak-Start
-# Belt
-- type: loadout
-  id: BeltUtility
-  equipment:
-    belt: ClothingBeltUtility
-
-- type: loadout
-  id: BeltUtilityWebbing
-  equipment:
-    belt: ADTClothingBeltUtilityWebbing
-# ADT-Tweak-End
