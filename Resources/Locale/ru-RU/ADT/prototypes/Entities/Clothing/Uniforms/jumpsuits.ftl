@@ -266,11 +266,17 @@ ent-ADTClothingUniformJumpsuitTrader = комбинезон торговца
     .desc = Это комбинезон, который носят торговцы ТСФ
     .suffix = { "ТСФ" }
 
+ent-ADTClothingUniformMimicry = мимикрический комбинезон
+    .desc = На вид как деловой костюм что агрессивно сшили из плоти, выглядит ужасно!
+
 ent-ADTClothingUniformGuardOfficer = комбинезон надзирателя
     .desc = Ничем не примечательная оранжевая униформа тюремного охранника.
 
 ent-ADTClothingUniformGuardOfficerMaster = комбинезон заслуженного надзирателя
     .desc = Обновленная оранжевая форма тюремного охранника для сотрудников с опытом работы, украшенная черными полосками на рукавах, символизирующая годы службы и опыт.
+
+ent-ADTClothingUniformGreyGuardOfficer = серый комбинезон надзирателя
+    .desc = Обновленная серая форма тюремного охранника.
 
 ent-ADTOtherworldClownCostume = костюм потустороннего клоуна
     .suffix = Хеллоуин
@@ -344,3 +350,4 @@ ent-ADTClothingUniformAbibasBlackSuit = черный спортивный кос
 ent-ADTClothingUniformJumpsuitCMOHike = походный костюм главного врача
     .desc = Рубашка и мешковитые штаны, отлично подходящие для активной работы как вне, так и внутри своего отдела.
     .suffix = { "" }
+
