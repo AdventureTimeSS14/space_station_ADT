@@ -1,6 +1,6 @@
 - type: entity
   parent: ToolboxSyndicate
-  id: ToolboxSyndicateMaterialFilled
+  id: ADTToolboxSyndicateMaterialFilled
   suffix: Filled
   components:
   - type: StorageFill
