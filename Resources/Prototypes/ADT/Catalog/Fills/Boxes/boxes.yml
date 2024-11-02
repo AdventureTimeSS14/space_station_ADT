@@ -520,32 +520,50 @@
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: base
   - type: Storage
+    whitelist:
+      tags:
+      - ADTCandies
     maxItemSize: Normal
     grid:
-    - 0,0,20,0
+    - 0,0,5,5
   - type: StorageFill
     contents:
-    - id: ADTFoodSnackBlackCandies
-    - id: ADTFoodSnackGreenCandies
-    - id: ADTFoodSnackRedCandies
-    - id: ADTFoodSnackVioletCandies
-    - id: ADTFoodSnackYellowCandies
-    - id: ADTFoodSnackBatGingerBread
-    - id: ADTFoodSnackScullGingerBread
-    - id: ADTFoodSnackPumpkinGingerBread
-    - id: ADTFoodSnackBunnyCandies
-    - id: ADTFoodSnackCoinCandies
-    - id: ADTFoodSnackBrains
-    - id: ADTFoodSnackHeart
-    - id: ADTFoodSnackWorms
-    - id: ADTFoodSnackHLCaramel
-    - id: ADTFoodSnackMintCaramel
-    - id: ADTFoodSnackEyes
-    - id: ADTFoodSnackCandyBlue
-    - id: ADTFoodSnackCandyGoW
+    - id: ADTFoodSnackCandyBat
+    - id: ADTFoodSnackCandyYellow
     - id: ADTFoodSnackCandyGreen
-    - id: ADTFoodSnackCandyMine
+    - id: ADTFoodSnackCandyApple
+    - id: ADTFoodSnackCandyEyes2
+    - id: ADTFoodSnackCandyEyes
+    - id: ADTFoodSnackCandyEyes1
+    - id: ADTFoodSnackMintCaramel
+    - id: ADTFoodSnackHLCaramel
+    - id: ADTFoodSnackWorms
+    - id: ADTFoodSnackHeart
+    - id: ADTFoodSnackBlackCandies
+    - id: ADTFoodCookieGhost
+    - id: ADTFoodCookieBlackcat
     - id: ADTFoodSnackCandyRed
+    - id: ADTFoodSnackBunny
+    - id: ADTFoodSnackCandyPurple
+    - id: ADTFoodSnackCandyPumpkin
+    - id: ADTFoodSnackCandyKinito
+    - id: ADTFoodCookieSpider
+    - id: ADTFoodDonutSpooky
+    - id: ADTFoodCookieKnight
+    - id: ADTFoodCookiePumpkin
+    - id: ADTFoodCookieSkull
+    - id: ADTFoodSnackCandyСorn
+    - id: ADTFoodDonutJellySpooky
+    - id: ADTFoodBakedMuffinPumpkin
+    - id: ADTFoodSnackBrains
+    - id: ADTFoodSnackCoinCandies
+    - id: ADTFoodSnackYellowCandies
+    - id: ADTFoodSnackVioletCandies
+    - id: ADTFoodSnackCandyGoW
+    - id: ADTFoodSnackCandyBlue
+    - id: ADTFoodSnackCandyMine
+    - id: ADTFoodSnackRedCandies
+    - id: ADTFoodSnackGreenCandies
 
 # PayDay
 
@@ -631,6 +649,64 @@
     - id: ADTHalloweenMichaelMyersSuit
       amount: 1
 
+- type: entity
+  id: ADTBoxRedHat
+  parent: ADTBoxNightmareClown
+  name: red box
+  description: red hat box
+  suffix: Halloweeen
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi  
+    state: redhat
+    #layers:
+    #- state: base
+    #- state: harry
+  - type: StorageFill
+    contents:
+    - id: ADTClothingNeckCloakRedhat
+    - id: ADTClothingHeadHatHoodRedhat
+    - id: ADTClothingUniformJumpSkirtRedHat
+
+- type: entity
+  id: ADTBoxSollux
+  parent: ADTBoxNightmareClown
+  name: sollux box
+  description: sollux box
+  suffix: Halloweeen
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: sollux
+    #layers:
+    #- state: base
+    #- state: harry
+  - type: StorageFill
+    contents:
+    - id: ADTClothingEyesGlassesSollux
+    - id: ADTClothingHeadHatHornsSollux
+    - id: ADTClothingShoesBootsSollux
+    - id: ADTClothingUniformJumpsuitSollux
+
+# Bad Police
+
+- type: entity
+  id: ADTBoxBadPolice
+  parent: ADTBoxNightmareClown
+  name: Bad Police box
+  description: Bad Police box
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: bad_police
+  - type: StorageFill
+    contents:
+    - id: ADTHalloweenBadPoliceSuit
+      amount: 1
+    - id: ADTClothingHeadHatPoliceHat
+      amount: 1
+      
 # Lethal Company
 
 - type: entity
@@ -658,17 +734,17 @@
     - id: ADTDoubleLethalCompanyNitrogenTankFilled
       amount: 1
     - id: ADTLethalCompanyAirHorn
-      prob: 0.3
-
+      prob: 0.3  
+      
 # Empress of light
 
 - type: entity
   id: ADTBoxEmpressOfLight
   parent: ADTBoxNightmareClown
-  name: Tagilla box
-  description: Tagilla box
-  suffix: Halloweeen
-  components:
+  name: Empress of Light costume box
+  description: Empress of Light costume box
+  suffix: Halloween
+  components:  
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: empress_of_light
@@ -683,23 +759,4 @@
     - id: ADTClothingHandsEmpressOfLightGloves
       amount: 1
     - id: ADTEmpressOfLightShoes
-      amount: 1
-
-# Bad Police
-
-- type: entity
-  id: ADTBoxBadPolice
-  parent: ADTBoxNightmareClown
-  name: Bad Police box
-  description: Bad Police box
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: bad_police
-  - type: StorageFill
-    contents:
-    - id: ADTHalloweenBadPoliceSuit
-      amount: 1
-    - id: ADTClothingHeadHatPoliceHat
-      amount: 1
+      amount: 1      
