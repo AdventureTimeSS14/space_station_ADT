@@ -850,7 +850,7 @@
 # ADT-TWEAK-START
 - type: loadoutGroup
   id: EngineeringBelt
-  name: loadout-group-security-belt
+  name: loadout-group-engineering-belt
   loadouts:
   - BeltUtility
   - BeltUtilityWebbing
