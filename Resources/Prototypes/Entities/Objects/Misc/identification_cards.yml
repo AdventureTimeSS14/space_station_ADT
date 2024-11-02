@@ -815,7 +815,7 @@
     jobTitle: Cluwne
   - type: Unremoveable
 
-- type: entity
+- type: entity 
   parent: EngineeringIDCard
   id: SeniorEngineerIDCard
   name: senior engineer ID card
@@ -824,8 +824,10 @@
     layers:
     - state: default
     - state: idseniorengineer
+  - type: PresetIdCard # ADT
+    job: ADTSeniorEngineer
 
-- type: entity
+- type: entity 
   parent: ResearchIDCard
   id: SeniorResearcherIDCard
   name: senior researcher ID card
@@ -834,8 +836,10 @@
     layers:
     - state: default
     - state: idseniorresearcher
+  - type: PresetIdCard # ADT
+    job: ADTSeniorResearcher
 
-- type: entity
+- type: entity 
   parent: MedicalIDCard
   id: SeniorPhysicianIDCard
   name: senior physician ID card
@@ -844,8 +848,10 @@
     layers:
     - state: default
     - state: idseniorphysician
+  - type: PresetIdCard # ADT
+    job: ADTSeniorPhysician
 
-- type: entity
+- type: entity 
   parent: SecurityIDCard
   id: SeniorOfficerIDCard
   name: senior officer ID card
@@ -854,6 +860,8 @@
     layers:
     - state: default
     - state: idseniorofficer
+  - type: PresetIdCard # ADT
+    job: ADTSeniorOfficer
 
 - type: entity
   parent: IDCardStandard
