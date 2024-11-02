@@ -43,17 +43,17 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
         [Gas.Tritium] = "T",
         [Gas.WaterVapor] = "H₂O",
         // ADT-Gas-Start
-        [Gas.BZ] = "BZ"
-        [Gas.Pluoxium] = "Pl"
-        [Gas.Hydrogen] = "H₂"
-        [Gas.Nitrium] = "Ni"
-        [Gas.Healium] = "H"
-        [Gas.HyperNoblium] = "HN"
-        [Gas.ProtoNitrate] = "PH"
-        [Gas.Zauker] = "Za"
-        [Gas.Halon] = "Ha"
-        [Gas.Helium] = "HeH"
-        [Gas.AntiNoblium] = "AN"
+        [Gas.BZ] = "BZ",
+        [Gas.Pluoxium] = "Pl",
+        [Gas.Hydrogen] = "H₂",
+        [Gas.Nitrium] = "Ni",
+        [Gas.Healium] = "H",
+        [Gas.HyperNoblium] = "HN",
+        [Gas.ProtoNitrate] = "PH",
+        [Gas.Zauker] = "Za",
+        [Gas.Halon] = "Ha",
+        [Gas.Helium] = "HeH",
+        [Gas.AntiNoblium] = "AN",
         // ADT-Gas-End
 
     };
