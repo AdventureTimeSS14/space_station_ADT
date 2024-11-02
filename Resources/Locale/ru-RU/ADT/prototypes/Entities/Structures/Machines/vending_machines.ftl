@@ -20,4 +20,4 @@ ent-ADTVendingMachineCiviMedVend = ГраждоМед
     .desc = Создан специально чтобы облегчить ваш бала.. боль.
 
 ent-ADTIceCreamVendInventory = Морожемат
-    .desc = Смотри, Смотри! Это мороженщик!
+    .desc = Смотри, смотри! Это мороженщик!
