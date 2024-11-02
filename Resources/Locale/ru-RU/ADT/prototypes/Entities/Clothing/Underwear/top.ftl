@@ -1,15 +1,15 @@
 ent-ADTClothingUnderwearTopBraWhite = лифчик
     .desc =  Стандартный лифчик для NanoTrasen для работниц станции. Окрашен в белый цвет.
 
-ent-ADTClothingUnderwearTopBraLaceRed = красное кружевное лифчик
+ent-ADTClothingUnderwearTopBraLaceRed = красный кружевной лифчик
     .desc = Красное, кружевное и, скорее всего, очень дорогое.
     .suffix = { "" }
 
-ent-ADTClothingUnderwearTopBraLaceBlack = черное кружевное лифчик
+ent-ADTClothingUnderwearTopBraLaceBlack = черный кружевной лифчик
     .desc = Черное, кружевное и, скорее всего, очень дорогое.
     .suffix = { "" }
 
-ent-ADTClothingUnderwearTopBraComfyWhite = белое комфортное лифчик
+ent-ADTClothingUnderwearTopBraComfyWhite = белый комфортный лифчик
     .desc = Белое, очень удобное и с розовым бантиком.
     .suffix = { "" }
 
@@ -32,7 +32,7 @@ ent-ADTClothingUnderwearTopBraQM = лифчик квартирмейстера
 ent-ADTClothingUnderwearTopBraRD = лифчик научного руководителя
     .desc = Стандартный лифчик для научного руководителя.
 
-ent-ADTClothingUnderwearTopBraLace = кружевное лифчик
+ent-ADTClothingUnderwearTopBraLace = кружевной лифчик
     .desc = Красивое кружевное нижнее бельё
 
 ent-ADTClothingUnderwearTopBraSportsBlack = спортивный черный топик

@@ -26,7 +26,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi #спрайты от dion_clawed
   - type: StaticPrice
-    price: 200
+    price: 25
 
 - type: entity
   parent: ClothingEyesBase
@@ -53,6 +53,15 @@
     - WhitelistChameleon
     - HudMedical
 
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesMimicry
+  name: mimicy glasses
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
 
     # halloween
 
@@ -81,3 +90,16 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesSollux
+  name: welding glasses
+  description: welding glasses
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi

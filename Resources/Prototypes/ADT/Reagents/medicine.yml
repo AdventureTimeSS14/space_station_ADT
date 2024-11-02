@@ -560,8 +560,6 @@
           component: StutteringAccent
           time: 60
           type: Add
-        - !type:Jitter
-          time: 60
 
 - type: reagent
   id: ADTAlomicine

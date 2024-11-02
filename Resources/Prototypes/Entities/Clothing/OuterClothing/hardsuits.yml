@@ -196,9 +196,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -227,9 +227,9 @@
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -259,9 +259,9 @@
   description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-warden.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-warden.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -425,9 +425,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-red.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-red.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -934,20 +934,21 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 0.1
-        Cold: 0.1
-        Shock: 0.1
+        Blunt: 0.4 #ADT-tweak 0.7 -> 0.4
+        Slash: 0.4 #ADT-tweak 0.7 -> 0.4
+        Piercing: 0.4 #ADT-tweak 0.6 -> 0.4
+        Heat: 0.3 #ADT-tweak 0.05 -> 0.3
+        Cold: 0.3 #ADT-tweak 0.1 -> 0.3
+        Shock: 0.3 #ADT-tweak 0.1 -> 0.3
         Radiation: 0.1
-        Caustic: 0.1
+        Caustic: 0.3 #ADT-tweak
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
+  - type: DNALocker # ADT-Tweak
 
 #MISC. HARDSUITS
 #Clown Hardsuit

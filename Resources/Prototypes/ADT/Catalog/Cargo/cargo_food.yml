@@ -94,6 +94,6 @@
     sprite: ADT/Objects/Misc/halloween_smilecandy_bowl.rsi
     state: icon-0
   product: ADTCrateHalloweenFood
-  cost: 1200
+  cost: 2700
   category: cargoproduct-category-name-food
   group: market

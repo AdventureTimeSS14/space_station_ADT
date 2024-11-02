@@ -6,7 +6,9 @@
   description: An industrial grade chemical dispenser.
   components:
   - type: Sprite
-    sprite: Structures/dispensers.rsi
+    # sprite: Structures/dispensers.rsi # ADT-Tweak.
+    # Убрал на время. После хэллоуина восстановлю, а строчку снизу - удалю
+    sprite: ADT/Structures/dispensers.rsi # ADT-Tweak for halloween
     state: industrial-working
     snapCardinals: true
   - type: ReagentDispenser
