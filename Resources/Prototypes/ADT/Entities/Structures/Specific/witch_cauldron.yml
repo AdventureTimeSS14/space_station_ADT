@@ -2,10 +2,10 @@
 # ВЕДЬМИН КОТЁЛ
 
 - type: entity
-  name: ведьмин котел
+  name: the witch's cauldron
   id: ADTWitchCauldron
   parent: [BaseStructureDynamic, StructureWheeled]
-  description: Хочется приготовить чего-то такого... Магического...
+  description: I wanna cook something... Magical...
   suffix: Хеллоуин
   components:
     - type: Sprite
