@@ -2,7 +2,7 @@
 # ВЕДЬМИН КОТЁЛ
 
 - type: entity
-  name: witches cauldron
+  name: the witch's cauldron
   id: ADTWitchCauldron
   parent: [BaseStructureDynamic, StructureWheeled]
   description: I wanna cook something... Magical...
