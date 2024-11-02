@@ -38,7 +38,7 @@ public sealed partial class BallisticMechAmmoProviderComponent : MechAmmoProvide
     public string AmmoType = "lightrifle";
 
     [DataField]
-    public SoundSpecifier NoAmmoForReload = new SoundPathSpecifier("/Audio/Machines/Nuke/angry_beep.ogg");
+    public SoundSpecifier NoAmmoForReload = new SoundPathSpecifier("/Audio/Machines/Nuke/angry_beep.ogg", new AudioParams().WithVolume(-3f));
 
     [DataField]
     public SoundSpecifier ReloadSound = new SoundPathSpecifier("/Audio/Mecha/sound_mecha_hydraulic.ogg");
