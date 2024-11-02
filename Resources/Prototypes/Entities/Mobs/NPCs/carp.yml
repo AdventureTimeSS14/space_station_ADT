@@ -91,6 +91,7 @@
       showRank: true
       rankName: collective-mind-carp-rank
   # ADT-CollectiveMind-Tweak-End
+
 - type: entity
   parent: BaseMobCarp
   id: MobCarp
@@ -181,6 +182,20 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
+# ADT-Tweak-start
+# the carps must not be combustible because they are the children of the dragon mwahahahaha. only those who come out of the portal.
+    - type: Flammable
+      fireSpread: false
+      canResistFire: true
+      alwaysCombustible: false
+      canExtinguish: true
+      resisting: false
+      damage:
+        types: {}
+    - type: Temperature
+      heatDamageThreshold: 800
+      coldDamageThreshold: -800
+# ADT-Tweak-end
 
 - type: entity
   id: MobCarpDungeon
