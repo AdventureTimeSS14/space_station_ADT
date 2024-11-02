@@ -5,18 +5,18 @@
   components:
   - type: StorageFill
     contents:
-    - id: SheetRUGlass
-    - id: SheetSteel
-    - id: SheetPlasteel
-    - id: CableApcStack
-    - id: Crowbar
-    - id: Wrench
-    - id: Screwdriver
-    - id: Wirecutter
-    - id: Welder
-    - id: Multitool
-    - id: ClothingHandsGlovesCombat
-    - id: ClothingMaskGasSyndicate
+      - id: SheetRUGlass
+      - id: SheetSteel
+      - id: SheetPlasteel
+      - id: CableApcStack
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: Multitool
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingMaskGasSyndicate
 
   id: ADTToolboxSyndicateFilledThief # 10 TC
   name: Thieving bundle
