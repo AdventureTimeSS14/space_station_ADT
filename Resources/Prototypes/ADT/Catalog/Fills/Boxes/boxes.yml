@@ -255,7 +255,7 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: squid_player # ADT-Tweak
+    state: squid_player
     #layers:
     #- state: base
   - type: StorageFill
@@ -276,7 +276,7 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: squid_org # ADT-Tweak
+    state: squid_org
     #layers:
     #- state: base
   - type: StorageFill
