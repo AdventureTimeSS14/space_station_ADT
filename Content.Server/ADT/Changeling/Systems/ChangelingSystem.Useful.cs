@@ -369,7 +369,10 @@ public sealed partial class ChangelingSystem
             component.StasisDeathActive = false;
 
             if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+            {
                 mind.PreventGhosting = false;
+                mind.PreventGhostingSendMessage = false;
+            }
         }
 
         _action.SetToggled(component.ChangelingStasisDeathActionEntity, component.StasisDeathActive);

@@ -13,4 +13,6 @@ public sealed partial class ChangelingHeadslugComponent : Component
     public float Accumulator = 0f;
 
     public float AccumulateTime = 90f;
+
+    public bool Alerted = false;
 }

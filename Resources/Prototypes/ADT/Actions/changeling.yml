@@ -312,6 +312,9 @@
     icon:
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: lesser_form
+    iconOn:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: human_form
     itemIconStyle: BigAction
     checkCanInteract: false
     event: !type:ChangelingLesserFormActionEvent

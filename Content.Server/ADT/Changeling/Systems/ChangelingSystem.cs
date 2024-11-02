@@ -48,6 +48,7 @@ using Content.Shared.Mobs;
 using Content.Server.Stealth;
 using Content.Server.ADT.Store;
 using Robust.Server.Containers;
+using Content.Server.Ghost;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -365,6 +366,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         newLingComponent.LesserFormActive = comp.LesserFormActive;
         newLingComponent.AbsorbedDnaModifier = comp.AbsorbedDnaModifier;
         newLingComponent.SiliconStealthEnabled = comp.SiliconStealthEnabled;
+        newLingComponent.BasicTransferredActions = comp.BasicTransferredActions;
         newLingComponent.BoughtActions = comp.BoughtActions;
         RemComp(from, comp);
 

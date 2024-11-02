@@ -528,7 +528,7 @@ namespace Content.Server.Ghost
 
             if (mind.PreventGhosting)
             {
-                if (mind.Session != null) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts
+                if (mind.Session != null && mind.PreventGhostingSendMessage) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts   // ADT tweak
                 {
                     _chatManager.DispatchServerMessage(mind.Session, Loc.GetString("comp-mind-ghosting-prevented"),
                         true);

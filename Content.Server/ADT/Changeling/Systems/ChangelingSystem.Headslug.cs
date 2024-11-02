@@ -73,5 +73,30 @@ public sealed partial class ChangelingSystem
             return;
 
         comp.Accumulator += frameTime;
+
+        if (comp.Accumulator >= comp.AccumulateTime)
+        {
+            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+                return;
+
+            var monke = Spawn("ADTChangelingLesserForm", Transform(uid).Coordinates);
+            _mindSystem.TransferTo(mindId, monke);
+            var ling = EnsureComp<ChangelingComponent>(monke);
+
+            EntityUid? lesserFormActionEntity = null;
+            _action.AddAction(monke, ref lesserFormActionEntity, "ActionLingLesserForm");
+            ling.BoughtActions.Add(lesserFormActionEntity);
+
+            ling.LesserFormActive = true;
+            _action.SetToggled(lesserFormActionEntity, true);
+
+            return;
+        }
+
+        if (comp.Accumulator >= comp.AccumulateTime * 0.75f && !comp.Alerted)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-slug-almost-ready"), uid, uid);
+            comp.Alerted = true;
+        }
     }
 }
