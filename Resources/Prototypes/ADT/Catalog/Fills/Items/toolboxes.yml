@@ -18,6 +18,8 @@
       - id: ClothingHandsGlovesCombat
       - id: ClothingMaskGasSyndicate
 
+- type: entity
+  parent: ToolboxSyndicate
   id: ADTToolboxSyndicateFilledThief # 10 TC
   name: Thieving bundle
   description: Everything you need to become a better thief version.
