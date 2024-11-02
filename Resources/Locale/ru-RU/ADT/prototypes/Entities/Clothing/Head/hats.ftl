@@ -100,3 +100,15 @@ ent-ADTClothingHeadHatHornsSollux = Рога тролля
 ent-ADTClothingHeadHatWinth = шляпа ведьмочки
     .suffix = Хеллоуин
     .desc = Для самых открытых ведьмочек.
+
+ent-ADTClothingHeadHatPoliceHat = кепка полицейского
+    .suffix = Хеллоуин
+    .desc = Кепка полицейского. Надеюсь, у него хорошие намерения.
+
+ent-ADTClothingHeadEmpressOfLightHelmet = коронет Императрицы света
+    .suffix = Хеллоуин
+    .desc = Величественно.
+
+ent-ADTClothingHeadLethalCompanyHelmet = шлем сотрудника Смертельной компании
+    .suffix = Хеллоуин
+    .desc = Шлем как шлем. Кажется, его кто-то до меня носил...

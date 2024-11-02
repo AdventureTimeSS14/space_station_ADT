@@ -914,7 +914,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/mimicry.rsi
 
-#halloween
+# ADT-HALLOWEEN-START
 
 - type: entity
   parent: ClothingUniformBase
@@ -1097,6 +1097,56 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/michael_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/michael_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenEmpressOfLightSuit
+  name: Empress of Light suit
+  description: Empress of Light suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenEmpressOfLightSuitYellow
+  name: Empress of Light yellow suit
+  description: Empress of Light yellow suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light_yellow.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenBadPoliceSuit
+  name: Bad Police suit
+  description: Bad Police suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bad_police.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bad_police.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenLethalCompanySuit
+  name: Lethal Company suit
+  description: Lethal Company suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lethal_company.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lethal_company.rsi
+
+# ADT-HALLOWEEN-END
 
 - type: entity
   parent: ClothingUniformBase

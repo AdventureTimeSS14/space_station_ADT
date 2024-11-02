@@ -338,6 +338,22 @@ ent-ADTHalloweenMichaelMyersSuit = костюм Майкла Майерса
     .suffix = Хеллоуин
     .desc = Комбинезон героя фильма "Хеллоуин".
 
+ent-ADTHalloweenEmpressOfLightSuit = костюм Императрицы света
+    .suffix = Хеллоуин
+    .desc = Костюм Императрицы света.
+
+ent-ADTHalloweenEmpressOfLightSuitYellow = желтый костюм Императрицы света
+    .suffix = Хеллоуин
+    .desc = Желтый костюм Императрицы света.
+
+ent-ADTHalloweenBadPoliceSuit = костюм Плохого Полицейского
+    .suffix = Хеллоуин
+    .desc = Арестуйте меня, пожалуйста.
+
+ent-ADTHalloweenLethalCompanySuit = костюм сотрудника Смертельной компании
+    .suffix = Хеллоуин
+    .desc = Одноразовые сотрудники - это круто!
+
 ent-ADTJumpsuitHunterDemon = костюм охотника на демонов
     .suffix = Хеллоуин
     .desc = Служебный костюм "Охотники на Демонов Общественной Безопасности" или же "Охотник на Демонов". Выглядит потрепанно.
