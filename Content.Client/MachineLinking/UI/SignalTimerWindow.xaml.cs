@@ -12,12 +12,12 @@ public sealed partial class SignalTimerWindow : DefaultWindow
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const int MaxTextLength = 5; // для объявлений нарушений куда больше ? ADT
-    private const int MaxTextLengthAnother = 19; // для заметок ADT TextEdit
+    private const int MaxTextLength = 5;
+    private const int MaxTextLengthAnother = 19; // ADT Статьи
     
 
-    public event Action<string>? OnCurrentTextChanged; // для номеров нарушений
-    public event Action<string>? OnCurrentTextChangedAnother; // остальной текст
+    public event Action<string>? OnCurrentTextChanged;
+    public event Action<string>? OnCurrentTextChangedAnother; // ADT остальной текст
     public event Action<string>? OnCurrentDelayMinutesChanged;
     public event Action<string>? OnCurrentDelaySecondsChanged;
 
@@ -81,7 +81,7 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         OnCurrentTextChanged?.Invoke(text);
     }
 
-    public void OnCurrentTextChangeAnother(string text) //TextEdit
+    public void OnCurrentTextChangeAnother(string text) // ADT START
     {
         if (CurrentTextEditAnother.Text.Length > MaxTextLengthAnother)
         {
@@ -90,7 +90,7 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         }
 
         OnCurrentTextChangedAnother?.Invoke(text);
-    }
+    } // ADT END
 
     public void OnCurrentDelayMinutesChange(string text)
     {
