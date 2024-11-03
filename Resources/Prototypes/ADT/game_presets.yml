@@ -14,17 +14,17 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
 
-# - type: gamePreset
-#   showInVote: false # secret
-#   id: Heretic
-#   alias:
-#     - heretic
-#   name: heretic-title
-#   minPlayers: 25
-#   description: heretic-title
-#   rules:
-#     - HereticGameRule
-#     - BasicRoundstartVariation
-#     - SubGamemodesRule
-#     - BasicStationEventScheduler
-#     - MeteorSwarmScheduler
+- type: gamePreset
+  showInVote: false # secret
+  id: Heretic
+  alias:
+    - heretic
+  name: heretic-title
+  minPlayers: 25
+  description: heretic-title
+  rules:
+    - HereticGameRule
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
