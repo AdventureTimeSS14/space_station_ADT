@@ -849,6 +849,15 @@
   - ADTEmergencyMothExtended #ADT_Species
   - ADTEmergencyIPCExtended #ADT_Species
 
+# ADT-TWEAK-START
+- type: loadoutGroup
+  id: ADTEngineeringBelt
+  name: loadout-group-engineering-belt
+  loadouts:
+  - ADTBeltUtility
+  - ADTBeltUtilityWebbing
+# ADT-TWEAK-END
+
 # Science
 - type: loadoutGroup
   id: ResearchDirectorHead

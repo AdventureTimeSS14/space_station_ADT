@@ -116,6 +116,14 @@ ent-ADTPosterHappyHalloween = Счастливого Хеллоуина!
     .suffix = Хеллоуин
     .desc = Плакат, поздравляющий персонал станции с праздником.
 
+ent-ADTPosterHappyHalloween2 = { ent-ADTPosterHappyHalloween }
+    .suffix = { ent-ADTPosterHappyHalloween.suffix }
+    .desc =  { ent-ADTPosterHappyHalloween.desc }
+
+ent-ADTPosterHappyHalloween3 = { ent-ADTPosterHappyHalloween }
+    .suffix = { ent-ADTPosterHappyHalloween.suffix }
+    .desc =  { ent-ADTPosterHappyHalloween.desc }
+
 ent-ADTPosterTayarHalloween = хеллоуинская таярочка
     .suffix = Хеллоуин
     .desc = Плакат к Хеллоуину, изображающий таяранку в довольно откровенном наряде. А это точно одобрено комиссией NT по медиа и пропаганде?
@@ -217,7 +225,7 @@ ent-ADTPosterUSSPRHBZ = "Вступай в РХБЗ"
     .suffix = { "СССП" }
 
 ent-ADTPosterUSSPKS = "Ищем тебя в Космических Силах"
-    .desc = Постер с призывом вступить в Космические Силы СССП. 
+    .desc = Постер с призывом вступить в Космические Силы СССП.
     .suffix = { "СССП" }
 
 ent-ADTPosterUSSPKDV = "Никто кроме нас!"

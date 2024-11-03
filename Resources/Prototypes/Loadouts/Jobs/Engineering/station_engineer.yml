@@ -131,3 +131,16 @@
 #   equipment:
 #     id: SeniorEngineerPDA
 # ADT TWEAK END
+
+# ADT-Tweak-Start
+# Belt
+- type: loadout
+  id: ADTBeltUtility
+  equipment:
+    belt: ClothingBeltUtilityFilled
+
+- type: loadout
+  id: ADTBeltUtilityWebbing
+  equipment:
+    belt: ADTClothingBeltUtilityWebbingFilled
+# ADT-Tweak-End
