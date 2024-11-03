@@ -1,25 +1,3 @@
-# ADT-Tweak-start
-# SuperSynthesizerInstrument
-- type: loadoutEffectGroup
-  id: SuperSynthesizerInstrumentWorthy
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMusician
-      time: 86400 #25 hrs # ADT-RoleTime for a prize
-
-# Misc
-- type: loadout
-  id: MusicianSuperSynthesizer
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SuperSynthesizerInstrumentWorthy
-  storage:
-    back:
-    - SuperSynthesizerInstrument
-# ADT-Tweak-end
-
 # Jumpsuit
 - type: loadout
   id: MusicianJumpsuit
