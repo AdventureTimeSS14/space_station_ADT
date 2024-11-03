@@ -1,0 +1,24 @@
+- type: entity
+  name: Vulpix
+  parent: FoodInjectableBase
+  id: ADTFoodVulpix
+  description: It helps to improve blood circulation.
+  components:
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+      - chessy
+      - bitter
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Vulpix.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Blood
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 8
+        - ReagentId: Nutriment
+          Quantity: 3

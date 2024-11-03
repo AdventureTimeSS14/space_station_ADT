@@ -5,9 +5,3 @@ ent-ADTCrateFoodOktoberfestSnack = ящик закусок к пиву
 ent-ADTCrateHalloweenFood = ящик сладостей для Хеллоуина
     .suffix = Хеллоуин
     .desc = Ящик с кучей конфеток, леденцов, мармеладок и прочих сладостей.
-
-ent-ADTFoodVulpix = Вульпикс
-    .desc = Это помогает улучшить кровообращение.
-
-ent-ADTFoodVulpix = Вульпикс
-    .desc = Это помогает улучшить кровообращение.
