@@ -64,6 +64,14 @@
   - type: Tag
     tags:
     - VimPilot
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   name: bee
@@ -1751,6 +1759,14 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   parent: MobMouse
