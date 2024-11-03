@@ -29,6 +29,22 @@ ent-ADTClothingBeltMedTSF = подсумок для медицины
     .desc = Подсумок, применяемый в экипировке пехотинца ТСФ для хранения медицинских принадлежностей. Можно прикрепить в слот кармана.
     .suffix = { "ТСФ" }
 
+
+ent-ADTClothingBeltKilla = РПС "Тритон"
+    .suffix = Хеллоуин
+    .desc = Боевой нагрудник Тритон М43–А - Создан для размещёния и переноски элементов амуниции и снаряжения, для использования в умеренном и жарком климате.
+
 ent-ADTClothingBeltMedicalBag = медицинская поясная сумка
     .desc = Небольшая, но вместительная сумка для хранения медикаментов. Тут даже поместится планшет для бумаги!
     .suffix = { "" }
+
+ent-ADTClothingBeltUtilityWebbing = Жилет для инструментов
+    .desc = Жилет для хранения ваших инструментов. То, что нужно, когда обычный пояс надоел.
+
+ent-ADTClothingBeltUtilityWebbingFilled = Жилет для инструментов
+    .desc = { ent-ADTClothingBeltUtilityWebbing.desc }
+    .suffix = Заполненный
+
+ent-ADTClothingBeltUtilityWebbingEngineering = Жилет для инструментов
+    .desc = { ent-ADTClothingBeltUtilityWebbing.desc }
+    .suffix = Инженерный

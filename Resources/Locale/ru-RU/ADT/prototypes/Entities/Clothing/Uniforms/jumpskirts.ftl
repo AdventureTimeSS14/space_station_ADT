@@ -155,6 +155,14 @@ ent-ADTClothingUniformOktoberfestDirndlRed = дирндль с красной ю
     .desc = Стилизованное под традиционный наряд платье с красной юбкой.
     .suffix = { "Октоберфест" }
 
+ent-ADTClothingUniformRabbitDress = кроличий купальник
+    .desc = А куда здесь крепить КПК?
+    .suffix = { "" }
+
 ent-ADTClothingUniformJumpskirtCMOHike = походная юбка-костюм главного врача
     .desc = Рубашка и мешковитая юбка, отлично подходящие для активной работы как вне, так и внутри своего отдела.
     .suffix = { "" }
+
+ent-ADTClothingUniformJumpSkirtRedHat = костюм красной шапочки
+    .desc = Самое страшное, что ждёт эту шапочку, что вместо волка за нею придут вульпы
+    .suffix = Хеллоуин

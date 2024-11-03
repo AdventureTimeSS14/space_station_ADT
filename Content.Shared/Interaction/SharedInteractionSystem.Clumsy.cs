@@ -1,10 +1,25 @@
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Random;
+using Content.Shared.Roles; // ADT-Clumsy-Tweak
+using Content.Shared.Mind;  // ADT-Clumsy-Tweak
 
 namespace Content.Shared.Interaction
 {
     public partial class SharedInteractionSystem
     {
+        [Dependency] private readonly SharedRoleSystem _role = default!; // ADT-Clumsy-Tweak
+        [Dependency] private readonly SharedMindSystem _mind = default!; // ADT-Clumsy-Tweak
+
+        // ADT-Clumsy-Tweak-Start
+        public bool GetAntagonistStatus(EntityUid uid, ClumsyComponent component)
+        {
+            var mindId = _mind.GetMind(uid);
+            if (mindId == null)
+                return false;
+
+            return _role.MindIsAntagonist(mindId);
+        }
+        // ADT-Clumsy-Tweak-End
         public bool RollClumsy(ClumsyComponent component, float chance)
         {
             return component.Running && _random.Prob(chance);

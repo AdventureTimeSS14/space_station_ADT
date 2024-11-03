@@ -128,6 +128,13 @@
         visualType: Large
         messages: [ "novakid-hurt-by-water-popup" ]
         probability: 0.25
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#7e009e"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic

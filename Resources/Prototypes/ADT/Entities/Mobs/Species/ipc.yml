@@ -135,6 +135,7 @@
   - type: Crawler
   - type: BloodCough
     postingSayDamage: blood-cough-ipc
+  - type: TimeDespawnDamage
 
 - type: entity
   save: false

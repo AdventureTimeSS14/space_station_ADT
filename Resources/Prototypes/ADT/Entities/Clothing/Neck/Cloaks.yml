@@ -10,6 +10,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ADTClothingNeckCloakSecondBlueshield
+  name: blueshield cloak
+  description: A blue cape with an armored shoulder pad, especially for the protection of station heads.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/blueshield_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ADTClothingNeckDarkGreyCloak
   name: dark grey cloak
   description: Even a greytide deserve his cloak.
@@ -84,3 +93,39 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTVergileCloak
+  name: Vergile cloak
+  description: Vergile cloak
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakRedhat
+  name: redhat cloak
+  description: redhat cloak
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodRedhat
+    requiredSlot:
+    - neck
+    slot: head
+

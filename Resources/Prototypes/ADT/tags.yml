@@ -71,6 +71,9 @@
   id: ADTBorgKerfusNTHead
 
 - type: Tag
+  id: ADTTelescopicBaton
+
+- type: Tag
   id: Eyes
 
 - type: Tag
@@ -125,6 +128,9 @@
   id: JanicartKeys
 
 - type: Tag
+  id: ADTBadge
+
+- type: Tag
   id: ADTMagazineRifleExtended
 
 - type: Tag
@@ -162,3 +168,6 @@
 
 - type: Tag
   id: ADTSiliconStealthWhitelist
+
+- type: Tag
+  id: ADTCandies

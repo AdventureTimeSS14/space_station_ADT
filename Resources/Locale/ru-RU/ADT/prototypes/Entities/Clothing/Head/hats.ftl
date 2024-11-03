@@ -30,6 +30,15 @@ ent-ADTClothingHeadHatsBeretArmy = армейский берет
     .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
     .suffix = { "Новая Мекка" }
 
+ent-ADTClothingHeadHatsGuardOfficer = кепка надзирателя
+    .desc = Такая же кепка, как и у других сотрудников службы безопасности, но оранжевого цвета.
+
+ent-ADTClothingHeadHatsGuardOfficerMaster = фуражка надзирателя
+    .desc = Фуражка тюремного надзирателя, которая выдается сотрудникам с опытом работы.
+
+ent-ADTClothingHeadGreyHatsGuardOfficer = серая фуражка надзирателя
+    .desc = Серая фуражка тюремного надзирателя, которая выдается сотрудникам с чуть меньшим опытом работы.
+
 ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
     .desc = Тёмная фуражка офицера Иллизиума.
@@ -63,3 +72,43 @@ ent-ADTClothingHeadHatsBavarianHatRed = красная егерская шляп
 ent-ADTClothingHeadHatTrader = кепка торговца
     .desc = Бейсболка, окрашенная в цвета ТСФ
     .suffix = { "ТСФ" }
+
+ent-ADTClothingHeadVyasovHat = потертая федора
+    .suffix = Хеллоуин
+    .desc = С виду очень потрепанная шляпа коричневого цвета, от неё веет кошмаром прямиком с улицы Вязова
+
+ent-ADTClothingHeadKillaHelmet = бронешлем ТШ-6 "Килла"
+    .suffix = Хеллоуин
+    .desc = Это просто реплика ТШ-6, но с тремя белыми полосками... В принципе, всё равно выглядит очень круто и стильно.
+
+ent-ADTClothingHeadXenomorph = шапка ксеноморфа
+    .suffix = Хеллоуин
+    .desc = Не пытайтесь в ней замаскироваться среди ксено на экспедиции.
+
+ent-ADTClothingHeadZombie = маска зомби
+    .suffix = Хеллоуин
+    .desc = Маска ужасного, зеленого, разлагающегося ожившего кошмара. Только не пытайтесь показаться в такой перед РХБЗЗ.
+
+ent-ADTClothingHeadHatChainSaw = голова демона-бензопилы
+    .suffix = Хеллоуин
+    .desc = Весь ад содрогается от его рева, даже демоны помнят его после перерождения!
+
+ent-ADTClothingHeadHatHornsSollux = Рога тролля
+    .suffix = Хеллоуин
+    .desc = Я в нем выгляжу глуп0.
+
+ent-ADTClothingHeadHatWinth = шляпа ведьмочки
+    .suffix = Хеллоуин
+    .desc = Для самых открытых ведьмочек.
+
+ent-ADTClothingHeadHatPoliceHat = кепка полицейского
+    .suffix = Хеллоуин
+    .desc = Кепка полицейского. Надеюсь, у него хорошие намерения.
+
+ent-ADTClothingHeadEmpressOfLightHelmet = коронет Императрицы света
+    .suffix = Хеллоуин
+    .desc = Величественно.
+
+ent-ADTClothingHeadLethalCompanyHelmet = шлем сотрудника Смертельной компании
+    .suffix = Хеллоуин
+    .desc = Шлем как шлем. Кажется, его кто-то до меня носил...
