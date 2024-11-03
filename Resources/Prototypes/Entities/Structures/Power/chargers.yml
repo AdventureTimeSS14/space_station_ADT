@@ -201,6 +201,10 @@
   parent: BaseItemRecharger
   id: WallWeaponCapacitorRecharger
   name: wall recharger
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
   - type: Sprite
     sprite: Structures/Power/wall_recharger.rsi
@@ -211,6 +215,7 @@
       state: "light-off"
       shader: "unshaded"
   - type: WallMount
+    arc: 360
   - type: Charger
     chargeRate: 25
   - type: ItemSlots
