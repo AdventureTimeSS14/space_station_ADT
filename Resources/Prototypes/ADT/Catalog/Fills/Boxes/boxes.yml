@@ -1,9 +1,11 @@
+# Nightmare Clown
+
 - type: entity
   id: ADTBoxNightmareClown
   parent: BaseStorageItem
   name: clown Nightmare Suit
   description: clown Nightmare Suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -42,12 +44,14 @@
     - id: BalloonSyn
       amount: 1
 
+# Cruelty Squad
+
 - type: entity
   id: ADTBoxCrueltySquad
   parent: ADTBoxNightmareClown
   name: bio-merc of cruelty squad suit
   description: bio-merc of cruelty squad suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -68,12 +72,14 @@
     - id: ClothingShoesBootsCombat
       amount: 1
 
+# Jason
+
 - type: entity
   id: ADTBoxJason
   parent: ADTBoxNightmareClown
   name: Friday 13 suit
   description: Friday 13 suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -96,12 +102,14 @@
     - id: ClothingHandsGlovesColorBlack
       amount: 1
 
+# Vyazov
+
 - type: entity
   id: ADTBoxVyazov
   parent: ADTBoxNightmareClown
   name: Freddy Krueger suit
   description: Freddy Krueger suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -118,12 +126,14 @@
     - id: ADTVyazovGloves
       amount: 1
 
+# Hotline Miami
+
 - type: entity
   id: ADTBoxHotlineMiami
   parent: ADTBoxNightmareClown
   name: Hotline Miami suit
   description: Hotline Miami suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -148,12 +158,14 @@
     - id: ADTStudentBomber
       amount: 1
 
+# Killa
+
 - type: entity
   id: ADTBoxKilla
   parent: ADTBoxNightmareClown
   name: Killa suit
   description: Killa suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -172,12 +184,14 @@
     - id: ADTClothingUniformAbibasBlackSuit
       amount: 1
 
+# Servant of Evil
+
 - type: entity
   id: ADTBoxServantOfEvil
   parent: ADTBoxNightmareClown
   name: servant of evil suit
   description: servant of evil suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -196,12 +210,14 @@
     - id: ClothingShoesBootsCombat
       amount: 1
 
+# Dude
+
 - type: entity
   id: ADTBoxDude
   parent: ADTBoxNightmareClown
   name: Dude suit
   description: Dude suit
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -228,16 +244,18 @@
     - id: BoxFolderClipboard
       amount: 1
 
+# Squid Game Player
+
 - type: entity
   id: ADTBoxSquidPlayers
   parent: ADTBoxNightmareClown
   name: Squid Game players uniforms
   description: Squid Game players uniforms
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: base
+    state: squid_player
     #layers:
     #- state: base
   - type: StorageFill
@@ -247,16 +265,18 @@
     - id: ClothingShoesColorWhite
       amount: 5
 
+# Squid Game Organizer
+
 - type: entity
   id: ADTBoxSquidOrganizer
   parent: ADTBoxNightmareClown
   name: Squid Game organizer uniform
   description: Squid Game organizer uniform
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: base
+    state: squid_org
     #layers:
     #- state: base
   - type: StorageFill
@@ -276,12 +296,14 @@
     - id: ClothingShoesBootsLaceup
       amount: 1
 
+# Tagilla
+
 - type: entity
   id: ADTBoxTagilla
   parent: ADTBoxNightmareClown
   name: Tagilla box
   description: Tagilla box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -307,12 +329,14 @@
     - id: ClothingShoesBootsCombat
       amount: 1
 
+# Nevada Clown
+
 - type: entity
   id: ADTBoxNevadaClown
   parent: ADTBoxNightmareClown
   name: the costume of the Nevada psychopathic clown
   description: the costume of the Nevada psychopathic clown
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -329,12 +353,14 @@
     - id: ADTGreyClownPsyhoShoes
       amount: 1
 
+# Transilvania
+
 - type: entity
   id: ADTBoxTransilvania
   parent: ADTBoxNightmareClown
   name: the costume vampire
   description: the costume vampire
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -353,12 +379,14 @@
     - id: ClothingHandsGlovesColorWhite
       amount: 1
 
+# Vergile
+
 - type: entity
   id: ADTBoxVergile
   parent: ADTBoxNightmareClown
   name: Vergile box
   description: Vergile box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -377,12 +405,14 @@
     - id: ClothingShoesBootsLaceup
       amount: 1
 
+# Xeno
+
 - type: entity
   id: ADTXenoBox
   parent: ADTBoxNightmareClown
   name: Xeno box
   description: Xeno box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -397,12 +427,14 @@
     - id: ADTClothingHeadXenomorph
       amount: 3
 
+# Superstar Police
+
 - type: entity
   id: ADTSuperstarPoliceBox
   parent: ADTBoxNightmareClown
   name: police-superstar box
   description: police-superstar box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -421,12 +453,14 @@
     - id: ClothingShoesGreenLizardskin
       amount: 1
 
+# Superstar Police Wingman
+
 - type: entity
   id: ADTSuperstarPoliceWingmanBox
   parent: ADTBoxNightmareClown
   name: police-superstar wingman box
   description: police-superstar wingman box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -449,12 +483,14 @@
     - id: BoxFolderClipboard
       amount: 1
 
+# Bunny Dancer
+
 - type: entity
   id: ADTBunnyDancerBox
   parent: ADTBoxNightmareClown
   name: bunny dancer box
   description: bunny dancer box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -471,50 +507,72 @@
     - id: ADTClothingHandsRabbitGloves
       amount: 1
 
+# Halloween Candy
+
 - type: entity
   id: ADTBoxHalloweenCandy
   parent: ADTBoxNightmareClown
   name: halloween candy box
   description: halloween candy box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: base
   - type: Storage
+    whitelist:
+      tags:
+      - ADTCandies
     maxItemSize: Normal
     grid:
-    - 0,0,20,0
+    - 0,0,5,5
   - type: StorageFill
     contents:
-    - id: ADTFoodSnackBlackCandies
-    - id: ADTFoodSnackGreenCandies
-    - id: ADTFoodSnackRedCandies
-    - id: ADTFoodSnackVioletCandies
-    - id: ADTFoodSnackYellowCandies
-    - id: ADTFoodSnackBatGingerBread
-    - id: ADTFoodSnackScullGingerBread
-    - id: ADTFoodSnackPumpkinGingerBread
-    - id: ADTFoodSnackBunnyCandies
-    - id: ADTFoodSnackCoinCandies
-    - id: ADTFoodSnackBrains
-    - id: ADTFoodSnackHeart
-    - id: ADTFoodSnackWorms
-    - id: ADTFoodSnackHLCaramel
-    - id: ADTFoodSnackMintCaramel
-    - id: ADTFoodSnackEyes
-    - id: ADTFoodSnackCandyBlue
-    - id: ADTFoodSnackCandyGoW
+    - id: ADTFoodSnackCandyBat
+    - id: ADTFoodSnackCandyYellow
     - id: ADTFoodSnackCandyGreen
-    - id: ADTFoodSnackCandyMine
+    - id: ADTFoodSnackCandyApple
+    - id: ADTFoodSnackCandyEyes2
+    - id: ADTFoodSnackCandyEyes
+    - id: ADTFoodSnackCandyEyes1
+    - id: ADTFoodSnackMintCaramel
+    - id: ADTFoodSnackHLCaramel
+    - id: ADTFoodSnackWorms
+    - id: ADTFoodSnackHeart
+    - id: ADTFoodSnackBlackCandies
+    - id: ADTFoodCookieGhost
+    - id: ADTFoodCookieBlackcat
     - id: ADTFoodSnackCandyRed
+    - id: ADTFoodSnackBunny
+    - id: ADTFoodSnackCandyPurple
+    - id: ADTFoodSnackCandyPumpkin
+    - id: ADTFoodSnackCandyKinito
+    - id: ADTFoodCookieSpider
+    - id: ADTFoodDonutSpooky
+    - id: ADTFoodCookieKnight
+    - id: ADTFoodCookiePumpkin
+    - id: ADTFoodCookieSkull
+    - id: ADTFoodSnackCandyСorn
+    - id: ADTFoodDonutJellySpooky
+    - id: ADTFoodBakedMuffinPumpkin
+    - id: ADTFoodSnackBrains
+    - id: ADTFoodSnackCoinCandies
+    - id: ADTFoodSnackYellowCandies
+    - id: ADTFoodSnackVioletCandies
+    - id: ADTFoodSnackCandyGoW
+    - id: ADTFoodSnackCandyBlue
+    - id: ADTFoodSnackCandyMine
+    - id: ADTFoodSnackRedCandies
+    - id: ADTFoodSnackGreenCandies
+
+# PayDay
 
 - type: entity
   id: ADTPayDayBox
   parent: ADTBoxNightmareClown
   name: police-superstar box
   description: police-superstar box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -545,12 +603,14 @@
     - id: ClothingHandsGlovesNitrile
       amount: 4
 
+# Chainsaw Man
+
 - type: entity
   id: ADTChainSawManBox
   parent: ADTBoxNightmareClown
   name: police-superstar box
   description: police-superstar box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -567,12 +627,14 @@
     - id: ClothingShoesColorRed
       amount: 1
 
+# Michael Myers
+
 - type: entity
   id: ADTMichaelMyersBox
   parent: ADTBoxNightmareClown
   name: michael myers box
   description: michael myers box
-  suffix: Halloweeen
+  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
@@ -586,3 +648,115 @@
       amount: 1
     - id: ADTHalloweenMichaelMyersSuit
       amount: 1
+
+- type: entity
+  id: ADTBoxRedHat
+  parent: ADTBoxNightmareClown
+  name: red box
+  description: red hat box
+  suffix: Halloweeen
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi  
+    state: redhat
+    #layers:
+    #- state: base
+    #- state: harry
+  - type: StorageFill
+    contents:
+    - id: ADTClothingNeckCloakRedhat
+    - id: ADTClothingHeadHatHoodRedhat
+    - id: ADTClothingUniformJumpSkirtRedHat
+
+- type: entity
+  id: ADTBoxSollux
+  parent: ADTBoxNightmareClown
+  name: sollux box
+  description: sollux box
+  suffix: Halloweeen
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: sollux
+    #layers:
+    #- state: base
+    #- state: harry
+  - type: StorageFill
+    contents:
+    - id: ADTClothingEyesGlassesSollux
+    - id: ADTClothingHeadHatHornsSollux
+    - id: ADTClothingShoesBootsSollux
+    - id: ADTClothingUniformJumpsuitSollux
+
+# Bad Police
+
+- type: entity
+  id: ADTBoxBadPolice
+  parent: ADTBoxNightmareClown
+  name: Bad Police box
+  description: Bad Police box
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: bad_police
+  - type: StorageFill
+    contents:
+    - id: ADTHalloweenBadPoliceSuit
+      amount: 1
+    - id: ADTClothingHeadHatPoliceHat
+      amount: 1
+      
+# Lethal Company
+
+- type: entity
+  id: ADTBoxLethalCompany
+  parent: ADTBoxNightmareClown
+  name: Lethal Company box
+  description: Lethal Company box
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: lethal_company
+  - type: StorageFill
+    contents:
+    - id: ADTHalloweenLethalCompanySuit
+      amount: 1
+    - id: ADTClothingHeadLethalCompanyHelmet
+      amount: 1
+    - id: ClothingHandsGlovesColorBlack
+      amount: 1
+    - id: ClothingShoesBootsJack
+      amount: 1
+    - id: ADTDoubleLethalCompanyOxygenTankFilled
+      amount: 1
+    - id: ADTDoubleLethalCompanyNitrogenTankFilled
+      amount: 1
+    - id: ADTLethalCompanyAirHorn
+      prob: 0.3  
+      
+# Empress of light
+
+- type: entity
+  id: ADTBoxEmpressOfLight
+  parent: ADTBoxNightmareClown
+  name: Empress of Light costume box
+  description: Empress of Light costume box
+  suffix: Halloween
+  components:  
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: empress_of_light
+  - type: StorageFill
+    contents:
+    - id: ADTHalloweenEmpressOfLightSuit
+      amount: 1
+    - id: ADTHalloweenEmpressOfLightSuitYellow
+      amount: 1
+    - id: ADTClothingHeadEmpressOfLightHelmet
+      amount: 1
+    - id: ADTClothingHandsEmpressOfLightGloves
+      amount: 1
+    - id: ADTEmpressOfLightShoes
+      amount: 1      
