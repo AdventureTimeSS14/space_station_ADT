@@ -3281,6 +3281,12 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
 # ADT-Tweak-end
   - type: Tag
     tags:
