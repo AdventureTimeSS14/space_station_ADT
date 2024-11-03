@@ -1135,7 +1135,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/bad_police.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, AllowSuitStorageClothing]
+  parent: ClothingUniformBase
   id: ADTHalloweenLethalCompanySuit
   name: Lethal Company suit
   description: Lethal Company suit
