@@ -284,3 +284,17 @@
     stampState: "paper_stamp-greytide"
   - type: Sprite
     state: stamp-greytide
+
+# ADT-Tweak-start
+- type: entity
+  name: REMAKE rubber stamp
+  parent: RubberStampBaseAlt
+  id: ADTRubberStampRemake
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-remake
+    stampedColor: "#a23e3e"
+    stampState: "paper_stamp-deny"
+  - type: Sprite
+    state: stamp-deny
+# ADT-Tweak-end
