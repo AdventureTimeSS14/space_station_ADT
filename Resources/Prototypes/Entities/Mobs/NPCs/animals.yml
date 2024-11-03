@@ -51,8 +51,10 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -1708,8 +1710,10 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - Trash
@@ -3274,8 +3278,10 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - VimPilot
