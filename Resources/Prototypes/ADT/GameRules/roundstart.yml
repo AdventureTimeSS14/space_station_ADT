@@ -90,13 +90,13 @@
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
 
- - type: entity
-   abstract: true
-   parent: BaseGameRule
-   id: BaseChangelingRule
-   components:
-   - type: ChangelingRule
-   - type: AntagSelection
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseChangelingRule
+  components:
+  - type: ChangelingRule
+  - type: AntagSelection
 
 - type: entity
   parent: BaseChangelingRule

@@ -235,7 +235,7 @@ public sealed partial class ChangelingSystem
 
         if (component.ArmShieldActive)
         {
-            if (SpawnArmShield(uid, component))
+            if (!SpawnArmShield(uid, component))
             {
                 _popup.PopupEntity(Loc.GetString("changeling-armshield-fail"), uid, uid);
                 return;
@@ -276,7 +276,7 @@ public sealed partial class ChangelingSystem
         {
             if (!SpawnArmace(uid, component))
             {
-                _popup.PopupEntity(Loc.GetString("changeling-armace-fail"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("changeling-armblade-fail"), uid, uid);
                 return;
             }
 

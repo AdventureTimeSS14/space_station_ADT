@@ -6,6 +6,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.DoAfter;
 
 namespace Content.Shared.Changeling.Components;
 
@@ -105,19 +106,10 @@ public sealed partial class ChangelingComponent : Component
     [AutoNetworkedField]
     public EntityUid? ChangelingDNACycleActionEntity;
 
-    [AutoNetworkedField]
-    public EntityUid? ChangelingRefreshActionEntity;
-
     public EntProtoId ChangelingDNAStingAction = "ActionLingStingExtract";
 
     [AutoNetworkedField]
     public EntityUid? ChangelingDNAStingActionEntity;
-
-    [AutoNetworkedField]
-    public EntityUid? ChangelingLesserFormActionEntity;
-
-    [AutoNetworkedField]
-    public EntityUid? ChangelingLastResortActionEntity;
 
     public EntProtoId ChangelingStasisDeathAction = "ActionStasisDeath";
 
@@ -171,6 +163,8 @@ public sealed partial class ChangelingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float AbsorbedDnaModifier = 0f;
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    public DoAfterId? DoAfter;
     #endregion
 
     #region Regenerate Ability
@@ -326,8 +320,8 @@ public sealed partial class ChangelingComponent : Component
     #endregion
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool SiliconStealthEnabled = false;
+    public int BiodegradeDuration = 3;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public int BiodegradeDuration = 3;
+    public bool LastResortUsed = false;
 }

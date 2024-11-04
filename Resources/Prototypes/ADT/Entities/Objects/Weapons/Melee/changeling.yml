@@ -21,7 +21,7 @@
     qualities:
     - Prying
     - Slicing
-    speed: 0.25
+    speed: 0.5
   - type: Prying
     pryPowered: true
   - type: DisarmMalus
@@ -37,11 +37,12 @@
     sprite: ADT/Changeling/Objects/armmace.rsi
     state: icon
   - type: MeleeWeapon
+    attackRate: 0.5
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 15
-        Structural: 15
+        Blunt: 25
+        Structural: 60
     soundHit:
       collection: MetalThud
   - type: Item
@@ -58,11 +59,11 @@
     speedModifier: 0.75
   - type: MeleeThrowOnHit
     speed: 15
-    lifetime: 0.5
+    lifetime: 0.15
     collideDamage:
       types:
         Blunt: 12
     toCollideDamage:
       types:
-        Blunt: 50
-    downOnHit: true
+        Structural: 60
+    downOnHit: false

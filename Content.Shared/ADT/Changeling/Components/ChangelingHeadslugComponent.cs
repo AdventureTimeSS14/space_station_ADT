@@ -2,11 +2,10 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Changeling.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingHeadslugComponent : Component
 {
-    [AutoNetworkedField]
-    public EntityUid? ActionEntity;
+    public EntityUid? Container;
 
     public bool IsInside = false;
 

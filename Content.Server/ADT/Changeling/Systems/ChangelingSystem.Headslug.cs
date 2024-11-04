@@ -20,6 +20,10 @@ using Content.Shared.Damage.Components;
 using Robust.Shared.Containers;
 using Content.Shared.Interaction;
 using Content.Shared.DoAfter;
+using Content.Shared.Humanoid;
+using Content.Server.Resist;
+using Content.Shared.Examine;
+using System.Linq;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -27,18 +31,21 @@ public sealed partial class ChangelingSystem
 {
     private void InitializeSlug()
     {
-        SubscribeLocalEvent<ChangelingHeadslugComponent, AfterInteractEvent>(OnLayEggs);
+        SubscribeLocalEvent<ChangelingHeadslugComponent, UserActivateInWorldEvent>(OnLayEggs);
         SubscribeLocalEvent<ChangelingHeadslugComponent, LingEggDoAfterEvent>(OnLayEggsDoAfter);
+
+        SubscribeLocalEvent<ChangelingHeadslugContainerComponent, ExaminedEvent>(OnExamineContainer);
     }
 
-    private void OnLayEggs(EntityUid uid, ChangelingHeadslugComponent comp, AfterInteractEvent args)
+    private void OnLayEggs(EntityUid uid, ChangelingHeadslugComponent comp, UserActivateInWorldEvent args)
     {
         if (args.Handled)
             return;
-        if (!args.Target.HasValue)
+
+        var target = args.Target;
+        if (!HasComp<HumanoidAppearanceComponent>(target))
             return;
 
-        var target = args.Target.Value;
         if (!TryStingTarget(uid, target) || !_mobState.IsDead(target) || HasComp<ChangelingHeadslugContainerComponent>(target))
             return;
 
@@ -62,41 +69,57 @@ public sealed partial class ChangelingSystem
         var containerComp = EnsureComp<ChangelingHeadslugContainerComponent>(args.Target.Value);
         containerComp.Container = _container.EnsureContainer<Container>(args.Target.Value, "headslug", out _);
 
+        RemComp<CanEscapeInventoryComponent>(uid);
         _container.Insert(uid, containerComp.Container);
+        comp.IsInside = true;
+        comp.Container = args.Target;
+    }
+
+    private void OnExamineContainer(EntityUid uid, ChangelingHeadslugContainerComponent comp, ExaminedEvent args)
+    {
+        var slug = comp?.Container.ContainedEntities.First();
+        if (!slug.HasValue)
+            return;
+
+        if (!Comp<ChangelingHeadslugComponent>(slug.Value).Alerted)
+            args.PushMarkup(Loc.GetString("changeling-headslug-inside"));
+        else
+            args.PushMarkup(Loc.GetString("changeling-headslug-inside-soon"));
     }
 
     private void UpdateChangelingHeadslug(EntityUid uid, float frameTime, ChangelingHeadslugComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
-        if (!comp.IsInside)
+        if (!comp.IsInside || !comp.Container.HasValue)
             return;
 
         comp.Accumulator += frameTime;
-
-        if (comp.Accumulator >= comp.AccumulateTime)
-        {
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))
-                return;
-
-            var monke = Spawn("ADTChangelingLesserForm", Transform(uid).Coordinates);
-            _mindSystem.TransferTo(mindId, monke);
-            var ling = EnsureComp<ChangelingComponent>(monke);
-
-            EntityUid? lesserFormActionEntity = null;
-            _action.AddAction(monke, ref lesserFormActionEntity, "ActionLingLesserForm");
-            ling.BoughtActions.Add(lesserFormActionEntity);
-
-            ling.LesserFormActive = true;
-            _action.SetToggled(lesserFormActionEntity, true);
-
-            return;
-        }
 
         if (comp.Accumulator >= comp.AccumulateTime * 0.75f && !comp.Alerted)
         {
             _popup.PopupEntity(Loc.GetString("changeling-slug-almost-ready"), uid, uid);
             comp.Alerted = true;
         }
+
+        if (comp.Accumulator < comp.AccumulateTime)
+            return;
+
+        if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+            return;
+
+        var monke = Spawn("ADTMobMonkeyChangeling", Transform(comp.Container.Value).Coordinates);
+        _mindSystem.TransferTo(mindId, monke);
+        var ling = EnsureComp<ChangelingComponent>(monke);
+
+        EntityUid? lesserFormActionEntity = null;
+        _action.AddAction(monke, ref lesserFormActionEntity, "ActionLingLesserForm");
+        _action.SetToggled(lesserFormActionEntity, true);
+
+        ling.BoughtActions.Add(lesserFormActionEntity);
+        ling.LesserFormActive = true;
+        ling.LastResortUsed = true;
+
+        _damageableSystem.TryChangeDamage(comp.Container.Value, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 500000));
     }
 }

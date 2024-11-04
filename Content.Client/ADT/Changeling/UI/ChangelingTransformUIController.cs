@@ -79,10 +79,8 @@ public sealed class ChangelingTransformUIController : UIController//, IOnStateCh
             return;
 
         var player = _entityManager.GetNetEntity(_playerManager.LocalSession?.AttachedEntity ?? EntityUid.Invalid);
-        if (_menu.Type == ChangelingMenuType.Sting)
-            player = _menu.Target;
 
-        var ev = new SelectChangelingFormEvent(player, ent, _menu.Type);
+        var ev = new SelectChangelingFormEvent(player, _menu.Target, ent, _menu.Type);
         _entityManager.RaisePredictiveEvent(ev);
 
         CloseMenu();

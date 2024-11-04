@@ -167,13 +167,15 @@ public sealed partial class SelectChangelingFormEvent : EntityEventArgs
 {
     public NetEntity EntitySelected;
 
+    public NetEntity User;
     public NetEntity Target;
 
     public bool Handled = false;
     public ChangelingMenuType Type;
 
-    public SelectChangelingFormEvent(NetEntity target, NetEntity entitySelected, ChangelingMenuType type)
+    public SelectChangelingFormEvent(NetEntity user, NetEntity target, NetEntity entitySelected, ChangelingMenuType type)
     {
+        User = user;
         Target = target;
         EntitySelected = entitySelected;
         Type = type;

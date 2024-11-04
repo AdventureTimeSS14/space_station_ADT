@@ -118,7 +118,7 @@
     - RobotTalk
   - type: Tag
     tags:
-    - ShoesRequiredStepTriggerImmune
+    # - ShoesRequiredStepTriggerImmune
     - CanPilot
     - FootstepSound
     - DoorBumpOpener

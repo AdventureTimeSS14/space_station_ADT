@@ -16,6 +16,8 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Store.Components;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Speech.Muting;
+using System.Linq;
+using Content.Shared.Chemistry.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -43,6 +45,8 @@ public sealed partial class ChangelingSystem
     private void StartAbsorbing(EntityUid uid, ChangelingComponent component, LingAbsorbActionEvent args)   // Начало поглощения
     {
         if (args.Handled)
+            return;
+        if (component.DoAfter.HasValue)
             return;
 
         if (component.LesserFormActive)
@@ -95,7 +99,7 @@ public sealed partial class ChangelingSystem
             AttemptFrequency = AttemptFrequency.StartAndEnd
         };
 
-        _doAfter.TryStartDoAfter(doAfter);
+        _doAfter.TryStartDoAfter(doAfter, out component.DoAfter);
     }
 
     private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent component, AbsorbDoAfterEvent args)
@@ -154,11 +158,17 @@ public sealed partial class ChangelingSystem
                 }
             }
 
+            component.DoAfter = null;
+
             // Нанесение 200 генетического урона и замена крови на кислоту
             var dmg = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Genetic"), component.AbsorbGeneticDmg);
             _damageableSystem.TryChangeDamage(target, dmg);
-            _bloodstreamSystem.ChangeBloodReagent(target, "FerrochromicAcid");
-            _bloodstreamSystem.SpillAllSolutions(target);
+
+            var solution = new Solution();
+            solution.AddReagent("FerrochromicAcid", FixedPoint2.New(150));
+            _puddle.TrySpillAt(Transform(target).Coordinates, solution, out _);
+            _bloodstreamSystem.TryModifyBloodLevel(target, -500);
+
             EnsureComp<AbsorbedComponent>(target);
 
             if (HasComp<ChangelingComponent>(target)) // Если это был другой генокрад, получим моментально 5 очков эволюции
@@ -177,7 +187,7 @@ public sealed partial class ChangelingSystem
                 var selfMessage = Loc.GetString("changeling-dna-success", ("target", Identity.Entity(target, EntityManager)));
                 _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
                 component.CanRefresh = true;
-                component.AbsorbedDnaModifier = component.AbsorbedDnaModifier + 1;
+                component.AbsorbedDnaModifier += 1;
             }
         }
 
@@ -240,12 +250,6 @@ public sealed partial class ChangelingSystem
         if (component.LesserFormActive)
         {
             var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
-            _popup.PopupEntity(selfMessage, uid, uid);
-            return;
-        }
-        if (component.SiliconStealthEnabled)
-        {
-            var selfMessage = Loc.GetString("changeling-chameleon-fail-silicon-stealth-active");
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
@@ -454,36 +458,37 @@ public sealed partial class ChangelingSystem
         if (args.Handled)
             return;
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
-            return;
-
-        RemoveShieldEntity(uid, component);
-        RemoveBladeEntity(uid, component);
-        RemCompDeferred<StealthComponent>(uid);
-        RemCompDeferred<StealthOnMoveComponent>(uid);
-        component.MusclesActive = false;
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
-
-        if (component.LingArmorActive)
-        {
-            _inventorySystem.TryUnequip(uid, "head", true, true, false);
-            _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
-            component.ChemicalsPerSecond += component.LingArmorRegenCost;
-        }
-
-        component.LesserFormActive = !component.LesserFormActive;
-        foreach (var item in component.BoughtActions)
-        {
-            if (!item.HasValue)
-                continue;
-
-            if (TryPrototype(item.Value, out var proto) && proto.ID == "ActionLingLesserForm")
-                _action.SetToggled(item, component.LesserFormActive);
-        }
         args.Handled = true;
 
-        if (component.LesserFormActive)
+        if (!component.LesserFormActive)
         {
+            if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+                return;
+
+            RemoveShieldEntity(uid, component);
+            RemoveBladeEntity(uid, component);
+            RemCompDeferred<StealthComponent>(uid);
+            RemCompDeferred<StealthOnMoveComponent>(uid);
+            component.MusclesActive = false;
+            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+
+            if (component.LingArmorActive)
+            {
+                _inventorySystem.TryUnequip(uid, "head", true, true, false);
+                _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
+                component.ChemicalsPerSecond += component.LingArmorRegenCost;
+            }
+
+            foreach (var item in component.BoughtActions.Where(x =>
+                                                                x.HasValue &&
+                                                                TryPrototype(x.Value, out var proto) &&
+                                                                proto.ID == "ActionLingLesserForm"))
+            {
+                _action.SetToggled(item, true);
+            }
+
+            component.LesserFormActive = true;
+
             var transformedUid = _polymorph.PolymorphEntity(uid, component.LesserFormMob);
             if (transformedUid == null)
                 return;
@@ -495,6 +500,12 @@ public sealed partial class ChangelingSystem
         }
         else
         {
+            if (component.StoredDNA.Count <= 0)
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-transform-fail-nodna"), uid, uid);
+                return;
+            }
+
             if (TryComp<ActorComponent>(uid, out var actorComponent))
             {
                 var ev = new RequestChangelingFormsMenuEvent(GetNetEntity(uid), ChangelingMenuType.HumanForm);
@@ -528,10 +539,16 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
+        foreach (var item in component.BoughtActions)
+        {
+            _action.RemoveAction(item);
+            QueueDel(item);
+        }
+
         var slug = Spawn("ADTChangelingHeadslug", Transform(uid).Coordinates);
         _mindSystem.TransferTo(mindId, slug);
 
-        _gib.TryGibEntity(uid, uid, GibType.Gib, GibContentsOption.Drop, out _);
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 500000));
     }
 
     private void OnBiodegrade(EntityUid uid, ChangelingComponent component, LingBiodegradeActionEvent args)

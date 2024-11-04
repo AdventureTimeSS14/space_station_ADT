@@ -186,6 +186,11 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         if (args.Handled)
             return;
+        if (component.StoredDNA.Count <= 0)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-nodna"), uid, uid);
+            return;
+        }
 
         if (TryComp<ActorComponent>(uid, out var actorComponent))
         {
@@ -322,6 +327,8 @@ public sealed partial class ChangelingSystem : EntitySystem
             component.LingArmorActive = false;
         }
 
+        component.BoughtActions.Clear();
+
         _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } }, uid);
         _store.TryRefreshStoreStock(uid);
 
@@ -330,19 +337,28 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnSelectChangelingForm(SelectChangelingFormEvent ev)
     {
-        var uid = GetEntity(ev.Target);
+        var uid = GetEntity(ev.User);
+        var target = GetEntity(ev.Target);
+        var selected = GetEntity(ev.EntitySelected);
+
+        if (!TryComp<ChangelingComponent>(uid, out var comp))
+            return;
+
         if (ev.Type == ChangelingMenuType.Sting)
         {
+            var list = comp.StoredDNA.Where(x => x.EntityUid == selected);
+            if (list.Count() <= 0)
+                return;
+
             var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(GetEntity(ev.EntitySelected));
             if (newHumanoidData == null)
                 return;
 
             _polymorph.PolymorphEntityAsHumanoid(GetEntity(ev.Target), newHumanoidData.Value);
+
+            comp.StoredDNA.Remove(list.First());
             return;
         }
-
-        if (!TryComp<ChangelingComponent>(uid, out var comp))
-            return;
 
         TransformChangeling(uid, comp, ev);
     }
@@ -365,9 +381,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         newLingComponent.CanRefresh = comp.CanRefresh;
         newLingComponent.LesserFormActive = comp.LesserFormActive;
         newLingComponent.AbsorbedDnaModifier = comp.AbsorbedDnaModifier;
-        newLingComponent.SiliconStealthEnabled = comp.SiliconStealthEnabled;
         newLingComponent.BasicTransferredActions = comp.BasicTransferredActions;
         newLingComponent.BoughtActions = comp.BoughtActions;
+        newLingComponent.LastResortUsed = comp.LastResortUsed;
         RemComp(from, comp);
 
         if (TryComp(from, out StoreComponent? storeComp))
@@ -452,56 +468,57 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public void TransformChangeling(EntityUid uid, ChangelingComponent component, SelectChangelingFormEvent ev)
     {
-        int i = 0;
         var selectedEntity = GetEntity(ev.EntitySelected);
-        foreach (var item in component.StoredDNA)
+        var list = component.StoredDNA.Where(x => x.EntityUid == selectedEntity);
+        if (list.Count() <= 0)
+            return;
+
+        var selectedHumanoidData = list.First();
+
+        var dnaComp = EnsureComp<DnaComponent>(uid);
+
+        if (selectedHumanoidData.DNA == dnaComp.DNA)
         {
-            if (item.EntityUid == selectedEntity)
-            {
-                // transform
-                var selectedHumanoidData = component.StoredDNA[i];
-                if (ev.Handled)
-                    return;
-
-                var dnaComp = EnsureComp<DnaComponent>(uid);
-
-                if (selectedHumanoidData.DNA == dnaComp.DNA)
-                {
-                    var selfMessage = Loc.GetString("changeling-transform-fail-already", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-                    _popup.PopupEntity(selfMessage, uid, uid);
-                    return;
-                }
-
-                if (component.ArmBladeActive || component.LingArmorActive || component.ChameleonSkinActive || component.MusclesActive)
-                {
-                    var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
-                    _popup.PopupEntity(selfMessage, uid, uid);
-                    return;
-                }
-
-                if (component.LesserFormActive && ev.Type != ChangelingMenuType.HumanForm)
-                {
-                    var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
-                    _popup.PopupEntity(selfMessage, uid, uid);
-                    return;
-                }
-
-                if (!TryUseAbility(uid, component, component.ChemicalsCostFive))
-                    return;
-
-                ev.Handled = true;
-
-                var transformedUid = _polymorph.PolymorphEntityAsHumanoid(uid, selectedHumanoidData);
-                if (transformedUid == null)
-                    return;
-
-                var message = Loc.GetString("changeling-transform-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-                _popup.PopupEntity(message, transformedUid.Value, transformedUid.Value);
-
-                CopyLing(uid, transformedUid.Value);
-            }
-            i++;
+            var selfMessage = Loc.GetString("changeling-transform-fail-already", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
         }
+
+        if (component.ArmBladeActive || component.LingArmorActive || component.ChameleonSkinActive || component.MusclesActive)
+        {
+            var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (component.LesserFormActive && ev.Type != ChangelingMenuType.HumanForm)
+        {
+            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (!TryUseAbility(uid, component, component.ChemicalsCostFive))
+            return;
+
+        foreach (var item in component.BoughtActions.Where(x =>
+                                                            x.HasValue &&
+                                                            TryPrototype(x.Value, out var proto) &&
+                                                            proto.ID == "ActionLingLesserForm"))
+        {
+            _action.SetToggled(item, false);
+        }
+
+        component.StoredDNA.Remove(selectedHumanoidData);
+
+        var transformedUid = _polymorph.PolymorphEntityAsHumanoid(uid, selectedHumanoidData);
+        if (transformedUid == null)
+            return;
+
+        var message = Loc.GetString("changeling-transform-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
+        _popup.PopupEntity(message, transformedUid.Value, transformedUid.Value);
+
+        CopyLing(uid, transformedUid.Value);
     }
 
     public void StealDNA(EntityUid uid, ChangelingComponent component)

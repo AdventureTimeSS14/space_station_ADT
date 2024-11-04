@@ -219,6 +219,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:ChangelingActionNotPresentCondition
+  - !type:ChangelingLastResortNotUsedCondition
 
 - type: listing
   id: ChangelingBiodegrade
