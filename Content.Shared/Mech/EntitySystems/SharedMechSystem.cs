@@ -35,7 +35,7 @@ namespace Content.Shared.Mech.EntitySystems;
 /// <summary>
 /// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
 /// </summary>
-public abstract class SharedMechSystem : EntitySystem
+public abstract partial class SharedMechSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -69,8 +69,8 @@ public abstract class SharedMechSystem : EntitySystem
 
         SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);
         SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
-        SubscribeLocalEvent<MechComponent, MechGunReloadMessage>(ReceiveEquipmentUiMesssages);  // ADT mech gun
-        SubscribeLocalEvent<MechComponent, StorageInteractAttemptEvent>(OnStorageInteract); ///ADT mechs
+
+        InitializeADT();    // ADT tweak
     }
 
     // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
@@ -491,54 +491,6 @@ public abstract class SharedMechSystem : EntitySystem
         args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
     }
 
-    // ADT Content start
-
-    /// <summary>
-    /// Handles mech equipment selection in radial menu.
-    /// </summary>
-    /// <param name="ev"></param>
-    private void OnMechEquipSelected(SelectMechEquipmentEvent ev)
-    {
-        var uid = GetEntity(ev.User);
-
-        if (!TryComp<MechPilotComponent>(uid, out var pilot))
-            return;
-
-        var mechUid = pilot.Mech;
-        if (!TryComp<MechComponent>(mechUid, out var mech))
-            return;
-
-        if (ev.Equipment == null)
-        {
-            mech.CurrentSelectedEquipment = null;
-
-            var popup = Loc.GetString("mech-equipment-select-none-popup");
-
-            if (_timing.IsFirstTimePredicted)
-                _popup.PopupEntity(popup, uid, uid);
-
-            if (_net.IsServer)
-                Dirty(mechUid, mech);
-            return;
-        }
-
-        var entity = GetEntity(ev.Equipment.Value);
-
-        if (!mech.EquipmentContainer.Contains(entity))
-            Log.Error("Mech does not have selected equipment");
-        mech.CurrentSelectedEquipment = entity;
-
-        var popupString = mech.CurrentSelectedEquipment != null
-            ? Loc.GetString("mech-equipment-select-popup", ("item", mech.CurrentSelectedEquipment))
-            : Loc.GetString("mech-equipment-select-none-popup");
-
-        if (_timing.IsFirstTimePredicted)
-            _popup.PopupEntity(popupString, uid, uid);
-
-        if (_net.IsServer)
-            Dirty(mechUid, mech);
-    }
-
     private void ReceiveEquipmentUiMesssages<T>(EntityUid uid, MechComponent component, T args) where T : MechEquipmentUiMessage
     {
         if (!_timing.IsFirstTimePredicted)
@@ -553,16 +505,6 @@ public abstract class SharedMechSystem : EntitySystem
                 RaiseLocalEvent(equipment, ev);
         }
     }
-
-    public virtual void UpdateUserInterfaceByEquipment(EntityUid uid)
-    {
-    }
-    protected void OnStorageInteract(EntityUid uid, MechComponent component, ref StorageInteractAttemptEvent args)
-    {
-        if (component.PilotSlot.ContainedEntity.HasValue)
-            args.Cancelled = true;
-    }
-    // ADT Content end
 }
 
 /// <summary>

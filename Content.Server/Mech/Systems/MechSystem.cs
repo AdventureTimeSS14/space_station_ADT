@@ -77,19 +77,12 @@ public sealed partial class MechSystem : SharedMechSystem
 
         SubscribeLocalEvent<MechAirComponent, GetFilterAirEvent>(OnGetFilterAir);
 
-        // ADT Content start
-        SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse);
-        SubscribeLocalEvent<MechComponent, DamageModifyEvent>(OnDamageModify);
-        SubscribeLocalEvent<MechComponent, MechEquipmentDestroyedEvent>(OnEquipmentDestroyed);
-        SubscribeLocalEvent<MechComponent, MechTurnLightsEvent>(OnTurnLightsEvent);
-        SubscribeLocalEvent<MechComponent, MechInhaleEvent>(OnToggleInhale);
-        // ADT Content end
-
         #region Equipment UI message relays
         // SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);    // ADT - Moved to Shared
         // SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);  // ADT - Moved to Shared
-        // SubscribeLocalEvent<MechComponent, MechGunReloadMessage>(ReceiveEquipmentUiMesssages);  // ADT mech gun
         #endregion
+
+        InitializeADT();    // ADT tweak
     }
 
     private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, UpdateCanMoveEvent args)
@@ -475,64 +468,4 @@ public sealed partial class MechSystem : SharedMechSystem
         args.Air = comp.Air;
     }
     #endregion
-
-    // ADT Content start
-    private void OnToggleInhale(EntityUid uid, MechComponent component, MechInhaleEvent args)
-    {
-        if (component.Airtight)
-        {
-            component.Airtight = false;
-            return;
-        }
-        component.Airtight = true;
-    }
-
-    private void OnDamageModify(EntityUid uid, MechComponent component, DamageModifyEvent args)
-    {
-        if (component.Modifiers != null)
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, component.Modifiers);
-    }
-
-    private void OnTurnLightsEvent(EntityUid uid, MechComponent component, MechTurnLightsEvent args)
-    {
-        if (HasComp<PointLightComponent>(uid))
-        {
-            RemComp<PointLightComponent>(uid);
-            _audio.PlayPvs(component.MechLightsOffSound, uid);
-        }
-        else
-        {
-            AddComp<PointLightComponent>(uid);
-            _audio.PlayPvs(component.MechLightsOnSound, uid);
-        }
-    }
-
-    private void OnEquipmentDestroyed(EntityUid uid, MechComponent component, ref MechEquipmentDestroyedEvent args)
-    {
-        Spawn("EffectSparks", Transform(uid).Coordinates);
-        QueueDel(component.CurrentSelectedEquipment);
-        _audio.PlayPvs(component.EquipmentDestroyedSound, uid);
-    }
-
-    private void OnEmpPulse(EntityUid uid, MechComponent comp, ref EmpPulseEvent args)
-    {
-        var damage = args.EnergyConsumption / 100;
-        TryChangeEnergy(uid, -FixedPoint2.Min(comp.Energy, damage), comp);
-        Spawn("EffectEmpPulse", Transform(uid).Coordinates);
-    }
-
-    public override void UpdateUserInterfaceByEquipment(EntityUid equipmentUid)
-    {
-        base.UpdateUserInterfaceByEquipment(equipmentUid);
-
-        if (!TryComp<MechEquipmentComponent>(equipmentUid, out var comp))
-        {
-            Log.Error("Could not find mech equipment owner to update UI.");
-            return;
-        }
-        if (!comp.EquipmentOwner.HasValue)
-            return;
-        UpdateUserInterface(comp.EquipmentOwner.Value);
-    }
-    // ADT Content end
 }

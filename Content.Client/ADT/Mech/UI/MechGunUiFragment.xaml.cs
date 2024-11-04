@@ -34,9 +34,7 @@ public sealed partial class MechGunUiFragment : BoxContainer
         ReloadButton.OnPressed += _ => ReloadAction?.Invoke(FragmentOwner);
 
         if (progress >= 1 && ReloadButton.Disabled)
-        {
             ReloadButton.Disabled = false;
-        }
     }
     public void UpdateContents(MechGunUiState state)
     {

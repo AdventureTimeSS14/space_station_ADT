@@ -44,7 +44,7 @@ public sealed class MechGrabberSystem : EntitySystem
         SubscribeLocalEvent<MechGrabberComponent, UserActivateInWorldEvent>(OnInteract);
         SubscribeLocalEvent<MechGrabberComponent, GrabberDoAfterEvent>(OnMechGrab);
 
-        SubscribeLocalEvent<MechGrabberComponent, EntityTerminatingEvent>(OnTerminating);
+        SubscribeLocalEvent<MechGrabberComponent, EntityTerminatingEvent>(OnTerminating);   // ADT
     }
 
     private void OnGrabberMessage(EntityUid uid, MechGrabberComponent component, MechEquipmentUiMessageRelayEvent args)
@@ -205,7 +205,7 @@ public sealed class MechGrabberSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnTerminating(EntityUid uid, MechGrabberComponent comp, ref EntityTerminatingEvent args)
+    private void OnTerminating(EntityUid uid, MechGrabberComponent comp, ref EntityTerminatingEvent args)   // ADT
     {
         _container.EmptyContainer(comp.ItemContainer, true);
     }
