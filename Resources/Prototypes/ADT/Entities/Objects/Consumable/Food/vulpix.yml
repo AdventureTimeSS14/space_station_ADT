@@ -1,6 +1,6 @@
 - type: entity
   name: Vulpix
-  parent: FoodInjectableBase
+  parent: FoodBase
   id: ADTFoodVulpix
   description: It helps to improve blood circulation.
   abstract: true
