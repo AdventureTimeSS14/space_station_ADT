@@ -3,7 +3,6 @@
   parent: FoodBase
   id: ADTFoodVulpix
   description: It helps to improve blood circulation.
-  abstract: true
   components:
   - type: Item
     storedRotation: -90
