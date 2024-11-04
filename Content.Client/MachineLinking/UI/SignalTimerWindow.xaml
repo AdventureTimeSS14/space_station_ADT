@@ -14,7 +14,7 @@
             <LineEdit Name="CurrentDelayEditMinutes" MinWidth="32" />
             <Label Name="Colon" Text=":" />
             <LineEdit Name="CurrentDelayEditSeconds" MinWidth="32" />
-            <Label Name="DelayInfo" Text=" (мин:сек)" />
+            <Label Name="DelayInfo" Text="{Loc signal-timer-menu-min-sec-another}" /> <!--ADT Changes-->
         </BoxContainer>
         <Button Name="StartTimer" Text="{Loc signal-timer-menu-start}" />
     </BoxContainer>
