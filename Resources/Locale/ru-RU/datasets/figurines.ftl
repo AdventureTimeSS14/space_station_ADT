@@ -134,17 +134,3 @@ figurines-hamlet-5 = Пип!
 figurines-hamlet-6 = Уиип!
 figurines-hamlet-7 = Иип!
 figurines-hamlet-8 = ТОЛЬКО НЕ МИКРОВОЛНОВКА!
-
-# ADT-Tweak-start
-
-adt-figurines-plushie-jungar-1 = Пип!
-adt-figurines-plushie-jungar-2 = Скуик!
-adt-figurines-plushie-jungar-3 = Чуу!
-adt-figurines-plushie-jungar-4 = Я тебя люблю!!
-adt-figurines-plushie-jungar-5 = Можно мне немного сырочка?
-adt-figurines-plushie-jungar-6 = Я люблю сырочек!
-adt-figurines-plushie-jungar-7 = Желаю тебе хорошего дня!
-adt-figurines-plushie-jungar-8 = Пожалуйста, не кушай меня, я же маинький и милый!
-adt-figurines-plushie-jungar-9 = Я твой талисман удачи!
-
-# ADT-Tweak-end

@@ -55,8 +55,3 @@ ent-RubberStampDetective = печать детектива
     .desc = { ent-RubberStampBase.desc }
 ent-RubberStampGreytide = печать грейтайда
     .desc = Резиновая печать для проставления штампов на важных документах. От одного взгляда на неё вас окатывает серая волна...
-
-# ADT-Tweak-start
-ent-ADTRubberStampRemake = печать ПЕРЕДЕЛАТЬ
-    .desc = { ent-RubberStampBaseAlt.desc }
-# ADT-Tweak-end
