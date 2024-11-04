@@ -2,8 +2,11 @@
   name: Vulpix
   parent: FoodInjectableBase
   id: ADTFoodVulpix
+  abstract: true
   description: It helps to improve blood circulation.
   components:
+  - type: Item
+    storedRotation: -90
   - type: Food
   - type: FlavorProfile
     flavors:

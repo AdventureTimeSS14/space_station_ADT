@@ -36,7 +36,7 @@
     GroundCannabis: 1
 
 - type: microwaveMealRecipe
-  id: ADTFoodVulpixSoupRecipe
+  id: ADTFoodVulpixRecipe
   name: vulpix recipe
   result: ADTFoodVulpix
   time: 15
