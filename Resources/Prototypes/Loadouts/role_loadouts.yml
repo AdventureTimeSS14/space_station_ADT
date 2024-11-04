@@ -345,6 +345,7 @@
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
   - ChiefEngineerBackpack # Corvax-Loadouts
+  - ADTEngineeringBelt # ADT-TWEAK
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
@@ -364,6 +365,7 @@
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -372,7 +374,6 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
-  - ADTEngineeringBelt # ADT-TWEAK
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -382,6 +383,7 @@
   - StationEngineerHead
   - StationEngineerJumpsuit
   - StationEngineerBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
@@ -393,7 +395,6 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
-  - ADTEngineeringBelt # ADT-TWEAK
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -405,6 +406,7 @@
   - ADTAtmosphericTechnicianGasMask # ADT-Loadouts
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   # ADT underwear tweak start
@@ -415,7 +417,6 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
-  - ADTEngineeringBelt # ADT-TWEAK
 
 # Science
 - type: roleLoadout
