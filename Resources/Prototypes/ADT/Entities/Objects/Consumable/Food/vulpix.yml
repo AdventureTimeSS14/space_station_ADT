@@ -3,16 +3,20 @@
   parent: FoodInjectableBase
   id: ADTFoodVulpix
   description: It helps to improve blood circulation.
+  abstract: true
   components:
   - type: Item
     storedRotation: -90
   - type: Food
+    trash:
+    - FoodPlateSmall
+    utensil: Fork
   - type: FlavorProfile
     flavors:
       - chessy
       - bitter
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/Vulpix.rsi
+    sprite: ADT/Objects/Consumable/Food/vulpix.rsi
   - type: SolutionContainerManager
     solutions:
       food:

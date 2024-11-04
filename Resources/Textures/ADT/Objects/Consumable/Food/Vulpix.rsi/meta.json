@@ -1,14 +1,14 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Added by Lunar",
+    "copyright": "Added by Lunar for Adventure Time.",
     "size": {
       "x": 32,
       "y": 32
     },
     "states": [
       {
-        "name": "icon"
+        "name": "vulpix"
       }
     ]
   }
