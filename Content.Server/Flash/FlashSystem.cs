@@ -116,6 +116,12 @@ namespace Content.Server.Flash
             bool melee = false,
             TimeSpan? stunDuration = null)
         {
+            // ADT Tweak Start
+            if (TryComp<FlashModifierComponent>(target, out var CompUser))
+            {
+                flashDuration *= CompUser.Modifier;
+            }
+            // ADT Tweak End
             var attempt = new FlashAttemptEvent(target, user, used);
             RaiseLocalEvent(target, attempt, true);
 

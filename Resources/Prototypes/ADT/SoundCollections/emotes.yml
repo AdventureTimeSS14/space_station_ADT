@@ -207,3 +207,15 @@
   id: FelinidPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+
+# avali
+
+- type: soundCollection
+  id: MaleAvaliScreams
+  files:
+    - /Audio/ADT/Voice/Avali/avali_scream.ogg
+
+- type: soundCollection
+  id: FemaleAvaliScreams
+  files:
+    - /Audio/ADT/Voice/Avali/avali_scream.ogg

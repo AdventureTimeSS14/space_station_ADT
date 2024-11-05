@@ -1,0 +1,161 @@
+- type: marking
+  id: HairAvaliBackstrafe
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliBackstrafe
+
+- type: marking
+  id: HairAvaliBurstShort
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliBurstShort
+
+- type: marking
+  id: HairAvaliDefault
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliDefault
+
+- type: marking
+  id: HairAvaliDroopy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliDroopy
+
+- type: marking
+  id: HairAvaliEars
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliEars
+
+- type: marking
+  id: HairAvaliFluffymohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliFluffymohawk
+
+- type: marking
+  id: HairAvaliHedge
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliHedge
+
+- type: marking
+  id: HairAvaliLongway
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliLongway
+
+- type: marking
+  id: HairAvaliMane
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliMane
+
+- type: marking
+  id: HairAvaliManeBeardless
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliManeBeardless
+
+- type: marking
+  id: HairAvaliMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliMohawk
+
+- type: marking
+  id: HairAvaliMushroom
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliMushroom
+
+- type: marking
+  id: HairAvaliNotree
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliNotree
+
+- type: marking
+  id: HairAvaliSpiky
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliSpiky
+
+- type: marking
+  id: HairAvaliPointy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliPointy
+
+- type: marking
+  id: HairAvaliTwies
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliTwies
+
+- type: marking
+  id: HairAvaliUpright
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliUpright
+
+- type: marking
+  id: HairAvaliLong
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Avali/avali_hair.rsi
+      state: AvaliLong

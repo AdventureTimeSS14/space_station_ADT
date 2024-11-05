@@ -29,3 +29,8 @@
   - /Audio/ADT/Felinid/cat_scream1.ogg
   - /Audio/ADT/Felinid/cat_scream2.ogg
   - /Audio/ADT/Felinid/cat_scream3.ogg
+
+- type: soundCollection
+  id: AvaliScreams
+  files:
+  - /Audio/ADT/Voice/Avali/cat_scream3.ogg
