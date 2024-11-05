@@ -4,8 +4,6 @@
   id: ADTFoodVulpix
   description: It helps to improve blood circulation.
   components:
-  - type: Item
-    storedRotation: -90
   - type: Food
     trash:
     - FoodPlateSmall
