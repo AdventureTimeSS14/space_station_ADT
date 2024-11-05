@@ -80,7 +80,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            // "Cog", //ADT Fix: ЗАЕБАЛА ПАДАТЬ В ТЕСТАХ
+            "Cog",
             // ADT-Start
             "ADT_FrontierHalloween",
             "ADT_TrainHalloween",
