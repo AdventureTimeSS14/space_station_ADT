@@ -37,7 +37,19 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
+    //public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
+
+    public GhostBarMapPrototype? GhostBarMap = new GhostBarMapPrototype
+    {
+        ID = "Id",
+        Path = "Maps/ADTMaps/Ghostbars/ghostbar_goob.yml"
+    };
+    public GhostBarMapPrototype? GhostBarMapSecond = new GhostBarMapPrototype
+    {
+        ID = "IdSecond",
+        Path = "Maps/ADTMaps/Ghostbars/ratbar.yml"
+    };
+
     public override void Initialize()
     {
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
@@ -50,10 +62,13 @@ public sealed class GhostBarSystem : EntitySystem
         _mapSystem.CreateMap(out var mapId);
         var options = new MapLoadOptions { LoadMap = true };
 
-        var mapList = _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>().ToList();
-        GhostBarMap = _random.Pick(mapList);
-
-        var mapProto = GhostBarMap;
+        // var mapList = _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>().ToList();
+        // GhostBarMap = _random.Pick(mapList);
+        if (GhostBarMap == null || GhostBarMapSecond == null)
+            return;
+        var mapProto = _random.Pick(new List<GhostBarMapPrototype> { GhostBarMap, GhostBarMapSecond });
+        if (mapProto == null)
+            return;
 
         if (!_mapLoader.TryLoad(mapId, mapProto.Path, out _, options))
             return;

@@ -14,7 +14,7 @@ public sealed partial class GhostBarMapPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; set; } = default!;
 
     /// <summary>
     /// путь до карты
