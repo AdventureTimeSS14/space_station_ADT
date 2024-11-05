@@ -33,22 +33,10 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    //public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
+    public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
 
-    public GhostBarMapPrototype? GhostBarMap = new GhostBarMapPrototype
-    {
-        ID = "Id",
-        Path = "Maps/ADTMaps/Ghostbars/ghostbar_goob.yml"
-    };
-    public GhostBarMapPrototype? GhostBarMapSecond = new GhostBarMapPrototype
-    {
-        ID = "IdSecond",
-        Path = "Maps/ADTMaps/Ghostbars/ratbar.yml"
-    };
 
     public override void Initialize()
     {
@@ -62,20 +50,17 @@ public sealed class GhostBarSystem : EntitySystem
         _mapSystem.CreateMap(out var mapId);
         var options = new MapLoadOptions { LoadMap = true };
 
-        // var mapList = _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>().ToList();
-        // GhostBarMap = _random.Pick(mapList);
-        if (GhostBarMap == null || GhostBarMapSecond == null)
-            return;
-        var mapProto = _random.Pick(new List<GhostBarMapPrototype> { GhostBarMap, GhostBarMapSecond });
-        if (mapProto == null)
+        var mapList = _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>().ToList();
+        GhostBarMap = _random.Pick(mapList);
+        if (GhostBarMap == null)
             return;
 
-        if (!_mapLoader.TryLoad(mapId, mapProto.Path, out _, options))
+        if (!_mapLoader.TryLoad(mapId, GhostBarMap.Path, out _, options))
             return;
 
         _mapSystem.SetPaused(mapId, false);
-        if (mapProto.Weather.HasValue)
-            _weathersystem.SetWeather(mapId, _prototypeManager.Index(mapProto.Weather.Value), null);
+        if (GhostBarMap.Weather.HasValue)
+            _weathersystem.SetWeather(mapId, _prototypeManager.Index(GhostBarMap.Weather.Value), null);
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
@@ -124,11 +109,8 @@ public sealed class GhostBarSystem : EntitySystem
         }
         var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
 
-
-        if (targetMind != null)
-        {
+        if (targetMind.HasValue)
             _mindSystem.TransferTo(targetMind.Value, mobUid, true);
-        }
     }
 }
 

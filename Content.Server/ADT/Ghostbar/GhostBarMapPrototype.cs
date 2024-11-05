@@ -38,13 +38,13 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     /// список профессий, которые могут быть в гостбаре
     /// </summary>
     [DataField]
-    public List<JobPrototype> Jobs = new()
+    public List<ProtoId<JobPrototype>> Jobs = new()
     {
-        new JobPrototype { ID = "Passenger" },
-        new JobPrototype { ID = "Bartender" },
-        new JobPrototype { ID = "Botanist" },
-        new JobPrototype { ID = "Chef" },
-        new JobPrototype { ID = "Janitor" }
+        "Passenger",
+        "Bartender",
+        "Botanist",
+        "Chef",
+        "Janitor"
     };
 
     /// <summary>

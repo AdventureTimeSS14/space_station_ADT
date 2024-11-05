@@ -1,8 +1,7 @@
-# TODO: Доделать PlayTimeTrackerPrototype не может найти тут Ямлинтер
-# - type: ghostbarMap
-#   id: GhostbarMapGoob
-#   path: "Maps/ADTMaps/Ghostbars/ghostbar_goob.yml"
+- type: ghostbarMap
+  id: GhostbarMapGoob
+  path: "Maps/ADTMaps/Ghostbars/ghostbar_goob.yml"
 
-# - type: ghostbarMap
-#   id: GhostbarMapRatbar
-#   path: "Maps/ADTMaps/Ghostbars/ratbar.yml"
+- type: ghostbarMap
+  id: GhostbarMapRatbar
+  path: "Maps/ADTMaps/Ghostbars/ratbar.yml"
