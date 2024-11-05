@@ -51,26 +51,6 @@
   components:
   - type: HereticRule
   - type: AntagSelection
-# НУ ПОКА ЗАКОММЕНТИЛ
-# - type: entity
-#   parent: BaseHereticRule
-#   id: Heretic
-#   components:
-#   - type: GameRule
-#     minPlayers: 25
-#   - type: AntagSelection
-#     definitions:
-#     - prefRoles: [ Heretic ]
-#       max: 8
-#       playerRatio: 15
-#       blacklist:
-#         components:
-#         - AntagImmune
-#         - BibleUser
-#       lateJoinAdditional: true
-#       mindComponents:
-#       - type: HereticRole
-
 
 - type: entityTable
   id: ExtendedGameRulesTable
