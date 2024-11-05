@@ -51,8 +51,10 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -64,6 +66,14 @@
   - type: Tag
     tags:
     - VimPilot
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   name: bee
@@ -1708,8 +1718,10 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - Trash
@@ -1759,6 +1771,14 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   parent: MobMouse
@@ -3266,8 +3286,16 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - VimPilot
