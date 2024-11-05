@@ -2,7 +2,7 @@
   id: ADTMobMonkeyChangeling
   parent: MobMonkey
   suffix: changeling
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: LanguageSpeaker # Frontier
     speaks:

@@ -11,7 +11,7 @@
       - ChangelingRole
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BaseChangelingObjective, BaseLivingObjective]
   id: DnaAbsorbObjective
   name: Absorb 4 DNAs.
@@ -44,7 +44,7 @@
     requireDead: true
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BaseChangelingObjective, BaseLivingObjective]
   id: EscapeLingShuttleObjective
   name: Escape to centcom alive and unrestrained.
@@ -58,7 +58,7 @@
   - type: EscapeShuttleCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BaseChangelingObjective, BaseKillObjective]
   id: KillRandomPersonObjectiveLing
   description: ling-kill-desc
@@ -71,7 +71,7 @@
   - type: PickRandomPerson
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: [BaseChangelingObjective, BasePersonalityStealObjective]
   id: StealRandomPersonalityObjectiveLing
   description: ling-steal-personality-desc
@@ -84,7 +84,7 @@
   - type: PickRandomPerson
 
 #- type: entity
-#  noSpawn: true
+#  categories: [ HideSpawnMenu ]
 #  parent: [BaseChangelingObjective, BasePersonalityStealObjective]
 #  id: StealRandomHeadPersonalityObjectiveLing
 #  description: ling-steal-personality-desc
@@ -111,7 +111,7 @@
     limit: 1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseChangelingStealObjective
   id: CommandIDStealObjective
   components:
@@ -120,7 +120,7 @@
     descriptionText: objective-condition-changeling-commandidcard
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseChangelingStealObjective
   id: SmileExtractStealObjective
   components:

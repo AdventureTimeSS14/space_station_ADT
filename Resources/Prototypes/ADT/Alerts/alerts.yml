@@ -184,10 +184,3 @@
       state: apathy
   name: alerts-apathy-name
   description: alerts-apathy-desc
-
-- type: alert
-  id: ADTAlertLingRefresh
-  icons: [ /Textures/Interface/Alerts/ling-refresh.png ]
-  name: alerts-ling-refresh-name
-  onClick: !type:DNARefresh  { }
-  description: alerts-ling-refresh-desc

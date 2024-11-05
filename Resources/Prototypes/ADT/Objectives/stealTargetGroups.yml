@@ -24,14 +24,14 @@
 
 - type: stealTargetGroup
   id: CommandIDCard
-  name: command ID card (any)
+  name: steal-target-groups-command-id
   sprite:
     sprite: Objects/Misc/id_cards.rsi
     state: silver
 
 - type: stealTargetGroup
   id: MaterialSmileExtract
-  name: smile extract
+  name: steal-target-groups-smile-extract
   sprite:
     sprite: Mobs/Aliens/slimes.rsi
     state: rainbow_slime_extract
