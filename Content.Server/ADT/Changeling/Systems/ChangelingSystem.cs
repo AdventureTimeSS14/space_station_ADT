@@ -277,6 +277,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             RemoveBladeEntity(uid, component);
             RemoveShieldEntity(uid, component);
+            RemoveArmaceEntity(uid, component);
             RemCompDeferred<StealthComponent>(uid);
             RemCompDeferred<StealthOnMoveComponent>(uid);
             component.ChameleonSkinActive = false;

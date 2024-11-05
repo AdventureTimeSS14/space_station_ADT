@@ -36,7 +36,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, LingArmorActionEvent>(OnLingArmorAction);
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
-        SubscribeLocalEvent<ChangelingComponent, DamageChangedEvent>(OnDamage);
+        SubscribeLocalEvent<ChangelingShieldComponent, DamageChangedEvent>(OnDamage);
         SubscribeLocalEvent<ChangelingComponent, BeforeStaminaCritEvent>(OnBeforeStaminacrit);
     }
 
@@ -350,27 +350,28 @@ public sealed partial class ChangelingSystem
             args.ModifySpeed(component.MusclesModifier);
     }
 
-    private void OnDamage(EntityUid uid, ChangelingComponent component, DamageChangedEvent args)
+    private void OnDamage(EntityUid uid, ChangelingShieldComponent component, DamageChangedEvent args)
     {
-        if (!component.ShieldEntity.HasValue)
+        var parent = Transform(uid).ParentUid;
+        if (!TryComp<ChangelingComponent>(parent, out var ling))
             return;
-        if (!TryComp<DamageableComponent>(component.ShieldEntity, out var damage))
+        if (!TryComp<DamageableComponent>(uid, out var damage))
             return;
 
-        var additionalShieldHealth = 50 * component.AbsorbedDnaModifier;
+        var additionalShieldHealth = 50 * ling.AbsorbedDnaModifier;
         var shieldHealth = 150 + additionalShieldHealth;
         if (damage.TotalDamage >= shieldHealth)
         {
-            component.ArmShieldActive = false;
-            QueueDel(component.ShieldEntity.Value);
+            ling.ArmShieldActive = false;
+            QueueDel(ling.ShieldEntity);
 
-            _audioSystem.PlayPvs(component.SoundFlesh, uid);
+            _audioSystem.PlayPvs(ling.SoundFlesh, uid);
 
             var othersMessage = Loc.GetString("changeling-armshield-broke-others", ("user", Identity.Entity(uid, EntityManager)));
-            _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
+            _popup.PopupEntity(othersMessage, parent, Filter.PvsExcept(parent), true, PopupType.MediumCaution);
 
             var selfMessage = Loc.GetString("changeling-armshield-broke-self");
-            _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(selfMessage, parent, parent, PopupType.MediumCaution);
         }
     }
 

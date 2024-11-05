@@ -35,3 +35,4 @@
           Heat: 1
     - type: Damageable
       damageContainer: Shield
+    - type: ChangelingShield
