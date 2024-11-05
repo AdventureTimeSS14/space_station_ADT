@@ -10,10 +10,11 @@
     utensil: Fork
   - type: FlavorProfile
     flavors:
-      - chessy
+      - cheesy
       - bitter
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Vulpix.rsi
+    state: vulpix
   - type: SolutionContainerManager
     solutions:
       food:
