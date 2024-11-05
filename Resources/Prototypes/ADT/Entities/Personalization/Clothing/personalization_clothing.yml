@@ -165,6 +165,30 @@
         Piercing: 0.7
         Heat: 0.8
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsSatanHoop
+  name: hoop with spikes
+  description: hoop with spikes
+  suffix: Именное, Schrodinger
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/hoop_spikes.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/hoop_spikes.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSatanSuit
+  name: black suit with red shirt
+  description: black suit with red shirt
+  suffix: Именное, Schrodinger
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/satan_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/satan_suit.rsi
+
 # Pyotr
 - type: entity
   parent: ClothingOuterStorageBase
@@ -619,3 +643,30 @@
     sprite: ADT/Personalization/uma_armor.rsi
   - type: Clothing
     sprite: ADT/Personalization/uma_armor.rsi
+
+#Anagiri
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ADTClothingHandsAnagiriGloves
+  name: Anagiri Gloves
+  description: Anagiri Gloves
+  suffix: Sponsor, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+
+#MleM
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatOktyabrina
+  name: Oktyabrina coat
+  description: Oktyabrina coat.
+  suffix: Personal, MleM
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/oktyabrina_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/oktyabrina_coat.rsi

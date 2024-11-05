@@ -856,6 +856,40 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/squid_player.rsi
 
+# Униформа надзирателя
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformGuardOfficer
+  name: uniform guard officer
+  description: uniform guard officer
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformGuardOfficerMaster
+  name: uniform guard officer master
+  description: uniform guard officer master
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer_master.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer_master.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformGreyGuardOfficer
+  name: grey uniform guard officer
+  description: grey uniform guard officer
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+
 # ТСФ
 
 - type: entity
@@ -870,7 +904,17 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/trader.rsi
 
 
-#halloween
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformMimicry
+  name: mimicry jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mimicry.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mimicry.rsi
+
+# ADT-HALLOWEEN-START
 
 - type: entity
   parent: ClothingUniformBase
@@ -1056,6 +1100,56 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ADTHalloweenEmpressOfLightSuit
+  name: Empress of Light suit
+  description: Empress of Light suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenEmpressOfLightSuitYellow
+  name: Empress of Light yellow suit
+  description: Empress of Light yellow suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light_yellow.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenBadPoliceSuit
+  name: Bad Police suit
+  description: Bad Police suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bad_police.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bad_police.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenLethalCompanySuit
+  name: Lethal Company suit
+  description: Lethal Company suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lethal_company.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lethal_company.rsi
+
+# ADT-HALLOWEEN-END
+
+- type: entity
+  parent: ClothingUniformBase
   id: ADTJumpsuitHunterDemon
   name: qm jumpsuit warm
   description: A sharp turtleneck made for the hardy work environment of supply.
@@ -1111,3 +1205,28 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSollux
+  name: sollux suit
+  description: suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sollux_captor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sollux_captor.rsi
+
+# swimsuit при накоплении создать отдельный раздел
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSwimsuitWinth
+  name: winth swimsuit
+  description: swimsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/winth_swimsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/winth_swimsuit.rsi
+

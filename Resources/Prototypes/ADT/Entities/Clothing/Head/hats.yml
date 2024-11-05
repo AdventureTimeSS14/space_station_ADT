@@ -127,6 +127,40 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/armyberet.rsi
 
+# Фуражки надзирателя
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGuardOfficer
+  name: guard officer cap
+  description: Glory to NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsGuardOfficerMaster
+  name: guard officer cap master
+  description: Glory to NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap_master.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/guard_officer_cap_master.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadGreyHatsGuardOfficer
+  name: grey guard officer cap
+  description: Glory to NanoTrasen!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/grey_guard_officer_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/grey_guard_officer_cap.rsi
+
 #Береты профессий
 
 - type: entity
@@ -290,6 +324,42 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ADTClothingHeadHatPoliceHat
+  name: police hat
+  description: Just a police hat. I hope the policeman has good intentions against me...
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/police_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/police_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadEmpressOfLightHelmet
+  name: empress of light coronet
+  description: Looks majestic.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/empress_of_light_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/empress_of_light_helmet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadLethalCompanyHelmet
+  name: lethal company helmet
+  description: Just a helmet. Seems like a guy that was once wearing it tried his best not to die. Who knows?
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/lethal_company_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/lethal_company_helmet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ADTClothingHeadVyasovHat
   name: shabby fedora
   description: It looks very shabby brown in color, it smells like a nightmare straight from Vyazova Street
@@ -367,3 +437,26 @@
     sprite: ADT/Clothing/Head/Misc/hatchainsaw.rsi
   - type: IngestionBlocker
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatWinth
+  name: winth hat
+  suffix: Halloween
+  description: winth hat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/winth_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/winth_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatHornsSollux
+  name: sollux hat
+  description: sollux hat
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/sollux_captor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/sollux_captor.rsi

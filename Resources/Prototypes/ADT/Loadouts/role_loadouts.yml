@@ -129,6 +129,7 @@
   - StationEngineerJumpsuit
   - StationEngineerOuterClothing
   - StationEngineerBackpack
+  - ADTEngineeringBelt
   - StationEngineerShoes
   - Survival
   - Trinkets
@@ -178,6 +179,25 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+
+- type: roleLoadout
+  id: JobADTGuardOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ADTGuardOfficerHead
+  - ADTGuardOfficerJumpsuit
+  - ADTSeniorSecurityOuterClothing
+  - SecurityBelt
+  - SecurityBackpack
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
