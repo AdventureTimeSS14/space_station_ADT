@@ -64,7 +64,6 @@
     sprite: ADT/Structures/Furniture/pumpkin_light.rsi
     state: pumpkin_light1
     noRot: true
-    scale: 0.7 , 0.7
   - type: PointLight
     netsync: false
     enabled: true
@@ -123,3 +122,39 @@
   components:
   - type: Sprite
     state: pumpkin_light5
+
+# carved
+
+- type: entity
+  id: ADTHalloweenCarvedPumpkinCube
+  parent: PottedPlantBase
+  name: pumpkin
+  description: pumpkin
+  suffix: Halloween
+  components:
+  - type: Sprite
+    drawdepth: Overdoors
+    offset: "0.0,0.3"
+    sprite: ADT/Structures/Furniture/pumpkin_carved.rsi
+    state: carved_cube
+    noRot: true
+
+- type: entity
+  id: ADTHalloweenCarvedPumpkinSmile
+  parent: ADTHalloweenCarvedPumpkinCube
+  name: pumpkin
+  description: pumpkin
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: carved_smile
+
+- type: entity
+  id: ADTHalloweenCarvedPumpkinWily
+  parent: ADTHalloweenCarvedPumpkinCube
+  name: pumpkin
+  description: pumpkin
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: carved_wily

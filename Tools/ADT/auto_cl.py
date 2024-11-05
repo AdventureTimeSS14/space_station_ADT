@@ -58,7 +58,7 @@ async def check_rate_limit(session: aiohttp.ClientSession):
             logging.error(f"Error checking rate limit: {response.status}")
             response.raise_for_status()
 
-async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3, delay=0.1):
+async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3, delay=0.3):
     for attempt in range(retries):
         await check_rate_limit(session)
 

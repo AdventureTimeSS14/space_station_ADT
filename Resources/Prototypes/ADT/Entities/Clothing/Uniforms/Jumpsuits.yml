@@ -914,7 +914,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/mimicry.rsi
 
-#halloween
+# ADT-HALLOWEEN-START
 
 - type: entity
   parent: ClothingUniformBase
@@ -1100,6 +1100,56 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ADTHalloweenEmpressOfLightSuit
+  name: Empress of Light suit
+  description: Empress of Light suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenEmpressOfLightSuitYellow
+  name: Empress of Light yellow suit
+  description: Empress of Light yellow suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/empress_of_light_yellow.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenBadPoliceSuit
+  name: Bad Police suit
+  description: Bad Police suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bad_police.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bad_police.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTHalloweenLethalCompanySuit
+  name: Lethal Company suit
+  description: Lethal Company suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lethal_company.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lethal_company.rsi
+
+# ADT-HALLOWEEN-END
+
+- type: entity
+  parent: ClothingUniformBase
   id: ADTJumpsuitHunterDemon
   name: qm jumpsuit warm
   description: A sharp turtleneck made for the hardy work environment of supply.
@@ -1155,3 +1205,28 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/pathologist_alt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSollux
+  name: sollux suit
+  description: suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sollux_captor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sollux_captor.rsi
+
+# swimsuit при накоплении создать отдельный раздел
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSwimsuitWinth
+  name: winth swimsuit
+  description: swimsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/winth_swimsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/winth_swimsuit.rsi
+
