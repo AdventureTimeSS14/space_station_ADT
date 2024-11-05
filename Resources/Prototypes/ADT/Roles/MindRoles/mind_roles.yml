@@ -5,7 +5,7 @@
 #  description: mind-role-initial-infected-description
   components:
   - type: MindRole
-    antagPrototype: Ghoul
+    antagPrototype: Ghoul # ERROR!!
     exclusiveAntag: true
   - type: InitialInfectedRole
   - type: GhoulRole

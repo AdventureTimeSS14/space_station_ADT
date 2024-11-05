@@ -26,7 +26,7 @@
         - Syndicate
       mindComponents:
       - type: PhantomRole
-        prototype: Phantom
+        prototype: Phantom # ERROR!!
       mindRoles:
       - MindRolePhantom
   - type: AntagRandomSpawn
