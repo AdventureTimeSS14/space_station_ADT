@@ -15,7 +15,7 @@
       - chessy
       - bitter
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/vulpix.rsi
+    sprite: ADT/Objects/Consumable/Food/Vulpix.rsi
   - type: SolutionContainerManager
     solutions:
       food:
