@@ -1,4 +1,5 @@
 using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Roles;
 
@@ -8,4 +9,7 @@ namespace Content.Server.Roles;
 [RegisterComponent]
 public sealed partial class PhantomRoleComponent : BaseMindRoleComponent
 {
+
+    [DataField("prototype")]
+    public ProtoId<AntagPrototype>? AntagPrototype { get; set; }
 }
