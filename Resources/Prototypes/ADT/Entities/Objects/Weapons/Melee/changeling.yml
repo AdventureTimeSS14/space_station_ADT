@@ -21,7 +21,7 @@
     qualities:
     - Prying
     - Slicing
-    speed: 0.5
+    speedModifier: 0.5
   - type: Prying
     pryPowered: true
   - type: DisarmMalus

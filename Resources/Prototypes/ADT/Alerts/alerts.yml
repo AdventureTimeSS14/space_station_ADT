@@ -176,11 +176,3 @@
   description: alerts-changeling-chemicals-desc
   minSeverity: 0
   maxSeverity: 7
-
-- type: alert
-  id: ADTAlertApathy
-  icons:
-    - sprite: /Textures/ADT/Interface/alerts.rsi
-      state: apathy
-  name: alerts-apathy-name
-  description: alerts-apathy-desc
