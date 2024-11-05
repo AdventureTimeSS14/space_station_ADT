@@ -23,7 +23,7 @@
   minPlayers: 25
   description: heretic-title
   rules:
-    - HereticGameRule # ERROR!!
+    - HereticGameRule
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler
