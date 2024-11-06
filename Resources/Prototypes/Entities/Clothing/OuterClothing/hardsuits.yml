@@ -948,6 +948,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
+  - type: DNALocker # ADT-Tweak
 
 #MISC. HARDSUITS
 #Clown Hardsuit

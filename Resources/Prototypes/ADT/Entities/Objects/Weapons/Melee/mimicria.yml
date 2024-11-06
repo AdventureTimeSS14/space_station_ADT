@@ -1,0 +1,58 @@
+- type: entity
+  name: Mimicria
+  parent: BaseSword
+  id: ADTWeaponSworldMimicry
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus
+  - type: Spellbook
+    learnTime: 0.01
+    spellActions:
+      ADTActionTeatacles: -1
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+    size: Huge
+  
+- type: entity
+  id: ADTMimicriaTentacle
+  name: tentacle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+    layers:
+    - state: mimicria_tentacle_wiggle
+  - type: Fixtures
+    fixtures:
+      fix:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - Impassable
+        layer:
+        - Impassable
+        hard: false
+  - type: TimedDespawn #do this shit by hand because of fucking course.
+    lifetime: 1
+  - type: DamageContacts
+    damage:
+      types:
+        Slash: 20
+        Piercing: 20
+  - type: SpawnOnDespawn
+    prototype: ADTEffectiMicriaTentacleRetract
+

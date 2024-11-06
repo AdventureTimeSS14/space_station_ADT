@@ -1,3 +1,5 @@
+# ADT-Halloween-start
+
 - type: entity
   parent: ClothingHandsBase
   id: ADTClothingHandsRabbitGloves
@@ -11,6 +13,22 @@
   - type: Fiber
     fiberMaterial: fibers-synthetic
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsEmpressOfLightGloves
+  name: empress of light gloves
+  description: Majestic and blue.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/empress_of_light_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/empress_of_light_gloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+  - type: FingerprintMask
+
+# ADT-Halloween-end
 
 - type: entity
   parent: ClothingHandsBase
