@@ -1,5 +1,5 @@
 - type: entity
-  id: DiscoFloor
+  id: ADTDiscoFloor
   name: disco floor
   description: ♫ It's time to boogy! ♫
   placement:
@@ -25,9 +25,6 @@
     canCollide: false
   - type: Clickable
   - type: Fixtures
-  - type: Construction
-    graph: Girder
-    node: discoFloor
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -65,8 +62,8 @@
       - Off
       - Toggle
   - type: Construction
-    graph: DiscoFloor
-    node: discoFloor
+    graph: ADTDiscoFloor
+    node: ADTDiscoFloor
   - type: Appearance
   - type: PoweredLightVisuals
     blinkingSound:
@@ -76,7 +73,6 @@
   - type: Tag
     tags:
       - Catwalk
-
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood

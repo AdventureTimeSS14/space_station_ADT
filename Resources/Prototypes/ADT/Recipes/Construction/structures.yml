@@ -1,7 +1,7 @@
 - type: construction
   name: disco floor
-  id: DiscoFloor
-  graph: DiscoFloor
+  id: ADTDiscoFloor
+  graph: ADTDiscoFloor
   startNode: start
   targetNode: discoSquare
   category: construction-category-tiles

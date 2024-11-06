@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: DiscoFloor
+  id: ADTDiscoFloor
   start: start
   graph:
     - node: start
@@ -19,4 +19,4 @@
               doAfter: 1
 
     - node: discoSquare
-      entity: DiscoFloor
+      entity: ADTDiscoFloor
