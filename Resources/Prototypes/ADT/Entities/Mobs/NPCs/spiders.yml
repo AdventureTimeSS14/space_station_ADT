@@ -66,8 +66,6 @@
     damage:
       types:
         Piercing: 6
-  - type: ReplacementAccent
-    accent: xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -112,6 +110,11 @@
       groups:
         Brute: -0.07
         Burn: -0.07
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
 
 - type: entity
   name: hunter
@@ -342,8 +345,18 @@
     states:
       Alive:
         Base: mini
+      Critical:
+        Base: mini_dead
       Dead:
         Base: mini_dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 85
+      behaviors:
+      - !type:GibBehavior { }
   - type: MultiHandedItem
   - type: Item
     sprite: ADT/Mobs/Animals/minispider.rsi
@@ -351,7 +364,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      30: Dead
+      45: Critical
+      70: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 3.9
