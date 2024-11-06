@@ -238,18 +238,18 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead
+      40: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 4.5
     baseSprintSpeed : 4.5
   - type: SlowOnDamage
     speedModifierThresholds:
-      35: 0.7
-      45: 0.5
+      25: 0.7
+      35: 0.5
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 2
+        Piercing: 1.5
   - type: SolutionContainerManager
     solutions:
       melee:
