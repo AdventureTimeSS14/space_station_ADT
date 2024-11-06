@@ -121,5 +121,5 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Piercing: 7 # ну а хули
+        Piercing: 7
   - type: ChangelingHeadslug

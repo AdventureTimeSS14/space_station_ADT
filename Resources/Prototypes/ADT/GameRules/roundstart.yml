@@ -103,10 +103,10 @@
 
 - type: entity
   parent: BaseChangelingRule
-  id: Changeling
+  id: ChangelingGameRule
   components:
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 20
   - type: AntagSelection
     definitions:
     - prefRoles: [ Changeling ]
@@ -118,4 +118,3 @@
       lateJoinAdditional: true
       mindComponents:
       - type: ChangelingRole
-        prototype: Changeling

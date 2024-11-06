@@ -38,7 +38,7 @@ public sealed partial class AdminVerbSystem
 
     // ADT-Changeling-Tweak-Start
     [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultChangelingRule = "Changeling";
+    private const string DefaultChangelingRule = "ChangelingGameRule";
     // ADT-Changeling-Tweak-End
 
     // All antag verbs have names so invokeverb works.

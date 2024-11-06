@@ -7,7 +7,7 @@
     issuer: changeling-issuer
   - type: RoleRequirement
     roles:
-      components:
+      mindRoles:
       - ChangelingRole
 
 - type: entity

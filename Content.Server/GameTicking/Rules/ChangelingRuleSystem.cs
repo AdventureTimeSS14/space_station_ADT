@@ -56,13 +56,9 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         // briefing
         if (HasComp<MetaDataComponent>(target))
         {
-            var briefingShort = Loc.GetString("changeling-role-greeting-short");
-
             _antag.SendBriefing(target, Loc.GetString("changeling-role-greeting"), Color.Red, rule.ChangelingStartSound);
 
-            if (_mind.TryGetRole<RoleBriefingComponent>(mindId, out var rbc))
-                rbc.Briefing += $"\n{briefingShort}";
-            else _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true); // под апстрим поменять в скобках на (mindId, briefingShort, mind, true);
+            _role.MindAddRole(mindId, "MindRoleChangeling", mind, true);
         }
 
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
