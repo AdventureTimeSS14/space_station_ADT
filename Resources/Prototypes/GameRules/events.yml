@@ -17,6 +17,7 @@
     - id: MouseMigration
     - id: PowerGridCheck
     - id: RandomSentience
+    - id: ADTNeutralSpiderSpawn # ADT Tweak нейтральные паучки
     - id: SlimesSpawn
     - id: SolarFlare
     - id: SnakeSpawn
@@ -366,10 +367,6 @@
       prob: 0.02
     - id: MobAdultSlimesYellowAngry
       prob: 0.02
-      # halloween
-      # ADT Tweak
-    - id: ADTMobAdultSlimesGreenHalloweenAngry
-      prob: 0.04
 
 - type: entity
   id: SnakeSpawn
@@ -406,8 +403,18 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+# ADT tweak start Разные пауки
+#    - id: MobGiantSpiderAngry
+#      prob: 0.05
+    - id: ADTMobHunterSpiderAngry
+      prob: 0.025
+    - id: ADTMobGuardSpiderAngry
+      prob: 0.0225
+    - id: ADTMobTarantulaSpiderAngry
+      prob: 0.00125
+    - id: ADTMobViperSpiderAngry
+      prob: 0.00125
+# ADT tweak end Разные пауки
 
 - type: entity
   id: SpiderClownSpawn
@@ -423,7 +430,7 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobClownSpider
+    - id: ADTMobClownSpider # ADT tweak
       prob: 0.05
 
 # ADT zombie remove
