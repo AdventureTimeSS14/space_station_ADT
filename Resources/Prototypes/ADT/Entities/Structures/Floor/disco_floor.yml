@@ -65,7 +65,7 @@
       - Off
       - Toggle
   - type: Construction
-    graph: ADTDiscoFloor
+    graph: DiscoFloor
     node: discoFloor
   - type: Appearance
   - type: PoweredLightVisuals

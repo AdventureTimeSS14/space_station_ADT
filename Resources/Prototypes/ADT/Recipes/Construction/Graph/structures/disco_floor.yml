@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: ADTDiscoFloor
+  id: DiscoFloor
   start: start
   graph:
     - node: start
