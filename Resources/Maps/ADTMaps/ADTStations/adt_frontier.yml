@@ -64,8 +64,6 @@ entities:
     - type: OccluderTree
     - type: LoadedMap
     - type: Parallax
-    - type: BecomesStation
-      id: ADT_Frontier
   - uid: 2
     components:
     - type: MetaData
@@ -73,6 +71,8 @@ entities:
     - type: Transform
       pos: -131.97873,9.446809
       parent: 1
+    - type: BecomesStation
+      id: ADT_Frontier
     - type: MapGrid
       chunks:
         0,0:
