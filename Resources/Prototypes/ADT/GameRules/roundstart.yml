@@ -13,7 +13,7 @@
   id: PhantomGameRule
   components:
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 1
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -27,7 +27,11 @@
       mindComponents:
       - type: PhantomRole
         prototype: Phantom
+      mindRoles:
+      - MindRolePhantom
   - type: AntagRandomSpawn
+  - type: AntagSpawnEntityRule
+    prototype: ADTMobPhantom
 
 - type: entityTable
   id: RampingGameRulesTable
@@ -49,25 +53,24 @@
   - type: AntagSelection
 
 - type: entity
-  parent: BaseHereticRule
+  parent: BaseGameRule
   id: HereticGameRule
   components:
+  - type: HereticRule
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 20
+    delay:
+      min: 30
+      max: 60
   - type: AntagSelection
+    agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 8
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        - BibleUser
+      max: 5
+      playerRatio: 20
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-        prototype: Heretic
-
 
 - type: entityTable
   id: ExtendedGameRulesTable

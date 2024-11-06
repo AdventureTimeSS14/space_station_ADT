@@ -52,7 +52,7 @@
     tags:
       - AirAlarm
   - type: AtmosDevice
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: AirAlarm
   - type: AtmosAlertsDevice
     group: AirAlarm
