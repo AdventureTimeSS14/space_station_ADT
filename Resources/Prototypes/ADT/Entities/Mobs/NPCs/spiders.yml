@@ -246,6 +246,9 @@
     speedModifierThresholds:
       25: 0.7
       35: 0.5
+  - type: Bloodstream
+    bloodMaxVolume: 75
+    bloodReagent: ADTLatrotoxin
   - type: MeleeWeapon
     damage:
       types:
@@ -255,7 +258,7 @@
       melee:
         reagents:
         - ReagentId: ADTLatrotoxin
-          Quantity: 100
+          Quantity: 50
   - type: MeleeChemicalInjector
     transferAmount: 4
     solution: melee
