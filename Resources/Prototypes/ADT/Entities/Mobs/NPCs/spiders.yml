@@ -192,12 +192,12 @@
     baseSprintSpeed : 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
-      75: 0.7
-      95: 0.5
+      70: 0.7
+      90: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Dead
+      105: Dead
   - type: MeleeWeapon
     damage:
       types:
