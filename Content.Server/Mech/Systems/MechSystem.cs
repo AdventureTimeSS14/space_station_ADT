@@ -167,7 +167,7 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
 
         RemoveEquipment(uid, equip, component);
-        UpdateUserInterface(uid);
+        UpdateUserInterface(uid);   // ADT Mech
     }
 
     private void OnOpenUi(EntityUid uid, MechComponent component, MechOpenUiEvent args)
@@ -278,11 +278,13 @@ public sealed partial class MechSystem : SharedMechSystem
         var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
         SetIntegrity(uid, integrity, component);
 
+        // ADT Mech start
         if (component.Integrity <= component.DamageToDesEqi && !component.Broken && _random.Prob(0.5f) && component.CurrentSelectedEquipment != null)
         {
             var ev = new MechEquipmentDestroyedEvent();
             RaiseLocalEvent(uid, ref ev);
         }
+        // ADT Mech end
 
         if (args.DamageIncreased &&
             args.DamageDelta != null &&
@@ -339,7 +341,7 @@ public sealed partial class MechSystem : SharedMechSystem
         {
             EquipmentStates = ev.States
         };
-        Dirty(uid, component);
+        Dirty(uid, component);  // ADT Mech
 
         _ui.SetUiState(uid, MechUiKey.Key, state);
     }

@@ -24,7 +24,7 @@ public sealed partial class MechComponent : Component
     /// <summary>
     /// The maximum amount of damage the mech can take.
     /// </summary>
-    [DataField("maxintegrity"), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("maxintegrity"), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]  // ADT Mech
     public FixedPoint2 MaxIntegrity = 250;
 
     /// <summary>
@@ -33,6 +33,7 @@ public sealed partial class MechComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public FixedPoint2 Energy = 0;
+
     /// <summary>
     /// The maximum amount of energy the mech can have.
     /// Derived from the currently inserted battery.
@@ -55,6 +56,7 @@ public sealed partial class MechComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MechToPilotDamageMultiplier;
+
     /// <summary>
     /// Whether the mech has been destroyed and is no longer pilotable.
     /// </summary>
@@ -86,7 +88,7 @@ public sealed partial class MechComponent : Component
     /// <summary>
     /// A whitelist for inserting equipment items.
     /// </summary>
-    [DataField("equipmentWhitelist")]
+    [DataField("equipmentWhitelist")]   // ADT Mech
     public EntityWhitelist? EquipmentWhitelist;
 
     [DataField]

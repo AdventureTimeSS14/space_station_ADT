@@ -155,11 +155,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
-  - type: Tag # ADT tweak
+  - type: Tag
     tags:
     - Hardsuit
     - WhitelistChameleon
-    - ADTHardsuitSalvage
+    - ADTHardsuitSalvage  # ADT tweak
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]

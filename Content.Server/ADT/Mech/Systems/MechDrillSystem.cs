@@ -45,7 +45,6 @@ public sealed class MechDrillSystem : EntitySystem
         if (!TryComp<MechComponent>(args.User, out var mech))
             return;
 
-
         if (mech.Energy + component.DrillEnergyDelta < 0)
             return;
 

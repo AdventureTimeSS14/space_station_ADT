@@ -23,12 +23,12 @@ public sealed class MechEquipmentUiStateReadyEvent : EntityEventArgs
 public sealed class MechEquipmentUiMessageRelayEvent : EntityEventArgs
 {
     public MechEquipmentUiMessage Message;
-    public NetEntity? Pilot;
+    public NetEntity? Pilot;    // ADT Mech
 
     public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message, NetEntity? pilot)
     {
         Message = message;
-        Pilot = pilot;
+        Pilot = pilot;  // ADT Mech
     }
 }
 

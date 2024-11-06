@@ -149,12 +149,14 @@ public sealed partial class GunSystem : SharedGunSystem
                     else
                     {
                         userImpulse = false;
-                        if (TryComp<MechComponent>(user, out var cmech))    // ADT Mech gun sound fix
+                        // ADT Mech start
+                        if (TryComp<MechComponent>(user, out var cmech))
                         {
                             Audio.PlayPredicted(gun.SoundEmpty, gunUid, cmech.PilotSlot.ContainedEntity);
                         }
                         else
                             Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        // ADT Mech end
                     }
 
                     // Something like ballistic might want to leave it in the container still

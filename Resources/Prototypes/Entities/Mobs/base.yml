@@ -44,7 +44,7 @@
   - type: TTS # Corvax-TTS
   - type: RequireProjectileTarget
     active: False
-  - type: CanEscapeMech
+  - type: CanEscapeMech # ADT tweak
   - type: LanguageSpeaker # Frontier
     speaks:
     - GalacticCommon
