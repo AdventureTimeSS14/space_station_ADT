@@ -63,7 +63,7 @@ public sealed class KillPhantomImmunePersonConditionSystem : EntitySystem
 
         foreach (var item in allHumans) // Don't pick heads because they may be tyrany targets
         {
-            if (_job.MindTryGetJob(item, out _, out var prototype) && prototype.RequireAdminNotify) // Why is it named RequireAdminNotify? Anyway, this checks if this mind is a command staff
+            if (_job.MindTryGetJob(item, out var prototype) && prototype.RequireAdminNotify) // Why is it named RequireAdminNotify? Anyway, this checks if this mind is a command staff
                 continue;
             if (TryComp<MindComponent>(item, out var mindComponent))
             {
