@@ -230,7 +230,7 @@
       examinableAddress: true
     - type: WiredNetworkConnection
     - type: PowerSwitch
-    # - type: StationAiWhitelist #ADT-Tweak
+    - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseGasThermoMachine
