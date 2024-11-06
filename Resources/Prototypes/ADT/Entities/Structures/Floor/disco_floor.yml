@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTDiscoFloor
+  id: DiscoFloor
   name: disco floor
   description: ♫ It's time to boogy! ♫
   placement:

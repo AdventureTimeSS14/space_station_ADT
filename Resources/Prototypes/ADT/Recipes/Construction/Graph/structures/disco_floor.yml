@@ -19,4 +19,4 @@
               doAfter: 1
 
     - node: discoSquare
-      entity: ADTDiscoFloor
+      entity: DiscoFloor
