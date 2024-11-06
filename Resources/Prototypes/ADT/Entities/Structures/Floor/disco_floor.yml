@@ -63,7 +63,7 @@
       - Toggle
   - type: Construction
     graph: ADTDiscoFloor
-    node: ADTDiscoFloor
+    node: discoFloor
   - type: Appearance
   - type: PoweredLightVisuals
     blinkingSound:
