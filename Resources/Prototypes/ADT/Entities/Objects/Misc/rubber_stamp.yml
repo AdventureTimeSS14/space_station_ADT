@@ -11,3 +11,15 @@
   - type: Sprite
     sprite: ADT/Objects/Misc/stamps.rsi
     state: stamp-magistrat
+
+- type: entity
+  name: REMAKE rubber stamp
+  parent: RubberStampBaseAlt
+  id: ADTRubberStampRemake
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-remake
+    stampedColor: "#a23e3e"
+    stampState: "paper_stamp-deny"
+  - type: Sprite
+    state: stamp-deny
