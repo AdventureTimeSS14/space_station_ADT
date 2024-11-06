@@ -200,6 +200,8 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
+      - CassetteTape  # ADT
+      - TapeRecorder  # ADT
 
   - type: EmagLatheRecipes
     emagStaticRecipes:

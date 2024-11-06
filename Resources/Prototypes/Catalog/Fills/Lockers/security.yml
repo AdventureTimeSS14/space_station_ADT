@@ -167,6 +167,7 @@
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
     # ADT-WikiBooks-End
+      - id: BoxTapeRecorder # ADT too
 
 - type: entity
   id: ClosetBombFilled
