@@ -13,6 +13,7 @@ using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
 using Robust.Shared.Utility;
 using System.Threading.Tasks;
+using Content.Server.Mind;
 
 namespace Content.Server.ADT.SpeechBarks;
 
@@ -20,6 +21,9 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     private bool _isEnabled = false;
 
@@ -52,13 +56,19 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 
         var message = args.ObfuscatedMessage ?? args.Message;
 
-        RaiseNetworkEvent(new PlaySpeechBarksEvent(
-            GetNetEntity(uid),
-            message,
-            ev.Sound,
-            ev.Pitch,
-            component.BarkLowVar,
-            component.BarkHighVar,
-            args.Whisper));
+        foreach (var ent in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10f))
+        {
+            if (!_mind.TryGetMind(ent, out _, out var mind) || mind.Session == null)
+                continue;
+
+            RaiseNetworkEvent(new PlaySpeechBarksEvent(
+                        GetNetEntity(uid),
+                        message,
+                        ev.Sound,
+                        ev.Pitch,
+                        component.BarkLowVar,
+                        component.BarkHighVar,
+                        args.Whisper), mind.Session);
+        }
     }
 }

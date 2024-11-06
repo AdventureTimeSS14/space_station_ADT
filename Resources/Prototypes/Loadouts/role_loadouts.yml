@@ -345,6 +345,7 @@
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
   - ChiefEngineerBackpack # Corvax-Loadouts
+  - ADTEngineeringBelt # ADT-TWEAK
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
@@ -364,6 +365,7 @@
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -381,6 +383,7 @@
   - StationEngineerHead
   - StationEngineerJumpsuit
   - StationEngineerBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
@@ -403,6 +406,7 @@
   - ADTAtmosphericTechnicianGasMask # ADT-Loadouts
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   # ADT underwear tweak start

@@ -51,8 +51,10 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -64,6 +66,14 @@
   - type: Tag
     tags:
     - VimPilot
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   name: bee
@@ -390,6 +400,14 @@
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 0
 
 - type: entity
   name: glockroach
@@ -1700,8 +1718,10 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - Trash
@@ -1751,6 +1771,14 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   parent: MobMouse
@@ -3261,8 +3289,16 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - VimPilot
@@ -3375,7 +3411,10 @@
   - type: NpcFactionMember
     factions:
     - Passive
-
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+      
 - type: entity
   name: diona nymph
   parent: [SimpleMobBase, StripableInventoryBase]
