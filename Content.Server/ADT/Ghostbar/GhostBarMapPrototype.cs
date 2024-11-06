@@ -14,7 +14,7 @@ public sealed partial class GhostBarMapPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; set; } = default!;
 
     /// <summary>
     /// путь до карты
@@ -38,13 +38,13 @@ public sealed partial class GhostBarMapPrototype : IPrototype
     /// список профессий, которые могут быть в гостбаре
     /// </summary>
     [DataField]
-    public List<JobComponent> Jobs = new()
+    public List<ProtoId<JobPrototype>> Jobs = new()
     {
-        new JobComponent { Prototype = "Passenger" },
-        new JobComponent { Prototype = "Bartender" },
-        new JobComponent { Prototype = "Botanist" },
-        new JobComponent { Prototype = "Chef" },
-        new JobComponent { Prototype = "Janitor" }
+        "Passenger",
+        "Bartender",
+        "Botanist",
+        "Chef",
+        "Janitor"
     };
 
     /// <summary>

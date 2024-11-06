@@ -112,7 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -200,9 +200,10 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
+      - FreezerElectronics
+      - Flare
       - CassetteTape  # ADT
       - TapeRecorder  # ADT
-
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -274,7 +275,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: MaterialStorage
     whitelist:
       tags:
@@ -490,7 +491,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
@@ -511,6 +512,7 @@
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
+    - FloorRedCircuit
     - MicrowaveMachineCircuitboard
     - ReagentGrinderMachineCircuitboard
     - ElectricGrillMachineCircuitboard
