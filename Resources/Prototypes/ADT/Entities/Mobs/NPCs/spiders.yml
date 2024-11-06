@@ -188,16 +188,16 @@
       Dead:
         Base: guard_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4
-    baseSprintSpeed : 4
+    baseWalkSpeed : 3.8
+    baseSprintSpeed : 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
-      85: 0.7
-      100: 0.5
+      75: 0.7
+      95: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      110: Dead
   - type: MeleeWeapon
     damage:
       types:
