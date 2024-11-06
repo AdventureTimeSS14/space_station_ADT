@@ -157177,4 +157177,11 @@ entities:
     - type: Transform
       pos: 61.27186,-25.966644
       parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 24877
+    components:
+    - type: Transform
+      pos: 205.5,20.5
+      parent: 2
 ...
