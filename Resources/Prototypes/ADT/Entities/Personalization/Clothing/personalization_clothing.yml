@@ -643,3 +643,30 @@
     sprite: ADT/Personalization/uma_armor.rsi
   - type: Clothing
     sprite: ADT/Personalization/uma_armor.rsi
+
+#Anagiri
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ADTClothingHandsAnagiriGloves
+  name: Anagiri Gloves
+  description: Anagiri Gloves
+  suffix: Sponsor, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+
+#MleM
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatOktyabrina
+  name: Oktyabrina coat
+  description: Oktyabrina coat.
+  suffix: Personal, MleM
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/oktyabrina_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/oktyabrina_coat.rsi

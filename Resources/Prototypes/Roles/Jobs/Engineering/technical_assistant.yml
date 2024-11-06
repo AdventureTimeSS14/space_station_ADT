@@ -27,7 +27,9 @@
   equipment:
     shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
-    belt: ClothingBeltUtilityEngineering
+# ADT-Tweak-start по причине того, что ассистент и остальной состав ИО спавнится с двумя поясами, если их выбрать в лоудауте
+    # belt: ClothingBeltUtilityEngineering
+# ADT-Tweak-end
     ears: ClothingHeadsetEngineering
     pocket2: BookEngineersHandbook
   #storage:
