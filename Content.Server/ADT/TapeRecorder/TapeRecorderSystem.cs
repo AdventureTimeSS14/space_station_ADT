@@ -38,7 +38,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
     /// </summary>
     protected override void ReplayMessagesInSegment(Entity<TapeRecorderComponent> ent, TapeCassetteComponent tape, float segmentStart, float segmentEnd)
     {
-        //var voice = EnsureComp<VoiceOverrideComponent>(ent);  // ADT TODO: РАСКОММЕНТИТЬ ПОСЛЕ АПСТРИМА
+        var voice = EnsureComp<VoiceOverrideComponent>(ent);  // ADT TODO: РАСКОММЕНТИТЬ ПОСЛЕ АПСТРИМА
         var speech = EnsureComp<SpeechComponent>(ent);
 
         foreach (var message in tape.RecordedData)
@@ -48,10 +48,10 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
 
             //Change the voice to match the speaker
             // voice.NameOverride = message.Name ?? ent.Comp.DefaultName;   // ADT TODO: РАСКОММЕНТИТЬ ПОСЛЕ АПСТРИМА
-            if (message.Bark.HasValue)
+            if (message.Bark != null)
             {
                 var barkOverride = EnsureComp<SpeechBarksComponent>(ent);
-                barkOverride.BarkPrototype = message.Bark.Value;
+                barkOverride.BarkPrototype = message.Bark;
                 barkOverride.BarkPitch = message.BarkPitch;
             }
             if (message.TTS.HasValue)
@@ -94,21 +94,25 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         RaiseLocalEvent(args.Source, nameEv);
 
         //Add a new entry to the tape
+        var name = nameEv.VoiceName;
         var verb = _chat.GetSpeechVerb(args.Source, args.Message);
         var barkPitch = 1f;
-        ProtoId<BarkPrototype>? bark = null;
+        string? bark = null;
         ProtoId<TTSVoicePrototype>? tts = null;
         if (TryComp<SpeechBarksComponent>(args.Source, out var barksComponent))
         {
-            bark = barksComponent.Sound;
-            barkPitch = barksComponent.BarkPitch;
+            var barkEv = new TransformSpeakerBarkEvent(args.Source, barksComponent.Sound, barksComponent.BarkPitch);
+            RaiseLocalEvent(args.Source, barkEv);
+            bark = barkEv.Sound;
+            barkPitch = barkEv.Pitch;
         }
-        if (TryComp<TTSComponent>(args.Source, out var ttsComp))
+        if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId != null)
         {
-            tts = ttsComp.VoicePrototypeId;
+            var ttsEv = new TransformSpeakerVoiceEvent(args.Source, ttsComp.VoicePrototypeId);
+            RaiseLocalEvent(args.Source, ttsEv);
+            tts = ttsEv.VoiceId;
         }
 
-        var name = nameEv.Name;
         cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, bark, barkPitch, tts, args.Message));
     }
 
