@@ -584,13 +584,13 @@
           - state: inhand-left-shield
         right:
           - state: inhand-right-shield
-    - type: PointLight
+    - type: PointLight # ADT  START CHANGES
       netsync: false
       enabled: false
       radius: 0
       energy: 2
       color: blue
-    - type: ItemTogglePointLight
+    - type: ItemTogglePointLight # ADT END CHANGES
     - type: Appearance
     - type: Destructible
       thresholds:
