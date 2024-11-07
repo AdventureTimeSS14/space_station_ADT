@@ -1,0 +1,38 @@
+- type: entity
+  id: MysteryPlayerFigureBoxTrash
+  parent: BaseItem
+  name: unfolded cardboard box
+  description: A small, unfolded cardboard toy box.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    state: fig_box_unfolded
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+
+- type: entity
+  parent: PresentRandom
+  id: MysteryPlayerFigureBox
+  name: mystery spacemen player minifigure box
+  description: A box containing a mystery minifigure. The side of the box depicts a few blacked-out 'rare' figures, including one with a large, non-humanoid shilouette.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
+    layers:
+      - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: ToyFigurineLirBattlstorm
+        orGroup: PlayerFig
+      - id: ToyFigurineApatiaVeystu
+        orGroup: PlayerFig
+      - id: ToyFigurinePlushSamoobladania
+        orGroup: PlayerFig
+      - id: ToyFigurineYukerNighthauzer
+        orGroup: PlayerFig
