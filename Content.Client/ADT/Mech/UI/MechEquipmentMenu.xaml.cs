@@ -39,7 +39,7 @@ public sealed partial class MechEquipmentMenu : RadialMenu
             ToolTip = Loc.GetString("Ничего" ?? String.Empty),
             Entity = null,
         };
-        // TODO сделать возможность выбрать пустую ячейку
+
         var tex = new TextureRect
         {
             VerticalAlignment = VAlignment.Center,
@@ -79,10 +79,10 @@ public sealed partial class MechEquipmentMenu : RadialMenu
         {
             if (child is not RadialContainer container)
                 continue;
-            AddVesselClickAction(container);
+            AddEquipClickAction(container);
         }
     }
-    private void AddVesselClickAction(RadialContainer container)
+    private void AddEquipClickAction(RadialContainer container)
     {
         foreach (var child in container.Children)
         {

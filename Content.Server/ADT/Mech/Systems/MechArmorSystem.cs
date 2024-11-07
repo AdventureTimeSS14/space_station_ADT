@@ -29,45 +29,4 @@ public sealed class MechArmorSystem : EntitySystem
         mech.Modifiers = component.OriginalModifiers;
         component.OriginalModifiers = null;
     }
-
-    private DamageModifierSet SumModifierSets(DamageModifierSet modifier1, DamageModifierSet modifier2)
-    {
-        var modifier3 = modifier2;
-
-        foreach (var item in modifier1.FlatReduction)
-        {
-            if (modifier3.FlatReduction.TryGetValue(item.Key, out _))
-            {
-                modifier3.FlatReduction[item.Key] += item.Value;
-            }
-        }
-        foreach (var item in modifier1.Coefficients)
-        {
-            if (modifier3.Coefficients.TryGetValue(item.Key, out _))
-            {
-                modifier3.Coefficients[item.Key] += item.Value;
-            }
-        }
-        return modifier3;
-    }
-    private DamageModifierSet MinodifierSets(DamageModifierSet modifier1, DamageModifierSet modifier2)
-    {
-        var modifier3 = modifier2;
-
-        foreach (var item in modifier1.FlatReduction)
-        {
-            if (modifier3.FlatReduction.TryGetValue(item.Key, out _) && modifier3.Coefficients[item.Key] >= item.Value)
-            {
-                modifier3.FlatReduction[item.Key] -= item.Value;
-            }
-        }
-        foreach (var item in modifier1.Coefficients)
-        {
-            if (modifier3.Coefficients.TryGetValue(item.Key, out _) && modifier3.Coefficients[item.Key] >= item.Value)
-            {
-                modifier3.Coefficients[item.Key] -= item.Value;
-            }
-        }
-        return modifier3;
-    }
 }

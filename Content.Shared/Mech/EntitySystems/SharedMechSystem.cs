@@ -19,23 +19,16 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Access.Systems;
-using Content.Shared.Damage;
 using Robust.Shared.Random;
 using Content.Shared.Overlays;
 using Content.Shared.Whitelist;
-using Content.Shared.ADT.Mech;
-using Content.Shared.Storage;
-using  Content.Shared.Lock;
-using System.Linq;
 
 namespace Content.Shared.Mech.EntitySystems;
 
 /// <summary>
 /// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
 /// </summary>
-public abstract partial class SharedMechSystem : EntitySystem
+public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -493,22 +486,6 @@ public abstract partial class SharedMechSystem : EntitySystem
         args.Handled = true;
 
         args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
-    }
-
-    // ADT moved to shared
-    private void ReceiveEquipmentUiMesssages<T>(EntityUid uid, MechComponent component, T args) where T : MechEquipmentUiMessage
-    {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-        var ev = new MechEquipmentUiMessageRelayEvent(args, GetNetEntity(component.PilotSlot.ContainedEntity));
-        var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
-        var argEquip = GetEntity(args.Equipment);
-
-        foreach (var equipment in allEquipment)
-        {
-            if (argEquip == equipment)
-                RaiseLocalEvent(equipment, ev);
-        }
     }
 }
 

@@ -7,31 +7,32 @@ using Robust.Shared.GameStates;
 namespace Content.Server.ADT.Mech.Equipment.Components;
 
 /// <summary>
-/// A piece of mech equipment that grabs entities and stores them
-/// inside of a container so large objects can be moved.
+/// Дрель меха. Позволяет эффективно копать руду.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MechDrillComponent : Component
 {
     /// <summary>
-    /// The change in energy after each drill.
+    /// Стоимость единичного использования дрели.
     /// </summary>
     [DataField("drillEnergyDelta")]
     public float DrillEnergyDelta = -10;
 
+    /// <summary>
+    /// Урон, наносимый цели.
+    /// </summary>
     [DataField("damage", required: true)]
     [ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier DamageToDrilled = default!;
+
     /// <summary>
-    /// How long does it take to grab something?
+    /// Модификатор скорости для использования дрели не по руде.
     /// </summary>
-    [DataField("drillDelay")]
-    public float DrillDelay = 2.5f;
     [DataField("drillSpeedMultilire")]
     public float DrillSpeedMultilire = 50f;
 
     /// <summary>
-    /// The sound played when a mech is drilling something
+    /// Звук дрели
     /// </summary>
     [DataField("drillSound")]
     public SoundSpecifier DrillSound = new SoundPathSpecifier("/Audio/ADT/Mecha/mecha_drill.ogg");

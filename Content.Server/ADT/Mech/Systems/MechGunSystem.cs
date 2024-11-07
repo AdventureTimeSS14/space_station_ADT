@@ -64,17 +64,9 @@ public sealed class MechGunSystem : EntitySystem
             return;
         }
         if (!TryComp<MechComponent>(component.EquipmentOwner.Value, out var mech))
-        {
             return;
-        }
-        if (TryComp<BatteryComponent>(uid, out var battery))
-        {
-            ChargeGunBattery(uid, battery);
-            return;
-        }
-        if (HasComp<BallisticMechAmmoProviderComponent>(uid))
-            _mech.UpdateUserInterface(component.EquipmentOwner.Value);
 
+        _mech.UpdateUserInterface(component.EquipmentOwner.Value);
 
         // In most guns the ammo itself isn't shot but turned into cassings
         // and a new projectile is spawned instead, meaning that args.Ammo
@@ -90,30 +82,6 @@ public sealed class MechGunSystem : EntitySystem
                 _throwing.TryThrow(ent.Value, _random.NextVector2(), _random.Next(5));
             }
         }
-    }
-
-    private void ChargeGunBattery(EntityUid uid, BatteryComponent component)
-    {
-        if (!TryComp<MechEquipmentComponent>(uid, out var mechEquipment) || !mechEquipment.EquipmentOwner.HasValue)
-            return;
-
-        if (!TryComp<MechComponent>(mechEquipment.EquipmentOwner.Value, out var mech))
-            return;
-
-        var maxCharge = component.MaxCharge;
-        var currentCharge = component.CurrentCharge;
-
-        var chargeDelta = maxCharge - currentCharge;
-
-        if (chargeDelta <= 0 || mech.Energy - chargeDelta < 0)
-            return;
-        if (TryComp<MechGunComponent>(uid, out var mechGun))
-            chargeDelta *= mechGun.BatteryUsageMultiplier;
-
-        if (!_mech.TryChangeEnergy(mechEquipment.EquipmentOwner.Value, -chargeDelta, mech))
-            return;
-
-        _battery.SetCharge(uid, component.MaxCharge, component);
     }
 
     private void OnUiStateReady(EntityUid uid, BallisticMechAmmoProviderComponent component, MechEquipmentUiStateReadyEvent args)

@@ -7,6 +7,7 @@ namespace Content.Shared.ADT.Weapons.Ranged.Components;
 
 /// <summary>
 /// Позволяет оружию меха стрелять проджектайлами.
+/// Использует специальные магазины, которые помещаются в хранилище меха.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BallisticMechAmmoProviderComponent : MechAmmoProviderComponent

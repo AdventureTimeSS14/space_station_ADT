@@ -69,4 +69,19 @@ public abstract partial class SharedMechSystem
         if (component.PilotSlot.ContainedEntity.HasValue)
             args.Cancelled = true;
     }
+
+    private void ReceiveEquipmentUiMesssages<T>(EntityUid uid, MechComponent component, T args) where T : MechEquipmentUiMessage
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+        var ev = new MechEquipmentUiMessageRelayEvent(args, GetNetEntity(component.PilotSlot.ContainedEntity));
+        var allEquipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
+        var argEquip = GetEntity(args.Equipment);
+
+        foreach (var equipment in allEquipment)
+        {
+            if (argEquip == equipment)
+                RaiseLocalEvent(equipment, ev);
+        }
+    }
 }

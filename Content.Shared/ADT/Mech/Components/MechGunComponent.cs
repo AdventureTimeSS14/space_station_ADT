@@ -8,8 +8,6 @@ namespace Content.Shared.ADT.Mech.Equipment.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MechGunComponent : Component
 {
-    [DataField]
-    public float BatteryUsageMultiplier = 1f;
 }
 
 public enum MechShootType

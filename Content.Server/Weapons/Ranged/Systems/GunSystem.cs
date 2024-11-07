@@ -296,13 +296,14 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         FireEffects(fromEffect, hitscan.MaxLength, dir.ToAngle(), hitscan);
                     }
-
+                    // ADT Mech start
                     if (TryComp<MechComponent>(user, out var hmech))
                     {
                         Audio.PlayPredicted(gun.SoundEmpty, gunUid, hmech.PilotSlot.ContainedEntity);
                     }
                     else
                         Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                    // ADT Mech end
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

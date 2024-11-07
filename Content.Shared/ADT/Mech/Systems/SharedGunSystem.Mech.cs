@@ -5,7 +5,6 @@ using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -136,12 +135,4 @@ public abstract partial class SharedGunSystem
                 throw new ArgumentOutOfRangeException();
         }
     }
-
-    [Serializable, NetSerializable]
-    private sealed class MechAmmoProviderComponentState : ComponentState
-    {
-        public int Shots;
-        public int MaxShots;
-    }
-
 }

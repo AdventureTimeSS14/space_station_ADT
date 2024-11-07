@@ -20,10 +20,7 @@ public sealed partial class MechPhazeComponent : Component
     /// The change in energy per second.
     /// </summary>
     [DataField("energyDelta")]
-    public float EnergyDelta = -10;
-
-    [DataField("phazingSpeedMultilire")]
-    public float PhazingSpeedMultilire = 0.75f;
+    public float EnergyDelta = -20;
 
     /// <summary>
     /// The sound played when a mech is entered phaze
@@ -31,9 +28,15 @@ public sealed partial class MechPhazeComponent : Component
     [DataField("phazingSound")]
     public SoundSpecifier PhazingSound = new SoundPathSpecifier("/Audio/ADT/Mecha/mecha_drill.ogg");
 
+    /// <summary>
+    /// Имя спрайта из rsi файла, используемого при фазировании
+    /// </summary>
     [DataField]
     public string PhazingState = "phazon-phase";
 
+    /// <summary>
+    /// Имя спрайта из rsi файла, используемого при обычном состоянии
+    /// </summary>
     [DataField]
     public string State = "phazon";
 

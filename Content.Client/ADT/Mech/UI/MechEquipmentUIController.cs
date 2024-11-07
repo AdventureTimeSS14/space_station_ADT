@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 namespace Content.Client.ADT.Mech.UI;
 
 [UsedImplicitly]
-public sealed class MechEquipmentUIController : UIController//, IOnStateChanged<GameplayState>
+public sealed class MechEquipmentUIController : UIController
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;

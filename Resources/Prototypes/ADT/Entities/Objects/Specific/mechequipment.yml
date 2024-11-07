@@ -206,7 +206,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: HitscanMechAmmoProvider
     proto: ADTHealMechGun
-    fireCost: 5
+    fireCost: 12
   - type: Tag
     tags:
       - ADTMechEquipmentMed
@@ -214,7 +214,6 @@
     autoRecharge: true
     autoRechargeRate: 5
   - type: MechGun
-    batteryUsageMultiplier: 2.5
 
 - type: entity
   name: бур

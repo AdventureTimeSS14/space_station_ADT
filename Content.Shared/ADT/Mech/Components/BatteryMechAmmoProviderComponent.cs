@@ -6,6 +6,7 @@ namespace Content.Shared.ADT.Weapons.Ranged.Components;
 
 /// <summary>
 /// Позволяет оружию меха стрелять проджектайлами.
+/// Использует батарею меха
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BatteryMechAmmoProviderComponent : MechAmmoProviderComponent

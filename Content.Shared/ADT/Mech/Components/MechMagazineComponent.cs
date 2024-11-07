@@ -3,8 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Server.ADT.Mech.Equipment.Components;
 
 /// <summary>
-/// A piece of mech equipment that grabs entities and stores them
-/// inside of a container so large objects can be moved.
+/// Магазин для оружия меха.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MechMagazineComponent : Component
