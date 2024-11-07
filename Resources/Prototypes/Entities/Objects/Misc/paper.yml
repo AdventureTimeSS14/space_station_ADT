@@ -10,6 +10,7 @@
     - state: paper
     - state: paper_words
       map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc" #ADT CHANGE
       visible: false
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
@@ -33,6 +34,10 @@
   - type: Appearance
   - type: FaxableObject
   - type: PaperVisuals
+    backgroundModulate: "#cccccc" # ADT CHANGES START ---> 
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0 #Уголки бумаги
+    contentMargin: 16.0, 16.0, 16.0, 16.0 # ADT CHANGES END <--  
   - type: Flammable
     fireSpread: true
     canResistFire: false
