@@ -105,7 +105,8 @@ namespace Content.IntegrationTests.Tests
             "ADT_Aspid",
             "ADT_Moose",
             "ADT_Alley",
-            "ADT_kilo"
+            "ADT_kilo",
+            "ADT_Pie"
             // ADT-End
         };
 
