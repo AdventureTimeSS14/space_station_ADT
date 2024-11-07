@@ -29,7 +29,6 @@
   - type: Tag
     tags:
     - Document
-    - Trash
     - Paper
   - type: Appearance
   - type: FaxableObject
@@ -40,9 +39,7 @@
     contentMargin: 16.0, 16.0, 16.0, 16.0 # ADT CHANGES END <--  
   - type: Flammable
     fireSpread: true
-    canResistFire: false
     alwaysCombustible: true
-    canExtinguish: false # Mwahaha! Let the world burn because of one piece of paper!
     damage:
       types:
         Heat: 1
@@ -83,7 +80,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      SheetPrinter: 100
+      Paper: 100
 # Corvax-Printer-End
 
 - type: entity
@@ -92,6 +89,11 @@
   id: PaperScrap
   description: 'A crumpled up piece of white paper.'
   components:
+  - type: Tag
+    tags:
+    - Document
+    - Trash
+    - Paper
   - type: Sprite
     layers:
     - state: scrap
@@ -189,6 +191,11 @@
       visible: false
   - type: PaperLabelType
     paperType: Invoice
+  - type: Tag
+    tags:
+    - Document
+    - Trash
+    - Paper
   - type: PaperVisuals
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
@@ -218,6 +225,11 @@
       visible: false
   - type: PaperLabelType
     paperType: Bounty
+  - type: Tag
+    tags:
+    - Document
+    - Trash
+    - Paper
   - type: PaperVisuals
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"

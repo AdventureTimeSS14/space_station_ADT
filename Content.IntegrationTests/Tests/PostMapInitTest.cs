@@ -62,6 +62,7 @@ namespace Content.IntegrationTests.Tests
             "CorvaxPearl",
             "CorvaxTushkan",
             "CorvaxGlacier",
+            "CorvaxAwesome",
             // Corvax-End
             "Dev",
             "TestTeg",
@@ -103,7 +104,8 @@ namespace Content.IntegrationTests.Tests
             "ADT_Aspid",
             "ADT_Moose",
             "ADT_Alley",
-            "ADT_kilo"
+            "ADT_kilo",
+            "ADT_Pie"
             // ADT-End
         };
 
