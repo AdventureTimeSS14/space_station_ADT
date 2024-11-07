@@ -12,7 +12,7 @@ namespace Content.Shared.Shuttles.Components
         public static string DiskSlotName = "disk_slot";
 
         // ADT-TWEAK-START
-        [DataField("IsHandheldConsole")]
+        [DataField("isHandheldConsole")]
         public bool IsHandheldConsole = false;
         // ADT-TWEAK-END
 
