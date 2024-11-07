@@ -1310,7 +1310,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/figurines.rsi
+    sprite: ADT/Personalization/figurines.rsi
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
