@@ -22,3 +22,26 @@
   solids:
     FoodBowlBig: 1
     MaterialWoodPlank1: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodRelaxPillRecipe
+  name: relax pill
+  result: ADTPillRelax
+  time: 15
+  reagents:
+    Water: 15
+  solids:
+    LeavesCannabis: 3
+    LeavesTobacco: 2
+    GroundCannabis: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodVulpixRecipe
+  name: vulpix recipe
+  result: ADTFoodVulpix
+  time: 15
+  solids:
+    FoodPlateSmall: 1
+    FoodCheeseSlice: 1
+    FoodOnion: 1
+    ADTOrganVulpkaninAnimalLiver: 1
