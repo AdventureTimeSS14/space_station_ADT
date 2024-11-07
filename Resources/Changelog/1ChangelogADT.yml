@@ -4126,3 +4126,8 @@ Entries:
         type: Fix}
     time: '2024-11-07T14:33:24Z'
     id: 516
+  - author: Sh4zik
+    changes:
+      - {message: Были добавлены именные фигурки, type: Add}
+    time: '2024-11-07T16:34:15Z'
+    id: 517
