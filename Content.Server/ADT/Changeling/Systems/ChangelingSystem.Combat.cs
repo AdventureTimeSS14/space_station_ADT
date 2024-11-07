@@ -385,7 +385,7 @@ public sealed partial class ChangelingSystem
         if (_timing.CurTime < component.NextMusclesDamage)
             return;
 
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 1.5));
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 5));
         component.NextMusclesDamage = _timing.CurTime + TimeSpan.FromSeconds(1);
     }
     #endregion
