@@ -157179,7 +157179,7 @@ entities:
       parent: 2
 - proto: SpawnPointPilot
   entities:
-  - uid: 24877
+  - uid: 55555
     components:
     - type: Transform
       pos: 205.5,20.5
