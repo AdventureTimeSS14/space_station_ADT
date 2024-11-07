@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites made by Tamioki.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+      {
+        "name": "blueshield"
+      },
+      {
+        "name": "ApatiaVeystu"
+      },
+      {
+        "name": "LirBattlstorm"
+      },
+      {
+        "name": "PlushCamoobladania"
+      },
+      {
+        "name": "fig_box"
+      },
+      {
+        "name": "YukerNighhauser"
+      },
+      {
+        "name": "brigmedic"
+      }
+    ]
+}
