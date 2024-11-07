@@ -3701,7 +3701,7 @@ entities:
       pos: 16.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -78348.89
+      secondsUntilStateChange: -78416.77
       state: Opening
 - proto: AirlockFreezerLocked
   entities:
@@ -3720,7 +3720,7 @@ entities:
       pos: 5.5,6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -39854.027
+      secondsUntilStateChange: -39921.91
       state: Opening
   - uid: 320
     components:
@@ -3729,7 +3729,7 @@ entities:
       pos: 6.5,6.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -39854.2
+      secondsUntilStateChange: -39922.082
       state: Opening
   - uid: 321
     components:
@@ -3889,7 +3889,7 @@ entities:
       pos: 13.5,8.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -56880.45
+      secondsUntilStateChange: -56948.332
       state: Opening
   - uid: 345
     components:
@@ -13790,7 +13790,7 @@ entities:
       pos: -4.5,0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -61697.684
+      secondsUntilStateChange: -61765.566
       state: Opening
 - proto: CurtainsBlackOpen
   entities:
@@ -15198,7 +15198,7 @@ entities:
       pos: -2.5,-7.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -58551.402
+      secondsUntilStateChange: -58619.285
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -15405,7 +15405,7 @@ entities:
       pos: 24.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -38306.645
+      secondsUntilStateChange: -38374.527
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -15481,7 +15481,7 @@ entities:
       pos: 6.5,9.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -97.41658
+      secondsUntilStateChange: -165.29791
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -28992,6 +28992,13 @@ entities:
     components:
     - type: Transform
       pos: 9.5,-16.5
+      parent: 1
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 9
+    components:
+    - type: Transform
+      pos: 20.5,-9.5
       parent: 1
 - proto: SpawnPointServiceWorker
   entities:
