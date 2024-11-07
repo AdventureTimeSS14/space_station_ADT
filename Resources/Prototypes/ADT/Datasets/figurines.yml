@@ -24,7 +24,7 @@
 
 
 - type: localizedDataset
-   id: ADTFigurinesPlushieJungar
+  id: ADTFigurinesPlushieJungar
   values:
     prefix: adt-figurines-plushie-jungar-
     count: 9
