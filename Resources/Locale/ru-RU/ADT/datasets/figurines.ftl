@@ -16,3 +16,13 @@ figurines-uker-4 = Пиздец.
 figurines-bush-1 = Некоторые думают что они умнее нас. Посмотрим. Посмотрим. Мы ещё не встречали никого умнее пули. 
 figurines-bush-2 = Чувааак, кажись мы открыли настройки...
 figurines-bush-3 = Карго.. Закажите экзотических семян.
+
+adt-figurines-plushie-jungar-1 = Пип!
+adt-figurines-plushie-jungar-2 = Скуик!
+adt-figurines-plushie-jungar-3 = Чуу!
+adt-figurines-plushie-jungar-4 = Я тебя люблю!!
+adt-figurines-plushie-jungar-5 = Можно мне немного сырочка?
+adt-figurines-plushie-jungar-6 = Я люблю сырочек!
+adt-figurines-plushie-jungar-7 = Желаю тебе хорошего дня!
+adt-figurines-plushie-jungar-8 = Пожалуйста, не кушай меня, я же маинький и милый!
+adt-figurines-plushie-jungar-9 = Я твой талисман удачи!

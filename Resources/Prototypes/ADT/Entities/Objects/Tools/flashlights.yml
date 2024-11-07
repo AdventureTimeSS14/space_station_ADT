@@ -1,0 +1,9 @@
+- type: entity
+  parent: Flash
+  id: MindFlushingFlash
+  name: flash
+  description: Mind flusher. Keep eyes safe.
+  suffix: Time patrol
+  components:
+    - type: MindFlush
+      range: 7

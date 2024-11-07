@@ -320,6 +320,36 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_jungar
+  - type: EmitSoundOnUse
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnActivate
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ToySqueak
+  - type: UseDelay
+    delay: 3
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnUse
+    pack: ADTFigurinesPlushieJungar
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0.001
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      collection: ToySqueak
+    delay: 900
 
 # Maestro_HLT
 - type: entity
@@ -1368,4 +1398,13 @@
       - id: ToyFigurineYukerNighthauzer
         orGroup: PlayerFig
 
-
+# Hollowing
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieHollowing
+  name: Weaver
+  description: weaver
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_hollowing
