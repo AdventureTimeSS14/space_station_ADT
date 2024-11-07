@@ -1385,7 +1385,7 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/figurines.rsi
-    state: fig_box
+    state: present
   - type: SpawnItemsOnUse
     items:
       - id: MysteryFigureBoxTrash
