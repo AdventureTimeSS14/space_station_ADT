@@ -14,7 +14,7 @@
   id: FigurinesUker
   values:
     prefix: figurines-uker-
-    count: 3
+    count: 4
 
 - type: localizedDataset
   id: FigurinesBush
