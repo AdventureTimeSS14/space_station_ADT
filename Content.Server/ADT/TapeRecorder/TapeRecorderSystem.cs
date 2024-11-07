@@ -1,7 +1,8 @@
+using Content.Server.ADT.Language;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Speech;
-using Content.Server.Speech.Components;
+using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Chat;
 using Content.Shared.Corvax.TTS;
@@ -10,9 +11,7 @@ using Content.Shared.Speech;
 using Content.Shared.TapeRecorder;
 using Content.Shared.TapeRecorder.Components;
 using Content.Shared.TapeRecorder.Events;
-using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using System.Text;
 
 namespace Content.Server.TapeRecorder;
@@ -23,6 +22,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -38,7 +38,6 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
     /// </summary>
     protected override void ReplayMessagesInSegment(Entity<TapeRecorderComponent> ent, TapeCassetteComponent tape, float segmentStart, float segmentEnd)
     {
-        var voice = EnsureComp<VoiceOverrideComponent>(ent);  // ADT TODO: РАСКОММЕНТИТЬ ПОСЛЕ АПСТРИМА
         var speech = EnsureComp<SpeechComponent>(ent);
 
         foreach (var message in tape.RecordedData)
@@ -47,7 +46,6 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
                 continue;
 
             //Change the voice to match the speaker
-            // voice.NameOverride = message.Name ?? ent.Comp.DefaultName;   // ADT TODO: РАСКОММЕНТИТЬ ПОСЛЕ АПСТРИМА
             if (message.Bark != null)
             {
                 var barkOverride = EnsureComp<SpeechBarksComponent>(ent);
@@ -62,9 +60,12 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
 
             // TODO: mimic the exact string chosen when the message was recorded
             var verb = message.Verb ?? SharedChatSystem.DefaultSpeechVerb;
-            speech.SpeechVerb = _proto.Index<SpeechVerbPrototype>(verb);
+            speech.SpeechVerb = _proto.Index(verb);
+
+            var language = message.Language ?? _language.Universal;
+
             //Play the message
-            _chat.TrySendInGameICMessage(ent, message.Message, InGameICChatType.Speak, false, nameOverride: message.Name ?? ent.Comp.DefaultName);  // ADT TODO: УБРАТЬ пункт nameOverride ПОСЛЕ АПСТРИМА
+            _chat.TrySendInGameICMessage(ent, message.Message, InGameICChatType.Speak, false, nameOverride: message.Name ?? ent.Comp.DefaultName, language: _proto.Index(language));
 
             RemComp<SpeechBarksComponent>(ent);
             RemComp<TTSComponent>(ent);
@@ -113,7 +114,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             tts = ttsEv.VoiceId;
         }
 
-        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, bark, barkPitch, tts, args.Message));
+        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, bark, barkPitch, tts, _language.GetCurrentLanguage(args.Source), args.Message));
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)
@@ -151,10 +152,13 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             var name = message.Name ?? ent.Comp.DefaultName;
             var time = TimeSpan.FromSeconds((double) message.Timestamp);
 
+            var language = message.Language ?? _language.Universal;
+            var languagedMessage = _language.CanUnderstand(uid, language) ? message.Message : _language.ObfuscateMessage(uid, message.Message, language);
+
             text.AppendLine(Loc.GetString("tape-recorder-print-message-text",
                 ("time", time.ToString(@"hh\:mm\:ss")),
                 ("source", name),
-                ("message", message.Message)));
+                ("message", languagedMessage)));
         }
         text.AppendLine();
         text.Append(Loc.GetString("tape-recorder-print-end-text"));

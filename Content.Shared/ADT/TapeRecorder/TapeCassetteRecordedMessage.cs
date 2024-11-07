@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Speech;
@@ -44,7 +45,10 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
     [DataField]
     public ProtoId<TTSVoicePrototype>? TTS;
 
-    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, string? bark, float barkPitch, ProtoId<TTSVoicePrototype>? tts, string message)
+    [DataField]
+    public ProtoId<LanguagePrototype>? Language;
+
+    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, string? bark, float barkPitch, ProtoId<TTSVoicePrototype>? tts, ProtoId<LanguagePrototype> language, string message)
     {
         Timestamp = timestamp;
         Name = name;
@@ -52,6 +56,7 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
         Bark = bark;
         BarkPitch = barkPitch;
         TTS = tts;
+        Language = language;
         Message = message;
     }
 
