@@ -32,7 +32,7 @@
 - type: entity
   name: pizzeria chair
   id: ADTChairPizzeria
-  parent: [SeatBase, ADTChairBase]
+  parent: ADTChairBase
   description: It looks spooky.
   components:
   - type: Sprite
@@ -45,7 +45,7 @@
 - type: entity
   name: red chair
   id: ADTChairRed
-  parent: [SeatBase, ADTChairBase]
+  parent: ADTChairBase
   components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
@@ -57,7 +57,7 @@
 - type: entity
   name: white chair
   id: ADTChairWhite
-  parent: [SeatBase, ADTChairBase]
+  parent: ADTChairBase
   components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
@@ -71,7 +71,7 @@
 - type: entity
   name: oktoberfest chair
   id: ADTChairOktoberfest
-  parent: [SeatBase, ADTChairBase]
+  parent: ADTChairBase
   suffix: Oktoberfest
   components:
   - type: Sprite
