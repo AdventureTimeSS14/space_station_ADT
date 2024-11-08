@@ -8,7 +8,7 @@ using Content.Shared.Mind;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
-[RegisterComponent, Access(typeof(PhantomRuleSystem))]
+[RegisterComponent]//, Access(typeof(PhantomRuleSystem))]
 public sealed partial class PhantomRuleComponent : Component
 {
     /// <summary>
