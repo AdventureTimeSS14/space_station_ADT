@@ -164,6 +164,8 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+  - type: Puller
+    needsHands: false
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMind
     channel: CarpCollectiveMind

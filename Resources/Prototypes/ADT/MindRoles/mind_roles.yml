@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRolePhantom
+  name: Phantom Role
+#  description: mind-role-initial-infected-description
+  components:
+  - type: MindRole
+    antagPrototype: Phantom
+    exclusiveAntag: true
+  - type: PhantomRole

@@ -4,8 +4,8 @@
     - phantom
     - ghosts
   name: phantom-title
-  minPlayers: 25
-  showInVote: false
+  minPlayers: 1
+  showInVote: true
   description: phantom-description
   rules:
     - PhantomGameRule
