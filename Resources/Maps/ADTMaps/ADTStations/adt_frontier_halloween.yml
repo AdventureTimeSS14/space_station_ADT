@@ -9070,25 +9070,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 193.61612,-14.59763
       parent: 2
-- proto: ADTFoodPiePumpkin
-  entities:
-  - uid: 17874
-    components:
-    - type: Transform
-      pos: 21.02385,-27.925632
-      parent: 2
-- proto: ADTFoodPiePumpkinSlice
-  entities:
-  - uid: 8921
-    components:
-    - type: Transform
-      pos: 50.440155,7.6128054
-      parent: 2
-  - uid: 8922
-    components:
-    - type: Transform
-      pos: 84.442444,-3.2987561
-      parent: 2
 - proto: ADTFoodSnackBrains
   entities:
   - uid: 26040
@@ -9100,18 +9081,6 @@ entities:
     components:
     - type: Transform
       pos: 12.538712,-28.138226
-      parent: 2
-- proto: ADTFoodSnackBunny
-  entities:
-  - uid: 17884
-    components:
-    - type: Transform
-      pos: 31.49237,-11.983281
-      parent: 2
-  - uid: 17885
-    components:
-    - type: Transform
-      pos: 21.235077,-15.608281
       parent: 2
 - proto: ADTFoodSnackCandyGreen
   entities:
@@ -10626,14 +10595,7 @@ entities:
     - type: Transform
       pos: 10.78083,-30.462673
       parent: 2
-- proto: ADTHalloweenPosterRandom
-  entities:
-  - uid: 26353
-    components:
-    - type: Transform
-      pos: 22.5,-25.5
-      parent: 2
-- proto: ADTHalloweenPosterRandom
+- proto: RandomPosterLegit
   entities:
   - uid: 12536
     components:
