@@ -28,7 +28,7 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
-  # - type: StationAiWhitelist #ADT-Tweak
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: GasBinaryBase
