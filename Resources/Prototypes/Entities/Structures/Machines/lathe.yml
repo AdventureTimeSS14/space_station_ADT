@@ -112,7 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  # - type: StationAiWhitelist #ADT-Tweak
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -275,7 +275,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
-  # - type: StationAiWhitelist #ADT-Tweak
+  - type: StationAiWhitelist #ADT-Tweak
   - type: MaterialStorage
     whitelist:
       tags:
@@ -491,7 +491,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
-  # - type: StationAiWhitelist #ADT-Tweak
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
