@@ -2,7 +2,7 @@
 - type: entity
   name: adt base sofa
   id: ADTSofaBase
-  parent: SeatBase
+  parent: [SeatBase, BaseStructure]
   description: It looks comfy.
   abstract: true
   components:
@@ -12,6 +12,22 @@
     bodyType: Static
   - type: Anchorable
   - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+        density: 190
+        mask:
+        - TableMask
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.1
+        Blunt: -0.1
+  - type: Strap
+    position: Down
+    rotation: 0
 
 - type: entity
   name: sofa left side
