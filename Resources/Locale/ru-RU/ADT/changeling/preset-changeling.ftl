@@ -85,3 +85,4 @@ changeling-armace-success-self = Ваша рука изгибается и му�
 changeling-armace-retract-others = Молот {CAPITALIZE(THE($target))} впитывается обратно в руку!
 changeling-armace-retract-self = Вы впитываете молот обратно в свою руку.
 defibrillator-changeling-slug = Внутри тела обнаружен паразит.
+changeling-slug-almost-ready = Скоро вы выберетесь наружу.
