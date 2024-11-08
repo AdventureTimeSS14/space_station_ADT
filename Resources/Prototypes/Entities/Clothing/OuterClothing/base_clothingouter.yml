@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: Clothing
+  parent: [Clothing, AllowSuitStorageClothing] #ADT_Tweak - вернул возможность на любой куртец и халактик вешать баллон
   id: ClothingOuterBase
   components:
   - type: Clothing
