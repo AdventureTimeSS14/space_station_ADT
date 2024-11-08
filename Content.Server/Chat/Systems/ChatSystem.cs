@@ -559,12 +559,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        string coloredMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-
-        string coloredLanguageMessage = SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, FormattedMessage.EscapeText(message), language), out _);
-
-        coloredMessage = FormattedMessage.EscapeText(coloredMessage);
-        coloredLanguageMessage = FormattedMessage.EscapeText(coloredLanguageMessage);
+        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var (coloredMessage, coloredLanguageMessage) = GetLanguageColoredMessages(source, sanitizedMessage, language);
 
         if (language.Color != null)
         {
@@ -596,7 +592,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, source, range, language: language);    // ADT Languages
 
-        var ev = new EntitySpokeEvent(source, message, language, null, null);
+        var ev = new EntitySpokeEvent(source, sanitizedMessage, language, null, null);  // ADT message => sanitizedMessage
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -645,9 +641,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         // ADT Languages start
         if (language == null)
             language = _language.GetCurrentLanguage(source);
-
-        var languageMessage = SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, message, language), out _);
-        var obfuscatedLanguageMessage = ObfuscateMessageReadability(SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, message, language), out _), 0.2f);
         // ADT Languages end
 
         // get the entity's name by visual identity (if no override provided).
@@ -671,24 +664,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        string coloredMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-        string coloredObfuscatedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(obfuscatedMessage), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-
-        string coloredObfuscatedLanguageMessage = FormattedMessage.EscapeText(obfuscatedLanguageMessage);
-        string coloredLanguageMessage = FormattedMessage.EscapeText(languageMessage);
-
-        coloredMessage = FormattedMessage.EscapeText(coloredMessage);
-        coloredObfuscatedMessage = FormattedMessage.EscapeText(coloredObfuscatedMessage);
-        coloredObfuscatedLanguageMessage = FormattedMessage.EscapeText(coloredObfuscatedLanguageMessage);
-        coloredLanguageMessage = FormattedMessage.EscapeText(coloredLanguageMessage);
-
-        if (language.WhisperColor != null)
-        {
-            coloredMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
-            coloredObfuscatedMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredObfuscatedMessage + "[/color]";
-            coloredObfuscatedLanguageMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredObfuscatedLanguageMessage + "[/color]";
-            coloredLanguageMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredLanguageMessage + "[/color]";
-        }
+        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var (coloredMessage, coloredLanguageMessage, coloredObfuscatedMessage, coloredObfuscatedLanguageMessage) = GetColoredObfuscatedLanguageMessages(source, sanitizedMessage, language);
 
         name = FormattedMessage.EscapeText(name);
 
@@ -756,7 +733,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, language, channel, obfuscatedMessage, true);
+        var ev = new EntitySpokeEvent(source, sanitizedMessage, language, channel, obfuscatedMessage, true);    // ADT message => sanitizedMessage
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
