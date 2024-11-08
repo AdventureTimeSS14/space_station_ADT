@@ -239,3 +239,16 @@
       amount: 1
   products:
     ADTMiadinol: 4
+
+- type: reaction
+  id: ADTDevazigon
+  reactants:
+    Diethylamine:
+      amount: 1
+    ADTLatrotoxin:
+      amount: 1
+    Potassium:
+      amount: 1
+  products:
+    ADTDevazigon: 3
+
