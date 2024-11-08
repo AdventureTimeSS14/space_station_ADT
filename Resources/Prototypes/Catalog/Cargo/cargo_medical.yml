@@ -118,32 +118,32 @@
   category: cargoproduct-category-name-medical
   group: market
 
-- type: cargoProduct
-  id: ChemistryP
-  icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    state: icon
-  product: CrateChemistryP
-  cost: 850
-  category: cargoproduct-category-name-medical
-  group: market
+# - type: cargoProduct #ADT_Tweak - заменяем три ящика с химикатами (где их еще и недостает!) на один со всеми кувшинами.
+#   id: ChemistryP
+#   icon:
+#     sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+#     state: icon
+#   product: CrateChemistryP
+#   cost: 850
+#   category: cargoproduct-category-name-medical
+#   group: market
 
-- type: cargoProduct
-  id: ChemistryS
-  icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    state: icon
-  product: CrateChemistryS
-  cost: 750
-  category: cargoproduct-category-name-medical
-  group: market
+# - type: cargoProduct
+#   id: ChemistryS
+#   icon:
+#     sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+#     state: icon
+#   product: CrateChemistryS
+#   cost: 750
+#   category: cargoproduct-category-name-medical
+#   group: market
 
-- type: cargoProduct
-  id: CrateChemistryD
-  icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    state: icon
-  product: CrateChemistryD
-  cost: 750
-  category: cargoproduct-category-name-medical
-  group: market
+# - type: cargoProduct
+#   id: CrateChemistryD
+#   icon:
+#     sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+#     state: icon
+#   product: CrateChemistryD
+#   cost: 750
+#   category: cargoproduct-category-name-medical
+#   group: market #ADT_Tweak - заменяем три ящика с химикатами (где их еще и недостает!) на один со всеми кувшинами.

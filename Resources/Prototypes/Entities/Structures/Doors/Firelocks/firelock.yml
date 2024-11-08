@@ -18,7 +18,7 @@
     - type: InteractionOutline
     - type: Damageable
       damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
+      damageModifierSet: StrongMetallic # ADT-Tweak (пожарный шлюз не должен быть по прочности как укрепленная стена. сделал как у обычного шлюза)
     - type: RCDDeconstructable
       cost: 4
       delay: 6
@@ -116,7 +116,6 @@
       color: Red
       enabled: false
       castShadows: false
-    - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   id: Firelock

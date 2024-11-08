@@ -171,11 +171,16 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         if (!_tags.HasTag(user, "CanPilot") ||
             !TryComp<ShuttleConsoleComponent>(uid, out var component) ||
             !this.IsPowered(uid, EntityManager) ||
-            !Transform(uid).Anchored ||
+        //    !Transform(uid).Anchored || // ADT-TWEAK
             !_blocker.CanInteract(user, uid))
         {
             return false;
         }
+
+        // ADT-Tweak-Start
+        if (!component.IsHandheldConsole && !Transform(uid).Anchored)
+            return false;
+        // ADT-Tweak-End
 
         var pilotComponent = EnsureComp<PilotComponent>(user);
         var console = pilotComponent.Console;

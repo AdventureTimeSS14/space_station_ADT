@@ -253,6 +253,9 @@
       amount: 1
     - id: ADTViperChelicerae
       amount: 1
+  - type: Bloodstream
+    bloodMaxVolume: 75
+    bloodReagent: ADTLatrotoxin
   - type: MeleeWeapon
     damage:
       types:
@@ -398,6 +401,7 @@
     damage:
       types:
         Piercing: 3.8
+        Piercing: 4.8
   - type: SolutionContainerManager
     solutions:
       melee:

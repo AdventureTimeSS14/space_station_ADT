@@ -194,6 +194,3 @@
   id: SillyIsland
   background: /Textures/Corvax/LobbyScreens/silly-island.png
 
-- type: lobbyBackground
-  id: EchoTeam
-  background: /Textures/Corvax/LobbyScreens/echo-team.png
