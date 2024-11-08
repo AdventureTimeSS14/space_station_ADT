@@ -63,7 +63,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
-
     }
 
     protected override void Started(EntityUid uid, RevolutionaryRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -148,10 +147,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (mind == null || mind.Session == null || ev.User == null)
             return;
 
-        if (!_mind.TryGetRole<RevolutionaryRoleComponent>(ev.User.Value, out var headrev))
-            return;
-
-        if (headrev.ConvertedCount <= 15)
+        if (comp.ConvertedCount <= 15)
         {
             _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), mind.Session);
             return;
@@ -168,8 +164,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
             {
-                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
-                    role.Value.Comp2.ConvertedCount++;
+                // if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role)) ///ADT rerev start
+                //     role.Value.Comp2.ConvertedCount++;
+                comp.ConvertedCount++; ///ADT rerev end
             }
         }
 
@@ -324,7 +321,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
-    ///ADT rerev start
+    ///ADT rerev start 
+
     public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
@@ -336,13 +334,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
 
-        if (_mind.TryGetRole<RevolutionaryRoleComponent>(user, out var headrev))
-            headrev.ConvertedCount++;
-
-        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
-        {
-            _role.MindAddRole(mindId, new RevolutionaryRoleComponent { PrototypeId = RevPrototypeId });
-        }
+        comp.ConvertedCount++;
 
         if (mind?.Session != null)
             _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);

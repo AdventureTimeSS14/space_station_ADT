@@ -24,6 +24,12 @@ public sealed partial class HeadRevolutionaryComponent : Component
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
 
     public override bool SessionSpecific => true;
+
+    /// <summary>
+    /// ADT - wizden bugfix
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public uint ConvertedCount = 0;
 }
 /// ADT rerev start
 [ByRefEvent]
