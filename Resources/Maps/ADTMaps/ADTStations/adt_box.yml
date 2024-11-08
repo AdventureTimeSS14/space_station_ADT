@@ -9028,6 +9028,18 @@ entities:
     - type: Transform
       pos: 39.5,-16.5
       parent: 2
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 27674
+    components:
+    - type: Transform
+      pos: 1.4001806,39.30683
+      parent: 2
+  - uid: 27675
+    components:
+    - type: Transform
+      pos: 1.1970556,39.43183
+      parent: 2
 - proto: AirAlarm
   entities:
   - uid: 54
@@ -11832,7 +11844,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4706.4385
+      secondsUntilStateChange: -4801.2373
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84741,7 +84753,7 @@ entities:
       pos: 41.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1318.9036
+      secondsUntilStateChange: -1413.7025
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -144588,6 +144600,13 @@ entities:
     components:
     - type: Transform
       pos: -42.5,3.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 27673
+    components:
+    - type: Transform
+      pos: -14.5,24.5
       parent: 2
 - proto: SpawnPointPsychologist
   entities:

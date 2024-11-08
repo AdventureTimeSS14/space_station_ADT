@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Mage by decente",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "icon"
+    },
+    {
+        "name": "inhand-left",
+         "directions": 4
+    },
+    {
+        "name": "inhand-right",
+        "directions": 4
+    },
+    {
+      "name": "mimicria_tentacle_spawn",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mimicria_tentacle_wiggle",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mimicria_tentacle_retract",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.2,
+          0.3
+        ]
+      ]
+    }
+  ]
+}
