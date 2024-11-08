@@ -1,0 +1,18 @@
+- type: entity
+  id: ADTNeutralSpiderSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+# ADT tweak start Разные пауки
+    - id: ADTMobMiniSpider
+      prob: 0.01
+# ADT tweak end Разные пауки
