@@ -1,11 +1,11 @@
 - type: vendingMachineInventory
   id: ChefvendInventory
   startingInventory:
-    ReagentContainerFlour: 2
+    ReagentContainerFlour: 4 #ADT_Tweak
     ReagentContainerCornmeal: 2
-    ReagentContainerSugar: 2
-    ReagentContainerRice: 2
-    FoodCondimentPacketSalt: 4
+    ReagentContainerSugar: 4 #ADT_Tweak
+    ReagentContainerRice: 4  #ADT_Tweak
+    FoodCondimentPacketSalt: 8 #ADT_Tweak
     FoodCondimentBottleEnzyme: 2
     FoodCondimentBottleHotsauce: 1
     FoodCondimentBottleKetchup: 1
@@ -14,10 +14,10 @@
     ReagentContainerOliveoil: 2
     ReagentContainerMayo: 1
     VariantCubeBox: 1
-    FoodContainerEgg: 1
-    DrinkMilkCarton: 2
-    DrinkSoyMilkCarton: 1
-    FoodButter: 3
-    FoodCheese: 1
-    FoodMeat: 6
+    FoodContainerEgg: 3 #ADT_Tweak
+    DrinkMilkCarton: 4  #ADT_Tweak
+    DrinkSoyMilkCarton: 2 #ADT_Tweak
+    FoodButter: 6 #ADT_Tweak
+    FoodCheese: 3 #ADT_Tweak
+    FoodMeat: 10   #ADT_Tweak
     
