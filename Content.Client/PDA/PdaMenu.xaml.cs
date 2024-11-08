@@ -35,9 +35,10 @@ namespace Content.Client.PDA
 
         private string _instructionsForCommands = Loc.GetString("comp-pda-ui-for-commands-unknown"); // ADT START
         private string _instructionsForCapitan = Loc.GetString("comp-pda-ui-for-capitan-unknown");
-        private string _instructionsForSecurity = Loc.GetString("comp-pda-ui-for-security-unknown"); 
-        private string _instructionsForAnother = Loc.GetString("comp-pda-ui-for-another-unknown"); // ADT END
-        
+        private string _instructionsForSecurity = Loc.GetString("comp-pda-ui-for-security-unknown");
+        private string _instructionsForMedics = Loc.GetString("comp-pda-ui-for-medics-unknown");
+        private string _instructionsForEngineer = Loc.GetString("comp-pda-ui-for-engineer-unknown");
+        private string _instructionsForLawyer = Loc.GetString("comp-pda-ui-for-lawyer-unknown"); // ADT END        
 
         private int _currentView;
 
@@ -45,11 +46,6 @@ namespace Content.Client.PDA
         public event Action<EntityUid>? OnUninstallButtonPressed;
         public event Action<EntityUid>? OnInstallButtonPressed;
 
-        private bool IsAnother(string jobTitle) // ADT START Капитан
-        {
-            return jobTitle.Equals("Клоун", StringComparison.OrdinalIgnoreCase);
-
-        } // ADT END
 
         private bool IsCommand(string jobTitle) // ADT START Главы
         {
@@ -79,6 +75,34 @@ namespace Content.Client.PDA
                 jobTitle.Equals("Кадет СБ", StringComparison.OrdinalIgnoreCase) ||
                 jobTitle.Equals("Офицер СБ", StringComparison.OrdinalIgnoreCase)  ||
                 jobTitle.Equals("Смотритель", StringComparison.OrdinalIgnoreCase);
+
+        } // ADT END
+
+        private bool IsMedics(string jobTitle) // ADT START Мед отдел
+        {
+            return jobTitle.Equals("Интерн", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Химик", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Ведущий Врач", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Патологоанатом", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Парамедик", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Врач", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Психолог", StringComparison.OrdinalIgnoreCase);
+
+        } // ADT END
+
+        private bool IsEngineer(string jobTitle) // ADT START Мед отдел
+        {
+            return jobTitle.Equals("Инженер", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Бригадир", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Атмосферный техник", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Технический ассистент", StringComparison.OrdinalIgnoreCase);
+
+        } // ADT END
+
+        private bool IsLawyer(string jobTitle) // ADT START Мед отдел
+        {
+            return jobTitle.Equals("Агент внутренних дел", StringComparison.OrdinalIgnoreCase) ||
+                jobTitle.Equals("Адвокат", StringComparison.OrdinalIgnoreCase);
 
         } // ADT END
 
@@ -196,7 +220,7 @@ namespace Content.Client.PDA
                     ("jobTitle", _jobTitle)));
 
                 // Инструкции "comp-pda-ui-for-commands (-unknown)" для ролей
-                if (IsCapitan(_jobTitle) || IsCommand(_jobTitle) || IsSecurity(_jobTitle))
+                if (IsCapitan(_jobTitle) || IsCommand(_jobTitle) || IsSecurity(_jobTitle) || IsMedics(_jobTitle) || IsEngineer(_jobTitle) || IsLawyer(_jobTitle))
                 {
                     if (IsCapitan(_jobTitle))
                     {
@@ -213,9 +237,19 @@ namespace Content.Client.PDA
                         _instructionsForSecurity = Loc.GetString("comp-pda-ui-for-security");
                     }
 
-                    if (IsAnother(_jobTitle))
+                    if (IsMedics(_jobTitle))
                     {
-                        _instructionsForAnother = Loc.GetString("comp-pda-ui-for-another");
+                        _instructionsForMedics = Loc.GetString("comp-pda-ui-for-medics");
+                    }
+
+                    if (IsEngineer(_jobTitle))
+                    {
+                        _instructionsForEngineer = Loc.GetString("comp-pda-ui-for-engineer");
+                    }
+
+                    if (IsLawyer(_jobTitle))
+                    {
+                        _instructionsForLawyer = Loc.GetString("comp-pda-ui-for-lawyer");
                     }
                 }
                 else
@@ -249,7 +283,7 @@ namespace Content.Client.PDA
                 ("level", _alertLevel)
             ));
             
-            if (IsCapitan(_jobTitle) || IsCommand(_jobTitle) || IsSecurity(_jobTitle) || IsAnother(_jobTitle)) // ADT START
+            if (IsCapitan(_jobTitle) || IsCommand(_jobTitle) || IsSecurity(_jobTitle) || IsMedics(_jobTitle) || IsEngineer(_jobTitle) || IsLawyer(_jobTitle)) // ADT START
             {
                 if (IsCapitan(_jobTitle)) // ADT
                 {
@@ -262,7 +296,6 @@ namespace Content.Client.PDA
 
                 if (IsCommand(_jobTitle)) // ADT
                 {
-                    // Установка текста инструкций для команд
                     _instructionsForCommands = Loc.GetString($"{alertLevelKey}-instructions-for-commands");
                     StationAlertLevelInstructionsForCommands.SetMarkup(Loc.GetString(
                         "comp-pda-ui-for-commands",
@@ -272,7 +305,6 @@ namespace Content.Client.PDA
 
                 if (IsSecurity(_jobTitle)) // ADT
                 {
-                    // Установка текста инструкций для команд
                     _instructionsForSecurity = Loc.GetString($"{alertLevelKey}-instructions-for-security");
                     StationAlertLevelInstructionsForSecurity.SetMarkup(Loc.GetString(
                         "comp-pda-ui-for-security",
@@ -280,18 +312,34 @@ namespace Content.Client.PDA
                     );
                 } 
 
-                if (IsAnother(_jobTitle)) // ADT
+                if (IsMedics(_jobTitle)) // ADT
                 {
-                    // Установка текста инструкций для команд
-                    _instructionsForAnother = Loc.GetString($"{alertLevelKey}-instructions-for-another");
-                    StationAlertLevelInstructionsForAnother.SetMarkup(Loc.GetString(
-                        "comp-pda-ui-for-another",
-                        ("instructionsForAnother", _instructionsForAnother))
+                    _instructionsForMedics = Loc.GetString($"{alertLevelKey}-instructions-for-medics");
+                    StationAlertLevelInstructionsForMedics.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-for-medics",
+                        ("instructionsForMedics", _instructionsForMedics))
                     );
                 } 
 
-                // Единичные _jobTitle.Equals:
+                if (IsEngineer(_jobTitle)) // ADT
+                {
+                    _instructionsForEngineer = Loc.GetString($"{alertLevelKey}-instructions-for-engineer");
+                    StationAlertLevelInstructionsForEngineer.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-for-engineer",
+                        ("instructionsForEngineer", _instructionsForEngineer))
+                    );
+                } 
 
+                if (IsLawyer(_jobTitle)) // ADT
+                {
+                    _instructionsForLawyer = Loc.GetString($"{alertLevelKey}-instructions-for-lawyer");
+                    StationAlertLevelInstructionsForLawyer.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-for-lawyer",
+                        ("instructionsForLawyer", _instructionsForLawyer))
+                    );
+                } 
+
+                // Единичные исключения:
                 if (_jobTitle.Equals("Главный врач", StringComparison.OrdinalIgnoreCase) && alertLevel == "violet") // ADT пример как можно сделать "исключение" (Вирус)
                 {
                     _instructionsForCommands = Loc.GetString($"{alertLevelKey}-instructions-for-another-med");
@@ -301,15 +349,6 @@ namespace Content.Client.PDA
                     );
                 }
 
-
-                if (_jobTitle.Equals("Клоун", StringComparison.OrdinalIgnoreCase) && alertLevel == "epsilon") // ADT входит в команду another. (Мем)
-                {
-                    _instructionsForAnother = Loc.GetString($"{alertLevelKey}-instructions-for-another-clown");
-                    StationAlertLevelInstructionsForAnother.SetMarkup(Loc.GetString(
-                        "comp-pda-ui-for-another",
-                        ("instructionsForAnother", _instructionsForAnother))
-                    );
-                }
             }
 
             else // ADT END
@@ -319,6 +358,16 @@ namespace Content.Client.PDA
                     "comp-pda-ui-station-alert-level-instructions",
                     ("instructions", _instructions))
                 );
+
+                // Единичные исключения:
+                if (_jobTitle.Equals("Клоун", StringComparison.OrdinalIgnoreCase) && alertLevel == "epsilon") // ADT входит в команду another. (Мем)
+                {
+                    _instructions = Loc.GetString($"{alertLevelKey}-instructions-for-another-clown");
+                    StationAlertLevelInstructions.SetMarkup(Loc.GetString(
+                        "comp-pda-ui-station-alert-level-instructions",
+                        ("instructions", _instructions))
+                    );
+                }
             }
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";

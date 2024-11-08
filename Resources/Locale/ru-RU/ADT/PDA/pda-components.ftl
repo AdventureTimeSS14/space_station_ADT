@@ -7,6 +7,12 @@ comp-pda-ui-for-capitan-unknown = Инструкции: [color=white]{ $instruct
 # Служба безопасности
 comp-pda-ui-for-security = Инструкции: [color=white]{ $instructionsForSecurity }[/color]
 comp-pda-ui-for-security-unknown = Инструкции: [color=white]{ $instructionsForSecurity }[/color]
-# Все остальные (как для исключений на некоторые коды - сигнализации)
-comp-pda-ui-for-another = Инструкции: [color=white]{ $instructionsForAnother }[/color]
-comp-pda-ui-for-another-unknown = Инструкции: [color=white]{ $instructionsForAnother }[/color]
+# Мед отделе
+comp-pda-ui-for-medics = Инструкции: [color=white]{ $instructionsForMedics }[/color]
+comp-pda-ui-for-medics-unknown = Инструкции: [color=white]{ $instructionsForMedics }[/color]
+# Инжинерный отдел
+comp-pda-ui-for-engineer = Инструкции: [color=white]{ $instructionsForEngineer }[/color]
+comp-pda-ui-for-engineer-unknown = Инструкции: [color=white]{ $instructionsForEngineer }[/color]
+# Юридический отдел
+comp-pda-ui-for-lawyer = Инструкции: [color=white]{ $instructionsForLawyer }[/color]
+comp-pda-ui-for-lawyer-unknown = Инструкции: [color=white]{ $instructionsForLawyer }[/color]
