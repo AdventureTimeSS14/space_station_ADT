@@ -25,3 +25,19 @@ public sealed partial class HeadRevolutionaryComponent : Component
 
     public override bool SessionSpecific => true;
 }
+/// ADT rerev start
+[ByRefEvent]
+public sealed class ConvertAttemtEvent
+{
+    public EntityUid User;
+    public EntityUid Target;
+    public HeadRevolutionaryComponent? Comp;
+
+    public ConvertAttemtEvent(EntityUid user, EntityUid target, HeadRevolutionaryComponent? comp)
+    {
+        Target = target;
+        User = user;
+        Comp = comp;
+    }
+}
+/// ADT rerev end

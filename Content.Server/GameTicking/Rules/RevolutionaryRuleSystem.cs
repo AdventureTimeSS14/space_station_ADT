@@ -140,6 +140,19 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         }
 
+        ///ADT rerev start
+        if (mind == null || mind.Session == null || ev.User == null)
+            return;
+
+        if (!_mind.TryGetRole<RevolutionaryRoleComponent>(ev.User.Value, out var headrev))
+            return;
+
+        if (headrev.ConvertedCount <= 15)
+        {
+            _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), mind.Session);
+            return;
+        }
+        ///ADT rerev end
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
 
@@ -147,7 +160,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(ev.User.Value)} converted {ToPrettyString(ev.Target)} into a Revolutionary");
 
-            if (_mind.TryGetRole<RevolutionaryRoleComponent>(ev.User.Value, out var headrev))
+            // if (_mind.TryGetRole<RevolutionaryRoleComponent>(ev.User.Value, out var headrev)) ///ADT rerev
                 headrev.ConvertedCount++;
         }
 
@@ -302,4 +315,28 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
+    ///ADT rerev start
+    public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return;
+
+        _npcFaction.AddFaction(target, RevolutionaryNpcFaction);
+        var revComp = EnsureComp<RevolutionaryComponent>(target);
+
+
+        _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
+
+        if (_mind.TryGetRole<RevolutionaryRoleComponent>(user, out var headrev))
+            headrev.ConvertedCount++;
+
+        if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
+        {
+            _role.MindAddRole(mindId, new RevolutionaryRoleComponent { PrototypeId = RevPrototypeId });
+        }
+
+        if (mind?.Session != null)
+            _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+    }
+    ///ADT rerev end
 }

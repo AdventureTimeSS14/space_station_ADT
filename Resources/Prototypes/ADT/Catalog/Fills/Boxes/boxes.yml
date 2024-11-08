@@ -687,6 +687,12 @@
     - id: ADTClothingHeadHatHornsSollux
     - id: ADTClothingShoesBootsSollux
     - id: ADTClothingUniformJumpsuitSollux
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,2
+  - type: Item
+    size: Large
 
 # Bad Police
 

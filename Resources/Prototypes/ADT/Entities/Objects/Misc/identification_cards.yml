@@ -180,3 +180,13 @@
     - state: id-guardofficer
   - type: PresetIdCard
     job: ADTGuardOfficer
+
+- type: entity
+  parent: PassengerIDCard
+  id: ADTPassagerRDIDCard
+  components:
+  - type: PresetIdCard
+    job: Passenger
+  - type: Access
+    groups:
+    - Research
