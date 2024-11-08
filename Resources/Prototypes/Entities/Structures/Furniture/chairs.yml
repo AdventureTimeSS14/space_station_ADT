@@ -53,12 +53,12 @@
 - type: entity
   name: chair
   id: UnanchoredChairBase
-  parent: [SeatBase, BaseStructure] # ADT CHANGE
+  parent: [SeatBase, BaseStructure] # ADT CHANGE sleep
   abstract: true
   components:
   - type: Anchorable
   - type: Rotatable
-  - type: Physics # ADT CHANGE START
+  - type: Physics # ADT CHANGE START sleep
     bodyType: Static
   - type: Fixtures
     fixtures:
@@ -75,7 +75,7 @@
         Blunt: -0.1
   - type: Strap
     position: Down
-    rotation: 0 # ADT CHANGE END
+    rotation: 0 # ADT CHANGE END sleep
 
 #Start anchored, cannot be rotated while anchored
 - type: entity

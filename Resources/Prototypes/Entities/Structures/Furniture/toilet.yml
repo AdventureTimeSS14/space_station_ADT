@@ -28,8 +28,8 @@
   - type: Transform
     noRot: false
   - type: Strap
-    position: Down # ADT CHANGE START
-    rotation: 0 # ADT CHANGE END
+    position: Down # ADT CHANGE sleep
+    rotation: 0 # ADT CHANGE sleep
     whitelist:
       components:
       - HumanoidAppearance
@@ -108,11 +108,11 @@
         ToolOpenableVisualState.StashOpen:
           Open: { state: disposal-open }
           Closed: { state: disposal-closed }
-  - type: Anchorable # ADT CHANGE START
+  - type: Anchorable # ADT CHANGE sleep START
   - type: HealOnBuckle
     damage:
       types:
-        Poison: 0 # ADT CHANGE END
+        Poison: 0 # ADT CHANGE sleep END
 
 - type: entity
   name: toilet

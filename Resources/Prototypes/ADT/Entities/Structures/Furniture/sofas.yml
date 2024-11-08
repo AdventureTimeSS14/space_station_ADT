@@ -2,7 +2,7 @@
 - type: entity
   name: adt base sofa
   id: ADTSofaBase
-  parent: [SeatBase, BaseStructure]
+  parent: [SeatBase, BaseStructure] # sleep --- BaseStructure
   description: It looks comfy.
   abstract: true
   components:
@@ -12,7 +12,7 @@
     bodyType: Static
   - type: Anchorable
   - type: Rotatable
-  - type: Fixtures
+  - type: Fixtures # sleep start
     fixtures:
       fix1:
         shape:
@@ -27,7 +27,7 @@
         Blunt: -0.1
   - type: Strap
     position: Down
-    rotation: 0
+    rotation: 0 # sleep end
 
 - type: entity
   name: sofa left side
