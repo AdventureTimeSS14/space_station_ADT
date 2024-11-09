@@ -44,3 +44,62 @@
   - type: PointLight
     radius: 1.4
     color: "#ff7a06"
+
+# Новый год
+
+- type: entity
+  name: Suspicious gift
+  description: A gift of suspicious appearance. A barely audible beeping sound comes from it.
+  parent: BaseItem
+  id: toyC4Package
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/c4toyPackage.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: Item
+    sprite: ADT/Objects/Fun/c4toyPackage.rsi
+    size: Small
+  - type: SpawnItemsOnUse
+    items:
+    - id: toyC4
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+
+
+- type: entity
+  parent: BaseItem
+  id: toyC4
+  name: toy c4
+  description: A toy that will help you EXPLODE with laughter.
+  suffix: Новый год
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/c4toy.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Fun/c4toy.rsi
+    size: Tiny
+  # - type: ItemCooldown
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Fun/c4NY_music.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Fun/bell.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/ADT/Fun/bell.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    soundHit:
+      path: /Audio/ADT/Fun/bell.ogg
+    damage:
+      types:
+        Blunt: 0
+  - type: UseDelay
+    delay: 28
