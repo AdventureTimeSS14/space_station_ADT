@@ -14,18 +14,4 @@ public sealed partial class ChangelingRuleComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier ChangelingStartSound = new SoundPathSpecifier("/Audio/Ambience/Antag/changeling_start.ogg");
-
-    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
-    {
-        "ChangelingAbilities"
-    };
-    public readonly List<ProtoId<EntityPrototype>> Objectives = new()
-{
-    "EscapeLingShuttleObjective",
-    "KillRandomPersonObjectiveLing",
-    "SmileExtractStealObjective",
-    "DnaAbsorbObjective",
-    "StealRandomPersonalityObjectiveLing",
-    "CommandIDStealObjective"
-};
 }

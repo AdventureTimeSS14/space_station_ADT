@@ -100,6 +100,11 @@
   components:
   - type: ChangelingRule
   - type: AntagSelection
+    agentName: ling-round-end-name
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
 
 - type: entity
   parent: BaseChangelingRule

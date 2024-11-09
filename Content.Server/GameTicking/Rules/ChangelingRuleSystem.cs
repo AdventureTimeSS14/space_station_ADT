@@ -2,19 +2,14 @@ using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.Roles;
 using Content.Shared.Roles;
-using Content.Shared.Store;
-using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using System.Text;
-using Content.Server.Chat.Managers;
 using Content.Shared.Changeling.Components;
-using Content.Shared.Roles.Jobs;
-using Robust.Shared.Configuration;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Tag;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -22,14 +17,9 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 {
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
-
-    public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoints";
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public readonly ProtoId<NpcFactionPrototype> SyndicateFactionId = "Syndicate";
 
@@ -40,7 +30,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
-        SubscribeLocalEvent<ChangelingRuleComponent, ObjectivesTextPrependEvent>(OnObjectivesTextPrepend);
+        // SubscribeLocalEvent<ChangelingRuleComponent, ObjectivesTextPrependEvent>(OnObjectivesTextPrepend);
     }
 
     private void OnAntagSelect(Entity<ChangelingRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -52,11 +42,13 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
+        if (_tag.HasTag(target, "ChangelingBlacklist"))
+            return false;
 
         // briefing
         if (HasComp<MetaDataComponent>(target))
         {
-            _antag.SendBriefing(target, Loc.GetString("changeling-role-greeting"), Color.Red, rule.ChangelingStartSound);
+            _antag.SendBriefing(target, Loc.GetString("changeling-role-greeting", ("character-name", Identity.Entity(target, EntityManager))), Color.Red, rule.ChangelingStartSound);
 
             _role.MindAddRole(mindId, "MindRoleChangeling", mind, true);
         }
@@ -69,26 +61,12 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         rule.Minds.Add(mindId);
 
-        foreach (var objective in rule.Objectives)
-            _mind.TryAddObjective(mindId, mind, objective);
-
         return true;
     }
 
 
-    public void OnObjectivesTextPrepend(Entity<ChangelingRuleComponent> ent, ref ObjectivesTextPrependEvent args)
-    {
-        var sb = new StringBuilder();
-
-        foreach (var changeling in EntityQuery<ChangelingComponent>())
-        {
-            if (!_mind.TryGetMind(changeling.Owner, out var mindId, out var mind))
-                continue;
-
-            var objectiveText = Loc.GetString("changeling-objective-assignment");
-            sb.AppendLine(objectiveText);
-        }
-
-        args.Text = sb.ToString();
-    }
+    // public void OnObjectivesTextPrepend(Entity<ChangelingRuleComponent> ent, ref ObjectivesTextPrependEvent args)
+    // {
+    //     args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", comp.Codewords)));
+    // }
 }

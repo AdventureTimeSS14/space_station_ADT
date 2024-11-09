@@ -482,9 +482,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(source, out var targetHumanoidAppearance))
             return null;
 
+
         newHumanoidData.EntityPrototype = prototype;
         newHumanoidData.MetaDataComponent = targetMeta;
-        newHumanoidData.HumanoidAppearanceComponent = targetHumanoidAppearance;
+        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(targetHumanoidAppearance, notNullableOverride: true);
         newHumanoidData.DNA = dnaComp.DNA;
 
         var targetTransformComp = Transform(source);
@@ -526,10 +527,25 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         newHumanoidData.EntityPrototype = prototype;
         newHumanoidData.MetaDataComponent = targetMeta;
-        newHumanoidData.HumanoidAppearanceComponent = targetHumanoidAppearance;
+        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(targetHumanoidAppearance, notNullableOverride: true);;
         newHumanoidData.DNA = dnaComp.DNA;
         newHumanoidData.EntityUid = uid;
 
+        return newHumanoidData;
+    }
+
+    public PolymorphHumanoidData CopyPolymorphHumanoidData(PolymorphHumanoidData data)
+    {
+        var newHumanoidData = new PolymorphHumanoidData();
+        var ent = Spawn(data.EntityPrototype.ID);
+        SendToPausedMap(ent, Transform(ent));
+
+        newHumanoidData.EntityPrototype = data.EntityPrototype;
+        newHumanoidData.MetaDataComponent = data.MetaDataComponent;
+        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(data.HumanoidAppearanceComponent, notNullableOverride: true);;
+        newHumanoidData.DNA = data.DNA;
+        newHumanoidData.EntityUid = ent;
+        _metaData.SetEntityName(ent, data.MetaDataComponent.EntityName);
         return newHumanoidData;
     }
     // ADT-Changeling-Tweak-End

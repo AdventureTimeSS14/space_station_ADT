@@ -332,8 +332,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } }, uid);
         _store.TryRefreshStoreStock(uid);
-
         component.CanRefresh = false;
+
+        _store.UpdateUserInterface(uid, uid);
     }
 
     private void OnSelectChangelingForm(SelectChangelingFormEvent ev)
@@ -351,11 +352,9 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (list.Count() <= 0)
                 return;
 
-            var newHumanoidData = _polymorph.TryRegisterPolymorphHumanoidData(GetEntity(ev.EntitySelected));
-            if (newHumanoidData == null)
-                return;
+            var newHumanoidData = _polymorph.CopyPolymorphHumanoidData(list.First());
 
-            _polymorph.PolymorphEntityAsHumanoid(GetEntity(ev.Target), newHumanoidData.Value);
+            _polymorph.PolymorphEntityAsHumanoid(GetEntity(ev.Target), newHumanoidData);
 
             comp.StoredDNA.Remove(list.First());
             return;
@@ -509,6 +508,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             _action.SetToggled(item, false);
         }
+
+        component.LesserFormActive = false;
 
         component.StoredDNA.Remove(selectedHumanoidData);
 
