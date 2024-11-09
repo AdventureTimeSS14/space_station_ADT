@@ -401,7 +401,6 @@
     damage:
       types:
         Piercing: 3.8
-        Piercing: 4.8
   - type: SolutionContainerManager
     solutions:
       melee:
