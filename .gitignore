@@ -313,3 +313,12 @@ Resources/MapImages
 
 # Direnv stuff
 .direnv/
+/Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/meta.json
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/tail1.png
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/tail1_wagging.png
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/tail2.png
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/tail2_wagging.png
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/tail3.png
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/tail_m.png
+Resources/Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi/tail_m_wagging.png

@@ -1,6 +1,6 @@
 - type: marking
   id: ADTVulpkaninaltpointsfadebelly
-  bodyPart: Chest
+  bodyPart: RHand
   markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -45,7 +45,7 @@
 
 - type: marking
   id: ADTVulpkaninpointsfade
-  bodyPart: Chest
+  bodyPart: RHand
   markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -161,6 +161,43 @@
       state: ear_back
 
 - type: marking
+  id: ADTVulpkaninruff
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: ruff
+
+- type: marking
+  id: ADTVulpkaninkita
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: kita
+
+- type: marking
+  id: ADTVulpkaninruff
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: oldchin
+
+- type: marking
+  id: ADTVulpkaninruff
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: old
+
+
+- type: marking
   id: ADTVulpkaninmuzzle
   bodyPart: Head
   markingCategory: Head
@@ -245,7 +282,7 @@
 
 - type: marking
   id: ADTVulpkanin_spots
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -254,7 +291,7 @@
 
 - type: marking
   id: ADTVulpkanin_spots2
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -290,7 +327,7 @@
 
 - type: marking
   id: ADTVulpkanin_binding
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -335,7 +372,7 @@
 
 - type: marking
   id: ADTVulpkanin_lineLeft
-  bodyPart: Chest
+  bodyPart: RHand
   markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -407,7 +444,7 @@
 
 - type: marking
   id: ADTVulpkaninRunes
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -416,7 +453,7 @@
 
 - type: marking
   id: ADTVulpkaninScarRight
-  bodyPart: Chest
+  bodyPart: RArm
   markingCategory: Chest
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -479,7 +516,7 @@
 
 - type: marking
   id: ADTVulpkaninSkeleton
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
@@ -488,10 +525,11 @@
 
 - type: marking
   id: ADTVulpkaninSkull
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_customization_adt.rsi
       state: vulp_skull
 #END-customization-Uma-ADT
+#NewVulpCustomisation
