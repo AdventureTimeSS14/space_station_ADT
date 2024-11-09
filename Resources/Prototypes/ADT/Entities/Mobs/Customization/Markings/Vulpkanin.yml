@@ -161,13 +161,13 @@
       state: ear_back
 
 - type: marking
-  id: ADTVulpkaninruff
+  id: ADTVulpkaninruffik
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
-      state: ruff
+      state: ruffik
 
 - type: marking
   id: ADTVulpkaninkita
