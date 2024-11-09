@@ -162,7 +162,7 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: 0.75
+    transferAmount: 1.5
     solution: melee
 
 - type: entity
@@ -380,7 +380,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      45: Critical
+      40: Critical
       70: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
