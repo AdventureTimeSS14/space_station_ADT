@@ -161,7 +161,7 @@
       state: ear_back
 
 - type: marking
-  id: ADTVulpkaninruffik
+  id: ADTVulpkaninruff
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [VulpkaninSpecies]
@@ -179,7 +179,7 @@
       state: kita
 
 - type: marking
-  id: ADTVulpkaninruff
+  id: ADTVulpkaninoldchin
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [VulpkaninSpecies]
@@ -188,7 +188,7 @@
       state: oldchin
 
 - type: marking
-  id: ADTVulpkaninruff
+  id: ADTVulpkaninold
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [VulpkaninSpecies]
