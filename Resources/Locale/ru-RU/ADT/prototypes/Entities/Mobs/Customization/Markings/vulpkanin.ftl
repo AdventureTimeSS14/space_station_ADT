@@ -52,3 +52,5 @@ marking-ADTVulpkaninSkull = Череп
 
 marking-ADTVulpkaninruff = Бородка 1
 marking-ADTVulpkaninkita = Усики 1
+ADTVulpkaninoldchin = Скулы 2
+ADTVulpkaninold = Скулы 1
