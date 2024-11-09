@@ -167,7 +167,7 @@
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
-      state: ruffik
+      state: ruff
 
 - type: marking
   id: ADTVulpkaninkita
