@@ -31,7 +31,7 @@ public sealed partial class HeadRevolutionaryComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public uint ConvertedCount = 0;
 }
-/// ADT rerev start
+// ADT rerev start
 [ByRefEvent]
 public sealed class ConvertAttemtEvent
 {
@@ -46,4 +46,4 @@ public sealed class ConvertAttemtEvent
         Comp = comp;
     }
 }
-/// ADT rerev end
+// ADT rerev end
