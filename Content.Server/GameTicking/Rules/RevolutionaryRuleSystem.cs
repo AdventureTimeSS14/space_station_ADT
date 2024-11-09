@@ -143,7 +143,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         }
 
-        ///ADT rerev start
+        //ADT rerev start
         if (mind == null || mind.Session == null || ev.User == null)
             return;
 
@@ -164,9 +164,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
             {
-                // if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role)) ///ADT rerev start
+                // if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role)) //ADT rerev start
                 //     role.Value.Comp2.ConvertedCount++;
-                comp.ConvertedCount++; ///ADT rerev end
+                comp.ConvertedCount++; //ADT rerev end
             }
         }
 
@@ -213,8 +213,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private bool CheckRevsLose()
     {
-        ///ADT метод полностью переписан
-        ///ADT start
+        //ADT метод полностью переписан
+        //ADT start
         var headRevList = new List<EntityUid>();
 
         var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
@@ -266,7 +266,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         return dead == list.Count || list.Count == 0;
     }
-    ///ADT end
+    //ADT end
 
 
 
@@ -321,7 +321,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
-    ///ADT rerev start 
+    //ADT rerev start 
 
     public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
     {
@@ -339,5 +339,5 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (mind?.Session != null)
             _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }
-    ///ADT rerev end
+    //ADT rerev end
 }
