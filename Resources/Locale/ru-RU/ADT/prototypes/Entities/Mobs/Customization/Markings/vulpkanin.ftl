@@ -49,3 +49,6 @@ marking-ADTVulpkaninScar4Left = Шрам 4 слева
 marking-ADTVulpkaninScar4Right = Шрам 4 справа
 marking-ADTVulpkaninSkeleton = Скелет
 marking-ADTVulpkaninSkull = Череп
+
+marking-ADTVulpkaninruff = Бородка 1
+marking-ADTVulpkaninkita = Усики 1
