@@ -18,7 +18,7 @@
     bloodMaxVolume: 235
     bloodReagent: Blood
   - type: Hunger
-    baseDecayRate: 0.0983
+    baseDecayRate: 0.085
     thresholds:
       Overfed: 300
       Okay: 250
