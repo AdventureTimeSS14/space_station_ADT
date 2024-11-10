@@ -2,21 +2,37 @@
 - type: entity
   name: adt chair base
   id: ADTChairBase
-  parent: SeatBase
+  parent: [SeatBase, BaseStructure] # BaseStructure -- sleep
   description: It looks comfy.
   abstract: true
   components:
   - type: Transform
     anchored: true
-  - type: Physics
-    bodyType: Static
   - type: Anchorable
   - type: Rotatable
+  - type: Physics # sleep edit start
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+        density: 190
+        mask:
+        - TableMask
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.1
+        Blunt: -0.1
+  - type: Strap
+    position: Down
+    rotation: 0 # sleep edit end
 
 - type: entity
   name: pizzeria chair
   id: ADTChairPizzeria
-  parent: SeatBase
+  parent: ADTChairBase
   description: It looks spooky.
   components:
   - type: Sprite
@@ -29,7 +45,7 @@
 - type: entity
   name: red chair
   id: ADTChairRed
-  parent: SeatBase
+  parent: ADTChairBase
   components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
@@ -41,7 +57,7 @@
 - type: entity
   name: white chair
   id: ADTChairWhite
-  parent: SeatBase
+  parent: ADTChairBase
   components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
@@ -55,7 +71,7 @@
 - type: entity
   name: oktoberfest chair
   id: ADTChairOktoberfest
-  parent: SeatBase
+  parent: ADTChairBase
   suffix: Oktoberfest
   components:
   - type: Sprite
@@ -202,7 +218,7 @@
 - type: entity
   name: spider stool
   id: ADTSpiderStool
-  parent: SeatBase
+  parent: ADTChairBase
   description: It looks spooky.
   suffix: Halloween
   components:
