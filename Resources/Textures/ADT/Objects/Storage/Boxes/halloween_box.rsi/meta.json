@@ -65,6 +65,27 @@
             "name": "payday"
         },
         {
+            "name": "squid_org"
+        },
+        {
+            "name": "squid_player"
+        },
+        {
+            "name": "lethal_company"
+        },
+        {
+            "name": "bad_police"
+        },
+        {
+            "name": "empress_of_light"
+        },
+        {      
+            "name": "redhat"
+        },
+        {
+            "name": "sollux"
+        },
+        {
             "name": "michael"
         }
     ]

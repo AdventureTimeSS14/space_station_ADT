@@ -1,0 +1,14 @@
+- type: entity
+  parent: Jug
+  suffix: charcoal
+  id: ADTJugCharcoal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-Charcoal
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Charcoal
+          Quantity: 200

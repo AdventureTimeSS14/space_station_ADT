@@ -6,6 +6,8 @@
   maxLimit: 3
   loadouts:
   - SpaceLaw # Corvax-HyperLink
+  - FlowerWreath
+  - Hairflower
   - PlushieLizard
   - PlushieSpaceLizard
   - Lighter
@@ -39,6 +41,24 @@
   - ClothingNeckSolarisPin
   - ClothingNeckWhiteListPin
   # Corvax-Loadouts-End
+  - TowelColorBlack
+  - TowelColorDarkBlue
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorLightBrown
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorSilver
+  - TowelColorLightBlue
+  - TowelColorWhite
+  - TowelColorYellow
+
 - type: loadoutGroup
   id: Glasses
   name: loadout-group-glasses
@@ -848,6 +868,15 @@
   - ADTEmergencyMothExtended #ADT_Species
   - ADTEmergencyIPCExtended #ADT_Species
 
+# ADT-TWEAK-START
+- type: loadoutGroup
+  id: ADTEngineeringBelt
+  name: loadout-group-engineering-belt
+  loadouts:
+  - ADTBeltUtility
+  - ADTBeltUtilityWebbing
+# ADT-TWEAK-END
+
 # Science
 - type: loadoutGroup
   id: ResearchDirectorHead
@@ -1133,6 +1162,7 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
 
 - type: loadoutGroup
