@@ -354,9 +354,6 @@ public sealed partial class StoreSystem
             UpdateUserInterface(buyer, uid, component);
         }
 
-        if (!component.RefundPossible) // ADT-Changeling-Tweak
-            return;
-
         if (!component.RefundAllowed || component.BoughtEntities.Count == 0)
             return;
 

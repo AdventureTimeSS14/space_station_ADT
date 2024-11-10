@@ -26,6 +26,8 @@
     pryPowered: true
   - type: DisarmMalus
     malus: 0
+  - type: Reflect
+    reflectProb: 0.5
 
 - type: entity
   name: arm mace
@@ -65,5 +67,5 @@
         Blunt: 12
     toCollideDamage:
       types:
-        Structural: 60
+        Structural: 75
     downOnHit: false

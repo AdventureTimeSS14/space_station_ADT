@@ -126,6 +126,7 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: BasePDA
@@ -139,6 +140,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+      - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: BasePDA
@@ -417,6 +419,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - AstroNavCartridge
+      - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: BasePDA
@@ -959,6 +962,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - WantedListCartridge
+      - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: ERTLeaderPDA
