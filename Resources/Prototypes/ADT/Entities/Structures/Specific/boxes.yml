@@ -36,9 +36,9 @@
             max: 3
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  # - type: Construction
-  #   graph: ADTBoxMaintenance
-  #   node: ADTBoxMaintenance
+  - type: Construction
+    graph: ADTBoxMaintenance
+    node: ADTBoxMaintenance
 
 - type: entity
   parent: ADTBoxMaintenance
