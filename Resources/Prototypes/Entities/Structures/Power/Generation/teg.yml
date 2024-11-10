@@ -12,9 +12,11 @@
       sprite: Structures/Power/Generation/teg.rsi
       layers:
         - state: teg
-        - state: teg_mid
-          shader: unshaded
-          map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        # ADT-Sound-Update-Start
+        #- state: teg_mid ADT-Sound-Update
+        #  shader: unshaded
+        #  map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        # ADT-Sound-Update-End
         - state: teg-op1
           shader: unshaded
           visible: false

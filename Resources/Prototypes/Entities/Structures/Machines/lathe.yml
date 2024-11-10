@@ -745,6 +745,11 @@
   - type: GuideHelp
     guides:
     - Robotics
+  # ADT-Sound-Update-Start
+  - type: Tag
+    tags:
+    - ADTRoboticsAmbience
+  # ADT-Sound-Update-End
 
 - type: entity
   id: Biofabricator
