@@ -18,6 +18,8 @@
     forced: true
     inventory: Drop
     allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
 
 - type: entity
   name: changeling slug

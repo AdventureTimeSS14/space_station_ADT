@@ -611,8 +611,6 @@ public sealed partial class ChangelingSystem
 
     public void OnTransformSting(EntityUid uid, ChangelingComponent component, TransformationStingEvent args)
     {
-        var selectedHumanoidData = component.StoredDNA[component.SelectedDNA];
-
         if (args.Handled)
             return;
 
@@ -621,12 +619,9 @@ public sealed partial class ChangelingSystem
         if (!TryStingTarget(uid, target))
             return;
 
-        var dnaComp = EnsureComp<DnaComponent>(target);
-
-        if (selectedHumanoidData.DNA == dnaComp.DNA)
+        if (component.StoredDNA.Count <= 0)
         {
-            var selfMessage = Loc.GetString("changeling-transform-sting-fail-already", ("target", Identity.Entity(target, EntityManager)));
-            _popup.PopupEntity(selfMessage, uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-nodna"), uid, uid);
             return;
         }
 
