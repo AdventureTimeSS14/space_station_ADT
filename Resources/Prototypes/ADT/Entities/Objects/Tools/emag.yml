@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseItem
+  id: ADTEmagHandMade
+  name: modificated ID card
+  description: A hand-made emag analog. It smells pretty red.
+  components:
+  - type: Emag
+  - type: Sprite
+    sprite: ADT/Objects/Tools/emag_handmade.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Tools/emag_handmade.rsi
+    storedRotation: -90
+  - type: LimitedCharges
+    charges: 10
+    maxCharges: 10
