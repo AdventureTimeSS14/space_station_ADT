@@ -59,7 +59,7 @@ marking-SnoutEasternDNW = Нос 2
 # Уши
 
 marking-EarsSylveon = Уши, сильвеона
-marking-EarsAvali = Уши, авали
+marking-EarsResomi = Уши, резоми
 marking-EarsChemlight = Уши, ХимСвет
 marking-EarsDragonLong = Уши, дракона длинные
 marking-EarsEasternD = Уши 1

@@ -208,14 +208,14 @@
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
 
-# avali
+# Resomi
 
 - type: soundCollection
-  id: MaleAvaliScreams
+  id: MaleResomiScreams
   files:
-    - /Audio/ADT/Voice/Avali/avali_scream.ogg
+    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
 
 - type: soundCollection
-  id: FemaleAvaliScreams
+  id: FemaleResomiScreams
   files:
-    - /Audio/ADT/Voice/Avali/avali_scream.ogg
+    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg

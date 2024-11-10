@@ -31,6 +31,6 @@
   - /Audio/ADT/Felinid/cat_scream3.ogg
 
 - type: soundCollection
-  id: AvaliScreams
+  id: ResomiScreams
   files:
-  - /Audio/ADT/Voice/Avali/cat_scream3.ogg
+  - /Audio/ADT/Felinid/cat_scream3.ogg

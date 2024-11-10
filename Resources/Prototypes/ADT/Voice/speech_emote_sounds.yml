@@ -634,12 +634,12 @@
       collection: FemaleCry
 
 - type: emoteSounds
-  id: MaleAvali
+  id: MaleResomi
   params:
     variation: 0.125
   sounds:
     Scream:
-      collection: MaleAvaliScreams
+      collection: MaleResomiScreams
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -674,12 +674,12 @@
       collection: MaleDeathGasp
 
 - type: emoteSounds
-  id: FemaleAvali
+  id: FemaleResomi
   params:
     variation: 0.125
   sounds:
     Scream:
-      collection: FemaleAvaliScreams
+      collection: FemaleResomiScreams
     Laugh:
       collection: FemaleLaugh
     Sneeze:
