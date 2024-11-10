@@ -21,15 +21,6 @@ public sealed partial class PlaytimeStatsEntry : ContainerButton
         BackgroundColorPanel.PanelOverride = styleBox;
     }
 
-    private static string ConvertTimeSpanToHoursMinutes(TimeSpan timeSpan)
-    {
-        var hours = (int)timeSpan.TotalHours;
-        var minutes = timeSpan.Minutes;
-
-        var formattedTimeLoc = Loc.GetString("ui-playtime-time-format", ("hours", hours), ("minutes", minutes));
-        return formattedTimeLoc;
-    }
-
     public void UpdateShading(StyleBoxFlat styleBox)
     {
         BackgroundColorPanel.PanelOverride = styleBox;
