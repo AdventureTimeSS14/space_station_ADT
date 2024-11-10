@@ -4160,10 +4160,6 @@ Entries:
     id: 519
   - author: Котя
     changes:
-      - {message: Добавлено веселье!, type: Add}
-      - {message: Удалено веселье!, type: Remove}
-      - {message: Изменено веселье!, type: Tweak}
-      - {message: Исправлено веселье!, type: Fix}
       - {message: Поидее должна поправиться работа ттса с автозаменой, type: Fix}
     time: '2024-11-08T17:20:47Z'
     id: 520
