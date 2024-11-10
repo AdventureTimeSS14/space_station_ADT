@@ -18,6 +18,54 @@
   - type: ExplosionResistance
     damageCoefficient: 0.80
 
+#ADT-Tweak-Start
+- type: entity
+  abstract: true
+  id: BadgeOnClothing
+  components:
+  - type: Badgeable
+  - type: ContainerContainer
+    containers:
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+
+- type: entity
+  abstract: true
+  id: BadgeOnClothingWithContainer
+  components:
+  - type: Badgeable
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+#ADT-Tweak-End
+
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
   id: ClothingOuterArmorAirsoftBlue

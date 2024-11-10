@@ -20,7 +20,7 @@
   - type: WiredNetworkConnection
   - type: DeviceNetworkRequiresPower
   - type: AtmosDevice
-  - type: StationAiWhitelist #ADT-Tweak
+  # - type: StationAiWhitelist #ADT-Tweak
   - type: AtmosAlarmable
     syncWith:
       - FireAlarm
@@ -105,6 +105,7 @@
               collection: MetalGlassBreak
               params:
                 volume: -4
+  - type: StationAiWhitelist
   placement:
     mode: SnapgridCenter
     snap:

@@ -4,6 +4,7 @@
   parent: MarkerBase
   id: ADTHalloweenPosterRandom2
   name: random helloween wall decor spawner
+  abstract: true
   #decription: random helloween wall decor spawner
   suffix: Halloween
   components:
