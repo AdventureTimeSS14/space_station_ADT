@@ -705,7 +705,8 @@ entities:
           8,-5:
             0: 3891
           -4,5:
-            0: 238
+            0: 174
+            3: 64
           -4,6:
             0: 255
             2: 61440
@@ -789,7 +790,7 @@ entities:
             2: 35049
           7,5:
             0: 35999
-            3: 64
+            4: 64
             2: 4096
           7,6:
             2: 53196
@@ -800,7 +801,7 @@ entities:
             2: 57344
           8,5:
             0: 272
-            4: 17472
+            5: 17472
           8,6:
             2: 65345
           8,7:
@@ -841,10 +842,10 @@ entities:
             0: 53759
           11,2:
             0: 4319
-            5: 49152
+            6: 49152
           11,3:
             0: 61457
-            5: 204
+            6: 204
           11,-1:
             0: 30583
           11,4:
@@ -856,9 +857,9 @@ entities:
             0: 28791
           12,2:
             0: 119
-            5: 28672
+            6: 28672
           12,3:
-            5: 119
+            6: 119
             0: 61440
           12,-1:
             0: 29311
@@ -1276,17 +1277,17 @@ entities:
           8,8:
             2: 65534
           9,5:
-            6: 4368
-            5: 17472
+            7: 4368
+            6: 17472
           9,6:
             2: 7936
           10,5:
-            5: 4368
-            7: 17472
+            6: 4368
+            8: 17472
           10,6:
             2: 3840
           11,5:
-            5: 21840
+            6: 21840
           11,6:
             2: 3856
           12,5:
@@ -1448,6 +1449,29 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -3718,6 +3742,22 @@ entities:
     - type: Transform
       pos: -28.5,-9.5
       parent: 2
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 11533
+    components:
+    - type: Transform
+      parent: 7609
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 11534
+    components:
+    - type: Transform
+      parent: 7609
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: AirAlarm
   entities:
   - uid: 40
@@ -48114,6 +48154,44 @@ entities:
     - type: Transform
       pos: -13.5,21.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 11533
+          - 11534
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: GunSafeRifleLecter
   entities:
   - uid: 7610
@@ -58367,6 +58445,13 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-5.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 11535
+    components:
+    - type: Transform
+      pos: -11.5,15.5
       parent: 2
 - proto: SpawnPointQuartermaster
   entities:

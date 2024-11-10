@@ -112,7 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  # - type: StationAiWhitelist #ADT-Tweak
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -201,11 +201,9 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
-      - Flare
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunSlug
       - CombatKnife
       - MagazineBoxLightRifle
@@ -273,7 +271,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
-  # - type: StationAiWhitelist #ADT-Tweak
+  - type: StationAiWhitelist #ADT-Tweak
   - type: MaterialStorage
     whitelist:
       tags:
@@ -489,7 +487,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
-  # - type: StationAiWhitelist #ADT-Tweak
+  - type: StationAiWhitelist #ADT-Tweak
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
@@ -589,6 +587,7 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
+      - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
       - ADTIndustrialSMESMachineCircuitboard #ADT
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -819,7 +818,6 @@
     runningState: icon
     staticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunPractice
       - BoxShotgunSlug
       - ClothingEyesHudSecurity
@@ -950,7 +948,6 @@
       runningState: icon
       staticRecipes:
         - BoxLethalshot
-        - BoxShotgunFlare
         - BoxShotgunSlug
         - BoxShellTranquilizer
         - MagazineBoxLightRifle
@@ -1313,8 +1310,6 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
-    insertOnInteract: false
-    canEjectStoredMaterials: false
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:

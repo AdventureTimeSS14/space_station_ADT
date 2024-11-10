@@ -1,0 +1,79 @@
+- type: thiefBackpackSet
+  id: ADTAllHandMaster
+  name: revolution-toolbox-category-all-hands-master-name
+  description: revolution-toolbox-category-all-hands-master-description
+  sprite:
+    sprite: /Textures/Objects/Tools/Toolboxes/toolbox_syn.rsi
+    state: icon-open
+  content:
+  - ADTEmagHandMade
+  - WeaponPistolMk58
+  - ToolboxSyndicateFilled
+
+- type: thiefBackpackSet
+  id: ADTSubversion
+  name: revolution-toolbox-category-subversion-name
+  description: revolution-toolbox-category-subversion-description
+  sprite:
+    sprite: /Textures/Objects/Weapons/Grenades/modular.rsi
+    state: no-trigger
+  content:
+  - JugPotassium
+  - JugPotassium
+  - JugPotassium
+  - JugSulfur
+  - ADTJugCharcoal
+  - TimerTrigger
+  - TimerTrigger
+  - TimerTrigger
+  - SignalTrigger
+  - SignalTrigger
+  - SignalTrigger
+  - ChemicalPayload
+  - ChemicalPayload
+  - ChemicalPayload
+  - ChemicalPayload
+
+- type: thiefBackpackSet
+  id: ADTTechnolover
+  name: revolution-toolbox-category-technolover-name
+  description: revolution-toolbox-category-technolover-description
+  sprite:
+    sprite: /Textures/Mobs/Silicon/station_ai.rsi
+    state: ai_dead
+  content:
+  - ADTPassagerRDIDCard
+  - ADTCustomLawCircuitBoard
+  - HandheldCrewMonitor
+  - ADTBoxSollux
+
+- type: thiefBackpackSet
+  id: ADTGunsmith
+  name: revolution-toolbox-category-gunsmith-name
+  description: revolution-toolbox-category-gunsmith-description
+  sprite:
+    sprite: /Textures/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
+    state: bolt-open
+  content:
+  - WeaponShotgunHandmade
+  - WeaponShotgunHandmade
+  - WeaponShotgunHandmade
+  - WeaponMakeshiftLaser
+  - WeaponMakeshiftLaser
+  - WeaponMakeshiftLaser
+  - WeaponRevolverInspector
+  - Chainsaw
+
+- type: thiefBackpackSet
+  id: ADTPrinting
+  name: revolution-toolbox-category-printing-name
+  description: revolution-toolbox-category-printing-description
+  sprite:
+    sprite: /Textures/Objects/Misc/module.rsi
+    state: generic
+  content:
+  - AutolatheMachineCircuitboard 
+  - ProtolatheMachineCircuitboard
+  - ExosuitFabricatorMachineCircuitboard
+  - AmmoTechFabCircuitboard
+  - SecurityTechFabCircuitboard
