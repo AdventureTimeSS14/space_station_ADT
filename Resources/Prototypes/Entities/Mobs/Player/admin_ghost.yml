@@ -1,5 +1,5 @@
 - type: entity
-  parent: [MobObserver, InventoryBase]
+  parent: [MobObserverBase, InventoryBase]
   id: AdminObserver
   name: admin observer
   categories: [ HideSpawnMenu ]
@@ -12,6 +12,7 @@
     - CanPilot
     - BypassInteractionRangeChecks
     - BypassDropChecks
+    - NoConsoleSound
     - IgnoreBalanceChecks # ADT-Economy-Tweak
   - type: Input
     context: "aghost"

@@ -54,7 +54,7 @@ public sealed class HolosignSystem : EntitySystem
         var entities = _lookup.GetEntitiesInRange(args.ClickLocation.SnapToGrid(EntityManager), .1f).ToList().Where(e => HasComp<HolosignComponent>(e));
         if (
             entities.Any()
-            || !_powerCell.TryUseCharge(uid, component.ChargeUse) // if no battery or no charge, doesn't work
+            || !_powerCell.TryUseCharge(uid, component.ChargeUse, user: args.User) // if no battery or no charge, doesn't work
         )
             return;
         // ADT-Tweak-End
