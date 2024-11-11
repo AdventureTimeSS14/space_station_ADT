@@ -2,7 +2,7 @@
 
 - type: entity
   parent: BaseWall
-  id: ADTWallLightArmorWallKMT
+  id: ADTWallLightArmorKMT
   name: KMT Light Armor
   suffix: Space Battleships, KMT
   components:
