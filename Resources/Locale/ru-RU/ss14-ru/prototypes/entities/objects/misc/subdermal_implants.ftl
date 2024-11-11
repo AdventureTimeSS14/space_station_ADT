@@ -1,51 +1,37 @@
 ent-BaseSubdermalImplant = имплант
     .desc = Микрочип, который вживляют под кожу.
-# Corvax-HiddenDesc-Start
-ent-SadTromboneImplant = { ent-BaseSubdermalImplant }
-    .suffix = Грустный тромбон
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-LightImplant = { ent-BaseSubdermalImplant }
-    .suffix = Свет
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-BikeHornImplant = { ent-BaseSubdermalImplant }
-    .suffix = хонк-имплант
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-TrackingImplant = { ent-BaseSubdermalImplant }
-    .suffix = Трекер
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-StorageImplant = { ent-BaseSubdermalImplant }
-    .suffix = Хранилище
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-FreedomImplant = { ent-BaseSubdermalImplant }
-    .suffix = Свобода
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-UplinkImplant = { ent-BaseSubdermalImplant }
-    .suffix = Аплинк
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-EmpImplant = { ent-BaseSubdermalImplant }
-    .suffix = ЭМИ
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-ScramImplant = { ent-BaseSubdermalImplant }
-    .suffix = Побег
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-DnaScramblerImplant = { ent-BaseSubdermalImplant }
-    .suffix = Миксер ДНК
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-MicroBombImplant = { ent-BaseSubdermalImplant }
-    .suffix = Микробомба
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-MacroBombImplant = { ent-BaseSubdermalImplant }
-    .suffix = Макробомба
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-DeathAcidifierImplant = { ent-BaseSubdermalImplant }
-    .suffix = Посмертный растворитель
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-DeathRattleImplant = { ent-BaseSubdermalImplant }
-    .suffix = Предсмертный хрип
-    .desc = { ent-BaseSubdermalImplant.desc }
-ent-MindShieldImplant = { ent-BaseSubdermalImplant }
-    .suffix = Щит разума
-    .desc = { ent-BaseSubdermalImplant.desc }
 
-# Corvax-HiddenDesc-End
+# ADT CHANGES START
 
+ent-SadTromboneImplant = sad trombone имплант
+    .desc = Этот имплантат воспроизводит печальную мелодию, когда пользователь умирает.
+ent-LightImplant = light имплант
+    .desc = При активации этого имплантата кожа пользователя излучает свет.
+ent-BikeHornImplant = bike horn имплант
+    .desc = Этот имплантат позволяет пользователю сигналить в любом месте в любое время.
+ent-TrackingImplant = tracking имплант
+    .desc = Этот имплантат оснащен устройством слежения, подключенным к сенсорной сети костюма, а также монитором состояния охранного радиоканала.
+ent-StorageImplant = storage имплант
+    .desc = Этот имплантат обеспечивает скрытую память в теле человека с помощью технологии bluespace.
+ent-FreedomImplant = freedom имплант
+    .desc = Этот имплантат позволяет пользователю освободиться от наручников до трех раз, прежде чем он перестанет функционировать.
+ent-UplinkImplant = uplink имплант
+    .desc = Этот имплантат позволяет пользователю по желанию получить доступ к скрытой восходящей линии связи Синдиката.
+ent-EmpImplant = EMP имплант
+    .desc = Этот имплантат при активации создает электромагнитный импульс.
+ent-ScramImplant = scram имплант
+    .desc = При активации этот имплантат случайным образом телепортирует пользователя в пределах большого радиуса.
+ent-DnaScramblerImplant = DNA scrambler имплант
+    .desc = Этот имплантат позволяет пользователю случайным образом изменить свой внешний вид и имя один раз.
+ent-MicroBombImplant = micro-bomb имплант
+    .desc = Этот имплантат взрывает пользователя при активации или смерти.
+ent-MacroBombImplant = macro-bomb имплант
+    .desc = Этот имплантат создает мощный взрыв в момент смерти после запрограммированного обратного отсчета.
+ent-DeathAcidifierImplant = death-acidifier имплант
+    .desc = Этот имплантат расплавляет пользователя и его оборудование после смерти.
+ent-DeathRattleImplant = death rattle имплант
+    .desc = Этот имплантат сообщит по радиоканалу Синдиката, если пользователь попадет в критическое состояние или умрет.
+ent-MindShieldImplant = mindshield имплант
+    .desc = Этот имплантат обеспечит лояльность к Нанотразену и предотвратит использование устройств контроля сознания.
+
+# ADT CHANGES END
