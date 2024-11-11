@@ -69,9 +69,9 @@
         Heat : 0.6
   - type: TemperatureSpeed
     thresholds:
-      160: 0.8
-      140: 0.6
-      100: 0.4
+      40: 0.8
+      0: 0.6
+      -60: 0.4
   - type: SlowOnDamage
     speedModifierThresholds:
       62: 0.85
