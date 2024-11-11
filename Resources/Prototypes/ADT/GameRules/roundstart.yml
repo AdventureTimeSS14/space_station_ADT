@@ -53,8 +53,8 @@
   - type: AntagSelection
 
 - type: entity
-  parent: BaseGameRule
-  id: HereticGameRule
+  parent: BaseHereticRule
+  id: Heretic
   components:
   - type: HereticRule
   - type: GameRule
@@ -67,10 +67,12 @@
     definitions:
     - prefRoles: [ Heretic ]
       max: 5
-      playerRatio: 20
+      playerRatio: 15
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
+        prototype: Heretic
+      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entityTable
   id: ExtendedGameRulesTable
