@@ -45,3 +45,10 @@ ent-SyndUniversalTranslatorImplant = универсальный языковой
 ent-DevTranslatorImplant = имплант языка разработчика
     .desc = Опять чинить апстрим?
     .suffix = АДМЕМЫ
+
+ent-IPCTranslatorImplant = Имплант IPC-транслятора
+    .desc = IPC транслятор
+    .suffix = IPC
+ent-VoxPidginTranslatorImplant = Имплантант-транслятор VoxCommon
+    .desc = VoxCommon транслятор
+    .suffix = VoxCommon

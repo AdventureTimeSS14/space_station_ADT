@@ -72,3 +72,10 @@ ent-SyndUniversalTranslatorImplanter = универсальный языково
 ent-DevTranslatorImplanter = имплант языка разработчика
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = АДМЕМЫ
+
+ent-IPCTranslatorImplanter = Имплантер IPC-транслятора
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = IPC
+ent-VoxPidginTranslatorImplanter = Имплантантер-транслятор VoxCommon
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = VoxCommon
