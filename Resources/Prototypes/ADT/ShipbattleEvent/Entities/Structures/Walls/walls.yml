@@ -1,0 +1,206 @@
+#Базовые стены
+
+- type: entity
+  parent: BaseWall
+  id: ADTWallLightArmorWallKMT
+  name: KMT Light Armor
+  suffix: Space Battleships, KMT
+  components:
+    - type: Sprite
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_kmt_armor.rsi
+    - type: Icon
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_kmt_armor.rsi
+    - type: IconSmooth
+      key: walls
+      base: state
+    - type: Tag
+      tags:
+        - Wall
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 1500
+          behaviors:
+            # - !type:SpawnEntitiesBehavior
+            #   spawn:
+            #     Girder:
+            #       min: 1
+            #       max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTWallLightArmorKMT
+  id: ADTWallLightArmorTSF
+  name: TSF Light Armor
+  suffix: Space Battleships, TSF
+  components:
+    - type: Sprite
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_tsf_armor.rsi
+    - type: Icon
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_tsf_armor.rsi
+
+- type: entity
+  parent: ADTWallLightArmorKMT
+  id: ADTWallHeavyArmorKMT
+  name: KMT Heavy Armor
+  suffix: Space Battleships, KMT
+  components:
+    - type: Sprite
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_kmt_heavy_armor.rsi
+    - type: Icon
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_kmt_heavy_armor.rsi
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 3000
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTWallHeavyArmorKMT
+  id: ADTWallHeavyArmorTSF
+  name: TSF Heavy Armor
+  suffix: Space Battleships, TSF
+  components:
+    - type: Sprite
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_tsf_heavy_armor.rsi
+    - type: Icon
+      sprite: ADT/ShipBattle/Structures/Walls/space_battleships_tsf_heavy_armor.rsi
+
+#Угловые варианты стен
+#Диагональные
+
+- type: entity
+  parent: WallShuttleDiagonal
+  id: ADTWallLightArmorKMTDiagonalNE
+  name: KMT Light Armor
+  suffix: Space Battleships, KMT, Diagonal, NE
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_northeast.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_northeast.rsi
+    state: state0
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+
+- type: entity
+  parent: ADTWallLightArmorKMTDiagonalNE
+  id: ADTWallLightArmorKMTDiagonalNW
+  name: KMT Light Armor
+  suffix: Space Battleships, KMT, Diagonal, NW
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_northwest.rsi
+    state: state0
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_northwest.rsi
+    state: state0
+
+- type: entity
+  parent: ADTWallLightArmorKMTDiagonalNE
+  id: ADTWallLightArmorKMTDiagonalSE
+  name: KMT Light Armor
+  suffix: Space Battleships, KMT, Diagonal, SE
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_southeast.rsi
+    state: state0
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_southeast.rsi
+    state: state0
+
+- type: entity
+  parent: ADTWallLightArmorKMTDiagonalNE
+  id: ADTWallLightArmorKMTDiagonalSW
+  name: KMT Light Armor
+  suffix: Space Battleships, KMT, Diagonal, SW
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_southwest.rsi
+    state: state0
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_kmt_armor_southwest.rsi
+    state: state0
+
+- type: entity
+  parent: ADTWallLightArmorKMTDiagonalNE
+  id: ADTWallLightArmorTSFDiagonalNE
+  name: TSF Light Armor
+  suffix: Space Battleships, TSF, Diagonal, NE
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_northeast.rsi
+    state: state0
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_northeast.rsi
+    state: state0
+
+- type: entity
+  parent: ADTWallLightArmorKMTDiagonalNE
+  id: ADTWallLightArmorTSFDiagonalNW
+  name: TSF Light Armor
+  suffix: Space Battleships, TSF, Diagonal, NW
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_northwest.rsi
+    state: state0
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_northwest.rsi
+    state: state0
+
+- type: entity
+  parent: ADTWallLightArmorKMTDiagonalNE
+  id: ADTWallLightArmorTSFDiagonalSE
+  name: TSF Light Armor
+  suffix: Space Battleships, TSF, Diagonal, SE
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_southeast.rsi
+    state: state0
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_southeast.rsi
+    state: state0
+
+- type: entity
+  parent: ADTWallLightArmorKMTDiagonalNE
+  id: ADTWallLightArmorTSFDiagonalSW
+  name: TSF Light Armor
+  suffix: Space Battleships, TSF, Diagonal, SW
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_southwest.rsi
+    state: state0
+  - type: Icon
+    sprite: ADT/ShipBattle/Structures/Walls/diagonal_tsf_armor_southwest.rsi
+    state: state0
