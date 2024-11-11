@@ -55,7 +55,7 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.15 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
@@ -99,6 +99,10 @@
         Cold: -0.06
       groups:
         Brute: -0.08
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      55: 0.8
+      75: 0.7
   - type: Fixtures
     fixtures:
       fix1:
