@@ -56,3 +56,30 @@
       Min: 3
       Max: 8
       PotencyDivisor: 15
+
+- type: seed
+  id: ADTmandarin
+  name: seeds-mandarin-name
+  noun: seeds-noun-seeds
+  displayName: seeds-mandarin-display-name
+  suffix: NewYear
+  plantRsi: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+  packetPrototype: ADTMandarinSeeds
+  productPrototypes:
+    - ADTFoodMandarin
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 8
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25

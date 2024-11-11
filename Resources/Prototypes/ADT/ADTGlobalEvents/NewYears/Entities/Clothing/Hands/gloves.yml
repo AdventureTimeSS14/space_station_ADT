@@ -1,0 +1,84 @@
+#New Year
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensRed
+  name: red mittens
+  description: Red, warm, festive.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_red.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_red.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensBlue
+  name: blue mittens
+  description: One touch and you will freeze someone.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_blue.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_blue.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensGreen
+  name: green mittens
+  description: The winter is long, we have a lot of work. Let's go to the toy factory!
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_green.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_green.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesSnowMaiden
+  name: snow maiden's gloves
+  description: A gloves of Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/gloves_snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/gloves_snow_maiden.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesMittensRedGreen
+  name: red mittens
+  description: A red mittens with green stripes.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_red_green.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/ittens_red_green.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesRed
+  name: red gloves
+  description: A red warm gloves.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/gloves_red.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/gloves_red.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesRed2 #я честно без понятия, в чём разница между ними.
+  name: red gloves
+  description: A red warm gloves.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/gloves_red2.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/gloves_red2.rsi

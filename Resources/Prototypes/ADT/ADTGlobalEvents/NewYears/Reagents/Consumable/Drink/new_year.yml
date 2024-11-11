@@ -1,0 +1,61 @@
+- type: reagent
+  id: ADTChampagneMandarin
+  name: reagent-name-champagne-mandarin
+  parent: Champagne
+  desc: reagent-desc-champagne-mandarin
+  recognizable: true
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: champagne_mandarin
+
+- type: reagent
+  id: ADTMulledWineCold
+  name: reagent-name-mulled-wine-cold
+  parent: BaseAlcohol
+  desc: reagent-desc-mulled-wine-cold
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: cold
+  color: "#743636"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: mulled_wine_cold
+
+- type: reagent
+  id: ADTMulledWine
+  name: reagent-name-mulled-wine
+  parent: BaseDrink
+  desc: reagent-desc-mulled-wine
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: ADTHoliday
+  color: "#743636"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: mulled_wine
+
+- type: reagent
+  id: ADTCarnation #гвоздика, чисто нужна для напитков.
+  name: reagent-name-carnation
+  parent: BaseDrink
+  desc: reagent-desc-carnation
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: savory
+  color: "#673d0c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.5
+
+- type: reagent
+  id: ADTСinnamon #корица, тоже для напитков.
+  name: reagent-name-cinnamon
+  parent: BaseDrink
+  desc: reagent-desc-cinnamon
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: sweet
+  color: "#9f5525"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.5

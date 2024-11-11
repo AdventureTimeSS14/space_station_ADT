@@ -165,7 +165,7 @@
   id: adt_goldenale
   flavorType: Complex
   description: flavor-complex-goldenale
-  
+
 - type: flavor
   id: adt_poppy
   flavorType: Base
@@ -180,3 +180,9 @@
   id: adt_vanilla
   flavorType: Base
   description: flavor-base-adtvanilla
+
+#на вкус как.. Отсутствие сортировки
+- type: flavor
+  id: ADTmandarin
+  flavorType: Base
+  description: flavor-base-mandarin

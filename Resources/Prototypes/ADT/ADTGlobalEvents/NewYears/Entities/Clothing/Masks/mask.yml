@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskBorodaDedMoroz
+  name: Boroda ded moroz
+  description: Boroda ded moroz
+  suffix: New Years
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Masks/ded_morozsetboroda.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Masks/ded_morozsetboroda.rsi
+    clothingVisuals:
+       mask:
+       - state: equipped-MASK
+  - type: BreathMask

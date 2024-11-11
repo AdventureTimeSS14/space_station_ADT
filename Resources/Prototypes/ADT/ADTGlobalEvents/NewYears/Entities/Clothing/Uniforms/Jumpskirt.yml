@@ -1,0 +1,12 @@
+#New Year
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSnowMaiden
+  name: snow maiden suit
+  description: A suit of a beautiful Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpskirt/snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpskirt/snow_maiden.rsi

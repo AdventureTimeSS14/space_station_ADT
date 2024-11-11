@@ -1,0 +1,183 @@
+- type: reaction
+  id: ADTChampagneMandarin
+  reactants:
+    Champagne:
+      amount: 2
+    ADTJuiceMandarin:
+      amount: 1
+  products:
+    ADTChampagneMandarin: 3
+- type: reaction
+  id: ADTMulledWineCold
+  reactants:
+    ADTСinnamon:
+      amount: 1
+    ADTCarnation:
+      amount: 2
+    JuiceLemon:
+      amount: 1
+    Wine:
+      amount: 2
+  products:
+    ADTMulledWineCold: 6
+- type: reaction
+  id: ADTMulledWine
+  minTemp: 353
+  reactants:
+    ADTMulledWineCold:
+      amount: 0.5
+  products:
+    ADTMulledWine: 0.5
+
+- type: reaction
+  id: ADTChristmasMilkshake
+  reactants:
+    Milk:
+      amount: 3
+    IceCream:
+      amount: 1
+    CocoaPowder:
+      amount: 2
+  products:
+    ADTChristmasMilkshake: 6
+
+- type: reaction
+  id: ADTTeaCinnamonLemon
+  reactants:
+    Tea:
+      amount: 3
+    JuiceLemon:
+      amount: 2
+    ADTСinnamon:
+      amount: 1
+  products:
+    ADTTeaCinnamonLemon: 6
+
+- type: reaction
+  id: ADTSbitenCinnamonLemon
+  minTemp: 373 #температура кипячения. ~99°C
+  reactants:
+    Water:
+      amount: 2
+    Mead:
+      amount: 1 #заменить на мёд. КОГДА ОН ПОЯВИТСЯ
+    JuiceLemon:
+      amount: 1
+    ADTСinnamon:
+      amount: 1
+    ADTCarnation:
+      amount: 1
+  products:
+    ADTSbitenCinnamonLemon: 6
+
+- type: reaction
+  id: ADTHotCocoa
+  minTemp: 373
+  reactants:
+    ADTCocoaDrink:
+      amount: 2
+    Cream:
+      amount: 1
+  products:
+    ADTHotCocoa: 3
+
+- type: reaction
+  id: ADTHotChocolate
+  minTemp: 373
+  reactants:
+    Nutriment:
+      amount: 10
+    Theobromine:
+       amount: 3
+    CocoaPowder:
+       amount: 1 #просто перемолотая плитка шоколада.
+  products:
+    ADTHotChocolate: 15
+
+- type: reaction
+  id: ADTHotChocolateAllergic
+  minTemp: 373
+  reactants:
+    Nutriment:
+      amount: 8
+    CocoaPowder:
+       amount: 1 #просто перемолотая плитка гипо-шоколада.
+  products:
+    ADTHotChocolateAllergic: 10
+
+#технически не совсем приготовление напитка, но всё же
+- type: microwaveMealRecipe
+  id: RecipeMulledWineWarm
+  name: warm mulled wine recipe
+  result: ADTMulledWineGlass
+  time: 10
+  reagents:
+    ADTMulledWineCold: 30
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMulledWineWarm2
+  name: warm mulled wine recipe
+  result: ADTMulledWineGlass
+  time: 10
+  reagents:
+    ADTMulledWineCold: 30
+  solids:
+    ADTMulledWineGlass: 1 #Костыли, но по-другому я никак не могу придумать.
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolate
+  name: hot chocolate recipe
+  result: ADTHotChocolateGlass
+  time: 10
+  solids:
+    DrinkGlass: 1
+    FoodSnackChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolate2
+  name: hot chocolate recipe
+  result: ADTHotChocolateGlass
+  time: 10
+  solids:
+    ADTHotChocolateGlass: 1
+    FoodSnackChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolateAllergic
+  name: hot hypoallergen chocolate recipe
+  result: ADTHotChocolateAllergicGlass
+  time: 10
+  solids:
+    DrinkGlass: 1
+    ADTHypoAllergenChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotChocolateAllergic2
+  name: hot hypoallergen chocolate recipe
+  result: ADTHotChocolateAllergicGlass
+  time: 10
+  solids:
+    ADTHotChocolateAllergicGlass: 1
+    ADTHypoAllergenChocolateBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotCocoa
+  name: hot cocoa recipe
+  result: ADTHotCocoaGlass
+  time: 10
+  reagents:
+    ADTCocoaDrink: 30
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: RecipeADTHotCocoa2
+  name: hot cocoa recipe
+  result: ADTHotCocoaGlass
+  time: 10
+  reagents:
+    ADTCocoaDrink: 30
+  solids:
+    ADTHotCocoaGlass: 1
