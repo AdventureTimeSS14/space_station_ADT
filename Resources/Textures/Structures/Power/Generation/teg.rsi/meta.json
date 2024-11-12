@@ -7,11 +7,19 @@
     "y": 32
   },
   "states": [
-	{
+    {
       "name": "teg",
       "directions": 4
     },
-	{
+    {
+      "name": "circ-unassembled-0",
+      "directions": 4
+    },
+    {
+      "name": "teg-unassembled",
+      "directions": 4
+    },
+    {
       "name": "static"
     },
     {

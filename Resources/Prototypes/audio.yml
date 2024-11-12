@@ -155,6 +155,13 @@
   id: AmbienceMedical
   files:
     - /Audio/Ambience/ambinice.ogg
+    # ADT-Sound-Update-Start
+    - /Audio/ADT/Ambience/medbay_1.ogg
+    - /Audio/ADT/Ambience/medbay_2.ogg
+    - /Audio/ADT/Ambience/medbay_3.ogg
+    - /Audio/ADT/Ambience/medbay_4.ogg
+    - /Audio/ADT/Ambience/medbay_5.ogg
+    # ADT-Sound-Update-End
 
 - type: soundCollection
   id: AmbienceMining
@@ -297,7 +304,7 @@
   rules:
     - !type:NearbyTilesPercentRule
       ignoreAnchored: true
-      percent: 0.5
+      percent: 0.75 # ADT-Sound-Update
       tiles:
       - FloorWhite
       range: 3
