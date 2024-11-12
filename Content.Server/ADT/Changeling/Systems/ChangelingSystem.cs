@@ -49,6 +49,7 @@ using Content.Server.Stealth;
 using Content.Server.ADT.Store;
 using Robust.Server.Containers;
 using Content.Server.Ghost;
+using Content.Shared.ADT.Stealth.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -89,7 +90,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
-    [Dependency] private readonly GibbingSystem _gib = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
 
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -107,7 +107,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ChangelingRefreshEvent>(OnRefresh);
 
         SubscribeLocalEvent<ChangelingComponent, ChangelingEvolutionMenuActionEvent>(OnShop);
-        SubscribeLocalEvent<ChangelingComponent, ChangelingCycleDNAActionEvent>(OnCycleDNA);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformActionEvent>(OnTransform);
 
         SubscribeNetworkEvent<SelectChangelingFormEvent>(OnSelectChangelingForm);
@@ -182,7 +181,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         _store.OnInternalShop(uid);
     }
 
-    public void OnCycleDNA(EntityUid uid, ChangelingComponent component, ChangelingCycleDNAActionEvent args) ///radial-menu
+    public void OnTransform(EntityUid uid, ChangelingComponent component, ChangelingTransformActionEvent args)
     {
         if (args.Handled)
             return;
@@ -213,64 +212,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         args.Handled = true;
     }
 
-    public void OnTransform(EntityUid uid, ChangelingComponent component, ChangelingTransformActionEvent args)
-    {
-        var selectedHumanoidData = component.StoredDNA[component.SelectedDNA];
-        if (args.Handled)
-            return;
-
-        var dnaComp = EnsureComp<DnaComponent>(uid);
-
-        if (selectedHumanoidData.DNA == dnaComp.DNA)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-already", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-
-        else if (component.ArmBladeActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-        else if (component.LingArmorActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-        else if (component.ChameleonSkinActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-        else if (component.MusclesActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-        else if (component.LesserFormActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
-            _popup.PopupEntity(selfMessage, uid, uid);
-        }
-
-        else
-        {
-            if (!TryUseAbility(uid, component, component.ChemicalsCostFive))
-                return;
-
-            args.Handled = true;
-
-            var transformedUid = _polymorph.PolymorphEntityAsHumanoid(uid, selectedHumanoidData);
-            if (transformedUid == null)
-                return;
-
-            var selfMessage = Loc.GetString("changeling-transform-activate", ("target", selectedHumanoidData.MetaDataComponent.EntityName));
-            _popup.PopupEntity(selfMessage, transformedUid.Value, transformedUid.Value);
-
-            CopyLing(uid, transformedUid.Value);
-        }
-    }
-
     private void OnMobState(EntityUid uid, ChangelingComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
@@ -280,7 +221,9 @@ public sealed partial class ChangelingSystem : EntitySystem
             RemoveArmaceEntity(uid, component);
             RemCompDeferred<StealthComponent>(uid);
             RemCompDeferred<StealthOnMoveComponent>(uid);
+            RemCompDeferred<DigitalCamouflageComponent>(uid);
             component.ChameleonSkinActive = false;
+            component.DigitalCamouflageActive = false;
             return;
         }
 
@@ -318,7 +261,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         RemoveArmaceEntity(uid, component);
         RemCompDeferred<StealthComponent>(uid);
         RemCompDeferred<StealthOnMoveComponent>(uid);
+        RemCompDeferred<DigitalCamouflageComponent>(uid);
         component.ChameleonSkinActive = false;
+        component.DigitalCamouflageActive = false;
 
         if (component.LingArmorActive)
         {
@@ -484,7 +429,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        if (component.ArmBladeActive || component.LingArmorActive || component.ChameleonSkinActive || component.MusclesActive)
+        if (component.ArmBladeActive || component.LingArmorActive || component.ChameleonSkinActive || component.MusclesActive || component.DigitalCamouflageActive)
         {
             var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -657,11 +602,8 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         comp.Accumulator -= 1;
 
-        if (_mobState.IsDead(uid)) // if ling is dead dont regenerate chemicals
-            return;
-
         if (comp.Chemicals < comp.MaxChemicals)
-            ChangeChemicalsAmount(uid, comp.ChemicalsPerSecond, comp, regenCap: true);
+            ChangeChemicalsAmount(uid, _mobState.IsDead(uid) ? comp.ChemicalsPerSecond / 2 : comp.ChemicalsPerSecond, comp, regenCap: true);
 
         if (comp.MusclesActive)
             _stamina.TakeStaminaDamage(uid, comp.MusclesStaminaDamage, null, null, null, false);

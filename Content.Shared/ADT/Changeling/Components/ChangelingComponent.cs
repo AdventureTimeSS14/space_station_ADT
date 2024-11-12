@@ -101,7 +101,7 @@ public sealed partial class ChangelingComponent : Component
     [AutoNetworkedField]
     public EntityUid? ChangelingAbsorbActionEntity;
 
-    public EntProtoId ChangelingDNACycleAction = "ActionChangelingCycleDNA";
+    public EntProtoId ChangelingDNACycleAction = "ActionChangelingTransform";
 
     [AutoNetworkedField]
     public EntityUid? ChangelingDNACycleActionEntity;
@@ -324,4 +324,7 @@ public sealed partial class ChangelingComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool LastResortUsed = false;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool DigitalCamouflageActive = false;
 }

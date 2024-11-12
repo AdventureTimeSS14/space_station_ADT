@@ -51,10 +51,6 @@ public sealed partial class ChangelingEvolutionMenuActionEvent : InstantActionEv
 {
 }
 
-public sealed partial class ChangelingCycleDNAActionEvent : InstantActionEvent
-{
-}
-
 public sealed partial class ChangelingTransformActionEvent : InstantActionEvent
 {
 }
@@ -120,6 +116,14 @@ public sealed partial class LingBiodegradeActionEvent : InstantActionEvent
 }
 
 public sealed partial class LingResonantShriekEvent : InstantActionEvent
+{
+}
+
+public sealed partial class DigitalCamouflageEvent : InstantActionEvent
+{
+}
+
+public sealed partial class ChangelingBoneShardEvent : InstantActionEvent
 {
 }
 

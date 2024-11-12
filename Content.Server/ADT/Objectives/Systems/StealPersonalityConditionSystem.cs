@@ -39,7 +39,7 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
         if (!_target.GetTarget(uid, out var target))
             return;
 
-        args.Progress = GetProgress(args.MindId, args.Mind, target.Value, comp.RequireDead);
+        args.Progress = GetProgress(args.MindId, args.Mind, target.Value, comp.ReqiredDNA ?? "", comp.RequireDead);
     }
 
     private void OnPersonAssigned(EntityUid uid, PickRandomDnaComponent comp, ref ObjectiveAssignedEvent args)
@@ -69,7 +69,8 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
             return;
         }
 
-        _target.SetTargetDna(uid, _random.Pick(allHumans), target);
+        if (TryComp<StealPersonalityConditionComponent>(uid, out var pers))
+            pers.ReqiredDNA = reqiredDna.DNA;
     }
 
     private void OnHeadAssigned(EntityUid uid, PickRandomHeadDnaComponent comp, ref ObjectiveAssignedEvent args)
@@ -109,63 +110,35 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
-
-        _target.SetTargetDna(uid, _random.Pick(allHeads), target);
+        if (TryComp<StealPersonalityConditionComponent>(uid, out var pers))
+            pers.ReqiredDNA = reqiredDna.DNA;
     }
 
-    private float GetProgress(EntityUid mindId, MindComponent mind, EntityUid target, bool requireDead)
+    private float GetProgress(EntityUid mindId, MindComponent mind, EntityUid target, string targetDna, bool requireDead)
     {
-        // Цель удалена/гибнута
-        if (!TryComp<MindComponent>(target, out var targetMind) || targetMind.OwnedEntity == null)
-            return 0f;
-
         // Генокрада не существует?
         if (!TryComp<MindComponent>(mindId, out _))
             return 0f;
 
         // Если генокрад в форме обезьяны, например
-        if (!TryComp<DnaComponent>(mindId, out var dna))
+        if (!TryComp<DnaComponent>(mind.CurrentEntity, out var dna))
             return 0f;
 
-        // Если у цели нет днк
-        if (!TryComp<DnaComponent>(target, out var targetDna))
-            return 0f;
-
-        // ДНК соответствует, но нужно ещё улететь и убить цель
-        if (targetDna.DNA == dna.DNA)
-            return 0.33f;
-
-        // Цель гибнута и ДНК соответствуют
-        if (targetMind.OwnedEntity == null && targetDna.DNA == dna.DNA)
-            return 0.66f;
-
-        // Цель мертва
-        if (_mind.IsCharacterDeadIc(targetMind) && targetDna.DNA == dna.DNA)
-            return 0.66f;
-
-        // Генокрад улетает под видом цели
-        if (mind.OwnedEntity != null && TryComp<CuffableComponent>(mind.OwnedEntity, out var cuffed) && cuffed.CuffedHandCount > 0 && _emergencyShuttle.ShuttlesLeft && _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value) && targetDna.DNA == dna.DNA)
-            return 1f;
-
-        // Если цель должна быть мертва, не проверяем эвак
-        if (requireDead)
-            return 0f;
-
-        // Какой извращенец будет отключать эвак?
-        if (!_config.GetCVar(CCVars.EmergencyShuttleEnabled))
-            return 0f;
-
-        // Цель улетает, личность не украдена
-        if (targetMind.OwnedEntity != null && _emergencyShuttle.IsTargetEscaping(targetMind.OwnedEntity.Value))
-            return 0f;
-
-        // Эвак улетел без цели, класс.
-        if (mind.OwnedEntity != null && _emergencyShuttle.ShuttlesLeft && _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value) && targetDna.DNA == dna.DNA)
-            return 1f;
-
-        // Всё ещё нужно остаться на свободе.
-        if (TryComp<CuffableComponent>(mind.OwnedEntity, out var cuff) && cuff.CuffedHandCount > 0)
-            return 0f;
+        if (_emergencyShuttle.ShuttlesLeft && _emergencyShuttle.IsTargetEscaping(mind.CurrentEntity.Value))
+        {
+            if (_emergencyShuttle.IsTargetEscaping(target))
+                return 0f;
+            if (dna.DNA == targetDna && TryComp<CuffableComponent>(mind.CurrentEntity, out var cuffed) && cuffed.CuffedHandCount > 0)
+                return 1f;
+        }
+        else
+        {
+            // ДНК соответствует, но нужно ещё улететь и убить цель
+            if (targetDna == dna.DNA)
+                return 0.5f;
+            else
+                return 0f;
+        }
 
         // Эвак ждёт, а цель ещё не пришла к нему. Ещё и жива, падаль.
         return _emergencyShuttle.EmergencyShuttleArrived ? 0.5f : 0f;

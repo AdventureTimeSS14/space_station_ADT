@@ -86,3 +86,8 @@ changeling-armace-retract-others = Молот {CAPITALIZE(THE($target))} впи�
 changeling-armace-retract-self = Вы впитываете молот обратно в свою руку.
 defibrillator-changeling-slug = Внутри тела обнаружен паразит.
 changeling-slug-almost-ready = Скоро вы выберетесь наружу.
+changeling-digital-camo-toggle-on = Вы скрываетесь от камер.
+changeling-digital-camo-toggle-off = Вы снова двигаетесь нормально.
+changeling-digital-camo-desc = [color=white]{CAPITALIZE($user)} двигается неестественными рывками.[/color]
+changeling-digi-camo-fail-chameleon = Сначала выключите хамелеон.
+changeling-chameleon-fail-digi-camo = Сначала выключите цифровой камуфляж.

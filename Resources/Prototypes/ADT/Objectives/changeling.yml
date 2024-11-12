@@ -42,6 +42,7 @@
       - SocialObjective
   - type: StealPersonalityCondition
     requireDead: true
+  - type: PickRandomDna
 
 - type: entity
   categories: [ HideSpawnMenu ]

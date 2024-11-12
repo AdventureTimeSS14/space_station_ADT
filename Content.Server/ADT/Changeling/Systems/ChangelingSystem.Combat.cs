@@ -17,6 +17,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Damage.Components;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -34,6 +35,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, ArmShieldActionEvent>(OnArmShieldAction);
         SubscribeLocalEvent<ChangelingComponent, ArmaceActionEvent>(OnArmaceAction);
         SubscribeLocalEvent<ChangelingComponent, LingArmorActionEvent>(OnLingArmorAction);
+        SubscribeLocalEvent<ChangelingComponent, ChangelingBoneShardEvent>(OnBoneShard);
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<ChangelingShieldComponent, DamageChangedEvent>(OnDamage);
@@ -340,6 +342,31 @@ public sealed partial class ChangelingSystem
             solution.AddReagent("Blood", FixedPoint2.New(75));
             _puddle.TrySpillAt(Transform(uid).Coordinates, solution, out _);
         }
+    }
+
+    private void OnBoneShard(EntityUid uid, ChangelingComponent component, ChangelingBoneShardEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (component.LesserFormActive)
+        {
+            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (!TryUseAbility(uid, component, component.ChemicalsCostFifteen))
+            return;
+
+        args.Handled = true;
+
+        var shard = Spawn("ADTThrowingStarChangeling", Transform(uid).Coordinates);
+
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 15));
+        _handsSystem.TryPickupAnyHand(uid, shard);
+
+        _audioSystem.PlayPvs(component.SoundFlesh, uid);
     }
     #endregion
 

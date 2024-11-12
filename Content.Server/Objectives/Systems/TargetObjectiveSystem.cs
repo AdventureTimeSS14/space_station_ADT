@@ -41,23 +41,6 @@ public sealed class TargetObjectiveSystem : EntitySystem
 
         comp.Target = target;
     }
-    // ADT-Changeling-Tweak-Start
-    /// <summary>
-    /// Sets the Target field for the title and other components to use.
-    /// </summary>
-    public void SetTargetDna(EntityUid uid, EntityUid target, TargetObjectiveComponent? comp = null)
-    {
-        if (!Resolve(uid, ref comp))
-            return;
-
-        if (!TryComp<DnaComponent>(target, out var reqiredDna))
-            return;
-
-        comp.Target = target;
-
-        comp.TargetDNA = reqiredDna.DNA;
-    }
-    // ADT-Changeling-Tweak-End
 
     /// <summary>
     /// Gets the target from the component.

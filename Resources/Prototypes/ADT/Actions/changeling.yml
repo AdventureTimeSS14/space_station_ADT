@@ -31,21 +31,6 @@
     priority: -60
 
 - type: entity
-  id: ActionChangelingCycleDNA
-  name: action-cycle-dna
-  description: action-cycle-dna-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: transform
-    itemIconStyle: BigAction
-    event: !type:ChangelingCycleDNAActionEvent
-    useDelay: 1
-    priority: -69
-
-- type: entity
   id: ActionChangelingTransform
   name: action-transform
   description: action-transform-desc
@@ -58,7 +43,7 @@
     itemIconStyle: BigAction
     event: !type:ChangelingTransformActionEvent
     useDelay: 5
-    priority: -68
+    priority: -69
 
 - type: entity
   id: ActionLingRegenerate
@@ -213,27 +198,11 @@
     useDelay: 90
     priority: -45
 
-    # Refresh
-# - type: entity
-#   id: ActionLingRefresh
-#   name: action-refresh-ling
-#   description: action-refresh-ling-desc
-#   categories: [ HideSpawnMenu ]
-#   components:
-#   - type: InstantAction
-#     icon:
-#       sprite: ADT/Interface/Actions/actions_ling.rsi
-#       state: refresh_dna
-#     itemIconStyle: BigAction
-#     event: !type:ChangelingRefreshActionEvent
-#     useDelay: 5
-#     priority: -66
-
     # Fleshmend
 - type: entity
   id: ActionLingFleshmend
-  name: action-omnizine
-  description: action-omnizine-desc
+  name: action-fleshmend
+  description: action-fleshmend-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -423,3 +392,35 @@
     event: !type:ArmaceActionEvent
     useDelay: 1
     priority: -51
+
+    # Digital Camo
+- type: entity
+  id: ActionDigiCamo
+  name: action-digi-camo
+  description: action-digi-camo-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: digital_camo
+    itemIconStyle: BigAction
+    event: !type:DigitalCamouflageEvent
+    useDelay: 1
+    priority: -55
+
+    # Bone shard
+- type: entity
+  id: ActionBoneShard
+  name: action-bone-shard
+  description: action-bone-shard-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: bone_shard
+    itemIconStyle: BigAction
+    event: !type:ChangelingBoneShardEvent
+    useDelay: 15
+    priority: -55

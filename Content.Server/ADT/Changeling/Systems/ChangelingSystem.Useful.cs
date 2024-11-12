@@ -18,6 +18,8 @@ using Content.Shared.Gibbing.Events;
 using Content.Shared.Speech.Muting;
 using System.Linq;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Whitelist;
+using Content.Shared.ADT.Stealth.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -26,20 +28,24 @@ public sealed partial class ChangelingSystem
     private void InitializeUsefulAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, LingAbsorbActionEvent>(StartAbsorbing);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDoAfterEvent>(OnAbsorbDoAfter);
 
         SubscribeLocalEvent<ChangelingComponent, LingRegenerateActionEvent>(OnRegenerate);
-        SubscribeLocalEvent<ChangelingComponent, LingInvisibleActionEvent>(OnLingInvisible);
-        SubscribeLocalEvent<ChangelingComponent, LingStingExtractActionEvent>(OnLingDNASting);
         SubscribeLocalEvent<ChangelingComponent, StasisDeathActionEvent>(OnStasisDeathAction);
         SubscribeLocalEvent<ChangelingComponent, FleshmendActionEvent>(OnFleshmend);
-        SubscribeLocalEvent<ChangelingComponent, MuteStingEvent>(OnMuteSting);
-        SubscribeLocalEvent<ChangelingComponent, DrugStingEvent>(OnDrugSting);
+
+        SubscribeLocalEvent<ChangelingComponent, LingInvisibleActionEvent>(OnLingInvisible);
+        SubscribeLocalEvent<ChangelingComponent, DigitalCamouflageEvent>(OnDigitalCamouflage);
         SubscribeLocalEvent<ChangelingComponent, ChangelingLesserFormActionEvent>(OnLesserForm);
         SubscribeLocalEvent<ChangelingComponent, LastResortActionEvent>(OnLastResort);
         SubscribeLocalEvent<ChangelingComponent, LingBiodegradeActionEvent>(OnBiodegrade);
-        SubscribeLocalEvent<ChangelingComponent, BiodegradeDoAfterEvent>(OnBiodegradeDoAfter);
+
+        SubscribeLocalEvent<ChangelingComponent, LingStingExtractActionEvent>(OnLingDNASting);
+        SubscribeLocalEvent<ChangelingComponent, MuteStingEvent>(OnMuteSting);
+        SubscribeLocalEvent<ChangelingComponent, DrugStingEvent>(OnDrugSting);
         SubscribeLocalEvent<ChangelingComponent, TransformationStingEvent>(OnTransformSting);
+
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDoAfterEvent>(OnAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingComponent, BiodegradeDoAfterEvent>(OnBiodegradeDoAfter);
     }
 
     private void StartAbsorbing(EntityUid uid, ChangelingComponent component, LingAbsorbActionEvent args)   // Начало поглощения
@@ -250,6 +256,12 @@ public sealed partial class ChangelingSystem
         if (component.LesserFormActive)
         {
             var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+        if (component.DigitalCamouflageActive)
+        {
+            var selfMessage = Loc.GetString("changeling-chameleon-fail-digi-camo");
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
@@ -648,5 +660,50 @@ public sealed partial class ChangelingSystem
             // реализовать сортировку
             RaiseNetworkEvent(ev, actorComponent.PlayerSession);
         }
+    }
+
+    private void OnDigitalCamouflage(EntityUid uid, ChangelingComponent component, DigitalCamouflageEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (component.LesserFormActive)
+        {
+            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+        if (component.ChameleonSkinActive)
+        {
+            var selfMessage = Loc.GetString("changeling-digi-camo-fail-chameleon");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.DigitalCamouflageActive))
+            return;
+
+        args.Handled = true;
+
+
+        var message = Loc.GetString(!component.DigitalCamouflageActive ? "changeling-digital-camo-toggle-on" : "changeling-digital-camo-toggle-off");
+        _popup.PopupEntity(message, uid, uid);
+
+        if (!component.DigitalCamouflageActive)
+        {
+            EnsureComp<DigitalCamouflageComponent>(uid);
+            var stealth = EnsureComp<StealthComponent>(uid);
+
+            stealth.MinVisibility = -1f;
+            _stealth.SetVisibility(uid, -1f);
+            _stealth.SetDesc(uid, Loc.GetString("changeling-digital-camo-desc", ("user", Identity.Entity(uid, EntityManager))));
+        }
+        else
+        {
+            RemCompDeferred<StealthComponent>(uid);
+            RemCompDeferred<DigitalCamouflageComponent>(uid);
+        }
+
+        component.DigitalCamouflageActive = !component.DigitalCamouflageActive;
     }
 }

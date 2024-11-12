@@ -126,6 +126,9 @@
 	},
 	{
 		"name": "background"
+	},
+    {
+		"name": "bone_shard"
 	}
   ]
 }
