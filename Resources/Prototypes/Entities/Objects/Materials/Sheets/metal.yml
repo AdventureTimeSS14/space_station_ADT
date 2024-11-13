@@ -68,7 +68,11 @@
         - ReagentId: Iron
           Quantity: 9
         - ReagentId: Carbon
-          Quantity: 1
+        # ADT tweak svinec
+          Quantity: 0.9
+        - ReagentId: Lead
+          Quantity: 0.1
+        # ADT tweak svinec
   # ADT-UPD-Start
   - type: Tag
     tags:
