@@ -83,4 +83,4 @@ action-digi-camo = Цифровой камуфляж
 action-digi-camo-desc = Начните двигаться особым образом, предотвращая ваше обнаружение позитронными сенсорами. [color=#db03fc]Использует 20 химикатов.[/color]
 
 action-bone-shard = Костяной сюрикен
-action-bone-shard-desc = Создайте из своих костей сюрикен. [color=#db03fc]Использует 15 химикатов,[/color] [color=crimson]наносит 15 единиц урона.[/color]
+action-bone-shard-desc = Создайте из своих костей сюрикен. [color=#db03fc]Использует 15 химикатов,[/color] [color=crimson]наносит 40 единиц урона.[/color]

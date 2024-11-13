@@ -94,22 +94,10 @@
       tableId: ExtendedGameRulesTable
 
 - type: entity
-  abstract: true
   parent: BaseGameRule
-  id: BaseChangelingRule
-  components:
-  - type: ChangelingRule
-  - type: AntagSelection
-    agentName: ling-round-end-name
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
-
-- type: entity
-  parent: BaseChangelingRule
   id: ChangelingGameRule
   components:
+  - type: ChangelingRule
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
@@ -120,6 +108,15 @@
       blacklist:
         components:
         - AntagImmune
+        tags:
+        - ChangelingBlacklist
       lateJoinAdditional: true
-      mindComponents:
-      - type: ChangelingRole
+      mindRoles:
+      - MindRoleChangeling
+      components:
+      - type: Changeling
+    agentName: ling-round-end-name
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
