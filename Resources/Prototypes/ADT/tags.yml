@@ -171,3 +171,6 @@
 
 - type: Tag
   id: ADTCandies
+
+- type: Tag
+  id: ADTBeerCan
