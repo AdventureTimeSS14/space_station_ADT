@@ -80,13 +80,13 @@ public sealed class StealthComponentState : ComponentState
     public readonly float Visibility;
     public readonly TimeSpan? LastUpdated;
     public readonly bool Enabled;
-    public string Desc;
+    public string Desc; // ADT tweak
 
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, string desc)
+    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, string desc)  // ADT tweak
     {
         Visibility = stealthLevel;
         LastUpdated = lastUpdated;
         Enabled = enabled;
-        Desc = desc;
+        Desc = desc;    // ADT tweak
     }
 }

@@ -122,11 +122,6 @@ public sealed partial class StoreSystem
                 var args = new ListingConditionArgs(buyer, storeEntity, listing, EntityManager);
                 var conditionsMet = true;
 
-                // ADT-Tweak-start: don't show listing if they have the action already
-                if (listing.ProductAction != null && _actionContainer.HasAction(buyer, listing.ProductAction))
-                    conditionsMet = false;
-                // ADT-Tweak-end
-
                 foreach (var condition in listing.Conditions)
                 {
                     if (!condition.Condition(args))

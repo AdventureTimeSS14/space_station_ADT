@@ -264,6 +264,7 @@ public sealed class ActionContainerSystem : EntitySystem
         return true;
     }
 
+    // ADT changeling start
     /// <summary>
     /// Checks if the given entity has an action prototype in their actions container.
     /// </summary>
@@ -274,20 +275,18 @@ public sealed class ActionContainerSystem : EntitySystem
 
         foreach (var act in actionsContainerComp.Container.ContainedEntities.ToArray())
         {
-            if (TryComp<MetaDataComponent>(act, out var metaDataComponent))
+            if (TryPrototype(act, out var actPrototype))
             {
-                if (TryPrototype(act, out var actPrototype, metaDataComponent))
+                if (prototypeID == actPrototype.ID)
                 {
-                    if (prototypeID == actPrototype.ID)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
         }
 
         return false;
     }
+    // ADT changeling end
 
     /// <summary>
     /// Removes an action from its container and any action-performer and moves the action to null-space
