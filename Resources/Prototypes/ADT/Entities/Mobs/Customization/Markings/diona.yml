@@ -1,6 +1,6 @@
 - type: marking
   id: ADTDionaTreePaintOverlay
-  bodyPart: LLeg
+  bodyPart: [ RLeg, LLeg, RFoot, LFoot ] 
   markingCategory: Overlay
   speciesRestriction: [Diona]
   # coloring:
