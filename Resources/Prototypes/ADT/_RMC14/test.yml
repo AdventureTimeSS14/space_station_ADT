@@ -1,0 +1,366 @@
+- type: entity
+  abstract: true
+  id: RMCBaseAttachableHolder
+  components:
+  - type: AttachableHolder
+  - type: ItemSizeChange
+  - type: ActivatableUI
+    verbText: rmc-verb-strip-attachables
+    verbOnly: true
+    key:
+      enum.AttachmentUI.StripKey
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui
+
+- type: entity
+  abstract: true
+  id: RMCBaseMeleeWeapon
+
+- type: entity
+  abstract: true
+  parent: RMCBaseMeleeWeapon
+  id: CMBaseWeaponGun
+  components:
+  - type: Clothing
+    quickEquip: false
+  - type: UseDelay
+    delay: 0
+  - type: WieldDelay
+  - type: AltFireMelee
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: Gun
+    meleeCooldownOnShoot: false
+    resetOnHandSelected: false
+
+- type: entity
+  parent: BaseBullet
+  id: RMCBaseBullet
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+
+# BASE =======================================================================================================
+
+- type: entity
+  abstract: true
+  parent: [ CMBaseWeaponGun, BaseItem, RMCBaseAttachableHolder ]
+  id: CMBaseWeaponRifle
+  components:
+  - type: Gun
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes:
+    - SemiAuto
+    - Burst
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    - Burst
+    recoilWielded: 1
+    recoilUnwielded: 4
+    scatterWielded: 10
+    scatterUnwielded: 20
+    baseFireRate: 1.429
+    burstScatterMult: 4
+    modifiers:
+      Burst:
+        fireDelay: 0.1665
+        maxScatterModifier: 10
+        useBurstScatterMult: true
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 6
+      FullAuto:
+        maxScatterModifier: 13
+        useBurstScatterMult: true
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 4
+  - type: Wieldable
+  - type: WieldableSpeedModifiers
+    baseWalk: 0.8
+    baseSprint: 0.69
+  - type: WieldDelay
+    baseDelay: 0.6
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
+    slots:
+    - suitStorage
+    - Back
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 500
+  - type: MagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineRifle
+  id: CMMagazineRifleBase
+  name: "M5 'Night Raider' bayonet"
+  description: The standard-issue bayonet of the Marines.
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: Appearance
+  - type: Clothing
+    slots:
+    - suitStorage
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+
+
+- type: entity
+  parent: BaseCartridgeRifle
+  id: CMBaseCartridgeRifle
+  name: cartridge
+  abstract: true
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+
+- type: Tag
+  id: CMMagazineRifle
+- type: Tag
+  id: RMCAttachmentUnderbarrel
+- type: Tag
+  id: RMCAttachmentU1GrenadeLauncher
+# ================================ ATTACHMENT
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: RMCAttachableBase
+  components:
+  - type: Item
+    size: Small
+  - type: Attachable
+
+- type: entity
+  parent: RMCAttachableBase
+  abstract: true
+  id: RMCAttachableToggleableBase
+  components:
+  - type: AttachableToggleable
+  - type: UseDelay
+    delay: 0
+
+# =========== KNIFE
+
+- type: entity
+  parent: [ RMCBaseMeleeWeapon, BaseKnife, RMCAttachableBase ]
+  id: RMCM5Bayonet
+  name: "M5 'Night Raider' bayonet"
+  description: The standard-issue bayonet of the Marines. You can slide this knife into your boots. # TODO RMC14 , or attach it to the end of a rifle.
+  components:
+  - type: Clothing
+    slots:
+    - mask
+    - pocket
+    - suitstorage
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+  - type: Tag
+    tags:
+    - RMCM5Bayonet
+    - Knife
+    - RMCAttachmentBarrel
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    size: Small
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Slash: 25
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 18
+  - type: DisarmMalus
+    malus: 0.225
+  - type: AttachableVisuals
+    rsi: Objects/Weapons/Melee/kitchen_knife.rsi
+    prefix: icon
+  - type: AttachableWeaponMeleeMods
+    modifiers:
+    - bonusDamage:
+        types:
+          Slash: 20
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: -0.05
+  - type: AttachablePrying
+
+- type: Tag
+  id: RMCAttachmentBarrel
+- type: Tag
+  id: RMCM5Bayonet
+- type: entity
+  abstract: true
+  parent: RMCAttachableBase
+  id: RMCBarrelAttachmentBase
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+  - type: Tag
+    tags:
+    - RMCAttachmentBarrel
+
+# =============================== RIFLE
+- type: entity
+  parent: CMBaseWeaponRifle
+  name: M54C assault rifle MK2
+  id: WeaponRifleM54C
+  description: The standard issue rifle of the Marines. Commonly carried by most combat personnel. Uses 10x24mm caseless ammunition.
+  components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    recoilUnwielded: 4
+    scatterWielded: 6
+    scatterUnwielded: 20
+    baseFireRate: 4
+    burstScatterMult: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        priority: 2
+        whitelist:
+          tags:
+          - CMMagazineRifle
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCM5Bayonet
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentU1GrenadeLauncher
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.75, 0.00
+      rmc-aslot-underbarrel: 0.75, 0.00
+
+- type: entity
+  abstract: true
+  parent: RMCAttachableBase
+  id: RMCUnderAttachmentBase
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+  - type: Tag
+    tags:
+    - RMCAttachmentUnderbarrel
+
+- type: entity
+  parent: [ RMCUnderAttachmentBase, RMCAttachableToggleableBase, BaseItem ]
+  id: RMCAttachmentU1GrenadeLauncher
+  name: U1 grenade launcher
+  description: A weapon-mounted, reloadable grenade launcher.
+  components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: RMCAmmoEject
+    containerID: ballistic-ammo
+  - type: AmmoCounter
+  - type: Gun
+    projectileSpeed: 20
+    resetOnHandSelected: false
+  - type: RMCSelectiveFire
+    baseFireRate: 0.417
+  - type: BallisticAmmoProvider
+    cycleable: false
+    whitelist:
+      tags:
+      - CartridgeRocket
+    capacity: 3
+  - type: UniqueAction
+  - type: Appearance
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    actionName: Switch to the U1 Grenade Launcher
+    actionDesc: Switch to using the underbarrel grenade launcher.
+  - type: Tag
+    tags:
+    - RMCAttachmentUnderbarrel
+    - RMCAttachmentU1GrenadeLauncher
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    size: Small

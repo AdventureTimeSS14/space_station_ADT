@@ -13,6 +13,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
+using Content.Shared._RMC14.Input;
 
 namespace Content.Client.Options.UI.Tabs
 {
@@ -150,6 +151,18 @@ namespace Content.Client.Options.UI.Tabs
 
                 KeybindsContainer.AddChild(newCheckBox);
             }
+
+            AddHeader("ui-options-header-rmc");
+            AddButton(CMKeyFunctions.RMCActivateAttachableBarrel);
+            AddButton(CMKeyFunctions.RMCActivateAttachableRail);
+            AddButton(CMKeyFunctions.RMCActivateAttachableStock);
+            AddButton(CMKeyFunctions.RMCActivateAttachableUnderbarrel);
+            AddButton(CMKeyFunctions.RMCFieldStripHeldItem);
+            AddButton(CMKeyFunctions.CMUniqueAction);
+            AddButton(CMKeyFunctions.CMHolsterPrimary);
+            AddButton(CMKeyFunctions.CMHolsterSecondary);
+            AddButton(CMKeyFunctions.CMHolsterTertiary);
+            AddButton(CMKeyFunctions.CMHolsterQuaternary);
 
             AddHeader("ui-options-header-general");
             AddCheckBox("ui-options-hotkey-keymap", _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys), HandleToggleUSQWERTYCheckbox);
