@@ -19,10 +19,6 @@ public sealed class RMCMagneticSystem : EntitySystem
         SubscribeLocalEvent<RMCMagneticItemComponent, RMCDroppedEvent>(OnMagneticItemRMCDropped);
         SubscribeLocalEvent<RMCMagneticItemComponent, ThrownEvent>(OnMagneticItemThrown);
         SubscribeLocalEvent<RMCMagneticItemComponent, DropAttemptEvent>(OnMagneticItemDropAttempt);
-
-        SubscribeLocalEvent<RMCMagneticArmorComponent, InventoryRelayedEvent<RMCMagnetizeItemEvent>>(OnMagnetizeItem);
-
-        SubscribeLocalEvent<InventoryComponent, RMCMagnetizeItemEvent>(_inventory.RelayEvent);
     }
 
     private void OnMagneticItemDropped(Entity<RMCMagneticItemComponent> ent, ref DroppedEvent args)
@@ -49,46 +45,13 @@ public sealed class RMCMagneticSystem : EntitySystem
 
     private void OnMagneticItemDropAttempt(Entity<RMCMagneticItemComponent> ent, ref DropAttemptEvent args)
     {
-        if (!CanReturn(ent, args.Uid, out _))
-            return;
-
         args.Cancel();
-    }
-
-    private void OnMagnetizeItem(Entity<RMCMagneticArmorComponent> ent, ref InventoryRelayedEvent<RMCMagnetizeItemEvent> args)
-    {
-        if ((ent.Comp.AllowMagnetizeToSlots & args.Args.MagnetizeToSlots) == SlotFlags.NONE)
-            return;
-
-        var slotEnumerator = _inventory.GetSlotEnumerator(args.Args.User, ent.Comp.AllowMagnetizeToSlots & args.Args.MagnetizeToSlots);
-
-        while (slotEnumerator.MoveNext(out var container))
-        {
-            if (container.Count > 0)
-                continue;
-
-            args.Args.Magnetizer = ent;
-            break;
-        }
-    }
-
-    private bool CanReturn(Entity<RMCMagneticItemComponent> ent, EntityUid user, out EntityUid magnetizer)
-    {
-        var ev = new RMCMagnetizeItemEvent(user, ent.Comp.MagnetizeToSlots, SlotFlags.OUTERCLOTHING);
-        RaiseLocalEvent(user, ref ev);
-
-        magnetizer = ev.Magnetizer ?? default;
-        return magnetizer != default;
     }
 
     private bool TryReturn(Entity<RMCMagneticItemComponent> ent, EntityUid user)
     {
-        if (!CanReturn(ent, user, out var magnetizer))
-            return false;
-
         var returnComp = EnsureComp<RMCReturnToInventoryComponent>(ent);
         returnComp.User = user;
-        returnComp.Magnetizer = magnetizer;
 
         Dirty(ent, returnComp);
         return true;
@@ -109,8 +72,7 @@ public sealed class RMCMagneticSystem : EntitySystem
                 continue;
 
             var user = comp.User;
-            var magnetizer = comp.Magnetizer;
-            if (!TerminatingOrDeleted(user) && !TerminatingOrDeleted(magnetizer))
+            if (!TerminatingOrDeleted(user))
             {
                 var slots = _inventory.GetSlotEnumerator(user, SlotFlags.SUITSTORAGE);
                 while (slots.MoveNext(out var slot))
@@ -119,7 +81,7 @@ public sealed class RMCMagneticSystem : EntitySystem
                     {
                         var popup = Loc.GetString("rmc-magnetize-return",
                             ("item", uid),
-                            ("magnetizer", magnetizer));
+                            ("user", user));
                         _popup.PopupClient(popup, user, user, PopupType.Medium);
 
                         comp.Returned = true;
