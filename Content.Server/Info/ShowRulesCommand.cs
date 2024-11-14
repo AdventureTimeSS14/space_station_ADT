@@ -6,6 +6,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
+using Content.Server.Administration.Managers;
 
 namespace Content.Server.Info;
 
@@ -15,6 +16,7 @@ public sealed class ShowRulesCommand : IConsoleCommand
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public string Command => "showrules";
     public string Description => "Opens the rules popup for the specified player.";
@@ -57,6 +59,11 @@ public sealed class ShowRulesCommand : IConsoleCommand
            return;
         }
 
+        if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions)) // ADT-Tweak
+        {
+            shell.WriteError($"You not permission for kick '{target}'.");
+            return;
+        }
         var coreRules = _configuration.GetCVar(CCVars.RulesFile);
         var message = new SendRulesInformationMessage { PopupTime = seconds, CoreRules = coreRules, ShouldShowRules = true};
         _net.ServerSendMessage(message, player.Channel);
