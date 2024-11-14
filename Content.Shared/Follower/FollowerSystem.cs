@@ -17,6 +17,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Ghost;
 
 namespace Content.Shared.Follower;
 
@@ -149,6 +150,7 @@ public sealed class FollowerSystem : EntitySystem
     /// <param name="entity">The entity to be followed</param>
     public void StartFollowingEntity(EntityUid follower, EntityUid entity)
     {
+        if (HasComp<HideGhostWarpComponent>(entity)) return; // ADT-Tweak: Улучшаем смысл компонента
         // No recursion for you
         var targetXform = Transform(entity);
         while (targetXform.ParentUid.IsValid())
