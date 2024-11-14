@@ -1,0 +1,36 @@
+- type: entity
+  name: "item"
+  parent: BaseItem
+  id: ADTViperChelicerae
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/chelicerae.rsi
+    layers:
+    - state: icon
+  - type: Icon
+    sprite: ADT/Objects/Misc/chelicerae.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Misc/chelicerae.rsi
+    size: Small
+  - type: StaticPrice
+    price: 750
+  - type: Extractable
+    grindableSolutionName: chelicerae
+  - type: SolutionContainerManager
+    solutions:
+      chelicerae:
+        reagents:
+        - ReagentId: ADTLatrotoxin
+          Quantity: 25
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 20
+        mask:
+          - ItemMask
+        restitution: 0.3
+        friction: 0.2
