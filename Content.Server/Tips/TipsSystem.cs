@@ -13,16 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Administration.Logs;
-using Content.Server.Administration;
-using Content.Server.Administration.Logs;
-using Content.Shared.Administration;
-using Robust.Server.Player;
-using Robust.Shared.Console;
-using Content.Server.Chat.Systems;
-using Content.Server.Administration.Managers;
-using System.Linq;
 using Content.Shared.Database;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Tips;
 
