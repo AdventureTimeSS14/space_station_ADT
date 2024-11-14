@@ -26,6 +26,8 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
     - label: corvax-hidden-desc-Emag-engineering
       jobRequired:
         - ChiefEngineer

@@ -39,6 +39,7 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
