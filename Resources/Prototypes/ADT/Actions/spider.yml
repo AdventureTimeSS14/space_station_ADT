@@ -1,0 +1,9 @@
+- type: entity
+  id: ADTActionSpiderWebLong
+  name: Spider Web
+  description: Spawns a web that slows your prey down.
+  components:
+  - type: InstantAction
+    icon: Interface/Actions/web.png
+    event: !type:SpiderWebActionEvent
+    useDelay: 75

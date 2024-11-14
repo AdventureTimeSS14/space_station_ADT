@@ -360,6 +360,8 @@
         damage: 85
       behaviors:
       - !type:GibBehavior { }
+  - type: Spider
+    webAction: ADTActionSpiderWebLong
   - type: MultiHandedItem
   - type: Item
     sprite: ADT/Mobs/Animals/minispider.rsi
@@ -445,14 +447,22 @@
       damage:
         types:
           Piercing: 8
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepClownFast
+    - type: Speech
+      speechVerb: Cluwne
+    - type: Bloodstream
+      bloodMaxVolume: 150
+      bloodReagent: Laughter
     - type: SolutionContainerManager
       solutions:
         melee:
           reagents:
-          - ReagentId: Toxin
-            Quantity: 50
+          - ReagentId: Laughter
+            Quantity: 90
     - type: MeleeChemicalInjector
-      transferAmount: 0.75
+      transferAmount: 2
       solution: melee
     - type: FootstepModifier
       footstepSoundCollection:
