@@ -1,13 +1,13 @@
 using System.Linq;
 using Content.Client.Gameplay;
-using Content.Shared._RMC14.Tackle;
+using Content.Shared._RMC14.Tackle; // ADT TWEAK
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Components;
+using Content.Shared.Weapons.Melee.Components; // ADT TWEAK
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;
@@ -89,7 +89,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
-
+        // ADT TWEAK START
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
 
         if (mousePos.MapId == MapId.Nullspace)
@@ -258,7 +258,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
     }
-
+        // ADT TWEAK END
     private void OnMeleeLunge(MeleeLungeEvent ev)
     {
         var ent = GetEntity(ev.Entity);

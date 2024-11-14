@@ -1,6 +1,6 @@
 using Content.Shared.Input;
 using Robust.Shared.Input;
-using Content.Shared._RMC14.Input;
+using Content.Shared._RMC14.Input; // ADT TWEAK
 
 namespace Content.Client.Input
 {
@@ -126,9 +126,10 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.OpenAdminMenu);
             common.AddFunction(ContentKeyFunctions.OpenGuidebook);
 
-            CMFunctions(contexts);
+            CMFunctions(contexts); // ADT TWEAK
         }
 
+    // ADT TWEAK START:
         private static void CMFunctions(IInputContextContainer contexts)
         {
             var human = contexts.GetContext("human");
@@ -138,10 +139,11 @@ namespace Content.Client.Input
             human.AddFunction(CMKeyFunctions.RMCActivateAttachableUnderbarrel);
             human.AddFunction(CMKeyFunctions.RMCFieldStripHeldItem);
             human.AddFunction(CMKeyFunctions.CMUniqueAction);
-            human.AddFunction(CMKeyFunctions.CMHolsterPrimary);
-            human.AddFunction(CMKeyFunctions.CMHolsterSecondary);
-            human.AddFunction(CMKeyFunctions.CMHolsterTertiary);
-            human.AddFunction(CMKeyFunctions.CMHolsterQuaternary);
+            // human.AddFunction(CMKeyFunctions.CMHolsterPrimary);
+            // human.AddFunction(CMKeyFunctions.CMHolsterSecondary);
+            // human.AddFunction(CMKeyFunctions.CMHolsterTertiary);
+            // human.AddFunction(CMKeyFunctions.CMHolsterQuaternary);
         }
+    // ADT TWEAK END.
     }
 }

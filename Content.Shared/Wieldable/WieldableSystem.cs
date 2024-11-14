@@ -125,7 +125,7 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnExamine(EntityUid uid, GunWieldBonusComponent component, ref ExaminedEvent args)
     {
-        if (HasComp<GunRequiresWieldComponent>(uid)) 
+        if (HasComp<GunRequiresWieldComponent>(uid))
             return;
 
         if (component.WieldBonusExamineMessage != null)

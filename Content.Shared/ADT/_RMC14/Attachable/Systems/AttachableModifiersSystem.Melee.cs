@@ -63,6 +63,18 @@ public sealed partial class AttachableModifiersSystem : EntitySystem
         if (modSet.BonusDamage != null)
             args.BonusDamage += modSet.BonusDamage;
 
+        if (modSet.DecreaseDamage != null)
+        {
+            foreach (var (decreaseId, decreaseDmg) in modSet.DecreaseDamage.DamageDict)
+            {
+                if (decreaseDmg <= FixedPoint2.Zero)
+                    continue;
+
+                if (args.BaseDamage.DamageDict.TryGetValue(decreaseId, out var baseDamage))
+                    args.BaseDamage.DamageDict[decreaseId] = FixedPoint2.Max(baseDamage - decreaseDmg, FixedPoint2.Zero);
+            }
+        }
+
         if (args.BonusDamage.GetTotal() < FixedPoint2.Zero)
         {
             _damage.Clear();

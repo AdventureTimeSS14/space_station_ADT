@@ -431,7 +431,7 @@ namespace Content.Shared.Containers.ItemSlots
             return true;
         }
 
-        public static int SortEmpty(ItemSlot a, ItemSlot b)
+        public static int SortEmpty(ItemSlot a, ItemSlot b) // ADT TWEAK: PRIVATE TO PUBLIC
         {
             var aEnt = a.ContainerSlot?.ContainedEntity;
             var bEnt = b.ContainerSlot?.ContainedEntity;

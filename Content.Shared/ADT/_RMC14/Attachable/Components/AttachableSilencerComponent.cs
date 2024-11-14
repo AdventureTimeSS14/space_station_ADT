@@ -9,5 +9,5 @@ namespace Content.Shared._RMC14.Attachable.Components;
 public sealed partial class AttachableSilencerComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public SoundSpecifier Sound = new SoundCollectionSpecifier("CMSilencedShoot");
+    public SoundSpecifier Sound = new SoundCollectionSpecifier("sparks");
 }

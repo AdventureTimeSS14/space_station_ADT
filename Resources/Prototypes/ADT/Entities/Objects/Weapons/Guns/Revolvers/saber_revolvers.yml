@@ -39,7 +39,7 @@
     projectileSpeed: 30
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    useKey: false
+    useKey: true
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
@@ -103,3 +103,5 @@
         whitelist:
           tags:
             - ADTLasgunRevolverCell
+  - type: AltFireMelee
+    AltFireAttackType: Heavy

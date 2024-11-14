@@ -124,7 +124,7 @@ namespace Content.Shared.Damage
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
-            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null, EntityUid? tool = null)
+            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null, EntityUid? tool = null) // ADT TWEAK
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -154,7 +154,7 @@ namespace Content.Shared.Damage
                     damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
                 }
 
-                var ev = new DamageModifyEvent(damage, origin, tool);
+                var ev = new DamageModifyEvent(damage, origin, tool); // ADT TWEAK
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -306,12 +306,12 @@ namespace Content.Shared.Damage
         public EntityUid? Tool;
 
 
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, EntityUid? tool = null)
+        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, EntityUid? tool = null) // ADT TWEAK
         {
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
-            Tool = tool;
+            Tool = tool; // ADT TWEAK
         }
     }
 
