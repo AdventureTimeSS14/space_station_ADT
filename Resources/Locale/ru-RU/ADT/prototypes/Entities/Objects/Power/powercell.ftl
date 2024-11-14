@@ -1,8 +1,8 @@
 ent-ADTPowerCellLasgunRevolver = барабанная батарея револьвера
     .desc = Барабанная батарея энергетического меча-револьвера обычной ёмкости.
 
-ent-ADTPowerCellEctoplasm = таинственный источник питания
+ent-ADTPowerCellEctoplasm = таинственная батарея эктоплазмы
     .desc = Батарейка, изготовленная из эктоплазмы.
 
-ent-ADTPowerCellEctoplasmSmall = маленький таинственный элемент питания
+ent-ADTPowerCellEctoplasmSmall = маленькая таинственная батарея
     .desc = Маленькая батарейка, изготовленная из эктоплазмы.
