@@ -70,29 +70,4 @@ public sealed partial class NarcoHallucinationsSystem : EntitySystem
             return;
         _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~(int) VisibilityFlags.Narcotic, eye);
     }
-
-//    public override void Update(float frameTime)
-//    {
-//        base.Update(frameTime);
-//
-//        var query = EntityQueryEnumerator<NarcoHallucinationsComponent, TransformComponent>();
-//        while (query.MoveNext(out var uid, out var stat, out var xform))
-//        {
-//            if (_timing.CurTime < stat.NextSecond)
-//                continue;
-//            stat.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(stat.SpawnRate);
-//
-//            if (!_random.Prob(stat.Chance))
-//                continue;
-//
-//            var range = stat.Range * 4;
-//
-//            foreach (var (ent, comp) in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(xform.MapPosition, range))
-//            {
-//                var newCoords = Transform(ent).MapPosition.Offset(_random.NextVector2(stat.Range));
-//
-//                Spawn(_random.Pick(stat.Spawns), newCoords);
-//            }
-//        }
-//    }
 }
