@@ -105,7 +105,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.01 # Супер пониженный дамаг от давления
+        Blunt: 0.02 # Супер пониженный дамаг от давления
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -156,6 +156,10 @@
     postingSayDamage: blood-cough-novakid
   - type: Tag
     tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
     - ChangelingBlacklist
 
 - type: entity
