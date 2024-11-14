@@ -63,7 +63,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
-
     }
 
     protected override void Started(EntityUid uid, RevolutionaryRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -144,6 +143,16 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         }
 
+        //ADT rerev start
+        if (mind == null || mind.Session == null || ev.User == null)
+            return;
+
+        if (comp.ConvertedCount <= 15)
+        {
+            _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), mind.Session);
+            return;
+        }
+        //ADT rerev end
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
 
@@ -155,8 +164,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
             {
-                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
-                    role.Value.Comp2.ConvertedCount++;
+                // if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role)) //ADT rerev start
+                //     role.Value.Comp2.ConvertedCount++;
+                comp.ConvertedCount++; //ADT rerev end
             }
         }
 
@@ -203,8 +213,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private bool CheckRevsLose()
     {
-        ///ADT метод полностью переписан
-        ///ADT start
+        //ADT метод полностью переписан
+        //ADT start
         var headRevList = new List<EntityUid>();
 
         var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
@@ -256,7 +266,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         return dead == list.Count || list.Count == 0;
     }
-    ///ADT end
+    //ADT end
 
 
 
@@ -311,4 +321,23 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
+    //ADT rerev start 
+
+    public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return;
+
+        _npcFaction.AddFaction(target, RevolutionaryNpcFaction);
+        var revComp = EnsureComp<RevolutionaryComponent>(target);
+
+
+        _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
+
+        comp.ConvertedCount++;
+
+        if (mind?.Session != null)
+            _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+    }
+    //ADT rerev end
 }
