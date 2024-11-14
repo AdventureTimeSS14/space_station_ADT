@@ -44,11 +44,6 @@ public sealed class KickHideCommand : LocalizedCommands
             shell.WriteError($"Unable to find player: '{target}'.");
             return;
         }
-        if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions))
-        {
-            shell.WriteError($"You not permission for kick '{target}'.");
-            return;
-        }
         _ghostKickManager.DoDisconnect(player.Channel, "Smitten.");
     }
 
