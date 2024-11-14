@@ -35,24 +35,41 @@ public sealed class SpiderSystem : SharedSpiderSystem
         // TODO generic way to get certain coordinates
 
         var result = false;
-        // Spawn web in center
-        if (!IsTileBlockedByWeb(coords))
+// ADT tweak start
+        // Spawn small web if there is a small spider
+        if (component.SmallWeb == true)
         {
-            Spawn(component.WebPrototype, coords);
-            result = true;
-        }
-
-        // Spawn web in other directions
-        for (var i = 0; i < 4; i++)
-        {
-            var direction = (DirectionFlag) (1 << i);
-            coords = transform.Coordinates.Offset(direction.AsDir().ToVec());
-
+// ADT tweak end
+            // Spawn web in center
             if (!IsTileBlockedByWeb(coords))
             {
                 Spawn(component.WebPrototype, coords);
                 result = true;
             }
+
+// ADT tweak start
+        }
+        else
+        {
+            // Spawn web in center
+            if (!IsTileBlockedByWeb(coords))
+            {
+                Spawn(component.WebPrototype, coords);
+                result = true;
+            }
+// ADT tweak end
+            // Spawn web in other directions
+            for (var i = 0; i < 4; i++)
+            {
+                var direction = (DirectionFlag) (1 << i);
+                coords = transform.Coordinates.Offset(direction.AsDir().ToVec());
+
+                if (!IsTileBlockedByWeb(coords))
+                {
+                    Spawn(component.WebPrototype, coords);
+                    result = true;
+                }
+            } // ADT tweak
         }
 
         if (result)

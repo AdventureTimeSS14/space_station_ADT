@@ -372,7 +372,7 @@
       behaviors:
       - !type:GibBehavior { }
   - type: Spider
-    webAction: ADTActionSpiderWebLong
+    smallWeb: true
   - type: CanEscapeInventory
     baseResistTime: 2
   - type: MultiHandedItem
@@ -428,7 +428,7 @@
     - type: Sprite
       drawdepth: Mobs
       layers:
-      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      - map: ["enum.DamageStateVisualLayers.Base"]
         state: clown
         sprite: Mobs/Animals/clownspider.rsi
     - type: Butcherable
@@ -459,7 +459,7 @@
         path: /Audio/Effects/bite.ogg
       damage:
         types:
-          Piercing: 8
+          Piercing: 9
     - type: FootstepModifier
       footstepSoundCollection:
         collection: FootstepClownFast
@@ -475,11 +475,8 @@
           - ReagentId: Laughter
             Quantity: 90
     - type: MeleeChemicalInjector
-      transferAmount: 2
+      transferAmount: 1
       solution: melee
-    - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepClownFast
     - type: NpcFactionMember
       factions:
         - Xeno

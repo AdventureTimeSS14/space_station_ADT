@@ -17,6 +17,9 @@ public sealed partial class SpiderComponent : Component
     [DataField("webAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string WebAction = "ActionSpiderWeb";
 
+    [DataField("smallWeb")]
+    public bool SmallWeb = false;
+
     [DataField] public EntityUid? Action;
 }
 
