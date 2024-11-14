@@ -149,6 +149,8 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -226,6 +228,8 @@
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -255,12 +259,16 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
     - label: corvax-hidden-desc-NoSlip-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
