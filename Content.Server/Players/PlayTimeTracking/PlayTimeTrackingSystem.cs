@@ -76,12 +76,14 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (_afk.IsAfk(player))
             return;
 
+        // ADT-Tweak-Start
         if (_adminManager.IsAdmin(player))
         {
             trackers.Add(PlayTimeTrackingShared.TrackerAdmin);
-            trackers.Add(PlayTimeTrackingShared.TrackerOverall);
-            return;
+            // trackers.Add(PlayTimeTrackingShared.TrackerOverall);
+            // return;
         }
+        // ADT-Tweak-End
 
         if (!IsPlayerAlive(player))
             return;

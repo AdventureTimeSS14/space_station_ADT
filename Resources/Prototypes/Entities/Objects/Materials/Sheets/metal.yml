@@ -66,9 +66,13 @@
       steel:
         reagents:
         - ReagentId: Iron
-          Quantity: 9
+          Quantity: 8.8 # ADT tweak svinec
         - ReagentId: Carbon
-          Quantity: 1
+        # ADT tweak svinec
+          Quantity: 0.9
+        - ReagentId: Lead
+          Quantity: 0.3
+        # ADT tweak svinec
   # ADT-UPD-Start
   - type: Tag
     tags:

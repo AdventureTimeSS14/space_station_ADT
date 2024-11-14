@@ -143,12 +143,27 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+      # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      - label: adt-hidden-desc-SadTromboneImplanter-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      # End ADT tweak
       - label: corvax-hidden-desc-SadTromboneImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-SadTromboneImplanter-syndicate
         whitelistMind:
           components:
@@ -169,12 +184,27 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+      # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      - label: adt-hidden-desc-LightImplanter-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      # End ADT tweak
       - label: corvax-hidden-desc-LightImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-LightImplanter-syndicate
         whitelistMind:
           components:
@@ -195,12 +225,27 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+      # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      - label: adt-hidden-desc-BikeHornImplanter-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      # End ADT tweak
       - label: corvax-hidden-desc-BikeHornImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-BikeHornImplanter-syndicate
         whitelistMind:
           components:
@@ -223,12 +268,27 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+      # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      - label: adt-hidden-desc-TrackingImplanter-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      # End ADT tweak
       - label: corvax-hidden-desc-TrackingImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-TrackingImplanter-syndicate
         whitelistMind:
           components:
@@ -251,12 +311,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-StorageImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-FreedomImplanter-syndicate
         whitelistMind:
           components:
@@ -277,12 +344,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-FreedomImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-FreedomImplanter-syndicate
         whitelistMind:
           components:
@@ -303,12 +377,19 @@
         - Paramedic
         - MedicalDoctor
         - ChiefMedicalOfficer
+        # Start ADT tweak
+        - Brigmedic
+        - ADTSeniorPhysician
+        - ADTPathologist
+        # End ADT tweak
     - label: corvax-hidden-desc-UplinkImplanter-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
     - label: corvax-hidden-desc-UplinkImplanter-syndicate
       whitelistMind:
         components:
@@ -329,12 +410,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-EmpImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-EmpImplanter-syndicate
         whitelistMind:
           components:
@@ -355,12 +443,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-ScramImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-ScramImplanter-syndicate
         whitelistMind:
           components:
@@ -381,12 +476,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-DnaScramblerImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-DnaScramblerImplanter-syndicate
         whitelistMind:
           components:
@@ -409,12 +511,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-MicroBombImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-MicroBombImplanter-syndicate
         whitelistMind:
           components:
@@ -435,12 +544,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-MacroBombImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-MacroBombImplanter-syndicate
         whitelistMind:
           components:
@@ -461,12 +577,19 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+          # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+          # End ADT tweak
       - label: corvax-hidden-desc-DeathRattleImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-DeathRattleImplanter-syndicate
         whitelistMind:
           components:
@@ -487,12 +610,19 @@
         - Paramedic
         - MedicalDoctor
         - ChiefMedicalOfficer
+        # Start ADT tweak
+        - Brigmedic
+        - ADTSeniorPhysician
+        - ADTPathologist
+        # End ADT tweak
     - label: corvax-hidden-desc-DeathAcidifierImplanter-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
     - label: corvax-hidden-desc-DeathAcidifierImplanter-syndicate
       whitelistMind:
         components:
@@ -515,12 +645,27 @@
           - Paramedic
           - MedicalDoctor
           - ChiefMedicalOfficer
+      # Start ADT tweak
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      - label: adt-hidden-desc-MindShieldImplanter-medical
+        jobRequired:
+          - Paramedic
+          - MedicalDoctor
+          - ChiefMedicalOfficer
+          - Brigmedic
+          - ADTSeniorPhysician
+          - ADTPathologist
+      # End ADT tweak
       - label: corvax-hidden-desc-MindShieldImplanter-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-MindShieldImplanter-syndicate
         whitelistMind:
           components:
