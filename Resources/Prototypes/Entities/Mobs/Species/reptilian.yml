@@ -55,7 +55,7 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.15 #per second, scales with temperature & other constants
+        Cold : 0.15 #per second, scales with temperature & other constants ADT tweak from 0.1 to 0.15
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
