@@ -61,7 +61,7 @@ public sealed class ShowRulesCommand : IConsoleCommand
 
         if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions)) // ADT-Tweak
         {
-            shell.WriteError($"You not permission for kick '{target}'.");
+            shell.WriteError($"You not permission for showrule '{target}'.");
             return;
         }
         var coreRules = _configuration.GetCVar(CCVars.RulesFile);

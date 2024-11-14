@@ -98,7 +98,7 @@ public sealed class TipsSystem : EntitySystem
         _adminLogger.Add(
             LogType.AdminMessage,
             LogImpact.Low,
-            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tippy."
+            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tippy or tip."
         );
         // ADT-Tweak-End
         ActorComponent? actor = null;

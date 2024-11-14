@@ -21,6 +21,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Administration;
 
 namespace Content.Server.Administration.Managers;
 
@@ -39,6 +40,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ITaskManager _taskManager = default!;
     [Dependency] private readonly UserDbDataManager _userDbData = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -134,6 +136,13 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     #region Server Bans
     public async void CreateServerBan(NetUserId? target, string? targetUsername, NetUserId? banningAdmin, (IPAddress, int)? addressRange, ImmutableArray<byte>? hwid, uint? minutes, NoteSeverity severity, string reason)
     {
+        // ADT-Tweak-Start
+        if (targetUsername != null && _playerManager.TryGetSessionByUsername(targetUsername, out var player))
+        {
+            if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions))
+                return;
+        }
+        // ADT-Tweak-End
         DateTimeOffset? expires = null;
         if (minutes > 0)
         {
