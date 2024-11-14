@@ -59,3 +59,83 @@
       effects:
       - !type:SatiateThirst
         factor: 0.5
+
+- type: reagent
+  id: ADTHotChocolate
+  name: reagent-name-hot-chocolate
+  parent: BaseDrink
+  desc: reagent-desc-hot-chocolate
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: ADTChocolateDrinkFlavor 
+  color: "#9c9289"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: hot_chocolate
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.05
+
+- type: reagent
+  id: ADTHotChocolateAllergic
+  name: reagent-name-hot-chocolate-allergic
+  parent: BaseDrink
+  desc: reagent-desc-hot-chocolate-allergic
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: ADTChocolateDrinkFlavor 
+  color: "#9c9289"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: hot_chocolate
+
+- type: reagent
+  id: ADTHotCocoa
+  name: reagent-name-hot-cocoa
+  parent: BaseDrink
+  desc: reagent-desc-hot-cocoa
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: ADTCocoaDrinkFlavor
+  color: "#b29b7b"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: hot_cocoa
+
+- type: reagent
+  id: ADTTeaCinnamonLemon
+  name: reagent-name-tea-cinnamon-lemon
+  parent: BaseDrink
+  desc: reagent-desc-tea-cinnamon-lemon
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: ADTTeaCinnamonLemon
+  color: "#5b3b15"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: warm_tea_cinnamon_lemon
+
+- type: reagent
+  id: ADTChristmasMilkshake
+  name: reagent-name-christmas-milkshake
+  parent: BaseSoda
+  desc: reagent-desc-christmas-milkshake
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: ADTMilkshake
+  color: "#c7c5c1"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: christmas_milkshake
+
+- type: reagent
+  id: ADTSbitenCinnamonLemon
+  name: reagent-name-sbiten-cinnamon-lemon
+  parent: BaseAlcohol
+  desc: reagent-desc-sbiten-cinnamon-lemon
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: ADTSbitenCinnamonLemon
+  color: "#5a3a28"
+  metamorphicSprite:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
+    state: sbiten_cinnamon_lemon

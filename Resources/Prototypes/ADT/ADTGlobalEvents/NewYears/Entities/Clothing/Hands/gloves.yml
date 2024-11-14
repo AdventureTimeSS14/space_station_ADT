@@ -57,7 +57,7 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_red_green.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/ittens_red_green.rsi
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Hands/Gloves/mittens_red_green.rsi
 
 - type: entity
   parent: ClothingHandsBase

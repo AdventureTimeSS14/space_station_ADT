@@ -56,7 +56,7 @@
     size: Normal
   - type: Food
     transferAmount: 5
-    trash: FoodPlateSmall
+    # trash: FoodPlateSmall
 
 - type: entity
   name: herring under furcoat
@@ -91,7 +91,7 @@
     size: Normal
   - type: Food
     transferAmount: 6
-    trash: FoodPlateSmall
+    # trash: FoodPlateSmall
 
 - type: entity
   name: ham
@@ -124,7 +124,7 @@
     size: Normal
   - type: Food
     transferAmount: 4
-    trash: FoodPlate
+    # trash: FoodPlate
 
 - type: entity
   name: ham piece
@@ -180,7 +180,7 @@
     size: Normal
   - type: Food
     transferAmount: 6
-    trash: FoodPlateSmall
+    # trash: FoodPlateSmall
 
 - type: entity
   name: christmas pudding
@@ -208,4 +208,4 @@
     size: Normal
   - type: Food
     transferAmount: 6
-    trash: FoodPlateSmall
+    # trash: FoodPlateSmall
