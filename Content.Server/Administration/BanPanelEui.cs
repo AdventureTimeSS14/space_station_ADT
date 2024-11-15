@@ -174,24 +174,24 @@ public sealed class BanPanelEui : BaseEui
             }
         }
         // ADT-Tweak-Start
-        if (target != null && _playerManager.TryGetSessionByUsername(target, out var playerAdmin))
-        {
-            if (_admins.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
-                return;
-        }
+        // if (target != null && _playerManager.TryGetSessionByUsername(target, out var playerAdmin))
+        // {
+        //     if (_admins.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
+        //         return;
+        // }
 
-        if (targetUid != null)
-        {
-            var dbData = await _dbManager.GetAdminDataForAsync(targetUid.Value);
+        // if (targetUid != null)
+        // {
+        //     var dbData = await _dbManager.GetAdminDataForAsync(targetUid.Value);
 
-            if (dbData != null && dbData.AdminRank != null)
-            {
-                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+        //     if (dbData != null && dbData.AdminRank != null)
+        //     {
+        //         var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
 
-                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
-                    return;
-            }
-        }
+        //         if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+        //             return;
+        //     }
+        // }
         // ADT-Tweak-End
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;

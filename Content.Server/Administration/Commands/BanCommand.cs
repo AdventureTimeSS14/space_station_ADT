@@ -97,18 +97,18 @@ public sealed class BanCommand : LocalizedCommands
         var targetHWid = located.LastHWId;
         //Start-ADT-Tweak: логи банов для диса
         // ADT-Tweak-Start
-        if (_playerManager.TryGetSessionByUsername(target, out var playerAdmin))
-        {
-            if (_adminManager.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
-                return;
-        }
-        var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
-        if (dbData != null && dbData.AdminRank != null)
-        {
-            var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
-            if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
-                return;
-        }
+        // if (_playerManager.TryGetSessionByUsername(target, out var playerAdmin))
+        // {
+        //     if (_adminManager.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
+        //         return;
+        // }
+        // var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
+        // if (dbData != null && dbData.AdminRank != null)
+        // {
+        //     var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+        //     if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+        //         return;
+        // }
         // ADT-Tweak-End
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;

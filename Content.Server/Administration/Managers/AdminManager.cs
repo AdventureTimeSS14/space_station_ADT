@@ -113,7 +113,7 @@ namespace Content.Server.Administration.Managers
             playerData.Stealthed = true;
             reg.Data.Stealth = true;
             // ADT Tweak commented
-            // _chat.DispatchServerMessage(session, Loc.GetString("admin-manager-stealthed-message"));
+            _chat.DispatchServerMessage(session, Loc.GetString("admin-manager-stealthed-message"));
             // _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-de-admin-message", ("exAdminName", session.Name)), AdminFlags.Stealth);
             // _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-enable-stealth", ("stealthAdminName", session.Name)), flagWhitelist: AdminFlags.Stealth);
         }
@@ -131,10 +131,10 @@ namespace Content.Server.Administration.Managers
             var playerData = session.ContentData()!;
             playerData.Stealthed = false;
             reg.Data.Stealth = false;
-
+            // ADT Tweak commented
             _chat.DispatchServerMessage(session, Loc.GetString("admin-manager-unstealthed-message"));
-            _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-re-admin-message", ("newAdminName", session.Name)), flagBlacklist: AdminFlags.Stealth);
-            _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-disable-stealth", ("exStealthAdminName", session.Name)), flagWhitelist: AdminFlags.Stealth);
+            // _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-re-admin-message", ("newAdminName", session.Name)), flagBlacklist: AdminFlags.Stealth);
+            // _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-disable-stealth", ("exStealthAdminName", session.Name)), flagWhitelist: AdminFlags.Stealth);
         }
 
         public void ReAdmin(ICommonSession session)
