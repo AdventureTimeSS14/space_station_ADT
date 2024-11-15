@@ -43,3 +43,8 @@ ent-ADTClothingUniformShirtSnowman = костюм с рисунком снего
 ent-ADTClothingOuterDedMoroz = шуба Деда Мороза
     .desc = Новогодний костюм из качественного бархатистого материала.
     .suffix = { "Новый Год" }
+
+ent-ADTClothingOuterDedMorozDarkred = шуба Деда Мороза
+    .desc = Яркая, мягкая на ощупь ткань. Напоминает беззаботное детство.
+    .suffix = { "Новый Год" }
+    .suffix = Kasey

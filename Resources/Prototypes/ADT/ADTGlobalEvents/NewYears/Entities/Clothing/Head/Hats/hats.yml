@@ -125,3 +125,15 @@
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/antennas.rsi
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/antennas.rsi #спрайты от Умы
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterDedMorozDarkred
+  suffix: New Year
+  name: Dark red Ded Moroz suit
+  description: Suit clothing ded moroz
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter_darkred.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter_darkred.rsi # Спрайты Кейси

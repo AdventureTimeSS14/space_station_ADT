@@ -22,3 +22,16 @@
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/snow_maiden.rsi
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/snow_maiden.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsMoroz
+  name: Валенки
+  description: Современная теплая обувь, натуральные материалы, нескользящая подошва, утепленные на застежке Валенки.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/moroz_winterboots.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/moroz_winterboots.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
