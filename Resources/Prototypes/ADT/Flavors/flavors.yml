@@ -186,3 +186,13 @@
   id: ADTmandarin
   flavorType: Base
   description: flavor-base-mandarin
+
+- type: flavor
+  id: ADTChocolateDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTChocolateDrinkFlavor
+
+- type: flavor
+  id: ADTCocoaDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTCocoaDrink

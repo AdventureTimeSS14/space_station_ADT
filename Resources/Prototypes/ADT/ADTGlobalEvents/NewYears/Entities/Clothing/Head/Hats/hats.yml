@@ -103,17 +103,17 @@
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Head/Hats/ded_morozhat.rsi
 
-- type: entity
-  parent: ClothingOuterBase
-  id: ADTClothingOuterDedMoroz
-  suffix: New Year
-  name: Ded Moroz suit
-  description: Suit clothing ded moroz
-  components:
-  - type: Sprite
-    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
-  - type: Clothing
-    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
+# - type: entity
+#   parent: ClothingOuterBase
+#   id: ADTClothingOuterDedMoroz
+#   suffix: New Year
+#   name: Ded Moroz suit
+#   description: Suit clothing ded moroz
+#   components:
+#   - type: Sprite
+#     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
+#   - type: Clothing
+#     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/OuterClothing/Fun/ded_morozsuitouter.rsi
 
 - type: entity
   parent: ClothingHeadBase

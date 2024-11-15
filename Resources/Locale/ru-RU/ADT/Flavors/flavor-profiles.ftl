@@ -39,3 +39,6 @@ flavor-base-adtpoppy = маково
 flavor-complex-adtrelaxing = как довольно сильный наркотик
 flavor-base-adtvanilla = ванильно
 flavor-base-mandarin = сочная мандаринка
+
+flavor-complex-ADTChocolateDrinkFlavor = как теплый, растопленный шоколад
+flavor-complex-ADTCocoaDrink = как тепло, уют и какао

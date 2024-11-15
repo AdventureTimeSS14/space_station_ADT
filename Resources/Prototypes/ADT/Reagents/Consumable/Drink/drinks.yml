@@ -181,3 +181,24 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTCocoaDrink
+  name: cocoa-drink-name
+  parent: BaseDrink
+  desc: cocoa-drink-desc
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: ADTCocoaDrinkFlavor
+  color: "#664300"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

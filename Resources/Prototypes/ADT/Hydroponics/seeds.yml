@@ -62,7 +62,6 @@
   name: seeds-mandarin-name
   noun: seeds-noun-seeds
   displayName: seeds-mandarin-display-name
-  suffix: NewYear
   plantRsi: ADT/Objects/Specific/Hydroponics/mandarin.rsi
   packetPrototype: ADTMandarinSeeds
   productPrototypes:

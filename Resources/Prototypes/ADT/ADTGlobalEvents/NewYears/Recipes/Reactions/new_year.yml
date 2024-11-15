@@ -82,6 +82,18 @@
     ADTHotCocoa: 3
 
 - type: reaction
+  id: ADTCocoaDrink
+  reactants:
+    CocoaPowder:
+      amount: 1
+    Water:
+      amount: 4
+    Milk:
+      amount: 1
+  products:
+    ADTCocoaDrink: 6
+
+- type: reaction
   id: ADTHotChocolate
   minTemp: 373
   reactants:

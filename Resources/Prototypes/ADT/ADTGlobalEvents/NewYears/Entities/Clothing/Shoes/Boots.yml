@@ -33,5 +33,5 @@
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/moroz_winterboots.rsi
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/moroz_winterboots.rsi
-  - type: TemperatureProtection
-    coefficient: 0.1
+  # - type: TemperatureProtection
+  #   coefficient: 0.1
