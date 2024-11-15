@@ -149,6 +149,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
                 if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
                     return;
+            }
         }
 
         DateTimeOffset? expires = null;
