@@ -1,0 +1,247 @@
+- type: decal
+  id: ADTArrowsWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrows_whitescale
+
+- type: decal
+  id: ADTBotWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bot_whitescale
+
+- type: decal
+  id: ADTBotLeftWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bot_left_whitescale
+
+- type: decal
+  id: ADTBotRightWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bot_right_whitescale
+
+- type: decal
+  id: ADTCautionWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: caution_whitescale
+
+- type: decal
+  id: ADTDeliveryWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: delivery_whitescale
+
+- type: decal
+  id: ADTLoadingAreaWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: loading_area_whitescale
+
+- type: decal
+  id: ADTStandClearWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: standclear_whitescale
+
+- type: decal
+  id: ADTWarnBoxWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_box_whitescale
+
+- type: decal
+  id: ADTWarnEndWhitescale
+  showMenu: false
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_end_whitescale
+
+- type: decal
+  id: ADTWarnFullWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_full_whitescale
+
+- type: decal
+  id: ADTWarningLineWhitescale
+  showMenu: false
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warningline_whitescale
+
+- type: decal
+  id: ADTWarningLineCornerFlippedWhitescale
+  showMenu: false
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warninglinecorner_flipped_whitescale
+
+- type: decal
+  id: ADTWarnCornerWhitescale
+  showMenu: false
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_whitescale
+
+- type: decal
+  id: ADTWarnCornerFlippedWhitescale
+  showMenu: false
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_flipped_whitescale
+
+- type: decal
+  id: ADTWarnCornerWhitescaleNE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_whitescale_ne
+
+- type: decal
+  id: ADTWarnCornerWhitescaleNW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_whitescale_nw
+
+- type: decal
+  id: ADTWarnCornerWhitescaleSE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_whitescale_se
+
+- type: decal
+  id: ADTWarnCornerWhitescaleSW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_whitescale_sw
+
+- type: decal
+  id: ADTWarnCornerSmallWhitescaleNE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_small_whitescale_ne
+
+- type: decal
+  id: ADTWarnCornerSmallWhitescaleNW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_small_whitescale_nw
+
+- type: decal
+  id: ADTWarnCornerSmallWhitescaleSE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_small_whitescale_se
+
+- type: decal
+  id: ADTWarnCornerSmallWhitescaleSW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_corner_small_whitescale_sw
+
+- type: decal
+  id: ADTWarnEndWhitescaleE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_end_whitescale_e
+
+- type: decal
+  id: ADTWarnEndWhitescaleN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_end_whitescale_n
+
+- type: decal
+  id: ADTWarnEndWhitescaleS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_end_whitescale_s
+
+- type: decal
+  id: ADTWarnEndWhitescaleW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_end_whitescale_w
+
+- type: decal
+  id: ADTWarnLineWhitescaleE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_line_whitescale_e
+
+- type: decal
+  id: ADTWarnLineWhitescaleN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_line_whitescale_n
+
+- type: decal
+  id: ADTWarnLineWhitescaleS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_line_whitescale_s
+
+- type: decal
+  id: ADTWarnLineWhitescaleW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: warn_line_whitescale_w

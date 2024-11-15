@@ -118,11 +118,12 @@
     - RobotTalk
   - type: Tag
     tags:
-    # - ChangelingBlacklist
     # - ShoesRequiredStepTriggerImmune
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
   - type: Inventory
     templateId: ipc
   - type: SizeAttributeWhitelist # Frontier
