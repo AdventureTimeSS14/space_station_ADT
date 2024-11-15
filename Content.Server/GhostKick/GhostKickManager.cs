@@ -78,7 +78,7 @@ public sealed class GhostKickCommand : IConsoleCommand
         // ADT-Tweak-start
         if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions))
         {
-            shell.WriteError($"You not permission for kick '{playerName}'.");
+            shell.WriteError($"You dont have permission to kick '{playerName}'");
             return;
         }
         _adminLogger.Add(
