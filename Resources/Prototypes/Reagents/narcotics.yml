@@ -261,9 +261,8 @@
         type: Add
         time: 16
         refresh: false
-      - !type:GenericStatusEffect
-        key: ADTHallucinations
-        component: LingHallucinations
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
         type: Add
         time: 4
         refresh: false
@@ -327,9 +326,8 @@
         type: Add
         time: 5
         refresh: false
-      - !type:GenericStatusEffect
-        key: ADTHallucinations
-        component: LingHallucinations
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
         type: Add
         time: 4
         refresh: false
@@ -351,9 +349,8 @@
         type: Add
         time: 5
         refresh: false
-      - !type:GenericStatusEffect
-        key: ADTHallucinations
-        component: LingHallucinations
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
         type: Add
         time: 4
         refresh: false
@@ -539,9 +536,8 @@
         type: Add
         time: 5
         refresh: false
-      - !type:GenericStatusEffect
-        key: ADTHallucinations
-        component: LingHallucinations
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
         type: Add
         time: 4
         refresh: false

@@ -420,8 +420,8 @@
         type: Add
         time: 2.5
         refresh: false
-      - !type:GenericStatusEffect
-        key: ADTHallucinations
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
         type: Remove
         time: 7
       - !type:PopupMessage
