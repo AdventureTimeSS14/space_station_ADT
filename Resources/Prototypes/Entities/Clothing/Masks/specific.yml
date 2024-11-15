@@ -37,6 +37,8 @@
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -44,10 +46,16 @@
   id: ClothingMaskGasVoiceChameleon
   suffix: Voice Mask, Chameleon
   components:
-    - type: VoiceMasker
+    - type: VoiceMask
     - type: HideLayerClothing
       slots:
       - Snout
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+        enum.VoiceMaskUIKey.Key:
+          type: VoiceMaskBoundUserInterface
 # Corvax-HiddenDesc-Start
     - type: HiddenDescription
       entries:
@@ -67,12 +75,16 @@
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
       - label: corvax-hidden-desc-VoiceMasker-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity

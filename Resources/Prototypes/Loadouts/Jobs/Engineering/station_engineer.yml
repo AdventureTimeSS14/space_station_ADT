@@ -137,10 +137,10 @@
 - type: loadout
   id: ADTBeltUtility
   equipment:
-    belt: ClothingBeltUtilityFilled
+    belt: ClothingBeltUtilityEngineering
 
 - type: loadout
   id: ADTBeltUtilityWebbing
   equipment:
-    belt: ADTClothingBeltUtilityWebbingFilled
+    belt: ADTClothingBeltUtilityWebbingEngineering
 # ADT-Tweak-End

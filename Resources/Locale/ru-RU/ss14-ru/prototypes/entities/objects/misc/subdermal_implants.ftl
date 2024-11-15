@@ -46,6 +46,4 @@ ent-DeathRattleImplant = { ent-BaseSubdermalImplant }
 ent-MindShieldImplant = { ent-BaseSubdermalImplant }
     .suffix = Щит разума
     .desc = { ent-BaseSubdermalImplant.desc }
-
 # Corvax-HiddenDesc-End
-

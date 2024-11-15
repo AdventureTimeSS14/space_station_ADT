@@ -261,6 +261,11 @@
         type: Add
         time: 16
         refresh: false
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
+        type: Add
+        time: 4
+        refresh: false
 
 - type: reagent
   id: Nicotine
@@ -321,6 +326,11 @@
         type: Add
         time: 5
         refresh: false
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
+        type: Add
+        time: 4
+        refresh: false
 
 - type: reagent
   id: Bananadine
@@ -338,6 +348,11 @@
         component: SeeingRainbows
         type: Add
         time: 5
+        refresh: false
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
+        type: Add
+        time: 4
         refresh: false
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
@@ -378,6 +393,9 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
+        type: Add
+        time: 10
+        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -517,4 +535,9 @@
         component: SeeingRainbows
         type: Add
         time: 5
+        refresh: false
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
+        type: Add
+        time: 4
         refresh: false

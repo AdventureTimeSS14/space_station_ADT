@@ -64,7 +64,7 @@
 - type: polymorph
   id: ADTPolymorphSpider
   configuration:
-    entity: MobGiantSpider
+    entity: ADTMobTarantulaSpider # ADT tweak
     forced: true
     transferName: true
     allowRepeatedMorphs: False
@@ -76,7 +76,7 @@
 - type: polymorph
   id: ADTPolymorphSpider2
   configuration:
-    entity: MobGiantSpider
+    entity: ADTMobTarantulaSpider # ADT tweak
     forced: true
     transferName: true
     allowRepeatedMorphs: False

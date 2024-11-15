@@ -229,6 +229,8 @@
       heldPrefix: silver
     - type: PresetIdCard
       job: Quartermaster
+    - type: StealTarget
+      stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -376,6 +378,8 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: HeadOfPersonnel
+  - type: StealTarget
+    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -390,6 +394,8 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: ChiefEngineer
+  - type: StealTarget
+    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -404,6 +410,8 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: ChiefMedicalOfficer
+  - type: StealTarget
+    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -418,6 +426,8 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: ResearchDirector
+  - type: StealTarget
+    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -432,6 +442,8 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: HeadOfSecurity
+  - type: StealTarget
+    stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -443,7 +455,7 @@
     - state: default
     - state: idvisitor
   - type: IdCard
-    jobTitle: Visitor
+    jobTitle: job-title-visitor
     jobIcon: JobIconVisitor
   - type: PresetIdCard
     job: Visitor
@@ -623,6 +635,8 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -812,7 +826,7 @@
     - state: default
     - state: idcluwne
   - type: IdCard
-    jobTitle: Cluwne
+    jobTitle: job-title-cluwne
   - type: Unremoveable
 
 - type: entity
@@ -872,7 +886,7 @@
   - type: Item
     heldPrefix: green
   - type: IdCard
-    jobTitle: Universal
+    jobTitle: job-title-universal
     jobIcon: JobIconAdmin
   - type: Access
     groups:

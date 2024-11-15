@@ -1,5 +1,6 @@
 using Content.Server.Actions;
 using Content.Server.Humanoid;
+using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Nutrition;
@@ -22,6 +23,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.Forensics; // ADT-Changeling-Tweak
+using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
+using Robust.Shared.Serialization.Manager; // ADT-Changeling-Tweak
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -45,7 +49,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-
+    [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
     public override void Initialize()
@@ -255,17 +259,89 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             _humanoid.CloneAppearance(uid, child);
         }
+    // ADT-Changeling-Tweak-Start
+        if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+            _mindSystem.TransferTo(mindId, child, mind: mind);
+        SendToPausedMap(uid, targetTransformComp);
 
+        return child;
+    }
+
+    /// <summary>
+    /// Polymorphs the target entity into an exact copy of the given PolymorphHumanoidData
+    /// </summary>
+    /// <param name="uid">The entity that will be transformed</param>
+    /// <param name="data">The humanoid data</param>
+    public EntityUid? PolymorphEntityAsHumanoid(EntityUid uid, PolymorphHumanoidData data)
+    {
+        var targetTransformComp = Transform(uid);
+        var child = data.EntityUid;
+
+        RetrievePausedEntity(uid, child);
+
+        if (TryComp<HumanoidAppearanceComponent>(child, out var humanoidAppearance))
+            _humanoid.SetAppearance(data.HumanoidAppearanceComponent, humanoidAppearance);
+
+        if (TryComp<DnaComponent>(child, out var dnaComp))
+            dnaComp.DNA = data.DNA;
+
+        //Transfers all damage from the original to the new one
+        if (TryComp<DamageableComponent>(child, out var damageParent)
+            && _mobThreshold.GetScaledDamage(uid, child, out var damage)
+            && damage != null)
+        {
+            _damageable.SetDamage(child, damageParent, damage);
+        }
+
+        _inventory.TransferEntityInventories(uid, child); // transfer the inventory all the time
+        foreach (var hand in _hands.EnumerateHeld(uid))
+        {
+            if (!_hands.TryPickupAnyHand(child, hand))
+                _hands.TryDrop(uid, hand, checkActionBlocker: false);
+        }
+        // ADT-Changeling-Tweak-End
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
 
-        //Ensures a map to banish the entity to
         EnsurePausedMap();
         if (PausedMap != null)
             _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
 
         return child;
     }
+    // ADT-Changeling-Tweak-Start
+    /// <summary>
+    /// Sends the given entity to a pauses map
+    /// </summary>
+    public void SendToPausedMap(EntityUid uid, TransformComponent transform)
+    {
+        //Ensures a map to banish the entity to
+        EnsurePausedMap();
+        if (PausedMap != null)
+            _transform.SetParent(uid, transform, PausedMap.Value);
+    }
+
+    /// <summary>
+    /// Retrieves a paused entity (target) at the user's position
+    /// </summary>
+    private void RetrievePausedEntity(EntityUid user, EntityUid target)
+    {
+        if (Deleted(user))
+            return;
+        if (Deleted(target))
+            return;
+
+        var targetTransform = Transform(target);
+        var userTransform = Transform(user);
+
+        _transform.SetParent(target, targetTransform, user);
+        targetTransform.Coordinates = userTransform.Coordinates;
+        targetTransform.LocalRotation = userTransform.LocalRotation;
+
+        if (_container.TryGetContainingContainer(user, out var cont))
+            _container.Insert(target, cont);
+    }
+    // ADT-Changeling-Tweak-End
 
     /// <summary>
     /// Reverts a polymorphed entity back into its original form
@@ -387,6 +463,92 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
             _actions.RemoveAction(target, val);
     }
+
+    // ADT-Changeling-Tweak-Start
+    /// <summary>
+    /// Registers PolymorphHumanoidData from an EntityUid, provived they have all the needed components
+    /// </summary>
+    /// <param name="source">The source that the humanoid data is referencing from</param>
+    public PolymorphHumanoidData? TryRegisterPolymorphHumanoidData(EntityUid source)
+    {
+        var newHumanoidData = new PolymorphHumanoidData();
+
+        if (!TryComp<MetaDataComponent>(source, out var targetMeta))
+            return null;
+        if (!TryPrototype(source, out var prototype, targetMeta))
+            return null;
+        if (!TryComp<DnaComponent>(source, out var dnaComp))
+            return null;
+        if (!TryComp<HumanoidAppearanceComponent>(source, out var targetHumanoidAppearance))
+            return null;
+
+
+        newHumanoidData.EntityPrototype = prototype;
+        newHumanoidData.MetaDataComponent = targetMeta;
+        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(targetHumanoidAppearance, notNullableOverride: true);
+        newHumanoidData.DNA = dnaComp.DNA;
+
+        var targetTransformComp = Transform(source);
+
+        var newEntityUid = Spawn(newHumanoidData.EntityPrototype.ID, targetTransformComp.Coordinates);
+        var newEntityUidTransformComp = Transform(newEntityUid);
+
+        if (TryComp(source, out MindShieldComponent? mindshieldComp)) // copy over mindshield status
+        {
+            var copiedMindshieldComp = (Component) _serialization.CreateCopy(mindshieldComp, notNullableOverride: true);
+            EntityManager.AddComponent(newEntityUid, copiedMindshieldComp);
+        }
+
+        SendToPausedMap(newEntityUid, newEntityUidTransformComp);
+
+        newHumanoidData.EntityUid = newEntityUid;
+        _metaData.SetEntityName(newEntityUid, targetMeta.EntityName);
+
+        return newHumanoidData;
+    }
+
+    /// <summary>
+    /// Registers PolymorphHumanoidData from an EntityUid, provived they have all the needed components. This allows you to add a uid as the HumanoidData's EntityUid variable. Does not send the given uid to the pause map.
+    /// </summary>
+    /// <param name="source">The source that the humanoid data is referencing from</param>
+    /// <param name="uid">The uid that will become the newHumanoidData's EntityUid</param>
+    public PolymorphHumanoidData? TryRegisterPolymorphHumanoidData(EntityUid source, EntityUid uid)
+    {
+        var newHumanoidData = new PolymorphHumanoidData();
+
+        if (!TryComp<MetaDataComponent>(source, out var targetMeta))
+            return null;
+        if (!TryPrototype(source, out var prototype, targetMeta))
+            return null;
+        if (!TryComp<DnaComponent>(source, out var dnaComp))
+            return null;
+        if (!TryComp<HumanoidAppearanceComponent>(source, out var targetHumanoidAppearance))
+            return null;
+
+        newHumanoidData.EntityPrototype = prototype;
+        newHumanoidData.MetaDataComponent = targetMeta;
+        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(targetHumanoidAppearance, notNullableOverride: true);;
+        newHumanoidData.DNA = dnaComp.DNA;
+        newHumanoidData.EntityUid = uid;
+
+        return newHumanoidData;
+    }
+
+    public PolymorphHumanoidData CopyPolymorphHumanoidData(PolymorphHumanoidData data)
+    {
+        var newHumanoidData = new PolymorphHumanoidData();
+        var ent = Spawn(data.EntityPrototype.ID);
+        SendToPausedMap(ent, Transform(ent));
+
+        newHumanoidData.EntityPrototype = data.EntityPrototype;
+        newHumanoidData.MetaDataComponent = data.MetaDataComponent;
+        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(data.HumanoidAppearanceComponent, notNullableOverride: true);;
+        newHumanoidData.DNA = data.DNA;
+        newHumanoidData.EntityUid = ent;
+        _metaData.SetEntityName(ent, data.MetaDataComponent.EntityName);
+        return newHumanoidData;
+    }
+    // ADT-Changeling-Tweak-End
 }
 
 // goob edit
