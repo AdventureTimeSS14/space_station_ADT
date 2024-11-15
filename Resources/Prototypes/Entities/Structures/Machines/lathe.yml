@@ -201,6 +201,9 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
+      - Flare
+      - CassetteTape  # ADT
+      - TapeRecorder  # ADT
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot

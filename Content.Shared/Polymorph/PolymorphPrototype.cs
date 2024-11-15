@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 
 namespace Content.Shared.Polymorph;
 
@@ -123,3 +124,13 @@ public enum PolymorphInventoryChange : byte
     Drop,
     Transfer,
 }
+// ADT-Changeling-Tweak-Start
+public struct PolymorphHumanoidData
+{
+    public EntityPrototype EntityPrototype;
+    public MetaDataComponent MetaDataComponent;
+    public HumanoidAppearanceComponent HumanoidAppearanceComponent;
+    public string DNA;
+    public EntityUid EntityUid;
+}
+// ADT-Changeling-Tweak-End
