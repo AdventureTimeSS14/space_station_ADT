@@ -21,6 +21,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Administration;
 
 namespace Content.Server.Administration.Managers;
 
@@ -39,6 +40,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ITaskManager _taskManager = default!;
     [Dependency] private readonly UserDbDataManager _userDbData = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -134,6 +136,21 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     #region Server Bans
     public async void CreateServerBan(NetUserId? target, string? targetUsername, NetUserId? banningAdmin, (IPAddress, int)? addressRange, ImmutableArray<byte>? hwid, uint? minutes, NoteSeverity severity, string reason)
     {
+        if (targetUsername != null && _playerManager.TryGetSessionByUsername(targetUsername, out var playerAdmin))
+        {
+            if (_adminManager.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
+                return;
+        }
+        if (target != null)
+        {
+            var dbData = await _db.GetAdminDataForAsync(target.Value);
+            if (dbData != null && dbData.AdminRank != null)
+            {
+                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+                    return;
+        }
+
         DateTimeOffset? expires = null;
         if (minutes > 0)
         {
