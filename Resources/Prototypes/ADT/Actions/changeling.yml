@@ -1,0 +1,426 @@
+- type: entity
+  id: ActionChangelingEvolutionMenu
+  name: action-evolution-menu
+  description: action-evolution-menu-decs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: changelingsting
+    event: !type:ChangelingEvolutionMenuActionEvent
+    priority: -70
+
+- type: entity
+  id: ActionChangelingAbsorb
+  name: action-absorb-dna
+  description: action-absorb-dna-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: absorb_dna
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:LingAbsorbActionEvent
+    useDelay: 5
+    canTargetSelf: false
+    priority: -60
+
+- type: entity
+  id: ActionChangelingTransform
+  name: action-transform
+  description: action-transform-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: transform
+    itemIconStyle: BigAction
+    event: !type:ChangelingTransformActionEvent
+    useDelay: 5
+    priority: -69
+
+- type: entity
+  id: ActionLingRegenerate
+  name: action-regenerate
+  description: action-regenerate-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: regenerate
+    itemIconStyle: BigAction
+    event: !type:LingRegenerateActionEvent
+    useDelay: 115
+    priority: -66
+
+- type: entity
+  id: ActionLingStingExtract
+  name: action-extract-dna-sting
+  description: action-extract-dna-sting-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: sting_extract
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:LingStingExtractActionEvent
+    useDelay: 30
+    canTargetSelf: false
+    priority: -65
+
+- type: entity
+  id: ActionArmBlade
+  name: action-toggle-arm-blade
+  description: action-toggle-arm-blade-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: armblade
+    itemIconStyle: BigAction
+    event: !type:ArmBladeActionEvent
+    useDelay: 1
+    priority: -50
+
+- type: entity
+  id: ActionLingArmor
+  name: action-toggle-chitinous-armor
+  description: action-toggle-chitinous-armor-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: chitinous_armor
+    itemIconStyle: BigAction
+    event: !type:LingArmorActionEvent
+    useDelay: 15
+    priority: -49
+
+- type: entity
+  id: ActionLingInvisible
+  name: action-toggle-chameleon-skin
+  description: action-toggle-chameleon-skin-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: chameleon_skin
+    itemIconStyle: BigAction
+    event: !type:LingInvisibleActionEvent
+    useDelay: 1
+    priority: -48
+
+- type: entity
+  id: ActionLingEMP
+  name: action-activate-dissonant-shriek
+  description: action-activate-dissonant-shriek-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: dissonant_shriek
+    itemIconStyle: BigAction
+    useDelay: 15
+    event: !type:LingEMPActionEvent
+    priority: -47
+    # Stasis Death
+
+- type: entity
+  id: ActionStasisDeath
+  name: action-stasis-death
+  description: action-stasis-death-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: fake_death
+    iconOn:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: revive
+    itemIconStyle: BigAction
+    event: !type:StasisDeathActionEvent
+    useDelay: 90
+    priority: -46
+
+    # Blind sting
+- type: entity
+  id: ActionLingBlindSting
+  name: action-blind-sting
+  description: action-blind-sting-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: sting_blind
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:BlindStingEvent
+    useDelay: 2
+    canTargetSelf: false
+    priority: -64
+
+    # Adrenaline
+- type: entity
+  id: ActionLingAdrenaline
+  name: action-adrenaline
+  description: action-adrenaline-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: adrenaline
+    itemIconStyle: BigAction
+    event: !type:AdrenalineActionEvent
+    useDelay: 90
+    priority: -45
+
+    # Fleshmend
+- type: entity
+  id: ActionLingFleshmend
+  name: action-fleshmend
+  description: action-fleshmend-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    event: !type:FleshmendActionEvent
+    useDelay: 90
+    priority: -44
+
+    # Mute sting
+- type: entity
+  id: ActionLingMuteSting
+  name: action-mute-sting
+  description: action-mute-sting-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: sting_mute
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:MuteStingEvent
+    useDelay: 5
+    canTargetSelf: false
+    priority: -63
+
+    # Drug sting
+- type: entity
+  id: ActionLingDrugSting
+  name: action-drug-sting
+  description: action-drug-sting-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: sting_lsd
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    event: !type:DrugStingEvent
+    useDelay: 5
+    canTargetSelf: false
+    priority: -62
+
+    # Muscles
+- type: entity
+  id: ActionLingMuscles
+  name: action-lingmuscles
+  description: action-lingmuscles-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: strained_muscles
+    itemIconStyle: BigAction
+    event: !type:ChangelingMusclesActionEvent
+    useDelay: 1
+    priority: -43
+
+    # Lesser form
+- type: entity
+  id: ActionLingLesserForm
+  name: action-lesser-form
+  description: action-lesser-form-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: lesser_form
+    iconOn:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: human_form
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:ChangelingLesserFormActionEvent
+    useDelay: 10
+    priority: -67
+
+    # Arm shield
+- type: entity
+  id: ActionArmShield
+  name: action-toggle-arm-shield
+  description: action-toggle-arm-shield-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: organic_shield
+    itemIconStyle: BigAction
+    event: !type:ArmShieldActionEvent
+    useDelay: 1
+    priority: -51
+
+    # Last Resort
+- type: entity
+  id: ActionLingLastResort
+  name: action-resort
+  description: action-resort-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: last_resort
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LastResortActionEvent
+    useDelay: 1
+    priority: -61
+
+    # Biodegrade
+- type: entity
+  id: ActionLingBiodegrade
+  name: action-biodegrade
+  description: action-biodegrade-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: biodegrade
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingBiodegradeActionEvent
+    useDelay: 10
+    priority: -61
+
+    # Resonant
+- type: entity
+  id: ActionLingResonant
+  name: action-resonant
+  description: action-resonant-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: resonant_shriek
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingResonantShriekEvent
+    useDelay: 10
+    priority: -61
+
+    # TSting
+- type: entity
+  id: ActionLingTransformSting
+  name: action-transform-sting
+  description: action-transform-sting-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: sting_transform
+    itemIconStyle: BigAction
+    event: !type:TransformationStingEvent
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    useDelay: 10
+    priority: -61
+
+    # Arm Hammer
+- type: entity
+  id: ActionArmace
+  name: action-toggle-arm-hammer
+  description: action-toggle-arm-hammer-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: armhammer
+    itemIconStyle: BigAction
+    event: !type:ArmaceActionEvent
+    useDelay: 1
+    priority: -51
+
+    # Digital Camo
+- type: entity
+  id: ActionDigiCamo
+  name: action-digi-camo
+  description: action-digi-camo-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: digital_camo
+    itemIconStyle: BigAction
+    event: !type:DigitalCamouflageEvent
+    useDelay: 1
+    priority: -55
+
+    # Bone shard
+- type: entity
+  id: ActionBoneShard
+  name: action-bone-shard
+  description: action-bone-shard-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: bone_shard
+    itemIconStyle: BigAction
+    event: !type:ChangelingBoneShardEvent
+    useDelay: 15
+    priority: -55
