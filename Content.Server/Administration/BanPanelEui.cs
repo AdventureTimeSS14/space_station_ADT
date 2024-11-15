@@ -195,6 +195,7 @@ public sealed class BanPanelEui : BaseEui
         // ADT-Tweak-End
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+        
         _banManager.CreateServerBan(targetUid, target, Player.UserId, addressRange, targetHWid, minutes, severity, reason);
 
         var banInfo = new BanInfo
