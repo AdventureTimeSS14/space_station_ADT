@@ -12,7 +12,6 @@ namespace Content.Shared.ADT.Language;
 
 public abstract class SharedLanguageSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -23,6 +22,9 @@ public abstract class SharedLanguageSystem : EntitySystem
     {
 
     }
+
+    public ProtoId<LanguagePrototype> GalacticCommon = "GalacticCommon";
+    public ProtoId<LanguagePrototype> Universal = "Universal";
 
     public bool CanSpeak(EntityUid uid, LanguagePrototype proto, LanguageSpeakerComponent? component = null)
     {

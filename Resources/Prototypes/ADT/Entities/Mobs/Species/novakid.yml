@@ -154,6 +154,13 @@
     shortscale: 0.9
   - type: BloodCough
     postingSayDamage: blood-cough-novakid
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ChangelingBlacklist
 
 - type: entity
   save: false

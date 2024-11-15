@@ -1,0 +1,300 @@
+- type: listing
+  id: ChangelingArmBlade
+  name: listing-arm-blade
+  description: listing-arm-blade-desc
+  productAction: ActionArmBlade
+  mindAction: false
+  cost:
+    EvolutionPoints: 3
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingArmor
+  name: listing-chitinous-armor
+  description: listing-chitinous-armor-desc
+  productAction: ActionLingArmor
+  mindAction: false
+  cost:
+    EvolutionPoints: 3
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingChameleonSkin
+  name: listing-chameleon-skin
+  description: listing-chameleon-skin-desc
+  productAction: ActionLingInvisible
+  mindAction: false
+  cost:
+    EvolutionPoints: 3
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingEMP
+  name: listing-dissonant-shriek
+  description: listing-dissonant-shriek-desc
+  productAction: ActionLingEMP
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingBlindSting
+  name: listing-blind-sting
+  description: listing-blind-sting-desc
+  productAction: ActionLingBlindSting
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingAdrenaline
+  name: listing-adrenaline
+  description: listing-adrenaline-desc
+  productAction: ActionLingAdrenaline
+  mindAction: false
+  cost:
+    EvolutionPoints: 1
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingFleshmend
+  name: listing-fleshmend
+  description: listing-fleshmend-desc
+  productAction: ActionLingFleshmend
+  mindAction: false
+  cost:
+    EvolutionPoints: 3
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingMuteSting
+  name: listing-mute-sting
+  description: listing-mute-sting-desc
+  productAction: ActionLingMuteSting
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingMuscles
+  name: listing-strained-muscles
+  description: listing-strained-muscles-desc
+  productAction: ActionLingMuscles
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingLesserForm
+  name: listing-lesser-form
+  description: listing-lesser-form-desc
+  productAction: ActionLingLesserForm
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingDrugSting
+  name: listing-drug-sting
+  description: listing-drug-sting-desc
+  productAction: ActionLingDrugSting
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingArmShield
+  name: listing-arm-shield
+  description: listing-arm-shield-desc
+  productAction: ActionArmShield
+  mindAction: false
+  cost:
+    EvolutionPoints: 3
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingLastResort
+  name: listing-last-resort
+  description: listing-last-resort-desc
+  productAction: ActionLingLastResort
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+  - !type:ChangelingLastResortNotUsedCondition
+
+- type: listing
+  id: ChangelingBiodegrade
+  name: listing-biodegrade
+  description: listing-biodegrade-desc
+  productAction: ActionLingBiodegrade
+  mindAction: false
+  cost:
+    EvolutionPoints: 1
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingResonant
+  name: listing-resonant-shriek
+  description: listing-resonant-shriek-desc
+  productAction: ActionLingResonant
+  mindAction: false
+  cost:
+    EvolutionPoints: 1
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingTransformSting
+  name: listing-transform-sting
+  description: listing-transform-sting-desc
+  productAction: ActionLingTransformSting
+  mindAction: false
+  cost:
+    EvolutionPoints: 3
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingArmace
+  name: listing-arm-mace
+  description: listing-arm-mace-desc
+  productAction: ActionArmace
+  mindAction: false
+  cost:
+    EvolutionPoints: 4
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingDigiCamo
+  name: listing-digi-camo
+  description: listing-digi-camo-desc
+  productAction: ActionDigiCamo
+  mindAction: false
+  cost:
+    EvolutionPoints: 2
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingBoneShard
+  name: listing-bone-shard
+  description: listing-bone-shard-desc
+  productAction: ActionBoneShard
+  mindAction: false
+  cost:
+    EvolutionPoints: 1
+  categories:
+  - ChangelingAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:ChangelingActionNotPresentCondition
+
+- type: listing
+  id: ChangelingRefresh
+  name: changeling-refresh
+  description: changeling-refresh-desc
+  productEvent: !type:ChangelingRefreshEvent
+  raiseOnBuyer: true
+  cost:
+    EvolutionPoints: 0
+  categories:
+  - ChangelingAbilities
+  icon: Interface/Actions/firestarter.png
+  conditions:
+  - !type:ChangelingCanRefreshCondition
+  - !type:ChangelingActionNotPresentCondition
