@@ -140,6 +140,15 @@
   id: ADTMagazineRifleAR12
 
 - type: Tag
+  id: ChangelingBlacklist
+
+- type: Tag
+  id: MaskBlocker
+
+- type: Tag
+  id: GlassesBlocker
+
+- type: Tag
   id: ADTMobileDefibrillator
 
 - type: Tag
@@ -156,6 +165,9 @@
 
 - type: Tag
   id: ADTMedipen
+
+- type: Tag
+  id: ADTSiliconStealthWhitelist
 
 - type: Tag
   id: ADTCandies
