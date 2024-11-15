@@ -124,4 +124,9 @@ public sealed partial class MindComponent : Component
     [ViewVariables, Access(typeof(SharedMindSystem), typeof(SharedGameTicker))]
     // TODO remove this after moving IPlayerManager functions to shared
     public ICommonSession? Session { get; set; }
+
+    // ADT
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("preventGhostingSendMessage")]
+    public bool PreventGhostingSendMessage = true;
 }
