@@ -87,6 +87,13 @@ public sealed class BanMassCommand : LocalizedCommands
                 if (_adminManager.HasAdminFlag(playerAdmin, AdminFlags.Permissions)) // Есть ли пермиссион
                     return;
             }
+            var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
+            if (dbData != null && dbData.AdminRank != null)
+            {
+                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+                    return;
+            }
             var lastServerBan = await _dbManager.GetLastServerBanAsync();
             var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
             //End
