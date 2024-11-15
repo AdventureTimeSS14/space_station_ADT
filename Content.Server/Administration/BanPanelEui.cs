@@ -29,6 +29,7 @@ public sealed class BanPanelEui : BaseEui
     [Dependency] private readonly IAdminManager _admins = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private readonly ISawmill _sawmill;
 
@@ -175,7 +176,13 @@ public sealed class BanPanelEui : BaseEui
 
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
-
+        // ADT-Tweak-Start
+        if (target != null && _playerManager.TryGetSessionByUsername(target, out var playerAdmin))
+        {
+            if (_admins.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
+                return;
+        }
+        // ADT-Tweak-End
         _banManager.CreateServerBan(targetUid, target, Player.UserId, addressRange, targetHWid, minutes, severity, reason);
 
         var banInfo = new BanInfo

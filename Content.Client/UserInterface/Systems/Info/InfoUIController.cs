@@ -34,13 +34,13 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
         _netManager.RegisterNetMessage<RulesAcceptedMessage>();
         _netManager.RegisterNetMessage<SendRulesInformationMessage>(OnRulesInformationMessage);
 
-        // _consoleHost.RegisterCommand("fuckrules", // ADT COmment
-        //     "",
-        //     "",
-        //     (_, _, _) =>
-        // {
-        //     OnAcceptPressed();
-        // });
+        _consoleHost.RegisterCommand("fuckrules",
+            "",
+            "",
+            (_, _, _) =>
+        {
+            OnAcceptPressed();
+        });
     }
 
     private void OnRulesInformationMessage(SendRulesInformationMessage message)

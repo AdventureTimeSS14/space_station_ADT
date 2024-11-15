@@ -26,9 +26,9 @@ public sealed class BanMassCommand : LocalizedCommands
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
-
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "banmass";
 
@@ -82,6 +82,11 @@ public sealed class BanMassCommand : LocalizedCommands
             var targetHWid = located.LastHWId;
 
             //Start логи банов для диса
+            if (_playerManager.TryGetSessionByUsername(target, out var playerAdmin))
+            {
+                if (_adminManager.HasAdminFlag(playerAdmin, AdminFlags.Permissions)) // Есть ли пермиссион
+                    return;
+            }
             var lastServerBan = await _dbManager.GetLastServerBanAsync();
             var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
             //End
