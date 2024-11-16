@@ -278,6 +278,10 @@
     wilhelmProbability: 0.001
   - type: Tag
     tags:
+      # ADT Tweak start
+      - Trash
+      - Mouse
+      # ADT Tweak end
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
