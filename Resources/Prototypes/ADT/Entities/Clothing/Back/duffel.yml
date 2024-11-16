@@ -39,7 +39,7 @@
     sprite: ADT/Clothing/Back/pathologist_duffel.rsi
 
 - type: entity
-  parent: ClothingBackpackDuffel
+  parent: ClothingBackpackDuffelMedical
   id: ADTClothingBackpackDuffelParamedic
   name: parsmedical duffel bag
   description: A large duffel bag to hold paramedical equipment
