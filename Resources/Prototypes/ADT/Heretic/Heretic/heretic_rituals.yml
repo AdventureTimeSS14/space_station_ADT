@@ -213,7 +213,7 @@
   locName: knowledge-path-side-knowledge-name
   locDesc: knowledge-path-side-knowledge-desc
   icon: 
-    sprite: _ADT/Heretic/book.rsi
+    sprite: ADT/Heretic/book.rsi
     state: icon
   customBehaviors:
   - !type:RitualKnowledgeBehavior

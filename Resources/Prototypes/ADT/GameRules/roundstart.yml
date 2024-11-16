@@ -71,7 +71,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-        prototype: Heretic
       startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entityTable
