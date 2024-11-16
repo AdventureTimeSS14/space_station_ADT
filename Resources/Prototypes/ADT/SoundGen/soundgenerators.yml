@@ -1,16 +1,15 @@
 - type: entity
-  parent: BaseItem
+  parent: MarkerBase
   id: ADTSoundGenBase
   name: ADTSoundGenBase
   abstract: true
   description: Sound Generator! Wowie!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/soundgen.rsi
-    state: icon
-  - type: Item
-    sprite: ADT/Objects/Misc/soundgen.rsi
-    state: soundgen
+    layers:
+      - state: green
+      - sprite: ADT/Objects/Misc/soundgen.rsi
+        state: icon
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
@@ -18,18 +17,17 @@
 
 
 - type: entity
-  parent: BaseItem
+  parent: MarkerBase
   id: ADTSoundGenBaseAmbient
   name: ADTSoundGenBaseAmbient
   abstract: true
   description: Ambient sound Generator! Wowie!
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/soundgen.rsi
-    state: icon_ambient
-  - type: Item
-    sprite: ADT/Objects/Misc/soundgen.rsi
-    state: soundgen
+    layers:
+      - state: green
+      - sprite: ADT/Objects/Misc/soundgen.rsi
+        state: icon_ambient
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
@@ -44,7 +42,7 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 6
+    lifetime: 30 # 6 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
@@ -57,7 +55,7 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 30 # 5 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_2.ogg
@@ -70,7 +68,7 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 30 # 5 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_3.ogg
@@ -83,7 +81,7 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 14
+    lifetime: 30 # 14 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/budilnik.ogg
@@ -96,7 +94,7 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 2
+    lifetime: 30 # 2 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/hit.ogg
@@ -135,7 +133,7 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 30 # 7 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/pianino_chord_sudden.ogg
@@ -174,7 +172,7 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 6
+    lifetime: 30 # 6 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/reverse_dissolve_scary.ogg
