@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseItem
-  id: ADTSoundGenBaseAmb
+  id: ADTSoundGenBaseAmbient
   name: ADTSoundGenBaseAmbient
   abstract: true
   description: Ambient sound Generator! Wowie!
@@ -78,8 +78,8 @@
 
 - type: entity
   parent: ADTSoundGenBase
-  id: ADTSoundGenBudilnik
-  name: ADTSoundGenBudilnik
+  id: ADTSoundGenAlarm
+  name: ADTSoundGenAlarm
   abstract: false
   components:
   - type: TimedDespawn
@@ -103,7 +103,7 @@
 
 
 - type: entity
-  parent: ADTSoundGenBaseAmb
+  parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenMovingObjects
   name: ADTSoundGenMovingObjects
   abstract: false
@@ -116,7 +116,7 @@
 
 
 - type: entity
-  parent: ADTSoundGenBaseAmb
+  parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenFactory
   name: ADTSoundGenFactory
   abstract: false
@@ -142,7 +142,7 @@
 
 
 - type: entity
-  parent: ADTSoundGenBaseAmb
+  parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenShaftWater
   name: ADTSoundGenShaftWater
   abstract: false
@@ -155,7 +155,7 @@
 
 
 - type: entity
-  parent: ADTSoundGenBaseAmb
+  parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenShortScaryAmbient
   name: ADTSoundGenShortScaryAmbient
   abstract: false
@@ -181,7 +181,7 @@
 
 
 - type: entity
-  parent: ADTSoundGenBaseAmb
+  parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenDungeonAmbientScary
   name: ADTSoundGenDungeonAmbientScary
   abstract: false
