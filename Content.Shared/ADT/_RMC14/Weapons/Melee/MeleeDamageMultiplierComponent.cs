@@ -1,5 +1,4 @@
-﻿using Content.Shared.Whitelist;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 
 namespace Content.Shared._RMC14.Weapons.Melee;
 
@@ -15,7 +14,4 @@ public sealed partial class MeleeDamageMultiplierComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Multiplier = 0.5f; // x1.5 extra damage
-
-    [DataField, AutoNetworkedField]
-    public EntityWhitelist Whitelist = new();
 }

@@ -12,8 +12,8 @@ public sealed class CMKeyFunctions
     public static readonly BoundKeyFunction RMCFieldStripHeldItem = "RMCFieldStripHeldItem";
     public static readonly BoundKeyFunction RMCCycleFireMode = "RMCCycleFireMode";
     public static readonly BoundKeyFunction CMUniqueAction = "CMUniqueAction";
-    public static readonly BoundKeyFunction CMHolsterPrimary = "CMHolsterPrimary";
-    public static readonly BoundKeyFunction CMHolsterSecondary = "CMHolsterSecondary";
-    public static readonly BoundKeyFunction CMHolsterTertiary = "CMHolsterTertiary";
-    public static readonly BoundKeyFunction CMHolsterQuaternary = "CMHolsterQuaternary";
+//     public static readonly BoundKeyFunction CMHolsterPrimary = "CMHolsterPrimary";
+//     public static readonly BoundKeyFunction CMHolsterSecondary = "CMHolsterSecondary";
+//     public static readonly BoundKeyFunction CMHolsterTertiary = "CMHolsterTertiary";
+//     public static readonly BoundKeyFunction CMHolsterQuaternary = "CMHolsterQuaternary";
 }
