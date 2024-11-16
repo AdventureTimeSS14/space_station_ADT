@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Damage.Events; // ADT-Changeling-Tweak
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
@@ -368,6 +369,13 @@ public sealed partial class StaminaSystem : EntitySystem
         {
             return;
         }
+        // ADT staminacrit cancellation event start
+        var ev = new BeforeStaminaCritEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        if (ev.Cancelled)
+            return;
+        // ADT staminacrit cancellation event end
 
         // To make the difference between a stun and a stamcrit clear
         // TODO: Mask?

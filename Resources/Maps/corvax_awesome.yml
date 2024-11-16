@@ -202,7 +202,7 @@ entities:
           version: 6
         2,1:
           ind: 2,1
-          tiles: BAAAAAAABAAAAAAABAAAAAAABAAAAAAAgQAAAAAAgQAAAAAABQAAAAAAgQAAAAAAgQAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          tiles: BAAAAAAABAAAAAAABAAAAAAABAAAAAAAgQAAAAAAgQAAAAAABQAAAAAAgQAAAAAAgQAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
           version: 6
         -3,-3:
           ind: -3,-3
@@ -9503,7 +9503,8 @@ entities:
           9,-1:
             0: 65528
           9,3:
-            0: 61156
+            0: 28388
+            7: 32768
           9,4:
             0: 4
           10,1:
@@ -14928,6 +14929,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 30.5,-11.5
       parent: 17590
+- proto: AirlockGlassShuttle
+  entities:
+  - uid: 6638
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,21.5
+      parent: 2
 - proto: AirlockGlassShuttleSyndicate
   entities:
   - uid: 16677
@@ -33137,6 +33146,16 @@ entities:
     - type: Transform
       pos: 22.5,12.5
       parent: 20000
+  - uid: 20149
+    components:
+    - type: Transform
+      pos: 39.5,19.5
+      parent: 2
+  - uid: 20150
+    components:
+    - type: Transform
+      pos: 39.5,20.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 34
@@ -44335,6 +44354,12 @@ entities:
     - type: Transform
       pos: 8.5,-0.5
       parent: 2
+  - uid: 6639
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,21.5
+      parent: 2
   - uid: 6719
     components:
     - type: Transform
@@ -46496,6 +46521,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 40.5,18.5
       parent: 19854
+  - uid: 19950
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,22.5
+      parent: 2
   - uid: 19995
     components:
     - type: Transform
@@ -46521,6 +46552,30 @@ entities:
     - type: Transform
       pos: 35.5,-7.5
       parent: 17590
+  - uid: 20119
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 39.5,21.5
+      parent: 2
+  - uid: 20120
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 39.5,22.5
+      parent: 2
+  - uid: 20136
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 38.5,21.5
+      parent: 2
+  - uid: 20137
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 38.5,22.5
+      parent: 2
 - proto: CentcomComputerComms
   entities:
   - uid: 16877
@@ -49609,6 +49664,12 @@ entities:
       parent: 17590
 - proto: ComputerBroken
   entities:
+  - uid: 1120
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,21.5
+      parent: 2
   - uid: 1312
     components:
     - type: Transform
@@ -49619,6 +49680,11 @@ entities:
     components:
     - type: Transform
       pos: -13.5,3.5
+      parent: 2
+  - uid: 2370
+    components:
+    - type: Transform
+      pos: 35.5,13.5
       parent: 2
   - uid: 18319
     components:
@@ -49741,12 +49807,6 @@ entities:
     - type: Transform
       pos: -11.5,3.5
       parent: 2
-  - uid: 4691
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -18.5,21.5
-      parent: 2
 - proto: ComputerId
   entities:
   - uid: 859
@@ -49852,13 +49912,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -23.5,-3.5
       parent: 2
-- proto: ComputerSalvageExpedition
-  entities:
-  - uid: 2399
-    components:
-    - type: Transform
-      pos: 35.5,13.5
-      parent: 2
 - proto: ComputerShuttle
   entities:
   - uid: 19876
@@ -49874,6 +49927,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,8.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 6637
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.5,15.5
       parent: 2
 - proto: ComputerShuttleSyndie
   entities:
@@ -50809,26 +50870,6 @@ entities:
     - type: Transform
       pos: 34.5,15.5
       parent: 2
-  - uid: 6637
-    components:
-    - type: MetaData
-      desc: Два мини-джетпака для тех, кому хочется вызова.
-      name: ящик мини-джетпаков
-    - type: Transform
-      pos: 39.5,15.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 6638
-          - 6639
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 8112
     components:
     - type: MetaData
@@ -92414,6 +92455,20 @@ entities:
     - type: Transform
       pos: 14.5,-14.5
       parent: 17590
+- proto: OpporozidoneBeakerSmall
+  entities:
+  - uid: 4691
+    components:
+    - type: Transform
+      pos: -24.162521,18.595175
+      parent: 2
+- proto: OreBox
+  entities:
+  - uid: 20138
+    components:
+    - type: Transform
+      pos: 34.5,13.5
+      parent: 2
 - proto: OreProcessor
   entities:
   - uid: 3761
@@ -93037,6 +93092,82 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+  - uid: 20151
+    components:
+    - type: Transform
+      pos: -24.505997,18.681068
+      parent: 2
+    - type: Paper
+      content: >-
+        Оппорозидон используется для регенерации гниющих тканей и мозгового вещества.
+
+        Действует на мертвых существ, чья температура тела не более 150K.
+
+
+        [head=2]Рецепт Оппорозидона[/head]
+
+
+        [head=3]Оппорозидон[/head]
+
+        [color=#E333A7]▣[/color] плазма [2]
+
+        [color=#B50EE8]▣[/color] когнизин [1]
+
+        [color=#32CD32]▣[/color] доксарубиксадон [1]
+
+        [italic]Нагреть выше 400K[/italic]
+
+        ▣ оппорозидон [3]
+
+
+        [color=#B50EE8]▣[/color] [bold]Когнизин[/bold]
+
+        [bullet]карпотоксин [1]
+
+        [bullet]сидерлак [1]
+
+        [bullet]ацетон [1]
+
+        [italic]Смешать[/italic]
+
+        [bullet]когнизин [1]
+
+
+        [color=#32CD32]▣[/color] [bold]Доксарубиксадон[/bold]
+
+        [bullet]криоксадон [1]
+
+        [bullet]нестабильный мутаген [1]
+
+        [italic]Смешать[/italic]
+
+        [bullet]доксарубиксадон [2]
+      editingDisabled: True
+  - uid: 20152
+    components:
+    - type: Transform
+      pos: -18.235907,21.539574
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-clown
+      stampedBy:
+      - stampedColor: '#FF33CCFF'
+        stampedName: stamp-component-stamped-name-clown
+      content: >2-
+
+
+        Всем привет! Это клоун Бим-Бон!!!
+
+        Я случайно взорвал клонирующую машину. Ну, вы там это, не серчайте =)
+
+        Оставил вам немного [bold]Оппорозидона[/bold] и его рецепт в Крио комнате. Он довольно простой.
+
+
+        Откуда у меня Оппорозидон и как я узнал его рецепт?
+
+        Всё очень просто! 
+
+                  [head=2]ГЛУПЕНЬКИЙ ХОНК-ХОООНК!!![/head]
 - proto: PaperArtifactAnalyzer
   entities:
   - uid: 3722
@@ -98732,6 +98863,42 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 35.5,1.5
       parent: 17590
+  - uid: 20141
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,20.5
+      parent: 2
+  - uid: 20142
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,19.5
+      parent: 2
+  - uid: 20143
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,18.5
+      parent: 2
+  - uid: 20144
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,17.5
+      parent: 2
+  - uid: 20146
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,21.5
+      parent: 2
+  - uid: 20147
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 39.5,22.5
+      parent: 2
 - proto: RailingCorner
   entities:
   - uid: 1652
@@ -98775,6 +98942,18 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 18.5,-3.5
       parent: 17590
+  - uid: 20139
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 38.5,22.5
+      parent: 2
+  - uid: 20140
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 40.5,22.5
+      parent: 2
 - proto: RailingCornerSmall
   entities:
   - uid: 1184
@@ -99059,6 +99238,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 35.5,2.5
       parent: 17590
+  - uid: 20145
+    components:
+    - type: Transform
+      pos: 38.5,20.5
+      parent: 2
+  - uid: 20148
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,20.5
+      parent: 2
 - proto: RailingRound
   entities:
   - uid: 5794
@@ -101624,12 +101814,6 @@ entities:
     components:
     - type: Transform
       pos: 23.5,34.5
-      parent: 2
-  - uid: 1120
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -24.5,18.5
       parent: 2
   - uid: 1679
     components:
@@ -105248,22 +105432,6 @@ entities:
     - type: Transform
       pos: 0.31821108,-23.478035
       parent: 2
-- proto: ScrapJetpack
-  entities:
-  - uid: 6638
-    components:
-    - type: Transform
-      parent: 6637
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 6639
-    components:
-    - type: Transform
-      parent: 6637
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ScrapMedkit
   entities:
   - uid: 6633
@@ -116169,10 +116337,10 @@ entities:
     - type: Transform
       pos: -23.5,-38.5
       parent: 2
-  - uid: 2370
+  - uid: 2399
     components:
     - type: Transform
-      pos: 37.5,15.5
+      pos: 39.5,15.5
       parent: 2
   - uid: 3385
     components:
@@ -130985,9 +131153,9 @@ entities:
       name: пулемёт ботаников
     - type: Transform
       parent: 1540
-    - type: InsideEntityStorage
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
     missingComponents:
     - ChamberMagazineAmmoProvider
     - AmmoCounter

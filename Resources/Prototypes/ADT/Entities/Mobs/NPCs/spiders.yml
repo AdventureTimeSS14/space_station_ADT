@@ -66,6 +66,7 @@
     damage:
       types:
         Piercing: 6
+  - type: MobState
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -161,7 +162,7 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: 0.75
+    transferAmount: 1.5
     solution: melee
 
 - type: entity
@@ -246,6 +247,12 @@
     speedModifierThresholds:
       25: 0.7
       35: 0.5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSpider
+      amount: 1
+    - id: ADTViperChelicerae
+      amount: 1
   - type: Bloodstream
     bloodMaxVolume: 75
     bloodReagent: ADTLatrotoxin
@@ -258,7 +265,7 @@
       melee:
         reagents:
         - ReagentId: ADTLatrotoxin
-          Quantity: 50
+          Quantity: 100
   - type: MeleeChemicalInjector
     transferAmount: 4
     solution: melee
@@ -298,9 +305,11 @@
         Base: tarantula
       Dead:
         Base: tarantula_dead
+  - type: Stamina
+    critThreshold: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 2.5
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 2.7
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 0.7
@@ -309,6 +318,8 @@
     thresholds:
       0: Alive
       300: Dead
+  - type: Prying # Open door from xeno.yml.
+    speedModifier: 3
   - type: MeleeWeapon
     damage:
       types:
@@ -360,6 +371,8 @@
         damage: 85
       behaviors:
       - !type:GibBehavior { }
+  - type: CanEscapeInventory
+    baseResistTime: 2
   - type: MultiHandedItem
   - type: Item
     sprite: ADT/Mobs/Animals/minispider.rsi
@@ -367,7 +380,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      45: Critical
+      40: Critical
       70: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
@@ -387,7 +400,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 4.8
+        Piercing: 3.8
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -395,7 +408,7 @@
         - ReagentId: Toxin
           Quantity: 30
   - type: MeleeChemicalInjector
-    transferAmount: 0.75
+    transferAmount: 1
     solution: melee
   - type: GhostRole
     makeSentient: true
