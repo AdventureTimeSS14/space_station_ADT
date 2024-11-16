@@ -1,3 +1,6 @@
+# Base
+
+
 - type: entity
   parent: MarkerBase
   id: ADTSoundGenBase
@@ -14,7 +17,6 @@
     sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
       radius: 7
-
 
 - type: entity
   parent: MarkerBase
@@ -34,6 +36,8 @@
       radius: 7
 
 
+# Обычные
+
 
 - type: entity
   parent: ADTSoundGenBase
@@ -42,11 +46,10 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 30 # 6 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
+    lifetime: 6
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
-
 
 - type: entity
   parent: ADTSoundGenBase
@@ -55,11 +58,10 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 30 # 5 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
+    lifetime: 5
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_2.ogg
-
 
 - type: entity
   parent: ADTSoundGenBase
@@ -68,11 +70,10 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 30 # 5 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
+    lifetime: 5
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/destruction_3.ogg
-
 
 - type: entity
   parent: ADTSoundGenBase
@@ -81,11 +82,10 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 30 # 14 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
+    lifetime: 14
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/budilnik.ogg
-
 
 - type: entity
   parent: ADTSoundGenBase
@@ -94,10 +94,37 @@
   abstract: false
   components:
   - type: TimedDespawn
-    lifetime: 30 # 2 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
+    lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/hit.ogg
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenSuddenChord
+  name: ADTSoundGenSuddenChord
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 7
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/pianino_chord_sudden.ogg
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenReverseDissolveScary
+  name: ADTSoundGenReverseDissolveScary
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 6
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/reverse_dissolve_scary.ogg
+
+
+# Ambient
 
 
 - type: entity
@@ -112,7 +139,6 @@
     sound:
       path: /Audio/ADT/SoundGen/moving_objects_ambient_scary.ogg
 
-
 - type: entity
   parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenFactory
@@ -124,20 +150,6 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/factory_ambient.ogg
-
-
-- type: entity
-  parent: ADTSoundGenBase
-  id: ADTSoundGenSuddenChord
-  name: ADTSoundGenSuddenChord
-  abstract: false
-  components:
-  - type: TimedDespawn
-    lifetime: 30 # 7 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/ADT/SoundGen/pianino_chord_sudden.ogg
-
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -151,7 +163,6 @@
     sound:
       path: /Audio/ADT/SoundGen/shaft_water.ogg
 
-
 - type: entity
   parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenShortScaryAmbient
@@ -164,20 +175,6 @@
     sound:
       path: /Audio/ADT/SoundGen/short_ambient_scary.ogg
 
-
-- type: entity
-  parent: ADTSoundGenBase
-  id: ADTSoundGenReverseDissolveScary
-  name: ADTSoundGenReverseDissolveScary
-  abstract: false
-  components:
-  - type: TimedDespawn
-    lifetime: 30 # 6 ---> 30 (Сделал побольше, чтобы в панели спавна не исчезала иконка.)
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/ADT/SoundGen/reverse_dissolve_scary.ogg
-
-
 - type: entity
   parent: ADTSoundGenBaseAmbient
   id: ADTSoundGenDungeonAmbientScary
@@ -189,3 +186,250 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/dungeon_ambient_scary.ogg
+
+
+# Периодические обычные
+
+
+- type: entity
+  parent: ADTSoundGenDestruction1
+  id: ADTSoundGenDestruction1Timed
+  name: TIMED ADTSoundGenDestruction1
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenDestruction1
+      chance: 1
+      intervalSeconds: 120
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenDestruction2
+  id: ADTSoundGenDestruction2Timed
+  name: TIMED ADTSoundGenDestruction2
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenDestruction2
+      chance: 1
+      intervalSeconds: 120
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenDestruction3
+  id: ADTSoundGenDestruction3Timed
+  name: TIMED ADTSoundGenDestruction3
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenDestruction3
+      chance: 1
+      intervalSeconds: 120
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenAlarm
+  id: ADTSoundGenAlarmTimed
+  name: TIMED ADTSoundGenAlarm
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenAlarm
+      chance: 1
+      intervalSeconds: 120
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenHit
+  id: ADTSoundGenHitTimed
+  name: TIMED ADTSoundGenHit
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenHit
+      chance: 1
+      intervalSeconds: 120
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenSuddenChord
+  id: ADTSoundGenSuddenChordTimed
+  name: TIMED ADTSoundGenSuddenChord
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenSuddenChord
+      chance: 1
+      intervalSeconds: 120
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenReverseDissolveScary
+  id: ADTSoundGenReverseDissolveScaryTimed
+  name: TIMED ADTSoundGenReverseDissolveScary
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenReverseDissolveScary
+      chance: 1
+      intervalSeconds: 120
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+
+# Периодические Ambient
+
+- type: entity
+  parent: ADTSoundGenMovingObjects
+  id: ADTSoundGenMovingObjectsTimed
+  name: TIMED ADTSoundGenMovingObjects
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenMovingObjects
+      chance: 1
+      intervalSeconds: 300
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenFactory
+  id: ADTSoundGenFactoryTimed
+  name: TIMED ADTSoundGenFactory
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenFactory
+      chance: 1
+      intervalSeconds: 300
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenShaftWater
+  id: ADTSoundGenShaftWaterTimed
+  name: TIMED ADTSoundGenShaftWater
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenShaftWater
+      chance: 1
+      intervalSeconds: 300
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenShortScaryAmbient
+  id: ADTSoundGenShortScaryAmbientTimed
+  name: TIMED ADTSoundGenShortScaryAmbient
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenShortScaryAmbient
+      chance: 1
+      intervalSeconds: 300
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  parent: ADTSoundGenDungeonAmbientScary
+  id: ADTSoundGenDungeonAmbientScaryTimed
+  name: TIMED ADTSoundGenDungeonAmbientScary
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: ADT/Objects/Misc/soundgen.rsi
+          state: icon
+        - state: timed
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - ADTSoundGenDungeonAmbientScary
+      chance: 1
+      intervalSeconds: 300
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
