@@ -12,6 +12,7 @@
     sprite: ADT/Objects/Misc/soundgen.rsi
     state: soundgen
   - type: EmitSoundOnSpawn
+    sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
       radius: 7
 
