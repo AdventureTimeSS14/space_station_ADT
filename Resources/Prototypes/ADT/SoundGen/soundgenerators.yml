@@ -10,6 +10,7 @@
     state: icon
   - type: Item
     sprite: ADT/Objects/Misc/soundgen.rsi
+    state: soundgen
   - sound:
       path: /Audio/ADT/SoundGen/destruction_1.ogg
 
@@ -18,15 +19,16 @@
 - type: entity
   parent: BaseItem
   id: ADTSoundGenBaseAmb
-  name: ADTSoundGenBase
+  name: ADTSoundGenBaseAmbient
   abstract: true
-  description: Sound Generator! Wowie!
+  description: Ambient sound Generator! Wowie!
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/soundgen.rsi
-    state: icon
+    state: icon_ambient
   - type: Item
     sprite: ADT/Objects/Misc/soundgen.rsi
+    state: soundgen
   - sound:
       path: /Audio/ADT/SoundGen/shaft_water.ogg
 
