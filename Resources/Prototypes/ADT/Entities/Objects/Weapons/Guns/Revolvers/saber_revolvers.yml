@@ -104,4 +104,4 @@
           tags:
             - ADTLasgunRevolverCell
   - type: AltFireMelee
-    AttackType: Heavy
+    attackType: Heavy
