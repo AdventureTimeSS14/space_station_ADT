@@ -108,7 +108,7 @@ public sealed class BanCommand : LocalizedCommands
             var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
             if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
                 return;
-        // }
+        }
         // ADT-Tweak-End
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
