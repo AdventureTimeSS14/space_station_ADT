@@ -6,7 +6,7 @@
   suffix: New Year
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/gift.rsi
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/gift.rsi
     layers:
       - state: icon
   - type: SpawnItemsOnUse
