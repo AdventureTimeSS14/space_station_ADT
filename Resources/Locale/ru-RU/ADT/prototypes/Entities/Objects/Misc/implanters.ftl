@@ -4,71 +4,78 @@ translator-implanter-ready = Имплантер готов к использов
 translator-implanter-used = Имплантер пуст.
 
 ent-GalacticCommonTranslatorImplanter = полноценный языковой имплант Общегалактического языка
+    .suffix = язык Общегалактический
     .desc = Имплант, позволяющий понимать и общаться на Общегалактическом языке.
-
 ent-BubblishTranslatorImplanter = полноценный языковой имплант Пузырчатого языка
-    .desc = Имплант, позволяющий понимать и общаться на Пузырчатом языке.
-
+    .suffix = язык Пузырчатый
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-NekomimeticTranslatorImplanter = полноценный языковой имплант некоязыка
-    .desc = Имплант, позволяющий понимать и общаться на некоязыке.
-
+    .suffix = язык Неко
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-DraconicTranslatorImplanter = полноценный языковой имплант Синта'унати
-    .desc = Имплант, позволяющий понимать и общаться на Синта'унати.
-
+    .suffix = язык Синта'унати
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-CanilunztTranslatorImplanter = полноценный языковой имплант Канилунц
-    .desc = Имплант, позволяющий понимать и общаться на языке Канилунц.
-
+    .suffix = язык Канилунц
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-SolCommonTranslatorImplanter = полноценный языковой имплант Солнечного языка
-    .desc = Имплант, позволяющий понимать и общаться на Солнечном языке.
-
+    .suffix = язык Солнечный
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-RootSpeakTranslatorImplanter = базовый языковой имплант Песни корней
-    .desc = Имплант, позволяющий понимать Песнь корней.
-
+    .suffix = язык Песни корней
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-MofficTranslatorImplanter = полноценный языковой имплант Паучьего языка
-    .desc = Имплант, позволяющий понимать и общаться на Паучьем языке.
-
+    .suffix = язык Паучий 
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-VoxCommonTranslatorImplanter = полноценный языковой имплант Вокс-пиджин
-    .desc = Имплант, позволяющий понимать и общаться на Вокс-пиджин.
-
+    .suffix = язык Вокс-пиджин
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-CodeSpeakImplanter = полноценный языковой имплант Кодового языка
-    .desc = Имплант, позволяющий понимать и общаться на Кодовом языке.
-
+    .suffix = язык Кодовый
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-SikTajTranslatorImplanter = полноценный языковой имплант языка Сик'тайр
-    .desc = Имплант, позволяющий понимать и общаться на Сик'тайре.
-
+    .suffix = язык Сик'тайр
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-CintaTajTranslatorImplanter = полноценный языковой имплант языка Синта’Тайр
-    .desc = Имплант, позволяющий понимать и общаться на Синта’тайре.
-
+    .suffix = язык Синта’Тайр
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-NianTranslatorImplanter = полноценный языковой имплант Ткачьего языка
-    .desc = Имплант, позволяющий понимать и общаться на Ткачьем языке.
-
+    .suffix = язык Ткачий
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-FireTranslatorImplanter = базовый языковой имплант Огненного языка
-    .desc = Имплант, позволяющий понимать Огненный язык.
-
+    .suffix = язык Огненный
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-DraskTranslatorImplanter = полноценный языковой имплант Орлуум
-    .desc = Имплант, позволяющий понимать и общаться на языке Орлуум.
-
+    .suffix = язык Орлуум
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-UrsTranslatorImplanter = полноценный языковой имплант Рыкрур
-    .desc = Имплант, позволяющий понимать и общаться на языке Рыкрур.
-
+    .suffix = язык Рыкрур
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-ArkaneTranslatorImplanter = полноценный языковой имплант Каукиттен
-    .desc = Имплант, позволяющий понимать и общаться на языке Каукиттен.
-
+    .suffix = язык Каукиттен
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-ShadekinTranslatorImplanter = полноценный языковой имплант Миар
-    .desc = Имплант, позволяющий понимать и общаться на языке Миар.
-
+    .suffix = язык Миар
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-BorgTranslatorImplanter = полноценный языковой имплант двоичного кода
-    .desc = Имплант, позволяющий понимать и общаться на двоичном коде.
-
+    .suffix = язык Двоичного кода
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-DwarfTranslatorImplanter = полноценный языковой имплант Шахт
-    .desc = Имплант, позволяющий понимать и общаться на языке Шахт.
-
+    .suffix = язык Шахт
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-ArachnidTranslatorImplanter = полноценный языковой имплант Паучьего языка
-    .desc = Имплант, позволяющий понимать и общаться на языке арахнидов.
-
+    .suffix = язык Паучий
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-SyndUniversalTranslatorImplanter = универсальный языковой имплант
-    .desc = Имплант, позволяющий (только) понимать все расовые языки.
-
+    .suffix = язык Универсальный
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-DevTranslatorImplanter = имплант языка разработчика
-    .desc = Опять чинить апстрим?
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = АДМЕМЫ
+
+ent-IPCTranslatorImplanter = Имплантер IPC-транслятора
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = IPC
+ent-VoxPidginTranslatorImplanter = Имплантантер-транслятор VoxCommon
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = VoxCommon

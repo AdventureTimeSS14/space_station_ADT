@@ -19,7 +19,7 @@
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
 # Corvax-HiddenDesc-Start
-    - type: HiddenDescription 
+    - type: HiddenDescription
       entries:
       - label: corvax-hidden-desc-Chameleon-syndicate
         whitelistMind:
@@ -32,6 +32,8 @@
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity

@@ -400,6 +400,8 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
+    - ADTSiliconStealthWhitelist  # ADT tweak
+    
   # Start-ADT-Tweak: Ai chat
   - type: HighlightWordsInChat
     highlightWords:

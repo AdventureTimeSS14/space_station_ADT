@@ -505,6 +505,8 @@
           - SecurityOfficer
           - Warden
           - Captain
+          - ADTSeniorOfficer
+          - ADTGuardOfficer
       - label: corvax-hidden-desc-EnergyShield-cargo
         jobRequired:
           - SalvageSpecialist

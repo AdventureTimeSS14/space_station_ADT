@@ -92,3 +92,31 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
+
+- type: entity
+  parent: BaseGameRule
+  id: ChangelingGameRule
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 5
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        tags:
+        - ChangelingBlacklist
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleChangeling
+      components:
+      - type: Changeling
+    agentName: ling-round-end-name
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
