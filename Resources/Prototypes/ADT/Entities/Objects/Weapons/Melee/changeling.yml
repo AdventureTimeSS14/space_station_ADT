@@ -1,0 +1,71 @@
+- type: entity
+  name: arm blade
+  parent: BaseKnife
+  id: ADTArmBlade
+  description: A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter.
+  components:
+  - type: Sprite
+    sprite: ADT/Changeling/Objects/armblade.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 25
+        Piercing: 15
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Changeling/Objects/armblade.rsi
+  - type: Tool
+    qualities:
+    - Prying
+    - Slicing
+    speedModifier: 0.5
+  - type: Prying
+    pryPowered: true
+  - type: DisarmMalus
+    malus: 0
+  - type: Reflect
+    reflectProb: 0.5
+
+- type: entity
+  name: arm mace
+  parent: BaseItem
+  id: ADTArmace
+  description: Meat.
+  components:
+  - type: Sprite
+    sprite: ADT/Changeling/Objects/armmace.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 25
+        Structural: 60
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Changeling/Objects/armmace.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 0.75
+  - type: MeleeThrowOnHit
+    speed: 15
+    lifetime: 0.15
+    collideDamage:
+      types:
+        Blunt: 12
+    toCollideDamage:
+      types:
+        Structural: 75
+    downOnHit: false

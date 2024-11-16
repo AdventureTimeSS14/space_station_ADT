@@ -525,6 +525,7 @@
   - type: Tag
     tags:
     - Raw
+    - Meat
   - type: Sprite
     state: snake
   - type: SolutionContainerManager
@@ -733,6 +734,8 @@
   - type: Tag
     tags:
     - Meat
+  - type: StealTarget
+    stealGroup: MaterialSmileExtract
 
 - type: entity
   name: steak

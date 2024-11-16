@@ -63,7 +63,7 @@
         - id: GrenadeFlashBang
 
 - type: entity
-  parent: ClothingBackpack
+  parent: ClothingBackpackMedical
   id: ADTClothingBackpackParamedic
   name: paramedical backpack
   description: Backpack to store some paramedical equipment.
