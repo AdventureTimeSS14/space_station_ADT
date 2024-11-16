@@ -268,7 +268,7 @@
     - !type:InSpaceRule
     - !type:GridInRangeRule
       inverted: true
-      range: 3
+      range: 10 # ADT-Sound-Update
 
 # TODO
 - type: rules
@@ -302,11 +302,9 @@
 - type: rules
   id: NearMedical
   rules:
-    - !type:NearbyTilesPercentRule
-      ignoreAnchored: true
-      percent: 0.75 # ADT-Sound-Update
-      tiles:
-      - FloorWhite
+    - !type:NearbyAccessRule
+      access:
+        - Medical
       range: 3
 
 - type: rules
@@ -327,7 +325,7 @@
       components:
         - type: Morgue
       range: 3
-      
+
 - type: rules
   id: NearSpookyFog
   rules:
