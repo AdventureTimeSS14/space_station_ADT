@@ -81,14 +81,15 @@ public sealed class BanMassCommand : LocalizedCommands
             var targetUid = located.UserId;
             var targetHWid = located.LastHWId;
 
-            //Start логи банов для диса
             var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
             if (dbData != null && dbData.AdminRank != null)
             {
                 var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
-                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions) // Адмемов с правами Пермиссион не забанят
                     return;
             }
+
+            //Start логи банов для диса
             var lastServerBan = await _dbManager.GetLastServerBanAsync();
             var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
             //End

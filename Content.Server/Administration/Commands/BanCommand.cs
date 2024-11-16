@@ -95,13 +95,8 @@ public sealed class BanCommand : LocalizedCommands
 
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
-        //Start-ADT-Tweak: логи банов для диса
-        // ADT-Tweak-Start
-        // if (_playerManager.TryGetSessionByUsername(target, out var playerAdmin))
-        // {
-        //     if (_adminManager.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
-        //         return;
-        // }
+
+        // ADT-Tweak-Start: Пользователя с флагом Permission не забанить
         var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
         if (dbData != null && dbData.AdminRank != null)
         {
@@ -110,6 +105,7 @@ public sealed class BanCommand : LocalizedCommands
                 return;
         }
         // ADT-Tweak-End
+        //Start-ADT-Tweak: логи банов для диса
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
         //End-ADT-Tweak

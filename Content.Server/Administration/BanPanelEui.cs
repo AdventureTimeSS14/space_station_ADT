@@ -174,12 +174,6 @@ public sealed class BanPanelEui : BaseEui
             }
         }
         // ADT-Tweak-Start
-        // if (target != null && _playerManager.TryGetSessionByUsername(target, out var playerAdmin))
-        // {
-        //     if (_admins.HasAdminFlag(playerAdmin, AdminFlags.Permissions))
-        //         return;
-        // }
-
         if (targetUid != null)
         {
             var dbData = await _dbManager.GetAdminDataForAsync(targetUid.Value);
