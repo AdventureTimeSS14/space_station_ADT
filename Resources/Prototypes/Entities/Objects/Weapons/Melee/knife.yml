@@ -105,6 +105,10 @@
     sprite: Objects/Weapons/Melee/combat_knife.rsi
   - type: DisarmMalus
     malus: 0.225
+  #ADT add start
+  - type: ThrowingAngle
+    angle: 225
+  #ADT add end
 
 - type: entity
   name: survival knife
