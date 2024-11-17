@@ -93,6 +93,7 @@
   id: ADTNearResearch
   rules:
     - !type:NearbyAccessRule
+      percent: 0.05
       access:
         - Research
       range: 3

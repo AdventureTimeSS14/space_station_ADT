@@ -312,10 +312,13 @@
 - type: rules
   id: NearMedical
   rules:
+    # ADT-Sound-Update-Start
     - !type:NearbyAccessRule
+      percent: 0.25
       access:
         - Medical
       range: 3
+    # ADT-Sound-Update-End
 
 - type: rules
   id: NearPrayable
