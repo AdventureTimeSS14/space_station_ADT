@@ -314,7 +314,7 @@
   rules:
     # ADT-Sound-Update-Start
     - !type:NearbyAccessRule
-      percent: 0.25
+      count: 3
       access:
         - Medical
       range: 3
