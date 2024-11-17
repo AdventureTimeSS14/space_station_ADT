@@ -161,6 +161,36 @@
         components:
           - SurplusBundle
 
+- type: listing
+  id: ADTUplinkSyndieADTTritiumGrenades
+  name: uplink-tritiumgrenades-name
+  description: uplink-tritiumgrenades-desc
+  productEntity: ADTTritiumGrenades
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTuplinkExplosivePizzabox
+  name: uplink-explosive-pizzabox-name
+  description: uplink-explosive-pizzabox-desc
+  productEntity: ADTExplosivePizzabox
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+      - Chef
+      - ServiceWorker
+
 #UplinkWearables
 
 - type: listing
