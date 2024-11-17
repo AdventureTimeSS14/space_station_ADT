@@ -25,9 +25,4 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
-  <ItemGroup>
-    <EmbeddedResource Update="ADT\Heretic\UI\HereticRitualRuneRadialMenu.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
 </Project>
