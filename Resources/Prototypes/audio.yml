@@ -312,10 +312,13 @@
 - type: rules
   id: NearMedical
   rules:
+    # ADT-Sound-Update-Start
     - !type:NearbyAccessRule
+      count: 3
       access:
         - Medical
       range: 3
+    # ADT-Sound-Update-End
 
 - type: rules
   id: NearPrayable

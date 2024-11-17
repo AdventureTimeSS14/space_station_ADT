@@ -93,6 +93,7 @@
   id: ADTNearResearch
   rules:
     - !type:NearbyAccessRule
+      count: 3
       access:
         - Research
       range: 3
