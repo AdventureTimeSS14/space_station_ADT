@@ -29,6 +29,7 @@ public sealed class BanPanelEui : BaseEui
     [Dependency] private readonly IAdminManager _admins = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private readonly ISawmill _sawmill;
 
@@ -172,7 +173,20 @@ public sealed class BanPanelEui : BaseEui
                 _sawmill.Error($"Error while erasing banned player:\n{e}");
             }
         }
+        // ADT-Tweak-Start
+        if (targetUid != null)
+        {
+            var dbData = await _dbManager.GetAdminDataForAsync(targetUid.Value);
 
+            if (dbData != null && dbData.AdminRank != null)
+            {
+                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+
+                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+                    return;
+            }
+        }
+        // ADT-Tweak-End
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
 
