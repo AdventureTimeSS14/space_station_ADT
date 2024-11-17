@@ -136,6 +136,6 @@ public sealed class NinjaSuitSystem : SharedNinjaSuitSystem
             return;
 
         var coords = _transform.GetMapCoordinates(user);
-        _emp.EmpPulse(coords, comp.EmpRange, comp.EmpConsumption, comp.EmpDuration);
+        _emp.EmpPulse(coords, comp.EmpRange, comp.EmpConsumption, comp.EmpDuration, user); // adt tweak
     }
 }

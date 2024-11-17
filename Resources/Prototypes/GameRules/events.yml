@@ -474,7 +474,7 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 2 # ADT TWEAK 5.5 >>> 2
     minimumPlayers: 30 #ADT-Tweak 20 >>> 30
     duration: 1
   - type: RuleGrids
