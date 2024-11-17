@@ -12,6 +12,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server.Tips;
 
@@ -28,6 +30,7 @@ public sealed class TipsSystem : EntitySystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IConsoleHost _conHost = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     private bool _tipsEnabled;
     private float _tipTimeOutOfRound;
@@ -82,6 +85,13 @@ public sealed class TipsSystem : EntitySystem
             return;
         }
 
+        // ADT-Tweak-Start Логируем сообщение
+        _adminLogger.Add(
+            LogType.AdminMessage,
+            LogImpact.Low,
+            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tippy or tip."
+        );
+        // ADT-Tweak-End
         ActorComponent? actor = null;
         if (args[0] != "all")
         {
