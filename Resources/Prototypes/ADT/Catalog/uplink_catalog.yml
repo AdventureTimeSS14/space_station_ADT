@@ -176,21 +176,6 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: ADTuplinkExplosivePizzabox
-  name: uplink-explosive-pizzabox-name
-  description: uplink-explosive-pizzabox-desc
-  productEntity: ADTExplosivePizzabox
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkJob
-  conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-      - Chef
-      - ServiceWorker
-
 #UplinkWearables
 
 - type: listing

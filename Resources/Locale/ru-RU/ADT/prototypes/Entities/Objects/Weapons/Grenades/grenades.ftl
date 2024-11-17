@@ -3,6 +3,3 @@ ent-ADTGrenadeKega = взрывная кега-граната
 ent-ADTTritiumGrenades = тритиевая взрывчатка
     .desc = Ядерная физика бывает крутой не только для тех, кто проспал пары..
     .suffix = { "" }
-ent-ADTExplosivePizzabox = коробка пиццы
-    .desc = { ent-BaseItem.desc }
-    .suffix =  "Explosive" 
