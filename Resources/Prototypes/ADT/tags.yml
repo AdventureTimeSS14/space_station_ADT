@@ -325,6 +325,7 @@
 
 - type: Tag
   id: ADTHardsuitSalvage
+
 - type: Tag
   id: ADTSiliconStealthWhitelist
 
@@ -339,3 +340,12 @@
 
 - type: Tag
   id: ADTPillExter
+
+- type: Tag
+  id: ADTRoboticsAmbience
+
+- type: Tag
+  id: ADTVaultAmbience
+
+- type: Tag
+  id: ADTChemistryAmbience
