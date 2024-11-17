@@ -201,7 +201,7 @@
     lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/Drask/draskscream.ogg
+      path: /Audio/ADT/Drask/draskscream.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -213,7 +213,7 @@
     lifetime: 3
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/behind_you1.ogg
+      path: /Audio/ADT/hallucinations/behind_you1.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -225,7 +225,7 @@
     lifetime: 4
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/behind_you2.ogg
+      path: /Audio/ADT/hallucinations/behind_you2.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -237,7 +237,7 @@
     lifetime: 4
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/far_noise.ogg
+      path: /Audio/ADT/hallucinations/far_noise.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -249,7 +249,7 @@
     lifetime: 5
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/i_see_you1.ogg
+      path: /Audio/ADT/hallucinations/i_see_you1.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -261,7 +261,7 @@
     lifetime: 5
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/i_see_you1.ogg
+      path: /Audio/ADT/hallucinations/i_see_you1.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -273,7 +273,7 @@
     lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/look_up1.ogg
+      path: /Audio/ADT/hallucinations/look_up1.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -285,7 +285,7 @@
     lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/look_up2.ogg
+      path: /Audio/ADT/hallucinations/look_up2.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -297,7 +297,7 @@
     lifetime: 3
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/over_here1.ogg
+      path: /Audio/ADT/hallucinations/over_here1.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -309,7 +309,7 @@
     lifetime: 4
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/over_here2.ogg
+      path: /Audio/ADT/hallucinations/over_here2.ogg
 
 - type: entity
   parent: ADTSoundGenBase
@@ -321,7 +321,7 @@
     lifetime: 3
   - type: EmitSoundOnSpawn
     sound:
-      path: Audio/ADT/hallucinations/over_here3.ogg
+      path: /Audio/ADT/hallucinations/over_here3.ogg
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -333,7 +333,7 @@
     lifetime: 4
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/scary-game_effect.ogg
+      path: /Audio/ADT/scary-game-effect.ogg
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -345,7 +345,7 @@
     lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/femalescream_1.ogg
+      path: /Audio/Voice/Human/femalescream_1.ogg
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -357,7 +357,7 @@
     lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/femalescream_2.ogg
+      path: /Audio/Voice/Human/femalescream_2.ogg
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -369,7 +369,7 @@
     lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/femalescream_3.ogg
+      path: /Audio/Voice/Human/femalescream_3.ogg
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -381,7 +381,7 @@
     lifetime: 1
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/malescream_1.ogg
+      path: /Audio/Voice/Human/malescream_1.ogg
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -393,7 +393,7 @@
     lifetime: 2
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/malescream_2.ogg
+      path: /Audio/Voice/Human/malescream_2.ogg
 
 - type: entity
   parent: ADTSoundGenBaseAmbient
@@ -405,7 +405,7 @@
     lifetime: 1
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/malescream_4.ogg
+      path: /Audio/Voice/Human/malescream_4.ogg
 
 
 # Новые Ambient от eddiemercury
@@ -433,7 +433,7 @@
     lifetime: 35
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/ADT/ghost_sing.ogg
+      path: /Audio/ADT/ghost-sing.ogg
 
 
 # Периодические обычные
