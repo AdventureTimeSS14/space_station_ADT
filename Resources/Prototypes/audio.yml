@@ -150,11 +150,28 @@
     - /Audio/Voice/Misc/lowHiss3.ogg
     - /Audio/Voice/Misc/lowHiss4.ogg
     - /Audio/Ambience/maintambience.ogg
+    # ADT-Sound-Update-Start
+    - /Audio/ADT/Ambience/ambimaint6.ogg
+    - /Audio/ADT/Ambience/ambimaint7.ogg
+    - /Audio/ADT/Ambience/ambimaint8.ogg
+    - /Audio/ADT/Ambience/ambimaint9.ogg
+    - /Audio/ADT/Ambience/ambimaint10.ogg
+    - /Audio/ADT/Ambience/ambimaint11.ogg
+    - /Audio/ADT/Ambience/ambimaint12.ogg
+    # ADT-Sound-Update-End
+
 
 - type: soundCollection
   id: AmbienceMedical
   files:
     - /Audio/Ambience/ambinice.ogg
+    # ADT-Sound-Update-Start
+    - /Audio/ADT/Ambience/medbay_1.ogg
+    - /Audio/ADT/Ambience/medbay_2.ogg
+    - /Audio/ADT/Ambience/medbay_3.ogg
+    - /Audio/ADT/Ambience/medbay_4.ogg
+    - /Audio/ADT/Ambience/medbay_5.ogg
+    # ADT-Sound-Update-End
 
 - type: soundCollection
   id: AmbienceMining
@@ -261,7 +278,7 @@
     - !type:InSpaceRule
     - !type:GridInRangeRule
       inverted: true
-      range: 3
+      range: 10 # ADT-Sound-Update
 
 # TODO
 - type: rules
@@ -295,11 +312,9 @@
 - type: rules
   id: NearMedical
   rules:
-    - !type:NearbyTilesPercentRule
-      ignoreAnchored: true
-      percent: 0.5
-      tiles:
-      - FloorWhite
+    - !type:NearbyAccessRule
+      access:
+        - Medical
       range: 3
 
 - type: rules
@@ -320,7 +335,7 @@
       components:
         - type: Morgue
       range: 3
-      
+
 - type: rules
   id: NearSpookyFog
   rules:

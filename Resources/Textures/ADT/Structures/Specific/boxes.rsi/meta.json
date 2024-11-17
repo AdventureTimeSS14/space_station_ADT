@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "copyright": "Made by unlumy:discord",
+  "license": "CC-BY-NC-SA-4.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "box_b1"
+    },
+    {
+      "name": "box_b2"
+    },
+    {
+      "name": "box_b3"
+    },
+    {
+      "name": "box_b4"
+    },
+    {
+      "name": "box_b5"
+    },
+    {
+      "name": "box_l1"
+    },
+    {
+      "name": "box_l1_2"
+    },
+    {
+      "name": "box_l1_3"
+    },
+    {
+      "name": "box_l2"
+    },
+    {
+      "name": "box_l3"
+    },
+    {
+      "name": "box_s1"
+    },
+    {
+      "name": "box_s2"
+    },
+    {
+      "name": "box_s3"
+    },
+    {
+      "name": "box_spec_smile"
+    },
+    {
+      "name": "box_spec_theyarewatching"
+    },
+    {
+      "name": "box_spec_xxxxxxxxxx"
+    },
+    {
+      "name": "box_spec1"
+    },
+    {
+      "name": "box_spec2"
+    },
+    {
+      "name": "box_spec3"
+    },
+    {
+      "name": "box_t1"
+    },
+    {
+      "name": "box_t2"
+    },
+    {
+      "name": "box_t3"
+    },
+    {
+      "name": "box_t4"
+    },
+    {
+      "name": "box_t5"
+    },
+    {
+      "name": "box1"
+    },
+    {
+      "name": "box1_op"
+    },
+    {
+      "name": "box2"
+    },
+    {
+      "name": "box3"
+    },
+    {
+      "name": "box4"
+    },
+    {
+      "name": "box5"
+    }
+  ]
+}
