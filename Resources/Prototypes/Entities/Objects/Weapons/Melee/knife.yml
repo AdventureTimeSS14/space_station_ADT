@@ -46,6 +46,10 @@
     damage:
       types:
         Slash: 10
+  - type: DisarmMalus
+    malus: 0.225
+  - type: ThrowingAngle
+    angle: 225
   # ADT Tweak End
   - type: Item
     sprite: Objects/Weapons/Melee/kitchen_knife.rsi
