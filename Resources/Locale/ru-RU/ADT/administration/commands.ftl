@@ -18,3 +18,11 @@ echo_chat-speak-help = Использовать обычную разговор�
 echo_chat-emote-help = Использовать чат эмоций
 echo_chat-whisper-help = Использование чата шёпотом
 
+## Команда: admin_toggle
+cmd-admin_toggle-desc = Вводит в деадмин или реадмин указанного пользователя.
+cmd-admin_toggle-help = Использование: admin_toggle <userName> <readmin/deadmin>
+cmd-admin_toggle-hint-duration = Значение
+cmd-admin_toggle-readmin = Вернуть права админу.
+cmd-admin_toggle-deadmin = Ввести в деадмин.
+cmd-admin_toggle-error-args = Указанный пользователь не найден.
+
