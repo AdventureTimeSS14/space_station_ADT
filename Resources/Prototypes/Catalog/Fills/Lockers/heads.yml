@@ -17,6 +17,7 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
+    - id: AstroNavCartridge
     - id: PrinterDocFlatpack # Corvax-Printer
     # ADT-Economy-Start
     - id: ADTCommandBudgetCard
@@ -254,6 +255,7 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
+    - id: MedTekCartridge
     # ADT tweak Start
     - id: ADTMobileDefibrillator
     - id: ADTBriefcaseBrownHikingCmoFilled
@@ -262,6 +264,7 @@
     - id: ADTBookSRPmed
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
+    - id: OpporozidoneBeakerSmall
     # ADT tweak End
 
 # Hardsuit table, used for suit storage as well
@@ -304,6 +307,7 @@
   id: LockerFillResearchDirectorNoHardsuit
   table: !type:AllSelector
     children:
+    - id: Intellicard
     - id: BoxEncryptionKeyScience
     - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled
@@ -377,6 +381,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
+    - id: WantedListCartridge
     - id: ClothingHeadHatCapHoS # Corvax-SecFashion
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite

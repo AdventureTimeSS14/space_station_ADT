@@ -40,6 +40,16 @@ namespace Content.Client.VendingMachines
             _menu.OpenCenteredLeft();
         }
 
+        public void Refresh()
+        {
+            var system = EntMan.System<VendingMachineSystem>();
+            var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
+            _cachedInventory = system.GetAllInventory(Owner);
+
+            _menu?.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak);
+        }
+
+        // START-ADT-TWEAK
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
@@ -51,6 +61,7 @@ namespace Content.Client.VendingMachines
 
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
+        // END-ADT-TWEAK
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
         {

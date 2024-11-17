@@ -78,8 +78,8 @@
   - type: ItemSlots
   - type: PaperLabel
     labelSlot:
-      insertVerbText: Attach Label
-      ejectVerbText: Remove Label
+      insertVerbText: paper-label-attach # ADT translate
+      ejectVerbText: paper-label-remove # ADT translate
       whitelist:
         components:
         - Paper

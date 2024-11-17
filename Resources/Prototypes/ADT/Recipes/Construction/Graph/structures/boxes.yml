@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: ADTBoxMaintenance
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:SpawnPrototype
+          prototype: MaterialCardboard1
+          amount: 3
+        - !type:DeleteEntity
+        
+    - node: ADTBoxMaintenance
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCardboard1
+              amount: 3
+            - !type:DeleteEntity {}
