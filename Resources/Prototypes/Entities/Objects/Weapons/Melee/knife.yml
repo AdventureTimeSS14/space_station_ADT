@@ -41,6 +41,12 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/kitchen_knife.rsi
     state: icon
+  # ADT Tweak Start
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+  # ADT Tweak End
   - type: Item
     sprite: Objects/Weapons/Melee/kitchen_knife.rsi
   - type: GuideHelp
