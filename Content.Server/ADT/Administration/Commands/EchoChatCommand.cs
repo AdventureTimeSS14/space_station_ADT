@@ -56,10 +56,8 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
             _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Whisper, ChatTransmitRange.Normal);
         }
 
-        // Проверяем, нужно ли добавлять запись в логи
         if (args.Length == 4 && args[3] == "false")
         {
-            // Не добавляем в логи
             return;
         }
 
