@@ -61,10 +61,13 @@
           - AtmosphericTechnician
           - StationEngineer
           - TechnicalAssistant
+          - ADTSeniorEngineer # ADT tweak
       - label: corvax-hidden-desc-PowerSink-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End

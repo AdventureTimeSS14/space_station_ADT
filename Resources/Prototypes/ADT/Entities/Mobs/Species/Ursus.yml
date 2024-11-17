@@ -14,11 +14,16 @@
       0: Alive
       115: Critical
       250: Dead
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.3
+        Heat: 0.05
   - type: Bloodstream
     bloodMaxVolume: 235
     bloodReagent: Blood
   - type: Hunger
-    baseDecayRate: 0.0983
+    baseDecayRate: 0.085
     thresholds:
       Overfed: 300
       Okay: 250
