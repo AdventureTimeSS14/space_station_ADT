@@ -102,3 +102,28 @@
   files:
     - /Audio/ADT/Ambience/rnd_1.ogg
     - /Audio/ADT/Ambience/rnd_2.ogg
+
+# Security
+
+- type: ambientMusic
+  id: ADTSecurity
+  sound:
+    params:
+      volume: -12
+    collection: ADTAmbienceSecurity
+  rules: ADTNearSecurity
+  priority: 3
+
+- type: rules
+  id: ADTNearSecurity
+  rules:
+    - !type:NearbyAccessRule
+      access:
+        - Security
+      range: 3
+
+- type: soundCollection
+  id: ADTAmbienceSecurity
+  files:
+    - /Audio/ADT/Ambience/prison_1.ogg
+    - /Audio/ADT/Ambience/ambidet2.ogg

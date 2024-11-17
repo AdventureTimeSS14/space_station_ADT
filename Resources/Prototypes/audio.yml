@@ -150,6 +150,16 @@
     - /Audio/Voice/Misc/lowHiss3.ogg
     - /Audio/Voice/Misc/lowHiss4.ogg
     - /Audio/Ambience/maintambience.ogg
+    # ADT-Sound-Update-Start
+    - /Audio/ADT/Ambience/ambimaint6.ogg
+    - /Audio/ADT/Ambience/ambimaint7.ogg
+    - /Audio/ADT/Ambience/ambimaint8.ogg
+    - /Audio/ADT/Ambience/ambimaint9.ogg
+    - /Audio/ADT/Ambience/ambimaint10.ogg
+    - /Audio/ADT/Ambience/ambimaint11.ogg
+    - /Audio/ADT/Ambience/ambimaint12.ogg
+    # ADT-Sound-Update-End
+
 
 - type: soundCollection
   id: AmbienceMedical
