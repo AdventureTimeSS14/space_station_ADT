@@ -407,6 +407,66 @@
     sound:
       path: /Audio/Voice/Human/malescream_4.ogg
 
+- type: entity
+  parent: ADTSoundGenBaseAmbient
+  id: ADTSoundGenGeigerLow
+  name: ADTSoundGenGeigerLow
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 9
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Items/Geiger/low.ogg
+
+- type: entity
+  parent: ADTSoundGenBaseAmbient
+  id: ADTSoundGenGeigerMedium
+  name: ADTSoundGenGeigerMedium
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 8
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Items/Geiger/med.ogg
+
+- type: entity
+  parent: ADTSoundGenBaseAmbient
+  id: ADTSoundGenGeigerHigh
+  name: ADTSoundGenGeigerHigh
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 9
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Items/Geiger/high.ogg
+
+- type: entity
+  parent: ADTSoundGenBaseAmbient
+  id: ADTSoundGenGeigerExtreme
+  name: ADTSoundGenGeigerExtreme
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 8
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Items/Geiger/ext.ogg
+
+- type: entity
+  parent: ADTSoundGenBaseAmbient
+  id: ADTSoundGenWhistleInTheDark
+  name: ADTSoundGenWhistleInTheDark
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 9
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/Phantom/Hallucinations/WhistlingInTheDark.ogg
+
 
 # Новые Ambient от eddiemercury
 
