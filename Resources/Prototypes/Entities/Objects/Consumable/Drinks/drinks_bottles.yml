@@ -85,6 +85,14 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
+  # ADT-Sound-Update-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/drinkglass_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/Objects/drinkglass_drop.ogg
+  # ADT-Sound-Update-End
 
 - type: entity
   id: DrinkBottleVisualsOpenable
