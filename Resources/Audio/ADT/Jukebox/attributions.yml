@@ -2,3 +2,7 @@
   license: "CC-BY-3.0"
   copyright: "Later Alligator By Silverman Sound Studios. Converted to mono ogg"
   source: "https://soundcloud.com/silvermansound/later-alligator"
+
+- files: ["A_beautiful_lull.ogg", "A_Tense_Adventure.ogg", "Happy_ending.ogg", "The_fall_of_the_corporation.ogg", "Waiting_for_the_meeting.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Created for ADT by discord: conjurerq"
