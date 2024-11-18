@@ -77,7 +77,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         {
             if (component.DNA != null && component.DNA != dna.DNA)
             {
-                _adminLogger.Add(LogType.AdminMessage, LogImpact.High, $"{ToPrettyString(args.Equipee)} сдетонировал ДНК Замок {ToPrettyString(uid)}");
+                _adminLogger.Add(LogType.AdminMessage, LogImpact.High, $"{ToPrettyString(args.Equipee)} exploded DNA Locker of {ToPrettyString(uid)}");
                 ExplodeEntity(uid, component, args.Equipee);
             }
         }

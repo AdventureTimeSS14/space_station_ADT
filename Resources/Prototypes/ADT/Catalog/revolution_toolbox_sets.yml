@@ -33,6 +33,7 @@
   - ChemicalPayload
   - ChemicalPayload
   - ChemicalPayload
+  - RemoteSignallerAdvanced
 
 - type: thiefBackpackSet
   id: ADTTechnolover
