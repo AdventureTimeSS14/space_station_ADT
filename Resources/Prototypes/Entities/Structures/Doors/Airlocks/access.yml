@@ -282,7 +282,7 @@
       board: [ DoorElectronicsCommand ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTCaptainAirlock # ADT-Airlock
   id: AirlockCaptainLocked
   suffix: Captain, Locked
   components:
@@ -291,7 +291,7 @@
       board: [ DoorElectronicsCaptain ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTChiefMedicalOfficerAirlock # ADT-Airlock
   id: AirlockChiefMedicalOfficerLocked
   suffix: ChiefMedicalOfficer, Locked
   components:
@@ -300,7 +300,7 @@
       board: [ DoorElectronicsChiefMedicalOfficer ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTChiefEngineerAirlock # ADT-Airlock
   id: AirlockChiefEngineerLocked
   suffix: ChiefEngineer, Locked
   components:
@@ -309,7 +309,7 @@
       board: [ DoorElectronicsChiefEngineer ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTHeadOfSecurityAirlock # ADT-Airlock
   id: AirlockHeadOfSecurityLocked
   suffix: HeadOfSecurity, Locked
   components:
@@ -318,7 +318,7 @@
       board: [ DoorElectronicsHeadOfSecurity ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTResearchDirectorAirlock # ADT-Airlock
   id: AirlockResearchDirectorLocked
   suffix: ResearchDirector, Locked
   components:
@@ -327,7 +327,7 @@
       board: [ DoorElectronicsResearchDirector ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTHeadOfPersonalAirlock # ADT-Airlock
   id: AirlockHeadOfPersonnelLocked
   suffix: HeadOfPersonnel, Locked
   components:
@@ -336,7 +336,7 @@
       board: [ DoorElectronicsHeadOfPersonnel ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTQuartiermeisterAirlock # ADT-Airlock
   id: AirlockQuartermasterLocked
   suffix: Quartermaster, Locked
   components:
@@ -675,7 +675,7 @@
       board: [ DoorElectronicsCaptain ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassChiefMedicalOfficerAirlock # ADT-Airlock
   id: AirlockChiefMedicalOfficerGlassLocked
   suffix: ChiefMedicalOfficer, Locked
   components:
@@ -684,7 +684,7 @@
       board: [ DoorElectronicsChiefMedicalOfficer ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassChiefEngineerAirlock # ADT-Airlock
   id: AirlockChiefEngineerGlassLocked
   suffix: ChiefEngineer, Locked
   components:
@@ -693,7 +693,7 @@
       board: [ DoorElectronicsChiefEngineer ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassHeadOfSecurityAirlock # ADT-Airlock
   id: AirlockHeadOfSecurityGlassLocked
   suffix: HeadOfSecurity, Locked
   components:
@@ -702,7 +702,7 @@
       board: [ DoorElectronicsHeadOfSecurity ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassResearchDirectorAirlock # ADT-Airlock
   id: AirlockResearchDirectorGlassLocked
   suffix: ResearchDirector, Locked
   components:
@@ -720,7 +720,7 @@
       board: [ DoorElectronicsHeadOfPersonnel ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassQuartiermeisterAirlock # ADT-Airlock
   id: AirlockQuartermasterGlassLocked
   suffix: Quartermaster, Locked
   components:
