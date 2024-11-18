@@ -46,6 +46,6 @@ revolution-toolbox-category-cluwnerev-description =
 revolution-toolbox-category-disarm-name = Набор Разоружения
 
 revolution-toolbox-category-disarm-description =
-    Вам избивают СБ дубинками и вам это надоело? Этот набор для вас!
+    Вас избивают СБ дубинками и вам это надоело? Этот набор для вас!
     включает в себя: два шприца с эфедрином, две болы,
     две самодельных дубинки-шокера, и коробку стяжек.
