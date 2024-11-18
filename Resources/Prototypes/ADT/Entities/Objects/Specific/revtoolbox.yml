@@ -15,6 +15,7 @@
     - ADTTechnolover
     - ADTGunsmith
     - ADTPrinting
+    - ADTCluwneRev
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface

@@ -7,7 +7,7 @@ using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Content.Shared.Projectiles;
-using Content.Shared.Inventory; // adt tweak
+using Content.Shared.ADT.Emp; // ADT TWEAK
 
 namespace Content.Server.Emp;
 
@@ -15,7 +15,6 @@ public sealed class EmpSystem : SharedEmpSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!; // adt tweak
 
     public const string EmpPulseEffectPrototype = "EffectEmpPulse";
 
@@ -40,7 +39,7 @@ public sealed class EmpSystem : SharedEmpSystem
     /// <param name="range">The range of the EMP pulse.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
-    public void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration, EntityUid? user = null)
+    public void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration)
     {
         /*
         foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
@@ -53,11 +52,7 @@ public sealed class EmpSystem : SharedEmpSystem
         ///ADT-Tweak IPC start
         foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
         {
-
-            if (user != null && uid == user)
-                continue;
-
-            if (user.HasValue && _inventorySystem.TryGetSlotEntity(user.Value, "outerClothing", out var slotItem) && slotItem == uid)
+            if (HasComp<EmpProtectionComponent>(uid))
                 continue;
 
             var ev = new EmpPulseEvent(energyConsumption, false, false, TimeSpan.FromSeconds(duration)); // Parkstation-IPCs

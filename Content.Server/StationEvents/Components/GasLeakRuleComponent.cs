@@ -10,13 +10,13 @@ public sealed partial class GasLeakRuleComponent : Component
     public readonly Gas[] LeakableGases =
     {
         Gas.Ammonia,
-        Gas.Plasma,
-        Gas.Tritium,
+        // Gas.Plasma, // ADT-Tweak
+        // Gas.Tritium, // ADT-Tweak
         Gas.Frezon,
         Gas.WaterVapor, // the fog
         //ADT-Gas-Start
         Gas.BZ,
-        Gas.Hydrogen,
+        // Gas.Hydrogen, // ADT-Tweak
         Gas.Halon
         //ADT-Gas-End
     };

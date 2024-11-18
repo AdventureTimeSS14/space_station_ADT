@@ -220,6 +220,7 @@
         color: Green
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
+      - type: EmpProtection # ADT TWEAK
       - type: SpaceNinja
       - type: NpcFactionMember
         factions:

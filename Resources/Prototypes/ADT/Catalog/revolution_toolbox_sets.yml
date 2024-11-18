@@ -72,8 +72,24 @@
     sprite: /Textures/Objects/Misc/module.rsi
     state: generic
   content:
-  - AutolatheMachineCircuitboard 
+  - AutolatheMachineCircuitboard
   - ProtolatheMachineCircuitboard
   - ExosuitFabricatorMachineCircuitboard
   - AmmoTechFabCircuitboard
   - SecurityTechFabCircuitboard
+
+- type: thiefBackpackSet
+  id: ADTCluwneRev
+  name: revolution-toolbox-category-cluwnerev-name
+  description: revolution-toolbox-category-cluwnerev-description
+  sprite:
+    sprite: /Textures/Clothing/Mask/clown.rsi
+    state: icon
+  content:
+  - DrinkSpaceLube
+  - DrinkSpaceLube
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - SoapOmega
+  - ClothingShoesGaloshes
+  - ClothingMaskClown
