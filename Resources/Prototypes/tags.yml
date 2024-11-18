@@ -1396,6 +1396,9 @@
 - type: Tag
   id: WeaponShotgunKammerer
 
+- type: Tag # goob edit
+  id: WaterTank
+
 - type: Tag
   id: WeldingMask
 

@@ -24,7 +24,11 @@ using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Atmos.Miasma; //ADT-Medicine
+using Content.Shared.ADT.Atmos.Miasma;
+using Content.Shared.Changeling.Components;
+using Robust.Server.Containers;
+using System.Linq;
+using Content.Server.Resist; //ADT-Medicine
 
 namespace Content.Server.Medical;
 
@@ -48,6 +52,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -148,6 +153,28 @@ public sealed class DefibrillatorSystem : EntitySystem
         ICommonSession? session = null;
 
         var dead = true;
+        // ADT Changeling start
+        if (TryComp<ChangelingHeadslugContainerComponent>(target, out var slug))
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-changeling-slug"),
+                InGameICChatType.Speak, true);
+
+            var headslug = slug.Container.ContainedEntities.First();
+            _container.EmptyContainer(slug.Container, true);
+            _electrocution.TryDoElectrocution(headslug, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
+            if (TryComp<ChangelingHeadslugComponent>(headslug, out var slugComp))
+            {
+                slugComp.Accumulator = 0;
+                slugComp.Alerted = false;
+                slugComp.Container = null;
+            }
+            EnsureComp<CanEscapeInventoryComponent>(headslug);
+
+            RemComp(target, slug);
+            return;
+        }
+        // ADT Changeling end
+
         if (_rotting.IsRotten(target))
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),

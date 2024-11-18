@@ -25,7 +25,7 @@
     - gc
     - gc_mode
     - cvar
-    - fuckrules
+    # - fuckrules # ADT-Tweak
     - midipanic
     - replay_recording_start
     - replay_recording_stop
@@ -79,6 +79,7 @@
     - mapping
     - toggleautosave
     - toggledecals
+    - fuckrules # ADT-Tweak
 
 - Flags: QUERY
   Commands:

@@ -41,6 +41,7 @@
   - type: Tool
     qualities:
       - Prying
+      - AdvancedPrying # ADT-Axe-Great-Return
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay

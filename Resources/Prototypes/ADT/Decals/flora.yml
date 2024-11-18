@@ -1,0 +1,360 @@
+- type: decal
+  id: cactusA1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA1
+
+- type: decal
+  id: cactusA2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA2
+
+- type: decal
+  id: cactusA3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA3
+
+- type: decal
+  id: cactusA4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA4
+
+- type: decal
+  id: cactusA5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA5
+
+- type: decal
+  id: cactusA6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA6
+
+- type: decal
+  id: cactusA7
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA7
+
+- type: decal
+  id: cactusA8
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusA8
+
+- type: decal
+  id: cactusB1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB1
+
+
+- type: decal
+  id: cactusB2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB2
+
+- type: decal
+  id: cactusB3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB3
+
+- type: decal
+  id: cactusB4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB4
+
+- type: decal
+  id: cactusB5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB5
+
+- type: decal
+  id: cactusB6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB6
+
+- type: decal
+  id: cactusB7
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB7
+
+- type: decal
+  id: cactusB8
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: cactusB8
+
+- type: decal
+  id: mushroomA1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA1
+
+- type: decal
+  id: mushroomA2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA2
+
+- type: decal
+  id: mushroomA3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA3
+
+- type: decal
+  id: mushroomA4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA4
+
+- type: decal
+  id: mushroomA5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA5
+
+- type: decal
+  id: mushroomA6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA6
+
+- type: decal
+  id: mushroomA7
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA7
+
+- type: decal
+  id: mushroomA8
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomA8
+
+- type: decal
+  id: mushroomB1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB1
+
+- type: decal
+  id: mushroomB2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB2
+
+- type: decal
+  id: mushroomB3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB3
+
+- type: decal
+  id: mushroomB4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB4
+
+- type: decal
+  id: mushroomB5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB5
+
+- type: decal
+  id: mushroomB6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB6
+
+- type: decal
+  id: mushroomB7
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB7
+
+- type: decal
+  id: mushroomB8
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomB8
+
+- type: decal
+  id: mushroomC1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC1
+
+- type: decal
+  id: mushroomC2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC2
+
+- type: decal
+  id: mushroomC3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC3
+
+- type: decal
+  id: mushroomC4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC4
+
+- type: decal
+  id: mushroomC5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC5
+
+- type: decal
+  id: mushroomC6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC6
+
+- type: decal
+  id: mushroomC7
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC7
+
+- type: decal
+  id: mushroomC8
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/ash_flora.rsi
+    state: mushroomC8

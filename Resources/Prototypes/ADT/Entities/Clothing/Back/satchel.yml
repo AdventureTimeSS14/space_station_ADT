@@ -28,7 +28,7 @@
     sprite: Clothing/Back/Satchels/centcom_satchel.rsi
 
 - type: entity
-  parent: ClothingBackpack
+  parent: ClothingBackpackSatchelMedical
   id: ADTClothingBackpackSatchelParamedic
   name: paramedical satchel
   description: A satchel to store some paramedical equipment.
