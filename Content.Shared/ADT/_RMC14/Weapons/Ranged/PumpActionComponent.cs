@@ -11,7 +11,7 @@ public sealed partial class PumpActionComponent : Component
     public bool Pumped;
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier Sound = new SoundCollectionSpecifier("CMShotgunPump");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Corvax/Weapons/Guns/Cock/shotgun_cock.ogg");
 
     [DataField, AutoNetworkedField]
     public LocId Examine = "cm-gun-pump-examine";

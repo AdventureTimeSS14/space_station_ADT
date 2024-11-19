@@ -37,11 +37,11 @@ public sealed partial class CMHolsterComponent : Component
     /// Sound played whenever an entity is inserted into holster.
     /// </summary>
     [DataField]
-    public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/Guns/gun_pistol_sheathe.ogg");
+    public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Corvax/Weapons/Guns/Cock/shotgun_cock.ogg"); // затычка
 
     /// <summary>
     /// Sound played whenever an entity is removed from holster.
     /// </summary>
     [DataField]
-    public SoundSpecifier? EjectSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/Guns/gun_pistol_draw.ogg");
+    public SoundSpecifier? EjectSound = new SoundPathSpecifier("/Audio/Corvax/Weapons/Guns/Cock/shotgun_cock.ogg"); // затычка
 }

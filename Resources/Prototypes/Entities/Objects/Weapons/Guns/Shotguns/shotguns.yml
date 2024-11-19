@@ -167,7 +167,7 @@
 
 - type: entity
   name: Kammerer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband, ADTBasePumpingGun] # adt tweak
   id: WeaponShotgunKammerer
   description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
   components:

@@ -33,3 +33,12 @@
         ents: []
   - type: StaticPrice
     price: 4500
+
+- type: entity
+  id: ADTBasePumpingGun
+  components:
+  - type: UniqueAction
+  - type: PumpAction
+  - type: Appearance
+  - type: BallisticAmmoProvider
+    cycleable: true
