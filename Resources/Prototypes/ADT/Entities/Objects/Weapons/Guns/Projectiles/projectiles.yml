@@ -153,9 +153,9 @@
     soundForce: true
 
 - type: entity
-  name: Kinetic bolt
-  id: ADTBulletLaserKinetic
-  parent: ADTBulletLaser
+  name: ion bolt
+  id: ADTBulletIon
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
@@ -174,8 +174,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_ss.rsi
     layers:
@@ -184,14 +183,15 @@
   - type: Physics
   - type: Ammo
   - type: Projectile
-    impactEffect: ADTBulletImpactEffectLaserKinetic
+    impactEffect: ADTBulletImpactEffectIon
     damage:
       types:
-        Blunt: 16
-        Structural: 20
+        Shock: 1
     soundHit:
       collection: WeakHit
     soundForce: true
+  - type: EmpOnCollide
+    energyConsumption: 10000
 
 - type: entity
   name: stanner bolt

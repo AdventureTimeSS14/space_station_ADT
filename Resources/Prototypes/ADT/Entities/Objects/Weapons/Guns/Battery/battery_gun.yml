@@ -198,8 +198,8 @@
       fireCost: 50
     - proto: ADTBulletLaser
       fireCost: 50
-    - proto: ADTBulletLaserKinetic
-      fireCost: 75
+    - proto: ADTBulletIon
+      fireCost: 150
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500

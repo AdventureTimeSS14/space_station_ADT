@@ -18,7 +18,7 @@
         - HideContextMenu
 
 - type: entity
-  id: ADTBulletImpactEffectLaserKinetic
+  id: ADTBulletImpactEffectIon
   categories: [ HideSpawnMenu ]
   name: Kinetic bolt
   components:
