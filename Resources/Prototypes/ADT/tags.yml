@@ -333,3 +333,44 @@
 
 - type: Tag
   id: ADTBeerCan
+
+  # New Year
+
+- type: Tag
+  id: ADTGoldenStarGarland
+
+- type: Tag
+  id: ADTSilverStarGarland
+
+- type: Tag
+  id: ADTBaseStarGarland
+
+- type: Tag
+  id: ADTShinyGarland
+
+- type: Tag
+  id: ADTTreeGoldenStar
+
+- type: Tag
+  id: ADTTreeRedStar
+
+- type: Tag
+  id: ADTTreeSilverStar
+
+- type: Tag
+  id: ADTTreeRedBalls
+
+- type: Tag
+  id: ADTTreeGoldenBalls
+
+- type: Tag
+  id: ADTTreeSilverBalls
+
+- type: Tag
+  id: ADTTreeRedMishura
+
+- type: Tag
+  id: ADTTreeGoldenMishura
+
+- type: Tag
+  id: ADTTreeSilverMishura
