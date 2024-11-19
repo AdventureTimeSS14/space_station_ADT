@@ -508,6 +508,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - WardenHead
+  - WardenNeckADT # ADT-Loadouts
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
@@ -522,13 +523,13 @@
   - Trinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
-  - WardenNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
   - Inventory # Corvax-Loadouts
   - SecurityHead
+  - SecurityOfficerNeckADT # ADT-Loadouts
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityOuterClothing
@@ -544,7 +545,6 @@
   - Trinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
-  - SecurityOfficerNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobDetective
@@ -571,6 +571,7 @@
   id: JobSecurityCadet
   groups:
   - Inventory # Corvax-Loadouts
+  - SecurityCadetNeckADT # ADT-Loadouts
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
@@ -581,7 +582,6 @@
   - ADTSocks
   # ADT underwear tweak end
   - GroupSpeciesBreathToolSecurity
-  - SecurityCadetNeckADT # ADT-Loadouts
 
 # Medical
 - type: roleLoadout
