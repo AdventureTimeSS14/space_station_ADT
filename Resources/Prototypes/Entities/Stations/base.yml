@@ -66,6 +66,8 @@
           maxCount: 2
           stationGrid: false
           paths:
+          - /Maps/Ruins/abandoned_outpost.yml
+          # Corvax-Mapping-Start
           - /Maps/Ruins/corvax_accident.yml
           - /Maps/Ruins/corvax_adventurer.yml
           - /Maps/Ruins/corvax_aplink.yml
@@ -81,6 +83,7 @@
           - /Maps/Ruins/corvax_syndi_base.yml
           - /Maps/Ruins/corvax_ussp_debris.yml
           - /Maps/Ruins/corvax_ussp_asteroid.yml
+          # Corvax-Mapping-End
         vgroid: !type:DungeonSpawnGroup
           minimumDistance: 300
           maximumDistance: 350

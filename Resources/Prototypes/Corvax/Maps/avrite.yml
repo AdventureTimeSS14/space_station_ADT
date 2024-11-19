@@ -6,7 +6,7 @@
   randomRotation: false
   minPlayers: 55
   stations:
-    Avrit:
+    Avrite:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup

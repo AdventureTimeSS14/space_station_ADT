@@ -8,6 +8,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Lobby.UI
@@ -18,28 +19,23 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class CharacterSetupGui : Control
     {
-        private readonly IClientPreferencesManager _preferencesManager;
-        private readonly IEntityManager _entManager;
-        private readonly IPrototypeManager _protomanager;
+        [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
+        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private readonly IPrototypeManager _protomanager = default!;
+        [Dependency] private readonly IResourceCache _resourceCache = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private readonly Button _createNewCharacterButton;
 
         public event Action<int>? SelectCharacter;
         public event Action<int>? DeleteCharacter;
 
-        public CharacterSetupGui(
-            IEntityManager entManager,
-            IPrototypeManager protoManager,
-            IResourceCache resourceCache,
-            IClientPreferencesManager preferencesManager,
-            HumanoidProfileEditor profileEditor)
+        public CharacterSetupGui(HumanoidProfileEditor profileEditor)
         {
             RobustXamlLoader.Load(this);
-            _preferencesManager = preferencesManager;
-            _entManager = entManager;
-            _protomanager = protoManager;
+            IoCManager.InjectDependencies(this);
 
-            var panelTex = resourceCache.GetTexture("/Textures/Interface/Nano/button.svg.96dpi.png");
+            var panelTex = _resourceCache.GetTexture("/Textures/Interface/Nano/button.svg.96dpi.png");
             var back = new StyleBoxTexture
             {
                 Texture = panelTex,
@@ -56,7 +52,7 @@ namespace Content.Client.Lobby.UI
 
             _createNewCharacterButton.OnPressed += args =>
             {
-                preferencesManager.CreateCharacter(HumanoidCharacterProfile.Random());
+                _preferencesManager.CreateCharacter(HumanoidCharacterProfile.Random());
                 ReloadCharacterPickers();
                 args.Event.Handle();
             };
@@ -65,6 +61,15 @@ namespace Content.Client.Lobby.UI
             RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
+
+            _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
+            // // Corvax-Sponsors-Start // ADT COmmented
+            // if (IoCManager.Instance!.TryResolveType<ISponsorWindowCreator>(out var creator))
+            // {
+            //     SponsorButton.Visible = true;
+            //     SponsorButton.OnPressed += _ => creator.OpenWindow();
+            // }
+            // // Corvax-Sponsors-End
         }
 
         /// <summary>
