@@ -33,6 +33,7 @@
   - ChemicalPayload
   - ChemicalPayload
   - ChemicalPayload
+  - RemoteSignallerAdvanced
 
 - type: thiefBackpackSet
   id: ADTTechnolover
@@ -72,8 +73,40 @@
     sprite: /Textures/Objects/Misc/module.rsi
     state: generic
   content:
-  - AutolatheMachineCircuitboard 
+  - AutolatheMachineCircuitboard
   - ProtolatheMachineCircuitboard
   - ExosuitFabricatorMachineCircuitboard
   - AmmoTechFabCircuitboard
   - SecurityTechFabCircuitboard
+
+- type: thiefBackpackSet
+  id: ADTCluwneRev
+  name: revolution-toolbox-category-cluwnerev-name
+  description: revolution-toolbox-category-cluwnerev-description
+  sprite:
+    sprite: /Textures/Clothing/Mask/clown.rsi
+    state: icon
+  content:
+  - DrinkSpaceLube
+  - DrinkSpaceLube
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - SoapOmega
+  - ClothingShoesGaloshes
+  - ClothingMaskClown
+
+- type: thiefBackpackSet
+  id: ADTDisarm
+  name: revolution-toolbox-category-disarm-name
+  description: revolution-toolbox-category-disarm-description
+  sprite:
+    sprite: /Textures/Objects/Weapons/Melee/stunbaton.rsi
+    state: stunbaton_off
+  content:
+  - BoxZiptie
+  - Bola
+  - Bola
+  - Stunprod
+  - Stunprod
+  - SyringeEphedrine
+  - SyringeEphedrine

@@ -325,6 +325,7 @@
 
 - type: Tag
   id: ADTHardsuitSalvage
+
 - type: Tag
   id: ADTSiliconStealthWhitelist
 
@@ -332,6 +333,7 @@
   id: ADTCandies
 
 - type: Tag
+
   id: ADTBeerCan
 
   # New Year
@@ -374,3 +376,14 @@
 
 - type: Tag
   id: ADTTreeSilverMishura
+  id: ADTRoboticsAmbience
+
+- type: Tag
+  id: ADTVaultAmbience
+
+- type: Tag
+  id: ADTChemistryAmbience
+
+- type: Tag
+  id: ADTBeerCan
+

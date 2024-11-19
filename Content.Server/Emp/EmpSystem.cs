@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Content.Shared.Projectiles;
+using Content.Shared.ADT.Emp; // ADT TWEAK
 
 namespace Content.Server.Emp;
 
@@ -51,6 +52,9 @@ public sealed class EmpSystem : SharedEmpSystem
         ///ADT-Tweak IPC start
         foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
         {
+            if (HasComp<EmpProtectionComponent>(uid))
+                continue;
+
             var ev = new EmpPulseEvent(energyConsumption, false, false, TimeSpan.FromSeconds(duration)); // Parkstation-IPCs
             RaiseLocalEvent(uid, ref ev);
             if (ev.Affected)

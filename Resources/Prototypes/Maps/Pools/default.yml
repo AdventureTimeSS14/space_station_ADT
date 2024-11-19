@@ -28,6 +28,7 @@
   - ADT_Bagel
   - ADT_Box
   - ADT_Cluster
+  - ADT_Cluster_Legacy
   - ADT_Core
   - ADT_Fland
   - ADT_Marathon
