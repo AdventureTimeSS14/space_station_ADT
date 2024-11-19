@@ -86,7 +86,7 @@ public sealed class BanMassCommand : LocalizedCommands
             {
                 var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
                 if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions) // Адмемов с правами Пермиссион не забанят
-                    return;
+                    continue;
             }
 
             //Start логи банов для диса
