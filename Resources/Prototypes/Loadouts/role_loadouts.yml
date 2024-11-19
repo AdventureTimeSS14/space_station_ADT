@@ -500,7 +500,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -520,7 +520,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
   - WardenNeckADT # ADT-Loadouts
 
@@ -542,7 +542,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
   - SecurityOfficerNeckADT # ADT-Loadouts
 
@@ -564,7 +564,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
