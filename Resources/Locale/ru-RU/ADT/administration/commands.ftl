@@ -26,3 +26,6 @@ cmd-admin_toggle-readmin = Вернуть права админу.
 cmd-admin_toggle-deadmin = Ввести в деадмин.
 cmd-admin_toggle-error-args = Указанный пользователь не найден.
 
+# Команда: export
+cmd-export-only-yml = Указанный файл должен иметь расширение .yml
+cmd-export-help = Экспортирует на ваш компьютер указанный .yml файл
