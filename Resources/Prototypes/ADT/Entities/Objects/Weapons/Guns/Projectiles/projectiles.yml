@@ -192,6 +192,7 @@
     soundForce: true
   - type: EmpOnCollide
     energyConsumption: 10000
+    disableDuration: 20
 
 - type: entity
   name: stanner bolt
