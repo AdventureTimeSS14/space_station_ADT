@@ -376,6 +376,8 @@
 
 - type: Tag
   id: ADTTreeSilverMishura
+
+- type: Tag
   id: ADTRoboticsAmbience
 
 - type: Tag
@@ -384,6 +386,4 @@
 - type: Tag
   id: ADTChemistryAmbience
 
-- type: Tag
-  id: ADTBeerCan
 
