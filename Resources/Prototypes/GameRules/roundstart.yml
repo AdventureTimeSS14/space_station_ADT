@@ -22,8 +22,10 @@
     rules:
     - id: Thief
       prob: 0.5
-    - id: HereticGameRule # goob edit
+    - id: Heretic # goob edit
       prob: 0.2
+    - id: ChangelingGameRule # ADT-Changeling-Tweak
+      prob: 0.1
 
 - type: entity
   id: DeathMatch31
@@ -190,6 +192,15 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+
+- type: entity
+  id: TraitorReinforcement
+  parent: Traitor
+  components:
+  - type: TraitorRule
+    giveUplink: false
+    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+    giveBriefing: false
 
 - type: entity
   id: Revolutionary

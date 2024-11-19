@@ -1,0 +1,9 @@
+tape-recorder-menu-title = Кассетный Проигрыватель
+tape-recorder-menu-controls-label = Управление:
+tape-recorder-menu-stopped-button = Пауза
+tape-recorder-menu-recording-button = Запись
+tape-recorder-menu-playing-button = Слушать
+tape-recorder-menu-rewinding-button = Отмотка
+tape-recorder-menu-print-button = Распечатать транскрипцию
+tape-recorder-menu-cassette-label = Кассета: {$cassetteName}
+tape-recorder-menu-no-cassette-label = Кассета не вставлена.

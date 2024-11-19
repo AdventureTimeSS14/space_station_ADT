@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from vgstation13 at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79. Edited by Flareguy for SS14",
+  "copyright": "Taken from vgstation13 at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79. Edited by Flareguy for SS14, new sprites taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/icons/obj/tools.dmi",
   "size": {
     "x": 32,
     "y": 32

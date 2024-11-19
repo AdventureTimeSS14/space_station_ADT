@@ -78,7 +78,7 @@
   - type: EmagSiliconLaw
     stunTime: 5
   - type: SiliconLawProvider
-    laws: Crewsimov
+    laws: NTDefault # Corvax-NTDefault
   - type: IonStormTarget
   - type: Inventory
     templateId: borg
@@ -247,6 +247,7 @@
     - DoorBumpOpener
     - FootstepSound
     - CanPilot
+    - ADTSiliconStealthWhitelist  # ADT tweak
   - type: Emoting
   # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMind

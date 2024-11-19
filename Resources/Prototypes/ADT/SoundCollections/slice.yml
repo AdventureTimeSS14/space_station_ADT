@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: SliceFood
+  files:
+  - /Audio/ADT/Items/Culinary/knife_cutting1.ogg
+  - /Audio/ADT/Items/Culinary/knife_cutting2.ogg
+  - /Audio/ADT/Items/Culinary/knife_cutting3.ogg
+  - /Audio/Items/Culinary/chop.ogg
