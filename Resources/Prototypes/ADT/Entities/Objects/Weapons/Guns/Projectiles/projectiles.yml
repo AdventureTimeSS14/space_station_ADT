@@ -112,3 +112,100 @@
         Heat: 20
   - type: TimedDespawn
     lifetime: 0.25
+
+- type: entity
+  name: Laser bolt
+  id: ADTBulletLaser
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_ss.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Physics
+  - type: Ammo
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectLaser
+    damage:
+      types:
+        Heat: 12
+    soundHit:
+      collection: WeakHit
+    soundForce: true
+
+- type: entity
+  name: Kinetic bolt
+  id: ADTBulletLaserKinetic
+  parent: ADTBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_ss.rsi
+    layers:
+    - state: omnilaser_yellow
+      shader: unshaded
+  - type: Physics
+  - type: Ammo
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectLaserKinetic
+    damage:
+      types:
+        Blunt: 16
+        Structural: 20
+    soundHit:
+      collection: WeakHit
+    soundForce: true
+
+- type: entity
+  name: stanner bolt
+  id: ADTBulletDisabler
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 17
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 4
+    soundHit:
+      collection: WeakHit
+    forceSound: true

@@ -24,6 +24,7 @@
       - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
       - id: ClothingBackpackWarden # Corvax-SecFashion
       # ADT-Tweak-Start
+      - id: WeaponEnergyShotgun # ADT дробовик смотрителю
       - id: ADTClothingNeckBodyCamera #ADT bodycam
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
@@ -60,6 +61,7 @@
       - id: BookSpaceLaw
       - id: ClothingBackpackWarden # Corvax-SecFashion
       # ADT-Tweak-Start
+      - id: WeaponEnergyShotgun # ADT дробовик смотрителю
       - id: ADTClothingNeckBodyCamera #ADT bodycam
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
