@@ -42,7 +42,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Content.Client.ADT.Export;
-using System.Composition;
 
 namespace Content.Client.Entry
 {
