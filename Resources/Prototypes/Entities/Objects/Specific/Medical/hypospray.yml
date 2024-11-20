@@ -163,6 +163,7 @@
     tags:
     - ADTMedipen
     # ADT Tweak END
+    
 - type: entity
   name: poison auto-injector
   parent: ChemicalMedipen
