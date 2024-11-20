@@ -298,6 +298,7 @@
     tags:
     - ADTMedipen
     # ADT Tweak END
+    
 - type: entity
   name: puncturase auto-injector
   parent: ChemicalMedipen
