@@ -148,9 +148,9 @@
       - 0,0,3,1
       maxItemSize: Normal
     - type: Sprite
-      sprite: Clothing/OuterClothing/Coats/centcom_coat.rsi
+      sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
     - type: Clothing
-      sprite: Clothing/OuterClothing/Coats/centcom_coat.rsi
+      sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
     - type: StorageFill
       contents:
       - id: RubberStampCentcom
