@@ -22,7 +22,7 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
-    EnergyShotgunStealObjective: 0.5
+#    EnergyShotgunStealObjective: 0.5 # ADT objective
     ADTMobileDefibrillatorStealObjective: 1 # ADT Objective
     ADTX01StealObjective: 0.5 # ADT Objective
 
