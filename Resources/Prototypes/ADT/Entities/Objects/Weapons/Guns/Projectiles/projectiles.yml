@@ -150,7 +150,7 @@
         Heat: 12
     soundHit:
       collection: WeakHit
-    soundForce: true
+    forceSound: true
 
 - type: entity
   name: ion bolt
