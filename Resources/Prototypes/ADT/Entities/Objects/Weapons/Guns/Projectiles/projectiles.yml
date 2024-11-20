@@ -189,7 +189,7 @@
         Shock: 1
     soundHit:
       collection: WeakHit
-    soundForce: true
+    forceSound: true
   - type: EmpOnCollide
     energyConsumption: 10000
     disableDuration: 20
