@@ -69,7 +69,7 @@ public sealed partial class GunSystem : SharedGunSystem
     {
         userImpulse = true;
 
-        if (user != null) // ADT TODO: ДОбавить на проверку компонента Clumsy для того чтобы антаг клоун мог стрелять
+        if (user != null)
         {
             var selfEvent = new SelfBeforeGunShotEvent(user.Value, (gunUid, gun), ammo);
             RaiseLocalEvent(user.Value, selfEvent);

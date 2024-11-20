@@ -12,6 +12,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Roles; // ADT-Clumsy-Tweak
+using Content.Shared.Mind;  // ADT-Clumsy-Tweak
 
 namespace Content.Shared.Clumsy;
 
@@ -24,6 +26,8 @@ public sealed class ClumsySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!; // ADT-Clumsy-Tweak
+    [Dependency] private readonly SharedMindSystem _mind = default!; // ADT-Clumsy-Tweak
 
     public override void Initialize()
     {
@@ -60,6 +64,8 @@ public sealed class ClumsySystem : EntitySystem
     private void BeforeGunShotEvent(Entity<ClumsyComponent> ent, ref SelfBeforeGunShotEvent args)
     {
         // Clumsy people sometimes can't shoot :(
+        if (!GetAntagonistStatus(ent, ent.Comp)) // ADT-Clumsy-Tweak
+            return;
 
         if (args.Gun.Comp.ClumsyProof)
             return;
@@ -143,4 +149,14 @@ public sealed class ClumsySystem : EntitySystem
         _stun.TryParalyze(target, stunTime, true);
     }
     #endregion
+    // ADT TWEAK START
+    public bool GetAntagonistStatus(EntityUid uid, ClumsyComponent component)
+    {
+        var mindId = _mind.GetMind(uid);
+        if (mindId == null)
+            return false;
+
+        return _role.MindIsAntagonist(mindId);
+    }
+    // ADT TWEAK END
 }
