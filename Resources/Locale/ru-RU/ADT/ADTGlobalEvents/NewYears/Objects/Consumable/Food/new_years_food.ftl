@@ -51,7 +51,7 @@ ent-ADTFoodSnackClownCake = клоунский пряник
     .suffix = { "Новый Год" }
 
 ent-ADTFoodSnackGreytideCake = грейтайдный пряник
-    .desc = Пряник в виде маленького грейтайдера. Если вы глава отдела - не ешьте.
+    .desc = Пряник в виде маленького грейтайда. Если вы глава отдела - не ешьте.
     .suffix = { "Новый Год" }
 
 ent-ADTFoodSnackScientistCake = научный пряник

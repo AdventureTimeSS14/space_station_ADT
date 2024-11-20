@@ -119,5 +119,5 @@ ent-ADTDrinkGlyphidStoutBeerGlass = { ent-DrinkGlass }
     .desc = { ent-DrinkGlass.desc }
 
 ent-ADTDrinkCocoaGlass = стакан какао
-    .desc = { "бодрящий и вкусный способ начать рабочий день" }
-    .suffix = { "" }
+    .desc = бодрящий и вкусный способ начать рабочий день
+    .suffix = Новый Год

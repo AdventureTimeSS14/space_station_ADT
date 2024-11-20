@@ -20,4 +20,4 @@ arctic-explosion-name = арктический взрыв
 arctic-explosion-desc = Маленькая полярная шапка в вашем стакане.
 
 cocoa-drink-name = теплое какао
-cocoa-drink-desc = вкусный и бодрящий напиток из какао-порошка
+cocoa-drink-desc = Вкусный и бодрящий напиток из какао-порошка
