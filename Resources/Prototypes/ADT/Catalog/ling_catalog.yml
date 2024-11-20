@@ -246,7 +246,7 @@
   productAction: ActionArmace
   mindAction: false
   cost:
-    EvolutionPoints: 4
+    EvolutionPoints: 3
   categories:
   - ChangelingAbilities
   conditions:
