@@ -225,8 +225,10 @@
         Base: dead-0
   - type: Butcherable
     spawned:
-    - id: FoodMeatChicken
-      amount: 1
+    # - id: FoodMeatChicken # ADT CHANGES START
+    #   amount: 1
+    - id: ADTChickenBody
+      amount: 1 # ADT CHANGES END
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
