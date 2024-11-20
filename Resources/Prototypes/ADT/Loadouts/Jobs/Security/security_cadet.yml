@@ -1,5 +1,26 @@
 # Neck Cadet Security Officer ADT
+# - type: loadout
+#   id: ADTSecurityCadetNeck
+#   equipment:
+#     neck: ADTClothingNeckSecBadge
+
 - type: loadout
-  id: ADTSecurityCadetNeck
+  id: ADTSecurityCadetNeckBadgeBronze
   equipment:
-    neck: ADTClothingNeckSecBadge
+    neck: ADTClothingNeckSecBadgeBronze
+
+- type: loadout
+  id: ADTSecurityCadetNeckBadgeSilver
+  equipment:
+    neck: ADTClothingNeckSecBadgeSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+
+- type: loadout
+  id: ADTSecurityCadetNeckBadgeGold
+  equipment:
+    neck: ADTClothingNeckSecBadgeGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran

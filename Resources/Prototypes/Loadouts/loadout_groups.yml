@@ -1029,6 +1029,9 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - HeadofSecurityMantleShoulder #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeBronze #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeSilver #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeGold #ADT-Loadout
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1139,6 +1142,9 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
+  - ADTSecurityOfficerNeckBadgeBronze # ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeSilver # ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeGold # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1184,7 +1190,7 @@
   - ADTEmergencyMothSecurity #ADT_Species
   - ADTEmergencyIPCSecurity #ADT_Species
 
-- type: loadoutGroup
+- type: loadoutGroup 
   id: SecurityStar
   name: loadout-group-security-star
   minLimit: 0
