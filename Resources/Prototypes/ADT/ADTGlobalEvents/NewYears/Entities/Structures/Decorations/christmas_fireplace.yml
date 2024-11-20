@@ -1,0 +1,37 @@
+- type: entity
+  id: ADTChristmasFireplace
+  parent: Fireplace
+  suffix: New Year
+  name: christmas fireplace
+  description: A place that has fire, decorated for a holiday. Cozy!
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Structures/Decoration/christmas_fireplase.rsi
+    layers:
+      - state: christmas_fireplace_01
+      - state: fireplace_fire4
+        shader: unshaded
+      - state: fireplace_glow
+        shader: unshaded
+  - type: Construction
+    graph: ADTChristmasFireplace
+    node: christmasfireplace
+
+- type: entity
+  id: ADTChristmasFireplace2
+  parent: Fireplace
+  suffix: New Year
+  name: christmas fireplace
+  description: A place that has fire, decorated for a holiday. Cozy!
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Structures/Decoration/christmas_fireplase.rsi
+    layers:
+      - state: christmas_fireplace_02
+      - state: fireplace_fire4
+        shader: unshaded
+      - state: fireplace_glow
+        shader: unshaded
+  - type: Construction
+    graph: ADTChristmasFireplace2
+    node: christmasfireplace2
