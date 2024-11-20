@@ -1,0 +1,43 @@
+- type: entity
+  id: ADTBulletPistol9mmParabellum
+  name: bullet (9mm Parabellum)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+
+- type: entity
+  id: ADTBulletPistol10mmGerman
+  name: bullet (10 mm German)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+
+- type: entity
+  id: ADTBulletPistol7mmBrowning
+  name: bullet (7 mm Browning)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+
+- type: entity
+  id: ADTBulletPistol8mmFrench
+  name: bullet (8 mm French)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30

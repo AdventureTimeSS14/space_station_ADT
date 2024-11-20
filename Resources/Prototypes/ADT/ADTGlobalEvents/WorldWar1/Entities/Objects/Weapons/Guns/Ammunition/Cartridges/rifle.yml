@@ -1,0 +1,61 @@
+- type: entity
+  id: ADTCartridgeRifle8mmMauser
+  name: cartridge (8 mm Mauser)
+  description: 8 mm Mauser cartridge
+  suffix: World War I, Germany
+  parent: BaseCartridgeRifle
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletRifle8mmMauser
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgeRifle8mmMauser
+
+- type: entity
+  id:  ADTCartridgeRifle8mmMauserIncendiary
+  name: cartridge (8 mm Mauser incendiary)
+  description: 8 mm Mauser cartridge
+  suffix: World War I, Germany
+  parent: ADTCartridgeRifle8mmMauser
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletRifle8mmMauserIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff6e52"
+
+- type: entity
+  id: ADTCartridgeRifle8mmLebel
+  name: cartridge (8 mm Lebel)
+  description: 8 mm Lebel cartridge
+  suffix: World War I, France
+  parent: BaseCartridgeRifle
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletRifle8mmLebel
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgeRifle8mmLebel
+
+- type: entity
+  id:  ADTCartridgeRifle8mmLebelIncendiary
+  name: cartridge (8 mm Lebel incendiary)
+  description: 8 mm Lebel cartridge
+  suffix: World War I, France
+  parent: ADTCartridgeRifle8mmLebel
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletRifle8mmLebelIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff6e52"

@@ -1,0 +1,46 @@
+- type: entity
+  id: ADTBulletRifle8mmMauser
+  name: bullet (8mm Mauser)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 33
+
+- type: entity
+  id: ADTBulletRifle8mmMauserIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (8mm Mauser incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 15
+        Heat: 15
+
+- type: entity
+  id: ADTBulletRifle8mmLebel
+  name: bullet (8 mm Lebel)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 33
+
+- type: entity
+  id: ADTBulletRifle8mmLebelIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (8 mm Lebel incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 15
+        Heat: 15
+
