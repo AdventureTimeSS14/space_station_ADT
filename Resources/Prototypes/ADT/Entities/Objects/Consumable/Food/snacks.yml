@@ -833,3 +833,33 @@
     layers:
     - state: trach
     - state: candy_bat
+
+- type: entity
+  name: hypoallergen chocolate bar
+  parent: FoodSnackBase
+  id: ADTHypoAllergenChocolateBar
+  description: It tastes like cardboard, but harmless to unaths and vulpes.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/hypoallergen_chocolate.rsi
+    state: hypoallergen_chocolate
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: CocoaPowder
+          Quantity: 1
+  - type: Extractable
+    grindableSolutionName: food
+  # - type: Tag
+  #   tags:
+  #   - ADTCarnivoreFriendlyFood
+  #   - ADTMothFriendlyFood
+

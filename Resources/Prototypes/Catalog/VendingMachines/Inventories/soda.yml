@@ -1,6 +1,17 @@
 ﻿- type: vendingMachineInventory
   id: SodaInventory
   startingInventory:
+  # ADT Tweak Start New Years
+    ADTMulledWineGlass: 2
+    ADTMulledWineColdGlass: 2
+    ADTChampagneMandarinGlass: 2
+    ADTChristmasMilkshakeGlass: 2
+    ADTTeaCinnamonLemonGlass: 2
+    ADTSbitenCinnamonLemonGlass: 2
+    ADTHotCocoaGlass: 2
+    ADTHotChocolateGlass: 2
+    ADTHotChocolateAllergicGlass: 2
+  # ADT Tweak End New Years
     DrinkColaCan: 3
     DrinkGrapeCan: 3
     DrinkRootBeerCan: 3
