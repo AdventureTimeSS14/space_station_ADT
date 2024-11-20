@@ -3,10 +3,6 @@ ent-ADTAntibioticOintment = антибиотическая мазь
 ent-ADTAntibioticOintment1 = { ent-ADTAntibioticOintment }
     .desc = { ent-ADTAntibioticOintment.desc }
     .suffix = Один
-ent-ADTPillExperimental = космическая трава
-    .desc = Зелёная измельчённая трава, интересно что же это такое...
-ent-ADTPillExter = экстэриал витамины
-    .desc = На вид обычные разноцветные витаминки.
 
 ent-ADTBloodpack1 = { ent-Bloodpack }
   .desc = { ent-Bloodpack.desc }
