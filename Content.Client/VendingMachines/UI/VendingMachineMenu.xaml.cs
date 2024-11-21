@@ -24,7 +24,8 @@ namespace Content.Client.VendingMachines.UI
 
         private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
         public Action<VendingMachineWithdrawMessage>? OnWithdraw; //ADT-Economy
-
+        public event Action<VendingMachineInventoryEntry, VendingMachineItem>? OnItemCountSelected; // ADT vending eject count
+        public double PriceMultiplier = 1;  // ADT vending eject count
         public VendingMachineMenu()
         {
             MinSize = new Vector2(250, 150); // Corvax-Resize
@@ -67,71 +68,93 @@ namespace Content.Client.VendingMachines.UI
 
         private void GenerateButton(ListData data, ListContainerButton button)
         {
-            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text })
+            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text, Entry: var entry })
                 return;
 
-            button.AddChild(new VendingMachineItem(protoID, text));
+            // ADT vending eject count start
+            var item = new VendingMachineItem(protoID, text);
+            if (entry.Amount <= 0)
+            {
+                item.Count.AddItem("Нет", 0);
+            }
+            else
+            {
+                for (var i = 0; i < entry.Amount; i++)
+                {
+                    var amount = i + 1;
+                    var price = (int)(entry.Price * PriceMultiplier);
+                    var priceStr = price > 0 ? $" [{price * amount}$]" : "";
+
+                    item.Count.AddItem($"{amount} шт." + priceStr, i);
+                }
+            }
+            item.Count.Select(0);
+            item.Count.OnItemSelected += args => item.Count.Select(args.Id);
+            item.BuyButton.OnPressed += _ => OnItemCountSelected?.Invoke(entry, item);
+            // ADT vending eject count end
+
+            button.AddChild(item);
 
             button.ToolTip = text;
             button.StyleBoxOverride = _styleBox;
         }
 
-        /// <summary>
-        /// Populates the list of available items on the vending machine interface
-        /// and sets icons based on their prototypes
-        /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory)
-        {
-            if (inventory.Count == 0 && VendingContents.Visible)
-            {
-                SearchBar.Visible = false;
-                VendingContents.Visible = false;
+        // /// <summary>
+        // /// Populates the list of available items on the vending machine interface
+        // /// and sets icons based on their prototypes
+        // /// </summary>
+        // public void Populate(List<VendingMachineInventoryEntry> inventory)
+        // {
+        //     if (inventory.Count == 0 && VendingContents.Visible)
+        //     {
+        //         SearchBar.Visible = false;
+        //         VendingContents.Visible = false;
 
-                var outOfStockLabel = new Label()
-                {
-                    Text = Loc.GetString("vending-machine-component-try-eject-out-of-stock"),
-                    Margin = new Thickness(4, 4),
-                    HorizontalExpand = true,
-                    VerticalAlignment = VAlignment.Stretch,
-                    HorizontalAlignment = HAlignment.Center
-                };
+        //         var outOfStockLabel = new Label()
+        //         {
+        //             Text = Loc.GetString("vending-machine-component-try-eject-out-of-stock"),
+        //             Margin = new Thickness(4, 4),
+        //             HorizontalExpand = true,
+        //             VerticalAlignment = VAlignment.Stretch,
+        //             HorizontalAlignment = HAlignment.Center
+        //         };
 
-                MainContainer.AddChild(outOfStockLabel);
+        //         MainContainer.AddChild(outOfStockLabel);
 
-                SetSizeAfterUpdate(outOfStockLabel.Text.Length, 0);
+        //         SetSizeAfterUpdate(outOfStockLabel.Text.Length, 0);
 
-                return;
-            }
+        //         return;
+        //     }
 
-            var longestEntry = string.Empty;
-            var listData = new List<VendorItemsListData>();
+        //     var longestEntry = string.Empty;
+        //     var listData = new List<VendorItemsListData>();
 
-            for (var i = 0; i < inventory.Count; i++)
-            {
-                var entry = inventory[i];
+        //     for (var i = 0; i < inventory.Count; i++)
+        //     {
+        //         var entry = inventory[i];
 
-                if (!_prototypeManager.TryIndex(entry.ID, out var prototype))
-                    continue;
+        //         if (!_prototypeManager.TryIndex(entry.ID, out var prototype))
+        //             continue;
 
-                if (!_dummies.TryGetValue(entry.ID, out var dummy))
-                {
-                    dummy = _entityManager.Spawn(entry.ID);
-                    _dummies.Add(entry.ID, dummy);
-                }
+        //         if (!_dummies.TryGetValue(entry.ID, out var dummy))
+        //         {
+        //             dummy = _entityManager.Spawn(entry.ID);
+        //             _dummies.Add(entry.ID, dummy);
+        //         }
 
-                var itemName = Identity.Name(dummy, _entityManager);
-                var itemText = $"{itemName} [{entry.Amount}]";
+        //         var itemName = Identity.Name(dummy, _entityManager);
+        //         var itemText = $"{itemName} [{entry.Amount}]";
 
-                if (itemText.Length > longestEntry.Length)
-                    longestEntry = itemText;
+        //         if (itemText.Length > longestEntry.Length)
+        //             longestEntry = itemText;
 
-                listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
-            }
+        //         listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
+        //     }
 
-            VendingContents.PopulateList(listData);
+        //     VendingContents.PopulateList(listData);
 
-            SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
-        }
+        //     SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
+        // }
 
         #region START ADT TWEAK
         /// <summary>
@@ -188,10 +211,12 @@ namespace Content.Client.VendingMachines.UI
                 if (!vendComp.AllForFree)
                 {
                     price = (int)(entry.Price * priceMultiplier);
+                    PriceMultiplier = priceMultiplier;
                 }
                 else
                 {
                     price = 0; // Это работает только если заспавненный вендомат уже был с этим значением. Спасибо визардам и их bounduserinterface емае.
+                    PriceMultiplier = 0;
                 }
                 //ADT-Economy-Start
 
@@ -202,12 +227,12 @@ namespace Content.Client.VendingMachines.UI
                 }
 
                 var itemName = Identity.Name(dummy, _entityManager);
-                var itemText = $" [{price}$] {itemName} [{entry.Amount}]"; //ADT-Economy
+                var itemText = $" [{entry.Amount}] {itemName}"; //ADT-Economy
 
                 if (itemText.Length > longestEntry.Length)
                     longestEntry = itemText;
 
-                listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
+                listData.Add(new VendorItemsListData(prototype.ID, itemText, i, entry));    // ADT vending eject count
             }
 
             VendingContents.PopulateList(listData);
@@ -224,4 +249,4 @@ namespace Content.Client.VendingMachines.UI
     }
 }
 
-public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex) : ListData;
+public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex, VendingMachineInventoryEntry Entry) : ListData;   // ADT vending eject count tweaked
