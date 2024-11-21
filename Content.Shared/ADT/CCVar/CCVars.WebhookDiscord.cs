@@ -11,10 +11,4 @@ public sealed class ADTDiscordWebhookCCVars : CVars
     /// </summary>
     public static readonly CVarDef<string> DiscordAdminwhoWebhook =
         CVarDef.Create("discord.adminwho_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
-
-    /// <summary>
-    /// Delay send Discord webhook which will relay adminwho info to the channel.
-    /// </summary>
-    public static readonly CVarDef<int> DiscordAdminwhoWebhookMinuteDelay =
-        CVarDef.Create("discord.adminwho_delay_minute", 15, CVar.ARCHIVE | CVar.CLIENTONLY);
 }
