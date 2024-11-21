@@ -1,10 +1,12 @@
 using Content.Server.Discord;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using System.Text;
 using Content.Server.Administration.Managers;
 using Robust.Shared.Utility;
+using Content.Server.GameTicking;
 
 namespace Content.Server.ADT.Discord.Adminwho;
 
@@ -14,6 +16,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
     [Dependency] private readonly DiscordWebhook _discord = default!;
     [Dependency] private readonly IAdminManager _adminMgr = default!;
     [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
     private TimeSpan _nextSendTime = TimeSpan.MinValue;
     private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(15);
@@ -53,12 +56,30 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             sb.AppendLine();
         }
 
+        var serverName = _cfg.GetCVar(CCVars.GameHostName);
+
+        var gameTicker = _entitySystemManager.GetEntitySystem<GameTicker>();
+        var round = gameTicker.RunLevel switch
+        {
+            GameRunLevel.PreRoundLobby => gameTicker.RoundId == 0
+                ? "pre-round lobby after server restart"
+                : $"pre-round lobby for round {gameTicker.RoundId + 1}",
+            GameRunLevel.InRound => $"round {gameTicker.RoundId}",
+            GameRunLevel.PostRound => $"post-round {gameTicker.RoundId}",
+            _ => throw new ArgumentOutOfRangeException(nameof(gameTicker.RunLevel),
+                $"{gameTicker.RunLevel} was not matched."),
+        };
+
         var embed = new WebhookEmbed
         {
             Title = Loc.GetString("title-embed-webhook-adminwho"),
             Description = sb.ToString(),
             Color = 0xff0080,
-            Fields = new List<WebhookEmbedField>()
+            Fields = new List<WebhookEmbedField>(),
+            Footer = new WebhookEmbedFooter
+            {
+                Text = $"{serverName} ({round})"
+            },
         };
 
         var payload = new WebhookPayload
