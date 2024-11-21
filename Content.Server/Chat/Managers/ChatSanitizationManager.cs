@@ -29,7 +29,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { "рофл", "chatsan-laughs" },
         { "яхз", "chatsan-shrugs" },
         { ":0", "chatsan-surprised" },
-        { ":р", "chatsan-stick-out-tongue" }, // cyrillic р
+// ADT-remove for radiochannel        { ":р", "chatsan-stick-out-tongue" }, // cyrillic р
         { "кек", "chatsan-laughs" },
         { "T_T", "chatsan-cries" },
         { "Т_Т", "chatsan-cries" }, // cyrillic T

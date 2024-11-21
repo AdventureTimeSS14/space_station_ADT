@@ -30,12 +30,6 @@
           Slash: 1
           Piercing: 1
           Heat: 1
-      # ADT-Tweak-Start
-    - type: ClothingSpeedModifier
-      walkModifier: 0.8
-      sprintModifier: 0.7
-    - type: HeldSpeedModifier
-      # ADT-Tweak-End
     - type: Damageable
       damageContainer: Shield
     - type: Destructible
@@ -457,11 +451,6 @@
         flatReductions:
           Heat: 1
           Piercing: 1
-      # ADT-Tweak-Start
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-      # ADT-Tweak-End
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
@@ -505,6 +494,8 @@
           - SecurityOfficer
           - Warden
           - Captain
+          - ADTSeniorOfficer
+          - ADTGuardOfficer
       - label: corvax-hidden-desc-EnergyShield-cargo
         jobRequired:
           - SalvageSpecialist

@@ -124,7 +124,7 @@
   - type: Tag
     tags:
     - Trash
-    - ADTMedipen
+    - ADTMedipen # ADT Tweak
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -159,8 +159,11 @@
         - ReagentId: TranexamicAcid
           Quantity: 3
   - type: Tag
-    tags: []
-
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+    
 - type: entity
   name: poison auto-injector
   parent: ChemicalMedipen
@@ -186,7 +189,10 @@
         - ReagentId: Epinephrine
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: brute auto-injector
@@ -218,7 +224,10 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: burn auto-injector
@@ -250,7 +259,10 @@
         - ReagentId: Leporazine
           Quantity: 10
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: rad auto-injector
@@ -282,8 +294,11 @@
         - ReagentId: Bicaridine
           Quantity: 5
   - type: Tag
-    tags: []
-
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+    
 - type: entity
   name: puncturase auto-injector
   parent: ChemicalMedipen
@@ -314,7 +329,10 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: pyrazine auto-injector
@@ -346,7 +364,10 @@
         - ReagentId: Dermaline
           Quantity: 10
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: airloss auto-injector
@@ -378,7 +399,10 @@
         - ReagentId: DexalinPlus
           Quantity: 20
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: space medipen
@@ -411,7 +435,10 @@
           - ReagentId: Barozine
             Quantity: 20
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: hyperzine injector
@@ -443,7 +470,10 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: hyperzine microinjector
@@ -470,7 +500,10 @@
   - type: StaticPrice
     price: 100
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: combat medipen
@@ -504,7 +537,10 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: pen
@@ -546,6 +582,8 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
