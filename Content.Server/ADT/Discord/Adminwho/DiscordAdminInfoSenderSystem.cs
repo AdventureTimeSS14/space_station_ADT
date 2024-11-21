@@ -16,7 +16,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
     [Dependency] private readonly IGameTiming _time = default!;
 
     public TimeSpan NextSecond = TimeSpan.Zero;
-    public int SpeakTimerRead = 15;
+    public int DelayTimer = 15;
 
     public override void Update(float frameTime)
     {
@@ -24,7 +24,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 
         if (_time.CurTime >= NextSecond)
         {
-            var delay = SpeakTimerRead;
+            var delay = DelayTimer;
             SendAdminInfoToDiscord();
             NextSecond = _time.CurTime + TimeSpan.FromMinutes(delay);
         }
@@ -32,6 +32,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 
     private async void SendAdminInfoToDiscord()
     {
+        Log.Info("SendAdminInfoToDiscord()!!!!!!!!!!!!!!!!");
         var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminwhoWebhook);
 
         if (string.IsNullOrEmpty(webhookUrl))
