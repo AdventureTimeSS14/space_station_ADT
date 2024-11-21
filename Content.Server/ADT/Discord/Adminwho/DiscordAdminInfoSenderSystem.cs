@@ -17,15 +17,18 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 
     public TimeSpan NextSecond = TimeSpan.Zero;
 
+    public int Delay;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        Delay = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminwhoWebhookMinuteDelay);
 
         if (_time.CurTime >= NextSecond)
         {
-            var delay = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminwhoWebhookMinuteDelay);
+            var delay = Delay;
             SendAdminInfoToDiscord();
-            NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
+            NextSecond = _time.CurTime + TimeSpan.FromMinutes(delay);
         }
     }
 
@@ -57,13 +60,13 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 
         var embed = new WebhookEmbed
         {
-            Title = "Админы на сервере:",
+            Title = Loc.GetString("title-embed-webhook-adminwho");
             Description = sb.ToString(),
             Color = 0xff0080,
             Fields = new List<WebhookEmbedField>()
         };
 
-        var username = "Cerberus AdminWho :з";
+        var username = Loc.GetString("username-webhook-adminwho");
 
         var payload = new WebhookPayload
         {
