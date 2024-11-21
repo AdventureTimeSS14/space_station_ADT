@@ -59,18 +59,16 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 
         var embed = new WebhookEmbed
         {
-            Title = "Админы на сервере:",
+            Title = Loc.GetString("title-embed-webhook-adminwho"),
             Description = sb.ToString(),
             Color = 0xff0080,
             Fields = new List<WebhookEmbedField>()
         };
 
-        var username = "Cerberus AdminWho :з";
-
         var payload = new WebhookPayload
         {
             Embeds = new List<WebhookEmbed> { embed },
-            Username = username
+            Username = Loc.GetString("username-webhook-adminwho")
         };
 
         var identifier = webhookData.ToIdentifier();
