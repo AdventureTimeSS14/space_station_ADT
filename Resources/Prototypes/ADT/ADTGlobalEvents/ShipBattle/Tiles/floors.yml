@@ -1,7 +1,7 @@
 - type: tile
   id: ADTFloorSteelDarkGray
   name: tiles-steel-floor-darkgray
-  sprite: /Textures/ADT/ShipBattle/Tiles/steel_darkgray.png
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/steel_darkgray.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -13,7 +13,7 @@
 - type: tile
   id: ADTFloorSteelPlateDarkGray
   name: tiles-steelplate-floor-darkgray
-  sprite: /Textures/ADT/ShipBattle/Tiles/steelplate_darkgray.png
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/steelplate_darkgray.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -25,7 +25,7 @@
 - type: tile
   id: ADTFloorShipGray
   name: tiles-ship-floor-gray
-  sprite: /Textures/ADT/ShipBattle/Tiles/ship_gray.png
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/ship_gray.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -37,7 +37,7 @@
 - type: tile
   id: ADTFloorShipDarkGray
   name: tiles-ship-floor-darkgray
-  sprite: /Textures/ADT/ShipBattle/Tiles/ship_darkgray.png
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/ship_darkgray.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
