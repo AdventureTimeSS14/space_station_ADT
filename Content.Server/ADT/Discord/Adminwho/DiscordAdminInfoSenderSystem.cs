@@ -15,19 +15,16 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
     [Dependency] private readonly IAdminManager _adminMgr = default!;
     [Dependency] private readonly IGameTiming _time = default!;
 
-    public TimeSpan NextSecond = TimeSpan.Zero;
-    public int DelayTimer = 15;
+    private TimeSpan _nextSendTime = TimeSpan.MinValue;
+    private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(15);
 
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
+        if (_time.CurTime < _nextSendTime)
+            return;
 
-        if (_time.CurTime >= NextSecond)
-        {
-            var delay = DelayTimer;
-            SendAdminInfoToDiscord();
-            NextSecond = _time.CurTime + TimeSpan.FromMinutes(delay);
-        }
+        _nextSendTime = _time.CurTime + _delayInterval;
+        SendAdminInfoToDiscord();
     }
 
     private async void SendAdminInfoToDiscord()
