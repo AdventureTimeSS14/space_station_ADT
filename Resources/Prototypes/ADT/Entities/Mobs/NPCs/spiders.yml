@@ -67,6 +67,8 @@
       types:
         Piercing: 6
   - type: MobState
+  - type: ReplacementAccent
+    accent: xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -403,6 +405,10 @@
     damage:
       types:
         Piercing: 3.8
+  - type: Prying
+    pryPowered: false
+    force: false
+    speedModifier: 0.1
   - type: SolutionContainerManager
     solutions:
       melee:
