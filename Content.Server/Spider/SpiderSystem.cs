@@ -52,7 +52,7 @@ public sealed class SpiderSystem : SharedSpiderSystem
         else
         {
 // ADT tweak start
-            // Spawn web in center
+    // Spawn web in center
             if (!IsTileBlockedByWeb(coords))
             {
                 Spawn(component.WebPrototype, coords);
@@ -70,8 +70,8 @@ public sealed class SpiderSystem : SharedSpiderSystem
                     result = true;
                 }
             }
-// ADT tweak end
         }
+// ADT tweak end
         if (result)
         {
             _popup.PopupEntity(Loc.GetString("spider-web-action-success"), args.Performer, args.Performer);
