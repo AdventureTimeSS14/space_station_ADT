@@ -7,6 +7,7 @@ using System.Text;
 using Content.Server.Administration.Managers;
 using Robust.Shared.Utility;
 using Content.Server.GameTicking;
+using Content.Server.Afk;
 
 namespace Content.Server.ADT.Discord.Adminwho;
 
@@ -45,6 +46,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
         {
             var adminData = _adminMgr.GetAdminData(admin)!;
             DebugTools.AssertNotNull(adminData);
+            var afk = IoCManager.Resolve<IAfkManager>();
 
             if (adminData.Stealth)
                 continue;
@@ -52,6 +54,8 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             sb.Append(admin.Name);
             if (adminData.Title is { } title)
                 sb.Append($": [{title}]");
+            if (afk.IsAfk(admin))
+                sb.Append(" [AFK]");
 
             sb.AppendLine();
         }
