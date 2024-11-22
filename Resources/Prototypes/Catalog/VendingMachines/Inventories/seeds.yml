@@ -1,6 +1,7 @@
 - type: vendingMachineInventory
   id: MegaSeedServitorInventory
   startingInventory:
+    ADTMandarinSeeds: 5 # ADT Tweak
     AloeSeeds: 3
     AmbrosiaVulgarisSeeds: 3
     AppleSeeds: 5

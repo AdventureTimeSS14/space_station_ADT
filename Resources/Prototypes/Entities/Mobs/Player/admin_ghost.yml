@@ -25,7 +25,7 @@
   - type: CombatMode
   - type: Physics
     ignorePaused: true
-    bodyType: Kinematic
+    bodyType: KinematicController # ADT TWEAK фикс толкания агостом
   - type: Body
     prototype: Aghost
   - type: Access
