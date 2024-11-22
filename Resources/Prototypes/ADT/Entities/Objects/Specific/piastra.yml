@@ -1,0 +1,57 @@
+- type: entity
+  name: piastr
+  parent: BaseItem
+  id: ADTPiratePiastr1
+  description: The most YARRRR currency!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/piastra.rsi
+    state: piastra_1
+    layers:
+    - state: piastra_1
+      map: ["base"]
+  - type: Item
+    size: Tiny
+  - type: Appearance
+  - type: Stack
+    stackType: ADTPiastra
+    baseLayer: base
+    count: 1
+    layerStates:
+    - piastra_0
+    - piastra_1
+    - piastra_2
+    - piastra_3
+    - piastra_4
+    - piastra_5
+    - piastra_6
+    - piastra_7
+    - piastra_8
+    - piastra_9
+    - piastra_10
+  - type: Currency
+    price:
+      Piastr: 1
+
+- type: entity
+  name: piastr
+  parent: ADTPiratePiastr1
+  id: ADTPiratePiastr1000
+  description: The most YARRRR currency!
+  components:
+  - type: Stack
+    stackType: ADTPiastra
+    baseLayer: base
+    count: 1000
+    layerStates:
+    - piastra_0
+    - piastra_1
+    - piastra_2
+    - piastra_3
+    - piastra_4
+    - piastra_5
+    - piastra_6
+    - piastra_7
+    - piastra_8
+    - piastra_9
+    - piastra_10

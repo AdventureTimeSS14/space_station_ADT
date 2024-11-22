@@ -3,3 +3,53 @@
   id: MobGhostGear
   equipment:
     id: ADTGhostPDA
+
+#Pierates
+
+- type: startingGear
+  id: ADTPirateGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPirate
+    back: ClothingBackpackSatchel
+    head: ClothingHeadBandBlack
+    shoes: ClothingShoesBootsLaceup
+    id: PiratePDA
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltUtility
+    pocket1: AppraisalTool
+  innerClothingSkirt: ClothingUniformJumpsuitPirate
+  satchel: ClothingBackpackSatchel
+  duffelbag: ClothingBackpackSatchel
+
+- type: startingGear
+  id: ADTPirateCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPirate
+    back: ClothingBackpackSatchel
+    head: ClothingHeadHatPirate
+    shoes: ClothingShoesBootsLaceup
+    id: PiratePDA
+    ears: ClothingHeadsetAltFreelancer
+    belt: ClothingBeltUtility
+    pocket1: AppraisalTool
+    pocket2: EnergyCutlass
+    outerClothing: ClothingOuterCoatPirate
+  innerClothingSkirt: ClothingUniformJumpskirtColorLightBrown
+  satchel: ClothingBackpackSatchel
+  duffelbag: ClothingBackpackSatchel
+
+- type: startingGear
+  id: ADTPirateFirstmateGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPirate
+    back: ClothingBackpackSatchel
+    head: ClothingHeadHatPirateTricord
+    shoes: ClothingShoesBootsLaceup
+    id: PiratePDA
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltUtility
+    pocket1: AppraisalTool
+    outerClothing: ClothingOuterCoatGentle
+  innerClothingSkirt: ClothingUniformJumpsuitPirate
+  satchel: ClothingBackpackSatchel
+  duffelbag: ClothingBackpackSatchel

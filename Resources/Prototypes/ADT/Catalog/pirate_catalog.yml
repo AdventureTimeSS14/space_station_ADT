@@ -1,0 +1,244 @@
+#UplinkWeaponry
+
+- type: listing
+  id: ADTPirateCannonBall
+  name: uplink-pirate-cannonball-name
+  description: uplink-pirate-cannonball-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Projectiles/projectiles2.rsi, state: ball }
+  productEntity: CannonBall
+  cost:
+    Piastr: 100
+  categories:
+  - ADTPirate
+
+
+- type: listing
+  id: ADTPirateGrapeshot
+  name: uplink-pirate-grapeshot-name
+  description: uplink-pirate-grapeshot-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: grapeshot }
+  productEntity: CannonBallGrapeshot
+  cost:
+    Piastr: 120
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateSawn
+  name: uplink-pirate-sawn-name
+  description: uplink-pirate-sawn-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/sawn.rsi, state: icon }
+  productEntity: WeaponShotgunSawn
+  cost:
+    Piastr: 1200
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTRevolverPirate
+  name: uplink-pirate-revolver-name
+  description: uplink-pirate-revolver-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi, state: icon }
+  productEntity: WeaponRevolverPirate
+  cost:
+    Piastr: 1000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateHandcannon
+  name: uplink-pirate-hand-cannon-name
+  description: uplink-pirate-hand-cannon-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/pirate_cannon.rsi, state: icon }
+  productEntity: WeaponLauncherPirateCannon
+  cost:
+    Piastr: 2000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateOuterArmorPodWars
+  name: uplink-pirate-outer-armor-podwars-name
+  description: uplink-pirate-outer-armor-podwars-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/podwars_armor.rsi, state: icon }
+  productEntity: ClothingOuterArmorPodWars
+  cost:
+    Piastr: 2000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateHelmetArmorPodWars
+  name: uplink-pirate-helmet-armor-podwars-name
+  description: uplink-pirate-helmet-armor-podwars-desc
+  icon: { sprite: /Textures/Clothing/Head/Helmets/podwars_helmet.rsi, state: icon }
+  productEntity: ClothingHelmetArmorPodWars
+  cost:
+    Piastr: 1500
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateOuterCoatCaptain
+  name: uplink-pirate-outer-armor-captain-name
+  description: uplink-pirate-outer-armor-captain-desc
+  icon: { sprite: /Textures/Corvax/Clothing/OuterClothing/Coats/captain.rsi, state: icon }
+  productEntity: ClothingOuterCoatCaptain
+  cost:
+    Piastr: 2500
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateSvalinn
+  name: uplink-pirate-svalinn-name
+  description: uplink-pirate-svalinn-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/svalinn.rsi, state: icon }
+  productEntity: WeaponLaserSvalinn
+  cost:
+    Piastr: 1000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateLaser
+  name: uplink-pirate-laser-name
+  description: uplink-pirate-laser-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/laser_retro.rsi, state: icon }
+  productEntity: WeaponLaserGun
+  cost:
+    Piastr: 1900
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateCutter
+  name: uplink-pirate-cutter-name
+  description: uplink-pirate-cutter-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi, state: icon }
+  productEntity: ADTWeaponCutterAdv
+  cost:
+    Piastr: 2500
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateMicrireactor
+  name: uplink-pirate-microreactor-name
+  description: uplink-pirate-microreactor-desc
+  icon: { sprite: /Textures/Objects/Power/power_cells.rsi, state: microreactor }
+  productEntity: PowerCellMicroreactor
+  cost:
+    Piastr: 3000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPiratePirate
+  name: uplink-pirate-pirate-name
+  description: uplink-pirate-pirate-desc
+  icon: { sprite: /Textures/Mobs/Species/Skeleton/parts.rsi, state: skull_icon }
+  productEntity: ADTMobSkeletonPirate
+  cost:
+    Piastr: 6000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateCannon
+  name: uplink-pirate-cannon-name
+  description: uplink-pirate-cannon-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shuttles/pirate_cannon.rsi, state: base }
+  productEntity: ShuttleGunPirateCannon 
+  cost:
+    Piastr: 4500
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateExGrenade
+  name: uplink-pirate-granade-name
+  description: uplink-pirate-granade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/grenade.rsi, state: icon }
+  productEntity: ExGrenade
+  cost:
+    Piastr: 500
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateEmpGrenade
+  name: uplink-pirate-emp-granade-name
+  description: uplink-pirate-emp-granade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/empgrenade.rsi, state: icon }
+  productEntity: EmpGrenade
+  cost:
+    Piastr: 500
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateMilk
+  name: uplink-pirate-milk-name
+  description: uplink-pirate-milk-desc
+  icon: { sprite: /Textures/Objects/Consumable/Drinks/glass_white.rsi, state: icon }
+  productEntity: DrinkMilkCarton
+  cost:
+    Piastr: 500
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateCow
+  name: uplink-pirate-cow-name
+  description: uplink-pirate-cow-desc
+  icon: { sprite: /Textures/Mobs/Animals/cow.rsi, state: cow }
+  productEntity: MobCow
+  cost:
+    Piastr: 7000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateBolletProof
+  name: uplink-pirate-bullet-proof-name
+  description: uplink-pirate-bullet-proof-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/bulletproof.rsi, state: icon }
+  productEntity: ClothingOuterArmorBulletproof
+  cost:
+    Piastr: 4000
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateBolletProof
+  name: uplink-pirate-bullet-magnum-name
+  description: uplink-pirate-bullet-magnum-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
+  productEntity: SpeedLoaderMagnum
+  cost:
+    Piastr: 300
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateSpeedLoader
+  name: uplink-pirate-bullet-magnum-name
+  description: uplink-pirate-bullet-magnum-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
+  productEntity: SpeedLoaderMagnum
+  cost:
+    Piastr: 300
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTPirateLethalShot
+  name: uplink-pirate-lethal-shot-name
+  description: uplink-pirate-lethal-shot-desc
+  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: shelllethal }
+  productEntity: BoxLethalshot
+  cost:
+    Piastr: 300
+  categories:
+  - ADTPirate

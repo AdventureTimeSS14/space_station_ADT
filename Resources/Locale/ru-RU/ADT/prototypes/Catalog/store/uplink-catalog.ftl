@@ -89,3 +89,69 @@ uplink-blackmail-bundle-desc = Набор для относительно эфф
 
 uplink-syndicate-helmet-name = шлем спецназа
 uplink-syndicate-helmet-desc = Очень прочный шлем, широко используемый военизированными организациями. Его украшает ужасный узор из красных и чёрных полос. Да прибудет с вами робаст
+
+uplink-pirate-cannonball-name = пушечное ядро
+uplink-pirate-cannonball-desc = Обычное пушечное ядро.
+
+uplink-pirate-grapeshot-name = картечь
+uplink-pirate-grapeshot-desc = Картечьное ядро для пушки.
+
+uplink-pirate-sawn-name = обез
+uplink-pirate-sawn-desc = Против всякой шелупони. Использует патроны калибра .50 ружейный.
+
+uplink-pirate-revolver-name = пиратский револьвер
+uplink-pirate-revolver-desc = Странный дульнозарядный револьвер, который использовали пираты. Использует патроны калибра .45 магнум.
+
+uplink-pirate-hand-cannon-name = пиратская пушка
+uplink-pirate-hand-cannon-desc = Кабум!
+
+uplink-pirate-outer-armor-podwars-name = броня Броненосец II
+uplink-pirate-outer-armor-podwars-desc = Переделанный бронескафандр Броненосец II, реликвия войн подов.
+
+uplink-pirate-helmet-armor-podwars-name = шлем Броненосец II
+uplink-pirate-helmet-armor-podwars-desc = Переделанный шлем Броненосец II, реликвия войн подов.
+
+uplink-pirate-outer-armor-captain-name = куртка капитана
+uplink-pirate-outer-armor-captain-desc = Капитанская торжественная куртка, инкрустированная золотом.
+
+uplink-pirate-ion-rifle-name = ионная винтовка
+uplink-pirate-ion-rifle-desc = Ионно-электрическая разрушительная винтовка, специально разработана против мехов и боргов.
+
+uplink-pirate-svalinn-name = лазерный пистолет Свалинн
+uplink-pirate-svalinn-desc = Дешёвый и широко распространённый лазерный пистолет.
+
+uplink-pirate-laser-name = старомодный лазерный бластер
+uplink-pirate-laser-desc = Оружие, использующее свет, усиленный излучением радиации.
+
+uplink-pirate-cutter-name = улучшенный плазменный резак
+uplink-pirate-cutter-desc = Инструмент шахтеров, предназначенный для расчистки горных пород. Обладает усовершенствованной батареей и усиленной концентрирующей линзой.
+
+uplink-pirate-microreactor-name = микрореакторная батарея
+uplink-pirate-microreactor-desc = Стандартизированный перезаряжаемый микрореактор. Имеет пониженную ёмкость, но медленно заряжается сама по себе.
+
+uplink-pirate-pirate-name = костлявый пират
+uplink-pirate-pirate-desc = Лучший помошник любого капитана - скелет без шкафа!
+
+uplink-pirate-cannon-name = пушка пиратского корабля
+uplink-pirate-cannon-desc = Кабум!
+
+uplink-pirate-granade-name = разрывная граната
+uplink-pirate-granade-desc = Граната, создающая небольшой но разрушительный взрыв.
+
+uplink-pirate-emp-granade-name = ЭМИ граната
+uplink-pirate-emp-granade-desc = Граната, предназначенная для поражения электрических систем.
+
+uplink-pirate-milk-name = молоко
+uplink-pirate-milk-desc = Пей молоко - кости будут крепче стали!
+
+uplink-pirate-cow-name = корова
+uplink-pirate-cow-desc = Бесконечный источник молока.
+
+uplink-pirate-bullet-proof-name = пуленепробиваемый жилет
+uplink-pirate-bullet-proof-desc = Тяжёлый бронежилет типа III, способный защитить владельца от традиционного метательного оружия и взрывчатки в незначительной степени.
+
+uplink-pirate-bullet-magnum-name = спидлодер .44 магнум
+uplink-pirate-bullet-magnum-desc = Идеален к твоему револьверу!
+
+uplink-pirate-lethal-shot-name = раздатчик ружейных патронов
+uplink-pirate-lethal-shot-desc = Полная коробка летальных ружейных патронов.

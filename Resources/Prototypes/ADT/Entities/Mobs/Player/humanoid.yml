@@ -661,3 +661,46 @@
       factions:
       - SpaceSecFaction
       - Passive # Костыль
+
+- type: entity
+  name: Pirate
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonPirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateGear]
+  - type: GhostRole
+    name: ghost-role-information-pirate-name
+    description: ghost-role-information-pirate-description
+    rules: ghost-role-information-pirate-rules
+
+- type: entity
+  name: Pirate Captain
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonCaptainPirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateCaptainGear]
+
+- type: entity
+  name: Firstmate Pirate
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonFirstmatePirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateFirstmateGear]

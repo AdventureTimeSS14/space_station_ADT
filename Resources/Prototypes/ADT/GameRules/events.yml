@@ -12,7 +12,17 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-# ADT tweak start Разные пауки
     - id: ADTMobMiniSpider
       prob: 0.01
-# ADT tweak end Разные пауки
+
+- type: entity
+  id: Pirates
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 5
+    minimumPlayers: 10
+    reoccurrenceDelay: 30
+    duration: 1
+  - type: PiratesRule

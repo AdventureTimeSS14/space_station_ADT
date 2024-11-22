@@ -6,3 +6,9 @@
   maxCount: 1
   # itemSize: 1
 
+- type: stack
+  id: ADTPiastra
+  name: piastr
+  icon: { sprite: ADT/Objects/Specific/piastra.rsi, state: piastra_1 }
+  spawn: ADTPiratePiastr1
+  maxCount: 9000
