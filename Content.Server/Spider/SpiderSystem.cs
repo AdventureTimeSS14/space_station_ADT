@@ -48,27 +48,25 @@ public sealed class SpiderSystem : SharedSpiderSystem
             }
         }
         else
-        {
 // ADT tweak end
-            // Spawn web in center
+        // Spawn web in center
+        if (!IsTileBlockedByWeb(coords))
+        {
+            Spawn(component.WebPrototype, coords);
+            result = true;
+        }
+        // Spawn web in other directions
+        for (var i = 0; i < 4; i++)
+        {
+            var direction = (DirectionFlag) (1 << i);
+            coords = transform.Coordinates.Offset(direction.AsDir().ToVec());
+
             if (!IsTileBlockedByWeb(coords))
             {
                 Spawn(component.WebPrototype, coords);
                 result = true;
             }
-            // Spawn web in other directions
-            for (var i = 0; i < 4; i++)
-            {
-                var direction = (DirectionFlag) (1 << i);
-                coords = transform.Coordinates.Offset(direction.AsDir().ToVec());
-
-                if (!IsTileBlockedByWeb(coords))
-                {
-                    Spawn(component.WebPrototype, coords);
-                    result = true;
-                }
-            }
-        } // ADT tweak
+        }
 
         if (result)
         {
