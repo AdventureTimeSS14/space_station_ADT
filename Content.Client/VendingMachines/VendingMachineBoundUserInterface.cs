@@ -33,7 +33,6 @@ namespace Content.Client.VendingMachines
             _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 
             _menu.OnClose += Close; //ADT-Economy
-            // _menu.OnItemSelected += OnItemSelected;      // ADT vending eject count
             _menu.OnItemCountSelected += OnItemSelected;    // ADT vending eject count
             _menu.OnWithdraw += SendMessage; //ADT-Economy
             _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
@@ -98,7 +97,6 @@ namespace Content.Client.VendingMachines
             if (_menu == null)
                 return;
 
-            // _menu.OnItemSelected -= OnItemSelected;      // ADT vending eject count
             _menu.OnItemCountSelected -= OnItemSelected;    // ADT vending eject count
             _menu.OnClose -= Close;
             _menu.Dispose();
