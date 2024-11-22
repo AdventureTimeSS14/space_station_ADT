@@ -34,8 +34,8 @@
   alias:
     - changeling
   name: changelings-title
-  minPlayers: 25
-  showInVote: true
+  minPlayers: 20
+  showInVote: false
   description: changelings-description
   rules:
     - ChangelingGameRule
