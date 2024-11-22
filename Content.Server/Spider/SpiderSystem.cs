@@ -49,15 +49,15 @@ public sealed class SpiderSystem : SharedSpiderSystem
             }
 // ADT tweak end
         }
-        else
+        else // ADT tweak
         {
-// ADT tweak start
         // Spawn web in center
             if (!IsTileBlockedByWeb(coords))
             {
                 Spawn(component.WebPrototype, coords);
                 result = true;
             }
+// ADT tweak start
             // Spawn web in other directions
             for (var i = 0; i < 4; i++)
             {
