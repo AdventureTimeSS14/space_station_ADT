@@ -46,8 +46,8 @@ public sealed class SpiderSystem : SharedSpiderSystem
                 Spawn(component.WebPrototype, coords);
                 result = true;
             }
-// ADT tweak start
         }
+// ADT tweak start
         else
         {
             // Spawn web in center
