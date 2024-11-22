@@ -64,8 +64,8 @@
     - type: TemperatureSpeed
       thresholds:
         273: 0.8
-        260: 0.6
-        240: 0.4
+        240: 0.6
+        210: 0.4
     - type: Sprite
       netsync: false
       noRot: true
