@@ -53,6 +53,10 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             if (adminData.Title is { } title)
                 sb.Append($": [{title}]");
 
+            if (afk.IsAfk(admin))
+                sb.Append(" [AFK]");
+
+
             sb.AppendLine();
         }
 

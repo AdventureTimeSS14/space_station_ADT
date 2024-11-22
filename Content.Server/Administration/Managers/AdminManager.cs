@@ -20,6 +20,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.CCVar;
+using Content.Server.Discord;
 
 
 namespace Content.Server.Administration.Managers
@@ -36,6 +38,7 @@ namespace Content.Server.Administration.Managers
         [Dependency] private readonly IChatManager _chat = default!;
         [Dependency] private readonly ToolshedManager _toolshed = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private readonly DiscordWebhook _discord = default!;
 
         private readonly Dictionary<ICommonSession, AdminReg> _admins = new();
         private readonly HashSet<NetUserId> _promotedPlayers = new();
@@ -355,6 +358,23 @@ namespace Content.Server.Administration.Managers
                     {
                         _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-logout-message",
                             ("name", e.Session.Name)));
+                        // if (_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook) is { } webhookUrl)
+                        // {
+                        //     var senderAdmin = GetAdminData(e.Session);
+                        //     if (senderAdmin == null)
+                        //         return;
+                        //     var senderName = e.Session.Name;
+                        //     if (!string.IsNullOrEmpty(senderAdmin.Title))
+                        //         senderName += $"\\[{senderAdmin.Title}\\]";
+                        //     if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
+                        //         return;
+                        //     var payload = new WebhookPayload
+                        //     {
+                        //         Content = $"**ОПОВЕЩЕНИЕ**: Админ ВЫШЕЛ {senderName}"
+                        //     };
+                        //     var identifier = webhookData.ToIdentifier();
+                        //     await _discord.CreateMessage(identifier, payload);
+                        // }
                     }
                 }
             }
@@ -398,6 +418,23 @@ namespace Content.Server.Administration.Managers
                     {
                         _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-login-message",
                             ("name", session.Name)));
+                        // if (_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook) is { } webhookUrl)
+                        // {
+                        //     var senderAdmin = GetAdminData(session);
+                        //     if (senderAdmin == null)
+                        //         return;
+                        //     var senderName = session.Name;
+                        //     if (!string.IsNullOrEmpty(senderAdmin.Title))
+                        //         senderName += $"\\[{senderAdmin.Title}\\]";
+                        //     if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
+                        //         return;
+                        //     var payload = new WebhookPayload
+                        //     {
+                        //         Content = $"**ОПОВЕЩЕНИЕ**: Админ зашёл {senderName}"
+                        //     };
+                        //     var identifier = webhookData.ToIdentifier();
+                        //     await _discord.CreateMessage(identifier, payload);
+                        // }
                     }
                 }
 
