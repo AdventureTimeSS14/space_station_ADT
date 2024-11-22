@@ -38,7 +38,6 @@ public sealed class SpiderSystem : SharedSpiderSystem
 // ADT tweak start
         // Spawn small web if there is a small spider
         if (component.SmallWeb == true)
-
         {
             // Spawn web in center
             if (!IsTileBlockedByWeb(coords))
@@ -48,27 +47,27 @@ public sealed class SpiderSystem : SharedSpiderSystem
             }
         }
         else
-// ADT tweak end
-        // Spawn web in center
-        if (!IsTileBlockedByWeb(coords))
         {
-            Spawn(component.WebPrototype, coords);
-            result = true;
-        }
-
-        // Spawn web in other directions
-        for (var i = 0; i < 4; i++)
-        {
-            var direction = (DirectionFlag) (1 << i);
-            coords = transform.Coordinates.Offset(direction.AsDir().ToVec());
-
+            // Spawn web in center
             if (!IsTileBlockedByWeb(coords))
             {
                 Spawn(component.WebPrototype, coords);
                 result = true;
             }
-        }
+            // Spawn web in other directions
+            for (var i = 0; i < 4; i++)
+            {
+                var direction = (DirectionFlag) (1 << i);
+                coords = transform.Coordinates.Offset(direction.AsDir().ToVec());
 
+                if (!IsTileBlockedByWeb(coords))
+                {
+                    Spawn(component.WebPrototype, coords);
+                    result = true;
+                }
+            }
+        }
+// ADT tweak end
         if (result)
         {
             _popup.PopupEntity(Loc.GetString("spider-web-action-success"), args.Performer, args.Performer);
