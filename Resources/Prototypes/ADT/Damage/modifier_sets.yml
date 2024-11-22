@@ -71,8 +71,8 @@
     Piercing: 0.95
     Slash: 1.15
     Cold: 1.2
-    Heat: 1
-    Poison: 0.65
+    Heat: 1.1
+    Poison: 0.7
     Radiation: 1
     Cellular: 1
 
