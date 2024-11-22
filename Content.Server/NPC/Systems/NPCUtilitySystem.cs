@@ -19,6 +19,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
@@ -53,6 +54,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -358,6 +360,13 @@ public sealed class NPCUtilitySystem : EntitySystem
                         return 1f;
                     return 0f;
                 }
+            // ADT tweak start
+            case TargetTagNotPresentCon tag:
+            {
+                return !_tag.HasTag(targetUid, tag.Tag) ? 1f : 0f;
+            }
+            // ADT tweak end
+
             default:
                 throw new NotImplementedException();
         }

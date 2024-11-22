@@ -1,14 +1,4 @@
 - type: npcFaction
-  id: Ursus
-  hostile:
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - DroneAntag
-
-- type: npcFaction
   id: ADTSpaceMobs
   hostile:
   - NanoTrasen

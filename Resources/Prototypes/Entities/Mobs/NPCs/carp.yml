@@ -9,7 +9,7 @@
     - type: MobMover
     - type: HTN
       rootTask:
-        task: SimpleHostileCompound
+        task: SpaceMobHostileCompound # ADT tweak
       blackboard:
         NavSmash: !type:Bool
           true

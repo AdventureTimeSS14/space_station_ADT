@@ -390,3 +390,9 @@
 
 - type: Tag
   id: ADTChemistryAmbience
+
+- type: Tag
+  id: ADTBeerCan
+
+- type: Tag
+  id: ADTSpaceMobIgnored

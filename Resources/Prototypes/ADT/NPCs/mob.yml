@@ -1,0 +1,9 @@
+- type: htnCompound
+  id: SpaceMobHostileCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: SpaceMobMeleeCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound

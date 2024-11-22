@@ -6,9 +6,6 @@
   components:
   - type: HumanoidAppearance
     species: UrsusSpecies
-  - type: NpcFactionMember
-    factions:
-    - Ursus
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -129,6 +126,13 @@
     short: true
     shortscale: 0.98
     shortDensity: 0.7
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTSpaceMobIgnored
 
 - type: entity
   save: false

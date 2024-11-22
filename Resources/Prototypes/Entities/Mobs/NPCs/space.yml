@@ -7,7 +7,7 @@
   components:
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: SpaceMobHostileCompound # ADT tweak
   - type: NpcFactionMember
     factions:
     - SimpleHostile

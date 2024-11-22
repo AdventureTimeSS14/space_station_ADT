@@ -30,9 +30,6 @@
       Critical: BorgCrit
       Dead: BorgDead
     allowRevives: true # Для воскрешения достаточно починить урон. - ss220.
-  - type: NpcFactionMember
-    factions:
-    - NanoTrasen
   - type: TypingIndicator
     proto: robot
   - type: Destructible
