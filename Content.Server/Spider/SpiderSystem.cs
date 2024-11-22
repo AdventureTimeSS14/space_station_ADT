@@ -51,7 +51,7 @@ public sealed class SpiderSystem : SharedSpiderSystem
         }
         else // ADT tweak
         {
-        // Spawn web in center
+        // Spawn web in center ADT tweak
             if (!IsTileBlockedByWeb(coords))
             {
                 Spawn(component.WebPrototype, coords);
