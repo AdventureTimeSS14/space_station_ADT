@@ -367,6 +367,18 @@
 #   - type: Item
 #     sprite: Objects/Weapons/Melee/kitchen_knife.rsi
 #     size: Small
+#   - type: BreechLoaded
+#     needOpenClose: true
+#   - type: OnShootTriggerAmmoTimer
+#     delay: 1
+#     beepInterval: 2
+#     initialBeepDelay: 0
+#     beepSound:
+#       path: "/Audio/Effects/beep1.ogg"
+#       params:
+#         volume: 5
+#   - type: ShootAtFixedPoint
+#     maxFixedRange: 7
 
 # - type: entity
 #   abstract: true

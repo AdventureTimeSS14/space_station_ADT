@@ -36,9 +36,15 @@
 
 - type: entity
   id: ADTBasePumpingGun
+  categories:
+  - HideSpawnMenu
   components:
   - type: UniqueAction
   - type: PumpAction
   - type: Appearance
   - type: BallisticAmmoProvider
     cycleable: true
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []

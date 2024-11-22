@@ -8,7 +8,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Client._RMC14.Attachable.Ui;
+namespace Content.Client.ADT._RMC14.Attachable.Ui;
 
 [GenerateTypedNameReferences]
 public sealed partial class AttachableHolderStripMenu : FancyWindow

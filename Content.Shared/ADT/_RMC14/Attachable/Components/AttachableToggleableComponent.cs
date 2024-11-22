@@ -102,10 +102,10 @@ public sealed partial class AttachableToggleableComponent : Component
     public bool AttachedOnly = false;
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? ActivateSound = new SoundPathSpecifier("/Audio/Items/beep.ogg");
+    public SoundSpecifier? ActivateSound = new SoundPathSpecifier("/Audio/ADT/Attachments/attachment_activate.ogg");
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? DeactivateSound = new SoundPathSpecifier("/Audio/Items/beep.ogg");
+    public SoundSpecifier? DeactivateSound = new SoundPathSpecifier("/Audio/ADT/Attachments/attachment_deactivate.ogg");
 
     [DataField, AutoNetworkedField]
     public bool ShowTogglePopup = true;
@@ -120,7 +120,7 @@ public sealed partial class AttachableToggleableComponent : Component
     public EntityUid? Action;
 
     [DataField, AutoNetworkedField]
-    public string ActionId = "CMActionToggleAttachable";
+    public string ActionId = "ADTActionToggleAttachable";
 
     [DataField, AutoNetworkedField]
     public string ActionName = "Toggle Attachable";

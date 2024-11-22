@@ -5,9 +5,9 @@
 
 - type: entity
   parent: ADTActionBase
-  id: CMActionToggleScope
+  id: ADTActionToggleScope
   name: Toggle Optics
-  description: Scope in or out with your optics.
+  description: Scope
   components:
   - type: InstantAction
     icon:
@@ -18,9 +18,9 @@
 
 - type: entity
   parent: ADTActionBase
-  id: RMCActionCycleZoomLevel
+  id: ADTActionCycleZoomLevel
   name: Cycle Zoom Level
-  description: Change the level of magnification of your optics.
+  description: Scope
   components:
   - type: InstantAction
     icon:
@@ -30,13 +30,13 @@
     useDelay: 0.25
   - type: Tag
     tags:
-    - RMCActionCycleZoomLevel
+    - ADTActionCycleZoomLevel
 
 - type: entity
   parent: ADTActionBase
-  id: CMActionToggleAttachable
+  id: ADTActionToggleAttachable
   name: Toggle Attachable
-  description: Toggle an attachable. If you're seeing this, someone forgot to set the description properly.
+  description: Toggle an attachable.
   components:
   - type: InstantAction
     icon:
@@ -45,4 +45,4 @@
     event: !type:AttachableToggleActionEvent
 
 - type: Tag
-  id: RMCActionCycleZoomLevel
+  id: ADTActionCycleZoomLevel

@@ -139,10 +139,10 @@ namespace Content.Client.Input
             human.AddFunction(CMKeyFunctions.RMCActivateAttachableUnderbarrel);
             human.AddFunction(CMKeyFunctions.RMCFieldStripHeldItem);
             human.AddFunction(CMKeyFunctions.CMUniqueAction);
-            // human.AddFunction(CMKeyFunctions.CMHolsterPrimary);
-            // human.AddFunction(CMKeyFunctions.CMHolsterSecondary);
-            // human.AddFunction(CMKeyFunctions.CMHolsterTertiary);
-            // human.AddFunction(CMKeyFunctions.CMHolsterQuaternary);
+            human.AddFunction(CMKeyFunctions.CMHolsterPrimary);
+            human.AddFunction(CMKeyFunctions.CMHolsterSecondary);
+            human.AddFunction(CMKeyFunctions.CMHolsterTertiary);
+            human.AddFunction(CMKeyFunctions.CMHolsterQuaternary);
         }
     // ADT TWEAK END.
     }

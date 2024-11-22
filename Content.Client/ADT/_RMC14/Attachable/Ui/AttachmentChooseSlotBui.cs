@@ -1,19 +1,19 @@
 using Content.Shared._RMC14.Attachable;
 
-namespace Content.Client._RMC14.Attachable.Ui;
+namespace Content.Client.ADT._RMC14.Attachable.Ui;
 
-public sealed class AttachmentStripBui : BoundUserInterface
+public sealed class AttachmentChooseSlotBui : BoundUserInterface
 {
-    private AttachableHolderStripMenu? _menu;
+    [ViewVariables]
+    private AttachableHolderChooseSlotMenu? _menu;
 
-    public AttachmentStripBui(EntityUid owner, Enum uiKey) : base(owner, uiKey) { }
+    public AttachmentChooseSlotBui(EntityUid owner, Enum uiKey) : base(owner, uiKey) { }
 
     protected override void Open()
     {
         base.Open();
 
-        _menu = new AttachableHolderStripMenu(this);
-
+        _menu = new AttachableHolderChooseSlotMenu(this);
         var metaQuery = EntMan.GetEntityQuery<MetaDataComponent>();
         if (metaQuery.TryGetComponent(Owner, out var metadata))
             _menu.Title = metadata.EntityName;
@@ -25,7 +25,7 @@ public sealed class AttachmentStripBui : BoundUserInterface
     {
         base.UpdateState(state);
 
-        if (state is not AttachableHolderStripUserInterfaceState msg)
+        if (state is not AttachableHolderChooseSlotUserInterfaceState msg)
             return;
 
         if (_menu == null)

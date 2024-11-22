@@ -1,0 +1,1 @@
+﻿rmc-magnetize-return = {CAPITALIZE(THE($item))} притягивается на место к {$magnetizer}.
