@@ -58,7 +58,8 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
 
             if (afk.IsAfk(admin))
                 sb.Append("[AFK]");
-            if (admin.AttachedEntity != null && TryComp<GhostComponent>(admin.AttachedEntity.Value, out var _))
+            if (admin.AttachedEntity != null &&
+            TryComp<GhostComponent>(admin.AttachedEntity.Value, out var _))
                 sb.Append("[AGhost]");
 
             sb.AppendLine();
