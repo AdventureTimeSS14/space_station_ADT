@@ -17,8 +17,10 @@ public sealed partial class SpiderComponent : Component
     [DataField("webAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string WebAction = "ActionSpiderWeb";
 
+// ADT tweak start при true ставит паутину размером с один тайл 
     [DataField("smallWeb")]
     public bool SmallWeb = false;
+// ADT tweak end
 
     [DataField] public EntityUid? Action;
 }
