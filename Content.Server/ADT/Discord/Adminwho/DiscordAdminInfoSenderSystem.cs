@@ -57,10 +57,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             if (adminData.Title is { } title)
                 sb.Append($": [{title}]");
             if (afk.IsAfk(admin))
-                sb.Append(" [AFK]");
-
-            //if (afk.IsAfk(admin))
-            //    sb.Append("[AFK]");
+                sb.Append("[AFK]");
             if (admin.AttachedEntity != null &&
             TryComp<GhostComponent>(admin.AttachedEntity.Value, out var _))
                 sb.Append("[AGhost]");
