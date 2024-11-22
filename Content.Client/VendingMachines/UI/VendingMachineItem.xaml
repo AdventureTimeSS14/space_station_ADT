@@ -21,7 +21,7 @@
     <BoxContainer
         Orientation="Horizontal"
         HorizontalExpand="True">
-        <OptionButton Name="Count" MinSize="45 20" Margin="4 4" Access="Public" HorizontalAlignment="Left" />
         <Button Name="BuyButton" Text="{Loc 'vending-machine-ui-buy-button-text'}" MinSize="45 25" Margin="4 4" Access="Public" HorizontalAlignment="Right" />
+        <OptionButton Name="Count" MinSize="45 20" Margin="4 4" Access="Public" HorizontalAlignment="Left" />
     </BoxContainer>
 </BoxContainer>
