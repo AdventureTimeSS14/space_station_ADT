@@ -55,6 +55,7 @@ public sealed class SpiderSystem : SharedSpiderSystem
             Spawn(component.WebPrototype, coords);
             result = true;
         }
+
         // Spawn web in other directions
         for (var i = 0; i < 4; i++)
         {
