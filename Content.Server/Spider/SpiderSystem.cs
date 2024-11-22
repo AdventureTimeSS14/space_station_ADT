@@ -38,8 +38,8 @@ public sealed class SpiderSystem : SharedSpiderSystem
 // ADT tweak start
         // Spawn small web if there is a small spider
         if (component.SmallWeb == true)
-        {
 // ADT tweak end
+        {
             // Spawn web in center
             if (!IsTileBlockedByWeb(coords))
             {
