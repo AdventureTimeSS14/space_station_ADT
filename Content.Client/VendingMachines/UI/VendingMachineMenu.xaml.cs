@@ -99,6 +99,7 @@ namespace Content.Client.VendingMachines.UI
             button.StyleBoxOverride = _styleBox;
         }
 
+        // ADT Commented start
         // /// <summary>
         // /// Populates the list of available items on the vending machine interface
         // /// and sets icons based on their prototypes
@@ -155,7 +156,7 @@ namespace Content.Client.VendingMachines.UI
 
         //     SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
         // }
-
+        // ADT Commented end
         #region START ADT TWEAK
         /// <summary>
         /// Populates the list of available items on the vending machine interface
