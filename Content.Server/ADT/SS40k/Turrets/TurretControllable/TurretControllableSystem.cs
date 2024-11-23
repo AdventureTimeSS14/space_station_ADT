@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.ADT.SS40k.Turrets;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
@@ -75,7 +76,9 @@ public sealed class TurretControllableSystem : EntitySystem
         //todo: проверка пользователя(тела игрока на состояние) и поднятие ивента в случае отруба(по ивенту возвращаем в тело(точно ли стоит делать ивентом, а не тупо вернуть в тело?))
         var entityes = EntityQueryEnumerator<TurretControllableComponent>();
         while (entityes.MoveNext(out var uid, out var comp))
-            if (comp.User is not null && !_mobStateSystem.IsAlive((EntityUid)comp.User)) Return(uid, comp);
+            if (comp.User is not null && (!_mobStateSystem.IsAlive((EntityUid)comp.User) ||
+            TryComp<SleepingComponent>((EntityUid)comp.User, out var _) ||
+            TryComp<ForcedSleepingComponent>((EntityUid)comp.User, out var _))) Return(uid, comp);
     }
 
     // public bool IsControlling(EntityUid uid, TurretControllableComponent comp)

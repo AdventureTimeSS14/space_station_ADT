@@ -3,6 +3,7 @@ using Content.Server.ADT.SS40k.Turrets.TurretControllable;
 using Content.Shared.ADT.SS40k.Turrets;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Ghost;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
 
@@ -36,6 +37,7 @@ public sealed class TurretControllerSystem : EntitySystem
 
     public void AfterInteract(EntityUid uid, TurretControllerComponent component, InteractHandEvent args)
     {
+        if (TryComp<GhostComponent>(args.User, out var _)) return;
         if (!TryComp<DeviceLinkSourceComponent>(uid, out var linkSource)) return;
         if (linkSource.LinkedPorts.Count != 0)
         {
