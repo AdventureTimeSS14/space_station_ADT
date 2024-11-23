@@ -408,13 +408,13 @@
 #    - id: MobGiantSpiderAngry
 #      prob: 0.05
     - id: ADTMobHunterSpiderAngry
-      prob: 0.025
+      prob: 0.02
     - id: ADTMobGuardSpiderAngry
-      prob: 0.0225
+      prob: 0.02
     - id: ADTMobTarantulaSpiderAngry
-      prob: 0.00125
+      prob: 0.005
     - id: ADTMobViperSpiderAngry
-      prob: 0.00125
+      prob: 0.005
 # ADT tweak end Разные пауки
 
 - type: entity
