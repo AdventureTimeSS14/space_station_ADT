@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: ADTAttachableBase
+  components:
+  - type: Item
+    size: Small
+  - type: Attachable
+
+- type: entity
+  parent: ADTAttachableBase
+  abstract: true
+  id: ADTAttachableToggleableBase
+  components:
+  - type: AttachableToggleable
+  - type: UseDelay
+    delay: 0

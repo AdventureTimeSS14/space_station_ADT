@@ -1,0 +1,137 @@
+## BASE
+- type: entity
+  abstract: true
+  parent: ADTAttachableBase
+  id: ADTUnderAttachmentBase
+  components:
+  - type: Sprite
+    sprite: ADT/Attachments/under.rsi
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+## BASE
+
+- type: entity
+  parent: [ ADTUnderAttachmentBase, ADTAttachableToggleableBase ]
+  id: ADTAttachmentM90GrenadeLauncher
+  name: M90 Grenade Launcher
+  description: A weapon-mounted, reloadable grenade launcher.
+  components:
+  - type: Sprite
+    layers:
+    - state: grenade
+      map: [ "enum.BreechVisuals.Open" ]
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: RMCAmmoEject
+    containerID: ballistic-ammo
+    ejectSound:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
+  - type: AmmoCounter
+  - type: Gun
+    projectileSpeed: 20
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_ugl.ogg
+    resetOnHandSelected: false
+  - type: RMCSelectiveFire
+    baseFireRate: 0.417
+  - type: BallisticAmmoProvider
+    cycleable: false
+    whitelist:
+      tags:
+        - Grenade
+    proto: GrenadeFrag
+    capacity: 1
+    soundInsert:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
+      params:
+        volume: -2
+  - type: ShootAtFixedPoint
+    maxFixedRange: 10
+  - type: UniqueAction
+  - type: BreechLoaded
+    needOpenClose: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: grenade-open }
+          False: { state: grenade }
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    actionName: Switch to the M90 Grenade Launcher
+    actionDesc: Switch to using the underbarrel grenade launcher.
+    icon:
+      sprite: ADT/Attachments/under.rsi
+      state: grenade
+    iconActive:
+      sprite: ADT/Attachments/under.rsi
+      state: grenade-on
+  - type: AttachableVisuals
+    redrawOnAppearanceChange: true
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentM90GrenadeLauncher
+
+- type: entity
+  parent: [ ADTUnderAttachmentBase, ADTAttachableToggleableBase ]
+  id: ADTAttachmentM90UnderbarrelShotgun
+  name: M90 underbarrel shotgun
+  description: MEOW
+  components:
+  - type: Sprite
+    state: grenade
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentM90UnderbarrelShotgun
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
+      params:
+        volume: -2
+  - type: RMCSelectiveFire
+    baseFireRate: 0.476
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: RMCAmmoEject
+    containerID: ballistic-ammo
+    ejectSound: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: BallisticAmmoProvider
+    cycleable: false
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 3
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: UseDelay
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    actionName: Switch to the M90 underbarrel shotgun
+    actionDesc: Switch to using the underbarrel shotgun.
+    icon:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/under.rsi
+      state: grenade
+    iconActive:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/under.rsi
+      state: grenade-on
+  - type: AttachableVisuals
+  - type: UniqueAction
+  - type: PumpAction

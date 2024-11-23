@@ -7,3 +7,8 @@
   id: ADTUplinkERTMisc
   name: прочее
   priority: 2
+
+- type: storeCategory
+  id: ADTUplinkERTAttachments
+  name: Обвесы|Модули
+  priority: 3

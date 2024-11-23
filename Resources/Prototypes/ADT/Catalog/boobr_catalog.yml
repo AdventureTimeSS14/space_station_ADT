@@ -5,9 +5,31 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
   productEntity: WeaponCaseNTM90
   cost:
-    Productunit: 30
+    Productunit: 21
   categories:
   - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberM90GrenadeLauncher
+  name: boobr-m90-grenadelauncher-name
+  description: boobr-m90-grenadelauncher-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
+  productEntity: WeaponCaseNTM90GrenadeLauncherAttachment
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberM90UnderbarrelShotgun
+  name: boobr-m90-shotgun-name
+  description: boobr-m90-shotgun-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
+  productEntity: WeaponCaseNTM90UnderBarrelShotGunAttachment
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTAttachments
 
 - type: listing
   id: ADTBoberLecter

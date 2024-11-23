@@ -10,10 +10,34 @@
     - id: WeaponRifleM90GrenadeLauncher
     - id: MagazineRifle
       amount: 5
+
+- type: entity
+  id: WeaponCaseNTM90GrenadeLauncherAttachment
+  name: weapon Case
+  suffix: M-90gl
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTAttachmentM90GrenadeLauncher
     - id: GrenadeFrag
-      amount: 2
+      amount: 3
     - id: GrenadeBlast
       amount: 3
+
+- type: entity
+  id: WeaponCaseNTM90UnderBarrelShotGunAttachment
+  name: weapon Case
+  suffix: M-90gl
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTAttachmentM90UnderbarrelShotgun
+    - id: MagazineShotgun
+      amount: 2
 
 - type: entity
   id: WeaponCaseNTLecter
