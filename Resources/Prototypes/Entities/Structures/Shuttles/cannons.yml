@@ -370,3 +370,45 @@
     count: 5
   - type: Machine
     board: ShuttleGunKineticCircuitboard
+
+#SS40k Turrets with components for control
+
+- type: entity
+  id: ShuttleGunKineticControllable
+  parent: ShuttleGunKinetic
+  suffix: CONTROLLABLE, DO NOT MAP
+  components:
+  - type: TurretControllable
+  - type: DeviceLinkSink
+    ports:
+    - On
+
+- type: entity
+  id: ShuttleGunFriendshipControllable
+  parent: ShuttleGunFriendship
+  suffix: CONTROLLABLE, DO NOT MAP
+  components:
+  - type: TurretControllable
+  - type: DeviceLinkSink
+    ports:
+    - On
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: CombatMode
+    toggleMouseRotator: false
+
+- type: entity
+  id: ControlReturnAction
+  name: Stop controlling turret
+  components:
+  - type: InstantAction
+    priority: -100
+    icon:
+      sprite: Objects/Tools/crowbar.rsi
+      state: icon
+    event: !type:ControlReturnActionEvent {}
+    useDelay: 1
