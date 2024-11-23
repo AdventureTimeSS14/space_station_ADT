@@ -1160,7 +1160,8 @@ entities:
           10,5:
             0: 64270
           10,6:
-            0: 45979
+            0: 37787
+            2: 8192
           10,7:
             0: 13067
             1: 34816
@@ -6256,6 +6257,22 @@ entities:
     - type: Transform
       pos: 19.5,5.5
       parent: 2
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 13377
+    components:
+    - type: Transform
+      parent: 8839
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 13378
+    components:
+    - type: Transform
+      parent: 8839
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: AirAlarm
   entities:
   - uid: 42
@@ -40682,7 +40699,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1879.9109
+      secondsUntilStateChange: -1979.2441
       state: Closing
   - uid: 6232
     components:
@@ -57922,6 +57939,44 @@ entities:
     - type: Transform
       pos: 41.5,27.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 13377
+          - 13378
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: GunSafeRifleLecter
   entities:
   - uid: 8840
@@ -58137,7 +58192,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2380.0818
+      secondsUntilStateChange: -2479.415
       state: Closing
   - uid: 8874
     components:
@@ -68832,6 +68887,13 @@ entities:
     components:
     - type: Transform
       pos: 32.5,-16.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 13379
+    components:
+    - type: Transform
+      pos: 34.5,21.5
       parent: 2
 - proto: SpawnPointQuartermaster
   entities:

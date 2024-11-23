@@ -35,7 +35,10 @@
   id: DeathSquad
   parent: EventHumanoidMindShielded
   randomizeName: false
-  speciesBlacklist: ['Diona'] # Corvax-MRP
+  speciesBlacklist: # Corvax-MRP
+    - Diona
+    - Vox # ADT_Tweak
+    - KoboltSpecies # ADT_Tweak
   components:
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -485,6 +488,8 @@
 - type: randomHumanoidSettings
   speciesBlacklist: # Corvax-MRP
     - Diona
+    - Vox # ADT_Tweak
+    - KoboltSpecies # ADT_Tweak
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:

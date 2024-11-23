@@ -171,13 +171,13 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
             return;
 
-        if (_roles.MindHasRole<PhantomRoleComponent>(mindId))
-            return;
+        // if (_roles.MindHasRole<PhantomRoleComponent>(mindId))
+        //     return;
 
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var nukeops, out _))
         {
-            _roles.MindAddRole(mindId, new PhantomRoleComponent { PrototypeId = "Phantom" });
+            //_roles.MindAddRole(mindId, new PhantomRoleComponent { PrototypeId = "Phantom" });
             var finObjective = _objectives.GetRandomObjective(mindId, mind, nukeops.FinalObjectiveGroup, 10f);
             if (finObjective == null)
                 return;

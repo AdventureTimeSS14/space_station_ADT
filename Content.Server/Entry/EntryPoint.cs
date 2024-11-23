@@ -38,6 +38,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.ADT.Export;
 
 namespace Content.Server.Entry
 {
@@ -113,6 +114,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<SponsorsManager>().Initialize(); // Corvax-Sponsors
                 IoCManager.Resolve<JoinQueueManager>().Initialize(); // Corvax-Queue
                 IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
+                IoCManager.Resolve<ExportManager>().Initialize();   // ADT Export
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
 

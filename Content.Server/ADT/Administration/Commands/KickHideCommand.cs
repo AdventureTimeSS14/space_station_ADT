@@ -4,6 +4,7 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Content.Server.GhostKick;
 using Content.Server.Administration;
+using Content.Server.Administration.Managers;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -16,6 +17,7 @@ public sealed class KickHideCommand : LocalizedCommands
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly GhostKickManager _ghostKickManager = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "kick_hide";
 
@@ -36,8 +38,13 @@ public sealed class KickHideCommand : LocalizedCommands
             return;
         }
 
-        var targetSession = _playerManager.GetSessionById(located.UserId);
-        _ghostKickManager.DoDisconnect(targetSession.Channel, "Smitten.");
+        var players = IoCManager.Resolve<IPlayerManager>();
+        if (!players.TryGetSessionByUsername(target, out var player))
+        {
+            shell.WriteError($"Unable to find player: '{target}'.");
+            return;
+        }
+        _ghostKickManager.DoDisconnect(player.Channel, "Smitten.");
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

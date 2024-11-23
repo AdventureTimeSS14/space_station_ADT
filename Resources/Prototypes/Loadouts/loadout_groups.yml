@@ -6,6 +6,8 @@
   maxLimit: 3
   loadouts:
   - SpaceLaw # Corvax-HyperLink
+  - FlowerWreath
+  - Hairflower
   - PlushieLizard
   - PlushieSpaceLizard
   - Lighter
@@ -39,6 +41,24 @@
   - ClothingNeckSolarisPin
   - ClothingNeckWhiteListPin
   # Corvax-Loadouts-End
+  - TowelColorBlack
+  - TowelColorDarkBlue
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorLightBrown
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorSilver
+  - TowelColorLightBlue
+  - TowelColorWhite
+  - TowelColorYellow
+
 - type: loadoutGroup
   id: Glasses
   name: loadout-group-glasses
@@ -1008,6 +1028,9 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - HeadofSecurityMantleShoulder #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeBronze #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeSilver #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeGold #ADT-Loadout
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1118,6 +1141,9 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
+  - ADTSecurityOfficerNeckBadgeBronze # ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeSilver # ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeGold # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1141,6 +1167,7 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
 
 - type: loadoutGroup
@@ -1162,7 +1189,7 @@
   - ADTEmergencyMothSecurity #ADT_Species
   - ADTEmergencyIPCSecurity #ADT_Species
 
-- type: loadoutGroup
+- type: loadoutGroup 
   id: SecurityStar
   name: loadout-group-security-star
   minLimit: 0

@@ -19,6 +19,7 @@
     icon: Interface/Actions/scream.png
     event: !type:ScreamActionEvent
     checkCanInteract: false
+    priority: -99 # ADT tweak
 
 - type: entity
   id: ActionTurnUndead
@@ -280,6 +281,8 @@
     checkCanInteract: false
     checkConsciousness: false
     event: !type:WakeActionEvent
+    startDelay: true
+    useDelay: 2
 
 - type: entity
   id: ActionActivateHonkImplant

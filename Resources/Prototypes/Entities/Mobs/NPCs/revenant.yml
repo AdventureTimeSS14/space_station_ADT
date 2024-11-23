@@ -8,6 +8,7 @@
   components:
   - type: Input
     context: "ghost"
+  - type: Spectral
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
     baseSprintSpeed: 6
@@ -71,9 +72,9 @@
     - StolenEssence
   - type: RandomMetadata
     nameSegments:
-    - The
+    # - The # ADT CHANGE
     - RevenantType
-    - of
+    # - of # ADT CHANGE
     - RevenantAdjective
     - RevenantTheme
   - type: Speech

@@ -9,6 +9,7 @@ using Content.Client.Corvax.TTS;
 using Content.Client.Options;
 using Content.Client.Eui;
 using Content.Client.Fullscreen;
+using Content.Client.GameTicking.Managers;
 using Content.Client.GhostKick;
 using Content.Client.Guidebook;
 using Content.Client.Input;
@@ -40,6 +41,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
+using Content.Client.ADT.Export;
 
 namespace Content.Client.Entry
 {
@@ -77,8 +79,9 @@ namespace Content.Client.Entry
         [Dependency] private readonly IResourceManager _resourceManager = default!;
         [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly ContentReplayPlaybackManager _replayMan = default!;
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
+        [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
+        [Dependency] private readonly ExportManager _exportManager = default!;  // ADT export
 
         public override void Init()
         {
@@ -150,6 +153,12 @@ namespace Content.Client.Entry
             _configManager.SetCVar("interface.resolutionAutoScaleMinimum", 0.5f);
         }
 
+        public override void Shutdown()
+        {
+            base.Shutdown();
+            _titleWindowManager.Shutdown();
+        }
+
         public override void PostInit()
         {
             base.PostInit();
@@ -172,7 +181,9 @@ namespace Content.Client.Entry
             _sponsorsManager.Initialize(); // Corvax-Sponsors
             _queueManager.Initialize(); // Corvax-Queue
             _discordAuthManager.Initialize(); // Corvax-DiscordAuth
+            _exportManager.Initialize();    // ADT Export
             _documentParsingManager.Initialize();
+            _titleWindowManager.Initialize();
 
             _baseClient.RunLevelChanged += (_, args) =>
             {
@@ -204,7 +215,7 @@ namespace Content.Client.Entry
                     _resourceManager,
                     ReplayConstants.ReplayZipFolder.ToRootedPath());
 
-                _replayMan.LastLoad = (null, ReplayConstants.ReplayZipFolder.ToRootedPath());
+                _playbackMan.LastLoad = (null, ReplayConstants.ReplayZipFolder.ToRootedPath());
                 _replayLoad.LoadAndStartReplay(reader);
             }
             else if (_gameController.LaunchState.FromLauncher)

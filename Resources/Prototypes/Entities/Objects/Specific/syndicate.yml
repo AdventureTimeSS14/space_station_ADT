@@ -39,6 +39,7 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -127,6 +128,18 @@
   suffix: 60 TC, LoneOps
   components:
   - type: Store
+    name: store-preset-name-uplink #ADT-Tweak-start
+    categories:
+    - UplinkWeaponry
+    - UplinkAmmo
+    - UplinkExplosives
+    - UplinkChemicals
+    - UplinkDeception
+    - UplinkDisruption
+    - UplinkImplants
+    - UplinkWearables
+    - UplinkJob
+    - UplinkPointless #ADT-Tweak-end
     balance:
       Telecrystal: 60
   - type: Tag
