@@ -60,15 +60,18 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             sb.Append(admin.Name);
             if (adminData.Title is { } title)
                 sb.Append($": [{title}]");
+
             if (afk.IsAfk(admin))
-                sb.Append("[AFK]");
+                sb.Append("[АФК]");
+
             if (admin.AttachedEntity != null &&
             TryComp<GhostComponent>(admin.AttachedEntity.Value, out var _))
-                sb.Append("[AGhost]");
+                sb.Append("[Агост]");
 
             var gameTickerAdmin = _entities.System<GameTicker>();
-            if (!gameTickerAdmin.PlayerGameStatuses.TryGetValue(admin.UserId, out var status) || status is not PlayerGameStatus.JoinedGame)
-                sb.Append("[Lobby]");
+            if (!gameTickerAdmin.PlayerGameStatuses.TryGetValue(admin.UserId, out var status)
+            || status is not PlayerGameStatus.JoinedGame)
+                sb.Append("[Лобби]");
 
             sb.AppendLine();
         }
