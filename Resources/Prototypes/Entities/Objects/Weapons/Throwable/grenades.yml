@@ -123,16 +123,16 @@
   #     - !type:TriggerBehavior
   #     - !type:DoActsBehavior
   #       acts: ["Destruction"]
-# Позволяет минибомбе срабатывать, если рядом взорвалось С4
+# Запрещает минибомбе срабатывать, если рядом взорвалось С4
   - type: OnUseTimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Minibomb
     # Стандартные значения (200, 30, 60)
-    totalIntensity: 450
+    totalIntensity: 350
     intensitySlope: 45 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
-    maxIntensity: 100
+    maxIntensity: 90
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:

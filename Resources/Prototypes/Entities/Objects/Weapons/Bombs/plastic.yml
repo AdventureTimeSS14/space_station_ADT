@@ -61,9 +61,9 @@
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
     # Стандартные значения (60, 5, 30)
-    totalIntensity: 200
-    intensitySlope: 30
-    maxIntensity: 60
+    totalIntensity: 150
+    intensitySlope: 25
+    maxIntensity: 50
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: HolidayVisuals
