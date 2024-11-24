@@ -9,6 +9,7 @@ using Robust.Shared.Utility;
 using Content.Server.GameTicking;
 using Content.Server.Afk;
 using Content.Shared.Ghost;
+using Content.Shared.GameTicking;
 
 namespace Content.Server.ADT.Discord.Adminwho;
 
@@ -19,6 +20,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
     [Dependency] private readonly IAdminManager _adminMgr = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
 
     private TimeSpan _nextSendTime = TimeSpan.MinValue;
     private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(15);
@@ -47,8 +49,10 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
         {
             if (admin == null)
                 return;
+
             var adminData = _adminMgr.GetAdminData(admin)!;
             DebugTools.AssertNotNull(adminData);
+
             var afk = IoCManager.Resolve<IAfkManager>();
 
             if (adminData.Stealth)
@@ -61,6 +65,10 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             if (admin.AttachedEntity != null &&
             TryComp<GhostComponent>(admin.AttachedEntity.Value, out var _))
                 sb.Append("[AGhost]");
+
+            var gameTickerAdmin = _entities.System<GameTicker>();
+            if (!gameTickerAdmin.PlayerGameStatuses.TryGetValue(admin.UserId, out var status) || status is not PlayerGameStatus.JoinedGame)
+                sb.Append("[Lobby]");
 
             sb.AppendLine();
         }
