@@ -101,6 +101,11 @@
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
     rules: ghost-role-information-rules-default-solo-antagonist
+# ADT-Tweak-start
+    requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 7200 # 2h overall
+# ADT-Tweak-end 
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -161,7 +166,7 @@
   - type: GhostRole
     name: ghost-role-information-space-ninja-name
     description: ghost-role-information-space-ninja-description
-    rules: ghost-role-information-antagonist-rules
+    rules: ghost-role-information-space-ninja-rules
     raffle:
       settings: default
   - type: Sprite
