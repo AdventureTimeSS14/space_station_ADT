@@ -333,7 +333,6 @@
   id: ADTCandies
 
 - type: Tag
-
   id: ADTBeerCan
 
   # New Year
@@ -378,6 +377,12 @@
   id: ADTTreeSilverMishura
 
 - type: Tag
+  id: ADTPillExperimental
+
+- type: Tag
+  id: ADTPillExter
+
+- type: Tag
   id: ADTRoboticsAmbience
 
 - type: Tag
@@ -385,5 +390,3 @@
 
 - type: Tag
   id: ADTChemistryAmbience
-
-

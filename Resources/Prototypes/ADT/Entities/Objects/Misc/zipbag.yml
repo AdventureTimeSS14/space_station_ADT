@@ -1,0 +1,35 @@
+- type: entity
+  id: ADTEvidanceBag
+  name: Evidance Bag
+  parent: BaseItem
+  description: Designed to store evidence, not drugs
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Objects/Misc/Evidance.rsi
+    state: icon
+    scale: 0.6, 0.6
+  - type: ItemSlots
+    slots:
+      place:
+        name: Place
+        #startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+            - ADTPillExperimental
+            - ADTPillExter
+  - type: ItemMapper
+    mapLayers:
+      place_number:
+        whitelist:
+          tags:
+          - ADTPillExperimental
+      place_number2:
+        whitelist:
+          tags:
+          - ADTPillExter
+    sprite: ADT/Objects/Misc/Evidance.rsi
+  - type: ContainerContainer
+    containers:
+      place: !type:ContainerSlot

@@ -87,7 +87,7 @@ public sealed partial class ChangelingSystem
             if (HasComp<ChangelingComponent>(ent))
                 continue;
 
-            _flashSystem.Flash(ent, uid, null, 6f, 0.8f, false);
+            _flashSystem.Flash(ent, uid, null, 6f * 1000f, 0.8f, false);
 
             if (!_mindSystem.TryGetMind(ent, out var mindId, out var mind))
                 continue;
