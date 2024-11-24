@@ -36,8 +36,8 @@ uplink-syndiholoprojectorfield-desc = Устройство создающие н
 
 # Ammo
 
-uplink-Shotgun-magazine-name = Магазин для дробовика (.50 дробь)
-uplink-Shotgun-magazine-desc = Магазин с патронами .50 дробь для дробовика "Бульдог"
+uplink-Shotgun-magazine-name = Магазин для дробовика (12х70 дробь)
+uplink-Shotgun-magazine-desc = Магазин с патронами 12х70 дробь для дробовика "Бульдог"
 uplink-MachineGun-magazine-name = Магазин для пистолета-пулемета (9х19 мм)
 uplink-MachineGun-magazine-desc = Магазин с патронами калибра 9х19 мм, совместим с пистолетом-пулеметом C-20r
 uplink-LightRifle-magazine-name = Магазин для штурмовой винтовки (6.5 мм ТСФ)
