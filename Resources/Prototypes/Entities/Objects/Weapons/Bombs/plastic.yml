@@ -54,15 +54,16 @@
     beepSound: /Audio/Machines/Nuke/general_beep.ogg
     startOnStick: true
     canToggleStartOnStick: true
-  - type: TimerStartOnSignal
+  - type: TriggerOnSignal #TimerStartOnSignal (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
   - type: DeviceLinkSink
     ports:
-      - Timer
+      - Trigger #Timer (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
-    totalIntensity: 60
-    intensitySlope: 5
-    maxIntensity: 30
+    # Стандартные значения (60, 5, 30)
+    totalIntensity: 200
+    intensitySlope: 30
+    maxIntensity: 60
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: HolidayVisuals
