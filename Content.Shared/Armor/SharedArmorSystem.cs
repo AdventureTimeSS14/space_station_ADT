@@ -86,7 +86,7 @@ public abstract class SharedArmorSystem : EntitySystem
         }
 
         // ADT Stunmeta fix start
-        if (staminaModifier != 0)
+        if (staminaModifier != 1)
         {
             msg.PushNewline();
             msg.AddMarkupOrThrow(Loc.GetString("armor-stamina-protection-value", ("value", MathF.Round((1f - staminaModifier) * 100, 1))));
