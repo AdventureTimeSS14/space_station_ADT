@@ -66,8 +66,8 @@
   - type: TemperatureSpeed
     thresholds:
       273: 0.8
-      255: 0.6
-      230: 0.4
+      235: 0.6
+      200: 0.4
   - type: Sprite # sprite again because we want different layer ordering
     noRot: true
     drawdepth: Mobs
