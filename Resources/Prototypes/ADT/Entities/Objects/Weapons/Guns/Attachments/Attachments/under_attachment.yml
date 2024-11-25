@@ -127,10 +127,10 @@
     actionName: Switch to the M90 underbarrel shotgun
     actionDesc: Switch to using the underbarrel shotgun.
     icon:
-      sprite: _RMC14/Objects/Weapons/Guns/Attachments/under.rsi
+      sprite: ADT/Attachments/under.rsi
       state: grenade
     iconActive:
-      sprite: _RMC14/Objects/Weapons/Guns/Attachments/under.rsi
+      sprite: ADT/Attachments/under.rsi
       state: grenade-on
   - type: AttachableVisuals
   - type: UniqueAction
