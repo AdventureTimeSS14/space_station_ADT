@@ -6,6 +6,7 @@
   - Traitors
   - NuclearOperatives
   - Zombies
+  - Heretics
   - Revolutionaries
   - MinorAntagonists
   - SpaceNinja
@@ -25,6 +26,13 @@
   id: Zombies
   name: guide-entry-zombies
   text: "/ServerInfo/Guidebook/Antagonist/Zombies.xml"
+
+# ADT-Tweak
+- type: guideEntry
+  id: Heretics
+  name: guide-entry-heretics
+  text: "/ServerInfo/Guidebook/Antagonist/Heretics.xml"
+# ADT-Tweak
 
 - type: guideEntry
   id: Revolutionaries
