@@ -1,0 +1,25 @@
+
+- type: entity
+  id: ADTToolboxRevolution
+  name: emergency toolbox
+  description: A bright red toolbox, stocked with emergency tools.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - ADTAllHandMaster
+    - ADTSubversion
+    - ADTTechnolover
+    - ADTGunsmith
+    - ADTPrinting
+    - ADTCluwneRev
+    - ADTDisarm
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface

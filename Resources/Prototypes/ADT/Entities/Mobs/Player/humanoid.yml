@@ -274,6 +274,8 @@
   id: ADTERTSecurity
   speciesBlacklist:
     - Diona
+    - Vox # ADT_Tweak
+    - KoboltSpecies # ADT_Tweak
   parent: ADTERTLeader
   components:
     - type: GhostRole
@@ -438,6 +440,8 @@
 - type: randomHumanoidSettings
   speciesBlacklist:
     - Diona
+    - Vox # ADT_Tweak
+    - KoboltSpecies # ADT_Tweak
   id: ADTCmndCBURNAgent
   components:
     - type: MindShield

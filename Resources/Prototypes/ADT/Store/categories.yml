@@ -12,3 +12,7 @@
   id: ADTUplinkERTAttachments
   name: Обвесы|Модули
   priority: 3
+
+- type: storeCategory
+  id: ChangelingAbilities
+  name: store-category-abilities

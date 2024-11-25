@@ -320,11 +320,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         if (MapManager.TryFindGridAt(mousePos, out var gridUid, out _))
         {
-            coordinates = EntityCoordinates.FromMap(gridUid, mousePos, TransformSystem, EntityManager);
+            coordinates = TransformSystem.ToCoordinates(gridUid, mousePos);
         }
         else
         {
-            coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, TransformSystem, EntityManager);
+            coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
         }
 
         // If the gun has AltFireMeleeComponent, it can be used to attack.

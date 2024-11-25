@@ -637,7 +637,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.6 # Makes it 20 damage per unit.
+            Poison: 0.2 # Makes it 20 damage per unit. ADT nerf to 7 damage for unit.
 
 - type: reagent
   id: Bungotoxin

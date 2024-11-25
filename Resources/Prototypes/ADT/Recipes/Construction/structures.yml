@@ -1,0 +1,17 @@
+- type: construction
+  name: disco floor
+  id: ADTDiscoFloor
+  graph: ADTDiscoFloor
+  startNode: start
+  targetNode: discoSquare
+  category: construction-category-tiles
+  description: Construct multi-colored flooring to light up the dance floor.
+  icon:
+    sprite: ADT/Structures/Floor/disco_floor.rsi
+    state: off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+

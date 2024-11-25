@@ -5,3 +5,21 @@
   completetime: 3
   materials:
     Steel: 3000
+
+- type: latheRecipe
+  id: CassetteTape
+  result: ADTCassetteTape
+  category: Tools
+  completetime: 2
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  id: TapeRecorder
+  result: ADTTapeRecorder
+  category: Tools
+  completetime: 3
+  materials:
+    Steel: 250
+    Plastic: 250
