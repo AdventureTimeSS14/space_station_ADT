@@ -29,6 +29,7 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private readonly List<string> _possibleGiftsSafe = new();
     private readonly List<string> _possibleGiftsUnsafe = new();
+    private readonly List<string> _possibleGiftsUnsafeADT = new();
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -73,8 +74,12 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private void OnGiftMapInit(EntityUid uid, RandomGiftComponent component, MapInitEvent args)
     {
-        if (component.InsaneMode)
+        if (component.InsaneMode == "Unsafe")
             component.SelectedEntity = _random.Pick(_possibleGiftsUnsafe);
+        else if (component.InsaneMode == "Safe")
+            component.SelectedEntity = _random.Pick(_possibleGiftsSafe);
+        else if (component.InsaneMode == "ADTUnsafe")
+            component.SelectedEntity = _random.Pick(_possibleGiftsUnsafeADT);
         else
             component.SelectedEntity = _random.Pick(_possibleGiftsSafe);
     }
@@ -100,6 +105,20 @@ public sealed class RandomGiftSystem : EntitySystem
 
             _possibleGiftsUnsafe.Add(proto.ID);
 
+            // Начало говнокода
+            try
+            {
+                string check = proto.Components["Physics"].Mapping[0].Value.ToString();
+                if (check == "Static" || check == "KinematicController" || check == "Kinematic")
+                    continue;
+                _possibleGiftsUnsafeADT.Add(proto.ID);
+            }
+            catch
+            {
+                _possibleGiftsUnsafeADT.Add(proto.ID);
+            }
+            //Его конец
+            
             if (!proto.Components.ContainsKey(itemCompName))
                 continue;
 
