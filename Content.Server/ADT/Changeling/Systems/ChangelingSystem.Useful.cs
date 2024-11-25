@@ -14,11 +14,9 @@ using Content.Shared.Mobs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Store.Components;
-using Content.Shared.Gibbing.Events;
 using Content.Shared.Speech.Muting;
 using System.Linq;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Whitelist;
 using Content.Shared.ADT.Stealth.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
@@ -228,7 +226,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -266,7 +264,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwentyFive, !component.ChameleonSkinActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.ChameleonSkinActive))
             return;
 
         args.Handled = true;
@@ -321,7 +319,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwentyFive))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         if (StealDNA(uid, target, component))
@@ -349,8 +347,8 @@ public sealed partial class ChangelingSystem
 
         if (component.StasisDeathActive)
         {
-            if (!TryUseAbility(uid, component, component.ChemicalsCostTwentyFive))
-                return;
+        if (!TryUseAbility(uid, component, args.Cost))
+            return;
 
             args.Handled = true;
 
@@ -370,8 +368,8 @@ public sealed partial class ChangelingSystem
                 return;
             }
 
-            if (!TryUseAbility(uid, component, component.ChemicalsCostFree))
-                return;
+        if (!TryUseAbility(uid, component, args.Cost))
+            return;
 
             args.Handled = true;
 
@@ -404,7 +402,7 @@ public sealed partial class ChangelingSystem
         if (!TryStingTarget(uid, target))
             return;
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -426,7 +424,7 @@ public sealed partial class ChangelingSystem
         if (!TryStingTarget(uid, target))
             return;
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -448,7 +446,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwentyFive))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -474,8 +472,8 @@ public sealed partial class ChangelingSystem
 
         if (!component.LesserFormActive)
         {
-            if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
-                return;
+        if (!TryUseAbility(uid, component, args.Cost))
+            return;
 
             RemoveShieldEntity(uid, component);
             RemoveBladeEntity(uid, component);
@@ -544,7 +542,7 @@ public sealed partial class ChangelingSystem
         if (args.Handled)
             return;
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFree))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
         if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             return;
@@ -581,7 +579,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFifteen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -636,8 +634,13 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-transform-fail-nodna"), uid, uid);
             return;
         }
+        if (HasComp<ForceTransformedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-transform-sting-fail-already", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+            return;
+        }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFifty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -680,7 +683,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.DigitalCamouflageActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.DigitalCamouflageActive))
             return;
 
         args.Handled = true;
