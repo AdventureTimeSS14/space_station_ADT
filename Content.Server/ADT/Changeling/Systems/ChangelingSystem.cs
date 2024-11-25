@@ -156,6 +156,8 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ChangelingComponent component, MapInitEvent args)
     {
+        if (component.GainedActions)
+            return;
         _action.AddAction(uid, ref component.ChangelingEvolutionMenuActionEntity, component.ChangelingEvolutionMenuAction);
         _action.AddAction(uid, ref component.ChangelingRegenActionEntity, component.ChangelingRegenAction);
         _action.AddAction(uid, ref component.ChangelingAbsorbActionEntity, component.ChangelingAbsorbAction);
@@ -326,7 +328,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (HasComp<ChangelingComponent>(to))
             RemComp<ChangelingComponent>(to);
 
-        var newLingComponent = EnsureComp<ChangelingComponent>(to);
+        var newLingComponent = new ChangelingComponent();
         newLingComponent.Chemicals = comp.Chemicals;
         newLingComponent.ChemicalsPerSecond = comp.ChemicalsPerSecond;
         newLingComponent.StoredDNA = comp.StoredDNA;
@@ -340,7 +342,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         newLingComponent.BasicTransferredActions = comp.BasicTransferredActions;
         newLingComponent.BoughtActions = comp.BoughtActions;
         newLingComponent.LastResortUsed = comp.LastResortUsed;
+        newLingComponent.GainedActions = true;
         RemComp(from, comp);
+        AddComp(to, newLingComponent);
 
         if (TryComp(from, out StoreComponent? storeComp))
         {

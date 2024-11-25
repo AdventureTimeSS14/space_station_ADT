@@ -317,4 +317,6 @@ public sealed partial class ChangelingComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool DigitalCamouflageActive = false;
+
+    public bool GainedActions = false;
 }
