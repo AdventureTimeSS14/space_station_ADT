@@ -296,17 +296,17 @@
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
-  - type: Armor
+  - type: Armor # ADT Armor tweaked
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.9
-        Radiation: 0.8
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.65
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 1.2
+        Radiation: 0.85
+  - type: ClothingSpeedModifier # ADT Speed modifiers tweaked
+    walkModifier: 0.85
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ExplosionResistance
     damageCoefficient: 0.5
