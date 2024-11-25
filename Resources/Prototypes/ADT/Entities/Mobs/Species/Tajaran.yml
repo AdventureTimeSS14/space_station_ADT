@@ -59,8 +59,8 @@
             - MobLayer
     - type: SlowOnDamage
       speedModifierThresholds:
-        42: 0.85
-        60: 0.65
+        42: 0.7
+        60: 0.5
     - type: TemperatureSpeed
       thresholds:
         273: 0.8

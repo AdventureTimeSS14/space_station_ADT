@@ -31,8 +31,8 @@
       140: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      42: 0.85
-      58: 0.65
+      42: 0.7
+      58: 0.5
   - type: Damageable
     damageContainer: Biological # Shadekin
     damageModifierSet: Shadekin
