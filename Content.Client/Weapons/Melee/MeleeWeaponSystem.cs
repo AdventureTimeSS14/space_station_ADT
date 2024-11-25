@@ -240,7 +240,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     }
 }
 */// ADT TWEAK
-
+// ADT TWEAK START
 public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
     [Dependency] private readonly IEyeManager _eyeManager = default!;
@@ -250,7 +250,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-
+    [Dependency] private readonly MapSystem _map = default!;
     private EntityQuery<TransformComponent> _xformQuery;
 
     private const string MeleeLungeKey = "melee-lunge";
@@ -268,7 +268,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         base.FrameUpdate(frameTime);
         UpdateEffects();
     }
-        // ADT TWEAK START
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
