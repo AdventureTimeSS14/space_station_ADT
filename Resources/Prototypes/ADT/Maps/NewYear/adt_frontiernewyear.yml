@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_FrontierNewYear
   mapName: 'New Year Frontier'
-  mapPath: /Maps/ADTMaps/ADTStations/adt_frontier_halloween.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_frontier_newyear.yml
   minPlayers: 30
   maxPlayers: 90
   stations:
