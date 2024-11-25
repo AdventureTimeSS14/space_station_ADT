@@ -121,16 +121,6 @@ public sealed partial class ChangelingComponent : Component
     public List<EntityUid?> BasicTransferredActions = new();
     #endregion
 
-    #region Chemical Costs
-    public float ChemicalsCostFree = 0;
-    public float ChemicalsCostFive = -5f;
-    public float ChemicalsCostTen = -10f;
-    public float ChemicalsCostFifteen = -15f;
-    public float ChemicalsCostTwenty = -20f;
-    public float ChemicalsCostTwentyFive = -25f;
-    public float ChemicalsCostFifty = -50f;
-    #endregion
-
     #region DNA Absorb Ability
     /// <summary>
     /// How long an absorb stage takes, in seconds.
