@@ -26,3 +26,8 @@
         - ArtifactFragment
         - Ore
   - type: Dumpable
+  # ADT tweak start
+  - type: Tag
+    tags:
+    - ADTOreBag
+  # ADT tweak end
