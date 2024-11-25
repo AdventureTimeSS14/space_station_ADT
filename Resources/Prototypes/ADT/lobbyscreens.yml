@@ -17,3 +17,7 @@
 - type: lobbyBackground
   id: starbow
   background: /Textures/ADT/LobbyScreens/starbow.webp
+
+- type: lobbyBackground
+  id: barparty
+  background: /Textures/ADT/LobbyScreens/bar_party.webp
