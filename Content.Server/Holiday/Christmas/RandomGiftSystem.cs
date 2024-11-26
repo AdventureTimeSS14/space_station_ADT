@@ -29,7 +29,9 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private readonly List<string> _possibleGiftsSafe = new();
     private readonly List<string> _possibleGiftsUnsafe = new();
-    private readonly List<string> _possibleGiftsUnsafeADT = new(); // Лист подарочков ЧЕК
+    // ADT
+    private readonly List<string> _possibleGiftsUnsafeADT = new();
+    // END
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -74,13 +76,14 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private void OnGiftMapInit(EntityUid uid, RandomGiftComponent component, MapInitEvent args)
     {
-        // Думаю всё понятно. Если компонент объекта имеет "InsaneMode" с знчением, то вот. Иначе... Else
         if (component.InsaneMode == "Unsafe")
             component.SelectedEntity = _random.Pick(_possibleGiftsUnsafe);
         else if (component.InsaneMode == "Safe")
             component.SelectedEntity = _random.Pick(_possibleGiftsSafe);
+        // ADT
         else if (component.InsaneMode == "ADTUnsafe")
             component.SelectedEntity = _random.Pick(_possibleGiftsUnsafeADT);
+        // END
         else
             component.SelectedEntity = _random.Pick(_possibleGiftsSafe);
     }
@@ -93,10 +96,11 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private void BuildIndex()
     {
-        // Ну тут тоже все понятно. Очищается лист, что создан сверху
         _possibleGiftsSafe.Clear();
         _possibleGiftsUnsafe.Clear();
+        // ADT
         _possibleGiftsUnsafeADT.Clear();
+        // END
         var itemCompName = _componentFactory.GetComponentName(typeof(ItemComponent));
         var mapGridCompName = _componentFactory.GetComponentName(typeof(MapGridComponent));
         var physicsCompName = _componentFactory.GetComponentName(typeof(PhysicsComponent));
@@ -107,7 +111,7 @@ public sealed class RandomGiftSystem : EntitySystem
                 continue;
             _possibleGiftsUnsafe.Add(proto.ID);
 
-            // Начало говнокода
+            // ADT
             if (proto.Components.TryGetValue("Physics", out var value))
             {
                 if (value.Mapping.Count > 0)
@@ -116,8 +120,7 @@ public sealed class RandomGiftSystem : EntitySystem
                     else
                         continue;
             }
-            //Его конец
-            
+            // END
             if (!proto.Components.ContainsKey(itemCompName))
                 continue;
             _possibleGiftsSafe.Add(proto.ID);
