@@ -29,7 +29,7 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private readonly List<string> _possibleGiftsSafe = new();
     private readonly List<string> _possibleGiftsUnsafe = new();
-    private readonly List<string> _possibleGiftsUnsafeADT = new();
+    private readonly List<string> _possibleGiftsUnsafeADT = new(); // Лист подарочков ЧЕК
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -74,6 +74,7 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private void OnGiftMapInit(EntityUid uid, RandomGiftComponent component, MapInitEvent args)
     {
+        // Думаю всё понятно. Если компонент объекта имеет "InsaneMode" с знчением, то вот. Иначе... Else
         if (component.InsaneMode == "Unsafe")
             component.SelectedEntity = _random.Pick(_possibleGiftsUnsafe);
         else if (component.InsaneMode == "Safe")
@@ -92,6 +93,7 @@ public sealed class RandomGiftSystem : EntitySystem
 
     private void BuildIndex()
     {
+        // Ну тут тоже все понятно. Очищается лист, что создан сверху
         _possibleGiftsSafe.Clear();
         _possibleGiftsUnsafe.Clear();
         _possibleGiftsUnsafeADT.Clear();
