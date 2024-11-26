@@ -385,6 +385,7 @@ namespace Content.Server.Administration.Managers
                     {
                         _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-logout-message",
                             ("name", e.Session.Name)), flagWhitelist: AdminFlags.Stealth);
+
                     }
                     else
                     {
