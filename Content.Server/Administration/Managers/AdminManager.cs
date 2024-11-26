@@ -80,7 +80,7 @@ namespace Content.Server.Administration.Managers
             return null;
         }
 
-        public async void DeAdmin(ICommonSession session)
+        public async void DeAdmin(ICommonSession session) // ADT-tweak: add "async"
         {
             if (!_admins.TryGetValue(session, out var reg))
             {
@@ -101,7 +101,7 @@ namespace Content.Server.Administration.Managers
 
             SendPermsChangedEvent(session);
             UpdateAdminStatus(session);
-
+            // ADT-Tweak-start: Постит сообщение в чат при деадмине
             if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
             {
                 var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
@@ -116,6 +116,7 @@ namespace Content.Server.Administration.Managers
                 var identifier = webhookData.ToIdentifier();
                 await _discord.CreateMessage(identifier, payload);
             }
+            // ADT-Tweak-end
         }
 
         public void Stealth(ICommonSession session)
@@ -156,7 +157,7 @@ namespace Content.Server.Administration.Managers
             // _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-disable-stealth", ("exStealthAdminName", session.Name)), flagWhitelist: AdminFlags.Stealth);
         }
 
-        public async void ReAdmin(ICommonSession session)
+        public async void ReAdmin(ICommonSession session) // ADT-tweak: add "async"
         {
             if (!_admins.TryGetValue(session, out var reg))
             {
@@ -187,7 +188,7 @@ namespace Content.Server.Administration.Managers
 
             SendPermsChangedEvent(session);
             UpdateAdminStatus(session);
-
+            // ADT-Tweak-start: Постит сообщение в чат при деадмине
             if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
             {
                 var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
@@ -202,6 +203,7 @@ namespace Content.Server.Administration.Managers
                 var identifier = webhookData.ToIdentifier();
                 await _discord.CreateMessage(identifier, payload);
             }
+            // ADT-Tweak-end
         }
 
         public async void ReloadAdmin(ICommonSession player)
@@ -404,7 +406,7 @@ namespace Content.Server.Administration.Managers
                     return;
                 var payload = new WebhookPayload
                 {
-                    Content = $"**ОПОВЕЩЕНИЕ: Админ ВЫШЕЛ {senderName}**"
+                    Content = $"**Оповещение: Админ ВЫШЕЛ {senderName}**"
                 };
                 var identifier = webhookData.ToIdentifier();
                 await _discord.CreateMessage(identifier, payload);
@@ -463,7 +465,7 @@ namespace Content.Server.Administration.Managers
                                 return;
                             var payload = new WebhookPayload
                             {
-                                Content = $"**ОПОВЕЩЕНИЕ: Админ зашёл {senderName}**"
+                                Content = $"**Оповещение: Админ зашёл {senderName}**"
                             };
                             var identifier = webhookData.ToIdentifier();
                             await _discord.CreateMessage(identifier, payload);

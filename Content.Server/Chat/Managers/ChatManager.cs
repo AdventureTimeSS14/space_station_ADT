@@ -313,7 +313,7 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
-
+        // ADT-Tweak-start: Постит в дис весь админчат, если есть данный вебхук
         if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
         {
             var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
@@ -330,6 +330,7 @@ internal sealed partial class ChatManager : IChatManager
             var identifier = webhookData.ToIdentifier();
             await _discord.CreateMessage(identifier, payload);
         }
+        // ADT-Tweak-end
     }
 
     #endregion
