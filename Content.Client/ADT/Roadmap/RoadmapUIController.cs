@@ -6,19 +6,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.Roadmap;
 
-public sealed class RoadmapUIController : UIController, IOnStateEntered<LobbyState>
+public sealed class RoadmapUIController : UIController
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     private RoadmapWindow? _window;
-    private bool _shown;
-
-    public void OnStateEntered(LobbyState state)
-    {
-        if (_shown || _window != null)
-            return;
-
-        ToggleRoadmap();
-    }
 
     public void ToggleRoadmap()
     {
@@ -28,7 +19,6 @@ public sealed class RoadmapUIController : UIController, IOnStateEntered<LobbySta
             return;
         }
 
-        _shown = true;
         _window = new RoadmapWindow();
         _window.OnClose += () => _window = null;
 
