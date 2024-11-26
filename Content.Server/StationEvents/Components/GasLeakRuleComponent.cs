@@ -16,7 +16,6 @@ public sealed partial class GasLeakRuleComponent : Component
         Gas.WaterVapor, // the fog
         //ADT-Gas-Start
         Gas.BZ,
-        Gas.Hydrogen,
         Gas.Halon
         //ADT-Gas-End
     };

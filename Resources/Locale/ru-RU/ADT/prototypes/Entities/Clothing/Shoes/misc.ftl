@@ -14,4 +14,8 @@ ent-ADTClownNightmareShoes = кошмарные туфли клоуна
 
 ent-ADTGreyClownPsyhoShoes = серые ботинки клоуна-психопата
     .suffix = Хеллоуин
-    .desc = SUP? n_n. I do what I want! You can't stop me!
+    .desc = ПРИВ? n_n. Делаю, что хочу! И никто меня не остановит!
+
+ent-ADTEmpressOfLightShoes = туфли Императрицы света
+    .suffix = Хеллоуин
+    .desc = Величественные туфельки.

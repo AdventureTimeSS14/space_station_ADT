@@ -122,13 +122,14 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#FFD1A3" # 4000K color temp
+    color: "#FAFFFF" # ADT-Sound-Update
     lightEnergy: 1.0
-    lightRadius: 6
+    lightRadius: 5 # ADT-Sound-Update
     lightSoftness: 1.1
   - type: Tag
     tags:
     - LightBulb
+    - Trash
 
 - type: entity
   parent: BaseLightbulb
@@ -147,6 +148,7 @@
   - type: Tag
     tags:
     - LightBulb
+    - Trash
 
 - type: entity
   parent: LightBulb
@@ -160,9 +162,6 @@
     lightEnergy: 0.3 # old incandescents just arent as bright
     lightRadius: 6
     lightSoftness: 1.1
-  - type: Tag
-    tags:
-    - LightBulb
 
 - type: entity
   suffix: Broken
@@ -190,6 +189,7 @@
   - type: Tag
     tags:
     - LightBulb
+    - Trash
 
 - type: entity
   parent: BaseLightTube
@@ -198,10 +198,12 @@
   description: A light fixture.
   components:
   - type: LightBulb
-    color: "#FFE4CE" # 5000K color temp
-    lightEnergy: 0.8
-    lightRadius: 10
-    lightSoftness: 1
+    # ADT-Sound-Update-Start
+    color: "#FAFFFF" # 5000K color temp
+    lightEnergy: 0.9
+    lightRadius: 7
+    lightSoftness: 2.2
+    # ADT-Sound-Update-End
     PowerUse: 25
 
 - type: entity
@@ -211,10 +213,12 @@
   description: An aging light fixture.
   components:
   - type: LightBulb
-    color: "#FFDABB" # old fluorescents are yellower-4500K temp
-    lightEnergy: 0.5
-    lightRadius: 10
-    lightSoftness: 1
+    # ADT-Sound-Update-Start
+    color: "#FFEEE0" # old fluorescents are yellower-4500K temp
+    lightEnergy: 0.4
+    lightRadius: 8
+    lightSoftness: 1.5
+    # ADT-Sound-Update-End
     PowerUse: 10
 
 - type: entity
@@ -235,9 +239,11 @@
   components:
   - type: LightBulb
     color: "#EEEEFF"
-    lightEnergy: 1
-    lightRadius: 15
-    lightSoftness: 0.9
+    # ADT-Sound-Update-Start
+    lightEnergy: 1.1
+    lightRadius: 11
+    lightSoftness: 2.2
+    # ADT-Sound-Update-End
     BurningTemperature: 350
     PowerUse: 12
 

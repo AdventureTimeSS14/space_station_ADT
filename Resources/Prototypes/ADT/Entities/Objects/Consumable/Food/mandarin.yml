@@ -1,0 +1,109 @@
+#by ModerN for Adventure Time project
+# плод
+- type: entity
+  name: mandarin
+  parent: FoodProduceBase
+  id: ADTFoodMandarin
+  description: Healthy, very orange.
+  suffix: NewYear
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+  - type: Produce
+    seedId: ADTmandarin
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuiceMandarin
+        Quantity: 10
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTTrashMandarinPeel
+      - id: ADTFoodMandarinPeeled
+  - type: Tag
+    tags:
+    - Fruit
+
+ #очищенный плод.
+- type: entity
+  name: mandarin
+  parent: BaseItem
+  id: ADTFoodMandarinPeeled
+  description: Peeled mandarin. Is it holidays already?
+  suffix: NewYear
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+    state: peeledprod
+  - type: Produce
+    seedId: ADTmandarin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuiceMandarin
+        Quantity: 10
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodMandarinSlice
+    uses: 8
+  - type: Tag
+    tags:
+    - Fruit
+
+# кожура
+- type: entity
+  name: mandarin peel
+  parent: BaseItem
+  id: ADTTrashMandarinPeel
+  suffix: NewYear
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+    state: peel
+  - type: Item
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+    heldPrefix: peel
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+
+# долька
+- type: entity
+  name: mandarin slice
+  parent: ProduceSliceBase
+  id: ADTFoodMandarinSlice
+  description: Mmm, tropical.
+  suffix: NewYear
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTmandarin
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuiceMandarin
+        Quantity: 2
+  - type: Tag
+    tags:
+    - Fruit

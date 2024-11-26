@@ -1,6 +1,11 @@
 ﻿- type: vendingMachineInventory
   id: DiscountDansInventory
   startingInventory:
+  # ADT Tweak Start New Years
+    ADTBoxNewYearSnack1: 3
+    ADTBoxNewYearSnack2: 3
+    ADTBoxNewYearSnack3: 3
+  # ADT Tweak End New Years
     FoodSnackCheesie: 3
     FoodSnackChips: 3
     FoodSnackBoritos: 3

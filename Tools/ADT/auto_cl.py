@@ -58,7 +58,7 @@ async def check_rate_limit(session: aiohttp.ClientSession):
             logging.error(f"Error checking rate limit: {response.status}")
             response.raise_for_status()
 
-async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3):
+async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3, delay=7.1):
     for attempt in range(retries):
         await check_rate_limit(session)
 
@@ -73,10 +73,13 @@ async def fetch_with_retry(session: aiohttp.ClientSession, url, retries=3):
 
             if response.status in {403, 429}:
                 logging.warning(f"Received status {response.status} from {url}. Checking rate limit and retrying.")
+                await asyncio.sleep(delay)
                 continue  
             
             logging.error(f"Error fetching {url}: {response.status}")
             response.raise_for_status()
+
+        await asyncio.sleep(delay)
 
 async def get_latest_pr_number(session: aiohttp.ClientSession, repo):
     url = f"https://api.github.com/repos/{repo}/pulls?state=all&sort=created&direction=desc&per_page=1"

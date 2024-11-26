@@ -58,4 +58,6 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End

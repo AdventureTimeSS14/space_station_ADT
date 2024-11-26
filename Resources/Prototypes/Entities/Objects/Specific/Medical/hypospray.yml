@@ -124,7 +124,7 @@
   - type: Tag
     tags:
     - Trash
-    - ADTMedipen
+    - ADTMedipen # ADT Tweak
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -159,8 +159,11 @@
         - ReagentId: TranexamicAcid
           Quantity: 3
   - type: Tag
-    tags: []
-
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+    
 - type: entity
   name: poison auto-injector
   parent: ChemicalMedipen
@@ -186,7 +189,10 @@
         - ReagentId: Epinephrine
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: brute auto-injector
@@ -218,7 +224,10 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: burn auto-injector
@@ -250,7 +259,10 @@
         - ReagentId: Leporazine
           Quantity: 10
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: rad auto-injector
@@ -272,7 +284,6 @@
     transferAmount: 20
     onlyAffectsMobs: false
     injectOnly: true
-
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -283,7 +294,115 @@
         - ReagentId: Bicaridine
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+    
+- type: entity
+  name: puncturase auto-injector
+  parent: ChemicalMedipen
+  id: PunctAutoInjector
+  description: A rapid dose of puncturase and tranexamic acid, intended for combat applications.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: punctpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: punctpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 10
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+  - type: Tag
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+
+- type: entity
+  name: pyrazine auto-injector
+  parent: ChemicalMedipen
+  id: PyraAutoInjector
+  description: A rapid dose of pyrazine and dermaline, intended for combat applications.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: pyrapen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: pyrapen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Pyrazine
+          Quantity: 10
+        - ReagentId: Dermaline
+          Quantity: 10
+  - type: Tag
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+
+- type: entity
+  name: airloss auto-injector
+  parent: ChemicalMedipen
+  id: AirlossAutoInjector
+  description: A rapid dose of saline and dexalin plus, intended to get someone up quickly.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: dexpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: dexpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 40
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 40
+        reagents:
+        - ReagentId: Saline
+          Quantity: 20
+        - ReagentId: DexalinPlus
+          Quantity: 20
+  - type: Tag
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: space medipen
@@ -316,7 +435,10 @@
           - ReagentId: Barozine
             Quantity: 20
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: hyperzine injector
@@ -348,7 +470,10 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: hyperzine microinjector
@@ -375,7 +500,10 @@
   - type: StaticPrice
     price: 100
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: combat medipen
@@ -409,7 +537,10 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: pen
@@ -451,6 +582,8 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity

@@ -5,14 +5,14 @@ using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Console;
-
+using Content.Server.Administration;
 using Content.Server.ADT.Discord;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Discord.Bans.PayloadGenerators;
 using Content.Server.Database;
+using Robust.Shared.Console;
 
-namespace Content.Server.Administration.Commands;
+namespace Content.Server.ADT.Administration.Commands;
 
 // Команда для массового бана игроков
 // Автор: Discord: schrodinger71
@@ -26,9 +26,9 @@ public sealed class BanMassCommand : LocalizedCommands
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
-
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "banmass";
 
@@ -80,6 +80,14 @@ public sealed class BanMassCommand : LocalizedCommands
 
             var targetUid = located.UserId;
             var targetHWid = located.LastHWId;
+
+            var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
+            if (dbData != null && dbData.AdminRank != null)
+            {
+                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions) // Адмемов с правами Пермиссион не забанят
+                    continue;
+            }
 
             //Start логи банов для диса
             var lastServerBan = await _dbManager.GetLastServerBanAsync();

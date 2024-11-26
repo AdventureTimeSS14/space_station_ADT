@@ -108,7 +108,7 @@
         # - id: ClothingNeckCloakBi
         # - id: ClothingNeckCloakIntersex
         # - id: ClothingNeckCloakLesbian
-        # - id: ClothingNeckCloakGay 
+        # - id: ClothingNeckCloakGay
         # - id: ClothingNeckCloakEnby
         # - id: ClothingNeckCloakPan
         # end adt tweak
@@ -303,6 +303,7 @@
       - id: ResearchDisk5000
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
+      - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
 

@@ -69,10 +69,10 @@
   coefficients:
     Blunt: 0.9
     Piercing: 0.95
-    Slash: 1.15
+    Slash: 1.1
     Cold: 1.2
-    Heat: 1
-    Poison: 0.65
+    Heat: 1.1
+    Poison: 0.6
     Radiation: 1
     Cellular: 1
 
@@ -173,7 +173,7 @@
     Cellular: 0.33
 
 #
-# ADT-damage modifier set
+# ADT-damage modifier sets
 #
 - type: damageModifierSet
   id: ADTMobCreatureDamageSet
@@ -188,3 +188,9 @@
     Radiation: 0 # похуй. абсолютно.
     Asphyxiation: 0 # похуй. абсолютно.
     Bloodloss: 0 # похуй. абсолютно.
+
+- type: damageModifierSet
+  id: ADTDragonDamageSet # пофиг на холод и кровотёк, ибо твёрдая кожа
+  coefficients:
+    Cold: 0
+    Bloodloss: 0.7 # твёрдая кожа

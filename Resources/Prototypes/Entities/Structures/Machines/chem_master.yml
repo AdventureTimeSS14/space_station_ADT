@@ -93,3 +93,8 @@
     guides:
     - Chemicals
     - Chemist
+  # ADT-Sound-Update-Start
+  - type: Tag
+    tags:
+      - ADTChemistryAmbience
+  # ADT-Sound-Update-End
