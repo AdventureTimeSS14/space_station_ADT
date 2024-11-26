@@ -7,6 +7,9 @@ using System.Text;
 using Content.Server.Administration.Managers;
 using Robust.Shared.Utility;
 using Content.Server.GameTicking;
+using Content.Server.Afk;
+using Content.Shared.Ghost;
+using Content.Shared.GameTicking;
 
 namespace Content.Server.ADT.Discord.Adminwho;
 
@@ -17,6 +20,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
     [Dependency] private readonly IAdminManager _adminMgr = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
 
     private TimeSpan _nextSendTime = TimeSpan.MinValue;
     private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(15);
@@ -43,15 +47,31 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
         var sb = new StringBuilder();
         foreach (var admin in _adminMgr.ActiveAdmins)
         {
+            if (admin == null)
+                return;
+
             var adminData = _adminMgr.GetAdminData(admin)!;
             DebugTools.AssertNotNull(adminData);
 
+            var afk = IoCManager.Resolve<IAfkManager>();
+
             if (adminData.Stealth)
                 continue;
-
             sb.Append(admin.Name);
             if (adminData.Title is { } title)
                 sb.Append($": [{title}]");
+
+            if (afk.IsAfk(admin))
+                sb.Append("[АФК]");
+
+            if (admin.AttachedEntity != null &&
+            TryComp<GhostComponent>(admin.AttachedEntity.Value, out var _))
+                sb.Append("[Агост]");
+
+            var gameTickerAdmin = _entities.System<GameTicker>();
+            if (!gameTickerAdmin.PlayerGameStatuses.TryGetValue(admin.UserId, out var status)
+            || status is not PlayerGameStatus.JoinedGame)
+                sb.Append("[Лобби]");
 
             sb.AppendLine();
         }
