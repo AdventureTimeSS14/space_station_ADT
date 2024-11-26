@@ -105,7 +105,7 @@
     requirements:
       - !type:OverallPlaytimeRequirement
         time: 7200 # 2h overall
-# ADT-Tweak-end 
+# ADT-Tweak-end
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -167,6 +167,11 @@
     name: ghost-role-information-space-ninja-name
     description: ghost-role-information-space-ninja-description
     rules: ghost-role-information-space-ninja-rules
+# ADT-Tweak-start
+    requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 7200 # 2h overall
+# ADT-Tweak-end
     raffle:
       settings: default
   - type: Sprite
