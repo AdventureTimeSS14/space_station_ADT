@@ -313,13 +313,19 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
-        if (_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook) is { } webhookUrl)
+
+        if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
         {
+            var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
+
+            if (webhookUrl == null)
+                return;
+
             if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
                 return;
             var payload = new WebhookPayload
             {
-                Content = $"**AdminChat**: *{senderName}*: {message}"
+                Content = $"***AdminChat***: **{senderName}**: {message}"
             };
             var identifier = webhookData.ToIdentifier();
             await _discord.CreateMessage(identifier, payload);
