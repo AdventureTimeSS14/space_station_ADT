@@ -55,7 +55,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -76,7 +76,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -109,7 +109,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -135,7 +135,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -155,7 +155,7 @@ public sealed partial class ChangelingSystem
         if (!TryStingTarget(uid, target))
             return;
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFifteen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -179,7 +179,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.ArmBladeActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.ArmBladeActive))
             return;
 
         args.Handled = true;
@@ -228,7 +228,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.ArmShieldActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.ArmShieldActive))
             return;
 
         args.Handled = true;
@@ -267,7 +267,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.ArmBladeActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.ArmBladeActive))
             return;
 
         args.Handled = true;
@@ -309,7 +309,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.LingArmorActive, component.LingArmorRegenCost))
+        if (!TryUseAbility(uid, component, args.Cost, !component.LingArmorActive, component.LingArmorRegenCost))
             return;
 
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
@@ -356,7 +356,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFifteen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
