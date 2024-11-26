@@ -94,6 +94,7 @@ public sealed class RandomGiftSystem : EntitySystem
     {
         _possibleGiftsSafe.Clear();
         _possibleGiftsUnsafe.Clear();
+        _possibleGiftsUnsafeADT.Clear();
         var itemCompName = _componentFactory.GetComponentName(typeof(ItemComponent));
         var mapGridCompName = _componentFactory.GetComponentName(typeof(MapGridComponent));
         var physicsCompName = _componentFactory.GetComponentName(typeof(PhysicsComponent));
@@ -102,26 +103,21 @@ public sealed class RandomGiftSystem : EntitySystem
         {
             if (proto.Abstract || proto.HideSpawnMenu || proto.Components.ContainsKey(mapGridCompName) || !proto.Components.ContainsKey(physicsCompName))
                 continue;
-
             _possibleGiftsUnsafe.Add(proto.ID);
 
             // Начало говнокода
-            try
+            if (proto.Components.TryGetValue("Physics", out var value))
             {
-                string check = proto.Components["Physics"].Mapping[0].Value.ToString();
-                if (check == "Static" || check == "KinematicController" || check == "Kinematic")
-                    continue;
-                _possibleGiftsUnsafeADT.Add(proto.ID);
-            }
-            catch
-            {
-                _possibleGiftsUnsafeADT.Add(proto.ID);
+                if (value.Mapping.Count > 0)
+                    if (object.Equals(value.Mapping[0].Value?.ToString(), "Dynamic"))
+                        _possibleGiftsUnsafeADT.Add(proto.ID);
+                    else
+                        continue;
             }
             //Его конец
             
             if (!proto.Components.ContainsKey(itemCompName))
                 continue;
-
             _possibleGiftsSafe.Add(proto.ID);
         }
     }
