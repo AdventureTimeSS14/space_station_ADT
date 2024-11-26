@@ -99,7 +99,7 @@ public sealed class ServerUpdateManager : IPostInjectInit
 
     private void WatchdogOnUpdateReceived()
     {
-        _chatManager.DispatchServerAnnouncement(Loc.GetString("server-updates-received"));
+        _chatManager.DispatchServerAnnouncement(Loc.GetString("server-updates-received")); // вот ADT
         _updateOnRoundEnd = true;
         ServerEmptyUpdateRestartCheck("update notification");
     }
@@ -135,7 +135,7 @@ public sealed class ServerUpdateManager : IPostInjectInit
     private void DoShutdown()
     {
         _sawmill.Debug($"Shutting down via {nameof(ServerUpdateManager)}!");
-        var reason = _updateOnRoundEnd ? "server-updates-shutdown" : "server-updates-shutdown-uptime";
+        var reason = _updateOnRoundEnd ? "server-updates-shutdown" : "server-updates-shutdown-uptime"; // ага ADT
         _server.Shutdown(Loc.GetString(reason));
     }
 
