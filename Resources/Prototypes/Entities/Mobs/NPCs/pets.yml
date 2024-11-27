@@ -826,6 +826,12 @@
       gender: female
   - type: TTS # Corvax-TTS
     voice: angry_neco_arc
+  - type: Prying
+    pryPowered: false
+    force: false
+    speedModifier: 0.1
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   name: Pun Pun
