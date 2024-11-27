@@ -27,6 +27,8 @@ public sealed class ServerUpdateManager : IPostInjectInit
     [Dependency] private readonly IBaseServer _server = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private readonly DiscordWebhook _discord = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
     private ISawmill _sawmill = default!;
 
