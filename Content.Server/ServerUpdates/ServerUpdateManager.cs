@@ -104,14 +104,15 @@ public sealed class ServerUpdateManager : IPostInjectInit
 
     private void WatchdogOnUpdateReceived()
     {
-        _chatManager.DispatchServerAnnouncement(Loc.GetString("server-updates-received")); // вот ADT
+        _chatManager.DispatchServerAnnouncement(Loc.GetString("server-updates-received"));
         _updateOnRoundEnd = true;
         ServerEmptyUpdateRestartCheck("update notification");
-        SendDiscordWebHookUpdateMessage();
+        SendDiscordWebHookUpdateMessage(); // ADT-Tweak
     }
+    // ADT-Tweak-start: Отправка сообщения в Discord при обновлении сервера
     public async void SendDiscordWebHookUpdateMessage()
     {
-        // ADT-Tweak-start: Отправка сообщения в Discord при обновлении сервера
+
         if (!string.IsNullOrWhiteSpace(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook)))
         {
             var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook);
@@ -177,6 +178,7 @@ public sealed class ServerUpdateManager : IPostInjectInit
             await _discord.CreateMessage(identifier, payload);
         }
     }
+    // ADT-Tweak-end
 
     /// <summary>
     ///     Checks whether there are still players on the server,
