@@ -1,0 +1,24 @@
+- type: entity
+  parent: Airlock
+  id: ADTAirlockKMT
+  name: KMT Airlock
+  suffix: Space Battleships, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Doors/Airlocks/Standard/kmt.rsi
+  - type: Wires
+    layoutId: AirlockSecurity
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: RCDDeconstructable
+    deconstructable: false
