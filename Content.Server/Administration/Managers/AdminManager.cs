@@ -452,26 +452,6 @@ namespace Content.Server.Administration.Managers
                     {
                         _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-login-message",
                             ("name", session.Name)));
-                        // ADT-Tweak-start: Кидает инфу в дис если админ зашёл
-                        if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
-                        {
-                            var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
-                            var senderAdmin = GetAdminData(session);
-                            if (senderAdmin == null)
-                                return;
-                            var senderName = session.Name;
-                            if (!string.IsNullOrEmpty(senderAdmin.Title))
-                                senderName += $"\\[{senderAdmin.Title}\\]";
-                            if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
-                                return;
-                            var payload = new WebhookPayload
-                            {
-                                Content = $"**Оповещение: Админ зашёл {senderName}**"
-                            };
-                            var identifier = webhookData.ToIdentifier();
-                            await _discord.CreateMessage(identifier, payload);
-                        }
-                        // ADT-Tweak-end
                     }
                 }
 
@@ -479,6 +459,26 @@ namespace Content.Server.Administration.Managers
             }
 
             UpdateAdminStatus(session);
+            // ADT-Tweak-start: Кидает инфу в дис если админ зашёл
+            if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
+            {
+                var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
+                var senderAdmin = GetAdminData(session);
+                if (senderAdmin == null)
+                    return;
+                var senderName = session.Name;
+                if (!string.IsNullOrEmpty(senderAdmin.Title))
+                    senderName += $"\\[{senderAdmin.Title}\\]";
+                if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
+                    return;
+                var payload = new WebhookPayload
+                {
+                    Content = $"**Оповещение: Админ зашёл {senderName}**"
+                };
+                var identifier = webhookData.ToIdentifier();
+                await _discord.CreateMessage(identifier, payload);
+            }
+            // ADT-Tweak-end
         }
 
         private async Task<(AdminData dat, int? rankId, bool specialLogin)?> LoadAdminData(ICommonSession session)
