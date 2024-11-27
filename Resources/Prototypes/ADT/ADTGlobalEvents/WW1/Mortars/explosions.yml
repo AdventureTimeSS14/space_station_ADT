@@ -1,0 +1,111 @@
+- type: explosion
+  id: RMC
+  damagePerIntensity:
+    types:
+      Blunt: 5
+      Heat: 5
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+
+- type: explosion
+  id: RMCMortar
+  damagePerIntensity:
+    types:
+      Blunt: 5
+      Heat: 5
+      Structural: 90
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+
+- type: explosion
+  id: RMCOB
+  damagePerIntensity:
+    types:
+      Blunt: 5
+      Heat: 5
+      Structural: 90
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+
+- type: entity
+  id: RMCSmokeNeurotoxin
+  name: neurotoxin gas
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+  - type: Occluder
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/WW1/Mortars/smoke.rsi
+    state: smoke2
+    color: "#FFBF58"
+  - type: TimedDespawn
+    lifetime: 12
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Appearance
+  - type: ActiveEdgeSpreader
+  - type: EdgeSpreader
+    id: RMCSmokeNeurotoxin
+  - type: EvenSmoke
+    spawn: RMCSmokeNeurotoxin
+    range: 4
+  # - type: DamageOverTime
+  #   affectsDead: false
+  #   affectsInfectedNested: false
+  #   damage:
+  #     types:
+  #       Asphyxiation: 5
+  - type: DeleteOnExplosion
+
+- type: entity
+  parent: RMCSmokeNeurotoxin
+  id: RMCSmokeNeurotoxinShroud
+  name: neurotoxin gas
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EvenSmoke
+    spawn: RMCSmokeNeurotoxinShroud
+    range: 1
+
+- type: edgeSpreader
+  id: RMCSmokeNeurotoxin
+  updatesPerSecond: 2
+
+- type: entity
+  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  id: RMCSmokeNeurotoxinGrenade
+  name: cleanade
+  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/janitor.rsi
+  - type: SmokeOnTrigger
+    duration: 15
+    spreadAmount: 50
+    smokePrototype: RMCSmokeNeurotoxinShroud
