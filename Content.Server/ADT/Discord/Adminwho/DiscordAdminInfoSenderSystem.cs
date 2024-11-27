@@ -29,7 +29,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
 
     private TimeSpan _nextSendTime = TimeSpan.MinValue;
-    private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(1);
+    private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(15);
 
     public override void Update(float frameTime)
     {
