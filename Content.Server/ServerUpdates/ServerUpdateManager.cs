@@ -161,12 +161,11 @@ public sealed class ServerUpdateManager : IPostInjectInit
                 embed.Fields.Add(new WebhookEmbedField { Name = "Описание сервера", Value = serverDesc, Inline = true });
 
             if (!string.IsNullOrWhiteSpace(engineVersion))
-                embed.Fields.Add(new WebhookEmbedField { Name = "Версия движка", Value = engineVersion, Inline = true });
+                embed.Fields.Add(new WebhookEmbedField { Name = "RobustToolbox version", Value = engineVersion, Inline = true });
 
             if (!string.IsNullOrWhiteSpace(buildVersion))
-                embed.Fields.Add(new WebhookEmbedField { Name = "Версия сборки", Value = buildVersion, Inline = true });
+                embed.Fields.Add(new WebhookEmbedField { Name = "Build version", Value = buildVersion, Inline = true });
 
-            // Создание полезной нагрузки для отправки
             var payload = new WebhookPayload
             {
                 Embeds = new List<WebhookEmbed> { embed },
