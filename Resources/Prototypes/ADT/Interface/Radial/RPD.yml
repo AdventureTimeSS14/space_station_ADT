@@ -271,7 +271,7 @@
   category: Devices
   sprite: /Textures/ADT/Interface/Radial/RPD/AtmosDeviceFanTiny.png
   mode: ConstructObject
-  prototype: AtmosDeviceFanTiny
+  prototype: ADTAtmosDeviceFanRPD
   cost: 6
   delay: 2
   collisionMask: FullTileMask
