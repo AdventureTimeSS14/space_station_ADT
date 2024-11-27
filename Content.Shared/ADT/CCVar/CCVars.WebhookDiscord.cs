@@ -12,6 +12,10 @@ public sealed class ADTDiscordWebhookCCVars : CVars
     public static readonly CVarDef<string> DiscordAdminwhoWebhook =
         CVarDef.Create("discord.adminwho_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
+        
+    public static readonly CVarDef<string> DiscordServerUpdateWebhook =
+        CVarDef.Create("discord.server_update_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
     /// <summary>
     /// URL of the Discord adminchat info to the channel.
     /// </summary>
