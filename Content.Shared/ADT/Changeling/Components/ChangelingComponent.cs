@@ -14,6 +14,7 @@ namespace Content.Shared.Changeling.Components;
 [AutoGenerateComponentState(true)]
 public sealed partial class ChangelingComponent : Component
 {
+    #region Chemicals
     /// <summary>
     /// The amount of chemicals the ling has.
     /// </summary>
@@ -33,7 +34,9 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float MaxChemicals = 75f;
+    #endregion
 
+    #region DNA
     /// <summary>
     /// The maximum amount of DNA strands a ling can have at one time
     /// </summary>
@@ -45,13 +48,9 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public List<PolymorphHumanoidData> StoredDNA = new List<PolymorphHumanoidData>();
+    #endregion
 
-    /// <summary>
-    /// The DNA index that the changeling currently has selected
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int SelectedDNA = 0;
-
+    #region Audio
     /// </summary>
     /// Flesh sound
     /// </summary>
@@ -72,20 +71,9 @@ public sealed partial class ChangelingComponent : Component
     {
         Params = AudioParams.Default.WithVolume(-3f),
     };
+    #endregion
 
-    /// <summary>
-    /// Blind sting duration
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan BlindStingDuration = TimeSpan.FromSeconds(18);
-
-    /// <summary>
-    /// Refresh ability
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool CanRefresh = false;
-
-    #region Actions
+    #region Basic Actions
     public EntProtoId ChangelingEvolutionMenuAction = "ActionChangelingEvolutionMenu";
 
     [AutoNetworkedField]
@@ -149,9 +137,6 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float AbsorbedMobPointsAmount = 2.0f;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float AbsorbedDnaModifier = 0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public DoAfterId? DoAfter;
@@ -309,6 +294,7 @@ public sealed partial class ChangelingComponent : Component
 
     #endregion
 
+    #region Other Abilities
     [ViewVariables(VVAccess.ReadWrite)]
     public int BiodegradeDuration = 3;
 
@@ -317,6 +303,25 @@ public sealed partial class ChangelingComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool DigitalCamouflageActive = false;
+
+    /// <summary>
+    /// Blind sting duration
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan BlindStingDuration = TimeSpan.FromSeconds(18);
+    #endregion
+
+    /// <summary>
+    /// Refresh ability
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool CanRefresh = false;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float AbsorbedDnaModifier = 0f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int DNAStolen = 0;
 
     public bool GainedActions = false;
 }

@@ -3,19 +3,19 @@ using Content.Server.Objectives.Systems;
 namespace Content.Server.Objectives.Components;
 
 /// <summary>
-/// Requires that the player is on the emergency shuttle's grid when docking to CentCom.
+/// Требование генокраду украсть определённое количество штаммов ДНК
 /// </summary>
-[RegisterComponent, Access(typeof(AbsorbDnaConditionSystem))]
-public sealed partial class AbsorbDnaConditionComponent : Component
+[RegisterComponent, Access(typeof(StealDnaConditionSystem))]
+public sealed partial class StealDnaConditionComponent : Component
 {
     [DataField]
     public int AbsorbDnaCount = 4;
 
     [DataField]
-    public int MaxDnaCount = 4;
+    public int MaxDnaCount = 11;
 
     [DataField]
-    public int MinDnaCount = 2;
+    public int MinDnaCount = 8;
 
     [DataField(required: true)]
     public LocId ObjectiveText;
