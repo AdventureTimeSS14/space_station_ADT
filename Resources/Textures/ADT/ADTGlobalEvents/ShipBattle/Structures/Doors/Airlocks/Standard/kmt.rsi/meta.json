@@ -215,7 +215,21 @@
         },
         {
             "name": "open",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
         },
         {
             "name": "open_unlit",
@@ -371,7 +385,21 @@
         },
         {
             "name": "panel_closed",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
         },
         {
             "name": "panel_closing",
@@ -449,7 +477,21 @@
         },
         {
             "name": "panel_open",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
         },
         {
             "name": "panel_opening",

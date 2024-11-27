@@ -6,6 +6,7 @@
   components:
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Doors/Airlocks/Standard/kmt.rsi
+    snapCardinals: false
   - type: Wires
     layoutId: AirlockSecurity
   - type: Destructible
@@ -22,3 +23,5 @@
           collection: MetalSlam
   - type: RCDDeconstructable
     deconstructable: false
+  # - type: Occluder
+  #   enabled: false
