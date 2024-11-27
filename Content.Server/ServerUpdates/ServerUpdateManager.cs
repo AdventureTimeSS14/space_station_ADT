@@ -8,9 +8,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.CCVar;
-using Content.Server.Discord;
-using Content.Server.GameTicking;
 
 namespace Content.Server.ServerUpdates;
 
@@ -104,73 +101,9 @@ public sealed class ServerUpdateManager : IPostInjectInit
 
     private void WatchdogOnUpdateReceived()
     {
-        _chatManager.DispatchServerAnnouncement(Loc.GetString("server-updates-received")); // вот ADT
+        _chatManager.DispatchServerAnnouncement(Loc.GetString("server-updates-received"));
         _updateOnRoundEnd = true;
         ServerEmptyUpdateRestartCheck("update notification");
-        SendDiscordWebHookUpdateMessage();
-    }
-    private async void SendDiscordWebHookUpdateMessage()
-    {
-        // ADT-Tweak-start: Отправка сообщения в Discord при обновлении сервера
-        if (!string.IsNullOrWhiteSpace(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook)))
-        {
-            var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook);
-            if (webhookUrl == null)
-                return;
-
-            if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
-                return;
-
-            var serverName = _cfg.GetCVar<string>("game.hostname");
-            var serverDesc = _cfg.GetCVar<string>("game.desc");
-            var engineVersion = _cfg.GetCVar<string>("build.engine_version");
-            var buildHash = _cfg.GetCVar<string>("build.hash");
-            var buildVersion = _cfg.GetCVar<string>("build.version");
-
-            var descContent = "Обновление получено, сервер автоматически перезапустится для обновления в конце этого раунда.";
-
-            var gameTicker = _entitySystemManager.GetEntitySystem<GameTicker>();
-            var roundDescription = gameTicker.RunLevel switch
-            {
-                GameRunLevel.PreRoundLobby => gameTicker.RoundId == 0
-                    ? "pre-round lobby after server restart"
-                    : $"pre-round lobby for round {gameTicker.RoundId + 1}",
-                GameRunLevel.InRound => $"round {gameTicker.RoundId}",
-                GameRunLevel.PostRound => $"post-round {gameTicker.RoundId}",
-                _ => throw new ArgumentOutOfRangeException(nameof(gameTicker.RunLevel), $"{gameTicker.RunLevel} was not matched."),
-            };
-
-            // Создание структуры сообщения для вебхука
-            var embed = new WebhookEmbed
-            {
-                Title = "Обновление пришло",
-                Description = descContent,
-                Color = 0x0e9c00,
-                Footer = new WebhookEmbedFooter
-                {
-                    Text = $"{serverName} ({roundDescription})"
-                },
-                Fields = new List<WebhookEmbedField>
-                {
-                    new WebhookEmbedField { Name = "Название сервера", Value = serverName, Inline = true },
-                    new WebhookEmbedField { Name = "Описание сервера", Value = serverDesc, Inline = true },
-                    new WebhookEmbedField { Name = "Версия движка", Value = engineVersion, Inline = true },
-                    new WebhookEmbedField { Name = "Хэш сборки", Value = buildHash, Inline = true },
-                    new WebhookEmbedField { Name = "Версия сборки", Value = buildVersion, Inline = true }
-                }
-            };
-
-            // Создание полезной нагрузки для отправки
-            var payload = new WebhookPayload
-            {
-                Embeds = new List<WebhookEmbed> { embed },
-                Username = Loc.GetString("username-webhook-update")
-            };
-
-            // Отправка сообщения в Discord
-            var identifier = webhookData.ToIdentifier();
-            await _discord.CreateMessage(identifier, payload);
-        }
     }
 
     /// <summary>
