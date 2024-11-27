@@ -11,6 +11,4 @@ public sealed class ADTDiscordWebhookCCVars : CVars
     /// </summary>
     public static readonly CVarDef<string> DiscordAdminwhoWebhook =
         CVarDef.Create("discord.adminwho_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
-    public static readonly CVarDef<string> DiscordServerUpdateWebhook =
-        CVarDef.Create("discord.server_update_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 }
