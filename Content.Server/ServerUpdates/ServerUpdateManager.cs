@@ -109,7 +109,7 @@ public sealed class ServerUpdateManager : IPostInjectInit
         ServerEmptyUpdateRestartCheck("update notification");
         SendDiscordWebHookUpdateMessage();
     }
-    private async void SendDiscordWebHookUpdateMessage()
+    public async void SendDiscordWebHookUpdateMessage()
     {
         // ADT-Tweak-start: Отправка сообщения в Discord при обновлении сервера
         if (!string.IsNullOrWhiteSpace(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook)))
@@ -124,7 +124,6 @@ public sealed class ServerUpdateManager : IPostInjectInit
             var serverName = _cfg.GetCVar<string>("game.hostname");
             var serverDesc = _cfg.GetCVar<string>("game.desc");
             var engineVersion = _cfg.GetCVar<string>("build.engine_version");
-            var buildHash = _cfg.GetCVar<string>("build.hash");
             var buildVersion = _cfg.GetCVar<string>("build.version");
 
             var descContent = "Обновление получено, сервер автоматически перезапустится для обновления в конце этого раунда.";
@@ -150,15 +149,21 @@ public sealed class ServerUpdateManager : IPostInjectInit
                 {
                     Text = $"{serverName} ({roundDescription})"
                 },
-                Fields = new List<WebhookEmbedField>
-                {
-                    new WebhookEmbedField { Name = "Название сервера", Value = serverName, Inline = true },
-                    new WebhookEmbedField { Name = "Описание сервера", Value = serverDesc, Inline = true },
-                    new WebhookEmbedField { Name = "Версия движка", Value = engineVersion, Inline = true },
-                    new WebhookEmbedField { Name = "Хэш сборки", Value = buildHash, Inline = true },
-                    new WebhookEmbedField { Name = "Версия сборки", Value = buildVersion, Inline = true }
-                }
+                Fields = new List<WebhookEmbedField>()
             };
+
+            // Добавление полей только если данные доступны
+            if (!string.IsNullOrWhiteSpace(serverName))
+                embed.Fields.Add(new WebhookEmbedField { Name = "Название сервера", Value = serverName, Inline = true });
+
+            if (!string.IsNullOrWhiteSpace(serverDesc))
+                embed.Fields.Add(new WebhookEmbedField { Name = "Описание сервера", Value = serverDesc, Inline = true });
+
+            if (!string.IsNullOrWhiteSpace(engineVersion))
+                embed.Fields.Add(new WebhookEmbedField { Name = "Версия движка", Value = engineVersion, Inline = true });
+
+            if (!string.IsNullOrWhiteSpace(buildVersion))
+                embed.Fields.Add(new WebhookEmbedField { Name = "Версия сборки", Value = buildVersion, Inline = true });
 
             // Создание полезной нагрузки для отправки
             var payload = new WebhookPayload
