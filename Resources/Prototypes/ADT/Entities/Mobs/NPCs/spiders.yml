@@ -66,6 +66,9 @@
     damage:
       types:
         Piercing: 6
+  - type: MobState
+  - type: ReplacementAccent
+    accent: xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -161,7 +164,7 @@
         - ReagentId: Toxin
           Quantity: 50
   - type: MeleeChemicalInjector
-    transferAmount: 0.75
+    transferAmount: 1.5
     solution: melee
 
 - type: entity
@@ -246,6 +249,12 @@
     speedModifierThresholds:
       25: 0.7
       35: 0.5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSpider
+      amount: 1
+    - id: ADTViperChelicerae
+      amount: 1
   - type: Bloodstream
     bloodMaxVolume: 75
     bloodReagent: ADTLatrotoxin
@@ -258,7 +267,7 @@
       melee:
         reagents:
         - ReagentId: ADTLatrotoxin
-          Quantity: 50
+          Quantity: 100
   - type: MeleeChemicalInjector
     transferAmount: 4
     solution: melee
@@ -298,9 +307,11 @@
         Base: tarantula
       Dead:
         Base: tarantula_dead
+  - type: Stamina
+    critThreshold: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 2.5
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 2.7
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 0.7
@@ -309,6 +320,8 @@
     thresholds:
       0: Alive
       300: Dead
+  - type: Prying # Open door from xeno.yml.
+    speedModifier: 3
   - type: MeleeWeapon
     damage:
       types:
@@ -360,6 +373,10 @@
         damage: 85
       behaviors:
       - !type:GibBehavior { }
+  - type: Spider
+    smallWeb: true
+  - type: CanEscapeInventory
+    baseResistTime: 2
   - type: MultiHandedItem
   - type: Item
     sprite: ADT/Mobs/Animals/minispider.rsi
@@ -367,7 +384,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      45: Critical
+      40: Critical
       70: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
@@ -387,7 +404,11 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 4.8
+        Piercing: 3.8
+  - type: Prying
+    pryPowered: false
+    force: false
+    speedModifier: 0.1
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -395,7 +416,7 @@
         - ReagentId: Toxin
           Quantity: 30
   - type: MeleeChemicalInjector
-    transferAmount: 0.75
+    transferAmount: 1
     solution: melee
   - type: GhostRole
     makeSentient: true
@@ -413,7 +434,7 @@
     - type: Sprite
       drawdepth: Mobs
       layers:
-      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      - map: ["enum.DamageStateVisualLayers.Base"]
         state: clown
         sprite: Mobs/Animals/clownspider.rsi
     - type: Butcherable
@@ -444,19 +465,24 @@
         path: /Audio/Effects/bite.ogg
       damage:
         types:
-          Piercing: 8
+          Piercing: 9
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepClownFast
+    - type: Speech
+      speechVerb: Cluwne
+    - type: Bloodstream
+      bloodMaxVolume: 150
+      bloodReagent: Laughter
     - type: SolutionContainerManager
       solutions:
         melee:
           reagents:
-          - ReagentId: Toxin
-            Quantity: 50
+          - ReagentId: Laughter
+            Quantity: 90
     - type: MeleeChemicalInjector
-      transferAmount: 0.75
+      transferAmount: 1
       solution: melee
-    - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepClownFast
     - type: NpcFactionMember
       factions:
         - Xeno

@@ -1,0 +1,27 @@
+#- type: microwaveMealRecipe
+#  id: ADTRecipeChocolateBar
+#  name: chocolate bar recipe
+#  result: FoodSnackChocolateBar
+#  time: 10
+#  reagents:
+#    CocoaPowder: 5
+#    Milk: 5
+#    Sugar: 5
+
+- type: reaction
+  id: ADTCreateHypoAllergenChocolate
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    CocoaPowder:
+      amount: 3
+    Milk:
+      amount: 2
+    Sugar:
+      amount: 2
+    Dylovene:
+      amount: 1
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: ADTHypoAllergenChocolateBar

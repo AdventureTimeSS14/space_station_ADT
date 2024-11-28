@@ -7,6 +7,7 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - Ursus # ADT tweak
 
 - type: npcFaction
   id: NanoTrasen
@@ -43,6 +44,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Ursus # ADT tweak
 
 - type: npcFaction
   id: SimpleNeutral
@@ -56,6 +58,7 @@
   - PetsNT
   - Zombie
   - DroneAntag # ADT tweak
+  - Ursus # ADT tweak
 
 - type: npcFaction
   id: Xeno
@@ -66,6 +69,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Ursus # ADT tweak
 
 - type: npcFaction
   id: Zombie
@@ -77,6 +81,7 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - Ursus # ADT tweak
 
 - type: npcFaction
   id: Revolutionary
@@ -85,3 +90,4 @@
   - Zombie
   - SimpleHostile
   - Dragon
+  - Ursus # ADT tweak

@@ -12,19 +12,24 @@
       sprite: Structures/Power/Generation/teg.rsi
       layers:
         - state: teg
-        - state: teg_mid
-          shader: unshaded
-          map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        # ADT-Sound-Update-Start
+          map: [ "center" ]
+        #- state: teg_mid ADT-Sound-Update
+        #  shader: unshaded
+        #  map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        # ADT-Sound-Update-End
         - state: teg-op1
           shader: unshaded
           visible: false
           map: [ "enum.TegVisualLayers.PowerOutput" ]
     - type: GenericVisualizer
       visuals:
-        enum.PowerDeviceVisuals.Powered:
-          enum.PowerDeviceVisualLayers.Powered:
-            True: { visible: true }
-            False: { visible: false }
+        # ADT-Sound-Update-Start
+        # enum.PowerDeviceVisuals.Powered:
+        #   enum.PowerDeviceVisualLayers.Powered:
+        #     True: { visible: true }
+        #     False: { visible: false }
+        # ADT-Sound-Update-End
         enum.TegVisuals.PowerOutput:
           enum.TegVisualLayers.PowerOutput:
             0: { visible: false }
@@ -39,6 +44,12 @@
             9: { visible: true, state: teg-op9 }
             10: { visible: true, state: teg-op10 }
             11: { visible: true, state: teg-op11 }
+        # ADT-Sound-Update-Start
+        enum.AnchoredVisuals.VisualState:
+          center:
+            Free: { state: teg-unassembled }
+            Anchored: { state: teg }
+        # ADT-Sound-Update-End
 
     - type: Anchorable
     - type: Pullable
@@ -137,6 +148,12 @@
             SpeedStill: { state: circ-0-light }
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
+        # ADT-Sound-Update-Start
+        enum.AnchoredVisuals.VisualState:
+          enum.TegVisualLayers.CirculatorBase:
+            Free: { state: circ-unassembled-0 }
+            Anchored: { state: circ-0 }
+        # ADT-Sound-Update-End
 
     - type: Appearance
     - type: PointLight

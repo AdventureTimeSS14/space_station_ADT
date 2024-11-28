@@ -58,15 +58,15 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.15 #per second, scales with temperature & other constants ADT tweak from 0.1 to 0.15
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       301: 0.8
-      295: 0.6
-      285: 0.4
+      275: 0.6 # ADT tweak
+      255: 0.4 # ADT tweak
   - type: Wagging
   - type: Inventory
     speciesId: reptilian
@@ -102,6 +102,10 @@
         Cold: -0.06
       groups:
         Brute: -0.08
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      55: 0.8
+      75: 0.7
   - type: Fixtures
     fixtures:
       fix1:

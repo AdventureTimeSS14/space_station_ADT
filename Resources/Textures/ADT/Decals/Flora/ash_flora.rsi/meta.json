@@ -1,0 +1,131 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Tau Ceti https://github.com/TauCetiStation/TauCetiClassic/",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cactusA1"
+        },
+        {
+            "name": "cactusA2"
+        },
+        {
+            "name": "cactusA3"
+        },
+        {
+            "name": "cactusA4"
+        },
+        {
+            "name": "cactusA5"
+        },
+        {
+            "name": "cactusA6"
+        },
+        {
+            "name": "cactusA7"
+        },
+        {
+            "name": "cactusA8"
+        },
+        {
+            "name": "cactusB1"
+        },
+        {
+            "name": "cactusB2"
+        },
+        {
+            "name": "cactusB3"
+        },
+        {
+            "name": "cactusB4"
+        },
+        {
+            "name": "cactusB5"
+        },
+        {
+            "name": "cactusB6"
+        },
+        {
+            "name": "cactusB7"
+        },
+        {
+            "name": "cactusB8"
+        },
+        {
+            "name": "mushroomA1"
+        },
+        {
+            "name": "mushroomA2"
+        },
+        {
+            "name": "mushroomA3"
+        },
+        {
+            "name": "mushroomA4"
+        },
+        {
+            "name": "mushroomA5"
+        },
+        {
+            "name": "mushroomA6"
+        },
+        {
+            "name": "mushroomA7"
+        },
+        {
+            "name": "mushroomA8"
+        },
+        {
+            "name": "mushroomB1"
+        },
+        {
+            "name": "mushroomB2"
+        },
+        {
+            "name": "mushroomB3"
+        },
+        {
+            "name": "mushroomB4"
+        },
+        {
+            "name": "mushroomB5"
+        },
+        {
+            "name": "mushroomB6"
+        },
+        {
+            "name": "mushroomB7"
+        },
+        {
+            "name": "mushroomB8"
+        },
+        {
+            "name": "mushroomC1"
+        },
+        {
+            "name": "mushroomC2"
+        },
+        {
+            "name": "mushroomC3"
+        },
+        {
+            "name": "mushroomC4"
+        },
+        {
+            "name": "mushroomC5"
+        },
+        {
+            "name": "mushroomC6"
+        },
+        {
+            "name": "mushroomC7"
+        },
+        {
+            "name": "mushroomC8"
+        }
+    ]
+}
