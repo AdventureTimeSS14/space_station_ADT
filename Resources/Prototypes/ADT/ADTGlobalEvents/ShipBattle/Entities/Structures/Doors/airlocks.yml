@@ -26,6 +26,18 @@
   - type: Tag
     tags:
       - ForceNoFixRotations
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
 
 - type: entity
   parent: ADTAirlockKMT
@@ -64,6 +76,18 @@
   - type: Tag
     tags:
       - ForceNoFixRotations
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
 
 - type: entity
   parent: ADTAirlockKMTGlass
