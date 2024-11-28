@@ -12,10 +12,10 @@ public sealed partial class StealDnaConditionComponent : Component
     public int AbsorbDnaCount = 4;
 
     [DataField]
-    public int MaxDnaCount = 11;
+    public int MaxDnaCount = 13;
 
     [DataField]
-    public int MinDnaCount = 8;
+    public int MinDnaCount = 10;
 
     [DataField(required: true)]
     public LocId ObjectiveText;
