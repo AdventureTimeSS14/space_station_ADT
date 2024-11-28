@@ -1,0 +1,123 @@
+- type: entity
+  parent: Airlock
+  id: ADTAirlockKMT
+  name: KMT Airlock
+  suffix: Space Battleships, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Doors/Airlocks/Standard/kmt.rsi
+    snapCardinals: false
+  - type: Wires
+    layoutId: AirlockSecurity
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Tag
+    tags:
+      - ForceNoFixRotations
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+
+- type: entity
+  parent: ADTAirlockKMT
+  id: ADTAirlockTSF
+  name: TSF Airlock
+  suffix: Space Battleships, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Doors/Airlocks/Standard/tsf.rsi
+    snapCardinals: false
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTAirlockKMTGlass
+  name: KMT Airlock Glass
+  suffix: Space Battleships, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Doors/Airlocks/Glass/kmt.rsi
+    snapCardinals: false
+  - type: Wires
+    layoutId: AirlockSecurity
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: RCDDeconstructable
+  - type: Tag
+    tags:
+      - ForceNoFixRotations
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+
+- type: entity
+  parent: ADTAirlockKMTGlass
+  id: ADTAirlockTSFGlass
+  name: TSF Airlock Glass
+  suffix: Space Battleships, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Doors/Airlocks/Glass/tsf.rsi
+    snapCardinals: false
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: ADTAirlockShipBattleShuttle
+  name: Combat Shuttle Airlock
+  suffix: Space Battleships
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Doors/Airlocks/Glass/shuttle.rsi
+  - type: Wires
+    layoutId: AirlockSecurity
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
