@@ -5234,6 +5234,14 @@ entities:
     - type: Transform
       pos: 46.5,14.5
       parent: 2
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 12803
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.73981,10.606304
+      parent: 2
 - proto: AirAlarm
   entities:
   - uid: 98
@@ -6424,7 +6432,7 @@ entities:
       pos: 25.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -323.14258
+      secondsUntilStateChange: -369.55313
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -67884,6 +67892,13 @@ entities:
     - type: Transform
       pos: -12.5,13.5
       parent: 2
+- proto: SpawnPointADTGuardOfficer
+  entities:
+  - uid: 12804
+    components:
+    - type: Transform
+      pos: 19.5,14.5
+      parent: 2
 - proto: SpawnPointADTPathologist
   entities:
   - uid: 10369
@@ -68143,6 +68158,13 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-25.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 12805
+    components:
+    - type: Transform
+      pos: 20.5,14.5
       parent: 2
 - proto: SpawnPointQuartermaster
   entities:

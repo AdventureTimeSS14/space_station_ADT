@@ -12490,7 +12490,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6611.737
+      secondsUntilStateChange: -6731.0054
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -85269,7 +85269,7 @@ entities:
       pos: 41.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3224.2017
+      secondsUntilStateChange: -3343.4702
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -125319,16 +125319,6 @@ entities:
     - type: Transform
       pos: 19.5,3.5
       parent: 2
-  - uid: 19143
-    components:
-    - type: Transform
-      pos: 10.5,2.5
-      parent: 2
-  - uid: 19144
-    components:
-    - type: Transform
-      pos: 10.5,6.5
-      parent: 2
   - uid: 19145
     components:
     - type: Transform
@@ -125364,6 +125354,24 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -24.5,41.5
+      parent: 2
+  - uid: 27825
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,5.5
+      parent: 2
+  - uid: 27826
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,6.5
+      parent: 2
+  - uid: 27827
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,2.5
       parent: 2
 - proto: ModularGrenade
   entities:
@@ -144764,6 +144772,13 @@ entities:
     - type: Transform
       pos: 21.5,-18.5
       parent: 2
+- proto: SpawnPointADTGuardOfficer
+  entities:
+  - uid: 19144
+    components:
+    - type: Transform
+      pos: 7.5,36.5
+      parent: 2
 - proto: SpawnPointADTPathologist
   entities:
   - uid: 22409
@@ -145140,6 +145155,13 @@ entities:
     components:
     - type: Transform
       pos: -42.5,3.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 19143
+    components:
+    - type: Transform
+      pos: -13.5,26.5
       parent: 2
 - proto: SpawnPointPsychologist
   entities:

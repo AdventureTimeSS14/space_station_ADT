@@ -7300,11 +7300,6 @@ entities:
     - type: Transform
       pos: -28.5,7.5
       parent: 2
-  - uid: 583
-    components:
-    - type: Transform
-      pos: 12.5,1.5
-      parent: 2
 - proto: BorgModuleFireExtinguisher
   entities:
   - uid: 584
@@ -51412,14 +51407,6 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
-  - uid: 8161
-    components:
-    - type: Transform
-      pos: 12.5,1.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        stash: !type:ContainerSlot {}
   - uid: 8162
     components:
     - type: Transform
@@ -51505,6 +51492,11 @@ entities:
     components:
     - type: Transform
       pos: -9.5,16.5
+      parent: 2
+  - uid: 9156
+    components:
+    - type: Transform
+      pos: 12.5,1.5
       parent: 2
 - proto: PottedPlantRandomPlastic
   entities:
@@ -57561,11 +57553,6 @@ entities:
     - type: Transform
       pos: -2.5,-31.5
       parent: 2
-  - uid: 9156
-    components:
-    - type: Transform
-      pos: 6.5,1.5
-      parent: 2
 - proto: SingularityGenerator
   entities:
   - uid: 9157
@@ -58400,6 +58387,13 @@ entities:
     - type: Transform
       pos: 17.5,-0.5
       parent: 2
+- proto: SpawnPointADTGuardOfficer
+  entities:
+  - uid: 583
+    components:
+    - type: Transform
+      pos: -11.5,15.5
+      parent: 2
 - proto: SpawnPointADTPathologist
   entities:
   - uid: 9307
@@ -58676,6 +58670,13 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-5.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 8161
+    components:
+    - type: Transform
+      pos: -14.5,14.5
       parent: 2
 - proto: SpawnPointQuartermaster
   entities:
