@@ -29,17 +29,18 @@
   - ADT_Box
   - ADT_Cluster
   - ADT_Cluster_Legacy
-  - ADT_Core
-  - ADT_Fland
+  # - ADT_Core #В рамках уменьшения числа карт
+  # - ADT_Fland #В рамках уменьшения числа карт
+  - ADT_kilo
   - ADT_Marathon
-  - ADT_Meta
-  - ADT_Origin
+  # - ADT_Meta
+  # - ADT_Origin
   - ADT_Saltern
-  - ADT_Packed
-  - ADT_Train
+  # - ADT_Packed #В рамках уменьшения числа карт
+  # - ADT_Train #В рамках уменьшения числа карт
   - ADT_Delta
   # - ADT_Oasis удалён чтоб жизнь малиной не казалась
   - ADT_Gemini
   - ADT_Aspid
-  - ADT_Moose
+  # - ADT_Moose #В рамках уменьшения числа карт
   # - ADT_Alley до ремонта

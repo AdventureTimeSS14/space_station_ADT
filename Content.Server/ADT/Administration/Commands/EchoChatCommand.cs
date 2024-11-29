@@ -23,7 +23,6 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "echo_chat";
 
