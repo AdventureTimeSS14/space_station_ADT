@@ -833,6 +833,12 @@
     requirements:
       - !type:OverallPlaytimeRequirement
         time: 7200 # 2h overall    
+  - type: Prying
+    pryPowered: false
+    force: false
+    speedModifier: 0.1
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 # ADT-Tweak-end       
     raffle: null
   - type: Grammar
@@ -841,12 +847,6 @@
       gender: female
   - type: TTS # Corvax-TTS
     voice: angry_neco_arc
-  - type: Prying
-    pryPowered: false
-    force: false
-    speedModifier: 0.1
-    useSound:
-      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   name: Pun Pun
