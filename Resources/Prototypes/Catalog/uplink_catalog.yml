@@ -706,9 +706,9 @@
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 35
+    Telecrystal: 12 # ADT-Tweak
   cost:
-    Telecrystal: 45 # ADT-Tweak
+    Telecrystal: 24 # ADT-Tweak
   categories:
   - UplinkChemicals
   conditions:
