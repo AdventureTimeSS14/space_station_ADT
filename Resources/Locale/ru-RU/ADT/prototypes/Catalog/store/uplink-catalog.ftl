@@ -96,7 +96,7 @@ uplink-pirate-cannonball-desc = Обычное пушечное ядро.
 uplink-pirate-grapeshot-name = картечь
 uplink-pirate-grapeshot-desc = Картечьное ядро для пушки.
 
-uplink-pirate-sawn-name = обез
+uplink-pirate-sawn-name = обрез
 uplink-pirate-sawn-desc = Против всякой шелупони. Использует патроны калибра .50 ружейный.
 
 uplink-pirate-revolver-name = пиратский револьвер
@@ -130,7 +130,7 @@ uplink-pirate-microreactor-name = микрореакторная батарея
 uplink-pirate-microreactor-desc = Стандартизированный перезаряжаемый микрореактор. Имеет пониженную ёмкость, но медленно заряжается сама по себе.
 
 uplink-pirate-pirate-name = костлявый пират
-uplink-pirate-pirate-desc = Лучший помошник любого капитана - скелет без шкафа!
+uplink-pirate-pirate-desc = Лучший помощник любого капитана - скелет без шкафа!
 
 uplink-pirate-cannon-name = пушка пиратского корабля
 uplink-pirate-cannon-desc = Кабум!
