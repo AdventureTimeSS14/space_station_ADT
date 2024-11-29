@@ -42,9 +42,6 @@
       effects:
       - !type:WashCreamPieReaction
   # Start ADT tweak
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed : 4.4
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: ADTArachnid

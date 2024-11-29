@@ -74,8 +74,8 @@
       -60: 0.4
   - type: SlowOnDamage
     speedModifierThresholds:
-      62: 0.85
-      84: 0.65
+      62: 0.8
+      84: 0.6
   - type: ThermalRegulator
     normalBodyTemperature: 273.15
   - type: Fixtures
