@@ -14,6 +14,13 @@
     state: icon
 
 - type: stealTargetGroup
+  id: ADTWeaponPistolX01
+  name: steal-target-groups-adt-pistol-x01
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: ADTClothingMaskGasCE
   name: steal-target-groups-clothing-mask-gas-ce
   sprite:
