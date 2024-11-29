@@ -53,11 +53,9 @@ public sealed class MortarSystem : SharedMortarSystem
         var mortarCoordinates = _transform.GetMapCoordinates(mortar);
         coordinates = new MapCoordinates(Vector2.Zero, mortarCoordinates.MapId);
 
-        // Упрощённая логика обработки координат
         coordinates = coordinates.Offset(target);
 
-        // Упрощённая проверка времени полёта
-        if (coordinates.MapId == mortarCoordinates.MapId) // Проверка на принадлежность к той же карте
+        if (coordinates.MapId == mortarCoordinates.MapId)
         {
             travelTime = shell.Comp.TravelDelay;
         }

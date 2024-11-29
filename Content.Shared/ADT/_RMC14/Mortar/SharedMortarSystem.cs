@@ -332,6 +332,11 @@ public abstract class SharedMortarSystem : EntitySystem
 
     private void DeployMortar(Entity<MortarComponent> mortar, EntityUid user)
     {
+        var userTransform = Transform(user);
+        var gridId = userTransform.GridUid;
+        if (gridId != null && !EntityManager.HasComponent<CanDeployMortarComponent>(gridId.Value))
+            return;
+
         if (mortar.Comp.Deployed)
             return;
 
