@@ -72,7 +72,7 @@
   name: uplink-pirate-helmet-armor-podwars-name
   description: uplink-pirate-helmet-armor-podwars-desc
   icon: { sprite: /Textures/Clothing/Head/Helmets/podwars_helmet.rsi, state: icon }
-  productEntity: ClothingHelmetArmorPodWars
+  productEntity: ClothingHeadHelmetPodWars
   cost:
     Piastr: 1500
   categories:
