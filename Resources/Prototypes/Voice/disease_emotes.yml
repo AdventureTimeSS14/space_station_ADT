@@ -3,6 +3,22 @@
   name: chat-emote-name-sneeze
   category: Vocal
   chatMessages: ["chat-emote-msg-sneeze"]
+  # ADT tweak start
+  icon: Interface/Emotes/yawn.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatTriggers:
+    - sneeze
+    - sneezes
+    - чихнул
+    - чихнула
+    - чихнуло
+    - чихает
+  # ADT tweak end
 
 - type: emote
   id: Cough
