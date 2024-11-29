@@ -99,7 +99,5 @@ public sealed class SponsorsManager
                 return null;
             }
         }
-
-        return null;
     }
 }
