@@ -17,9 +17,6 @@
     ears: ClothingHeadsetFreelance
     belt: ClothingBeltUtility
     pocket1: AppraisalTool
-  innerClothingSkirt: ClothingUniformJumpsuitPirate
-  satchel: ClothingBackpackSatchel
-  duffelbag: ClothingBackpackSatchel
 
 - type: startingGear
   id: ADTPirateCaptainGear
@@ -34,9 +31,6 @@
     pocket1: AppraisalTool
     pocket2: EnergyCutlass
     outerClothing: ClothingOuterCoatPirate
-  innerClothingSkirt: ClothingUniformJumpskirtColorLightBrown
-  satchel: ClothingBackpackSatchel
-  duffelbag: ClothingBackpackSatchel
 
 - type: startingGear
   id: ADTPirateFirstmateGear
@@ -50,6 +44,3 @@
     belt: ClothingBeltUtility
     pocket1: AppraisalTool
     outerClothing: ClothingOuterCoatGentle
-  innerClothingSkirt: ClothingUniformJumpsuitPirate
-  satchel: ClothingBackpackSatchel
-  duffelbag: ClothingBackpackSatchel
