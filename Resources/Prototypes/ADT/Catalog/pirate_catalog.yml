@@ -200,7 +200,7 @@
   - ADTPirate
 
 - type: listing
-  id: ADTPirateBolletProof
+  id: ADTPirateBulletProof
   name: uplink-pirate-bullet-proof-name
   description: uplink-pirate-bullet-proof-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/bulletproof.rsi, state: icon }
@@ -211,7 +211,7 @@
   - ADTPirate
 
 - type: listing
-  id: ADTPirateBolletProof
+  id: ADTPirateMagnum
   name: uplink-pirate-bullet-magnum-name
   description: uplink-pirate-bullet-magnum-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
