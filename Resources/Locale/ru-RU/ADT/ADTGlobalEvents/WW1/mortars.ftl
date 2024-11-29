@@ -1,4 +1,5 @@
 rmc-mortar-deploy-start = Вы начинаете развертывать {THE($mortar)}.
+rmc-mortar-fire-failure = Вы не можете выстрелить из {THE($mortar)} здесь.
 rmc-mortar-shell-busy = Кто-то другой в данный момент использует {THE($mortar)}.
 rmc-mortar-not-aimed = {CAPITALIZE(THE($mortar))} нужно сначала прицелить.
 rmc-mortar-target-invalid = Вы не можете выстрелить из {THE($mortar)} по этой цели.

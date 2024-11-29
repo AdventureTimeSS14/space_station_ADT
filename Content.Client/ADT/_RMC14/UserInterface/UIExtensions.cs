@@ -2,7 +2,7 @@
 using Robust.Client.UserInterface.Controls;
 using static Robust.Client.UserInterface.Controls.FloatSpinBox;
 
-namespace Content.Client._RMC14.UserInterface;
+namespace Content.Client.ADT._RMC14.UserInterface;
 
 public static class UIExtensions
 {

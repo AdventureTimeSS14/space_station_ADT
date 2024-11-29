@@ -2,7 +2,7 @@
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._RMC14.Mortar;
+namespace Content.Client.ADT._RMC14.Mortar;
 
 public sealed class MortarSystem : SharedMortarSystem
 {

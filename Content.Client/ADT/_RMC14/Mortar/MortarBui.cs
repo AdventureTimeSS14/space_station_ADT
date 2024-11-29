@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
-namespace Content.Client._RMC14.Mortar;
+namespace Content.Client.ADT._RMC14.Mortar;
 
 [UsedImplicitly]
 public sealed class MortarBui(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)

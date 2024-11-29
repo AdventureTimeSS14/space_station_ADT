@@ -19,6 +19,7 @@ public sealed class MortarSystem : SharedMortarSystem
     [Dependency] private readonly SharedRMCMapSystem _rmcMap = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     protected override bool CanLoadPopup(
         Entity<MortarComponent> mortar,
@@ -49,7 +50,15 @@ public sealed class MortarSystem : SharedMortarSystem
             _popup.PopupEntity(Loc.GetString("rmc-mortar-not-aimed", ("mortar", mortar)), user, user, SmallCaution);
             return false;
         }
-
+        // ADT ICONA SHITCOD START
+        var userTransform = Transform(user);
+        var gridId = userTransform.GridUid;
+        if (gridId != null && !EntityManager.HasComponent<MortarFireControlComponent>(gridId.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("rmc-mortar-fire-failure", ("mortar", mortar)), user, user, SmallCaution);
+            return false;
+        }
+        // ADT ICONA SHITCOD END
         var mortarCoordinates = _transform.GetMapCoordinates(mortar);
         coordinates = new MapCoordinates(Vector2.Zero, mortarCoordinates.MapId);
 
@@ -75,6 +84,12 @@ public sealed class MortarSystem : SharedMortarSystem
             !_container.CanInsert(shell, container))
         {
             _popup.PopupClient(Loc.GetString("rmc-mortar-cant-insert", ("shell", shell), ("mortar", mortar)), user, user, SmallCaution);
+            return false;
+        }
+        // ADT ICONA SHITCOD START
+        if (_lookup.GetEntitiesInRange<MortarFireControlComponent>(mortarCoordinates, 1).Count > 0)
+        {
+            _popup.PopupEntity(Loc.GetString("rmc-mortar-fire-failure", ("mortar", mortar)), user, user, SmallCaution);
             return false;
         }
 

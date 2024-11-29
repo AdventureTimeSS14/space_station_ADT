@@ -25,6 +25,7 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
+    private EntityCoordinates localCoordinates;
     private readonly ISawmill _sawmill = Logger.GetSawmill("airstrike");
 
     public override void Initialize()
@@ -52,7 +53,7 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
         component.FireTime = _gameTiming.CurTime + component.FireDelay;
         component.IsArmed = true;
         component.StrikeOrigin = _transformSystem.GetMapCoordinates(uid);
-        component.StrikeCoordinates = transform.Coordinates;
+        localCoordinates = transform.Coordinates;
     }
 
     public override void Update(float frameTime)
@@ -68,8 +69,8 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
 
             if (component.WarnSound != null && !component.WarnSoundPlayed && _gameTiming.CurTime >= component.FireTime - component.FireDelay / component.WarnSoundDelayMultiplier)
             {
-                _audio.PlayPvs(component.WarnSound, component.StrikeCoordinates);
-                _popup.PopupCoordinates(Loc.GetString("airstrike-shell-coming"), component.StrikeCoordinates, PopupType.LargeCaution);
+                _audio.PlayPvs(component.WarnSound, localCoordinates);
+                _popup.PopupCoordinates(Loc.GetString("airstrike-shell-coming"), localCoordinates, PopupType.LargeCaution);
                 component.WarnSoundPlayed = true;
             }
             if (!component.IsArmed || _gameTiming.CurTime < component.FireTime)

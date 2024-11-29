@@ -11,13 +11,8 @@ namespace Content.Shared.ADT.WW1;
 public sealed partial class AirStrikeComponent : Component
 {
     public TimeSpan? FireTime;
-
     public bool IsArmed = false;
-
     public MapCoordinates StrikeOrigin { get; set; }
-
-    public EntityCoordinates StrikeCoordinates { get; set; }
-
     public bool WarnSoundPlayed = false;
 
     [DataField, AutoNetworkedField]
