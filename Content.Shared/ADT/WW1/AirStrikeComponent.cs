@@ -1,6 +1,9 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.ADT.WW1;
 
@@ -40,4 +43,24 @@ public sealed partial class AirStrikeComponent : Component
 
     [DataField, AutoNetworkedField]
     public float MaxExplosionIntensity = 3f;
+
+    [ViewVariables(VVAccess.ReadOnly), DataField, AutoNetworkedField]
+    public ExplosiveTypeData? ExplosiveType { get; set; }
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class ExplosiveTypeData
+{
+    [ViewVariables(VVAccess.ReadOnly), DataField(required: true)]
+    public ExplosiveType Type = ExplosiveType.Explosive;
+
+    [ViewVariables(VVAccess.ReadOnly), DataField]
+    public EntProtoId? PrototypeId;
+}
+
+[Serializable, NetSerializable]
+public enum ExplosiveType : byte
+{
+    Explosive,
+    Smoke
 }

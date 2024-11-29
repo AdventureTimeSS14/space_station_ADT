@@ -10,6 +10,8 @@ using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Coordinates;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server.ADT.WW1;
 
@@ -21,6 +23,9 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+
+    private readonly ISawmill _sawmill = Logger.GetSawmill("airstrike");
 
     public override void Initialize()
     {
@@ -32,20 +37,22 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
     {
         if (component.IsArmed)
         {
-            _popup.PopupEntity("Артиллерийный удар уже активирован!", args.User);
+            _popup.PopupEntity(Loc.GetString("airstrike-already-activated"), args.User);
             return;
         }
 
         if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform))
         {
-            _popup.PopupEntity("Невозможно определить местоположение!", args.User);
+            _popup.PopupEntity(Loc.GetString("airstrike-unlocatable"), args.User);
             return;
         }
 
-        _popup.PopupEntity("Артиллерийный удар активирован!", args.User, PopupType.Large);
+        _popup.PopupEntity(Loc.GetString("airstrike-activated"), args.User, PopupType.Large);
+        _adminLogger.Add(LogType.AdminMessage, LogImpact.High, $"{ToPrettyString(args.User)} caused an artillery strike of {ToPrettyString(uid)}");
         component.FireTime = _gameTiming.CurTime + component.FireDelay;
         component.IsArmed = true;
         component.StrikeOrigin = _transformSystem.GetMapCoordinates(uid);
+        component.StrikeCoordinates = transform.Coordinates;
     }
 
     public override void Update(float frameTime)
@@ -58,15 +65,11 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
             if (EntityManager.Deleted(uid))
                 continue;
 
-            if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform))
-                return;
-
-            component.StrikeCoordinates = transform.Coordinates;
 
             if (component.WarnSound != null && !component.WarnSoundPlayed && _gameTiming.CurTime >= component.FireTime - component.FireDelay / component.WarnSoundDelayMultiplier)
             {
                 _audio.PlayPvs(component.WarnSound, component.StrikeCoordinates);
-                _popup.PopupCoordinates("К вам приближается снаряд!", component.StrikeCoordinates, PopupType.LargeCaution);
+                _popup.PopupCoordinates(Loc.GetString("airstrike-shell-coming"), component.StrikeCoordinates, PopupType.LargeCaution);
                 component.WarnSoundPlayed = true;
             }
             if (!component.IsArmed || _gameTiming.CurTime < component.FireTime)
@@ -78,6 +81,14 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
 
     private void TriggerAirStrike(EntityUid uid, AirStrikeComponent component)
     {
+        if (component.ExplosiveType == null)
+        {
+            _sawmill.Warning("ExplosiveType is not set for AirStrikeComponent");
+            component.ExplosiveType = new ExplosiveTypeData
+            {
+                Type = ExplosiveType.Explosive
+            };
+        }
 
         for (int i = 0; i < component.ExplosionCount; i++)
         {
@@ -87,8 +98,36 @@ public sealed class AirStrikeSystem : SharedAirStrikeSystem
 
             var intensity = _random.NextFloat(component.MinExplosionIntensity, component.MaxExplosionIntensity);
 
-            _explosionSystem.QueueExplosion(explosionPoint, "Default", intensity, 1.0f, intensity * 0.8f, null, 0f, 0);
-            RemCompDeferred<AirStrikeComponent>(uid);
+            switch (component.ExplosiveType.Type)
+            {
+                case ExplosiveType.Explosive:
+                    _explosionSystem.QueueExplosion(
+                        explosionPoint,
+                        "Default",
+                        intensity,
+                        1.0f,
+                        intensity * 0.8f,
+                        null,
+                        0f,
+                        0
+                    );
+                    break;
+
+                case ExplosiveType.Smoke:
+                    if (component.ExplosiveType.PrototypeId == null)
+                    {
+                        _sawmill.Warning($"PrototypeId is missing for ExplosiveType {component.ExplosiveType.Type}.");
+                        continue;
+                    }
+
+                    Spawn(component.ExplosiveType.PrototypeId.Value, explosionPoint);
+                    break;
+
+                default:
+                    _sawmill.Warning($"Unknown ExplosiveType {component.ExplosiveType.Type} in AirStrikeComponent.");
+                    break;
+            }
         }
+        RemCompDeferred<AirStrikeComponent>(uid);
     }
 }

@@ -75,9 +75,20 @@
   - type: EvenSmoke
     spawn: RMCSmokeNeurotoxin
     range: 4
+  - type: NeurotoxinInjector
+    neuroPerSecond: 6
+    affectsDead: false
+    toxinDamage:
+        groups:
+          Toxin: 2
+    oxygenDamage:
+        types:
+          Asphyxiation: 150
+    coughDamage:
+        groups:
+          Brute: 5
   # - type: DamageOverTime
   #   affectsDead: false
-  #   affectsInfectedNested: false
   #   damage:
   #     types:
   #       Asphyxiation: 5
@@ -96,16 +107,3 @@
 - type: edgeSpreader
   id: RMCSmokeNeurotoxin
   updatesPerSecond: 2
-
-- type: entity
-  parent: [ BaseCivilianContraband, SmokeGrenade ]
-  id: RMCSmokeNeurotoxinGrenade
-  name: cleanade
-  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/janitor.rsi
-  - type: SmokeOnTrigger
-    duration: 15
-    spreadAmount: 50
-    smokePrototype: RMCSmokeNeurotoxinShroud
