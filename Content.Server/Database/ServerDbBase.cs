@@ -1516,6 +1516,32 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return notesCol;
         }
 
+        // ADT-BookPrinter-Start
+		public async Task<List<BookPrinterEntry>> GetBookPrinterEntries()
+        {
+            await using var db = await GetDb();
+            return await GetBookPrinterEntriesImpl(db);
+        }
+
+        protected async Task<List<BookPrinterEntry>> GetBookPrinterEntriesImpl(DbGuard db)
+        {
+            return await db.DbContext.BookPrinterEntry
+                .Include(entry => entry.StampedBy)
+				.ToListAsync();
+        }
+		public async Task UploadBookPrinterEntry(BookPrinterEntry bookEntry)
+        {
+            await using var db = await GetDb();
+            await UploadBookPrinterEntryImpl(db, bookEntry);
+        }
+
+        protected async Task UploadBookPrinterEntryImpl(DbGuard db, BookPrinterEntry bookEntry)
+        {
+			db.DbContext.BookPrinterEntry.Add(bookEntry);
+			await db.DbContext.SaveChangesAsync();
+        }
+        // ADT-BookPrinter-End
+
         public async Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player)
         {
             await using var db = await GetDb();

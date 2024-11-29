@@ -22,6 +22,62 @@
 
 - type: entity
   parent: Airlock
+  id: ADTChaplainAirlock
+  suffix: Chaplain
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/chaplain.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTKitchenAirlock
+  suffix: Kitchen
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/kitchen.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTRoboticsAirlock
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/robotics.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTSalvageAirlock
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/salvage.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTTheatreAirlock
+  suffix: Theatre
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/theatre.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTBarAirlock
+  suffix: Bar
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/bar.rsi
+
+  - type: entity
+  parent: Airlock
+  id: ADTMorgueAirlock
+  suffix: Morgue
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/morgue.rsi
+
+- type: entity
+  parent: Airlock
   id: ADTCaptainAirlock
   suffix: Captain
   components:
@@ -96,6 +152,54 @@
   - type: Wires
     boardName: wires-board-name-highsec
     layoutId: HighSec
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTChaplainAirlockGlass
+  suffix: Chaplain
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/chaplain.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTKitchenAirlockGlass
+  suffix: Kitchen
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/kitchen.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTRoboticsAirlockGlass
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/robotics.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTSalvageAirlockGlass
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/salvage.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTTheatreAirlockGlass
+  suffix: Theatre
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/theatre.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTBarAirlockGlass
+  suffix: Bar
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/bar.rsi
 
 - type: entity
   parent: AirlockCommandGlass

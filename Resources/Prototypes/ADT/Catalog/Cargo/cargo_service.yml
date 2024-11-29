@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTServiceBookPrinterCartridge
+  icon:
+    sprite: ADT/Structures/Machines/book_printer.rsi
+    state: cartridge
+  product: ADTCrateServicePrinterInkCartridge
+  cost: 1500
+  category: Service
+  group: market
