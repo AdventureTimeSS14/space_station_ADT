@@ -829,6 +829,7 @@
     name: ghost-role-information-smile-name
     description: ghost-role-information-smile-description
     rules: ghost-role-information-nonantagonist-rules
+    raffle: null
 # ADT-Tweak-start    
     requirements:
       - !type:OverallPlaytimeRequirement
@@ -840,7 +841,6 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
 # ADT-Tweak-end       
-    raffle: null
   - type: Grammar
     attributes:
       proper: true
