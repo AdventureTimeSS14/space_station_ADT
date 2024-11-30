@@ -1,3 +1,5 @@
+# MAGISTRATE
+
 - type: loadoutGroup
   id: MagistratJumpsuit
   name: loadout-group-lawyer-jumpsuit
@@ -21,6 +23,8 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
+
+# PATHOLOGIST
 
 - type: loadoutGroup
   id: PathologHead
@@ -72,6 +76,8 @@
   - ADTMedicalBelt
   - ADTMedicalBeltBag
 
+# PARAMEDIC
+
 - type: loadoutGroup
   id: ADTParamedicBelt
   name: loadout-group-paramedic-belt-adt
@@ -89,7 +95,7 @@
   - ADTParamedicSatchel
   - ADTParamedicDuffel
 
-#Science
+# ROBOTICIST
 
 - type: loadoutGroup
   id: RoboticistJumpsuit
@@ -121,6 +127,8 @@
   - PurpleGloves
   - RobohandsGloves
 
+# SENIOR SCIENTIST
+
 - type: loadoutGroup
   id: ADTSeniorScientistJumpsuit
   name: loadout-group-scientist-jumpsuit
@@ -149,7 +157,7 @@
   - ScienceWintercoat
   - SeniorResearcherLabCoat
 
-#Blueshield
+# BLUESHIELD
 
 - type: loadoutGroup
   id: ADTBlueshieldJumpsuit
@@ -190,7 +198,29 @@
   - ADTBlueshieldSatchel
   - ADTBlueshieldDuffel
 
-# Security Senior
+# WARDEN
+
+- type: loadoutGroup
+  id: WardenNeckADT
+  name: loadout-warden-neck-adt
+  minLimit: 0
+  loadouts:
+  # - ADTWardenNeck
+  - ADTWardenNeckBadgeBronze
+  - ADTWardenNeckBadgeSilver
+  - ADTWardenNeckBadgeGold
+
+# SECURITY OFFICER
+
+- type: loadoutGroup
+  id: SecurityOfficerNeckADT
+  name: loadout-security-officer-neck-adt
+  minLimit: 0
+  loadouts:
+  # - ADTSecurityOfficerNeck
+  - ADTSecurityOfficerNeckBadgeBronze
+  - ADTSecurityOfficerNeckBadgeSilver
+  - ADTSecurityOfficerNeckBadgeGold
 
 - type: loadoutGroup
   id: ADTSeniorSecurityBackpack
@@ -209,29 +239,8 @@
   - SecurityOfficerWintercoat
   - ADTSeniorOfficerArmor
 
-# Warden
-- type: loadoutGroup
-  id: WardenNeckADT
-  name: loadout-warden-neck-adt
-  minLimit: 0
-  loadouts:
-  # - ADTWardenNeck
-  - ADTWardenNeckBadgeBronze
-  - ADTWardenNeckBadgeSilver
-  - ADTWardenNeckBadgeGold
+# CADET
 
-# Security Oficer
-- type: loadoutGroup
-  id: SecurityOfficerNeckADT
-  name: loadout-security-officer-neck-adt
-  minLimit: 0
-  loadouts:
-  # - ADTSecurityOfficerNeck
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
-
-# Cadet Security Oficer
 - type: loadoutGroup
   id: SecurityCadetNeckADT
   name: loadout-security-cadet-neck-adt
@@ -262,7 +271,7 @@
   loadouts:
   - ADTHatBeretAtmos
 
-#Brigmedic
+# BRIGMEDIC
 
 #suit --- y
 - type: loadoutGroup
@@ -603,7 +612,8 @@
   - ADTUnderwearStockingsBlueshield
 
 
-## Надзиратель
+## GUARD OFFICER (НАДЗИРАТЕЛЬ)
+
 # Голова
 
   #head
