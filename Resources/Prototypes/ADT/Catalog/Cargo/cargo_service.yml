@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTServiceBookPrinterCartridge
+  icon:
+    sprite: ADT/Objects/Misc/refill_cartridge.rsi
+    state: icon
+  product: ADTCrateServicePrinterInkCartridge
+  cost: 1500
+  category: Service
+  group: market

@@ -240,7 +240,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     }
 }
 */// ADT TWEAK
-
+// ADT TWEAK START
 public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
     [Dependency] private readonly IEyeManager _eyeManager = default!;
@@ -268,7 +268,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         base.FrameUpdate(frameTime);
         UpdateEffects();
     }
-        // ADT TWEAK START
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

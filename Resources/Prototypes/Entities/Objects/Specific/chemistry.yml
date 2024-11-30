@@ -357,6 +357,7 @@
       injector:
         maxVol: 15
   - type: Injector
+    delay: 6
     injectOnly: false
   - type: ExaminableSolution
     solution: injector
@@ -530,6 +531,7 @@
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
   - type: Food
+    delay: 0.3
     forceFeedDelay: 1
     transferAmount: null
     eatMessage: food-swallow
