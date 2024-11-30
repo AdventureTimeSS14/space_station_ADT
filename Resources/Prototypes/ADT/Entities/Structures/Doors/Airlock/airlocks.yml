@@ -37,7 +37,7 @@
     sprite: ADT/Structures/Doors/Airlocks/Standard/kitchen.rsi
 
 - type: entity
-  parent: Airlock
+  parent: AirlockScience
   id: ADTRoboticsAirlock
   suffix: Robotics
   components:
@@ -45,7 +45,7 @@
     sprite: ADT/Structures/Doors/Airlocks/Standard/robotics.rsi
 
 - type: entity
-  parent: Airlock
+  parent: AirlockCargo
   id: ADTSalvageAirlock
   suffix: Salvage
   components:
@@ -68,8 +68,8 @@
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Standard/bar.rsi
 
-  - type: entity
-  parent: Airlock
+- type: entity
+  parent: AirlockMedical
   id: ADTMorgueAirlock
   suffix: Morgue
   components:
@@ -170,7 +170,7 @@
     sprite: ADT/Structures/Doors/Airlocks/Glass/kitchen.rsi
 
 - type: entity
-  parent: AirlockGlass
+  parent: AirlockScienceGlass
   id: ADTRoboticsAirlockGlass
   suffix: Robotics
   components:
@@ -178,7 +178,7 @@
     sprite: ADT/Structures/Doors/Airlocks/Glass/robotics.rsi
 
 - type: entity
-  parent: AirlockGlass
+  parent: AirlockCargoGlass
   id: ADTSalvageAirlockGlass
   suffix: Salvage
   components:
