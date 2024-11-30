@@ -248,6 +248,7 @@
     - FootstepSound
     - CanPilot
     - ADTSiliconStealthWhitelist  # ADT tweak
+    - ADTSiliconEmotes            # ADT tweak
   - type: Emoting
   # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMind

@@ -160,3 +160,20 @@
     containers:
       board: [ ADTDoorElectronicsSpaceSecExternal ]
 
+- type: entity
+  parent: ADTRoboticsAirlock
+  id: ADTRoboticsAirlockLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsRobotics ]
+
+- type: entity
+  parent: ADTRoboticsAirlockGlass
+  id: ADTRoboticsAirlockGlassLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsRobotics ]
