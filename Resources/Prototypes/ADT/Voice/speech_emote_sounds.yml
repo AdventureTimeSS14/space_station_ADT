@@ -31,6 +31,8 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: FemaleDrask
@@ -65,6 +67,8 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: MaleMoth
@@ -177,6 +181,8 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
     # ADT-Apathy Sounds.
     Scream-apathy:
       collection: TajaranMaleScreams
@@ -186,10 +192,6 @@
       collection: MaleSigh
     Crying-apathy:
       collection: MaleCry
-    # ADT Emotes start
-    Spit:
-      collection: HumanSpits
-    # ADT Emotes end
 
 - type: emoteSounds
   id: ADTFemaleTajaran
@@ -230,10 +232,8 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    # ADT Emotes start
     Spit:
       collection: HumanSpits
-    # ADT Emotes end
     # ADT-Apathy Sounds.
     Scream-apathy:
       collection: TajaranFemaleScreams
