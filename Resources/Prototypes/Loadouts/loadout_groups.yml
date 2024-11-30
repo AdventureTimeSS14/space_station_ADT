@@ -1,4 +1,5 @@
 # Miscellaneous
+
 - type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
@@ -105,6 +106,7 @@
   - LoadoutSpeciesPocketDoubleOxygen
 
 # Command
+
 - type: loadoutGroup
   id: CaptainHead
   name: loadout-group-captain-head
@@ -208,6 +210,7 @@
   # ADT-Loadouts-End
 
 # Civilian
+
 - type: loadoutGroup
   id: PassengerJumpsuit
   name: loadout-group-passenger-jumpsuit
@@ -622,6 +625,7 @@
   - Bagpipe
 
 # Cargo
+
 - type: loadoutGroup
   id: QuartermasterHead
   name: loadout-group-quartermaster-head
@@ -727,6 +731,7 @@
   - CargoWinterBoots
 
 # Engineering
+
 - type: loadoutGroup
   id: ChiefEngineerHead
   name: loadout-group-chief-engineer-head
@@ -877,6 +882,7 @@
 # ADT-TWEAK-END
 
 # Science
+
 - type: loadoutGroup
   id: ResearchDirectorHead
   name: loadout-group-research-director-head
@@ -997,6 +1003,7 @@
   - WhiteJumpskirt
 
 # Security
+
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
@@ -1189,7 +1196,7 @@
   - ADTEmergencyMothSecurity #ADT_Species
   - ADTEmergencyIPCSecurity #ADT_Species
 
-- type: loadoutGroup 
+- type: loadoutGroup
   id: SecurityStar
   name: loadout-group-security-star
   minLimit: 0
@@ -1249,11 +1256,11 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
-  - SeniorPhysicianBeret
+  # - SeniorPhysicianBeret # ADT-Tweak-senior
   - MedicalHeadMirror
-  - BlueSurgeryCap
-  - GreenSurgeryCap
-  - PurpleSurgeryCap
+  # - BlueSurgeryCap # ADT-Tweak
+  # - GreenSurgeryCap # ADT-Tweak
+  # - PurpleSurgeryCap # ADT-Tweak
   - NurseHat
 
 - type: loadoutGroup
@@ -1262,11 +1269,11 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
-  - SeniorPhysicianJumpsuit
-  - SeniorPhysicianJumpskirt
-  - MedicalBlueScrubs
-  - MedicalGreenScrubs
-  - MedicalPurpleScrubs
+  # - SeniorPhysicianJumpsuit # ADT-Tweak-senior
+  # - SeniorPhysicianJumpskirt # ADT-Tweak-senior
+  # - MedicalBlueScrubs # ADT-Tweak
+  # - MedicalGreenScrubs # ADT-Tweak
+  # - MedicalPurpleScrubs # ADT-Tweak
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1275,8 +1282,7 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-  - SeniorPhysicianLabCoat
-
+  # - SeniorPhysicianLabCoat # ADT-Tweak-senior
 - type: loadoutGroup
   id: MedicalBackpack
   name: loadout-group-medical-doctor-backpack
@@ -1387,6 +1393,7 @@
   - ADTEmergencyIPCMedical #ADT_Species
 
 # Wildcards
+
 - type: loadoutGroup
   id: ReporterJumpsuit
   name: loadout-group-reporter-jumpsuit
@@ -1418,6 +1425,7 @@
   - YellowBoxingGloves
 
 # Other
+
 - type: loadoutGroup
   id: SurvivalSyndicate
   name: loadout-group-survival-syndicate

@@ -1,4 +1,4 @@
-# ADT-Senior-loadout-fix-START
+# ADT-Tweak-senior-start
 # # Senior Time
 # - type: loadoutEffectGroup
 #   id: SeniorPhysician
@@ -18,7 +18,7 @@
 #       !type:DepartmentTimeRequirement
 #       department: Medical
 #       time: 216000 # 60 hrs
-# ADT-Senior-loadout-fix-END
+# ADT-Tweak-senior-end
 
 # Other Timers
 
@@ -33,13 +33,15 @@
 
 # Head
 
-- type: loadout
-  id: SeniorPhysicianBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    head: ClothingHeadHatBeretSeniorPhysician
+# ADT-Tweak-senior-start
+# - type: loadout
+#   id: SeniorPhysicianBeret
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorPhysician
+#   equipment:
+#     head: ClothingHeadHatBeretSeniorPhysician
+# ADT-Tweak-senior-end
 
 - type: loadout
   id: MedicalHeadMirror
@@ -75,6 +77,7 @@
     head: ClothingHeadNurseHat
 
 # Jumpsuit
+
 - type: loadout
   id: MedicalDoctorJumpsuit
   equipment:
@@ -85,21 +88,23 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
 
-- type: loadout
-  id: SeniorPhysicianJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorPhysician
+# ADT-Tweak-senior-start
+# - type: loadout
+#   id: SeniorPhysicianJumpsuit
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorPhysician
+#   equipment:
+#     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
 
-- type: loadout
-  id: SeniorPhysicianJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorPhysician
+# - type: loadout
+#   id: SeniorPhysicianJumpskirt
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorPhysician
+#   equipment:
+#     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
+# ADT-Tweak-senior-end
 
 - type: loadout
   id: MedicalBlueScrubs
@@ -117,6 +122,7 @@
     jumpsuit: UniformScrubsColorPurple
 
 # Back
+
 - type: loadout
   id: MedicalDoctorBackpack
   equipment:
@@ -138,21 +144,25 @@
   equipment:
     outerClothing: ClothingOuterWinterMed
 
-- type: loadout
-  id: SeniorPhysicianLabCoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    outerClothing: ClothingOuterCoatLabSeniorPhysician
+# ADT-Tweak-senior-start
+# - type: loadout
+#   id: SeniorPhysicianLabCoat
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorPhysician
+#   equipment:
+#     outerClothing: ClothingOuterCoatLabSeniorPhysician
+# ADT-Tweak-senior-end
 
 # Shoes
+
 - type: loadout
   id: MedicalWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterMed
 
 # ID
+
 - type: loadout
   id: MedicalDoctorPDA
   equipment:
@@ -172,22 +182,25 @@
 #     id: SeniorPhysicianPDA
 # ADT Tweak end
 
-- type: loadout
-  id: SeniorPhysicianPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    id: SeniorPhysicianPDA
-
+# ADT-Tweak-senior-start
+# - type: loadout
+#   id: SeniorPhysicianPDA
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: SeniorPhysician
+#   equipment:
+#     id: SeniorPhysicianPDA
+# ADT-Tweak-senior-end
 
 # Gloves
+
 - type: loadout
   id: NitrileGloves
   equipment:
     gloves: ClothingHandsGlovesNitrile
 
-#Masks
+# Masks
+
 - type: loadout
   id: SterileMask
   equipment:

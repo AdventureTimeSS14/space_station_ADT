@@ -26,3 +26,4 @@
   equipment:
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled

@@ -83,13 +83,13 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - MedicalDoctorHead
+  - SeniorPhysicianHead # ADT-Tweak-senior
   - MedicalMask
-  - MedicalDoctorJumpsuit
+  - SeniorPhysicianJumpsuit # ADT-Tweak-senior
   - MedicalGloves
   - ADTMedicalBelt # ADT tweak
   - MedicalBackpack
-  - MedicalDoctorOuterClothing
+  - SeniorPhysicianOuterClothing # ADT-Tweak-senior
   - Trinkets
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical

@@ -95,6 +95,30 @@
   - ADTParamedicSatchel
   - ADTParamedicDuffel
 
+# SENIOR PHYSICIAN
+
+- type: loadoutGroup
+  id: SeniorPhysicianHead
+  name: loadout-group-medical-doctor-head
+  minLimit: 0
+  loadouts:
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+
+- type: loadoutGroup
+  id: SeniorPhysicianJumpsuit
+  name: loadout-group-medical-doctor-jumpsuit
+  loadouts:
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+
+- type: loadoutGroup
+  id: SeniorPhysicianOuterClothing
+  name: loadout-group-medical-doctor-outerclothing
+  minLimit: 0
+  loadouts:
+  - SeniorPhysicianLabCoat
+
 # ROBOTICIST
 
 - type: loadoutGroup
