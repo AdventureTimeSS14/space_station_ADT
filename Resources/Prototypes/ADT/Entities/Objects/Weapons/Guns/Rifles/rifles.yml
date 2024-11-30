@@ -100,7 +100,7 @@
 
 - type: entity
   name: AR-12
-  parent: WeaponRifleLecter
+  parent: [WeaponRifleLecter, ADTBaseMagneticGun]
   id: ADTWeaponRifleAR12
   description: AR-12
   components:
@@ -155,7 +155,7 @@
 
 - type: entity
   name: xC67
-  parent: BaseWeaponRifle
+  parent: [BaseWeaponRifle, ADTBaseMagneticGun]
   id: ADTWeaponRifleXC67
   description: A high end prototipe assault rifle. Uses .20 rifle ammo.
   components:

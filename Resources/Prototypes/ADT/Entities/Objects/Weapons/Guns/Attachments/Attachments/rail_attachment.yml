@@ -1,0 +1,29 @@
+## BASE
+- type: entity
+  abstract: true
+  parent: ADTAttachableBase
+  id: ADTRailAttachmentBase
+  components:
+  - type: Sprite
+    sprite: ADT/Attachments/rail.rsi
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+## BASE
+
+- type: entity
+  parent: ADTRailAttachmentBase
+  id: ADTAttachmentMagneticHarness
+  name: magnetic harness
+  description: A magnetically attached harness kit that attaches to the rail mount of a weapon. When dropped, the weapon will sling to any set of Marine armor.
+  components:
+  - type: Sprite
+    state: magnetic
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentMagneticHarness
+  - type: AttachableMagnetic
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - accuracyAddMult: -0.05

@@ -1,0 +1,12 @@
+## BASE
+- type: entity
+  abstract: true
+  parent: ADTAttachableBase
+  id: ADTBarrelAttachmentBase
+  components:
+  - type: Sprite
+    sprite: ADT/Attachments/barrel.rsi
+  - type: Tag
+    tags:
+    - ADTAttachmentBarrel
+##

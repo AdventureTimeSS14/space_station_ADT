@@ -7,3 +7,17 @@
 - type: Tag
   id: ADTAttachmentM90UnderbarrelShotgun
 
+- type: Tag
+  id: ADTAttachmentBarrel
+
+- type: Tag
+  id: SurvivalKnifeAttachment
+
+- type: Tag
+  id: ADTAttachmentMicroAccelerator
+
+- type: Tag
+  id: ADTAttachmentRail
+
+- type: Tag
+  id: ADTAttachmentMagneticHarness

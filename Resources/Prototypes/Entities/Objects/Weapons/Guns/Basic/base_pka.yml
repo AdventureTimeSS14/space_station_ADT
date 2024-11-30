@@ -1,7 +1,7 @@
 - type: entity
   id: WeaponProtoKineticAcceleratorBase
   abstract: true
-  parent: BaseItem
+  parent: [BaseItem, ADTBaseAttachableHolder] # ADT TWEAK
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
@@ -47,3 +47,32 @@
     - Belt
   - type: UseDelay
     delay: 1
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - SurvivalKnifeAttachment
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentMicroAccelerator
+      # rmc-aslot-stock:
+      #   whitelist:
+      #     tags:
+      # rmc-aslot-rail:
+      #   whitelist:
+      #       tags:
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.59375, -0.15625
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+

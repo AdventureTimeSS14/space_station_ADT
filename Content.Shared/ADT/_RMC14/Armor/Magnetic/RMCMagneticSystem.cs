@@ -1,4 +1,4 @@
-﻿using Content.Shared._RMC14.Inventory;
+﻿﻿using Content.Shared._RMC14.Inventory;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -77,16 +77,19 @@ public sealed class RMCMagneticSystem : EntitySystem
                 var slots = _inventory.GetSlotEnumerator(user, SlotFlags.SUITSTORAGE);
                 while (slots.MoveNext(out var slot))
                 {
-                    if (_inventory.TryEquip(user, uid, slot.ID, force: true))
+                    if (_inventory.TryGetSlotEntity(user, "outerClothing", out _))
                     {
-                        var popup = Loc.GetString("rmc-magnetize-return",
-                            ("item", uid),
-                            ("user", user));
-                        _popup.PopupClient(popup, user, user, PopupType.Medium);
+                        if (_inventory.TryEquip(user, uid, slot.ID, force: true))
+                        {
+                            var popup = Loc.GetString("rmc-magnetize-return",
+                                ("item", uid),
+                                ("user", user));
+                            _popup.PopupClient(popup, user, user, PopupType.Medium);
 
-                        comp.Returned = true;
-                        Dirty(uid, comp);
-                        break;
+                            comp.Returned = true;
+                            Dirty(uid, comp);
+                            break;
+                        }
                     }
                 }
             }

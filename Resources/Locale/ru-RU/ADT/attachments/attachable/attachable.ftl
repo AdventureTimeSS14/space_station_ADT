@@ -1,12 +1,12 @@
-rmc-attachable-holder-strip-ui-title = снять модули
-rmc-attachable-holder-strip-ui-empty-slot = ничего
+rmc-attachable-holder-strip-ui-title = Модули
+rmc-attachable-holder-strip-ui-empty-slot = Ничего
 
 rmc-verb-strip-attachables = Снять модули
 
 rmc-aslot-barrel = Ствол
-rmc-aslot-rail = Планка
+rmc-aslot-rail = Верхняя планка
 rmc-aslot-stock = Приклад
-rmc-aslot-underbarrel = Подствольный
+rmc-aslot-underbarrel = Подствольное
 
 rmc-attachable-activation-fail-not-wielded = {CAPITALIZE(THE($holder))} должен быть экипирован, чтобы активировать {THE($attachable)}!
 rmc-attachable-activation-fail-not-held = {CAPITALIZE(THE($holder))} должен быть в руках, чтобы активировать {THE($attachable)}!
