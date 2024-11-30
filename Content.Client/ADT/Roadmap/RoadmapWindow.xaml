@@ -14,33 +14,14 @@
                 </BoxContainer>
             </BoxContainer>
             <BoxContainer Name="Columns" Access="Public" Orientation="Horizontal">
-                <BoxContainer Name="FirstVersion" Access="Public" Orientation="Vertical" HorizontalExpand="True" Margin="0 0 20 0">
-                    <controls:RoadmapVersionHeader Text="Текущая версия" />
-                    <controls:RoadmapItem ItemState="InProgress" HeaderText="Модули для оружия" Text="Перенос модулей для оружия c колониальных морпехов, которые существенно изменят ваш взгляд на стрельбу" />
-                    <controls:RoadmapItem ItemState="InProgress" HeaderText="Корабельные бои" Text="Огромный и совершенно новый режим, который откроет вам не только возможности для стрельбы и РДМа, но и для РП, а также подарит уникальные впечатления: высадки на планеты, масштабные сражения на земле, артиллерия, корабельные бои, абордажи и, конечно же, битвы на космобайках!" />
-                    <controls:RoadmapItem ItemState="InProgress" HeaderText="Обновления Ниндзя" Text="Крупное обновление мидраунд-антагониста — Космического Ниндзя, которое существенно изменит его геймплей, подарит новые цели, способности и, соответственно, возможности!" />
-                    <controls:RoadmapItem ItemState="InProgress" HeaderText="Обновление Зомби" Text="Обновление антагониста — режим Зомби, который даст ему хотя бы небольшое право на существование :D" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Новый Генокрад!" Text="Всеми известный генокрад был возвращён на сервер Время Приключений и, как обычно для этого сервера, сильно переработан! Новые способности! Новые возможности! Уже ждут вас!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Новые газы" Text="Настоящий рай для атмосов, которые уже освоили эту игру! Множество новых, интересных и полезных газов!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Система языков" Text="Уникальная система языков рас!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Коллективный разум" Text="Коллективный разум для дион, генокрадов, космических карпов и дракона!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Уникальные блюда и напитки" Text="Сервис - на высоте!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Новые газы" Text="Уникальные газы - рай для атмосов! Гайд - на нашей вики!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Стильномат" Text="Для самых модных сотрудников станции!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Механика лежания" Text="Новые возможности для ПВП и РП!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Расширение спавна пауков" Text="Новые и опасные пауки ждут момента, чтобы атаковать экипаж!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Экономика" Text="Получайте зарплату, тратьте её на товары, а также на некоторые услуги (у уборщика, бармена, повара). Гайд - на вики. Подробности о ценах на товары и услуги - в СРП Сервисного отдела!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Обновление Священника" Text="Священный меч, вера и сила - всё для борьбы с бушующими духами!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Фантом" Text="Космический призрак, проклятие магов, коллективная галлюцинация или межпланетарный путешественник, попавший на станцию случайно или с определенными целями. Подробности на нашей вики!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Обновление ОБР" Text="Отряд Быстрого Реагирования обзавелся новейшей Блюспейс оружейной ОБР (Б.О.О.Б.Р), работающим по аналогии с аплинком, а также получил собственных мехов!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Мехи" Text="Новые, стильные, уникально разработанные и крутые мехи!" />
-                    <controls:RoadmapItem ItemState="Complete" HeaderText="Обновление революции" Text="Скучнейшая революция получила обновление, и добавила в нее побольше РП и шансов на победу!" />
+                <BoxContainer Name="Complete" Access="Public" Orientation="Vertical" HorizontalExpand="True" Margin="0 0 20 0">
+                    <controls:RoadmapVersionHeader Text="Выполнено" />
                 </BoxContainer>
-                <BoxContainer Name="SecondVersion" Access="Public" Orientation="Vertical"  HorizontalExpand="True" Margin="0 0 20 0">
-                    <controls:RoadmapVersionHeader Text="Предстоящее" />
+                <BoxContainer Name="InProgress" Access="Public" Orientation="Vertical"  HorizontalExpand="True" Margin="0 0 20 0">
+                    <controls:RoadmapVersionHeader Text="В процессе" />
                 </BoxContainer>
-                <BoxContainer Name="ThirdVersion" Access="Public" Orientation="Vertical"  HorizontalExpand="True" Margin="0 0 20 0">
-                    <controls:RoadmapVersionHeader Text="На будущее" />
+                <BoxContainer Name="Planned" Access="Public" Orientation="Vertical"  HorizontalExpand="True" Margin="0 0 20 0">
+                    <controls:RoadmapVersionHeader Text="Запланировано" />
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>

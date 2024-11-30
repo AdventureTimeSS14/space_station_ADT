@@ -1,0 +1,19 @@
+- files: ["ship_darkgray.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "By RMC-14, modified for Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["ship_gray.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "By RMC-14, modified for Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["steelplate_darkgray.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "By RMC-14, modified for Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["steel_darkgray.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "By RMC-14, modified for Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"

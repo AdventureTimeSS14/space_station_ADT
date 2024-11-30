@@ -347,8 +347,8 @@ public sealed partial class ChangelingSystem
 
         if (component.StasisDeathActive)
         {
-        if (!TryUseAbility(uid, component, args.Cost))
-            return;
+            if (!TryUseAbility(uid, component, args.Cost))
+                return;
 
             args.Handled = true;
 
@@ -368,8 +368,8 @@ public sealed partial class ChangelingSystem
                 return;
             }
 
-        if (!TryUseAbility(uid, component, args.Cost))
-            return;
+            if (!TryUseAbility(uid, component, args.Cost))
+                return;
 
             args.Handled = true;
 
@@ -472,8 +472,8 @@ public sealed partial class ChangelingSystem
 
         if (!component.LesserFormActive)
         {
-        if (!TryUseAbility(uid, component, args.Cost))
-            return;
+            if (!TryUseAbility(uid, component, args.Cost))
+                return;
 
             RemoveShieldEntity(uid, component);
             RemoveBladeEntity(uid, component);
