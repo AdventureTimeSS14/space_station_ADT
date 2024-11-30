@@ -427,10 +427,8 @@
       collection: UrsusCry
     Whistle:
       collection: Whistles
-    # ADT Emotes start
     Spit:
       collection: HumanSpits
-    # ADT Emotes end
 
 - type: emoteSounds
   id: FemaleUrsus
@@ -465,10 +463,8 @@
       collection: UrsusCry
     Whistle:
       collection: Whistles
-    # ADT Emotes start
     Spit:
       collection: HumanSpits
-    # ADT Emotes end
 
 - type: emoteSounds
   id: NesMaleVulpa
@@ -513,10 +509,8 @@
       collection: Whistles
     Heckaet:
       collection: VulpHeckaetSound
-    # ADT Emotes start
     Spit:
       collection: HumanSpits
-    # ADT Emotes end
 
 - type: emoteSounds
   id: NesFemaleVulpa
@@ -561,6 +555,8 @@
       collection: Whistles
     Heckaet:
       collection: VulpHeckaetSound
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: MaleFelinid
