@@ -331,17 +331,21 @@ public sealed partial class ChangelingSystem : EntitySystem
         var newLingComponent = new ChangelingComponent();
         newLingComponent.Chemicals = comp.Chemicals;
         newLingComponent.ChemicalsPerSecond = comp.ChemicalsPerSecond;
+
         newLingComponent.StoredDNA = comp.StoredDNA;
-        newLingComponent.SelectedDNA = comp.SelectedDNA;
+
         newLingComponent.ArmBladeActive = comp.ArmBladeActive;
         newLingComponent.ChameleonSkinActive = comp.ChameleonSkinActive;
         newLingComponent.LingArmorActive = comp.LingArmorActive;
-        newLingComponent.CanRefresh = comp.CanRefresh;
         newLingComponent.LesserFormActive = comp.LesserFormActive;
+
         newLingComponent.AbsorbedDnaModifier = comp.AbsorbedDnaModifier;
+        newLingComponent.DNAStolen = comp.DNAStolen;
+        newLingComponent.LastResortUsed = comp.LastResortUsed;
+        newLingComponent.CanRefresh = comp.CanRefresh;
+
         newLingComponent.BasicTransferredActions = comp.BasicTransferredActions;
         newLingComponent.BoughtActions = comp.BoughtActions;
-        newLingComponent.LastResortUsed = comp.LastResortUsed;
         newLingComponent.GainedActions = true;
         RemComp(from, comp);
         AddComp(to, newLingComponent);
@@ -596,9 +600,15 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(selfMessage, uid, uid);
             return false;
         }
+        else if (HasComp<ForceTransformedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-transform-sting-fail-already", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+            return false;
+        }
 
         else
         {
+            component.DNAStolen++;
             component.StoredDNA.Add(newHumanoidData.Value);
         }
 
