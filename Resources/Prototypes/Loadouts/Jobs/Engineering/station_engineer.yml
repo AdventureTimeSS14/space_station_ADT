@@ -1,22 +1,24 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorEngineering
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 72000 #20 hrs # Corvax-RoleTime
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 72000 #20 hrs # Corvax-RoleTime
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 216000 # 60 hrs
+# ADT-Senior-loadout-fix-START
+# # Senior times
+# - type: loadoutEffectGroup
+#   id: SeniorEngineering
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobAtmosphericTechnician
+#       time: 72000 #20 hrs # Corvax-RoleTime
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobStationEngineer
+#       time: 72000 #20 hrs # Corvax-RoleTime
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:DepartmentTimeRequirement
+#       department: Engineering
+#       time: 216000 # 60 hrs
+# ADT-Senior-loadout-fix-END
 
 # Head
 - type: startingGear

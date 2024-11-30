@@ -1,22 +1,24 @@
-# Senior Time
-- type: loadoutEffectGroup
-  id: SeniorPhysician
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChemist
-      time: 72000 #20 hrs # Corvax-RoleTime
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 72000 #20 hrs # Corvax-RoleTime
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Medical
-      time: 216000 # 60 hrs
+# ADT-Senior-loadout-fix-START
+# # Senior Time
+# - type: loadoutEffectGroup
+#   id: SeniorPhysician
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobChemist
+#       time: 72000 #20 hrs # Corvax-RoleTime
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobMedicalDoctor
+#       time: 72000 #20 hrs # Corvax-RoleTime
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:DepartmentTimeRequirement
+#       department: Medical
+#       time: 216000 # 60 hrs
+# ADT-Senior-loadout-fix-END
 
 # Other Timers
 
