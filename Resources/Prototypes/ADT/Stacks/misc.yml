@@ -8,7 +8,7 @@
 
 - type: stack
   id: ADTPiastra
-  name: piastr
+  name: Piastre
   icon: { sprite: ADT/Objects/Specific/piastra.rsi, state: piastra_1 }
   spawn: ADTPiratePiastr1
   maxCount: 9000

@@ -1,6 +1,6 @@
 - type: currency
-  id: Piastr
-  displayName: store-currency-display-piastr
+  id: Piastre
+  displayName: store-currency-display-Piastre
   cash:
     1: ADTPiratePiastr1
   canWithdraw: true
@@ -32,4 +32,4 @@
     categories:
     - ADTPirate
     currencyWhitelist:
-    - Piastr
+    - Piastre

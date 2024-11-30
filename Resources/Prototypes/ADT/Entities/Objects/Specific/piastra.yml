@@ -1,5 +1,5 @@
 - type: entity
-  name: piastr
+  name: Piastre
   parent: BaseItem
   id: ADTPiratePiastr1
   description: The most YARRRR currency!
@@ -31,10 +31,10 @@
     - piastra_10
   - type: Currency
     price:
-      Piastr: 1
+      Piastre: 1
 
 - type: entity
-  name: piastr
+  name: Piastre
   parent: ADTPiratePiastr1
   id: ADTPiratePiastr1000
   description: The most YARRRR currency!
