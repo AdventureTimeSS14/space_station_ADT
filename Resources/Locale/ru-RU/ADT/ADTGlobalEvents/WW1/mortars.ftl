@@ -8,7 +8,7 @@ rmc-mortar-target-covered = Вы не можете поразить цель. В
 rmc-mortar-bad-idea = Вы осознаёте, насколько это плохая идея, и быстро останавливаетесь.
 rmc-mortar-cant-insert = Вы не можете вставить {THE($shell)} в {THE($mortar)}!
 rmc-mortar-not-deployed = Сначала вам нужно развернуть {THE($mortar)}!
-rmc-mortar-fire-cooldown = Ствол {CAPITALIZE(THE($mortar))} всё ещё раскален. Подождите несколько секунд, прежде чем снова стрелять.
+rmc-mortar-fire-cooldown = Ствол {CAPITALIZE(THE($mortar))} всё ещё раскалён. Подождите несколько секунд, прежде чем снова стрелять.
 rmc-mortar-less-accurate-with-range = [color=red]Точность будет снижаться по мере удаления цели![/color]
 rmc-mortar-target-start-self = Вы начинаете регулировать угол и дистанцию стрельбы {THE($mortar)} в соответствии с новыми координатами.
 rmc-mortar-target-start-others = {$user} начинает регулировать угол и дистанцию стрельбы {THE($mortar)}.
@@ -33,11 +33,11 @@ rmc-mortar-interface = Интерфейс миномёта
 rmc-mortar-target-x = Цель X:
 rmc-mortar-target-y = Цель Y:
 rmc-mortar-target-set = Установить цель
-rmc-mortar-target-too-close = Вы не можете прицелиться на эти координаты, они слишком близки к вашему миномёту.
+rmc-mortar-target-too-close = Вы не можете прицелиться на эти координаты, цель слишком близка к вашему миномёту.
 
 rmc-mortar-offset-x = Смещение X:
 rmc-mortar-offset-y = Смещение Y:
 rmc-mortar-offset-set = Установить сдвиг
-rmc-mortar-offset-too-far = Вы не можете установить смещение на эти координаты, они слишком далеко.
-rmc-mortar-offset-too-close = Вы не можете установить смещение на эти координаты, они слишком близки к вашему миномёту.
+rmc-mortar-offset-too-far = Вы не можете установить смещение на эти координаты, цель слишком далеко.
+rmc-mortar-offset-too-close = Вы не можете установить смещение на эти координаты, цель слишком близка к вашему миномёту.
 rmc-mortar-offset-max = Максимальное смещение: {$max}
