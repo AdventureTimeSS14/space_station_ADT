@@ -39,10 +39,10 @@ public sealed class MindShieldSystem : EntitySystem
         if (_tag.HasTag(ev.Implant, MindShieldTag) && ev.Implanted != null)
         {
             EnsureComp<MindShieldComponent>(ev.Implanted.Value);
-            //MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant); // ADT TWEAK
+            MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
         }
     }
-    /* ADT TWEAK START
+
     /// <summary>
     /// Checks if the implanted person was a Rev or Head Rev and remove role or destroy mindshield respectively.
     /// </summary>
@@ -61,6 +61,4 @@ public sealed class MindShieldSystem : EntitySystem
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }
     }
-
-    */// ADT TWEAK END
 }
