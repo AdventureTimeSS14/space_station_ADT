@@ -123,7 +123,7 @@
   - ADTPirate
 
 - type: listing
-  id: ADTPirateMicrireactor
+  id: ADTPirateMicroreactor
   name: uplink-pirate-microreactor-name
   description: uplink-pirate-microreactor-desc
   icon: { sprite: /Textures/Objects/Power/power_cells.rsi, state: microreactor }
