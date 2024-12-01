@@ -51,7 +51,7 @@
       required: true
       defaultMarkings: [ NovakidFace1 ]
     Chest:
-      points: 2
+      points: 1
       required: true
       defaultMarkings: [ TorsoNovakidDefolt ]
     Tail:
