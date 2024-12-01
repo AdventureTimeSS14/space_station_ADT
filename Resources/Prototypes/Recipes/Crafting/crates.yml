@@ -72,7 +72,6 @@
   targetNode: boxcardboard
   category: construction-category-storage
   description: A small box for storing things.
-  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
   objectType: Item
 
 - type: construction
@@ -83,7 +82,7 @@
   targetNode: foodboxpizza
   category: construction-category-storage
   description: A box for pizza.
-  icon: 
+  icon:
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: box
   objectType: Item
