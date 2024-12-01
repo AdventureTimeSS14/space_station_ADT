@@ -1,4 +1,4 @@
 - type: ninjaHackingThreat
   id: Pirate
   announcement: terror-pirate
-  rule: Pirate1
+  rule: Pirate
