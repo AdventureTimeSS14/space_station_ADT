@@ -22,7 +22,7 @@
   - type: StationEvent
     earliestStart: 30
     weight: 5
-    minimumPlayers: 20
+    minimumPlayers: 30
     reoccurrenceDelay: 30
     duration: 1
   - type: PiratesRule
