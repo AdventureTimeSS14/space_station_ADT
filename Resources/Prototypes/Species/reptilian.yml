@@ -46,7 +46,7 @@
       required: true
       defaultMarkings: [ LizardTailSmooth ]
     Snout:
-      points: 2   #ADT_Tweak
+      points: 1
       required: true
       defaultMarkings: [ LizardSnoutRound ]
     HeadTop:
