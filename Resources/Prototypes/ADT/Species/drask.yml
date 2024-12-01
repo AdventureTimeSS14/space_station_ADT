@@ -62,7 +62,7 @@
       points: 4
       required: false
     Arms:
-      points: 4
+      points: 2
       required: false
       defaultMarkings: [DraskArmRight,DraskArmLeft]
 
