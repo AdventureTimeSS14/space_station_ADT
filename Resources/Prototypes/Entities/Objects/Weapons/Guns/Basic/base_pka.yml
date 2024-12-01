@@ -47,7 +47,7 @@
     - Belt
   - type: UseDelay
     delay: 1
-  - type: AttachableHolder
+  - type: AttachableHolder #ADT_Tweak
     slots:
       rmc-aslot-barrel:
         whitelist:
@@ -63,10 +63,10 @@
       # rmc-aslot-rail:
       #   whitelist:
       #       tags:
-  - type: AttachableHolderVisuals
+  - type: AttachableHolderVisuals #ADT_Tweak
     offsets:
       rmc-aslot-barrel: 0.59375, -0.15625
-  - type: MeleeWeapon
+  - type: MeleeWeapon #ADT_Tweak
     resetOnHandSelected: false
     attackRate: 1
     damage:
@@ -74,5 +74,5 @@
         Blunt: 5
     soundHit:
       collection: GenericHit
-  - type: AltFireMelee
+  - type: AltFireMelee #ADT_Tweak
 
