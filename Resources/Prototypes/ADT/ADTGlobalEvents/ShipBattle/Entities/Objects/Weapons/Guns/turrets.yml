@@ -1,0 +1,181 @@
+- type: entity
+  parent: BaseStructure
+  id: ADTBaseControllableTurretMagazine
+  name: base controllable turret (magazine)
+  suffix: Space Battleships
+  abstract: true
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Actions
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 60
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: ContainerContainer
+      containers:
+        gun_magazine: !type:ContainerSlot
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
+      drawdepth: Mobs
+      layers:
+        - state: gau32_kmt
+        - state: mag-19
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: InteractionPopup
+      interactDelay: 0.2
+      successChance: 0.8
+      interactSuccessString: petting-success-generic
+      interactFailureString: petting-failure-generic
+      interactSuccessSound:
+        path: /Audio/Effects/double_beep.ogg
+    - type: CombatMode
+      toggleMouseRotator: false
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 3000
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 1500
+          # TODO: Construction graph
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalGlassBreak
+            # - !type:ExplodeBehavior
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                ADTBaseControllableTurretMagazineBroken:
+                  min: 1
+                  max: 1
+    - type: Gun
+      fireRate: 12
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+    - type: MagazineAmmoProvider
+    - type: MagazineVisuals
+      magState: mag
+      steps: 20
+      zeroVisible: true
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Magazine
+          priority: 2
+          whitelist:
+            tags:
+            - ADTturretGAU32Magazine
+          insertSound:
+            path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+            params:
+              pitch: 2
+          ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+    - type: HTN
+      rootTask:
+        task: TurretCompound
+      blackboard:
+        RotateSpeed: !type:Single
+          3.1
+        SoundTargetInLOS: !type:SoundPathSpecifier
+          path: /Audio/Effects/double_beep.ogg
+    - type: MouseRotator
+      angleTolerance: 5
+      rotationSpeed: 180
+      simple4DirMode: false
+    - type: NoRotateOnInteract
+    - type: NoRotateOnMove
+    - type: Input
+      context: "human"
+    - type: Appearance
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
+      state: gau32_kmt_icon
+    - type: UserInterface
+      interfaces:
+        enum.RadarConsoleUiKey.Key:
+          type: RadarConsoleBoundUserInterface
+    - type: IntrinsicUI
+      uis:
+        enum.RadarConsoleUiKey.Key:
+          toggleAction: ActionAGhostShowRadar
+    - type: RadarConsole
+      followEntity: true
+
+- type: entity
+  parent: BaseStructure
+  id: ADTgau32Broken
+  name: broken GAU-32
+  description: broken GAU-32.
+  suffix: Space Battleships
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
+      drawdepth: Mobs
+      layers:
+        - state: gau32_broken
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 450
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalGlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 6
+                  max: 12
+
+- type: entity
+  parent: ADTBaseControllableTurretMagazine
+  id: ADTgau32KMT
+  suffix: Space Battleships, KMT
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+
+- type: entity
+  parent: ADTBaseControllableTurretMagazine
+  id: ADTgau32TSF
+  suffix: Space Battleships, TSF
+  components:
+    - type: NpcFactionMember
+      factions:
+        - NanoTrasen
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
+      state: gau32_tsf_icon
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
+      drawdepth: Mobs
+      layers:
+        - state: gau32_tsf
+        - state: mag-19
+          map: ["enum.GunVisualLayers.Mag"]
