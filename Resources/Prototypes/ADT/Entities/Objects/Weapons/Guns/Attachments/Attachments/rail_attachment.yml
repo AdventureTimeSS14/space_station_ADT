@@ -27,3 +27,130 @@
   - type: AttachableWeaponRangedMods
     modifiers:
     - accuracyAddMult: -0.05
+
+- type: entity
+  abstract: true
+  parent: [ ADTRailAttachmentBase, ADTAttachableToggleableBase ]
+  id: ADTAttachmentScopeBase
+  components:
+  - type: AttachableToggleable
+    needHand: true
+    heldOnlyActivate: true
+    userOnly: true
+    doInterrupt: true
+    attachedOnly: true
+    breakOnMove: true
+    breakOnRotate: true
+    wieldedOnly: true
+    useDelay: 0.5
+    showTogglePopup: false
+    icon:
+      sprite: ADT/Objects/Attachments/scope_actions.rsi
+      state: sniperscope
+    actionName: Look through Scope
+    actionDesc: Scope in. If you're seeing this, someone forgot to set the description properly.
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    requireWielding: true
+    attachment: true
+    useInHand: true
+    zoomLevels:
+    - zoom: 1
+      offset: 15
+      allowMovement: false
+      doAfter: 0
+
+- type: entity
+  parent: ADTAttachmentScopeBase
+  id: ADTAttachmentHristovScope
+  name: Hristov x6 scope
+  description: Hristov x6 scope
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Attachments/scope_actions.rsi
+    state: sniperscope
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentHristovScope
+  - type: AttachableVisuals
+  - type: AttachableToggleable
+    actionName: Look through the Hristov scope
+    actionDesc: An Hristov telescopic eye piece. Fixed at 6x zoom.
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 1.6
+      offset: 14
+      allowMovement: false
+      doAfter: 0
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      walk: -0.23
+      sprint: -0.35
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - fireDelayFlat: 0.1
+    - conditions:
+        activeOnly: true
+      fireDelayFlat: 0.25
+      accuracyAddMult: 0.35
+      damageFalloffAddMult: -0.4
+    - conditions:
+        wieldedOnly: true
+        inactiveOnly: true
+      accuracyAddMult: -0.05
+
+- type: entity
+  parent: ADTAttachmentScopeBase
+  id: ADTAttachmentXC67Miniscope
+  name: xC-67 scope
+  description: xC-67 scope
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Attachments/scope_actions.rsi
+    state: sniperscope
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentXC67Miniscope
+  # - type: AttachableVisuals
+  - type: AttachableToggleable
+    breakOnMove: false
+    actionName: Look through the xC-67 scope
+    actionDesc: An xC-67 telescoping eye piece. Fixed at a modest 2x zoom.
+    wieldedOnly: false
+    breakOnRotate: false
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 1.2
+      offset: 12
+      allowMovement: true
+      doAfter: 0
+    requireWielding: false
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      walk: -0.31
+      sprint: -0.448
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      fireDelayFlat: 0.15
+      accuracyAddMult: 0.35
+      damageFalloffAddMult: -0.2
+    - conditions:
+        wieldedOnly: true
+        inactiveOnly: true
+      accuracyAddMult: -0.05 #TODO: Add flare gun modifiers when it's implemented.
