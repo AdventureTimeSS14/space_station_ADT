@@ -1,3 +1,4 @@
+/* (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -13,3 +14,6 @@ namespace Content.Server.Explosion.Components
         public string Port = "Timer";
     }
 }
+То же самое, что и с мини бомбой синдиката. Убирает взрыв цепочкой и делает вкл
+ таймера, а не моментальынй взрыв по передатчику сигнала.
+*/
