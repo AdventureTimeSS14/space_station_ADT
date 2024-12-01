@@ -1,0 +1,8 @@
+- type: entity
+  id: ADTCrateArmoryEnergyShotgun
+  parent: CrateArmoryShotgun
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponEnergyShotgun
+        amount: 2

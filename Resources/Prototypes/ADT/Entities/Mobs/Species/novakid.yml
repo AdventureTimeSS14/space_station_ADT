@@ -95,8 +95,8 @@
   - type: TemperatureSpeed
     thresholds:
       273: 0.8
-      263: 0.6
-      250: 0.4
+      243: 0.6
+      220: 0.4
   - type: FlashImmunity
   - type: EyeProtection
   - type: MovementSpeedModifier

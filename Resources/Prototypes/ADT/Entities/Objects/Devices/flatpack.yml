@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ADTBookPrinterFlatpack
+  name: book printer flatpack
+  description: A flatpack used for constructing a book printer.
+  components:
+  - type: Flatpack
+    entity: ADTBookPrinter

@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTArmoryEnergyShotguns
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    state: icon
+  product: ADTCrateArmoryEnergyShotgun
+  cost: 12000
+  category: cargoproduct-category-name-armory # Визарды, сделайте пожалуйста паренты для категорий.
+  group: market
