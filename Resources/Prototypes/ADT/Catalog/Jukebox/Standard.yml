@@ -1,0 +1,41 @@
+- type: jukebox
+  id: lateraligator
+  name: Silverman Sound Studios - Later Alligator
+  path:
+    path: /Audio/ADT/Jukebox/lateraligator.ogg
+
+- type: jukebox
+  id: ABeautifulLull
+  name: Conjurerq - A beautiful lull
+  path:
+    path: /Audio/ADT/Jukebox/A_beautiful_lull.ogg
+
+- type: jukebox
+  id: ATenseAdventure
+  name: Conjurerq - A Tense Adventure
+  path:
+    path: /Audio/ADT/Jukebox/A_Tense_Adventure.ogg
+
+- type: jukebox
+  id: HappyEnding
+  name: Conjurerq - Happy ending
+  path:
+    path: /Audio/ADT/Jukebox/Happy_ending.ogg
+
+- type: jukebox
+  id: TheFallOfTheCorporation
+  name: Conjurerq - The fall of the corporation
+  path:
+    path: /Audio/ADT/Jukebox/The_fall_of_the_corporation.ogg
+
+- type: jukebox
+  id: WaitingForTheMeeting
+  name: Conjurerq - Waiting for the meeting
+  path:
+    path: /Audio/ADT/Jukebox/Waiting_for_the_meeting.ogg
+
+- type: jukebox
+  id: GiftOfAdventureFromConjurer
+  name: Conjurerq - Gift of Adventure from Conjurer
+  path:
+    path: /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg

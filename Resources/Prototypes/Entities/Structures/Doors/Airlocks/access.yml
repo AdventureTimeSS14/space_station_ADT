@@ -20,7 +20,7 @@
       board: [ DoorElectronicsLawyer ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTTheatreAirlock # ADT-Doors
   id: AirlockTheatreLocked
   suffix: Theatre, Locked
   components:
@@ -29,7 +29,7 @@
       board: [ DoorElectronicsTheatre ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTChaplainAirlock # ADT-Doors
   id: AirlockChapelLocked
   suffix: Chapel, Locked
   components:
@@ -47,7 +47,7 @@
       board: [ DoorElectronicsJanitor ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTKitchenAirlock # ADT-Doors
   id: AirlockKitchenLocked
   suffix: Kitchen, Locked
   components:
@@ -56,7 +56,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTBarAirlock # ADT-Doors
   id: AirlockBarLocked
   suffix: Bar, Locked
   components:
@@ -65,7 +65,7 @@
       board: [ DoorElectronicsBar ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockHydroponics
   id: AirlockHydroponicsLocked
   suffix: Hydroponics, Locked
   components:
@@ -192,7 +192,7 @@
       board: [ DoorElectronicsCargo ]
 
 - type: entity
-  parent: AirlockCargo
+  parent: ADTSalvageAirlock # ADT-Airlock
   id: AirlockSalvageLocked
   suffix: Salvage, Locked
   components:
@@ -237,7 +237,7 @@
       board: [ DoorElectronicsChemistry ]
 
 - type: entity
-  parent: AirlockMedical
+  parent: ADTMorgueAirlock # ADT-Doors
   id: AirlockMedicalMorgueLocked
   suffix: Morgue, Locked
   components:
@@ -282,7 +282,7 @@
       board: [ DoorElectronicsCommand ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTCaptainAirlock # ADT-Airlock
   id: AirlockCaptainLocked
   suffix: Captain, Locked
   components:
@@ -291,7 +291,7 @@
       board: [ DoorElectronicsCaptain ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTChiefMedicalOfficerAirlock # ADT-Airlock
   id: AirlockChiefMedicalOfficerLocked
   suffix: ChiefMedicalOfficer, Locked
   components:
@@ -300,7 +300,7 @@
       board: [ DoorElectronicsChiefMedicalOfficer ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTChiefEngineerAirlock # ADT-Airlock
   id: AirlockChiefEngineerLocked
   suffix: ChiefEngineer, Locked
   components:
@@ -309,7 +309,7 @@
       board: [ DoorElectronicsChiefEngineer ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTHeadOfSecurityAirlock # ADT-Airlock
   id: AirlockHeadOfSecurityLocked
   suffix: HeadOfSecurity, Locked
   components:
@@ -318,7 +318,7 @@
       board: [ DoorElectronicsHeadOfSecurity ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTResearchDirectorAirlock # ADT-Airlock
   id: AirlockResearchDirectorLocked
   suffix: ResearchDirector, Locked
   components:
@@ -327,7 +327,7 @@
       board: [ DoorElectronicsResearchDirector ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTHeadOfPersonalAirlock # ADT-Airlock
   id: AirlockHeadOfPersonnelLocked
   suffix: HeadOfPersonnel, Locked
   components:
@@ -336,7 +336,7 @@
       board: [ DoorElectronicsHeadOfPersonnel ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTQuartiermeisterAirlock # ADT-Airlock
   id: AirlockQuartermasterLocked
   suffix: Quartermaster, Locked
   components:
@@ -431,7 +431,7 @@
       board: [ DoorElectronicsLawyer ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTTheatreAirlockGlass # ADT-Doors
   id: AirlockTheatreGlassLocked
   suffix: Theatre, Locked
   components:
@@ -440,7 +440,7 @@
       board: [ DoorElectronicsTheatre ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTBarAirlockGlass # ADT-Doors
   id: AirlockBarGlassLocked
   suffix: Bar, Locked
   components:
@@ -513,7 +513,7 @@
     layoutId: AirlockEngineering
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTKitchenAirlockGlass # ADT-Doors
   id: AirlockKitchenGlassLocked
   suffix: Kitchen, Locked
   components:
@@ -531,7 +531,7 @@
       board: [ DoorElectronicsJanitor ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: AirlockHydroponicsGlass
   id: AirlockHydroGlassLocked
   suffix: Hydroponics, Locked
   components:
@@ -540,7 +540,7 @@
       board: [ DoorElectronicsHydroponics ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTChaplainAirlock # ADT-Doors
   id: AirlockChapelGlassLocked
   suffix: Chapel, Locked
   components:
@@ -576,7 +576,7 @@
       board: [ DoorElectronicsCargo ]
 
 - type: entity
-  parent: AirlockCargoGlass
+  parent: ADTSalvageAirlockGlass # ADT-Airlock
   id: AirlockSalvageGlassLocked
   suffix: Salvage, Locked
   components:
@@ -675,7 +675,7 @@
       board: [ DoorElectronicsCaptain ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassChiefMedicalOfficerAirlock # ADT-Airlock
   id: AirlockChiefMedicalOfficerGlassLocked
   suffix: ChiefMedicalOfficer, Locked
   components:
@@ -684,7 +684,7 @@
       board: [ DoorElectronicsChiefMedicalOfficer ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassChiefEngineerAirlock # ADT-Airlock
   id: AirlockChiefEngineerGlassLocked
   suffix: ChiefEngineer, Locked
   components:
@@ -693,7 +693,7 @@
       board: [ DoorElectronicsChiefEngineer ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassHeadOfSecurityAirlock # ADT-Airlock
   id: AirlockHeadOfSecurityGlassLocked
   suffix: HeadOfSecurity, Locked
   components:
@@ -702,7 +702,7 @@
       board: [ DoorElectronicsHeadOfSecurity ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassResearchDirectorAirlock # ADT-Airlock
   id: AirlockResearchDirectorGlassLocked
   suffix: ResearchDirector, Locked
   components:
@@ -720,7 +720,7 @@
       board: [ DoorElectronicsHeadOfPersonnel ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassQuartiermeisterAirlock # ADT-Airlock
   id: AirlockQuartermasterGlassLocked
   suffix: Quartermaster, Locked
   components:

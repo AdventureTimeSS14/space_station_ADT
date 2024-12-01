@@ -95,8 +95,8 @@
   - type: TemperatureSpeed
     thresholds:
       273: 0.8
-      263: 0.6
-      250: 0.4
+      243: 0.6
+      220: 0.4
   - type: FlashImmunity
   - type: EyeProtection
   - type: MovementSpeedModifier
@@ -105,7 +105,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.01 # Супер пониженный дамаг от давления
+        Blunt: 0.02 # Супер пониженный дамаг от давления
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -154,7 +154,13 @@
     shortscale: 0.9
   - type: BloodCough
     postingSayDamage: blood-cough-novakid
-
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ChangelingBlacklist
 
 - type: entity
   save: false

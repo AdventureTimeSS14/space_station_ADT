@@ -320,6 +320,36 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_jungar
+  - type: EmitSoundOnUse
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnActivate
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ToySqueak
+  - type: UseDelay
+    delay: 3
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnUse
+    pack: ADTFigurinesPlushieJungar
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0.001
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      collection: ToySqueak
+    delay: 900
 
 # Maestro_HLT
 - type: entity
@@ -1258,3 +1288,123 @@
     state: icon
   - type: PresetIdCard
     job: Bartender
+
+# FigurinesData
+- type: entity
+  parent: BaseItem
+  id: ADTBaseFigurineNoObjective
+  name: figurine
+  description: A small miniature.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/figurines.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: StaticPrice
+    price: 75
+  - type: UseDelay
+    delay: 10
+  - type: Speech
+    speechSounds: Pai # it just sounds better
+
+# Lir Battlstorm, Sh4zik figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineLirBattlstorm
+  name: Lir Battlstorm
+  description: Funny Vulpcanine. Cool.
+  components:
+  - type: Sprite
+    state: LirBattlstorm
+  - type: SpeakOnUse
+    pack: FigurinesLirBattlstorm
+
+
+#Apatia Veystu, Inconnu figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineApatiaVeystu
+  name: Apatia Veystu
+  description: Haha. Talking plasma. Cool.
+  components:
+  - type: Sprite
+    state: ApatiaVeystu
+  - type: SpeakOnUse
+    pack: FigurinesApatia
+
+#Plush Samoobladania, coldangel figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurinePlushSamoobladania
+  name: Plush Samoobladania
+  description: Haha. Bush, Cool.
+  components:
+  - type: Sprite
+    state: PlushCamoobladania
+  - type: SpeakOnUse
+    pack: FigurinesBush
+
+#Uker Nighthauzer, 04karik figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineYukerNighthauzer
+  name: Uker Nighthauzer
+  description: Yay. Cool vulpcanine. I love him.
+  components:
+  - type: Sprite
+    state: YukerNighhauser
+  - type: SpeakOnUse
+    pack: FigurinesUker
+
+# Figurine box trash
+- type: entity
+  id: MysteryPlayerFigureBoxTrash
+  parent: BaseItem
+  name: unfolded cardboard box
+  description: A small, unfolded cardboard toy box.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    state: fig_box_unfolded
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+
+# Box with player figurines
+- type: entity
+  parent: PresentRandom
+  id: MysteryPlayerFigureBox
+  name: mystery spacemen player minifigure box
+  description: A box containing a mystery minifigure. The side of the box depicts a few blacked-out 'rare' figures, including one with a large, non-humanoid shilouette.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/figurines.rsi
+    state: present
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: ToyFigurineLirBattlstorm
+        orGroup: PlayerFig
+      - id: ToyFigurineApatiaVeystu
+        orGroup: PlayerFig
+      - id: ToyFigurinePlushSamoobladania
+        orGroup: PlayerFig
+      - id: ToyFigurineYukerNighthauzer
+        orGroup: PlayerFig
+
+# Hollowing
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieHollowing
+  name: Weaver
+  description: weaver
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_hollowing

@@ -14,8 +14,31 @@
     state: icon
 
 - type: stealTargetGroup
+  id: ADTWeaponPistolX01
+  name: steal-target-groups-adt-pistol-x01
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: ADTClothingMaskGasCE
   name: steal-target-groups-clothing-mask-gas-ce
   sprite:
     sprite: ADT/Clothing/Mask/gasCE.rsi
     state: icon
+
+# changeling
+
+- type: stealTargetGroup
+  id: CommandIDCard
+  name: steal-target-groups-command-id
+  sprite:
+    sprite: Objects/Misc/id_cards.rsi
+    state: silver
+
+- type: stealTargetGroup
+  id: MaterialSmileExtract
+  name: steal-target-groups-smile-extract
+  sprite:
+    sprite: Mobs/Aliens/slimes.rsi
+    state: rainbow_slime_extract

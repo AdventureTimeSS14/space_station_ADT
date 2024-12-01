@@ -18,3 +18,15 @@
       seedId: ADTCannabisWhite
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
+
+# пакет семян
+- type: entity
+  parent: SeedBase
+  name: packet of mandarin seeds
+  id: ADTMandarinSeeds
+  suffix: NewYear
+  components:
+    - type: Seed
+      seedId: ADTmandarin
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi

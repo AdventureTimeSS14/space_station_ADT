@@ -1,0 +1,130 @@
+# Robotics
+
+- type: ambientMusic
+  id: ADTRobotics
+  sound:
+    params:
+      volume: -12
+    collection: ADTAmbienceRobotics
+  rules: ADTNearRobotics
+  priority: 4
+
+- type: rules
+  id: ADTNearRobotics
+  rules:
+    - !type:NearbyEntitiesRule
+      count: 1
+      whitelist:
+        tags:
+          - ADTRoboticsAmbience
+      range: 4
+
+- type: soundCollection
+  id: ADTAmbienceRobotics
+  files:
+    - /Audio/ADT/Ambience/robotics_1.ogg
+    - /Audio/ADT/Ambience/robotics_2.ogg
+
+# Vault
+
+- type: ambientMusic
+  id: ADTVault
+  sound:
+    params:
+      volume: -12
+    collection: ADTAmbienceVault
+  rules: ADTNearVault
+  priority: 4
+
+- type: rules
+  id: ADTNearVault
+  rules:
+    - !type:NearbyEntitiesRule
+      count: 1
+      whitelist:
+        tags:
+          - ADTVaultAmbience
+      range: 2
+
+- type: soundCollection
+  id: ADTAmbienceVault
+  files:
+    - /Audio/ADT/Ambience/vault_1.ogg
+
+# Chemistry
+
+- type: ambientMusic
+  id: ADTChemistry
+  sound:
+    params:
+      volume: -12
+    collection: ADTAmbienceChemistry
+  rules: ADTNearChemistry
+  priority: 4
+
+- type: rules
+  id: ADTNearChemistry
+  rules:
+    - !type:NearbyEntitiesRule
+      count: 1
+      whitelist:
+        tags:
+          - ADTChemistryAmbience
+      range: 3
+
+- type: soundCollection
+  id: ADTAmbienceChemistry
+  files:
+    - /Audio/ADT/Ambience/chemistry_1.ogg
+    - /Audio/ADT/Ambience/chemistry_2.ogg
+
+# Research
+
+- type: ambientMusic
+  id: ADTResearch
+  sound:
+    params:
+      volume: -12
+    collection: ADTAmbienceResearch
+  rules: ADTNearResearch
+  priority: 3
+
+- type: rules
+  id: ADTNearResearch
+  rules:
+    - !type:NearbyAccessRule
+      count: 3
+      access:
+        - Research
+      range: 3
+
+- type: soundCollection
+  id: ADTAmbienceResearch
+  files:
+    - /Audio/ADT/Ambience/rnd_1.ogg
+    - /Audio/ADT/Ambience/rnd_2.ogg
+
+# Security
+
+- type: ambientMusic
+  id: ADTSecurity
+  sound:
+    params:
+      volume: -12
+    collection: ADTAmbienceSecurity
+  rules: ADTNearSecurity
+  priority: 3
+
+- type: rules
+  id: ADTNearSecurity
+  rules:
+    - !type:NearbyAccessRule
+      access:
+        - Security
+      range: 3
+
+- type: soundCollection
+  id: ADTAmbienceSecurity
+  files:
+    - /Audio/ADT/Ambience/prison_1.ogg
+    - /Audio/ADT/Ambience/ambidet2.ogg

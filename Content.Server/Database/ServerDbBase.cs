@@ -53,7 +53,7 @@ namespace Content.Server.Database
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
-                .AsSingleQuery()
+                .AsSplitQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
 
             if (prefs is null)
@@ -898,10 +898,41 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         public async Task AddAdminLogs(List<AdminLog> logs)
         {
+            const int maxRetryAttempts = 5;
+            var initialRetryDelay = TimeSpan.FromSeconds(5);
+
             DebugTools.Assert(logs.All(x => x.RoundId > 0), "Adding logs with invalid round ids.");
-            await using var db = await GetDb();
-            db.DbContext.AdminLog.AddRange(logs);
-            await db.DbContext.SaveChangesAsync();
+
+            var attempt = 0;
+            var retryDelay = initialRetryDelay;
+
+            while (attempt < maxRetryAttempts)
+            {
+                try
+                {
+                    await using var db = await GetDb();
+                    db.DbContext.AdminLog.AddRange(logs);
+                    await db.DbContext.SaveChangesAsync();
+                    _opsLog.Debug($"Successfully saved {logs.Count} admin logs.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    attempt += 1;
+                    _opsLog.Error($"Attempt {attempt} failed to save logs: {ex}");
+
+                    if (attempt >= maxRetryAttempts)
+                    {
+                        _opsLog.Error($"Max retry attempts reached. Failed to save {logs.Count} admin logs.");
+                        return;
+                    }
+
+                    _opsLog.Warning($"Retrying in {retryDelay.TotalSeconds} seconds...");
+                    await Task.Delay(retryDelay);
+
+                    retryDelay *= 2;
+                }
+            }
         }
 
         protected abstract IQueryable<AdminLog> StartAdminLogsQuery(ServerDbContext db, LogFilter? filter = null);
@@ -1484,6 +1515,32 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             notesCol.AddRange(await GetGroupedServerRoleBansAsNotesForUser(db, player));
             return notesCol;
         }
+
+        // ADT-BookPrinter-Start
+		public async Task<List<BookPrinterEntry>> GetBookPrinterEntries()
+        {
+            await using var db = await GetDb();
+            return await GetBookPrinterEntriesImpl(db);
+        }
+
+        protected async Task<List<BookPrinterEntry>> GetBookPrinterEntriesImpl(DbGuard db)
+        {
+            return await db.DbContext.BookPrinterEntry
+                .Include(entry => entry.StampedBy)
+				.ToListAsync();
+        }
+		public async Task UploadBookPrinterEntry(BookPrinterEntry bookEntry)
+        {
+            await using var db = await GetDb();
+            await UploadBookPrinterEntryImpl(db, bookEntry);
+        }
+
+        protected async Task UploadBookPrinterEntryImpl(DbGuard db, BookPrinterEntry bookEntry)
+        {
+			db.DbContext.BookPrinterEntry.Add(bookEntry);
+			await db.DbContext.SaveChangesAsync();
+        }
+        // ADT-BookPrinter-End
 
         public async Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player)
         {

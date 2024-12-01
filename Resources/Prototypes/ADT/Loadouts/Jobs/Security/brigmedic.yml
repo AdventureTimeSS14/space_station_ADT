@@ -41,15 +41,36 @@
     jumpsuit: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
 
 # Neck
-- type: loadout
-  id: ADTNeckSecBadge
-  equipment:
-    neck: ADTClothingNeckSecBadge
+# - type: loadout
+#   id: ADTNeckSecBadge
+#   equipment:
+#     neck: ADTClothingNeckSecBadge
 
 #- type: loadout
 #  id: ADTBrigmedicCloak
 #  equipment:
 #    neck: ADTClothingNeckCloakBrigmedic
+
+- type: loadout
+  id: ADTNeckSecBadgeBronze
+  equipment:
+    neck: ADTClothingNeckSecBadgeBronze
+
+- type: loadout
+  id: ADTNeckSecBadgeSilver
+  equipment:
+    neck: ADTClothingNeckSecBadgeSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+
+- type: loadout
+  id: ADTNeckSecBadgeGold
+  equipment:
+    neck: ADTClothingNeckSecBadgeGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
 
  #Back
 

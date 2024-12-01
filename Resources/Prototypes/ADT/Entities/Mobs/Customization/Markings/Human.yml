@@ -89,7 +89,7 @@
 
 - type: marking
   id: ADTMilkyEars
-  bodyPart: Head
+  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Human]
   sprites:
@@ -98,10 +98,11 @@
 
 - type: marking
   id: ADTMilkyHorns
-  bodyPart: Head
+  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_horns
-
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_horns_secondary

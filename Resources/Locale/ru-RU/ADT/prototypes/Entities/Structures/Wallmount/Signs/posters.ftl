@@ -64,18 +64,6 @@ ent-ADTPosterContrabandLustArDeco = Таяранское ар-деко
 ent-ADTPosterSingoPizza = Пицца тайм!
     .desc = На плакате изображена сингулярность в виде пиццы.
 
-ent-ADTPosterNewYear = 2568 - Новый год
-    .desc = Плакат, напоминающий о смене Земного года.
-    .suffix = Новый Год
-
-ent-ADTPosterNewYear2 = Счастливого Нового Года!
-    .desc = Плакат, поздравляющий персонал NanoTrasen о предстоящем празднике.
-    .suffix = Новый Год
-
-ent-ADTPosterNewYear3 = Поздравляющая новогодная таяранка
-    .desc = Плакат, на котором таяранка, одетая в праздничную одежду, поздравляет вас с наступающим 2568 годом.
-    .suffix = Новый Год
-
 ent-ADTPosterLustyMoth = Плакат с похотливым серым нианом
     .desc = Кажется, где-то вы уже его видели.
 
@@ -115,6 +103,14 @@ ent-ADTPosterGasAttack = Газовая атака!
 ent-ADTPosterHappyHalloween = Счастливого Хеллоуина!
     .suffix = Хеллоуин
     .desc = Плакат, поздравляющий персонал станции с праздником.
+
+ent-ADTPosterHappyHalloween2 = { ent-ADTPosterHappyHalloween }
+    .suffix = { ent-ADTPosterHappyHalloween.suffix }
+    .desc =  { ent-ADTPosterHappyHalloween.desc }
+
+ent-ADTPosterHappyHalloween3 = { ent-ADTPosterHappyHalloween }
+    .suffix = { ent-ADTPosterHappyHalloween.suffix }
+    .desc =  { ent-ADTPosterHappyHalloween.desc }
 
 ent-ADTPosterTayarHalloween = хеллоуинская таярочка
     .suffix = Хеллоуин
@@ -217,7 +213,7 @@ ent-ADTPosterUSSPRHBZ = "Вступай в РХБЗ"
     .suffix = { "СССП" }
 
 ent-ADTPosterUSSPKS = "Ищем тебя в Космических Силах"
-    .desc = Постер с призывом вступить в Космические Силы СССП. 
+    .desc = Постер с призывом вступить в Космические Силы СССП.
     .suffix = { "СССП" }
 
 ent-ADTPosterUSSPKDV = "Никто кроме нас!"

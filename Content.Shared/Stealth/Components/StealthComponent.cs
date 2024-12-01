@@ -10,7 +10,7 @@ namespace Content.Shared.Stealth.Components;
 /// Use other components (like StealthOnMove) to modify this component's visibility based on certain conditions.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-//[Access(typeof(SharedStealthSystem))] // ADT commented
+//[Access(typeof(SharedStealthSystem))] // ADT TWEAK снимаю доступы
 public sealed partial class StealthComponent : Component
 {
     /// <summary>
@@ -80,11 +80,13 @@ public sealed class StealthComponentState : ComponentState
     public readonly float Visibility;
     public readonly TimeSpan? LastUpdated;
     public readonly bool Enabled;
+    public string Desc; // ADT tweak
 
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled)
+    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, string desc)  // ADT tweak
     {
         Visibility = stealthLevel;
         LastUpdated = lastUpdated;
         Enabled = enabled;
+        Desc = desc;    // ADT tweak
     }
 }

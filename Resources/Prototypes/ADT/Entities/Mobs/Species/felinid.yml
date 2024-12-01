@@ -176,6 +176,13 @@
     tallscale: 0.95
     short: true
     shortscale: 0.8
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTCatEmotes
 
 - type: entity
   save: false

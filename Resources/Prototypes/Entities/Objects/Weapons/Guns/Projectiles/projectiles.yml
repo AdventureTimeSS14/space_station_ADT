@@ -1030,7 +1030,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 13
+        Heat: 10 # ADT nerf from 13
 
 - type: entity
   name: wide laser barrage
@@ -1052,7 +1052,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 15
+        Heat: 11 # ADT nerf from 15
 
 - type: entity
   name: narrow laser barrage

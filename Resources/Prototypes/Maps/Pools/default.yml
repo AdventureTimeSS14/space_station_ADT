@@ -19,24 +19,28 @@
   # - Train
 # adt_maps
   # - ADT_Astra в комментерии до ремапа
-  - ADT_FrontierHalloween
-  - ADT_TrainHalloween
-  - ADT_SalternHalloween
+  - ADT_Frontier
+  # - ADT_FrontierHalloween
+  # - ADT_TrainHalloween
+  # - ADT_SalternHalloween
+  - ADT_Pie
   - ADT_Avrit
   - ADT_Bagel
   - ADT_Box
   - ADT_Cluster
-  - ADT_Core
-  - ADT_Fland
+  - ADT_Cluster_Legacy
+  # - ADT_Core #В рамках уменьшения числа карт
+  # - ADT_Fland #В рамках уменьшения числа карт
+  - ADT_kilo
   - ADT_Marathon
-  - ADT_Meta
-  - ADT_Origin
-  # - ADT_Saltern - до конца хеллоуинских дней
-  - ADT_Packed
-  # - ADT_Train - до конца хеллоуинских дней
+  # - ADT_Meta
+  # - ADT_Origin
+  - ADT_Saltern
+  # - ADT_Packed #В рамках уменьшения числа карт
+  # - ADT_Train #В рамках уменьшения числа карт
   - ADT_Delta
   # - ADT_Oasis удалён чтоб жизнь малиной не казалась
   - ADT_Gemini
   - ADT_Aspid
-  - ADT_Moose
+  # - ADT_Moose #В рамках уменьшения числа карт
   # - ADT_Alley до ремонта

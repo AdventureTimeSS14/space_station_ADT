@@ -367,44 +367,6 @@
   - type: Sprite
     state: poster_efficiencydiagram_legit #Спрайт от Иллюми
 
-#Новогодние постеры
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterNewYear
-  name: "2568"
-  description: Poster that celebrates New Year on Earth.
-  suffix: New Year
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от yamato_no_orochi8
-    state: new_year
-  - type: PointLight
-    radius: 3
-    energy: 2
-    color: "#5469e6"
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterNewYear2
-  name: happy new year
-  description: Poster that celebrates New Year on Earth.
-  suffix: New Year
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от prazat911
-    state: new_year2
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterNewYear3
-  name: new year tayaran
-  description: Poster that celebrates New Year on Earth.
-  suffix: New Year
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от prazat911
-    state: new_year3
 
 #Хеллоуинский декор
 
@@ -476,9 +438,31 @@
 
 - type: entity
   parent: ADTPosterBase
-  id: ADTPosterTayarHalloween
+  id: ADTPosterHappyHalloween2
   name: happy halloween
   description: happy halloween
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween-2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHappyHalloween3
+  name: happy halloween
+  description: happy halloween2
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween-3
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterTayarHalloween
+  name: happy halloween
+  description: happy halloween3
   suffix: Halloween
   components:
   - type: Sprite

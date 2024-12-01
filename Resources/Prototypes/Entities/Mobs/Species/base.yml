@@ -190,8 +190,6 @@
   - type: Stripping
   - type: UserInterface
     interfaces:
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
@@ -276,8 +274,8 @@
   - type: TemperatureSpeed
     thresholds:
       293: 0.8
-      280: 0.6
-      260: 0.4
+      260: 0.6 # ADT tweak
+      230: 0.4 # ADT tweak
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -301,8 +299,11 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: BloodCough # ADT Tweak
+  # Start-ADT Tweak
+  - type: BloodCough
     postingSayDamage: blood-cough
+  - type: TimeDespawnDamage
+  # End-ADT Tweak
 
 - type: entity
   save: false

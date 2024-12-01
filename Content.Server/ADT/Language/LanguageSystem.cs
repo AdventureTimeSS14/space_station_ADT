@@ -76,6 +76,21 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         return result;
     }
 
+    public string ObfuscateMessage(EntityUid uid, string originalMessage, ProtoId<LanguagePrototype> protoId)
+    {
+        var proto = _proto.Index(protoId);
+        var builder = new StringBuilder();
+        if (proto.ObfuscateSyllables)
+            ObfuscateSyllables(builder, originalMessage, proto);
+        else
+            ObfuscatePhrases(builder, originalMessage, proto);
+
+        var result = builder.ToString();
+        result = _chat.SanitizeInGameICMessage(uid, result, out _);
+
+        return result;
+    }
+
     // Message obfuscation and seed system taken from https://github.com/new-frontiers-14/frontier-station-14/pull/671
     private void ObfuscateSyllables(StringBuilder builder, string message, LanguagePrototype language)
     {

@@ -12,6 +12,132 @@
     boardName: wires-board-name-highsec
     layoutId: HighSec
 
+- type: entity
+  parent: Airlock
+  id: ADTBathroom
+  suffix: Bathroom
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/bathroom.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTChaplainAirlock
+  suffix: Chaplain
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/chaplain.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTKitchenAirlock
+  suffix: Kitchen
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/kitchen.rsi
+
+- type: entity
+  parent: AirlockScience
+  id: ADTRoboticsAirlock
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/robotics.rsi
+
+- type: entity
+  parent: AirlockCargo
+  id: ADTSalvageAirlock
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/salvage.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTTheatreAirlock
+  suffix: Theatre
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/theatre.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTBarAirlock
+  suffix: Bar
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/bar.rsi
+
+- type: entity
+  parent: AirlockMedical
+  id: ADTMorgueAirlock
+  suffix: Morgue
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/morgue.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTCaptainAirlock
+  suffix: Captain
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/cap.rsi
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Wires
+    boardName: wires-board-name-highsec
+    layoutId: HighSec
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTChiefEngineerAirlock
+  suffix: CE
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/ce.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTHeadOfPersonalAirlock
+  suffix: HOP
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/hop.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTHeadOfSecurityAirlock
+  suffix: HOS
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/hos.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTChiefMedicalOfficerAirlock
+  suffix: CMO
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/cmo.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTQuartiermeisterAirlock
+  suffix: QM
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/qm.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTResearchDirectorAirlock
+  suffix: RD
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/rd.rsi
+
 #Glass
 - type: entity
   parent: AirlockGlass
@@ -26,3 +152,91 @@
   - type: Wires
     boardName: wires-board-name-highsec
     layoutId: HighSec
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTChaplainAirlockGlass
+  suffix: Chaplain
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/chaplain.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTKitchenAirlockGlass
+  suffix: Kitchen
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/kitchen.rsi
+
+- type: entity
+  parent: AirlockScienceGlass
+  id: ADTRoboticsAirlockGlass
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/robotics.rsi
+
+- type: entity
+  parent: AirlockCargoGlass
+  id: ADTSalvageAirlockGlass
+  suffix: Salvage
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/salvage.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTTheatreAirlockGlass
+  suffix: Theatre
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/theatre.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTBarAirlockGlass
+  suffix: Bar
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/bar.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassChiefEngineerAirlock
+  suffix: CE
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/ce.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassHeadOfSecurityAirlock
+  suffix: HOS
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/hos.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassChiefMedicalOfficerAirlock
+  suffix: CMO
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/cmo.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassQuartiermeisterAirlock
+  suffix: QM
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/qm.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassResearchDirectorAirlock
+  suffix: RD
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/rd.rsi

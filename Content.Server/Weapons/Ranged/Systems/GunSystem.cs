@@ -25,6 +25,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Server.Body.Systems;
+using Content.Shared.Mech.Components;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -40,6 +42,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private const float DamagePitchVariation = 0.05f;
@@ -146,7 +149,14 @@ public sealed partial class GunSystem : SharedGunSystem
                     else
                     {
                         userImpulse = false;
-                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        // ADT Mech start
+                        if (TryComp<MechComponent>(user, out var cmech))
+                        {
+                            Audio.PlayPredicted(gun.SoundEmpty, gunUid, cmech.PilotSlot.ContainedEntity);
+                        }
+                        else
+                            Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        // ADT Mech end
                     }
 
                     // Something like ballistic might want to leave it in the container still
@@ -251,6 +261,11 @@ public sealed partial class GunSystem : SharedGunSystem
                         if (dmg != null)
                             dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);
 
+                        // ADT hitscan bloodloss modifiers start
+                        if (hitscan.BloodlossModifier.HasValue)
+                            _bloodstream.TryModifyBleedAmount(hitEntity, hitscan.BloodlossModifier.Value);
+                        // ADT bloodloss modifiers end
+
                         // check null again, as TryChangeDamage returns modified damage values
                         if (dmg != null)
                         {
@@ -281,8 +296,14 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         FireEffects(fromEffect, hitscan.MaxLength, dir.ToAngle(), hitscan);
                     }
-
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                    // ADT Mech start
+                    if (TryComp<MechComponent>(user, out var hmech))
+                    {
+                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, hmech.PilotSlot.ContainedEntity);
+                    }
+                    else
+                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                    // ADT Mech end
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -321,7 +342,10 @@ public sealed partial class GunSystem : SharedGunSystem
             }
 
             MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
-            Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+            if (TryComp<MechComponent>(user, out var mech)) // ADT Mech gun fix
+                Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, mech.PilotSlot.ContainedEntity);
+            else
+                Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
         }
     }
 

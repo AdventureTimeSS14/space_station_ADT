@@ -117,3 +117,7 @@ ent-ADTDrinkSecUnfilteredBeerGlass = { ent-DrinkGlass }
 ent-ADTDrinkGlyphidStoutBeerGlass = { ent-DrinkGlass }
     .suffix = Глифидский стаут, Октоберфест
     .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkCocoaGlass = стакан какао
+    .desc = Бодрящий и вкусный способ начать рабочий день
+    .suffix = Новый Год
