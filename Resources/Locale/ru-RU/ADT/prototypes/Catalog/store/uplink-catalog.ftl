@@ -94,7 +94,7 @@ uplink-pirate-cannonball-name = пушечное ядро
 uplink-pirate-cannonball-desc = Обычное пушечное ядро.
 
 uplink-pirate-grapeshot-name = картечь
-uplink-pirate-grapeshot-desc = Картечьное ядро для пушки.
+uplink-pirate-grapeshot-desc = Картечное ядро для пушки.
 
 uplink-pirate-sawn-name = обрез
 uplink-pirate-sawn-desc = Против всякой шелупони. Использует патроны калибра .50 ружейный.
