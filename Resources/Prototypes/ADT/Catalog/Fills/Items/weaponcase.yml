@@ -21,10 +21,18 @@
   - type: StorageFill
     contents:
     - id: ADTAttachmentM90GrenadeLauncher
-    - id: GrenadeFrag
-      amount: 3
-    - id: GrenadeBlast
-      amount: 3
+    - id: ADT40mmGrenadeBlast
+      amount: 6
+    - id: ADT40mmGrenadeHEAT
+      amount: 4
+    - id: ADT40mmGrenadeBaton
+      amount: 4
+    - id: ADT40mmGrenadeEMP
+      amount: 4
+    - id: ADT40mmGrenadeFlash
+      amount: 4
+    - id: ADT40mmGrenadeSmoke
+      amount: 4
 
 - type: entity
   id: WeaponCaseNTM90UnderBarrelShotGunAttachment

@@ -38,11 +38,11 @@
   - type: RMCSelectiveFire
     baseFireRate: 0.417
   - type: BallisticAmmoProvider
-    cycleable: false
+    # cycleable: false
     whitelist:
       tags:
-        - Grenade
-    proto: GrenadeFrag
+        - ADT40mmGrenade
+    proto: ADT40mmGrenadeBlast
     capacity: 1
     soundInsert:
       path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
@@ -50,9 +50,9 @@
         volume: -2
   - type: ShootAtFixedPoint
     maxFixedRange: 10
-  - type: UniqueAction
-  - type: BreechLoaded
-    needOpenClose: true
+  # - type: UniqueAction
+  # - type: BreechLoaded
+  #   needOpenClose: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:
