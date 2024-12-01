@@ -151,7 +151,7 @@ uplink-pirate-bullet-proof-name = пуленепробиваемый жилет
 uplink-pirate-bullet-proof-desc = Тяжёлый бронежилет типа III, способный защитить владельца от традиционного метательного оружия и взрывчатки в незначительной степени.
 
 uplink-pirate-bullet-magnum-name = спидлодер .44 магнум
-uplink-pirate-bullet-magnum-desc = Идеален к твоему револьверу!
+uplink-pirate-bullet-magnum-desc = Идеален для твоему револьверу!
 
 uplink-pirate-lethal-shot-name = раздатчик ружейных патронов
 uplink-pirate-lethal-shot-desc = Полная коробка летальных ружейных патронов.
