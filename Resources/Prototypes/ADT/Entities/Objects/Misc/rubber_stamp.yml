@@ -23,3 +23,17 @@
     stampState: "paper_stamp-deny"
   - type: Sprite
     state: stamp-deny
+
+- type: entity
+  name: DV's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampDV
+  suffix: DV
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-dv
+    stampedColor: "#ffa500"
+    stampState: "paper_stamp-dv"
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stamps.rsi
+    state: stamp-dv
