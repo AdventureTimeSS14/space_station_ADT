@@ -78,3 +78,16 @@
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
+
+- type: reagent
+  parent: Blood
+  id: ResomiBlood
+  name: reagent-name-resomi-blood
+  group: Biological
+  desc: reagent-desc-resomi-blood
+  flavor: bitter
+  color: "#3c0e2e"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-pungent
+  slippery: false
+  metamorphicChangeColor: True

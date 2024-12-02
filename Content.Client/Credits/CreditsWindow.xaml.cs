@@ -42,10 +42,23 @@ namespace Content.Client.Credits
             TabContainer.SetTabTitle(Ss14ContributorsTab, Loc.GetString("credits-window-ss14contributorslist-tab"));
             TabContainer.SetTabTitle(PatronsTab, Loc.GetString("credits-window-patrons-tab"));
             TabContainer.SetTabTitle(LicensesTab, Loc.GetString("credits-window-licenses-tab"));
+            TabContainer.SetTabTitle(OtherTab, Loc.GetString("adt-other-credits-tab")); // ADT Tweak
 
             PopulateContributors(Ss14ContributorsContainer);
             PopulatePatrons(PatronsContainer);
             PopulateLicenses(LicensesContainer);
+            // ADT Tweak Start
+            PopulateOther(OtherContainer);
+        }
+
+        private void PopulateOther(BoxContainer otherContainer)
+        {
+            var text = _resourceManager.ContentFileReadAllText($"/Credits/ADT/Other.txt");
+            var label = new RichTextLabel();
+            label.SetMessage(text);
+
+            otherContainer.AddChild(label);
+            // ADT Tweak End
         }
 
         private void PopulateLicenses(BoxContainer licensesContainer)
