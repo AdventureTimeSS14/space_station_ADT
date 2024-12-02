@@ -14,14 +14,20 @@
         {
             "name": "grenade-open"
         },
-		{
-			"name": "grenade-on"
-		},
-		{
-			"name": "grenade_a"
-		},
-		{
-			"name": "grenade-open_a"
-		}
+        {
+            "name": "grenade-on"
+        },
+        {
+            "name": "grenade_a"
+        },
+        {
+            "name": "grenade-open_a"
+        },
+        {
+            "name": "mosinbayonet"
+        },
+        {
+            "name": "mosinbayonet_a"
+        }
     ]
 }

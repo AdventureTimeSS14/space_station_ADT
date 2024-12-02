@@ -21,3 +21,12 @@
 
 - type: Tag
   id: ADTAttachmentMagneticHarness
+
+- type: Tag
+  id: ADTAttachmentHristovScope
+
+- type: Tag
+  id: ADTMosinBayonetAttachment
+
+- type: Tag
+  id: ADTAttachmentXC67Miniscope
