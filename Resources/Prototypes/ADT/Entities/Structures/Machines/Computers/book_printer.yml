@@ -111,6 +111,7 @@
 
 - type: entity
   id: ADTBookPrinterFilled
+  categories: [ HideSpawnMenu ]
   parent: ADTBookPrinter
   suffix: Filled
   components:
