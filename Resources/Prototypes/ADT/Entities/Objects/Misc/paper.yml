@@ -3,3 +3,26 @@
   id: TapeRecorderTranscript
   name: record transcript
   # TODO: could have a unique sprite in the future
+
+- type: entity
+  id: ADTBoxFolderBase
+  parent: BoxFolderBase
+  name: folder
+  description: A folder filled with top secret paperwork.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-colormap
+    - state: folder-base
+
+- type: entity
+  id: ADTBoxFolderDV
+  name: DV folder
+  parent: ADTBoxFolderBase
+  suffix: DV
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-centcom
+    - state: folder-base
