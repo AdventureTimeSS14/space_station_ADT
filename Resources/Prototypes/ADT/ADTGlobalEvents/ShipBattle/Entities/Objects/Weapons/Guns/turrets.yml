@@ -108,16 +108,17 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
       state: gau32_kmt_icon
-    - type: UserInterface
-      interfaces:
-        enum.RadarConsoleUiKey.Key:
-          type: RadarConsoleBoundUserInterface
     - type: IntrinsicUI
       uis:
         enum.RadarConsoleUiKey.Key:
           toggleAction: ActionAGhostShowRadar
     - type: RadarConsole
       followEntity: true
+    - type: UserInterface
+      interfaces:
+        enum.RadarConsoleUiKey.Key:
+          type: RadarConsoleBoundUserInterface
+
 
 - type: entity
   parent: BaseStructure
