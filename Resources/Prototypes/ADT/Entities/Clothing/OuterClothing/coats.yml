@@ -145,7 +145,7 @@
   components:
     - type: Storage
       grid:
-      - 0,0,3,1
+      - 0,0,2,2
       maxItemSize: Normal
     - type: Sprite
       sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
