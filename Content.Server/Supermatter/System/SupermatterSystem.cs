@@ -47,7 +47,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SupermatterComponent, MapInitEvent>(OnMapInit);
-
         SubscribeLocalEvent<SupermatterComponent, StartCollideEvent>(OnCollideEvent);
         SubscribeLocalEvent<SupermatterComponent, InteractHandEvent>(OnHandInteract);
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);

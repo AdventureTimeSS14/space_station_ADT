@@ -55,13 +55,13 @@ public sealed partial class SupermatterComponent : Component
     public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/Effects/Grenades/Supermatter/supermatter_start.ogg");
 
     [DataField]
-    public SoundSpecifier CalmSound = new SoundPathSpecifier("/Audio/Supermatter/calm.ogg");
+    public SoundSpecifier CalmSound = new SoundPathSpecifier("/Audio/ADT/Supermatter/calm.ogg");
 
     [DataField]
-    public SoundSpecifier DelamSound = new SoundPathSpecifier("/Audio/Supermatter/delamming.ogg");
+    public SoundSpecifier DelamSound = new SoundPathSpecifier("/Audio/ADT/Supermatter/delamming.ogg");
 
     [DataField]
-    public SoundSpecifier CurrentSoundLoop = new SoundPathSpecifier("/Audio/Supermatter/calm.ogg");
+    public SoundSpecifier CurrentSoundLoop = new SoundPathSpecifier("/Audio/ADT/Supermatter/calm.ogg");
 
     #endregion
 
@@ -330,12 +330,12 @@ public sealed partial class SupermatterComponent : Component
         { Gas.Pluoxium,      0f },
         { Gas.Hydrogen,      0f },
         { Gas.Nitrium,       0f },
-        { Gas.Healium        0f },
-        { Gas.HyperNoblium   0f },
-        { Gas.ProtoNitrate   0f },
-        { Gas.Zauker         0f },
-        { Gas.Halon          0f },
-        { Gas.Helium         0f },
+        { Gas.Healium,       0f },
+        { Gas.HyperNoblium,  0f },
+        { Gas.ProtoNitrate,  0f },
+        { Gas.Zauker,        0f },
+        { Gas.Halon,         0f },
+        { Gas.Helium,        0f },
         { Gas.AntiNoblium,   0f },
     };
 
@@ -356,8 +356,8 @@ public sealed partial class SupermatterComponent : Component
         { Gas.NitrousOxide,  (0f,   -5f,   -1f)  }, /// Проверить работу Эффекта Оксида
         { Gas.BZ,            (1f,   -8,    -1f)  },
         { Gas.Pluoxium,      (3f,   -5f,   -1f)  },
-        { Gas.Hydrogen,      (20f,   10f,   1)   },
-        { Gas.Nitrium,       (30f,   13.5   0)   },
+        { Gas.Hydrogen,      (20f,   10f,   1f)  },
+        { Gas.Nitrium,       (30f,   13.5f, 0f)  },
         { Gas.Healium,       (2.2f,  3f,    1f)  }, // Добавить Эффект Оксида
         { Gas.HyperNoblium,  (1f,   -14f,  -1f)  },
         { Gas.ProtoNitrate,  (5f,    1f,   -2f)  }, /// Добавить Эффект Оксида
