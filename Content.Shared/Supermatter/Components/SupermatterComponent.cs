@@ -326,6 +326,17 @@ public sealed partial class SupermatterComponent : Component
         { Gas.Frezon,        0f },
         { Gas.Ammonia,       0f },
         { Gas.NitrousOxide,  0f },
+        { Gas.BZ,            0f },
+        { Gas.Pluoxium,      0f },
+        { Gas.Hydrogen,      0f },
+        { Gas.Nitrium,       0f },
+        { Gas.Healium        0f },
+        { Gas.HyperNoblium   0f },
+        { Gas.ProtoNitrate   0f },
+        { Gas.Zauker         0f },
+        { Gas.Halon          0f },
+        { Gas.Helium         0f },
+        { Gas.AntiNoblium,   0f },
     };
 
     /// <summary>
@@ -334,15 +345,26 @@ public sealed partial class SupermatterComponent : Component
     //TODO: Replace this with serializable GasFact array something
     public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio)> GasDataFields = new()
     {
-        { Gas.Oxygen,        (1.5f, 1f,    1f)  },
-        { Gas.Nitrogen,      (0f,   -1.5f, -1f) },
-        { Gas.CarbonDioxide, (0f,   0.1f,  1f)  },
-        { Gas.Plasma,        (4f,   15f,   1f)  },
-        { Gas.Tritium,       (30f,  10f,   1f)  },
-        { Gas.WaterVapor,    (2f,   12f,   1f)  },
-        { Gas.Frezon,        (3f,   -10f,  -1f) },
-        { Gas.Ammonia,       (0f,   .5f,   1f)  },
-        { Gas.NitrousOxide,  (0f,   -5f,   -1f) },
+        { Gas.Oxygen,        (1.5f,  1f,    1f)  },
+        { Gas.Nitrogen,      (0f,   -1.5f, -1f)  },
+        { Gas.CarbonDioxide, (0f,   0.1f,   1f)  },
+        { Gas.Plasma,        (4f,   15f,    1f)  },
+        { Gas.Tritium,       (30f,  10f,    1f)  },
+        { Gas.WaterVapor,    (2f,   12f,    1f)  },
+        { Gas.Frezon,        (3f,   -10f,  -1f)  },
+        { Gas.Ammonia,       (0f,   0.5f,   1f)  },
+        { Gas.NitrousOxide,  (0f,   -5f,   -1f)  }, /// Проверить работу Эффекта Оксида
+        { Gas.BZ,            (1f,   -8,    -1f)  },
+        { Gas.Pluoxium,      (3f,   -5f,   -1f)  },
+        { Gas.Hydrogen,      (20f,   10f,   1)   },
+        { Gas.Nitrium,       (30f,   13.5   0)   },
+        { Gas.Healium,       (2.2f,  3f,    1f)  }, // Добавить Эффект Оксида
+        { Gas.HyperNoblium,  (1f,   -14f,  -1f)  },
+        { Gas.ProtoNitrate,  (5f,    1f,   -2f)  }, /// Добавить Эффект Оксида
+        { Gas.Zauker,        (30f,   20f,  -1f)  },
+        { Gas.Halon,         (0f,    0f,    0f)  },
+        { Gas.Helium,        (0f,    0f,    0f)  },
+        { Gas.AntiNoblium,   (0f,    0f,    0f)  },
     };
 
     #endregion
