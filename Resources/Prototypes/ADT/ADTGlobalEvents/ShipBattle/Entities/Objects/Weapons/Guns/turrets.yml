@@ -108,16 +108,16 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
       state: gau32_kmt_icon
-    # - type: IntrinsicUI
-    #   uis:
-    #     enum.RadarConsoleUiKey.Key:
-    #       toggleAction: ActionAGhostShowRadar
-    # - type: RadarConsole
-    #   followEntity: true
-    # - type: UserInterface
-    #   interfaces:
-    #     enum.RadarConsoleUiKey.Key:
-    #       type: RadarConsoleBoundUserInterface
+    - type: IntrinsicUI
+      uis:
+        enum.RadarConsoleUiKey.Key:
+          toggleAction: ActionAGhostShowRadar
+    - type: RadarConsole
+      followEntity: false
+    - type: UserInterface
+      interfaces:
+        enum.RadarConsoleUiKey.Key:
+          type: RadarConsoleBoundUserInterface
 
 
 - type: entity
@@ -161,16 +161,6 @@
     - type: NpcFactionMember
       factions:
         - Syndicate
-    - type: IntrinsicUI
-      uis:
-        enum.RadarConsoleUiKey.Key:
-          toggleAction: ActionAGhostShowRadar
-    - type: RadarConsole
-      followEntity: true
-    - type: UserInterface
-      interfaces:
-        enum.RadarConsoleUiKey.Key:
-          type: RadarConsoleBoundUserInterface
 
 - type: entity
   parent: ADTBaseControllableTurretMagazine
@@ -190,13 +180,3 @@
         - state: gau32_tsf
         - state: mag-19
           map: ["enum.GunVisualLayers.Mag"]
-    - type: IntrinsicUI
-      uis:
-        enum.RadarConsoleUiKey.Key:
-          toggleAction: ActionAGhostShowRadar
-    - type: RadarConsole
-      followEntity: true
-    - type: UserInterface
-      interfaces:
-        enum.RadarConsoleUiKey.Key:
-          type: RadarConsoleBoundUserInterface
