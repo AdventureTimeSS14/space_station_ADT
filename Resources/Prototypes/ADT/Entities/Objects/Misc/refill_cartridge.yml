@@ -1,6 +1,6 @@
 - type: entity
   id: ADTBookPrinterInkCartridge
-  abstract: true
+  categories: [ HideSpawnMenu ]
   parent: BaseItem
   name: printer cartridge
   description: A black box containing a strange black substance. I think they're called ink...

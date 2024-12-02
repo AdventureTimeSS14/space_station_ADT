@@ -34,7 +34,7 @@
 
 - type: entity
   id: ADTBookPrinterMachineCircuitboard
-  abstract: true
+  categories: [ HideSpawnMenu ]
   parent: BaseMachineCircuitboard
   name: book printer machine board
   components:
