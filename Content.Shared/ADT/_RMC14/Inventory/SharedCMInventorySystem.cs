@@ -322,7 +322,7 @@ public abstract class SharedCMInventorySystem : EntitySystem
             if (_itemSlots.TryEjectToHands(holster, slot, user, true))
             {
                 if (item != null)
-                    //_adminLog.Add(LogType.RMCHolster, $"{ToPrettyString(user)} unholstered {ToPrettyString(item)}");
+                    _adminLog.Add(LogType.Action, $"{ToPrettyString(user)} unholstered {ToPrettyString(item)}");
 
                 return true;
             }
@@ -414,7 +414,7 @@ public abstract class SharedCMInventorySystem : EntitySystem
             if (slot.ItemSlot != null &&
                 _itemSlots.TryInsert(slot.Ent, slot.ItemSlot, item, user, excludeUserAudio: true))
             {
-                //_adminLog.Add(LogType.RMCHolster, $"{ToPrettyString(user)} holstered {ToPrettyString(item)}");
+                _adminLog.Add(LogType.Action, $"{ToPrettyString(user)} holstered {ToPrettyString(item)}");
                 return;
             }
 
@@ -422,13 +422,13 @@ public abstract class SharedCMInventorySystem : EntitySystem
             if (slot.ItemSlot == null &&
                 TryComp(slot.Ent, out StorageComponent? storage) &&
                 TryComp(slot.Ent, out CMHolsterComponent? holster) &&
-                !holster.Contents.Contains(item))
+                !holster.Contents.Contains(item) &&
+                _hands.TryDrop(user, item) &&
+                _storage.Insert(slot.Ent, item, out _, user, storage, playSound: false))
             {
                 holster.Contents.Add(item);
-                _hands.TryDrop(user, item);
-                _storage.Insert(slot.Ent, item, out _, user, storage, playSound: false);
                 _audio.PlayPredicted(holster.InsertSound, item, user);
-                //_adminLog.Add(LogType.RMCHolster, $"{ToPrettyString(user)} holstered {ToPrettyString(item)}");
+                _adminLog.Add(LogType.Action, $"{ToPrettyString(user)} holstered {ToPrettyString(item)}");
                 return;
             }
         }
@@ -602,7 +602,7 @@ public abstract class SharedCMInventorySystem : EntitySystem
 
             if (PickupSlot(user, item))
             {
-                //_adminLog.Add(LogType.RMCHolster, $"{ToPrettyString(user)} unholstered {ToPrettyString(item)}");
+                _adminLog.Add(LogType.Action, $"{ToPrettyString(user)} unholstered {ToPrettyString(item)}");
                 return true;
             }
         }
@@ -613,7 +613,7 @@ public abstract class SharedCMInventorySystem : EntitySystem
         if (!ev.Unholsterable)
             return false;
 
-        //_adminLog.Add(LogType.RMCHolster, $"{ToPrettyString(user)} unholstered {ToPrettyString(item)}");
+        _adminLog.Add(LogType.Action, $"{ToPrettyString(user)} unholstered {ToPrettyString(item)}");
         return _hands.TryPickup(user, item);
     }
 
