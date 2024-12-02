@@ -1,10 +1,3 @@
-- type: currency
-  id: Piastre
-  displayName: store-currency-display-Piastre
-  cash:
-    1: ADTPiratePiastr1
-  canWithdraw: true
-
 - type: entity
   parent: [BaseStructure, ADTStorePresetPirate]
   id: ADTBasePirateStore
