@@ -16,6 +16,6 @@
     ClothingHeadsetService: 2
     PrinterDocFlatpack: 2 # Corvax-Printer
     # ADT-BookPrinter-Start
-    ADTBookPrinterFlatpack: 1
-    ADTBookPrinterInkCartridge: 2
+    # ADTBookPrinterFlatpack: 1
+    # ADTBookPrinterInkCartridge: 2
     # ADT-BookPrinter-End
