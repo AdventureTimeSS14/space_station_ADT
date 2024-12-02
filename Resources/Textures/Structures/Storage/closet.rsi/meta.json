@@ -677,6 +677,15 @@
       "name": "mime_door"
     },
     {
+      "name": "secure_icon"
+    },
+    {
+      "name": "freezer_icon"
+    },
+    {
+      "name": "generic_icon"
+    },
+    {
       "name": "representative"
     },
     {
