@@ -52,7 +52,7 @@
 - type: entity
   id: WardrobeRed
   parent: WardrobeBase
-  name: green wardrobe
+  name: red wardrobe
   description: "A wardrobe packed with stylish red clothing."
   components:
   - type: Appearance
