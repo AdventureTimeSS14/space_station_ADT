@@ -6,21 +6,27 @@
     "x": 32,
     "y": 32
   },
-  "states": [
-      {
-        "name": "ADTpen_CE"
-      },
-      {
-        "name": "ADTpen_cmo"
-      },
-      {
-        "name": "ADTpen_hos"
-      },
-      {
-        "name": "ADTpen_QM"
-      },
-      {
-        "name": "ADTpen_RD"
-      }
-  ]
+    "states": [
+        {
+            "name": "ADTpen_CE"
+        },
+        {
+            "name": "ADTpen_cmo"
+        },
+        {
+            "name": "ADTpen_hos"
+        },
+        {
+            "name": "ADTpen_QM"
+        },
+        {
+            "name": "ADTpen_RD"
+        },
+        {
+            "name": "ADTpen_capdv"
+        },
+        {
+            "name": "ADTpen_dv"
+        }
+    ]
 }
