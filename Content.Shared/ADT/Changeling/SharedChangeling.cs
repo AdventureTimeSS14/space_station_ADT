@@ -5,41 +5,115 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Changeling;
 
-public sealed partial class LingAbsorbActionEvent : EntityTargetActionEvent
+#region Actions
+public sealed partial class LingAbsorbActionEvent : BaseTargetedChangelingActionEvent
 {
 }
 
-public sealed partial class LingStingExtractActionEvent : EntityTargetActionEvent
+public sealed partial class LingStingExtractActionEvent : BaseTargetedChangelingActionEvent
 {
 }
 
-public sealed partial class BlindStingEvent : EntityTargetActionEvent
+public sealed partial class BlindStingEvent : BaseTargetedChangelingActionEvent
 {
 }
 
-public sealed partial class MuteStingEvent : EntityTargetActionEvent
+public sealed partial class MuteStingEvent : BaseTargetedChangelingActionEvent
 {
 }
 
-public sealed partial class DrugStingEvent : EntityTargetActionEvent
+public sealed partial class DrugStingEvent : BaseTargetedChangelingActionEvent
 {
 }
 
-public sealed partial class TransformationStingEvent : EntityTargetActionEvent
+public sealed partial class TransformationStingEvent : BaseTargetedChangelingActionEvent
 {
 }
 
-public sealed partial class LingEggActionEvent : EntityTargetActionEvent
+public sealed partial class ChangelingEvolutionMenuActionEvent : BaseInstantChangelingActionEvent
 {
 }
 
+public sealed partial class ChangelingTransformActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class LingRegenerateActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class ArmBladeActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class LingArmorActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class LingInvisibleActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class LingEMPActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class StasisDeathActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class AdrenalineActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class FleshmendActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class ChangelingRefreshActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class ChangelingMusclesActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class ChangelingLesserFormActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class ArmShieldActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class ArmaceActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class LastResortActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class LingBiodegradeActionEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class LingResonantShriekEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class DigitalCamouflageEvent : BaseInstantChangelingActionEvent
+{
+}
+
+public sealed partial class ChangelingBoneShardEvent : BaseInstantChangelingActionEvent
+{
+}
+#endregion
+
+#region DoAfter
 [Serializable, NetSerializable]
 public sealed partial class AbsorbDoAfterEvent : SimpleDoAfterEvent
-{
-}
-
-[Serializable, NetSerializable]
-public sealed partial class LingEggDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
@@ -47,86 +121,14 @@ public sealed partial class LingEggDoAfterEvent : SimpleDoAfterEvent
 public sealed partial class BiodegradeDoAfterEvent : SimpleDoAfterEvent
 {
 }
-public sealed partial class ChangelingEvolutionMenuActionEvent : InstantActionEvent
+
+[Serializable, NetSerializable]
+public sealed partial class LingEggDoAfterEvent : SimpleDoAfterEvent
 {
 }
+#endregion
 
-public sealed partial class ChangelingTransformActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LingRegenerateActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ArmBladeActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LingArmorActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LingInvisibleActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LingEMPActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class StasisDeathActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class AdrenalineActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class FleshmendActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ChangelingRefreshActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ChangelingMusclesActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ChangelingLesserFormActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ArmShieldActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ArmaceActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LastResortActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LingBiodegradeActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class LingResonantShriekEvent : InstantActionEvent
-{
-}
-
-public sealed partial class DigitalCamouflageEvent : InstantActionEvent
-{
-}
-
-public sealed partial class ChangelingBoneShardEvent : InstantActionEvent
-{
-}
-
+#region Radial Menu
 /// <summary>
 /// This event carries humanoid information list of entities, which DNA were stolen. Used for radial UI of "The genestealer".
 /// </summary>
@@ -185,9 +187,26 @@ public sealed partial class SelectChangelingFormEvent : EntityEventArgs
         Type = type;
     }
 }
+#endregion
 
+#region Other
 [NetSerializable, Serializable]
 [DataDefinition]
 public sealed partial class ChangelingRefreshEvent : EntityEventArgs
 {
 }
+
+[DataDefinition]
+public abstract partial class BaseTargetedChangelingActionEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public float Cost = 0f;
+}
+
+[DataDefinition]
+public abstract partial class BaseInstantChangelingActionEvent : InstantActionEvent
+{
+    [DataField]
+    public float Cost = 0f;
+}
+#endregion

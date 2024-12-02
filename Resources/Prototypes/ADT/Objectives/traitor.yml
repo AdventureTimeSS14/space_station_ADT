@@ -1,9 +1,23 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
-  id: ADTCMODefibrillatorStealObjective
+  id: ADTMobileDefibrillatorStealObjective
   components:
   - type: NotJobRequirement
     job: ChiefMedicalOfficer
   - type: StealCondition
     stealGroup: ADTMobileDefibrillator
+    owner: job-name-cmo
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseTraitorStealObjective
+  id: ADTX01StealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: ADTWeaponPistolX01
+    owner: job-name-hos

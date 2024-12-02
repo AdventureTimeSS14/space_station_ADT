@@ -91,7 +91,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
-
     [Dependency] private readonly ContainerSystem _container = default!;
     #endregion
 
@@ -131,6 +130,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             UpdateChangelingHeadslug(uid, frameTime, comp);
         }
+
+        var transformedQuery = EntityQueryEnumerator<ForceTransformedComponent>();
+        while (transformedQuery.MoveNext(out var uid, out var comp))
+        {
+            UpdateTransformed(uid, frameTime, comp);
+        }
     }
 
     private void OnStartup(EntityUid uid, ChangelingComponent component, ComponentStartup args)
@@ -151,6 +156,8 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ChangelingComponent component, MapInitEvent args)
     {
+        if (component.GainedActions)
+            return;
         _action.AddAction(uid, ref component.ChangelingEvolutionMenuActionEntity, component.ChangelingEvolutionMenuAction);
         _action.AddAction(uid, ref component.ChangelingRegenActionEntity, component.ChangelingRegenAction);
         _action.AddAction(uid, ref component.ChangelingAbsorbActionEntity, component.ChangelingAbsorbAction);
@@ -298,8 +305,14 @@ public sealed partial class ChangelingSystem : EntitySystem
                 return;
 
             var newHumanoidData = _polymorph.CopyPolymorphHumanoidData(list.First());
-
-            _polymorph.PolymorphEntityAsHumanoid(GetEntity(ev.Target), newHumanoidData);
+            var data = _polymorph.TryRegisterPolymorphHumanoidData(target, target);
+            var polymorphed = _polymorph.PolymorphEntityAsHumanoid(target, newHumanoidData);
+            if (polymorphed.HasValue)
+            {
+                var forcedComp = EnsureComp<ForceTransformedComponent>(polymorphed.Value);
+                forcedComp.OriginalBody = data;
+                forcedComp.RevertAt = _timing.CurTime + TimeSpan.FromMinutes(15);
+            }
 
             comp.StoredDNA.Remove(list.First());
             return;
@@ -315,21 +328,27 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (HasComp<ChangelingComponent>(to))
             RemComp<ChangelingComponent>(to);
 
-        var newLingComponent = EnsureComp<ChangelingComponent>(to);
+        var newLingComponent = new ChangelingComponent();
         newLingComponent.Chemicals = comp.Chemicals;
         newLingComponent.ChemicalsPerSecond = comp.ChemicalsPerSecond;
+
         newLingComponent.StoredDNA = comp.StoredDNA;
-        newLingComponent.SelectedDNA = comp.SelectedDNA;
+
         newLingComponent.ArmBladeActive = comp.ArmBladeActive;
         newLingComponent.ChameleonSkinActive = comp.ChameleonSkinActive;
         newLingComponent.LingArmorActive = comp.LingArmorActive;
-        newLingComponent.CanRefresh = comp.CanRefresh;
         newLingComponent.LesserFormActive = comp.LesserFormActive;
+
         newLingComponent.AbsorbedDnaModifier = comp.AbsorbedDnaModifier;
+        newLingComponent.DNAStolen = comp.DNAStolen;
+        newLingComponent.LastResortUsed = comp.LastResortUsed;
+        newLingComponent.CanRefresh = comp.CanRefresh;
+
         newLingComponent.BasicTransferredActions = comp.BasicTransferredActions;
         newLingComponent.BoughtActions = comp.BoughtActions;
-        newLingComponent.LastResortUsed = comp.LastResortUsed;
+        newLingComponent.GainedActions = true;
         RemComp(from, comp);
+        AddComp(to, newLingComponent);
 
         if (TryComp(from, out StoreComponent? storeComp))
         {
@@ -443,7 +462,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFive))
+        if (!TryUseAbility(uid, component, 5f))
             return;
 
         foreach (var item in component.BoughtActions.Where(x =>
@@ -553,10 +572,9 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-not-enough-chemicals"), uid, uid);
             return false;
         }
-
         if (activated)
         {
-            ChangeChemicalsAmount(uid, abilityCost, component, false);
+            ChangeChemicalsAmount(uid, -abilityCost, component, false);
             component.ChemicalsPerSecond -= regenCost;
         }
         else
@@ -582,9 +600,15 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(selfMessage, uid, uid);
             return false;
         }
+        else if (HasComp<ForceTransformedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-transform-sting-fail-already", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+            return false;
+        }
 
         else
         {
+            component.DNAStolen++;
             component.StoredDNA.Add(newHumanoidData.Value);
         }
 
@@ -608,5 +632,19 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (comp.MusclesActive)
             _stamina.TakeStaminaDamage(uid, comp.MusclesStaminaDamage, null, null, null, false);
 
+    }
+
+    private void UpdateTransformed(EntityUid uid, float frameTime, ForceTransformedComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        if (comp.RevertAt > _timing.CurTime)
+            return;
+
+        if (!comp.OriginalBody.HasValue)
+            return;
+
+        _polymorph.PolymorphEntityAsHumanoid(uid, comp.OriginalBody.Value);
     }
 }

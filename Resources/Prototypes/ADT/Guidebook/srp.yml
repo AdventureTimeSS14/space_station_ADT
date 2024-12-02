@@ -1,562 +1,562 @@
-# - type: guideEntry
-#   id: ADTSrpOperatorCentCommGuide
-#   name: guide-srp-operator-centcomm
-#   text: "/ServerInfo/ADT/SrpOperatorCentComm.xml"
-
-# - type: guideEntry
-#   id: KorporateZakon
-#   name: guide-entry-all-korporate-zakon
-#   text: "/ServerInfo/ADT/srp/KorporateZakon.xml"
-#   children:
-#   - KorporateZakonOPRS
-#   - KorporateZakon1XX
-#   - KorporateZakon2XX
-#   - KorporateZakon3XX
-#   - KorporateZakon4XX
-#   - KorporateZakon5XX
-
-# - type: guideEntry
-#   id: KorporateZakonOPRS
-#   name: guide-entry-all-korporate-zakon-oprs
-#   text: "/ServerInfo/ADT/srp/KorporateZakonOPRS.xml"
-
-# - type: guideEntry
-#   id: KorporateZakon1XX
-#   name: guide-entry-all-korporate-zakon-minor
-#   text: "/ServerInfo/ADT/srp/KorporateZakon1XX.xml"
-
-# - type: guideEntry
-#   id: KorporateZakon2XX
-#   name: guide-entry-all-korporate-zakon-medium
-#   text: "/ServerInfo/ADT/srp/KorporateZakon2XX.xml"
-
-# - type: guideEntry
-#   id: KorporateZakon3XX
-#   name: guide-entry-all-korporate-zakon-serious
-#   text: "/ServerInfo/ADT/srp/KorporateZakon3XX.xml"
-
-# - type: guideEntry
-#   id: KorporateZakon4XX
-#   name: guide-entry-all-korporate-zakon-superheavy
-#   text: "/ServerInfo/ADT/srp/KorporateZakon4XX.xml"
-
-# - type: guideEntry
-#   id: KorporateZakon5XX
-#   name: guide-entry-all-korporate-zakon-critical
-#   text: "/ServerInfo/ADT/srp/KorporateZakon5XX.xml"
-
-# - type: guideEntry
-#   id: SRP
-#   name: guide-entry-all-srp
-#   text: "/ServerInfo/ADT/SRP.xml"
-#   children:
-#   - SrpCommand
-#   - SrpLawyer
-#   - SrpSecurity
-#   - SrpEngineer
-#   - SrpScientis
-#   - SrpMedic
-#   - SrpCargo
-#   - SrpServis
-
-
-#  #Срп коммандования
-# - type: guideEntry
-#   id: SrpCommand
-#   name: guide-entry-command
-#   text: "/ServerInfo/ADT/srp/SrpCommand.xml"
-#   children:
-#   - SrpCommandCaptain
-#   - SrpCommandHeadofPersonal
-#   - HeadSecurity
-#   - SrpSE
-#   - SrpCargoKvartirmester
-#   - SrpScientisNR
-#   - SrpMedicCMO
-#   - SrpLawyerMagistrat
-#   - SrpCommandBlueShield
-#   - SrpCommandProcedure
-
-# - type: guideEntry
-#   id: SrpCommandCaptain
-#   name: guide-entry-command-captain
-#   text: "/ServerInfo/ADT/srp/SrpCommandCaptain.xml"
-
-
-# - type: guideEntry
-#   id: SrpCommandBlueShield
-#   name: guide-entry-command-blue-shield
-#   text: "/ServerInfo/ADT/srp/SrpCommandBS.xml"
-
-# - type: guideEntry
-#   id: SrpCommandHeadofPersonal
-#   name: guide-entry-command-head-personal
-#   text: "/ServerInfo/ADT/srp/SrpCommandHeadofPersonal.xml"
-
-# - type: guideEntry
-#   id: SrpCommandProcedure
-#   name: guide-entry-command-procedure
-#   text: "/ServerInfo/ADT/srp/SrpCommandProcedure.xml"
-
-# #Срп ЮРдепа
-# - type: guideEntry
-#   id: SrpLawyer
-#   name: guide-entry-lawyer
-#   text: "/ServerInfo/ADT/srp/SrpLawyer.xml"
-#   children:
-#   - SrpLawyerIIA
-#   - SrpLawyerLawyers
-
-# - type: guideEntry
-#   id: SrpLawyerMagistrat
-#   name: guide-entry-lawyer-magistrat
-#   text: "/ServerInfo/ADT/srp/SrpLawyerMagistrat.xml"
-
-# - type: guideEntry
-#   id: SrpLawyerIIA
-#   name: guide-entry-lawyer-iia
-#   text: "/ServerInfo/ADT/srp/SrpLawyerIIA.xml"
-
-# - type: guideEntry
-#   id: SrpLawyerLawyers
-#   name: guide-entry-lawyer-lawyers
-#   text: "/ServerInfo/ADT/srp/SrpLawyerLawyers.xml"
-
-#  #Срп Сб
-# - type: guideEntry
-#   id: SrpSecurity
-#   name: guide-entry-security
-#   text: "/ServerInfo/ADT/srp/SrpSecurity.xml"
-#   children:
-#   - Warden
-#   - Senyor
-#   - Sledovatil
-#   - Detective
-#   - Brigmedic
-#   - Pilot
-#   - Oficer
-#   - Cadet
-#   - SecProcedure
-#   - SecWeapon
-#   - SecPower
-#   - SecNezareg
-#   - SecDopolnenie
-#   - SecSledstvie
-
-# - type: guideEntry
-#   id: Brigmedic
-#   name: guide-entry-medic-brigmedic
-#   text: "/ServerInfo/ADT/srp/SrpSecurityBrigmedic.xml"
-
-# - type: guideEntry
-#   id: HeadSecurity
-#   name: guide-entry-head-security
-#   text: "/ServerInfo/ADT/srp/SrpSecurityHead.xml"
-
-# - type: guideEntry
-#   id: Warden
-#   name: guide-entry-warden
-#   text: "/ServerInfo/ADT/srp/SrpSecurityWarden.xml"
-
-# - type: guideEntry
-#   id: Senyor
-#   name: guide-entry-senyor
-#   text: "/ServerInfo/ADT/srp/SrpSecuritySenyor.xml"
-
-# - type: guideEntry
-#   id: Sledovatil
-#   name: guide-entry-sledovatil
-#   text: "/ServerInfo/ADT/srp/SrpSecuritySledovatil.xml"
-
-# - type: guideEntry
-#   id: Detective
-#   name: guide-entry-detective
-#   text: "/ServerInfo/ADT/srp/SrpSecurityDetectiv.xml"
-
-# - type: guideEntry
-#   id: Pilot
-#   name: guide-entry-pilot
-#   text: "/ServerInfo/ADT/srp/SrpSecurityPilot.xml"
-
-# - type: guideEntry
-#   id: Oficer
-#   name: guide-entry-oficer
-#   text: "/ServerInfo/ADT/srp/SrpSecurityOficer.xml"
-
-# - type: guideEntry
-#   id: Cadet
-#   name: guide-entry-cadet
-#   text: "/ServerInfo/ADT/srp/SrpSecurityCadet.xml"
-
-
-# - type: guideEntry
-#   id: SecProcedure
-#   name: guide-entry-security-procedure
-#   text: "/ServerInfo/ADT/srp/SrpSecurityProcedure.xml"
-#   children:
-#   - SecProcedureSearch
-#   - SecProcedureArest
-#   - SecProcedureKonroband
-#   - SecProcedureYDO
-#   - SecProcedureDead
-
-# - type: guideEntry
-#   id: SecProcedureSearch
-#   name: guide-entry-security-procedure-search
-#   text: "/ServerInfo/ADT/srp/SrpSecurityProcedureSearch.xml"
-
-# - type: guideEntry
-#   id: SecProcedureArest
-#   name: guide-entry-security-procedure-arest
-#   text: "/ServerInfo/ADT/srp/SrpSecurityProcedureArest.xml"
-
-# - type: guideEntry
-#   id: SecProcedureKonroband
-#   name: guide-entry-security-procedure-konroband
-#   text: "/ServerInfo/ADT/srp/SrpSecurityProcedureKonroband.xml"
-
-# - type: guideEntry
-#   id: SecProcedureYDO
-#   name: guide-entry-security-procedure-ydo
-#   text: "/ServerInfo/ADT/srp/SrpSecurityProcedureYDO.xml"
-
-# - type: guideEntry
-#   id: SecProcedureDead
-#   name: guide-entry-security-procedure-dead
-#   text: "/ServerInfo/ADT/srp/SrpSecurityProcedureDead.xml"
-
-#   #
-# - type: guideEntry
-#   id: SecWeapon
-#   name: guide-entry-security-weapon
-#   text: "/ServerInfo/ADT/srp/SrpSecurityWeapon.xml"
-
-# - type: guideEntry
-#   id: SecPower
-#   name: guide-entry-security-power
-#   text: "/ServerInfo/ADT/srp/SrpSecurityPower.xml"
-
-# - type: guideEntry
-#   id: SecNezareg
-#   name: guide-entry-security-nezareg
-#   text: "/ServerInfo/ADT/srp/SrpSecurityNezareg.xml"
-
-# - type: guideEntry
-#   id: SecDopolnenie
-#   name: guide-entry-security-dopolnenie
-#   text: "/ServerInfo/ADT/srp/SrpSecurityDopolnenie.xml"
-
-# - type: guideEntry
-#   id: SecSledstvie
-#   name: guide-entry-security-sledstvie
-#   text: "/ServerInfo/ADT/srp/SrpSecuritySledstvie.xml"
-
-
-
-
-
-
-
-
-
-# #Срп Инженерного
-
-# - type: guideEntry
-#   id: SrpEngineer
-#   name: guide-entry-engineer
-#   text: "/ServerInfo/ADT/srp/SrpEngineer.xml"
-#   children:
-#   - SrpEngAll
-#   - SrpBrigadir
-#   - SrpEng
-#   - SrpAtmos
-#   - SrpEngJun
-
-# - type: guideEntry
-#   id: SrpBrigadir
-#   name: guide-entry-engineer-Brigadir
-#   text: "/ServerInfo/ADT/srp/SrpEngineerBrigadir.xml"
-
-# - type: guideEntry
-#   id: SrpEngAll
-#   name: guide-entry-engineer-all
-#   text: "/ServerInfo/ADT/srp/SrpEngAll.xml"
-
-# - type: guideEntry
-#   id: SrpSE
-#   name: guide-entry-engineer-se
-#   text: "/ServerInfo/ADT/srp/SrpEngineerSE.xml"
-
-# - type: guideEntry
-#   id: SrpEng
-#   name: guide-entry-engineer-eng
-#   text: "/ServerInfo/ADT/srp/SrpEngineerEng.xml"
-
-# - type: guideEntry
-#   id: SrpAtmos
-#   name: guide-entry-engineer-atmos
-#   text: "/ServerInfo/ADT/srp/SrpEngineerAtmos.xml"
-
-# - type: guideEntry
-#   id: SrpEngJun
-#   name: guide-entry-engineer-eng-jun
-#   text: "/ServerInfo/ADT/srp/SrpEngineerEngJun.xml"
-
-
-
-#   #Срп РНД
-# - type: guideEntry
-#   id: SrpScientis
-#   name: guide-entry-scientis
-#   text: "/ServerInfo/ADT/srp/SrpScientis.xml"
-#   children:
-#   - SrpScientisSenyor
-#   - SrpScientisMider
-#   - SrpScientisLaborant
-#   - SrpScientisProtect
-#   - SrpScientisProcedure
-
-# - type: guideEntry
-#   id: SrpScientisNR
-#   name: guide-entry-scientis-nr
-#   text: "/ServerInfo/ADT/srp/SrpScientisNR.xml"
-
-# - type: guideEntry
-#   id: SrpScientisSenyor
-#   name: guide-entry-scientis-senyor
-#   text: "/ServerInfo/ADT/srp/SrpScientisSenyor.xml"
-
-# - type: guideEntry
-#   id: SrpScientisMider
-#   name: guide-entry-scientis-mider
-#   text: "/ServerInfo/ADT/srp/SrpScientisMider.xml"
-
-# - type: guideEntry
-#   id: SrpScientisLaborant
-#   name: guide-entry-scientis-laborant
-#   text: "/ServerInfo/ADT/srp/SrpScientisLaborant.xml"
-
-# - type: guideEntry
-#   id: SrpScientisProtect
-#   name: guide-entry-scientis-protect
-#   text: "/ServerInfo/ADT/srp/SrpScientisProtect.xml"
-
-# - type: guideEntry
-#   id: SrpScientisProcedure
-#   name: guide-entry-scientis-procedure
-#   text: "/ServerInfo/ADT/srp/SrpScientisProcedure.xml"
-
-
-
-# #СРП Меда
-# - type: guideEntry
-#   id: SrpMedic
-#   name: guide-entry-medic
-#   text: "/ServerInfo/ADT/srp/SrpMedic.xml"
-#   children:
-#   - SrpMedicSenyor
-#   - SrpMedicParamed
-#   - SrpMedicMedic
-#   - SrpMedicMedicPatologoanatom
-#   - SrpMedicChimestry
-#   - SrpMedicPhsiholog
-#   - SrpMedicIntern
-#   - SrpMedicProcedure
-#   - SrpMedicSecret
-
-# - type: guideEntry
-#   id: SrpMedicCMO
-#   name: guide-entry-medic-cmo
-#   text: "/ServerInfo/ADT/srp/SrpMedicCMO.xml"
-
-# - type: guideEntry
-#   id: SrpMedicSenyor
-#   name: guide-entry-medic-senyor
-#   text: "/ServerInfo/ADT/srp/SrpMedicSenyor.xml"
-
-# - type: guideEntry
-#   id: SrpMedicParamed
-#   name: guide-entry-medic-paramed
-#   text: "/ServerInfo/ADT/srp/SrpMedicParamed.xml"
-
-# - type: guideEntry
-#   id: SrpMedicMedic
-#   name: guide-entry-medic-medic
-#   text: "/ServerInfo/ADT/srp/SrpMedicMedic.xml"
-#   children:
-#   - SrpMedicMedicVirusolog
-#   - SrpMedicMedicHirurg
-
-# - type: guideEntry
-#   id: SrpMedicMedicVirusolog
-#   name: guide-entry-medic-virusolog
-#   text: "/ServerInfo/ADT/srp/SrpMedicVirusolog.xml"
-
-# - type: guideEntry
-#   id: SrpMedicMedicHirurg
-#   name: guide-entry-medic-hirurg
-#   text: "/ServerInfo/ADT/srp/SrpMedicHirurg.xml"
-
-# - type: guideEntry
-#   id: SrpMedicMedicPatologoanatom
-#   name: guide-entry-medic-patologoanatom
-#   text: "/ServerInfo/ADT/srp/SrpMedicPatologoanatom.xml"
-
-
-# ###
-
-# - type: guideEntry
-#   id: SrpMedicChimestry
-#   name: guide-entry-medic-chimestry
-#   text: "/ServerInfo/ADT/srp/SrpMedicChimestry.xml"
-
-
-# - type: guideEntry
-#   id: SrpMedicPhsiholog
-#   name: guide-entry-medic-phsiholog
-#   text: "/ServerInfo/ADT/srp/SrpMedicPhsiholog.xml"
-
-
-# - type: guideEntry
-#   id: SrpMedicIntern
-#   name: guide-entry-medic-intern
-#   text: "/ServerInfo/ADT/srp/SrpMedicIntern.xml"
-
-
-# - type: guideEntry
-#   id: SrpMedicProcedure
-#   name: guide-entry-medic-procedure
-#   text: "/ServerInfo/ADT/srp/SrpMedicProcedure.xml"
-
-# - type: guideEntry
-#   id: SrpMedicSecret
-#   name: guide-entry-medic-secret
-#   text: "/ServerInfo/ADT/srp/SrpMedicSecret.xml"
-
-
-
-
-
-
-
-
-
-# #Срп Карго
-# - type: guideEntry
-#   id: SrpCargo
-#   name: guide-entry-cargo
-#   text: "/ServerInfo/ADT/srp/SrpCargo.xml"
-#   children:
-#   - SrpCargoUtilizer
-#   - SrpCargoLoader
-
-# - type: guideEntry
-#   id: SrpCargoKvartirmester
-#   name: guide-entry-cargo-kvartirmester
-#   text: "/ServerInfo/ADT/srp/SrpCargoKvartirmester.xml"
-
-# - type: guideEntry
-#   id: SrpCargoUtilizer
-#   name: guide-entry-cargo-utilizer
-#   text: "/ServerInfo/ADT/srp/SrpCargoUtilizer.xml"
-
-# - type: guideEntry
-#   id: SrpCargoLoader
-#   name: guide-entry-cargo-loader
-#   text: "/ServerInfo/ADT/srp/SrpCargoLoader.xml"
-
-
-
-# #Срп Сервиса
-# - type: guideEntry
-#   id: SrpServis
-#   name: guide-entry-servis
-#   text: "/ServerInfo/ADT/srp/SrpServis.xml"
-#   children:
-#   - SrpServisChef
-#   - SrpServisBotanic
-#   - SrpServisBarmen
-#   - SrpServisYborshick
-#   - SrpServisOficiant
-#   - SrpServisLibrel
-#   - SrpServisSvatoy
-#   - SrpServisZoo
-#   - SrpServisMem
-#   - SrpServisKluven
-#   - SrpServisReporter
-#   - SrpServisBoxer
-#   - SrpServisMusical
-#   - SrpServisPassagir
-
-# - type: guideEntry
-#   id: SrpServisChef
-#   name: guide-entry-servis-chef
-#   text: "/ServerInfo/ADT/srp/SrpServisChef.xml"
-
-# - type: guideEntry
-#   id: SrpServisBotanic
-#   name: guide-entry-servis-botanic
-#   text: "/ServerInfo/ADT/srp/SrpServisBotanic.xml"
-
-# - type: guideEntry
-#   id: SrpServisBarmen
-#   name: guide-entry-servis-barmen
-#   text: "/ServerInfo/ADT/srp/SrpServisBarmen.xml"
-
-
-# - type: guideEntry
-#   id: SrpServisYborshick
-#   name: guide-entry-servis-yborshick
-#   text: "/ServerInfo/ADT/srp/SrpServisYborshick.xml"
-
-# - type: guideEntry
-#   id: SrpServisOficiant
-#   name: guide-entry-servis-oficiant
-#   text: "/ServerInfo/ADT/srp/SrpServisOficiant.xml"
-
-# - type: guideEntry
-#   id: SrpServisLibrel
-#   name: guide-entry-servis-librel
-#   text: "/ServerInfo/ADT/srp/SrpServisLibrel.xml"
-
-# - type: guideEntry
-#   id: SrpServisSvatoy
-#   name: guide-entry-servis-svatoy
-#   text: "/ServerInfo/ADT/srp/SrpServisSvatoy.xml"
-
-# - type: guideEntry
-#   id: SrpServisZoo
-#   name: guide-entry-servis-zoo
-#   text: "/ServerInfo/ADT/srp/SrpServisZoo.xml"
-
-# - type: guideEntry
-#   id: SrpServisMem
-#   name: guide-entry-servis-mem
-#   text: "/ServerInfo/ADT/srp/SrpServisMem.xml"
-
-# - type: guideEntry
-#   id: SrpServisKluven
-#   name: guide-entry-servis-kluven
-#   text: "/ServerInfo/ADT/srp/SrpServisKluven.xml"
-
-# - type: guideEntry
-#   id: SrpServisReporter
-#   name: guide-entry-servis-reporter
-#   text: "/ServerInfo/ADT/srp/SrpServisReporter.xml"
-
-# - type: guideEntry
-#   id: SrpServisBoxer
-#   name: guide-entry-servis-boxer
-#   text: "/ServerInfo/ADT/srp/SrpServisBoxer.xml"
-
-# - type: guideEntry
-#   id: SrpServisMusical
-#   name: guide-entry-servis-musical
-#   text: "/ServerInfo/ADT/srp/SrpServisMusical.xml"
-
-# - type: guideEntry
-#   id: SrpServisPassagir
-#   name: guide-entry-servis-passagir
-#   text: "/ServerInfo/ADT/srp/SrpServisPassagir.xml"
+- type: guideEntry
+  id: ADTSrpOperatorCentCommGuide
+  name: guide-srp-operator-centcomm
+  text: "/ServerInfo/ADT/SrpOperatorCentComm.xml"
+
+- type: guideEntry
+  id: KorporateZakon
+  name: guide-entry-all-korporate-zakon
+  text: "/ServerInfo/ADT/srp/KorporateZakon.xml"
+  children:
+  - KorporateZakonOPRS
+  - KorporateZakon1XX
+  - KorporateZakon2XX
+  - KorporateZakon3XX
+  - KorporateZakon4XX
+  - KorporateZakon5XX
+
+- type: guideEntry
+  id: KorporateZakonOPRS
+  name: guide-entry-all-korporate-zakon-oprs
+  text: "/ServerInfo/ADT/srp/KorporateZakonOPRS.xml"
+
+- type: guideEntry
+  id: KorporateZakon1XX
+  name: guide-entry-all-korporate-zakon-minor
+  text: "/ServerInfo/ADT/srp/KorporateZakon1XX.xml"
+
+- type: guideEntry
+  id: KorporateZakon2XX
+  name: guide-entry-all-korporate-zakon-medium
+  text: "/ServerInfo/ADT/srp/KorporateZakon2XX.xml"
+
+- type: guideEntry
+  id: KorporateZakon3XX
+  name: guide-entry-all-korporate-zakon-serious
+  text: "/ServerInfo/ADT/srp/KorporateZakon3XX.xml"
+
+- type: guideEntry
+  id: KorporateZakon4XX
+  name: guide-entry-all-korporate-zakon-superheavy
+  text: "/ServerInfo/ADT/srp/KorporateZakon4XX.xml"
+
+- type: guideEntry
+  id: KorporateZakon5XX
+  name: guide-entry-all-korporate-zakon-critical
+  text: "/ServerInfo/ADT/srp/KorporateZakon5XX.xml"
+
+- type: guideEntry
+  id: SRP
+  name: guide-entry-all-srp
+  text: "/ServerInfo/ADT/SRP.xml"
+  children:
+  - SrpCommand
+  - SrpLawyer
+  - SrpSecurity
+  - SrpEngineer
+  - SrpScientis
+  - SrpMedic
+  - SrpCargo
+  - SrpServis
+
+
+ #Срп коммандования
+- type: guideEntry
+  id: SrpCommand
+  name: guide-entry-command
+  text: "/ServerInfo/ADT/srp/SrpCommand.xml"
+  children:
+  - SrpCommandCaptain
+  - SrpCommandHeadofPersonal
+  - HeadSecurity
+  - SrpSE
+  - SrpCargoKvartirmester
+  - SrpScientisNR
+  - SrpMedicCMO
+  - SrpLawyerMagistrat
+  - SrpCommandBlueShield
+  - SrpCommandProcedure
+
+- type: guideEntry
+  id: SrpCommandCaptain
+  name: guide-entry-command-captain
+  text: "/ServerInfo/ADT/srp/SrpCommandCaptain.xml"
+
+
+- type: guideEntry
+  id: SrpCommandBlueShield
+  name: guide-entry-command-blue-shield
+  text: "/ServerInfo/ADT/srp/SrpCommandBS.xml"
+
+- type: guideEntry
+  id: SrpCommandHeadofPersonal
+  name: guide-entry-command-head-personal
+  text: "/ServerInfo/ADT/srp/SrpCommandHeadofPersonal.xml"
+
+- type: guideEntry
+  id: SrpCommandProcedure
+  name: guide-entry-command-procedure
+  text: "/ServerInfo/ADT/srp/SrpCommandProcedure.xml"
+
+#Срп ЮРдепа
+- type: guideEntry
+  id: SrpLawyer
+  name: guide-entry-lawyer
+  text: "/ServerInfo/ADT/srp/SrpLawyer.xml"
+  children:
+  - SrpLawyerIIA
+  - SrpLawyerLawyers
+
+- type: guideEntry
+  id: SrpLawyerMagistrat
+  name: guide-entry-lawyer-magistrat
+  text: "/ServerInfo/ADT/srp/SrpLawyerMagistrat.xml"
+
+- type: guideEntry
+  id: SrpLawyerIIA
+  name: guide-entry-lawyer-iia
+  text: "/ServerInfo/ADT/srp/SrpLawyerIIA.xml"
+
+- type: guideEntry
+  id: SrpLawyerLawyers
+  name: guide-entry-lawyer-lawyers
+  text: "/ServerInfo/ADT/srp/SrpLawyerLawyers.xml"
+
+ #Срп Сб
+- type: guideEntry
+  id: SrpSecurity
+  name: guide-entry-security
+  text: "/ServerInfo/ADT/srp/SrpSecurity.xml"
+  children:
+  - Warden
+  - Senyor
+  - Sledovatil
+  - Detective
+  - Brigmedic
+  - Pilot
+  - Oficer
+  - Cadet
+  - SecProcedure
+  - SecWeapon
+  - SecPower
+  - SecNezareg
+  - SecDopolnenie
+  - SecSledstvie
+
+- type: guideEntry
+  id: Brigmedic
+  name: guide-entry-medic-brigmedic
+  text: "/ServerInfo/ADT/srp/SrpSecurityBrigmedic.xml"
+
+- type: guideEntry
+  id: HeadSecurity
+  name: guide-entry-head-security
+  text: "/ServerInfo/ADT/srp/SrpSecurityHead.xml"
+
+- type: guideEntry
+  id: Warden
+  name: guide-entry-warden
+  text: "/ServerInfo/ADT/srp/SrpSecurityWarden.xml"
+
+- type: guideEntry
+  id: Senyor
+  name: guide-entry-senyor
+  text: "/ServerInfo/ADT/srp/SrpSecuritySenyor.xml"
+
+- type: guideEntry
+  id: Sledovatil
+  name: guide-entry-sledovatil
+  text: "/ServerInfo/ADT/srp/SrpSecuritySledovatil.xml"
+
+- type: guideEntry
+  id: Detective
+  name: guide-entry-detective
+  text: "/ServerInfo/ADT/srp/SrpSecurityDetectiv.xml"
+
+- type: guideEntry
+  id: Pilot
+  name: guide-entry-pilot
+  text: "/ServerInfo/ADT/srp/SrpSecurityPilot.xml"
+
+- type: guideEntry
+  id: Oficer
+  name: guide-entry-oficer
+  text: "/ServerInfo/ADT/srp/SrpSecurityOficer.xml"
+
+- type: guideEntry
+  id: Cadet
+  name: guide-entry-cadet
+  text: "/ServerInfo/ADT/srp/SrpSecurityCadet.xml"
+
+
+- type: guideEntry
+  id: SecProcedure
+  name: guide-entry-security-procedure
+  text: "/ServerInfo/ADT/srp/SrpSecurityProcedure.xml"
+  children:
+  - SecProcedureSearch
+  - SecProcedureArest
+  - SecProcedureKonroband
+  - SecProcedureYDO
+  - SecProcedureDead
+
+- type: guideEntry
+  id: SecProcedureSearch
+  name: guide-entry-security-procedure-search
+  text: "/ServerInfo/ADT/srp/SrpSecurityProcedureSearch.xml"
+
+- type: guideEntry
+  id: SecProcedureArest
+  name: guide-entry-security-procedure-arest
+  text: "/ServerInfo/ADT/srp/SrpSecurityProcedureArest.xml"
+
+- type: guideEntry
+  id: SecProcedureKonroband
+  name: guide-entry-security-procedure-konroband
+  text: "/ServerInfo/ADT/srp/SrpSecurityProcedureKonroband.xml"
+
+- type: guideEntry
+  id: SecProcedureYDO
+  name: guide-entry-security-procedure-ydo
+  text: "/ServerInfo/ADT/srp/SrpSecurityProcedureYDO.xml"
+
+- type: guideEntry
+  id: SecProcedureDead
+  name: guide-entry-security-procedure-dead
+  text: "/ServerInfo/ADT/srp/SrpSecurityProcedureDead.xml"
+
+  #
+- type: guideEntry
+  id: SecWeapon
+  name: guide-entry-security-weapon
+  text: "/ServerInfo/ADT/srp/SrpSecurityWeapon.xml"
+
+- type: guideEntry
+  id: SecPower
+  name: guide-entry-security-power
+  text: "/ServerInfo/ADT/srp/SrpSecurityPower.xml"
+
+- type: guideEntry
+  id: SecNezareg
+  name: guide-entry-security-nezareg
+  text: "/ServerInfo/ADT/srp/SrpSecurityNezareg.xml"
+
+- type: guideEntry
+  id: SecDopolnenie
+  name: guide-entry-security-dopolnenie
+  text: "/ServerInfo/ADT/srp/SrpSecurityDopolnenie.xml"
+
+- type: guideEntry
+  id: SecSledstvie
+  name: guide-entry-security-sledstvie
+  text: "/ServerInfo/ADT/srp/SrpSecuritySledstvie.xml"
+
+
+
+
+
+
+
+
+
+#Срп Инженерного
+
+- type: guideEntry
+  id: SrpEngineer
+  name: guide-entry-engineer
+  text: "/ServerInfo/ADT/srp/SrpEngineer.xml"
+  children:
+  - SrpEngAll
+  - SrpBrigadir
+  - SrpEng
+  - SrpAtmos
+  - SrpEngJun
+
+- type: guideEntry
+  id: SrpBrigadir
+  name: guide-entry-engineer-Brigadir
+  text: "/ServerInfo/ADT/srp/SrpEngineerBrigadir.xml"
+
+- type: guideEntry
+  id: SrpEngAll
+  name: guide-entry-engineer-all
+  text: "/ServerInfo/ADT/srp/SrpEngAll.xml"
+
+- type: guideEntry
+  id: SrpSE
+  name: guide-entry-engineer-se
+  text: "/ServerInfo/ADT/srp/SrpEngineerSE.xml"
+
+- type: guideEntry
+  id: SrpEng
+  name: guide-entry-engineer-eng
+  text: "/ServerInfo/ADT/srp/SrpEngineerEng.xml"
+
+- type: guideEntry
+  id: SrpAtmos
+  name: guide-entry-engineer-atmos
+  text: "/ServerInfo/ADT/srp/SrpEngineerAtmos.xml"
+
+- type: guideEntry
+  id: SrpEngJun
+  name: guide-entry-engineer-eng-jun
+  text: "/ServerInfo/ADT/srp/SrpEngineerEngJun.xml"
+
+
+
+  #Срп РНД
+- type: guideEntry
+  id: SrpScientis
+  name: guide-entry-scientis
+  text: "/ServerInfo/ADT/srp/SrpScientis.xml"
+  children:
+  - SrpScientisSenyor
+  - SrpScientisMider
+  - SrpScientisLaborant
+  - SrpScientisProtect
+  - SrpScientisProcedure
+
+- type: guideEntry
+  id: SrpScientisNR
+  name: guide-entry-scientis-nr
+  text: "/ServerInfo/ADT/srp/SrpScientisNR.xml"
+
+- type: guideEntry
+  id: SrpScientisSenyor
+  name: guide-entry-scientis-senyor
+  text: "/ServerInfo/ADT/srp/SrpScientisSenyor.xml"
+
+- type: guideEntry
+  id: SrpScientisMider
+  name: guide-entry-scientis-mider
+  text: "/ServerInfo/ADT/srp/SrpScientisMider.xml"
+
+- type: guideEntry
+  id: SrpScientisLaborant
+  name: guide-entry-scientis-laborant
+  text: "/ServerInfo/ADT/srp/SrpScientisLaborant.xml"
+
+- type: guideEntry
+  id: SrpScientisProtect
+  name: guide-entry-scientis-protect
+  text: "/ServerInfo/ADT/srp/SrpScientisProtect.xml"
+
+- type: guideEntry
+  id: SrpScientisProcedure
+  name: guide-entry-scientis-procedure
+  text: "/ServerInfo/ADT/srp/SrpScientisProcedure.xml"
+
+
+
+#СРП Меда
+- type: guideEntry
+  id: SrpMedic
+  name: guide-entry-medic
+  text: "/ServerInfo/ADT/srp/SrpMedic.xml"
+  children:
+  - SrpMedicSenyor
+  - SrpMedicParamed
+  - SrpMedicMedic
+  - SrpMedicMedicPatologoanatom
+  - SrpMedicChimestry
+  - SrpMedicPhsiholog
+  - SrpMedicIntern
+  - SrpMedicProcedure
+  - SrpMedicSecret
+
+- type: guideEntry
+  id: SrpMedicCMO
+  name: guide-entry-medic-cmo
+  text: "/ServerInfo/ADT/srp/SrpMedicCMO.xml"
+
+- type: guideEntry
+  id: SrpMedicSenyor
+  name: guide-entry-medic-senyor
+  text: "/ServerInfo/ADT/srp/SrpMedicSenyor.xml"
+
+- type: guideEntry
+  id: SrpMedicParamed
+  name: guide-entry-medic-paramed
+  text: "/ServerInfo/ADT/srp/SrpMedicParamed.xml"
+
+- type: guideEntry
+  id: SrpMedicMedic
+  name: guide-entry-medic-medic
+  text: "/ServerInfo/ADT/srp/SrpMedicMedic.xml"
+  children:
+  - SrpMedicMedicVirusolog
+  - SrpMedicMedicHirurg
+
+- type: guideEntry
+  id: SrpMedicMedicVirusolog
+  name: guide-entry-medic-virusolog
+  text: "/ServerInfo/ADT/srp/SrpMedicVirusolog.xml"
+
+- type: guideEntry
+  id: SrpMedicMedicHirurg
+  name: guide-entry-medic-hirurg
+  text: "/ServerInfo/ADT/srp/SrpMedicHirurg.xml"
+
+- type: guideEntry
+  id: SrpMedicMedicPatologoanatom
+  name: guide-entry-medic-patologoanatom
+  text: "/ServerInfo/ADT/srp/SrpMedicPatologoanatom.xml"
+
+
+###
+
+- type: guideEntry
+  id: SrpMedicChimestry
+  name: guide-entry-medic-chimestry
+  text: "/ServerInfo/ADT/srp/SrpMedicChimestry.xml"
+
+
+- type: guideEntry
+  id: SrpMedicPhsiholog
+  name: guide-entry-medic-phsiholog
+  text: "/ServerInfo/ADT/srp/SrpMedicPhsiholog.xml"
+
+
+- type: guideEntry
+  id: SrpMedicIntern
+  name: guide-entry-medic-intern
+  text: "/ServerInfo/ADT/srp/SrpMedicIntern.xml"
+
+
+- type: guideEntry
+  id: SrpMedicProcedure
+  name: guide-entry-medic-procedure
+  text: "/ServerInfo/ADT/srp/SrpMedicProcedure.xml"
+
+- type: guideEntry
+  id: SrpMedicSecret
+  name: guide-entry-medic-secret
+  text: "/ServerInfo/ADT/srp/SrpMedicSecret.xml"
+
+
+
+
+
+
+
+
+
+#Срп Карго
+- type: guideEntry
+  id: SrpCargo
+  name: guide-entry-cargo
+  text: "/ServerInfo/ADT/srp/SrpCargo.xml"
+  children:
+  - SrpCargoUtilizer
+  - SrpCargoLoader
+
+- type: guideEntry
+  id: SrpCargoKvartirmester
+  name: guide-entry-cargo-kvartirmester
+  text: "/ServerInfo/ADT/srp/SrpCargoKvartirmester.xml"
+
+- type: guideEntry
+  id: SrpCargoUtilizer
+  name: guide-entry-cargo-utilizer
+  text: "/ServerInfo/ADT/srp/SrpCargoUtilizer.xml"
+
+- type: guideEntry
+  id: SrpCargoLoader
+  name: guide-entry-cargo-loader
+  text: "/ServerInfo/ADT/srp/SrpCargoLoader.xml"
+
+
+
+#Срп Сервиса
+- type: guideEntry
+  id: SrpServis
+  name: guide-entry-servis
+  text: "/ServerInfo/ADT/srp/SrpServis.xml"
+  children:
+  - SrpServisChef
+  - SrpServisBotanic
+  - SrpServisBarmen
+  - SrpServisYborshick
+  - SrpServisOficiant
+  - SrpServisLibrel
+  - SrpServisSvatoy
+  - SrpServisZoo
+  - SrpServisMem
+  - SrpServisKluven
+  - SrpServisReporter
+  - SrpServisBoxer
+  - SrpServisMusical
+  - SrpServisPassagir
+
+- type: guideEntry
+  id: SrpServisChef
+  name: guide-entry-servis-chef
+  text: "/ServerInfo/ADT/srp/SrpServisChef.xml"
+
+- type: guideEntry
+  id: SrpServisBotanic
+  name: guide-entry-servis-botanic
+  text: "/ServerInfo/ADT/srp/SrpServisBotanic.xml"
+
+- type: guideEntry
+  id: SrpServisBarmen
+  name: guide-entry-servis-barmen
+  text: "/ServerInfo/ADT/srp/SrpServisBarmen.xml"
+
+
+- type: guideEntry
+  id: SrpServisYborshick
+  name: guide-entry-servis-yborshick
+  text: "/ServerInfo/ADT/srp/SrpServisYborshick.xml"
+
+- type: guideEntry
+  id: SrpServisOficiant
+  name: guide-entry-servis-oficiant
+  text: "/ServerInfo/ADT/srp/SrpServisOficiant.xml"
+
+- type: guideEntry
+  id: SrpServisLibrel
+  name: guide-entry-servis-librel
+  text: "/ServerInfo/ADT/srp/SrpServisLibrel.xml"
+
+- type: guideEntry
+  id: SrpServisSvatoy
+  name: guide-entry-servis-svatoy
+  text: "/ServerInfo/ADT/srp/SrpServisSvatoy.xml"
+
+- type: guideEntry
+  id: SrpServisZoo
+  name: guide-entry-servis-zoo
+  text: "/ServerInfo/ADT/srp/SrpServisZoo.xml"
+
+- type: guideEntry
+  id: SrpServisMem
+  name: guide-entry-servis-mem
+  text: "/ServerInfo/ADT/srp/SrpServisMem.xml"
+
+- type: guideEntry
+  id: SrpServisKluven
+  name: guide-entry-servis-kluven
+  text: "/ServerInfo/ADT/srp/SrpServisKluven.xml"
+
+- type: guideEntry
+  id: SrpServisReporter
+  name: guide-entry-servis-reporter
+  text: "/ServerInfo/ADT/srp/SrpServisReporter.xml"
+
+- type: guideEntry
+  id: SrpServisBoxer
+  name: guide-entry-servis-boxer
+  text: "/ServerInfo/ADT/srp/SrpServisBoxer.xml"
+
+- type: guideEntry
+  id: SrpServisMusical
+  name: guide-entry-servis-musical
+  text: "/ServerInfo/ADT/srp/SrpServisMusical.xml"
+
+- type: guideEntry
+  id: SrpServisPassagir
+  name: guide-entry-servis-passagir
+  text: "/ServerInfo/ADT/srp/SrpServisPassagir.xml"
 
 

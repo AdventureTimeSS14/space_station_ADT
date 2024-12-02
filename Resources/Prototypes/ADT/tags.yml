@@ -396,3 +396,15 @@
 
 - type: Tag
   id: ADTSpaceMobIgnored
+
+- type: Tag
+  id: ADTOreBag
+
+- type: Tag
+  id: ADTSiliconEmotes
+
+- type: Tag
+  id: ADTCatEmotes
+
+- type: Tag
+  id: ADTDogEmotes
