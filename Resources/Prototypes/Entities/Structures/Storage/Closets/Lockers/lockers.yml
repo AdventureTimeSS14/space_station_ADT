@@ -564,7 +564,7 @@
   components:
   - type: Appearance
   - type: AccessReader
-    access: [["Lawyers"]]
+    access: [["Lawyer"]]
   - type: EntityStorageVisuals
     stateBaseClosed: color_black
     stateDoorOpen: color_black_open

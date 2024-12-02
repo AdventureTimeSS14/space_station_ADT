@@ -6,6 +6,7 @@
   targetNode: done
   category: construction-category-storage
   description: A tall steel box that cannot be locked.
+  icon: { sprite: Structures/Storage/Crates/secure.rsi, state: generic_icon }
   objectType: Structure
 
 - type: construction
@@ -16,6 +17,7 @@
   targetNode: done
   category: construction-category-storage
   description: A tall steel box that can be locked.
+  icon: { sprite: Structures/Storage/Crates/secure.rsi, state: secure_icon }
   objectType: Structure
 
 - type: construction
@@ -26,6 +28,7 @@
   targetNode: done
   category: construction-category-storage
   description: A tall steel box with freezing abilities.
+  icon: { sprite: Structures/Storage/Crates/secure.rsi, state: freezer_icon }
   objectType: Structure
 
 - type: construction
