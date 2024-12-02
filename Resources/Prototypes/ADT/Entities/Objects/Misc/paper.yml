@@ -24,5 +24,27 @@
   components:
   - type: Sprite
     layers:
-    - state: folder-centcom
+    - state: folder-dv
     - state: folder-base
+
+- type: entity
+  id: ADTBoxFolderClipboardDV
+  parent: BoxFolderClipboard
+  name: DV`s clipboard
+  suffix: DV
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/dv-clipboard.rsi
+    layers:
+    - state: clipboard
+    - state: clipboard_paper
+      map: ["clipboard_paper"]
+      visible: false
+    - state: clipboard_pen
+      map: ["clipboard_pen"]
+      visible: false
+    - state: clipboard_over
+  - type: Item
+    sprite: ADT/Objects/Misc/dv-clipboard.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Misc/dv-clipboard.rsi
