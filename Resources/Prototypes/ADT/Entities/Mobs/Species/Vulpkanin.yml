@@ -97,6 +97,7 @@
       - DoorBumpOpener
       - AnomalyHost
       - ADTDogEmotes
+    - type: DamageEyesOnFlashed
 
 - type: entity
   save: false
