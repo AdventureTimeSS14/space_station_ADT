@@ -81,6 +81,9 @@
   - type: PhysicalComposition
     materialComposition:
       ADTPaper: 100 # ADT tweak
+  - type: Stack
+    stackType: ADTPaper
+    count: 1
 # Corvax-Printer-End
 
 - type: entity
