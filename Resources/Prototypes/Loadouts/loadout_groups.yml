@@ -642,6 +642,8 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - ADTQMJumpsuitCamisole # ADT tweak
+  - ADTQMJumpskirtCamisole # ADT tweak
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -1028,6 +1030,9 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - HeadofSecurityMantleShoulder #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeBronze #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeSilver #ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeGold #ADT-Loadout
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1138,6 +1143,9 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
+  - ADTSecurityOfficerNeckBadgeBronze # ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeSilver # ADT-Loadout
+  - ADTSecurityOfficerNeckBadgeGold # ADT-Loadout
 
 - type: loadoutGroup
   id: DetectiveJumpsuit

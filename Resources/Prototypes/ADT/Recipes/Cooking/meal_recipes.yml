@@ -46,6 +46,50 @@
     FoodOnion: 1
     ADTOrganVulpkaninAnimalLiver: 1
 
+# курятинка
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedChicken
+  name: baked chicken
+  result: ADTFoodMeatChickenBaked
+  time: 25
+  solids:
+    ADTChickenBody: 1
+  reagents:
+    BbqSauce: 5
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedStuffedChicken
+  name: baked stuffed chicken
+  result: ADTFoodMeatChickenBakedWithVegetables
+  time: 30
+  solids:
+    ADTChickenBody: 1
+    FoodPlate: 1
+    FoodCabbage: 1
+    FoodTomato: 1
+    FoodPotato: 1
+    FoodCorn: 1
+    FoodMeatCutlet: 2
+  reagents:
+    BbqSauce: 5
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedChickenLeg
+  name: baked chicken leg
+  result: ADTFoodMeatChickenBakedLeg
+  time: 5
+  solids:
+    ADTFoodMeatChickenLeg: 1
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedChickenWing
+  name: baked chicken wing
+  result: ADTFoodMeatChickenBakedWing
+  time: 5
+  solids:
+    ADTFoodMeatChickenWing: 1
+
 # Sh4zik tea packs, Starting below
 
 - type: microwaveMealRecipe

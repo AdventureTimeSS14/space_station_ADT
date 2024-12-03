@@ -91,3 +91,4 @@ changeling-digital-camo-toggle-off = Вы снова двигаетесь нор
 changeling-digital-camo-desc = [color=white]{CAPITALIZE($user)} двигается неестественными рывками.[/color]
 changeling-digi-camo-fail-chameleon = Сначала выключите хамелеон.
 changeling-chameleon-fail-digi-camo = Сначала выключите цифровой камуфляж.
+changeling-transform-sting-fail-already = ДНК {THE($target)} слишком искажено!

@@ -23,7 +23,6 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "echo_chat";
 
@@ -56,10 +55,8 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
             _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Whisper, ChatTransmitRange.Normal);
         }
 
-        // Проверяем, нужно ли добавлять запись в логи
         if (args.Length == 4 && args[3] == "false")
         {
-            // Не добавляем в логи
             return;
         }
 

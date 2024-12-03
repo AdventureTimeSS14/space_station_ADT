@@ -808,7 +808,7 @@
     - ADTBoxAmmoHades
     - ADTBoxAmmoSniper
     - ADTBoxAmmoGranade
-    - ADTBoxPlasmaBox 
+    - ADTBoxPlasmaBox
     # ADT mech end
   - type: MaterialStorage
     whitelist:
@@ -819,6 +819,11 @@
   - type: GuideHelp
     guides:
     - Robotics
+  # ADT-Sound-Update-Start
+  - type: Tag
+    tags:
+    - ADTRoboticsAmbience
+  # ADT-Sound-Update-End
 
 - type: entity
   id: Biofabricator
@@ -1466,6 +1471,10 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
+    # ADT tweak start
+    - type: AutoMaterialInsert
+      tag: ADTOreBag
+    # ADT tweak end
 
 - type: entity
   parent: OreProcessor

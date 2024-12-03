@@ -9,6 +9,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server.DNALocker;
 
@@ -17,7 +19,8 @@ public sealed partial class DNALockerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override void Initialize()
     {
@@ -63,7 +66,6 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void OnEquip(EntityUid uid, DNALockerComponent component, GotEquippedEvent args)
     {
-        Log.Debug($"{args.Slot}");
         if (!component.IsLocked)
         {
             LockEntity(uid, component, args.Equipee);
@@ -74,6 +76,7 @@ public sealed partial class DNALockerSystem : EntitySystem
         {
             if (component.DNA != null && component.DNA != dna.DNA)
             {
+                _adminLogger.Add(LogType.AdminMessage, LogImpact.High, $"{ToPrettyString(args.Equipee)} exploded DNA Locker of {ToPrettyString(uid)}");
                 ExplodeEntity(uid, component, args.Equipee);
             }
         }

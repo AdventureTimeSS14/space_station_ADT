@@ -264,6 +264,7 @@
     - id: ADTBookSRPmed
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
+    - id: OpporozidoneBeakerSmall
     # ADT tweak End
 
 # Hardsuit table, used for suit storage as well
@@ -364,7 +365,8 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyShotgun
+    - id: ADTWeaponPistolX01 # ADT tweak Мультифаза для гсб
+#    - id: WeaponEnergyShotgun ADT tweak Дробовик для смотрителя
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase

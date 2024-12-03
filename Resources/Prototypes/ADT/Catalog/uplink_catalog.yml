@@ -161,6 +161,21 @@
         components:
           - SurplusBundle
 
+- type: listing
+  id: ADTUplinkSyndieADTTritiumGrenades
+  name: uplink-tritiumgrenades-name
+  description: uplink-tritiumgrenades-desc
+  productEntity: ADTTritiumGrenades
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 #UplinkWearables
 
 - type: listing

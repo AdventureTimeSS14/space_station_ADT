@@ -85,6 +85,7 @@
       whitelist:
         components:
           - Cartridge
+    diskSpace: 8 # ADT tweak
   - type: ActivatableUI
     key: enum.PdaUiKey.Key
     singleUser: true
@@ -127,6 +128,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BasePDA
@@ -141,6 +143,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BasePDA
@@ -420,6 +423,7 @@
       - NewsReaderCartridge
       - AstroNavCartridge
       - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BasePDA
@@ -798,6 +802,7 @@
       - NewsReaderCartridge
       - LogProbeCartridge
       - WantedListCartridge
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: CentcomPDA
@@ -897,6 +902,7 @@
       whitelist:
         components:
           - Cartridge
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BaseSecurityPDA
@@ -963,6 +969,7 @@
       - MedTekCartridge
       - WantedListCartridge
       - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1204,3 +1211,4 @@
       whitelist:
         components:
           - Cartridge
+    diskSpace: 8 # ADT tweak

@@ -63,10 +63,13 @@
         - id: GrenadeFlashBang
 
 - type: entity
-  parent: ClothingBackpack
+  parent: ClothingBackpackMedical
   id: ADTClothingBackpackParamedic
   name: paramedical backpack
   description: Backpack to store some paramedical equipment.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/paramedic_backpack.rsi
+  - type: StorageFill
+    contents:
+      - id: JawsOfLife

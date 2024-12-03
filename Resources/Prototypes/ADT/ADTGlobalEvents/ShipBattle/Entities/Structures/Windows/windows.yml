@@ -1,0 +1,116 @@
+- type: entity
+  id: ADTWindowKMT
+  name: plastitanium window
+  suffix: Space Battleships, KMT
+  parent: PlastitaniumWindowSquareBase
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/kmt_window.rsi
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/kmt_window.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: state
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+          PartRodMetal:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    damageDivisor: 20
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Windows/cracks.rsi
+  - type: Repairable
+    fuelCost: 15
+    doAfterDelay: 3
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: RGlass
+
+- type: entity
+  id: ADTWindowTSF
+  name: plastitanium window
+  suffix: Space Battleships, TSF
+  parent: ADTWindowKMT
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/tsf_window.rsi
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/tsf_window.rsi
+    state: full
+
+- type: entity
+  id: ADTWindowKMTHeavy
+  name: plastitanium window
+  suffix: Space Battleships, KMT
+  parent: ADTWindowKMT
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/kmt_heavywindow.rsi
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/kmt_heavywindow.rsi
+    state: full
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+          PartRodMetal:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTWindowTSFHeavy
+  name: plastitanium window
+  suffix: Space Battleships, TSF
+  parent: ADTWindowKMTHeavy
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/tsf_heavywindow.rsi
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Windows/tsf_heavywindow.rsi
+    state: full
