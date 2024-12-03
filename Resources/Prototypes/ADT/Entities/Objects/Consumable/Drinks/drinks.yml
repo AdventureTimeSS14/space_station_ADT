@@ -1,554 +1,508 @@
-#Безалкогольные коктейли от Кекса/Стычинского
-
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSummerShadeGlass
   suffix: SummerShade
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSummerShade
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/summershade.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSummerShade
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/summershade.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkWinterSunGlass
   suffix: WinterSun
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTWinterSun
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/wintersun.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTWinterSun
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/wintersun.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkHungoverAngelGlass
   suffix: HungoverAngel
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTHungoverAngel
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/hungoverangel.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTHungoverAngel
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/hungoverangel.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkCitrusBalanceGlass
   suffix: CitrusBalance
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTCitrusBalance
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/citrucbalance.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTCitrusBalance
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/citrucbalance.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkDobryiDrinkGlass
   suffix: DobryiDrink
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTDobryiDrink
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/dobryi.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTDobryiDrink
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/dobryi.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkMilkEclipseGlass
   suffix: MilkEclipse
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTMilkEclipse
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/milkeclipse.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTMilkEclipse
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/milkeclipse.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkArcticExplosionGlass
   suffix: ArcticExplosion
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTArcticExplosion
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/arcticexplosion.rsi
-    state: icon
-
-#Базовый алкоголь от ADT
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTArcticExplosion
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/arcticexplosion.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkAppleLiqueurGlass
   suffix: AppleLiqueur
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTAppleLiqueur
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_glass.rsi
-    state: icon
-
-#Алкогольные коктейли от Кекса/Стычинского и Кермита
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTAppleLiqueur
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_glass.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSugarKnightGlass
   suffix: SugarKnight
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSugarKnight
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/sugarknight.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSugarKnight
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/sugarknight.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkGrapeLadyGlass
   suffix: GrapeLady
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTGrapeLady
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/grapelady.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTGrapeLady
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/grapelady.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSaturdayBaronGlass
   suffix: SaturdayBaron
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSaturdayBaron
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/saturdaybaron.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSaturdayBaron
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/saturdaybaron.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkArcticLatteGlass
   suffix: ArcticLatte
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTArcticLatte
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/arcticlatte.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTArcticLatte
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/arcticlatte.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSpecialTeaOolongGlass
   suffix: SpecialTeaOolong
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSpecialTeaOolong
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/teaoolong.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSpecialTeaOolong
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/teaoolong.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkAzureBlueGlass
   suffix: AzureBlue
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTAzureBlue
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/azureblue.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTAzureBlue
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/azureblue.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkPenetrationGlass
   suffix: PenetrationDrink
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTPenetrationDrink
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/penetration.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTPenetrationDrink
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/penetration.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkEclipsedEclispeGlass
   suffix: EclipsedEclispe
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTEclipsedEclispe
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/eclipsedeclipse.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTEclipsedEclispe
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/eclipsedeclipse.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSpaceBushGlass
   suffix: SpaceBush
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSpaceBush
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/spacebush.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSpaceBush
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/spacebush.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkBusinessConversationGlass
   suffix: BusinessConversation
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTBusinessConversation
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/buisinessconservation.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTBusinessConversation
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/buisinessconservation.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkAppleMartiniGlass
   suffix: AppleMartini
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTAppleMartini
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/applemartini.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTAppleMartini
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/applemartini.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkBacardiAppleGlass
   suffix: BacardiApple
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTBacardiApple
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/bacardiapple.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTBacardiApple
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/bacardiapple.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkElderGuardsGlass
   suffix: ElderGuards
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTElderGuards
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/elderguards.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTElderGuards
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/elderguards.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkLimeShadeGlass
   suffix: LimeShade
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTLimeShade
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
-    state: icon
-
-#Пиво к Октоберфесту
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTLimeShade
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkGoldenAleGlass
   suffix: GoldenAle
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTGoldenAle
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/goldenale.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTGoldenAle
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/goldenale.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSausageBeerGlass
   suffix: SausageBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSausageBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/sausagebeer.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSausageBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/sausagebeer.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkTechnoBeerGlass
   suffix: TechnoBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTTechnoBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/technarbeer.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTTechnoBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/technarbeer.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkClassicPaulanerBeerGlass
   suffix: ClassicPaulanerBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTClassicPaulanerBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/classicalpaulaner.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTClassicPaulanerBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/classicalpaulaner.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkLivseyBeerGlass
   suffix: LivseyBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTLivseyBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/doctorlivsey.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTLivseyBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/doctorlivsey.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkLuckyJonnyBeerGlass
   suffix: LuckyJonnyBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTLuckyJonnyBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/luckyjonny.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTLuckyJonnyBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/luckyjonny.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSecUnfilteredBeerGlass
   suffix: SecUnfilteredBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTSecUnfilteredBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/secbeer.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSecUnfilteredBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/secbeer.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkGlyphidStoutBeerGlass
   suffix: GlyphidStoutBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTGlyphidStoutBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
-    state: icon
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTGlyphidStoutBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
+      state: icon
 - type: entity
   parent: DrinkGlassBase
   id: ADTDrinkCocoaGlass
   name: hot cocoa
   description: A heated drink consisting cocoa powder.
   components:
-  - type: Drink
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTCocoaDrink
-          Quantity: 30
-  - type: Sprite
-    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
-
-
-#Sh4zik drinks, oh my. Im alive? Surprised. Hello, btw!
-
+    - type: Drink
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTCocoaDrink
+              Quantity: 30
+    - type: Sprite
+      sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkOrangeTeaGlass
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 25
-        reagents:
-        - ReagentId: ADTOrangeTeaReg
-          Quantity: 25
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
-    state: icon
-
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 25
+          reagents:
+            - ReagentId: ADTOrangeTeaReg
+              Quantity: 25
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkCherryTeaGlass
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 25
-        reagents:
-        - ReagentId: ADTCherryTeaReg
-          Quantity: 25
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
-    state: icon
-
-
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 25
+          reagents:
+            - ReagentId: ADTCherryTeaReg
+              Quantity: 25
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
+      state: icon
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkWatermelonTeaGlass
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 25
-        reagents:
-        - ReagentId: ADTWatermelonTeaReg
-          Quantity: 25
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
-    state: icon
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 25
+          reagents:
+            - ReagentId: ADTWatermelonTeaReg
+              Quantity: 25
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
+      state: icon
