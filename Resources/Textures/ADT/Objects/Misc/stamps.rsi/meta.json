@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:KING_DICE#4881",
+    "copyright": "Created by discord:KING_DICE#4881, prazat911",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "stamp-magistrat"
+        },
+        {
+            "name": "stamp-dv"
         }
     ]
 }
