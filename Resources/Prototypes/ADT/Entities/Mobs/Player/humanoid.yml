@@ -30,6 +30,23 @@
   id: ADTERTLeader
   parent: EventHumanoidMindShielded
   randomizeName: false
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
@@ -103,6 +120,23 @@
 - type: randomHumanoidSettings
   id: ADTERTJanitor
   parent: ADTERTLeader
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-janitor-name
@@ -188,6 +222,23 @@
 - type: randomHumanoidSettings
   id: ADTERTEngineer
   parent: ADTERTLeader
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-engineer-name
@@ -272,10 +323,23 @@
 
 - type: randomHumanoidSettings
   id: ADTERTSecurity
-  speciesBlacklist:
+  speciesBlacklist: # ADT-Tweak-start
     - Diona
-    - Vox # ADT_Tweak
-    - KoboltSpecies # ADT_Tweak
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   parent: ADTERTLeader
   components:
     - type: GhostRole
@@ -358,6 +422,23 @@
 - type: randomHumanoidSettings
   id: ADTERTMedical
   parent: ADTERTLeader
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-medical-name
@@ -438,10 +519,23 @@
       - MindShieldImplant
 
 - type: randomHumanoidSettings
-  speciesBlacklist:
+  speciesBlacklist: # ADT-Tweak-start
     - Diona
-    - Vox # ADT_Tweak
-    - KoboltSpecies # ADT_Tweak
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   id: ADTCmndCBURNAgent
   components:
     - type: MindShield

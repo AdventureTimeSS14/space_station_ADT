@@ -67,6 +67,8 @@
       types:
         Piercing: 6
   - type: MobState
+  - type: ReplacementAccent
+    accent: xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -371,6 +373,8 @@
         damage: 85
       behaviors:
       - !type:GibBehavior { }
+  - type: Spider
+    smallWeb: true
   - type: CanEscapeInventory
     baseResistTime: 2
   - type: MultiHandedItem
@@ -401,6 +405,10 @@
     damage:
       types:
         Piercing: 3.8
+  - type: Prying
+    pryPowered: false
+    force: false
+    speedModifier: 0.1
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -426,7 +434,7 @@
     - type: Sprite
       drawdepth: Mobs
       layers:
-      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      - map: ["enum.DamageStateVisualLayers.Base"]
         state: clown
         sprite: Mobs/Animals/clownspider.rsi
     - type: Butcherable
@@ -457,19 +465,24 @@
         path: /Audio/Effects/bite.ogg
       damage:
         types:
-          Piercing: 8
+          Piercing: 9
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepClownFast
+    - type: Speech
+      speechVerb: Cluwne
+    - type: Bloodstream
+      bloodMaxVolume: 150
+      bloodReagent: Laughter
     - type: SolutionContainerManager
       solutions:
         melee:
           reagents:
-          - ReagentId: Toxin
-            Quantity: 50
+          - ReagentId: Laughter
+            Quantity: 90
     - type: MeleeChemicalInjector
-      transferAmount: 0.75
+      transferAmount: 1
       solution: melee
-    - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepClownFast
     - type: NpcFactionMember
       factions:
         - Xeno

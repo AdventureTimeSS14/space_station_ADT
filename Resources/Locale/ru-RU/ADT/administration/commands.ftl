@@ -26,3 +26,11 @@ cmd-admin_toggle-readmin = Вернуть права админу.
 cmd-admin_toggle-deadmin = Ввести в деадмин.
 cmd-admin_toggle-error-args = Указанный пользователь не найден.
 
+# Команда: export
+cmd-export-only-yml = Указанный файл должен иметь расширение .yml
+cmd-export-help = Экспортирует на ваш компьютер указанный .yml файл
+
+# Команда: lslawset_get
+cmd-lslawset_get-desc = Выводит список законов у сущности которая имеет SiliconLawProviderComponent.
+cmd-lslawset_get-error-component = Сущность не имеет SiliconLawProviderComponent.
+cmd-lslawset_get-help = Использование: lslawset_get <userName/Uid>

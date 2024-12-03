@@ -16,7 +16,7 @@ public sealed partial class CrawlerComponent : Component
     ///     The explosive resistance coefficient, This fraction is multiplied into the total resistance if player downed.
     /// </summary>
     [DataField("downeddamageCoefficient")]
-    public float DownedDamageCoefficient = 0.5F;
+    public float DownedDamageCoefficient = 0.2F;
     [DataField]
     public ProtoId<AlertPrototype> CtawlingAlert = "Crawling";
 }

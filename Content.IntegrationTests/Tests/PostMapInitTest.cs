@@ -83,6 +83,7 @@ namespace Content.IntegrationTests.Tests
             "Cog",
             // ADT-Start
             "ADT_FrontierHalloween",
+            "ADT_FrontierNewYear",
             "ADT_Frontier",
             "ADT_TrainHalloween",
             "ADT_SalternHalloween",
@@ -106,7 +107,8 @@ namespace Content.IntegrationTests.Tests
             "ADT_Moose",
             "ADT_Alley",
             "ADT_kilo",
-            "ADT_Pie"
+            "ADT_Pie",
+            "ADT_Cluster_Legacy"
             // ADT-End
         };
 

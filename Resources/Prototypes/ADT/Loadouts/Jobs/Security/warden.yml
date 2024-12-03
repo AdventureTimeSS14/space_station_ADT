@@ -1,6 +1,26 @@
 # Neck Warden ADT
-- type: loadout
-  id: ADTWardenNeck
-  equipment:
-    neck: ADTClothingNeckSecBadge
+# - type: loadout
+#   id: ADTWardenNeck
+#   equipment:
+#     neck: ADTClothingNeckSecBadge
 
+- type: loadout
+  id: ADTWardenNeckBadgeBronze
+  equipment:
+    neck: ADTClothingNeckSecBadgeBronze
+
+- type: loadout
+  id: ADTWardenNeckBadgeSilver
+  equipment:
+    neck: ADTClothingNeckSecBadgeSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+
+- type: loadout
+  id: ADTWardenNeckBadgeGold
+  equipment:
+    neck: ADTClothingNeckSecBadgeGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
