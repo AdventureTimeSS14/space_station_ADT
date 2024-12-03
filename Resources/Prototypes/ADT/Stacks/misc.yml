@@ -12,6 +12,7 @@
   icon: { sprite: ADT/Objects/Specific/piastra.rsi, state: piastra_1 }
   spawn: ADTPiratePiastr1
  
+- type: stack
   id: ADTPaper
   name: paper
   icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
