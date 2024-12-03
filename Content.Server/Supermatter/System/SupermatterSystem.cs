@@ -116,37 +116,36 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
         if (!sm.Activated)
-            sm.Activated = true;
+              sm.Activated = true;
 
-        var target = args.OtherEntity;
+         var target = args.OtherEntity;
         if (args.OtherBody.BodyType == BodyType.Static
-            || HasComp<SupermatterImmuneComponent>(target)
-            || _container.IsEntityInContainer(uid))
-            return;
+             || HasComp<SupermatterImmuneComponent>(target)
+             || _container.IsEntityInContainer(uid))
+             return;
 
-        if (!HasComp<ProjectileComponent>(target))
-        {
-            EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
-            _audio.PlayPvs(sm.DustSound, uid);
-            sm.Power += args.OtherBody.Mass;
-        }
-
-        EntityManager.QueueDeleteEntity(target);
-
-        if (TryComp<SupermatterFoodComponent>(target, out var food))
-            sm.Power += food.Energy;
-        else if (TryComp<ProjectileComponent>(target, out var projectile))
-            sm.Power += (float) projectile.Damage.GetTotal();
-        else
+         if (TryComp<SupermatterFoodComponent>(target, out var food))
+              sm.Power += food.Energy;
+         else if (TryComp<ProjectileComponent>(target, out var projectile))
+              sm.Power += (float) projectile.Damage.GetTotal();
+         else
             sm.Power++;
 
         sm.MatterPower += HasComp<MobStateComponent>(target) ? 200 : 0;
+
+        if (!HasComp<ProjectileComponent>(target))
+        {
+            EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
+             _audio.PlayPvs(sm.DustSound, uid);
+        }
+
+            EntityManager.QueueDeleteEntity(target);
     }
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
     {
-        if (!sm.Activated)
-            sm.Activated = true;
+         if (!sm.Activated)
+             sm.Activated = true;
 
         var target = args.User;
 
@@ -155,10 +154,10 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         sm.MatterPower += 200;
 
-        EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
+        EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
         _audio.PlayPvs(sm.DustSound, uid);
         EntityManager.QueueDeleteEntity(target);
-    }
+     }
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
