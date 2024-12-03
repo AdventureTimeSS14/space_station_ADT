@@ -27,7 +27,7 @@
 - type: entity
   name: DV's rubber stamp
   parent: RubberStampBase
-  id: RubberStampDV
+  id: ADTRubberStampDV
   suffix: DV
   components:
   - type: Stamp

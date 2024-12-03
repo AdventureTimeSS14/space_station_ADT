@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "ADTpen_CE, ADTpen_cmo, ADTpen_hos, ADTpen_QM, ADTpen_RD is drawn by mascotvalera (Discord)",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "ADTpen_CE, ADTpen_cmo, ADTpen_hos, ADTpen_QM, ADTpen_RD is drawn by mascotvalera (Discord); ADTpen_dv was drawn by discord: prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "ADTpen_CE"
