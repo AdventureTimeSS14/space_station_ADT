@@ -13,6 +13,6 @@
  reagent-name-cherrypack = вишнёвый сироп
  reagent-desc-cherrypack = Горький сироп для приготовления чая
  reagent-physical-desc-cherrypack = горькая, металлическая субстанция
- reagent-name-watermelonPack = арбузный сироп
+ reagent-name-watermelonpack = арбузный сироп
  reagent-desc-watermelonpack = Горький сироп для приготовления чая
  reagent-physical-desc-watermelonpack = горькая, металлическая субстанция
