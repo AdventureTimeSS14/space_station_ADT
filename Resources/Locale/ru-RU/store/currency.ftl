@@ -13,5 +13,3 @@ store-currency-display-stolen-essence = Украденная эссенция
 store-currency-display-wizcoin = Маг₭øин™
 
 store-currency-display-tradeunit = ЕТ
-
-store-currency-display-piastr = Пиастр
