@@ -8,29 +8,29 @@ rmc-aslot-rail = Верхняя планка
 rmc-aslot-stock = Приклад
 rmc-aslot-underbarrel = Подствольное
 
-rmc-attachable-activation-fail-not-wielded = {CAPITALIZE(THE($holder))} должен быть экипирован, чтобы активировать {THE($attachable)}!
-rmc-attachable-activation-fail-not-held = {CAPITALIZE(THE($holder))} должен быть в руках, чтобы активировать {THE($attachable)}!
-rmc-attachable-activation-fail-not-owned = {CAPITALIZE(THE($holder))} должен быть в ваших руках или экипирован, чтобы активировать {THE($attachable)}!
+rmc-attachable-activation-fail-not-wielded = {CAPITALIZE($holder)} должен быть экипирован, чтобы активировать {$attachable}!
+rmc-attachable-activation-fail-not-held = {CAPITALIZE($holder)} должен быть в руках, чтобы активировать {$attachable}!
+rmc-attachable-activation-fail-not-owned = {CAPITALIZE($holder)} должен быть в ваших руках или экипирован, чтобы активировать {$attachable}!
 
-rmc-attachable-shoot-fail-not-wielded = {CAPITALIZE(THE($holder))} должен быть экипирован, чтобы стрелять из {THE($attachable)}!
+rmc-attachable-shoot-fail-not-wielded = {CAPITALIZE($holder)} должен быть экипирован, чтобы стрелять из {THE($attachable)}!
 
-rmc-attachable-verb-toggle = Переключить {THE($attachable)}
+rmc-attachable-verb-toggle = Переключить {$attachable}
 
-attachable-popup-activate-generic = Вы активируете {THE($attachable)}.
-attachable-popup-deactivate-generic = Вы деактивируете {THE($attachable)}.
+attachable-popup-activate-generic = Вы активируете {$attachable}.
+attachable-popup-deactivate-generic = Вы деактивируете {$attachable}.
 
-attachable-popup-activate-deploy-on-generic = Вы устанавливаете {THE($attachable)} на {THE($surface)}.
-attachable-popup-activate-deploy-on-ground = Вы устанавливаете {THE($attachable)} на землю.
-attachable-popup-deactivate-retract = Вы убираете {THE($attachable)}.
+attachable-popup-activate-deploy-on-generic = Вы устанавливаете {$attachable} на {$surface}.
+attachable-popup-activate-deploy-on-ground = Вы устанавливаете {$attachable} на землю.
+attachable-popup-deactivate-retract = Вы убираете {$attachable}.
 
-attachable-popup-activate-unfold = Вы разворачиваете {THE($attachable)}.
-attachable-popup-deactivate-collapse = Вы складываете {THE($attachable)}.
+attachable-popup-activate-unfold = Вы разворачиваете {$attachable}.
+attachable-popup-deactivate-collapse = Вы складываете {$attachable}.
 
-attachable-popup-activate-lock = Вы блокируете {THE($attachable)}.
-attachable-popup-deactivate-unlock = Вы разблокируете {THE($attachable)}.
+attachable-popup-activate-lock = Вы блокируете {$attachable}.
+attachable-popup-deactivate-unlock = Вы разблокируете {$attachable}.
 
-attachable-popup-switch-to-generic = Вы переключаетесь на использование {THE($attachable)}.
-attachable-popup-switch-from-generic = Вы перестаёте использовать {THE($attachable)}.
+attachable-popup-switch-to-generic = Вы переключаетесь на использование {$attachable}.
+attachable-popup-switch-from-generic = Вы перестаёте использовать {$attachable}.
 
 rmc-attachable-examinable-verb-text = Модификаторы модулей
 rmc-attachable-examinable-verb-message = Изучить модификаторы, применяемые этим модулем.
