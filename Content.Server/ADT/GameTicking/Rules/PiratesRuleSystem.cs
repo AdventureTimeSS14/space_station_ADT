@@ -1,36 +1,11 @@
-using System.Linq;
-using System.Numerics;
-using Content.Server.Administration.Commands;
 using Content.Server.Cargo.Systems;
-using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Preferences.Managers;
-using Content.Server.Spawners.Components;
-using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
-using Content.Shared.CCVar;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.NPC.Systems;
-using Content.Shared.Preferences;
-using Content.Shared.Roles;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
-using Robust.Server.Player;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
-using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Content.Server.GameTicking.Rules;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Shared.GameTicking.Components;
-using Content.Server.StationEvents.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -56,10 +31,7 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
         base.Started(uid, component, gameRule, args);
 
         var shuttleMap = _mapManager.CreateMap();
-        var options = new MapLoadOptions
-        {
-            LoadMap = true,
-        };
+        var options = new MapLoadOptions { LoadMap = true };
 
         if (!_map.TryLoad(shuttleMap, component.PiratesShuttlePath, out var shuttle, options))
             return;
