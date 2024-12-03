@@ -1,0 +1,64 @@
+- type: construction
+  name: Shitmade Full Shiel
+  id: ADTFullShield
+  graph: ADTShield
+  startNode: start
+  targetNode: ADTCompShield
+  category: construction-category-weapons
+  objectType: Item
+  description: Big shield for big people.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/fullshield.rsi
+    state: icon
+
+- type: construction
+  name: Reinforced Plasma Shive
+  id: ADTPlasmaShiv
+  graph: ADTPShiv
+  startNode: start
+  targetNode: ADTCompPlasmaShiv
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Shive from reinforced plasma
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Rplasma_shiv.rsi
+    state: icon
+
+- type: construction
+  name: Reinforced Uranium Shive
+  id: ADTUraniumShiv
+  graph: ADTUShiv
+  startNode: start
+  targetNode: ADTCompUraniumShiv
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Shive from reinforced uran
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Ruranium_shiv.rsi
+    state: icon
+
+- type: construction
+  name: Reinforced Uranium Spear
+  id: ADTUraniumSpear
+  graph: ADTUSpear
+  startNode: start
+  targetNode: ADTCompUraniumSpear
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Spear from reinforced uran
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Ruranium_spear.rsi
+    state: spear
+
+- type: construction
+  name: Reinforced Plasma Spear
+  id: ADTPlasmaSpear
+  graph: ADTPSpear
+  startNode: start
+  targetNode: ADTCompPlasmaSpear
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Spear from reinforced plasma
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Rplasma_spear.rsi
+    state: spear

@@ -485,3 +485,53 @@
   - type: Icon
     sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
     state: icon
+
+#Sh4zik drinks, oh my. Im alive? Surprised. Hello, btw!
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkOrangeTeaGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 25
+        reagents:
+        - ReagentId: ADTOrangeTeaReg
+          Quantity: 25
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
+    state: icon
+
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkCherryTeaGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 25
+        reagents:
+        - ReagentId: ADTCherryTeaReg
+          Quantity: 25
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
+    state: icon
+
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkWatermelonTeaGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 25
+        reagents:
+        - ReagentId: ADTWatermelonTeaReg
+          Quantity: 25
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
+    state: icon
+

@@ -592,6 +592,7 @@
       - JukeboxCircuitBoard
       - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
       - ADTIndustrialSMESMachineCircuitboard #ADT
+      - CutterMachine #ADT-Tweak
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard

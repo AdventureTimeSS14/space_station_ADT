@@ -1,0 +1,46 @@
+- type: constructionGraph
+  id: ADTPSpear
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTCompPlasmaSpear
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 3
+        doAfter: 1
+      - tag: ADTRPlasmaShard
+        name: "Осколок плазменного стекла"
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+  - node: ADTCompPlasmaSpear
+    entity: SpearReinforcedPlasma
+
+- type: constructionGraph
+  id: ADTUSpear
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTCompUraniumSpear
+      steps:
+
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 3
+        doAfter: 1
+      - tag: ADTRUranShard
+        name: "Осколок уранового стекла"
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+  - node: ADTCompUraniumSpear
+    entity: SpearReinforcedUran

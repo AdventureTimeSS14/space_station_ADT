@@ -38,3 +38,4 @@ flavor-complex-goldenale = как эль, золото и исцеление
 flavor-base-adtpoppy = маково
 flavor-complex-adtrelaxing = как довольно сильный наркотик
 flavor-base-adtvanilla = ванильно
+flavor-base-adtsindipizza = зловеще сырно

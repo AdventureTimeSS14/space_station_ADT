@@ -177,6 +177,11 @@
   description: flavor-complex-adtrelaxing
 
 - type: flavor
+  id: ADTSindiPizza
+  flavorType: base
+  description: flavor-base-adtsindipizza
+
+- type: flavor
   id: adt_vanilla
   flavorType: Base
   description: flavor-base-adtvanilla

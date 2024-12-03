@@ -333,3 +333,15 @@
 
 - type: Tag
   id: ADTBeerCan
+
+- type: Tag
+  id: ADTTeaPack
+
+- type: Tag
+  id: ADTFullRiotShitmadeShield
+
+- type: Tag
+  id: ADTRPlasmaShard
+
+- type: Tag
+  id: ADTRUranShard

@@ -423,12 +423,39 @@
       - NukeOpsUplink
 
 - type: listing
+  id: ADTUplinkNukiesShield
+  name: uplink-nukiesShield-name
+  description: uplink-nukiesShield-desc
+  icon: { sprite: ADT/Objects/Weapons/Melee/fullshieldsindi.rsi, state: icon}
+  productEntity: ADTFullRiotShieldSyndicate
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: ADTUplinkMaidBundle
   name: uplink-maid-bundle-name
   description: uplink-maid-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledMaid
   cost:
     Telecrystal: 20
+  categories:
+    - UplinkPointless
+
+
+- type: listing
+  id: ADTUplinkOmnizinPizza
+  name: uplink-omnizinpizza-name
+  description: uplink-omnizinpizza-desc
+  productEntity: ADTFoodBoxSyndiPizza
+  cost:
+    Telecrystal: 4
   categories:
     - UplinkPointless
 
