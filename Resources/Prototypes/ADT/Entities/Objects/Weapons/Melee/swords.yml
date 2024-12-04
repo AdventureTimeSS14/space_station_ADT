@@ -95,6 +95,7 @@
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/plasmadagger.rsi
     state: icon
   - type: Item
+    size: Small
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/plasmadagger.rsi
     inhandVisuals:
       left:
@@ -107,7 +108,6 @@
     damage:
       types:
         Slash: 6.3
-    size: Small
 
 - type: entity
   name: dagger reinforced
@@ -122,6 +122,7 @@
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/reinforceddagger.rsi
     state: icon
   - type: Item
+    size: Small
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/reinforceddagger.rsi
     inhandVisuals:
       left:
@@ -134,7 +135,6 @@
     damage:
       types:
         Slash: 6
-    size: Small
 
 - type: entity
   name: dagger glass
@@ -149,6 +149,7 @@
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/glassdagger.rsi
     state: icon
   - type: Item
+    size: Small
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/glassdagger.rsi
     inhandVisuals:
       left:
@@ -161,7 +162,6 @@
     damage:
       types:
         Slash: 5
-    size: Small
 
 - type: entity
   name: dagger uranium
@@ -176,6 +176,7 @@
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
     state: icon
   - type: Item
+    size: Small
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
     inhandVisuals:
       left:
@@ -188,6 +189,5 @@
     damage:
       types:
         Slash: 9
-    size: Small
 
 
