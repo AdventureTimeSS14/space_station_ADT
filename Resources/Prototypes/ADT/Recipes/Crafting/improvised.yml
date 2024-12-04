@@ -52,7 +52,7 @@
 
 - type: construction
   name: Reinforced Plasma Spear
-  id: ADTPlasmaSpear
+  id: SpearReinforcedPlasma
   graph: ADTPSpear
   startNode: start
   targetNode: ADTCompPlasmaSpear
