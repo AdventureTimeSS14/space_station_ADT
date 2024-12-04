@@ -190,7 +190,7 @@
   physicalDesc: reagent-physical-desc-orangetea
   flavor: sweet
   color: "#FF8C00"
-    metabolisms:
+  metabolisms:
     Drink:
       effects:
       - !type:SatiateThirst
