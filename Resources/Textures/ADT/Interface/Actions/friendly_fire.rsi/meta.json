@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "Made by TornadoTech for Adventure Space.",
+  "states": [
+    {
+      "name": "on"
+    },
+    {
+      "name": "off"
+    }
+  ]
+}
