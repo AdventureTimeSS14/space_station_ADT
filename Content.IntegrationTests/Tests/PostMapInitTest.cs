@@ -41,7 +41,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
-            "Maps/ADTMaps/Shuttles/pirate.yml" //ADT edit
+            "/Maps/ADTMaps/Shuttles/pirate.yml" //ADT edit
         };
 
         private static readonly string[] GameMaps =
