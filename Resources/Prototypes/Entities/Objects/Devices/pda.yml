@@ -85,6 +85,7 @@
       whitelist:
         components:
           - Cartridge
+    diskSpace: 8 # ADT tweak
   - type: ActivatableUI
     key: enum.PdaUiKey.Key
     singleUser: true
@@ -127,6 +128,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BasePDA
@@ -141,6 +143,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BasePDA
@@ -420,6 +423,7 @@
       - NewsReaderCartridge
       - AstroNavCartridge
       - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BasePDA
@@ -817,6 +821,7 @@
       - WantedListCartridge
       - MedTekCartridge
       - AstroNavCartridge
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: CentcomPDA
@@ -908,6 +913,15 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+    cartridgeSlot:
+      priority: -1
+      name: Cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+          - Cartridge
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BaseSecurityPDA
@@ -979,6 +993,13 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - ADTWalletCartridge    # ADT-Economy-end
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1226,3 +1247,12 @@
     preinstalled:
       - NotekeeperCartridge
       - MedTekCartridge
+    cartridgeSlot:
+      priority: -1
+      name: Cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+          - Cartridge
+    diskSpace: 8 # ADT tweak

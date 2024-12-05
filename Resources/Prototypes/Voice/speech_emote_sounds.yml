@@ -38,6 +38,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # ADT Emotes start
+    Spit:
+      collection: HumanSpits
+    # ADT Emotes end
 
 - type: emoteSounds
   id: FemaleHuman
@@ -78,6 +82,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # ADT Emotes start
+    Spit:
+      collection: HumanSpits
+    # ADT Emotes end
 
 - type: emoteSounds
   id: MaleReptilian
@@ -100,6 +108,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+    # ADT Emotes start
+    Spit:
+      collection: HumanSpits
+    # ADT Emotes end
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -122,6 +134,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # ADT Emotes start
+    Spit:
+      collection: HumanSpits
+    # ADT Emotes end
 
 - type: emoteSounds
   id: MaleSlime
@@ -293,6 +309,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # ADT Emotes start
+    Spit:
+      collection: HumanSpits
+    # ADT Emotes end
   params:
     variation: 0.125
     pitch: 0.75
@@ -334,6 +354,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # ADT Emotes start
+    Spit:
+      collection: HumanSpits
+    # ADT Emotes end
   params:
     variation: 0.125
     pitch: 0.75
@@ -424,7 +448,7 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
-       
+
 - type: emoteSounds
   id: ReptilianBodyEmotes
   sounds:

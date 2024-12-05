@@ -31,8 +31,8 @@
       140: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      42: 0.85
-      58: 0.65
+      42: 0.7
+      58: 0.5
   - type: Damageable
     damageContainer: Biological # Shadekin
     damageModifierSet: Shadekin
@@ -65,8 +65,8 @@
   - type: TemperatureSpeed
     thresholds:
       273: 0.8
-      260: 0.6
-      230: 0.4
+      240: 0.6
+      200: 0.4
   - type: Fixtures
     fixtures:
       fix1:
@@ -166,6 +166,7 @@
         color: "#3C0F24"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
+  - type: DamageEyesOnFlashed
   - type: Inventory
     displacements:
       jumpsuit:

@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Создано Умой и @prazat911 для Времени Приключений МРП сервер",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "mulled_wine_cold"
+        },
+        {
+            "name": "mulled_wine",
+            "delays": 
+            [[0.4, 0.4, 0.4, 0.4]]
+        },
+        {
+            "name": "champagne_mandarin",
+            "delays": 
+            [[0.4, 0.4, 0.4, 0.4]]
+        },
+        {
+            "name": "christmas_milkshake"
+        },
+        {
+            "name": "hot_chocolate"
+        },
+        {
+            "name": "hot_cocoa"
+        },
+        {
+            "name": "sbiten_cinnamon_lemon"
+        },
+        {
+            "name": "warm_tea_cinnamon_lemon"
+        }
+    ]
+}

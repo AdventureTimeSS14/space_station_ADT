@@ -25,7 +25,8 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Forensics; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
-using Robust.Shared.Serialization.Manager; // ADT-Changeling-Tweak
+using Robust.Shared.Serialization.Manager;
+using Content.Server.DetailExaminable; // ADT-Changeling-Tweak
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -503,6 +504,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             var copiedMindshieldComp = (Component) _serialization.CreateCopy(mindshieldComp, notNullableOverride: true);
             EntityManager.AddComponent(newEntityUid, copiedMindshieldComp);
+        }
+        if (TryComp<DetailExaminableComponent>(source, out var desc))
+        {
+            var newDesc = EnsureComp<DetailExaminableComponent>(newEntityUid);
+            newDesc.Content = desc.Content;
         }
 
         SendToPausedMap(newEntityUid, newEntityUidTransformComp);

@@ -53,8 +53,16 @@
   - type: TemperatureSpeed
     thresholds:
       285: 0.8
-      268: 0.6
-      250: 0.4
+      248: 0.6
+      220: 0.4
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit-female
+
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -85,3 +93,10 @@
   components:
   - type: HumanoidAppearance
     species: DemonSpecies
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit-female

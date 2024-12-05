@@ -33,7 +33,7 @@
   - type: Appearance
   - type: FaxableObject
   - type: PaperVisuals
-    backgroundModulate: "#cccccc" # ADT CHANGES START ---> 
+    backgroundModulate: "#cccccc" # ADT CHANGES START --->
     contentImageModulate: "#cccccc"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0 #Уголки бумаги
     contentMargin: 16.0, 16.0, 16.0, 16.0 # ADT CHANGES END <--
@@ -80,7 +80,10 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Paper: 100
+      ADTPaper: 100 # ADT tweak
+  - type: Stack
+    stackType: ADTPaper
+    count: 1
 # Corvax-Printer-End
 
 - type: entity

@@ -66,7 +66,6 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void OnEquip(EntityUid uid, DNALockerComponent component, GotEquippedEvent args)
     {
-        Log.Debug($"{args.Slot}");
         if (!component.IsLocked)
         {
             LockEntity(uid, component, args.Equipee);

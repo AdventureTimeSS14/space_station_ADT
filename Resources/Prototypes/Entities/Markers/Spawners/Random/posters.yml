@@ -112,6 +112,8 @@
       - ADTPosterContrabandUmaAndAzalia
       - ADTPosterContrabandUmaRabbit
       - ADTPosterContrabandUmaOnBeach
+      - ADTPosterWhatDVLegit
+      - ADTPosterUnclePrazLegit
       #ADT tweak ^^^
     chance: 1
 
@@ -191,4 +193,9 @@
       - ADTPosterError
       - ADTPosterNoBad
       #ADT tweak ^^^
-    chance: 1
+    # ADT Tweak Start New Years
+    chance: 0.5
+    rarePrototypes: #временный прикол, который стоит потом убрать.
+      - ADTPosterNewYear
+    rareChance: 0.6
+    # ADT Tweak End New Years

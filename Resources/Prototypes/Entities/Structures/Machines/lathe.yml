@@ -1434,6 +1434,10 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
+    # ADT tweak start
+    - type: AutoMaterialInsert
+      tag: ADTOreBag
+    # ADT tweak end
 
 - type: entity
   parent: OreProcessor
