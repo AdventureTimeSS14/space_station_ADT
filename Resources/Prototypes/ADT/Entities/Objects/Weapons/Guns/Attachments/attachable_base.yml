@@ -15,3 +15,21 @@
   - type: AttachableToggleable
   - type: UseDelay
     delay: 0
+
+- type: entity
+  abstract: true
+  id: ADTBaseAttachableHolder
+  components:
+  - type: AttachableHolder
+  - type: ItemSizeChange
+  - type: ActivatableUI
+    verbText: rmc-verb-strip-attachables
+    verbOnly: true
+    key:
+      enum.AttachmentUI.StripKey
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui
