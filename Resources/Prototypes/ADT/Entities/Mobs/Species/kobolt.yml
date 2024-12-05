@@ -82,8 +82,12 @@
   - type: TemperatureSpeed
     thresholds:
       283: 0.8
-      260: 0.6
-      230: 0.4
+      240: 0.6
+      200: 0.4
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      46: 0.75
+      58: 0.55
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 4.5

@@ -6,3 +6,11 @@
   maxCount: 1
   # itemSize: 1
 
+- type: stack
+  id: ADTPaper
+  name: paper
+  icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
+  spawn: Paper
+  maxCount: 1
+  # itemSize: 1
+

@@ -111,12 +111,12 @@
   - type: TemperatureSpeed
     thresholds:
       283: 0.8
-      265: 0.6
-      250: 0.4
+      245: 0.6
+      220: 0.4
   - type: SlowOnDamage
     speedModifierThresholds:
-      64: 0.85
-      86: 0.65
+      64: 0.8
+      86: 0.7
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
