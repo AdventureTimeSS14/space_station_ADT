@@ -138,7 +138,7 @@
 
 #Пальто ЦентКом
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ADTClothingOuterCoatCentCom
   name: centcom coat
   description: A green coat with gold inserts. The golden letter N is emblazoned on the back. Only the big shots wear this coat...
