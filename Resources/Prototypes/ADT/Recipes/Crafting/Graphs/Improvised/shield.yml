@@ -2,16 +2,16 @@
   id: ADTShield
   start: start
   graph:
-    - node: start
-      edges:
-        - to: ADTCompShield
-          steps:
-            - material: Steel
-              amount: 20
-            - material: ReinforcedGlass
-              amount: 10	
-            - material: Cable
-              amount: 2
-              doAfter: 5
-    - node: ADTCompShield
-      entity: ADTFullRiotShield  
+  - node: start
+    edges:
+    - to: ADTCompShield
+      steps:
+      - material: Steel
+        amount: 20
+      - material: ReinforcedGlass
+        amount: 10	
+      - material: Cable
+        amount: 2
+        doAfter: 5
+  - node: ADTCompShield
+    entity: ADTFullRiotShield  
