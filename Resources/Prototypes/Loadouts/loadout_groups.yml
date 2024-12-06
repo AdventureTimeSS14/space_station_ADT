@@ -592,7 +592,7 @@
   minLimit: 0
   maxLimit: 2
   loadouts:
-  - MusicianSuperSynthesizer # ADT-Tweak  
+  - MusicianSuperSynthesizer # ADT-Tweak
   - Glockenspiel
   - MusicBox
   - Xylophone
