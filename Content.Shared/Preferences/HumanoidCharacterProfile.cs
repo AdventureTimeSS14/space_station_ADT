@@ -538,7 +538,7 @@ namespace Content.Shared.Preferences
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
             // ADT Barks start
-            if (!Bark.Equals(other.Bark)) return false;
+            if (!Bark.MemberwiseEquals(other.Bark)) return false;
             // ADT Barks end
             return Appearance.MemberwiseEquals(other.Appearance);
         }

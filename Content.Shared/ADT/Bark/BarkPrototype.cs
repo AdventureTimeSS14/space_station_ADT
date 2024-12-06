@@ -1,3 +1,4 @@
+using Content.Shared.Humanoid;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -88,5 +89,15 @@ public sealed partial class BarkData
             MinVar = MinVar,
             MaxVar = MaxVar
         };
+    }
+
+    public bool MemberwiseEquals(BarkData other)
+    {
+        if (Proto != other.Proto)       return false;
+        if (Sound != other.Sound)       return false;
+        if (Pitch != other.Pitch)       return false;
+        if (MinVar != other.MinVar)     return false;
+        if (MaxVar != other.MaxVar)     return false;
+        return true;
     }
 }
