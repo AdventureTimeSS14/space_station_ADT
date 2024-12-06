@@ -163,7 +163,7 @@
           Piercing: 0.6
           Heat: 0.7
     - type: ExplosionResistance
-      modifiers: 0.75
+      damageCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterStorageBase
