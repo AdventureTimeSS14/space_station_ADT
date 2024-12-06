@@ -1,5 +1,8 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.ADT.Research.UI;
+using Content.Client.Interaction;
+using Content.Client.Research;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -11,10 +14,11 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client.Research.UI;
+namespace Content.Client.ADT.Research.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class ResearchConsoleMenu : FancyWindow
@@ -28,6 +32,9 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
     private readonly ResearchSystem _research;
     private readonly SpriteSystem _sprite;
     private readonly AccessReaderSystem _accessReader;
+    private bool _draggin;
+    protected Vector2 StartDragPosition;
+    public Vector2 Offset = Vector2.Zero;
 
     public EntityUid Entity;
 
@@ -41,6 +48,34 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         _accessReader = _entity.System<AccessReaderSystem>();
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
+
+        DragContainer.OnKeyBindDown += args => OnKeybindDown(args);
+        DragContainer.OnKeyBindUp += args => OnKeybindUp(args);
+    }
+
+    private void OnKeybindDown(GUIBoundKeyEventArgs args)
+    {
+        if (args.Function == EngineKeyFunctions.Use)
+        {
+            StartDragPosition = args.PointerLocation.Position;
+            _draggin = true;
+        }
+    }
+
+    private void OnKeybindUp(GUIBoundKeyEventArgs args)
+    {
+        if (args.Function == EngineKeyFunctions.Use)
+            _draggin = false;
+    }
+
+    protected override void MouseMove(GUIMouseMoveEventArgs args)
+    {
+        base.MouseMove(args);
+
+        if (!_draggin)
+            return;
+
+        Offset -= new Vector2(args.Relative.X, -args.Relative.Y);
     }
 
     public void SetEntity(EntityUid entity)
@@ -50,7 +85,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
     public void UpdatePanels(ResearchConsoleBoundInterfaceState state)
     {
-        TechnologyCardsContainer.Children.Clear();
+        DragContainer.Children.Clear();
 
         var availableTech = _research.GetAvailableTechnologies(Entity);
         SyncTechnologyList(AvailableCardsContainer, availableTech);
@@ -72,7 +107,9 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
             var tech = _prototype.Index<TechnologyPrototype>(techId);
             var cardControl = new TechnologyCardControl(tech, _prototype, _sprite, _research.GetTechnologyDescription(tech, includeTier: false), state.Points, hasAccess);
             cardControl.OnPressed += () => OnTechnologyCardPressed?.Invoke(techId);
-            TechnologyCardsContainer.AddChild(cardControl);
+
+            var control = new ResearchConsoleItem(techId, _sprite);
+            TechnologyCardsContainer.AddChild(control);
         }
 
         var unlockedTech = database.UnlockedTechnologies.Select(x => _prototype.Index<TechnologyPrototype>(x));
@@ -180,4 +217,3 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         }
     }
 }
-
