@@ -250,3 +250,28 @@
     - GalacticCommon
     understands:
     - GalacticCommon
+
+- type: entity
+  parent: [BaseMob, MobCombat]
+  id: ADTMobAngelCrying
+  name: crying angel
+  components:
+  - type: TimeDespawnDamage
+  - type: NoSlip
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: MetalThud
+    damage:
+      types:
+        Blunt: 30
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/angel_crying.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: angel
+  - type: Icon
+    sprite: ADT/Mobs/Demons/angel_crying.rsi
+    state: icon
+  - type: Damageable
+    damageContainer: ADTAngel
