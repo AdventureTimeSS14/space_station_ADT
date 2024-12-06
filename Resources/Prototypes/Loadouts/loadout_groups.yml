@@ -642,6 +642,8 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - ADTQMJumpsuitCamisole # ADT tweak
+  - ADTQMJumpskirtCamisole # ADT tweak
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -1189,7 +1191,7 @@
   - ADTEmergencyMothSecurity #ADT_Species
   - ADTEmergencyIPCSecurity #ADT_Species
 
-- type: loadoutGroup 
+- type: loadoutGroup
   id: SecurityStar
   name: loadout-group-security-star
   minLimit: 0

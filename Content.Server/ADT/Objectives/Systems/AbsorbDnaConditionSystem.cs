@@ -44,9 +44,9 @@ public sealed class StealDnaConditionSystem : EntitySystem
     }
     private void OnGetProgress(EntityUid uid, StealDnaConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        if (args.Mind.OwnedEntity.HasValue)
+        if (args.Mind.CurrentEntity.HasValue)
         {
-            var ling = args.Mind.OwnedEntity.Value;
+            var ling = args.Mind.CurrentEntity.Value;
             args.Progress = GetProgress(ling, args.MindId, args.Mind, comp);
         }
         else
