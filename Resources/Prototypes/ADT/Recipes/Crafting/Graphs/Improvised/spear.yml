@@ -22,14 +22,13 @@
     entity: SpearReinforcedPlasma
 
 - type: constructionGraph
-  id: ADTUSpear
+  id: ADTUraniumSpear
   start: start
   graph:
   - node: start
     edges:
     - to: ADTCompUraniumSpear
       steps:
-
       - material: MetalRod
         amount: 2
         doAfter: 2
