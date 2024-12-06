@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: SpearReinforcedPlasma
+  id: ADTPSpear
   start: start
   graph:
   - node: start
