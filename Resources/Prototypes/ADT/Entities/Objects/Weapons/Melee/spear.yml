@@ -16,7 +16,7 @@
       types:
         Piercing: 18
   - type: Construction
-    graph: SpearReinforcedPlasma
+    graph: ADTPSpear
 
 - type: entity
   name: reinforced uranium spear
