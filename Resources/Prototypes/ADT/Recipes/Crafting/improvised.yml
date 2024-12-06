@@ -40,7 +40,7 @@
 - type: construction
   name: Reinforced Uranium Spear
   id: ADTUraniumSpear
-  graph: ADTUSpear
+  graph: ADTPSpear
   startNode: start
   targetNode: ADTCompUraniumSpear
   category: construction-category-weapons
