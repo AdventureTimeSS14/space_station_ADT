@@ -521,7 +521,6 @@
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
     - ADTCustomLawCircuitBoard # ADT tweak
-    - CutterMachine #ADT-Tweak
     - SalvageMagnetMachineCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
