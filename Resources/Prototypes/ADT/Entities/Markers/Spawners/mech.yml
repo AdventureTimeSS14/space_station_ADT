@@ -53,3 +53,18 @@
   - type: ConditionalSpawner
     prototypes:
       - ADTMechMaulerBattery
+
+- type: entity
+  name: Paddy Spawner
+  id: ADTSpawnMechPaddy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Specific/Mech/mecha.rsi
+        state: paddy
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechpaddyBattery
+
