@@ -841,3 +841,21 @@
   components:
   - type: Sprite
     state: poster_umaonbeach_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterWhatDVLegit
+  name: What is Dar-Vaxed?
+  suffix: DV
+  components:
+  - type: Sprite
+    state: poster_whatdv_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterUnclePrazLegit
+  name: We need you!
+  suffix: DV
+  components:
+  - type: Sprite
+    state: poster_unclepraz_legit #Спрайт от Празата

@@ -27,7 +27,7 @@
   - type: DisarmMalus
     malus: 0
   - type: Reflect
-    reflectProb: 0.3
+    reflectProb: 0.15
 
 - type: entity
   name: arm mace
@@ -43,8 +43,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 25
-        Structural: 60
+        Blunt: 40
+        Structural: 80
     soundHit:
       collection: MetalThud
   - type: Item
@@ -61,11 +61,11 @@
     speedModifier: 0.75
   - type: MeleeThrowOnHit
     speed: 15
-    lifetime: 0.15
+    lifetime: 0.20
     collideDamage:
       types:
-        Blunt: 12
+        Blunt: 20
     toCollideDamage:
       types:
-        Structural: 75
+        Structural: 120
     downOnHit: false
