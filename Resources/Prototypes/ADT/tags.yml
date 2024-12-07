@@ -334,7 +334,7 @@
 
 - type: Tag
   id: ADTBeerCan
-
+  
   # New Year
 
 - type: Tag
@@ -402,3 +402,15 @@
 
 - type: Tag
   id: ADTDogEmotes
+
+- type: Tag
+  id: ADTTeaPack
+
+- type: Tag
+  id: ADTFullRiotShitmadeShield
+
+- type: Tag
+  id: ADTRPlasmaShard
+
+- type: Tag
+  id: ADTRUranShard

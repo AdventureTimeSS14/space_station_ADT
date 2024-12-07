@@ -53,5 +53,6 @@
     DrinkSakeBottleFull: 3
     DrinkBeerCan: 5
     DrinkWineCan: 5
+    ADTTeabox: 1 # ADT Tweak
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2
