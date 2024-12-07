@@ -1,7 +1,7 @@
  - type: entity
    id: ClosetL3Filled
-   suffix: Filled, Generic
-   parent: ClosetL3
+   suffix: Filled, Medical
+   parent: ClosetL3Medical
    components:
    - type: StorageFill
      contents:
@@ -41,7 +41,27 @@
  - type: entity
    id: ClosetL3ScienceFilled
    suffix: Filled, Science
-   parent: ClosetL3Virology
+   parent: ClosetL3
+   components:
+   - type: StorageFill
+     contents:
+       - id: ClothingOuterBioScientist
+       - id: ClothingHeadHatHoodBioScientist
+
+ - type: entity
+   id: ClosetL4CoronerFilled
+   suffix: Filled, Coroner
+   parent: ClosetL4Coroner
+   components:
+   - type: StorageFill
+     contents:
+       - id: ClothingOuterBioScientist
+       - id: ClothingHeadHatHoodBioScientist
+
+ - type: entity
+   id: ClosetL3ParamedicFilled
+   suffix: Filled, Paramedic
+   parent: ClosetL3Paramedic
    components:
    - type: StorageFill
      contents:
