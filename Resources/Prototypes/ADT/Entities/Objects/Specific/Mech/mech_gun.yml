@@ -317,9 +317,9 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    proto: GrenadeFlash
-    shots: 3
-    capacity: 3
+    proto: ADT40mmGrenadeFlash
+    shots: 6
+    capacity: 6
     ammoType: granade
     reloadTime: 5
   - type: UIFragment
@@ -340,13 +340,13 @@
     availableModes:
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    proto: BulletRocket
-    shots: 2
-    capacity: 2
+    proto: ADT40mmGrenadeHEAT
+    shots: 9
+    capacity: 9
     ammoType: granade
     reloadTime: 5
   - type: UIFragment
@@ -367,13 +367,13 @@
     availableModes:
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    proto: GrenadeBaton
-    shots: 3
-    capacity: 3
+    proto: ADT40mmGrenadeBaton
+    shots: 6
+    capacity: 6
     ammoType: granade
     reloadTime: 5
   - type: UIFragment
