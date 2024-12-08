@@ -1,4 +1,38 @@
 - type: latheRecipe
+  id: ADTBorgModuleHarm
+  result: ADTBorgModuleHarm
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Plasma: 500
+
+- type: latheRecipe
+  id: ADTBorgModuleDisabler
+  result: ADTBorgModuleDisabler
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Plasma: 50
+
+- type: latheRecipe
+  id: ADTBorgModuleDetention
+  result: ADTBorgModuleDetention
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+
+- type: latheRecipe
   id: ADTBorgModuleRPD
   result: ADTBorgModuleRPD
   category: Robotics
