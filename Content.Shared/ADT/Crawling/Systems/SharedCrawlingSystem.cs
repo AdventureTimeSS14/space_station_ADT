@@ -14,6 +14,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Map.Components;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Climbing.Events;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.ADT.Crawling;
 
@@ -25,7 +26,8 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly BonkSystem _bonk = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -78,11 +80,14 @@ public abstract class SharedCrawlingSystem : EntitySystem
         if (args.Cancelled)
             return;
 
+        var stunTime = component.DefaultStunTime;
+
         foreach (var item in _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f))
         {
             if (HasComp<ClimbableComponent>(item))
             {
-                _bonk.TryBonk(uid, item, source: uid);
+                _stun.TryParalyze(uid, stunTime, true);
+                _audio.PlayPvs(component.TableBonkSound, uid);
                 return;
             }
         }
