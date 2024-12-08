@@ -31,3 +31,6 @@ ent-ADTClothingHeadHelmetHardsuitPioneerAgent = шлем скафандра аг
 
 ent-ADTClothingHeadHelmetHardsuitCybersunBodyGuard = шлем охраны КиберСан
     .desc = Вариант кроваво-красного шлема, разработанный мародерами горлакса как исключительно огнеупорный и устойчивый к давлению.
+
+ent-ADTClothingHeadHelmetHardsuitRiotERT = дешевый шлем для борьбы с беспорядками
+    .desc = Самый дешевый защитный шлем ERT, разработанный специально для экономичных действий и борьбы с массовыми беспорядками.
