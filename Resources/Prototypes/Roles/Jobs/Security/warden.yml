@@ -9,7 +9,6 @@
       time: 198000 #55 hrs # ADT-RoleTime
   startingGear: WardenGear
   icon: "JobIconWarden"
-  requireAdminNotify: true
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
