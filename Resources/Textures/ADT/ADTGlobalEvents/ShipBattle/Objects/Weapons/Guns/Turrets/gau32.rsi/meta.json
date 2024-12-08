@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made from not_so_big_chungus",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "gau32_kmt"
+        },
+        {
+            "name": "gau32_broken"
+        },
+        {
+            "name": "gau32_tsf"
+        },
+        {
+            "name": "gau32_tsf_icon"
+        },
+        {
+            "name": "gau32_kmt_icon"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "mag-1"
+        },
+        {
+            "name": "mag-2"
+        },
+        {
+            "name": "mag-3"
+        },
+        {
+            "name": "mag-4"
+        },
+        {
+            "name": "mag-5"
+        },
+        {
+            "name": "mag-6"
+        },
+        {
+            "name": "mag-7"
+        },
+        {
+            "name": "mag-8"
+        },
+        {
+            "name": "mag-9"
+        },
+        {
+            "name": "mag-10"
+        },
+        {
+            "name": "mag-11"
+        },
+        {
+            "name": "mag-12"
+        },
+        {
+            "name": "mag-13"
+        },
+        {
+            "name": "mag-14"
+        },
+        {
+            "name": "mag-15"
+        },
+        {
+            "name": "mag-16"
+        },
+        {
+            "name": "mag-17"
+        },
+        {
+            "name": "mag-18"
+        },
+        {
+            "name": "mag-19"
+        }
+    ]
+}
