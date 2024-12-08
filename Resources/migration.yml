@@ -533,3 +533,7 @@ ClothingHeadHatBeretSecurityMedic: ADTClothingHeadHatBeretBrigmedic
 NesBigThruster: ADTBigThruster
 NesMiniGyroscope: Gyroscope
 #ADT end
+
+# ADT-08-12-2024
+ADTHeadBorgSecurity: null
+# ADT-End
