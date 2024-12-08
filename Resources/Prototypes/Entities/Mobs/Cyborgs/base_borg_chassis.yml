@@ -301,7 +301,8 @@
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
   - type: SpeechBarks
-    sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
+    data:
+      proto: Synth3
 
 - type: entity
   id: BaseBorgChassisNT
