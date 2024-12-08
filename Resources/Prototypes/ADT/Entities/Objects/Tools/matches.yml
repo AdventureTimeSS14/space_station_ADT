@@ -1,6 +1,7 @@
 - type: entity
   name: match box
-  description: matchbox
+  description: The newest matchbox with an increased volume of matches!
+  suffix: ADT
   parent: Matchbox
   id: ADTMatchbox
   components:
