@@ -11,13 +11,12 @@
             "name": "icon"
         },
         {
-            "name": "base"
+            "name": "equipped-INNERCLOTHING-monkey",
+            "directions": 4
         },
         {
-            "name": "bolt-open"
-        },
-        {
-            "name": "mag-0"
+            "name": "equipped-INNERCLOTHING",
+            "directions": 4
         },
         {
             "name": "inhand-left",
@@ -25,14 +24,6 @@
         },
         {
             "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "equipped-BELT",
-            "directions": 4
-        },
-        {
-            "name": "equipped-SUITSTORAGE",
             "directions": 4
         }
     ]
