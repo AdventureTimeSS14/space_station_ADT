@@ -1,0 +1,10 @@
+- type: entity
+  id: ActionToggleFriendlyFire
+  name: toggle friendly fire
+  noSpawn: true
+  components:
+    - type: InstantAction
+      icon: { sprite: ADT/Interface/Actions/friendly_fire.rsi, state: "on" }
+      iconOn: { sprite: ADT/Interface/Actions/friendly_fire.rsi, state: "off" }
+      event: !type:ToggleActionEvent
+      useDelay: 1
