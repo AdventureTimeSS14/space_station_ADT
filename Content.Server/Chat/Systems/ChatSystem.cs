@@ -730,8 +730,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             // ADT Languages start
             if (!_language.CanUnderstand(listener, language))
-            {
-                if (data.Range <= WhisperClearRange)
+            {if (data.Range <= (TryComp<ChatModifierComponent>(listener, out var modifier) ? modifier.WhisperListeningRange : WhisperClearRange)) //ADT-Resomi
+
                     _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, wrappedLanguageMessage, source, false, session.Channel);
                 //If listener is too far, they only hear fragments of the message
                 else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))

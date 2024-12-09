@@ -28,7 +28,7 @@ public sealed partial class WieldableComponent : Component
 
     /// <summary>
     ///     Whether using the item inhand while wielding causes the item to unwield.
-    ///     Unwielding can conflict with other inhand actions. 
+    ///     Unwielding can conflict with other inhand actions.
     /// </summary>
     [DataField]
     public bool UnwieldOnUse = true;
@@ -37,6 +37,9 @@ public sealed partial class WieldableComponent : Component
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;
+
+
+    public EntityUid? User = null; // ADT-Resomi
 }
 
 [Serializable, NetSerializable]

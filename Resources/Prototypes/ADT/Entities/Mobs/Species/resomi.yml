@@ -1,11 +1,15 @@
 - type: entity
   save: false
-  name: Urist McResomi
+  name: Urist McRaptor
   parent: BaseMobSpeciesOrganic
   id: BaseMobResomi
   abstract: true
   components:
-  # - type: ResomiSkill
+  - type: WeaponsUseInability
+  - type: AgillitySkill
+  - type: ChatModifier
+    whisperListeningRange: 4
+  - type: ResomiAccent
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
@@ -15,10 +19,6 @@
     - "enum.HumanoidVisualLayers.LLeg"
     - "enum.HumanoidVisualLayers.RArm"
     - "enum.HumanoidVisualLayers.RLeg"
-    - "enum.HumanoidVisualLayers.RHand"
-    - "enum.HumanoidVisualLayers.LHand"
-    - "enum.HumanoidVisualLayers.RFoot"
-    - "enum.HumanoidVisualLayers.LFoot"
     damageOverlayGroups:
       Brute:
         sprite: ADT/Mobs/Effects/Resomi/brute_damage.rsi
@@ -27,8 +27,21 @@
         sprite: ADT/Mobs/Effects/Resomi/burn_damage.rsi
   - type: FireVisuals
     sprite: ADT/Mobs/Effects/onfire.rsi
-    normalState: resomi_minor_burning
-    alternateState: resomi_burning
+    normalState: Resomi_minor_burning
+    alternateState: Resomi_burning
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        # they r smaller
+        density: 120
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: HumanoidAppearance
     species: Resomi
   - type: Hunger
@@ -38,20 +51,14 @@
   - type: Icon
     sprite: ADT/Mobs/Species/Resomi/parts.rsi
     state: full
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resomi
   - type: Body
     prototype: Resomi
     requiredLegs: 2
   - type: Bloodstream
     bloodReagent: ResomiBlood
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      70: Critical
-      140: Dead
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      40: 0.7
-      55: 0.5
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -61,7 +68,7 @@
       types:
         Slash: 5
   - type: Temperature
-    heatDamageThreshold: 315
+    heatDamageThreshold: 325
     coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 42
@@ -71,24 +78,152 @@
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
-  - type: Inventory
-    speciesId: Resomi
+  - type: TemperatureSpeed
+    thresholds:
+      260: 0.8
+      250: 0.6
+      230: 0.4
+  - type: ThermalRegulator
+    normalBodyTemperature: 300.15
   - type: Vocal
     sounds:
       Male: MaleResomi
-      Unsexed: MaleResomi
       Female: FemaleResomi
-  - type: Speech
-    speechVerb: Parrot # Didn't come with one
-    speechSounds: MaleResomi
+      Unsexed: MaleResomi
   - type: FlashModifier
     modifier: 2
-
+  - type: Hands
+    handDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+  - type: Inventory
+    speciesId: resomi
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: hands
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: head
+      back:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: feet
+      neck:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: neck
+      mask:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: suitStorage
+      belt:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: belt
 - type: entity
   parent: BaseSpeciesDummy
   id: MobResomiDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy resomi meant to be used in character setup.
   components:
   - type: HumanoidAppearance
     species: Resomi
+  - type: Hands
+    handDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+  - type: Inventory
+    speciesId: resomi
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: hands
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: head
+      back:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: feet
+      neck:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: neck
+      mask:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: suitStorage
+      belt:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: belt

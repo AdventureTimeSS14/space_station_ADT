@@ -3,6 +3,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
@@ -19,6 +20,7 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Resomi.Abilities;
 
 namespace Content.Shared.Wieldable;
 
@@ -108,7 +110,7 @@ public sealed class WieldableSystem : EntitySystem
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
-            wield.Wielded)
+            wield.Wielded && !HasComp<WeaponsUseInabilityComponent>(wield.User)) //Corvax-Next-Resomi
         {
             args.MinAngle += bonus.Comp.MinAngle;
             args.MaxAngle += bonus.Comp.MaxAngle;
@@ -125,7 +127,7 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnExamine(EntityUid uid, GunWieldBonusComponent component, ref ExaminedEvent args)
     {
-        if (HasComp<GunRequiresWieldComponent>(uid)) 
+        if (HasComp<GunRequiresWieldComponent>(uid))
             return;
 
         if (component.WieldBonusExamineMessage != null)
@@ -253,8 +255,10 @@ public sealed class WieldableSystem : EntitySystem
             return false;
 
         var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
-        var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", user), ("item", used));
+        var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
         _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
+
+        component.User = user; //Corvax-Next-Resomi
 
         var targEv = new ItemWieldedEvent();
         RaiseLocalEvent(used, ref targEv);
@@ -298,7 +302,7 @@ public sealed class WieldableSystem : EntitySystem
                 _audioSystem.PlayPredicted(component.UnwieldSound, uid, args.User);
 
             var selfMessage = Loc.GetString("wieldable-component-failed-wield", ("item", uid));
-            var othersMessage = Loc.GetString("wieldable-component-failed-wield-other", ("user", args.User.Value), ("item", uid));
+            var othersMessage = Loc.GetString("wieldable-component-failed-wield-other", ("user", Identity.Entity(args.User.Value, EntityManager)), ("item", uid));
             _popupSystem.PopupPredicted(selfMessage, othersMessage, args.User.Value, args.User.Value);
         }
 

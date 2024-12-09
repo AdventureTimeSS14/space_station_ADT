@@ -1,4 +1,14 @@
 - type: damageModifierSet
+  id: Resomi # потому что они слабы во всем, но хорошо защищают от холода
+  coefficients:
+    Cold: 0.6
+    Heat: 1.3
+    Blunt: 1.3
+    Slash: 1.3
+    Piercing: 1.3
+    Shock: 1.3
+
+- type: damageModifierSet
   id: Tajaran # ослабление за счет скорости
   coefficients:
     Blunt: 1

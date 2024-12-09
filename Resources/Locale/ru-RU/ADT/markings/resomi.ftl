@@ -1,26 +1,26 @@
-marking-ResomiTail = Resomi tail
-marking-ResomiTail-tail = Resomi tail
+marking-ResomiTail = Резоми Хвост
+marking-ResomiTail-tail = Резоми Хвост
 
-marking-ResomiTailFeathers = Tail feathers
-marking-ResomiTailFeathers-tail_feathers = Tail feathers
+marking-ResomiTailFeathers = Хвостовое оперенье
+marking-ResomiTailFeathers-tail_feathers = Хвостовое оперенье
 
-marking-ResomiLArmFeathers = Resomi left arm Feathers
-marking-ResomiLArmFeathers-l_hand_feathers = Resomi left arm Feathers
+marking-ResomiLArmFeathers = Резоми Оперение левой руки
+marking-ResomiLArmFeathers-l_hand_feathers = Резоми Оперение левой руки
 
-marking-ResomiLLegFeathers = Resomi left leg Feathers
-marking-ResomiLLegFeathers-l_foot_feathers = Resomi left leg Feathers
+marking-ResomiLLegFeathers = Резоми Оперение левой ноги
+marking-ResomiLLegFeathers-l_foot_feathers = Резоми Оперение левой ноги
 
-marking-ResomiRArmFeathers = Resomi right arm Feathers
-marking-ResomiRArmFeathers-r_hand_feathers = Resomi right arm Feathers
+marking-ResomiRArmFeathers = Резоми Оперение правой руки
+marking-ResomiRArmFeathers-r_hand_feathers = Резоми Оперение правой руки
 
-marking-ResomiRLegFeathers = Resomi right leg Feathers
-marking-ResomiRLegFeathers-r_foot_feathers = Resomi right leg Feathers
+marking-ResomiRLegFeathers = Резоми Оперение правой ноги
+marking-ResomiRLegFeathers-r_foot_feathers = Резоми Оперение правой ноги
 
-marking-ResomiFluff = Resomi under fluff
-marking-ResomiFluff-fluff = Resomi under fluff
+marking-ResomiFluff = Резоми Пух тела
+marking-ResomiFluff-fluff = Резоми Пух тела
 
-marking-ResomiFluffHead = Resomi head fluff
-marking-ResomiFluffHead-fluff_head = Resomi head fluff
+marking-ResomiFluffHead = Резоми Пух на голове
+marking-ResomiFluffHead-fluff_head = Резоми Пух на голове
 
-marking-ResomiFluffHeadUp = Resomi head fluff (up)
-marking-ResomiFluffHeadUp-fluff_head_up = Resomi head fluff (up)
+marking-ResomiFluffHeadUp = Резоми Пух на голове (верхний)
+marking-ResomiFluffHeadUp-fluff_head_up = Резоми Пух на голове(верхний)

@@ -1,13 +1,13 @@
 - type: species
   id: Resomi
-  name: species-name-Resomi
+  name: species-name-resomi
   roundStart: true
   prototype: MobResomi
   sprites: MobResomiSprites
   defaultSkinTone: "#faf7f7"
   markingLimits: MobResomiMarkingLimits
-  maleFirstNames: names_Resomi_male
-  femaleFirstNames: names_Resomi_female
+  maleFirstNames: names_resomi_male
+  femaleFirstNames: names_resomi_female
   naming: First
   dollPrototype: MobResomiDummy
   skinColoration: Hues
@@ -43,9 +43,11 @@
     Legs:
       points: 2
       required: false
+      defaultMarkings: [ ResomiLLegFeathers, ResomiRLegFeathers ]
     Arms:
       points: 2
       required: false
+      defaultMarkings: [ ResomiLArmFeathers, ResomiRArmFeathers ]
     Head:
       points: 2
       required: false
@@ -57,7 +59,7 @@
   id: MobResomiEyes
   baseSprite:
     sprite: ADT/Mobs/Customization/Resomi/eyes.rsi
-    state: Resomi
+    state: resomi
 
 - type: humanoidBaseSprite
   id: MobResomiHair
