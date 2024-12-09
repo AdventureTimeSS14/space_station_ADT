@@ -18,3 +18,13 @@
   cost: 2500
   category: cargoproduct-category-name-engineering
   group: market
+
+- type: cargoProduct
+  id: EngineeringSupermatter
+  icon:
+   sprite: ADT/Structures/Storage/Crates/supermatter_crate.rsi
+   state: base
+  product: CrateEngineerSupermatter
+  cost: 25000
+  category: cargoproduct-category-name-engineering
+  grop: market

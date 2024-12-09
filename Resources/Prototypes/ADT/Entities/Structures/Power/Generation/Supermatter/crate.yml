@@ -1,0 +1,25 @@
+- type: entity
+  parent: CrateBaseSecure
+  suffix: НЕ МАППИТЬ
+  id: CrateSupermatter
+  name: Ящик для содержания Сверхматерии.
+  components:
+  - type: Icon
+    sprite: ADT/Structures/Storage/Crates/supermatter_crate.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Storage/Crates/supermatter_crate.rsi
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RequireProjectileTarget
+     false
