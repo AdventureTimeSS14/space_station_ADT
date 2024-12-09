@@ -8,10 +8,10 @@
     },
     "states": [
         {
-            "name": "icon-off"
+            "name": "icon"
         },
         {
-            "name": "icon-on",
+            "name": "icon_chainsword",
             "delays": [
                 [
                     0.1,

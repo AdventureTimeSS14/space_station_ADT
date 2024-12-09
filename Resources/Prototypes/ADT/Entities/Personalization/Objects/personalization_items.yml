@@ -1578,76 +1578,87 @@
   - type: ContainerFill
     containers:
       item:
-      - CaptainSabre
+      - ADTWeaponMeleePrasatChainsword
   - type: Appearance
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
 
-# - type: entity
-#   name: Prazat Chainsword
-#   parent: BaseItem
-#   id: ADTWeaponMeleePrasatChainsword
-#   description: Prazat Chainsword
-#   suffix: Personal, 767sikon
-#   components:
-#   - type: Sharp
-#   - type: Sprite
-#     sprite: ADT/Personalization/prazat_chainsword_icon.rsi
-#     layers:
-#     - state: icon-off
-#       map: [ "enum.ToggleVisuals.Layer" ]
-#   - type: MeleeWeapon
-#     attackRate: 1.6
-#     damage:
-#       types:
-#         Blunt: 2.5
-#         Structural: 5
-#     soundHit:
-#         path: "/Audio/Weapons/smash.ogg"
-#   - type: Item
-#     size: Huge
-#     sprite: ADT/Personalization/prazat_chainsword.rsi
-#   - type: DisarmMalus
-#   - type: Tag
-#     tags:
-#     - ADTWeaponMeleePrasatChainsword
-#   - type: ItemToggle
-#     soundActivate:
-#       path: /Audio/Weapons/chainsawwield.ogg
-#       params:
-#         volume: -3
-#     soundDeactivate:
-#       path: /Audio/Weapons/chainsawwield.ogg
-#       params:
-#         volume: -3
-#   - type: ItemToggleActiveSound
-#     activeSound:
-#       path: /Audio/Weapons/chainsawidle.ogg
-#   - type: UseDelay
-#     delay: 1.5
-#   - type: ItemToggleMeleeWeapon
-#     activatedSoundOnHit:
-#       path: /Audio/Weapons/chainsaw.ogg
-#       params:
-#         variation: 0.250
-#     activatedSoundOnHitNoDamage:
-#       path: /Audio/Weapons/chainsaw.ogg
-#       params:
-#         variation: 0.250
-#         volume: -10
-#     activatedSoundOnSwing:
-#       path: /Audio/Weapons/chainsaw.ogg
-#       params:
-#         variation: 0.125
-#     activatedDamage:
-#       types:
-#         Slash: 15
-#         Piercing: 2.5
-#         Structural: 30
-#   - type: GenericVisualizer
-#     visuals:
-#      enum.ToggleVisuals.Toggled:
-#         enum.ToggleVisuals.Layer:
-#           True: {state: icon-on}
-#           False: {state: icon-off}
+- type: entity
+  name: Prazat Chainsword
+  parent: BaseItem
+  id: ADTWeaponMeleePrasatChainsword
+  description: Prazat Chainsword
+  suffix: Personal, 767sikon
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_chainsword_icon.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: icon_chainsword
+      visible: false
+      map: [ "chainsword" ]
+  - type: MeleeWeapon
+    attackRate: 1.6
+    damage:
+      types:
+        Blunt: 2.5
+        Structural: 5
+    soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+  - type: Item
+    sprite: ADT/Personalization/prazat_chainsword.rsi
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - ADTWeaponMeleePrasatChainsword
+    - CaptainSabre
+  - type: Appearance
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+    soundDeactivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+  - type: UseDelay
+    delay: 1.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 15
+        Piercing: 2.5
+        Structural: 30
+  - type: ToggleableLightVisuals
+    spriteLayer: chainsword
+    inhandVisuals:
+      left:
+      - state: inhand-left-chainsword
+      right:
+      - state: inhand-right-chainsword
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon_chainsword}
+          False: {state: icon}

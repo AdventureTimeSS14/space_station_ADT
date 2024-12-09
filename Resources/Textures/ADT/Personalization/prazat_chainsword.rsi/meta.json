@@ -8,15 +8,15 @@
     },
     "states": [
         {
-            "name": "off-inhand-left",
+            "name": "inhand-left",
             "directions": 4
         },
         {
-            "name": "off-inhand-right",
+            "name": "inhand-right",
             "directions": 4
         },
         {
-            "name": "on-inhand-left",
+            "name": "inhand-left-chainsword",
             "directions": 4,
             "delays": [
                 [
@@ -38,7 +38,7 @@
             ]
         },
         {
-            "name": "on-inhand-right",
+            "name": "inhand-right-chainsword",
             "directions": 4,
             "delays": [
                 [
