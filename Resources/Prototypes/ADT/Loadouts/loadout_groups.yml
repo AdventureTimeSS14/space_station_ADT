@@ -175,7 +175,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - NitrileGloves
+  # - NitrileGloves # ADT-Tweak (почему у НРа их нет (тем более они медицинские), а у доцента - есть?)
   - PurpleGloves
 
 - type: loadoutGroup

@@ -10,7 +10,7 @@
 
 # Head
 
-- type: startingGear
+- type: loadout
   id: PurpleCap
   equipment:
     head: ClothingHeadHatPurplesoft
