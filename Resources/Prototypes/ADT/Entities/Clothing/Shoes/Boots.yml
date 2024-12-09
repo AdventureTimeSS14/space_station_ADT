@@ -11,6 +11,16 @@
     sprite: ADT/Clothing/Shoes/Boots/newmekka.rsi  #спрайты от prazat911
 
 - type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootMimicry
+  name: mimicry boot
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/mimicry.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/mimicry.rsi 
+
+- type: entity
   parent: ClothingShoesBootsCombat
   id: ADTClothingShoesBootsCombatTimePatrol
   components:
@@ -26,3 +36,14 @@
     sprite: ADT/Clothing/Shoes/Boots/highboots.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/highboots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesBootsSollux
+  name: Highboots
+  description: a pair of highboot to walk on blood puddles
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi

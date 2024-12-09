@@ -13,7 +13,7 @@
   parent: BaseTranslatorImplant
   id: GalacticCommonTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -26,7 +26,7 @@
   parent: BaseTranslatorImplant
   id: BubblishTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -39,7 +39,7 @@
   parent: BaseTranslatorImplant
   id: MofficTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -52,7 +52,7 @@
   parent: BaseTranslatorImplant
   id: RootSpeakTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -65,7 +65,7 @@
   parent: BaseTranslatorImplant
   id: NekomimeticTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -78,7 +78,7 @@
   parent: BaseTranslatorImplant
   id: DraconicTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -91,7 +91,7 @@
   parent: BaseTranslatorImplant
   id: CanilunztTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -104,7 +104,7 @@
   parent: BaseTranslatorImplant
   id: IPCTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -117,7 +117,7 @@
   parent: BaseTranslatorImplant
   id: BorgTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -143,7 +143,7 @@
   parent: BaseTranslatorImplant
   id: FireTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -156,7 +156,7 @@
   parent: BaseTranslatorImplant
   id: SolCommonTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -169,7 +169,7 @@
   parent: BaseTranslatorImplant
   id: DraskTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -181,7 +181,7 @@
 - type: entity
   parent: BaseTranslatorImplant
   id: UrsTranslatorImplant
-  name: translator implant
+  # name: translator implant
   description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
@@ -195,7 +195,7 @@
   parent: BaseTranslatorImplant
   id: ArkaneTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -208,7 +208,7 @@
   parent: BaseTranslatorImplant
   id: ShadekinTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -221,7 +221,7 @@
   parent: BaseTranslatorImplant
   id: DwarfTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -234,7 +234,7 @@
   parent: BaseTranslatorImplant
   id: CintaTajTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -247,7 +247,7 @@
   parent: BaseTranslatorImplant
   id: SyndUniversalTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -275,7 +275,7 @@
   parent: BaseTranslatorImplant
   id: CodeSpeakTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -288,7 +288,7 @@
   parent: BaseTranslatorImplant
   id: SikTajTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -301,7 +301,7 @@
   parent: BaseTranslatorImplant
   id: NianTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -314,7 +314,7 @@
   parent: BaseTranslatorImplant
   id: DevTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -327,7 +327,7 @@
   parent: BaseTranslatorImplant
   id: VoxPidginTranslatorImplant
   name: translator implant
-  description: This implant grants language knowledge.
+  # description: This implant grants language knowledge.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant

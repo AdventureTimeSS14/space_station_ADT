@@ -120,7 +120,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
             var ev = new ExplosionDownAttemptEvent(args.ExplosionPrototype);
             RaiseLocalEvent(uid, ref ev);
             if (!ev.Cancelled)
-                _standing.Down(uid, dropHeldItems: false);
+                _standing.Down(uid);
         }
 
     }

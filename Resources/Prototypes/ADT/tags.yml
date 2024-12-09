@@ -127,6 +127,160 @@
 - type: Tag
   id: JanicartKeys
 
+#mech_gygax
+
+- type: Tag
+  id: ADTGygaxCentralControlModule
+
+- type: Tag
+  id: ADTGygaxPeripheralsControlModule
+
+- type: Tag
+  id: ADTGygaxLArm
+
+- type: Tag
+  id: ADTGygaxLLeg
+
+- type: Tag
+  id: ADTGygaxRLeg
+
+- type: Tag
+  id: ADTGygaxRArm
+
+- type: Tag
+  id: ADTGygaxArmor
+
+- type: Tag
+  id: ADTGygaxHead
+
+#mech_clarke
+
+- type: Tag
+  id: ADTClarkeCentralControlModule
+
+- type: Tag
+  id: ADTClarkePeripheralsControlModule
+
+- type: Tag
+  id: ADTClarkeLArm
+
+- type: Tag
+  id: ADTClarkeRArm
+
+- type: Tag
+  id: ADTClarkeLTread
+
+- type: Tag
+  id: ADTClarkeRTread
+
+- type: Tag
+  id: ADTClarkeHead
+
+#mech_durand
+
+- type: Tag
+  id: ADTDurandCentralControlModule
+
+- type: Tag
+  id: ADTDurandPeripheralsControlModule
+
+- type: Tag
+  id: ADTDurandLArm
+
+- type: Tag
+  id: ADTDurandLLeg
+
+- type: Tag
+  id: ADTDurandRLeg
+
+- type: Tag
+  id: ADTDurandRArm
+
+- type: Tag
+  id: ADTDurandArmor
+
+- type: Tag
+  id: ADTDurandHead
+
+#odysseus
+
+- type: Tag
+  id: ADTOdysseusCentralControlModule
+
+- type: Tag
+  id: ADTOdysseusPeripheralsControlModule
+
+- type: Tag
+  id: ADTOdysseusLArm
+
+- type: Tag
+  id: ADTOdysseusLLeg
+
+- type: Tag
+  id: ADTOdysseusRLeg
+
+- type: Tag
+  id: ADTOdysseusRArm
+
+- type: Tag
+  id: ADTOdysseusArmor
+
+- type: Tag
+  id: ADTOdysseusHead
+
+#phazon
+
+- type: Tag
+  id: ADTPhazonCentralControlModule
+
+- type: Tag
+  id: ADTPhazonPeripheralsControlModule
+
+- type: Tag
+  id: ADTPhazonWeaponControlModule
+
+- type: Tag
+  id: ADTPhazonLArm
+
+- type: Tag
+  id: ADTPhazonLLeg
+
+- type: Tag
+  id: ADTPhazonRLeg
+
+- type: Tag
+  id: ADTPhazonRArm
+
+- type: Tag
+  id: ADTPhazonArmor
+
+- type: Tag
+  id: ADTPhazonHead
+
+#ripley_mk2
+
+- type: Tag
+  id: ADTRipleyMk2ModificationKit
+
+#mech general
+- type: Tag
+  id: ADTMechEquipmentGeneral
+
+- type: Tag
+  id: ADTMechEquipmentMed
+
+- type: Tag
+  id: ADTMechEquipmentService
+
+- type: Tag
+  id: ADTMechEquipmentIndustrial
+
+- type: Tag
+  id: ADTMechEquipmentSec
+
+- type: Tag
+  id: ADTMechEquipmentClown
+
 - type: Tag
   id: ADTBadge
 
@@ -138,6 +292,15 @@
 
 - type: Tag
   id: ADTMagazineRifleAR12
+
+- type: Tag
+  id: ChangelingBlacklist
+
+- type: Tag
+  id: MaskBlocker
+
+- type: Tag
+  id: GlassesBlocker
 
 - type: Tag
   id: ADTMobileDefibrillator
@@ -156,3 +319,77 @@
 
 - type: Tag
   id: ADTMedipen
+
+- type: Tag
+  id: ADTBluespaceAnomalyCore
+
+- type: Tag
+  id: ADTHardsuitSalvage
+
+- type: Tag
+  id: ADTSiliconStealthWhitelist
+
+- type: Tag
+  id: ADTCandies
+
+- type: Tag
+  id: ADTBeerCan
+
+  # New Year
+
+- type: Tag
+  id: ADTGoldenStarGarland
+
+- type: Tag
+  id: ADTSilverStarGarland
+
+- type: Tag
+  id: ADTBaseStarGarland
+
+- type: Tag
+  id: ADTShinyGarland
+
+- type: Tag
+  id: ADTTreeGoldenStar
+
+- type: Tag
+  id: ADTTreeRedStar
+
+- type: Tag
+  id: ADTTreeSilverStar
+
+- type: Tag
+  id: ADTTreeRedBalls
+
+- type: Tag
+  id: ADTTreeGoldenBalls
+
+- type: Tag
+  id: ADTTreeSilverBalls
+
+- type: Tag
+  id: ADTTreeRedMishura
+
+- type: Tag
+  id: ADTTreeGoldenMishura
+
+- type: Tag
+  id: ADTTreeSilverMishura
+
+- type: Tag
+  id: ADTPillExperimental
+
+- type: Tag
+  id: ADTPillExter
+
+- type: Tag
+  id: ADTRoboticsAmbience
+
+- type: Tag
+  id: ADTVaultAmbience
+
+- type: Tag
+  id: ADTChemistryAmbience
+
+- type: Tag
+  id: ADTOreBag

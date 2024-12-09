@@ -18,3 +18,18 @@ ent-ADTVendingMachinePatholoDrobe = ПатологоШкаф
 
 ent-ADTVendingMachineCiviMedVend = ГраждоМед
     .desc = Создан специально чтобы облегчить ваш бала.. боль.
+
+ent-ADTIceCreamVendInventory = Морожемат
+    .desc = Смотри, смотри! Это мороженщик!
+
+ent-ADTVendingMachineSnackFree = Getmore Chocolate Corp
+    .suffix = Бесплатный
+    .desc = Автомат с закусками, предоставленный корпорацией Getmore Chocolate, базирующейся на Марсе.
+
+ent-ADTVendingMachineGamesFree = Безобидные развлечения
+    .suffix = Бесплатный
+    .desc = Выдаёт вещи, которые капитан и глава персонала, скорее всего, не оценят, если вы будете развлекаться с ними вместо своей работы...
+
+ent-ADTVendingMachineCoffeeFree = Лучшие горячие напитки Солнечной
+    .suffix = Бесплатный
+    .desc = Подаются кипящими, чтобы оставались горячими всю смену!

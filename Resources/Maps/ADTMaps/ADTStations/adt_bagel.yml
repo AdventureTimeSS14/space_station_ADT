@@ -9779,6 +9779,18 @@ entities:
     - type: Transform
       pos: -39.5,20.5
       parent: 2
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 24535
+    components:
+    - type: Transform
+      pos: -24.540602,2.3493083
+      parent: 2
+  - uid: 24536
+    components:
+    - type: Transform
+      pos: -24.493727,2.5368083
+      parent: 2
 - proto: AirAlarm
   entities:
   - uid: 45
@@ -129218,6 +129230,13 @@ entities:
     components:
     - type: Transform
       pos: 10.5,13.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 24537
+    components:
+    - type: Transform
+      pos: -33.5,-20.5
       parent: 2
 - proto: SpawnPointQuartermaster
   entities:

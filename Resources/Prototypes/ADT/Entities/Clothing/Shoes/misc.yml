@@ -76,3 +76,15 @@
     sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTEmpressOfLightShoes
+  name: empress of light shoes
+  description: empress of light shoes
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Misc/empress_of_light_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Misc/empress_of_light_shoes.rsi

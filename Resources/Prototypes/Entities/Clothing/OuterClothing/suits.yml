@@ -172,6 +172,7 @@
     noPowerPopup: ninja-no-power
   # core ninja suit stuff
   - type: NinjaSuit
+  - type: EmpProtection # ADT-Tweak
   - type: UseDelay
     delay: 5 # disable time
   - type: PowerCellSlot
@@ -187,6 +188,9 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSmall
         disableEject: true
+        whitelist:
+          tags:
+            - PowerCell
 
 - type: entity
   parent: ClothingOuterBase

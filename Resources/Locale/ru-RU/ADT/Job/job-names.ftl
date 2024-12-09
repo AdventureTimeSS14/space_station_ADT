@@ -32,3 +32,11 @@ JobADTSecBorg = Киборг службы безопасности
 
 job-name-guard-officer = Надзиратель
 ADTGuardOfficer = Надзиратель
+
+# Job titles
+cadet-space-sec = Кадет SPACE SEC
+officer-space-sec = Офицер SPACE SEC
+pilot-space-sec = Пилот SPACE SEC
+commander-space-sec = Командир SPACE SEC
+member-space-sec = Сотрудник SPACE SEC
+trader-tsf = Торговец

@@ -127,6 +127,10 @@
     energy: 3.5
     color: "#00ccff"
     castShadows: false
+  - type: Tag
+    tags:
+    - ForceableFollow
+    - ADTBluespaceAnomalyCore # ADT tweak
 
 - type: entity
   parent: BaseAnomalyCore
@@ -147,6 +151,8 @@
   id: AnomalyCoreFlora
   suffix: Flora
   components:
+  - type: Seed
+    seedId: anomalyBerry
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/flora_core.rsi
   - type: PointLight
@@ -288,6 +294,10 @@
     energy: 3.5
     color: "#00ccff"
     castShadows: false
+  - type: Tag
+    tags:
+    - ForceableFollow
+    - ADTBluespaceAnomalyCore # ADT tweak
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -307,6 +317,8 @@
   id: AnomalyCoreFloraInert
   suffix: Flora, Inert
   components:
+  - type: Seed
+    seedId: anomalyBerry
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/flora_core.rsi
   - type: PointLight

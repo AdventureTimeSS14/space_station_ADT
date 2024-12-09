@@ -233,3 +233,97 @@
   - type: StaticPrice
     price: -2000
 
+
+# Автомат с мороженкой.
+
+- type: entity
+  parent: VendingMachine
+  id: ADTIceCreamVendInventory
+  name: Ice CreamMat
+  description: Look! There a ice cream!
+  components:
+  - type: VendingMachine
+    pack: ADTIceCreamVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    priceMultiplier: 0.57 # ADT-Economy
+    ejectDelay: 1
+  - type: Advertise
+    pack: IceCreammatAds
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/icecream.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#9dc5c9"
+
+#Бесплатные версии торгоматов
+- type: entity
+  parent: VendingMachineCoffee
+  id: ADTVendingMachineCoffeeFree
+  name: Solar's Best Hot Drinks
+  description: Served boiling so it stays hot all shift!
+  suffix: Free
+  components:
+  - type: VendingMachine
+    pack: HotDrinksMachineInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    screenState: screen
+    ejectDelay: 5
+    soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
+    initialStockQuality: 0.33
+    allForFree: true # ADT-Economy
+
+- type: entity
+  parent: VendingMachineGames
+  id: ADTVendingMachineGamesFree
+  name: Good Clean Fun
+  description: Vends things that the Captain and Head of Personnel are probably not going to appreciate you fiddling with instead of your job...
+  suffix: Free
+  components:
+  - type: VendingMachine
+    pack: GoodCleanFunInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    ejectDelay: 1.8
+    allForFree: true # ADT-Economy
+
+- type: entity
+  parent: VendingMachineSnack
+  id: ADTVendingMachineSnackFree
+  name: Getmore Chocolate Corp
+  description: A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars.
+  suffix: Free
+  components:
+  - type: VendingMachine
+    pack: GetmoreChocolateCorpInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    initialStockQuality: 0.33
+    allForFree: true # ADT-Economy

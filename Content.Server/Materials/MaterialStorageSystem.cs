@@ -93,7 +93,8 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         EntityUid receiver,
         MaterialStorageComponent? storage = null,
         MaterialComponent? material = null,
-        PhysicalCompositionComponent? composition = null)
+        PhysicalCompositionComponent? composition = null,
+        bool showPopup = true)  // ADT tweak
     {
         if (!Resolve(receiver, ref storage) || !Resolve(toInsert, ref material, ref composition, false))
             return false;
@@ -102,8 +103,9 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
-        _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
-            ("item", toInsert)), receiver);
+        if (showPopup)  // ADT tweak
+            _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
+                ("item", toInsert)), receiver);
         QueueDel(toInsert);
 
         // Logging
@@ -175,6 +177,10 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         var materialPerStack = composition.MaterialComposition[materialProto.ID];
         var amountToSpawn = amount / materialPerStack;
         overflowMaterial = amount - amountToSpawn * materialPerStack;
+
+        if (amountToSpawn == 0)
+            return new List<EntityUid>();
+
         return _stackSystem.SpawnMultiple(materialProto.StackEntity, amountToSpawn, coordinates);
     }
 

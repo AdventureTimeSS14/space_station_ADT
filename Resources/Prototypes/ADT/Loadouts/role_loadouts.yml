@@ -129,8 +129,9 @@
   - StationEngineerJumpsuit
   - StationEngineerOuterClothing
   - StationEngineerBackpack
+  - ADTEngineeringBelt
   - StationEngineerShoes
-  - Survival
+  - SurvivalExtended
   - Trinkets
   # ADT underwear tweak start
   - ADTTop
@@ -144,6 +145,7 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - SecurityHead
+  - SecurityOfficerNeckADT # ADT-Loadouts
   - SecurityJumpsuit
   - ADTSeniorSecurityOuterClothing
   - SecurityBelt
@@ -190,6 +192,7 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - ADTGuardOfficerHead
+  - SecurityOfficerNeckADT # ADT-Loadouts
   - ADTGuardOfficerJumpsuit
   - ADTSeniorSecurityOuterClothing
   - SecurityBelt

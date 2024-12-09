@@ -26,10 +26,29 @@
   components:
   - type: ItemToggle
     onUse: false
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
+
+- type: entity
+  parent: ADTBasePDA
+  id: ADTBaseSecurityPDA
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 #Если добаляете группу одинаковых кпк делайте им базу!
 
 - type: entity
@@ -107,7 +126,7 @@
 
 # КПК Следователя
 - type: entity
-  parent: ADTBasePDA
+  parent: ADTBaseSecurityPDA
   id: ADTInvestigatorPDA
   name: investigator PDA
   description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
@@ -134,7 +153,7 @@
 
 # КПК надзирателя
 - type: entity
-  parent: ADTBasePDA
+  parent: ADTBaseSecurityPDA
   id: ADTGuardOfficerPDA
   name: guard officer PDA
   description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.

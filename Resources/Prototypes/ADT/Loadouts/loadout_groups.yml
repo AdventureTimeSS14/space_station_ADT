@@ -215,7 +215,10 @@
   name: loadout-warden-neck-adt
   minLimit: 0
   loadouts:
-  - ADTWardenNeck
+  # - ADTWardenNeck
+  - ADTWardenNeckBadgeBronze
+  - ADTWardenNeckBadgeSilver
+  - ADTWardenNeckBadgeGold
 
 # Security Oficer
 - type: loadoutGroup
@@ -223,7 +226,10 @@
   name: loadout-security-officer-neck-adt
   minLimit: 0
   loadouts:
-  - ADTSecurityOfficerNeck
+  # - ADTSecurityOfficerNeck
+  - ADTSecurityOfficerNeckBadgeBronze
+  - ADTSecurityOfficerNeckBadgeSilver
+  - ADTSecurityOfficerNeckBadgeGold
 
 # Cadet Security Oficer
 - type: loadoutGroup
@@ -231,7 +237,10 @@
   name: loadout-security-cadet-neck-adt
   minLimit: 0
   loadouts:
-  - ADTSecurityCadetNeck
+  # - ADTSecurityCadetNeck
+  - ADTSecurityCadetNeckBadgeBronze
+  - ADTSecurityCadetNeckBadgeSilver
+  - ADTSecurityCadetNeckBadgeGold
 
 #Плащ, берет и маска атмосианина
 
@@ -286,7 +295,10 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTNeckSecBadge
+  # - ADTNeckSecBadge
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
   #back
 - type: loadoutGroup
@@ -602,6 +614,7 @@
   maxLimit: 1
   loadouts:
   - ADTHeadHatGuardOfficer
+  - ADTHeadHatGuardGreyOfficer
   - ADTHeadHatGuardOfficerMaster
 
 
@@ -613,4 +626,5 @@
   maxLimit: 1
   loadouts:
   - ADTUniformJumpsuitGuardOfficer
+  - ADTUniformJumpsuitGreyGuardOfficer
   - ADTUniformJumpsuitGuardOfficerMaster

@@ -36,6 +36,9 @@ ent-ADTClothingHeadHatsGuardOfficer = кепка надзирателя
 ent-ADTClothingHeadHatsGuardOfficerMaster = фуражка надзирателя
     .desc = Фуражка тюремного надзирателя, которая выдается сотрудникам с опытом работы.
 
+ent-ADTClothingHeadGreyHatsGuardOfficer = серая фуражка надзирателя
+    .desc = Серая фуражка тюремного надзирателя, которая выдается сотрудникам с чуть меньшим опытом работы.
+
 ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
     .desc = Тёмная фуражка офицера Иллизиума.
@@ -90,3 +93,22 @@ ent-ADTClothingHeadHatChainSaw = голова демона-бензопилы
     .suffix = Хеллоуин
     .desc = Весь ад содрогается от его рева, даже демоны помнят его после перерождения!
 
+ent-ADTClothingHeadHatHornsSollux = Рога тролля
+    .suffix = Хеллоуин
+    .desc = Я в нем выгляжу глуп0.
+
+ent-ADTClothingHeadHatWinth = шляпа ведьмочки
+    .suffix = Хеллоуин
+    .desc = Для самых открытых ведьмочек.
+
+ent-ADTClothingHeadHatPoliceHat = кепка полицейского
+    .suffix = Хеллоуин
+    .desc = Кепка полицейского. Надеюсь, у него хорошие намерения.
+
+ent-ADTClothingHeadEmpressOfLightHelmet = коронет Императрицы света
+    .suffix = Хеллоуин
+    .desc = Величественно.
+
+ent-ADTClothingHeadLethalCompanyHelmet = шлем сотрудника Смертельной компании
+    .suffix = Хеллоуин
+    .desc = Шлем как шлем. Кажется, его кто-то до меня носил...
