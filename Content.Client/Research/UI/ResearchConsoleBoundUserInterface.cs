@@ -1,3 +1,4 @@
+using Content.Client.ADT.Research.UI;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using JetBrains.Annotations;
@@ -46,7 +47,7 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         if (State is not ResearchConsoleBoundInterfaceState rState)
             return;
 
-        _consoleMenu?.UpdatePanels(rState);
+        _consoleMenu?.UpdatePanels();
         _consoleMenu?.UpdateInformationPanel(rState);
     }
 
@@ -56,7 +57,8 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
 
         if (state is not ResearchConsoleBoundInterfaceState castState)
             return;
-        _consoleMenu?.UpdatePanels(castState);
+        _consoleMenu?.UpdatePoints(castState.Points);
+        _consoleMenu?.UpdatePanels();
         _consoleMenu?.UpdateInformationPanel(castState);
     }
 }

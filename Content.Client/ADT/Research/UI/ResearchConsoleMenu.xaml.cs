@@ -16,6 +16,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Research.UI;
@@ -35,14 +36,15 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
     private bool _draggin;
     protected Vector2 StartDragPosition;
     public Vector2 Offset = Vector2.Zero;
-
+    public Vector2 OldOffset = Vector2.Zero;
+    public int Points;
     public EntityUid Entity;
 
     public ResearchConsoleMenu()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-
+        Points = 0;
         _research = _entity.System<ResearchSystem>();
         _sprite = _entity.System<SpriteSystem>();
         _accessReader = _entity.System<AccessReaderSystem>();
@@ -83,37 +85,48 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         Entity = entity;
     }
 
-    public void UpdatePanels(ResearchConsoleBoundInterfaceState state)
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+        if (OldOffset == Offset)
+            return;
+
+        OldOffset = Offset;
+        foreach (var item in DragContainer.Children)
+        {
+            LayoutContainer.SetPosition(item, Offset);
+        }
+    }
+
+    public void UpdatePanels()
     {
         DragContainer.Children.Clear();
 
         var availableTech = _research.GetAvailableTechnologies(Entity);
-        SyncTechnologyList(AvailableCardsContainer, availableTech);
+        //SyncTechnologyList(AvailableCardsContainer, availableTech);
 
         if (!_entity.TryGetComponent(Entity, out TechnologyDatabaseComponent? database))
             return;
 
-        // i can't figure out the spacing so here you go
-        TechnologyCardsContainer.AddChild(new Control
-        {
-            MinHeight = 10
-        });
-
         var hasAccess = _player.LocalEntity is not { } local ||
                         !_entity.TryGetComponent<AccessReaderComponent>(Entity, out var access) ||
                         _accessReader.IsAllowed(local, Entity, access);
-        foreach (var techId in database.CurrentTechnologyCards)
-        {
-            var tech = _prototype.Index<TechnologyPrototype>(techId);
-            var cardControl = new TechnologyCardControl(tech, _prototype, _sprite, _research.GetTechnologyDescription(tech, includeTier: false), state.Points, hasAccess);
-            cardControl.OnPressed += () => OnTechnologyCardPressed?.Invoke(techId);
 
-            var control = new ResearchConsoleItem(techId, _sprite);
-            TechnologyCardsContainer.AddChild(control);
+        var testcontrol = new Button();
+        DragContainer.AddChild(testcontrol);
+
+        foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>())
+        {
+            //var tech = _prototype.Index<TechnologyPrototype>(techId);
+
+            //var control = new ResearchConsoleItem(techId, _sprite);
+            var control = new Button();
+            DragContainer.AddChild(control);
+            LayoutContainer.SetPosition(control, tech.Position);
         }
 
         var unlockedTech = database.UnlockedTechnologies.Select(x => _prototype.Index<TechnologyPrototype>(x));
-        SyncTechnologyList(UnlockedCardsContainer, unlockedTech);
+        //SyncTechnologyList(UnlockedCardsContainer, unlockedTech);
     }
 
     public void UpdateInformationPanel(ResearchConsoleBoundInterfaceState state)
@@ -176,44 +189,13 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         }
     }
 
-    /// <summary>
-    ///     Synchronize a container for technology cards with a list of technologies,
-    ///     creating or removing UI cards as appropriate.
-    /// </summary>
-    /// <param name="container">The container which contains the UI cards</param>
-    /// <param name="technologies">The current set of technologies for which there should be cards</param>
-    private void SyncTechnologyList(BoxContainer container, IEnumerable<TechnologyPrototype> technologies)
+    public void UpdatePoints(int points)
     {
-        // For the cards which already exist, build a map from technology prototype to the UI card
-        var currentTechControls = new Dictionary<TechnologyPrototype, Control>();
-        foreach (var child in container.Children)
-        {
-            if (child is MiniTechnologyCardControl)
-            {
-                currentTechControls.Add((child as MiniTechnologyCardControl)!.Technology, child);
-            }
-        }
+        Points = points;
+    }
 
-        foreach (var tech in technologies)
-        {
-            if (!currentTechControls.ContainsKey(tech))
-            {
-                // Create a card for any technology which doesn't already have one.
-                var mini = new MiniTechnologyCardControl(tech, _prototype, _sprite, _research.GetTechnologyDescription(tech));
-                container.AddChild(mini);
-            }
-            else
-            {
-                // The tech already exists in the UI; remove it from the set, so we won't revisit it below
-                currentTechControls.Remove(tech);
-            }
-        }
-
-        // Now, any items left in the dictionary are technologies which were previously
-        // available, but now are not. Remove them.
-        foreach (var (tech, techControl) in currentTechControls)
-        {
-            container.Children.Remove(techControl);
-        }
+    protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
+    {
+        return DragMode.None;
     }
 }

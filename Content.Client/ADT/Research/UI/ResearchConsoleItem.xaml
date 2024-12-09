@@ -1,7 +1,7 @@
 <Control xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     Margin="5"
-    HorizontalExpant="False">
+    HorizontalExpand="False">
     <BoxContainer Orientation="Vertical">
         <PanelContainer Margin="5" SetSize="96 96">
             <PanelContainer.PanelOverride>

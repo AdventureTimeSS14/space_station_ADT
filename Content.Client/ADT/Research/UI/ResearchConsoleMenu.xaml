@@ -57,17 +57,15 @@
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                     </PanelContainer.PanelOverride>
-                    <ScrollContainer
-                        HScrollEnabled="False"
+                    <LayoutContainer
                         HorizontalExpand="True"
-                        VerticalExpand="True"
-                        Name="DragContainer">
+                        VerticalExpand="True">
                         <BoxContainer
                             Name="UnlockedCardsContainer"
                             Orientation="Vertical"
                             VerticalExpand="True">
                         </BoxContainer>
-                    </ScrollContainer>
+                    </LayoutContainer>
                 </PanelContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical"
@@ -80,10 +78,10 @@
                         <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                     </PanelContainer.PanelOverride>
                     <LayoutContainer
-                        HScrollEnabled="False"
                         HorizontalExpand="True"
                         SizeFlagsStretchRatio="2"
-                        VerticalExpand="True">
+                        VerticalExpand="True"
+                        Name="DragContainer">
                     </LayoutContainer>
                 </PanelContainer>
             </BoxContainer>
