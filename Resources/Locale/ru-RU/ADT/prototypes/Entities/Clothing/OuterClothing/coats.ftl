@@ -1,5 +1,8 @@
-ent-ADTClothingOuterCoatLabPathologist = халат патологоанатома
+ent-ADTClothingOuterCoatLabPathologist = лабораторный халат патологоанатома
     .desc = { ent-ClothingOuterCoatLab.desc }
+ent-ADTClothingOuterCoatLabPathologistOpened = лабораторный халат патологоанатома
+    .desc = { ent-ClothingOuterCoatLab.desc }
+    .suffix = {"Раскрытый"}
 ent-ADTClothingOuterApronPathologist = фартук патологоанатома
     .desc = Фартук для работы с трупами.
 ent-ADTClothingKadet = шинель для Кадетов СБ

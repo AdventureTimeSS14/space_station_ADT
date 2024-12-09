@@ -65,6 +65,13 @@
   equipment:
     outerClothing: ClothingOuterCoatLabCmo
 
+# ADT-Tweak-opened
+- type: loadout
+  id: ChiefMedicalOfficerLabCoatOpened
+  equipment:
+    outerClothing: ClothingOuterCoatLabCmoOpened
+# ADT-Tweak-opened
+
 - type: loadout
   id: ChiefMedicalOfficerWintercoat
   equipment:

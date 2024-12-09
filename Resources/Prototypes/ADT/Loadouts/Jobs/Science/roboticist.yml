@@ -24,6 +24,13 @@
   equipment:
     outerClothing: ClothingOuterCoatRobo
 
+# ADT-Tweak-opened
+- type: loadout
+  id: RoboticistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRoboOpened
+# ADT-Tweak-opened
+
 - type: loadout
   id: RoboticistWintercoat
   equipment:

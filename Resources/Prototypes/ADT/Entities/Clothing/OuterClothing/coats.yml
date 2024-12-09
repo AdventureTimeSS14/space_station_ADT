@@ -63,7 +63,7 @@
 
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLabPathologist] # ADT-fix-senior-and-patholog-labcoat
   id: ADTClothingOuterCoatLabPathologistOpened
   name: pathologist's lab coat
 

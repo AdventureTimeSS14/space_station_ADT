@@ -31,6 +31,13 @@
   equipment:
     outerClothing: ADTClothingOuterCoatLabPathologist
 
+# ADT-Tweak-opened
+- type: loadout
+  id: PathologWindbreakerOpened
+  equipment:
+    outerClothing: ADTClothingOuterCoatLabPathologistOpened
+# ADT-Tweak-opened
+
 - type: loadout
   id: PathologApron
   equipment:

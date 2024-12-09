@@ -144,6 +144,13 @@
   equipment:
     outerClothing: ClothingOuterCoatLab
 
+# ADT-Tweak-opened
+- type: loadout
+  id: RegularLabCoatOpened
+  equipment:
+    outerClothing: ClothingOuterCoatLabOpened
+# ADT-Tweak-opened
+
 - type: loadout
   id: MedicalDoctorWintercoat
   equipment:

@@ -825,7 +825,6 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
-  # - SeniorEngineerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -915,6 +914,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorLabCoat
+  - ResearchDirectorLabCoatOpened # ADT-Tweak-opened
   - ResearchDirectorWintercoat
 
 - type: loadoutGroup
@@ -929,7 +929,6 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  # - RoboticistCap # ADT-Tweak-senior
   - SkullBandana
   - PurpleCap # ADT-Tweak-senior
   - PurpleCapFlipped # ADT-Tweak-senior
@@ -947,12 +946,6 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-# ADT-Tweak-senior
-  # - RoboticistJumpsuit
-  # - RoboticistJumpskirt
-  # - SeniorResearcherJumpsuit
-  # - SeniorResearcherJumpskirt
-# ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -968,12 +961,8 @@
   minLimit: 0
   loadouts:
   - ScienceLabCoat
+  - ScienceLabCoatOpened # ADT-Tweak-opened
   - ScienceWintercoat
-# ADT-Tweak-senior
-  # - RoboticistLabCoat
-  # - RoboticistWintercoat
-  # - SeniorResearcherLabCoat
-# ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -990,14 +979,12 @@
   loadouts:
   - LatexGloves
   - PurpleGloves
-  # - RobohandsGloves # ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistPDA
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
-  # - SeniorResearcherPDA # ADT Tweak
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1135,7 +1122,6 @@
   name: loadout-group-security-id
   loadouts:
   - SecurityPDA
-  # - SeniorOfficerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1235,8 +1221,10 @@
   minLimit: 0
   loadouts:
   - ChiefMedicalOfficerLabCoat
+  - ChiefMedicalOfficerLabCoatOpened # ADT-Tweak-opened
   - ChiefMedicalOfficerWintercoat
   - ADTCMOLabcoatHike # ADT tweak
+  - ADTCMOLabcoatHikeOpened # ADT-Tweak-opened
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1260,11 +1248,7 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
-  # - SeniorPhysicianBeret # ADT-Tweak-senior
   - MedicalHeadMirror
-  # - BlueSurgeryCap # ADT-Tweak
-  # - GreenSurgeryCap # ADT-Tweak
-  # - PurpleSurgeryCap # ADT-Tweak
   - NurseHat
 
 - type: loadoutGroup
@@ -1273,11 +1257,6 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
-  # - SeniorPhysicianJumpsuit # ADT-Tweak-senior
-  # - SeniorPhysicianJumpskirt # ADT-Tweak-senior
-  # - MedicalBlueScrubs # ADT-Tweak
-  # - MedicalGreenScrubs # ADT-Tweak
-  # - MedicalPurpleScrubs # ADT-Tweak
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1285,8 +1264,8 @@
   minLimit: 0
   loadouts:
   - RegularLabCoat
+  - RegularLabCoatOpened # ADT-Tweak-opened
   - MedicalDoctorWintercoat
-  # - SeniorPhysicianLabCoat # ADT-Tweak-senior
 - type: loadoutGroup
   id: MedicalBackpack
   name: loadout-group-medical-doctor-backpack
@@ -1307,7 +1286,6 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
-  # - SeniorPhysicianPDA # ADT Tweak
 
 - type: loadoutGroup
   id: MedicalGloves
@@ -1343,8 +1321,8 @@
   name: loadout-group-chemist-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
   - ChemistLabCoat
+  - ChemistLabCoatOpened # ADT-Tweak-opened
   - ChemistWintercoat
 
 - type: loadoutGroup
