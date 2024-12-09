@@ -929,7 +929,7 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
+  # - RoboticistCap # ADT-Tweak-senior
   - SkullBandana
   - PurpleCap # ADT-Tweak-senior
   - PurpleCapFlipped # ADT-Tweak-senior
@@ -948,8 +948,8 @@
   - ScientistJumpsuit
   - ScientistJumpskirt
 # ADT-Tweak-senior
-  - RoboticistJumpsuit
-  - RoboticistJumpskirt
+  # - RoboticistJumpsuit
+  # - RoboticistJumpskirt
   # - SeniorResearcherJumpsuit
   # - SeniorResearcherJumpskirt
 # ADT-Tweak-senior
@@ -970,8 +970,8 @@
   - ScienceLabCoat
   - ScienceWintercoat
 # ADT-Tweak-senior
-  - RoboticistLabCoat
-  - RoboticistWintercoat
+  # - RoboticistLabCoat
+  # - RoboticistWintercoat
   # - SeniorResearcherLabCoat
 # ADT-Tweak-senior
 
@@ -990,7 +990,7 @@
   loadouts:
   - LatexGloves
   - PurpleGloves
-  - RobohandsGloves
+  # - RobohandsGloves # ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistPDA

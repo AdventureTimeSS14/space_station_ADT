@@ -126,8 +126,8 @@
   name: loadout-group-roboticist-jumpsuit
   minLimit: 1
   loadouts:
-  - ScientistJumpsuit
-  - ScientistJumpskirt
+  # - ScientistJumpsuit # ADT-Tweak-senior
+  # - ScientistJumpskirt # ADT-Tweak-senior
   - RoboticistJumpsuit
   - RoboticistJumpskirt
 
@@ -136,9 +136,9 @@
   name: loadout-group-roboticist-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
-  - ScienceLabCoat
-  - ScienceWintercoat
+  # - RegularLabCoat # ADT-Tweak-senior
+  # - ScienceLabCoat # ADT-Tweak-senior
+  # - ScienceWintercoat # ADT-Tweak-senior
   - RoboticistWintercoat
   - RoboticistLabCoat
 

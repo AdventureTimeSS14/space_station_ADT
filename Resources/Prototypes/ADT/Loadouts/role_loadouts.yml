@@ -43,7 +43,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ScientistHead
+  - RoboticistCap # ADT-Tweak-senior
   - ScientistNeck
   - RoboticistJumpsuit
   - ScientistBackpack

@@ -11,6 +11,7 @@
 # ADT-Senior-loadout-fix-END
 
 # Head
+
 - type: startingGear
   id: PurpleCap
   equipment:
@@ -20,11 +21,6 @@
   id: PurpleCapFlipped
   equipment:
     head: ClothingHeadHatPurplesoftFlipped
-
-- type: loadout
-  id: RoboticistCap
-  equipment:
-    head: ClothingHeadHatCorpsoft
 
 - type: loadout
   id: SkullBandana
@@ -39,6 +35,7 @@
     neck: ClothingNeckTieSci
 
 # Jumpsuit
+
 - type: loadout
   id: ScientistJumpsuit
   equipment:
@@ -49,17 +46,8 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtScientist
 
-- type: loadout
-  id: RoboticistJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitRoboticist
-
-- type: loadout
-  id: RoboticistJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRoboticist
-
 # Back
+
 - type: loadout
   id: ScientistBackpack
   equipment:
@@ -76,6 +64,7 @@
     back: ClothingBackpackDuffelScience
 
 # OuterClothing
+
 - type: loadout
   id: ScienceLabCoat
   equipment:
@@ -86,34 +75,22 @@
   equipment:
     outerClothing: ClothingOuterWinterSci
 
-- type: loadout
-  id: RoboticistLabCoat
-  equipment:
-    outerClothing: ClothingOuterCoatRobo
-
-- type: loadout
-  id: RoboticistWintercoat
-  equipment:
-    outerClothing: ClothingOuterWinterRobo
-
 # Gloves
+
 - type: loadout
   id: LatexGloves
   equipment:
     gloves: ClothingHandsGlovesLatex
 
-- type: loadout
-  id: RobohandsGloves
-  equipment:
-    gloves: ClothingHandsGlovesRobohands
-
 # Shoes
+
 - type: loadout
   id: ScienceWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterSci
 
 # ID
+
 - type: loadout
   id: ScientistPDA
   equipment:
