@@ -931,7 +931,8 @@
   loadouts:
   - RoboticistCap
   - SkullBandana
-  - ScientificBeret
+  - PurpleCap # ADT-Tweak-senior
+  - PurpleCapFlipped # ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistNeck
@@ -946,10 +947,12 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
+# ADT-Tweak-senior
   - RoboticistJumpsuit
   - RoboticistJumpskirt
-  - SeniorResearcherJumpsuit
-  - SeniorResearcherJumpskirt
+  # - SeniorResearcherJumpsuit
+  # - SeniorResearcherJumpskirt
+# ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -964,12 +967,13 @@
   name: loadout-group-scientist-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
+# ADT-Tweak-senior
   - RoboticistLabCoat
   - RoboticistWintercoat
-  - SeniorResearcherLabCoat
+  # - SeniorResearcherLabCoat
+# ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistShoes

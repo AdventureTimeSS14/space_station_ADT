@@ -24,6 +24,10 @@ loadout-group-atmospheric-technician-head = Атмосферный техник,
 loadout-group-roboticist-jumpsuit = Робототехник, комбинезон
 loadout-group-roboticist-outerclothing = Робототехник, верхняя одежда
 loadout-group-roboticist-gloves = Робототехник, перчатки
+loadout-group-senior-researcher-head = Доцент, голова
+loadout-group-senior-researcher-jumpsuit = Доцент, комбинезон
+loadout-group-senior-researcher-gloves = Доцент, перчатки
+loadout-group-senior-researcher-outerclothing = Доцент, верхняя одежда
 # Security
 loadout-warden-neck-adt = Смотритель, шея
 loadout-security-officer-neck-adt = Офицер СБ, шея
@@ -49,4 +53,7 @@ loadout-group-patholog-jumpsuit = Патологоанатом, комбинез
 loadout-group-patholog-outerclothing = Патологоанатом, верхняя одежда
 loadout-group-patholog-shoes = Патологоанатом, обувь
 loadout-group-patholog-backpack = Патологоанатом, рюкзак
+loadout-group-senior-physician-head = Ведущий врач, голова
+loadout-group-senior-physician-jumpsuit = Ведущий врач, комбинезон
+loadout-group-senior-physician-outerclothing = Ведущий врач, верхняя одежда
 # Wildcards

@@ -12,16 +12,14 @@
 
 # Head
 - type: startingGear
-  id: ScientificBeret
+  id: PurpleCap
   equipment:
-    head: ClothingHeadHatBeretRND
+    head: ClothingHeadHatPurplesoft
 
 - type: loadout
-  id: ScientificBeret
-  startingGear: ScientificBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
+  id: PurpleCapFlipped
+  equipment:
+    head: ClothingHeadHatPurplesoftFlipped
 
 - type: loadout
   id: RoboticistCap
@@ -61,22 +59,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtRoboticist
 
-- type: loadout
-  id: SeniorResearcherJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorResearcher
-
-- type: loadout
-  id: SeniorResearcherJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorResearcher
-
 # Back
 - type: loadout
   id: ScientistBackpack
@@ -94,11 +76,6 @@
     back: ClothingBackpackDuffelScience
 
 # OuterClothing
-- type: loadout
-  id: RegularLabCoat
-  equipment:
-    outerClothing: ClothingOuterCoatLab
-
 - type: loadout
   id: ScienceLabCoat
   equipment:
@@ -118,14 +95,6 @@
   id: RoboticistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterRobo
-
-- type: loadout
-  id: SeniorResearcherLabCoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    outerClothing: ClothingOuterCoatLabSeniorResearcher
 
 # Gloves
 - type: loadout
@@ -149,11 +118,3 @@
   id: ScientistPDA
   equipment:
     id: SciencePDA
-
-- type: loadout
-  id: SeniorResearcherPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    id: SeniorResearcherPDA

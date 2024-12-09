@@ -105,12 +105,12 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ScientistHead
+  - SeniorResearcherHead # ADT-Tweak-senior
   - Glasses
-  - ADTSeniorScientistJumpsuit
-  - ADTSeniorScientistGloves
+  - ADTSeniorResearcherJumpsuit
+  - ADTSeniorResearcherGloves
   - ScientistBackpack
-  - ADTSeniorScientistOuterClothing
+  - ADTSeniorResearcherOuterClothing
   - ScientistShoes
   - Survival
   - Trinkets

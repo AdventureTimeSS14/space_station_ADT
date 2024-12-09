@@ -99,7 +99,7 @@
 
 - type: loadoutGroup
   id: SeniorPhysicianHead
-  name: loadout-group-medical-doctor-head
+  name: loadout-group-senior-physician-head
   minLimit: 0
   loadouts:
   - SeniorPhysicianBeret
@@ -107,14 +107,14 @@
 
 - type: loadoutGroup
   id: SeniorPhysicianJumpsuit
-  name: loadout-group-medical-doctor-jumpsuit
+  name: loadout-group-senior-physician-jumpsuit
   loadouts:
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
 
 - type: loadoutGroup
   id: SeniorPhysicianOuterClothing
-  name: loadout-group-medical-doctor-outerclothing
+  name: loadout-group-senior-physician-outerclothing
   minLimit: 0
   loadouts:
   - SeniorPhysicianLabCoat
@@ -151,20 +151,27 @@
   - PurpleGloves
   - RobohandsGloves
 
-# SENIOR SCIENTIST
+# SENIOR RESEARCHER
 
 - type: loadoutGroup
-  id: ADTSeniorScientistJumpsuit
-  name: loadout-group-scientist-jumpsuit
+  id: SeniorResearcherHead
+  name: loadout-group-senior-researcher-head
+  minLimit: 0
   loadouts:
-  - ScientistJumpsuit
-  - ScientistJumpskirt
+  - SeniorResearcherBeret
+
+- type: loadoutGroup
+  id: ADTSeniorResearcherJumpsuit
+  name: loadout-group-senior-researcher-jumpsuit
+  loadouts:
+  # - ScientistJumpsuit # ADT-Tweak-senior
+  # - ScientistJumpskirt # ADT-Tweak-senior
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
 - type: loadoutGroup
-  id: ADTSeniorScientistGloves
-  name: loadout-group-scientist-gloves
+  id: ADTSeniorResearcherGloves
+  name: loadout-group-senior-researcher-gloves
   minLimit: 0
   loadouts:
   - LatexGloves
@@ -172,13 +179,13 @@
   - PurpleGloves
 
 - type: loadoutGroup
-  id: ADTSeniorScientistOuterClothing
-  name: loadout-group-scientist-outerclothing
+  id: ADTSeniorResearcherOuterClothing
+  name: loadout-group-senior-researcher-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
-  - ScienceLabCoat
-  - ScienceWintercoat
+  # - RegularLabCoat # ADT-Tweak-senior
+  # - ScienceLabCoat # ADT-Tweak-senior
+  # - ScienceWintercoat # ADT-Tweak-senior
   - SeniorResearcherLabCoat
 
 # BLUESHIELD

@@ -140,6 +140,11 @@
 
 # OuterClothing
 - type: loadout
+  id: RegularLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLab
+
+- type: loadout
   id: MedicalDoctorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterMed
