@@ -23,7 +23,7 @@
 - type: loadout
   id: HonoredEngineerBeret
   equipment:
-    neck: EngineeringBeret
+    head: EngineeringBeret
   effects:
   - !type:GroupLoadoutEffect
     proto: HonoredEngineer

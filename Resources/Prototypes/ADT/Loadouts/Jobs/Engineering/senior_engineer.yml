@@ -1,0 +1,18 @@
+# Head
+
+- type: startingGear
+  id: EngineeringBeret
+  equipment:
+    head: ClothingHeadHatBeretEngineering
+
+# Jumpsuit
+
+- type: loadout
+  id: SeniorEngineerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorEngineer
+
+- type: loadout
+  id: SeniorEngineerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSeniorEngineer
