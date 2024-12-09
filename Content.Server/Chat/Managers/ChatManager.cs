@@ -19,6 +19,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.CCVar;
+using Content.Server.Discord;
+using Serilog;
 
 namespace Content.Server.Chat.Managers;
 
@@ -46,6 +49,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+    [Dependency] private readonly DiscordWebhook _discord = default!;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -269,6 +273,26 @@ internal sealed partial class ChatManager : IChatManager
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
         _mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/")); // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
+
+        SendWebHookOOCChat(player, message);
+    }
+
+    private async void SendWebHookOOCChat(ICommonSession player, string message)
+    {
+        if (!string.IsNullOrEmpty(_configurationManager.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
+        {
+            var webhookUrl = _configurationManager.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
+            if (webhookUrl == null)
+                return;
+            if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
+                return;
+            var payload = new WebhookPayload
+            {
+                 Content = $"***OOC***: **{player.Name}**: {message}"
+            };
+            var identifier = webhookData.ToIdentifier();
+            await _discord.CreateMessage(identifier, payload);
+        }
     }
 
     private void SendAdminChat(ICommonSession player, string message)
