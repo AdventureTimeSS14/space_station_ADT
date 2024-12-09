@@ -1,14 +1,12 @@
-# ADT-Senior-loadout-fix-START
-# # Senior Time
-# - type: loadoutEffectGroup
-#   id: SeniorResearcher
-#   effects:
-#   - !type:JobRequirementLoadoutEffect
-#     requirement:
-#       !type:DepartmentTimeRequirement
-#       department: Science
-#       time: 216000 #60 hrs
-# ADT-Senior-loadout-fix-END
+# Senior Time
+- type: loadoutEffectGroup
+  id: HonoredScientist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Science
+      time: 216000 #60 hrs
 
 # Head
 
@@ -18,14 +16,17 @@
     head: ClothingHeadHatPurplesoft
 
 - type: loadout
-  id: PurpleCapFlipped
-  equipment:
-    head: ClothingHeadHatPurplesoftFlipped
-
-- type: loadout
   id: SkullBandana
   equipment:
     head: ClothingHeadBandSkull
+
+- type: loadout
+  id: HonoredScientistBeret
+  equipment:
+    head: ClothingHeadHatBeretRND
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonoredScientist
 
 # Neck
 

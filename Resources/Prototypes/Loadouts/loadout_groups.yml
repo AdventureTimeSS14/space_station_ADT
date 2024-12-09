@@ -785,7 +785,7 @@
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
-  - SeniorEngineerBeret
+  - HonoredEngineerBeret # ADT-Tweak-senior
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit
@@ -930,7 +930,7 @@
   loadouts:
   - SkullBandana
   - PurpleCap # ADT-Tweak-senior
-  - PurpleCapFlipped # ADT-Tweak-senior
+  - HonoredScientistBeret # ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistNeck
