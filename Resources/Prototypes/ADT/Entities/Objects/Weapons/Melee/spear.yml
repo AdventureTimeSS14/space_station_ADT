@@ -17,6 +17,7 @@
         Piercing: 18
   - type: Construction
     graph: ADTPSpear
+    node: start
 
 - type: entity
   name: reinforced uranium spear
@@ -39,3 +40,4 @@
         Radiation: 9
   - type: Construction
     graph: ADTUraniumSpear
+    node: start
