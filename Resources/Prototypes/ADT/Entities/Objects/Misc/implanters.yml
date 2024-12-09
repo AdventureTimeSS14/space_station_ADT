@@ -191,3 +191,11 @@
   components:
   - type: Implanter
     implant: VoxPidginTranslatorImplant
+
+- type: entity
+  id: ScratchesTranslatorImplanter
+  name: ScratchesCommon Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: ScratchesTranslatorImplant

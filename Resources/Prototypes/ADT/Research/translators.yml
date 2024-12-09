@@ -15,6 +15,7 @@
   - DraconicTranslator
   - SolCommonTranslator
   - VoxPidginTranslator
+  - ScratchesTranslator
   - RootSpeakTranslator
   - GalacticCommonTranslatorImplanter
   - MofficTranslator
@@ -48,6 +49,7 @@
   - CanilunztTranslatorImplanter
   - SolCommonTranslatorImplanter
   - VoxPidginTranslatorImplanter
+  - ScratchesTranslatorImplante
   - RootSpeakTranslatorImplanter
   - AnimalTranslator
   - MofficTranslatorImplanter

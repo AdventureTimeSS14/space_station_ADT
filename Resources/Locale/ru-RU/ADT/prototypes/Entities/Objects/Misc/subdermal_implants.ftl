@@ -52,3 +52,7 @@ ent-IPCTranslatorImplant = Имплант IPC-транслятора
 ent-VoxPidginTranslatorImplant = Имплантант-транслятор VoxCommon
     .desc = VoxCommon транслятор
     .suffix = VoxCommon
+
+ent-ScratchesTranslatorImplant = Имплантантер-транслятор ScratchesCommon
+    .desc = ScratchesCommon транслятор
+    .suffix = ScratchesCommon

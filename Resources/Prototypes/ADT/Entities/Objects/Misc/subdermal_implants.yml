@@ -335,3 +335,17 @@
     - VoxPidgin
     toUnderstand:
     - VoxPidgin
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: ScratchesTranslatorImplant
+  name: translator implant
+  # description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    toSpeak:
+    - Scratches
+    toUnderstand:
+    - Scratches
+

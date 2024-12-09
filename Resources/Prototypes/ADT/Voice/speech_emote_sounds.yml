@@ -638,8 +638,7 @@
   params:
     variation: 0.125
   sounds:
-    Scream:
-      path: /Audio/_CorvaxNext/Voice/Resomi/resomi_scream.ogg
+    Scream: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
     Laugh:
       collection: MaleLaugh
     Honk:
@@ -661,7 +660,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/_CorvaxNext/Voice/Resomi/resomi_scream.ogg
+      path: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
     Laugh:
       collection: FemaleLaugh
     Honk:

@@ -466,3 +466,22 @@
     - Pig
   - type: StaticPrice
     price: 1500
+
+- type: entity
+  id: ScratchesTranslator
+  parent: [ Translator ]
+  name: Scratches translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    toSpeak:
+    - GalacticCommon
+    - Scratches
+    toUnderstand:
+    - GalacticCommon
+    - Scratches
+    required:
+    - GalacticCommon
+    - Scratches
+  - type: StaticPrice
+    price: 1500

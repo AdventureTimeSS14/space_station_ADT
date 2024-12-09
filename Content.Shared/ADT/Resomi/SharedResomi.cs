@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CorvaxNext.Resomi;
+namespace Content.Shared.ADT.Resomi;
 
 public sealed partial class SwitchAgillityActionEvent : InstantActionEvent;
 

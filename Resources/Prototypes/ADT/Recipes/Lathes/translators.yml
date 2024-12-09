@@ -79,6 +79,17 @@
     Gold: 50
 
 - type: latheRecipe
+  id: ScratchesTranslator
+  result: ScratchesTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+
+- type: latheRecipe
   id: GalacticCommonTranslatorImplanter
   result: GalacticCommonTranslatorImplanter
   completetime: 2
@@ -318,7 +329,7 @@
     Silver: 50
 
 - type: latheRecipe
-  id: ShadekinTranslatorImplanter 
+  id: ShadekinTranslatorImplanter
   result: ShadekinTranslatorImplanter
   completetime: 2
   materials:
@@ -412,6 +423,17 @@
 - type: latheRecipe
   id: VoxPidginTranslatorImplanter
   result: VoxPidginTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: ScratchesTranslatorImplanter
+  result: ScratchesTranslatorImplanter
   completetime: 2
   materials:
     Steel: 500
