@@ -107,10 +107,10 @@
   - GroupTankHarness
   - SeniorResearcherHead # ADT-Tweak-senior
   - Glasses
-  - ADTSeniorResearcherJumpsuit
-  - ADTSeniorResearcherGloves
+  - ADTSeniorResearcherJumpsuit # ADT-Tweak-senior
+  - ADTSeniorResearcherGloves # ADT-Tweak-senior
   - ScientistBackpack
-  - ADTSeniorResearcherOuterClothing
+  - ADTSeniorResearcherOuterClothing # ADT-Tweak-senior
   - ScientistShoes
   - Survival
   - Trinkets
