@@ -50,34 +50,6 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         _accessReader = _entity.System<AccessReaderSystem>();
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
-
-        DragContainer.OnKeyBindDown += args => OnKeybindDown(args);
-        DragContainer.OnKeyBindUp += args => OnKeybindUp(args);
-    }
-
-    private void OnKeybindDown(GUIBoundKeyEventArgs args)
-    {
-        if (args.Function == EngineKeyFunctions.Use)
-        {
-            StartDragPosition = args.PointerLocation.Position;
-            _draggin = true;
-        }
-    }
-
-    private void OnKeybindUp(GUIBoundKeyEventArgs args)
-    {
-        if (args.Function == EngineKeyFunctions.Use)
-            _draggin = false;
-    }
-
-    protected override void MouseMove(GUIMouseMoveEventArgs args)
-    {
-        base.MouseMove(args);
-
-        if (!_draggin)
-            return;
-
-        Offset -= new Vector2(args.Relative.X, -args.Relative.Y);
     }
 
     public void SetEntity(EntityUid entity)
@@ -113,7 +85,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
                         _accessReader.IsAllowed(local, Entity, access);
 
         var testcontrol = new Button();
-        DragContainer.AddChild(testcontrol);
+        DragContainer.AddChildElement(testcontrol);
 
         foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>())
         {
