@@ -18,6 +18,11 @@
     ClothingOuterCoatBomber: 3
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
+    ADTClothingHeadHatDarkBenie: 3 #ADT-Tweak
+    ADTClothingHeadHatBlueBenie: 3 #ADT-Tweak
+    ADTClothingHeadHatGreenBenie: 3 #ADT-Tweak
+    ADTClothingHeadHatPurpleBenie: 3 #ADT-Tweak
+    ADTClothingHeadHatRedBenie: 3 #ADT-Tweak
 
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3

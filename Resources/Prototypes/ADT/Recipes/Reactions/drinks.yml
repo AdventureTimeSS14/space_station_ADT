@@ -310,4 +310,35 @@
   products:
     ADTLimeShade: 5
 
+- type: reaction
+  id: ADTOrangeteaReaction
+  minTemp: 370
+  reactants:
+    ADTOrangepackReg:
+      amount: 1
+    Water:
+      amount: 29
+  products:
+    ADTOrangeTeaReg: 30
 
+- type: reaction
+  id: ADTCherryteaReaction
+  minTemp: 370
+  reactants:
+    ADTCherrypackReg:
+      amount: 1
+    Water:
+      amount: 29
+  products:
+    ADTCherryTeaReg: 30
+
+- type: reaction
+  id: ADTWatermelonteaReaction
+  minTemp: 370
+  reactants:
+    ADTWatermelonpackReg:
+      amount: 1
+    Water:
+      amount: 29
+  products:
+    ADTWatermelonTeaReg: 30

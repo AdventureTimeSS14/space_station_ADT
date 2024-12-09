@@ -1,0 +1,43 @@
+- type: entity
+  name: reinforced plasma spear
+  parent: Spear
+  id: SpearReinforcedPlasma
+  description: A spear with a reinforced plasma glass shard as a tip.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/Rplasma_spear.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 15
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 18
+  - type: Construction
+    graph: ADTPSpear
+    node: start
+
+- type: entity
+  name: reinforced uranium spear
+  parent: Spear
+  id: SpearReinforcedUran
+  description: A spear with a uran rein shard as a tip.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/Ruranium_spear.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 18
+        Radiation: 9
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 21
+        Radiation: 9
+  - type: Construction
+    graph: ADTUraniumSpear
+    node: start
