@@ -914,7 +914,6 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorLabCoat
-  - ResearchDirectorLabCoatOpened # ADT-Tweak-opened
   - ResearchDirectorWintercoat
 
 - type: loadoutGroup
@@ -961,7 +960,6 @@
   minLimit: 0
   loadouts:
   - ScienceLabCoat
-  - ScienceLabCoatOpened # ADT-Tweak-opened
   - ScienceWintercoat
 
 - type: loadoutGroup
@@ -1221,10 +1219,8 @@
   minLimit: 0
   loadouts:
   - ChiefMedicalOfficerLabCoat
-  - ChiefMedicalOfficerLabCoatOpened # ADT-Tweak-opened
   - ChiefMedicalOfficerWintercoat
   - ADTCMOLabcoatHike # ADT tweak
-  - ADTCMOLabcoatHikeOpened # ADT-Tweak-opened
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1264,7 +1260,6 @@
   minLimit: 0
   loadouts:
   - RegularLabCoat
-  - RegularLabCoatOpened # ADT-Tweak-opened
   - MedicalDoctorWintercoat
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1322,7 +1317,6 @@
   minLimit: 0
   loadouts:
   - ChemistLabCoat
-  - ChemistLabCoatOpened # ADT-Tweak-opened
   - ChemistWintercoat
 
 - type: loadoutGroup

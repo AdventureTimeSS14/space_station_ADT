@@ -31,13 +31,6 @@
   equipment:
     outerClothing: ClothingOuterCoatLabChem
 
-# ADT-Tweak-opened
-- type: loadout
-  id: ChemistLabCoatOpened
-  equipment:
-    outerClothing: ClothingOuterCoatLabChemOpened
-# ADT-Tweak-opened
-
 - type: loadout
   id: ChemistWintercoat
   equipment:

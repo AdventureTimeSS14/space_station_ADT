@@ -13,13 +13,6 @@
   equipment:
     outerClothing: ADTClothingOuterCoatLabcoatCMOHike
 
-# ADT-Tweak-opened
-- type: loadout
-  id: ADTCMOLabcoatHikeOpened
-  equipment:
-    outerClothing: ADTClothingOuterCoatLabcoatCMOHikeOpened
-# ADT-Tweak-opened
-
 - type: loadout
   id: ADTCMOHighBoots
   equipment:

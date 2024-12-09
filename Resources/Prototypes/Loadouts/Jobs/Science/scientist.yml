@@ -70,13 +70,6 @@
   equipment:
     outerClothing: ClothingOuterCoatRnd
 
-# ADT-Tweak-opened
-- type: loadout
-  id: ScienceLabCoatOpened
-  equipment:
-    outerClothing: ClothingOuterCoatRndOpened
-# ADT-Tweak-opened
-
 - type: loadout
   id: ScienceWintercoat
   equipment:

@@ -58,7 +58,6 @@
   minLimit: 0
   loadouts:
   - PathologWindbreaker
-  - PathologWindbreakerOpened # ADT-Tweak-opened
   - PathologWintercoat
   - PathologApron
 
@@ -142,7 +141,6 @@
   # - ScienceWintercoat # ADT-Tweak-senior
   - RoboticistWintercoat
   - RoboticistLabCoat
-  - RoboticistLabCoatOpened # ADT-Tweak-opened
 
 - type: loadoutGroup
   id: RobohandsGloves

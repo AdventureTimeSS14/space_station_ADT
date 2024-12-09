@@ -49,13 +49,6 @@
   equipment:
     outerClothing: ClothingOuterCoatRD
 
-# ADT-Tweak-opened
-- type: loadout
-  id: ResearchDirectorLabCoatOpened
-  equipment:
-    outerClothing: ClothingOuterCoatRDOpened
-# ADT-Tweak-opened
-
 - type: loadout
   id: ResearchDirectorWintercoat
   equipment:
