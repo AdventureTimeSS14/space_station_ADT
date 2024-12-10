@@ -403,6 +403,18 @@
 - type: Tag
   id: ADTDogEmotes
 
+#sponsor_items
+- type: Tag
+  id: ADTWeaponPistolPrazatHawk
+
+- type: Tag
+  id: ADTWeaponPistolMaria
+
+- type: Tag
+  id: ADTWeaponMeleePrasatChainsword
+  
+#sponsor_items - End
+
 - type: Tag
   id: ADTTeaPack
 
