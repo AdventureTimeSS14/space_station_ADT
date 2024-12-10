@@ -17,12 +17,10 @@
   # - Packed
   # - Reach
   # - Train
-# adt_maps
+
+# ADT Maps
   # - ADT_Astra в комментерии до ремапа
   - ADT_Frontier
-  # - ADT_FrontierHalloween
-  # - ADT_TrainHalloween
-  # - ADT_SalternHalloween
   - ADT_Pie
   - ADT_Avrit
   - ADT_Bagel
@@ -44,3 +42,11 @@
   - ADT_Aspid
   # - ADT_Moose #В рамках уменьшения числа карт
   # - ADT_Alley до ремонта
+
+# ADT Halloween (Не забудьте отключить обычные)
+  # - ADT_FrontierHalloween
+  # - ADT_TrainHalloween
+  # - ADT_SalternHalloween
+  
+# ADT NewYear (Не забудьте отключить обычные)
+  # - ADT_FrontierNewYear

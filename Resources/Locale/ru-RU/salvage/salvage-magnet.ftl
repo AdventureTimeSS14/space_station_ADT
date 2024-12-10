@@ -17,6 +17,7 @@ salvage-magnet-resources =
         [OreUranium] Уран
         [OreArtifactFragment] Фрагменты артефактов
         [OreBananium] Бананиум
+        [OreSalt] Соль
        *[other] { $resource }
     }
 salvage-magnet-resources-count =
