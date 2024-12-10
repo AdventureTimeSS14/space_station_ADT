@@ -3,3 +3,105 @@
   name: bark-ghost-radio-name
   sound: /Audio/ADT/Voice/Vocal-Barks/noise-bark.ogg
   roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkOne
+  name: bark-skeleton-first-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-1.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkTwo
+  name: bark-skeleton-second-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-2.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkThree
+  name: bark-skeleton-third-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-3.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkFour
+  name: bark-skeleton-fourth-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-4.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkFive
+  name: bark-skeleton-fith-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-5.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkSix
+  name: bark-skeleton-sixth-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-6.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkSeven
+  name: bark-skeleton-seventh-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-7.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkEight
+  name: bark-skeleton-Eights-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-8.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkNine
+  name: bark-skeleton-nine-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-9.ogg
+  roundStart: false
+
+- type: speechBark
+  id: SkeletonBarkTen
+  name: bark-skeleton-ten-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/skeleton-bark-10.ogg
+  roundStart: false
+
+- type: speechBark
+  id: FelineVoice
+  name: bark-bark-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/bark-bark.ogg
+  roundStart: false
+
+- type: speechBark
+  id: CanineVoice
+  name: bark-meow-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/bark-meow.ogg
+  roundStart: false
+
+- type: speechBark
+  id: StatisticSound
+  name: bark-stats-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-stats.ogg
+  roundStart: false
+
+- type: speechBark
+  id: DefaultBarkSound
+  name: bark-default-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-default.ogg
+  roundStart: false
+
+- type: speechBark
+  id: YetAnotherDefaultBarkSound
+  name: bark-oneshot-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/oneshot-text.ogg
+  roundStart: false
+
+- type: speechBark
+  id: AngryFlowey
+  name: bark-angryflowey-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-flowey-angry.ogg
+  roundStart: false
+
+- type: speechBark
+  id: OneshotRobot
+  name: bark-oneshot-robot-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/oneshot-robot.ogg
+  roundStart: false
