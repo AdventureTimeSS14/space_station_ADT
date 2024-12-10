@@ -961,6 +961,7 @@
   minLimit: 0
   loadouts:
   - ScienceLabCoat
+  - RegularLabCoat
   - ScienceWintercoat
 
 - type: loadoutGroup
