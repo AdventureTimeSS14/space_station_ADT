@@ -95,6 +95,32 @@
   - ADTParamedicSatchel
   - ADTParamedicDuffel
 
+# SENIOR OFFICER
+
+- type: loadoutGroup
+  id: SeniorOfficerJumpsuit
+  name: loadout-group-senior-officer-jumpsuit
+  loadouts:
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+
+- type: loadoutGroup
+  id: ADTSeniorOfficerBackpack
+  name: loadout-group-senior-officer-backpack
+  loadouts:
+  - ADTSeniorOfficerBackpack
+  - ADTSeniorOfficerSatchel
+  - ADTSeniorOfficerDuffel
+
+- type: loadoutGroup
+  id: ADTSeniorOfficerOuterClothing
+  name: loadout-group-senior-officer-outerclothing
+  loadouts:
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+  - ADTSeniorOfficerArmor
+
 # SENIOR PHYSICIAN
 
 - type: loadoutGroup
@@ -264,23 +290,6 @@
   - ADTSecurityOfficerNeckBadgeBronze
   - ADTSecurityOfficerNeckBadgeSilver
   - ADTSecurityOfficerNeckBadgeGold
-
-- type: loadoutGroup
-  id: ADTSeniorSecurityBackpack
-  name: loadout-group-security-backpack
-  loadouts:
-  - ADTSeniorOfficerBackpack
-  - ADTSeniorOfficerSatchel
-  - ADTSeniorOfficerDuffel
-
-- type: loadoutGroup
-  id: ADTSeniorSecurityOuterClothing
-  name: loadout-group-security-outerclothing
-  loadouts:
-  - ArmorVest
-  - ArmorVestSlim
-  - SecurityOfficerWintercoat
-  - ADTSeniorOfficerArmor
 
 # CADET
 
