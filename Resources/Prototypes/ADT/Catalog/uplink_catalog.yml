@@ -456,3 +456,13 @@
     Telecrystal: 2
   categories:
     - UplinkWearables
+
+- type: listing
+  id: ADTUplinkInvisibleCloak
+  name: uplink-invisible-cloak-name
+  description: uplink-invisible-cloak-desc
+  productEntity: ADTClothingNeckInvisibleCloak
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables
