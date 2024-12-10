@@ -11,13 +11,8 @@
             "name": "icon"
         },
         {
-            "name": "base"
-        },
-        {
-            "name": "bolt-open"
-        },
-        {
-            "name": "mag-0"
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
         },
         {
             "name": "inhand-left",
@@ -28,11 +23,10 @@
             "directions": 4
         },
         {
-            "name": "equipped-BELT",
-            "directions": 4
+            "name": "icon-open"
         },
         {
-            "name": "equipped-SUITSTORAGE",
+            "name": "open-equipped-OUTERCLOTHING",
             "directions": 4
         }
     ]
