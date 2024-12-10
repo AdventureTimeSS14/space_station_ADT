@@ -83,6 +83,7 @@ namespace Content.IntegrationTests.Tests
             "Cog",
             // ADT-Start
             "ADT_FrontierHalloween",
+            "ADT_FrontierNewYear",
             "ADT_Frontier",
             "ADT_TrainHalloween",
             "ADT_SalternHalloween",

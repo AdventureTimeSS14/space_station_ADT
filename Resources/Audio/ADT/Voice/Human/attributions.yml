@@ -1,0 +1,24 @@
+- files: ["female_sigh.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Original sound by https://freesound.org/people/biawinter/sounds/408090/ - cleaned up, converted to ogg by https://github.com/BasiaBelov"
+  source: "https://freesound.org/people/biawinter/sounds/408090/"
+
+- files: ["male_sigh.ogg"]
+  license: "CC-BY-NC-3.0"
+  copyright: "Original sound by https://freesound.org/people/Kash15/sounds/409785/ - cleaned up, converted to ogg by https://github.com/BasiaBelov"
+  source: "https://freesound.org/people/Kash15/sounds/409785/"
+
+- files: ["sneeze_female.ogg", "sneeze_male.ogg", "sneeze_neutral.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/TauCetiStation/TauCetiClassic/pull/12835"
+  source: "https://github.com/Project-IS12/IS12-Warfare"
+
+- files: ["spit_1.ogg", "spit_2.ogg"]
+  license: "CC0-1.0"
+  copyright: "Sounds by https://github.com/TauCetiStation/TauCetiClassic/pull/12835"
+  source: "https://github.com/Project-IS12/IS12-Warfare"
+
+- files: ["female_laugh.ogg"]
+  license: "CC0-1.0"
+  copyright: "https://zvukogram.com/zvuk/86551/ edited by discord:filokini"
+  source: "https://zvukogram.com/zvuk/86551/"

@@ -305,3 +305,27 @@
     - раздраженно жужжит
     - раздраженно жужжит.
     - искрит и раздраженно жужит # ADT-Tweak-BloodCough
+
+- type: emote
+  id: Spit
+  name: chat-emote-name-spit
+  icon: Interface/Emotes/yawn.png
+  category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-sigh"]
+  chatTriggers:
+    - spit
+    - spits
+    - плюёт
+    - плюет
+    - плюнул
+    - плюнуло
+    - харкнул
+    - харкнуло
+    - харкает
+    - делает харчок
