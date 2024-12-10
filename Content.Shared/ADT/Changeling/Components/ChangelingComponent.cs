@@ -1,11 +1,7 @@
 using Robust.Shared.Audio;
 using Content.Shared.Polymorph;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DoAfter;
 
 namespace Content.Shared.Changeling.Components;
@@ -107,6 +103,8 @@ public sealed partial class ChangelingComponent : Component
     public List<EntityUid?> BoughtActions = new();
 
     public List<EntityUid?> BasicTransferredActions = new();
+
+    public bool GainedActions = false;
     #endregion
 
     #region DNA Absorb Ability
@@ -311,6 +309,7 @@ public sealed partial class ChangelingComponent : Component
     public TimeSpan BlindStingDuration = TimeSpan.FromSeconds(18);
     #endregion
 
+    #region Other
     /// <summary>
     /// Refresh ability
     /// </summary>
@@ -323,5 +322,7 @@ public sealed partial class ChangelingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public int DNAStolen = 0;
 
-    public bool GainedActions = false;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int ChangelingsAbsorbed = 0;
+    #endregion
 }
