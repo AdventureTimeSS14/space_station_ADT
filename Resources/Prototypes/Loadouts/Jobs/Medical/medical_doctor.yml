@@ -1,24 +1,22 @@
-# ADT-Tweak-senior-start
-# # Senior Time
-# - type: loadoutEffectGroup
-#   id: SeniorPhysician
-#   effects:
-#   - !type:JobRequirementLoadoutEffect
-#     requirement:
-#       !type:RoleTimeRequirement
-#       role: JobChemist
-#       time: 72000 #20 hrs # Corvax-RoleTime
-#   - !type:JobRequirementLoadoutEffect
-#     requirement:
-#       !type:RoleTimeRequirement
-#       role: JobMedicalDoctor
-#       time: 72000 #20 hrs # Corvax-RoleTime
-#   - !type:JobRequirementLoadoutEffect
-#     requirement:
-#       !type:DepartmentTimeRequirement
-#       department: Medical
-#       time: 216000 # 60 hrs
-# ADT-Tweak-senior-end
+# Honored Doctor Time
+- type: loadoutEffectGroup
+  id: HonoredDoctor
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 72000 #20 hrs # Corvax-RoleTime
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 72000 #20 hrs # Corvax-RoleTime
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Medical
+      time: 216000 # 60 hrs
 
 # Other Timers
 
@@ -33,16 +31,6 @@
 
 # Head
 
-# ADT-Tweak-senior-start
-# - type: loadout
-#   id: SeniorPhysicianBeret
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: SeniorPhysician
-#   equipment:
-#     head: ClothingHeadHatBeretSeniorPhysician
-# ADT-Tweak-senior-end
-
 - type: loadout
   id: MedicalHeadMirror
   effects:
@@ -52,9 +40,12 @@
     head: ClothingHeadMirror
 
 - type: loadout
-  id: MedicalBeret
+  id: HonoredDoctorBeret
   equipment:
     head: ClothingHeadHatBeretMedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonoredDoctor
 
 - type: loadout
   id: BlueSurgeryCap
@@ -87,24 +78,6 @@
   id: MedicalDoctorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
-
-# ADT-Tweak-senior-start
-# - type: loadout
-#   id: SeniorPhysicianJumpsuit
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: SeniorPhysician
-#   equipment:
-#     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
-
-# - type: loadout
-#   id: SeniorPhysicianJumpskirt
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: SeniorPhysician
-#   equipment:
-#     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
-# ADT-Tweak-senior-end
 
 - type: loadout
   id: MedicalBlueScrubs
