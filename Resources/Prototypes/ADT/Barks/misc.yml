@@ -65,13 +65,13 @@
   roundStart: false
 
 - type: speechBark
-  id: FelineVoice
+  id: CanineVoice
   name: bark-bark-name # @@@ QWERTY barks addont folder
   sound: /Audio/ADT/Voice/Vocal-Barks/bark-bark.ogg
   roundStart: false
 
 - type: speechBark
-  id: CanineVoice
+  id: FelineVoice
   name: bark-meow-name # @@@ QWERTY barks addont folder
   sound: /Audio/ADT/Voice/Vocal-Barks/bark-meow.ogg
   roundStart: false
