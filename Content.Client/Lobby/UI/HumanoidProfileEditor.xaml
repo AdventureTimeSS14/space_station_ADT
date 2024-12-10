@@ -91,7 +91,7 @@
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- ADT-Barks-Start -->
+                                <!-- ADT Barks Start -->
                                 <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksContainer">
                                     <Label Text="{Loc 'humanoid-profile-editor-bark-label'}" />
                                     <Control HorizontalExpand="True"/>
@@ -109,7 +109,7 @@
                                     <LineEdit Name="DelayVariationMinEdit" MinSize="40 0" HorizontalAlignment="Right" Margin="2 0 2 0" />
                                     <LineEdit Name="DelayVariationMaxEdit" MinSize="40 0" HorizontalAlignment="Right" Margin="2 0 2 0" />
                                 </BoxContainer>
-                                <!-- ADT-Barks-End -->
+                                <!-- ADT Barks End -->
 
                                 <!-- Corvax-TTS-Start -->
                                 <BoxContainer HorizontalExpand="True" Visible="False" Name="TTSContainer">

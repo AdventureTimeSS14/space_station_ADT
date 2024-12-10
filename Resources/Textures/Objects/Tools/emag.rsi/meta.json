@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation wiki at https://tgstation13.org/wiki/File:Emag.png, inhand sprites modified from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e, new sprites taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/icons/obj/card.dmi",
+  "copyright": "Taken from tgstation wiki at https://tgstation13.org/wiki/File:Emag.png, inhand sprites modified from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e",
   "size": {
     "x": 32,
     "y": 32
@@ -16,17 +16,7 @@
       "directions": 4
     },
     {
-      "name": "icon",
-       "delays": [
-	        [
-		   0.09, 
-		   0.08, 
-		   0.09, 
-		   0.08, 
-		   0.09, 
-		   0.08
-	      ]
-	  ]
-     }
+      "name": "icon"
+    }
   ]
 }

@@ -271,10 +271,7 @@ namespace Content.Server.Database
                 traits.ToHashSet(),
                 loadouts,
                 // ADT Barks start
-                profile.BarkProto,
-                profile.BarkPitch,
-                profile.LowBarkVar,
-                profile.HighBarkVar
+                new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar)
                 // ADT Barks end
             );
         }
@@ -357,10 +354,10 @@ namespace Content.Server.Database
                 profile.Loadouts.Add(dz);
             }
             // ADT Barks start
-            profile.BarkProto = humanoid.BarkProto;
-            profile.BarkPitch = humanoid.BarkPitch;
-            profile.LowBarkVar = humanoid.BarkLowVar;
-            profile.HighBarkVar = humanoid.BarkHighVar;
+            profile.BarkProto = humanoid.Bark.Proto;
+            profile.BarkPitch = humanoid.Bark.Pitch;
+            profile.LowBarkVar = humanoid.Bark.MinVar;
+            profile.HighBarkVar = humanoid.Bark.MaxVar;
             // ADT Barks end
 
             return profile;
@@ -1515,6 +1512,32 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             notesCol.AddRange(await GetGroupedServerRoleBansAsNotesForUser(db, player));
             return notesCol;
         }
+
+        // ADT-BookPrinter-Start
+		public async Task<List<BookPrinterEntry>> GetBookPrinterEntries()
+        {
+            await using var db = await GetDb();
+            return await GetBookPrinterEntriesImpl(db);
+        }
+
+        protected async Task<List<BookPrinterEntry>> GetBookPrinterEntriesImpl(DbGuard db)
+        {
+            return await db.DbContext.BookPrinterEntry
+                .Include(entry => entry.StampedBy)
+				.ToListAsync();
+        }
+		public async Task UploadBookPrinterEntry(BookPrinterEntry bookEntry)
+        {
+            await using var db = await GetDb();
+            await UploadBookPrinterEntryImpl(db, bookEntry);
+        }
+
+        protected async Task UploadBookPrinterEntryImpl(DbGuard db, BookPrinterEntry bookEntry)
+        {
+			db.DbContext.BookPrinterEntry.Add(bookEntry);
+			await db.DbContext.SaveChangesAsync();
+        }
+        // ADT-BookPrinter-End
 
         public async Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player)
         {

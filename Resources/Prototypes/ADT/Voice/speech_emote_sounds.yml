@@ -31,6 +31,8 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: FemaleDrask
@@ -65,6 +67,8 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: MaleMoth
@@ -177,6 +181,8 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
     # ADT-Apathy Sounds.
     Scream-apathy:
       collection: TajaranMaleScreams
@@ -226,7 +232,8 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-
+    Spit:
+      collection: HumanSpits
     # ADT-Apathy Sounds.
     Scream-apathy:
       collection: TajaranFemaleScreams
@@ -420,6 +427,8 @@
       collection: UrsusCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: FemaleUrsus
@@ -454,6 +463,8 @@
       collection: UrsusCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: NesMaleVulpa
@@ -498,6 +509,8 @@
       collection: Whistles
     Heckaet:
       collection: VulpHeckaetSound
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: NesFemaleVulpa
@@ -542,6 +555,8 @@
       collection: Whistles
     Heckaet:
       collection: VulpHeckaetSound
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: MaleFelinid

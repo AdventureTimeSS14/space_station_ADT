@@ -595,6 +595,7 @@
   minLimit: 0
   maxLimit: 2
   loadouts:
+  - MusicianSuperSynthesizer # ADT-Tweak
   - Glockenspiel
   - MusicBox
   - Xylophone
@@ -646,6 +647,8 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - ADTQMJumpsuitCamisole # ADT tweak
+  - ADTQMJumpskirtCamisole # ADT tweak
 
 - type: loadoutGroup
   id: QuartermasterNeck

@@ -374,3 +374,5 @@ ent-ADTClothingUniformSwimsuitWinth = купальник ведьмочки
     .desc = Точно не для повседневного ношения, так ведь?..
     .suffix = Хеллоуин
 
+ent-ADTClothingUniformJumpsuitCamisoleQM = укороченный камзол квартирмейстера
+    .desc = Камзол, который одновременно хорош как для работы так и для отдыха.
