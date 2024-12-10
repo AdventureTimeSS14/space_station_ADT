@@ -6,9 +6,21 @@
     "x": 32,
     "y": 32
   },
-  "states": [
-    {
-      "name": "magnetic"
-    }
-  ]
+    "states": [
+        {
+            "name": "magnetic"
+        },
+        {
+            "name": "miniscope"
+        },
+        {
+            "name": "miniscope_a"
+        },
+        {
+            "name": "reflex"
+        },
+        {
+            "name": "reflex_a"
+        }
+    ]
 }

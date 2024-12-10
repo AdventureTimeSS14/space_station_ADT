@@ -119,7 +119,7 @@
 
 - type: entity
   name: Drozd
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband, ADTBaseMagneticGun] # ADT TWEAK
+  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -170,6 +170,25 @@
       steps: 1
       zeroVisible: true
     - type: Appearance
+  # ADT TWEAK START
+    - type: AttachableHolder
+      slots:
+        rmc-aslot-underbarrel:
+          whitelist:
+            tags:
+            - ADTAttachmentVerticalGrip
+            - ADTAttachmentLaserSight
+        rmc-aslot-rail:
+          whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+    - type: AttachableHolderVisuals
+      offsets:
+        rmc-aslot-underbarrel: 0.28, -0.1250
+        rmc-aslot-rail: -0.0325, -0.0625
+  # ADT TWEAK END
 
 - type: entity
   name: Vector

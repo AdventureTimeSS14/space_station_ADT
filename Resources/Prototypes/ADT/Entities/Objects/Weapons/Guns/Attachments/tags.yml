@@ -29,4 +29,13 @@
   id: ADTMosinBayonetAttachment
 
 - type: Tag
-  id: ADTAttachmentXC67Miniscope
+  id: ADTAttachmentT2Miniscope
+
+- type: Tag
+  id: ADTAttachmentVerticalGrip
+
+- type: Tag
+  id: ADTAttachmentReflexSight
+
+- type: Tag
+  id: ADTAttachmentLaserSight

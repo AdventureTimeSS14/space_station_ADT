@@ -134,7 +134,7 @@
         whitelist:
           tags:
             - CartridgeRifle
-            # ADT TWEAK START
+# ADT TWEAK START
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -142,10 +142,19 @@
           tags:
           - ADTAttachmentM90GrenadeLauncher
           - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.3125, -0.0625
-      # ADT TWEAK END
+      rmc-aslot-rail: -0.0325, -0.0325
+# ADT TWEAK END
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -158,7 +167,7 @@
 
 - type: entity
   name: Lecter
-  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseMagneticGun] # ADT TWEAK
+  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .20 rifle ammo.
   components:
@@ -202,6 +211,27 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentM90GrenadeLauncher
+          - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.3125, -0.0625
+      rmc-aslot-rail: 0, 0
+# ADT TWEAK END
 
 - type: entity
   name: Foam Force Astro Ace

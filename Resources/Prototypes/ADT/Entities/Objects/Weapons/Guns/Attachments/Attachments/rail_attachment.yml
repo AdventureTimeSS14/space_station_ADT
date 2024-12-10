@@ -100,32 +100,35 @@
         activeOnly: true
       fireDelayFlat: 0.25
       accuracyAddMult: 0.35
-      damageFalloffAddMult: -0.4
-    - conditions:
-        wieldedOnly: true
-        inactiveOnly: true
-      accuracyAddMult: -0.05
+      # damageFalloffAddMult: -0.4
+    # - conditions:
+    #     wieldedOnly: true
+    #     inactiveOnly: true
+    #   accuracyAddMult: -0.05
 
 - type: entity
   parent: ADTAttachmentScopeBase
-  id: ADTAttachmentXC67Miniscope
-  name: xC-67 scope
-  description: xC-67 scope
+  id: ADTAttachmentT2Miniscope
+  name: T2 scope
+  description: T2 scope
   components:
   - type: Sprite
-    sprite: ADT/Objects/Attachments/scope_actions.rsi
-    state: sniperscope
+    sprite: ADT/Attachments/rail.rsi
+    state: miniscope
   - type: Tag
     tags:
     - ADTAttachmentRail
-    - ADTAttachmentXC67Miniscope
-  # - type: AttachableVisuals
+    - ADTAttachmentT2Miniscope
+  - type: AttachableVisuals
   - type: AttachableToggleable
     breakOnMove: false
-    actionName: action-name-xc67scope
-    actionDesc: action-description-xc67scope
+    actionName: action-name-t2scope
+    actionDesc: action-description-t2scope
     wieldedOnly: false
     breakOnRotate: false
+    icon:
+      sprite: ADT/Attachments/rail.rsi
+      state: miniscope
   - type: AttachableToggleableSimpleActivate
   - type: Scope
     zoomLevels:
@@ -142,15 +145,41 @@
       sprint: -0.448
   - type: AttachableWieldDelayMods
     modifiers:
-    - delay: 0.4
+    - delay: 0.2
   - type: AttachableWeaponRangedMods
     modifiers:
     - conditions:
         activeOnly: true
       fireDelayFlat: 0.15
       accuracyAddMult: 0.35
-      damageFalloffAddMult: -0.2
+      # damageFalloffAddMult: -0.2
+    # - conditions:
+    #     wieldedOnly: true
+    #     inactiveOnly: true
+    #   accuracyAddMult: -0.05 #TODO: Add flare gun modifiers when it's implemented.
+
+- type: entity
+  parent: ADTRailAttachmentBase
+  id: ADTAttachmentReflexSight
+  name: reflex sight
+  description: Areflex sight
+  components:
+  - type: Sprite
+    sprite: ADT/Attachments/rail.rsi
+    state: reflex
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentReflexSight
+  - type: AttachableVisuals
+  - type: AttachableWeaponRangedMods
+    modifiers:
     - conditions:
         wieldedOnly: true
-        inactiveOnly: true
-      accuracyAddMult: -0.05 #TODO: Add flare gun modifiers when it's implemented.
+      accuracyAddMult: 0.20
+      scatterFlat: -4
+      burstScatterAddMult: -2
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: 0.4
+      scatterFlat: -8
