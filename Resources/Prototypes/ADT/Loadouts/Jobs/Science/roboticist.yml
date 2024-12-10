@@ -1,0 +1,44 @@
+# Head
+
+- type: loadout
+  id: RoboticistCap
+  equipment:
+    head: ClothingHeadHatCorpsoft
+
+# Jumpsuit
+
+- type: loadout
+  id: RoboticistJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRoboticist
+
+- type: loadout
+  id: RoboticistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRoboticist
+
+# OuterClothing
+
+- type: loadout
+  id: RoboticistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRobo
+
+- type: loadout
+  id: RoboticistWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterRobo
+
+# Gloves
+
+- type: loadout
+  id: RobohandsGloves
+  equipment:
+    gloves: ClothingHandsGlovesRobohands
+
+# ID
+
+- type: loadout
+  id: ADTRoboticistPDA
+  equipment:
+    id: ADTRoboticistPDA

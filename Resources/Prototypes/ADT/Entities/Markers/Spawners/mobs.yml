@@ -1,6 +1,6 @@
 - type: entity
   name: Poppy Spawner
-  id: ADTSpawnMobPossumMorty
+  id: ADTSpawnMobPossumPoppy
   parent: MarkerBase
   components:
   - type: Sprite
@@ -9,4 +9,4 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - MobPossumMorty
+      - MobPossumPoppy
