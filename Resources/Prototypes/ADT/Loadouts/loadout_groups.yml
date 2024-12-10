@@ -151,6 +151,21 @@
   - PurpleGloves
   - RobohandsGloves
 
+# SENIOR ENGINEER
+
+- type: loadoutGroup
+  id: SeniorEngineerHead
+  name: loadout-group-senior-engineer-head
+  loadouts:
+  - SeniorEngineerBeret
+
+- type: loadoutGroup
+  id: ADTSeniorEngineerJumpsuit
+  name: loadout-group-senior-engineer-jumpsuit
+  loadouts:
+  - SeniorEngineerJumpsuit
+  - SeniorEngineerJumpskirt
+
 # SENIOR RESEARCHER
 
 - type: loadoutGroup

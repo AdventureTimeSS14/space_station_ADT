@@ -125,8 +125,8 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - StationEngineerHead
-  - StationEngineerJumpsuit
+  - SeniorEngineerHead # ADT-Tweak-senior
+  - ADTSeniorEngineerJumpsuit # ADT-Tweak-senior
   - StationEngineerOuterClothing
   - StationEngineerBackpack
   - ADTEngineeringBelt
