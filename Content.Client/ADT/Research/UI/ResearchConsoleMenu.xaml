@@ -2,7 +2,6 @@
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
-                      xmlns:adt="clr-namespace:Content.Client.ADT.Research.UI"
                       Title="{Loc 'research-console-menu-title'}"
                       MinSize="625 400"
                       SetSize="760 550"> <!-- Corvax-Localization -->
@@ -74,16 +73,16 @@
                           HorizontalExpand="True"
                           SizeFlagsStretchRatio="3"
                           Margin="0 0 10 10">
-                <PanelContainer VerticalExpand="True" MinSize="0 200">
+                <PanelContainer Name="ResearchesContainer" VerticalExpand="True" MinSize="0 200">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                     </PanelContainer.PanelOverride>
-                    <adt:DraggablePanel
+                    <LayoutContainer
                         HorizontalExpand="True"
                         SizeFlagsStretchRatio="2"
                         VerticalExpand="True"
                         Name="DragContainer">
-                    </adt:DraggablePanel>
+                    </LayoutContainer>
                 </PanelContainer>
             </BoxContainer>
         </BoxContainer>

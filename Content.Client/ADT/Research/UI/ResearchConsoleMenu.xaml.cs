@@ -50,6 +50,8 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         _accessReader = _entity.System<AccessReaderSystem>();
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
+        ResearchesContainer.OnKeyBindDown += args => OnKeybindDown(args);
+        ResearchesContainer.OnKeyBindUp += args => OnKeybindUp(args);
     }
 
     public void SetEntity(EntityUid entity)
@@ -85,7 +87,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
                         _accessReader.IsAllowed(local, Entity, access);
 
         var testcontrol = new Button();
-        DragContainer.AddChildElement(testcontrol);
+        DragContainer.AddChild(testcontrol);
 
         foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>())
         {
@@ -166,8 +168,40 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         Points = points;
     }
 
-    protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
+    #region Drag handle
+    private void OnKeybindDown(GUIBoundKeyEventArgs args)
     {
-        return DragMode.None;
+        if (args.Function == EngineKeyFunctions.Use)
+        {
+            // Начинаем перетаскивание
+            _draggin = true;
+            StartDragPosition = args.PointerLocation.Position;
+        }
     }
+
+    protected override void MouseMove(GUIMouseMoveEventArgs args)
+    {
+        base.MouseMove(args);
+
+        if (_draggin)
+        {
+            // Перемещаем все дочерние элементы, вычисляя разницу между начальной и текущей позицией мыши
+            var delta = args.RelativePosition - StartDragPosition;
+
+            foreach (var child in DragContainer.Children)
+            {
+                LayoutContainer.SetPosition(child, child.Position + delta); // Перемещаем каждого дочернего элемента
+            }
+        }
+    }
+
+    private void OnKeybindUp(GUIBoundKeyEventArgs args)
+    {
+        if (args.Function == EngineKeyFunctions.Use)
+        {
+            // Завершаем перетаскивание
+            _draggin = false;
+        }
+    }
+    #endregion
 }
