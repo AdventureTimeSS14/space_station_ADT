@@ -1,6 +1,6 @@
 - type: entity
   name: ion rifle
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, ADTBaseMagneticGun]
   id: ADTWeaponIonRifle
   description: An ion-electronic disruptor rifle specifically designed to fight cyborgs and mechs.
   components:

@@ -1,0 +1,29 @@
+- type: entity
+  name: Mosin`s rifle bayonet
+  parent: [CombatKnife, BaseSecurityCargoContraband, ADTBarrelAttachmentBase]
+  id: ADTMosinBayonet
+  description: Triangular bayonet wounds are impossible to stitch up.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mosin_bayonet.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/mosin_bayonet.rsi
+  - type: Tag
+    tags:
+    - ADTMosinBayonetAttachment
+  - type: AttachableWeaponMeleeMods
+    modifiers:
+    - bonusDamage:
+        types:
+          Piercing: 20
+    - decreaseDamage:
+        types:
+          Blunt: 5
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - accuracyAddMult: -0.05
+  - type: AttachablePrying
+  - type: AttachableVisuals
+    rsi: ADT/Attachments/under.rsi
+    prefix: mosinbayonet

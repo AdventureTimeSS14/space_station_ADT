@@ -4,6 +4,7 @@ using Content.Shared.Hands;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Utility;
+using Content.Shared._RMC14.Weapons.Ranged; // ADT TWEAK
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -61,7 +62,7 @@ public abstract partial class SharedGunSystem
         return modes[(index + 1) % modes.Count];
     }
 
-    private void SelectFire(EntityUid uid, GunComponent component, SelectiveFire fire, EntityUid? user = null)
+    public void SelectFire(EntityUid uid, GunComponent component, SelectiveFire fire, EntityUid? user = null) // ADT TWEAK: PRIVATE TO PUBLIC
     {
         if (component.SelectedMode == fire)
             return;
@@ -82,6 +83,10 @@ public abstract partial class SharedGunSystem
 
         Audio.PlayPredicted(component.SoundMode, uid, user);
         Popup(Loc.GetString("gun-selected-mode", ("mode", GetLocSelector(fire))), uid, user);
+
+        var ev = new RMCFireModeChangedEvent(); // ADT TWEAK
+        RaiseLocalEvent(uid, ref ev); // ADT TWEAK
+
         Dirty(uid, component);
     }
 
