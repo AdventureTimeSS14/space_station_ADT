@@ -122,12 +122,17 @@
 # ROBOTICIST
 
 - type: loadoutGroup
+  id: RoboticistHead
+  name: loadout-group-roboticist-head
+  minLimit: 1
+  loadouts:
+  - RoboticistCap
+
+- type: loadoutGroup
   id: RoboticistJumpsuit
   name: loadout-group-roboticist-jumpsuit
   minLimit: 1
   loadouts:
-  # - ScientistJumpsuit # ADT-Tweak-senior
-  # - ScientistJumpskirt # ADT-Tweak-senior
   - RoboticistJumpsuit
   - RoboticistJumpskirt
 
@@ -136,9 +141,6 @@
   name: loadout-group-roboticist-outerclothing
   minLimit: 0
   loadouts:
-  # - RegularLabCoat # ADT-Tweak-senior
-  # - ScienceLabCoat # ADT-Tweak-senior
-  # - ScienceWintercoat # ADT-Tweak-senior
   - RoboticistWintercoat
   - RoboticistLabCoat
 
@@ -179,8 +181,6 @@
   id: ADTSeniorResearcherJumpsuit
   name: loadout-group-senior-researcher-jumpsuit
   loadouts:
-  # - ScientistJumpsuit # ADT-Tweak-senior
-  # - ScientistJumpskirt # ADT-Tweak-senior
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
@@ -198,9 +198,6 @@
   name: loadout-group-senior-researcher-outerclothing
   minLimit: 0
   loadouts:
-  # - RegularLabCoat # ADT-Tweak-senior
-  # - ScienceLabCoat # ADT-Tweak-senior
-  # - ScienceWintercoat # ADT-Tweak-senior
   - SeniorResearcherLabCoat
 
 # BLUESHIELD

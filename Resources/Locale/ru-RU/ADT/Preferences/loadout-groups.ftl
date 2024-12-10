@@ -23,6 +23,7 @@ loadout-group-atmospheric-technician-head = Атмосферный техник,
 loadout-group-senior-engineer-head = Бригадир, голова
 loadout-group-senior-engineer-jumpsuit = Бригадир, Комбинезон
 # Science
+loadout-group-roboticist-head = Робототехник, голова
 loadout-group-roboticist-jumpsuit = Робототехник, комбинезон
 loadout-group-roboticist-outerclothing = Робототехник, верхняя одежда
 loadout-group-roboticist-gloves = Робототехник, перчатки
