@@ -13,20 +13,18 @@
     pocket1: RubberStampCentcom
     pocket2: WeaponPulsePistol
     suitstorage: OxygenTankFilled
-    belt: ClothingBeltBandolier
+    belt: ADTClothingBeltBandolierFilledIncendiary
   storage:
     back:
     - BoxSurvivalEngineering
-    - WeaponShotgunBulldog 
-    - BoxShotgunIncendiary
-    - Chainsaw 
-    - MedkitCombatFilled 
-    - MagazineShotgun 
-    - MagazineShotgunIncendiary 
+    - WeaponShotgunBulldog
+    - Chainsaw
+    - MedkitCombatFilled
+    - MagazineShotgun
+    - MagazineShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
-    - RadioHandheld
     # underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
   # underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
   # underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear

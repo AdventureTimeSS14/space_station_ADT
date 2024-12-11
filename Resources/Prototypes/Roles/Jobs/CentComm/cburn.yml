@@ -25,21 +25,21 @@
     outerClothing: ClothingOuterHardsuitCBURN
     shoes: ClothingShoesBootsCombatFilled
     id: CBURNPDA
-    pocket1: RadioHandheld
+    pocket1: MagazineShotgun # ADT tweak
     pocket2: WeaponLaserGun
-    belt: ClothingBeltBandolier
+    belt: ADTClothingBeltBandolierFilledIncendiary # ADT tweak
   storage:
     back:
     - BoxSurvivalEngineering #ADT-tweak
-    - WeaponShotgunDoubleBarreled
-    - BoxShotgunIncendiary
+#    - WeaponShotgunDoubleBarreled #ADT-tweak
+#    - BoxShotgunIncendiary #ADT-tweak
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
-    # ADT Tweak (Add) start 
+    # ADT Tweak (Add) start
     - WeaponShotgunEnforcer
     - Chainsaw
     - MedkitCombatFilled
-    - MagazineShotgun
     - MagazineShotgunIncendiary
+    - SpaceCash500
     # ADT Tweak (Add) end
