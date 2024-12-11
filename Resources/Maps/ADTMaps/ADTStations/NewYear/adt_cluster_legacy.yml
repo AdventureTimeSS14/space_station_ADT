@@ -5119,7 +5119,7 @@ entities:
       pos: 8.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22178.06
+      secondsUntilStateChange: -22283.277
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5284,7 +5284,7 @@ entities:
       pos: 31.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -18871.777
+      secondsUntilStateChange: -18976.994
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5689,7 +5689,7 @@ entities:
       pos: -8.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -10758.244
+      secondsUntilStateChange: -10863.462
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -47178,6 +47178,13 @@ entities:
     - type: Transform
       pos: 3.5,1.5
       parent: 2
+- proto: SpawnPointObserver
+  entities:
+  - uid: 9089
+    components:
+    - type: Transform
+      pos: 0.5,5.5
+      parent: 2
 - proto: SpawnPointParamedic
   entities:
   - uid: 7053
@@ -58110,7 +58117,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -63423.984
+      secondsUntilStateChange: -63529.203
       state: Opening
     - type: Airlock
       autoClose: False
@@ -58182,7 +58189,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -63421.984
+      secondsUntilStateChange: -63527.203
       state: Opening
     - type: Airlock
       autoClose: False
