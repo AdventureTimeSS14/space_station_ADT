@@ -1,0 +1,131 @@
+- type: entity
+  parent: [BaseItem, BaseHandheldComputer]
+  id: ADTHandheldShuttleConsoleDefault
+  name: default handheld shuttle console
+  description: A gadget which can control the shuttle remotely.
+  abstract: false
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: default
+  - type: Item
+    storedRotation: -90
+  - type: ShuttleConsole
+    isHandheldConsole: true
+  - type: ActivatableUI
+    key: enum.ShuttleConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.ShuttleConsoleUiKey.Key:
+          type: ShuttleConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: RadarConsole
+  - type: WorldLoader
+    radius: 256
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#43ccb5"
+  - type: Computer
+    board: ShuttleConsoleCircuitboard
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
+      disk_slot: !type:ContainerSlot {}
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+    autoConnect: true
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard
+      params:
+        volume: -1
+        variation: 0.10
+        pitch: 1.10  # low pitch keyboard sounds feel kinda weird
+    blacklist:
+      tags:
+      - NoConsoleSound
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: Appearance
+
+- type: entity
+  parent: ADTHandheldShuttleConsoleDefault
+  id: ADTHandheldShuttleConsoleSyndicate
+  name: handheld syndicate shuttle console
+  description: Used to pilot a syndicate shuttle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: syndicate
+  - type: Tag
+    tags:
+      - Syndicate
+  - type: RadarConsole
+    maxRange: 384
+  - type: WorldLoader
+    radius: 1536
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c94242"
+  - type: Computer
+    board: SyndicateShuttleConsoleCircuitboard
+
+- type: entity
+  parent: ADTHandheldShuttleConsoleDefault
+  id: ADTHandheldShuttleConsoleSalvage
+  name: handheld salvage shuttle console
+  description: Used to pilot a salvage shuttle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: salvage
+  - type: RadarConsole
+    maxRange: 384
+  - type: WorldLoader
+    radius: 1536
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#43ccb5"
+  - type: Computer
+    board: ADTSalvageShuttleConsoleCircuitboard
+  - type: DroneConsole
+    components:
+      - type: SalvageShuttle
+
+- type: entity
+  parent: ADTHandheldShuttleConsoleDefault
+  id: ADTHandheldShuttleConsoleSecurity
+  name: handheld security shuttle console
+  description: Used to pilot a security shuttle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: security
+  - type: RadarConsole
+    maxRange: 384
+  - type: WorldLoader
+    radius: 1536
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#43ccb5"
+  - type: Computer
+    board: ADTSecShuttleConsoleCircuitboard
+  - type: DroneConsole
+    components:
+      - type: SecShuttle
