@@ -80,13 +80,11 @@ public abstract class SharedCrawlingSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var stunTime = component.DefaultStunTime;
-
         foreach (var item in _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f))
         {
             if (HasComp<ClimbableComponent>(item))
             {
-                TableVictim(uid, component)
+                TableVictim(uid, component);
                 return;
             }
         }
