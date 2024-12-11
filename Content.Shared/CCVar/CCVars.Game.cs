@@ -319,7 +319,7 @@ public sealed partial class CCVars
         ///     If true, contraband severity can be viewed in the examine menu
         /// </summary>
         public static readonly CVarDef<bool> ContrabandExamine =
-            CVarDef.Create("game.contraband_examine", true, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("game.contraband_examine", false, CVar.SERVER | CVar.REPLICATED); ///ADT no wizard cringe
 
         /// <summary>
         ///     Size of the lookup area for adding entities to the context menu

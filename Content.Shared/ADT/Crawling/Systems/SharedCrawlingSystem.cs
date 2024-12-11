@@ -86,13 +86,21 @@ public abstract class SharedCrawlingSystem : EntitySystem
         {
             if (HasComp<ClimbableComponent>(item))
             {
-                _stun.TryParalyze(uid, stunTime, true);
-                _audio.PlayPvs(component.TableBonkSound, uid);
+                TableVictim(uid, component)
                 return;
             }
         }
         _standing.Stand(uid);
     }
+
+    private void TableVictim(EntityUid uid, CrawlerComponent component)
+    {
+        var stunTime = component.DefaultStunTime;
+
+        _stun.TryParalyze(uid, stunTime, true);
+        _audio.PlayPvs(component.TableBonkSound, uid);
+    }
+
     private void OnStandUp(EntityUid uid, CrawlerComponent component, StandAttemptEvent args)
     {
         if (args.Cancelled)

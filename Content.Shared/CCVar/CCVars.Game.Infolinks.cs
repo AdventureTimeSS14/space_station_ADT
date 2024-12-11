@@ -50,5 +50,5 @@ public sealed partial class CCVars
     ///     Link to site handling ban appeals. Shown in ban disconnect messages.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksAppeal =
-        CVarDef.Create("infolinks.appeal", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.appeal", "https://discord.com/channels/901772674865455115/1245787985891561544", CVar.SERVER | CVar.REPLICATED); //ADT-Tweak: Ссылка на обжалование
 }
