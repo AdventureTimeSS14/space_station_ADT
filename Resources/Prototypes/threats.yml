@@ -4,6 +4,7 @@
   weights:
     Dragon: 1
     Revenant: 1
+    Pirate: 1 # ADT pirates
 
 - type: ninjaHackingThreat
   id: Dragon
