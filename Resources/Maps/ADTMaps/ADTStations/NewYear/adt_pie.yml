@@ -7602,20 +7602,20 @@ entities:
     components:
     - type: Transform
       parent: 5
-    - type: Storage
-      storedItems:
-        112:
-          position: 0,0
-          _rotation: South
-        113:
-          position: 1,0
-          _rotation: South
-        114:
-          position: 2,0
-          _rotation: South
-        115:
-          position: 0,1
-          _rotation: South
+    # - type: Storage
+    #   storedItems:
+    #     112:
+    #       position: 0,0
+    #       _rotation: South
+    #     113:
+    #       position: 1,0
+    #       _rotation: South
+        # 114:
+        #   position: 2,0
+        #   _rotation: South
+        # 115:
+        #   position: 0,1
+        #   _rotation: South
     #     116:
     #       position: 1,1
     #       _rotation: South
@@ -7631,21 +7631,21 @@ entities:
     #     120:
     #       position: 2,2
     #       _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 112
-          - 113
-          - 114
-          - 115
-    #       - 116
-    #       - 117
-    #       - 118
-    #       - 119
-    #       - 120
+    # - type: ContainerContainer
+    #   containers:
+    #     storagebase: !type:Container
+    #       showEnts: False
+    #       occludes: True
+    #       ents:
+    #       - 112
+    #       - 113
+    #       # - 114
+    #       # - 115
+    # #       - 116
+    # #       - 117
+    # #       - 118
+    # #       - 119
+    # #       - 120
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -28881,32 +28881,32 @@ entities:
     - type: Transform
       pos: 26.437075,5.894659
       parent: 2
-- proto: PillCanister
-  entities:
-  - uid: 112
-    components:
-    - type: Transform
-      parent: 111
-    - type: Physics
-      canCollide: False
-  - uid: 113
-    components:
-    - type: Transform
-      parent: 111
-    - type: Physics
-      canCollide: False
-  - uid: 114
-    components:
-    - type: Transform
-      parent: 111
-    - type: Physics
-      canCollide: False
-  - uid: 115
-    components:
-    - type: Transform
-      parent: 111
-    - type: Physics
-      canCollide: False
+# - proto: PillCanister
+#   entities:
+#   - uid: 112
+#     components:
+#     - type: Transform
+#       parent: 111
+#     - type: Physics
+#       canCollide: False
+#   - uid: 113
+#     components:
+#     - type: Transform
+#       parent: 111
+#     - type: Physics
+#       canCollide: False
+  # - uid: 114
+  #   components:
+  #   - type: Transform
+  #     parent: 111
+  #   - type: Physics
+  #     canCollide: False
+  # - uid: 115
+  #   components:
+  #   - type: Transform
+  #     parent: 111
+  #   - type: Physics
+  #     canCollide: False
 #   - uid: 116
 #     components:
 #     - type: Transform
