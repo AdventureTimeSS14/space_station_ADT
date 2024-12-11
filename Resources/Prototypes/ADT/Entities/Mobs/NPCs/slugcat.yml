@@ -96,7 +96,7 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Monkey_burning
   - type: Clumsy
-    clumsyDamage:
+    gunShootFailDamage:
       types:
         Blunt: 20
         Piercing: 15
