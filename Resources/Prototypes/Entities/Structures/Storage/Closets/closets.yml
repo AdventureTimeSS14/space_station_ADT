@@ -1,4 +1,4 @@
-﻿# Tool closet
+# Tool closet
 - type: entity
   id: ClosetTool
   name: tool closet
@@ -10,6 +10,32 @@
     stateBaseClosed: eng
     stateDoorOpen: eng_open
     stateDoorClosed: eng_tool_door
+
+# ADT Closets update
+
+# Alien
+- type: entity
+  id: ClosetAlien
+  name: alien closet
+  parent: ClosetSteelBase
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: alien
+    stateDoorOpen: alien_open
+    stateDoorClosed: alien_door
+
+# Barber
+- type: entity
+  id: ClosetBarber
+  name: barber's closet
+  parent: ClosetSteelBase
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: barber
+    stateDoorOpen: generic_open4
+    stateDoorClosed: barber_door
 
 # Radiation suit closet
 - type: entity
@@ -34,7 +60,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: emergency
-    stateDoorOpen: emergency_open
+    stateDoorOpen: color_blue_open
     stateDoorClosed: emergency_door
 
 # Emergency N2 closet
@@ -46,8 +72,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: n2
-    stateDoorOpen: n2_open
+    stateBaseClosed: armory
+    stateDoorOpen: color_red_open
     stateDoorClosed: n2_door
 
 # Fire safety closet
@@ -59,8 +85,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: fire
-    stateDoorOpen: fire_open
+    stateBaseClosed: armory
+    stateDoorOpen: color_red_open
     stateDoorClosed: fire_door
 
 # EOD closet
@@ -73,22 +99,32 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: bomb
-    stateDoorOpen: bomb_open
+    stateDoorOpen: generic_open4
     stateDoorClosed: bomb_door
 
-# Janitorial bomb suit closet
 - type: entity
   id: ClosetJanitorBomb
-  name: janitorial bomb suit closet
+  name: EOD janitor closet
   parent: ClosetSteelBase
-  description: It's a storage unit for janitorial explosion-protective suits.
-  suffix: DO NOT MAP
+  description: It's a storage unit for explosion-protective suits.
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: janitor_bomb
-    stateDoorOpen: janitor_bomb_open
-    stateDoorClosed: janitor_bomb_door
+    stateBaseClosed: generic2
+    stateDoorOpen: color_purple_open
+    stateDoorClosed: jen_wardrobe_door
+
+# Librarian closet
+- type: entity
+  id: ClosetLibrary
+  parent: ClosetSteelBase
+  name: library closet
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: library_open
+    stateDoorClosed: library_door
 
 # Biohazard
 
@@ -101,8 +137,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio
-    stateDoorOpen: bio_open
+    stateBaseClosed: generic3
+    stateDoorOpen: color_white-pink_open
     stateDoorClosed: bio_door
 
 # Virology variant
@@ -112,9 +148,43 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_viro
-    stateDoorOpen: bio_viro_open
+    stateBaseClosed: generic3
+    stateDoorOpen: color_green_open
     stateDoorClosed: bio_viro_door
+
+# Medical variant
+- type: entity
+  id: ClosetL3Medical
+  parent: ClosetL3
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic3
+    stateDoorOpen: color_white_open
+    stateDoorClosed: bio_med_door
+
+# Coroner variant
+- type: entity
+  id: ClosetL4Coroner
+  parent: ClosetL3
+  name: level 4 bio and radiation hazard gear closet
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: color_black
+    stateDoorOpen: color_black_open
+    stateDoorClosed: bio_coroner_door
+
+# Paramedic variant
+- type: entity
+  id: ClosetL3Paramedic
+  parent: ClosetL3
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic3
+    stateDoorOpen: generic_open4
+    stateDoorClosed: bio_paramedic_door
 
 # Security variant
 - type: entity
@@ -123,8 +193,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_sec
-    stateDoorOpen: bio_sec_open
+    stateBaseClosed: armory
+    stateDoorOpen: color_red_open
     stateDoorClosed: bio_sec_door
 
 # Janitor variant
@@ -134,8 +204,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_jan
-    stateDoorOpen: bio_jan_open
+    stateBaseClosed: generic3
+    stateDoorOpen: color_purple_open
     stateDoorClosed: bio_jan_door
 
 # Maintenance closet
@@ -147,21 +217,22 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
+    stateBaseClosed: generic
     stateDoorOpen: generic_open
     stateDoorClosed: generic_door
 
 # Syndicate
 - type: entity
   id: LockerSyndicate
-  name: armory closet
+  name: syndicate closet
   parent: ClosetSteelBase
   description: It's a storage unit.
   components:
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: syndicate
-    stateDoorOpen: syndicate_open
-    stateDoorClosed: syndicate_door
+    stateDoorOpen: color_black2_open
+    stateDoorClosed: syndicate_wardrobe_door
 
 # Bluespace closet
 - type: entity
