@@ -1,4 +1,5 @@
 # Miscellaneous
+
 - type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
@@ -105,6 +106,7 @@
   - LoadoutSpeciesPocketDoubleOxygen
 
 # Command
+
 - type: loadoutGroup
   id: CaptainHead
   name: loadout-group-captain-head
@@ -208,6 +210,7 @@
   # ADT-Loadouts-End
 
 # Civilian
+
 - type: loadoutGroup
   id: PassengerJumpsuit
   name: loadout-group-passenger-jumpsuit
@@ -623,6 +626,7 @@
   - Bagpipe
 
 # Cargo
+
 - type: loadoutGroup
   id: QuartermasterHead
   name: loadout-group-quartermaster-head
@@ -730,6 +734,7 @@
   - CargoWinterBoots
 
 # Engineering
+
 - type: loadoutGroup
   id: ChiefEngineerHead
   name: loadout-group-chief-engineer-head
@@ -783,7 +788,7 @@
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
-  - SeniorEngineerBeret
+  - HonoredEngineerBeret # ADT-Tweak-senior
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit
@@ -792,8 +797,6 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
-  - SeniorEngineerJumpsuit
-  - SeniorEngineerJumpskirt
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -823,7 +826,6 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
-  # - SeniorEngineerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -880,6 +882,7 @@
 # ADT-TWEAK-END
 
 # Science
+
 - type: loadoutGroup
   id: ResearchDirectorHead
   name: loadout-group-research-director-head
@@ -926,9 +929,9 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
   - SkullBandana
-  - ScientificBeret
+  - PurpleCap # ADT-Tweak-senior
+  - HonoredScientistBeret # ADT-Tweak-senior
 
 - type: loadoutGroup
   id: ScientistNeck
@@ -943,10 +946,6 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-  - RoboticistJumpsuit
-  - RoboticistJumpskirt
-  - SeniorResearcherJumpsuit
-  - SeniorResearcherJumpskirt
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -961,12 +960,8 @@
   name: loadout-group-scientist-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
-  - RoboticistLabCoat
-  - RoboticistWintercoat
-  - SeniorResearcherLabCoat
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -983,14 +978,12 @@
   loadouts:
   - LatexGloves
   - PurpleGloves
-  - RobohandsGloves
 
 - type: loadoutGroup
   id: ScientistPDA
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
-  # - SeniorResearcherPDA # ADT Tweak
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1000,6 +993,7 @@
   - WhiteJumpskirt
 
 # Security
+
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
@@ -1127,7 +1121,6 @@
   name: loadout-group-security-id
   loadouts:
   - SecurityPDA
-  # - SeniorOfficerPDA # ADT Tweak
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1251,12 +1244,8 @@
   name: loadout-group-medical-doctor-head
   minLimit: 0
   loadouts:
-  - MedicalBeret
-  - SeniorPhysicianBeret
+  - HonoredDoctorBeret
   - MedicalHeadMirror
-  - BlueSurgeryCap
-  - GreenSurgeryCap
-  - PurpleSurgeryCap
   - NurseHat
 
 - type: loadoutGroup
@@ -1265,11 +1254,6 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
-  - SeniorPhysicianJumpsuit
-  - SeniorPhysicianJumpskirt
-  - MedicalBlueScrubs
-  - MedicalGreenScrubs
-  - MedicalPurpleScrubs
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1278,8 +1262,6 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-  - SeniorPhysicianLabCoat
-
 - type: loadoutGroup
   id: MedicalBackpack
   name: loadout-group-medical-doctor-backpack
@@ -1300,7 +1282,6 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
-  # - SeniorPhysicianPDA # ADT Tweak
 
 - type: loadoutGroup
   id: MedicalGloves
@@ -1336,7 +1317,6 @@
   name: loadout-group-chemist-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
 
@@ -1390,6 +1370,7 @@
   - ADTEmergencyIPCMedical #ADT_Species
 
 # Wildcards
+
 - type: loadoutGroup
   id: ReporterJumpsuit
   name: loadout-group-reporter-jumpsuit
@@ -1421,6 +1402,7 @@
   - YellowBoxingGloves
 
 # Other
+
 - type: loadoutGroup
   id: SurvivalSyndicate
   name: loadout-group-survival-syndicate
