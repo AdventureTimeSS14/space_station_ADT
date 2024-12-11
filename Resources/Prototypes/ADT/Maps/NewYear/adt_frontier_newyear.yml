@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_FrontierNewYear
   mapName: 'New Year Frontier'
-  mapPath: /Maps/ADTMaps/ADTStations/adt_frontier_newyear.yml
+  mapPath: /Maps/ADTMaps/ADTStations/NewYear/adt_frontier_newyear.yml
   minPlayers: 30
   maxPlayers: 90
   stations:
@@ -64,6 +64,7 @@
             Pilot: [ 1, 1 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
             #supply
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
