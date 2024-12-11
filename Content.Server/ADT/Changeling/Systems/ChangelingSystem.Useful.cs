@@ -184,6 +184,7 @@ public sealed partial class ChangelingSystem
                 {
                     _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", component.AbsorbedChangelingPointsAmount } }, uid, store);
                     _store.UpdateUserInterface(uid, uid, store);
+                    component.ChangelingsAbsorbed++;
                 }
             }
             else  // Если это не был генокрад, получаем возможность "сброса"
@@ -191,7 +192,7 @@ public sealed partial class ChangelingSystem
                 var selfMessage = Loc.GetString("changeling-dna-success", ("target", Identity.Entity(target, EntityManager)));
                 _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
                 component.CanRefresh = true;
-                component.AbsorbedDnaModifier += 1;
+                component.AbsorbedDnaModifier++;
             }
         }
 
