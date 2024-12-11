@@ -1,0 +1,38 @@
+- type: entity
+  name: reinforced plasma shiv
+  parent: Shiv
+  id: ADTReinforcedPlasmaShiv
+  description: A crude weapon fashioned from a piece of cloth and a reinforced plasma glass shard.
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 13
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/Rplasma_shiv.rsi
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/Rplasma_shiv.rsi
+  - type: Construction
+    graph: ADTPShiv
+    node: start
+
+- type: entity
+  name: reinforced uranium shiv
+  parent: Shiv
+  id: ADTReinforcedUraniumShiv
+  description: A crude weapon fashioned from a piece of cloth and a uranium glass shard.
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 9
+        Radiation: 4
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/Ruranium_shiv.rsi
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/Ruranium_shiv.rsi
+  - type: Construction
+    graph: ADTUShiv
+    node: start
