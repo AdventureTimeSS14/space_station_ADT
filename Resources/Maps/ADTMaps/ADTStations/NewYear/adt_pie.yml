@@ -7521,9 +7521,9 @@ entities:
         348:
           position: 1,0
           _rotation: South
-        349:
-          position: 2,0
-          _rotation: South
+        # 349:
+        #   position: 2,0
+        #   _rotation: South
         # 350:
         #   position: 0,2
         #   _rotation: South
@@ -7541,7 +7541,7 @@ entities:
           ents:
           - 347
           - 348
-          - 349
+          # - 349
           # - 350
           # - 351
           # - 352
@@ -7554,9 +7554,9 @@ entities:
       parent: 343
     - type: Storage
       storedItems:
-        356:
-          position: 0,0
-          _rotation: South
+        # 356:
+        #   position: 0,0
+        #   _rotation: South
         # 357:
         #   position: 1,0
         #   _rotation: South
@@ -7578,7 +7578,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 356
+          # - 356
           # - 357
           # - 358
           # - 359
@@ -27883,14 +27883,14 @@ entities:
       unspawnedCount: 19
     - type: Physics
       canCollide: False
-  - uid: 349
-    components:
-    - type: Transform
-      parent: 346
-    - type: BallisticAmmoProvider
-      unspawnedCount: 19
-    - type: Physics
-      canCollide: False
+  # - uid: 349
+  #   components:
+  #   - type: Transform
+  #     parent: 346
+  #   - type: BallisticAmmoProvider
+  #     unspawnedCount: 19
+  #   - type: Physics
+  #     canCollide: False
   # - uid: 350
   #   components:
   #   - type: Transform
@@ -27931,14 +27931,14 @@ entities:
       unspawnedCount: 19
     - type: Physics
       canCollide: False
-  - uid: 356
-    components:
-    - type: Transform
-      parent: 353
-    - type: BallisticAmmoProvider
-      unspawnedCount: 19
-    - type: Physics
-      canCollide: False
+  # - uid: 356
+  #   components:
+  #   - type: Transform
+  #     parent: 353
+  #   - type: BallisticAmmoProvider
+  #     unspawnedCount: 19
+  #   - type: Physics
+  #     canCollide: False
   # - uid: 357
   #   components:
   #   - type: Transform
