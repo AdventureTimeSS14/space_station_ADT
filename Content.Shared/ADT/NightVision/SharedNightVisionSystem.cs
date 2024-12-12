@@ -127,10 +127,10 @@ public abstract class SharedNightVisionSystem : EntitySystem
     {
         if (ent.Comp.Alert is { } alert)
         {
-            var level = MathF.Max((int) NightVisionState.Off, (int) ent.Comp.State);
+            var level = MathF.Max((int)NightVisionState.Off, (int)ent.Comp.State);
             var max = _alerts.GetMaxSeverity(alert);
-            var severity = max - ContentHelpers.RoundToLevels(level, (int) NightVisionState.Full, max + 1);
-            _alerts.ShowAlert(ent, alert, (short) severity);
+            var severity = max - ContentHelpers.RoundToLevels(level, (int)NightVisionState.Full, max + 1);
+            _alerts.ShowAlert(ent, alert, (short)severity);
         }
 
         NightVisionChanged(ent);
@@ -161,6 +161,9 @@ public abstract class SharedNightVisionSystem : EntitySystem
             var nightVision = EnsureComp<NightVisionComponent>(user);
             nightVision.State = NightVisionState.Full;
             Dirty(user, nightVision);
+
+            //var eyeDamage = EnsureComp<компонент>(user);
+            //Dirty(user, eyeDamage);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -187,6 +190,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
             !nightVision.Innate)
         {
             RemCompDeferred<NightVisionComponent>(user.Value);
+            //RemCompDeferred<компонент>(user.Value);
         }
     }
 

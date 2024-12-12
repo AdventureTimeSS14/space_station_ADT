@@ -230,3 +230,13 @@
     Productunit: 5
   categories:
   - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberNightVision
+  name: uplink-night-vision-name
+  description:  uplink-night-vision-desc
+  productEntity: ClothingEyesNightVision
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTMisc

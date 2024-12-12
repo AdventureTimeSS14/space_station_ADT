@@ -466,3 +466,13 @@
     Telecrystal: 5
   categories:
     - UplinkWearables
+
+- type: listing
+  id: ADTUplinkNightVision
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVision
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables
