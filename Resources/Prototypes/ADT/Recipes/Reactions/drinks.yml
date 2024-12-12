@@ -315,9 +315,9 @@
   minTemp: 370
   reactants:
     ADTOrangepackReg:
-      amount: 1
+      amount: 5
     Water:
-      amount: 29
+      amount: 25
   products:
     ADTOrangeTeaReg: 30
 
@@ -326,9 +326,9 @@
   minTemp: 370
   reactants:
     ADTCherrypackReg:
-      amount: 1
+      amount: 5
     Water:
-      amount: 29
+      amount: 25
   products:
     ADTCherryTeaReg: 30
 
@@ -337,8 +337,8 @@
   minTemp: 370
   reactants:
     ADTWatermelonpackReg:
-      amount: 1
+      amount: 5
     Water:
-      amount: 29
+      amount: 25
   products:
     ADTWatermelonTeaReg: 30
