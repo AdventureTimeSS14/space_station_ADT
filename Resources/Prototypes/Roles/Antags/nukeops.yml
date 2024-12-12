@@ -81,6 +81,9 @@
     outerClothing: ClothingOuterHardsuitSyndieCommander
   inhand:
   - NukeOpsDeclarationOfWar
+  storage:
+    back:
+    - ADTHandheldShuttleConsoleSyndicate
 
 #Nuclear Operative Medic Gear
 - type: startingGear

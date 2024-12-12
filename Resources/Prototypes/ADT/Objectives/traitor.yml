@@ -25,7 +25,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
-  id: ADTHandheldConsoleSecurityStealObjective
+  id: ADTHandheldShuttleConsoleSecurityStealObjective
   components:
   - type: Objective
     difficulty: 3
@@ -38,7 +38,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
-  id: ADTHandheldConsoleSalvageStealObjective
+  id: ADTHandheldShuttleConsoleSalvageStealObjective
   components:
   - type: Objective
     difficulty: 2
