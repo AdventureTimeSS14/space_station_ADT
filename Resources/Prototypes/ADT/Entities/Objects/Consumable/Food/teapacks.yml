@@ -17,10 +17,10 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 1
+        maxVol: 5
         reagents:
         - ReagentId: ADTOrangepackReg
-          Quantity: 1
+          Quantity: 5
   - type: Item
     size: Tiny
 
@@ -43,10 +43,10 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 1
+        maxVol: 5
         reagents:
         - ReagentId: ADTCherrypackReg
-          Quantity: 1
+          Quantity: 5
   - type: Item
     size: Tiny
 
@@ -69,10 +69,10 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 1
+        maxVol: 5
         reagents:
         - ReagentId: ADTWatermelonpackReg
-          Quantity: 1
+          Quantity: 5
   - type: Item
     size: Tiny
 
