@@ -1,4 +1,4 @@
-namespace Content.Server.ADT.Shuttle;
+namespace Content.Server.ADT.Misc;
 /// <summary>
 /// Added to Nukeops shuttle. Used for drone control.
 /// </summary>
