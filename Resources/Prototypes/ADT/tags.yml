@@ -390,3 +390,25 @@
 
 - type: Tag
   id: ADTChemistryAmbience
+
+- type: Tag
+  id: ADTOreBag
+
+- type: Tag
+  id: ADTSiliconEmotes
+
+- type: Tag
+  id: ADTCatEmotes
+
+- type: Tag
+  id: ADTDogEmotes
+
+#sponsor_items
+- type: Tag
+  id: ADTWeaponPistolPrazatHawk
+
+- type: Tag
+  id: ADTWeaponPistolMaria
+
+- type: Tag
+  id: ADTWeaponMeleePrasatChainsword

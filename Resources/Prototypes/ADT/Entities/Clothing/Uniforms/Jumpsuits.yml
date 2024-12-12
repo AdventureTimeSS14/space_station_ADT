@@ -1230,3 +1230,13 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/winth_swimsuit.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitCamisoleQM
+  name: Quartermaster's camisole
+  description: short camisole
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/qm_camisole.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/qm_camisole.rsi

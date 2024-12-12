@@ -3,6 +3,7 @@
   id: Scream
   name: chat-emote-name-scream
   category: Vocal
+  available: true # ADT fix
   icon: Interface/Emotes/scream.png
   whitelist:
     components:
@@ -44,6 +45,7 @@
   id: Laugh
   name: chat-emote-name-laugh
   category: Vocal
+  available: true # ADT fix
   icon: Interface/Emotes/laugh.png
   whitelist:
     components:
@@ -51,6 +53,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -87,7 +93,10 @@
     requireAll: true
     components:
     - Vocal
-    - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
     - honk
@@ -102,6 +111,7 @@
   id: Sigh
   name: chat-emote-name-sigh
   category: Vocal
+  available: true # ADT fix
   icon: Interface/Emotes/sigh.png
   whitelist:
     components:
@@ -109,6 +119,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -124,6 +138,7 @@
   id: Whistle
   name: chat-emote-name-whistle
   category: Vocal
+  available: true # ADT fix
   icon: Interface/Emotes/whistle.png
   whitelist:
     components:
@@ -131,6 +146,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -145,6 +164,7 @@
   id: Crying
   name: chat-emote-name-crying
   category: Vocal
+  available: true # ADT fix
   icon: Interface/Emotes/cry.png
   whitelist:
     components:
@@ -152,6 +172,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -177,6 +201,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
     - squish
@@ -198,6 +226,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
    - chitter
@@ -219,6 +251,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
    - squeak
@@ -240,6 +276,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
    - click
@@ -403,10 +443,13 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   whitelist:
-    requireAll: false #ADT Tweak
+    requireAll: true
     components:
-    - BorgChassis
     - Vocal
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
     - buzzing
@@ -454,8 +497,11 @@
   whitelist:
     requireAll: true
     components:
-    - BorgChassis
     - Vocal
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
     - beep
@@ -474,8 +520,11 @@
   whitelist:
     requireAll: true
     components:
-    - BorgChassis
     - Vocal
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
     - chime
@@ -494,8 +543,11 @@
   whitelist:
     requireAll: true
     components:
-    - BorgChassis
     - Vocal
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
     - buzztwice
@@ -525,8 +577,11 @@
   whitelist:
     requireAll: true
     components:
-    - BorgChassis
     - Vocal
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
     - ping

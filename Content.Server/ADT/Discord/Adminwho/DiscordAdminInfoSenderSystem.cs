@@ -9,6 +9,10 @@ using Robust.Shared.Utility;
 using Content.Server.GameTicking;
 using Content.Server.Afk;
 using Content.Shared.Ghost;
+using Content.Shared.GameTicking;
+using Robust.Server.Player;
+using Content.Server.Maps;
+
 
 namespace Content.Server.ADT.Discord.Adminwho;
 
@@ -19,6 +23,10 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
     [Dependency] private readonly IAdminManager _adminMgr = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IGameMapManager _gameMapManager = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     private TimeSpan _nextSendTime = TimeSpan.MinValue;
     private readonly TimeSpan _delayInterval = TimeSpan.FromMinutes(15);
@@ -47,8 +55,10 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
         {
             if (admin == null)
                 return;
+
             var adminData = _adminMgr.GetAdminData(admin)!;
             DebugTools.AssertNotNull(adminData);
+
             var afk = IoCManager.Resolve<IAfkManager>();
 
             if (adminData.Stealth)
@@ -56,14 +66,24 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             sb.Append(admin.Name);
             if (adminData.Title is { } title)
                 sb.Append($": [{title}]");
+
             if (afk.IsAfk(admin))
-                sb.Append("[AFK]");
+                sb.Append("[АФК]");
+
             if (admin.AttachedEntity != null &&
             TryComp<GhostComponent>(admin.AttachedEntity.Value, out var _))
-                sb.Append("[AGhost]");
+                sb.Append("[Агост]");
+
+            var gameTickerAdmin = _entities.System<GameTicker>();
+            if (!gameTickerAdmin.PlayerGameStatuses.TryGetValue(admin.UserId, out var status)
+            || status is not PlayerGameStatus.JoinedGame)
+                sb.Append("[Лобби]");
 
             sb.AppendLine();
         }
+
+        if (sb.Length == 0)
+            sb.Append("Null админов");
 
         var serverName = _cfg.GetCVar(CCVars.GameHostName);
 
@@ -79,6 +99,11 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
                 $"{gameTicker.RunLevel} was not matched."),
         };
 
+        var countPlayer = _playerManager.PlayerCount;
+        var countPlayerMax = _cfg.GetCVar(CCVars.SoftMaxPlayers);
+        var mapName = _gameMapManager.GetSelectedMap();
+        var selectGameRule = _gameTicker.CurrentPreset;
+
         var embed = new WebhookEmbed
         {
             Title = Loc.GetString("title-embed-webhook-adminwho"),
@@ -90,6 +115,12 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
                 Text = $"{serverName} ({round})"
             },
         };
+
+        embed.Fields.Add(new WebhookEmbedField { Name = "Player", Value = $"{countPlayer}/{countPlayerMax}", Inline = true });
+        if (mapName != null)
+            embed.Fields.Add(new WebhookEmbedField { Name = "Карта", Value = mapName.MapName, Inline = true });
+        if (selectGameRule != null)
+            embed.Fields.Add(new WebhookEmbedField { Name = "Режим", Value = Loc.GetString(selectGameRule.ModeTitle), Inline = true });
 
         var payload = new WebhookPayload
         {

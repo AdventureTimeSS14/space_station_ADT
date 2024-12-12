@@ -104,4 +104,5 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_horns
-
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_horns_secondary
