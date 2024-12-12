@@ -218,6 +218,7 @@
           - ADTAttachmentM90UnderbarrelShotgun
           - ADTAttachmentVerticalGrip
           - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
       rmc-aslot-rail:
         startingAttachable: ADTAttachmentT2Miniscope
         whitelist:

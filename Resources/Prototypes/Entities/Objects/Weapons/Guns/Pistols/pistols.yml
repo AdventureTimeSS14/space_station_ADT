@@ -70,7 +70,7 @@
 
 - type: entity
   name: viper
-  parent: [BaseWeaponPistol, BaseSyndicateContraband]
+  parent: [BaseWeaponPistol, BaseSyndicateContraband, ADTBaseAttachableHolder] # adt tweak
   id: WeaponPistolViper
   description: A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses .35 auto ammo.
   components:
@@ -100,6 +100,17 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.235, -0.00875
+# ADT TWEAK END
 
 - type: entity
   name: echis
@@ -138,7 +149,7 @@
 
 - type: entity
   name: cobra
-  parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
+  parent: [ BaseWeaponPistol, BaseSyndicateContraband, ADTBaseAttachableHolder] # adt tweak
   id: WeaponPistolCobra
   description: A rugged, robust operator handgun with inbuilt silencer. Uses .25 caseless ammo.
   components:
@@ -184,10 +195,21 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.16, 0.035
+# ADT TWEAK END
 
 - type: entity
   name: mk 58
-  parent: [BaseWeaponPistol, BaseRestrictedContraband]
+  parent: [BaseWeaponPistol, BaseRestrictedContraband, ADTBaseAttachableHolder] # adt tweak
   id: WeaponPistolMk58
   description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo.
   components:
@@ -210,6 +232,17 @@
     - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.17, -0.014
+# ADT TWEAK END
 
 - type: entity
   name: N1984
