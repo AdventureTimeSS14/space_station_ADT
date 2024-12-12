@@ -18,14 +18,3 @@
   - type: StorageFill
     contents:
     - id: ADTRPD
-
-- type: entity
-  id: CrateEngineerSupermatter
-  parent: CrateSupermatter
-  name: Ящик для содержания Сверхматерии.
-  suffix: МАППИТЬ
-  description: Невероятно хрупкий ящик, состоящий из стекла и смеси газов.
-  components:
-  - type: StorageFill
-    contents:
-    - id: Supermatter

@@ -48,12 +48,17 @@ public sealed partial class SupermatterSystem
         // Minimum value of -10, maximum value of 23. Affects plasma, o2 and heat output.
         var transmissionBonus = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].TransmitModifier);
 
+        // Minimum value of 0, maximum value of 1. If = 1, then a cascade is possible
+        var resonantfrequency = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].ResonantFrequency);
+
         var h2OBonus = 1 - gases[Gas.WaterVapor] * 0.25f;
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         heatModifier = Math.Max(heatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
+        resonantfrequency = Math.Clamp(resonantfrequency, 0, 1);
 
+        sm.ResonantFrequency = 0;
         // Effects the damage heat does to the crystal
         sm.DynamicHeatResistance = 1f;
 
@@ -98,12 +103,13 @@ public sealed partial class SupermatterSystem
         sm.Power = Math.Max(absorbedGas.Temperature * tempFactor / Atmospherics.T0C * powerRatio + sm.Power, 0);
 
         // Irradiate stuff
+
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
             rad.Intensity =
-                sm.Power
-                * Math.Max(0, 1f + transmissionBonus / 10f)
-                * 0.003f
-                * _config.GetCVar(CCVars.SupermatterRadsModifier);
+            sm.Power
+            * Math.Max(0, 1f + transmissionBonus / 10f)
+            * 0.003f
+            * _config.GetCVar(CCVars.SupermatterRadsModifier);
 
         // Power * 0.55 * 0.8~1
         var energy = sm.Power * sm.ReactionPowerModifier;
@@ -154,7 +160,8 @@ public sealed partial class SupermatterSystem
         // We're in space or there is no gas to process
         if (!xform.GridUid.HasValue || mix is not { } || mix.TotalMoles == 0f)
         {
-            sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
+            //sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
+            sm.Damage += Math.Max(sm.Power * 100 * sm.DamageIncreaseMultiplier, 0.1f);
             return;
         }
 
@@ -251,8 +258,6 @@ public sealed partial class SupermatterSystem
             switch (sm.PreferredDelamType)
             {
                 case DelamType.Cascade: loc = "supermatter-delam-cascade";   break;
-                case DelamType.Singulo: loc = "supermatter-delam-overmass";  break;
-                case DelamType.Tesla:   loc = "supermatter-delam-tesla";     break;
                 default:                loc = "supermatter-delam-explosion"; break;
             }
 
@@ -317,35 +322,16 @@ public sealed partial class SupermatterSystem
         return integrity;
     }
 
-    /// <summary>
-    ///     Decide on how to delaminate.
-    /// </summary>
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(CCVars.SupermatterDoForceDelam))
-            return _config.GetCVar(CCVars.SupermatterForcedDelamType);
+        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
+         &&  sm.ResonantFrequency >= 1)
 
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+         return DelamType.Cascade;
 
-        if (mix is { })
-        {
-            var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-            var moles = absorbedGas.TotalMoles;
-
-            if (_config.GetCVar(CCVars.SupermatterDoSingulooseDelam)
-                && moles >= sm.MolePenaltyThreshold * _config.GetCVar(CCVars.SupermatterSingulooseMolesModifier))
-                return DelamType.Singulo;
-        }
-
-        if (_config.GetCVar(CCVars.SupermatterDoTeslooseDelam)
-            && sm.Power >= sm.PowerPenaltyThreshold * _config.GetCVar(CCVars.SupermatterTesloosePowerModifier))
-            return DelamType.Tesla;
-
-        //TODO: Add resonance cascade when there's crazy conditions or a destabilizing crystal
-
-        return DelamType.Explosion;
+       return DelamType.Explosion;
     }
-
+    
     /// <summary>
     ///     Handle the end of the station.
     /// </summary>
@@ -376,14 +362,6 @@ public sealed partial class SupermatterSystem
         {
             case DelamType.Cascade:
                 Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Singulo:
-                Spawn(sm.SingularitySpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Tesla:
-                Spawn(sm.TeslaSpawnPrototype, xform.Coordinates);
                 break;
 
             default:

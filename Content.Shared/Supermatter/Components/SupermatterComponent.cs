@@ -37,12 +37,6 @@ public sealed partial class SupermatterComponent : Component
     };
 
     [DataField]
-    public string SingularitySpawnPrototype = "Singularity";
-
-    [DataField]
-    public string TeslaSpawnPrototype = "TeslaEnergyBall";
-
-    [DataField]
     public string KudzuSpawnPrototype = "SupermatterKudzu";
 
     /// <summary>
@@ -69,6 +63,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public float Power;
+
+    /// <summary>
+    ///     Some shit for cascade
+    /// </summary>
+    [DataField]
+    public float ResonantFrequency = 0f;
 
     [DataField]
     public float MatterPower;
@@ -210,7 +210,7 @@ public sealed partial class SupermatterComponent : Component
     public float PowerlossInhibitionMoleBoostThreshold = 500f;
 
     /// <summary>
-    ///     Above this value we can get lord singulo and independent mol damage, below it we can heal damage
+    ///     Above this value we can get independent mol damage, below it we can heal damage
     /// </summary>
     [DataField]
     public float MolePenaltyThreshold = 900f;
@@ -223,7 +223,7 @@ public sealed partial class SupermatterComponent : Component
 
     /// <summary>
     ///     The cutoff on power properly doing damage, pulling shit around,
-    ///     and delamming into a tesla. Low chance of pyro anomalies, +2 bolts of electricity
+    ///     Low chance of pyro anomalies, +2 bolts of electricity
     /// </summary>
     [DataField]
     public float PowerPenaltyThreshold = 4000f;
@@ -343,28 +343,28 @@ public sealed partial class SupermatterComponent : Component
     ///     Stores information about how every gas interacts with the SM
     /// </summary>
     //TODO: Replace this with serializable GasFact array something
-    public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio)> GasDataFields = new()
+    public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio, float ResonantFrequency)> GasDataFields = new()
     {
-        { Gas.Oxygen,        (1.5f,  1f,    1f)  },
-        { Gas.Nitrogen,      (0f,   -1.5f, -1f)  },
-        { Gas.CarbonDioxide, (0f,   0.1f,   1f)  },
-        { Gas.Plasma,        (4f,   15f,    1f)  },
-        { Gas.Tritium,       (30f,  10f,    1f)  },
-        { Gas.WaterVapor,    (2f,   12f,    1f)  },
-        { Gas.Frezon,        (3f,   -10f,  -1f)  },
-        { Gas.Ammonia,       (0f,   0.5f,   1f)  },
-        { Gas.NitrousOxide,  (0f,   -5f,   -1f)  }, /// Проверить работу Эффекта Оксида
-        { Gas.BZ,            (1f,   -8,    -1f)  },
-        { Gas.Pluoxium,      (3f,   -5f,   -1f)  },
-        { Gas.Hydrogen,      (20f,   10f,   1f)  },
-        { Gas.Nitrium,       (30f,   13.5f, 0f)  },
-        { Gas.Healium,       (2.2f,  3f,    1f)  }, // Добавить Эффект Оксида
-        { Gas.HyperNoblium,  (1f,   -14f,  -1f)  },
-        { Gas.ProtoNitrate,  (5f,    1f,   -2f)  }, /// Добавить Эффект Оксида
-        { Gas.Zauker,        (30f,   20f,  -1f)  },
-        { Gas.Halon,         (0f,    0f,    0f)  },
-        { Gas.Helium,        (0f,    0f,    0f)  },
-        { Gas.AntiNoblium,   (0f,    0f,    0f)  },
+        { Gas.Oxygen,        (1.5f,  1f,    1f, 0f)  },
+        { Gas.Nitrogen,      (0f,   -1.5f, -1f, 0f)  },
+        { Gas.CarbonDioxide, (0f,   0.1f,   1f, 0f)  },
+        { Gas.Plasma,        (4f,   15f,    1f, 0f)  },
+        { Gas.Tritium,       (30f,  10f,    1f, 0f)  },
+        { Gas.WaterVapor,    (2f,   12f,    1f, 0f)  },
+        { Gas.Frezon,        (3f,   -10f,  -1f, 0f)  },
+        { Gas.Ammonia,       (0f,   0.5f,   1f, 0f)  },
+        { Gas.NitrousOxide,  (0f,   -5f,   -1f, 0f)  }, /// Проверить работу Эффекта Оксида
+        { Gas.BZ,            (1f,   -8,    -1f, 0f)  },
+        { Gas.Pluoxium,      (3f,   -5f,   -1f, 0f)  },
+        { Gas.Hydrogen,      (20f,   10f,   1f, 0f)  },
+        { Gas.Nitrium,       (30f,   13.5f, 0f, 0f)  },
+        { Gas.Healium,       (2.2f,  3f,    1f, 0f)  }, // Добавить Эффект Оксида
+        { Gas.HyperNoblium,  (1f,   -14f,  -1f, 0f)  },
+        { Gas.ProtoNitrate,  (5f,    1f,   -1f, 0f)  }, /// Добавить Эффект Оксида
+        { Gas.Zauker,        (30f,   20f,   0f, 0f)  },
+        { Gas.Halon,         (0f,    0f,    0f, 0f)  },
+        { Gas.Helium,        (0f,    0f,    0f, 0f)  },
+        { Gas.AntiNoblium,   (6f,    -6f,  -1f, 1f)  },
     };
 
     #endregion
@@ -380,9 +380,7 @@ public enum SupermatterSound : sbyte
 public enum DelamType : int
 {
     Explosion = 0,
-    Singulo = 1,
-    Tesla = 2,
-    Cascade = 3
+    Cascade = 1
 }
 
 [Serializable, DataDefinition]
@@ -397,11 +395,15 @@ public sealed partial class GasFact
     [DataField]
     public float PowerMixRatio;
 
-    public GasFact(float transmitModifier, float heatPenalty, float powerMixRatio)
+    [DataField]
+    public float ResonantFrequency;
+
+    public GasFact(float transmitModifier, float heatPenalty, float powerMixRatio, float resonantfrequency)
     {
         TransmitModifier = transmitModifier;
         HeatPenalty = heatPenalty;
         PowerMixRatio = powerMixRatio;
+        ResonantFrequency = resonantfrequency;
     }
 }
 
