@@ -1,3 +1,4 @@
+using Content.Shared.Supermatter.Components;
 using Content.Shared.Maps;
 using Content.Shared.Roles;
 using Robust.Shared;
@@ -2373,5 +2374,21 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> DebugPow3rDisableParallel =
             CVarDef.Create("debug.pow3r_disable_parallel", true, CVar.SERVERONLY);
+
+        #region Supermatter System
+        
+        /// <summary>
+        ///     Toggles cascade
+        /// </summary>
+        public static readonly CVarDef<bool> SupermatterDoCascadeDelam =
+            CVarDef.Create("supermatter.do_cascade", true, CVar.SERVER);
+
+        /// <summary>
+        ///     Directly multiplies the amount of rads put out by the supermatter. Be VERY conservative with this.
+        /// </summary>
+        public static readonly CVarDef<float> SupermatterRadsModifier =
+            CVarDef.Create("supermatter.rads_modifier", 1f, CVar.SERVER);
+
+        #endregion
     }
 }
