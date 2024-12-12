@@ -17,7 +17,6 @@ public sealed class RMCMagneticSystem : EntitySystem
     {
         SubscribeLocalEvent<RMCMagneticItemComponent, DroppedEvent>(OnMagneticItemDropped);
         SubscribeLocalEvent<RMCMagneticItemComponent, RMCDroppedEvent>(OnMagneticItemRMCDropped);
-        // SubscribeLocalEvent<RMCMagneticItemComponent, ThrownEvent>(OnMagneticItemThrown);
         SubscribeLocalEvent<RMCMagneticItemComponent, DropAttemptEvent>(OnMagneticItemDropAttempt);
     }
 
@@ -30,18 +29,6 @@ public sealed class RMCMagneticSystem : EntitySystem
     {
         TryReturn(ent, args.User);
     }
-
-    // private void OnMagneticItemThrown(Entity<RMCMagneticItemComponent> ent, ref ThrownEvent args)
-    // {
-    //     if (args.User is not { } user)
-    //         return;
-
-    //     if (!TryReturn(ent, user))
-    //         return;
-
-    //     if (TryComp(ent, out ThrownItemComponent? thrown))
-    //         _thrownItem.StopThrow(ent, thrown);
-    // }
 
     private void OnMagneticItemDropAttempt(Entity<RMCMagneticItemComponent> ent, ref DropAttemptEvent args)
     {

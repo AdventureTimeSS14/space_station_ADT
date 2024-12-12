@@ -447,17 +447,16 @@
   description: A close-fitting cap that covers the top, back, and sides of the head. Can also be adjusted to cover the lower part of the face so it keeps the user warm in harsh conditions.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Clothing/Mask/coif.rsi
+    sprite: ADT/Clothing/Mask/coif.rsi
     state: icon
-  - type: Item
-    size: Small
   - type: Clothing
     slots: [mask]
-    sprite: _RMC14/Objects/Clothing/Mask/coif.rsi
+    sprite: ADT/Clothing/Mask/coif.rsi
   - type: StaticPrice
     price: 25
   - type: IdentityBlocker
     coverage: MOUTH
   - type: Item
     storedRotation: -90
+    size: Small
   - type: Mask

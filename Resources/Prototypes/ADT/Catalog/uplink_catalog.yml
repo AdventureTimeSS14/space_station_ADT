@@ -470,3 +470,14 @@
     Telecrystal: 25
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkMask
+  name: uplink-mask-name
+  description: uplink-mask-desc
+  productEntity: ADTMaskCoif
+  categories:
+    - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
