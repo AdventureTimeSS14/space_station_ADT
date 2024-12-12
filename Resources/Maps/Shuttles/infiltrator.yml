@@ -241,7 +241,7 @@ entities:
           - 0
           - 0
         chunkSize: 4
-    - type: NukeopsShuttle # ADT-drone-console-tweak 
+    - type: NukeOpsShuttle # ADT-drone-console-tweak
     - type: DecalGrid
       chunkCollection:
         version: 2

@@ -162,7 +162,7 @@
 # ADT-drone-console-tweak
   - type: DroneConsole
     components:
-      - type: NukeopsShuttle
+      - type: NukeOpsShuttle
 # ADT-drone-console-tweak
   - type: RadarConsole
     maxRange: 384

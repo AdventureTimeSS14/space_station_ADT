@@ -86,7 +86,7 @@
   #   board: SyndicateShuttleConsoleCircuitboard
   - type: DroneConsole
     components:
-      - type: NukeopsShuttle
+      - type: NukeOpsShuttle
 
 - type: entity
   parent: ADTHandheldShuttleConsoleDefault
