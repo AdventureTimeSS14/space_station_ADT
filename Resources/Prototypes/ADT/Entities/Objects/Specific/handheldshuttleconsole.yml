@@ -27,8 +27,8 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  - type: Computer
-    board: ShuttleConsoleCircuitboard
+  # - type: Computer
+  #   board: ShuttleConsoleCircuitboard
   - type: ContainerContainer
     containers:
       board: !type:Container
@@ -59,6 +59,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
   - type: Appearance
 
 - type: entity
@@ -81,8 +82,8 @@
     radius: 1.5
     energy: 1.6
     color: "#c94242"
-  - type: Computer
-    board: SyndicateShuttleConsoleCircuitboard
+  # - type: Computer
+  #   board: SyndicateShuttleConsoleCircuitboard
 
 - type: entity
   parent: ADTHandheldShuttleConsoleDefault
@@ -101,8 +102,8 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  - type: Computer
-    board: ADTSalvageShuttleConsoleCircuitboard
+  # - type: Computer
+  #   board: ADTSalvageShuttleConsoleCircuitboard
   - type: DroneConsole
     components:
       - type: SalvageShuttle
@@ -124,8 +125,8 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  - type: Computer
-    board: ADTSecShuttleConsoleCircuitboard
+  # - type: Computer
+  #   board: ADTSecShuttleConsoleCircuitboard
   - type: DroneConsole
     components:
       - type: SecShuttle
