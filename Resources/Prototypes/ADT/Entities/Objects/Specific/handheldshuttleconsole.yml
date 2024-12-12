@@ -3,7 +3,7 @@
   id: ADTHandheldShuttleConsoleDefault
   name: default handheld shuttle console
   description: A gadget which can control the shuttle remotely.
-  abstract: false
+  abstract: true
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
@@ -86,7 +86,7 @@
   #   board: SyndicateShuttleConsoleCircuitboard
   - type: DroneConsole
     components:
-      - type: SalvageShuttle
+      - type: NukeopsShuttle
 
 - type: entity
   parent: ADTHandheldShuttleConsoleDefault

@@ -27,6 +27,20 @@
     sprite: ADT/Clothing/Mask/gasCE.rsi
     state: icon
 
+- type: stealTargetGroup
+  id: ADTHandheldConsoleSecurityStealObjective
+  name: steal-target-groups-adt-handheld-console-security
+  sprite:
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: security
+
+- type: stealTargetGroup
+  id: ADTHandheldConsoleSalvageStealObjective
+  name: steal-target-groups-adt-handheld-console-salvage
+  sprite:
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: salvage
+
 # changeling
 
 - type: stealTargetGroup
