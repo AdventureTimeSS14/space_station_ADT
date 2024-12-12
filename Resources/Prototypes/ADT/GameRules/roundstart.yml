@@ -66,8 +66,8 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 5
-      playerRatio: 15
+      max: 3
+      playerRatio: 20
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole

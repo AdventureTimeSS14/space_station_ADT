@@ -775,12 +775,12 @@
       fireCost: 100
     - proto: BulletLaserHeavySpread
       fireCost: 100
-#    - proto: BulletDisablerSmgSpread # ADT nerf
-#      fireCost: 100 # ADT nerf
+    - proto: BulletDisablerSmgSpread # ADT nerf
+      fireCost: 100 # ADT nerf
   - type: Item
     size: Large
     shape:
-    - 0,0,3,3 # ADT tweak before 0 0 3 1
+    - 0,0,3,1
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
 # ADT tweak start

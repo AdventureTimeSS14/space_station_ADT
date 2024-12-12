@@ -70,3 +70,6 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/paramedic_backpack.rsi
+  - type: StorageFill
+    contents:
+      - id: JawsOfLife

@@ -30,7 +30,8 @@
     spriteLayer: radio
   - type: ItemToggle
   - type: SpeechBarks
-    barkPrototype: GhostRadio
+    data:
+      proto: GhostRadio
 
 - type: entity
   id: ADTGhostRadio
