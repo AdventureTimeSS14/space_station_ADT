@@ -22,7 +22,7 @@
           type: WiresBoundUserInterface
   - type: RadarConsole
   - type: WorldLoader
-    radius: 256
+    radius: 500
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -39,7 +39,7 @@
     receiveFrequencyId: BasicDevice
     autoConnect: true
   - type: WirelessNetworkConnection
-    range: 500
+    range: 1000
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -75,7 +75,7 @@
     tags:
       - Syndicate
   - type: RadarConsole
-    maxRange: 384
+    maxRange: 1000
   - type: WorldLoader
     radius: 1536
   - type: PointLight
@@ -84,6 +84,9 @@
     color: "#c94242"
   # - type: Computer
   #   board: SyndicateShuttleConsoleCircuitboard
+  - type: DroneConsole
+    components:
+      - type: SalvageShuttle
 
 - type: entity
   parent: ADTHandheldShuttleConsoleDefault
@@ -95,7 +98,7 @@
     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
     state: salvage
   - type: RadarConsole
-    maxRange: 384
+    maxRange: 1000
   - type: WorldLoader
     radius: 1536
   - type: PointLight
@@ -118,7 +121,7 @@
     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
     state: security
   - type: RadarConsole
-    maxRange: 384
+    maxRange: 1000
   - type: WorldLoader
     radius: 1536
   - type: PointLight
