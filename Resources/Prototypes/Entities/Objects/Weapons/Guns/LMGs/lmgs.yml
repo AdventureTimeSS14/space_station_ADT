@@ -68,7 +68,7 @@
 - type: entity
   name: L6 SAW
   id: WeaponLightMachineGunL6
-  parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband, ADTBaseMagneticGun] # adt tweak
+  parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband, ADTBaseAttachableHolder] # adt tweak
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
   components:
   - type: Sprite
@@ -83,6 +83,19 @@
     steps: 4
     zeroVisible: true
   - type: Appearance
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-rail: -0.2275, -0.1575
+# ADT TWEAK END
 
 - type: entity
   name: L6C ROW

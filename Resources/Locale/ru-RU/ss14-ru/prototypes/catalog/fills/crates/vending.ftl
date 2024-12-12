@@ -50,3 +50,5 @@ ent-CrateVendingMachineRestockHappyHonkFilled = ящик пополнения Х
     .desc = Содержит набор пополнения торгомата Хэппи Хонк.
 ent-CrateVendingMachineRestockChemVendFilled = ящик пополнения ХимкоМат
     .desc = Содержит набор пополнения торгомата ХимкоМат.
+ent-ADTCrateHalloweenCloth = ящик с одеждой для Хэллоуина.
+    .desc = Содержит набор одежды на Хэллоуин.

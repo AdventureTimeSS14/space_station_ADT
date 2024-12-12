@@ -50,6 +50,15 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon #ADT_Tweak. Для ШТЫКОВОЙ
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee #ADT_Tweak
 
 - type: entity
   name: AKMS
@@ -102,7 +111,7 @@
 
 - type: entity
   name: M-90gl
-  parent: [BaseWeaponRifle, ADTBaseAttachableHolder, ADTBaseMagneticGun] # ADT TWEAK М90 ОБР ЯВЛЯЕТСЯ КОНТРАБАНДОЙ СИНДИКАТА XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+  parent: [BaseWeaponRifle, ADTBaseAttachableHolder] # ADT TWEAK М90 ОБР ЯВЛЯЕТСЯ КОНТРАБАНДОЙ СИНДИКАТА XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
   id: WeaponRifleM90GrenadeLauncher
   description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
   components:
@@ -134,7 +143,7 @@
         whitelist:
           tags:
             - CartridgeRifle
-            # ADT TWEAK START
+# ADT TWEAK START
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -142,10 +151,20 @@
           tags:
           - ADTAttachmentM90GrenadeLauncher
           - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.3125, -0.0625
-      # ADT TWEAK END
+      rmc-aslot-rail: 0.0, -0.0325
+# ADT TWEAK END
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -158,7 +177,7 @@
 
 - type: entity
   name: Lecter
-  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseMagneticGun] # ADT TWEAK
+  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .20 rifle ammo.
   components:
@@ -202,6 +221,28 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentM90GrenadeLauncher
+          - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.3125, -0.0625
+      rmc-aslot-rail: 0, 0
+# ADT TWEAK END
 
 - type: entity
   name: Foam Force Astro Ace

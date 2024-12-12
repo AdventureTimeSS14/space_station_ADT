@@ -81,6 +81,9 @@
     tags:
     - ADTAttachmentUnderbarrel
     - ADTAttachmentM90GrenadeLauncher
+  - type: Item
+    sprite: ADT/Attachments/under.rsi
+    storedRotation: -90
 
 - type: entity
   parent: [ ADTUnderAttachmentBase, ADTAttachableToggleableBase ]
@@ -89,7 +92,7 @@
   description: MEOW
   components:
   - type: Sprite
-    state: grenade
+    state: masterkey
   - type: Tag
     tags:
     - ADTAttachmentUnderbarrel
@@ -128,10 +131,62 @@
     actionDesc: Switch to using the underbarrel shotgun.
     icon:
       sprite: ADT/Attachments/under.rsi
-      state: grenade
+      state: masterkey
     iconActive:
       sprite: ADT/Attachments/under.rsi
-      state: grenade-on
+      state: masterkey-on
   - type: AttachableVisuals
   - type: UniqueAction
   - type: PumpAction
+  - type: Item
+    sprite: ADT/Attachments/under.rsi
+    storedRotation: -90
+
+- type: entity
+  parent: ADTUnderAttachmentBase
+  id: ADTAttachmentVerticalGrip
+  name: vertical grip
+  description: "A vertical foregrip that offers better accuracy, less recoil, and less scatter, especially during burst fire.
+    However, it also increases weapon size."
+  components:
+  - type: Sprite
+    state: verticalgrip
+  - type: AttachableVisuals
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentVerticalGrip
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: 0.3
+      recoilFlat: -2
+      scatterFlat: -4
+      burstScatterAddMult: -4
+
+- type: entity
+  parent: ADTUnderAttachmentBase
+  id: ADTAttachmentLaserSight
+  name: laser sight
+  description: A laser sight that attaches to the underside of most weapons. Increases accuracy and decreases scatter, especially while one-handed.
+  components:
+  - type: Sprite
+    state: lasersight
+  - type: AttachableVisuals
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentLaserSight
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: 0.15
+      scatterFlat: -2
+      recoilFlat: -2
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: 0.3
+      scatterFlat: -6
+      recoilFlat: -4

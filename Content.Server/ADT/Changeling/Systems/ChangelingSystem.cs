@@ -5,7 +5,6 @@ using Content.Shared.Changeling;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Popups;
 using Content.Shared.Store;
-using Content.Server.Traitor.Uplink;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
@@ -29,7 +28,6 @@ using Content.Shared.Mind;
 using Robust.Shared.Player;
 using System.Linq;
 using Content.Shared.Preferences;
-using Content.Server.Humanoid;
 using Robust.Shared.Utility;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Store.Components;
@@ -43,13 +41,12 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Cuffs;
 using Robust.Shared.Timing;
 using Content.Server.ADT.Hallucinations;
-using Content.Shared.Gibbing.Systems;
 using Content.Shared.Mobs;
 using Content.Server.Stealth;
 using Content.Server.ADT.Store;
 using Robust.Server.Containers;
-using Content.Server.Ghost;
 using Content.Shared.ADT.Stealth.Components;
+using Content.Shared.Sirena.CollectiveMind;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -59,25 +56,20 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly FlashSystem _flashSystem = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -140,9 +132,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, ChangelingComponent component, ComponentStartup args)
     {
-        //RemComp<ActivatableUIComponent>(uid);     // TODO: Исправить проблему с волосами слаймов
-        //RemComp<UserInterfaceComponent>(uid);
-        //RemComp<SlimeHairComponent>(uid);
         StealDNA(uid, component);
 
         RemComp<HungerComponent>(uid);
@@ -156,6 +145,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ChangelingComponent component, MapInitEvent args)
     {
+        EnsureComp<CollectiveMindComponent>(uid);
         if (component.GainedActions)
             return;
         _action.AddAction(uid, ref component.ChangelingEvolutionMenuActionEntity, component.ChangelingEvolutionMenuAction);
@@ -282,7 +272,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         component.BoughtActions.Clear();
 
-        _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } }, uid);
+        _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 + (5 * component.ChangelingsAbsorbed) } }, uid);
         _store.TryRefreshStoreStock(uid);
         component.CanRefresh = false;
 
@@ -341,6 +331,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         newLingComponent.AbsorbedDnaModifier = comp.AbsorbedDnaModifier;
         newLingComponent.DNAStolen = comp.DNAStolen;
+        newLingComponent.ChangelingsAbsorbed = comp.ChangelingsAbsorbed;
         newLingComponent.LastResortUsed = comp.LastResortUsed;
         newLingComponent.CanRefresh = comp.CanRefresh;
 

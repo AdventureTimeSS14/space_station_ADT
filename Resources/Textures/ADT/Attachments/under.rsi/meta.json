@@ -28,6 +28,30 @@
         },
         {
             "name": "mosinbayonet_a"
+        },
+        {
+            "name": "masterkey"
+        },
+        {
+            "name": "masterkey-on"
+        },
+        {
+            "name": "masterkey_a"
+        },
+        {
+            "name": "verticalgrip"
+        },
+        {
+            "name": "verticalgrip_a"
+        },
+        {
+            "name": "lasersight"
+        },
+        {
+            "name": "lasersight_a"
+        },
+        {
+            "name": "combatknife_a"
         }
     ]
 }

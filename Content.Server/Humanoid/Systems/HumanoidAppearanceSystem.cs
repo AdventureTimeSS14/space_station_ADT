@@ -59,6 +59,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
         SetTTSVoice(targetHumanoid.Owner, sourceHumanoid.Voice, targetHumanoid); // Corvax-TTS
+        SetBarkData(targetHumanoid.Owner, sourceHumanoid.Bark, targetHumanoid);  // ADT Barks
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
         if (TryComp<GrammarComponent>(targetHumanoid.Owner, out var grammar))

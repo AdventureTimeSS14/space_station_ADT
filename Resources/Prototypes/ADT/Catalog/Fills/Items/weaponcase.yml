@@ -46,6 +46,11 @@
     - id: ADTAttachmentM90UnderbarrelShotgun
     - id: MagazineShotgun
       amount: 2
+    - id: MagazineShotgunBeanbag
+      amount: 2
+    - id: MagazineShotgunIncendiary
+      amount: 2
+    - id: MagazineShotgunSlug      
 
 - type: entity
   id: WeaponCaseNTLecter

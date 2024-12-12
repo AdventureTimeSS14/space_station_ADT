@@ -184,8 +184,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
-      max: 8
-      playerRatio: 10
+      max: 6          #ADT_Tweak
+      playerRatio: 15 #ADT_Tweak
       blacklist:
         components:
         - AntagImmune

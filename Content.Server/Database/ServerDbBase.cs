@@ -271,10 +271,7 @@ namespace Content.Server.Database
                 traits.ToHashSet(),
                 loadouts,
                 // ADT Barks start
-                profile.BarkProto,
-                profile.BarkPitch,
-                profile.LowBarkVar,
-                profile.HighBarkVar
+                new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar)
                 // ADT Barks end
             );
         }
@@ -357,10 +354,10 @@ namespace Content.Server.Database
                 profile.Loadouts.Add(dz);
             }
             // ADT Barks start
-            profile.BarkProto = humanoid.BarkProto;
-            profile.BarkPitch = humanoid.BarkPitch;
-            profile.LowBarkVar = humanoid.BarkLowVar;
-            profile.HighBarkVar = humanoid.BarkHighVar;
+            profile.BarkProto = humanoid.Bark.Proto;
+            profile.BarkPitch = humanoid.Bark.Pitch;
+            profile.LowBarkVar = humanoid.Bark.MinVar;
+            profile.HighBarkVar = humanoid.Bark.MaxVar;
             // ADT Barks end
 
             return profile;

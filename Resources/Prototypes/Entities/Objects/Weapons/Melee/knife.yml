@@ -89,14 +89,14 @@
 
 - type: entity
   name: combat knife
-  parent: [BaseKnife, BaseRestrictedContraband]
+  parent: [BaseKnife, BaseRestrictedContraband, ADTUnderAttachmentBase] # ADT TWEAK
   id: CombatKnife
   description: A deadly knife intended for melee confrontations.
   components:
-  - type: Tag
-    tags:
-    - CombatKnife
-    - Knife
+  # - type: Tag
+  #   tags:
+  #   - CombatKnife
+  #   - Knife
   - type: Sprite
     sprite: Objects/Weapons/Melee/combat_knife.rsi
     state: icon
@@ -117,14 +117,35 @@
     sprite: Objects/Weapons/Melee/combat_knife.rsi
   - type: DisarmMalus
     malus: 0.225
-  #ADT add start
+# ADT TWEAK START
   - type: ThrowingAngle
     angle: 225
-  #ADT add end
+  - type: Tag
+    tags:
+    - SurvivalKnifeAttachment
+    - CombatKnife
+    - Knife
+  - type: AttachableWeaponMeleeMods
+    modifiers:
+    - bonusDamage:
+        types:
+          Slash: 5
+          Piercing: 12
+    - decreaseDamage:
+        types:
+          Blunt: 5
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - accuracyAddMult: -0.05
+  - type: AttachablePrying
+  - type: AttachableVisuals
+    rsi: ADT/Attachments/under.rsi
+    prefix: combatknife
+# ADT TWEAK END
 
 - type: entity
   name: survival knife
-  parent: [CombatKnife, BaseSecurityCargoContraband, ADTBarrelAttachmentBase] # ADT TWEAK
+  parent: [CombatKnife, BaseSecurityCargoContraband, ADTUnderAttachmentBase] # ADT TWEAK
   id: SurvivalKnife
   description: Weapon of first and last resort for combatting space carp.
   components:

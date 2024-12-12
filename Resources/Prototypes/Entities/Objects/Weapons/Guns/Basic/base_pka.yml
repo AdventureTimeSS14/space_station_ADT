@@ -49,14 +49,11 @@
     delay: 1
   - type: AttachableHolder #ADT_Tweak
     slots:
-      rmc-aslot-barrel:
-        whitelist:
-          tags:
-          - SurvivalKnifeAttachment
       rmc-aslot-underbarrel:
         whitelist:
           tags:
           - ADTAttachmentMicroAccelerator
+          - SurvivalKnifeAttachment
       # rmc-aslot-stock:
       #   whitelist:
       #     tags:
@@ -65,7 +62,7 @@
       #       tags:
   - type: AttachableHolderVisuals #ADT_Tweak
     offsets:
-      rmc-aslot-barrel: 0.59375, -0.15625
+      rmc-aslot-underbarrel: 0.315, -0.209
   - type: MeleeWeapon #ADT_Tweak
     resetOnHandSelected: false
     attackRate: 1

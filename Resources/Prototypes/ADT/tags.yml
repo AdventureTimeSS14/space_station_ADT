@@ -405,3 +405,13 @@
 
 - type: Tag
   id: ADT40mmGrenade
+
+#sponsor_items
+- type: Tag
+  id: ADTWeaponPistolPrazatHawk
+
+- type: Tag
+  id: ADTWeaponPistolMaria
+
+- type: Tag
+  id: ADTWeaponMeleePrasatChainsword

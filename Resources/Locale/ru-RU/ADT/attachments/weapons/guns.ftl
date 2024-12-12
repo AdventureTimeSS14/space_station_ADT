@@ -9,8 +9,8 @@ rmc-breech-loaded-not-ready-to-shoot = Сначала нужно открыть 
 rmc-breech-loaded-closed-load-attempt = Сначала нужно открыть затвор!
 rmc-breech-loaded-closed-extract-attempt = Сначала нужно открыть затвор!
 
-rmc-wield-use-delay = Вам нужно подождать {$seconds} секунд, прежде чем использовать {THE($wieldable)}!
-rmc-shoot-use-delay = Вам нужно подождать {$seconds} секунд, прежде чем стрелять из {THE($wieldable)}!
+rmc-wield-use-delay = Вам нужно подождать {$seconds} секунд, прежде чем использовать {$wieldable}!
+rmc-shoot-use-delay = Вам нужно подождать {$seconds} секунд, прежде чем стрелять из {$wieldable}!
 
 rmc-revolver-spin = Вы раскручиваете барабан.
 

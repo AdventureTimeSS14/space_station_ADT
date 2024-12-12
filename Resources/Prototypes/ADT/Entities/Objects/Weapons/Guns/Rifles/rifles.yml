@@ -155,7 +155,7 @@
 
 - type: entity
   name: xC67
-  parent: [BaseWeaponRifle, ADTBaseMagneticGun]
+  parent: [BaseWeaponRifle, ADTBaseAttachableHolder]
   id: ADTWeaponRifleXC67
   description: A high end prototipe assault rifle. Uses .20 rifle ammo.
   components:
@@ -169,8 +169,8 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
   - type: Gun
-    #minAngle: 2
-    #maxAngle: 8
+    minAngle: 20.5
+    maxAngle: 31   
     fireRate: 6
     #angleIncrease: 1
     #angleDecay: 12
@@ -210,19 +210,32 @@
   - type: Appearance
   - type: AttachableHolder
     slots:
+      rmc-aslot-underbarrel:
+        startingAttachable: ADTAttachmentVerticalGrip
+        whitelist:
+          tags:
+          - ADTAttachmentM90GrenadeLauncher
+          - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
       rmc-aslot-rail:
-        locked: true
-        startingAttachable: ADTAttachmentXC67Miniscope
+        startingAttachable: ADTAttachmentT2Miniscope
         whitelist:
             tags:
             - ADTAttachmentMagneticHarness
-            - ADTAttachmentXC67Miniscope
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.3125, -0.0315
+      rmc-aslot-rail: -0.0940, -0.0325
   - type: ItemSizeChange
-  - type: ActivatableUI
-    verbText: rmc-verb-strip-attachables
-    verbOnly: true
-    key:
-      enum.AttachmentUI.StripKey
+  # - type: ActivatableUI
+  #   verbText: rmc-verb-strip-attachables
+  #   verbOnly: true
+  #   key:
+  #     enum.AttachmentUI.StripKey
   - type: UserInterface
     interfaces:
       enum.AttachmentUI.StripKey:
