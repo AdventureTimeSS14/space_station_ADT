@@ -58,7 +58,7 @@ public sealed partial class SupermatterSystem
         transmissionBonus *= h2OBonus;
         resonantfrequency = Math.Clamp(resonantfrequency, 0, 1);
 
-        sm.ResonantFrequency = 0;
+        sm.ResonantFrequency = resonantfrequency;
         // Effects the damage heat does to the crystal
         sm.DynamicHeatResistance = 1f;
 
@@ -160,8 +160,7 @@ public sealed partial class SupermatterSystem
         // We're in space or there is no gas to process
         if (!xform.GridUid.HasValue || mix is not { } || mix.TotalMoles == 0f)
         {
-            //sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
-            sm.Damage += Math.Max(sm.Power * 100 * sm.DamageIncreaseMultiplier, 0.1f);
+            sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
             return;
         }
 
@@ -193,6 +192,10 @@ public sealed partial class SupermatterSystem
         // Mol count only starts affecting damage when it is above 1800
         var moleDamage = Math.Max(moles - sm.MolePenaltyThreshold, 0) / 80 * sm.DamageIncreaseMultiplier;
         totalDamage += moleDamage;
+
+        // Damage from AntiNoblium
+        var resonantDamage = Math.Max(moles + sm.ResonantFrequency, 0)  * sm.DamageIncreaseMultiplier;
+        totalDamage += resonantDamage;
 
         // Healing damage
         if (moles < sm.MolePenaltyThreshold)
@@ -227,9 +230,6 @@ public sealed partial class SupermatterSystem
         }
 
         var damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DamageDelaminationPoint, totalDamage);
-
-        // Prevent it from going negative
-        sm.Damage = Math.Clamp(damage, 0, float.PositiveInfinity);
     }
 
     /// <summary>

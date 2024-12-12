@@ -364,7 +364,7 @@ public sealed partial class SupermatterComponent : Component
         { Gas.Zauker,        (30f,   20f,   0f, 0f)  },
         { Gas.Halon,         (0f,    0f,    0f, 0f)  },
         { Gas.Helium,        (0f,    0f,    0f, 0f)  },
-        { Gas.AntiNoblium,   (6f,    -6f,  -1f, 1f)  },
+        { Gas.AntiNoblium,   (0f,    0f,    0f, 1f)  },
     };
 
     #endregion
