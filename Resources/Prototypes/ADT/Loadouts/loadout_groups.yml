@@ -4,6 +4,7 @@
   id: MagistratJumpsuit
   name: loadout-group-lawyer-jumpsuit
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - MagistratJumpsuit
   - LawyerJumpsuit
@@ -37,6 +38,7 @@
   id: PathologJumpsuit
   name: loadout-group-patholog-jumpsuit
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - PathologJumpsuit
   - PathologJumpskirt
@@ -47,6 +49,7 @@
   id: PathologBackpack
   name: loadout-group-patholog-backpack
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - PathologBackpack
   - PathologSatchel
@@ -56,6 +59,7 @@
   id: PathologWindbreaker
   name: loadout-group-patholog-outerclothing
   minLimit: 0
+  maxLimit: 1
   loadouts:
   - PathologWindbreaker
   - PathologWintercoat
@@ -64,6 +68,8 @@
 - type: loadoutGroup
   id: PathologShoes
   name: loadout-group-patholog-shoes
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - BlueShoes
   - MedicalWinterBoots
@@ -72,6 +78,7 @@
   id: ADTMedicalBelt
   name: loadout-group-medical-belt-adt
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - ADTMedicalBelt
   - ADTMedicalBeltBag
@@ -82,6 +89,7 @@
   id: ADTParamedicBelt
   name: loadout-group-paramedic-belt-adt
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - ADTParamedicBeltEMT
   - ADTParamedicBeltEMTBag
@@ -90,6 +98,7 @@
   id: ADTParamedicBackpack
   name: loadout-group-paramedic-backpack-adt
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - ADTParamedicBackpack
   - ADTParamedicSatchel
@@ -100,6 +109,8 @@
 - type: loadoutGroup
   id: SeniorOfficerJumpsuit
   name: loadout-group-senior-officer-jumpsuit
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
@@ -107,6 +118,8 @@
 - type: loadoutGroup
   id: ADTSeniorOfficerBackpack
   name: loadout-group-senior-officer-backpack
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - ADTSeniorOfficerBackpack
   - ADTSeniorOfficerSatchel
@@ -115,6 +128,8 @@
 - type: loadoutGroup
   id: ADTSeniorOfficerOuterClothing
   name: loadout-group-senior-officer-outerclothing
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - ArmorVest
   - ArmorVestSlim
@@ -127,6 +142,7 @@
   id: SeniorPhysicianHead
   name: loadout-group-senior-physician-head
   minLimit: 0
+  maxLimit: 1
   loadouts:
   - SeniorPhysicianBeret
   - MedicalHeadMirror
@@ -134,6 +150,8 @@
 - type: loadoutGroup
   id: SeniorPhysicianJumpsuit
   name: loadout-group-senior-physician-jumpsuit
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
@@ -150,7 +168,7 @@
 - type: loadoutGroup
   id: RoboticistHead
   name: loadout-group-roboticist-head
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - RoboticistCap
 
@@ -184,12 +202,15 @@
 - type: loadoutGroup
   id: SeniorEngineerHead
   name: loadout-group-senior-engineer-head
+  minLimit: 0
   loadouts:
   - SeniorEngineerBeret
 
 - type: loadoutGroup
   id: ADTSeniorEngineerJumpsuit
   name: loadout-group-senior-engineer-jumpsuit
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
@@ -206,6 +227,8 @@
 - type: loadoutGroup
   id: ADTSeniorResearcherJumpsuit
   name: loadout-group-senior-researcher-jumpsuit
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
