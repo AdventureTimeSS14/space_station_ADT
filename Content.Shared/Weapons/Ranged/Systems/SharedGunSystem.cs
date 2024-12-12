@@ -37,7 +37,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
 using Content.Shared.Electrocution;
-using Content.Shared.CombatMode;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 

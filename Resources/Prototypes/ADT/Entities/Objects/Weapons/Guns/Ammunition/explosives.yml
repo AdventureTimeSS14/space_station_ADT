@@ -102,3 +102,43 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
+
+- type: entity
+  id: ADTCartridgeFragRocket
+  name: PG-7VL frag grenade
+  parent: [BaseItem, BaseMajorContraband]
+  description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeRocket
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: ADTBulletFragRocket
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: rpg
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  id: ADTCartridgeBlastRocket
+  name: PG-7VL blast grenade
+  parent: [BaseItem, BaseMajorContraband]
+  description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeRocket
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: ADTBulletBlastRocket
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: rpg
+  - type: StaticPrice
+    price: 20

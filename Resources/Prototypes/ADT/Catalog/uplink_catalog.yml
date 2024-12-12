@@ -456,3 +456,17 @@
     Telecrystal: 2
   categories:
     - UplinkWearables
+
+- type: listing
+  id: ADTUplinkGrenadeLauncherBundle
+  name: ADTuplink-grenade-launcher-bundle-name
+  description: ADTuplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/rocket.rsi, state: base }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 20
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponry

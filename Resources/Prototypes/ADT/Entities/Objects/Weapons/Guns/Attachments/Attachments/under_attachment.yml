@@ -38,7 +38,6 @@
   - type: RMCSelectiveFire
     baseFireRate: 0.417
   - type: BallisticAmmoProvider
-    # cycleable: false
     whitelist:
       tags:
         - ADT40mmGrenade
@@ -50,9 +49,6 @@
         volume: -2
   - type: ShootAtFixedPoint
     maxFixedRange: 10
-  # - type: UniqueAction
-  # - type: BreechLoaded
-  #   needOpenClose: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:

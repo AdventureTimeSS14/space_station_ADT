@@ -52,7 +52,6 @@
       rmc-aslot-underbarrel:
         whitelist:
           tags:
-          - ADTAttachmentMicroAccelerator
           - SurvivalKnifeAttachment
       # rmc-aslot-stock:
       #   whitelist:

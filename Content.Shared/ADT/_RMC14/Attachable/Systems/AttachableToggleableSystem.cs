@@ -21,6 +21,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Timing;
+using Content.Shared._RMC14.Weapons.Common;
 
 namespace Content.Shared._RMC14.Attachable.Systems;
 
@@ -59,7 +60,7 @@ public sealed class AttachableToggleableSystem : EntitySystem
         SubscribeLocalEvent<AttachableToggleableComponent, GunShotEvent>(OnGunShot);
         SubscribeLocalEvent<AttachableToggleableComponent, ToggleActionEvent>(OnToggleAction,
             before: new[] { typeof(SharedHandheldLightSystem) });
-        //SubscribeLocalEvent<AttachableToggleableComponent, UniqueActionEvent>(OnUniqueAction);
+        SubscribeLocalEvent<AttachableToggleableComponent, UniqueActionEvent>(OnUniqueAction);
         SubscribeLocalEvent<AttachableToggleableComponent, GrantAttachableActionsEvent>(OnGrantAttachableActions);
         SubscribeLocalEvent<AttachableToggleableComponent, RemoveAttachableActionsEvent>(OnRemoveAttachableActions);
         SubscribeLocalEvent<AttachableToggleableComponent, AttachableRelayedEvent<HandDeselectedEvent>>(OnHandDeselected);
@@ -249,11 +250,11 @@ public sealed class AttachableToggleableSystem : EntitySystem
         _popupSystem.PopupClient(gun.Comp.Message, args.User, args.User);
     }
 
-/*    private void OnUniqueAction(Entity<AttachableToggleableComponent> attachable, ref UniqueActionEvent args)
+    private void OnUniqueAction(Entity<AttachableToggleableComponent> attachable, ref UniqueActionEvent args)
     {
         if (attachable.Comp.AttachedOnly && !attachable.Comp.Attached)
             args.Handled = true;
-    }*/
+    }
 
     private void OnHandDeselected(Entity<AttachableToggleableComponent> attachable, ref AttachableRelayedEvent<HandDeselectedEvent> args)
     {

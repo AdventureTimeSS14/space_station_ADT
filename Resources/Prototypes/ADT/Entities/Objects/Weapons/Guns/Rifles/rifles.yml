@@ -170,7 +170,7 @@
     sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
   - type: Gun
     minAngle: 20.5
-    maxAngle: 31   
+    maxAngle: 31
     fireRate: 6
     #angleIncrease: 1
     #angleDecay: 12
@@ -231,11 +231,6 @@
       rmc-aslot-underbarrel: 0.3125, -0.0315
       rmc-aslot-rail: -0.0940, -0.0325
   - type: ItemSizeChange
-  # - type: ActivatableUI
-  #   verbText: rmc-verb-strip-attachables
-  #   verbOnly: true
-  #   key:
-  #     enum.AttachmentUI.StripKey
   - type: UserInterface
     interfaces:
       enum.AttachmentUI.StripKey:

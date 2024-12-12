@@ -116,3 +116,45 @@
     spreadAmount: 40
   - type: SoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  id: ADTBulletFragRocket
+  name: frag rocket
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 175 # about a ~6 tile radius
+    intensitySlope: 1
+    maxIntensity: 10
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+- type: entity
+  id: ADTBulletBlastRocket
+  name: blast rocket
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150 # a ~2 tile radius
+    intensitySlope: 5
+    maxIntensity: 10
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5

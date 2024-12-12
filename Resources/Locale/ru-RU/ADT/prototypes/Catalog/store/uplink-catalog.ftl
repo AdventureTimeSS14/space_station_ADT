@@ -92,3 +92,6 @@ uplink-blackmail-bundle-desc = Набор для относительно эфф
 
 uplink-syndicate-helmet-name = шлем спецназа
 uplink-syndicate-helmet-desc = Очень прочный шлем, широко используемый военизированными организациями. Его украшает ужасный узор из красных и чёрных полос. Да пребудет с вами робаст.
+
+ADTuplink-grenade-launcher-bundle-name = РПГ-7
+ADTuplink-grenade-launcher-bundle-desc = Набор,содержащий в себе Ручной Противотанковый Гранатомет и 8 ракет для него!
