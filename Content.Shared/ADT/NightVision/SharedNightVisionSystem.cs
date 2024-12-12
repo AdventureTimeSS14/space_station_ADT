@@ -6,6 +6,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Rounding;
 using Content.Shared.Toggleable;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Eye.Blinding;
 
 namespace Content.Shared.ADT.NightVision;
 
@@ -162,8 +163,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
             nightVision.State = NightVisionState.Full;
             Dirty(user, nightVision);
 
-            //var eyeDamage = EnsureComp<компонент>(user);
-            //Dirty(user, eyeDamage);
+            var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
+            Dirty(user, eyeDamage);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -190,7 +191,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
             !nightVision.Innate)
         {
             RemCompDeferred<NightVisionComponent>(user.Value);
-            //RemCompDeferred<компонент>(user.Value);
+            RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
         }
     }
 

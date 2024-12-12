@@ -1,4 +1,4 @@
-namespace Content.Server.ADT.Eye.Blinding;
+namespace Content.Shared.ADT.Eye.Blinding;
 
 [ByRefEvent]
 public record struct FlashedEvent(EntityUid? User, EntityUid? Used);

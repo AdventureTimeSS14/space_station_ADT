@@ -166,7 +166,6 @@
         color: "#3C0F24"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: DamageEyesOnFlashed
   - type: Inventory
     displacements:
       jumpsuit:

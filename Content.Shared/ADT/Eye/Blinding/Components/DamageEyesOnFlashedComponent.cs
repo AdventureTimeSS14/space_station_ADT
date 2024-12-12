@@ -1,7 +1,6 @@
-namespace Content.Server.ADT.Eye.Blinding;
+namespace Content.Shared.ADT.Eye.Blinding;
 
 [RegisterComponent]
-[Access(typeof(DamageEyesOnFlashSystem))]
 public sealed partial class DamageEyesOnFlashedComponent : Component
 {
     [DataField]
