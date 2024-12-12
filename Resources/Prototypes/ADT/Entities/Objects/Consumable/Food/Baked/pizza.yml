@@ -1,0 +1,89 @@
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodPizzaSindiBase
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - oily
+      - bread
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Omnizine
+          Quantity: 10
+  - type: SliceableFood
+    count: 8
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: Tag
+    tags:
+    - Pizza
+    - ReptilianFood
+
+- type: entity
+  name: Sindi pizza
+  parent: ADTFoodPizzaSindiBase
+  id: ADRFoodPizzaSindi
+  description: Red and scary pizza
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTSindiPizza
+  - type: Sprite
+    layers:
+    - state: fullpizza
+  - type: SliceableFood
+    slice: ADTFoodPizzaSindiSlice
+
+- type: entity
+  parent: FoodInjectableBase # Not sliceable
+  id: ADTFoodPizzaSindiSliceBase
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTSindiPizza
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        # Note: Keep FoodPizzaMoldySlice & FoodPizzaSliceBase roughly in sync
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 1
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Pizza
+    - ReptilianFood
+    - Slice
+
+
+- type: entity
+  name: slice of sindi pizza
+  parent: ADTFoodPizzaSindiSliceBase
+  id: ADTFoodPizzaSindiSlice
+  description: A slice of syndicate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTSindiPizza
+  - type: Sprite
+    layers:
+    - state: pizzaslice
