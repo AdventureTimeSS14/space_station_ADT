@@ -1,0 +1,121 @@
+- type: entity
+  id: ADTBookPrinter
+  categories: [ HideSpawnMenu ]
+  parent: ConstructibleMachine
+  name: book printer
+  description: A breeding ground for propaganda, a destroyer of democracy. Allows you to copy books and also enter them into the database.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/book_printer.rsi
+    layers:
+    - state: icon
+      map: ["enum.BookPrinterVisualLayers.Base"]
+    - state: working
+      map: ["enum.BookPrinterVisualLayers.Working"]
+      visible: false
+    - state: slotted
+      map: ["enum.BookPrinterVisualLayers.Slotted"]
+      visible: false
+    - state: full
+      map: ["enum.BookPrinterVisualLayers.Full"]
+      visible: false
+    - state: high
+      map: ["enum.BookPrinterVisualLayers.High"]
+      visible: false
+    - state: medium
+      map: ["enum.BookPrinterVisualLayers.Medium"]
+      visible: false
+    - state: low
+      map: ["enum.BookPrinterVisualLayers.Low"]
+      visible: false
+    - state: none
+      map: ["enum.BookPrinterVisualLayers.None"]
+      visible: false
+    snapCardinals: true
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: ActivatableUIRequiresPower
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ItemSlots
+    slots:
+       bookSlot:
+        whitelistFailPopup: book-printer-component-cannot-put-entity-message
+        whitelist:
+          tags:
+          - Book
+       cartridgeSlot:
+        whitelist:
+          components:
+          - BookPrinterCartridge
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      bookSlot: !type:ContainerSlot
+      cartridgeSlot: !type:ContainerSlot
+  - type: Machine
+    board: ADTBookPrinterMachineCircuitboard
+  - type: StaticPrice
+    price: 1000
+  - type: WiresPanel
+  - type: BookPrinter
+  - type: BookPrinterVisuals
+  - type: UserInterface
+    interfaces:
+      enum.BookPrinterUiKey.Key:
+        type: BookPrinterBoundUserInterface
+  - type: ActivatableUI
+    key: enum.BookPrinterUiKey.Key
+  - type: Appearance
+  - type: AccessReader
+    access: [["Service"]]
+  - type: AmbientSound
+    enabled: false
+    volume: 0
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+
+- type: entity
+  id: ADTBookPrinterFilled
+  categories: [ HideSpawnMenu ]
+  parent: ADTBookPrinter
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      cartridgeSlot:
+      - ADTBookPrinterInkCartridge

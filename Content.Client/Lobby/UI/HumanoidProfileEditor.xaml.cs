@@ -1237,7 +1237,7 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
         }
         // Corvax-TTS-End
-
+        // ADT Barks start
         private void SetBarkProto(string prototype)
         {
             Profile = Profile?.WithBarkProto(prototype);
@@ -1254,17 +1254,18 @@ namespace Content.Client.Lobby.UI
 
         private void SetBarkMinVariation(float variation)
         {
-            Profile = Profile?.WithBarkMinVariation(Math.Clamp(variation, _cfgManager.GetCVar(ADTCCVars.BarksMinDelay), Profile.BarkHighVar));
+            Profile = Profile?.WithBarkMinVariation(Math.Clamp(variation, _cfgManager.GetCVar(ADTCCVars.BarksMinDelay), Profile.Bark.MaxVar));
             ReloadPreview();
             SetDirty();
         }
 
         private void SetBarkMaxVariation(float variation)
         {
-            Profile = Profile?.WithBarkMaxVariation(Math.Clamp(variation, Profile.BarkLowVar, _cfgManager.GetCVar(ADTCCVars.BarksMaxDelay)));
+            Profile = Profile?.WithBarkMaxVariation(Math.Clamp(variation, Profile.Bark.MinVar, _cfgManager.GetCVar(ADTCCVars.BarksMaxDelay)));
             ReloadPreview();
             SetDirty();
         }
+        // ADT Barks end
 
         private void SetSpecies(string newSpecies)
         {

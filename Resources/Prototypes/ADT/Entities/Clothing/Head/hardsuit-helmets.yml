@@ -2,8 +2,9 @@
   parent: ClothingHeadHardsuitBase
   id: ADTClothingHeadHelmetHardsuitRiotERT
   categories: [ HideSpawnMenu ]
-  name: riot ert helmet
+  name: Cheap Riot ERT helmet
   description: The cheapest ERT hardhelmet choice, designed especially for economy and anti-riot actions
+  suffix: ADT
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/riotert.rsi

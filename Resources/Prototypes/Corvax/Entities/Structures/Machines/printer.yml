@@ -107,5 +107,5 @@
       tags:
       - Document
     storage:
-      Paper: 0
+      ADTPaper: 0 # ADT tweak
   - type: DocumentPrinter #DocumentPrinterComponent (ADT)

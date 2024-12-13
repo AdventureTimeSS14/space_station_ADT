@@ -325,6 +325,7 @@
 
 - type: Tag
   id: ADTHardsuitSalvage
+
 - type: Tag
   id: ADTSiliconStealthWhitelist
 
@@ -333,3 +334,95 @@
 
 - type: Tag
   id: ADTBeerCan
+  
+  # New Year
+
+- type: Tag
+  id: ADTGoldenStarGarland
+
+- type: Tag
+  id: ADTSilverStarGarland
+
+- type: Tag
+  id: ADTBaseStarGarland
+
+- type: Tag
+  id: ADTShinyGarland
+
+- type: Tag
+  id: ADTTreeGoldenStar
+
+- type: Tag
+  id: ADTTreeRedStar
+
+- type: Tag
+  id: ADTTreeSilverStar
+
+- type: Tag
+  id: ADTTreeRedBalls
+
+- type: Tag
+  id: ADTTreeGoldenBalls
+
+- type: Tag
+  id: ADTTreeSilverBalls
+
+- type: Tag
+  id: ADTTreeRedMishura
+
+- type: Tag
+  id: ADTTreeGoldenMishura
+
+- type: Tag
+  id: ADTTreeSilverMishura
+
+- type: Tag
+  id: ADTPillExperimental
+
+- type: Tag
+  id: ADTPillExter
+
+- type: Tag
+  id: ADTRoboticsAmbience
+
+- type: Tag
+  id: ADTVaultAmbience
+
+- type: Tag
+  id: ADTChemistryAmbience
+
+- type: Tag
+  id: ADTOreBag
+
+- type: Tag
+  id: ADTSiliconEmotes
+
+- type: Tag
+  id: ADTCatEmotes
+
+- type: Tag
+  id: ADTDogEmotes
+
+#sponsor_items
+- type: Tag
+  id: ADTWeaponPistolPrazatHawk
+
+- type: Tag
+  id: ADTWeaponPistolMaria
+
+- type: Tag
+  id: ADTWeaponMeleePrasatChainsword
+  
+#sponsor_items - End
+
+- type: Tag
+  id: ADTTeaPack
+
+- type: Tag
+  id: ADTFullRiotShitmadeShield
+
+- type: Tag
+  id: ADTRPlasmaShard
+
+- type: Tag
+  id: ADTRUranShard

@@ -8,6 +8,7 @@ using Content.Shared.Ninja.Systems;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell.Components;
 using Robust.Shared.Containers;
+using Content.Shared.ADT.Emp; // ADT TWEAK
 
 namespace Content.Server.Ninja.Systems;
 
@@ -80,6 +81,11 @@ public sealed class NinjaSuitSystem : SharedNinjaSuitSystem
             Popup.PopupEntity(Loc.GetString("ninja-cell-downgrade"), user, user);
             return;
         }
+
+        // ADT TWEAK START
+        RemCompDeferred<EmpProtectionComponent>(battery.Owner);
+        EnsureComp<EmpProtectionComponent>(inserting.Owner);
+        // ADT TWEAK END
 
         // tell ninja abilities that use battery to update it so they don't use charge from the old one
         if (!_ninja.IsNinja(user))

@@ -53,8 +53,8 @@
   - type: AntagSelection
 
 - type: entity
-  parent: BaseGameRule
-  id: HereticGameRule
+  parent: BaseHereticRule
+  id: Heretic
   components:
   - type: HereticRule
   - type: GameRule
@@ -66,11 +66,12 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 5
+      max: 3
       playerRatio: 20
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
+      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -100,6 +101,9 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 20
+    delay:
+      min: 30
+      max: 60
   - type: AntagSelection
     definitions:
     - prefRoles: [ Changeling ]

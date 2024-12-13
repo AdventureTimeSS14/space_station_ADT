@@ -245,3 +245,11 @@
   sprite:
     sprite: ADT/Decals/markings.rsi
     state: warn_line_whitescale_w
+
+- type: decal
+  id: ADTBoxWhitescale
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: box_whitescale

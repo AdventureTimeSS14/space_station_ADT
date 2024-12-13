@@ -18,7 +18,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockChefvend
-  name: ChefVend restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -59,7 +58,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockCondimentStation
-  name: condiment station restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -174,7 +172,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSeedsFilled
-  cost: 3600
+  cost: 3900 # ADT TWEAK
   category: cargoproduct-category-name-hydroponics
   group: market
 
@@ -184,7 +182,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSmokesFilled
-  cost: 9460 # ADT TWEAK
+  cost: 11000 # ADT TWEAK
   category: cargoproduct-category-name-service
   group: market
 

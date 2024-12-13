@@ -1,0 +1,8 @@
+- type: entity
+  id: ADTCrateServicePrinterInkCartridge
+  categories: [ HideSpawnMenu ]
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTBookPrinterInkCartridge
