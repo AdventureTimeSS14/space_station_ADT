@@ -294,6 +294,9 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
 
+        [DataField]
+    public AnouncmentType PreferredAnouncmentType = AnouncmentType.Basic;
+
     #endregion
 
     #region Announcements
@@ -364,7 +367,7 @@ public sealed partial class SupermatterComponent : Component
         { Gas.Zauker,        (30f,   20f,   0f, 0f)  },
         { Gas.Halon,         (0f,    0f,    0f, 0f)  },
         { Gas.Helium,        (0f,    0f,    0f, 0f)  },
-        { Gas.AntiNoblium,   (0f,    0f,    0f, 1f)  },
+        { Gas.AntiNoblium,   (0f,    0f,    0f, 10f) },
     };
 
     #endregion
@@ -381,6 +384,12 @@ public enum DelamType : int
 {
     Explosion = 0,
     Cascade = 1
+}
+
+public enum AnnouncementType : int
+{
+    Basic = 0,
+    Resonant = 1
 }
 
 [Serializable, DataDefinition]

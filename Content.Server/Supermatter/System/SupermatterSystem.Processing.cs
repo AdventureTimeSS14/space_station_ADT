@@ -48,7 +48,7 @@ public sealed partial class SupermatterSystem
         // Minimum value of -10, maximum value of 23. Affects plasma, o2 and heat output.
         var transmissionBonus = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].TransmitModifier);
 
-        // Minimum value of 0, maximum value of 1. If = 1, then a cascade is possible
+        // If greater then zero, then supermatter gonna take damage. Used for cascade.
         var resonantfrequency = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].ResonantFrequency);
 
         var h2OBonus = 1 - gases[Gas.WaterVapor] * 0.25f;
@@ -56,7 +56,7 @@ public sealed partial class SupermatterSystem
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         heatModifier = Math.Max(heatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
-        resonantfrequency = Math.Clamp(resonantfrequency, 0, 1);
+        resonantfrequency = Math.Max(resonantfrequency, 0.5f);
 
         sm.ResonantFrequency = resonantfrequency;
         // Effects the damage heat does to the crystal
@@ -164,6 +164,13 @@ public sealed partial class SupermatterSystem
             return;
         }
 
+        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
+         &&  sm.ResonantFrequency >= 1)
+        {
+            sm.Damage += Math.Max(sm.Power / 100 * sm.DamageIncreaseMultiplier, 0.1f);
+            return;
+        }
+
         // Absorbed gas from surrounding area
         var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
         var moles = absorbedGas.TotalMoles;
@@ -192,10 +199,6 @@ public sealed partial class SupermatterSystem
         // Mol count only starts affecting damage when it is above 1800
         var moleDamage = Math.Max(moles - sm.MolePenaltyThreshold, 0) / 80 * sm.DamageIncreaseMultiplier;
         totalDamage += moleDamage;
-
-        // Damage from AntiNoblium
-        var resonantDamage = Math.Max(moles + sm.ResonantFrequency, 0)  * sm.DamageIncreaseMultiplier;
-        totalDamage += resonantDamage;
 
         // Healing damage
         if (moles < sm.MolePenaltyThreshold)
@@ -230,6 +233,9 @@ public sealed partial class SupermatterSystem
         }
 
         var damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DamageDelaminationPoint, totalDamage);
+
+        // Prevent it from going negative
+        sm.Damage = Math.Clamp(damage, 0, float.PositiveInfinity);
     }
 
     /// <summary>
@@ -281,17 +287,38 @@ public sealed partial class SupermatterSystem
             return;
 
         // We are not taking consistent damage, Engineers aren't needed
+
+        sm.PreferredAnouncmentType = ChooseAnouncmentType(uid, sm);
+
         if (sm.Damage <= sm.DamageArchived)
             return;
 
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-            message = Loc.GetString("supermatter-warning", ("integrity", integrity));
-            if (sm.Damage >= sm.DamageEmergencyThreshold)
-            {
-                message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
-                global = true;
-            }
+          if (sm.ResonantFrequency >= 1);
+            return AnouncmentType.Resonant;
+
+          return AnouncmentType.Basic;
+        }
+
+        switch (sm.PreferredAnouncmentType)
+        {
+            case AnouncmentType.Resonant:
+                message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
+                    if (sm.Damage >= sm.DamageEmergencyThreshold)
+                    {
+                       message = Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity));
+                       global = true;
+                    }
+                break;
+            default:
+                 message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+                    if (sm.Damage >= sm.DamageEmergencyThreshold)
+                    {
+                       message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                       global = true;
+                    }
+                break;
         }
 
         SendSupermatterAnnouncement(uid, message, global);
@@ -308,7 +335,7 @@ public sealed partial class SupermatterSystem
             return;
         }
 
-        _chat.TrySendInGameICMessage(uid, "Supermatter damage warning!", InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
+        _chat.TrySendInGameICMessage(uid, "Повреждение гиперструктуры кристалла Сверхматерии!", InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
     }
 
     /// <summary>
@@ -331,7 +358,17 @@ public sealed partial class SupermatterSystem
 
        return DelamType.Explosion;
     }
-    
+
+    public AnnouncementType ChooseAnouncmentType(EntityUid uid, SupermatterComponent sm)
+    {
+        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
+         &&  sm.ResonantFrequency >= 1)
+
+         return AnouncmentType.Resonant;
+
+       return AnouncmentType.Basic;
+    }
+
     /// <summary>
     ///     Handle the end of the station.
     /// </summary>
