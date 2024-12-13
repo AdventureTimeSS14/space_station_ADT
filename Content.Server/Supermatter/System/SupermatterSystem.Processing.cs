@@ -267,6 +267,12 @@ public sealed partial class SupermatterSystem
                 default:                loc = "supermatter-delam-explosion"; break;
             }
 
+            switch (sm.PreferredAnnoucmentType)
+            {
+                case DelamType.Cascade: loc = "supermatter-delam-cascade";   break;
+                default:                loc = "supermatter-delam-explosion"; break;
+            }
+
             var station = _station.GetOwningStation(uid);
             if (station != null)
                 _alert.SetLevel((EntityUid) station, sm.AlertCodeDeltaId, true, true, true, false);
@@ -288,7 +294,7 @@ public sealed partial class SupermatterSystem
 
         // We are not taking consistent damage, Engineers aren't needed
 
-        sm.PreferredAnouncmentType = ChooseAnouncmentType(uid, sm);
+        sm.PreferredAnouncmentType = ChooseAnnouncmentType(uid, sm);
 
         if (sm.Damage <= sm.DamageArchived)
             return;
@@ -296,12 +302,12 @@ public sealed partial class SupermatterSystem
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
           if (sm.ResonantFrequency >= 1);
-            return AnouncmentType.Resonant;
+            return AnnouncmentType.Resonant;
 
-          return AnouncmentType.Basic;
+          return AnnouncmentType.Basic;
         }
 
-        switch (sm.PreferredAnouncmentType)
+        switch (sm.PreferredAnnouncmentType)
         {
             case AnouncmentType.Resonant:
                 message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
@@ -359,14 +365,14 @@ public sealed partial class SupermatterSystem
        return DelamType.Explosion;
     }
 
-    public AnnouncementType ChooseAnouncmentType(EntityUid uid, SupermatterComponent sm)
+    public AnnouncmentType ChooseAnnouncmentType(EntityUid uid, SupermatterComponent sm)
     {
         if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
          &&  sm.ResonantFrequency >= 1)
 
-         return AnouncmentType.Resonant;
+         return AnnouncmentType.Resonant;
 
-       return AnouncmentType.Basic;
+       return AnnouncmentType.Basic;
     }
 
     /// <summary>
