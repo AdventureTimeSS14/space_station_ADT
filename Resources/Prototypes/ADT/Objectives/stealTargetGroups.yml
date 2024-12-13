@@ -28,14 +28,14 @@
     state: icon
 
 - type: stealTargetGroup
-  id: ADTHandheldShuttleConsoleSecurityStealObjective
+  id: ADTHandheldShuttleConsoleSecurity
   name: steal-target-groups-adt-handheld-shuttle-console-security
   sprite:
     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
     state: security
 
 - type: stealTargetGroup
-  id: ADTHandheldShuttleConsoleSalvageStealObjective
+  id: ADTHandheldShuttleConsoleSalvage
   name: steal-target-groups-adt-handheld-shuttle-console-salvage
   sprite:
     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
