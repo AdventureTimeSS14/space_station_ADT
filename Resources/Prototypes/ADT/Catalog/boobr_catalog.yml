@@ -237,6 +237,6 @@
   description:  uplink-night-vision-desc
   productEntity: ClothingEyesNightVision
   cost:
-    Productunit: 5
+    Productunit: 4
   categories:
   - ADTUplinkERTMisc

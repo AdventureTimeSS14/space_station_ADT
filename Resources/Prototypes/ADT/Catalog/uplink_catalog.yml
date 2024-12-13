@@ -201,7 +201,7 @@
   icon: { sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi, state: icon }
   productEntity: ADTClothingJumpBootsSynd
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 4>5
   categories:
   - UplinkWearables
   conditions:

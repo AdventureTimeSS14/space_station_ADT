@@ -88,9 +88,9 @@
   productEntity: ThrowingKnivesKit
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3>2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # ADT-Tweak 6>4
   categories:
     - UplinkWeaponry
 
@@ -114,9 +114,9 @@
   productEntity: ToolboxElectricalTurretFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 6>4
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # ADT-Tweak 6>4
   categories:
   - UplinkWeaponry
   conditions:
@@ -232,7 +232,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkExplosives
 
@@ -380,7 +380,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkExplosives
 
@@ -567,9 +567,9 @@
   productEntity: HypopenBox
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # ADT-Tweak 6>4
   categories:
   - UplinkChemicals
 
@@ -595,9 +595,9 @@
   productEntity: ChemicalSynthesisKit
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3>2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkChemicals
 
@@ -628,9 +628,9 @@
   productEntity: NocturineChemistryBottle
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 3 # ADT-Tweak 4>3
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # ADT-Tweak 6>4
   categories:
   - UplinkChemicals
 
@@ -680,9 +680,9 @@
   productEntity: StimkitFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 6  # ADT-Tweak 8>6
   cost:
-    Telecrystal: 12
+    Telecrystal: 10 # ADT-Tweak 12>10
   categories:
   - UplinkChemicals
 
@@ -695,7 +695,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 2
+    Telecrystal: 1 # ADT-Tweak 2>1
   categories:
   - UplinkChemicals
 
@@ -732,7 +732,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3>2
   categories:
   - UplinkDeception
 
@@ -756,9 +756,9 @@
   productEntity: ChameleonProjector
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   cost:
-    Telecrystal: 7
+    Telecrystal: 5 # ADT-Tweak 7>5
   categories:
   - UplinkDeception
 
@@ -829,7 +829,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
     - UplinkDeception
 
@@ -851,9 +851,9 @@
   productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3>2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # ADT-Tweak 6>4
   categories:
   - UplinkDeception
 
@@ -866,7 +866,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 4
+    Telecrystal: 2 # ADT-Tweak 4>2
   categories:
   - UplinkDeception
 
@@ -879,9 +879,9 @@
   productEntity: Emag
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 5>4
   cost:
-    Telecrystal: 8
+    Telecrystal: 6 # ADT-Tweak 8>6
   categories:
   - UplinkDisruption
 
@@ -892,9 +892,9 @@
   productEntity: RadioJammer
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # ADT-Tweak 2>1
   cost:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3>2
   categories:
   - UplinkDisruption
 
@@ -907,7 +907,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 5>4
   categories:
   - UplinkDisruption
 
@@ -970,7 +970,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 2
+    Telecrystal: 1 # ADT-Tweak 2>1
   categories:
   - UplinkDisruption
 
@@ -994,9 +994,9 @@
   productEntity: PowerSink
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   cost:
-    Telecrystal: 8
+    Telecrystal: 6 # ADT-Tweak 8>6
   categories:
   - UplinkDisruption
   conditions:
@@ -1012,9 +1012,9 @@
   productEntity: AntimovCircuitBoard
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 6 # ADT-Tweak 10>6
   cost:
-    Telecrystal: 14
+    Telecrystal: 10 # ADT-Tweak 14>10
   categories:
   - UplinkDisruption
   conditions:
@@ -1098,7 +1098,7 @@
   description: uplink-cameraBug-desc
   productEntity: CameraBug
   cost:
-    Telecrystal: 4
+    Telecrystal: 2 # ADT-Tweak 4>2
   categories:
   - UplinkDisruption
 
@@ -1112,9 +1112,9 @@
   productEntity: BoxHoloparasite
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 6 # ADT-Tweak 8>6
   cost:
-    Telecrystal: 14
+    Telecrystal: 10 # ADT-Tweak 14>10
   categories:
   - UplinkAllies
   conditions:
@@ -1131,9 +1131,9 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 7
+    Telecrystal: 6 # ADT-Tweak 8>6
   cost:
-    Telecrystal: 14
+    Telecrystal: 10 # ADT-Tweak 14>10
   categories:
   - UplinkAllies
   conditions:
@@ -1165,7 +1165,7 @@
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
-    Telecrystal: 65
+    Telecrystal: 40 # ADT-Tweak 14>10
   categories:
     - UplinkAllies
   conditions:
@@ -1182,9 +1182,9 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # ADT-Tweak 4>2
   cost:
-    Telecrystal: 6
+    Telecrystal: 3 # ADT-Tweak 6>3
   categories:
   - UplinkAllies
   conditions:
@@ -1238,9 +1238,9 @@
   productEntity: ReinforcementRadioSyndicateSyndiCat
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3>2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # ADT-Tweak 6>4
   categories:
     - UplinkAllies
 
@@ -1287,9 +1287,9 @@
   productEntity: FreedomImplanter
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3>2
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 5>4
   categories:
     - UplinkImplants
 
@@ -1301,9 +1301,9 @@
   productEntity: ScramImplanter
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   cost:
-    Telecrystal: 6 # it's a gamble that may kill you easily so 6 TC per 2 uses, second one more of a backup
+    Telecrystal: 4 # it's a gamble that may kill you easily so 6 TC per 2 uses, second one more of a backup # ADT-Tweak 6>4
   categories:
     - UplinkImplants
 
@@ -1317,7 +1317,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 5>4
   categories:
     - UplinkImplants
 
@@ -1487,7 +1487,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
     - UplinkWearables
 
@@ -1513,7 +1513,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkWearables
 
@@ -1539,7 +1539,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkWearables
 
@@ -1695,7 +1695,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkPointless
 
@@ -1718,7 +1718,7 @@
   description: uplink-cat-ears-desc
   productEntity: ClothingHeadHatCatEars
   cost:
-    Telecrystal: 26
+    Telecrystal: 10 # ADT-Tweak 26>10
   categories:
   - UplinkPointless
 
@@ -1844,7 +1844,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # ADT-Tweak 6>5
   categories:
   - UplinkJob
   conditions:
@@ -1861,7 +1861,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # ADT-Tweak 6>4
   categories:
     - UplinkJob
   conditions:
@@ -1895,7 +1895,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkJob
   conditions:
@@ -1931,9 +1931,9 @@
   productEntity: RevolverCapGunFake
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 5>4
   cost:
-    Telecrystal: 9
+    Telecrystal: 8 # ADT-Tweak 9>8
   categories:
   - UplinkJob
   conditions:
@@ -1985,9 +1985,9 @@
   productEntity: BoxHoloclown
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 6 # ADT-Tweak 6>5
   cost:
-    Telecrystal: 12
+    Telecrystal: 10 # ADT-Tweak 12>10
   categories:
   - UplinkJob
   conditions:
@@ -2004,7 +2004,7 @@
     Telecrystal: 2
   productEntity: HotPotato
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   categories:
   - UplinkJob
   conditions:
@@ -2041,7 +2041,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 5 # was 4, with my buff made it 5 to be closer to minibomb -panzer
+    Telecrystal: 4 # ADT-Tweak 5>4
   categories:
   - UplinkJob
   conditions:
@@ -2060,10 +2060,10 @@
   icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3 # ADT-Tweak 4>3
   productEntity: SyndicateSpongeBox
   cost:
-    Telecrystal: 7
+    Telecrystal: 5 # ADT-Tweak 7>5
   categories:
   - UplinkJob
   conditions:
@@ -2084,7 +2084,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 5>4
   categories:
   - UplinkJob
   conditions:
@@ -2103,7 +2103,7 @@
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # ADT-Tweak 6>4
   categories:
   - UplinkJob
   conditions:
