@@ -1,0 +1,75 @@
+- type: entity
+  parent: ShardBase
+  id: ADTShardGlassReinforcedPlasma
+  name: plsmaref glass shard
+  description: A small piece of plasma glass.
+  components:
+  - type: Sprite
+    color: "#FF72E7"
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 4.5
+        Radiation: 2
+  - type: ToolRefinable
+    refineResult:
+    - id: SheetGlass1
+    - id: SheetPlasma1
+  - type: DamageUserOnTrigger
+    damage:
+      types:
+        Piercing: 5
+  - type: Tag
+    tags:
+      - ADTRPlasmaShard
+      - Trash
+  - type: Extractable
+    grindableSolutionName: sharduglass
+  - type: SolutionContainerManager
+    solutions:
+      sharduglass:
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 5
+        - ReagentId: Uranium
+          Quantity: 5
+  - type: Construction
+    graph: ADTPShiv
+    node: start
+
+- type: entity
+  parent: ShardBase
+  id: ADTShardGlassReinforcedUran
+  name: ref uran glass shard
+  description: A small piece of uranium glass.
+  components:
+  - type: Sprite
+    color: "#8eff7a"
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 4.5
+        Radiation: 2
+  - type: ToolRefinable
+    refineResult:
+    - id: SheetGlass1
+    - id: SheetUranium1
+  - type: DamageUserOnTrigger
+    damage:
+      types:
+        Piercing: 5
+        Radiation: 2.5
+  - type: Tag
+    tags:
+      - Trash
+      - ADTRUranShard
+  - type: Extractable
+    grindableSolutionName: sharduglass
+  - type: SolutionContainerManager
+    solutions:
+      sharduglass:
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 5
+        - ReagentId: Uranium
+          Quantity: 5
