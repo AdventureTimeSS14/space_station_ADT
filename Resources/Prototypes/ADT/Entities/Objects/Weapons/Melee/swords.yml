@@ -80,3 +80,114 @@
     damage:
       types:
         Blunt: 0.1
+
+
+- type: entity
+  name: dagger plasma
+  parent: BaseKnife
+  id: ADTPlasmaDagger
+  description: Dogor
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/plasmadagger.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/plasmadagger.rsi
+    inhandVisuals:
+      left:
+        - state: dagger-inhand-left
+      right:
+        - state: dagger-inhand-right
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.75
+    damage:
+      types:
+        Slash: 6.3
+
+- type: entity
+  name: dagger reinforced
+  parent: BaseKnife
+  id: ADTGlassReinDagger
+  description: Dogor
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/reinforceddagger.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/reinforceddagger.rsi
+    inhandVisuals:
+      left:
+        - state: dagger-inhand-left
+      right:
+        - state: dagger-inhand-right
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.75
+    damage:
+      types:
+        Slash: 6
+
+- type: entity
+  name: dagger glass
+  parent: BaseKnife
+  id: ADTGlassDagger
+  description: Dogor
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/glassdagger.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/glassdagger.rsi
+    inhandVisuals:
+      left:
+        - state: dagger-inhand-left
+      right:
+        - state: dagger-inhand-right
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.75
+    damage:
+      types:
+        Slash: 5
+
+- type: entity
+  name: dagger uranium
+  parent: BaseKnife
+  id: ADTGlassUranDagger
+  description: Dogor
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
+    inhandVisuals:
+      left:
+        - state: dagger-inhand-left
+      right:
+        - state: dagger-inhand-right
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.75
+    damage:
+      types:
+        Slash: 9
+
+
