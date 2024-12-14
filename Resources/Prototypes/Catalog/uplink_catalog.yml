@@ -695,7 +695,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 1 # ADT-Tweak 2>1
+    Telecrystal: 2
   categories:
   - UplinkChemicals
 
@@ -970,7 +970,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 1 # ADT-Tweak 2>1
+    Telecrystal: 2
   categories:
   - UplinkDisruption
 
@@ -1165,7 +1165,7 @@
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
-    Telecrystal: 40 # ADT-Tweak 14>10
+    Telecrystal: 40 # ADT-Tweak 65>40
   categories:
     - UplinkAllies
   conditions:
