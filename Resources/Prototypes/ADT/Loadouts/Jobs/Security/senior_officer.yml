@@ -1,4 +1,17 @@
-# Рюкзаки начало
+# Jumpsuit
+
+- type: loadout
+  id: SeniorOfficerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorOfficer
+
+- type: loadout
+  id: SeniorOfficerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
+
+# Back
+
 - type: loadout
   id: ADTSeniorOfficerBackpack
   equipment:
@@ -13,11 +26,17 @@
   id: ADTSeniorOfficerDuffel
   equipment:
     back: ADTClothingBackpackDuffelSeniorSecurityFilled
-# Рюкзаки конец
 
-# Пуленепробиваемый бронежилет начало
+# outerClothing
+
 - type: loadout
   id: ADTSeniorOfficerArmor
   equipment:
     outerClothing: ClothingOuterArmorBulletproof
-# Пуленепробиваемый конец
+
+# ID
+
+- type: loadout
+  id: SeniorOfficerPDA
+  equipment:
+    id: SeniorOfficerPDA

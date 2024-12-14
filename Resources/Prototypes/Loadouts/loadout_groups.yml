@@ -961,6 +961,7 @@
   minLimit: 0
   loadouts:
   - ScienceLabCoat
+  - RegularLabCoat
   - ScienceWintercoat
 
 - type: loadoutGroup
@@ -1076,8 +1077,6 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
   - TrooperUniform
   # ADT-Loadouts-Start
   - ADTSecurityOfficerMogesBrown
