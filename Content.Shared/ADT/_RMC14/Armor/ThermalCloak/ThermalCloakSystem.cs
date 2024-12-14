@@ -17,7 +17,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Ninja.Systems; // icona ninja
+using Content.Shared.Ninja.Systems;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared._RMC14.Armor.ThermalCloak;
 
@@ -33,7 +34,9 @@ public sealed class ThermalCloakSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedSpaceNinjaSystem _ninja = default!; // icona ninja
+    [Dependency] private readonly SharedSpaceNinjaSystem _ninja = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -55,8 +58,7 @@ public sealed class ThermalCloakSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        // if (args.InHands || !_inventory.InSlotWithFlags((ent, null, null), SlotFlags.All))
-        if (args.InHands)
+        if (comp.HandsBlock && _hands.IsHolding(comp.Owner, ent.Owner))
             return;
 
         if (comp.NinjaSuit && _ninja.IsNinja(ent))
