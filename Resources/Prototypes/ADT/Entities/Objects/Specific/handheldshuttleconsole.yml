@@ -27,13 +27,11 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  # - type: Computer
-  #   board: ShuttleConsoleCircuitboard
   - type: ContainerContainer
     containers:
-      board: !type:Container
-        ents: []
+      board: !type:Container {}
       disk_slot: !type:ContainerSlot {}
+      cell_slot: !type:ContainerSlot {}
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
@@ -82,8 +80,6 @@
     radius: 1.5
     energy: 1.6
     color: "#c94242"
-  # - type: Computer
-  #   board: SyndicateShuttleConsoleCircuitboard
   - type: DroneConsole
     components:
       - type: NukeOpsShuttle
@@ -105,8 +101,6 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  # - type: Computer
-  #   board: ADTSalvageShuttleConsoleCircuitboard
   - type: DroneConsole
     components:
       - type: SalvageShuttle
@@ -128,8 +122,6 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  # - type: Computer
-  #   board: ADTSecShuttleConsoleCircuitboard
   - type: DroneConsole
     components:
       - type: SecShuttle
