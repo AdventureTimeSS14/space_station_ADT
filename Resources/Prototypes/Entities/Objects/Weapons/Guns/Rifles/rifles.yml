@@ -160,10 +160,15 @@
             - ADTAttachmentMagneticHarness
             - ADTAttachmentReflexSight
             - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.3125, -0.0625
       rmc-aslot-rail: 0.0, -0.0325
+      rmc-aslot-barrel: 0.96875, 0
 # ADT TWEAK END
   - type: ContainerContainer
     containers:
@@ -238,10 +243,15 @@
             - ADTAttachmentMagneticHarness
             - ADTAttachmentReflexSight
             - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.3125, -0.0625
       rmc-aslot-rail: 0, 0
+      rmc-aslot-barrel: 0.96875, 0
 # ADT TWEAK END
 
 - type: entity
