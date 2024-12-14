@@ -226,10 +226,15 @@
             - ADTAttachmentMagneticHarness
             - ADTAttachmentReflexSight
             - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-underbarrel: 0.3125, -0.0315
+      rmc-aslot-underbarrel: 0.3125, -0.03125
       rmc-aslot-rail: -0.0940, -0.0325
+      rmc-aslot-barrel: 0.96875, 0.03125
   - type: ItemSizeChange
   - type: UserInterface
     interfaces:

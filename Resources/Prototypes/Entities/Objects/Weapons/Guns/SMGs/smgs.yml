@@ -19,6 +19,7 @@
     minAngle: 2
     maxAngle: 16
     fireRate: 8
+    burstFireRate: 8
     angleIncrease: 3
     angleDecay: 16
     selectedMode: FullAuto
@@ -27,6 +28,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
+    defaultDirection: 1, 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
@@ -125,9 +127,14 @@
             - ADTAttachmentMagneticHarness
             - ADTAttachmentReflexSight
             - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-rail: -0.0325, -0.0325
+      rmc-aslot-barrel: 0.75, 0
 # ADT TWEAK END
 
 - type: entity
@@ -153,12 +160,15 @@
     - type: Gun
       minAngle: 21
       maxAngle: 32
-      fireRate: 6
-      selectedMode: FullAuto
+      fireRate: 12
+      burstFireRate: 12
+      selectedMode: Burst
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
-        - FullAuto
+        - Burst
+      shotsPerBurst: 3
+      burstCooldown: 0.25
     - type: ItemSlots
       slots:
         gun_magazine:
@@ -197,10 +207,15 @@
             - ADTAttachmentMagneticHarness
             - ADTAttachmentReflexSight
             - ADTAttachmentT2Miniscope
+        rmc-aslot-barrel:
+          whitelist:
+              tags:
+              - ADTAttachmentSuppressor
     - type: AttachableHolderVisuals
       offsets:
         rmc-aslot-underbarrel: 0.28, -0.1250
         rmc-aslot-rail: -0.0325, -0.0625
+        rmc-aslot-barrel: 0.90625, 0
   # ADT TWEAK END
 
 - type: entity
@@ -282,6 +297,8 @@
     angleDecay: 6
     selectedMode: FullAuto
     shotsPerBurst: 5
+    burstCooldown: 0.2
+    burstFireRate: 7
     availableModes:
     - SemiAuto
     - Burst

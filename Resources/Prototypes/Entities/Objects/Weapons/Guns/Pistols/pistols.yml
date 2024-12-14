@@ -107,9 +107,14 @@
         whitelist:
           tags:
           - ADTAttachmentLaserSight
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - ADTAttachmentSuppressor
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.235, -0.00875
+      rmc-aslot-barrel: 0.84375, 0.09735
 # ADT TWEAK END
 
 - type: entity
@@ -239,9 +244,14 @@
         whitelist:
           tags:
           - ADTAttachmentLaserSight
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - ADTAttachmentSuppressor
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.17, -0.014
+      rmc-aslot-barrel: 0.84375, 0.125
 # ADT TWEAK END
 
 - type: entity

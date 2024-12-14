@@ -34,4 +34,42 @@
   - Atmospherics
   - IAA
   - Magistrate # ADT-Roles
+
+- type: accessGroup 
+  id: AllAccesCentComm #ADT-group-roles
+  tags:
+  - CentralCommand 
+  - EmergencyShuttleRepealAll
+  - Captain
+  - HeadOfPersonnel
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - HeadOfSecurity
+  - ResearchDirector
+  - Command
+  - Cryogenics
+  - Security
+  - Detective
+  - Armory
+  - Brig
+  - Lawyer
+  - Engineering
+  - Medical
+  - Quartermaster
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Chemistry
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - Atmospherics
+  - IAA
   - BlueShield # ADT-Roles
+  - Magistrate # ADT-Roles
