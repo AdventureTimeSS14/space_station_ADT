@@ -181,3 +181,30 @@
       - id: ADTClothingShoesBootsMagAdvSynd
       - id: EnergyShield
       - id: EnergySword
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateModuleGrenade
+  name: module grenade bundle
+  description: bundle with a materials for module grenade
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetSteel
+      - id: BoxBeaker
+      - id: RemoteSignaller
+      - id: CableApcStack10
+      - id: ADTObjectsSpecificFluorosurfactantChemistryBottle
+        amount: 4
+      - id: DrinkWaterBottleFull
+        amount: 2
+      - id: ChemicalPayload
+        amount: 4
+      # - id: ModularGrenade
+      #   amount: 2
+      - id: TimerTrigger
+        amount: 2
+      - id: SignalTrigger
+        amount: 2
+      - id: VoiceTrigger
+        amount: 2

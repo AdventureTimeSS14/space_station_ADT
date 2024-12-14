@@ -503,3 +503,13 @@
     Telecrystal: 5
   categories:
     - UplinkWearables
+
+- type: listing
+  id: UplinkADTModularGrenadeBundle
+  name: uplink-ADTModularGrenadeBundle-name
+  description: uplink-ADTModularGrenadeBundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateModuleGrenade
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkChemicals
