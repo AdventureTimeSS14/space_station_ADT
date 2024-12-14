@@ -8,7 +8,7 @@ rmc-aslot-rail = Верхняя планка
 rmc-aslot-stock = Приклад
 rmc-aslot-underbarrel = Подствольное
 
-rmc-attachable-activation-fail-not-wielded = {CAPITALIZE($holder)} должен быть экипирован, чтобы активировать {$attachable}!
+rmc-attachable-activation-fail-not-wielded = {CAPITALIZE($holder)} должен быть в обеих руках, чтобы активировать {$attachable}!
 rmc-attachable-activation-fail-not-held = {CAPITALIZE($holder)} должен быть в руках, чтобы активировать {$attachable}!
 rmc-attachable-activation-fail-not-owned = {CAPITALIZE($holder)} должен быть в ваших руках или экипирован, чтобы активировать {$attachable}!
 
@@ -47,7 +47,7 @@ rmc-attachable-examine-condition-whitelist-sizes = предмет [bold]имее
 rmc-attachable-examine-condition-whitelist-tags = предмет [bold]имеет {$tagNumber}[/bold] из следующих тегов = [bold]{$tags}[/bold]
 
 rmc-attachable-examine-condition-blacklist-comps = предмет [bold]не имеет {$compNumber}[/bold] из следующих компонентов = [bold]{$comps}[/bold]
-rmc-attachable-examine-condition-blacklist-sizes = предмет [bold]не имеет один из следующих размеров =[/bold] [bold]{$sizes}[/bold]
+rmc-attachable-examine-condition-blacklist-sizes = предмет [bold]не имеет один из следующих размеров = [/bold][bold]{$sizes}[/bold]
 rmc-attachable-examine-condition-blacklist-tags = предмет [bold]не имеет {$tagNumber}[/bold] из следующих тегов = [bold]{$tags}[/bold]
 
 rmc-attachable-examine-ranged-scatter = [color={$colour}]{$sign}{$scatter}[/color] градусов разброса.
