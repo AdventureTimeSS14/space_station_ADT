@@ -96,7 +96,7 @@ uplink-syndicate-helmet-desc = Очень прочный шлем, широко 
 ADTuplink-grenade-launcher-bundle-name = РПГ-7
 ADTuplink-grenade-launcher-bundle-desc = Набор,содержащий в себе Ручной Противотанковый Гранатомет и 8 ракет для него!
 
-uplink-mask-name = балаклава
+uplink-mask-name = Балаклава
 uplink-mask-desc = Идеально, если вы террорист.
 
 uplink-nukiesShield-name = двуручный штурмовой щит
