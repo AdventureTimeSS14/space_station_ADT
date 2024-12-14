@@ -52,6 +52,15 @@
         },
         {
             "name": "combatknife_a"
+        },
+        {
+            "name": "tech_basic"
+        },
+        {
+            "name": "tech_extented"
+        },
+        {
+            "name": "uplink_modules"
         }
     ]
 }

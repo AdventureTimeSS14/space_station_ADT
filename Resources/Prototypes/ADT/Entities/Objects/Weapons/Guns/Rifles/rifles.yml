@@ -230,6 +230,7 @@
         whitelist:
             tags:
             - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.3125, -0.03125

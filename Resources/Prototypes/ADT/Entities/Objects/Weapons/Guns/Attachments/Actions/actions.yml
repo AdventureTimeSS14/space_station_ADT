@@ -11,7 +11,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Objects/Attachments/scope_actions.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
       state: sniperscope
     event: !type:ToggleActionEvent
     useDelay: 0.25
@@ -24,7 +24,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Objects/Attachments/scope_actions.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
       state: sniperscope
     event: !type:ScopeCycleZoomLevelEvent
     useDelay: 0.25
@@ -40,7 +40,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: ADT/Objects/Attachments/scope_actions.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
       state: sniperscope
     event: !type:AttachableToggleActionEvent
 

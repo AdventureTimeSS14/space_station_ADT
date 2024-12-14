@@ -5,7 +5,7 @@
   id: ADTUnderAttachmentBase
   components:
   - type: Sprite
-    sprite: ADT/Attachments/under.rsi
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
   - type: Tag
     tags:
     - ADTAttachmentUnderbarrel
@@ -41,7 +41,7 @@
     whitelist:
       tags:
         - ADT40mmGrenade
-    proto: ADT40mmGrenadeBlast
+    proto: null
     capacity: 1
     soundInsert:
       path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
@@ -66,10 +66,10 @@
     actionName: Switch to the M90 Grenade Launcher
     actionDesc: Switch to using the underbarrel grenade launcher.
     icon:
-      sprite: ADT/Attachments/under.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
       state: grenade
     iconActive:
-      sprite: ADT/Attachments/under.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
       state: grenade-on
   - type: AttachableVisuals
     redrawOnAppearanceChange: true
@@ -78,7 +78,7 @@
     - ADTAttachmentUnderbarrel
     - ADTAttachmentM90GrenadeLauncher
   - type: Item
-    sprite: ADT/Attachments/under.rsi
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
     storedRotation: -90
 
 - type: entity
@@ -112,7 +112,7 @@
       tags:
       - ShellShotgun
     capacity: 3
-    proto: ShellShotgun
+    proto: null
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: UseDelay
@@ -126,16 +126,16 @@
     actionName: Switch to the M90 underbarrel shotgun
     actionDesc: Switch to using the underbarrel shotgun.
     icon:
-      sprite: ADT/Attachments/under.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
       state: masterkey
     iconActive:
-      sprite: ADT/Attachments/under.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
       state: masterkey-on
   - type: AttachableVisuals
   - type: UniqueAction
   - type: PumpAction
   - type: Item
-    sprite: ADT/Attachments/under.rsi
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
     storedRotation: -90
 
 - type: entity

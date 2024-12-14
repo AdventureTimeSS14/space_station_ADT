@@ -18,3 +18,101 @@
     Gold: 300
     Plasma: 900
     Diamond: 200
+
+- type: latheRecipe
+  id: ADTAttachmentVerticalGripRecipe
+  result: ADTAttachmentVerticalGrip
+  completetime: 5
+  materials:
+    Steel: 100
+    Plastic: 500
+
+- type: latheRecipe
+  id: ADTAttachmentLaserSightRecipe
+  result: ADTAttachmentLaserSight
+  completetime: 8
+  materials:
+    Steel: 500
+    Plastic: 500
+    Gold: 100
+    Glass: 200
+
+- type: latheRecipe
+  id: ADTAttachmentReflexSightRecipe
+  result: ADTAttachmentReflexSight
+  completetime: 8
+  materials:
+    Steel: 300
+    Plastic: 300
+    Gold: 100
+    Glass: 500
+
+- type: latheRecipe
+  id: ADTAttachmentT2MiniscopeRecipe
+  result: ADTAttachmentT2Miniscope
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 300
+    Gold: 200
+    Glass: 500
+
+- type: latheRecipe
+  id: ADTAttachmentM90UnderbarrelShotgunRecipe
+  result: ADTAttachmentM90UnderbarrelShotgun
+  completetime: 10
+  materials:
+    Steel: 1000
+    Plastic: 500
+    Plasma: 100
+
+- type: latheRecipe
+  id: ADTAttachmentM90GrenadeLauncherRecipe
+  result: ADTAttachmentM90GrenadeLauncher
+  completetime: 10
+  materials:
+    Steel: 1500
+    Plastic: 500
+    Plasma: 500
+
+- type: latheRecipe
+  id: ADT40mmGrenadeHEATRecipe
+  result: ADT40mmGrenadeHEAT
+  completetime: 5
+  materials:
+    Steel: 300
+    Plastic: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: ADT40mmGrenadeBatonRecipe
+  result: ADT40mmGrenadeBaton
+  completetime: 5
+  materials:
+    Steel: 300
+    Plastic: 300
+
+- type: latheRecipe
+  id: ADT40mmGrenadeEMPRecipe
+  result: ADT40mmGrenadeEMP
+  completetime: 5
+  materials:
+    Steel: 300
+    Plastic: 100
+    Gold: 100
+
+- type: latheRecipe
+  id: ADT40mmGrenadeFlashRecipe
+  result: ADT40mmGrenadeFlash
+  completetime: 5
+  materials:
+    Steel: 300
+    Plastic: 200
+
+- type: latheRecipe
+  id: ADT40mmGrenadeSmokeRecipe
+  result: ADT40mmGrenadeSmoke
+  completetime: 5
+  materials:
+    Steel: 300
+    Plastic: 200

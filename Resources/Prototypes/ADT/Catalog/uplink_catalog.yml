@@ -42,8 +42,66 @@
   description: uplink-xc67-description
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Rifles/xc67.rsi, state: icon}
   productEntity: ADTClothingBackpackDuffelSyndicateFilledXC67
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 12
   cost:
     Telecrystal: 18
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkWeaponAttachmentsBundle
+  name: uplink-attachmentsbundle-name
+  description: uplink-attachmentsbundle-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: uplink_modules }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkLaserSightAttachment
+  name: uplink-lasersight-name
+  description: uplink-lasersight-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: lasersight}
+  productEntity: ADTAttachmentLaserSight
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkSuppressorAttachment
+  name: uplink-suppressor-name
+  description: uplink-suppressor-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: suppressor}
+  productEntity: ADTAttachmentSuppressor
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkAntilyingAttachment
+  name: uplink-attachments-antilying-name
+  description: uplink-attachments-antilying-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
+  productEntity: ADTAttachmentAntiLyingWarrior
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 8
   categories:
   - UplinkWeaponry
   conditions:

@@ -210,3 +210,15 @@
         amount: 4
       - id: ADTCartridgeBlastRocket
         amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments
+  name: weapon attachments bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTAttachmentVerticalGrip
+      - id: ADTAttachmentLaserSight
+      - id: ADTAttachmentReflexSight
+      - id: ADTAttachmentT2Miniscope

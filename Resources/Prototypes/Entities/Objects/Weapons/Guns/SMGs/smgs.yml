@@ -131,6 +131,7 @@
         whitelist:
             tags:
             - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-rail: -0.0325, -0.0325
@@ -211,6 +212,7 @@
           whitelist:
               tags:
               - ADTAttachmentSuppressor
+              - ADTAttachmentAntiLyingWarrior
     - type: AttachableHolderVisuals
       offsets:
         rmc-aslot-underbarrel: 0.28, -0.1250

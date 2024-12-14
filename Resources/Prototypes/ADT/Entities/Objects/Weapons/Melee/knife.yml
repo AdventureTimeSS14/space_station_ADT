@@ -25,5 +25,5 @@
     - accuracyAddMult: -0.05
   - type: AttachablePrying
   - type: AttachableVisuals
-    rsi: ADT/Attachments/under.rsi
+    rsi: ADT/Objects/Weapons/Guns/Attachments/under.rsi
     prefix: mosinbayonet

@@ -49,3 +49,7 @@ ent-WeaponCaseNTM90GrenadeLauncherAttachment = { ent-WeaponCaseNTM90 }
 ent-WeaponCaseNTM90UnderBarrelShotGunAttachment = { ent-WeaponCaseNTM90 }
     .desc = { ent-WeaponCaseNTM90.desc }.
     .suffix = { "Подствольный дробовик" }
+
+ent-WeaponCaseNTGunsModules = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }.
+    .suffix = { "Оружейные модули" }
