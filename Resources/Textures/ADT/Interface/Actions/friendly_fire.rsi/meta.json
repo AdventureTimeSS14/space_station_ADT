@@ -1,10 +1,11 @@
 {
   "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TornadoTech for Adventure Space.",
   "size": {
     "x": 32,
     "y": 32
   },
-  "license": "Made by TornadoTech for Adventure Space.",
   "states": [
     {
       "name": "on"

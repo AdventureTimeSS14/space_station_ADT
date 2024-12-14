@@ -92,3 +92,7 @@ uplink-blackmail-bundle-desc = Набор для относительно эфф
 
 uplink-syndicate-helmet-name = шлем спецназа
 uplink-syndicate-helmet-desc = Очень прочный шлем, широко используемый военизированными организациями. Его украшает ужасный узор из красных и чёрных полос. Да прибудет с вами робаст
+
+uplink-GFF-name = имплант GFF
+uplink-GFF-desc = Новейшая технология GFF - Gorlax Friendly Fire. Позволяет вашему оружию стрелять мимо оперативников Горлакса и не наносить им урон!
+# кто будет локаль трогать не трогайте "GFF - Gorlax Friendly Fire"
