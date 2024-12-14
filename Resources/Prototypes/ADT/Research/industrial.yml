@@ -9,6 +9,10 @@
   cost: 15000
   recipeUnlocks:
   - ADTIndustrialSMESMachineCircuitboard
+  - PowerCellMicroreactor
+  position: 3,-4
+  requiredTech:
+  - ADTCompactTechnologies
 
 - type: technology
   id: ADTCompactTechnologies
@@ -24,3 +28,38 @@
     - RPDAmmo
     - RCD
     - RCDAmmo
+  position: 3,-3
+  requiredTech:
+  - AdvancedToolsTechnology
+
+- type: technology
+  id: ADTCutter
+  name: research-technology-plasma-cutter
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutter.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ADTWeaponCutter
+  technologyPrerequisites:
+    - SalvageWeapons
+  position: 4,1
+  requiredTech:
+  - SalvageEquipment
+
+- type: technology
+  id: ADTAdvSalvageWeapons
+  name: research-technology-salvage-weapons-adv
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTWeaponCutterAdv
+  position: 5,1
+  requiredTech:
+  - ADTCutter

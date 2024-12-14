@@ -45,4 +45,7 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// </summary>
     [DataField("lockoutTier")]
     public int LockoutTier = 4; ///ADT-Tweak
+
+    [DataField("uiName", required: true)]
+    public string UiName = string.Empty;
 }

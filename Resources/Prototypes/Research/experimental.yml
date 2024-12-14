@@ -29,6 +29,9 @@
   - BorgModuleAnomaly
   - APECircuitboard
   - AnomalyVesselCircuitboard
+  position: 3,-1
+  requiredTech:
+  - AlternativeResearch
 
 - type: technology
   id: BasicXenoArcheology
@@ -44,6 +47,9 @@
   - BorgModuleArtifact
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
+  position: 3,1
+  requiredTech:
+  - AlternativeResearch
 
 - type: technology
   id: AlternativeResearch
@@ -56,6 +62,7 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
+  position: 2,0
 
 - type: technology
   id: MagnetsTech
@@ -69,6 +76,9 @@
   recipeUnlocks:
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
+  position: 1,0
+  requiredTech:
+  - AlternativeResearch
 
 - type: technology
   id: AnomalyCoreHarnessing
@@ -81,6 +91,9 @@
   cost: 10000
   recipeUnlocks:
   - WeaponGauntletGorilla
+  position: 3,-2
+  requiredTech:
+  - BasicAnomalousResearch
 
 # Tier 2
 
@@ -95,6 +108,9 @@
   cost: 5000
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
+  position: 3,2
+  requiredTech:
+  - BasicXenoArcheology
 
 - type: technology
   id: AdvancedAnomalyResearch
@@ -111,6 +127,9 @@
   - AnomalyVesselExperimentalCircuitboard
   technologyPrerequisites:
   - BasicAnomalousResearch
+  position: 4,-1
+  requiredTech:
+  - BasicAnomalousResearch
 
 - type: technology
   id: DeterrenceTechnologies
@@ -124,6 +143,9 @@
   recipeUnlocks:
   - WeaponParticleDecelerator
   - HoloprojectorField
+  position: 0,1
+  requiredTech:
+  - MagnetsTech
 
 # Tier 3
 
@@ -139,6 +161,9 @@
   recipeUnlocks:
     - WeaponForceGun
     - WeaponTetherGun
+  position: 6,0
+  requiredTech:
+  - QuantumLeaping
 
 - type: technology
   id: QuantumLeaping
@@ -151,3 +176,8 @@
   cost: 10000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
+  position: 5,0
+  requiredTech:
+  - AdvancedAnomalyResearch
+  - AbnormalArtifactManipulation
+  - AnomalyCoreHarnessing

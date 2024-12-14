@@ -12,8 +12,8 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
-  - ADTWeaponCutter #ADT plasmacutter
   # These are roundstart but not replenishable for salvage
+  position: 0,0
 
 - type: technology
   id: DraconicMunitions
@@ -38,6 +38,9 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  position: 1,-1
+  requiredTech:
+  - SalvageWeapons
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -51,6 +54,9 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   - ADTBorgModuleHarm #ADT secborg
+  position: 2,-1
+  requiredTech:
+  - DraconicMunitions
 
 - type: technology
   id: NonlethalAmmunition
@@ -68,6 +74,9 @@
   - WeaponDisabler
   - ADTBorgModuleDisabler #ADT secborg
   - ADTBorgModuleDetention #ADT secborg
+  position: 1,1
+  requiredTech:
+  - SalvageWeapons
 
 - type: technology
   id: UraniumMunitions
@@ -91,6 +100,9 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
+  position: 1,-2
+  requiredTech:
+  - DraconicMunitions
 
 - type: technology
   id: AdvancedRiotControl
@@ -106,6 +118,9 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  position: 2,1
+  requiredTech:
+  - NonlethalAmmunition
 
 - type: technology
   id: ExplosiveTechnology
@@ -124,6 +139,9 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  position: 1,-3
+  requiredTech:
+  - UraniumMunitions
 
 - type: technology
   id: SpecialMeans
@@ -136,6 +154,9 @@
   cost: 5000
   recipeUnlocks:
   - ClothingBackpackElectropack
+  position: 2,2
+  requiredTech:
+  - AdvancedRiotControl
 
 # Tier 2
 
@@ -150,6 +171,9 @@
   cost: 10000
   recipeUnlocks:
   - WeaponLaserCannon
+  position: 3,-1
+  requiredTech:
+  - WeaponizedLaserManipulation
 
 - type: technology
   id: WaveParticleHarnessing
@@ -162,6 +186,9 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
+  position: 5,-2
+  requiredTech:
+  - ConcentratedLaserWeaponry
 
 - type: technology
   id: BasicShuttleArmament
@@ -184,6 +211,9 @@
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
   - SalvageWeapons
+  position: 2,-3
+  requiredTech:
+  - ExplosiveTechnology
 
 # Tier 3
 
@@ -199,6 +229,10 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
+  position: 6,-1
+  requiredTech:
+  - ExperimentalBatteryAmmo
+  - WaveParticleHarnessing
 
 - type: technology
   id: ExperimentalBatteryAmmo
@@ -211,6 +245,9 @@
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
+  position: 5,0
+  requiredTech:
+  - ConcentratedLaserWeaponry
 
 - type: technology
   id: AdvancedShuttleWeapon
@@ -226,4 +263,7 @@
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
+  - BasicShuttleArmament
+  position: 2,-4
+  requiredTech:
   - BasicShuttleArmament

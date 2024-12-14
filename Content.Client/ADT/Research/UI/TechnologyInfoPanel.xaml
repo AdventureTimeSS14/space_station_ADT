@@ -1,0 +1,44 @@
+<Control xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Margin="5">
+    <BoxContainer
+        Name="InfoContainer"
+        Orientation="Vertical"
+        VerticalExpand="True"
+        VerticalAlignment="Top">
+        <TextureRect Name="TechnologyTexture"
+                     TextureScale="2 2"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"/>
+        <BoxContainer Orientation="Horizontal">
+            <Label Name="TechnologyNameLabel" StyleClasses="LabelKeyText" HorizontalExpand="True"/>
+            <TextureRect Name="DisciplineTexture" TextureScale="2 2" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        </BoxContainer>
+        <Button Name="ResearchButton" Text="{Loc 'research-console-menu-server-research-button'}" HorizontalAlignment="Left"/>
+    </BoxContainer>
+    <BoxContainer
+        Name="RecipesContainer"
+        Orientation="Vertical"
+        VerticalExpand="True"
+        VerticalAlignment="Bottom">
+        <Label Text="{Loc 'research-console-unlocked-text'}" HorizontalAlignment="Center"/>
+        <customControls:HSeparator StyleClasses="LowDivider" Margin="0 0 0 10"/>
+        <PanelContainer VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+            </PanelContainer.PanelOverride>
+            <ScrollContainer
+                HScrollEnabled="False"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="2"
+                VerticalExpand="True">
+                <BoxContainer
+                    Name="UnlocksContainer"
+                    Orientation="Vertical"
+                    VerticalExpand="True">
+                </BoxContainer>
+            </ScrollContainer>
+        </PanelContainer>
+    </BoxContainer>
+</Control>

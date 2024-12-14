@@ -47,7 +47,7 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         if (State is not ResearchConsoleBoundInterfaceState rState)
             return;
 
-        _consoleMenu?.UpdatePanels();
+        _consoleMenu?.UpdatePanels(rState);
         _consoleMenu?.UpdateInformationPanel(rState);
     }
 
@@ -58,7 +58,7 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         if (state is not ResearchConsoleBoundInterfaceState castState)
             return;
         _consoleMenu?.UpdatePoints(castState.Points);
-        _consoleMenu?.UpdatePanels();
+        _consoleMenu?.UpdatePanels(castState);
         _consoleMenu?.UpdateInformationPanel(castState);
     }
 }

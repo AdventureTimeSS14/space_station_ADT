@@ -6,11 +6,14 @@ using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Server.Research.Systems;
 
 public sealed partial class ResearchSystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     private void InitializeConsole()
     {
         SubscribeLocalEvent<ResearchConsoleComponent, ConsoleUnlockTechnologyMessage>(OnConsoleUnlock);
@@ -52,7 +55,7 @@ public sealed partial class ResearchSystem
             );
             _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
         }
-       
+
         SyncClientWithServer(uid);
         UpdateConsoleInterface(uid, component);
     }
@@ -71,12 +74,33 @@ public sealed partial class ResearchSystem
 
         if (TryGetClientServer(uid, out _, out var serverComponent, clientComponent))
         {
+            List<TechnologyPrototype> list = new();
+
+            if (clientComponent.Server.HasValue && TryComp<TechnologyDatabaseComponent>(clientComponent.Server.Value, out var db))
+            {
+                foreach (var item in _proto.EnumeratePrototypes<TechnologyPrototype>().ToList())
+                {
+                    if (item.RequiredTech.Count <= 0)
+                        list.Add(item);
+                    else
+                    {
+                        bool success = true;
+                        foreach (var required in item.RequiredTech)
+                        {
+                            if (!db.UnlockedTechnologies.Contains(required))
+                                success = false;
+                        }
+                        if (success)
+                            list.Add(item);
+                    }
+                }
+            }
             var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
-            state = new ResearchConsoleBoundInterfaceState(points);
+            state = new ResearchConsoleBoundInterfaceState(points, list.Select(x => x.ID).ToList());
         }
         else
         {
-            state = new ResearchConsoleBoundInterfaceState(default);
+            state = new ResearchConsoleBoundInterfaceState(default, new());
         }
 
         _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key, state);

@@ -3,24 +3,26 @@
     Margin="5"
     HorizontalExpand="False">
     <BoxContainer Orientation="Vertical">
-        <PanelContainer Margin="5" SetSize="96 96">
-            <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
-            </PanelContainer.PanelOverride>
-            <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
-                <TextureRect
-                    Name="ResearchDisplay"
-                    TextureScale="2 2"
-                    SetSize="96 96"
-                    Stretch="KeepAspectCentered">
-                </TextureRect>
-            </BoxContainer>
-            <Button Name="Buy"
-                Text="{Loc 'analysis-console-print-button'}"
-                ToolTip="{Loc 'analysis-console-print-tooltip-info'}"
-                VerticalExpand="False"
-                HorizontalExpand="False">
-            </Button>
-        </PanelContainer>
+        <Button Name="Buy"
+            Text="{Loc 'analysis-console-print-button'}"
+            ToolTip="{Loc 'analysis-console-print-tooltip-info'}"
+            VerticalExpand="False"
+            HorizontalExpand="False"
+            SetSize="80 80"
+            StyleClasses="ButtonSquare">
+            <PanelContainer Name="Main" Margin="5" SetSize="64 64" Access="Public">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
+                    <TextureRect
+                        Name="ResearchDisplay"
+                        TextureScale="2 2"
+                        SetSize="64 64"
+                        Stretch="KeepAspectCentered">
+                    </TextureRect>
+                </BoxContainer>
+            </PanelContainer>
+        </Button>
     </BoxContainer>
 </Control>

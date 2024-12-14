@@ -28,6 +28,9 @@
   - CintaTajTranslator
   - IPCTranslator
   - DwarfTranslator
+  position: 4,2
+  requiredTech:
+  - BiochemicalStasis
 
 # Frontier - languages mechanic
 - type: technology
@@ -63,3 +66,6 @@
   - IPCTranslatorImplanter
   - BorgTranslatorImplanter
   - DwarfTranslatorImplanter
+  position: 5,3
+  requiredTech:
+  - BasicTranslation

@@ -11,3 +11,6 @@
   - CloningPodMachineCircuitboard
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
+  position: 2,2
+  requiredTech:
+  - BiochemicalStasis

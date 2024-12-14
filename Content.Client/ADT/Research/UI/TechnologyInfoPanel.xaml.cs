@@ -15,20 +15,27 @@ using Robust.Shared.Utility;
 namespace Content.Client.ADT.Research.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class ResearchConsoleItem : Control
+public sealed partial class TechnologyInfoPanel : Control
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public TechnologyPrototype Prototype;
     public Action<TechnologyPrototype>? BuyAction;
-    public ResearchConsoleItem(TechnologyPrototype proto, SpriteSystem sprite)
+    public TechnologyInfoPanel(TechnologyPrototype proto, SpriteSystem sprite, int points, bool hasAccess)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         Prototype = proto;
-        Buy.OnPressed += _ => BuyAction?.Invoke(Prototype);
-        ResearchDisplay.Texture = sprite.Frame0(proto.Icon);
+        TechnologyNameLabel.Text = Loc.GetString(proto.Name);
+        DisciplineTexture.Texture = sprite.Frame0(_proto.Index<TechDisciplinePrototype>(proto.Discipline).Icon);
+        TechnologyTexture.Texture = sprite.Frame0(proto.Icon);
+
+        if (!hasAccess)
+            ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
+
+        ResearchButton.Disabled = points < proto.Cost || !hasAccess;
+        ResearchButton.OnPressed += _ => BuyAction?.Invoke(Prototype);
     }
 
 }

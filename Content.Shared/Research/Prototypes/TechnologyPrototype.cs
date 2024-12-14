@@ -72,6 +72,9 @@ public sealed partial class TechnologyPrototype : IPrototype
 
     [DataField(required: true)]
     public Vector2i Position { get; private set; }
+
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>> RequiredTech = new();
 }
 
 [DataDefinition]
