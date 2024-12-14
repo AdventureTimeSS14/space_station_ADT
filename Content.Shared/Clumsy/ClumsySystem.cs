@@ -64,7 +64,7 @@ public sealed class ClumsySystem : EntitySystem
     private void BeforeGunShotEvent(Entity<ClumsyComponent> ent, ref SelfBeforeGunShotEvent args)
     {
         // Clumsy people sometimes can't shoot :(
-        if (!GetAntagonistStatus(ent, ent.Comp)) // ADT-Clumsy-Tweak
+        if (GetAntagonistStatus(ent, ent.Comp)) // ADT-Clumsy-Tweak
             return;
 
         if (args.Gun.Comp.ClumsyProof)
@@ -126,7 +126,7 @@ public sealed class ClumsySystem : EntitySystem
                 null);
         }
 
-        args.Cancel();
+        //args.Cancel();
     }
     #endregion
 

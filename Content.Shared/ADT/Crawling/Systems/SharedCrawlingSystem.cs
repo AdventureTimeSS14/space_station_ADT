@@ -14,7 +14,6 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Map.Components;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Climbing.Events;
-using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.ADT.Crawling;
 
@@ -26,8 +25,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly BonkSystem _bonk = default!;
 
     public override void Initialize()
     {
@@ -84,19 +82,11 @@ public abstract class SharedCrawlingSystem : EntitySystem
         {
             if (HasComp<ClimbableComponent>(item))
             {
-                TableVictim(uid, component);
+                _bonk.TryBonk(uid, item, source: uid);
                 return;
             }
         }
         _standing.Stand(uid);
-    }
-
-    private void TableVictim(EntityUid uid, CrawlerComponent component)
-    {
-        var stunTime = component.DefaultStunTime;
-
-        _stun.TryParalyze(uid, stunTime, true);
-        _audio.PlayPvs(component.TableBonkSound, uid);
     }
 
     private void OnStandUp(EntityUid uid, CrawlerComponent component, StandAttemptEvent args)
@@ -104,22 +94,20 @@ public abstract class SharedCrawlingSystem : EntitySystem
         if (args.Cancelled)
             return;
         RemCompDeferred<CrawlingComponent>(uid);
-        _alerts.ClearAlert(uid, component.CtawlingAlert);
+        _alerts.ClearAlert(uid, component.CrawlingAlert);
     }
     private void OnFall(EntityUid uid, CrawlerComponent component, DownAttemptEvent args)
     {
         if (args.Cancelled)
             return;
-        _alerts.ShowAlert(uid, component.CtawlingAlert);
-        if (!HasComp<CrawlingComponent>(uid))
-            AddComp<CrawlingComponent>(uid);
+        _alerts.ShowAlert(uid, component.CrawlingAlert);
+        EnsureComp<CrawlingComponent>(uid);
         //TODO: add hiding under table
     }
     private void OnStunned(EntityUid uid, CrawlerComponent component, StunnedEvent args)
     {
-        if (!HasComp<CrawlingComponent>(uid))
-            AddComp<CrawlingComponent>(uid);
-        _alerts.ShowAlert(uid, component.CtawlingAlert);
+        EnsureComp<CrawlingComponent>(uid);
+        _alerts.ShowAlert(uid, component.CrawlingAlert);
     }
     private void OnGetExplosionResistance(EntityUid uid, CrawlerComponent component, ref GetExplosionResistanceEvent args)
     {
