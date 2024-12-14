@@ -114,7 +114,7 @@
   description: SHARK TORNADO!
   components:
   - type: Sprite
-    sprite: Objects/Fun/sharkplushie.rsi
+    sprite: Objects/Fun/sharkplush.rsi
     state: blue
     rotation: 90
     noRot: false
