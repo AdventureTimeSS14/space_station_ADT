@@ -8,6 +8,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.CCVar;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -200,7 +201,7 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         var ruleQuery = QueryActiveRules();
         while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
         {
-            var objective = _objectives.GetRandomObjective(phantom.PhantomMind.Owner, phantom.PhantomMind.Comp, phantom.ObjectiveGroup, _cfg.GetCVar(CCVars.PhantomMaxDifficulty));
+            var objective = _objectives.GetRandomObjective(phantom.PhantomMind.Owner, phantom.PhantomMind.Comp, phantom.ObjectiveGroup, _cfg.GetCVar(ADTCCVars.PhantomMaxDifficulty));
             if (objective == null)
                 continue;
 
@@ -265,13 +266,13 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
 
     private void AddObjectives(EntityUid mindId, MindComponent mind, PhantomRuleComponent component)
     {
-        var maxDifficulty = _cfg.GetCVar(CCVars.PhantomMaxDifficulty);
-        var maxPicks = _cfg.GetCVar(CCVars.PhantomMaxPicks);
+        var maxDifficulty = _cfg.GetCVar(ADTCCVars.PhantomMaxDifficulty);
+        var maxPicks = _cfg.GetCVar(ADTCCVars.PhantomMaxPicks);
         var difficulty = 0f;
         Log.Debug($"Attempting {maxPicks} objective picks with {maxDifficulty} difficulty");
         for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
         {
-            var objective = _objectives.GetRandomObjective(mindId, mind, component.ObjectiveGroup, _cfg.GetCVar(CCVars.PhantomMaxDifficulty));
+            var objective = _objectives.GetRandomObjective(mindId, mind, component.ObjectiveGroup, _cfg.GetCVar(ADTCCVars.PhantomMaxDifficulty));
             if (objective == null)
                 continue;
 

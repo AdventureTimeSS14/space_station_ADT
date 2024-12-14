@@ -1,9 +1,7 @@
-﻿﻿using Content.Shared._RMC14.Inventory;
-using Content.Shared.Hands;
+﻿﻿using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
-using Content.Shared.Throwing;
 
 namespace Content.Shared._RMC14.Armor.Magnetic;
 
@@ -11,21 +9,14 @@ public sealed class RMCMagneticSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ThrownItemSystem _thrownItem = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RMCMagneticItemComponent, DroppedEvent>(OnMagneticItemDropped);
-        SubscribeLocalEvent<RMCMagneticItemComponent, RMCDroppedEvent>(OnMagneticItemRMCDropped);
         SubscribeLocalEvent<RMCMagneticItemComponent, DropAttemptEvent>(OnMagneticItemDropAttempt);
     }
 
     private void OnMagneticItemDropped(Entity<RMCMagneticItemComponent> ent, ref DroppedEvent args)
-    {
-        TryReturn(ent, args.User);
-    }
-
-    private void OnMagneticItemRMCDropped(Entity<RMCMagneticItemComponent> ent, ref RMCDroppedEvent args)
     {
         TryReturn(ent, args.User);
     }
@@ -66,7 +57,7 @@ public sealed class RMCMagneticSystem : EntitySystem
                 {
                     if (_inventory.TryGetSlotEntity(user, "outerClothing", out _))
                     {
-                        if (_inventory.TryEquip(user, uid, slot.ID, force: false))
+                        if (_inventory.TryEquip(user, uid, slot.ID, force: true))
                         {
                             var popup = Loc.GetString("rmc-magnetize-return",
                                 ("item", uid),
