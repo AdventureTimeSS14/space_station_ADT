@@ -287,25 +287,29 @@ public sealed partial class SupermatterSystem
             return;
 
         // We are not taking consistent damage, Engineers aren't needed
-        if (sm.Damage <= sm.DamageArchived)
-            return;
-
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-           if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
-            &&  sm.ResonantFrequency >= 1)
-             message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
-             
-           message = Loc.GetString("supermatter-warning", ("integrity", integrity));
-           if (sm.Damage >= sm.DamageEmergencyThreshold)
+            if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
             {
-              if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
-               &&  sm.ResonantFrequency >= 1)
-                 message = Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity));
-                 global = true;
+                message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
+            }
+            else
+            {
+                message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+            }
 
-              message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
-              global = true;
+            if (sm.Damage >= sm.DamageEmergencyThreshold)
+            {
+                if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+                {
+                    message = Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity));
+                    global = true;
+                }
+                else
+                {
+                    message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                    global = true;
+                }
             }
         }
 
