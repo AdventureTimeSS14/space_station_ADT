@@ -58,7 +58,7 @@ public sealed class ThermalCloakSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        if (comp.HandsBlock && _hands.IsHolding(comp.Owner, ent.Owner))
+        if (comp.HandsBlock && _hands.IsHolding(ent.Owner, comp.Owner))
             return;
 
         if (comp.NinjaSuit && _ninja.IsNinja(ent))
