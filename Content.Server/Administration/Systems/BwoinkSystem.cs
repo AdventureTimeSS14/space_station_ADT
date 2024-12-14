@@ -60,7 +60,7 @@ namespace Content.Server.Administration.Systems
                 lastRunLevel)> _relayMessages = new();
 
         private Dictionary<NetUserId, string> _oldMessageIds = new();
-        private readonly Dictionary<NetUserId, Queue<string>> _messageQueues = new();
+        public readonly Dictionary<NetUserId, Queue<string>> _messageQueues = new(); // Frontier - Changed to Public
         private readonly HashSet<NetUserId> _processingChannels = new();
         private readonly Dictionary<NetUserId, (TimeSpan Timestamp, bool Typing)> _typingUpdateTimestamps = new();
         private string _overrideClientName = string.Empty;
@@ -317,6 +317,7 @@ namespace Content.Server.Administration.Systems
             {
                 // TODO: Ideally, CVar validation during setting should be better integrated
                 Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
+                await SetWebhookData(url); // Frontier - Support for Custom URLS, we still want to see if theres Webhook data available
                 return;
             }
 
@@ -330,12 +331,15 @@ namespace Content.Server.Administration.Systems
             var webhookToken = match.Groups[2].Value;
 
             // Fire and forget
-            await SetWebhookData(webhookId, webhookToken);
+            // await SetWebhookData(webhookId, webhookToken); // ADT Tweak
+            await SetWebhookData(url); // Frontier - Support for Custom URLS
         }
 
-        private async Task SetWebhookData(string id, string token)
+        //private async Task SetWebhookData(string id, string token) // ADT tweak
+        private async Task SetWebhookData(string url)  // Frontier - Support for Custom URLS
         {
-            var response = await _httpClient.GetAsync($"https://discord.com/api/v10/webhooks/{id}/{token}");
+            //var response = await _httpClient.GetAsync($"https://discord.com/api/v10/webhooks/{id}/{token}"); // adt tweak
+            var response = await _httpClient.GetAsync(url);
 
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
@@ -428,6 +432,7 @@ namespace Content.Server.Administration.Systems
 
             var payload = GeneratePayload(existingEmbed.description,
                 existingEmbed.username,
+                userId.UserId, // Frontier, this is used to identify the players in the webhook
                 existingEmbed.characterName);
 
             // If there is no existing embed, create a new one
@@ -477,7 +482,7 @@ namespace Content.Server.Administration.Systems
             _processingChannels.Remove(userId);
         }
 
-        private WebhookPayload GeneratePayload(string messages, string username, string? characterName = null)
+        private WebhookPayload GeneratePayload(string messages, string username, Guid userId, string? characterName = null) // Frontier: added Guid
         {
             // Add character name
             if (characterName != null)
@@ -503,6 +508,7 @@ namespace Content.Server.Administration.Systems
             return new WebhookPayload
             {
                 Username = username,
+                UserID = userId, // Frontier, this is used to identify the players in the webhook
                 AvatarUrl = string.IsNullOrWhiteSpace(_avatarUrl) ? null : _avatarUrl,
                 Embeds = new List<WebhookEmbed>
                 {
@@ -701,7 +707,7 @@ namespace Content.Server.Administration.Systems
                 .ToList();
         }
 
-        private static string GenerateAHelpMessage(AHelpMessageParams parameters)
+        public static string GenerateAHelpMessage(AHelpMessageParams parameters) // Frontier - Changed to Public
         {
             var stringbuilder = new StringBuilder();
 
@@ -718,6 +724,9 @@ namespace Content.Server.Administration.Systems
                 stringbuilder.Append($" **{parameters.RoundTime}**");
             if (!parameters.PlayedSound)
                 stringbuilder.Append(" **(S)**");
+
+            if (parameters.IsDiscord) // Frontier - Discord Indicator
+                stringbuilder.Append(" **(Ds)**");
 
             if (parameters.Icon == null)
                 stringbuilder.Append($" **{parameters.Username}:** ");
@@ -737,6 +746,7 @@ namespace Content.Server.Administration.Systems
         public GameRunLevel RoundState { get; set; }
         public bool PlayedSound { get; set; }
         public bool NoReceivers { get; set; }
+        public bool IsDiscord { get; set; } // Frontier
         public string? Icon { get; set; }
 
         public AHelpMessageParams(
@@ -746,6 +756,7 @@ namespace Content.Server.Administration.Systems
             string roundTime,
             GameRunLevel roundState,
             bool playedSound,
+            bool isDiscord = false, // Frontier
             bool noReceivers = false,
             string? icon = null)
         {
@@ -754,6 +765,7 @@ namespace Content.Server.Administration.Systems
             IsAdmin = isAdmin;
             RoundTime = roundTime;
             RoundState = roundState;
+            IsDiscord = isDiscord; // Frontier
             PlayedSound = playedSound;
             NoReceivers = noReceivers;
             Icon = icon;
