@@ -496,7 +496,7 @@
   description: Big and safe to have by your side if you want to discover the world below the surface of the ocean.
   components:
   - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
+    sprite: Objects/Fun/sharkplushie.rsi
     state: blue
   - type: EmitSoundOnUse
     sound:
@@ -519,7 +519,7 @@
   description: Hehe shonk :)
   components:
   - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
+    sprite: Objects/Fun/sharkplushie.rsi
     state: pink
   - type: Item
     heldPrefix: pink
@@ -535,7 +535,7 @@
   description: A quiet, reserved kind of shonk. Loves to ride the grey tide.
   components:
   - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
+    sprite: Objects/Fun/sharkplushie.rsi
     state: grey
   - type: Item
     heldPrefix: grey
