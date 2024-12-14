@@ -34,8 +34,6 @@
       sprite: ADT/Mobs/Cyborg/chassis.rsi
       state: sec
     name: secborg
-  - type: Construction
-    node: security
   - type: AccessReader
     access: [["Security"], ["Command"], ["Research"]]
   - type: Inventory
@@ -92,8 +90,6 @@
       sprite: ADT/Mobs/Silicon/Borgs/cyborg_kerfus.rsi
       state: kerfus
     name: kerfus cyborg
-  - type: Construction
-    node: kerfusNT
   - type: IntrinsicRadioTransmitter
     channels:
     - Binary
