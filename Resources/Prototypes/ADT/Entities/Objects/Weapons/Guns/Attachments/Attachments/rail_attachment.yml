@@ -5,7 +5,7 @@
   id: ADTRailAttachmentBase
   components:
   - type: Sprite
-    sprite: ADT/Attachments/rail.rsi
+    sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
   - type: Tag
     tags:
     - ADTAttachmentRail
@@ -45,7 +45,7 @@
     useDelay: 0.5
     showTogglePopup: false
     icon:
-      sprite: ADT/Objects/Attachments/scope_actions.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
       state: sniperscope
     actionName: action-name-basescope
     actionDesc: action-description-basescope
@@ -67,7 +67,7 @@
   description: Hristov x6 scope
   components:
   - type: Sprite
-    sprite: ADT/Objects/Attachments/scope_actions.rsi
+    sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
     state: sniperscope
   - type: Tag
     tags:
@@ -113,7 +113,7 @@
   description: T2 scope
   components:
   - type: Sprite
-    sprite: ADT/Attachments/rail.rsi
+    sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
     state: miniscope
   - type: Tag
     tags:
@@ -127,7 +127,7 @@
     wieldedOnly: false
     breakOnRotate: false
     icon:
-      sprite: ADT/Attachments/rail.rsi
+      sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
       state: miniscope
   - type: AttachableToggleableSimpleActivate
   - type: Scope
@@ -165,7 +165,7 @@
   description: Areflex sight
   components:
   - type: Sprite
-    sprite: ADT/Attachments/rail.rsi
+    sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
     state: reflex
   - type: Tag
     tags:

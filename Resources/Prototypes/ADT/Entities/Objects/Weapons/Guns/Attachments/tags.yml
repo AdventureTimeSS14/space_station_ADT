@@ -39,3 +39,6 @@
 
 - type: Tag
   id: ADTAttachmentSuppressor
+
+- type: Tag
+  id: ADTAttachmentAntiLyingWarrior

@@ -32,6 +32,39 @@
   - ADTUplinkERTAttachments
 
 - type: listing
+  id: ADTBoberWeaponAttachments
+  name: boobr-weapon-attachments-name
+  description: boobr-weapon-attachments-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: tech_basic }
+  productEntity: WeaponCaseNTGunsModules
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberAntilyingAttachment
+  name: boobr-weapon-attachments-antilying-name
+  description: boobr-weapon-attachments-antilying-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
+  productEntity: ADTAttachmentAntiLyingWarrior
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberSuppressorAttachment
+  name: boobr-weapon-attachments-suppressor-name
+  description: boobr-weapon-attachments-suppressor-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: suppressor }
+  productEntity: ADTAttachmentSuppressor
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
   id: ADTBoberLecter
   name: boobr-lecter-name
   description: boobr-lecter-desc

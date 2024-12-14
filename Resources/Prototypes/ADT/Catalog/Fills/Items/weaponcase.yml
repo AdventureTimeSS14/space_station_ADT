@@ -45,12 +45,26 @@
     contents:
     - id: ADTAttachmentM90UnderbarrelShotgun
     - id: MagazineShotgun
-      amount: 2
+      amount: 3
     - id: MagazineShotgunBeanbag
       amount: 2
     - id: MagazineShotgunIncendiary
       amount: 2
-    - id: MagazineShotgunSlug      
+    - id: MagazineShotgunSlug
+
+- type: entity
+  id: WeaponCaseNTGunsModules
+  name: weapon Case
+  suffix: Weapon Attacments
+  description: Case with weapons.
+  parent: WeaponCaseNT
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTAttachmentVerticalGrip
+    - id: ADTAttachmentLaserSight
+    - id: ADTAttachmentReflexSight
+    - id: ADTAttachmentT2Miniscope
 
 - type: entity
   id: WeaponCaseNTLecter

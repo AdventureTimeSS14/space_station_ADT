@@ -69,3 +69,12 @@ boobr-m90-grenadelauncher-desc = Один из наиболее распрост
 
 boobr-m90-shotgun-name = Подствольный дробовик US90
 boobr-m90-shotgun-desc = Трехзарядный подствольный дробовик, сделанный изначально для карабина М-90gl. Прекрасно подходит для вышибания дверей или мозгов зомби.
+
+boobr-weapon-attachments-name = Набор оружейных модулей
+boobr-weapon-attachments-desc = Кейс, в котором лежит лазерный целеуказатель, вертикальная рукоять, коллиматорный и оптический прицелы.
+
+boobr-weapon-attachments-antilying-name = Модуль коррекции огня
+boobr-weapon-attachments-antilying-desc = Особо продвинутый модуль, позволяющий попадать даже в лежащих под укрытиями противников.
+
+boobr-weapon-attachments-suppressor-name = Глушитель
+boobr-weapon-attachments-suppressor-desc = Устанавлаемый на ствол универсальный мультикалиберный глушитель. Существенно снижает звук от стрельбы и скрывает дульную вспышку.

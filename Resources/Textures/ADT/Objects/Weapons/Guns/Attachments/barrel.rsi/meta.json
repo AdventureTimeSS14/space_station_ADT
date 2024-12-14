@@ -12,6 +12,12 @@
         },
         {
             "name": "suppressor_a"
+        },
+        {
+            "name": "antilying"
+        },
+        {
+            "name": "antilying_a"
         }
     ]
 }

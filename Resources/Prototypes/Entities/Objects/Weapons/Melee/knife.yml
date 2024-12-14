@@ -139,7 +139,7 @@
     - accuracyAddMult: -0.05
   - type: AttachablePrying
   - type: AttachableVisuals
-    rsi: ADT/Attachments/under.rsi
+    rsi: ADT/Objects/Weapons/Guns/Attachments/under.rsi
     prefix: combatknife
 # ADT TWEAK END
 
@@ -154,6 +154,9 @@
     state: icon
   - type: Item
     sprite: Objects/Weapons/Melee/survival_knife.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/survival_knife.rsi
 # ADT TWEAK START
   - type: Tag
     tags:
