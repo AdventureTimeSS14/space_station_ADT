@@ -390,8 +390,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
-        var bark = _proto.Index<BarkPrototype>(profile.BarkProto); // ADT Barks
-        SetBarkData(uid, bark.Sound, profile.BarkPitch, profile.BarkLowVar, profile.BarkHighVar); // ADT Barks
+        SetBarkData(uid, profile.Bark, humanoid); // ADT Barks
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
@@ -486,15 +485,14 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     // Corvax-TTS-End
 
     // ADT Barks start
-    public void SetBarkData(EntityUid uid, string sound, float pitch, float lowVar, float highVar)
+    public void SetBarkData(EntityUid uid, BarkData data, HumanoidAppearanceComponent humanoid)
     {
         if (!TryComp<SpeechBarksComponent>(uid, out var comp))
             return;
 
-        comp.Sound = sound;
-        comp.BarkPitch = pitch;
-        comp.BarkLowVar = lowVar;
-        comp.BarkHighVar = highVar;
+        comp.Data = data;
+        comp.Data.Sound = _proto.Index(comp.Data.Proto).Sound;
+        humanoid.Bark = data;
     }
     // ADT Barks end
 

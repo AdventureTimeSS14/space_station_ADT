@@ -34,6 +34,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: ADTBasePDA
@@ -47,6 +48,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 #Если добаляете группу одинаковых кпк делайте им базу!
 
 - type: entity

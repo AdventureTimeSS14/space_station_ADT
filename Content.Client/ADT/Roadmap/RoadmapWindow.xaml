@@ -1,0 +1,29 @@
+﻿<controls:RoadmapWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.ADT.Roadmap"
+    MinSize="900 800"
+    Title="{Loc roadmap-name}">
+    <ScrollContainer>
+        <BoxContainer Orientation="Vertical">
+            <BoxContainer Orientation="Horizontal">
+                <RichTextLabel Name="Header" Access="Public" Margin="0 15 0 10" />
+                <Control HorizontalExpand="True" />
+                <BoxContainer Orientation="Vertical" Margin="0 0 20 0">
+                    <Label HorizontalExpand="True" Align="Right" VerticalAlignment="Bottom"
+                           Text="*Это неполный список" />
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer Name="Columns" Access="Public" Orientation="Horizontal">
+                <BoxContainer Name="Complete" Access="Public" Orientation="Vertical" HorizontalExpand="True" Margin="0 0 20 0">
+                    <controls:RoadmapVersionHeader Text="Выполнено" />
+                </BoxContainer>
+                <BoxContainer Name="InProgress" Access="Public" Orientation="Vertical"  HorizontalExpand="True" Margin="0 0 20 0">
+                    <controls:RoadmapVersionHeader Text="В процессе" />
+                </BoxContainer>
+                <BoxContainer Name="Planned" Access="Public" Orientation="Vertical"  HorizontalExpand="True" Margin="0 0 20 0">
+                    <controls:RoadmapVersionHeader Text="Запланировано" />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </ScrollContainer>
+</controls:RoadmapWindow>

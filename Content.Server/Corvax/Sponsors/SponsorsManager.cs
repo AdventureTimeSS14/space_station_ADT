@@ -73,22 +73,31 @@ public sealed class SponsorsManager
     {
         if (!string.IsNullOrEmpty(_apiUrl))
         {
-            var url = $"{_apiUrl}/sponsors/{userId.ToString()}";
-            var response = await _httpClient.GetAsync(url);
-            if (response.StatusCode == HttpStatusCode.NotFound)
-                return null;
-
-            if (response.StatusCode != HttpStatusCode.OK)
+            try // ADT TWEAK
             {
-                var errorText = await response.Content.ReadAsStringAsync();
-                _sawmill.Error(
-                    "Failed to get player sponsor OOC color from API: [{StatusCode}] {Response}",
-                    response.StatusCode,
-                    errorText);
+                var url = $"{_apiUrl}/sponsors/{userId.ToString()}";
+                var response = await _httpClient.GetAsync(url);
+
+                if (response.StatusCode == HttpStatusCode.NotFound)
+                    return null;
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    var errorText = await response.Content.ReadAsStringAsync();
+                    _sawmill.Error(
+                        "Failed to get player sponsor OOC color from API: [{StatusCode}] {Response}",
+                        response.StatusCode,
+                        errorText);
+                    return null;
+                }
+
+                return await response.Content.ReadFromJsonAsync<SponsorInfo>();
+            }
+            catch (HttpRequestException) // ADT TWEAK
+            {
+                _sawmill.Error("No internet connection or network error while fetching sponsor info.");
                 return null;
             }
-
-            return await response.Content.ReadFromJsonAsync<SponsorInfo>();
         }
 
         return null;
