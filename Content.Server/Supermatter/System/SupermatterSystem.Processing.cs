@@ -167,7 +167,7 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
          &&  sm.ResonantFrequency >= 1)
         {
-            sm.Damage += Math.Max(sm.Power / 100 * sm.DamageIncreaseMultiplier, 0.1f);
+            sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 10f);
             return;
         }
 
@@ -267,12 +267,6 @@ public sealed partial class SupermatterSystem
                 default:                loc = "supermatter-delam-explosion"; break;
             }
 
-            switch (sm.PreferredAnnoucmentType)
-            {
-                case DelamType.Cascade: loc = "supermatter-delam-cascade";   break;
-                default:                loc = "supermatter-delam-explosion"; break;
-            }
-
             var station = _station.GetOwningStation(uid);
             if (station != null)
                 _alert.SetLevel((EntityUid) station, sm.AlertCodeDeltaId, true, true, true, false);
@@ -293,38 +287,26 @@ public sealed partial class SupermatterSystem
             return;
 
         // We are not taking consistent damage, Engineers aren't needed
-
-        sm.PreferredAnouncmentType = ChooseAnnouncmentType(uid, sm);
-
         if (sm.Damage <= sm.DamageArchived)
             return;
 
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-          if (sm.ResonantFrequency >= 1);
-            return AnnouncmentType.Resonant;
+           if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
+            &&  sm.ResonantFrequency >= 1)
+             message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
+             
+           message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+           if (sm.Damage >= sm.DamageEmergencyThreshold)
+            {
+              if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
+               &&  sm.ResonantFrequency >= 1)
+                 message = Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity));
+                 global = true;
 
-          return AnnouncmentType.Basic;
-        }
-
-        switch (sm.PreferredAnnouncmentType)
-        {
-            case AnouncmentType.Resonant:
-                message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
-                    if (sm.Damage >= sm.DamageEmergencyThreshold)
-                    {
-                       message = Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity));
-                       global = true;
-                    }
-                break;
-            default:
-                 message = Loc.GetString("supermatter-warning", ("integrity", integrity));
-                    if (sm.Damage >= sm.DamageEmergencyThreshold)
-                    {
-                       message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
-                       global = true;
-                    }
-                break;
+              message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+              global = true;
+            }
         }
 
         SendSupermatterAnnouncement(uid, message, global);
@@ -363,16 +345,6 @@ public sealed partial class SupermatterSystem
          return DelamType.Cascade;
 
        return DelamType.Explosion;
-    }
-
-    public AnnouncmentType ChooseAnnouncmentType(EntityUid uid, SupermatterComponent sm)
-    {
-        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
-         &&  sm.ResonantFrequency >= 1)
-
-         return AnnouncmentType.Resonant;
-
-       return AnnouncmentType.Basic;
     }
 
     /// <summary>

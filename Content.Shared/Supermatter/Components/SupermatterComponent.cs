@@ -294,9 +294,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
 
-    [DataField]
-    public AnnouncmentType PreferredAnnouncmentType = AnnouncmentType.Basic;
-
     #endregion
 
     #region Announcements
@@ -384,12 +381,6 @@ public enum DelamType : int
 {
     Explosion = 0,
     Cascade = 1
-}
-
-public enum AnnouncementType : int
-{
-    Basic = 0,
-    Resonant = 1
 }
 
 [Serializable, DataDefinition]
