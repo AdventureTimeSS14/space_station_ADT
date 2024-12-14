@@ -4560,8 +4560,6 @@ entities:
       pos: 6.5,8.5
       parent: 2
     - type: DisposalUnit
-      recentlyEjected:
-      - invalid
   - uid: 1062
     components:
     - type: Transform
@@ -4612,9 +4610,6 @@ entities:
       pos: 12.5,-14.5
       parent: 2
     - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: ActiveUserInterface
   - uid: 896
     components:
