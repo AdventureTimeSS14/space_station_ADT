@@ -159,10 +159,6 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(CMKeyFunctions.RMCActivateAttachableUnderbarrel);
             AddButton(CMKeyFunctions.RMCFieldStripHeldItem);
             AddButton(CMKeyFunctions.CMUniqueAction);
-            AddButton(CMKeyFunctions.CMHolsterPrimary);
-            AddButton(CMKeyFunctions.CMHolsterSecondary);
-            AddButton(CMKeyFunctions.CMHolsterTertiary);
-            AddButton(CMKeyFunctions.CMHolsterQuaternary);
             // ADT TWEAK END
 
             AddHeader("ui-options-header-general");

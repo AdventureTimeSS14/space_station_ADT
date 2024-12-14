@@ -10,8 +10,5 @@ public sealed partial class RMCReturnToInventoryComponent : Component
     public EntityUid User;
 
     [DataField, AutoNetworkedField]
-    public EntityUid Magnetizer;
-
-    [DataField, AutoNetworkedField]
     public bool Returned;
 }

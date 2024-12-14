@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Client.Gameplay;
-using Content.Shared._RMC14.Tackle; // ADT TWEAK
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
@@ -332,7 +331,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
                 return;
 
-            switch(altFireComponent.AttackType)
+            switch (altFireComponent.AttackType)
             {
                 case AltFireAttackType.Light:
                     ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
@@ -396,13 +395,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         var target = GetEntity(ev.Target);
-        if (target != null && InRange(user, target.Value, component.Range, session))
-        {
-            var cmDisarmEvent = new CMDisarmEvent(user);
-            RaiseLocalEvent(target.Value, ref cmDisarmEvent);
-            if (cmDisarmEvent.Handled)
-                return true;
-        }
 
         // They need to either have hands...
         if (!HasComp<HandsComponent>(target!.Value))
@@ -476,7 +468,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
     }
-        // ADT TWEAK END
+    // ADT TWEAK END
     private void OnMeleeLunge(MeleeLungeEvent ev)
     {
         var ent = GetEntity(ev.Entity);
