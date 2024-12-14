@@ -37,7 +37,7 @@
       types:
         Shock: -5
         Caustic: -5
-        Heat: -5
+        Heat: -5 # ADT Tweak
     # healingBeginSound:
     #   path: "/Audio/Items/Medical/ointment_begin.ogg"
     # healingEndSound:
