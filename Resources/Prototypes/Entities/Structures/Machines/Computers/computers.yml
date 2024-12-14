@@ -159,11 +159,6 @@
   - type: Tag
     tags:
       - Syndicate
-# ADT-drone-console-tweak
-  - type: DroneConsole
-    components:
-      - type: NukeOpsShuttle
-# ADT-drone-console-tweak
   - type: RadarConsole
     maxRange: 384
   - type: WorldLoader
