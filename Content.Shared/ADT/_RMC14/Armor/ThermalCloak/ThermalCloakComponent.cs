@@ -55,4 +55,7 @@ public sealed partial class ThermalCloakComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool NinjaSuit = false;
+
+    [DataField, AutoNetworkedField]
+    public bool HandsBlock = true;
 }
