@@ -1,6 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.CCVar; // ADT Tweak
-using Robust.Shared.Configuration; // ADT Tweak
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Components;
@@ -22,7 +20,6 @@ public abstract class SharedJetpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!; // ADT Tweak
 
     public override void Initialize()
     {
@@ -130,13 +127,8 @@ public abstract class SharedJetpackSystem : EntitySystem
     {
         // No and no again! Do not attempt to activate the jetpack on a grid with gravity disabled. You will not be the first or the last to try this.
         // https://discord.com/channels/310555209753690112/310555209753690112/1270067921682694234
-        // ADT Tweak start
-        // return gridUid == null ||
-        //        (!HasComp<GravityComponent>(gridUid));
-        if (gridUid == null || !TryComp<GravityComponent>(gridUid, out var comp))
-            return true;
-        return !comp.Enabled;
-        // ADT Tweak End
+        return gridUid == null ||
+               (!HasComp<GravityComponent>(gridUid));
     }
 
     private void OnJetpackGetAction(EntityUid uid, JetpackComponent component, GetItemActionsEvent args)
