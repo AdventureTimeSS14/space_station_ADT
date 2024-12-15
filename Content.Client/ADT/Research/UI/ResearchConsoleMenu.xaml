@@ -56,6 +56,12 @@
                     <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 5"/>
                 </PanelContainer>
             </BoxContainer>
+            <BoxContainer Name="InfoContainer"
+                Orientation="Vertical"
+                VerticalExpand="True"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="2"
+                Margin="0 0 10 10"/>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

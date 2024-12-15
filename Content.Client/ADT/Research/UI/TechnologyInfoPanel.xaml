@@ -1,12 +1,14 @@
 <Control xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    Margin="5">
+    Margin="5"
+    Orientation="Vertical"
+    VerticalExpand="True">
     <BoxContainer
         Name="InfoContainer"
         Orientation="Vertical"
         VerticalExpand="True"
-        VerticalAlignment="Top">
+        Margin="5">
         <TextureRect Name="TechnologyTexture"
                      TextureScale="2 2"
                      VerticalAlignment="Center"
@@ -17,11 +19,14 @@
         </BoxContainer>
         <Button Name="ResearchButton" Text="{Loc 'research-console-menu-server-research-button'}" HorizontalAlignment="Left"/>
     </BoxContainer>
+    <Control MinSize="10 10"
+        HorizontalExpand="True"/>
     <BoxContainer
         Name="RecipesContainer"
         Orientation="Vertical"
         VerticalExpand="True"
-        VerticalAlignment="Bottom">
+        VerticalAlignment="Bottom"
+        Margin="5">
         <Label Text="{Loc 'research-console-unlocked-text'}" HorizontalAlignment="Center"/>
         <customControls:HSeparator StyleClasses="LowDivider" Margin="0 0 0 10"/>
         <PanelContainer VerticalExpand="True">

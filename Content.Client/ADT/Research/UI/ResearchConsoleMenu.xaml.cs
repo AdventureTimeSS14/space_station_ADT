@@ -92,6 +92,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
                 CurrentDiscipline = proto.ID;
                 discipline.SetClickPressed(false);
+                UpdatePanels(state);
                 Recenter();
             };
         }
@@ -220,7 +221,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         if (!_player.LocalEntity.HasValue)
             return;
 
-        var control = new TechnologyCardControl(proto, _prototype, _sprite, new(), Points, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity) && List.Contains(proto.ID));
+        var control = new TechnologyInfoPanel(proto, _sprite, Points, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity) && List.Contains(proto.ID));
         InfoContainer.AddChild(control);
     }
 
