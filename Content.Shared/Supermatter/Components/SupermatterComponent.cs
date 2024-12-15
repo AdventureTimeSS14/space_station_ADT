@@ -37,7 +37,7 @@ public sealed partial class SupermatterComponent : Component
     };
 
     [DataField]
-    public string KudzuSpawnPrototype = "SupermatterKudzu";
+    public string CascadeSpawnPrototype = "SupermatterCascade";
 
     /// <summary>
     ///     What spawns in the place of an unfortunate entity that got removed by the SM.

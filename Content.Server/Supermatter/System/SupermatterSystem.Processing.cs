@@ -356,8 +356,6 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleDelamination(EntityUid uid, SupermatterComponent sm)
     {
-        var xform = Transform(uid);
-
         sm.PreferredDelamType = ChooseDelamType(uid, sm);
 
         if (!sm.Delamming)
@@ -374,13 +372,16 @@ public sealed partial class SupermatterSystem
 
         sm.DelamTimerAccumulator++;
 
+        var xform = Transform(uid);
+
         if (sm.DelamTimerAccumulator < sm.DelamTimer)
             return;
 
         switch (sm.PreferredDelamType)
         {
             case DelamType.Cascade:
-                Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
+                QueueDel(uid);
+                Spawn(sm.CascadeSpawnPrototype, xform.Coordinates);
                 break;
 
             default:

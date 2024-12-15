@@ -1,5 +1,5 @@
 - type: entity
-  id: SupermatterCascade2222
+  id: SupermatterCascade
   parent: BaseAnomaly
   name: Сверхматерия
   description: Кристалл Сверхматерии, который очень долго резонировал... Это конец.
