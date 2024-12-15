@@ -55,6 +55,7 @@
       tags:
       - NukeOpsUplink
 
+#UplinkAttachments
 - type: listing
   id: ADTUplinkWeaponAttachmentsBundle
   name: uplink-attachmentsbundle-name
@@ -67,7 +68,7 @@
   cost:
     Telecrystal: 4
   categories:
-  - UplinkWeaponry
+  - UplinkAttachments #ADT_Tweak
 
 - type: listing
   id: ADTUplinkLaserSightAttachment
@@ -78,7 +79,7 @@
   cost:
     Telecrystal: 1
   categories:
-  - UplinkWeaponry
+  - UplinkAttachments #ADT_Tweak
 
 - type: listing
   id: ADTUplinkSuppressorAttachment
@@ -89,7 +90,7 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkWeaponry
+  - UplinkAttachments #ADT_Tweak
 
 - type: listing
   id: ADTUplinkAntilyingAttachment
@@ -103,7 +104,26 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeaponry
+  - UplinkAttachments #ADT_Tweak
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkMagneticHarnessAttachment
+  name: uplink-attachments-magneticharness-name
+  description: uplink-attachments-magneticharness-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/rail.rsi, state: magnetic }
+  productEntity: ADTAttachmentMagneticHarness
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkAttachments #ADT_Tweak
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:

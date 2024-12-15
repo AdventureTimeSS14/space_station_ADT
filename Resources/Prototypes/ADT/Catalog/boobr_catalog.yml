@@ -65,6 +65,17 @@
   - ADTUplinkERTAttachments
 
 - type: listing
+  id: ADTBoberMagneticHarnessAttachment
+  name: boobr-weapon-attachments-magneticharness-name
+  description: boobr-weapon-attachments-magneticharness-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/rail.rsi, state: magnetic }
+  productEntity: ADTAttachmentMagneticHarness
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
   id: ADTBoberLecter
   name: boobr-lecter-name
   description: boobr-lecter-desc
