@@ -160,7 +160,7 @@ public sealed partial class SupermatterComponent : Component
     ///     Time until delam
     /// </summary>
     [DataField]
-    public float DelamTimer = 120f;
+    public float DelamTimer = 30f;
 
     /// <summary>
     ///     The message timer
