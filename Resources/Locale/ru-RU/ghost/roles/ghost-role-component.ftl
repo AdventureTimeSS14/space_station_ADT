@@ -19,7 +19,7 @@ ghost-role-information-antagonist-rules =
     Вам разрешено помнить знания об игре в целом, например, как готовить, как использовать предметы и т. д.
     Вам [color=red]НЕ[/color] разрешается помнить, имя, внешность и т.д. вашего предыдущего персонажа.
 ghost-role-information-rules-team-antagonist =
-    Вы являетесь [color=red][bold]Членом команды антагоностов[/bold][/color]. Ваши намерения ясны и наносят вред станции и ее экипажу.
+    Вы являетесь [color=red][bold]Членом команды антагонистов[/bold][/color]. Ваши намерения ясны и наносят вред станции и ее экипажу.
     Вы должны [bold]работать со своей командой[/bold] или следовать разумным указаниям руководителей вашей команды.
     Вам разрешается помнить знания об игре в целом, такие как приготовление пищи, использование предметов и т.д.
     Вам [color=red]НЕ[/color] разрешается помнить, имя, внешность и т.д. вашего предыдущего персонажа.
@@ -94,15 +94,15 @@ ghost-role-information-space-bear-description = У вас урчит в живо
 ghost-role-information-supplybot-name = Грузобот
 ghost-role-information-supplybot-description = Развозите грузы по станции.
 ghost-role-information-guardian-name = Страж
-ghost-role-information-guardian-description = Слушайте своего хозяина. Не танкуйте урон. Яростно избивайте врагов. # ADT-Tweak
+ghost-role-information-guardian-description = Слушайте своего хозяина. Не танкуйте урон. Яростно избивайте врагов.
 ghost-role-information-tropico-name = Тропико
 ghost-role-information-tropico-description = Благородный спутник Атмосии и её самый стойкий защитник. Viva la revolucion!
 ghost-role-information-holoparasite-name = Голопаразит
-ghost-role-information-holoparasite-description = Слушайте своего хозяина. Не танкуйте урон. Яростно избивайте врагов. # ADT-Tweak
+ghost-role-information-holoparasite-description = Слушайте своего хозяина. Не танкуйте урон. Яростно избивайте врагов.
 ghost-role-information-holoclown-name = Голоклоун
 ghost-role-information-holoclown-description = Слушайте своего хозяина. Используйте свои карманы и руку, чтобы ему помочь.
 ghost-role-information-ifrit-name = Ифрит
-ghost-role-information-ifrit-description = Слушайте своего хозяина. Не танкуйте урон. Яростно избивайте врагов. # ADT-Tweak
+ghost-role-information-ifrit-description = Слушайте своего хозяина. Не танкуйте урон. Яростно избивайте врагов.
 # ADT-Tweak-start
 ghost-role-information-space-dragon-name = Космический дракон
 ghost-role-information-space-dragon-description = Вызовите 3 карповых разлома и захватите этот квадрант! У вас есть лишь 5 минут между каждым разломом, прежде чем вы исчезнете.

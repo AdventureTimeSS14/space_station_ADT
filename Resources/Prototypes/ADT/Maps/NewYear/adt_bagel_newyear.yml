@@ -1,0 +1,78 @@
+- type: gameMap
+  id: ADT_BagelNewYear
+  mapName: 'Bagel Station'
+  mapPath: /Maps/ADTMaps/ADTStations/NewYear/adt_bagel.yml
+  minPlayers: 20
+  maxPlayers: 90
+  stations:
+    ADT_BagelNewYear:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Bagel Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
+        - type: StationJobs
+          availableJobs:
+            # command
+            Captain: [ 1, 1 ]
+            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+            #service
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 3, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 3, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 4, 4 ]
+            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 3, 3 ]
+            Paramedic: [ 1, 1 ]
+            MedicalIntern: [ 4, 4 ]
+            ADTPathologist: [ 1, 1 ] #ADT-Roles
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 5, 5 ]
+            ResearchAssistant: [ 4, 4 ]
+            ADTRoboticist: [ 1, 2 ] #ADT-Roles
+            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 4, 4 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
+            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            Pilot: [ 1, 1] # Corvax-Pilot
+            #supply
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 3, 3 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 2, 2 ]
+            # juridical
+            Lawyer: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            Magistrat: [ 1, 1 ] #ADT-Roles
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]

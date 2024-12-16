@@ -1,10 +1,10 @@
 {
   "version": 1,
   "size": {
-    "x": 32,
-    "y": 32
+    "x": 36,
+    "y": 36
   },
-  "copyright": "Taken from tgstation, brigmedic locker is a resprited CMO locker by PuroSlavKing (Github), n2 sprites based on fire and emergency sprites",
+  "copyright": "Taken from Skyrat-TG https://github.com/Skyrat-SS13/Skyrat-tg, and adapted by Tamioki for Adventure Time Team.",
   "license": "CC-BY-SA-3.0",
   "states": [
     {
@@ -17,7 +17,10 @@
       "name": "abductor_open"
     },
     {
-      "name": "agentbox"
+      "name": "abductor_locked"
+    },
+    {
+      "name": "abductor_unlocked"
     },
     {
       "name": "alien"
@@ -41,7 +44,7 @@
       "name": "armory_door"
     },
     {
-      "name": "armory_open"
+      "name": "sec_wardrobe_door"
     },
     {
       "name": "atmos"
@@ -50,52 +53,64 @@
       "name": "atmos_door"
     },
     {
-      "name": "atmos_open"
-    },
-    {
       "name": "atmos_wardrobe_door"
     },
     {
-      "name": "bio"
+      "name": "barber"
+    },
+    {
+      "name": "barber_door"
     },
     {
       "name": "bio_door"
     },
     {
-      "name": "bio_jan"
-    },
-    {
       "name": "bio_jan_door"
-    },
-    {
-      "name": "bio_jan_open"
-    },
-    {
-      "name": "bio_open"
-    },
-    {
-      "name": "bio_sec"
     },
     {
       "name": "bio_sec_door"
     },
     {
-      "name": "bio_sec_open"
-    },
-    {
-      "name": "bio_viro"
-    },
-    {
       "name": "bio_viro_door"
     },
     {
-      "name": "bio_viro_open"
+      "name": "bio_med_door"
     },
     {
-      "name": "black_door"
+      "name": "bio_paramedic_door"
     },
     {
-      "name": "blue_door"
+      "name": "bio_coroner_door"
+    },
+    {
+      "name": "color_black"
+    },
+    {
+      "name": "color_black_door"
+    },
+    {
+      "name": "color_black_open"
+    },
+    {
+      "name": "color_black2_door"
+    },
+    {
+      "name": "color_black2_open"
+    },
+    {
+      "name": "color_black3_door"
+    },
+    {
+      "name": "color_black3_open"
+    },
+    {
+      "name": "bar_wardrobe_door"
+    },
+    {
+      "name": "color_blue_door"
+    },
+    {
+      "name": "color_blue_open"
     },
     {
       "name": "bomb"
@@ -104,16 +119,10 @@
       "name": "bomb_door"
     },
     {
-      "name": "bomb_open"
+      "name": "blueshield"
     },
     {
-      "name": "janitor_bomb"
-    },
-    {
-      "name": "janitor_bomb_door"
-    },
-    {
-      "name": "janitor_bomb_open"
+      "name": "blueshield_door"
     },
     {
       "name": "cabinet"
@@ -134,22 +143,28 @@
       "name": "cap_open"
     },
     {
-      "name": "cardboard"
-    },
-    {
-      "name": "cardboard_open"
-    },
-    {
-      "name": "cardboard_special"
-    },
-    {
       "name": "cargo"
     },
     {
       "name": "cargo_door"
     },
     {
-      "name": "cargo_open"
+      "name": "cargo_wardrobe_door"
+    },
+    {
+      "name": "cargo_wardrobe_open"
+    },
+    {
+      "name": "library_door"
+    },
+    {
+      "name": "library_open"
+    },
+    {
+      "name": "cc"
+    },
+    {
+      "name": "cc_door"
     },
     {
       "name": "ce"
@@ -158,10 +173,16 @@
       "name": "ce_door"
     },
     {
-      "name": "ce_open"
+      "name": "chaplain_door"
+    },
+    {
+      "name": "chemical"
     },
     {
       "name": "chemical_door"
+    },
+    {
+      "name": "chemical_wardrobe_door"
     },
     {
       "name": "cmo"
@@ -171,6 +192,15 @@
     },
     {
       "name": "cmo_open"
+    },
+    {
+      "name": "correctionofficer"
+    },
+    {
+      "name": "correctionofficer_door"
+    },
+    {
+      "name": "cardboard_special"
     },
     {
       "name": "cursed",
@@ -249,25 +279,10 @@
       "name": "decursed_open"
     },
     {
-      "name": "ecase"
-    },
-    {
-      "name": "ecase_door"
-    },
-    {
-      "name": "ecase_open"
-    },
-    {
-      "name": "egun"
-    },
-    {
       "name": "emergency"
     },
     {
       "name": "emergency_door"
-    },
-    {
-      "name": "emergency_open"
     },
     {
       "name": "eng"
@@ -279,10 +294,10 @@
       "name": "eng_open"
     },
     {
-      "name": "eng_rad_door"
+      "name": "eng_wardrobe_door"
     },
     {
-      "name": "eng_secure"
+      "name": "eng_rad_door"
     },
     {
       "name": "eng_secure_door"
@@ -297,19 +312,13 @@
       "name": "eng_weld_door"
     },
     {
-      "name": "fire"
+      "name": "evidence_door"
     },
     {
       "name": "fire_door"
     },
     {
-      "name": "fire_open"
-    },
-    {
       "name": "freezer"
-    },
-    {
-      "name": "freezer_icon"
     },
     {
       "name": "freezer_door"
@@ -321,19 +330,73 @@
       "name": "generic"
     },
     {
+      "name": "generic2"
+    },
+    {
+      "name": "generic3"
+    },
+    {
       "name": "generic_door"
+    },
+    {
+      "name": "generic_door_sec"
     },
     {
       "name": "generic_open"
     },
     {
-      "name": "generic_icon"
+      "name": "generic_door2"
     },
     {
-      "name": "green_door"
+      "name": "generic_open2"
     },
     {
-      "name": "grey_door"
+      "name": "generic_door3"
+    },
+    {
+      "name": "generic_open3"
+    },
+    {
+      "name": "generic_door4"
+    },
+    {
+      "name": "generic_open4"
+    },
+    {
+      "name": "generic_door5"
+    },
+    {
+      "name": "generic_open5"
+    },
+    {
+      "name": "generic_door6"
+    },
+    {
+      "name": "generic_open6"
+    },
+    {
+      "name": "gen_wardrobe_door"
+    },
+    {
+      "name": "sci_wardrobe_door"
+    },
+    {
+      "name": "coroner_wardrobe_door"
+    },
+    {
+      "name": "hazard_door"
+    },
+    {
+      "name": "color_green_door"
+    },
+    {
+      "name": "color_green_open"
+    },
+    {
+      "name": "color_green2_door"
+    },
+    {
+      "name": "color_grey_door"
     },
     {
       "name": "hop"
@@ -360,10 +423,34 @@
       "name": "hydro_door"
     },
     {
+      "name": "hydro_wardrobe_door"
+    },
+    {
       "name": "hydro_open"
     },
     {
+      "name": "jen_wardrobe_door"
+    },
+    {
+      "name": "chef_wardrobe_door"
+    },
+    {
+      "name": "lawyer_door"
+    },
+    {
+      "name": "lawyer_wardrobe_door"
+    },
+    {
       "name": "locked"
+    },
+    {
+      "name": "magistrate"
+    },
+    {
+      "name": "magistrate_door"
+    },
+    {
+      "name": "magistrate_open"
     },
     {
       "name": "med"
@@ -372,22 +459,22 @@
       "name": "med_door"
     },
     {
-      "name": "med_open"
+      "name": "med_wardrobe_door"
     },
     {
-      "name": "med_secure"
+      "name": "medical"
     },
     {
-      "name": "med_secure_door"
+      "name": "medical_door"
     },
     {
-      "name": "med_secure_open"
+      "name": "minifreezer"
     },
     {
-      "name": "metalbox"
+      "name": "minifreezer_door"
     },
     {
-      "name": "metalbox_open"
+      "name": "minifreezer_open"
     },
     {
       "name": "mining"
@@ -396,37 +483,43 @@
       "name": "mining_door"
     },
     {
+      "name": "mining_wardrobe_door"
+    },
+    {
       "name": "mining_open"
     },
     {
       "name": "mixed_door"
     },
     {
-      "name": "n2"
-    },
-    {
-      "name": "n2_open"
-    },
-    {
       "name": "n2_door"
     },
     {
-      "name": "oldcloset"
+      "name": "color_orange_door"
     },
     {
-      "name": "orange_door"
+      "name": "color_orange_open"
     },
     {
-      "name": "paramed"
+      "name": "paramedic"
     },
     {
-      "name": "paramed_door"
+      "name": "paramedic_door"
     },
     {
-      "name": "paramed_open"
+      "name": "paramedic_open"
     },
     {
-      "name": "pink_door"
+      "name": "color_pink_door"
+    },
+    {
+      "name": "color_pink_open"
+    },
+    {
+      "name": "color_purple_door"
+    },
+    {
+      "name": "color_purple_open"
     },
     {
       "name": "qm"
@@ -447,7 +540,16 @@
       "name": "rd_open"
     },
     {
-      "name": "red_door"
+      "name": "robo_wardrobe_door"
+    },
+    {
+      "name": "color_red_door"
+    },
+    {
+      "name": "color_red_open"
+    },
+    {
+      "name": "color_red2_door"
     },
     {
       "name": "science"
@@ -456,31 +558,19 @@
       "name": "science_door"
     },
     {
-      "name": "science_open"
-    },
-    {
       "name": "sec"
     },
     {
       "name": "sec_door"
     },
     {
-      "name": "sec_open"
-    },
-    {
-      "name": "secure"
-    },
-    {
-      "name": "secure_door"
-    },
-    {
-      "name": "secure_icon"
-    },
-    {
-      "name": "secure_open"
-    },
-    {
       "name": "shotgun"
+    },
+    {
+      "name": "submachinegun"
+    },
+    {
+      "name": "batterygun"
     },
     {
       "name": "shotguncase"
@@ -509,19 +599,28 @@
       "name": "syndicate_door"
     },
     {
-      "name": "syndicate_open"
+      "name": "syndicate_wardrobe_door"
     },
     {
       "name": "tac"
     },
     {
-      "name": "tac_door"
+      "name": "tac_armory"
     },
     {
-      "name": "tac_open"
+      "name": "tac_shotgun"
+    },
+    {
+      "name": "tac_elec"
+    },
+      {
+      "name": "tac_weaponry"
     },
     {
       "name": "unlocked"
+    },
+    {
+      "name": "viro_wardrobe_door"
     },
     {
       "name": "warden"
@@ -530,16 +629,40 @@
       "name": "warden_door"
     },
     {
-      "name": "warden_open"
-    },
-    {
       "name": "welded"
     },
     {
-      "name": "white_door"
+      "name": "welded_minifreezer"
     },
     {
-      "name": "yellow_door"
+      "name": "color_white_door"
+    },
+    {
+      "name": "color_white_open"
+    },
+    {
+      "name": "color_white2_door"
+    },
+    {
+      "name": "color_white2_open"
+    },
+    {
+      "name": "color_white3_open"
+    },
+    {
+      "name": "color_white-pink"
+    },
+    {
+      "name": "color_white-pink_door"
+    },
+    {
+      "name": "color_white-pink_open"
+    },
+    {
+      "name": "color_white-pink2_open"
+    },
+    {
+      "name": "color_yellow_door"
     },
     {
       "name": "clown"
@@ -548,22 +671,25 @@
       "name": "clown_door"
     },
     {
-      "name": "clown_open"
-    },
-    {
       "name": "mime"
     },
     {
       "name": "mime_door"
     },
     {
-      "name": "mime_open"
+      "name": "secure_icon"
+    },
+    {
+      "name": "freezer_icon"
+    },
+    {
+      "name": "generic_icon"
+    },
+    {
+      "name": "representative"
     },
     {
         "name": "representative_door"
-    },
-    {
-        "name": "brigmedlocked"
     }
   ]
 }

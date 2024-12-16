@@ -460,3 +460,60 @@
     sprite: ADT/Clothing/Head/Hats/sollux_captor.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/sollux_captor.rsi
+
+# Sh4zik hats??? Woah.
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatDarkBenie
+  name: Dark Beanie
+  description: oridiniary dark beanie. nothing really to see here.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beanies/darkbeanie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beanies/darkbeanie.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBlueBenie
+  name: Blue Beanie
+  description: oridiniary blue beanie. nothing really to see here.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beanies/bluebeanie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beanies/bluebeanie.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatGreenBenie
+  name: Green Beanie
+  description: oridiniary green beanie. nothing really to see here.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beanies/greenbeanie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beanies/greenbeanie.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatPurpleBenie
+  name: Purple Beanie
+  description: oridiniary purple beanie. nothing really to see here.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beanies/purplebeanie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beanies/purplebeanie.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatRedBenie
+  name: Red Beanie
+  description: oridiniary red beanie. nothing really to see here.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beanies/redbeanie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beanies/redbeanie.rsi
