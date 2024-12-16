@@ -74,3 +74,4 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: ContainerContainer
