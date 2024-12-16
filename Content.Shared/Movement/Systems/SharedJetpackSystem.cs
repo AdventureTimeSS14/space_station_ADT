@@ -1,5 +1,5 @@
 using Content.Shared.Actions;
-using Content.Shared.CCVar;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Components;
@@ -132,8 +132,6 @@ public abstract class SharedJetpackSystem : EntitySystem
         // https://discord.com/channels/310555209753690112/310555209753690112/1270067921682694234
 
         // ADT Tweak start
-        // return gridUid == null ||
-        //        (!HasComp<GravityComponent>(gridUid));
         if (gridUid == null || !TryComp<GravityComponent>(gridUid, out var comp))
             return true;
 
