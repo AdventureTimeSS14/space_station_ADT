@@ -8,7 +8,7 @@ public sealed partial class HumanoidProfileEditor
 {
     private List<BarkPrototype> _barkList = new();
 
-    private void InitializeBarks()
+    private void InitializeBarks()  // У меня случился небольшой затуп. Оно барки в обход кнопки сохраняет, но хотя бы работает                                                                                                                                                             ы
     {
         _barkList = _prototypeManager
             .EnumeratePrototypes<BarkPrototype>()
@@ -20,6 +20,7 @@ public sealed partial class HumanoidProfileEditor
         {
             BarkProtoButton.SelectId(args.Id);
             SetBarkProto(_barkList[args.Id].ID);
+            UpdateSaveButton();
         };
 
         PitchEdit.OnTextChanged += args =>
@@ -28,6 +29,7 @@ public sealed partial class HumanoidProfileEditor
                 return;
 
             SetBarkPitch(newPitch);
+            UpdateSaveButton();
         };
 
         DelayVariationMinEdit.OnTextChanged += args =>
@@ -36,6 +38,7 @@ public sealed partial class HumanoidProfileEditor
                 return;
 
             SetBarkMinVariation(newVar);
+            UpdateSaveButton();
         };
 
         DelayVariationMaxEdit.OnTextChanged += args =>
@@ -44,6 +47,7 @@ public sealed partial class HumanoidProfileEditor
                 return;
 
             SetBarkMaxVariation(newVar);
+            UpdateSaveButton();
         };
 
         BarkPlayButton.OnPressed += _ => PlayPreviewBark();
@@ -56,9 +60,9 @@ public sealed partial class HumanoidProfileEditor
 
         BarkProtoButton.Clear();
 
-        PitchEdit.Text = Profile.BarkPitch.ToString();
-        DelayVariationMinEdit.Text = Profile.BarkLowVar.ToString();
-        DelayVariationMaxEdit.Text = Profile.BarkHighVar.ToString();
+        PitchEdit.Text = Profile.Bark.Pitch.ToString();
+        DelayVariationMinEdit.Text = Profile.Bark.MinVar.ToString();
+        DelayVariationMaxEdit.Text = Profile.Bark.MaxVar.ToString();
 
         var firstVoiceChoiceId = 1;
         for (var i = 0; i < _barkList.Count; i++)
@@ -72,7 +76,7 @@ public sealed partial class HumanoidProfileEditor
                 firstVoiceChoiceId = i;
         }
 
-        var voiceChoiceId = _barkList.FindIndex(x => x.ID == Profile.BarkProto);
+        var voiceChoiceId = _barkList.FindIndex(x => x.ID == Profile.Bark.Proto);
         if (!BarkProtoButton.TrySelectId(voiceChoiceId) &&
             BarkProtoButton.TrySelectId(firstVoiceChoiceId))
         {
@@ -85,6 +89,6 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        _entManager.System<SpeechBarksSystem>().PlayDataPrewiew(Profile.BarkProto, Profile.BarkPitch, Profile.BarkLowVar, Profile.BarkHighVar);
+        _entManager.System<SpeechBarksSystem>().PlayDataPrewiew(Profile.Bark.Proto, Profile.Bark.Pitch, Profile.Bark.MinVar, Profile.Bark.MaxVar);
     }
 }

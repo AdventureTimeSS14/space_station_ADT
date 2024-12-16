@@ -670,3 +670,59 @@
     sprite: ADT/Personalization/oktyabrina_coat.rsi
   - type: Clothing
     sprite: ADT/Personalization/oktyabrina_coat.rsi
+
+#ПразатДерВахед
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatPrazatBeret
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_beret.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_beret.rsi
+  - type: StaticPrice
+    price: 95
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ADTClothingOuterCoatPrazat
+  name: Prazat coat
+  description: Prazat coat.
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,4,2
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitPrazat
+  name: Prazat clothing
+  description: Prazat clothin
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_suit.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialDurathread1
+      amount: 3
+  - type: StaticPrice
+    price: 100
