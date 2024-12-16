@@ -167,8 +167,18 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
          &&  sm.ResonantFrequency >= 1)
         {
-            sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 10f);
-            return;
+         var integrity = GetIntegrity(sm);
+
+           if(integrity < 50)
+            {
+              sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 10f);
+               return;
+            }
+           else
+            {
+              sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 10f);
+              return;
+            }
         }
 
         // Absorbed gas from surrounding area
@@ -343,12 +353,20 @@ public sealed partial class SupermatterSystem
 
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
-         &&  sm.ResonantFrequency >= 1)
+        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+        {
+            if (!sm.KudzuSpawned)
+            {
+                var xform = Transform(uid);
+                Spawn(sm.KudzuPrototype, xform.Coordinates);
+                
+                sm.KudzuSpawned = true;
+            }
 
-         return DelamType.Cascade;
+            return DelamType.Cascade;
+        }
 
-       return DelamType.Explosion;
+        return DelamType.Explosion;
     }
 
     /// <summary>

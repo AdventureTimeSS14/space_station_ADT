@@ -54,3 +54,4 @@
           Asphyxiation: -0.25
     - type: RadiationSource
       intensity: 1.5
+    - type: SupermatterImmune

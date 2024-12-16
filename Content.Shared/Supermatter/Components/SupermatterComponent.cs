@@ -21,6 +21,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public string SliverPrototype = "SupermatterSliver";
 
+    [DataField]
+    public string KudzuPrototype = "SupermatterKudzu";
+
+    [DataField]
+    public bool KudzuSpawned = false;
+
     /// <summary>
     ///     Affects delamination timer.
     ///     If removed - delamination timer is divided by 2.
