@@ -255,6 +255,7 @@
   parent: [BaseMob, MobCombat]
   id: ADTMobAngelCrying
   name: crying angel
+  description: crying angel
   components:
   - type: TimeDespawnDamage
   - type: NoSlip
@@ -308,3 +309,5 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Machines/airlock_creaking.ogg
+  - type: MovementAlwaysTouching
+  - type: LagCompensation
