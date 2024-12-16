@@ -1,0 +1,27 @@
+- type: loadoutEffectGroup
+  id: ADTQMJumpsuitCamisole
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 72000 #20 hrs
+
+- type: loadoutEffectGroup
+  id: ADTQMJumpskirtCamisole
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 72000 #20 hrs
+
+- type: loadout
+  id: ADTQMJumpsuitCamisole
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitCamisoleQM
+
+- type: loadout
+  id: ADTQMJumpskirtCamisole
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtCamisoleQM

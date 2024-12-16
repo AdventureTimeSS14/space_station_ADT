@@ -108,6 +108,7 @@
       - DoorBumpOpener
       - AnomalyHost
       - ADTCatEmotes
+    - type: DamageEyesOnFlashed
 
 - type: entity
   save: false

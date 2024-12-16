@@ -8,6 +8,7 @@
   id: FemaleLaugh
   files:
     - /Audio/Voice/Human/womanlaugh.ogg
+    - /Audio/ADT/Voice/Human/female_laugh.ogg # ADT add
 
 - type: soundCollection
   id: MaleCough
@@ -48,11 +49,13 @@
   id: MaleSigh
   files:
     - /Audio/Voice/Human/male_sigh.ogg
+    - /Audio/ADT/Voice/Human/male_sigh.ogg # ADT add
 
 - type: soundCollection
   id: FemaleSigh
   files:
     - /Audio/Voice/Human/female_sigh.ogg
+    - /Audio/ADT/Voice/Human/female_sigh.ogg # ADT add
 
 - type: soundCollection
   id: Salutes

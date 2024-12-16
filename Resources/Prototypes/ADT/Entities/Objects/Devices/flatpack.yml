@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ADTBookPrinterFlatpack
+  categories: [ HideSpawnMenu ]
+  name: book printer flatpack
+  description: A flatpack used for constructing a book printer.
+  components:
+  - type: Flatpack
+    entity: ADTBookPrinter
