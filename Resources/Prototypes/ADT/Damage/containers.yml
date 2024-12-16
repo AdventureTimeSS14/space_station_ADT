@@ -3,8 +3,3 @@
   supportedGroups:
     - Brute
     - Burn
-
-- type: damageContainer
-  id: ADTAngel
-  supportedTypes:
-    - Structure
