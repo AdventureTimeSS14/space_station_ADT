@@ -270,8 +270,41 @@
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: angel
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
   - type: Icon
     sprite: ADT/Mobs/Demons/angel_crying.rsi
     state: icon
-  - type: Damageable
-    damageContainer: ADTAngel
+  - type: Body
+    prototype: Human
+  - type: Hands
+  - type: MindContainer
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Clickable
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
+  - type: ComplexInteraction
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Machines/airlock_creaking.ogg
