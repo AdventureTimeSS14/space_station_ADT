@@ -21,7 +21,7 @@ loadout-group-atmospheric-technician-neck = Атмосферный техник,
 loadout-group-atmospheric-technician-gasmask = Атмосферный техник, противогаз
 loadout-group-atmospheric-technician-head = Атмосферный техник, голова
 loadout-group-senior-engineer-head = Бригадир, голова
-loadout-group-senior-engineer-jumpsuit = Бригадир, Комбинезон
+loadout-group-senior-engineer-jumpsuit = Бригадир, комбинезон
 # Science
 loadout-group-roboticist-head = Робототехник, голова
 loadout-group-roboticist-jumpsuit = Робототехник, комбинезон
@@ -32,6 +32,9 @@ loadout-group-senior-researcher-jumpsuit = Доцент, комбинезон
 loadout-group-senior-researcher-gloves = Доцент, перчатки
 loadout-group-senior-researcher-outerclothing = Доцент, верхняя одежда
 # Security
+loadout-group-senior-officer-jumpsuit = Офицер-инструктор, комбинезон
+loadout-group-senior-officer-backpack = Офицер-инструктор, рюкзак
+loadout-group-senior-officer-outerclothing = Офицер-инструктор, верхняя одежда
 loadout-warden-neck-adt = Смотритель, шея
 loadout-security-officer-neck-adt = Офицер СБ, шея
 loadout-security-cadet-neck-adt = Кадет СБ, шея

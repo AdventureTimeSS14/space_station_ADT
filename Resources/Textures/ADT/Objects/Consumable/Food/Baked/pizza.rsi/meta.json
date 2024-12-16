@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by Sh4zik ow-",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "fullpizza"
+        },
+        {
+            "name": "boxopen"
+        },
+        {
+            "name": "boxclosed"
+        },
+        {
+            "name": "pizzaslice"
+        },
+        {
+      "name": "box-inhand-right",
+      "directions": 4
+        },
+        {
+      "name": "box-inhand-left",
+      "directions": 4
+         }
+    ]
+}
+
