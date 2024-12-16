@@ -31,6 +31,7 @@
   parent: BaseStructureDynamic
   name: crying angel
   description: crying angel
+  suffix: Statue
   components:
   - type: Sprite
     noRot: true

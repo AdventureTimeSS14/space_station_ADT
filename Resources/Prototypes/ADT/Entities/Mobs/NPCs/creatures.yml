@@ -273,9 +273,6 @@
         state: angel
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
-  - type: Icon
-    sprite: ADT/Mobs/Demons/angel_crying.rsi
-    state: icon
   - type: Body
     prototype: Human
   - type: Hands
