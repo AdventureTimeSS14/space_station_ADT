@@ -6,42 +6,42 @@
     "x": 32,
     "y": 32
   },
-    "states": [
-        {
-            "name": "blue"
-        },
-        {
-            "name": "blue-inhand-left",
-            "directions": 4
-        },
-        {
-            "name": "blue-inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "pink"
-        },
-        {
-            "name": "pink-inhand-left",
-            "directions": 4
-        },
-        {
-            "name": "pink-inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "grey"
-        },
-        {
-            "name": "grey-inhand-left",
-            "directions": 4
-        },
-        {
-            "name": "grey-inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "mopbucket_shark_black"
-        }
-    ]
+  "states": [
+    {
+      "name": "blue"
+    },
+    {
+      "name": "blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "pink"
+    },
+    {
+      "name": "pink-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "pink-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "grey"
+    },
+    {
+      "name": "grey-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "grey-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "mopbucket_shark_black"
+    }
+  ]
 }
