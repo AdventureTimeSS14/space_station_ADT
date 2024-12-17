@@ -65,3 +65,5 @@
       totalIntensity: 10000
     - type: GuideHelp
       guides: [ Supermatter, Power ]
+    - type: RgbLightController
+      layers: [ 0 ]
