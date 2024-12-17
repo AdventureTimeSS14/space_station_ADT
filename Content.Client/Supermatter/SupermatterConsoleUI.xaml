@@ -8,42 +8,24 @@
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
         <BoxContainer Margin="10 10 10 10" MinWidth="150" Orientation="Vertical"
             VerticalExpand="True" SizeFlagsStretchRatio="1">
-            <BoxContainer Orientation="Vertical" VerticalExpand="True">
-                <BoxContainer MinHeight="5"></BoxContainer>
-                <BoxContainer MinHeight="5"></BoxContainer>
-                <BoxContainer MinHeight="5"></BoxContainer>
-                <BoxContainer Orientation="Horizontal">
-                </BoxContainer>
-                <BoxContainer MinHeight="15"></BoxContainer>
-                <Button Name="ExtractButton"
-                    Text="{Loc 'analysis-console-extract-button'}"
-                    ToolTip="{Loc 'analysis-console-extract-button-info'}">
-                </Button>
+            <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
+                 <SpriteView
+                    Name="SupermatterView"
+                    OverrideDirection="South"
+                    VerticalExpand="False"
+                    SetSize="64 64"
+                    MaxSize="64 64"
+                    Scale="2 2">
+                </SpriteView>   
             </BoxContainer>
+            <RichTextLabel Name="ProcentsLabel"> </RichTextLabel>
         </BoxContainer>
         <customControls:VSeparator StyleClasses="LowDivider" />
         <PanelContainer Margin="10 10 10 10" HorizontalExpand="True" SizeFlagsStretchRatio="3">
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
             </PanelContainer.PanelOverride>
-            <BoxContainer Margin="10 10 10 10" Orientation="Horizontal">
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <BoxContainer VerticalExpand="True">
-                        <RichTextLabel Name="Information"> </RichTextLabel>
-                    </BoxContainer>
-                </BoxContainer>
-                <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
-                    <SpriteView
-                        Name="SupermatterView"
-                        OverrideDirection="South"
-                        VerticalExpand="False"
-                        SetSize="64 64"
-                        MaxSize="64 64"
-                        Scale="2 2">
-                    </SpriteView>
-                </BoxContainer>
-                <BoxContainer VerticalExpand="True"></BoxContainer>
-            </BoxContainer>
+            <RichTextLabel Name="GasesLabel" MinWidth="300" MinHeight="250"> </RichTextLabel>
         </PanelContainer>
     </BoxContainer>
 </controls:FancyWindow>

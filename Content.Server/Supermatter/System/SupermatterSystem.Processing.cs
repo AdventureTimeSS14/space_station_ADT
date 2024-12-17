@@ -7,12 +7,18 @@ using System.Linq;
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.Radio;
+using Content.Shared.UserInterface;
+using Content.Client.UserInterface;
 using Content.Server.Chat.Systems;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
+    
     /// <summary>
     ///     Handle power and radiation output depending on atmospheric things.
     /// </summary>
@@ -30,6 +36,8 @@ public sealed partial class SupermatterSystem
             return;
 
         var gases = sm.GasStorage;
+        if (sm.SupermatterConsole is EntityUid entity)
+            _ui.SetUiState(entity, SupermatterConsoleUiKey.Key, new SupermatterUpdateState(GetNetEntity(uid), GetIntegrity(sm).ToString("0.00"), gases));
         var facts = sm.GasDataFields;
 
         // Lets get the proportions of the gasses in the mix for scaling stuff later
@@ -171,7 +179,7 @@ public sealed partial class SupermatterSystem
 
            if(integrity < 50)
             {
-              sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 10f);
+              sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 5f);
                return;
             }
            else

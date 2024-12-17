@@ -3,6 +3,8 @@ using Robust.Shared.Audio;
 using Content.Shared.Atmos;
 using Content.Shared.Whitelist;
 using Content.Shared.DoAfter;
+using Content.Shared.DeviceLinking;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Supermatter.Components;
@@ -62,6 +64,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public SoundSpecifier CurrentSoundLoop = new SoundPathSpecifier("/Audio/ADT/Supermatter/calm.ogg");
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? SupermatterConsole = null;
+
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string LinkingPort = "SupermatterLinks";
 
     #endregion
 
