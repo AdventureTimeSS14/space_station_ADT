@@ -36,11 +36,7 @@
   - type: Sprite
     noRot: true
     sprite: ADT/Mobs/Demons/angel_crying.rsi
-    layers:
-      - map: [ "enum.DamageStateVisualLayers.Base" ]
-        state: angel
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
+    state: angel
     drawdepth: Mobs
   - type: InteractionOutline
   - type: Fixtures
@@ -48,12 +44,13 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.3,-0.3,0.3,0.3"
+          bounds: "-0.3,-0.4,0.3,0.4"
         density: 500
         mask:
         - MachineMask
         layer:
-        - MobLayer
+        - MidImpassable
+        - LowImpassable
   - type: Rotatable
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -66,17 +63,3 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  - type: Body
-    prototype: Human
-  - type: Hands
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-  - type: ContainerContainer
-    containers:
-      body_root_part: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
