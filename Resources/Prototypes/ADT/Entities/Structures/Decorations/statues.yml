@@ -75,3 +75,8 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: ContainerContainer
+    containers:
+      body_root_part: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
