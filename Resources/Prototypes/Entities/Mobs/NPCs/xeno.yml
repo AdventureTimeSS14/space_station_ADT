@@ -146,12 +146,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      250: Dead
   - type: Stamina
     critThreshold: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 8    
   - type: Fixtures
     fixtures:
       fix1:
@@ -183,14 +187,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      100: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       40: 0.7
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 6
+        Brute: 5
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -224,7 +228,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      1000: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       150: 0.7
@@ -232,7 +236,7 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 12
+       Brute: 20
   - type: Fixtures
     fixtures:
       fix1:
@@ -268,13 +272,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      500: Dead
   - type: MovementSpeedModifier
-    baseSprintSpeed: 4
+    baseSprintSpeed: 2
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 10
+       Brute: 30
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -306,8 +310,12 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6.0
+    baseSprintSpeed: 12.0
   - type: MeleeWeapon
     damage:
      groups:
@@ -362,7 +370,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead
+      80: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       25: 0.7
