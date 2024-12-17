@@ -250,3 +250,61 @@
     - GalacticCommon
     understands:
     - GalacticCommon
+
+- type: entity
+  parent: [BaseMob, MobCombat]
+  id: ADTMobAngelCrying
+  name: crying angel
+  description: crying angel
+  components:
+  - type: TimeDespawnDamage
+  - type: NoSlip
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: MetalThud
+    damage:
+      types:
+        Blunt: 30
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/angel_crying.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: angel
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+  - type: Body
+    prototype: Human
+  - type: Hands
+  - type: MindContainer
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Clickable
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
+  - type: ComplexInteraction
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Machines/airlock_creaking.ogg
+  - type: MovementAlwaysTouching
+  - type: LagCompensation
