@@ -10,14 +10,14 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 15
+        Piercing: 25
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 18
+        Piercing: 28
   - type: Construction
-    graph: ADTPSpear
-    node: start
+    graph: ADTPSpear 
+    node: ADTCompPlasmaSpear
 
 - type: entity
   name: reinforced uranium spear
@@ -31,7 +31,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 18
+        Piercing: 12
         Radiation: 9
   - type: DamageOtherOnHit
     damage:
@@ -40,4 +40,4 @@
         Radiation: 9
   - type: Construction
     graph: ADTUraniumSpear
-    node: start
+    node: ADTCompUraniumSpear

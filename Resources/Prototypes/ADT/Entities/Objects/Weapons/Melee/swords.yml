@@ -88,6 +88,9 @@
   id: ADTPlasmaDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTPDagger
+    node: ADTCompPlasmaDager
   - type: Tag
     tags:
     - Knife
@@ -115,6 +118,9 @@
   id: ADTGlassReinDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTGRDagger
+    node: ADTCompGlassRefDager
   - type: Tag
     tags:
     - Knife
@@ -142,6 +148,9 @@
   id: ADTGlassDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTGDagger
+    node: ADTCompGlassDager
   - type: Tag
     tags:
     - Knife
@@ -169,6 +178,9 @@
   id: ADTGlassUranDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTUDagger
+    node: ADTCompUranDager
   - type: Tag
     tags:
     - Knife
@@ -189,5 +201,33 @@
     damage:
       types:
         Slash: 9
+
+- type: entity
+  name: wooden sword
+  parent: BaseItem
+  id: ADTWoodenSword
+  description: A true robust need training everyday.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/wooden_sword.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.2
+    angle: 75
+    damage:
+      types:
+        Blunt: 0.5
+    soundHit:
+      collection: BoxingHit
+  - type: StaminaDamageOnHit
+    damage: 12
+  #- type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 1
+  - type: Item
+    size: Huge
+  - type: DisarmMalus
 
 

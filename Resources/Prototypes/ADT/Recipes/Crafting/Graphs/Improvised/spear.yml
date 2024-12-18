@@ -13,7 +13,7 @@
         amount: 3
         doAfter: 1
       - tag: ADTRPlasmaShard
-        name: "Осколок плазменного стекла"
+        name: "Осколок закалённого плазменного стекла"
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -36,7 +36,7 @@
         amount: 3
         doAfter: 1
       - tag: ADTRUranShard
-        name: "Осколок уранового стекла"
+        name: "Осколок закалённого уранового стекла"
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
