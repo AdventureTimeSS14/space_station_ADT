@@ -1,0 +1,13 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: ADTShipBattleBullet30mm
+  name: bullet (30 mm AP)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 90 # ADT tweak
+        Structural: 100
+  - type: StaminaDamageOnCollide
+    damage: 75

@@ -1,0 +1,128 @@
+- type: entity
+  parent: [ BaseCartridge ]
+  id: ADTShipBattleCartridge30mm
+  name: cartridge (30 mm)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - ADTShipBattleCartridge30mm
+  - type: CartridgeAmmo
+    proto: ADTShipBattleBullet30mm
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+
+#100 мм снаряды
+- type: entity
+  parent: [ BaseItem ]
+  id: ADTShipBattle100mmHEShell
+  name: 100 HE Shell
+  components:
+  - type: Tag
+    tags:
+    # - Cartridge
+    - ADTShipBattle100mmShell
+  - type: CartridgeAmmo
+    proto: ADTShipBattleBullet100mmHE
+    # deleteOnSpawn: true
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
+    layers:
+    - state: base_he
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
+  - type: StaticPrice
+    price: 100
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+
+- type: entity
+  parent: ADTShipBattle100mmHEShell
+  id: ADTShipBattle100mmEMPShell
+  name: 100 EMP Shell
+  components:
+  - type: CartridgeAmmo
+    proto: ADTShipBattleBullet100mmEMP
+    # deleteOnSpawn: true
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
+    layers:
+    - state: base_emp
+      map: ["enum.AmmoVisualLayers.Base"]
+
+- type: entity
+  parent: ADTShipBattle100mmHEShell
+  id: ADTShipBattle100mmAPShell
+  name: 100 AP Shell
+  components:
+  - type: CartridgeAmmo
+    proto: ADTShipBattleBullet100mmAP
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
+    layers:
+    - state: base_ap
+      map: ["enum.AmmoVisualLayers.Base"]
+
+#130 мм снаряды
+- type: entity
+  parent: [ ADTShipBattle100mmHEShell ]
+  id: ADTShipBattle130mmHEShell
+  name: 130 HE Shell
+  components:
+  - type: Tag
+    tags:
+    - ADTShipBattle130mmShell
+  - type: CartridgeAmmo
+    proto: ADTShipBattleBullet130mmHE
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    layers:
+    - state: base_he
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: StaticPrice
+    price: 200
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+
+- type: entity
+  parent: ADTShipBattle130mmHEShell
+  id: ADTShipBattle130mmEMPShell
+  name: 130 EMP Shell
+  components:
+  - type: CartridgeAmmo
+    proto: ADTShipBattleBullet130mmEMP
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    layers:
+    - state: base_emp
+      map: ["enum.AmmoVisualLayers.Base"]
+
+- type: entity
+  parent: ADTShipBattle130mmHEShell
+  id: ADTShipBattle130mmAPShell
+  name: 130 AP Shell
+  components:
+  - type: CartridgeAmmo
+    proto: ADTShipBattleBullet130mmAP
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    layers:
+    - state: base_ap
+      map: ["enum.AmmoVisualLayers.Base"]
