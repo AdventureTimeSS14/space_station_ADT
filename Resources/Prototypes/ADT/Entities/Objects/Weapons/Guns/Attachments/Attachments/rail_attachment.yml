@@ -80,8 +80,8 @@
   - type: AttachableToggleableSimpleActivate
   - type: Scope
     zoomLevels:
-    - zoom: 1.6
-      offset: 14
+    - zoom: 1.8
+      offset: 0
       allowMovement: false
       doAfter: 0
   - type: AttachableSpeedMods
@@ -132,8 +132,8 @@
   - type: AttachableToggleableSimpleActivate
   - type: Scope
     zoomLevels:
-    - zoom: 1.2
-      offset: 12
+    - zoom: 1.4
+      offset: 0
       allowMovement: true
       doAfter: 0
     requireWielding: false
