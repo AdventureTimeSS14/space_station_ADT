@@ -89,8 +89,8 @@
   description: Dogor
   components:
   - type: Construction
-    graph: ADTCompPlasmaDager
-    node: ADTDaggerPlasma
+    graph: ADTPDagger
+    node: ADTCompPlasmaDager
   - type: Tag
     tags:
     - Knife
@@ -119,8 +119,8 @@
   description: Dogor
   components:
   - type: Construction
-    graph: ADTCompGlassRefDager
-    node: ADTDaggerRefGlass
+    graph: ADTGRDagger
+    node: ADTCompGlassRefDager
   - type: Tag
     tags:
     - Knife
@@ -149,8 +149,8 @@
   description: Dogor
   components:
   - type: Construction
-    graph: ADTCompGlassDager
-    node: ADTDaggerGlass
+    graph: ADTGDagger
+    node: ADTCompGlassDager
   - type: Tag
     tags:
     - Knife
@@ -179,8 +179,8 @@
   description: Dogor
   components:
   - type: Construction
-    graph: ADTCompUranDager
-    node: ADTDaggerUranium
+    graph: ADTUDagger
+    node: ADTCompUranDager
   - type: Tag
     tags:
     - Knife
