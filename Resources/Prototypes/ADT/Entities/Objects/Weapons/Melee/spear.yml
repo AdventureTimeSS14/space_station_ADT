@@ -39,5 +39,5 @@
         Piercing: 21
         Radiation: 9
   - type: Construction
-    graph: ADTCompUraniumSpear
-    node: start
+    graph: ADTUraniumSpear
+    node: ADTCompUraniumSpear
