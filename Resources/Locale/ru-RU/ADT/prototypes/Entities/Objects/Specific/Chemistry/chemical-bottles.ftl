@@ -37,5 +37,5 @@ ent-ADTOpiumBottle = бутылочка опиума
 ent-ADTFormalinBottle = бутылочка формалина
     .desc = Основа работы патологоанатома.
 
-ent-ADTObjectsSpecificFluorosurfactantChemistryBottle = бутылочка фторсурфактант
+ent-ADTObjectsSpecificFluorosurfactantChemistryBottle = бутылочка фторсурфактанта
     .desc = Бутылочка с перфторированнпй сульфоновой кислотой, образующей пену при смешивании с водой.
