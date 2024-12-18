@@ -8,16 +8,16 @@ using Content.Shared.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.Radio;
 using Content.Shared.UserInterface;
-using Content.Client.UserInterface;
 using Content.Server.Chat.Systems;
 using Robust.Shared.GameObjects;
+using Content.Shared.UserInterface;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
-{
+{    
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     
     /// <summary>
     ///     Handle power and radiation output depending on atmospheric things.

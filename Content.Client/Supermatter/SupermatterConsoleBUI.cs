@@ -4,7 +4,7 @@ namespace Content.Client.Supermatter;
 
 public sealed class SupermatterConsoleBoundUserInterface : BoundUserInterface
 {
-	private SuppermatterControlWindow? _window;
+	private SupermatterControlWindow? _window;
 
 	public SupermatterControlBoundUserInterface(NetEntity owner, Enum uiKey) : base(owner, uiKey)
 	{
@@ -14,13 +14,13 @@ public sealed class SupermatterConsoleBoundUserInterface : BoundUserInterface
 	{
 	    base.Open();
 
-	    _window = this.CreateWindow<SuppermatterControlWindow>();
+	    _window = this.CreateWindow<SupermatterControlWindow>();
 	}
 
 	protected override void UpdateState(BoundUserInterfaceState state)
 	{
 		base.UpdateState(state);
-		if (_window == null || state is not EnergyCoreConsoleUpdateState cast) return;
+		if (_window == null || state is not SuperMatterConsoleUpdateState cast) return;
 		_window.UpdatePercents(cast.Procents);
 		_window.UpdateGases(cast.Gases);
 	}
