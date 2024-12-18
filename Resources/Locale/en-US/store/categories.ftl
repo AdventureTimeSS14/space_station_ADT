@@ -3,6 +3,7 @@ store-category-debug = debug category
 store-category-debug2 = debug category 2
 store-category-weapons = Weaponry
 store-category-ammo = Ammo
+store-category-attachments = Attachments
 store-category-explosives = Explosives
 store-category-chemicals = Chemicals
 store-category-deception = Deception

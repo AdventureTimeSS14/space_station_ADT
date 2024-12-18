@@ -77,6 +77,17 @@ public sealed partial class ProjectileComponent : Component
     /// <summary>
     ///     Whether this projectile has already damaged an entity.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool DamagedEntity;
+
+    // ADT TWEAK START
+    /// <summary>
+    /// Sets the maximum range for a projectile fired with ShootAtFixedPointComponent.
+    /// This can be set on both the Projectile and ShootAtFixedPoint Components.
+    /// The default value is null for no cap. The minimum value between the two is used.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float? MaxFixedRange;
+
+    // ADT TWEAK END
 }

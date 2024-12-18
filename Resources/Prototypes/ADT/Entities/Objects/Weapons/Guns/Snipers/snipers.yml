@@ -54,3 +54,24 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        locked: true
+        startingAttachable: ADTAttachmentHristovScope
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentHristovScope
+  - type: ItemSizeChange
+  - type: ActivatableUI
+    verbText: rmc-verb-strip-attachables
+    verbOnly: true
+    key:
+      enum.AttachmentUI.StripKey
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui

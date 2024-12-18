@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: ADTSilencedShoot
+  files:
+  - /Audio/_RMC14/Weapons/Guns/Gunshots/gun_silenced_shot1.ogg
+  - /Audio/_RMC14/Weapons/Guns/Gunshots/gun_silenced_shot2.ogg

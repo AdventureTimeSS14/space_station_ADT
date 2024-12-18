@@ -1,0 +1,188 @@
+## BASE
+- type: entity
+  abstract: true
+  parent: ADTAttachableBase
+  id: ADTUnderAttachmentBase
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+## BASE
+
+- type: entity
+  parent: [ ADTUnderAttachmentBase, ADTAttachableToggleableBase ]
+  id: ADTAttachmentM90GrenadeLauncher
+  name: M90 Grenade Launcher
+  description: A weapon-mounted, reloadable grenade launcher.
+  components:
+  - type: Sprite
+    layers:
+    - state: grenade
+      map: [ "enum.BreechVisuals.Open" ]
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: RMCAmmoEject
+    containerID: ballistic-ammo
+    ejectSound:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
+  - type: AmmoCounter
+  - type: Gun
+    projectileSpeed: 20
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_ugl.ogg
+    resetOnHandSelected: false
+  - type: RMCSelectiveFire
+    baseFireRate: 0.417
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ADT40mmGrenade
+    proto: null
+    capacity: 1
+    soundInsert:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
+      params:
+        volume: -2
+  - type: ShootAtFixedPoint
+    maxFixedRange: 10
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: grenade-open }
+          False: { state: grenade }
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    actionName: Switch to the M90 Grenade Launcher
+    actionDesc: Switch to using the underbarrel grenade launcher.
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+      state: grenade
+    iconActive:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+      state: grenade-on
+  - type: AttachableVisuals
+    redrawOnAppearanceChange: true
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentM90GrenadeLauncher
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+    storedRotation: -90
+
+- type: entity
+  parent: [ ADTUnderAttachmentBase, ADTAttachableToggleableBase ]
+  id: ADTAttachmentM90UnderbarrelShotgun
+  name: M90 underbarrel shotgun
+  description: MEOW
+  components:
+  - type: Sprite
+    state: masterkey
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentM90UnderbarrelShotgun
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
+      params:
+        volume: -2
+  - type: RMCSelectiveFire
+    baseFireRate: 0.476
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: RMCAmmoEject
+    containerID: ballistic-ammo
+    ejectSound: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: BallisticAmmoProvider
+    cycleable: false
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 3
+    proto: null
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: UseDelay
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    actionName: Switch to the M90 underbarrel shotgun
+    actionDesc: Switch to using the underbarrel shotgun.
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+      state: masterkey
+    iconActive:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+      state: masterkey-on
+  - type: AttachableVisuals
+  - type: UniqueAction
+  - type: PumpAction
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+    storedRotation: -90
+
+- type: entity
+  parent: ADTUnderAttachmentBase
+  id: ADTAttachmentVerticalGrip
+  name: vertical grip
+  description: "A vertical foregrip that offers better accuracy, less recoil, and less scatter, especially during burst fire.
+    However, it also increases weapon size."
+  components:
+  - type: Sprite
+    state: verticalgrip
+  - type: AttachableVisuals
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentVerticalGrip
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: 0.3
+      recoilFlat: -2
+      scatterFlat: -4
+      burstScatterAddMult: -4
+
+- type: entity
+  parent: ADTUnderAttachmentBase
+  id: ADTAttachmentLaserSight
+  name: laser sight
+  description: A laser sight that attaches to the underside of most weapons. Increases accuracy and decreases scatter, especially while one-handed.
+  components:
+  - type: Sprite
+    state: lasersight
+  - type: AttachableVisuals
+  - type: Tag
+    tags:
+    - ADTAttachmentUnderbarrel
+    - ADTAttachmentLaserSight
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: 0.15
+      scatterFlat: -2
+      recoilFlat: -2
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: 0.3
+      scatterFlat: -6
+      recoilFlat: -4
