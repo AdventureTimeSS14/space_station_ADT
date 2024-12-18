@@ -43,8 +43,8 @@
       sprintModifier: 0.4	
     - type: HeldSpeedModifier
     - type: Construction
-      graph: ADTCompShield
-      node: start
+      graph: ADTShield
+      node: ADTCompShield
     - type: Destructible
       thresholds:
         - trigger:
