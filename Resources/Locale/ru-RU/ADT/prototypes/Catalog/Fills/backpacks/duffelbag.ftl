@@ -39,3 +39,6 @@ ent-ADTClothingBackpackDuffelSyndicateFilledElite = набор элитного 
 
 ent-ADTClothingBackpackDuffelSyndicateModuleGrenade = набор модульных гранат
     .desc = Содержит материалы для создания двух модульных пенных гранат. Распыляемый в пене реагент нужно достать самому.
+
+ent-ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments = набор оружейных модулей
+    .desc = Комплект из вертикальной рукояти, лазерного целеуказателя, коллиматорного и оптического прицелов.
