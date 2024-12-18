@@ -218,6 +218,7 @@
   parent: MobXeno
   id: MobXenoQueen
   components:
+  - type: XenoQeen # Способность спавнта турелей
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/queen.rsi
@@ -255,7 +256,6 @@
   - type: CollectiveMind
     rankName: collective-mind-queen-rank
   # ADT-CollectiveMind-Tweak-End
-
 
 - type: entity
   name: ravager

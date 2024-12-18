@@ -1,0 +1,14 @@
+# Спавн турелей у королевы
+- type: entity
+id: ActionXenoQeenTurret
+name: Create Xeno turret
+description: Create an xeno turret in front of you, if placeable there.
+components:
+- type: InstantAction
+  priority: -1
+  useDelay: 180
+  icon:
+    sprite: Structures/Walls/solid.rsi # Не знаю, что подойдёт
+    state: full
+  event: !type:InvisibleWallActionEvent 
+# Я не смог сделать отдельный ивент для спавнта турели. Он не видел прототип ивента.
