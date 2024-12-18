@@ -1,12 +1,8 @@
 
 - type: entity
-  id: ClothingBeltBandolier
-  parent: ADTClothingBeltBandolierFilledIncendiary
-  suffix: Filled
+  id: ADTClothingBeltBandolierFilledIncendiary
+  parent: ClothingBeltBandolier
+  suffix: Filled, Incendiary
   components:
   - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - ShellShotgun
-    capacity: 14
     proto: ShellShotgunIncendiary

@@ -316,6 +316,16 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: ADTUplinkIonRifle
+  name: uplink-ion-rifle-name
+  description: uplink-ion-rifle-desc
+  productEntity: ADTWeaponIonRifle
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkDisruption
+
 #UplinkJob
 
 - type: listing
