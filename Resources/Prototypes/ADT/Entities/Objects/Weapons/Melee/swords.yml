@@ -229,9 +229,5 @@
   - type: Item
     size: Huge
   - type: DisarmMalus
-  - type: Reflect
-    enabled: true
-    reflectProb: .25
-    spread: 75
 
 
