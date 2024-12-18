@@ -198,7 +198,7 @@
   name: uplink-grenade-launcher-bundle-name
   description: uplink-grenade-launcher-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher # adt tweak
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 20

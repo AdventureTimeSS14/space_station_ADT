@@ -181,3 +181,44 @@
       - id: ADTClothingShoesBootsMagAdvSynd
       - id: EnergyShield
       - id: EnergySword
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher
+  name: China-Lake bundle
+  description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponLauncherChinaLake
+      - id: ADT40mmGrenadeBlast
+        amount: 4
+      - id: ADT40mmGrenadeHEAT
+        amount: 8
+      - id: ADT40mmGrenadeSmoke
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  name: Rocket Launcher bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponLauncherRocket
+      - id: ADTCartridgeFragRocket
+        amount: 4
+      - id: ADTCartridgeBlastRocket
+        amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments
+  name: weapon attachments bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTAttachmentVerticalGrip
+      - id: ADTAttachmentLaserSight
+      - id: ADTAttachmentReflexSight
+      - id: ADTAttachmentT2Miniscope
