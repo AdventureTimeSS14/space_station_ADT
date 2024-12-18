@@ -32,3 +32,20 @@ ent-ADTHalloweenCarvedPumpkinCube = { ent-ADTHalloweenCarvedPumpkinSmile }
 ent-ADTHalloweenCarvedPumpkinWily = { ent-ADTHalloweenCarvedPumpkinSmile }
     .suffix = { ent-ADTHalloweenCarvedPumpkinSmile.suffix }
     .desc = { ent-ADTHalloweenCarvedPumpkinSmile.desc }
+
+
+ent-ADTSnowballsCrate = телега со снегом
+    .suffix = New Year
+    .desc = Ради неё вовсе не разрушают чьи-то планеты... Вовсе нет.
+
+ent-ADTNewYearKatalka = зимние сани
+    .suffix = New Year
+    .desc = Такси бизнес-класса, потому что упряжка не рассчитана под стадо оленей.
+
+ent-ADTSnowball = снежок
+    .suffix = New Year
+    .desc = Снаряд опаснее всякой пули... БЕРЕГИСЬ!
+
+ent-ADTSlimeHappines = экстракт счастья
+    .suffix = New Year
+    .desc = Концентрация искреннего счастья слаймолюдов, полученная обсалютно гуманным путём

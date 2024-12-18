@@ -10,13 +10,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 15
+        Piercing: 25
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 18
+        Piercing: 28
   - type: Construction
-    graph: ADTPSpear
+    graph: ADTCompPlasmaSpear
     node: start
 
 - type: entity
@@ -31,7 +31,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 18
+        Piercing: 12
         Radiation: 9
   - type: DamageOtherOnHit
     damage:
@@ -39,5 +39,5 @@
         Piercing: 21
         Radiation: 9
   - type: Construction
-    graph: ADTUraniumSpear
+    graph: ADTCompUraniumSpear
     node: start

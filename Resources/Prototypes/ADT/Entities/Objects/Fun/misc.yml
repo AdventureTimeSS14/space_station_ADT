@@ -18,3 +18,37 @@
   #- type: ClothingSpeedModifier
   #  walkModifier: 0.9
   #  sprintModifier: 1.2
+
+#New Year
+
+- type: entity
+  parent: BaseItem
+  id: ADTSnowball
+  name: Snowball
+  description: yeayea. Snow? Balls! I love balls!!
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/snowball.rsi
+    state: snowball
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: FootstepSnow
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnCollide
+    damage: 5
