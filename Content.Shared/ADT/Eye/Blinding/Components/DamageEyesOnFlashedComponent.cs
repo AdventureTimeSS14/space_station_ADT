@@ -1,7 +1,8 @@
-namespace Content.Server.ADT.Eye.Blinding;
+using Robust.Shared.GameStates;
 
-[RegisterComponent]
-[Access(typeof(DamageEyesOnFlashSystem))]
+namespace Content.Shared.ADT.Eye.Blinding;
+
+[RegisterComponent, NetworkedComponent]
 public sealed partial class DamageEyesOnFlashedComponent : Component
 {
     [DataField]

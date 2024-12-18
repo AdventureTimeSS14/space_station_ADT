@@ -279,7 +279,7 @@
   icon: { sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi, state: icon }
   productEntity: ADTClothingJumpBootsSynd
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 4>5
   categories:
   - UplinkWearables
   conditions:
@@ -562,6 +562,36 @@
   categories:
     - UplinkWearables
 
+- type: listing
+  id: ADTUplinkInvisibleCloak
+  name: uplink-invisible-cloak-name
+  description: uplink-invisible-cloak-desc
+  productEntity: ADTClothingNeckInvisibleCloak
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables
+
+- type: listing
+  id: ADTUplinkNightVision
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVision
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables
+
+- type: listing
+  id: UplinkADTModularGrenadeBundle
+  name: uplink-ADTModularGrenadeBundle-name
+  description: uplink-ADTModularGrenadeBundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateModuleGrenade
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkChemicals
+  
 - type: listing
   id: ADTUplinkGrenadeLauncherBundle
   name: ADTuplink-grenade-launcher-bundle-name
