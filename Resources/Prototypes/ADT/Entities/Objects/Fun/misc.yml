@@ -43,6 +43,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: FootstepSnow
+          params:
+            variation: 0.125
+            volume: 6
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DamageOnLand
