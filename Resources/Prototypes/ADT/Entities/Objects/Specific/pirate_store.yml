@@ -1,0 +1,28 @@
+- type: entity
+  parent: [BaseStructure, ADTStorePresetPirate]
+  id: ADTBasePirateStore
+  name: pirate store
+  description: blahblah
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/yarrostore.rsi
+    layers:
+    - state: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+
+- type: entity
+  id: ADTStorePresetPirate
+  abstract: true
+  components:
+  - type: Store
+    name: store-ui-default-title
+    categories:
+    - ADTPirate
+    currencyWhitelist:
+    - Piastre
