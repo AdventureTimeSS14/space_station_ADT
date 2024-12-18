@@ -163,11 +163,12 @@
       maxAngle: 32
       fireRate: 12
       burstFireRate: 12
-      selectedMode: Burst
+      selectedMode: FullAuto
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
         - Burst
+        - FullAuto
       shotsPerBurst: 3
       burstCooldown: 0.25
     - type: ItemSlots
