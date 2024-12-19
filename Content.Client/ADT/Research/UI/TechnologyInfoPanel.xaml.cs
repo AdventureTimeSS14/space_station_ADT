@@ -31,11 +31,27 @@ public sealed partial class TechnologyInfoPanel : Control
         DisciplineTexture.Texture = sprite.Frame0(_proto.Index<TechDisciplinePrototype>(proto.Discipline).Icon);
         TechnologyTexture.Texture = sprite.Frame0(proto.Icon);
 
+        UnlocksContainer.DisposeAllChildren();
+        foreach (var item in proto.RecipeUnlocks)
+        {
+            var control = new MiniRecipeCardControl(proto, Loc.GetString(proto.Name), _proto);
+            UnlocksContainer.AddChild(control);
+        }
         if (!hasAccess)
             ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
 
         ResearchButton.Disabled = points < proto.Cost || !hasAccess;
-        ResearchButton.OnPressed += _ => BuyAction?.Invoke(Prototype);
+        ResearchButton.OnPressed += Bought;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        ResearchButton.OnPressed -= Bought;
+        base.Dispose(disposing);
+    }
+    private void Bought(BaseButton.ButtonEventArgs args)
+    {
+        BuyAction?.Invoke(Prototype);
     }
 
 }

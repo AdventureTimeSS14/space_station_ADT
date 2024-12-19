@@ -2,7 +2,6 @@
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     Margin="5"
-    Orientation="Vertical"
     VerticalExpand="True">
     <BoxContainer
         Name="InfoContainer"

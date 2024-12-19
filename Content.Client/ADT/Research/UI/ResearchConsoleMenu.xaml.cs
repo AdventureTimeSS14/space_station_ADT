@@ -65,8 +65,8 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
     public void UpdatePanels(ResearchConsoleBoundInterfaceState state)
     {
-        DragContainer.Children.Clear();
-        DisciplinesContainer.Children.Clear();
+        DragContainer.DisposeAllChildren();
+        DisciplinesContainer.DisposeAllChildren();
         List = state.AllowedPrototypes;
 
         foreach (var proto in _prototype.EnumeratePrototypes<TechDisciplinePrototype>())
@@ -141,7 +141,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
             ("name", disciplineText), ("color", disciplineColor)));
         MainDisciplineLabel.SetMessage(msg);
 
-        TierDisplayContainer.Children.Clear();
+        TierDisplayContainer.DisposeAllChildren();
         foreach (var disciplineId in database.SupportedDisciplines)
         {
             var discipline = _prototype.Index<TechDisciplinePrototype>(disciplineId);
@@ -217,7 +217,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
     public void Select(TechnologyPrototype proto)
     {
-        InfoContainer.Children.Clear();
+        InfoContainer.DisposeAllChildren();
         if (!_player.LocalEntity.HasValue)
             return;
 
@@ -238,10 +238,14 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
     public override void Close()
     {
-        DragContainer.Children.Clear();
-        InfoContainer.Children.Clear();
-        DisciplinesContainer.Children.Clear();
         base.Close();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+
     }
 }
 

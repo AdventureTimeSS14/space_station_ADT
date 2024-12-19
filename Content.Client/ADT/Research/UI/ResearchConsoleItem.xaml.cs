@@ -27,8 +27,18 @@ public sealed partial class ResearchConsoleItem : Control
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         Prototype = proto;
-        Buy.OnPressed += _ => BuyAction?.Invoke(Prototype);
+        Buy.OnPressed += Selected;
         ResearchDisplay.Texture = sprite.Frame0(proto.Icon);
     }
 
+    protected override void Dispose(bool disposing)
+    {
+        Buy.OnPressed -= Selected;
+        base.Dispose(disposing);
+    }
+
+    private void Selected(BaseButton.ButtonEventArgs args)
+    {
+        BuyAction?.Invoke(Prototype);
+    }
 }
