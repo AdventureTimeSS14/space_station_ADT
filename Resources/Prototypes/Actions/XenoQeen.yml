@@ -8,7 +8,7 @@
     priority: -1
     useDelay: 180
     icon:
-      sprite: Objects\Weapons\Guns\Turrets\xenoturret.rsi
+      sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
       state: icon
     event: !type:InvisibleWallActionEvent 
 # Я не смог сделать отдельный ивент для спавнта турели. Он не видел прототип ивента.
@@ -17,14 +17,14 @@
   id: ActionSpawnMobXenoSpitter
   name: Spawn Spitter
   description: Give birth to Spitter who will spit!
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 240
     range: 4
     itemIconStyle: BigAction
     icon:
-      sprite: Mobs\Aliens\Xenos\spitter.rsi
+      sprite: Mobs/Aliens/Xenos/spitter.rsi
       state: crit
     event: !type:WorldSpawnSpellEvent
       prototypes:
@@ -36,14 +36,14 @@
   id: ActionSpawnMobXenoPraetorian
   name: Spawn Praetorian
   description: Give birth to a Praetorian who will fight for you!
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 300
     range: 4
     itemIconStyle: BigAction
     icon:
-      sprite: Mobs\Aliens\Xenos\praetorian.rsi
+      sprite: Mobs/Aliens/Xenos/praetorian.rsi
       state: crit
     event: !type:WorldSpawnSpellEvent
       prototypes:
@@ -55,14 +55,14 @@
   id: ActionSpawnMobXenoDrone
   name: Just a Drone. Who needs it?
   description: Give birth to a worker, Drone.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 80
     range: 4
     itemIconStyle: BigAction
     icon:
-      sprite: Mobs\Aliens\Xenos\drone.rsi
+      sprite: Mobs/Aliens/Xenos/drone.rsi
       state: crit
     event: !type:WorldSpawnSpellEvent
       prototypes:
@@ -74,14 +74,14 @@
   id: ActionSpawnMobXenoRavager
   name: Spawn Ravager
   description: Give birth to death in the flesh!
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 480
     range: 4
     itemIconStyle: BigAction
     icon:
-      sprite: Mobs\Aliens\Xenos\ravager.rsi
+      sprite: Mobs/Aliens/Xenos/ravager.rsi
       state: crit
     event: !type:WorldSpawnSpellEvent
       prototypes:
@@ -93,14 +93,14 @@
   id: ActionSpawnMobXenoRunner
   name: Spawn Runner
   description: Give birth to the fastest larva!
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 120
     range: 4
     itemIconStyle: BigAction
     icon:
-      sprite: Mobs\Aliens\Xenos\runner.rsi
+      sprite: Mobs/Aliens/Xenos/runner.rsi
       state: crit
     event: !type:WorldSpawnSpellEvent
       prototypes:
