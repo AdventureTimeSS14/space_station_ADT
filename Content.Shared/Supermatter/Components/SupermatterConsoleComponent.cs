@@ -5,8 +5,19 @@ using Content.Shared.Atmos;
 
 namespace Content.Shared.Supermatter.Components;
 
+[RegisterComponent]
+public sealed partial class SupermatterConsoleComponent : Component
+{
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? SupermatterEntity = null;
+
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string LinkingPort = "SupermatterSender";
+}
+
 [Serializable, NetSerializable]
-public sealed class SupermatterUpdateState(
+public sealed class SupermatterUpdateState
+(
     NetEntity? cristall,
     string procents,
     Dictionary<Gas, float> gases
@@ -16,16 +27,6 @@ public sealed class SupermatterUpdateState(
     public NetEntity? Cristall = cristall;
     public string Procents = procents;
     public Dictionary<Gas, float> Gases = gases;
-}
-
-[RegisterComponent]
-public sealed partial class SupermatterConsoleComponent : Component
-{
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? SupermatterEntity = null;
-
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string LinkingPort = "SupermatterSender";
 }
 
 [Serializable, NetSerializable]

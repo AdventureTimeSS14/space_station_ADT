@@ -12,7 +12,6 @@ using Content.Shared.Mobs.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
-using Content.Shared.Supermatter.Components;
 using Content.Server.Lightning;
 using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
@@ -22,6 +21,7 @@ using Content.Shared.Examine;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Audio;
+using Content.Shared.Supermatter.Components;
 
 namespace Content.Server.Supermatter.Systems;
 

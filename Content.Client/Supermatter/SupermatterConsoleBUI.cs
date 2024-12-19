@@ -1,37 +1,41 @@
 using Robust.Client.UserInterface;
+using Content.Shared.Supermatter;
+using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
+using Content.Client.Supermatter;
 
 namespace Content.Client.Supermatter;
 
 public sealed class SupermatterConsoleBoundUserInterface : BoundUserInterface
 {
-	private SupermatterControlWindow? _window;
+	[ViewVariables]
+    private SupermatterControlWindow? _window;
 
-	public SupermatterControlBoundUserInterface(NetEntity owner, Enum uiKey) : base(owner, uiKey)
-	{
-	}
+    public SupermatterConsoleBoundUserInterface(NetEntity owner, Enum uiKey) : base(owner, uiKey)
+    {
+    }
 
-	protected override void Open()
-	{
-	    base.Open();
+    protected override void Open()
+    {
+        base.Open();
+        _window = this.CreateWindow<SupermatterControlWindow>();
+    }
 
-	    _window = this.CreateWindow<SupermatterControlWindow>();
-	}
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+        if (_window == null || state is not SuperMatterConsoleUpdateState cast) return;
+        _window.UpdatePercents(cast.Procents);
+        _window.UpdateGases(cast.Gases);
+    }
 
-	protected override void UpdateState(BoundUserInterfaceState state)
-	{
-		base.UpdateState(state);
-		if (_window == null || state is not SuperMatterConsoleUpdateState cast) return;
-		_window.UpdatePercents(cast.Procents);
-		_window.UpdateGases(cast.Gases);
-	}
-	
-	protected override void Dispose(bool disposing)
-	{
-	    base.Dispose(disposing);
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
 
-	    if (!disposing)
-	        return;
+        if (!disposing)
+            return;
 
-	    _window?.Dispose();
-	}
-}	
+        _window?.Dispose();
+    }
+}
