@@ -22,7 +22,7 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
-  id: SupermatterConsoleCircuitboard
+  id: SupermatterConsoleCircuitboardCraft
   result: SupermatterConsoleCircuitboard
 
 - type: entity
@@ -39,7 +39,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: core-screen
+      state: engine
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
@@ -54,7 +54,7 @@
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer
-    board: SupermatterCircuitboard
+    board: SupermatterConsoleCircuitboard
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -63,7 +63,7 @@
     key: enum.SupermatterConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.SupermatterConsoleConsoleUiKey.Key:
+      enum.SupermatterConsoleUiKey.Key:
         type: SupermatterControlBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface

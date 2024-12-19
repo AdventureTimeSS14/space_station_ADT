@@ -1,5 +1,5 @@
 using Robust.Client.UserInterface;
-using Content.Shared.Supermatter;
+using Content.Shared.Supermatter.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Content.Client.Supermatter;
@@ -11,7 +11,7 @@ public sealed class SupermatterConsoleBoundUserInterface : BoundUserInterface
 	[ViewVariables]
     private SupermatterControlWindow? _window;
 
-    public SupermatterConsoleBoundUserInterface(NetEntity owner, Enum uiKey) : base(owner, uiKey)
+    public SupermatterConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
@@ -24,7 +24,7 @@ public sealed class SupermatterConsoleBoundUserInterface : BoundUserInterface
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-        if (_window == null || state is not SuperMatterConsoleUpdateState cast) return;
+        if (_window == null || state is not SupermatterConsoleUpdateState cast) return;
         _window.UpdatePercents(cast.Procents);
         _window.UpdateGases(cast.Gases);
     }

@@ -16,7 +16,7 @@ public sealed partial class SupermatterConsoleComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class SupermatterUpdateState
+public sealed class SupermatterConsoleUpdateState
 (
     NetEntity? cristall,
     string procents,

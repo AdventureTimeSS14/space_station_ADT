@@ -38,7 +38,7 @@ public sealed partial class SupermatterSystem
         var gases = sm.GasStorage;
         
         if (sm.SupermatterConsole is EntityUid entity)
-            _ui.SetUiState(entity, SupermatterConsoleUiKey.Key, new SupermatterUpdateState(GetNetEntity(uid), GetIntegrity(sm).ToString("0.00"), gases));
+            _ui.SetUiState(entity, SupermatterConsoleUiKey.Key, new SupermatterConsoleUpdateState(GetNetEntity(uid), GetIntegrity(sm).ToString("0.00"), gases));
         var facts = sm.GasDataFields;
 
         // Lets get the proportions of the gasses in the mix for scaling stuff later
