@@ -44,7 +44,7 @@
     - type: HeldSpeedModifier
     - type: Construction
       graph: ADTShield
-      node: start
+      node: ADTCompShield
     - type: Destructible
       thresholds:
         - trigger:

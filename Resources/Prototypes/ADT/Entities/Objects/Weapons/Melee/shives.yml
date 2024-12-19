@@ -15,7 +15,7 @@
     sprite: ADT/Objects/Weapons/Melee/Rplasma_shiv.rsi
   - type: Construction
     graph: ADTPShiv
-    node: start
+    node: ADTCompPlasmaShiv
 
 - type: entity
   name: reinforced uranium shiv
@@ -35,4 +35,4 @@
     sprite: ADT/Objects/Weapons/Melee/Ruranium_shiv.rsi
   - type: Construction
     graph: ADTUShiv
-    node: start
+    node: ADTCompUraniumShiv
