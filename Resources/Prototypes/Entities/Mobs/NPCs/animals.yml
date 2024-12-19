@@ -3496,6 +3496,19 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
+  # ADT Start Tweak Nimf
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/nymph.rsi
+    equippedPrefix: nimf
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: Item
+    size: Normal
+    sprite: Mobs/Animals/nymph.rsi
+    heldPrefix: nimf
+  # ADT End Tweak Nimf
 
 - type: entity
   parent: MobDionaNymph
