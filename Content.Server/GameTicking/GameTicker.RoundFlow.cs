@@ -21,6 +21,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using System.Text.RegularExpressions;
+
 
 namespace Content.Server.GameTicking
 {
@@ -344,14 +346,67 @@ namespace Content.Server.GameTicking
                 Log.Error($"Error while showing round end scoreboard: {e}");
             }
 
-            try
+            // try
+            // {
+            //     SendRoundEndDiscordMessage();
+            // }
+            // catch (Exception e)
+            // {
+            //     Log.Error($"Error while sending round end Discord message: {e}");
+            // }
+        }
+        private string ConvertBBCodeToMarkdown(string text)
+        {
+            text = Regex.Replace(text, @"\[.*?\]", "**");
+
+            return text;
+        }
+        private string GenerateRoundEndSummary(string gamemodeTitle, string roundEndText, RoundEndMessageEvent.RoundEndPlayerInfo[] playerInfoArray)
+        {
+            var roundEndTextMarkdown = ConvertBBCodeToMarkdown(roundEndText);
+
+
+            var contentt = $"**Режим**: {gamemodeTitle}\n";
+            var payload = new WebhookPayload { Content = contentt };
+            payload.AllowedMentions.AllowRoleMentions();
+            SendWebHOOkDiscrodInfoENDRound(payload);
+
+            if (!string.IsNullOrWhiteSpace(roundEndTextMarkdown))
             {
-                SendRoundEndDiscordMessage();
+                var content = $"**Информация**: {roundEndTextMarkdown}\n";
+                var payloadd = new WebhookPayload { Content = content };
+                payloadd.AllowedMentions.AllowRoleMentions();
+                SendWebHOOkDiscrodInfoENDRound(payloadd);
             }
-            catch (Exception e)
+
+            var groupedPlayers = playerInfoArray
+                .GroupBy(p => new { p.PlayerOOCName, p.PlayerICName })
+                .Select(g => new
+                {
+                    PlayerOOCName = g.Key.PlayerOOCName,
+                    PlayerICName = g.Key.PlayerICName,
+                    Roles = string.Join(", ", g.Select(p => p.Role).Distinct())
+                })
+                .ToList();
+
+            int totalPlayers = groupedPlayers.Count;
+            var stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.AppendLine($"**Всего было игроков**: {totalPlayers}\n");
+            stringBuilder.AppendLine($"**Игроки**:\n");
+
+            foreach (var playerInfo in groupedPlayers)
             {
-                Log.Error($"Error while sending round end Discord message: {e}");
+                stringBuilder.AppendLine($"*{playerInfo.PlayerOOCName}* '**{playerInfo.PlayerICName}**' в роли: {playerInfo.Roles}");
             }
+
+            return stringBuilder.ToString();
+        }
+        private async void SendWebHOOkDiscrodInfoENDRound(WebhookPayload payload)
+        {
+            if (_webhookIdentifier == null)
+                return;
+            payload.AllowedMentions.AllowRoleMentions();
+            await _discord.CreateMessage(_webhookIdentifier.Value, payload);
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -453,9 +508,11 @@ namespace Content.Server.GameTicking
 
             _replayRoundPlayerInfo = listOfPlayerInfoFinal;
             _replayRoundText = roundEndText;
+            var roundEndSummary = GenerateRoundEndSummary(gamemodeTitle, roundEndText, listOfPlayerInfoFinal);
+            SendRoundEndDiscordMessage(roundEndSummary);
         }
 
-        private async void SendRoundEndDiscordMessage()
+        private async void SendRoundEndDiscordMessage(string roundEndSummary)
         {
             try
             {
@@ -463,13 +520,10 @@ namespace Content.Server.GameTicking
                     return;
 
                 var duration = RoundDuration();
-                var content = Loc.GetString("discord-round-notifications-end",
-                    ("id", RoundId),
-                    ("hours", Math.Truncate(duration.TotalHours)),
-                    ("minutes", duration.Minutes),
-                    ("seconds", duration.Seconds));
+                var content = $"**Раунд {RoundId} завершен!**\n" +
+                              $"**Продолжительность**: {Math.Truncate(duration.TotalHours)} часов {duration.Minutes} минут {duration.Seconds} секунд\n" +
+                              $"{roundEndSummary}";
                 var payload = new WebhookPayload { Content = content };
-
                 await _discord.CreateMessage(_webhookIdentifier.Value, payload);
 
                 if (DiscordRoundEndRole == null)
@@ -485,6 +539,18 @@ namespace Content.Server.GameTicking
             {
                 Log.Error($"Error while sending discord round end message:\n{e}");
             }
+        }
+        // Метод для разбивки сообщения на части
+        private List<string> SplitMessage(string message, int maxLength)
+        {
+            var parts = new List<string>();
+            for (int i = 0; i < message.Length; i += maxLength)
+            {
+                // Берем подстроку длиной maxLength или оставшуюся часть сообщения
+                var part = message.Substring(i, Math.Min(maxLength, message.Length - i));
+                parts.Add(part);
+            }
+            return parts;
         }
 
         public void RestartRound()
