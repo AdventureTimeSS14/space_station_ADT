@@ -54,6 +54,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
     - type: RandomMetadata
@@ -71,6 +74,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVA ]
 
@@ -96,6 +102,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVARiot ]
 
@@ -144,6 +153,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -173,6 +185,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVA ]
 
@@ -198,6 +213,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVARiot ]
 
@@ -246,6 +264,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -275,6 +296,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVA ]
 
@@ -300,6 +324,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVARiot ]
 
@@ -348,6 +375,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -377,6 +407,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTSecurityGearEVA ]
 
@@ -398,6 +431,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [  ADTERTSecurityGearEVARiot ]
 
@@ -446,6 +482,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -475,6 +514,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVA ]
 
@@ -500,6 +542,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 

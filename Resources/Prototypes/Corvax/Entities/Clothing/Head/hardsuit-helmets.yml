@@ -36,7 +36,7 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Heat: 0.1
-        Shock: 0.1
-        Cold: 0.2
+        Heat: 0.9 # ADT tweak from 0.1
+        Shock: 0.8 # ADT tweak from 0.1
+        Cold: 0.8 # ADT tweak from 0.2
         Radiation: 0.2
