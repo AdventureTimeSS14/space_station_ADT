@@ -8,10 +8,13 @@
   },
     "states": [
         {
-            "name": "ds30_kmt_icon"
+            "name": "d130_kmt"
         },
         {
-            "name": "ds30_tsf_icon"
+            "name": "d130_tsf"
+        },
+        {
+            "name": "d130_broken"
         }
     ]
 }
