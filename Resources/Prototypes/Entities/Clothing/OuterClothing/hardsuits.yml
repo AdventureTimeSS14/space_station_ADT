@@ -450,9 +450,10 @@
         Piercing: 0.5
         Radiation: 0.5
         Caustic: 0.6
+    staminaModifier: 0.7 # ADT tweak
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.75 # ADT tweak
+    sprintModifier: 0.75 # ADT tweak
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed

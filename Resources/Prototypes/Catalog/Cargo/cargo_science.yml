@@ -2,7 +2,7 @@
   id: ArtifactContainer
   icon:
     sprite: Structures/Storage/Crates/artifact.rsi
-    state: artifact_container_icon
+    state: base
   product: CrateArtifactContainer
   cost: 500
   category: cargoproduct-category-name-science

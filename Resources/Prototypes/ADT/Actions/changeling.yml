@@ -1,3 +1,4 @@
+# Basic
 - type: entity
   id: ActionChangelingEvolutionMenu
   name: action-evolution-menu
@@ -59,6 +60,7 @@
       state: regenerate
     itemIconStyle: BigAction
     event: !type:LingRegenerateActionEvent
+      cost: 10
     useDelay: 115
     priority: -66
 
@@ -77,70 +79,10 @@
       components:
       - Body
     event: !type:LingStingExtractActionEvent
+      cost: 25
     useDelay: 30
     canTargetSelf: false
     priority: -65
-
-- type: entity
-  id: ActionArmBlade
-  name: action-toggle-arm-blade
-  description: action-toggle-arm-blade-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: armblade
-    itemIconStyle: BigAction
-    event: !type:ArmBladeActionEvent
-    useDelay: 1
-    priority: -50
-
-- type: entity
-  id: ActionLingArmor
-  name: action-toggle-chitinous-armor
-  description: action-toggle-chitinous-armor-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: chitinous_armor
-    itemIconStyle: BigAction
-    event: !type:LingArmorActionEvent
-    useDelay: 15
-    priority: -49
-
-- type: entity
-  id: ActionLingInvisible
-  name: action-toggle-chameleon-skin
-  description: action-toggle-chameleon-skin-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: chameleon_skin
-    itemIconStyle: BigAction
-    event: !type:LingInvisibleActionEvent
-    useDelay: 1
-    priority: -48
-
-- type: entity
-  id: ActionLingEMP
-  name: action-activate-dissonant-shriek
-  description: action-activate-dissonant-shriek-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: dissonant_shriek
-    itemIconStyle: BigAction
-    useDelay: 15
-    event: !type:LingEMPActionEvent
-    priority: -47
-    # Stasis Death
 
 - type: entity
   id: ActionStasisDeath
@@ -159,10 +101,93 @@
       state: revive
     itemIconStyle: BigAction
     event: !type:StasisDeathActionEvent
+      cost: 25
     useDelay: 90
     priority: -46
 
-    # Blind sting
+
+# Combat
+- type: entity
+  id: ActionLingResonant
+  name: action-resonant
+  description: action-resonant-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: resonant_shriek
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingResonantShriekEvent
+      cost: 20
+    useDelay: 10
+    priority: -61
+
+- type: entity
+  id: ActionLingAdrenaline
+  name: action-adrenaline
+  description: action-adrenaline-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: adrenaline
+    itemIconStyle: BigAction
+    event: !type:AdrenalineActionEvent
+      cost: 10
+    useDelay: 90
+    priority: -45
+
+- type: entity
+  id: ActionBoneShard
+  name: action-bone-shard
+  description: action-bone-shard-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: bone_shard
+    itemIconStyle: BigAction
+    event: !type:ChangelingBoneShardEvent
+      cost: 15
+    useDelay: 15
+    priority: -55
+
+- type: entity
+  id: ActionLingEMP
+  name: action-activate-dissonant-shriek
+  description: action-activate-dissonant-shriek-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: dissonant_shriek
+    itemIconStyle: BigAction
+    useDelay: 15
+    event: !type:LingEMPActionEvent
+      cost: 20
+    priority: -47
+
+- type: entity
+  id: ActionLingMuscles
+  name: action-lingmuscles
+  description: action-lingmuscles-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: strained_muscles
+    itemIconStyle: BigAction
+    event: !type:ChangelingMusclesActionEvent
+      cost: 20
+    useDelay: 1
+    priority: -43
+
 - type: entity
   id: ActionLingBlindSting
   name: action-blind-sting
@@ -178,63 +203,93 @@
       components:
       - Body
     event: !type:BlindStingEvent
+      cost: 15
     useDelay: 2
     canTargetSelf: false
     priority: -64
 
-    # Adrenaline
 - type: entity
-  id: ActionLingAdrenaline
-  name: action-adrenaline
-  description: action-adrenaline-desc
+  id: ActionArmBlade
+  name: action-toggle-arm-blade
+  description: action-toggle-arm-blade-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
       sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: adrenaline
+      state: armblade
     itemIconStyle: BigAction
-    event: !type:AdrenalineActionEvent
-    useDelay: 90
-    priority: -45
+    event: !type:ArmBladeActionEvent
+      cost: 20
+    useDelay: 1
+    priority: -50
 
-    # Fleshmend
 - type: entity
-  id: ActionLingFleshmend
-  name: action-fleshmend
-  description: action-fleshmend-desc
+  id: ActionLingArmor
+  name: action-toggle-chitinous-armor
+  description: action-toggle-chitinous-armor-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
       sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: fleshmend
+      state: chitinous_armor
     itemIconStyle: BigAction
-    event: !type:FleshmendActionEvent
-    useDelay: 90
-    priority: -44
+    event: !type:LingArmorActionEvent
+      cost: 20
+    useDelay: 15
+    priority: -49
 
-    # Mute sting
 - type: entity
-  id: ActionLingMuteSting
-  name: action-mute-sting
-  description: action-mute-sting-desc
+  id: ActionArmShield
+  name: action-toggle-arm-shield
+  description: action-toggle-arm-shield-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: InstantAction
     icon:
       sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: sting_mute
+      state: organic_shield
     itemIconStyle: BigAction
-    whitelist:
-      components:
-      - Body
-    event: !type:MuteStingEvent
-    useDelay: 5
-    canTargetSelf: false
-    priority: -63
+    event: !type:ArmShieldActionEvent
+      cost: 20
+    useDelay: 1
+    priority: -51
 
-    # Drug sting
+- type: entity
+  id: ActionArmace
+  name: action-toggle-arm-hammer
+  description: action-toggle-arm-hammer-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: armhammer
+    itemIconStyle: BigAction
+    event: !type:ArmaceActionEvent
+      cost: 25
+    useDelay: 1
+    priority: -51
+
+# Useful
+- type: entity
+  id: ActionLingBiodegrade
+  name: action-biodegrade
+  description: action-biodegrade-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: biodegrade
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:LingBiodegradeActionEvent
+      cost: 15
+    useDelay: 10
+    priority: -61
+
 - type: entity
   id: ActionLingDrugSting
   name: action-drug-sting
@@ -250,27 +305,31 @@
       components:
       - Body
     event: !type:DrugStingEvent
+      cost: 20
     useDelay: 5
     canTargetSelf: false
     priority: -62
 
-    # Muscles
 - type: entity
-  id: ActionLingMuscles
-  name: action-lingmuscles
-  description: action-lingmuscles-desc
+  id: ActionLingMuteSting
+  name: action-mute-sting
+  description: action-mute-sting-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: strained_muscles
+      state: sting_mute
     itemIconStyle: BigAction
-    event: !type:ChangelingMusclesActionEvent
-    useDelay: 1
-    priority: -43
+    whitelist:
+      components:
+      - Body
+    event: !type:MuteStingEvent
+      cost: 20
+    useDelay: 5
+    canTargetSelf: false
+    priority: -63
 
-    # Lesser form
 - type: entity
   id: ActionLingLesserForm
   name: action-lesser-form
@@ -287,26 +346,10 @@
     itemIconStyle: BigAction
     checkCanInteract: false
     event: !type:ChangelingLesserFormActionEvent
+      cost: 5
     useDelay: 10
     priority: -67
 
-    # Arm shield
-- type: entity
-  id: ActionArmShield
-  name: action-toggle-arm-shield
-  description: action-toggle-arm-shield-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: organic_shield
-    itemIconStyle: BigAction
-    event: !type:ArmShieldActionEvent
-    useDelay: 1
-    priority: -51
-
-    # Last Resort
 - type: entity
   id: ActionLingLastResort
   name: action-resort
@@ -320,80 +363,10 @@
     itemIconStyle: BigAction
     checkCanInteract: false
     event: !type:LastResortActionEvent
+      cost: 20
     useDelay: 1
     priority: -61
 
-    # Biodegrade
-- type: entity
-  id: ActionLingBiodegrade
-  name: action-biodegrade
-  description: action-biodegrade-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: biodegrade
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:LingBiodegradeActionEvent
-    useDelay: 10
-    priority: -61
-
-    # Resonant
-- type: entity
-  id: ActionLingResonant
-  name: action-resonant
-  description: action-resonant-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: resonant_shriek
-    itemIconStyle: BigAction
-    checkCanInteract: false
-    event: !type:LingResonantShriekEvent
-    useDelay: 10
-    priority: -61
-
-    # TSting
-- type: entity
-  id: ActionLingTransformSting
-  name: action-transform-sting
-  description: action-transform-sting-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EntityTargetAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: sting_transform
-    itemIconStyle: BigAction
-    event: !type:TransformationStingEvent
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    useDelay: 10
-    priority: -61
-
-    # Arm Hammer
-- type: entity
-  id: ActionArmace
-  name: action-toggle-arm-hammer
-  description: action-toggle-arm-hammer-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: armhammer
-    itemIconStyle: BigAction
-    event: !type:ArmaceActionEvent
-    useDelay: 1
-    priority: -51
-
-    # Digital Camo
 - type: entity
   id: ActionDigiCamo
   name: action-digi-camo
@@ -406,21 +379,58 @@
       state: digital_camo
     itemIconStyle: BigAction
     event: !type:DigitalCamouflageEvent
+      cost: 20
     useDelay: 1
     priority: -55
 
-    # Bone shard
 - type: entity
-  id: ActionBoneShard
-  name: action-bone-shard
-  description: action-bone-shard-desc
+  id: ActionLingInvisible
+  name: action-toggle-chameleon-skin
+  description: action-toggle-chameleon-skin-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
       sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: bone_shard
+      state: chameleon_skin
     itemIconStyle: BigAction
-    event: !type:ChangelingBoneShardEvent
-    useDelay: 15
-    priority: -55
+    event: !type:LingInvisibleActionEvent
+      cost: 25
+    useDelay: 1
+    priority: -48
+
+- type: entity
+  id: ActionLingFleshmend
+  name: action-fleshmend
+  description: action-fleshmend-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    event: !type:FleshmendActionEvent
+      cost: 25
+    useDelay: 90
+    priority: -44
+
+- type: entity
+  id: ActionLingTransformSting
+  name: action-transform-sting
+  description: action-transform-sting-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: ADT/Changeling/Actions/actions_ling.rsi
+      state: sting_transform
+    itemIconStyle: BigAction
+    event: !type:TransformationStingEvent
+      cost: 50
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    useDelay: 10
+    priority: -61
