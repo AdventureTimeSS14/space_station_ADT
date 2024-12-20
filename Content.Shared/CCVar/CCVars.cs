@@ -1,4 +1,3 @@
-using Content.Shared.Supermatter.Components;
 using Content.Shared.Maps;
 using Content.Shared.Roles;
 using Robust.Shared;
