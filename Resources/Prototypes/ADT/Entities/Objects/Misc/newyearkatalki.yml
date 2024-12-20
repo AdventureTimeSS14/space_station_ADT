@@ -1,9 +1,1 @@
-- type: entity
-  name: New Year gurney
-  id: ADTNewYearKatalka
-  parent: ChairBase
-  description: Yea.
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Specific/newyearkatalki.rsi
-    state: newyearkatalka
+
