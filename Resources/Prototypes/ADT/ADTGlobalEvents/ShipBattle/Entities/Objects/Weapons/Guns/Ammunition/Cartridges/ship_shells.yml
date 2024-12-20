@@ -36,7 +36,7 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
     layers:
-    - state: base_he
+    - state: he
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
@@ -46,6 +46,8 @@
     price: 100
   - type: Item
     size: Ginormous
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
+    heldPrefix: he
   - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.9
@@ -63,8 +65,12 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
     layers:
-    - state: base_emp
+    - state: emp
       map: ["enum.AmmoVisualLayers.Base"]
+  - type: Item
+    size: Ginormous
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
+    heldPrefix: emp
 
 - type: entity
   parent: ADTShipBattle100mmHEShell
@@ -76,8 +82,12 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
     layers:
-    - state: base_ap
+    - state: ap
       map: ["enum.AmmoVisualLayers.Base"]
+  - type: Item
+    size: Ginormous
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
+    heldPrefix: ap
 
 #130 мм снаряды
 - type: entity
@@ -93,8 +103,12 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
     layers:
-    - state: base_he
+    - state: he
       map: ["enum.AmmoVisualLayers.Base"]
+  - type: Item
+    size: Ginormous
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    heldPrefix: he
   - type: StaticPrice
     price: 200
   - type: ClothingSpeedModifier
@@ -111,8 +125,12 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
     layers:
-    - state: base_emp
+    - state: emp
       map: ["enum.AmmoVisualLayers.Base"]
+  - type: Item
+    size: Ginormous
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    heldPrefix: emp
 
 - type: entity
   parent: ADTShipBattle130mmHEShell
@@ -124,5 +142,9 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
     layers:
-    - state: base_ap
+    - state: ap
       map: ["enum.AmmoVisualLayers.Base"]
+  - type: Item
+    size: Ginormous
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    heldPrefix: ap
