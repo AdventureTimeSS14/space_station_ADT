@@ -55,3 +55,26 @@
         Blunt: 5
   - type: StaminaDamageOnCollide
     damage: 5
+
+
+- type: entity
+  name: Slime Happines
+  parent: BaseItem
+  id: ADTSlimeHappines
+  description: Slimyy..
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/slimehappines.rsi
+    state: icon
+
+
+
+- type: entity
+  name: New Year gurney
+  id: ADTNewYearKatalka
+  parent: ChairBase
+  description: Yea.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/newyearkatalki.rsi
+    state: newyearkatalka
