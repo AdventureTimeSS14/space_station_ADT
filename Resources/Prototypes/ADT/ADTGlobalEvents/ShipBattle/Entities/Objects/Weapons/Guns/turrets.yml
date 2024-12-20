@@ -326,9 +326,9 @@
             - MachineMask
           layer:
             - MachineLayer
-    # - type: ContainerContainer
-    #   containers:
-    #     gun_magazine: !type:ContainerSlot
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
     - type: Sprite
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d100.rsi
       drawdepth: Mobs
