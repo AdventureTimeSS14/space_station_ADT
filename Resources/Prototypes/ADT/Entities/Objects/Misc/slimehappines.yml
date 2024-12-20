@@ -1,9 +1,1 @@
-- type: entity
-  name: Slime Happines
-  parent: BaseItem
-  id: ADTSlimeHappines
-  description: Slimyy..
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Misc/slimehappines.rsi
-    state: icon
+
