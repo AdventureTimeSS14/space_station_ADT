@@ -35,12 +35,3 @@
   sprite:
     sprite: Mobs/Aliens/slimes.rsi
     state: rainbow_slime_extract
-
-# Supermatter
-
-- type: stealTargetGroup
-  id: SupermatterSliver
-  name: supermatter sliver
-  sprite:
-    sprite: ADT/Object/Misc/supermatter_sliver.rsi
-    state: shard
