@@ -58,6 +58,18 @@
     },
     {
       "name": "icon"
+    },
+    {
+      "name": "nimf-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "nimf-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "nimf-equipped-HELMET",
+      "directions": 4
     }
   ]
 }

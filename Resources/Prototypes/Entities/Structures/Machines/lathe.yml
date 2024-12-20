@@ -152,6 +152,7 @@
       - ExteriorLightTube
       - LightBulb
       - LedLightBulb
+      - DimLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -165,6 +166,7 @@
       - FoodPlateSmallPlastic
       - FoodBowlBig
       - FoodPlateTin
+      - FoodPlateMuffinTin
       - FoodKebabSkewer
       - SprayBottle
       - MopItem
@@ -645,11 +647,6 @@
     - BorgModuleFireExtinguisher
     - BorgModuleRadiationDetection
     - BorgModuleTool
-    - BorgModuleAppraisal
-    - BorgModuleConstruction
-    - BorgModuleService
-    - BorgModuleTreatment
-    - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -657,63 +654,16 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
-    - LeftArmBorgEngineer
-    - RightArmBorgEngineer
-    - LeftLegBorgEngineer
-    - RightLegBorgEngineer
-    - HeadBorgEngineer
-    - TorsoBorgEngineer
-    - LeftLegBorgJanitor
-    - RightLegBorgJanitor
-    - HeadBorgJanitor
-    - TorsoBorgJanitor
-    - LeftArmBorgMedical
-    - RightArmBorgMedical
-    - LeftLegBorgMedical
-    - RightLegBorgMedical
-    - HeadBorgMedical
-    - TorsoBorgMedical
-    - LeftArmBorgMining
-    - RightArmBorgMining
-    - LeftLegBorgMining
-    - RightLegBorgMining
-    - HeadBorgMining
-    - TorsoBorgMining
-    - LeftArmBorgService
-    - RightArmBorgService
-    - LeftLegBorgService
-    - RightLegBorgService
-    - HeadBorgService
-    - TorsoBorgService
-    #ADT secborg start
-    - ADTLeftArmBorgSecurity
-    - ADTRightArmBorgSecurity
-    - ADTLeftLegBorgSecurity
-    - ADTRightLegBorgSecurity
-    - ADTHeadBorgSecurity
-    - ADTTorsoBorgSecurity
-    #ADT secborg end
-    # ADT-Kerfus-Start
-    - ADTTorsoBorgKerfusNT
-    - ADTHeadBorgKerfusNT
-    # ADT-Kerfus-End
     dynamicRecipes:
     - ProximitySensor
-    - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
-    - BorgModuleMining
-    - BorgModuleGrapplingGun
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - BorgModuleRCD
     - ADTBorgModuleRPD # ADT-RPD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
     - BorgModuleHarvesting
-    - BorgModuleMusique
-    - BorgModuleClowning
-    - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - RipleyHarness
@@ -937,6 +887,7 @@
       - TargetHuman
       - TargetSyndicate
       - WeaponDisablerPractice
+      - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
     dynamicRecipes:
@@ -967,6 +918,17 @@
       # Start ADT tweak
       - ADTMagazineMagnumIncendiary
       - ADTMagazineMagnumUranium
+      - ADTAttachmentVerticalGripRecipe
+      - ADTAttachmentLaserSightRecipe
+      - ADTAttachmentReflexSightRecipe
+      - ADTAttachmentT2MiniscopeRecipe
+      - ADTAttachmentM90UnderbarrelShotgunRecipe
+      - ADTAttachmentM90GrenadeLauncherRecipe
+      - ADT40mmGrenadeHEATRecipe
+      - ADT40mmGrenadeBatonRecipe
+      - ADT40mmGrenadeEMPRecipe
+      - ADT40mmGrenadeFlashRecipe
+      - ADT40mmGrenadeSmokeRecipe
       # Start ADT tweak
       - MagazineRifleIncendiary
       - MagazineRifleUranium

@@ -42,10 +42,88 @@
   description: uplink-xc67-description
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Rifles/xc67.rsi, state: icon}
   productEntity: ADTClothingBackpackDuffelSyndicateFilledXC67
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 12
   cost:
     Telecrystal: 18
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+#UplinkAttachments
+- type: listing
+  id: ADTUplinkWeaponAttachmentsBundle
+  name: uplink-attachmentsbundle-name
+  description: uplink-attachmentsbundle-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: uplink_modules }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkAttachments #ADT_Tweak
+
+- type: listing
+  id: ADTUplinkLaserSightAttachment
+  name: uplink-lasersight-name
+  description: uplink-lasersight-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: lasersight}
+  productEntity: ADTAttachmentLaserSight
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAttachments #ADT_Tweak
+
+- type: listing
+  id: ADTUplinkSuppressorAttachment
+  name: uplink-suppressor-name
+  description: uplink-suppressor-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: suppressor}
+  productEntity: ADTAttachmentSuppressor
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAttachments #ADT_Tweak
+
+- type: listing
+  id: ADTUplinkAntilyingAttachment
+  name: uplink-attachments-antilying-name
+  description: uplink-attachments-antilying-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
+  productEntity: ADTAttachmentAntiLyingWarrior
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAttachments #ADT_Tweak
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkMagneticHarnessAttachment
+  name: uplink-attachments-magneticharness-name
+  description: uplink-attachments-magneticharness-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/rail.rsi, state: magnetic }
+  productEntity: ADTAttachmentMagneticHarness
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkAttachments #ADT_Tweak
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -201,7 +279,7 @@
   icon: { sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi, state: icon }
   productEntity: ADTClothingJumpBootsSynd
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # ADT-Tweak 4>5
   categories:
   - UplinkWearables
   conditions:
@@ -498,3 +576,58 @@
     whitelist:
       tags:
       - NukeOpsUplink
+      
+- type: listing
+  id: ADTUplinkInvisibleCloak
+  name: uplink-invisible-cloak-name
+  description: uplink-invisible-cloak-desc
+  productEntity: ADTClothingNeckInvisibleCloak
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables
+
+- type: listing
+  id: ADTUplinkNightVision
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVision
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables
+
+- type: listing
+  id: UplinkADTModularGrenadeBundle
+  name: uplink-ADTModularGrenadeBundle-name
+  description: uplink-ADTModularGrenadeBundle-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateModuleGrenade
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkChemicals
+  
+- type: listing
+  id: ADTUplinkGrenadeLauncherBundle
+  name: ADTuplink-grenade-launcher-bundle-name
+  description: ADTuplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/rocket.rsi, state: base }
+  productEntity: ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 20
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkMask
+  name: uplink-mask-name
+  description: uplink-mask-desc
+  productEntity: ADTMaskCoif
+  categories:
+    - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
