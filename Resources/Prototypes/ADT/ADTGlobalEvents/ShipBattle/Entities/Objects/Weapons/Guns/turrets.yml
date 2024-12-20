@@ -273,7 +273,7 @@
         - Syndicate
 
 - type: entity
-  parent: ADTBaseControllableTurretMagazine
+  parent: ADTds30KMT
   id: ADTds30TSF
   suffix: Space Battleships, TSF
   components:
@@ -299,7 +299,7 @@
   suffix: Space Battleships
   components:
     - type: Sprite
-      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/ds30.rsi
       drawdepth: Mobs
       layers:
         - state: ds30_broken
@@ -415,7 +415,7 @@
     - type: Input
       context: "human"
     - type: Appearance
-    - type: Icon
+    # - type: Icon
       # sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
       # state: gau32_kmt_icon
 
@@ -462,7 +462,7 @@
     - type: NpcFactionMember
       factions:
         - NanoTrasen
-    - type: Icon
+    # - type: Icon
       # sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
       # state: gau32_tsf_icon
     - type: Sprite
@@ -521,7 +521,7 @@
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
       drawdepth: Mobs
       layers:
-        - state: d130_tsf
+        - state: d130_kmt
 
 - type: entity
   parent: ADTd130KMT
@@ -531,7 +531,7 @@
     - type: NpcFactionMember
       factions:
         - NanoTrasen
-    - type: Icon
+    # - type: Icon
       # sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
       # state: gau32_tsf_icon
     - type: Sprite

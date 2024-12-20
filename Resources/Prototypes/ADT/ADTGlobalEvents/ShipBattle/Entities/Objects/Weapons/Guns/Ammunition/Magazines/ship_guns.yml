@@ -78,6 +78,7 @@
     tags:
     - ADTturretDS30Magazine
   - type: BallisticAmmoProvider
+    proto: ADTShipBattleCartridge30mm
     mayTransfer: true
     whitelist:
       tags:
@@ -106,7 +107,7 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-7
+    - state: mag-9
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
