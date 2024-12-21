@@ -335,3 +335,14 @@
     - VoxPidgin
     toUnderstand:
     - VoxPidgin
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTGorlaxFriendlyFireImplant
+  name: GFF implant
+  description: Gorlax Friendly Fire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionToggleFriendlyFire
