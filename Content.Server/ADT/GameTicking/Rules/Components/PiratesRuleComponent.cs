@@ -23,5 +23,5 @@ public sealed partial class PiratesRuleComponent : Component
         AudioParams.Default.WithVolume(4));
 
     [DataField]
-    public string PiratesShuttlePath = "Maps/ADTMaps/Shuttles/pirate.yml";
+    public string PiratesShuttlePath = "Maps/ADTMaps/Shuttles/ERT_base.yml";
 }
