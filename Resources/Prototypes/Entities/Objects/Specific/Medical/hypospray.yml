@@ -552,7 +552,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 15 #ADT Tweak 10>15
   - type: RefillableSolution
     solution: hypospray
 # Corvax-HiddenDesc-Start
@@ -563,7 +563,7 @@
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
-    delay: 0.5
+    delay: 0.25 #ADT Tweak 0.5>0.25
   - type: StaticPrice # A new shitcurity meta
     price: 75
   - type: EmitSoundOnUse

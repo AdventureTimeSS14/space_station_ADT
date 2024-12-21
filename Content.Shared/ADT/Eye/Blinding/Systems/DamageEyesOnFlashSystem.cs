@@ -1,7 +1,7 @@
 using Content.Shared.Eye.Blinding.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Server.ADT.Eye.Blinding;
+namespace Content.Shared.ADT.Eye.Blinding;
 
 public sealed class DamageEyesOnFlashSystem : EntitySystem
 {

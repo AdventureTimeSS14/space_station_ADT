@@ -21,7 +21,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
-using Content.Server.ADT.Eye.Blinding;
+using Content.Shared.ADT.Eye.Blinding;
 
 namespace Content.Server.Flash
 {
