@@ -2,7 +2,7 @@
 - type: entity
   parent: [BaseBallBat, ClothingHandsBase]
   id: ADTHalloweenBroom
-  name: witch broom
+  name: witch broom 
   description: time to fly
   suffix: Halloween
   components:
