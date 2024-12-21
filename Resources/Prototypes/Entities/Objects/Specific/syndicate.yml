@@ -132,6 +132,7 @@
     categories:
     - UplinkWeaponry
     - UplinkAmmo
+    - UplinkAttachments #ADT_Tweak
     - UplinkExplosives
     - UplinkChemicals
     - UplinkDeception

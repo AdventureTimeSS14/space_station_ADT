@@ -60,7 +60,7 @@
 
 - type: entity
   name: Atreides
-  parent: [BaseWeaponSubMachineGun, BaseMajorContraband]
+  parent: [BaseWeaponSubMachineGun, BaseMajorContraband, ADTBaseMagneticGun] # ADT TWEAK
   id: WeaponSubMachineGunAtreides
   description: Pla-ket-ket-ket-ket! Uses .35 auto ammo.
   components:
@@ -83,7 +83,7 @@
 
 - type: entity
   name: C-20r sub machine gun
-  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponSubMachineGunC20r
   description: A firearm that is often used by the infamous nuclear operatives. Uses .35 auto ammo.
   components:
@@ -118,10 +118,29 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-rail: -0.0325, -0.0325
+      rmc-aslot-barrel: 0.75, 0
+# ADT TWEAK END
 
 - type: entity
   name: Drozd
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband]
+  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -144,11 +163,12 @@
       maxAngle: 32
       fireRate: 12
       burstFireRate: 12
-      selectedMode: Burst
+      selectedMode: FullAuto
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
         - Burst
+        - FullAuto
       shotsPerBurst: 3
       burstCooldown: 0.25
     - type: ItemSlots
@@ -175,10 +195,35 @@
       steps: 1
       zeroVisible: true
     - type: Appearance
+  # ADT TWEAK START
+    - type: AttachableHolder
+      slots:
+        rmc-aslot-underbarrel:
+          whitelist:
+            tags:
+            - ADTAttachmentVerticalGrip
+            - ADTAttachmentLaserSight
+        rmc-aslot-rail:
+          whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+        rmc-aslot-barrel:
+          whitelist:
+              tags:
+              - ADTAttachmentSuppressor
+              - ADTAttachmentAntiLyingWarrior
+    - type: AttachableHolderVisuals
+      offsets:
+        rmc-aslot-underbarrel: 0.28, -0.1250
+        rmc-aslot-rail: -0.0325, -0.0625
+        rmc-aslot-barrel: 0.90625, 0
+  # ADT TWEAK END
 
 - type: entity
   name: Vector
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, ADTBaseMagneticGun] # ADT TWEAK
   id: WeaponSubMachineGunVector
   suffix: Deprecated use Drozd
   description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
@@ -226,7 +271,7 @@
 
 - type: entity
   name: WT550
-  parent: [ BaseWeaponSubMachineGun, BaseRestrictedContraband ]
+  parent: [ BaseWeaponSubMachineGun, BaseRestrictedContraband, ADTBaseMagneticGun] # ADT TWEAK
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo.
   components:
