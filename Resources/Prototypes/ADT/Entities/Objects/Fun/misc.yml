@@ -72,9 +72,31 @@
 - type: entity
   name: New Year gurney
   id: ADTNewYearKatalka
-  parent: ChairBase
+  parent: BaseStructure
   description: Yea.
+  placement:
+    mode: PlaceFree
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/newyearkatalki.rsi
     state: newyearkatalka
+  - type: Anchorable
+  - type: Rotatable
+  - type: Physics # ADT CHANGE START sleep
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+        density: 10
+        mask:
+        - TableMask
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.1
+        Blunt: -0.1
+  - type: Strap
+    position: Down
+    rotation: 0 # ADT CHANGE END sleep
