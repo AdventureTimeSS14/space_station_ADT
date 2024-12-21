@@ -321,8 +321,8 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
+    # ADT Start: Xeno buff    
   - type: MobThresholds
-    # ADT Start: Xeno buff
     thresholds:
       0: Alive
       100: Dead
