@@ -88,6 +88,9 @@
   id: ADTPlasmaDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTPDagger
+    node: ADTCompPlasmaDager
   - type: Tag
     tags:
     - Knife
@@ -107,7 +110,31 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 6.3
+        Piercing: 8
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 15
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
 
 - type: entity
   name: dagger reinforced
@@ -115,6 +142,9 @@
   id: ADTGlassReinDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTGRDagger
+    node: ADTCompGlassRefDager
   - type: Tag
     tags:
     - Knife
@@ -134,7 +164,31 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 6
+        Piercing: 7
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 12
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
 
 - type: entity
   name: dagger glass
@@ -142,6 +196,9 @@
   id: ADTGlassDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTGDagger
+    node: ADTCompGlassDager
   - type: Tag
     tags:
     - Knife
@@ -161,7 +218,31 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 5
+        Piercing: 6
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 10
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
 
 - type: entity
   name: dagger uranium
@@ -169,6 +250,9 @@
   id: ADTGlassUranDagger
   description: Dogor
   components:
+  - type: Construction
+    graph: ADTUDagger
+    node: ADTCompUranDager
   - type: Tag
     tags:
     - Knife
@@ -188,6 +272,60 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 9
+        Piercing: 5
+        Radiation: 5
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 9
+        Radiation: 9
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+
+- type: entity
+  name: wooden sword
+  parent: BaseItem
+  id: ADTWoodenSword
+  description: A true robust need training everyday.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/wooden_sword.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.2
+    angle: 75
+    damage:
+      types:
+        Blunt: 0.5
+    soundHit:
+      collection: BoxingHit
+  - type: StaminaDamageOnHit
+    damage: 12
+  #- type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 1
+  - type: Item
+    size: Huge
+  - type: DisarmMalus
 
 
