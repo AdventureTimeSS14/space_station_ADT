@@ -44,6 +44,7 @@
 
 - type: listing
   id: ADTBoberAntilyingAttachment
+  abstract: true # Убран на доработку
   name: boobr-weapon-attachments-antilying-name
   description: boobr-weapon-attachments-antilying-desc
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
