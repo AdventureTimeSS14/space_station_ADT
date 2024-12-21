@@ -39,15 +39,15 @@
     angle: 60
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 25 # ADT nerf
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 25 # ADT nerf
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
-    maxCharge: 360
-    startingCharge: 360
+    maxCharge: 600 # ADT tweak
+    startingCharge: 600 # ADT tweak
   - type: UseDelay
   - type: Item
     heldPrefix: off

@@ -20,10 +20,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.3 #ADT-tweak 0.7 -> 0.3
-        Slash: 0.3 #ADT-tweak 0.7 -> 0.3
-        Piercing: 0.3 #ADT-tweak 0.6 -> 0.3
-        Heat: 0.2 #ADT-tweak 0.05 -> 0.2
+        Blunt: 0.4 #ADT-tweak 0.7 -> 0.5
+        Slash: 0.4 #ADT-tweak 0.7 -> 0.5
+        Piercing: 0.6
+        Heat: 0.15 #ADT-tweak 0.05 -> 0.2
         Cold: 0.2 #ADT-tweak 0.1 -> 0.2
         Shock: 0.2 #ADT-tweak 0.1 -> 0.2
         Radiation: 0.1

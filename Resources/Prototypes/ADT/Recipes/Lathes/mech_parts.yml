@@ -5,8 +5,8 @@
   category: ADTMechGygax
   completetime: 4
   materials:
-    Steel: 2500
-    Glass: 1200
+    Steel: 3000
+    Glass: 1400
     Plasma: 500
 
 - type: latheRecipe
@@ -15,8 +15,8 @@
   category: ADTMechGygax
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 1000
+    Steel: 1800
+    Glass: 1100
 
 - type: latheRecipe
   id: ADTGygaxLLeg
@@ -24,8 +24,8 @@
   category: ADTMechGygax
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 1000
+    Steel: 1800
+    Glass: 1100
 
 - type: latheRecipe
   id: ADTGygaxRLeg
@@ -33,8 +33,8 @@
   category: ADTMechGygax
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 1000
+    Steel: 1800
+    Glass: 1100
 
 - type: latheRecipe
   id: ADTGygaxRArm
@@ -42,8 +42,8 @@
   category: ADTMechGygax
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 1000
+    Steel: 1800
+    Glass: 1100
 
 - type: latheRecipe
   id: ADTGygaxArmorPlates
@@ -51,7 +51,7 @@
   category: ADTMechGygax
   completetime: 4
   materials:
-    Steel: 1500
+    Steel: 2000
     Plasteel: 1500
 
 - type: latheRecipe
@@ -60,8 +60,8 @@
   category: ADTMechGygax
   completetime: 4
   materials:
-    Steel: 500
-    Glass: 300
+    Steel: 600
+    Glass: 400
     Plasma: 500
 
 - type: latheRecipe
@@ -70,9 +70,9 @@
   category: Circuitry
   completetime: 2
   materials:
-    Steel: 100
+    Steel: 150
     Glass: 1000
-    Gold: 300
+    Gold: 450
 
 - type: latheRecipe
   id: ADTGygaxPeripheralsElectronics
@@ -80,9 +80,9 @@
   category: Circuitry
   completetime: 2
   materials:
-    Steel: 100
+    Steel: 150
     Glass: 1000
-    Gold: 300
+    Gold: 450
 
 # Одиссей
 - type: latheRecipe
@@ -266,10 +266,10 @@
   category: ADTMechDurand
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 1500
+    Steel: 1750
+    Glass: 1000
     Silver: 1000
-    Plasteel: 1000
+    Plasteel: 1500
 
 - type: latheRecipe
   id: ADTDurandLArm
@@ -277,8 +277,9 @@
   category: ADTMechDurand
   completetime: 4
   materials:
-    Steel: 1500
+    Steel: 1250
     Silver: 500
+    Plasteel: 250
 
 - type: latheRecipe
   id: ADTDurandLLeg
@@ -286,8 +287,9 @@
   category: ADTMechDurand
   completetime: 4
   materials:
-    Steel: 1500
+    Steel: 1250
     Silver: 500
+    Plasteel: 250
 
 - type: latheRecipe
   id: ADTDurandRLeg
@@ -295,8 +297,9 @@
   category: ADTMechDurand
   completetime: 4
   materials:
-    Steel: 1500
+    Steel: 1250
     Silver: 500
+    Plasteel: 250
 
 - type: latheRecipe
   id: ADTDurandRArm
@@ -304,8 +307,9 @@
   category: ADTMechDurand
   completetime: 4
   materials:
-    Steel: 1500
+    Steel: 1250
     Silver: 500
+    Plasteel: 250
 
 - type: latheRecipe
   id: ADTDurandArmorPlates
@@ -313,7 +317,7 @@
   category: ADTMechDurand
   completetime: 4
   materials:
-    Steel: 2000
+    Steel: 2250
     Plasteel: 2500
     Silver: 500
 
@@ -324,8 +328,9 @@
   completetime: 4
   materials:
     Steel: 500
-    Glass: 1500
+    Glass: 1250
     Silver: 500
+    Plasteel: 250
 
 - type: latheRecipe
   id: ADTDurandCentralElectronics
@@ -354,7 +359,7 @@
   category: ADTMechPhazon
   completetime: 4
   materials:
-    Steel: 2500
+    Steel: 2750
     Glass: 2000
     Plasma: 1500
 
@@ -365,6 +370,7 @@
   completetime: 4
   materials:
     Steel: 1500
+    Glass: 250
     Plasma: 500
 
 - type: latheRecipe
@@ -374,6 +380,7 @@
   completetime: 4
   materials:
     Steel: 1500
+    Glass: 250
     Plasma: 500
 
 - type: latheRecipe
@@ -383,6 +390,7 @@
   completetime: 4
   materials:
     Steel: 1500
+    Glass: 250
     Plasma: 500
 
 - type: latheRecipe
@@ -392,6 +400,7 @@
   completetime: 4
   materials:
     Steel: 1500
+    Glass: 250
     Plasma: 500
 
 - type: latheRecipe
@@ -410,7 +419,7 @@
   category: ADTMechPhazon
   completetime: 4
   materials:
-    Steel: 500
+    Steel: 750
     Glass: 1500
     Plasma: 500
 
@@ -441,8 +450,8 @@
   completetime: 2
   materials:
     Steel: 300
-    Glass: 1000
-    Gold: 500
+    Glass: 1250
+    Gold: 750
 
 #комплект модификации
 - type: latheRecipe
@@ -550,7 +559,7 @@
   category: Mech
   completetime: 4
   materials:
-    Steel: 2000
+    Steel: 2250
     Plastic: 1000
     Gold: 500
 
@@ -560,7 +569,7 @@
   category: Mech
   completetime: 4
   materials:
-    Steel: 1500
+    Steel: 1750
     Plastic: 1000
     Gold: 500
 
@@ -570,9 +579,10 @@
   category: Mech
   completetime: 4
   materials:
-    Steel: 3000
+    Steel: 2750
     Plastic: 1500
-    Gold: 1000
+    Gold: 500
+    Plasma: 750
 
 - type: latheRecipe
   id: ADTMechGunTeslaCannon
@@ -658,8 +668,8 @@
   category: Mech
   completetime: 1
   materials:
-    Steel: 350
-    Plastic: 100
+    Steel: 450
+    Plastic: 150
 
 - type: latheRecipe
   id: ADTBoxAmmoScattershot
@@ -667,8 +677,8 @@
   category: Mech
   completetime: 1
   materials:
-    Steel: 350
-    Plastic: 100
+    Steel: 450
+    Plastic: 150
 
 - type: latheRecipe
   id: ADTBoxAmmoHades
@@ -676,8 +686,8 @@
   category: Mech
   completetime: 1
   materials:
-    Steel: 350
-    Plastic: 100
+    Steel: 450
+    Plastic: 150
     Plasma: 100
 
 - type: latheRecipe
@@ -686,7 +696,7 @@
   category: Mech
   completetime: 1
   materials:
-    Steel: 400
+    Steel: 550
     Plastic: 150
 
 - type: latheRecipe
@@ -695,7 +705,7 @@
   category: Mech
   completetime: 1
   materials:
-    Steel: 400
+    Steel: 550
     Plastic: 150
     Plasma: 100
     Glass: 100
@@ -706,6 +716,6 @@
   category: Mech
   completetime: 1
   materials:
-    Plastic: 150
-    Plasma: 300
+    Plastic: 200
+    Plasma: 350
     Glass: 200

@@ -2,6 +2,7 @@
   name: china lake
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband, ADTBaseMagneticGun, ADTBasePumpingGun]
   id: ADTWeaponLauncherChinaLake
+  suffix: Actual
   description: PLOOP.
   components:
   - type: Sprite
@@ -17,6 +18,7 @@
   - type: AmmoCounter
   - type: Gun
     fireRate: 1
+    projectileSpeed: 25
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -36,6 +38,7 @@
   parent: [BaseWeaponLauncher, BaseMajorContraband, ADTBaseMagneticGun, BaseGunWieldable]
   id: ADTWeaponLauncherRocket
   description: A modified ancient rocket-propelled grenade launcher.
+  suffix: Actual
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
@@ -48,6 +51,7 @@
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
   - type: Gun
     fireRate: 0.5
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: BallisticAmmoProvider

@@ -105,6 +105,8 @@
     minAngle: 21
     maxAngle: 32
     shotsPerBurst: 5
+    burstFireRate: 10 # ADT tweak
+    burstCooldown: 0.2 # ADT tweak
     availableModes:
     - SemiAuto
     - Burst
@@ -161,8 +163,8 @@
     - type: Gun
       minAngle: 21
       maxAngle: 32
-      fireRate: 12
-      burstFireRate: 12
+      fireRate: 6 # ADT tweak
+      burstFireRate: 8 # ADT nerf
       selectedMode: FullAuto
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
