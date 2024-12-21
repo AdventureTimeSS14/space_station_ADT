@@ -110,7 +110,31 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 6.3
+        Piercing: 8
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 15
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
 
 - type: entity
   name: dagger reinforced
@@ -140,7 +164,31 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 6
+        Piercing: 7
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 12
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
 
 - type: entity
   name: dagger glass
@@ -170,7 +218,31 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 5
+        Piercing: 6
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 10
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
 
 - type: entity
   name: dagger uranium
@@ -200,7 +272,33 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 9
+        Piercing: 5
+        Radiation: 5
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 9
+        Radiation: 9
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
 
 - type: entity
   name: wooden sword
