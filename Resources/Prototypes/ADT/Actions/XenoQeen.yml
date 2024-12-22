@@ -20,7 +20,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
-    useDelay: 240
+    useDelay: 60
     range: 4
     itemIconStyle: BigAction
     icon:
