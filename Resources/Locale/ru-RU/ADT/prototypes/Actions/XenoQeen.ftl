@@ -12,3 +12,5 @@ ent-ActionSpawnMobXenoRavager = Призвать Разрушителя
     .desc = Родите смерть во плоти!
 ent-ActionSpawnMobXenoRunner = Призвать Бегуна
     .desc = Родите самую быструю личинку!
+ent-ActionSpawnMobXenoBurrower = Призвать рабочего
+    .desc = Стандартный ксено.
