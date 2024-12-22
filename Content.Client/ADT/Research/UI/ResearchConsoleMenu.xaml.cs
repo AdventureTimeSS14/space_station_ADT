@@ -71,30 +71,19 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
         foreach (var proto in _prototype.EnumeratePrototypes<TechDisciplinePrototype>())
         {
-            var discipline = new Button()
+            var discipline = new DisciplineButton(proto, state)
             {
                 ToggleMode = true,
                 HorizontalExpand = true,
                 VerticalExpand = true,
+                MuteSounds = true,
                 Text = Loc.GetString(proto.UiName),
                 Margin = new(5)
             };
             discipline.SetClickPressed(proto.ID == CurrentDiscipline);
             DisciplinesContainer.AddChild(discipline);
 
-            discipline.OnPressed += args =>
-            {
-                if (CurrentDiscipline == proto.ID)
-                {
-                    discipline.SetClickPressed(true);
-                    return;
-                }
-
-                CurrentDiscipline = proto.ID;
-                discipline.SetClickPressed(false);
-                UpdatePanels(state);
-                Recenter();
-            };
+            discipline.OnPressed += Select;
         }
 
         if (!_entity.TryGetComponent(Entity, out TechnologyDatabaseComponent? database))
@@ -215,7 +204,8 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
     }
     #endregion
 
-    public void Select(TechnologyPrototype proto)
+    public void
+    Select(TechnologyPrototype proto)
     {
         InfoContainer.DisposeAllChildren();
         if (!_player.LocalEntity.HasValue)
@@ -223,6 +213,20 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
         var control = new TechnologyInfoPanel(proto, _sprite, Points, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity) && List.Contains(proto.ID));
         InfoContainer.AddChild(control);
+    }
+
+    public void Select(BaseButton.ButtonEventArgs args)
+    {
+        if (args.Button is not DisciplineButton discipline)
+            return;
+        var proto = discipline.Proto;
+        var state = discipline.Costyl;
+
+        CurrentDiscipline = proto.ID;
+        discipline.SetClickPressed(false);
+        UserInterfaceManager.ClickSound();
+        UpdatePanels(state);
+        Recenter();
     }
 
     public void Recenter()
@@ -243,9 +247,20 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
     protected override void Dispose(bool disposing)
     {
+        InfoContainer.DisposeAllChildren();
+        foreach (var item in DisciplinesContainer.Children)
+        {
+            if (item is not DisciplineButton button)
+                continue;
+            button.OnPressed -= Select;
+        }
         base.Dispose(disposing);
+    }
 
-
+    private sealed partial class DisciplineButton(TechDisciplinePrototype proto, ResearchConsoleBoundInterfaceState state) : Button
+    {
+        public TechDisciplinePrototype Proto = proto;
+        public ResearchConsoleBoundInterfaceState Costyl = state;
     }
 }
 

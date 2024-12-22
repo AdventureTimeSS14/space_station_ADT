@@ -11,10 +11,10 @@
         <TextureRect Name="TechnologyTexture"
                      TextureScale="2 2"
                      VerticalAlignment="Center"
-                     HorizontalAlignment="Center"/>
+                     HorizontalAlignment="Left"/>
         <BoxContainer Orientation="Horizontal">
             <Label Name="TechnologyNameLabel" StyleClasses="LabelKeyText" HorizontalExpand="True"/>
-            <TextureRect Name="DisciplineTexture" TextureScale="2 2" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+            <TextureRect Name="DisciplineTexture" TextureScale="5 5" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         </BoxContainer>
         <Button Name="ResearchButton" Text="{Loc 'research-console-menu-server-research-button'}" HorizontalAlignment="Left"/>
     </BoxContainer>
@@ -24,8 +24,11 @@
         Name="RecipesContainer"
         Orientation="Vertical"
         VerticalExpand="True"
+        SizeFlagsStretchRatio="1"
         VerticalAlignment="Bottom"
-        Margin="5">
+        Margin="5"
+        MinSize="400 400"
+        SetSize="400 400">
         <Label Text="{Loc 'research-console-unlocked-text'}" HorizontalAlignment="Center"/>
         <customControls:HSeparator StyleClasses="LowDivider" Margin="0 0 0 10"/>
         <PanelContainer VerticalExpand="True">
@@ -35,7 +38,7 @@
             <ScrollContainer
                 HScrollEnabled="False"
                 HorizontalExpand="True"
-                SizeFlagsStretchRatio="2"
+                SizeFlagsStretchRatio="4"
                 VerticalExpand="True">
                 <BoxContainer
                     Name="UnlocksContainer"

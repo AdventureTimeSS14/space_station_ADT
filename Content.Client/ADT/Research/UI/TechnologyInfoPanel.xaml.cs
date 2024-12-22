@@ -1,5 +1,7 @@
+using Content.Client.Lathe;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Microsoft.VisualBasic;
@@ -19,6 +21,7 @@ public sealed partial class TechnologyInfoPanel : Control
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    private readonly LatheSystem _lathe;
 
     public TechnologyPrototype Prototype;
     public Action<TechnologyPrototype>? BuyAction;
@@ -26,6 +29,7 @@ public sealed partial class TechnologyInfoPanel : Control
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _lathe = _ent.System<LatheSystem>();
         Prototype = proto;
         TechnologyNameLabel.Text = Loc.GetString(proto.Name);
         DisciplineTexture.Texture = sprite.Frame0(_proto.Index<TechDisciplinePrototype>(proto.Discipline).Icon);
@@ -34,7 +38,8 @@ public sealed partial class TechnologyInfoPanel : Control
         UnlocksContainer.DisposeAllChildren();
         foreach (var item in proto.RecipeUnlocks)
         {
-            var control = new MiniRecipeCardControl(proto, Loc.GetString(proto.Name), _proto);
+            var recipe = _proto.Index(item);
+            var control = new MiniRecipeCardControl(proto, recipe, _proto, sprite, _lathe);
             UnlocksContainer.AddChild(control);
         }
         if (!hasAccess)
