@@ -6,8 +6,15 @@
     edges:
     - to: ADTCompGlassDager
       steps:
-      - material: Cloth
+      - material: MetalRod
         amount: 1
+      - material: Cable
+        amount: 1
+      - tag: GlassShard
+        name: glass shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
         doAfter: 1
   - node: ADTCompGlassDager
     entity: ADTGlassDagger
@@ -20,8 +27,15 @@
     edges:
     - to: ADTCompGlassRefDager
       steps:
-      - material: Cloth
+      - material: MetalRod
         amount: 1
+      - material: Cable
+        amount: 1
+      - tag: ReinforcedGlassShard
+        name: reinforced glass shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
         doAfter: 1
   - node: ADTCompGlassRefDager
     entity: ADTGlassReinDagger
@@ -34,8 +48,15 @@
     edges:
     - to: ADTCompUranDager
       steps:
-      - material: Cloth
+      - material: MetalRod
         amount: 1
+      - material: Cable
+        amount: 1
+      - tag: UraniumGlassShard
+        name: uranium glass shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
         doAfter: 1
   - node: ADTCompUranDager
     entity: ADTGlassUranDagger
@@ -48,8 +69,15 @@
     edges:
     - to: ADTCompPlasmaDager
       steps:
-      - material: Cloth
+      - material: MetalRod
         amount: 1
+      - material: Cable
+        amount: 1
+      - tag: PlasmaGlassShard
+        name: plasma glass shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
         doAfter: 1
   - node: ADTCompPlasmaDager
     entity: ADTPlasmaDagger
