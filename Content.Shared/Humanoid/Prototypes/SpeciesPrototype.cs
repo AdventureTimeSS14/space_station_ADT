@@ -133,6 +133,9 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MaxAge = 120;
+
+    [DataField]
+    public SpeciesCategory Category = SpeciesCategory.Classic;
 }
 
 public enum SpeciesNaming : byte
@@ -146,3 +149,11 @@ public enum SpeciesNaming : byte
     TheFirstofLast,
     FirstDashLast, // Parkstation-IPC
 }
+
+// ADT start
+public enum SpeciesCategory : byte
+{
+    Classic,
+    ADT
+}
+// ADT end
