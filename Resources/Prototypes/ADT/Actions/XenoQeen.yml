@@ -15,8 +15,8 @@
 
 - type: entity
   id: ActionSpawnMobXenoBurrower
-  name: Spawn Spitter
-  description: Give birth to Spitter who will spit!
+  name: Spawn Burrower
+  description: Standard xeno
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
