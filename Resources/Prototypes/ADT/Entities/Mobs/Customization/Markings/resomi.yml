@@ -68,7 +68,7 @@
   markingCategory: Head
   speciesRestriction: [Resomi]
   sprites:
-  - sprite: ADT/Mobs/Customization/Resomi/Resomi/resomi_parts.rsi
+  - sprite: ADT/Mobs/Customization/Resomi/resomi_parts.rsi
     state: fluff_head
 
 - type: marking

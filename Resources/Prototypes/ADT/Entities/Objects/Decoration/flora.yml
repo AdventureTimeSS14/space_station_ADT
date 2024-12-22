@@ -15,3 +15,104 @@
   - type: Sprite
     sprite: ADT/Objects/Decoration/palm_tree.rsi
     state: palm2
+
+#BFUU Tree
+- type: entity
+  parent: BaseTree
+  id: FloraMeatPalmsTree
+  name: glowing tree
+  description: A marvelous tree filled with strange energy.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: palms_tree
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection:
+          MeatBulletImpact
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FoodMeat:
+            min: 1
+            max: 3
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatPalmsTree1
+  name: meat tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: palms_tree1
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatPalmsTree2
+  name: meat tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: palms_tree2
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatLungTree
+  name: meat tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: lung_tree
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatLungTree1
+  name: meat tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: lung_tree1
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatMembranaTree
+  name: meat tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: membrana_tree
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatMembranaTree1
+  name: meat tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: membrana_tree1
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatMembranaTree2
+  name: meat tree
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/meat_tree.rsi
+    state: membrana_tree2
