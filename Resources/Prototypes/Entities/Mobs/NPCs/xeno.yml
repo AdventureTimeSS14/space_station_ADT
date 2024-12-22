@@ -224,11 +224,12 @@
   - type: XenoQeen # ADT Tweak: Способность спавнта турелей
   - type: ActionGrant
     actions:
+      - ActionSpawnMobXenoBurrower # Призыв обычного
+      - ActionSpawnMobXenoDrone # Призыв Дрона
+      - ActionSpawnMobXenoRunner # Призыв бегуна
       - ActionSpawnMobXenoSpitter # Призыв Плевальщиков
       - ActionSpawnMobXenoPraetorian # Призыв Преторианеца
-      - ActionSpawnMobXenoDrone # Призыв Дрона
       - ActionSpawnMobXenoRavager # Призыв Разрушителя
-      - ActionSpawnMobXenoRunner # Призыв бегуна
   #ADT End
   - type: Sprite
     drawdepth: Mobs

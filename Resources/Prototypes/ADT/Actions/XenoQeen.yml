@@ -14,6 +14,26 @@
 # Я не смог сделать отдельный ивент для спавнта турели. Он не видел прототип ивента.
 
 - type: entity
+  id: ActionSpawnMobXenoBurrower
+  name: Spawn Spitter
+  description: Give birth to Spitter who will spit!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 240
+    range: 4
+    itemIconStyle: BigAction
+    icon:
+      sprite: Mobs/Aliens/Xenos/burrower.rsi
+      state: crit
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobXeno
+        amount: 1
+      offset: 0, 1
+      speech: "Фаьюп"
+
+- type: entity
   id: ActionSpawnMobXenoSpitter
   name: Spawn Spitter
   description: Give birth to Spitter who will spit!
@@ -31,6 +51,7 @@
       - id: MobXenoSpitter
         amount: 1
       offset: 0, 1
+      speech: "Грррррр"
 
 - type: entity
   id: ActionSpawnMobXenoPraetorian
@@ -50,6 +71,7 @@
       - id: MobXenoPraetorian
         amount: 1
       offset: 0, 1
+      speech: "Фшшшшшш"
 
 - type: entity
   id: ActionSpawnMobXenoDrone
@@ -69,6 +91,7 @@
       - id: MobXenoDrone
         amount: 1
       offset: 0, 1
+      speech: "Псфф"
 
 - type: entity
   id: ActionSpawnMobXenoRavager
@@ -88,6 +111,7 @@
       - id: MobXenoRavager
         amount: 1
       offset: 0, 1
+      speech: "АААРРРР ГГАААР"
 
 - type: entity
   id: ActionSpawnMobXenoRunner
@@ -107,3 +131,4 @@
       - id: MobXenoRunner
         amount: 1
       offset: 0, 1
+      speech: "Шифссссшш"
