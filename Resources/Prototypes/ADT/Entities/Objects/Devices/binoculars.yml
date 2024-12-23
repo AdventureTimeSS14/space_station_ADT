@@ -1,0 +1,18 @@
+- type: entity
+  name: binoculars
+  parent: BaseItem
+  id: ADTBinoculars
+  description: A military-issued pair of binoculars.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: ADT/Objects/Devices/binoculars.rsi
+    state: binoculars
+  - type: Scope
+    useInHand: true
+    zoomLevels:
+    - zoom: 1.6
+      offset: 14
+      allowMovement: true
+      doAfter: 0

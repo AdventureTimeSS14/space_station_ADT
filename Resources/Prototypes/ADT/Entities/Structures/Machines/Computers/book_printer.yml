@@ -1,5 +1,6 @@
 - type: entity
   id: ADTBookPrinter
+  categories: [ HideSpawnMenu ]
   parent: ConstructibleMachine
   name: book printer
   description: A breeding ground for propaganda, a destroyer of democracy. Allows you to copy books and also enter them into the database.
@@ -110,6 +111,7 @@
 
 - type: entity
   id: ADTBookPrinterFilled
+  categories: [ HideSpawnMenu ]
   parent: ADTBookPrinter
   suffix: Filled
   components:

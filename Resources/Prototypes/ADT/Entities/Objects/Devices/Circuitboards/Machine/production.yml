@@ -34,6 +34,7 @@
 
 - type: entity
   id: ADTBookPrinterMachineCircuitboard
+  categories: [ HideSpawnMenu ]
   parent: BaseMachineCircuitboard
   name: book printer machine board
   components:
@@ -43,3 +44,15 @@
       Capacitor: 2
       Manipulator: 2
       MatterBin: 2
+
+- type: entity
+  id: ADTBarmenKettleCircuit
+  parent: BaseMachineCircuitboard
+  name: kettle machine board
+  description: A machine printed circuit board for a kettle.
+  components:
+    - type: MachineBoard
+      prototype: ADTBarmenKettle
+      stackRequirements:
+        Capacitor: 2
+        Glass: 1

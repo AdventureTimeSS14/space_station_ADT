@@ -1,0 +1,92 @@
+- type: entity
+  name: ADTOrangeTeapack
+  parent: DrinkBase
+  id: ADTOrangeTeapack
+  description: its teapack with orange tea.
+  components:
+  - type: Tag
+    tags:
+    - ADTTeaPack
+  - type: FlavorProfile
+    flavors:
+      - bitter
+      - metallic
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
+    state: teapack
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: ADTOrangepackReg
+          Quantity: 5
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: ADTCherryTeapack
+  parent: DrinkBase
+  id: ADTCherryTeapack
+  description: its teapack with cherry tea.
+  components:
+  - type: Tag
+    tags:
+    - ADTTeaPack
+  - type: FlavorProfile
+    flavors:
+      - bitter
+      - metallic
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
+    state: teapack
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: ADTCherrypackReg
+          Quantity: 5
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: ADTWatermelonTeapack
+  parent: DrinkBase
+  id: ADTWatermelonTeapack
+  description: its teapack with watermelon tea.
+  components:
+  - type: Tag
+    tags:
+    - ADTTeaPack
+  - type: FlavorProfile
+    flavors:
+      - bitter
+      - metallic
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
+    state: teapack
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+        reagents:
+        - ReagentId: ADTWatermelonpackReg
+          Quantity: 5
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: BaseItem
+  id: ADTEmptyTeaPack
+  name: Teapack
+  description: Hmmmm. Its for tea, i guess.
+  components:
+  - type: Tag
+    tags:
+    - ADTTeaPack
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/teapack.rsi
+    state: icon
+  - type: Item
+    size: Tiny
