@@ -206,6 +206,7 @@
       children:
       - id: FlashlightLantern
       - id: ToolboxEmergencyFilled
+      - id: Lantern # ADT add
       - !type:GroupSelector
         children:
         - id: OxygenTankFilled
