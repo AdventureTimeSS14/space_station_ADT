@@ -8,6 +8,12 @@
     params:
       loop: true
       volume: -6
+  damage: # ADT
+    types:
+      Heat: 4
+  damageBlacklist: # ADT
+    components:
+    - AshStormImmune
 
 - type: weather
   id: AshfallLight

@@ -104,9 +104,9 @@
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusher
   components:
-  - type: Tag
-    tags:
-      - Pickaxe
+  # - type: Tag ADT tweak
+  #   tags:
+  #     - Pickaxe
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher.rsi
     state: icon
@@ -114,10 +114,10 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
-  - type: LeechOnMarker
-    leech:
-      groups:
-        Brute: -10
+  # - type: LeechOnMarker ADT tweak
+  #   leech:
+  #     groups:
+  #       Brute: -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -184,14 +184,14 @@
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi
   - type: UseDelay
     delay: 1.9
-  - type: LeechOnMarker
-    leech:
-      groups:
-        Brute: -21
+  # - type: LeechOnMarker ADT crusher reskin
+  #   leech:
+  #     groups:
+  #       Brute: -21
   - type: MeleeWeapon
-  - type: Tag
-    tags:
-      - Pickaxe
+  # - type: Tag ADT crusher reskin
+  #   tags:
+  #     - Pickaxe
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi

@@ -69,6 +69,7 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
+  - type: Fauna # ADT tweak
 
 - type: entity
   id: MobWatcherLavaland

@@ -24,6 +24,9 @@
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     id: SalvagePDA
     ears: ClothingHeadsetCargo
-  #storage:
-    #back:
-    #- Stuff
+    pocket1: AppraisalTool #ADT start
+    pocket2: OreBag
+  storage:
+    back:
+    - MineralScanner
+    - FlashligntSeclite # ADT end

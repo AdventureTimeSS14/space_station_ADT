@@ -1,0 +1,23 @@
+- type: entity
+  id: ADTDroppodDropping
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/droppod.rsi
+    state: dropping
+  - type: TimedDespawn
+    lifetime: 5.1
+  - type: SpawnOnDespawn
+    prototype: ADTDroppodOpened
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/Misc/droppod_landing.ogg
+  - type: Droppod
+
+- type: entity
+  id: ADTDroppodOpened
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/droppod_open.rsi
+    state: droppod_opened
+  - type: TimedDespawn
+    lifetime: 16

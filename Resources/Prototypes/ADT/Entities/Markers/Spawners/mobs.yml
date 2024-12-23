@@ -10,3 +10,22 @@
   - type: ConditionalSpawner
     prototypes:
       - MobPossumMorty
+
+- type: entity
+  name: lavaland mob spawner
+  id: ADTSpawnMobPRandomLavaland
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobWatcherLavaland
+      - MobWatcherMagmawing
+      - MobGoliath
+      - ADTMobLegion
+  - type: TimedDespawn
+    lifetime: 1
+  

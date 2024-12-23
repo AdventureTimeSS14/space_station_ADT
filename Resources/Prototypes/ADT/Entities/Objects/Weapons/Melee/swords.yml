@@ -80,3 +80,42 @@
     damage:
       types:
         Blunt: 0.1
+
+- type: entity
+  name: Cursed katana
+  parent: BaseItem
+  id: ADTKatanacursed
+  description: Ancient craftwork made with not so ancient plasteel.
+  components:
+  - type: Sharp
+  - type: Unremoveable
+  - type: Tag
+    tags:
+    - Katana
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 35
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTKatanacursedShard
+  name: Strange shard
+  description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
+    state: katana-shard
+  - type: SpawnItemsOnUse
+    items:
+    - id: ADTKatanacursed
+    sound:
+      path: /Audio/Effects/bite.ogg

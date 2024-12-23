@@ -1473,7 +1473,11 @@
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
-    # ADT tweak end
+    - type: MiningPoints
+      transferSound:
+        path: /Audio/Effects/Cargo/ping.ogg
+    - type: MiningPointsLathe
+     # ADT tweak end
 
 - type: entity
   parent: OreProcessor
