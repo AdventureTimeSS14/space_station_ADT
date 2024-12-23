@@ -30,7 +30,6 @@ entities:
     - type: MetaData
       name: Mining Base
     - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         -2,1:
@@ -6124,8 +6123,6 @@ entities:
       pos: 27.5,1.5
       parent: 1
     - type: DisposalUnit
-      recentlyEjected:
-      - invalid
   - uid: 825
     components:
     - type: Transform

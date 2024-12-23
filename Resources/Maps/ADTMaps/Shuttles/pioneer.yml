@@ -23,7 +23,6 @@ entities:
     - type: MetaData
       name: Mining Shuttle
     - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

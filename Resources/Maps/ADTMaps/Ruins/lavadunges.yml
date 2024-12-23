@@ -6596,7 +6596,6 @@ entities:
     - type: ItemToggle
       activated: True
     - type: ItemToggleActiveSound
-      playingStream: invalid
     - type: ItemToggleSize
       deactivatedSize: Small
     - type: ItemToggleMeleeWeapon
