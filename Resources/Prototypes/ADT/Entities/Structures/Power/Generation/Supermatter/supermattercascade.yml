@@ -1,8 +1,8 @@
 - type: entity
   id: SupermatterCascade
   parent: BaseAnomaly
-  name: Сверхматерия
-  description: Кристалл Сверхматерии, который очень долго резонировал... Это конец.
+  name:
+  description:
   suffix: Flesh
   components:
   - type: Anomaly
@@ -10,11 +10,11 @@
     maxPulseLength: 300
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: ADT\Structures\Power\Supermatter.rsi
-    state: supermatter
+    sprite: ADT\Structures\Power\Supermatter\Cascade.rsi
+    state: cascade
   - type: Icon
-    sprite: ADT\Structures\Power\Supermatter.rsi
-    state: supermatter
+    sprite: ADT\Structures\Power\Supermatter\Cascade.rsi
+    state: cascade
   - type: RadiationSource
     intensity: 10
   - type: PointLight

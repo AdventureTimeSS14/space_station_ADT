@@ -1,0 +1,20 @@
+- type: entity
+  id: SupermatterTrash
+  name:
+  description:
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: PointLight
+      enabled: true
+      radius: 10
+      energy: 5
+    - type: RadiationSource
+      intensity: 7
+    - type: Sprite
+      drawdepth: WallMountedItems
+      sprite: ADT\Structures\Power\Supermatter\Destroyed.rsi
+      state: destroyed
+    - type: Icon
+      sprite: ADT\Structures\Power\Supermatter\Destroyed.rsi
+      state: destroyed
