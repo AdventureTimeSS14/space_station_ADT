@@ -422,3 +422,16 @@
           reagents:
             - ReagentId: Lexorin
               Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificFluorosurfactantChemistryBottle
+  name: Fluorosurfactant bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 30

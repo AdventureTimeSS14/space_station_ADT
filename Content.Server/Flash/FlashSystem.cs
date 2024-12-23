@@ -21,6 +21,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
+using Content.Shared.ADT.Eye.Blinding;
 
 namespace Content.Server.Flash
 {
@@ -141,6 +142,11 @@ namespace Content.Server.Flash
                 _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
+
+            // ADT tweak start
+            var targetEv = new FlashedEvent(user, used);
+            RaiseLocalEvent(target, ref targetEv);
+            // ADT tweak end
 
             if (melee)
             {

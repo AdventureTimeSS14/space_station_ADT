@@ -43,7 +43,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ScientistHead
+  - RoboticistHead # ADT-Tweak-seniors
   - ScientistNeck
   - RoboticistJumpsuit
   - ScientistBackpack
@@ -83,13 +83,13 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - MedicalDoctorHead
+  - SeniorPhysicianHead # ADT-Tweak-senior
   - MedicalMask
-  - MedicalDoctorJumpsuit
+  - SeniorPhysicianJumpsuit # ADT-Tweak-senior
   - MedicalGloves
   - ADTMedicalBelt # ADT tweak
   - MedicalBackpack
-  - MedicalDoctorOuterClothing
+  - SeniorPhysicianOuterClothing # ADT-Tweak-senior
   - Trinkets
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
@@ -105,12 +105,12 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ScientistHead
+  - SeniorResearcherHead # ADT-Tweak-senior
   - Glasses
-  - ADTSeniorScientistJumpsuit
-  - ADTSeniorScientistGloves
+  - ADTSeniorResearcherJumpsuit # ADT-Tweak-senior
+  - ADTSeniorResearcherGloves # ADT-Tweak-senior
   - ScientistBackpack
-  - ADTSeniorScientistOuterClothing
+  - ADTSeniorResearcherOuterClothing # ADT-Tweak-senior
   - ScientistShoes
   - Survival
   - Trinkets
@@ -125,8 +125,8 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - StationEngineerHead
-  - StationEngineerJumpsuit
+  - SeniorEngineerHead # ADT-Tweak-senior
+  - ADTSeniorEngineerJumpsuit # ADT-Tweak-senior
   - StationEngineerOuterClothing
   - StationEngineerBackpack
   - ADTEngineeringBelt
@@ -146,10 +146,10 @@
   - GroupTankHarness
   - SecurityHead
   - SecurityOfficerNeckADT # ADT-Loadouts
-  - SecurityJumpsuit
-  - ADTSeniorSecurityOuterClothing
+  - SeniorOfficerJumpsuit # ADT-Tweak-senior
+  - ADTSeniorOfficerOuterClothing # ADT-Tweak-senior
   - SecurityBelt
-  - ADTSeniorSecurityBackpack
+  - ADTSeniorOfficerBackpack # ADT-Tweak-senior
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
@@ -194,7 +194,7 @@
   - ADTGuardOfficerHead
   - SecurityOfficerNeckADT # ADT-Loadouts
   - ADTGuardOfficerJumpsuit
-  - ADTSeniorSecurityOuterClothing
+  - ADTSeniorOfficerOuterClothing
   - SecurityBelt
   - SecurityBackpack
   - SecurityShoes

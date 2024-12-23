@@ -69,6 +69,33 @@
     - type: Wagging
     - type: Inventory
       speciesId: vulp
+      maleDisplacements:
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit-female
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
     - type: InteractionPopup
       successChance: 1
       interactSuccessString: hugging-success-generic
@@ -113,4 +140,31 @@
       noRot: true
       drawdepth: Mobs
       scale: 0.95, 0.95
-
+    - type: Inventory
+      maleDisplacements:
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit-female
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
