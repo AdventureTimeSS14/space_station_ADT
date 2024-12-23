@@ -28,6 +28,6 @@ Adventure Time - это проект русскоязычного сервера
 
 Содержимое, добавленное в этот репозиторий до коммита ec1ea3b4a902ba253994b19f228af277dbd34f4e (`2 августа 2024 08:50:00 UTC`), распространяется по лицензии MIT если не указано иное. См. [LICENSE](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/LICENSE.TXT).
 
-Большинство ресурсов лицензированы по [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. У ресурсов есть собственная лицензия и информация об авторском праве в метаданных файла. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
+Большинство ресурсов лицензированы по [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. У ресурсов есть собственная лицензия и информация об авторском праве в метаданных файла. [Пример](https://github.com/AdventureTimeSS14/space_station_ADT/blob/f8788fd79f280575aa00497e6d7f030f148ef418/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
 Обратите внимание, что некоторые ресурсы лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или подобной некоммерческой лицензии, и они должны быть удалены, если вы планируете использовать этот проект в коммерческих целях.
