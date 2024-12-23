@@ -1,0 +1,13 @@
+- type: entity
+  id: Supermatter
+  name: supermatter crystal
+  description: A strangely translucent and iridescent crystal.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: PointLight
+      enabled: true
+      radius: 10
+      energy: 5
+    - type: RadiationSource
+      intensity: 3
