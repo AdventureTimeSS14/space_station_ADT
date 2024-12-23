@@ -16,7 +16,7 @@
   id: KineticModifications
   name: research-technology-kinetic-modifications
   icon:
-    sprite: Objects/Tools/upgrade.rsi
+    sprite: ADT/Objects/Tools/upgrade.rsi
     state: display
   discipline: Arsenal
   tier: 2

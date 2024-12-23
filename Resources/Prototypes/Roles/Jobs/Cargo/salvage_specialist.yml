@@ -29,4 +29,4 @@
   storage:
     back:
     - MineralScanner
-    - FlashligntSeclite # ADT end
+    - FlashlightSeclite # ADT end

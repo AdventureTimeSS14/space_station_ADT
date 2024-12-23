@@ -48,7 +48,7 @@
 - type: planet
   id: GlacierSurface
   biome: Snow
-  mapName: shuttle-destination-glacier-surface
+  mapName: icemoon
   mapLight: "#2B3153"
   addedComponents:
   - type: FTLDestination

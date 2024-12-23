@@ -334,7 +334,7 @@
 
 - type: Tag
   id: ADTBeerCan
-  
+
   # New Year
 
 - type: Tag
@@ -430,7 +430,7 @@
 
 - type: Tag
   id: ADTWeaponMeleePrasatChainsword
-  
+
 #sponsor_items - End
 
 - type: Tag
@@ -444,3 +444,6 @@
 
 - type: Tag
   id: ADTRUranShard
+
+- type: Tag
+  id: DockMining
