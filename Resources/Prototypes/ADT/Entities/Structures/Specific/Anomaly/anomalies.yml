@@ -28,7 +28,7 @@
         minAmount: 30
         maxAmount: 50
         maxRange: 12
-      floor: FloorBananiumEntity
+      floor: FloorShuttleOrange
   - type: EntitySpawnAnomaly
     entries:
     - settings:
