@@ -38,7 +38,7 @@
             - MidImpassable
             - HighImpassable
             - BulletImpassable
-            - InteractImpassable
+            - InteractImpassablewef
     - type: Transform
       anchored: true
       noRot: true
@@ -65,5 +65,3 @@
       totalIntensity: 10000
     - type: GuideHelp
       guides: [ Supermatter, Power ]
-    - type: RgbLightController
-      layers: [ 0 ]

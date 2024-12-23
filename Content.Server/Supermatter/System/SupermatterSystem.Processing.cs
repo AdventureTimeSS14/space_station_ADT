@@ -5,7 +5,7 @@ using System.Text;
 using Content.Shared.Chat;
 using System.Linq;
 using Content.Shared.Audio;
-using Content.Shared.CCVar;
+using Content.Shared.Supermatter.CCVar;
 using Content.Shared.Radio;
 using Content.Shared.UserInterface;
 using Content.Server.Chat.Systems;
@@ -34,7 +34,10 @@ public sealed partial class SupermatterSystem
 
         if (!(moles > 0f))
             return;
-            
+        
+        var gases = sm.GasStorage;
+        var facts = sm.GasDataFields;
+
         // Lets get the proportions of the gasses in the mix for scaling stuff later
         // They range between 0 and 1
         gases = gases.ToDictionary(
@@ -340,7 +343,7 @@ public sealed partial class SupermatterSystem
             return;
         }
 
-        _chat.TrySendInGameICMessage(uid, "Повреждение гиперструктуры кристалла Сверхматерии!", InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
+        _chat.TrySendInGameICMessage(uid,"supermatter-warning", InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
     }
 
     /// <summary>

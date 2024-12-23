@@ -53,7 +53,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
-        SubscribeLocalEvent<SupermatterConsoleComponent, NewLinkEvent>(OnNewLink);
     }
 
 
@@ -207,13 +206,4 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (args.IsInDetailsRange)
             args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
     }
-
-    private void OnNewLink(EntityUid uid, SupermatterConsoleComponent smc, NewLinkEvent args)
-    {
-        if (!TryComp<SupermatterComponent>(args.Sink, out var analyzer))
-            return;
-        smc.SupermatterEntity = args.Sink;
-        analyzer.SupermatterConsole = uid;
-    }
-
 }
