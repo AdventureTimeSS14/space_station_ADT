@@ -12,24 +12,24 @@
       sprite: Structures/Power/Generation/teg.rsi
       layers:
         - state: teg
-        # ADT-Sound-Update-Start
+        # ADT-Teg-Update-Start
           map: [ "center" ]
-        #- state: teg_mid ADT-Sound-Update
+        #- state: teg_mid ADT-Teg-Update
         #  shader: unshaded
         #  map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-        # ADT-Sound-Update-End
+        # ADT-Teg-Update-End
         - state: teg-op1
           shader: unshaded
           visible: false
           map: [ "enum.TegVisualLayers.PowerOutput" ]
     - type: GenericVisualizer
       visuals:
-        # ADT-Sound-Update-Start
+        # ADT-Teg-Update-Start
         # enum.PowerDeviceVisuals.Powered:
         #   enum.PowerDeviceVisualLayers.Powered:
         #     True: { visible: true }
         #     False: { visible: false }
-        # ADT-Sound-Update-End
+        # ADT-Teg-Update-End
         enum.TegVisuals.PowerOutput:
           enum.TegVisualLayers.PowerOutput:
             0: { visible: false }
@@ -44,12 +44,12 @@
             9: { visible: true, state: teg-op9 }
             10: { visible: true, state: teg-op10 }
             11: { visible: true, state: teg-op11 }
-        # ADT-Sound-Update-Start
+        # ADT-Teg-Update-Start
         enum.AnchoredVisuals.VisualState:
           center:
             Free: { state: teg-unassembled }
             Anchored: { state: teg }
-        # ADT-Sound-Update-End
+        # ADT-Teg-Update-End
 
     - type: Anchorable
     - type: Pullable
@@ -99,7 +99,7 @@
       enabled: false
       castShadows: false
       radius: 1.5
-      color: "#FFAA00"
+      color: "#FAD385" # ADT-Teg-Update
 
     - type: AmbientSound
       volume: -4
@@ -148,19 +148,19 @@
             SpeedStill: { state: circ-0-light }
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
-        # ADT-Sound-Update-Start
+        # ADT-Teg-Update-Start
         enum.AnchoredVisuals.VisualState:
           enum.TegVisualLayers.CirculatorBase:
             Free: { state: circ-unassembled-0 }
             Anchored: { state: circ-0 }
-        # ADT-Sound-Update-End
+        # ADT-Teg-Update-End
 
     - type: Appearance
     - type: PointLight
       enabled: false
       castShadows: false
       radius: 1.5
-      color: "#CC00FF"
+      color: "#FFDF66" # ADT-Teg-Update
 
     # tags
     - type: Tag

@@ -1,0 +1,22 @@
+- type: entity
+  id: ADTPlasticFlapsShipBattle
+  parent: PlasticFlapsBase
+  name: shipbattle plastic flaps
+  suffix: Space Battleships
+  description: Heavy duty, slightly stronger, airtight plastic flaps. Definitely can't get past those. No way.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/shipbattle_flaps.rsi
+    state: shipbattleflaps
+    drawdepth: Mobs
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Airtight
+  - type: StaticPrice
+    price: 100

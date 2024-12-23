@@ -1,16 +1,13 @@
 using Content.Server.Objectives.Components;
-using Content.Server.Shuttles.Systems;
 using Content.Shared.Changeling.Components;
 using Robust.Shared.Random;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Objectives.Systems;
 
-public sealed class AbsorbDnaConditionSystem : EntitySystem
+public sealed class StealDnaConditionSystem : EntitySystem
 {
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -19,13 +16,13 @@ public sealed class AbsorbDnaConditionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AbsorbDnaConditionComponent, ObjectiveAssignedEvent>(OnAssigned);
-        SubscribeLocalEvent<AbsorbDnaConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
+        SubscribeLocalEvent<StealDnaConditionComponent, ObjectiveAssignedEvent>(OnAssigned);
+        SubscribeLocalEvent<StealDnaConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
 
-        SubscribeLocalEvent<AbsorbDnaConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
+        SubscribeLocalEvent<StealDnaConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
     }
 
-    private void OnAssigned(Entity<AbsorbDnaConditionComponent> condition, ref ObjectiveAssignedEvent args)
+    private void OnAssigned(Entity<StealDnaConditionComponent> condition, ref ObjectiveAssignedEvent args)
     {
         var maxSize = condition.Comp.MaxDnaCount;
 
@@ -35,7 +32,7 @@ public sealed class AbsorbDnaConditionSystem : EntitySystem
 
     }
 
-    public void OnAfterAssign(Entity<AbsorbDnaConditionComponent> condition, ref ObjectiveAfterAssignEvent args)
+    public void OnAfterAssign(Entity<StealDnaConditionComponent> condition, ref ObjectiveAfterAssignEvent args)
     {
         var title = Loc.GetString(condition.Comp.ObjectiveText, ("count", condition.Comp.AbsorbDnaCount));
 
@@ -45,29 +42,29 @@ public sealed class AbsorbDnaConditionSystem : EntitySystem
         _metaData.SetEntityDescription(condition.Owner, description, args.Meta);
 
     }
-    private void OnGetProgress(EntityUid uid, AbsorbDnaConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    private void OnGetProgress(EntityUid uid, StealDnaConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        if (args.Mind.OwnedEntity != null)
+        if (args.Mind.CurrentEntity.HasValue)
         {
-            var ling = args.Mind.OwnedEntity.Value;
+            var ling = args.Mind.CurrentEntity.Value;
             args.Progress = GetProgress(ling, args.MindId, args.Mind, comp);
         }
         else
             args.Progress = 0f;
     }
 
-    private float GetProgress(EntityUid uid, EntityUid mindId, MindComponent mind, AbsorbDnaConditionComponent comp)
+    private float GetProgress(EntityUid uid, EntityUid mindId, MindComponent mind, StealDnaConditionComponent comp)
     {
         // Не генокрад - не выполнил цель (да ладно.)
         if (!TryComp<ChangelingComponent>(uid, out var ling))
             return 0f;
 
         // Умер - не выполнил цель.
-        if (mind.OwnedEntity == null || _mind.IsCharacterDeadIc(mind))
+        if (!mind.CurrentEntity.HasValue || _mind.IsCharacterDeadIc(mind))
             return 0f;
 
         // Подсчёт требуемых и имеющихся ДНК
-        var count = ling.AbsorbedDnaModifier;
+        var count = ling.DNAStolen;
         var result = count / comp.AbsorbDnaCount;
         result = Math.Clamp(result, 0, 1);
         return result;

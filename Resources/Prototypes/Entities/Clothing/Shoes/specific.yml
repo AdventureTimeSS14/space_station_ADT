@@ -131,6 +131,13 @@
   - type: Clothing
     sprite: Clothing/Shoes/Specific/spaceninja.rsi
   - type: NoSlip
+# ADT-Tweak-start    
+  - type: FootstepModifier # Corvax-Sounds
+    footstepSoundCollection:
+      collection: FootstepBoots
+      params:
+        volume: -10
+# ADT-Tweak-end  
   - type: Magboots # always have gravity because le suction cups
   - type: ClothingSpeedModifier
     # ninja are masters of sneaking around relatively quickly, won't break cloak
@@ -141,8 +148,8 @@
     entries:
     - label: corvax-hidden-desc-NoSlip-ninja
       whitelistMind:
-        components:
-          - NinjaRole
+        mindRoles:
+        - NinjaRole
     - label: corvax-hidden-desc-NoSlip-research
       jobRequired:
         - ResearchAssistant
@@ -219,9 +226,9 @@
       entries:
       - label: corvax-hidden-desc-Chameleon-syndicate
         whitelistMind:
-          components:
-            - TraitorRole
-            - NukeOperative
+          mindRoles:
+          - TraitorRole
+          - NukeopsRole
       - label: corvax-hidden-desc-Chameleon-research
         jobRequired:
           - ResearchAssistant
@@ -245,14 +252,14 @@
     entries:
     - label: corvax-hidden-desc-Chameleon-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-NoSlip-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-Chameleon-research
       jobRequired:
         - ResearchAssistant

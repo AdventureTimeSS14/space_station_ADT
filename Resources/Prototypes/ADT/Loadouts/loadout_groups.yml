@@ -1,7 +1,10 @@
+# MAGISTRATE
+
 - type: loadoutGroup
   id: MagistratJumpsuit
   name: loadout-group-lawyer-jumpsuit
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - MagistratJumpsuit
   - LawyerJumpsuit
@@ -22,6 +25,8 @@
   loadouts:
   - LawyerNeck
 
+# PATHOLOGIST
+
 - type: loadoutGroup
   id: PathologHead
   name: loadout-group-patholog-head
@@ -33,6 +38,7 @@
   id: PathologJumpsuit
   name: loadout-group-patholog-jumpsuit
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - PathologJumpsuit
   - PathologJumpskirt
@@ -43,6 +49,7 @@
   id: PathologBackpack
   name: loadout-group-patholog-backpack
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - PathologBackpack
   - PathologSatchel
@@ -52,6 +59,7 @@
   id: PathologWindbreaker
   name: loadout-group-patholog-outerclothing
   minLimit: 0
+  maxLimit: 1
   loadouts:
   - PathologWindbreaker
   - PathologWintercoat
@@ -60,6 +68,8 @@
 - type: loadoutGroup
   id: PathologShoes
   name: loadout-group-patholog-shoes
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - BlueShoes
   - MedicalWinterBoots
@@ -68,14 +78,18 @@
   id: ADTMedicalBelt
   name: loadout-group-medical-belt-adt
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - ADTMedicalBelt
   - ADTMedicalBeltBag
+
+# PARAMEDIC
 
 - type: loadoutGroup
   id: ADTParamedicBelt
   name: loadout-group-paramedic-belt-adt
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - ADTParamedicBeltEMT
   - ADTParamedicBeltEMTBag
@@ -84,20 +98,85 @@
   id: ADTParamedicBackpack
   name: loadout-group-paramedic-backpack-adt
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - ADTParamedicBackpack
   - ADTParamedicSatchel
   - ADTParamedicDuffel
 
-#Science
+# SENIOR OFFICER
+
+- type: loadoutGroup
+  id: SeniorOfficerJumpsuit
+  name: loadout-group-senior-officer-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+
+- type: loadoutGroup
+  id: ADTSeniorOfficerBackpack
+  name: loadout-group-senior-officer-backpack
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTSeniorOfficerBackpack
+  - ADTSeniorOfficerSatchel
+  - ADTSeniorOfficerDuffel
+
+- type: loadoutGroup
+  id: ADTSeniorOfficerOuterClothing
+  name: loadout-group-senior-officer-outerclothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+  - ADTSeniorOfficerArmor
+
+# SENIOR PHYSICIAN
+
+- type: loadoutGroup
+  id: SeniorPhysicianHead
+  name: loadout-group-senior-physician-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+
+- type: loadoutGroup
+  id: SeniorPhysicianJumpsuit
+  name: loadout-group-senior-physician-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+
+- type: loadoutGroup
+  id: SeniorPhysicianOuterClothing
+  name: loadout-group-senior-physician-outerclothing
+  minLimit: 0
+  loadouts:
+  - SeniorPhysicianLabCoat
+
+# ROBOTICIST
+
+- type: loadoutGroup
+  id: RoboticistHead
+  name: loadout-group-roboticist-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
 
 - type: loadoutGroup
   id: RoboticistJumpsuit
   name: loadout-group-roboticist-jumpsuit
   minLimit: 1
   loadouts:
-  - ScientistJumpsuit
-  - ScientistJumpskirt
   - RoboticistJumpsuit
   - RoboticistJumpskirt
 
@@ -106,9 +185,6 @@
   name: loadout-group-roboticist-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
-  - ScienceLabCoat
-  - ScienceWintercoat
   - RoboticistWintercoat
   - RoboticistLabCoat
 
@@ -121,35 +197,59 @@
   - PurpleGloves
   - RobohandsGloves
 
+# SENIOR ENGINEER
+
 - type: loadoutGroup
-  id: ADTSeniorScientistJumpsuit
-  name: loadout-group-scientist-jumpsuit
+  id: SeniorEngineerHead
+  name: loadout-group-senior-engineer-head
+  minLimit: 0
   loadouts:
-  - ScientistJumpsuit
-  - ScientistJumpskirt
+  - SeniorEngineerBeret
+
+- type: loadoutGroup
+  id: ADTSeniorEngineerJumpsuit
+  name: loadout-group-senior-engineer-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SeniorEngineerJumpsuit
+  - SeniorEngineerJumpskirt
+
+# SENIOR RESEARCHER
+
+- type: loadoutGroup
+  id: SeniorResearcherHead
+  name: loadout-group-senior-researcher-head
+  minLimit: 0
+  loadouts:
+  - SeniorResearcherBeret
+
+- type: loadoutGroup
+  id: ADTSeniorResearcherJumpsuit
+  name: loadout-group-senior-researcher-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
 - type: loadoutGroup
-  id: ADTSeniorScientistGloves
-  name: loadout-group-scientist-gloves
+  id: ADTSeniorResearcherGloves
+  name: loadout-group-senior-researcher-gloves
   minLimit: 0
   loadouts:
   - LatexGloves
-  - NitrileGloves
+  # - NitrileGloves # ADT-Tweak (почему у НРа их нет (тем более они медицинские), а у доцента - есть?)
   - PurpleGloves
 
 - type: loadoutGroup
-  id: ADTSeniorScientistOuterClothing
-  name: loadout-group-scientist-outerclothing
+  id: ADTSeniorResearcherOuterClothing
+  name: loadout-group-senior-researcher-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
-  - ScienceLabCoat
-  - ScienceWintercoat
   - SeniorResearcherLabCoat
 
-#Blueshield
+# BLUESHIELD
 
 - type: loadoutGroup
   id: ADTBlueshieldJumpsuit
@@ -190,26 +290,8 @@
   - ADTBlueshieldSatchel
   - ADTBlueshieldDuffel
 
-# Security Senior
+# WARDEN
 
-- type: loadoutGroup
-  id: ADTSeniorSecurityBackpack
-  name: loadout-group-security-backpack
-  loadouts:
-  - ADTSeniorOfficerBackpack
-  - ADTSeniorOfficerSatchel
-  - ADTSeniorOfficerDuffel
-
-- type: loadoutGroup
-  id: ADTSeniorSecurityOuterClothing
-  name: loadout-group-security-outerclothing
-  loadouts:
-  - ArmorVest
-  - ArmorVestSlim
-  - SecurityOfficerWintercoat
-  - ADTSeniorOfficerArmor
-
-# Warden
 - type: loadoutGroup
   id: WardenNeckADT
   name: loadout-warden-neck-adt
@@ -220,7 +302,8 @@
   - ADTWardenNeckBadgeSilver
   - ADTWardenNeckBadgeGold
 
-# Security Oficer
+# SECURITY OFFICER
+
 - type: loadoutGroup
   id: SecurityOfficerNeckADT
   name: loadout-security-officer-neck-adt
@@ -231,7 +314,8 @@
   - ADTSecurityOfficerNeckBadgeSilver
   - ADTSecurityOfficerNeckBadgeGold
 
-# Cadet Security Oficer
+# CADET
+
 - type: loadoutGroup
   id: SecurityCadetNeckADT
   name: loadout-security-cadet-neck-adt
@@ -262,7 +346,7 @@
   loadouts:
   - ADTHatBeretAtmos
 
-#Brigmedic
+# BRIGMEDIC
 
 #suit --- y
 - type: loadoutGroup
@@ -603,7 +687,8 @@
   - ADTUnderwearStockingsBlueshield
 
 
-## Надзиратель
+## GUARD OFFICER (НАДЗИРАТЕЛЬ)
+
 # Голова
 
   #head

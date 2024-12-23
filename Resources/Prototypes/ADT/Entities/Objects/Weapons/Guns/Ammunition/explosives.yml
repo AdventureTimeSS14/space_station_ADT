@@ -1,0 +1,144 @@
+- type: entity
+  id: ADTBase40mmGrenade
+  name: base 40 mm grenade
+  parent: [BaseItem, BaseMajorContraband]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - ADT40mmGrenade
+  - type: Item
+    size: Tiny
+  - type: Sprite
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+
+- type: entity
+  id: ADT40mmGrenadeBaton
+  name: 40 mm baton grenade
+  parent: ADTBase40mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBullet40mmGrenadeBaton
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/40mm_grenade.rsi
+    layers:
+    - state: stun
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: ADT40mmGrenadeBlast
+  name: 40 mm blast grenade
+  parent: ADTBase40mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto:  ADTBullet40mmGrenadeBlast
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/40mm_grenade.rsi
+    layers:
+    - state: he
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: ADT40mmGrenadeHEAT
+  name: 40 mm HEAT grenade
+  parent: ADTBase40mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBullet40mmGrenadeHEAT
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/40mm_grenade.rsi
+    layers:
+    - state: heat
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: ADT40mmGrenadeEMP
+  name: 40 mm EMP grenade
+  parent: ADTBase40mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBullet40mmGrenadeEMP
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/40mm_grenade.rsi
+    layers:
+    - state: emp
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: ADT40mmGrenadeFlash
+  name: 40 mm flash grenade
+  parent: ADTBase40mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBullet40mmGrenadeFlash
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/40mm_grenade.rsi
+    layers:
+    - state: flash
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: ADT40mmGrenadeSmoke
+  name: 40 mm smoke grenade
+  parent: ADTBase40mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBullet40mmGrenadeSmoke
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Explosives/40mm_grenade.rsi
+    layers:
+    - state: smoke
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: ADTCartridgeFragRocket
+  name: PG-7VL frag grenade
+  parent: [BaseItem, BaseMajorContraband]
+  description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeRocket
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: ADTBulletFragRocket
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: rpg
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  id: ADTCartridgeBlastRocket
+  name: PG-7VL blast grenade
+  parent: [BaseItem, BaseMajorContraband]
+  description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeRocket
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: ADTBulletBlastRocket
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: rpg
+  - type: StaticPrice
+    price: 20

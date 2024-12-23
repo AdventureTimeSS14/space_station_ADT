@@ -13,6 +13,9 @@ ent-ADTSpaceSecAirlockArmory = шлюз
 ent-ADTSpaceSecAirlockCommand = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Space Sec, Командный
+ent-ADTRoboticsAirlockLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Робототехника, Закрытый
 
 
 ent-ADTSpaceSecAirlockShuttle = стыковочный шлюз
@@ -44,3 +47,6 @@ ent-ADTSpaceSecGlassAirlockArmory = стеклянный шлюз
 ent-ADTSpaceSecGlassAirlockCommand = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Space Sec, Командный
+ent-ADTRoboticsAirlockGlassLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Робототехника, Закрытый

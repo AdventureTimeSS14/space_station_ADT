@@ -89,3 +89,32 @@
   time: 5
   solids:
     ADTFoodMeatChickenWing: 1
+
+# Sh4zik tea packs, Starting below
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaPackOrange
+  name: OrangeTeapack
+  result: ADTOrangeTeapack
+  time: 10
+  solids:
+    ADTEmptyTeaPack: 1
+    FoodOrange: 1
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaPackCherry
+  name: CherryTeapack
+  result: ADTCherryTeapack
+  time: 10
+  solids:
+    ADTEmptyTeaPack: 1
+    FoodCherry: 1
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaPackWatermelon
+  name: WatermelonTeapack
+  result: ADTWatermelonTeapack
+  time: 10
+  solids:
+    ADTEmptyTeaPack: 1
+    FoodWatermelonSlice: 1
