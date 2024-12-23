@@ -461,6 +461,41 @@ BaseAdvancedPen: Pen
 SheetPrinter: SheetPaper
 SheetPrinter1: SheetPaper1
 
+# 2024-10-09
+# Removal of separate borg chassis parts, replace them with generic borg parts.
+LeftArmBorgEngineer: LeftArmBorg
+RightArmBorgEngineer: RightArmBorg
+LeftLegBorgEngineer: LeftLegBorg
+RightLegBorgEngineer: RightLegBorg
+HeadBorgEngineer: LightHeadBorg
+TorsoBorgEngineer: TorsoBorg
+
+LeftArmBorgMedical: LeftArmBorg
+RightArmBorgMedical: RightArmBorg
+LeftLegBorgMedical: LeftLegBorg
+RightLegBorgMedical: RightLegBorg
+HeadBorgMedical: LightHeadBorg
+TorsoBorgMedical: TorsoBorg
+
+LeftArmBorgMining: LeftArmBorg
+RightArmBorgMining: RightArmBorg
+LeftLegBorgMining: LeftLegBorg
+RightLegBorgMining: RightLegBorg
+HeadBorgMining: LightHeadBorg
+TorsoBorgMining: TorsoBorg
+
+LeftArmBorgService: LeftArmBorg
+RightArmBorgService: RightArmBorg
+LeftLegBorgService: LeftLegBorg
+RightLegBorgService: RightLegBorg
+HeadBorgService: LightHeadBorg
+TorsoBorgService: TorsoBorg
+
+LeftLegBorgJanitor: LeftLegBorg
+RightLegBorgJanitor: RightLegBorg
+HeadBorgJanitor: LightHeadBorg
+TorsoBorgJanitor: TorsoBorg
+
 #ADT start
 # 2024-08-17
 ClothingNeckLGBTPin: DrinkBottleVodka
@@ -484,13 +519,11 @@ LGBTQHandyFlag: DrinkBottleVodka
 LGBTQFlag: DrinkBottleVodka
 
 #2024-08-19
-
 ClothingOuterArmorHeavy: null
 ClothingOuterArmorHeavyRed: null
 ClothingOuterArmorHeavyGreen: null
 
 #2024-09-06
-
 RiotBulletShield: null
 
 # ADT 2024-08-13
@@ -503,3 +536,7 @@ NesMiniGyroscope: Gyroscope
 #ADT 2024-12-23
 VendingMachineSalvage: ADTMiningShop
 #ADT end
+
+# ADT-08-12-2024
+ADTHeadBorgSecurity: null
+# ADT-End

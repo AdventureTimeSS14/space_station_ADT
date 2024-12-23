@@ -5,9 +5,75 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
   productEntity: WeaponCaseNTM90
   cost:
-    Productunit: 30
+    Productunit: 18
   categories:
   - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTBoberM90GrenadeLauncher
+  name: boobr-m90-grenadelauncher-name
+  description: boobr-m90-grenadelauncher-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
+  productEntity: WeaponCaseNTM90GrenadeLauncherAttachment
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberM90UnderbarrelShotgun
+  name: boobr-m90-shotgun-name
+  description: boobr-m90-shotgun-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
+  productEntity: WeaponCaseNTM90UnderBarrelShotGunAttachment
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberWeaponAttachments
+  name: boobr-weapon-attachments-name
+  description: boobr-weapon-attachments-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: tech_basic }
+  productEntity: WeaponCaseNTGunsModules
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberAntilyingAttachment
+  name: boobr-weapon-attachments-antilying-name
+  description: boobr-weapon-attachments-antilying-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
+  productEntity: ADTAttachmentAntiLyingWarrior
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberSuppressorAttachment
+  name: boobr-weapon-attachments-suppressor-name
+  description: boobr-weapon-attachments-suppressor-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: suppressor }
+  productEntity: ADTAttachmentSuppressor
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberMagneticHarnessAttachment
+  name: boobr-weapon-attachments-magneticharness-name
+  description: boobr-weapon-attachments-magneticharness-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/rail.rsi, state: magnetic }
+  productEntity: ADTAttachmentMagneticHarness
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAttachments
 
 - type: listing
   id: ADTBoberLecter
@@ -16,7 +82,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/lecter.rsi, state: icon }
   productEntity: WeaponCaseNTLecter
   cost:
-    Productunit: 22
+    Productunit: 18
   categories:
   - ADTUplinkERTWeapon
 
@@ -27,7 +93,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/pulse_carbine.rsi, state: icon }
   productEntity: WeaponCaseNTnPulseCarbine
   cost:
-    Productunit: 27
+    Productunit: 24
   categories:
   - ADTUplinkERTWeapon
 
@@ -38,7 +104,7 @@
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
   productEntity: WeaponCaseNTMateba
   cost:
-    Productunit: 10
+    Productunit: 8
   categories:
   - ADTUplinkERTWeapon
 
@@ -49,7 +115,7 @@
   description: boobr-ap-desc
   productEntity: WeaponCaseNTAPAmmo
   cost:
-    Productunit: 10
+    Productunit: 8
   categories:
   - ADTUplinkERTWeapon
 
@@ -82,7 +148,7 @@
   icon: { sprite: ADT/Objects/Weapons/Guns/Battery/ion_rifle.rsi, state: base }
   productEntity: WeaponCaseNTIonRifle
   cost:
-    Productunit: 10
+    Productunit: 8
   categories:
   - ADTUplinkERTWeapon
 
@@ -93,7 +159,7 @@
   icon: { sprite: Objects/Weapons/Guns/SMGs/drozd.rsi, state: base }
   productEntity: WeaponCaseNTDrozd
   cost:
-    Productunit: 15
+    Productunit: 14
   categories:
   - ADTUplinkERTWeapon
 
@@ -104,7 +170,7 @@
   icon: { sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: base }
   productEntity: WeaponCaseBulldog
   cost:
-    Productunit: 25
+    Productunit: 20
   categories:
   - ADTUplinkERTWeapon
 
@@ -115,7 +181,7 @@
   icon: { sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi, state: icon }
   productEntity: ADTWeaponCaseAR12
   cost:
-    Productunit: 27
+    Productunit: 24
   categories:
   - ADTUplinkERTWeapon
 
@@ -127,7 +193,7 @@
   description:  boobr-riot-shield-desc
   productEntity: RiotShield
   cost:
-    Productunit: 10
+    Productunit: 4
   categories:
   - ADTUplinkERTMisc
 
@@ -137,7 +203,7 @@
   description:  boobr-bullet-shield-desc
   productEntity: RiotBulletShield
   cost:
-    Productunit: 15
+    Productunit: 6
   categories:
   - ADTUplinkERTMisc
 
@@ -147,7 +213,7 @@
   description:  boobr-mag-boots-desc
   productEntity: ADTClothingShoesBootsMagERT
   cost:
-    Productunit: 3
+    Productunit: 2
   categories:
   - ADTUplinkERTMisc
 
@@ -167,7 +233,7 @@
   description: boobr-grenade-desc
   productEntity: GrenadeShrapnel
   cost:
-    Productunit: 3
+    Productunit: 2
   categories:
   - ADTUplinkERTMisc
 
@@ -217,7 +283,7 @@
   description:  boobr-portable-recharger-desc
   productEntity: PortableRecharger
   cost:
-    Productunit: 5
+    Productunit: 4
   categories:
   - ADTUplinkERTMisc
 
@@ -227,6 +293,16 @@
   description:  boobr-holo-projector-desc
   productEntity: ADTAdvancedHoloprojectorField
   cost:
-    Productunit: 5
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberNightVision
+  name: uplink-night-vision-name
+  description:  uplink-night-vision-desc
+  productEntity: ClothingEyesNightVision
+  cost:
+    Productunit: 4
   categories:
   - ADTUplinkERTMisc
