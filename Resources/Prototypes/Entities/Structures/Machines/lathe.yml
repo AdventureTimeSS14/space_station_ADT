@@ -350,6 +350,9 @@
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
       #ADT plasmacutters start
+      - PKAUpgradeDamage
+      - PKAUpgradeRange
+      - PKAUpgradeFireRate
       - ADTWeaponCutter
       - ADTWeaponCutterAdv
       #ADT plasmacutters end
