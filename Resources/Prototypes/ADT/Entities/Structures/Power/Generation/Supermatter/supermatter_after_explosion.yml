@@ -1,5 +1,5 @@
 - type: entity
-  id: Supermatter
+  id: SupermatterDestroyed
   name: supermatter crystal
   description: A strangely translucent and iridescent crystal.
   placement:
