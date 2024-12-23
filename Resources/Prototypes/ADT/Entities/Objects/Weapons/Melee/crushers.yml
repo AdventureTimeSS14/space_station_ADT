@@ -46,11 +46,11 @@
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
-    rechargeCooldown: 0.5
     useKey: false
   - type: RechargeBasicEntityAmmo
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    rechargeCooldown: 0.5
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
     capacity: 1
