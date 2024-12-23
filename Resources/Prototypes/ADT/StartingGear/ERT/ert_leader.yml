@@ -4,27 +4,27 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasExplorer
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURNLeader
     shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
-    pocket1: RubberStampCentcom
-    pocket2: WeaponPulsePistol
-    suitstorage: OxygenTankFilled
-    belt: ADTClothingBeltBandolierFilledIncendiary
+    pocket1: WeaponPulsePistol
+    pocket2: DoubleEmergencyOxygenTankFilled
+    suitstorage: WeaponShotgunBulldog
+    belt: ADTClothingBeltMilitaryWebbingCBURNFilled
   storage:
     back:
     - BoxSurvivalEngineering
-    - WeaponShotgunBulldog
+    - JawsOfLife
     - Chainsaw
     - MedkitCombatFilled
-    - MagazineShotgun
-    - MagazineShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
+    - RubberStampCentcom
+    - SpaceCash1000
     # underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
   # underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
   # underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear

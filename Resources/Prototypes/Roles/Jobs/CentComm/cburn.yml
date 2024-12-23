@@ -4,7 +4,7 @@
   description: job-description-cburn
   playTimeTracker: JobCBURN
   setPreference: false
-  startingGear: CBURNGear
+  startingGear: ADTCBURNGear # ADT tweak
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -15,6 +15,7 @@
 
 - type: startingGear
   id: CBURNGear
+  abstract: true  # ADT tweak Используйте ADTCBURNGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
