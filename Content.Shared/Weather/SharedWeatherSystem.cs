@@ -36,6 +36,7 @@ public abstract class SharedWeatherSystem : EntitySystem
             if (weather.EndTime != null)
                 weather.EndTime = weather.EndTime.Value + args.PausedTime;
         }
+        component.NextUpdate += args.PausedTime; // ADT tweak
     }
 
     public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef)

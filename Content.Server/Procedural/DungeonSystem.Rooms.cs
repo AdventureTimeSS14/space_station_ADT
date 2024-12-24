@@ -31,8 +31,8 @@ public sealed partial class DungeonSystem
 
         foreach (var proto in _prototype.EnumeratePrototypes<DungeonRoomPrototype>())
         {
-            if (proto.Size != size)
-                continue;
+            // if (proto.Size != size) #ADT tweak
+            //     continue;
 
             if (whitelist == null)
             {

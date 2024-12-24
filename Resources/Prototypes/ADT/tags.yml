@@ -334,7 +334,7 @@
 
 - type: Tag
   id: ADTBeerCan
-  
+
   # New Year
 
 - type: Tag
@@ -404,6 +404,21 @@
   id: ADTDogEmotes
 
 - type: Tag
+  id: LavaDungeon
+
+- type: Tag
+  id: PKAUpgrade
+
+- type: Tag
+  id: GunUpgradeDamage
+
+- type: Tag
+  id: GunUpgradeRange
+
+- type: Tag
+  id: GunUpgradeReloadSpeed
+
+- type: Tag
   id: ADT40mmGrenade
 
 #sponsor_items
@@ -415,7 +430,7 @@
 
 - type: Tag
   id: ADTWeaponMeleePrasatChainsword
-  
+
 #sponsor_items - End
 
 - type: Tag
@@ -429,3 +444,9 @@
 
 - type: Tag
   id: ADTRUranShard
+
+- type: Tag
+  id: DockMining
+
+- type: Tag
+  id: MiningShop

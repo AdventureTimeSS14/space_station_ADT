@@ -175,8 +175,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 0.85 # ADT tweak 1.0 - 0.85
+    sprintModifier: 0.85 # ADT tweak 1.0 - 0.85
   - type: Armor
     modifiers:
       coefficients:

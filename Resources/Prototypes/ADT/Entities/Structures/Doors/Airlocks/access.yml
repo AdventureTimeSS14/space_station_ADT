@@ -1,0 +1,19 @@
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleMining
+  suffix: External, Mining, Glass, Docking
+  components:
+  - type: PriorityDock
+    tag: DockMining
+
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalSalvageLocked
+  suffix: External, Salvage, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvage ]
+  - type: Wires
+    layoutId: AirlockCargo

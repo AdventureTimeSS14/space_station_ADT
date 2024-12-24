@@ -1,0 +1,36 @@
+- type: entity
+  name: legion core
+  id: ADTLegionCore
+  parent: BaseItem
+  description: Fires low-damage kinetic bolts at a short range.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: legion_core
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups: # these are all split across multiple types
+        Brute: -100
+        Burn: -100
+    delay: 0.1
+    selfHealPenaltyMultiplier: 0
+    healingBeginSound:
+      path: "/Audio/Items/eating_1.ogg"
+    healingEndSound:
+      path: "/Audio/Items/eating_3.ogg"
+  - type: TimedDespawn
+    lifetime: 200
+  - type: SpawnOnDespawn
+    prototype: ADTLegionCoreDecayed
+
+- type: entity
+  name: legion core
+  id: ADTLegionCoreDecayed
+  parent: BaseItem
+  description: Fires low-damage kinetic bolts at a short range.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: legion_core_decayed

@@ -7,17 +7,19 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Normal
-  - type: GunWieldBonus
-    minAngle: -43
-    maxAngle: -43
-  - type: Wieldable
+    size: Large # ADT tweak Normal -> large
+    shape:
+    - 0,0,2,1
+  # - type: GunWieldBonus # ADT tweak start
+  #   minAngle: -43
+  #   maxAngle: -43
+  # - type: Wieldable # ADT tweak end
   - type: Gun
     fireRate: 0.5
     selectedMode: SemiAuto
     angleDecay: 45
-    minAngle: 44
-    maxAngle: 45
+    minAngle: 2 #ADT tweak
+    maxAngle: 3 #ADT tweak
     availableModes:
     - SemiAuto
     soundGunshot:

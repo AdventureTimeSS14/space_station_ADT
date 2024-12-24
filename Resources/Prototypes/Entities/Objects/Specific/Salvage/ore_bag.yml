@@ -5,6 +5,7 @@
   description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
   components:
   - type: MagnetPickup
+    slotFlags: POCKET # ADT tweak belt -> POCKET
   - type: Sprite
     sprite: Objects/Specific/Mining/ore_bag.rsi
     state: icon
@@ -14,7 +15,7 @@
     slots:
     - belt
   - type: Item
-    size: Ginormous
+    size: Small # ADT tweak Ginormous -> small
   - type: Storage
     maxItemSize: Normal
     grid:

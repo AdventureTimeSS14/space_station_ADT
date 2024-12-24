@@ -3,6 +3,8 @@ using Content.Shared.Tag;
 using Content.Shared.Storage;
 using Content.Shared.Materials;
 using Content.Shared.Popups;
+using Content.Shared.ADT.MiningShop;
+using Content.Shared.Cargo.Components;
 
 namespace Content.Shared.ADT.Materials;
 
@@ -27,6 +29,8 @@ public abstract class SharedAutoMaterialInsertSystem : EntitySystem
             return;
         if (!TryComp<StorageComponent>(used, out var storage))
             return;
+        var ev = new AutoMaterialInsertedEvent(storage.StoredItems, args.User, uid, args.Used);
+        RaiseLocalEvent(uid, ref ev); //начинается до форрича, чтобы можно было получить стоимость
         bool success = false;
         foreach (var (item, _) in storage.StoredItems)
         {

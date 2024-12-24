@@ -1,0 +1,7 @@
+- type: entity
+  abstract: true
+  id: BaseStationLavaland
+  components:
+  - type: StationPlanetSpawner
+    planet: Lavaland
+    gridPath: /Maps/ADTMaps/Nonstation/lavaland_outpost.yml

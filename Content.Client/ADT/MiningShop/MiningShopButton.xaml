@@ -1,0 +1,7 @@
+﻿<controls:MiningShopButton
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.ADT.MiningShop">
+    <BoxContainer Orientation="Horizontal">
+        <Label Name="Label" Access="Public" Align="Left" />
+    </BoxContainer>
+</controls:MiningShopButton>
