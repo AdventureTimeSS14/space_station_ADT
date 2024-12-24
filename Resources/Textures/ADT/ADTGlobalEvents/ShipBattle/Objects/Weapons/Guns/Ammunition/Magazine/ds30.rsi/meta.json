@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made from not_so_big_chungus",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "mag-1"
+        },
+        {
+            "name": "mag-2"
+        },
+        {
+            "name": "mag-3"
+        },
+        {
+            "name": "mag-4"
+        },
+        {
+            "name": "mag-5"
+        },
+        {
+            "name": "mag-6"
+        },
+        {
+            "name": "mag-7"
+        },
+        {
+            "name": "mag-8"
+        },
+        {
+            "name": "mag-9"
+        },
+        {
+            "name": "inhand-left"
+        },
+        {
+            "name": "inhand-right"
+        }
+    ]
+}
