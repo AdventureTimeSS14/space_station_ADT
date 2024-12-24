@@ -222,7 +222,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: [ClothingOuterArmorBasic, BadgeOnClothing]
   id: ADTClothingOuterArmorMiner
   name: miner armor
   description: Will not protect you from pressure, but will help you well in the battle with space fauna.
@@ -244,6 +244,14 @@
     clothingPrototype: ADTClothingHeadHelmetMiner
   - type: ContainerContainer
     containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       toggleable-clothing: !type:ContainerSlot {}
 
 - type: entity
