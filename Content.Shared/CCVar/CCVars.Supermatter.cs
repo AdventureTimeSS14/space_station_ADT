@@ -7,7 +7,7 @@ using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 
-namespace Content.Shared.Supermatter.CCVar;
+namespace Content.Shared.CCVar;
 
 public sealed partial class CCVars
 {
