@@ -24,6 +24,9 @@ public sealed partial class SupermatterComponent : Component
     public string SliverPrototype = "SupermatterSliver";
 
     [DataField]
+    public string SupermatterTrashPrototype = "SupermatterTrash";
+
+    [DataField]
     public string KudzuPrototype = "SupermatterKudzu";
 
     [DataField]

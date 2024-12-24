@@ -412,6 +412,7 @@ public sealed partial class SupermatterSystem
 
             default:
                 _explosion.TriggerExplosive(uid);
+                Spawn(sm.SupermatterTrashPrototype, xform.Coordinates);
                 break;
         }
     }

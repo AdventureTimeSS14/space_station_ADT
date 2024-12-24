@@ -10,7 +10,7 @@
       radius: 10
       energy: 5
     - type: RadiationSource
-      intensity: 7
+      intensity: 5
     - type: Sprite
       drawdepth: WallMountedItems
       sprite: ADT\Structures\Power\Supermatter\Destroyed.rsi
