@@ -76,3 +76,6 @@
     interfaces:
       enum.MiningShopUI.Key:
         type: MiningShopBui
+  - type: Tag
+    tags:
+    - MiningShop

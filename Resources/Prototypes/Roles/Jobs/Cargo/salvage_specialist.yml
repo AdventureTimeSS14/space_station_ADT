@@ -29,4 +29,7 @@
   storage:
     back:
     - MineralScanner
-    - FlashlightSeclite # ADT end
+    - FlashlightSeclite
+    - MiningVoucher
+    - MiningSuitVoucher
+    # ADT end

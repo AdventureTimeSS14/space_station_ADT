@@ -447,3 +447,6 @@
 
 - type: Tag
   id: DockMining
+
+- type: Tag
+  id: MiningShop
