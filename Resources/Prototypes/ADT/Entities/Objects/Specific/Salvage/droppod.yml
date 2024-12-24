@@ -12,6 +12,8 @@
     sound:
       path: /Audio/ADT/Misc/droppod_landing.ogg
   - type: Droppod
+  - type: StaticPrice
+    price: 14
 
 - type: entity
   id: ADTDroppodOpened
@@ -21,3 +23,5 @@
     state: droppod_opened
   - type: TimedDespawn
     lifetime: 16
+  - type: StaticPrice
+    price: 14

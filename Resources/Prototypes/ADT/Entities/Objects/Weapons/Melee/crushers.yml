@@ -151,15 +151,15 @@
         Blunt: 2.5
         Slash: 2.5
         Structural: 30
-  - type: Item
-    size: Ginormous
-    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
         Slash: 40
   - type: GunRequiresWield
   - type: Wieldable
+  - type: Item
+    size: normal
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
 
 - type: entity
   parent: WeaponKineticBase
