@@ -158,7 +158,7 @@
   - type: GunRequiresWield
   - type: Wieldable
   - type: Item
-    size: normal
+    size: Normal
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
 
 - type: entity
