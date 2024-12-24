@@ -294,7 +294,7 @@ public sealed partial class SupermatterSystem
             global = true;
             sm.DelamAnnounced = true;
 
-            SendSupermatterAnnouncement(uid, message, global);
+            SupermatterAnnouncement(uid, message, global);
             return;
         }
 
@@ -329,22 +329,24 @@ public sealed partial class SupermatterSystem
             }
         }
 
-        SendSupermatterAnnouncement(uid, message, global);
+        SupermatterAnnouncement(uid, message, global);
     }
 
-    /// <param name="global">If true, sends a station announcement</param>
-    /// <param name="customSender">Localisation string for a custom announcer name</param>
-    public void SendSupermatterAnnouncement(EntityUid uid, string message, bool global = false, string? customSender = null)
-    {
-        if (global)
+        /// <summary>
+        ///     Help the SM announce something.
+        /// </summary>
+        /// <param name="global">If true, does the station announcement.</param>
+        /// <param name="customSender">If true, sends the announcement from Central Command.</param>
+        public void SupermatterAnnouncement(EntityUid uid, string message, bool global = false, string? customSender = null)
         {
-            var sender = Loc.GetString(customSender != null ? customSender : "supermatter-announcer");
-            _chat.DispatchStationAnnouncement(uid, message, sender, colorOverride: Color.Yellow);
-            return;
+            if (global)
+            {
+                var sender = customSender != null ? customSender : Loc.GetString("supermatter-announcer");
+                _chat.DispatchStationAnnouncement(uid, message, sender, colorOverride: Color.Yellow);
+                return;
+            }
+            _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
         }
-
-        _chat.TrySendInGameICMessage(uid,"supermatter-warning", InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
-    }
 
     /// <summary>
     ///     Returns the integrity rounded to hundreds, e.g. 100.00%

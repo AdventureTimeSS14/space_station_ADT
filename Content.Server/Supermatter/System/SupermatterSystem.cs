@@ -193,7 +193,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         sm.Damage += sm.DamageDelaminationPoint / 10;
 
         var integrity = GetIntegrity(sm).ToString("0.00");
-        SendSupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
+        SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 
         Spawn(sm.SliverPrototype, _transform.GetMapCoordinates(args.User));
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
