@@ -43,6 +43,7 @@ namespace Content.Server.Database
         public DbSet<AdminMessage> AdminMessages { get; set; } = null!;
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
+		public DbSet<BookPrinterEntry> BookPrinterEntry { get; set; } = null!; // ADT-BookPrinter
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -55,6 +56,12 @@ namespace Content.Server.Database
                 .HasIndex(p => p.UserId)
                 .IsUnique();
             //ADT-Sponsors-End
+
+            // ADT-BookPrinter-Start
+			modelBuilder.Entity<BookPrinterEntry>()
+                .HasIndex(p => p.Id)
+                .IsUnique();
+            // ADT-BookPrinter-End
 
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
@@ -609,6 +616,27 @@ namespace Content.Server.Database
         public int AdminRankId { get; set; }
         public AdminRank Rank { get; set; } = default!;
     }
+
+    // ADT-BookPrinter-Start
+	public class BookPrinterEntry
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get; set; } = default!;
+        public string Description { get; set; } = default!;
+        public string Content { get; set; } = default!;
+        public List<StampedData> StampedBy { get; set; } = default!;
+        public string StampState { get; set; } = "paper_stamp-void";
+    }
+
+	public class StampedData
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get; set; } = default!;
+        public string Color { get; set; } = default!;
+    }
+    // ADT-BookPrinter-End
 
     public class Round
     {

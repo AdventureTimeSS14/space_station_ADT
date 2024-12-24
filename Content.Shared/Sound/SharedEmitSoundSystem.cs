@@ -140,6 +140,14 @@ public abstract class SharedEmitSoundSystem : EntitySystem
             TryEmitSound(ent, ent.Comp, args.User);
         }
     }
+
+// adt tweak start
+    public void EmitSound(EntityUid uid, BaseEmitSoundComponent component, EntityUid? user = null, bool predict = true)
+    {
+        TryEmitSound(uid, component, user, predict);
+    }
+// adt tweak end
+
     protected void TryEmitSound(EntityUid uid, BaseEmitSoundComponent component, EntityUid? user=null, bool predict=true)
     {
         if (component.Sound == null)

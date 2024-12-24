@@ -35,10 +35,23 @@
   id: DeathSquad
   parent: EventHumanoidMindShielded
   randomizeName: false
-  speciesBlacklist: # Corvax-MRP
+  speciesBlacklist: # ADT-Tweak-start
     - Diona
-    - Vox # ADT_Tweak
-    - KoboltSpecies # ADT_Tweak
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -486,16 +499,29 @@
       settings: CBURNAgent
 
 - type: randomHumanoidSettings
-  speciesBlacklist: # Corvax-MRP
+  speciesBlacklist: # ADT-Tweak-start
     - Diona
-    - Vox # ADT_Tweak
-    - KoboltSpecies # ADT_Tweak
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
-      roleLoadout: [ RoleSurvivalEVA ]
+      prototypes: [ADTCBURNGear] # ADT tweak
+      roleLoadout: [ ADTRoleSurvivalCBURN ] # ADT tweak
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
@@ -521,6 +547,23 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   parent: EventHumanoidMindShielded
   components:
     - type: GhostRole

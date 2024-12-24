@@ -19,12 +19,11 @@ public partial class VoiceMaskSystem
 
     private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, ref InventoryRelayedEvent<TransformSpeakerBarkEvent> args)
     {
-        args.Args.Pitch = Math.Clamp(component.BarkPitch, _cfg.GetCVar(ADTCCVars.BarksMinPitch), _cfg.GetCVar(ADTCCVars.BarksMaxPitch));
-
         if (!_proto.TryIndex<BarkPrototype>(component.BarkId, out var proto))
             return;
 
-        args.Args.Sound = proto.Sound;
+        args.Args.Data.Pitch = Math.Clamp(component.BarkPitch, _cfg.GetCVar(ADTCCVars.BarksMinPitch), _cfg.GetCVar(ADTCCVars.BarksMaxPitch));
+        args.Args.Data.Sound = proto.Sound;
     }
 
     private void OnChangeBark(EntityUid uid, VoiceMaskComponent component, VoiceMaskChangeBarkMessage message)

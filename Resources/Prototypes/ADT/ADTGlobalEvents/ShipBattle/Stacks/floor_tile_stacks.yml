@@ -1,0 +1,23 @@
+- type: stack
+  id: ADTFloorTileSteelDarkGray
+  name: steel dark gray tile
+  spawn: ADTFloorTileItemSteelDarkGray
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorTileSteelPlateDarkGray
+  name: steel dark gray plate
+  spawn: ADTFloorTileItemSteelPlateDarkGray
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorTileShipGray
+  name: ship gray tile
+  spawn: ADTFloorTileItemShipGray
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorTileShipDarkGray
+  name: ship dark gray tile
+  spawn: ADTFloorTileItemShipDarkGray
+  maxCount: 30

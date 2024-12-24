@@ -96,16 +96,16 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25"
+          bounds: "-0.25,-0.4,0.25,0.4"
         density: 25
         mask:
-        - TabletopMachineMask
+        - MachineMask
         layer:
-        - TabletopMachineLayer
+        - MachineLayer
   - type: MaterialStorage
     whitelist:
       tags:
       - Document
     storage:
-      Paper: 0
+      ADTPaper: 0 # ADT tweak
   - type: DocumentPrinter #DocumentPrinterComponent (ADT)

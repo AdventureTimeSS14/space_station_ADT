@@ -103,3 +103,23 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi
+
+- type: entity
+  parent: [ClothingEyesBase, BaseMajorContraband]
+  id: ClothingEyesNightVision
+  name: night vision
+  description: jungar privet
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+  - type: NightVisionItem # RMC Night vision
+  - type: ItemToggle  # RMC Night vision
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }
