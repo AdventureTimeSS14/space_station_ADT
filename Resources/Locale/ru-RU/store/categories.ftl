@@ -3,6 +3,7 @@ store-category-debug = debug category
 store-category-debug2 = debug category 2
 store-category-weapons = Вооружение
 store-category-ammo = Боеприпасы
+store-category-attachments = Оруж. модули
 store-category-explosives = Взрывчатка
 store-category-chemicals = Химикаты
 store-category-deception = Обман
