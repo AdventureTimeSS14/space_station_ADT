@@ -938,12 +938,12 @@
     - Cloning
 
 #SS40k
-- type: sourcePort
+- type: sourcePort #прототип порта, который отправляет данные
   id: TurretControllerSender
   name: signal-port-name-tur-sender
   description: signal-port-description-tur-sender
 
-- type: entity
+- type: entity #прототип консоли для управления турелями (скопировал с базовой консоли, не имеет платы из которой собирается, пока что чисто выдаётся)
   parent: BaseComputer
   id: TurretControllerConsole
   name: turret-controller-console
@@ -972,9 +972,9 @@
     energy: 1.6
     color: "#1f8c28"
   - type: DeviceLinkSource
-    range: 10
+    range: 10 #не сильно важная хуйня, растояние на котором можно залинкать, турели как допишу - будут сами отлинкиваться по причине потери связи из за растояния, будь то отломанная турель летящая на куске корабля, или дрон)
     ports:
-      - TurretControllerSender
+      - TurretControllerSender #собственно наш порт
   - type: TurretController
   # - type: ActivatableUI
   #   key: enum.CloningConsoleUiKey.Key

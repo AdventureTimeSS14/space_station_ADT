@@ -1,11 +1,11 @@
 using Content.Shared.Actions;
 
 namespace Content.Shared.ADT.SS40k.Turrets;
-public sealed partial class ControlReturnActionEvent : InstantActionEvent
+public sealed partial class ControlReturnActionEvent : InstantActionEvent // для акшона
 {
 }
 
-public sealed class ReturnToBodyTurretEvent : EntityEventArgs
+public sealed class ReturnToBodyTurretEvent : EntityEventArgs//поднимаем на возвращении
 {
     public EntityUid TurretController;
 
@@ -15,7 +15,7 @@ public sealed class ReturnToBodyTurretEvent : EntityEventArgs
     }
 }
 
-public sealed class GettingControlledEvent : EntityEventArgs
+public sealed class GettingControlledEvent : EntityEventArgs //поднимаем для турели которая начинает контролироваться
 {
     public EntityUid User;
     public EntityUid Controller;

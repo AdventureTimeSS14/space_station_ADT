@@ -12,7 +12,7 @@ public sealed partial class TurretControllerComponent : Component
     public EntityUid? CurrentUser;
 
     [ViewVariables]
-    public EntityUid? CurrentTurret; // ??? maybe uberu nahui (potom optimiziruye, skoreye vsego legche save component turret v controllere(maybe more than 1 turret so i will make some changes after, IDK))
+    public EntityUid? CurrentTurret;
 }
 
 /*

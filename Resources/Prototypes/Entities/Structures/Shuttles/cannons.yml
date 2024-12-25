@@ -374,32 +374,24 @@
 #SS40k Turrets with components for control
 
 - type: entity
-  id: ShuttleGunKineticControllable
-  parent: ShuttleGunKinetic
-  suffix: CONTROLLABLE, DO NOT MAP
-  components:
-  - type: TurretControllable
-  - type: DeviceLinkSink
-    ports:
-    - On
-
-- type: entity
   id: ShuttleGunFriendshipControllable
   parent: ShuttleGunFriendship
   suffix: CONTROLLABLE, DO NOT MAP
   components:
-  - type: TurretControllable
+  - type: TurretControllable #компонент контролируемой турели
   - type: DeviceLinkSink
     ports:
-    - On
-  - type: MouseRotator
+    - On #можно переписать нахуй прототип турели, но главное что бы в прототипе был порт для линка(даже если он ничего не делает, вот например ВКЛ - сойдёт)
+  - type: MouseRotator #настраивать по вкусу
     angleTolerance: 5
     rotationSpeed: 180
-    simple4DirMode: false
+    simple4DirMode: false #выключить что бы турель красиво вертелась(а не резко поворачивалась в одну из 4 сторон)
   - type: NoRotateOnInteract
   - type: NoRotateOnMove
   - type: CombatMode
-    toggleMouseRotator: false
+    toggleMouseRotator: false #нужно выключить, что бы у нас компонент ротатора не пропадал нахуй при переключении режимов
+
+#Turret returning action
 
 - type: entity
   id: ControlReturnAction
@@ -408,7 +400,7 @@
   - type: InstantAction
     priority: -100
     icon:
-      sprite: Objects/Tools/crowbar.rsi
+      sprite: Objects/Tools/crowbar.rsi #заменить спрайт с монтировки на что то сносное
       state: icon
     event: !type:ControlReturnActionEvent {}
     useDelay: 1

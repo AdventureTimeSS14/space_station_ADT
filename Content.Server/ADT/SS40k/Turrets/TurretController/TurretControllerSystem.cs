@@ -17,11 +17,11 @@ public sealed class TurretControllerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TurretControllerComponent, InteractHandEvent>(AfterInteract);
-        SubscribeLocalEvent<TurretControllerComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<TurretControllerComponent, LinkAttemptEvent>(OnLinkAttempt);
-        SubscribeLocalEvent<TurretControllerComponent, NewLinkEvent>(OnNewLink);
-        SubscribeLocalEvent<TurretControllerComponent, ReturnToBodyTurretEvent>(OnReturn);
+        SubscribeLocalEvent<TurretControllerComponent, InteractHandEvent>(AfterInteract);//закидываем в турель при использовании
+        SubscribeLocalEvent<TurretControllerComponent, ComponentShutdown>(OnShutdown);//чистим
+        SubscribeLocalEvent<TurretControllerComponent, LinkAttemptEvent>(OnLinkAttempt);//отменяем соединения
+        SubscribeLocalEvent<TurretControllerComponent, NewLinkEvent>(OnNewLink); //заливаем турель в компонент контроллера(потенциал в будущем сделать массив турелей с одной консолью)
+        SubscribeLocalEvent<TurretControllerComponent, ReturnToBodyTurretEvent>(OnReturn);//чистим
     }
 
     public void OnReturn(EntityUid uid, TurretControllerComponent component, ReturnToBodyTurretEvent args)
@@ -44,8 +44,8 @@ public sealed class TurretControllerSystem : EntitySystem
             var target = linkSource.LinkedPorts.First().Key;
             component.CurrentUser = args.User;
             component.CurrentTurret = target;
-            RaiseLocalEvent(target, new GettingControlledEvent(args.User, uid)); // я не ебу почему ты не работаешь, козлина, хотя по всей логике должна, ивент просто не доходит до соседней системы - бред? ДА БРЕД
-            _mindSystem.ControlMob(args.User, target); //Визарды пидорасы, я ебал ваши ивенты в жопу, уроды блять, пидорасы, ебаный нахуй блять
+            RaiseLocalEvent(target, new GettingControlledEvent(args.User, uid));
+            _mindSystem.ControlMob(args.User, target);
         }
     }
 

@@ -1,6 +1,8 @@
+using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.ADT.SS40k.Turrets;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Examine;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
@@ -13,13 +15,14 @@ public sealed class TurretControllableSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<TurretControllableComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<TurretControllableComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<TurretControllableComponent, ControlReturnActionEvent>(OnReturn);
-        SubscribeLocalEvent<TurretControllableComponent, GettingControlledEvent>(OnGettingControlled);
+        SubscribeLocalEvent<TurretControllableComponent, ComponentStartup>(OnStartup);//заливаем акшон для возврата(можно добавить и другие)
+        SubscribeLocalEvent<TurretControllableComponent, ComponentShutdown>(OnShutdown);//чистим\возвращаем
+        SubscribeLocalEvent<TurretControllableComponent, ControlReturnActionEvent>(OnReturn);//акшон возврата
+        SubscribeLocalEvent<TurretControllableComponent, GettingControlledEvent>(OnGettingControlled);//сохраняем
     }
 
     public void OnGettingControlled(EntityUid uid, TurretControllableComponent component, GettingControlledEvent args)
@@ -41,7 +44,6 @@ public sealed class TurretControllableSystem : EntitySystem
                 TryReturnToBody(uid, component);
         }
         component.User = null;
-        //suda mojno dopisat raise event, but nahuya?
         if (component.Controller is not null)
         {
             RaiseLocalEvent((EntityUid)component.Controller, new ReturnToBodyTurretEvent(uid));
@@ -57,7 +59,7 @@ public sealed class TurretControllableSystem : EntitySystem
     {
         Return(uid, component);
 
-        _actionsSystem.RemoveAction(component.ControlReturnActEntity);//maybe nahui? hotya pohui
+        _actionsSystem.RemoveAction(component.ControlReturnActEntity);
     }
 
     public bool TryReturnToBody(EntityUid uid, TurretControllableComponent component)
@@ -73,12 +75,15 @@ public sealed class TurretControllableSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        //todo: проверка пользователя(тела игрока на состояние) и поднятие ивента в случае отруба(по ивенту возвращаем в тело(точно ли стоит делать ивентом, а не тупо вернуть в тело?))
         var entityes = EntityQueryEnumerator<TurretControllableComponent>();
         while (entityes.MoveNext(out var uid, out var comp))
-            if (comp.User is not null && (!_mobStateSystem.IsAlive((EntityUid)comp.User) ||
+        {
+            if (comp.User is not null && comp.Controller is not null && (!_mobStateSystem.IsAlive((EntityUid)comp.User) ||
             TryComp<SleepingComponent>((EntityUid)comp.User, out var _) ||
-            TryComp<ForcedSleepingComponent>((EntityUid)comp.User, out var _))) Return(uid, comp);
+            TryComp<ForcedSleepingComponent>((EntityUid)comp.User, out var _))) Return(uid, comp); //тут мейби можно убрать проверку на ещё один компонент(нужно тестить)
+            //
+
+        }
     }
 
     // public bool IsControlling(EntityUid uid, TurretControllableComponent comp)

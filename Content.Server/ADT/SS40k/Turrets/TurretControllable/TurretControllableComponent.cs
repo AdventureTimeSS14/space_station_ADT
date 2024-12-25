@@ -16,6 +16,12 @@ public sealed partial class TurretControllableComponent : Component
     public string ControlReturnAction = "ControlReturnAction";
     [DataField("ControlReturnActionEntity")]
     public EntityUid? ControlReturnActEntity;
+
+    [DataField("Range")]
+    public float Range = 50f;
+
+    [DataField("isDrone")]
+    public bool IsDrone = false;
 }
 
 /*
