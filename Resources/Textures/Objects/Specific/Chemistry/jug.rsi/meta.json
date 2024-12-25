@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by HoofedEar",
+  "copyright": "Taken from TGstation at commit https://github.com/tgstation/tgstation/commit/c045d79fcabda92ea29214eda93863e746fd404c",
   "size": {
     "x": 32,
     "y": 32

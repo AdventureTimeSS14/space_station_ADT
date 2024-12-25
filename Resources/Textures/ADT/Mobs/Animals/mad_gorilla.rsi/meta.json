@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Was repainted by unlumy:discord",
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "dead",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "crawling",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        [
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        [
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        [
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ]
+      ]
+    },
+    {
+      "name": "standing",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

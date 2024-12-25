@@ -95,8 +95,8 @@
   - type: TemperatureSpeed
     thresholds:
       273: 0.8
-      263: 0.6
-      250: 0.4
+      243: 0.6
+      220: 0.4
   - type: FlashImmunity
   - type: EyeProtection
   - type: MovementSpeedModifier
@@ -122,7 +122,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Сold: 0.12 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
+            Heat: 0.25 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
       - !type:PopupMessage
         type: Local
         visualType: Large

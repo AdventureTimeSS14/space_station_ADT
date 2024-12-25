@@ -14,11 +14,32 @@
     state: icon
 
 - type: stealTargetGroup
+  id: ADTWeaponPistolX01
+  name: steal-target-groups-adt-pistol-x01
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: ADTClothingMaskGasCE
   name: steal-target-groups-clothing-mask-gas-ce
   sprite:
     sprite: ADT/Clothing/Mask/gasCE.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: ADTHandheldShuttleConsoleSecurity
+  name: steal-target-groups-adt-handheld-shuttle-console-security
+  sprite:
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: security
+
+- type: stealTargetGroup
+  id: ADTHandheldShuttleConsoleSalvage
+  name: steal-target-groups-adt-handheld-shuttle-console-salvage
+  sprite:
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: salvage
 
 # changeling
 

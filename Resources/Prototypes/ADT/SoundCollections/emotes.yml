@@ -207,3 +207,11 @@
   id: FelinidPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+
+# Other
+
+- type: soundCollection
+  id: HumanSpits
+  files:
+  - /Audio/ADT/Voice/Human/spit_1.ogg
+  - /Audio/ADT/Voice/Human/spit_2.ogg

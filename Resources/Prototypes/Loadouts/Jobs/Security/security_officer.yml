@@ -1,17 +1,19 @@
-# Senior Time
-- type: loadoutEffectGroup
-  id: SeniorOfficer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobWarden
-      time: 72000 #20 hrs # Corvax-RoleTime
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Security
-      time: 216000 # 60 hrs
+# ADT-Tweak-senior
+# # Senior Time
+# - type: loadoutEffectGroup
+#   id: SeniorOfficer
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobWarden
+#       time: 72000 #20 hrs # Corvax-RoleTime
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:DepartmentTimeRequirement
+#       department: Security
+#       time: 216000 # 60 hrs
+# ADT-Tweak-senior
 
 #Security Star
 - type: loadoutEffectGroup
@@ -69,22 +71,6 @@
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
-
-- type: loadout
-  id: SeniorOfficerJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-
-- type: loadout
-  id: SeniorOfficerJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
 
 # Back
 - type: loadout
@@ -150,23 +136,6 @@
   id: SecurityPDA
   equipment:
     id: SecurityPDA
-# ADT Start Tweak
-# - type: loadout
-#   id: SeniorOfficerPDA
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: SeniorOfficer
-#   equipment:
-#     id: SeniorOfficerPDA
-# ADT End Tweak
-
-- type: loadout
-  id: SeniorOfficerPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
-  equipment:
-    id: SeniorOfficerPDA
 
 # Misc
 - type: loadout
