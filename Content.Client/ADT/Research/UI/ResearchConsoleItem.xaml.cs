@@ -22,10 +22,12 @@ public sealed partial class ResearchConsoleItem : Control
 
     public TechnologyPrototype Prototype;
     public Action<TechnologyPrototype>? BuyAction;
-    public ResearchConsoleItem(TechnologyPrototype proto, SpriteSystem sprite)
+    public bool Allowed;
+    public ResearchConsoleItem(TechnologyPrototype proto, SpriteSystem sprite, bool allowed)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        Allowed = allowed;
         Prototype = proto;
         Buy.OnPressed += Selected;
         ResearchDisplay.Texture = sprite.Frame0(proto.Icon);

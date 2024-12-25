@@ -95,7 +95,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
         foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>().Where(x => x.Discipline == CurrentDiscipline))
         {
-            var control = new ResearchConsoleItem(tech, _sprite);
+            var control = new ResearchConsoleItem(tech, _sprite, List.Contains(tech.ID));
             control.Main.PanelOverride = new StyleBoxFlat(Color.DarkSlateBlue);
             DragContainer.AddChild(control);
             LayoutContainer.SetPosition(control, _position + (tech.Position * 150));
@@ -204,8 +204,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
     }
     #endregion
 
-    public void
-    Select(TechnologyPrototype proto)
+    public void Select(TechnologyPrototype proto)
     {
         InfoContainer.DisposeAllChildren();
         if (!_player.LocalEntity.HasValue)
