@@ -84,8 +84,8 @@
 
 #100 mm
 - type: entity
-  id: ADTShipBattleBullet130mmHE
-  name: 130 mm HE
+  id: ADTShipBattleBullet155mmHE
+  name: 155 mm HE
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -108,8 +108,8 @@
     lifetime: 20
 
 - type: entity
-  id: ADTShipBattleBullet130mmEMP
-  name: 130 mm EMP
+  id: ADTShipBattleBullet155mmEMP
+  name: 155 mm EMP
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -133,8 +133,8 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
-  id: ADTShipBattleBullet130mmAP
-  name: 130 mm EMP
+  id: ADTShipBattleBullet155mmAP
+  name: 155 mm EMP
   components:
   - type: Projectile
     damage:

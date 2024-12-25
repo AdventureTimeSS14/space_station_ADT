@@ -266,7 +266,7 @@
       rotationSpeed: 120
       simple4DirMode: false
     - type: Icon
-      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon.rsi
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
       state: ds30_kmt_icon
     - type: NpcFactionMember
       factions:
@@ -281,7 +281,7 @@
       factions:
         - NanoTrasen
     - type: Icon
-      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon.rsi
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
       state: ds30_tsf_icon
     - type: Sprite
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/ds30.rsi
@@ -303,6 +303,9 @@
       drawdepth: Mobs
       layers:
         - state: ds30_broken
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
+      state: ds30_broken_icon
 
 #Пушки без магазинов
 - type: entity
@@ -434,16 +437,19 @@
 
 - type: entity
   parent: ADTgau32Broken
-  id: ADTD130Broken
-  name: broken D130
-  description: broken D130
+  id: ADTMk155Broken
+  name: broken Mk155
+  description: broken Mk155
   suffix: Space Battleships
   components:
     - type: Sprite
-      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/mk155.rsi
       drawdepth: Mobs
       layers:
-        - state: d130_broken
+        - state: mk155_broken
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon64x64.rsi
+      state: mk155_broken_icon
 
 - type: entity
   parent: ADTBaseControllableTurret
@@ -475,7 +481,7 @@
 
 - type: entity
   parent: ADTBaseControllableTurret
-  id: ADTd130KMT
+  id: ADTMk155KMT
   suffix: Space Battleships, KMT
   components:
     - type: NpcFactionMember
@@ -502,7 +508,7 @@
             # - !type:ExplodeBehavior
             - !type:SpawnEntitiesBehavior
               spawn:
-                ADTD130Broken:
+                ADTMk155Broken:
                   min: 1
                   max: 1
     - type: Gun
@@ -514,18 +520,21 @@
     - type: BallisticAmmoProvider
       whitelist:
         tags:
-          - ADTShipBattle130mmShell
+          - ADTShipBattle155mmShell
       capacity: 10
       proto: null
     - type: Sprite
-      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/mk155.rsi
       drawdepth: Mobs
       layers:
-        - state: d130_kmt
+        - state: mk155_kmt
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon64x64.rsi
+      state: mk155_kmt_icon
 
 - type: entity
-  parent: ADTd130KMT
-  id: ADTd130TSF
+  parent: ADTMk155KMT
+  id: ADTMk155TSF
   suffix: Space Battleships, TSF
   components:
     - type: NpcFactionMember
@@ -535,7 +544,10 @@
       # sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
       # state: gau32_tsf_icon
     - type: Sprite
-      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/mk155.rsi
       drawdepth: Mobs
       layers:
-        - state: d130_tsf
+        - state: mk155_tsf
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon64x64.rsi
+      state: mk155_tsf_icon

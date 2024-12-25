@@ -3,18 +3,18 @@
   "license": "CC-BY-SA-3.0",
   "copyright": "Made from not_so_big_chungus",
   "size": {
-    "x": 96,
-    "y": 96
+    "x": 128,
+    "y": 128
   },
     "states": [
         {
-            "name": "d130_kmt"
+            "name": "mk155_kmt"
         },
         {
-            "name": "d130_tsf"
+            "name": "mk155_tsf"
         },
         {
-            "name": "d130_broken"
+            "name": "mk155_broken"
         }
     ]
 }

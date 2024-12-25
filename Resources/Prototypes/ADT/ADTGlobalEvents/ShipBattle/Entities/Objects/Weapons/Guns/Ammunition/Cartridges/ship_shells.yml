@@ -92,22 +92,22 @@
 #130 мм снаряды
 - type: entity
   parent: [ ADTShipBattle100mmHEShell ]
-  id: ADTShipBattle130mmHEShell
-  name: 130 HE Shell
+  id: ADTShipBattle155mmHEShell
+  name: 155 HE Shell
   components:
   - type: Tag
     tags:
-    - ADTShipBattle130mmShell
+    - ADTShipBattle155mmShell
   - type: CartridgeAmmo
-    proto: ADTShipBattleBullet130mmHE
+    proto: ADTShipBattleBullet155mmHE
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/155mm.rsi
     layers:
     - state: he
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Item
     size: Ginormous
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/155mm.rsi
     heldPrefix: he
   - type: StaticPrice
     price: 200
@@ -116,35 +116,35 @@
     sprintModifier: 0.75
 
 - type: entity
-  parent: ADTShipBattle130mmHEShell
-  id: ADTShipBattle130mmEMPShell
-  name: 130 EMP Shell
+  parent: ADTShipBattle155mmHEShell
+  id: ADTShipBattle155mmEMPShell
+  name: 155 EMP Shell
   components:
   - type: CartridgeAmmo
-    proto: ADTShipBattleBullet130mmEMP
+    proto: ADTShipBattleBullet155mmEMP
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/155mm.rsi
     layers:
     - state: emp
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Item
     size: Ginormous
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/155mm.rsi
     heldPrefix: emp
 
 - type: entity
-  parent: ADTShipBattle130mmHEShell
-  id: ADTShipBattle130mmAPShell
-  name: 130 AP Shell
+  parent: ADTShipBattle155mmHEShell
+  id: ADTShipBattle155mmAPShell
+  name: 155 AP Shell
   components:
   - type: CartridgeAmmo
-    proto: ADTShipBattleBullet130mmAP
+    proto: ADTShipBattleBullet155mmAP
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/155mm.rsi
     layers:
     - state: ap
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Item
     size: Ginormous
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/130mm.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/155mm.rsi
     heldPrefix: ap
