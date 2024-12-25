@@ -9,7 +9,7 @@
     "states": [
         {
             "name": "cascade",
-            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+            "delays": [ [ 1, 1, 1, 1 ] ]
         }
     ]
 }
