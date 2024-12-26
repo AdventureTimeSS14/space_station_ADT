@@ -12,7 +12,6 @@
     - state: god_breathe
       shader: unshaded
 
-# spawn animation, spawns actual narsie when it ends
 - type: entity
   parent: MobForgottenGodBase
   id: MobForgottenGodSpawn
@@ -33,7 +32,6 @@
   suffix: ДАЖЕ НЕ ТРОГАТЬ
   components:
   - type: CargoSellBlacklist
-  # big nar'sie needs to see the universe
   - type: ContentEye
     maxZoom: 2.0,2.0
   - type: Fixtures
@@ -61,7 +59,6 @@
   - type: Input
     context: "ghost"
   - type: MovementIgnoreGravity
-  # narnar hears all
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     channels:
@@ -81,10 +78,15 @@
     bodyType: Dynamic
     bodyStatus: InAir
   - type: CanMoveInAir
-  # singulose components
   - type: WarpPoint
     follow: true
     location: Forgotten
+  - type: GravityWell
+    baseRadialAcceleration: 6
+    maxRange: 8
+  - type: RadiationSource
+    slope: 0.2
+    intensity: 2
 
 - type: entity
   parent: MobForgottenGodBase
@@ -112,7 +114,6 @@
       path: /Audio/Misc/narsie_rises.ogg
     color: red
   - type: CargoSellBlacklist
-  # big nar'sie needs to see the universe
   - type: ContentEye
     maxZoom: 2.0,2.0
   - type: Fixtures
@@ -160,7 +161,12 @@
     bodyType: Dynamic
     bodyStatus: InAir
   - type: CanMoveInAir
-  # singulose components
   - type: WarpPoint
     follow: true
     location: Forgotten
+  - type: GravityWell
+    baseRadialAcceleration: 6
+    maxRange: 8
+  - type: RadiationSource
+    slope: 0.2
+    intensity: 1
