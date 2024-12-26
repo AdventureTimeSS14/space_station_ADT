@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Client.ADT.Lobby.UI;
 using Content.Client.Corvax.Sponsors;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
@@ -107,6 +108,9 @@ namespace Content.Client.Lobby.UI
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
         private ISawmill _sawmill;
+
+        private SpeciesWindow? _speciesWindow;
+
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
@@ -249,6 +253,15 @@ namespace Content.Client.Lobby.UI
                 SetSpecies(_species[args.Id].ID);
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
+            };
+
+            NewSpeciesButton.OnToggled += args =>
+            {
+                _speciesWindow?.Dispose();
+                if (Profile == null)
+                    return;
+                _speciesWindow = new(Profile, prototypeManager, entManager);
+                _speciesWindow.OpenCenteredLeft();
             };
 
             #region Skin

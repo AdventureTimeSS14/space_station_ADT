@@ -20,37 +20,30 @@ public sealed partial class SpeciesWindow : FancyWindow
     public event Action<ProtoId<SpeciesPrototype>>? ChooseAction;
 
     public HumanoidCharacterProfile Profile;
+    private readonly IEntityManager _entityManager;
+    private readonly IPrototypeManager _proto;
 
-    public SpeciesWindow(HumanoidCharacterProfile profile, IDependencyCollection collection)
+    public SpeciesWindow(HumanoidCharacterProfile profile, IPrototypeManager proto, IEntityManager entMan)
     {
         RobustXamlLoader.Load(this);
         Profile = profile;
-        var protoManager = collection.Resolve<IPrototypeManager>();
-        SelectCategory(protoManager.Index(profile.Species).Category, protoManager);
+        _entityManager = entMan;
+        _proto = proto;
+        foreach (var item in _proto.EnumeratePrototypes<SpeciesPrototype>().Where(x => x.RoundStart))
+        {
+            var button = new Button()
+            {
+                HorizontalExpand = true,
+                Text = Loc.GetString(item.Name),
+            };
+            SpeciesContainer.AddChild(button);
+        }
     }
 
-    private void SelectCategory(SpeciesCategory category, IPrototypeManager protoMan)
+    private void SelectSpecies(ProtoId<SpeciesPrototype> protoId)
     {
-        switch (category)
-        {
-            case SpeciesCategory.Classic:
-                {
-                    Classic.SetClickPressed(true);
-                    ADT.SetClickPressed(false);
-                    break;
-                }
-            case SpeciesCategory.ADT:
-                {
-                    Classic.SetClickPressed(false);
-                    ADT.SetClickPressed(true);
-                    break;
-                }
-        }
-        UserInterfaceManager.ClickSound();
-        foreach (var item in protoMan.EnumeratePrototypes<SpeciesPrototype>().Where(x => x.Category == category))
-        {
-
-        }
-
+        var proto = _proto.Index(protoId);
+        var mob = _entityManager.Spawn(proto.Prototype);
+        Mob.SetEntity(mob);
     }
 }
