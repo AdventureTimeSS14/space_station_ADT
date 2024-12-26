@@ -97,7 +97,7 @@
         SoundTargetInLOS: !type:SoundPathSpecifier
           path: /Audio/Effects/double_beep.ogg
     - type: MouseRotator
-      angleTolerance: 5
+      # angleTolerance: 5
       rotationSpeed: 180
       simple4DirMode: false
     - type: NoRotateOnInteract
@@ -152,6 +152,18 @@
                 SheetSteel1:
                   min: 6
                   max: 12
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 60
+          mask:
+          - MachineMask
+          layer:
+          - MidImpassable
+          - LowImpassable
 
 - type: entity
   parent: ADTBaseControllableTurretMagazine
@@ -235,7 +247,9 @@
       selectedMode: FullAuto
       availableModes:
         - FullAuto
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+      # soundGunshot: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+      soundGunshot: 
+        collection: ADTShipBattle30mmGunFire
     - type: MagazineVisuals
       magState: mag
       steps: 10
@@ -262,7 +276,7 @@
         SoundTargetInLOS: !type:SoundPathSpecifier
           path: /Audio/Effects/double_beep.ogg
     - type: MouseRotator
-      angleTolerance: 5
+      # angleTolerance: 5
       rotationSpeed: 120
       simple4DirMode: false
     - type: Icon
@@ -306,6 +320,18 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
       state: ds30_broken_icon
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.45
+          density: 60
+          mask:
+          - MachineMask
+          layer:
+          - MidImpassable
+          - LowImpassable
 
 #Пушки без магазинов
 - type: entity
@@ -322,8 +348,8 @@
       fixtures:
         fix1:
           shape:
-            !type:PhysShapeCircle
-            radius: 0.35
+            !type:PhysShapeAabb
+            bounds: "-0.60,-0.60,0.60,0.60"
           density: 60
           mask:
             - MachineMask
@@ -379,7 +405,7 @@
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+      soundGunshot: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/Gunshots/100mm.ogg
     - type: BallisticAmmoProvider
       whitelist:
         tags:
@@ -387,7 +413,7 @@
       capacity: 10
       proto: null
       soundInsert:
-        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+        path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/MagIn/shell_in.ogg
     # - type: ItemSlots
     #   slots:
     #     gun_magazine:
@@ -410,7 +436,7 @@
         SoundTargetInLOS: !type:SoundPathSpecifier
           path: /Audio/Effects/double_beep.ogg
     - type: MouseRotator
-      angleTolerance: 5
+      # angleTolerance: 5
       rotationSpeed: 90
       simple4DirMode: false
     - type: NoRotateOnInteract
@@ -434,6 +460,18 @@
       drawdepth: Mobs
       layers:
         - state: d100_broken
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.60,-0.60,0.60,0.60"
+          density: 60
+          mask:
+          - MachineMask
+          layer:
+          - MidImpassable
+          - LowImpassable
 
 - type: entity
   parent: ADTgau32Broken
@@ -450,6 +488,18 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon64x64.rsi
       state: mk155_broken_icon
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-1.25,-2.0,1.25,1.25"
+          density: 60
+          mask:
+          - MachineMask
+          layer:
+          - MidImpassable
+          - LowImpassable
 
 - type: entity
   parent: ADTBaseControllableTurret
@@ -477,7 +527,7 @@
       layers:
         - state: d100_tsf
 
-#130 мм
+#155 мм
 
 - type: entity
   parent: ADTBaseControllableTurret
@@ -516,7 +566,7 @@
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+      soundGunshot: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/Gunshots/155mm.ogg
     - type: BallisticAmmoProvider
       whitelist:
         tags:
@@ -531,6 +581,17 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon64x64.rsi
       state: mk155_kmt_icon
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-1.25,-2.0,1.25,1.25"
+          density: 60
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
 
 - type: entity
   parent: ADTMk155KMT

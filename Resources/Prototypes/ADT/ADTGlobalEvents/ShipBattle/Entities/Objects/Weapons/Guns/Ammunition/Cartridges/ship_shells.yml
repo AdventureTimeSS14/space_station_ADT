@@ -89,7 +89,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Casings/100mm.rsi
     heldPrefix: ap
 
-#130 мм снаряды
+#155 мм снаряды
 - type: entity
   parent: [ ADTShipBattle100mmHEShell ]
   id: ADTShipBattle155mmHEShell
