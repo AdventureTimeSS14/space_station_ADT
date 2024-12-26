@@ -9,8 +9,10 @@ ent-ActionSpawnMobXenoPraetorian = Призвать Преторианеца
 ent-ActionSpawnMobXenoDrone = Просто Дрон. Кому он нужен?
     .desc = Родите рабочего, Дрон.
 ent-ActionSpawnMobXenoRavager = Призвать Разрушителя
-    .desc = Родите смерть во плоти!
+    .desc = Родите [color=red]смерть[/color] во плоти!
 ent-ActionSpawnMobXenoRunner = Призвать Бегуна
     .desc = Родите самую быструю личинку!
 ent-ActionSpawnMobXenoBurrower = Призвать рабочего
     .desc = Стандартный ксено.
+ent-ActionSpawnMobXenoQueen = Призвать [color=violet]Королеву[/color].
+    .desc = [color=red]Новое потомство! Новое поколенеи! Эволюция![/color]

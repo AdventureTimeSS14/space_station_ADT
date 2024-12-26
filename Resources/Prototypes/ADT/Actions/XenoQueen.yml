@@ -14,6 +14,26 @@
 # Я не смог сделать отдельный ивент для спавнта турели. Он не видел прототип ивента.
 
 - type: entity
+  id: ActionSpawnMobXenoQueen
+  name: Spawn Queen
+  description: New offspring!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 1200
+    range: 4
+    itemIconStyle: BigAction
+    icon:
+      sprite: Mobs/Aliens/Xenos/queen.rsi
+      state: crit
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobXenoQueen
+        amount: 1
+      offset: 0, 1
+      speech: "Ааааааа! Ррррр!"
+
+- type: entity
   id: ActionSpawnMobXenoBurrower
   name: Spawn Burrower
   description: Standard xeno
@@ -26,12 +46,13 @@
     icon:
       sprite: Mobs/Aliens/Xenos/burrower.rsi
       state: crit
-    event: !type:WorldSpawnSpellEvent
+    event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXeno
         amount: 1
       offset: 0, 1
       speech: "Фаьюп"
+      cost: 10
 
 - type: entity
   id: ActionSpawnMobXenoSpitter
