@@ -205,7 +205,7 @@
         fix1:
           shape:
             !type:PhysShapeCircle
-            radius: 0.45
+            radius: 0.40
           density: 60
           mask:
             - MachineMask
@@ -325,7 +325,7 @@
         fix1:
           shape:
             !type:PhysShapeCircle
-            radius: 0.45
+            radius: 0.40
           density: 60
           mask:
           - MachineMask
@@ -414,6 +414,8 @@
       proto: null
       soundInsert:
         path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/MagIn/shell_in.ogg
+      soundRack:
+        path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/MagIn/shell_in.ogg
     # - type: ItemSlots
     #   slots:
     #     gun_magazine:
@@ -493,7 +495,7 @@
         fix1:
           shape:
             !type:PhysShapeAabb
-            bounds: "-1.25,-2.0,1.25,1.25"
+            bounds: "-1.15,-0.75,1.15,1.25"
           density: 60
           mask:
           - MachineMask
@@ -586,7 +588,7 @@
         fix1:
           shape:
             !type:PhysShapeAabb
-            bounds: "-1.25,-2.0,1.25,1.25"
+            bounds: "-1.15,-0.75,1.15,1.25"
           density: 60
           mask:
             - MachineMask
