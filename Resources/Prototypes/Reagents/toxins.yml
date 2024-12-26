@@ -90,11 +90,18 @@
     Poison:
       effects:
         - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Plant
+            shouldHave: false
           damage:
             types:
               Poison: 2
         - !type:ChemVomit
           conditions:
+          - !type:OrganType
+            type: Plant
+            shouldHave: false
           - !type:ReagentThreshold
             min: 2
           probability: 0.2

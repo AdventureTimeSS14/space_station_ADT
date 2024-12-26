@@ -1,22 +1,21 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by discord:filokini",
+    "copyright": "Created by discord:m1and1b for Adventure Time MRP Server",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
+            "name": "icon"
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },
         {
             "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "equipped_BELT",
             "directions": 4
         }
     ]

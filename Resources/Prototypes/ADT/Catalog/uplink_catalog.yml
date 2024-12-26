@@ -94,6 +94,7 @@
 
 - type: listing
   id: ADTUplinkAntilyingAttachment
+  abstract: true # Убран на доработку
   name: uplink-attachments-antilying-name
   description: uplink-attachments-antilying-description
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
@@ -394,6 +395,16 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: ADTUplinkIonRifle
+  name: uplink-ion-rifle-name
+  description: uplink-ion-rifle-desc
+  productEntity: ADTWeaponIonRifle
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkDisruption
+
 #UplinkJob
 
 - type: listing
@@ -606,7 +617,7 @@
     Telecrystal: 6
   categories:
   - UplinkChemicals
-  
+
 - type: listing
   id: ADTUplinkGrenadeLauncherBundle
   name: ADTuplink-grenade-launcher-bundle-name

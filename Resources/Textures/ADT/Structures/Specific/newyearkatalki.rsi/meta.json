@@ -1,17 +1,14 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Unknown author from Adventure Time SS14 server",
+    "copyright": "made by Pangaari, Discord - @pangaari",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "icon"
-        },
-        {
-            "name": "equipped-SOCKS",
+            "name": "newyearkatalka",
             "directions": 4
         }
     ]

@@ -1,0 +1,32 @@
+- type: entity
+  name: mad gorilla
+  parent: MobGorilla
+  id: ADTSpecialMobGorilla
+  description: The madness of the brave, the skill of the blind.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crawling
+      sprite: ADT/Mobs/Animals/mad_gorilla.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 35
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 10
+    whitelist:
+      components:
+      - Clumsy
