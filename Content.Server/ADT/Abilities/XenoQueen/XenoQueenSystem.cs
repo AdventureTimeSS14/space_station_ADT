@@ -30,16 +30,16 @@ namespace Content.Server.Abilities.XenoQueen
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<XenoQueenComponent, ComponentInit>(OnComponentInit);
+            SubscribeLocalEvent<XenoQueenComponent, ComponentInit>(OnMapInit);
             SubscribeLocalEvent<XenoQueenComponent, InvisibleWallActionEvent>(OnCreateTurret);
-            SubscribeLocalEvent<SpawnXenoQueenEvent> (OnWorldSpawn);
+            SubscribeLocalEvent<XenoQueenComponent, SpawnXenoQueenEvent> (OnWorldSpawn);
         }
 
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
         }
-        private void OnComponentInit(EntityUid uid, XenoQueenComponent component, ComponentInit args)
+        private void OnMapInit(EntityUid uid, XenoQueenComponent component, ComponentInit args)
         {
             _actionsSystem.AddAction(uid, ref component.XenoTurretActionEntity, component.XenoTurretAction, uid);
             _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoBurrower, "ActionSpawnMobXenoBurrower");
@@ -80,7 +80,7 @@ namespace Content.Server.Abilities.XenoQueen
             args.Handled = true;
         }
         // Spawn Tipo
-        private void OnWorldSpawn(SpawnXenoQueenEvent args)
+        private void OnWorldSpawn(EntityUid uid, XenoQueenComponent component, SpawnXenoQueenEvent args)
         {
             if (args.Handled || !PassesSpellPrerequisites(args.Action, args.Performer))
                 return;

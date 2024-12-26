@@ -15,4 +15,4 @@ ent-ActionSpawnMobXenoRunner = Призвать Бегуна
 ent-ActionSpawnMobXenoBurrower = Призвать рабочего
     .desc = Стандартный ксено.
 ent-ActionSpawnMobXenoQueen = Призвать [color=violet]Королеву[/color].
-    .desc = [color=red]Новое потомство! Новое поколенеи! Эволюция![/color]
+    .desc = [color=red]Новое потомство! Новое поколение! Эволюция![/color]

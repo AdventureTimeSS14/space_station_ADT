@@ -22,7 +22,7 @@ namespace Content.Server.Abilities.XenoQueen
         public string XenoTurret = "WeaponTurretXeno";
 
         [DataField("xenoTurretAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? XenoTurretAction = "ActionXenoQeenTurret";
+        public string? XenoTurretAction = "ActionXenoQueenTurret";
 
         [DataField("xenoTurretActionEntity")] public EntityUid? XenoTurretActionEntity;
                     
