@@ -9,6 +9,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes; // ADT-Changeling-Tweak
+using Content.Server.Forensics; // ADT DNA-Cloning Tweak
 
 namespace Content.Server.Humanoid;
 
@@ -65,6 +66,12 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         if (TryComp<GrammarComponent>(targetHumanoid.Owner, out var grammar))
         {
             grammar.Gender = sourceHumanoid.Gender;
+        }
+
+        if (TryComp<DnaComponent>(targetHumanoid.Owner, out var targetDNAComp) &&
+            TryComp<DnaComponent>(sourceHumanoid.Owner, out var sourceDNAComp))
+        {
+            targetDNAComp.DNA = sourceDNAComp.DNA; // ADT DNA-Cloning Tweak
         }
 
         Dirty(targetHumanoid.Owner, targetHumanoid);

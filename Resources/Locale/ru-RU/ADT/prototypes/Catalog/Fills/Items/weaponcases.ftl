@@ -41,3 +41,15 @@ ent-WeaponCaseBulldog = { ent-WeaponCaseNTM90 }
 ent-ADTWeaponCaseAR12 = { ent-WeaponCaseNTM90 }
     .desc = { ent-WeaponCaseNTM90.desc }.
     .suffix = { "AR-12" }
+
+ent-WeaponCaseNTM90GrenadeLauncherAttachment = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }.
+    .suffix = { "Подствольный гранатомёт" }
+
+ent-WeaponCaseNTM90UnderBarrelShotGunAttachment = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }.
+    .suffix = { "Подствольный дробовик" }
+
+ent-WeaponCaseNTGunsModules = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }.
+    .suffix = { "Оружейные модули" }

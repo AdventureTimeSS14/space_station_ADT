@@ -1195,35 +1195,6 @@
       size: Small #ADT_Tweaks - ломы снова лезут в карман
       heldPrefix: gold
 
-# for Filo
-- type: entity
-  name: Owl's Scimitar
-  parent: BaseItem
-  id: ADTOwlScimitar
-  suffix: Filo
-  description:
-  components:
-  - type: Sharp
-  - type: Sprite
-    sprite: ADT/Personalization/owl_scimitar/icon.rsi
-    state: icon
-    scale: 0.66, 0.66
-  - type: MeleeWeapon
-    attackRate: 0.9
-    damage:
-      types:
-        Slash: 24
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Clothing
-    sprite: ADT/Personalization/owl_scimitar/other.rsi
-    slots:
-    - Belt
-  - type: Item
-    size: Huge
-    sprite: ADT/Personalization/owl_scimitar/other.rsi
-  - type: DisarmMalus
-
 # Moon_so_red
 - type: entity
   parent: BaseItem
@@ -1408,3 +1379,257 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_hollowing
+
+#ПразатДерВахед
+- type: entity
+  name: SNP-44 PDV «Maria»
+  parent: WeaponPistolMk58
+  id: ADTWeaponPistolMaria
+  description: SNP-44 PDV «Maria»
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/maria_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 1
+    maxAngle: 15
+    angleIncrease: 8
+    angleDecay: 9
+    fireRate: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/44-shot.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Empty/44-empty.ogg
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,3,0
+    - 0,1,0,1
+    sprite: ADT/Personalization/maria_pistol_inhand.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/maria_pistol_inhand.rsi
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Weapons/Guns/Cock/44-bolt-close.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
+  - type: Tag
+    tags:
+    - Sidearm
+    - ADTWeaponPistolMaria
+
+- type: entity
+  name: SNP .44 cal auto PDV "Hawk"
+  parent: ADTWeaponPistolMaria
+  id: ADTWeaponPistolPrazatHawk
+  description: SNP .44 cal auto PDV "Hawk"
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/hawk_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - Sidearm
+    - ADTWeaponPistolPrazatHawk
+  - type: Item
+    sprite: ADT/Personalization/hawk_pistol_inhand.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/hawk_pistol_inhand.rsi
+
+- type: entity
+  id: ADTWeaponCasePrazat
+  name: weapon case Prazat
+  description: weapon case Prazat
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    - state: pistolhawk
+      map: ["pistolhawk"]
+      visible: false
+    - state: pistolmaria
+      map: ["pistolmaria"]
+      visible: false
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Small
+  - type: StorageFill
+    contents:
+     - id: ADTWeaponPistolPrazatHawk
+     - id: ADTWeaponPistolMaria
+     - id: MagazineMagnum
+     - id: MagazineMagnum
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: ItemCounter
+    count:
+      tags: [ADTWeaponPistolPrazatHawk, ADTWeaponPistolMaria]
+    composite: true
+    layerStates:
+    - pistolhawk
+    - pistolmaria
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltPrazatSheath
+  name: Prazat sheath
+  description: Prazat sheath
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_sheath.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+          - ADTWeaponMeleePrasatChainsword
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTWeaponMeleePrasatChainsword
+  - type: Appearance
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+
+- type: entity
+  name: Prazat Chainsword
+  parent: BaseItem
+  id: ADTWeaponMeleePrasatChainsword
+  description: Prazat Chainsword
+  suffix: Personal, 767sikon
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_chainsword_icon.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: icon_chainsword
+      visible: false
+      map: [ "chainsword" ]
+  - type: MeleeWeapon
+    attackRate: 1.6
+    damage:
+      types:
+        Blunt: 2.5
+        Structural: 5
+    soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+  - type: Item
+    sprite: ADT/Personalization/prazat_chainsword.rsi
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - ADTWeaponMeleePrasatChainsword
+    - CaptainSabre
+  - type: Appearance
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+    soundDeactivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+  - type: UseDelay
+    delay: 1.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 15
+        Piercing: 2.5
+        Structural: 30
+  - type: ToggleableLightVisuals
+    spriteLayer: chainsword
+    inhandVisuals:
+      left:
+      - state: inhand-left-chainsword
+      right:
+      - state: inhand-right-chainsword
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon_chainsword}
+          False: {state: icon}

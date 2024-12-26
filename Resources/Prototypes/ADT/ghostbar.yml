@@ -5,3 +5,8 @@
 - type: ghostbarMap
   id: GhostbarMapRatbar
   path: "Maps/ADTMaps/Ghostbars/ratbar.yml"
+
+# Гост бар от maksim21612
+- type: ghostbarMap
+  id: GhostbarMapCalm
+  path: "Maps/ADTMaps/Ghostbars/calm_ghostly_bar.yml"
