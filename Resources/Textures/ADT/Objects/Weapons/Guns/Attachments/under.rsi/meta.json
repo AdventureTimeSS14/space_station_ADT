@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: inconnu1337 and taken from RMC-14",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+
+        {
+            "name": "grenade"
+        },
+        {
+            "name": "grenade-open"
+        },
+        {
+            "name": "grenade-on"
+        },
+        {
+            "name": "grenade_a"
+        },
+        {
+            "name": "grenade-open_a"
+        },
+        {
+            "name": "mosinbayonet"
+        },
+        {
+            "name": "mosinbayonet_a"
+        },
+        {
+            "name": "masterkey"
+        },
+        {
+            "name": "masterkey-on"
+        },
+        {
+            "name": "masterkey_a"
+        },
+        {
+            "name": "verticalgrip"
+        },
+        {
+            "name": "verticalgrip_a"
+        },
+        {
+            "name": "lasersight"
+        },
+        {
+            "name": "lasersight_a"
+        },
+        {
+            "name": "combatknife_a"
+        },
+        {
+            "name": "tech_basic"
+        },
+        {
+            "name": "tech_extented"
+        },
+        {
+            "name": "uplink_modules"
+        }
+    ]
+}

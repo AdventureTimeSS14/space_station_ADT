@@ -76,7 +76,7 @@
     state: durand
   discipline: Arsenal
   tier: 2
-  cost: 20000
+  cost: 12500
   recipeUnlocks:
   - ADTDurandHarness
   - ADTDurandLArm
@@ -96,7 +96,7 @@
     state: phazon
   discipline: Arsenal
   tier: 3
-  cost: 30000
+  cost: 25000
   recipeUnlocks:
   - ADTPhazonHarness
   - ADTPhazonLArm
@@ -222,31 +222,31 @@
 
 #Технологии оружия
 
-- type: technology
-  id: ADTMechEnergyGunSmallTechnology
-  name: research-technology-mech-energy-gun-small
-  icon:
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_laser
-  discipline: Arsenal
-  tier: 2
-  cost: 15000
-  recipeUnlocks:
-  - ADTMechGunImmolatorLaser
-  - ADTMechGunPeacemakerDisabler
+# - type: technology
+#   id: ADTMechEnergyGunSmallTechnology
+#   name: research-technology-mech-energy-gun-small
+#   icon:
+#     sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#     state: mecha_laser
+#   discipline: Arsenal
+#   tier: 2
+#   cost: 15000
+#   recipeUnlocks:
+#   - ADTMechGunImmolatorLaser
+#   - ADTMechGunPeacemakerDisabler
 
-- type: technology
-  id: ADTMechEnergyGunHeavyTechnology
-  name: research-technology-mech-energy-gun-heavy
-  icon:
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_pulse
-  discipline: Arsenal
-  tier: 2
-  cost: 20000
-  recipeUnlocks:
-  - ADTMechGunSolarisLaserCannon
-  - ADTMechGunTeslaCannon
+# - type: technology
+#   id: ADTMechEnergyGunHeavyTechnology
+#   name: research-technology-mech-energy-gun-heavy
+#   icon:
+#     sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#     state: mecha_pulse
+#   discipline: Arsenal
+#   tier: 2
+#   cost: 20000
+#   recipeUnlocks:
+#   - ADTMechGunSolarisLaserCannon
+#   - ADTMechGunTeslaCannon
 
 - type: technology
   id: ADTMechGunSmallTechnology

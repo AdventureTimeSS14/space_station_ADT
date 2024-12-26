@@ -1,0 +1,64 @@
+- type: entity
+  name: Full Riot syndicate Shield
+  parent: BaseShield
+  id: ADTFullRiotShieldSyndicate
+  suffix: Full Shield
+  description: A big big red shield. yeah.  very creative.
+  components:
+    - type: MeleeWeapon
+      wideAnimationRotation: -10
+      angle: 0
+      damage:
+        types:
+          Blunt: 5
+          Structural: 5
+          Slash: 10
+          Piercing: 10
+      soundHit:
+        collection: MetalThud
+    - type: Reflect
+      reflectProb: 0.3
+      spread: 90
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/fullshieldsindi.rsi
+      state: icon
+    - type: Item
+      sprite: ADT/Objects/Weapons/Melee/fullshieldsindi.rsi
+      inhandVisuals:
+        left:
+          - state: metal-inhand
+        right:
+          - state: metal-inhand
+      size: Ginormous
+    - type: MultiHandedItem
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.1
+          Slash: 0.1
+          Piercing: 0.1
+        flatReductions:
+          Blunt: 0.1
+          Slash: 0.1
+          Piercing: 0.1
+    - type: ClothingSpeedModifier
+      walkModifier: 0.3
+      sprintModifier: 0.3	
+    - type: HeldSpeedModifier
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 99999
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 99999 #Weaker shield
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: WoodDestroy
