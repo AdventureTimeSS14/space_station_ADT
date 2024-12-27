@@ -57,8 +57,8 @@
               acts: [ "Destruction" ]
             - !type:PlaySoundBehavior
               sound:
-                collection: MetalGlassBreak
-            # - !type:ExplodeBehavior
+                path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
+            - !type:ExplodeBehavior
             - !type:SpawnEntitiesBehavior
               spawn:
                 ADTgau32Broken:
@@ -97,7 +97,7 @@
         SoundTargetInLOS: !type:SoundPathSpecifier
           path: /Audio/Effects/double_beep.ogg
     - type: MouseRotator
-      # angleTolerance: 5
+      angleTolerance: 5
       rotationSpeed: 180
       simple4DirMode: false
     - type: NoRotateOnInteract
@@ -118,7 +118,11 @@
     #   interfaces:
     #     enum.RadarConsoleUiKey.Key:
     #       type: RadarConsoleBoundUserInterface
-
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 10
+      intensitySlope: 2
+      totalIntensity: 100
 
 - type: entity
   parent: BaseStructure
@@ -235,8 +239,8 @@
               acts: [ "Destruction" ]
             - !type:PlaySoundBehavior
               sound:
-                collection: MetalGlassBreak
-            # - !type:ExplodeBehavior
+                path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
+            - !type:ExplodeBehavior
             - !type:SpawnEntitiesBehavior
               spawn:
                 ADTds30Broken:
@@ -244,10 +248,10 @@
                   max: 1
     - type: Gun
       fireRate: 4
+      projectileSpeed: 25
       selectedMode: FullAuto
       availableModes:
         - FullAuto
-      # soundGunshot: /Audio/Weapons/Guns/Gunshots/sniper.ogg
       soundGunshot: 
         collection: ADTShipBattle30mmGunFire
     - type: MagazineVisuals
@@ -276,24 +280,29 @@
         SoundTargetInLOS: !type:SoundPathSpecifier
           path: /Audio/Effects/double_beep.ogg
     - type: MouseRotator
-      # angleTolerance: 5
+      angleTolerance: 5
       rotationSpeed: 120
       simple4DirMode: false
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
       state: ds30_kmt_icon
-    - type: NpcFactionMember
-      factions:
-        - Syndicate
+    # - type: NpcFactionMember
+    #   factions:
+    #     - Syndicate
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 10
+      intensitySlope: 2
+      totalIntensity: 150
 
 - type: entity
   parent: ADTds30KMT
   id: ADTds30TSF
   suffix: Space Battleships, TSF
   components:
-    - type: NpcFactionMember
-      factions:
-        - NanoTrasen
+    # - type: NpcFactionMember
+    #   factions:
+    #     - NanoTrasen
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
       state: ds30_tsf_icon
@@ -363,8 +372,6 @@
       drawdepth: Mobs
       layers:
         - state: d100_kmt
-        # - state: mag-19
-        #   map: ["enum.GunVisualLayers.Mag"]
     - type: InteractionPopup
       interactDelay: 0.2
       successChance: 0.8
@@ -393,8 +400,8 @@
               acts: [ "Destruction" ]
             - !type:PlaySoundBehavior
               sound:
-                collection: MetalGlassBreak
-            # - !type:ExplodeBehavior
+                path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
+            - !type:ExplodeBehavior
             - !type:SpawnEntitiesBehavior
               spawn:
                 ADTD100Broken:
@@ -402,6 +409,7 @@
                   max: 1
     - type: Gun
       fireRate: 0.2
+      projectileSpeed: 25
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
@@ -416,19 +424,6 @@
         path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/MagIn/shell_in.ogg
       soundRack:
         path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/MagIn/shell_in.ogg
-    # - type: ItemSlots
-    #   slots:
-    #     gun_magazine:
-    #       name: Magazine
-    #       priority: 2
-    #       whitelist:
-    #         tags:
-    #         - ADTturretGAU32Magazine
-    #       insertSound:
-    #         path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
-    #         params:
-    #           pitch: 2
-    #       ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
     - type: HTN
       rootTask:
         task: TurretCompound
@@ -438,7 +433,7 @@
         SoundTargetInLOS: !type:SoundPathSpecifier
           path: /Audio/Effects/double_beep.ogg
     - type: MouseRotator
-      # angleTolerance: 5
+      angleTolerance: 5
       rotationSpeed: 90
       simple4DirMode: false
     - type: NoRotateOnInteract
@@ -446,9 +441,11 @@
     - type: Input
       context: "human"
     - type: Appearance
-    # - type: Icon
-      # sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
-      # state: gau32_kmt_icon
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 15
+      intensitySlope: 2
+      totalIntensity: 200
 
 - type: entity
   parent: ADTgau32Broken
@@ -474,6 +471,40 @@
           layer:
           - MidImpassable
           - LowImpassable
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
+      state: d100_broken_icon
+
+- type: entity
+  parent: ADTBaseControllableTurret
+  id: ADTd100KMT
+  suffix: Space Battleships, KMT
+  components:
+    # - type: NpcFactionMember
+    #   factions:
+    #     - Syndicate
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
+      state: d100_kmt_icon
+
+- type: entity
+  parent: ADTBaseControllableTurret
+  id: ADTd100TSF
+  suffix: Space Battleships, TSF
+  components:
+    # - type: NpcFactionMember
+    #   factions:
+    #     - NanoTrasen
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d100.rsi
+      drawdepth: Mobs
+      layers:
+        - state: d100_tsf
+    - type: Icon
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
+      state: d100_tsf_icon
+
+#155 мм
 
 - type: entity
   parent: ADTgau32Broken
@@ -505,40 +536,12 @@
 
 - type: entity
   parent: ADTBaseControllableTurret
-  id: ADTd100KMT
-  suffix: Space Battleships, KMT
-  components:
-    - type: NpcFactionMember
-      factions:
-        - Syndicate
-
-- type: entity
-  parent: ADTBaseControllableTurret
-  id: ADTd100TSF
-  suffix: Space Battleships, TSF
-  components:
-    - type: NpcFactionMember
-      factions:
-        - NanoTrasen
-    # - type: Icon
-      # sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
-      # state: gau32_tsf_icon
-    - type: Sprite
-      sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d100.rsi
-      drawdepth: Mobs
-      layers:
-        - state: d100_tsf
-
-#155 мм
-
-- type: entity
-  parent: ADTBaseControllableTurret
   id: ADTMk155KMT
   suffix: Space Battleships, KMT
   components:
-    - type: NpcFactionMember
-      factions:
-        - Syndicate
+    # - type: NpcFactionMember
+    #   factions:
+    #     - Syndicate
     - type: Destructible
       thresholds:
         - trigger:
@@ -556,8 +559,8 @@
               acts: [ "Destruction" ]
             - !type:PlaySoundBehavior
               sound:
-                collection: MetalGlassBreak
-            # - !type:ExplodeBehavior
+                path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/turret_destroy.ogg
+            - !type:ExplodeBehavior
             - !type:SpawnEntitiesBehavior
               spawn:
                 ADTMk155Broken:
@@ -565,6 +568,7 @@
                   max: 1
     - type: Gun
       fireRate: 0.1
+      projectileSpeed: 25
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
@@ -594,18 +598,20 @@
             - MachineMask
           layer:
             - MachineLayer
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 25
+      intensitySlope: 2
+      totalIntensity: 200
 
 - type: entity
   parent: ADTMk155KMT
   id: ADTMk155TSF
   suffix: Space Battleships, TSF
   components:
-    - type: NpcFactionMember
-      factions:
-        - NanoTrasen
-    # - type: Icon
-      # sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/d130.rsi
-      # state: gau32_tsf_icon
+    # - type: NpcFactionMember
+    #   factions:
+    #     - NanoTrasen
     - type: Sprite
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/mk155.rsi
       drawdepth: Mobs
