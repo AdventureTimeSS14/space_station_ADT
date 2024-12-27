@@ -5,7 +5,7 @@ using Content.Shared.Storage;
 namespace Content.Shared.Magic.Events;
 
 // TODO: This class needs combining with InstantSpawnSpellEvent
-
+[DataDefinition]
 public sealed partial class SpawnXenoQueenEvent : WorldTargetActionEvent, ISpeakSpell
 {
     /// <summary>

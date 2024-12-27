@@ -26,26 +26,26 @@ namespace Content.Server.Abilities.XenoQueen
 
         [DataField("xenoTurretActionEntity")] public EntityUid? XenoTurretActionEntity;
                     
-        // Призывы                    
-        // [DataField]
-        // public EntityUid? ActionSpawnXenoBurrower;
+        //Призывы                    
+        [DataField]
+        public EntityUid? ActionSpawnXenoBurrower;
 
-        // [DataField]
-        // public EntityUid? ActionSpawnXenoDrone;
+        [DataField]
+        public EntityUid? ActionSpawnXenoDrone;
 
-        // [DataField]
-        // public EntityUid? ActionSpawnXenoRunner;
+        [DataField]
+        public EntityUid? ActionSpawnXenoRunner;
 
-        // [DataField]
-        // public EntityUid? ActionSpawnXenoSpitter;
+        [DataField]
+        public EntityUid? ActionSpawnXenoSpitter;
 
-        // [DataField]
-        // public EntityUid? ActionSpawnXenoPraetorian;
+        [DataField]
+        public EntityUid? ActionSpawnXenoPraetorian;
 
-        // [DataField]
-        // public EntityUid? ActionSpawnXenoRavager;
+        [DataField]
+        public EntityUid? ActionSpawnXenoRavager;
         
-        // [DataField]
-        // public EntityUid? ActionSpawnXenoQueen;
+        [DataField]
+        public EntityUid? ActionSpawnXenoQueen;
     }
 }

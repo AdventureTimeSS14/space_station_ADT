@@ -30,7 +30,8 @@ namespace Content.Server.Abilities.XenoQueen
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<XenoQueenComponent, ComponentInit>(OnMapInit);
+            SubscribeLocalEvent<XenoQueenComponent, MapInitEvent>(OnMapInit);            SubscribeLocalEvent<XenoQueenComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<XenoQueenComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<XenoQueenComponent, InvisibleWallActionEvent>(OnCreateTurret);
             SubscribeLocalEvent<XenoQueenComponent, SpawnXenoQueenEvent> (OnWorldSpawn);
         }
@@ -39,7 +40,7 @@ namespace Content.Server.Abilities.XenoQueen
         {
             base.Update(frameTime);
         }
-        private void OnMapInit(EntityUid uid, XenoQueenComponent component, ComponentInit args)
+        private void OnMapInit(EntityUid uid, XenoQueenComponent component, MapInitEvent args)
         {
             _actionsSystem.AddAction(uid, ref component.XenoTurretActionEntity, component.XenoTurretAction, uid);
             _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoBurrower, "ActionSpawnMobXenoBurrower");
@@ -49,6 +50,17 @@ namespace Content.Server.Abilities.XenoQueen
             _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoPraetorian, "ActionSpawnMobXenoPraetorian");
             _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoRavager, "ActionSpawnMobXenoRavager");
             //_actionsSystem.AddAction(uid, ref component.ActionSpawnXenoQueen, "ActionSpawnMobXenoQueen");
+        }
+        private void OnShutdown(EntityUid uid, XenoQueenComponent component, ComponentShutdown args)
+        {
+            _actionsSystem.RemoveAction(uid, component.XenoTurretActionEntity);
+            _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoBurrower);
+            _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoDrone);
+            _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoRunner);
+            _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoSpitter);
+            _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoPraetorian);
+            _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoRavager);
+            //_actionsSystem.RemoveAction(uid, component.ActionSpawnXenoQueen);
         }
         private void OnCreateTurret(EntityUid uid, XenoQueenComponent component, InvisibleWallActionEvent args)
         {
