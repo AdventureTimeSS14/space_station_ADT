@@ -47,7 +47,6 @@
   id: MobHumanSyndicateAgentSpy
   name: syndicate spy
   components:
-  - type: NukeOperative # ADT Tweak
   - type: Loadout
     prototypes: [SyndicateReinforcementSpy]
     roleLoadout: [ RoleSurvivalSyndicate ]
