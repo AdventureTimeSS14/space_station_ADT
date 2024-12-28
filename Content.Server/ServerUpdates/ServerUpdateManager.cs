@@ -8,6 +8,9 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.CCVar;
+using Content.Server.Discord;
+using Content.Server.GameTicking;
 
 namespace Content.Server.ServerUpdates;
 
@@ -27,6 +30,8 @@ public sealed class ServerUpdateManager : IPostInjectInit
     [Dependency] private readonly IBaseServer _server = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private readonly DiscordWebhook _discord = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -102,6 +107,7 @@ public sealed class ServerUpdateManager : IPostInjectInit
         _chatManager.DispatchServerAnnouncement(Loc.GetString("server-updates-received"));
         _updateOnRoundEnd = true;
         ServerEmptyUpdateRestartCheck("update notification");
+        SendDiscordWebHookUpdateMessage(); // ADT-Tweak
     }
 
     /// <summary>
@@ -148,4 +154,75 @@ public sealed class ServerUpdateManager : IPostInjectInit
     {
         _sawmill = _logManager.GetSawmill("restart");
     }
+    // ADT-Tweak-start: Отправка сообщения в Discord при обновлении сервера
+    public async void SendDiscordWebHookUpdateMessage()
+    {
+
+        if (!string.IsNullOrWhiteSpace(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook)))
+        {
+            var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook);
+            if (webhookUrl == null)
+                return;
+
+            if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
+                return;
+
+            var serverName = _cfg.GetCVar<string>("game.hostname");
+            var serverDesc = _cfg.GetCVar<string>("game.desc");
+            var engineVersion = _cfg.GetCVar<string>("build.engine_version");
+            var buildVersion = _cfg.GetCVar<string>("build.version");
+
+            var descContent = "Обновление получено, сервер автоматически перезапустится для обновления в конце этого раунда.";
+
+            var gameTicker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var roundDescription = gameTicker.RunLevel switch
+            {
+                GameRunLevel.PreRoundLobby => gameTicker.RoundId == 0
+                    ? "pre-round lobby after server restart"
+                    : $"pre-round lobby for round {gameTicker.RoundId + 1}",
+                GameRunLevel.InRound => $"round {gameTicker.RoundId}",
+                GameRunLevel.PostRound => $"post-round {gameTicker.RoundId}",
+                _ => throw new ArgumentOutOfRangeException(nameof(gameTicker.RunLevel), $"{gameTicker.RunLevel} was not matched."),
+            };
+
+            // Создание структуры сообщения для вебхука
+            var embed = new WebhookEmbed
+            {
+                Title = "Обновление пришло",
+                Description = descContent,
+                Color = 0x0e9c00,
+                Footer = new WebhookEmbedFooter
+                {
+                    Text = $"{serverName} ({roundDescription})"
+                },
+                Fields = new List<WebhookEmbedField>()
+            };
+
+            // Добавление полей только если данные доступны
+            if (!string.IsNullOrWhiteSpace(serverName))
+                embed.Fields.Add(new WebhookEmbedField { Name = "Название сервера", Value = serverName, Inline = true });
+
+            if (!string.IsNullOrWhiteSpace(serverDesc))
+                embed.Fields.Add(new WebhookEmbedField { Name = "Описание сервера", Value = serverDesc, Inline = true });
+
+            if (!string.IsNullOrWhiteSpace(engineVersion))
+                embed.Fields.Add(new WebhookEmbedField { Name = "RobustToolbox version", Value = engineVersion, Inline = true });
+
+            if (!string.IsNullOrWhiteSpace(buildVersion))
+                embed.Fields.Add(new WebhookEmbedField { Name = "Build version", Value = buildVersion, Inline = true });
+
+            var payload = new WebhookPayload
+            {
+                Embeds = new List<WebhookEmbed> { embed },
+                Username = Loc.GetString("username-webhook-update")
+            };
+
+            // Отправка сообщения в Discord
+            var identifier = webhookData.ToIdentifier();
+            await _discord.CreateMessage(identifier, payload);
+        }
+    }
+    // ADT-Tweak-end
 }
+
+
