@@ -13,6 +13,15 @@
   maleLastNames: NovakidLast
   femaleLastNames: NovakidLast
   naming: firstlast
+  category: Special
+  pros:
+  - Имеют крайне низкий урон от давления.
+  - Могут спокойно дышать смесью кислорода и плазмы.
+  special:
+  - Излучают свет цвета своего тела вне зависимости от обстоятельств.
+  cons:
+  - При получении смертельного урона разрываются на части.
+  - Имеют повышенный урон от холода.
 
 - type: speciesBaseSprites
   id: MobNovakidSprites

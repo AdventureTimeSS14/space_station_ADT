@@ -13,6 +13,7 @@
   maleLastNames: LastMaleUrs
   femaleLastNames: LastFemaleUrs
   naming: firstlast
+  category: Unusual
   #sponsorOnly: true # Пока снимаем до решения проблем
 
 - type: speciesBaseSprites

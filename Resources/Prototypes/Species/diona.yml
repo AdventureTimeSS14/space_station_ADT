@@ -13,6 +13,7 @@
   maleLastNames: DionaLast # Corvax-LastnameGender
   femaleLastNames: DionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
 
 - type: speciesBaseSprites
   id: MobDionaSprites

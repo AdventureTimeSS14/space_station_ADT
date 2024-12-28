@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Prototypes;
 
@@ -136,6 +137,20 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public SpeciesCategory Category = SpeciesCategory.Classic;
+
+    // ADT Species Window start
+    [DataField]
+    public ResPath? Description;
+
+    [DataField]
+    public List<string> Pros = new();
+
+    [DataField]
+    public List<string> Cons = new();
+
+    [DataField]
+    public List<string> Special = new();
+    // ADT Species Window end
 }
 
 public enum SpeciesNaming : byte
@@ -154,6 +169,7 @@ public enum SpeciesNaming : byte
 public enum SpeciesCategory : byte
 {
     Classic,
-    ADT
+    Unusual,
+    Special
 }
 // ADT end

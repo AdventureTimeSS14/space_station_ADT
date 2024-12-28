@@ -12,6 +12,7 @@
   maleLastNames: TajaranLast
   femaleLastNames: TajaranLast
   naming: firstlast
+  category: Unusual
 
 - type: speciesBaseSprites
   id: MobTajaranSprites

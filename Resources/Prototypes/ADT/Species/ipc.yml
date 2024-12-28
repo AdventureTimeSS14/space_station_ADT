@@ -21,6 +21,7 @@
   naming: FirstDashLast
   sexes:
   - Unsexed
+  category: Special
 
 # The lack of a layer means that
 # this person cannot have round-start anything

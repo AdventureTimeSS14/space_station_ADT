@@ -11,6 +11,7 @@
   maleFirstNames: names_reptilian_male #как у reptilian
   femaleFirstNames: names_reptilian_female #как у reptilian
   naming: FirstDashFirst #как у reptilian
+  category: Unusual
 
 - type: speciesBaseSprites
   id: MobKoboltSprites
