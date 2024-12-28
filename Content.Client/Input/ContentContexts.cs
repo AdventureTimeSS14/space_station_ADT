@@ -1,5 +1,6 @@
 using Content.Shared.Input;
 using Robust.Shared.Input;
+using Content.Shared._RMC14.Input; // ADT TWEAK
 
 namespace Content.Client.Input
 {
@@ -124,6 +125,21 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.OpenDecalSpawnWindow);
             common.AddFunction(ContentKeyFunctions.OpenAdminMenu);
             common.AddFunction(ContentKeyFunctions.OpenGuidebook);
+
+            CMFunctions(contexts); // ADT TWEAK
         }
+
+    // ADT TWEAK START:
+        private static void CMFunctions(IInputContextContainer contexts)
+        {
+            var human = contexts.GetContext("human");
+            human.AddFunction(CMKeyFunctions.RMCActivateAttachableBarrel);
+            human.AddFunction(CMKeyFunctions.RMCActivateAttachableRail);
+            human.AddFunction(CMKeyFunctions.RMCActivateAttachableStock);
+            human.AddFunction(CMKeyFunctions.RMCActivateAttachableUnderbarrel);
+            human.AddFunction(CMKeyFunctions.RMCFieldStripHeldItem);
+            human.AddFunction(CMKeyFunctions.CMUniqueAction);
+        }
+    // ADT TWEAK END.
     }
 }

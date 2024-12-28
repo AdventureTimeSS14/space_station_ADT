@@ -274,7 +274,7 @@ public sealed partial class RevenantComponent : Component
     /// The amount of essence that is needed to use the ability.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("smokeCost")]
-    public FixedPoint2 SmokeCost = -30;
+    public FixedPoint2 SmokeCost = 30;
 
     /// <summary>
     /// The status effects applied after the ability

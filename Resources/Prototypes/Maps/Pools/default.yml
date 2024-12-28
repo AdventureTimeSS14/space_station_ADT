@@ -17,29 +17,42 @@
   # - Packed
   # - Reach
   # - Train
-# adt_maps
+
+# ADT Maps Базовые Актуальные
+  # - ADT_Aspid
+  # - ADT_Avrit
+  # - ADT_Bagel
+  # - ADT_Box
+  # - ADT_Cluster
+  # - ADT_Cluster_Legacy
+  # - ADT_Delta
+  # - ADT_Gemini
+  # - ADT_kilo
+  # - ADT_Marathon
+  # - ADT_Pie
+  # - ADT_Saltern
+
+# ADT Maps Выведенные на переработку
+  # - ADT_Alley до ремонта
   # - ADT_Astra в комментерии до ремапа
-  - ADT_Frontier
-  # - ADT_FrontierHalloween
+  # - ADT_Core #В рамках уменьшения числа карт
+  # - ADT_Fland #В рамках уменьшения числа карт
+  # - ADT_Meta
+  # - ADT_Moose #В рамках уменьшения числа карт
+  # - ADT_Oasis удалён чтоб жизнь малиной не казалась
+  # - ADT_Origin
+  # - ADT_Packed #В рамках уменьшения числа карт
+  # - ADT_Train #В рамках уменьшения числа карт
+
+# ADT Halloween (Не забудьте отключить обычные)
   # - ADT_TrainHalloween
   # - ADT_SalternHalloween
-  - ADT_Pie
-  - ADT_Avrit
-  - ADT_Bagel
-  - ADT_Box
-  - ADT_Cluster
-  - ADT_Cluster_Legacy
-  - ADT_Core
-  - ADT_Fland
-  - ADT_Marathon
-  - ADT_Meta
-  - ADT_Origin
-  - ADT_Saltern
-  - ADT_Packed
-  - ADT_Train
-  - ADT_Delta
-  # - ADT_Oasis удалён чтоб жизнь малиной не казалась
-  - ADT_Gemini
-  - ADT_Aspid
-  - ADT_Moose
-  # - ADT_Alley до ремонта
+  
+# ADT NewYear (Не забудьте отключить обычные)
+  - ADT_BagelNewYear
+  - ADT_BoxNewYear
+  - ADT_Cluster_LegacyNewYear
+  - ADT_DeltaNewYear
+  - ADT_GeminiNewYear
+  - ADT_PieNewYear
+  - ADT_SalternNewYear

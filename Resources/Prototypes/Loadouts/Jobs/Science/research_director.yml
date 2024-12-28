@@ -9,9 +9,11 @@
       time: 72000 #20 hrs
 
 # Head
+
 - type: loadout
   id: ResearchDirectorBeret
-  startingGear: ScientificBeret
+  equipment:
+    head: ClothingHeadHatBeretRND
 
 # Neck
 - type: loadout

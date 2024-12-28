@@ -334,7 +334,7 @@
 
 - type: Tag
   id: ADTBeerCan
-
+  
   # New Year
 
 - type: Tag
@@ -393,3 +393,39 @@
 
 - type: Tag
   id: ADTOreBag
+
+- type: Tag
+  id: ADTSiliconEmotes
+
+- type: Tag
+  id: ADTCatEmotes
+
+- type: Tag
+  id: ADTDogEmotes
+
+- type: Tag
+  id: ADT40mmGrenade
+
+#sponsor_items
+- type: Tag
+  id: ADTWeaponPistolPrazatHawk
+
+- type: Tag
+  id: ADTWeaponPistolMaria
+
+- type: Tag
+  id: ADTWeaponMeleePrasatChainsword
+  
+#sponsor_items - End
+
+- type: Tag
+  id: ADTTeaPack
+
+- type: Tag
+  id: ADTFullRiotShitmadeShield
+
+- type: Tag
+  id: ADTRPlasmaShard
+
+- type: Tag
+  id: ADTRUranShard
