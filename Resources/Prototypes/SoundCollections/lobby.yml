@@ -18,4 +18,15 @@
     - /Audio/Lobby/atomicamnesiammx.ogg
     - /Audio/Corvax/Lobby/service.ogg # Corvax-LobbyMusic
     - /Audio/ADT/Lobby/The_Wrong_Party.ogg # ADT tweak
-    - /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg # ADT tweak
+    # ADT music start
+    - /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
+    - /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
+    - /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
+    - /Audio/ADT/Jukebox/fsm-team-eagle.ogg
+    - /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-is-coming.ogg
+    - /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-is-coming.ogg
+    - /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-mood.ogg
+    - /Audio/ADT/Jukebox/NewYear/maxkomusic-christmas-is-coming.ogg
+    - /Audio/ADT/Jukebox/NewYear/roa-music-winter-magic.ogg
+    - /Audio/ADT/Jukebox/NewYear/the-piano-says-yuletide.ogg
+    # ADT music end
