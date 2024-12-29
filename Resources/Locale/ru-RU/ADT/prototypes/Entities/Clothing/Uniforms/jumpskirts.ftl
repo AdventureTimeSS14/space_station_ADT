@@ -10,7 +10,7 @@ ent-ADTClothingUniformJumpskirtTurtleneckBlueshield = юбка-водолазк�
 
 
 ent-ADTClothingUniformJumpskirtTurtleneckBlack = чёрная водолазка с юбкой
-    .desc = { ent-ADTClothingUniformTurtleneckBlack.desc }
+    .desc = Любимая одежда книжного червя.
     .suffix = { "" }
 
 
