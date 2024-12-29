@@ -322,6 +322,9 @@ public sealed partial class SupermatterComponent : Component
     public string AlertCodeDeltaId = "delta";
 
     [DataField]
+    public string AlertCodeCascadeId = "cascade";
+
+    [DataField]
     public bool DelamAnnounced = false;
 
     #endregion
@@ -397,7 +400,8 @@ public enum SupermatterSound : sbyte
 public enum DelamType : int
 {
     Explosion = 0,
-    Cascade = 1
+    Cascade = 1,
+    ExplosionWhoops = 2
 }
 
 [Serializable, DataDefinition]

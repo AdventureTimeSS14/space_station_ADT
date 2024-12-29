@@ -8,6 +8,9 @@ using Content.Shared.Audio;
 using Content.Shared.Radio;
 using Content.Shared.UserInterface;
 using Content.Server.Chat.Systems;
+using Robust.Shared.Random;
+using Content.Shared.Random;
+using Robust.Shared.Utility;
 using Robust.Shared.GameObjects;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
@@ -18,6 +21,7 @@ namespace Content.Server.Supermatter.Systems;
 public sealed partial class SupermatterSystem
 {    
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     /// <summary>
     ///     Handle power and radiation output depending on atmospheric things.
@@ -285,7 +289,12 @@ public sealed partial class SupermatterSystem
 
             var station = _station.GetOwningStation(uid);
             if (station != null)
-                _alert.SetLevel((EntityUid) station, sm.AlertCodeDeltaId, true, true, true, false);
+               if (sm.ResonantFrequency >= 1)
+        
+                 _alert.SetLevel((EntityUid) station, sm.AlertCodeCascadeId, true, true, true, false);
+               else
+               
+                 _alert.SetLevel((EntityUid) station, sm.AlertCodeDeltaId, true, true, true, false);
 
             sb.AppendLine(Loc.GetString(loc));
             sb.AppendLine(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
@@ -367,14 +376,41 @@ public sealed partial class SupermatterSystem
             {
                 var xform = Transform(uid);
                 Spawn(sm.KudzuPrototype, xform.Coordinates);
-                
+
                 sm.KudzuSpawned = true;
             }
 
             return DelamType.Cascade;
         }
 
+        // Создаем список событий с их вероятностями
+        var events = new List<IProbEntry>
+        {
+            new ProbEntry { Type = DelamType.Explosion, Prob = 0.9f },
+            new ProbEntry { Type = DelamType.ExplosionWhoops, Prob = 0.1f }
+        };
+
+        var probSum = events.Sum(e => e.Prob);
+        var random = new System.Random();
+
+        // Выбираем событие с использованием RandomSystem
+        var randomSystem = EntitySystem.Get<RandomSystem>();
+        var selectedEvent = randomSystem.GetProbEntry(events, probSum, random) as ProbEntry;
+
+        if (selectedEvent != null)
+        {
+            return selectedEvent.Type;
+        }
+
+        // Значение по умолчанию
         return DelamType.Explosion;
+    }
+
+    // Вспомогательный класс для хранения типа события и вероятности
+    private sealed class ProbEntry : IProbEntry
+    {
+        public DelamType Type { get; set; }
+        public float Prob { get; set; }
     }
 
     /// <summary>
@@ -408,6 +444,10 @@ public sealed partial class SupermatterSystem
             case DelamType.Cascade:
                 QueueDel(uid);
                 Spawn(sm.CascadeSpawnPrototype, xform.Coordinates);
+                break;
+
+            case DelamType.ExplosionWhoops:
+                _explosion.TriggerExplosive(uid);
                 break;
 
             default:
