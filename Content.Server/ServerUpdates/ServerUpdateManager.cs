@@ -157,7 +157,6 @@ public sealed class ServerUpdateManager : IPostInjectInit
     // ADT-Tweak-start: Отправка сообщения в Discord при обновлении сервера
     public async void SendDiscordWebHookUpdateMessage()
     {
-
         if (!string.IsNullOrWhiteSpace(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook)))
         {
             var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordServerUpdateWebhook);
@@ -167,13 +166,16 @@ public sealed class ServerUpdateManager : IPostInjectInit
             if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
                 return;
 
+            // Получение данных сервера
             var serverName = _cfg.GetCVar<string>("game.hostname");
             var serverDesc = _cfg.GetCVar<string>("game.desc");
             var engineVersion = _cfg.GetCVar<string>("build.engine_version");
             var buildVersion = _cfg.GetCVar<string>("build.version");
 
+            // Сообщение о перезапуске сервера
             var descContent = "Обновление получено, сервер автоматически перезапустится для обновления в конце этого раунда.";
 
+            // Определение состояния раунда
             var gameTicker = _entitySystemManager.GetEntitySystem<GameTicker>();
             var roundDescription = gameTicker.RunLevel switch
             {
@@ -185,7 +187,7 @@ public sealed class ServerUpdateManager : IPostInjectInit
                 _ => throw new ArgumentOutOfRangeException(nameof(gameTicker.RunLevel), $"{gameTicker.RunLevel} was not matched."),
             };
 
-            // Создание структуры сообщения для вебхука
+            // Формирование структуры embed
             var embed = new WebhookEmbed
             {
                 Title = "Обновление пришло",
@@ -198,28 +200,40 @@ public sealed class ServerUpdateManager : IPostInjectInit
                 Fields = new List<WebhookEmbedField>()
             };
 
-            // Добавление полей только если данные доступны
-            if (!string.IsNullOrWhiteSpace(serverName))
-                embed.Fields.Add(new WebhookEmbedField { Name = "Название сервера", Value = serverName, Inline = true });
+            // Добавление полей только если они не пустые
+            AddIfNotEmpty(embed.Fields, "Название сервера", serverName);
+            AddIfNotEmpty(embed.Fields, "Описание сервера", serverDesc);
+            AddIfNotEmpty(embed.Fields, "RobustToolbox version", engineVersion);
+            AddIfNotEmpty(embed.Fields, "Build version", buildVersion);
 
-            if (!string.IsNullOrWhiteSpace(serverDesc))
-                embed.Fields.Add(new WebhookEmbedField { Name = "Описание сервера", Value = serverDesc, Inline = true });
-
-            if (!string.IsNullOrWhiteSpace(engineVersion))
-                embed.Fields.Add(new WebhookEmbedField { Name = "RobustToolbox version", Value = engineVersion, Inline = true });
-
-            if (!string.IsNullOrWhiteSpace(buildVersion))
-                embed.Fields.Add(new WebhookEmbedField { Name = "Build version", Value = buildVersion, Inline = true });
-
+            // Формирование полезной нагрузки
             var payload = new WebhookPayload
             {
                 Embeds = new List<WebhookEmbed> { embed },
                 Username = Loc.GetString("username-webhook-update")
             };
 
+            // Проверка, нужно ли добавлять пинг
+            var shouldPingOnUpdate = _cfg.GetCVar(ADTDiscordWebhookCCVars.ShouldPingOnUpdate);
+            if (shouldPingOnUpdate)
+            {
+                // Добавляем пинг в поле Content. Это будет сообщение, которое будет сверху
+                payload.Content = "<@&1275740664264659017>"; // ID роли "Обновления"
+            }
+
             // Отправка сообщения в Discord
             var identifier = webhookData.ToIdentifier();
+            payload.AllowedMentions.AllowRoleMentions();
             await _discord.CreateMessage(identifier, payload);
+        }
+    }
+
+    // Вспомогательный метод для добавления полей в embed
+    private void AddIfNotEmpty(List<WebhookEmbedField> fields, string fieldName, string? fieldValue)
+    {
+        if (!string.IsNullOrWhiteSpace(fieldValue))
+        {
+            fields.Add(new WebhookEmbedField { Name = fieldName, Value = fieldValue, Inline = true });
         }
     }
     // ADT-Tweak-end
