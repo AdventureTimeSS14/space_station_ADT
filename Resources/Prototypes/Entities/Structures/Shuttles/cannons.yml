@@ -390,7 +390,13 @@
   - type: NoRotateOnMove
   - type: CombatMode
     toggleMouseRotator: false #нужно выключить, что бы у нас компонент ротатора не пропадал нахуй при переключении режимов
-
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      ballistic-ammo: !type:Container
+      actions: !type:Container
+   - type: Actions
 #Turret returning action
 
 - type: entity

@@ -123,6 +123,10 @@
       maxIntensity: 10
       intensitySlope: 2
       totalIntensity: 100
+    - type: TurretControllable #компонент контролируемой турели
+    - type: DeviceLinkSink
+      ports:
+      - On #можно переписать нахуй прототип турели, но главное что б
 
 - type: entity
   parent: BaseStructure
@@ -446,6 +450,10 @@
       maxIntensity: 15
       intensitySlope: 2
       totalIntensity: 200
+    - type: TurretControllable #компонент контролируемой турели
+    - type: DeviceLinkSink
+      ports:
+      - On #можно переписать нахуй прототип турели, но главное что б
 
 - type: entity
   parent: ADTgau32Broken
