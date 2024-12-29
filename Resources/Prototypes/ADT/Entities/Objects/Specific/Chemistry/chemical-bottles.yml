@@ -435,3 +435,16 @@
         reagents:
         - ReagentId: Fluorosurfactant
           Quantity: 30
+
+- type: entity
+  id: ADTSalineChemistryBottle
+  name: saline bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Saline
+          Quantity: 30

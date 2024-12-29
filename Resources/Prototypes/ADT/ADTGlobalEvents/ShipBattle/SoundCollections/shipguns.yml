@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: ADTShipBattle30mmGunFire
+  files:
+  - /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/Gunshots/30mm_01.ogg
+  - /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/Gunshots/30mm_02.ogg
+  - /Audio/ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/Gunshots/30mm_03.ogg
