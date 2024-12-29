@@ -396,7 +396,7 @@
       machine_parts: !type:Container
       ballistic-ammo: !type:Container
       actions: !type:Container
-   - type: Actions
+  - type: Actions
 #Turret returning action
 
 - type: entity
