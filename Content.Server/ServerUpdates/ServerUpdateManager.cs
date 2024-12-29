@@ -238,5 +238,3 @@ public sealed class ServerUpdateManager : IPostInjectInit
     }
     // ADT-Tweak-end
 }
-
-
