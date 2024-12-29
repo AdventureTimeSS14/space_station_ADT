@@ -127,6 +127,16 @@
     - type: DeviceLinkSink
       ports:
       - On #можно переписать нахуй прототип турели, но главное что б
+    - type: UserInterface
+      interfaces:
+        enum.RadarConsoleUiKey.Key:
+          type: RadarConsoleBoundUserInterface
+    - type: IntrinsicUI
+      uis:
+        enum.RadarConsoleUiKey.Key:
+          toggleAction: ActionAGhostShowRadar
+    - type: RadarConsole
+      followEntity: true
 
 - type: entity
   parent: BaseStructure
