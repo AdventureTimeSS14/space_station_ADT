@@ -85,7 +85,6 @@ namespace Content.IntegrationTests.Tests
             "Oasis",
             "Cog",
             // ADT-Start
-            "ADT_Frontier",
             "ADT_Astra",
             "ADT_Avrit",
             "ADT_Bagel",
@@ -111,7 +110,6 @@ namespace Content.IntegrationTests.Tests
             // ADT-End
 
             // ADT-Halloween-Start
-            "ADT_FrontierHalloween",
             "ADT_TrainHalloween",
             "ADT_SalternHalloween",
             // ADT-Halloween-End
@@ -121,7 +119,6 @@ namespace Content.IntegrationTests.Tests
             "ADT_BoxNewYear",
             "ADT_Cluster_LegacyNewYear",
             "ADT_DeltaNewYear",
-            "ADT_FrontierNewYear",
             "ADT_GeminiNewYear",
             "ADT_PieNewYear",
             "ADT_SalternNewYear"
