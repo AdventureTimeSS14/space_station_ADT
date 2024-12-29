@@ -13,6 +13,12 @@ public sealed class ADTDiscordWebhookCCVars : CVars
         CVarDef.Create("discord.adminwho_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
 
     /// <summary>
+    /// URL of the Discord adminchat info to the channel.
+    /// </summary>
+    public static readonly CVarDef<string> DiscordAdminchatWebhook =
+        CVarDef.Create("discord.adminchat_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
+    /// <summary>
     /// This constant specifies a webhook that will send a message to Discord when a server updates.
     /// </summary>
     public static readonly CVarDef<string> DiscordServerUpdateWebhook =
