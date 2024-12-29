@@ -19,6 +19,16 @@ ent-ADTObjectsSpecificDexalinChemistryBottle = бутылочка дексали
     .desc = "Маленькая бутылочка"
 ent-ADTObjectsSpecificLeporazineChemistryBottle = бутылочка лепоразина
     .desc = "Маленькая бутылочка"
+
+ent-ADTSalineChemistryBottle = бутылочка физраствора
+    .desc = "Маленькая бутылочка"
+ent-ADTAmatoxinChemistryBottle = бутылочка аматоксина
+    .desc = "Маленькая бутылочка"
+ent-ADTLexorinChemistryBottle = бутылочка лексорина
+    .desc = "Маленькая бутылочка"
+ent-ADTLicoxideChemistryBottle = бутылочка ликоксида
+    .desc = "Маленькая бутылочка"
+
 ent-ADTDyloveneBiomicineBottle = бутылочка диловена и биомицина
     .desc = Пластиковая бутылочка, содержащая смесь биомицина и диловена. Использовать в крайних случаях отравления.
 ent-ADTOmnizineBottle = бутылочка омнизина
