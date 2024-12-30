@@ -8,7 +8,7 @@
 - type: hereticKnowledge
   id: HeartbeatOfMansus
   ritualPrototypes:
-  - Sacrifice  
+  - Sacrifice
 
 - type: hereticKnowledge
   id: AmberFocus
@@ -33,7 +33,7 @@
   path: Ash
   stage: 1
   ritualPrototypes:
-  - BladeAsh  
+  - BladeAsh
 
 - type: hereticKnowledge
   id: GraspOfAsh
@@ -223,8 +223,7 @@
   id: PriestFinalHymn
   path: Flesh
   stage: 10
-  actionPrototypes:
-  - ActionPolymorphHereticHorror
+  event: !type:HereticAscensionFleshEvent
 
 ### void path
 - type: hereticKnowledge
@@ -305,7 +304,7 @@
   sideKnowledge: true
   stage: 3
   ritualPrototypes:
-  - ArmorerRitual  
+  - ArmorerRitual
 
 - type: hereticKnowledge
   id: PriestRitual
