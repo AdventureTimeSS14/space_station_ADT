@@ -19,7 +19,7 @@ public sealed class TurretControllableSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<TurretControllableComponent, ComponentStartup>(OnStartup);//заливаем акшон для возврата(можно добавить и другие)
+        SubscribeLocalEvent<TurretControllableComponent, MapInitEvent>(OnStartup);//заливаем акшон для возврата(можно добавить и другие)
         SubscribeLocalEvent<TurretControllableComponent, ComponentShutdown>(OnShutdown);//чистим\возвращаем
         SubscribeLocalEvent<TurretControllableComponent, ControlReturnActionEvent>(OnReturn);//акшон возврата
         SubscribeLocalEvent<TurretControllableComponent, GettingControlledEvent>(OnGettingControlled);//сохраняем
@@ -51,7 +51,7 @@ public sealed class TurretControllableSystem : EntitySystem
         }
     }
 
-    public void OnStartup(EntityUid uid, TurretControllableComponent component, ComponentStartup args)
+    public void OnStartup(EntityUid uid, TurretControllableComponent component, MapInitEvent args)
     {
         _actionsSystem.AddAction(uid, ref component.ControlReturnActEntity, component.ControlReturnAction);
     }
