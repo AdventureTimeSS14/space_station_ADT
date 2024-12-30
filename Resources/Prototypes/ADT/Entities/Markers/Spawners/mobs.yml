@@ -23,7 +23,6 @@
   - type: ConditionalSpawner
     prototypes:
       - MobWatcherLavaland
-      - MobWatcherMagmawing
       - MobGoliath
       - ADTMobLegion
   - type: TimedDespawn

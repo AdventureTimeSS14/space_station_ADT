@@ -1,6 +1,6 @@
 - type: entity
   id: ADTMobLegion
-  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  parent: BaseMobAsteroid
   name: legion
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
@@ -74,10 +74,11 @@
             min: 1
             max: 1
   - type: Fauna
+  - type: AshStormImmune
 
 - type: entity
   id: ADTMobLegionSkull
-  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  parent: BaseMobAsteroid
   name: legion skull
   description: A fragment of the original hivelord, rallying behind its original. One isn't much of a threat, but...
   components:
@@ -125,3 +126,4 @@
         15
   - type: TimedDespawn
     lifetime: 30
+  - type: AshStormImmune

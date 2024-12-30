@@ -91,6 +91,7 @@
       amount: 3
     - id: MaterialGoliathHide1
   - type: Fauna # ADT tweak
+  - type: AshStormImmune # ADT tweak
 
 - type: entity
   id: ActionGoliathTentacle

@@ -1462,10 +1462,6 @@ entities:
       pos: 22.5,5.5
       parent: 1
     - type: MiningShop
-      orderList:
-      - price: 1050
-        name: null
-        id: WeaponKineticHammer
       sections:
       - jobs: []
         sharedSpecLimit: null

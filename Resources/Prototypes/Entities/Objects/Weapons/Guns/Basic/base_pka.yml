@@ -15,6 +15,7 @@
   #   maxAngle: -43
   # - type: Wieldable # ADT tweak end
   - type: Gun
+    resetOnHandSelected: false #ADT tweak
     fireRate: 0.5
     selectedMode: SemiAuto
     angleDecay: 45
