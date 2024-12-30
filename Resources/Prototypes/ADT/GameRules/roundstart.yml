@@ -59,9 +59,6 @@
   - type: HereticRule
   - type: GameRule
     minPlayers: 20
-    delay:
-      min: 30
-      max: 60
   - type: AntagSelection
     agentName: heretic-roundend-name
     definitions:
