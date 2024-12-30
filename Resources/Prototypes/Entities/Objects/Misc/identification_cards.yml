@@ -838,6 +838,8 @@
     layers:
     - state: default
     - state: idseniorengineer
+  - type: PresetIdCard # ADT
+    job: ADTSeniorEngineer
 
 - type: entity
   parent: ResearchIDCard
@@ -848,6 +850,8 @@
     layers:
     - state: default
     - state: idseniorresearcher
+  - type: PresetIdCard # ADT
+    job: ADTSeniorResearcher
 
 - type: entity
   parent: MedicalIDCard
@@ -858,6 +862,8 @@
     layers:
     - state: default
     - state: idseniorphysician
+  - type: PresetIdCard # ADT
+    job: ADTSeniorPhysician
 
 - type: entity
   parent: SecurityIDCard
@@ -868,6 +874,8 @@
     layers:
     - state: default
     - state: idseniorofficer
+  - type: PresetIdCard # ADT
+    job: ADTSeniorOfficer
 
 - type: entity
   parent: IDCardStandard
