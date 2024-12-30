@@ -184,7 +184,7 @@ public sealed partial class SpeciesWindow : FancyWindow
             Margin = new Thickness(5f, 5f),
             MaxWidth = 380f,
         };
-        var prosConsLabel = new Label()
+        var prosConsLabel = new RichTextLabel()
         {
             Text = Loc.GetString("ui-species-pros-cons"),
             StyleClasses = { StyleBase.ClassLowDivider },
@@ -213,7 +213,13 @@ public sealed partial class SpeciesWindow : FancyWindow
             {
                 foreach (var item in proto.Pros)
                 {
-                    _parsingMan.TryAddMarkup(prosConsContainer, Loc.GetString(item));
+                    var label = new RichTextLabel()
+                    {
+                        Text = "[color=#13f244] - " + Loc.GetString(item) + "[/color]",
+                        StyleClasses = { StyleBase.ClassLowDivider },
+                        Margin = new(2f, 2f),
+                    };
+                    prosConsContainer.AddChild(label);
                 }
                 prosConsContainer.AddChild(new Control() { MinHeight = 8f });
             }
@@ -222,7 +228,13 @@ public sealed partial class SpeciesWindow : FancyWindow
             {
                 foreach (var item in proto.Special)
                 {
-                    _parsingMan.TryAddMarkup(prosConsContainer, Loc.GetString(item));
+                    var label = new RichTextLabel()
+                    {
+                        Text = " - " + Loc.GetString(item),
+                        StyleClasses = { StyleBase.ClassLowDivider },
+                        Margin = new(2f, 2f),
+                    };
+                    prosConsContainer.AddChild(label);
                 }
                 prosConsContainer.AddChild(new Control() { MinHeight = 8f });
             }
@@ -231,7 +243,13 @@ public sealed partial class SpeciesWindow : FancyWindow
             {
                 foreach (var item in proto.Cons)
                 {
-                    _parsingMan.TryAddMarkup(prosConsContainer, Loc.GetString(item));
+                    var label = new RichTextLabel()
+                    {
+                        Text = "[color=#d63636] - " + Loc.GetString(item) + "[/color]",
+                        StyleClasses = { StyleBase.ClassLowDivider },
+                        Margin = new(2f, 2f),
+                    };
+                    prosConsContainer.AddChild(label);
                 }
                 prosConsContainer.AddChild(new Control() { MinHeight = 8f });
             }
