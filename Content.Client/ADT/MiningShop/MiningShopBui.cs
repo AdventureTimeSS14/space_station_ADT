@@ -161,11 +161,11 @@ public sealed class MiningShopBui : BoundUserInterface
 
         var userpoints = _miningPoints.TryFindIdCard(_player.LocalEntity.Value)?.Comp?.Points ?? 0;
 
-        _window.YourPurchases.Text = $"Orders: {orders}";
+        _window.YourPurchases.Text = $"Заказы: {orders}";
 
-        _window.Express.Text = $"Express dilevery";
+        _window.Express.Text = $"Экспресс доставка";
 
-        _window.PointsLabel.Text = $"Points Remaining: {userpoints}";
+        _window.PointsLabel.Text = $"Осталось очков: {userpoints}";
 
         for (var sectionIndex = 0; sectionIndex < vendor.Sections.Count; sectionIndex++)
         {

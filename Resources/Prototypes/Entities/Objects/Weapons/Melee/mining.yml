@@ -132,6 +132,7 @@
     count: 1
   - type: MeleeWeapon
     attackRate: 1 #ADT tweak 1.5 -> 1
+    angle: 0 #ADT tweak
     wideAnimationRotation: -135
     damage:
       types:
