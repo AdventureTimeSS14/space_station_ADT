@@ -67,6 +67,11 @@
     speaks:
     - GalacticCommon
     - Dwarf
+  # ADT-Tweak start
+  - type: InnateMiningScannerViewer
+    pingSound: null
+    viewRange: 4
+  # ADT-Tweak end
     understands:
     - GalacticCommon
     - Dwarf
