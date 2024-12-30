@@ -7,6 +7,7 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - Heretic # goob edit - heretics
     - Ursus # ADT tweak
 
 - type: npcFaction
@@ -18,6 +19,7 @@
   - Zombie
   - Revolutionary
   - DroneAntag # ADT tweak
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Mouse
@@ -45,6 +47,7 @@
   - Zombie
   - Revolutionary
   - Ursus # ADT tweak
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: SimpleNeutral
@@ -57,6 +60,7 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Heretic # goob edit - heretics
   - DroneAntag # ADT tweak
   - Ursus # ADT tweak
 
@@ -69,6 +73,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Heretic # goob edit - heretics
   - Ursus # ADT tweak
 
 - type: npcFaction
@@ -82,6 +87,7 @@
   - PetsNT
   - Revolutionary
   - Ursus # ADT tweak
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Revolutionary
