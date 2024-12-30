@@ -1,3 +1,5 @@
+// Оригинал данного файла был сделан @temporaldarkness (discord). Код был взят с https://github.com/ss14-ganimed/ENT14-Master.
+
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stylesheets;
