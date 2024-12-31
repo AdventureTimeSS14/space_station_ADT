@@ -8,5 +8,9 @@ ent-ADTComputerShuttleSalvage = консоль управления утилиз
 ent-ADTComputerSecShuttle = консоль управления шаттлом службы безопасности
     .desc = Используется для пилотирования шаттлом службы безопасности.
 
+ent-ComputerShuttleMining = консоль управления шахтёрским шаттлом.
+    .desc = Используется для пилотирования шаттлом шахтёров.
+ 
 ent-ADTComputerPalletConsolePirate = пиратская консоль продаж
     .desc = Продаёт за пиастры.
+
