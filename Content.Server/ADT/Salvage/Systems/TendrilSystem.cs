@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Timers;
@@ -16,6 +17,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
@@ -34,6 +36,7 @@ public sealed class TendrilSystem : EntitySystem
 
         SubscribeLocalEvent<TendrilComponent, TendrilMobDeadEvent>(OnTendrilMobDeath);
         SubscribeLocalEvent<TendrilComponent, DestructionEventArgs>(OnTendrilDestruction);
+        SubscribeLocalEvent<TendrilComponent, ComponentStartup>(OnTendrilStartup);
         SubscribeLocalEvent<TendrilMobComponent, MobStateChangedEvent>(OnMobState);
     }
 
@@ -67,6 +70,11 @@ public sealed class TendrilSystem : EntitySystem
             comp.Mobs.Add(mob);
             comp.LastSpawn = _time.CurTime;
         }
+    }
+
+    private void OnTendrilStartup(EntityUid uid, TendrilComponent comp, ComponentStartup args)
+    {
+        comp.LastSpawn = _time.CurTime;
     }
 
     private void OnTendrilMobDeath(EntityUid uid, TendrilComponent comp, ref TendrilMobDeadEvent args)
