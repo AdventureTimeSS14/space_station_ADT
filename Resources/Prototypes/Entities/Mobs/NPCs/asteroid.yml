@@ -161,7 +161,7 @@
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
   - type: InteractionOutline
   - type: TimedDespawn
-    lifetime: 0.7
+    lifetime: 1
 
 - type: entity
   id: EffectGoliathTentacleSpawn
