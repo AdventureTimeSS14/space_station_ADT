@@ -67,7 +67,7 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void Damage(EntityUid uid)
     {
-        _bloodstream.TryModifyBloodLevel(uid, -35, spill: false);
+        _bloodstream.TryModifyBloodLevel(uid, -50, spill: false);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), uid, uid, PopupType.MediumCaution);
     }
 
@@ -87,7 +87,7 @@ public sealed class CursedHeartSystem : EntitySystem
             return;
         args.Handled = true;
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -15), true, false);
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -8), true, false);
         _bloodstream.TryModifyBloodLevel(uid, 17);
         comp.LastPump = _timing.CurTime;
     }

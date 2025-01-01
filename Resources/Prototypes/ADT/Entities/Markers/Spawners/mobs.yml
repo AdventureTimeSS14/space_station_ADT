@@ -21,7 +21,7 @@
       - state: green
       - state: ai
   - type: RandomSpawner
-    rareChance: 0.25
+    rareChance: 0.6
     prototypes:
       - MobWatcherLavaland
       - MobGoliath
