@@ -127,3 +127,40 @@
   - type: TimedDespawn
     lifetime: 30
   - type: AshStormImmune
+
+- type: entity
+  id: MobAncientGoliath
+  parent: MobGoliath
+  name: ancient goliath
+  description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goliath
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath
+      Dead:
+        Base: goliath_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.00
+    baseSprintSpeed : 1.50
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 20
+        Piercing: 5
+  - type: NPCUseActionOnTarget
+    actionId: ActionAncientGoliathTentacle

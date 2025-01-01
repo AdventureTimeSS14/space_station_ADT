@@ -22,19 +22,19 @@
       entries:
       - id: WeaponProtoKineticAccelerator
         price: 550
-    - name: фултоны
+    - name: Фултоны
       entries:
       - id: FultonBeacon
         price: 600
       - id: Fulton
         price: 1150
-    - name: медицина
+    - name: Медицина
       entries:
       - id: MedkitBruteFilled
         price: 700
       - id: MedkitBurnFilled
         price: 600
-    - name: снаряжение
+    - name: Снаряжение
       entries:
       - id: ClothingBeltSalvageWebbing
         price: 500
@@ -48,7 +48,11 @@
         price: 4000
       - id: ADTWeaponCutter
         price: 500
-    - name: улучшения
+      - id: ADTClothingJumpBoots
+        price: 2500
+      - id: ADTJaunter
+        price: 900
+    - name: Улучшения
       entries:
       - id: PKAUpgradeDamage
         price: 500

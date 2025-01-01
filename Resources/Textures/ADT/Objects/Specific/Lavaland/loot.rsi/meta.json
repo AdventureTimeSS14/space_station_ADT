@@ -65,6 +65,22 @@
           0.6
         ]
       ]
-    }
+    },
+    {
+        "name": "vavilon_book"
+    },
+    {
+        "name": "crystal"
+    },
+    {
+        "name": "cursed_heart",
+        "delays": [
+          [
+            0.1,
+            0.1,
+            0.2
+          ]
+        ]
+      }
   ]
 }
