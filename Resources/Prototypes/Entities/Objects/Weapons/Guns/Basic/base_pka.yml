@@ -74,4 +74,6 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee #ADT_Tweak
-
+  - type: Tag #ADT tweak
+    tags:
+    - PKA
