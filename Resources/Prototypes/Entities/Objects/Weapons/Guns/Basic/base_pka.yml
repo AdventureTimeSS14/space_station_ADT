@@ -75,4 +75,6 @@
       collection: GenericHit
   - type: AltFireMelee #ADT_Tweak
     attackType: Heavy
-
+  - type: Tag #ADT tweak
+    tags:
+    - PKA
