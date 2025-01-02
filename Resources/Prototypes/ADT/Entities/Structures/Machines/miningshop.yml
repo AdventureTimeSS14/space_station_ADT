@@ -1,0 +1,85 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: ADTMiningShop
+  name: Salvage Vendor
+  description: A dwarf's best friend!
+  components:
+  - type: MiningShop
+    sections:
+    - name: Крашеры
+      entries:
+      - id: WeaponCrusher
+        price: 750
+      - id: WeaponKineticSpear
+        price: 1050
+      - id: WeaponKineticHammer
+        price: 1050
+      - id: WeaponKineticClaws
+        price: 1050
+      - id: WeaponKineticMachete
+        price: 1050
+    - name: ПКА
+      entries:
+      - id: WeaponProtoKineticAccelerator
+        price: 550
+    - name: Фултоны
+      entries:
+      - id: FultonBeacon
+        price: 600
+      - id: Fulton
+        price: 1150
+    - name: Медицина
+      entries:
+      - id: MedkitBruteFilled
+        price: 700
+      - id: MedkitBurnFilled
+        price: 600
+    - name: Снаряжение
+      entries:
+      - id: ClothingBeltSalvageWebbing
+        price: 500
+      - id: ClothingOuterHardsuitSalvage
+        price: 3000
+      - id: ADTClothingOuterArmorMiner
+        price: 1000
+      - id: ADTClothingOuterArmorMinerHeavy
+        price: 3600
+      - id: ClothingOuterArmorMinerLight
+        price: 4000
+      - id: ADTWeaponCutter
+        price: 500
+      - id: ADTClothingJumpBoots
+        price: 2500
+      - id: ADTJaunter
+        price: 900
+    - name: Улучшения
+      entries:
+      - id: PKAUpgradeDamage
+        price: 500
+      - id: PKAUpgradeRange
+        price: 500
+      - id: PKAUpgradeFireRate
+        price: 500
+      - id: PKAUpgradeLight
+        price: 500
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/mining.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: ActivatableUI
+    key: enum.MiningShopUI.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningShopUI.Key:
+        type: MiningShopBui
+  - type: Tag
+    tags:
+    - MiningShop
