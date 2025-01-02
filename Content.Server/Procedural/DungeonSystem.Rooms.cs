@@ -188,7 +188,7 @@ public sealed partial class DungeonSystem
             // ADT - чиним тестер
             if (grid == null || gridUid == childXform.GridUid)
             {
-                Log.Error("Спавнер данжа находится в космосе?");
+                Log.Debug("Спавнер данжа находится в космосе?");
                 return;
             }
             // ADT - конец фикса
