@@ -1,7 +1,25 @@
 - type: entity
+  id: BaseSupermatterKudzu
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+    - type: Appearance
+    - type: Transform
+      anchored: true
+    - type: Physics
+    - type: SupermatterKudzu
+    - type: GrowingSupermatterKudzu
+    - type: ActiveEdgeSupermatterSpreader
+    - type: EdgeSupermatterSpreader
+      id: SupermatterKudzu
+
+- type: entity
   id: SupermatterKudzu
   name: Сверхматерия?
-  parent: BaseKudzu
+  parent: BaseSupermatterKudzu
   description: Это такой конец...
   placement:
     mode: SnapgridCenter
@@ -35,8 +53,8 @@
          Radiation: 10
       ignoreWhitelist:
         tags:
-        - Flesh
-    - type: Kudzu
+        - SupermatterKudzu
+    - type: SupermatterKudzu
       growthTickChance: 0.1
       spreadChance: 0.4
     - type: SpeedModifierContacts
@@ -44,7 +62,7 @@
       sprintSpeedModifier: 0.3
       ignoreWhitelist:
         tags:
-        - Flesh
+        - SupermatterKudzu
     - type: Respirator
       damage:
         types:
