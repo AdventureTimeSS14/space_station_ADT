@@ -11,6 +11,8 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.Weapons.Ranged.Upgrades;
 
@@ -21,6 +23,7 @@ public sealed class GunUpgradeSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -37,6 +40,8 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<GunUpgradeSpeedComponent, GunRefreshModifiersEvent>(OnSpeedRefresh);
         SubscribeLocalEvent<GunUpgradeDamageComponent, GunShotEvent>(OnDamageGunShot);
         SubscribeLocalEvent<GunUpgradeComponentsComponent, GunShotEvent>(OnDamageGunShotComps);
+        SubscribeLocalEvent<GunUpgradeVampirismComponent, GunShotEvent>(OnVampirismGunShot);
+        SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
     }
 
     private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
@@ -114,6 +119,25 @@ public sealed class GunUpgradeSystem : EntitySystem
             if (TryComp<ProjectileComponent>(ammo, out var proj))
                 EntityManager.AddComponents(ammo.Value, ent.Comp.Components);
         }
+    }
+
+    private void OnVampirismGunShot(Entity<GunUpgradeVampirismComponent> ent, ref GunShotEvent args)
+    {
+        foreach (var (ammo, _) in args.Ammo)
+        {
+            if (TryComp<ProjectileComponent>(ammo, out var proj))
+            {
+                var comp = EnsureComp<ProjectileVampirismComponent>(ammo.Value);
+                comp.DamageOnHit = ent.Comp.DamageOnHit;
+            }
+        }
+    }
+
+    private void OnVampirismProjectileHit(Entity<ProjectileVampirismComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (!HasComp<MobStateComponent>(args.Target))
+            return;
+        _damage.TryChangeDamage(args.Shooter, ent.Comp.DamageOnHit);
     }
 
     public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableGunComponent> ent)

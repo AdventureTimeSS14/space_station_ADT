@@ -38,5 +38,7 @@ public sealed class MiningShopSystem : SharedMiningShopSystem
 
         _droppod.CreateDroppod(xform.Coordinates, ids);
         vendor.Comp.OrderList.Clear();
+        Dirty(vendor.Owner, vendor.Comp);
+        _ui.ServerSendUiMessage(vendor.Owner, args.UiKey, new MiningShopRefreshBuiMsg(), args.Actor);
     }
 }
