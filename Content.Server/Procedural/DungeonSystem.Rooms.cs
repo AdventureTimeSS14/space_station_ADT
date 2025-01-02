@@ -185,6 +185,14 @@ public sealed partial class DungeonSystem
             var anchored = templateXform.Anchored;
             _transform.SetLocalRotation(ent, childRot, childXform);
 
+            // ADT - чиним тестер
+            if (grid == null || gridUid == childXform.GridUid)
+            {
+                Log.Error("Спавнер данжа находится в космосе?");
+                return;
+            }
+            // ADT - конец фикса
+
             // If the templated entity was anchored then anchor us too.
             if (anchored && !childXform.Anchored)
                 _transform.AnchorEntity((ent, childXform), (gridUid, grid));
