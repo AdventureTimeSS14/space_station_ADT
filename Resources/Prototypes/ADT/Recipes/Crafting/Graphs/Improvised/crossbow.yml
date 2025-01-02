@@ -22,4 +22,4 @@
         amount: 10
         doAfter: 10
   - node: crossbow
-    entity: WeaponEnergyCrossbow
+    entity: ADTWeaponEnergyCrossbow
