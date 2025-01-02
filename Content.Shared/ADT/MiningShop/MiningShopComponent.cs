@@ -9,9 +9,6 @@ namespace Content.Shared.ADT.MiningShop;
 [Access(typeof(SharedMiningShopSystem))]
 public sealed partial class MiningShopComponent : Component
 {
-
-    [DataField, AutoNetworkedField]
-    public List<SharedMiningShopSection> Sections = new();
     [DataField, AutoNetworkedField]
     public List<MiningShopEntry> OrderList = new();
 
