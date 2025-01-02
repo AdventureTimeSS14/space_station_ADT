@@ -627,3 +627,14 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+
+- type: listing
+  id: UplinkMiniatureEnergyCrossbow
+  name: uplink-miniature-energy-crossbow-name
+  description: uplink-miniature-energy-crossbow-desc
+  icon: { sprite:  /Textures/ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+  productEntity: WeaponMiniatureEnergyCrossbow
+  cost:
+    Telecrystal: 9
+  categories:
+  - UplinkWeaponry

@@ -450,3 +450,6 @@
 
 - type: Tag
   id: MiningShop
+
+- type: Tag
+  id: PKA
