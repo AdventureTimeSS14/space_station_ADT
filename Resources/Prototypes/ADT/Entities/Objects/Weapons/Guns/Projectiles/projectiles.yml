@@ -212,7 +212,7 @@
     forceSound: true
 
 - type: entity
-  id: BulletMic
+  id: ADTBulletMic
   name: MIC bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -246,7 +246,7 @@
 
 
 - type: entity
-  id: BulletEnergyCrossbow
+  id: ADTBulletEnergyCrossbow
   name: Energy Crossbow bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
