@@ -39,7 +39,7 @@
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
   - type: Sprite
-    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    sprite: ADT/Mobs/Aliens/Lavaland/goliath.rsi  # ADT resprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goliath
@@ -161,7 +161,7 @@
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
   - type: InteractionOutline
   - type: TimedDespawn
-    lifetime: 0.7
+    lifetime: 1
 
 - type: entity
   id: EffectGoliathTentacleSpawn

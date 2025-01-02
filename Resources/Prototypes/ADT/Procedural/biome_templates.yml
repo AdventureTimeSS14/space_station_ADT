@@ -49,7 +49,7 @@
       noise:
         seed: 0
         noiseType: OpenSimplex2
-        frequency: 0.5
+        frequency: 0.7
       allowedTiles:
         - FloorBasalt
       entities:
@@ -59,7 +59,7 @@
       noise:
         seed: 0
         noiseType: OpenSimplex2
-        frequency: 0.1
+        frequency: 0.4
         lacunarity: 0.6
       allowedTiles:
         - FloorBasalt

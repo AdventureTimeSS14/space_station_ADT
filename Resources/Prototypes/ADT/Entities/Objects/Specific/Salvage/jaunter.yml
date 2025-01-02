@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseItem
+  id: ADTJaunter
+  name: jaunter
+  description: undertale cancelled
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Salvage/jaunter.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: PreventChasmFalling

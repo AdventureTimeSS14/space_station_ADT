@@ -74,6 +74,7 @@ public sealed class MiningShopBui : BoundUserInterface
 
                         var tooltip = new Tooltip();
                         tooltip.SetMessage(msg);
+                        tooltip.MaxWidth = 250f;
 
                         uiEntry.TooltipLabel.ToolTip = entity.Description;
                         uiEntry.TooltipLabel.TooltipDelay = 0;
