@@ -10,7 +10,7 @@ on:
   workflow_dispatch: # ручной запуск
 
 jobs:
-  build-windows:
+  build:
     if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
     strategy:
       matrix:
