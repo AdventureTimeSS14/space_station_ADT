@@ -8,7 +8,8 @@ heretic-magicitem-examine = [color=yellow]Данный предмет позво
 
 heretic-blade-examine = [color=yellow]После использования в руке, вы сломаете данный клинок и телепортируетесь подальше от опасности.[/color]
 heretic-blade-use = Лезвие разлетается на куски, и вы чувствуете, как голоса уводят вас прочь.
-
+heretic-riposte-used = Парирование использовано!
+heretic-riposte-available = Парирование доступно!
 
 heretic-rust-mark-itembreak = {$name} разлетается на куски!
 

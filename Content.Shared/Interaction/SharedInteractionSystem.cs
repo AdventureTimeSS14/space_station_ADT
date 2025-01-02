@@ -1111,7 +1111,7 @@ namespace Content.Shared.Interaction
             if (checkDeletion && (IsDeleted(user) || IsDeleted(used)))
                 return false;
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));
+            //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
             _delayQuery.TryComp(used, out var delayComponent);
             if (checkUseDelay && delayComponent != null && _useDelay.IsDelayed((used, delayComponent)))
                 return false;
@@ -1141,7 +1141,7 @@ namespace Content.Shared.Interaction
                 return true;
             }
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));
+            //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
             var userEv = new UserActivateInWorldEvent(user, used, complexInteractions.Value);
             RaiseLocalEvent(user, userEv, true);
             if (!userEv.Handled)
@@ -1194,7 +1194,7 @@ namespace Content.Shared.Interaction
                 return true;
             }
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));
+            //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
             // else, default to activating the item
             return InteractionActivate(user, used, false, false, false, checkDeletion: false);
         }
