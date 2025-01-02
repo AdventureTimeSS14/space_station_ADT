@@ -55,6 +55,10 @@ public sealed class RandomMetadataSystem : EntitySystem
             else if (_prototype.TryIndex<DatasetPrototype>(segment, out var proto))
             {
                 var random = _random.Pick(proto.Values);
+                // ADT - фиксики тестов
+                if (random == null)
+                    continue;
+                // ADT - конец фикса
                 if (Loc.TryGetString(random, out var localizedSegment))
                     outputSegments.Add(localizedSegment);
                 else
