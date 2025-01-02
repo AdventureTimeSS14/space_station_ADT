@@ -233,7 +233,7 @@
       params:
         volume: -5
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletMic
+    proto: ADTBulletMic
     fireCost: 900
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -257,7 +257,7 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletEnergyCrossbow
+    proto: ADTBulletEnergyCrossbow
     fireCost: 900
   - type: Item
     size: Ginormous
