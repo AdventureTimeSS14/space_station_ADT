@@ -74,4 +74,5 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee #ADT_Tweak
+    attackType: Heavy
 
