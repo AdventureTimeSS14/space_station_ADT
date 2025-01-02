@@ -1,5 +1,6 @@
 using Content.Shared.Alert;
 using Content.Shared.ADT.OfferItem;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Hands.Components;
 
 namespace Content.Server.ADT.OfferItem;
@@ -7,6 +8,8 @@ namespace Content.Server.ADT.OfferItem;
 public sealed class OfferItemSystem : SharedOfferItemSystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
     private float _offerAcc = 0;
     private const float OfferAccMax = 3f;
@@ -37,6 +40,12 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
                     UnOffer(uid, offerItem);
 
             if (!offerItem.IsInReceiveMode)
+            {
+                _alertsSystem.ClearAlert(uid, OfferAlert);
+                continue;
+            }
+
+            if (_mobStateSystem.IsCritical(uid) || _mobStateSystem.IsDead(uid))
             {
                 _alertsSystem.ClearAlert(uid, OfferAlert);
                 continue;
