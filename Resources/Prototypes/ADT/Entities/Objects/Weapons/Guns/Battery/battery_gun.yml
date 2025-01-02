@@ -216,7 +216,7 @@
 - type: entity
   name: Miniature Energy Crossbow
   parent: BaseWeaponBatterySmall
-  id: WeaponMiniatureEnergyCrossbow
+  id: ADTWeaponMiniatureEnergyCrossbow
   description: The syndicate's energy crossbow, small, silent and deadly.
   components:
   - type: Sprite
@@ -245,8 +245,8 @@
 
 - type: entity
   name: Energy Crossbow
-  parent: WeaponMiniatureEnergyCrossbow
-  id: WeaponEnergyCrossbow
+  parent: ADTWeaponMiniatureEnergyCrossbow
+  id: ADTWeaponEnergyCrossbow
   description: Energy crossbow, big, powerful and stily.
   components:
   - type: Sprite
