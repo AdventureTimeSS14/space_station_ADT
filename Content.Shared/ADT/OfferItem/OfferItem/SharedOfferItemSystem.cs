@@ -31,14 +31,9 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
 
     private void OnClickAlertEvent(Entity<OfferItemComponent> ent, ref AcceptOfferAlertEvent ev)
     {
-        if (ev.Handled)
+        if (ev.Handled || ev.AlertId != OfferAlert)
             return;
-
-        if (ev.AlertId != OfferAlert)
-            return;
-
         ev.Handled = true;
-
         Receive(ent!);
     }
     /// <summary>
