@@ -1,5 +1,6 @@
 using Content.Server.NPC.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.NPC.Components;
@@ -16,12 +17,24 @@ public sealed partial class NPCUseActionOnTargetComponent : Component
     [DataField]
     public string TargetKey = "Target";
 
-    /// <summary>
-    /// Action that's going to attempt to be used.
-    /// </summary>
+    // /// <summary>
+    // /// Action that's going to attempt to be used.
+    // /// </summary>
+    // [DataField(required: true)]
+    // public EntProtoId<EntityWorldTargetActionComponent> ActionId;
+
+    // [DataField]
+    // public EntityUid? ActionEnt;
+
     [DataField(required: true)]
-    public EntProtoId<EntityWorldTargetActionComponent> ActionId;
+    public ProtoId<WeightedRandomEntityPrototype> Actions;
+
+    [ViewVariables]
+    public Dictionary<EntityUid, float> ActionEntities = new();
 
     [DataField]
-    public EntityUid? ActionEnt;
+    public float Delay = 7f;
+
+    [ViewVariables]
+    public TimeSpan LastAction = TimeSpan.Zero;
 }

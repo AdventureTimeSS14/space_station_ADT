@@ -1,0 +1,483 @@
+#### Containers ####
+- type: damageContainer
+  id: Drake
+  supportedGroups:
+    - Brute
+    - Toxin
+    - Airloss
+    - Genetic
+#### Fire ####
+
+- type: entity
+  id: NazFire
+  name: огонь
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TileEntityEffect
+    effects:
+    - !type:FlammableReaction
+      multiplier: 0.5
+      multiplierOnExisting: 0.75
+    - !type:Ignite
+  - type: Sprite
+    sprite: Effects/fire.rsi
+    drawdepth: BelowFloor
+    layers:
+      - state: 1
+        shader: unshaded
+  - type: Icon
+    sprite: Effects/fire.rsi
+    state: 1
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: Transform
+    anchored: true
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    blacklist:
+      tags:
+        - Catwalk
+
+#### Drake Projectiles ####
+
+- type: entity
+  id: BulletPistolHot
+  parent: BaseBulletIncendiary
+  name: bullet (.35 auto incendiary)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+    deleteOnCollide: false
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - NazFire
+    chance: 1
+    intervalSeconds: 0
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 2
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: fireball
+
+- type: entity
+  id: BulletPistolMeteorites
+  parent: BaseBullet
+  name: bullet (.35 auto incendiary)
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: fireball
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+    deleteOnCollide: false
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - FireballSignal
+    chance: 0.25
+    intervalSeconds: 0
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: BulletFirethrow
+  parent: BaseBulletIncendiary
+  name: firethrow
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 2
+        Structural: 10
+    deleteOnCollide: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: fireball
+  - type: TimedDespawn
+    lifetime: 0.68
+
+- type: entity
+  id: FireballSignal
+  parent: BaseEffectGoliathTentacleSpawn
+  name: сигнал
+  components:
+    - type: SpawnOnDespawn
+      prototype: MeteorInstaExplosion
+    - type: Transform
+      anchored: True
+    - type: Physics
+      bodyType: Static
+      canCollide: false
+    - type: Sprite
+      drawdepth: Overdoors
+      sprite: ADT/Effects/target_circle.rsi
+      state: icon
+    - type: InteractionOutline
+    - type: TimedDespawn
+      lifetime: 2
+    - type: PointLight
+      energy: 0.3
+      radius: 1
+      color: "#ff0000"
+
+- type: entity
+  name: drake fire barrage
+  id: LavalandDrakeFireBarrage
+  categories: [ HideSpawnMenu ]
+  parent: BulletPistolHot
+  components:
+  - type: ProjectileSpread
+    proto: BulletPistolHot
+    count: 3 #52 heat damage if you hit all your shots, but narrower spread
+    spread: 65
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: fireball
+
+- type: entity
+  name: drake meteorites
+  id: LavalandDrakeMeteorBarrage
+  categories: [ HideSpawnMenu ]
+  parent: BulletPistolMeteorites
+  components:
+  - type: ProjectileSpread
+    proto: BulletPistolMeteorites
+    count: 36 #52 heat damage if you hit all your shots, but narrower spread
+    spread: 360
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: fireball
+
+#### Drake itself №№№№
+
+- type: entity
+  id: BaseMobDrake
+  parent: BaseMobAsteroid
+  name: пепельный дракон
+  abstract: true
+  description:
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 9000
+      behaviors:
+      - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 100000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/drake.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: dragon
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dragon
+      Dead:
+        Base: dragon_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1
+    baseSprintSpeed : 2.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1350: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 1
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 45
+        Structural: 150
+    range: 2
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: NoSlip
+  - type: Damageable
+    damageContainer: Drake
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: NPCUseActionOnTarget
+    actions: DrakeActions
+    delay: 10
+  - type: HTN
+    rootTask:
+      task: GoliathCompound
+    blackboard:
+      VisionRadius: !type:Single
+        6
+      AggroVisionRadius: !type:Single
+        10
+
+- type: entity
+  id: MobDrake
+  parent: [ BaseMobDrake, BaseMobAsteroid ]
+  name: пепельный дракон
+
+#### Drake polymorphs
+
+- type: polymorph
+  id: SwoopDrake
+  configuration:
+    entity: MobDrakeSwoop #Not angry so ghosts can't just take over the wizard
+    transferName: true
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 4
+
+- type: entity
+  id: MobDrakeSwoop
+  parent: BaseMobDrake
+  name: "Полёт"
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/drake.rsi
+    scale: 0.5, 0.5
+    color: "#FFFFFF77"
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: shadow
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shadow
+      Dead:
+        Base: dragon_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 8
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        layer:
+        - GhostImpassable
+  - type: MovementIgnoreGravity
+  - type: RepeatingTrigger
+    delay: 3.9
+  - type: SpawnOnTrigger
+    proto: IgniteRuneDrake
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - FireballSignalFlight
+    chance: 0.15
+    intervalSeconds: 0
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+### Drake rune ###
+
+- type: entity
+  parent: CollideRune
+  id: IgniteRuneDrake
+  name: "руна"
+  components:
+    - type: Sprite
+      sprite: Structures/Magic/Cult/trap.rsi
+      scale: 3, 3
+      layers:
+        - state: trap
+          color: '#FF000055'
+    - type: SpawnOnDespawn
+      prototype: DrakeRuneInstaExplosion
+    - type: TimedDespawn
+      lifetime: 0.5
+
+#### Explosions ####
+
+- type: entity
+  name: Meteorite Instant Explosion
+  parent: BasePlasticExplosive
+  id: MeteorInstaExplosion
+  components:
+  - type: TriggerOnSpawn
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 2
+    intensitySlope: 100
+    maxIntensity: 2
+    canCreateVacuum: false
+    deleteAfterExplosion: true
+  - type: ExplodeOnTrigger
+
+- type: entity
+  name: Drake Rune Instant Explosion
+  parent: BasePlasticExplosive
+  id: DrakeRuneInstaExplosion
+  components:
+  - type: TriggerOnSpawn
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 25
+    canCreateVacuum: false
+    deleteAfterExplosion: true
+  - type: ExplodeOnTrigger
+
+### Signals ###
+
+- type: entity
+  id: FireballSignalPeriodic
+  parent: BaseEffectGoliathTentacleSpawn
+  name: сигнал
+  components:
+    - type: SpawnOnDespawn
+      prototype: MeteorInstaExplosion
+    - type: Transform
+      anchored: True
+    - type: Physics
+      bodyType: Static
+      canCollide: false
+    - type: Sprite
+      drawdepth: Overdoors
+      sprite: ADT/Effects/target_circle.rsi
+      state: icon
+    - type: InteractionOutline
+    - type: TimedDespawn
+      lifetime: 2.0
+    - type: PointLight
+      energy: 0.3
+      radius: 1
+      color: "#ff0000"
+    - type: SpawnOnTrigger
+      proto: FirefallMeteors
+    - type: RepeatingTrigger
+      delay: 1.55
+
+
+- type: entity
+  id: FireballSignalFlight
+  parent: BaseEffectGoliathTentacleSpawn
+  name: сигнал
+  components:
+    - type: SpawnOnDespawn
+      prototype: MeteorInstaExplosion
+    - type: Transform
+      anchored: True
+    - type: Physics
+      bodyType: Static
+      canCollide: false
+    - type: Sprite
+      drawdepth: Overdoors
+      sprite: ADT/Effects/target_circle.rsi
+      state: icon
+    - type: InteractionOutline
+    - type: TimedDespawn
+      lifetime: 1.3
+    - type: PointLight
+      energy: 0.3
+      radius: 1
+      color: "#ff0000"
+
+
+#### Firefall ####
+
+- type: entity
+  id: FirefallMeteors
+  parent: BaseEffectGoliathTentacleSpawn
+  name: сигнал
+  components:
+    - type: Transform
+      anchored: True
+    - type: Physics
+      bodyType: Static
+      canCollide: false
+    - type: Sprite
+      drawdepth: Overdoors
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: fireball
+      offset: 0, 1.7
+    - type: InteractionOutline
+    - type: TimedDespawn
+      lifetime: 0.60
+
+#### Random Actions ####
+
+- type: weightedRandomEntity
+  id: DrakeActions
+  weights:
+    ActionDrakeFire: 0.4
+    ActionDrakeBreath: 0.2
+    ActionDrakeSwoop: 0.2
+    ActionDrakeMeteors: 0.2
