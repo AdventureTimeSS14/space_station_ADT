@@ -47,7 +47,7 @@ public abstract partial class SharedOfferItemSystem
         {
             if (offerItem.Item is null)
             {
-                _popup.PopupEntity(Loc.GetString("offer-item-empty-hand"), uid, uid);
+                _popup.PopupClient(Loc.GetString("offer-item-empty-hand"), uid, uid);
                 return;
             }
 

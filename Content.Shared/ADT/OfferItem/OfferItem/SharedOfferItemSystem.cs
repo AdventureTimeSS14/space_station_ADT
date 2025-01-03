@@ -143,7 +143,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
                     _popup.PopupClient(Loc.GetString("offer-item-no-give",
                         ("item", Identity.Entity(component.Item.Value, EntityManager)),
                         ("target", Identity.Entity(component.Target.Value, EntityManager))), uid, uid);
-                    _popup.PopupEntity(Loc.GetString("offer-item-no-give-target",
+                    _popup.PopupClient(Loc.GetString("offer-item-no-give-target",
                         ("user", Identity.Entity(uid, EntityManager)),
                         ("item", Identity.Entity(component.Item.Value, EntityManager))), uid, component.Target.Value);
                 }
@@ -155,7 +155,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
                     _popup.PopupClient(Loc.GetString("offer-item-no-give",
                         ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
                         ("target", Identity.Entity(uid, EntityManager))), component.Target.Value, component.Target.Value);
-                    _popup.PopupEntity(Loc.GetString("offer-item-no-give-target",
+                    _popup.PopupClient(Loc.GetString("offer-item-no-give-target",
                         ("user", Identity.Entity(component.Target.Value, EntityManager)),
                         ("item", Identity.Entity(offerItem.Item.Value, EntityManager))), component.Target.Value, uid);
                 }
@@ -199,7 +199,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("offer-item-no-give",
                 ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
                 ("target", Identity.Entity(uid, EntityManager))), component.Target.Value, component.Target.Value);
-            _popup.PopupEntity(Loc.GetString("offer-item-no-give-target",
+            _popup.PopupClient(Loc.GetString("offer-item-no-give-target",
                 ("user", Identity.Entity(component.Target.Value, EntityManager)),
                 ("item", Identity.Entity(offerItem.Item.Value, EntityManager))), component.Target.Value, uid);
         }
