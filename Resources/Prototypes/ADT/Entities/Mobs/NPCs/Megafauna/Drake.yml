@@ -393,8 +393,10 @@
     intensitySlope: 100
     maxIntensity: 2
     canCreateVacuum: false
-    deleteAfterExplosion: true
+    deleteAfterExplosion: false
   - type: ExplodeOnTrigger
+  - type: TimedDespawn
+    lifetime: 0.1
 
 - type: entity
   name: Drake Rune Instant Explosion
