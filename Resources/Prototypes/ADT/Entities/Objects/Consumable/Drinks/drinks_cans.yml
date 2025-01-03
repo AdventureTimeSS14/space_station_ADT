@@ -11,8 +11,18 @@
         reagents:
         - ReagentId: EnergyDrink
           Quantity: 30
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon-open"}
+          False: {state: "icon"}
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/nostop.rsi
+    layers:
+      - state: icon
+        map: ["enum.OpenableVisuals.Layer"]
 
 - type: entity
   id: ADTDrinkBeerCanPack
