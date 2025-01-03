@@ -1,8 +1,8 @@
 # Спавн турелей у королевы
 - type: entity
-  id: ActionXenoQeenTurret
-  name: Create Xeno turret
-  description: Create an xeno turret in front of you, if placeable there.
+  id: ActionXenoQueenTurret
+  name: Create Xeno turret [color=green]25[/color]
+  description: Create an xeno turret in front of you, if placeable there. 
   components:
   - type: InstantAction
     priority: -1
@@ -15,8 +15,8 @@
 
 - type: entity
   id: ActionSpawnMobXenoQueen
-  name: Spawn Queen
-  description: New offspring!
+  name: Spawn Queen [color=green]100[/color]
+  description: New offspring! 
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
@@ -26,16 +26,16 @@
     icon:
       sprite: Mobs/Aliens/Xenos/queen.rsi
       state: crit
-    event: !type:WorldSpawnSpellEvent
+    event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoQueen
         amount: 1
-      offset: 0, 1
       speech: "Ааааааа! Ррррр!"
+      cost: 100
 
 - type: entity
   id: ActionSpawnMobXenoBurrower
-  name: Spawn Burrower
+  name: Spawn Burrower [color=green]10[/color]
   description: Standard xeno
   categories: [ HideSpawnMenu ]
   components:
@@ -50,13 +50,12 @@
       prototypes:
       - id: MobXeno
         amount: 1
-      offset: 0, 1
       speech: "Фаьюп"
       cost: 10
 
 - type: entity
   id: ActionSpawnMobXenoSpitter
-  name: Spawn Spitter
+  name: Spawn Spitter [color=green]20[/color]
   description: Give birth to Spitter who will spit!
   categories: [ HideSpawnMenu ]
   components:
@@ -67,16 +66,16 @@
     icon:
       sprite: Mobs/Aliens/Xenos/spitter.rsi
       state: crit
-    event: !type:WorldSpawnSpellEvent
+    event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoSpitter
         amount: 1
-      offset: 0, 1
       speech: "Грррррр"
+      cost: 20
 
 - type: entity
   id: ActionSpawnMobXenoPraetorian
-  name: Spawn Praetorian
+  name: Spawn Praetorian [color=green]50[/color]
   description: Give birth to a Praetorian who will fight for you!
   categories: [ HideSpawnMenu ]
   components:
@@ -87,16 +86,16 @@
     icon:
       sprite: Mobs/Aliens/Xenos/praetorian.rsi
       state: crit
-    event: !type:WorldSpawnSpellEvent
+    event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoPraetorian
         amount: 1
-      offset: 0, 1
       speech: "Фшшшшшш"
+      cost: 50
 
 - type: entity
   id: ActionSpawnMobXenoDrone
-  name: Just a Drone. Who needs it?
+  name: Just a Drone [color=green]30[/color]. Who needs it? 
   description: Give birth to a worker, Drone.
   categories: [ HideSpawnMenu ]
   components:
@@ -107,16 +106,16 @@
     icon:
       sprite: Mobs/Aliens/Xenos/drone.rsi
       state: crit
-    event: !type:WorldSpawnSpellEvent
+    event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoDrone
         amount: 1
-      offset: 0, 1
       speech: "Псфф"
+      cost: 30
 
 - type: entity
   id: ActionSpawnMobXenoRavager
-  name: Spawn Ravager
+  name: Spawn Ravager [color=green]80[/color]
   description: Give birth to death in the flesh!
   categories: [ HideSpawnMenu ]
   components:
@@ -127,16 +126,16 @@
     icon:
       sprite: Mobs/Aliens/Xenos/ravager.rsi
       state: crit
-    event: !type:WorldSpawnSpellEvent
+    event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoRavager
         amount: 1
-      offset: 0, 1
       speech: "АААРРРР ГГАААР"
+      cost: 80
 
 - type: entity
   id: ActionSpawnMobXenoRunner
-  name: Spawn Runner
+  name: Spawn Runner [color=green]40[/color]
   description: Give birth to the fastest larva!
   categories: [ HideSpawnMenu ]
   components:
@@ -147,9 +146,9 @@
     icon:
       sprite: Mobs/Aliens/Xenos/runner.rsi
       state: crit
-    event: !type:WorldSpawnSpellEvent
+    event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoRunner
         amount: 1
-      offset: 0, 1
       speech: "Шифссссшш"
+      cost: 40

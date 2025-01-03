@@ -6,13 +6,12 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Magic.Events;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
-using Robust.Shared.Spawners;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
-using System.Numerics;
-using Content.Shared.Storage;
+using Content.Shared.ADT.Events;
 using Robust.Shared.Network;
 using Content.Shared.Magic;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Abilities.XenoQueen
 {
@@ -30,15 +29,47 @@ namespace Content.Server.Abilities.XenoQueen
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<XenoQueenComponent, MapInitEvent>(OnMapInit);            SubscribeLocalEvent<XenoQueenComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<XenoQueenComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<XenoQueenComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<XenoQueenComponent, InvisibleWallActionEvent>(OnCreateTurret);
-            SubscribeLocalEvent<XenoQueenComponent, SpawnXenoQueenEvent> (OnWorldSpawn);
+            SubscribeLocalEvent<XenoQueenComponent, SpawnXenoQueenEvent>(OnWorldSpawn);
         }
 
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
+
+            var query = EntityQueryEnumerator<XenoQueenComponent>(); 
+            while (query.MoveNext(out var uid, out var component) && component.Regenetarion) // Костыль, но супер рабочий)
+            {
+                if (component.BloobCount >= component.MaxBloobCount) 
+                {
+                    component.Accumulator = 0f; 
+                    continue;
+                }
+
+                component.Accumulator += frameTime; // 0.000001
+
+                if (component.Accumulator <= component.RegenDelay)
+                    continue;
+
+                component.Accumulator -= component.RegenDelay; // component.Accumulator = 0f;
+                if (component.BloobCount < component.MaxBloobCount) 
+                {
+                    ChangePowerAmount(uid, component.RegenBloobCount, component);
+                }
+            }
+        }
+        public void ChangePowerAmount(EntityUid uid, FixedPoint2 amount, XenoQueenComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return;
+
+            if (component.BloobCount + amount < 0)
+                return;
+
+            component.BloobCount += amount;
+            //_alerts.ShowAlert(uid, _proto.Index(component.Alert), (short)Math.Clamp(Math.Round(component.Power.Float()), 0, 5));
         }
         private void OnMapInit(EntityUid uid, XenoQueenComponent component, MapInitEvent args)
         {
@@ -49,7 +80,7 @@ namespace Content.Server.Abilities.XenoQueen
             _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoSpitter, "ActionSpawnMobXenoSpitter");
             _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoPraetorian, "ActionSpawnMobXenoPraetorian");
             _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoRavager, "ActionSpawnMobXenoRavager");
-            //_actionsSystem.AddAction(uid, ref component.ActionSpawnXenoQueen, "ActionSpawnMobXenoQueen");
+            _actionsSystem.AddAction(uid, ref component.ActionSpawnXenoQueen, "ActionSpawnMobXenoQueen");
         }
         private void OnShutdown(EntityUid uid, XenoQueenComponent component, ComponentShutdown args)
         {
@@ -60,11 +91,11 @@ namespace Content.Server.Abilities.XenoQueen
             _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoSpitter);
             _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoPraetorian);
             _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoRavager);
-            //_actionsSystem.RemoveAction(uid, component.ActionSpawnXenoQueen);
+            _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoQueen);
         }
         private void OnCreateTurret(EntityUid uid, XenoQueenComponent component, InvisibleWallActionEvent args)
         {
-            if (!component.Enabled)
+            if (!component.XenoCreatTurretEnabled)
                 return;
 
             if (_container.IsEntityOrParentInContainer(uid))
@@ -92,57 +123,20 @@ namespace Content.Server.Abilities.XenoQueen
             args.Handled = true;
         }
         // Spawn Tipo
-        private void OnWorldSpawn(EntityUid uid, XenoQueenComponent component, SpawnXenoQueenEvent args)
+        private void OnWorldSpawn(EntityUid uid, XenoQueenComponent component, SpawnXenoQueenEvent args) // SpawnXenoQueenEvent
         {
-            if (args.Handled || !PassesSpellPrerequisites(args.Action, args.Performer))
-                return;
-
-            var targetMapCoords = args.Target;
-
-            WorldSpawnSpellHelper(args.Prototypes, targetMapCoords, args.Performer, args.Lifetime, args.Offset);
-            Speak(args);
-            args.Handled = true;
-        }
-        // Help
-        private void WorldSpawnSpellHelper(List<EntitySpawnEntry> entityEntries, EntityCoordinates entityCoords, EntityUid performer, float? lifetime, Vector2 offsetVector2)
-        {
-            var getProtos = EntitySpawnCollection.GetSpawns(entityEntries, _random);
-
-            var offsetCoords = entityCoords;
-            foreach (var proto in getProtos)
+            if (component.BloobCount > args.Cost)
             {
-                SpawnSpellHelper(proto, offsetCoords, performer, lifetime);
-                offsetCoords = offsetCoords.Offset(offsetVector2);
+                component.BloobCount -= args.Cost.Value;
+                Spawn(args.Prototypes[0].PrototypeId, Transform(uid).Coordinates);
+                Speak(args);
+                args.Handled = true;
+            }
+            else
+            {
+                _popupSystem.PopupEntity(Loc.GetString("queen-no-bloob-count", ("CountBloob", args.Cost.GetValueOrDefault() - component.BloobCount)), uid);
             }
         }
-        // Help 2
-        private void SpawnSpellHelper(string? proto, EntityCoordinates position, EntityUid performer, float? lifetime = null, bool preventCollide = false)
-        {
-            if (!_net.IsServer)
-                return;
-
-            var ent = Spawn(proto, position.SnapToGrid(EntityManager, _mapManager));
-
-            if (lifetime != null)
-            {
-                var comp = EnsureComp<TimedDespawnComponent>(ent);
-                comp.Lifetime = lifetime.Value;
-            }
-
-            if (preventCollide)
-            {
-                var comp = EnsureComp<PreventCollideComponent>(ent);
-                comp.Uid = performer;
-            }
-        }
-        //
-        private bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer)
-        {
-            var ev = new BeforeCastSpellEvent(performer);
-            RaiseLocalEvent(spell, ref ev);
-            return !ev.Cancelled;
-        }
-        //
         private void Speak(BaseActionEvent args)
         {
             if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))

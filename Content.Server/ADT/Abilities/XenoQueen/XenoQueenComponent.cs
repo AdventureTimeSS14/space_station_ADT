@@ -1,3 +1,4 @@
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -9,43 +10,43 @@ namespace Content.Server.Abilities.XenoQueen
     [RegisterComponent]
     public sealed partial class XenoQueenComponent : Component
     {
-        /// <summary>
-        /// Whether this component is active or not.
-        /// </summarY>
-        [DataField("enabled")]
-        public bool Enabled = true;
+        [DataField]
+        public bool XenoCreatTurretEnabled = true;
 
-        /// <summary>
-        /// The wall prototype to use.
-        /// </summary>
+        // 
         [DataField("wallPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string XenoTurret = "WeaponTurretXeno";
 
         [DataField("xenoTurretAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string? XenoTurretAction = "ActionXenoQueenTurret";
 
-        [DataField("xenoTurretActionEntity")] public EntityUid? XenoTurretActionEntity;
-                    
-        //Призывы                    
-        [DataField]
+        // Призывы                    
+        public EntityUid? XenoTurretActionEntity;
         public EntityUid? ActionSpawnXenoBurrower;
-
-        [DataField]
         public EntityUid? ActionSpawnXenoDrone;
-
-        [DataField]
         public EntityUid? ActionSpawnXenoRunner;
-
-        [DataField]
         public EntityUid? ActionSpawnXenoSpitter;
-
-        [DataField]
         public EntityUid? ActionSpawnXenoPraetorian;
+        public EntityUid? ActionSpawnXenoRavager;
+        public EntityUid? ActionSpawnXenoQueen;
+
+        // Регенрация очков
+        [DataField]
+        public bool Regenetarion = true; // Можно ли регенерировать очки.
 
         [DataField]
-        public EntityUid? ActionSpawnXenoRavager;
-        
+        public float RegenDelay = 60f; // Секунды до регена. Используется в счетчике
+
+        [ViewVariables]
+        public float Accumulator = 0f; // Сам счетчик 0.000000
+
         [DataField]
-        public EntityUid? ActionSpawnXenoQueen;
+        public FixedPoint2 BloobCount = 20; // Очки. Начальные очки равны 20
+
+        [DataField]
+        public FixedPoint2 MaxBloobCount = 150; // Максимальыне количество очков
+
+        [DataField]
+        public int RegenBloobCount = 3; // Реген очков в минуту
     }
 }
