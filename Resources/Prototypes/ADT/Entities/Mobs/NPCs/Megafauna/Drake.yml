@@ -80,7 +80,9 @@
     lifetime: 2
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    state: fireball
+    layers:
+    - state: fireball
+      shader: unshaded
 
 - type: entity
   id: BulletPistolMeteorites
@@ -89,7 +91,9 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    state: fireball
+    layers:
+    - state: fireball
+      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -119,7 +123,9 @@
     deleteOnCollide: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    state: fireball
+    layers:
+    - state: fireball
+      shader: unshaded
   - type: TimedDespawn
     lifetime: 0.68
 
@@ -159,7 +165,9 @@
     spread: 65
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    state: fireball
+    layers:
+    - state: fireball
+      shader: unshaded
 
 - type: entity
   name: drake meteorites
@@ -173,7 +181,9 @@
     spread: 360
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    state: fireball
+    layers:
+    - state: fireball
+      shader: unshaded
 
 #### Drake itself №№№№
 
@@ -270,6 +280,8 @@
         6
       AggroVisionRadius: !type:Single
         10
+  - type: Fauna
+  - type: Megafauna
 
 - type: entity
   id: MobDrake
@@ -332,6 +344,16 @@
     intervalSeconds: 0
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 0.01
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0
+    range: 1
 
 ### Drake rune ###
 
@@ -466,7 +488,9 @@
     - type: Sprite
       drawdepth: Overdoors
       sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-      state: fireball
+      layers:
+      - state: fireball
+        shader: unshaded
       offset: 0, 1.7
     - type: InteractionOutline
     - type: TimedDespawn
@@ -481,3 +505,73 @@
     ActionDrakeBreath: 0.2
     ActionDrakeSwoop: 0.2
     ActionDrakeMeteors: 0.2
+
+#### Pseudo-guns ####
+- type: entity
+  id: WeaponDragonFire
+  parent: BaseWeaponHeavyMachineGun
+  name: огненный плевок
+  description:
+  components:
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 10
+    soundGunshot:
+      path: /Audio/Magic/fireball.ogg
+      params:
+        volume: -10
+  - type: BasicEntityAmmoProvider
+    proto: LavalandDrakeFireBarrage
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 4
+  - type: Unremoveable
+
+- type: entity
+  id: WeaponDragonMeteorites
+  parent: BaseWeaponHeavyMachineGun
+  name: метеоритный дождь
+  description: Горящие пламенем космические обьекты подчиняются вашей воли, разрушая все в округе
+  components:
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 25
+    soundGunshot:
+      path: /Audio/Magic/fireball.ogg
+      params:
+        volume: -10
+  - type: BasicEntityAmmoProvider
+    proto: LavalandDrakeMeteorBarrage
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 25
+  - type: Unremoveable
+
+- type: entity
+  name: дыхание дракона
+  id: WeaponDragonBreath
+  parent: BaseWeaponHeavyMachineGun
+  description: Выпускает горячее пламя из вашей пасти, сжигая всё на своём пути.
+  components:
+  - type: Gun
+    fireRate: 10
+    projectileSpeed: 8
+    soundGunshot:
+      path: /Audio/Magic/fireball.ogg
+      params:
+        volume: -10
+  - type: BallisticAmmoProvider
+    proto: BulletFirethrow
+    capacity: 69000
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Unremoveable

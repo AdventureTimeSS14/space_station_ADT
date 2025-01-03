@@ -21,6 +21,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Lathe;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -59,18 +60,20 @@ public sealed partial class MegafaunaSystem
 
         _appearance.SetData(uid, AshdrakeVisuals.Swoop, true);
 
-        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
-        Timer.Spawn(500, () => Swoop(uid));
+        _stun.TryStun(uid, TimeSpan.FromSeconds(1.2f), false);
+        Timer.Spawn(TimeSpan.FromSeconds(1.2f), () => Swoop(uid));
     }
 
     private void OnMeteors(AshDrakeMeteoritesActionEvent args)
     {
         var uid = args.Performer;
-        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
 
         var randVector = _random.NextVector2(6);
-        var meteor = Spawn("LavalandDrakeMeteorBarrage", Transform(uid).Coordinates);
-        _gun.ShootProjectile(meteor, randVector, Vector2.Zero, uid);
+
+        var pseudoGun = Spawn("WeaponDragonMeteorites", Transform(uid).Coordinates);
+        _gun.AttemptShoot(uid, pseudoGun, Comp<GunComponent>(pseudoGun), new(Transform(uid).ParentUid, randVector.X, randVector.Y));
+        QueueDel(pseudoGun);
+        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
     }
 
     private void OnFire(AshDrakeFireActionEvent args)
@@ -78,14 +81,13 @@ public sealed partial class MegafaunaSystem
         var uid = args.Performer;
         if (!args.Coords.HasValue)
             return;
-        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
 
         var coords = args.Coords.Value;
 
-        var direction = coords.ToMapPos(EntityManager, _transform) - Transform(uid).Coordinates.ToMapPos(EntityManager, _transform);
-
-        var meteor = Spawn("LavalandDrakeFireBarrage", Transform(uid).Coordinates);
-        _gun.ShootProjectile(meteor, direction, Vector2.Zero, uid);
+        var pseudoGun = Spawn("WeaponDragonFire", Transform(uid).Coordinates);
+        _gun.AttemptShoot(uid, pseudoGun, Comp<GunComponent>(pseudoGun), coords);
+        QueueDel(pseudoGun);
+        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
     }
 
     private void OnBreath(AshDrakeBreathActionEvent args)
@@ -93,14 +95,13 @@ public sealed partial class MegafaunaSystem
         var uid = args.Performer;
         if (!args.Coords.HasValue)
             return;
-        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
 
         var coords = args.Coords.Value;
 
-        var direction = coords.ToMapPos(EntityManager, _transform) - Transform(uid).Coordinates.ToMapPos(EntityManager, _transform);
-
-        var meteor = Spawn("BulletFirethrow", Transform(uid).Coordinates);
-        _gun.ShootProjectile(meteor, direction, Vector2.Zero, uid);
+        var pseudoGun = Spawn("WeaponDragonBreath", Transform(uid).Coordinates);
+        _gun.AttemptShoot(uid, pseudoGun, Comp<GunComponent>(pseudoGun), coords);
+        QueueDel(pseudoGun);
+        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
     }
 
     private void Swoop(EntityUid uid)
