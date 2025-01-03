@@ -23,27 +23,11 @@ public abstract class SharedMiningShopSystem : EntitySystem
     protected virtual void OnVendBui(Entity<MiningShopComponent> vendor, ref MiningShopBuiMsg args)
     {
         var comp = vendor.Comp;
-        var sections = comp.Sections.Count;
         var actor = args.Actor;
-        if (args.Section < 0 || args.Section >= sections)
-        {
-            Log.Error($"{ToPrettyString(actor)} sent an invalid vend section: {args.Section}. Max: {sections}");
-            return;
-        }
 
-        var section = comp.Sections[args.Section];
-        var entries = section.Entries.Count;
-        if (args.Entry < 0 || args.Entry >= entries)
+        if (args.Entry.Price != null)
         {
-            Log.Error($"{ToPrettyString(actor)} sent an invalid vend entry: {args.Entry}. Max: {entries}");
-            return;
-        }
-
-        var entry = section.Entries[args.Entry];
-
-        if (entry.Price != null)
-        {
-            if (_miningPoints.TryFindIdCard(actor) is {} idCard && _miningPoints.RemovePoints(idCard, entry.Price.Value))
+            if (_miningPoints.TryFindIdCard(actor) is {} idCard && _miningPoints.RemovePoints(idCard, args.Entry.Price.Value))
             {
                 Dirty(vendor);
             }
@@ -52,7 +36,7 @@ public abstract class SharedMiningShopSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        vendor.Comp.OrderList.Add(entry);
+        vendor.Comp.OrderList.Add(args.Entry);
     }
 
 

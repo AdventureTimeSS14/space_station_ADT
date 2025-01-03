@@ -139,7 +139,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 20
+        Slash: 15
     soundHit:
       collection: MetalThud
     angle: 0
@@ -154,7 +154,7 @@
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
-        Slash: 40
+        Slash: 20
   - type: GunRequiresWield
   - type: Wieldable
   - type: Item
@@ -176,7 +176,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 25
+        Slash: 20
     soundHit:
       collection: MetalThud
     angle: 0
@@ -188,4 +188,4 @@
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
-        Slash: 15
+        Slash: 10
