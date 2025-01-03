@@ -5,6 +5,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.NPC.Components;
 
+// ADT: Компонент был полностью переписан, заменяйте при апстриме на нашу версию.
+
 /// <summary>
 /// This is used for an NPC that constantly tries to use an action on a given target.
 /// </summary>

@@ -8,6 +8,8 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.NPC.Systems;
 
+// ADT: Система была полностью переписан, заменяйте при апстриме на нашу версию.
+
 public sealed class NPCUseActionOnTargetSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -31,7 +33,6 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
             if (actionEnt.HasValue)
                 ent.Comp.ActionEntities.Add(actionEnt.Value, item.Value);
         }
-        //ent.Comp.ActionEnt = _actions.AddAction(ent, ent.Comp.ActionId);
     }
 
     public bool TryUseAction(Entity<NPCUseActionOnTargetComponent?> user, EntityUid target)
@@ -39,8 +40,6 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
         if (!Resolve(user, ref user.Comp, false))
             return false;
 
-        // if (!TryComp<EntityWorldTargetActionComponent>(user.Comp.ActionEnt, out var action))
-        //     return false;
         var weights = _proto.Index(user.Comp.Actions);
         var act = weights.Pick();
         var actionEntity = user.Comp.ActionEntities.Keys.Where(x => Prototype(x)?.ID == act).First();

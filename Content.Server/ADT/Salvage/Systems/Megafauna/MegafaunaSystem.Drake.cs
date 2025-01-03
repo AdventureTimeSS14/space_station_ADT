@@ -60,8 +60,8 @@ public sealed partial class MegafaunaSystem
 
         _appearance.SetData(uid, AshdrakeVisuals.Swoop, true);
 
-        _stun.TryStun(uid, TimeSpan.FromSeconds(1.2f), false);
-        Timer.Spawn(TimeSpan.FromSeconds(1.2f), () => Swoop(uid));
+        _stun.TryStun(uid, TimeSpan.FromSeconds(0.5f), false);
+        Timer.Spawn(TimeSpan.FromSeconds(0.5f), () => Swoop(uid));
     }
 
     private void OnMeteors(AshDrakeMeteoritesActionEvent args)

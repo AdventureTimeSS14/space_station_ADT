@@ -1,3 +1,4 @@
+using Content.Client.DamageState;
 using Content.Client.Humanoid;
 using Content.Shared.ADT.Salvage;
 using Content.Shared.ADT.Salvage.Components;
@@ -33,7 +34,7 @@ public sealed class MegafaunaVisualsSystem : EntitySystem
             return;
         if (_appearance.TryGetData<bool>(uid, AshdrakeVisuals.Swoop, out var swoop))
         {
-            sprite.LayerSetState(0, swoop ? "swoop" : "dragon");
+            sprite.LayerSetState(DamageStateVisualLayers.Base, swoop ? "swoop" : "dragon");
         }
     }
 }
