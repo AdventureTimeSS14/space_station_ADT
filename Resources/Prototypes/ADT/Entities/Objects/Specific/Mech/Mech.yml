@@ -566,6 +566,9 @@
     grid:
     - 0,0,6,3
     clickInsert: false
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
 
 - type: entity
   id: ADTMechDarkGygaxBattery
@@ -634,6 +637,9 @@
     grid:
     - 0,0,6,3
     clickInsert: false
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
 
 - type: entity
   id: ADTMechMaulerBattery

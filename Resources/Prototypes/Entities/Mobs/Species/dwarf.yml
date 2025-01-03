@@ -63,6 +63,11 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # ADT-Tweak start
+  - type: InnateMiningScannerViewer
+    pingSound: null
+    viewRange: 4
+  # ADT-Tweak end
   - type: LanguageSpeaker # Frontier
     speaks:
     - GalacticCommon

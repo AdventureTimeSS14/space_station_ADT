@@ -268,7 +268,13 @@ internal sealed partial class ChatManager : IChatManager
             wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", sponsorData.OOCColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         }
         // Corvax-Sponsors-End
-
+        // Start-ADT Schrodinger Tweak
+        var adminData = _adminManager.GetAdminData(player);
+        if (adminData != null && adminData.Title != null)
+        {
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-wrap-message", ("patronTitle", $"\\[{adminData.Title}\\] "),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+        }
+        // End-ADT Tweak
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
         _mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/")); // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force

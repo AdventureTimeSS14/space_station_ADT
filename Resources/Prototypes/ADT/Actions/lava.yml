@@ -1,0 +1,32 @@
+- type: entity
+  id: ActionPumpCursedHeart
+  name: action-pump-heart
+  description: action-pump-heart-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: cursed_heart
+    itemIconStyle: BigAction
+    event: !type:PumpHeartActionEvent
+    useDelay: 1
+
+- type: entity
+  id: ActionAncientGoliathTentacle
+  name: "[color=red]Tentacle Slam[/color]"
+  description: Use your tentacles to grab and stun a target player!
+  components:
+  - type: EntityWorldTargetAction
+    raiseOnUser: true
+    icon:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_spawn
+    iconOn:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_wiggle
+    sound:
+      path: "/Audio/Weapons/slash.ogg"
+    event: !type:GoliathSummonRandomTentacleAction
+    useDelay: 1
+    range: 10

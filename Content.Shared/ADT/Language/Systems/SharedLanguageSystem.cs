@@ -228,6 +228,25 @@ public abstract class SharedLanguageSystem : EntitySystem
 
         return result;
     }
+
+    public void AddSpokenLanguage(EntityUid uid, string lang, LanguageSpeakerComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+        if (!_proto.TryIndex<LanguagePrototype>(lang, out var proto))
+            return;
+        if (!CanSpeak(uid, lang))
+            comp.SpokenLanguages.Add(lang);
+        if (!CanUnderstand(uid, lang))
+            comp.UnderstoodLanguages.Add(lang);
+
+        UpdateUi(uid, comp);
+    }
+
+    public virtual void UpdateUi(EntityUid uid, LanguageSpeakerComponent? comp = null)
+    {
+
+    }
 }
 
 
