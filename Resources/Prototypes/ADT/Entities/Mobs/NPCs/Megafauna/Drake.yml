@@ -382,10 +382,10 @@
   components:
   - type: TriggerOnSpawn
   - type: Sprite
-    sprite: Objects/Weapons/Bombs/c4.rsi
-    state: icon
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    drawdepth: Effects
     layers:
-    - state: icon
+    - state: haunt
       map: ["base"]
   - type: Explosive
     explosionType: FireBomb
@@ -405,10 +405,10 @@
   components:
   - type: TriggerOnSpawn
   - type: Sprite
-    sprite: Objects/Weapons/Bombs/c4.rsi
-    state: icon
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    drawdepth: Effects
     layers:
-    - state: icon
+    - state: haunt
       map: ["base"]
   - type: Explosive
     explosionType: FireBomb
@@ -419,7 +419,7 @@
     deleteAfterExplosion: false
   - type: ExplodeOnTrigger
   - type: TimedDespawn
-    lifetime: 1
+    lifetime: 0.1
 
 ### Signals ###
 
