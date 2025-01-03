@@ -1,0 +1,310 @@
+- type: entity
+  parent: [ BaseMob, MobCombat ]
+  id: ADTMobCreature
+  name: the creature
+  description: Once it was a human being...
+  components:
+# START-advice
+# САМЫЕ, НАХУЙ, ВАЖНЫЕ КОМПОНЕНТЫ, ЧТОБЫ ЕБЛОИД МОГ БРАТЬ В РУКИ ПРЕДМЕТЫ!!!
+# И ВОТ ЭТИ ВСЕ map В СПРАЙТАХ - ТОЖЕ НУЖНЫ!!!
+# УЧИТЕСЬ НА МОИХ СТРАДАНИЯХ!!!
+  - type: Body
+    prototype: Human
+#
+  - type: Hands
+    showInHands: false
+#
+  - type: Input
+    context: "human"
+#
+  - type: Insulated
+#
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+#
+  - type: InventorySlots
+#
+  - type: Stripping
+#
+  - type: Strippable
+#
+  - type: ComplexInteraction
+#
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+#
+  - type: StatusIcon
+#
+  - type: InputMover
+#
+  - type: MobMover
+#
+  - type: Clickable
+#
+# САМЫЕ, НАХУЙ, ВАЖНЫЕ КОМПОНЕНТЫ, ЧТОБЫ ЕБЛОИД МОГ БРАТЬ В РУКИ ПРЕДМЕТЫ!!!
+# УЧИТЕСЬ НА МОИХ СТРАДАНИЯХ!!!
+# И ВОТ ЭТИ ВСЕ map В СПРАЙТАХ - ТОЖЕ НУЖНЫ!!!
+# END-advice
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/creature.rsi
+    drawdepth: Mobs
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: creature
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: alive-unshaded
+        shader: unshaded
+      - map: ["enum.HumanoidVisualLayers.Chest"]
+      - map: ["enum.HumanoidVisualLayers.Head"]
+      - map: ["enum.HumanoidVisualLayers.Snout"]
+      - map: ["enum.HumanoidVisualLayers.Eyes"]
+      - map: ["enum.HumanoidVisualLayers.RArm"]
+      - map: ["enum.HumanoidVisualLayers.LArm"]
+      - map: ["enum.HumanoidVisualLayers.RLeg"]
+      - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+      #- map: ["enum.HumanoidVisualLayers.Wings"]
+#
+  - type: Emoting
+#
+  - type: Speech
+    speechSounds: Drask
+    speechVerb: LargeMob
+#
+  - type: Vocal
+    sounds:
+      Male: MaleDrask
+      Female: FemaleDrask
+      Unsexed: MaleDrask
+#
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+#
+  - type: Internals
+#
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: ADT/Mobs/Demons/creature.rsi
+    state: icon
+#
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+#
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CannotSuicide
+#
+  - type: MindContainer
+#
+  - type: MovementAlwaysTouching
+#
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.5
+    baseSprintSpeed: 5.5
+#
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+#
+  - type: Deathgasp
+#
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    - Cold
+    - Caustic
+#
+  - type: LagCompensation
+#
+  - type: InteractionOutline
+#
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Critical
+      400: Dead
+#
+  - type: Puller
+#
+  - type: Pullable
+#
+  - type: ZombieImmune
+#
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.50
+        density: 200 # эта хуйня влияет на то, насколько ты типа силач, гигант, на твой вес, епта, и на disarm в том числе
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+#
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: creature
+        BaseUnshaded: alive-unshaded
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+#
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+#
+  - type: CombatMode
+#
+  - type: Climbing
+#
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 60
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 8
+#
+  - type: StaminaDamageOnHit
+    damage: 50
+#
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Machines/airlock_creaking.ogg
+#
+  - type: NoSlip
+#
+  - type: ReplacementAccent
+    accent: genericAggressive
+#
+  - type: Damageable
+    damageModifierSet: ADTMobCreatureDamageSet
+#
+  # Frontier - languages mechanic
+#
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
+
+- type: entity
+  parent: [BaseMob, MobCombat]
+  id: ADTMobAngelCrying
+  name: crying angel
+  description: crying angel
+  components:
+  - type: TimeDespawnDamage
+  - type: NoSlip
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: MetalThud
+    damage:
+      types:
+        Blunt: 30
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/angel_crying.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: angel
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+  - type: Body
+    prototype: Human
+  - type: Hands
+  - type: MindContainer
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Clickable
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
+  - type: ComplexInteraction
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Machines/airlock_creaking.ogg
+  - type: MovementAlwaysTouching
+  - type: LagCompensation

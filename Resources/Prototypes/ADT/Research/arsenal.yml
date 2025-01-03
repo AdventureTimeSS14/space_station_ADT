@@ -11,3 +11,55 @@
     - ADTWeaponCutterAdv
   technologyPrerequisites:
     - SalvageWeapons
+
+- type: technology
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
+  icon:
+    sprite: ADT/Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+
+#Технологии модулей
+- type: technology
+  id: ADTArsenalBasicModules
+  name: research-technology-modules-based
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+    state: tech_basic
+  discipline: Arsenal
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+    - ADTAttachmentVerticalGripRecipe
+    - ADTAttachmentLaserSightRecipe
+    - ADTAttachmentReflexSightRecipe
+  # technologyPrerequisites:
+  #   - SalvageWeapons
+
+- type: technology
+  id: ADTArsenalExtendedModules
+  name: research-technology-modules-extended
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
+    state: tech_extented
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTAttachmentT2MiniscopeRecipe
+    - ADTAttachmentM90UnderbarrelShotgunRecipe
+    - ADTAttachmentM90GrenadeLauncherRecipe
+    - ADT40mmGrenadeHEATRecipe
+    - ADT40mmGrenadeBatonRecipe
+    - ADT40mmGrenadeEMPRecipe
+    - ADT40mmGrenadeFlashRecipe
+    - ADT40mmGrenadeSmokeRecipe
+  technologyPrerequisites:
+    - ADTArsenalBasicModules

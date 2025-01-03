@@ -1,6 +1,6 @@
 - type: entity
   name: ion rifle
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, ADTBaseMagneticGun]
   id: ADTWeaponIonRifle
   description: An ion-electronic disruptor rifle specifically designed to fight cyborgs and mechs.
   components:
@@ -212,3 +212,69 @@
     price: 7500
   - type: Item
     size: Normal
+
+- type: entity
+  name: Miniature Energy Crossbow
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponMiniatureEnergyCrossbow
+  description: The syndicate's energy crossbow, small, silent and deadly.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    resetOnHandSelected: false
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      params:
+        volume: -5
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletMic
+    fireCost: 900
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 300
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+
+- type: entity
+  name: Energy Crossbow
+  parent: ADTWeaponMiniatureEnergyCrossbow
+  id: ADTWeaponEnergyCrossbow
+  description: Energy crossbow, big, powerful and stily.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletEnergyCrossbow
+    fireCost: 900
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: EnergyCrossbowGraph
+    node: crossbow
+  - type: Gun
+    resetOnHandSelected: false
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      params:
+        volume: -5
+    fireRate: 1
+  - type: UpgradeableGun
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container

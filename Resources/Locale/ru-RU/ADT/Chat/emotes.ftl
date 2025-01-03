@@ -15,3 +15,6 @@ chat-emote-name-purr = замурчать
 chat-emote-name-heck = захекать
 chat-emote-name-whine = поскулить
 chat-emote-name-bark = залаять
+chat-emote-name-spit = плюнуть
+
+chat-emote-msg-spit = плюёт

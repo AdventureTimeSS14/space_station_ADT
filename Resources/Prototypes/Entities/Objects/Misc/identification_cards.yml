@@ -24,6 +24,7 @@
     - WhitelistChameleon
   - type: StealTarget
     stealGroup: IDCard
+  - type: MiningPoints # ADT tweak
 
 #IDs with layers
 
@@ -626,9 +627,9 @@
     entries:
     - label: corvax-hidden-desc-AgentIDCard-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-AgentIDCard-research
       jobRequired:
         - ResearchAssistant

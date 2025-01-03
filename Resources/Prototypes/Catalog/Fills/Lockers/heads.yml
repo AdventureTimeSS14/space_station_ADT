@@ -14,6 +14,7 @@
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
+    - id: ADTHandheldShuttleConsoleSalvage # ADT-handheld-shuttle-console
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
@@ -378,6 +379,7 @@
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
+    - id: ADTHandheldShuttleConsoleSecurity # ADT-handheld-shuttle-console
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard

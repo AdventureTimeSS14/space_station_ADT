@@ -1,0 +1,11 @@
+- type: entity
+  id: Forgotten God rune
+  name: a rune
+  description: An ancient drawing used by sinister individuals for sacrifices.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: ADT/Objects/Misc/forgotten_god_rune.rsi
+    state: god_pentagram
