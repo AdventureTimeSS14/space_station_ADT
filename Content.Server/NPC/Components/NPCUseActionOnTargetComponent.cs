@@ -29,7 +29,7 @@ public sealed partial class NPCUseActionOnTargetComponent : Component
     // public EntityUid? ActionEnt;
 
     [DataField(required: true)]
-    public ProtoId<WeightedRandomEntityPrototype> Actions;
+    public ProtoId<WeightedRandomEntityPrototype> Actions = "GoliathActions";
 
     [ViewVariables]
     public Dictionary<EntityUid, float> ActionEntities = new();

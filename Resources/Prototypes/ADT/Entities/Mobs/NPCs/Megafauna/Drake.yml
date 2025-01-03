@@ -414,8 +414,10 @@
     intensitySlope: 5
     maxIntensity: 25
     canCreateVacuum: false
-    deleteAfterExplosion: true
+    deleteAfterExplosion: false
   - type: ExplodeOnTrigger
+  - type: TimedDespawn
+    lifetime: 1
 
 ### Signals ###
 
@@ -527,6 +529,11 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 4
   - type: Unremoveable
+  - type: Sprite
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    drawdepth: Effects
+    layers:
+    - state: haunt
 
 - type: entity
   id: WeaponDragonMeteorites
@@ -548,6 +555,11 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 25
   - type: Unremoveable
+  - type: Sprite
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    drawdepth: Effects
+    layers:
+    - state: haunt
 
 - type: entity
   name: дыхание дракона
@@ -575,3 +587,8 @@
       ballistic-ammo: !type:Container
         ents: []
   - type: Unremoveable
+  - type: Sprite
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    drawdepth: Effects
+    layers:
+    - state: haunt
