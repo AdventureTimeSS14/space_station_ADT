@@ -331,7 +331,7 @@ internal sealed partial class ChatManager : IChatManager
                 return;
             var payload = new WebhookPayload
             {
-                Content = $"***AdminChat***: **{senderName}**: {message}"
+                Content = $"***AdminChat***: `{player.Name}`[{senderAdmin.Title}]: {message}"
             };
             var identifier = webhookData.ToIdentifier();
             await _discord.CreateMessage(identifier, payload);

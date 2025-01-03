@@ -111,7 +111,7 @@ namespace Content.Server.Administration.Managers
                     return;
                 var payload = new WebhookPayload
                 {
-                    Content = $"**Снял права**: **{session.Name}**"
+                    Content = $"**Снял права**: `{session.Name}`"
                 };
                 var identifier = webhookData.ToIdentifier();
                 await _discord.CreateMessage(identifier, payload);
@@ -198,7 +198,7 @@ namespace Content.Server.Administration.Managers
                     return;
                 var payload = new WebhookPayload
                 {
-                    Content = $"**Вернул права**: **{session.Name}**"
+                    Content = $"**Вернул права**: `{session.Name}`"
                 };
                 var identifier = webhookData.ToIdentifier();
                 await _discord.CreateMessage(identifier, payload);
@@ -407,7 +407,7 @@ namespace Content.Server.Administration.Managers
                     return;
                 var payload = new WebhookPayload
                 {
-                    Content = $"**Оповещение: Админ ВЫШЕЛ {senderName}**"
+                    Content = $"**Оповещение: Админ ВЫШЕЛ** `{senderName}`"
                 };
                 var identifier = webhookData.ToIdentifier();
                 await _discord.CreateMessage(identifier, payload);
@@ -459,14 +459,11 @@ namespace Content.Server.Administration.Managers
                             var senderAdmin = GetAdminData(session);
                             if (senderAdmin == null)
                                 return;
-                            var senderName = session.Name;
-                            if (!string.IsNullOrEmpty(senderAdmin.Title))
-                                senderName += $"\\[{senderAdmin.Title}\\]";
                             if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
                                 return;
                             var payload = new WebhookPayload
                             {
-                                Content = $"**Оповещение: Админ зашёл {senderName}**"
+                                Content = $"**Оповещение: Админ ЗАШЁЛ** `{session.Name}`[{senderAdmin.Title}]"
                             };
                             var identifier = webhookData.ToIdentifier();
                             await _discord.CreateMessage(identifier, payload);
