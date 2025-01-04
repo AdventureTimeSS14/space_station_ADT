@@ -279,7 +279,7 @@
       VisionRadius: !type:Single
         6
       AggroVisionRadius: !type:Single
-        10
+        25
   - type: Fauna
   - type: Megafauna
 
