@@ -1,4 +1,4 @@
-ent-ActionXenoQeenTurret = Создать ксено турель. [color=green]25[/color]
+ent-ActionXenoQueenTurret = Создать ксено турель. [color=green]25[/color]
     .desc = Создаёт перед вами ксену турель, если хватает места.
 create-turret-failed = Найдите другое место.
 create-turret = Арргхсс. Шшшшш!
@@ -17,3 +17,5 @@ ent-ActionSpawnMobXenoBurrower = Призвать рабочего [color=green]
 ent-ActionSpawnMobXenoQueen = Призвать [color=violet]Королеву[/color] [color=green]100[/color]
     .desc = [color=red]Новое потомство! Новое поколение! Эволюция![/color]
 queen-no-bloob-count = Недостаточно {$CountBloob} очков.
+alerts-xeno-queen-bloob-count-name = [color=green]Bloob Canister[/color] 
+alerts-xeno-queen-bloob-count-desc = Кто то скажет, что это батарея, а я отвечу - канистра крови. 

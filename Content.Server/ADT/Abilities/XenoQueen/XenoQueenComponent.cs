@@ -1,5 +1,6 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
+using Content.Shared.Alert;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Abilities.XenoQueen
@@ -16,8 +17,6 @@ namespace Content.Server.Abilities.XenoQueen
         // 
         [DataField("wallPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string XenoTurret = "WeaponTurretXeno";
-
-        [DataField("xenoTurretAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string? XenoTurretAction = "ActionXenoQueenTurret";
 
         // Призывы                    
@@ -48,5 +47,8 @@ namespace Content.Server.Abilities.XenoQueen
 
         [DataField]
         public int RegenBloobCount = 3; // Реген очков в минуту
+
+        // Иконка
+        public ProtoId<AlertPrototype> Alert = "XenoQueenBloobCount";
     }
 }

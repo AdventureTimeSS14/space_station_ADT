@@ -6,10 +6,10 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Magic.Events;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Map;
-using Robust.Shared.Random;
 using Content.Shared.ADT.Events;
-using Robust.Shared.Network;
+using Content.Shared.Alert;
 using Content.Shared.Magic;
 using Content.Shared.FixedPoint;
 
@@ -19,17 +19,17 @@ namespace Content.Server.Abilities.XenoQueen
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly TurfSystem _turf = default!;
-        [Dependency] private readonly INetManager _net = default!;
         [Dependency] private readonly IMapManager _mapMan = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly AlertsSystem _alerts = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<XenoQueenComponent, MapInitEvent>(OnMapInit);
+            SubscribeLocalEvent<XenoQueenComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<XenoQueenComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<XenoQueenComponent, InvisibleWallActionEvent>(OnCreateTurret);
             SubscribeLocalEvent<XenoQueenComponent, SpawnXenoQueenEvent>(OnWorldSpawn);
@@ -60,6 +60,11 @@ namespace Content.Server.Abilities.XenoQueen
                 }
             }
         }
+        private void OnStartup(EntityUid uid, XenoQueenComponent component, ComponentStartup args)
+        {
+            //update the icon
+            UpdateAlertShow(uid, component);
+        }
         public void ChangePowerAmount(EntityUid uid, FixedPoint2 amount, XenoQueenComponent? component = null)
         {
             if (!Resolve(uid, ref component))
@@ -69,7 +74,7 @@ namespace Content.Server.Abilities.XenoQueen
                 return;
 
             component.BloobCount += amount;
-            //_alerts.ShowAlert(uid, _proto.Index(component.Alert), (short)Math.Clamp(Math.Round(component.Power.Float()), 0, 5));
+            UpdateAlertShow(uid, component);
         }
         private void OnMapInit(EntityUid uid, XenoQueenComponent component, MapInitEvent args)
         {
@@ -121,6 +126,7 @@ namespace Content.Server.Abilities.XenoQueen
             Spawn(component.XenoTurret, _turf.GetTileCenter(tile.Value));
             // Handle args so cooldown works
             args.Handled = true;
+            UpdateAlertShow(uid, component);
         }
         // Spawn Tipo
         private void OnWorldSpawn(EntityUid uid, XenoQueenComponent component, SpawnXenoQueenEvent args) // SpawnXenoQueenEvent
@@ -136,6 +142,7 @@ namespace Content.Server.Abilities.XenoQueen
             {
                 _popupSystem.PopupEntity(Loc.GetString("queen-no-bloob-count", ("CountBloob", args.Cost.GetValueOrDefault() - component.BloobCount)), uid);
             }
+            UpdateAlertShow(uid, component);
         }
         private void Speak(BaseActionEvent args)
         {
@@ -144,6 +151,10 @@ namespace Content.Server.Abilities.XenoQueen
 
             var ev = new SpeakSpellEvent(args.Performer, speak.Speech);
             RaiseLocalEvent(ref ev);
+        }
+        private void UpdateAlertShow(EntityUid uid, XenoQueenComponent component)
+        {
+            _alerts.ShowAlert(uid, _proto.Index(component.Alert), (short)Math.Clamp(Math.Round(component.BloobCount.Float() / 23), 0, 7)); // Почему ": 23" ? Все просто. 150 / 23 = 6.5.... Ну и все.
         }
     }
 }
