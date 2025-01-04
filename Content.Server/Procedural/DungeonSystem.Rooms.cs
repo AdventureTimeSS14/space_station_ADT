@@ -186,7 +186,9 @@ public sealed partial class DungeonSystem
             _transform.SetLocalRotation(ent, childRot, childXform);
 
             // ADT - чиним тестер
-            if (grid == null || gridUid == childXform.GridUid)
+            _transform.AttachToGridOrMap(ent);
+
+            if (grid == null || gridUid != childXform.GridUid)
             {
                 Log.Debug("Спавнер данжа находится в космосе?");
                 return;
