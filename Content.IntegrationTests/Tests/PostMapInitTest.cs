@@ -116,6 +116,7 @@ namespace Content.IntegrationTests.Tests
             // ADT-Halloween-End
 
             // ADT-New-Year-Start
+            "ADT_AspidNewYear",
             "ADT_BagelNewYear",
             "ADT_BoxNewYear",
             "ADT_Cluster_LegacyNewYear",
