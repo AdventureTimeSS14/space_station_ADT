@@ -6,10 +6,10 @@
   - type: MobMover
   - type: Mech
   - type: MechAir
-# ADT-Tweak-start      
+# ADT-Tweak-start
   - type: Prying
-    pryPowered: false     
-# ADT-Tweak-end   
+    pryPowered: false
+# ADT-Tweak-end
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
@@ -113,6 +113,14 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: NpcFactionMember # ADT tweak stary
+    factions:
+    - NanoTrasen
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Critical
+  - type: MobState # ADT tweak end
 
 - type: entity
   id: MechRipley
@@ -163,7 +171,7 @@
   - type: Storage #ADT edit
     grid:
     - 0,0,9,2
-    clickInsert: false 
+    clickInsert: false
 
 - type: entity
   id: MechRipleyBattery

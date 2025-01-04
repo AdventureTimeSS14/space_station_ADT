@@ -1,0 +1,136 @@
+- type: biomeTemplate
+  id: LavaLand
+  layers:
+    - !type:BiomeEntityLayer
+      threshold: 0.9
+      noise:
+        frequency: 1
+        seed: 2
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - BasaltOne
+        - BasaltTwo
+        - BasaltThree
+        - BasaltFour
+        - BasaltFive
+    - !type:BiomeDecalLayer
+      allowedTiles:
+        - FloorBasalt
+      threshold: 0.9
+      divisions: 1
+      noise:
+        seed: 1
+        frequency: 1
+      decals:
+        - Basalt1
+        - Basalt2
+        - Basalt3
+        - Basalt4
+        - Basalt5
+        - Basalt6
+        - Basalt7
+        - Basalt8
+        - Basalt9
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        frequency: 1
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - FloraRockSolid01
+        - FloraRockSolid02
+        - FloraRockSolid03
+    - !type:BiomeEntityLayer
+      threshold: 0.97
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        frequency: 0.7
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - ADTSpawnMobPRandomLavaland
+    - !type:BiomeEntityLayer
+      threshold: 0.997
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        frequency: 0.4
+        lacunarity: 0.6
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - LavaDungeonRoomMarker
+    - !type:BiomeEntityLayer
+      threshold: 0.2
+      noise:
+        seed: 0
+        frequency: 0.05
+        fractalType: FBm
+        octaves: 5
+        lacunarity: 2
+        gain: 0.4
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - FloorLavaEntity
+    #undertale lore
+    - !type:BiomeEntityLayer
+      allowedTiles:
+      - FloorBasalt
+      threshold: 0.6
+      noise:
+        seed: 3
+        frequency: 0.02
+        fractalType: FBm
+        octaves: 5
+        lacunarity: 2
+        gain: 0.4
+      entities:
+      - FloorChasmEntity
+    # Rock formations
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorBasalt
+      threshold: -0.30
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.05
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockBasalt
+    - !type:BiomeDummyLayer
+      id: Loot
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.5
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - FloraTreeSnow01
+        - FloraTreeSnow02
+        - FloraTreeSnow03
+        - FloraTreeSnow04
+        - FloraTreeSnow05
+        - FloraTreeSnow06
+    # Fill basalt
+    - !type:BiomeTileLayer
+      threshold: -1
+      tile: FloorBasalt

@@ -175,8 +175,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 0.85 # ADT tweak 1.0 - 0.85
+    sprintModifier: 0.85 # ADT tweak 1.0 - 0.85
   - type: Armor
     modifiers:
       coefficients:
@@ -940,11 +940,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4 #ADT-tweak 0.7 -> 0.4
-        Slash: 0.4 #ADT-tweak 0.7 -> 0.4
-        Piercing: 0.4 #ADT-tweak 0.6 -> 0.4
-        Heat: 0.3 #ADT-tweak 0.05 -> 0.3
-        Cold: 0.3 #ADT-tweak 0.1 -> 0.3
+        Blunt: 0.45 #ADT-tweak 0.7 -> 0.5
+        Slash: 0.45 #ADT-tweak 0.7 -> 0.5
+        Piercing: 0.65 #ADT-tweak 0.6 -> 0.65
+        Heat: 0.2 #ADT-tweak 0.05 -> 0.2
+        Cold: 0.2 #ADT-tweak 0.1 -> 0.2
         Shock: 0.3 #ADT-tweak 0.1 -> 0.3
         Radiation: 0.1
         Caustic: 0.3 #ADT-tweak
