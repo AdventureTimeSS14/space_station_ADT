@@ -397,6 +397,7 @@
   parent: VisitorCivilian
   components:
     - type: BibleUser
+    - type: Chaplain
     - type: GhostRole
       name: job-name-chaplain
     - type: Loadout

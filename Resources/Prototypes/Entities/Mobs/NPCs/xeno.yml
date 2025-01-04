@@ -78,6 +78,10 @@
     damage:
       groups:
         Brute: 6
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 10 
+  # End ADT
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -157,6 +161,8 @@
     damage:
       groups:
         Brute: 8    
+  - type: StaminaDamageOnHit
+    damage: 12 
   # ADT End
   - type: Fixtures
     fixtures:
@@ -197,6 +203,10 @@
     damage:
       groups:
         Brute: 5 # ADT Tweak
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 15 
+  # End ADT
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -221,15 +231,7 @@
   id: MobXenoQueen
   components:
   # ADT Start: Xeno buff
-  - type: XenoQeen # ADT Tweak: Способность спавнта турелей
-  - type: ActionGrant
-    actions:
-      - ActionSpawnMobXenoBurrower # Призыв обычного
-      - ActionSpawnMobXenoDrone # Призыв Дрона
-      - ActionSpawnMobXenoRunner # Призыв бегуна
-      - ActionSpawnMobXenoSpitter # Призыв Плевальщиков
-      - ActionSpawnMobXenoPraetorian # Призыв Преторианеца
-      - ActionSpawnMobXenoRavager # Призыв Разрушителя
+  - type: XenoQueen # ADT Tweak: Способности королевы
   #ADT End
   - type: Sprite
     drawdepth: Mobs
@@ -250,6 +252,10 @@
     damage:
      groups:
        Brute: 20 # ADT Tweak
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 35
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -294,6 +300,10 @@
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 60 
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -334,6 +344,10 @@
     damage:
      groups:
        Brute: 5
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 5
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
