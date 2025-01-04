@@ -271,7 +271,7 @@
     damageCoefficient: 0
   - type: NPCUseActionOnTarget
     actions: DrakeActions
-    delay: 10
+    delay: 5
   - type: HTN
     rootTask:
       task: GoliathCompound
