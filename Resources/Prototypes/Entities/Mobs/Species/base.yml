@@ -243,6 +243,7 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
+  - type: OfferItem # ADT-Tweak
   - type: Barotrauma
     damage:
       types:
