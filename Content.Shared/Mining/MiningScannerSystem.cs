@@ -1,4 +1,5 @@
 using Content.Shared.Inventory;
+using Content.Shared.ADT.Mining.Components;// ADT-Tweak
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mining.Components;
 using Robust.Shared.Audio.Systems;
@@ -8,7 +9,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Mining;
 
-public sealed class MiningScannerSystem : EntitySystem
+public sealed partial class MiningScannerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -22,6 +23,7 @@ public sealed class MiningScannerSystem : EntitySystem
         SubscribeLocalEvent<MiningScannerComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<MiningScannerComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
         SubscribeLocalEvent<MiningScannerComponent, ItemToggledEvent>(OnToggled);
+        ADTInitialize(); // ADT-Tweak
     }
 
     private void OnInserted(Entity<MiningScannerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -85,8 +87,15 @@ public sealed class MiningScannerSystem : EntitySystem
         {
             if (viewer.QueueRemoval)
             {
-                RemCompDeferred(uid, viewer);
-                continue;
+                if (TryComp<InnateMiningScannerViewerComponent>(uid, out var innateViewer))
+                {
+                    SetupInnateMiningViewerComponent((uid, innateViewer));
+                }
+                else
+                {
+                    RemCompDeferred(uid, viewer);
+                    continue;
+                } 
             }
 
             if (_timing.CurTime < viewer.NextPingTime)
