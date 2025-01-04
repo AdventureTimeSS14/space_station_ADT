@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from /tg/station at https://scrubby.melonmesa.com/dmi/icons/mob/simple/lavaland/96x96megafauna.dmi?codebase=tgstation",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "dragon",
+      "directions": 4
+    },
+    {
+      "name": "dragon_dead"
+    },
+    {
+        "name": "swoop",
+        "delays": [
+            [
+              0.1,
+              0.2,
+              500
+            ]
+        ]
+    },
+    {
+        "name": "shadow"
+    }
+  ]
+}
