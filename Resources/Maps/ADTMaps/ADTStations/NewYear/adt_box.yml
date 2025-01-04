@@ -487,7 +487,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: ADT_Boxstation
+      id: ADT_BoxNewYear
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
