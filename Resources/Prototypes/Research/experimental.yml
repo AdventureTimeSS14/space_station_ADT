@@ -68,7 +68,7 @@
   cost: 7500
   recipeUnlocks:
   - ClothingShoesBootsMagSci
-  - ClothingShoesBootsMoon
+  #- ClothingShoesBootsMoon # ADT tweak - убираем луноходы
 
 - type: technology
   id: AnomalyCoreHarnessing

@@ -340,7 +340,7 @@
       - WeaponGauntletGorilla
       - SynthesizerInstrument
       - ClothingShoesBootsMagSci
-      - ClothingShoesBootsMoon
+      # - ClothingShoesBootsMoon  # ADT tweak - убираем луноходы
       - ClothingShoesBootsSpeed
       - NodeScanner
       - HolofanProjector
