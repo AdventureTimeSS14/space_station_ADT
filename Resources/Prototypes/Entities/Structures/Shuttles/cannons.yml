@@ -397,16 +397,3 @@
       ballistic-ammo: !type:Container
       actions: !type:Container
   - type: Actions
-#Turret returning action
-
-- type: entity
-  id: ControlReturnAction
-  name: Stop controlling turret
-  components:
-  - type: InstantAction
-    priority: -100
-    icon:
-      sprite: Objects/Tools/crowbar.rsi #заменить спрайт с монтировки на что то сносное
-      state: icon
-    event: !type:ControlReturnActionEvent {}
-    useDelay: 1

@@ -1,18 +1,30 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Content.Shared.Actions;
 
-namespace Content.Server.ADT.SS40k.Turrets.TurretController;
+namespace Content.Shared.ADT.SS40k.Turrets;
 
-[RegisterComponent]
-public sealed partial class TurretControllerComponent : Component
+public sealed partial class ControlReturnActionEvent : InstantActionEvent // для акшона
 {
-    [ViewVariables]
-    public EntityUid? CurrentUser;
+}
 
-    [ViewVariables]
-    public EntityUid? CurrentTurret;
+public sealed class ReturnToBodyTurretEvent : EntityEventArgs//поднимаем на возвращении
+{
+    public EntityUid TurretController;
+
+    public ReturnToBodyTurretEvent(EntityUid turretcontroller)
+    {
+        TurretController = turretcontroller;
+    }
+}
+
+public sealed class GettingControlledEvent : EntityEventArgs //поднимаем для турели которая начинает контролироваться
+{
+    public EntityUid User;
+    public EntityUid Controller;
+    public GettingControlledEvent(EntityUid user, EntityUid controller)
+    {
+        User = user;
+        Controller = controller;
+    }
 }
 
 /*

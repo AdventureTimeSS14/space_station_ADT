@@ -1,29 +1,32 @@
-using Content.Shared.Actions;
+using System.Numerics;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.SS40k.Turrets;
-public sealed partial class ControlReturnActionEvent : InstantActionEvent // для акшона
+namespace Content.Shared.ADT.SS40k.Turrets.Components;
+
+[RegisterComponent]
+public sealed partial class TurretControllableComponent : Component
 {
-}
 
-public sealed class ReturnToBodyTurretEvent : EntityEventArgs//поднимаем на возвращении
-{
-    public EntityUid TurretController;
+    [ViewVariables]
+    public EntityUid? User;
 
-    public ReturnToBodyTurretEvent(EntityUid turretcontroller)
-    {
-        TurretController = turretcontroller;
-    }
-}
+    [ViewVariables]
+    public EntityUid? Controller;// ??? why?
 
-public sealed class GettingControlledEvent : EntityEventArgs //поднимаем для турели которая начинает контролироваться
-{
-    public EntityUid User;
-    public EntityUid Controller;
-    public GettingControlledEvent(EntityUid user, EntityUid controller)
-    {
-        User = user;
-        Controller = controller;
-    }
+    [DataField("ControlReturnAction")]
+    public EntProtoId ControlReturnAction = "ControlReturnAction";
+
+    [DataField("ControlReturnActionEntity")]
+    public EntityUid? ControlReturnActEntity;
+
+    [DataField("Range")]
+    public float Range = 50f;
+
+    [DataField("isDrone")]
+    public bool IsDrone = false;
+
+    [DataField("isMoveable")]
+    public bool IsMoveable = false;
 }
 
 /*

@@ -1,105 +1,80 @@
-using System.Numerics;
-using Content.Shared.Actions;
-using Content.Shared.ADT.SS40k.Turrets;
-using Content.Shared.Bed.Sleep;
-using Content.Shared.Examine;
+using System.Linq;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Ghost;
+using Content.Shared.Interaction;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mobs.Systems;
+using Content.Shared.ADT.SS40k.Turrets;
+using Content.Shared.ADT.SS40k.Turrets.Components;
 
-namespace Content.Server.ADT.SS40k.Turrets.TurretControllable;
+namespace Content.Shared.ADT.SS40k.Turrets.Systems;
 
-public sealed class TurretControllableSystem : EntitySystem
+public sealed class TurretControllerSystem : EntitySystem
 {
-
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<TurretControllableComponent, MapInitEvent>(OnStartup);//заливаем акшон для возврата(можно добавить и другие)
-        SubscribeLocalEvent<TurretControllableComponent, ComponentShutdown>(OnShutdown);//чистим\возвращаем
-        SubscribeLocalEvent<TurretControllableComponent, ControlReturnActionEvent>(OnReturn);//акшон возврата
-        SubscribeLocalEvent<TurretControllableComponent, GettingControlledEvent>(OnGettingControlled);//сохраняем
+
+        SubscribeLocalEvent<TurretControllerComponent, InteractHandEvent>(AfterInteract);//закидываем в турель при использовании
+        SubscribeLocalEvent<TurretControllerComponent, ComponentShutdown>(OnShutdown);//чистим
+        SubscribeLocalEvent<TurretControllerComponent, LinkAttemptEvent>(OnLinkAttempt);//отменяем соединения
+        SubscribeLocalEvent<TurretControllerComponent, NewLinkEvent>(OnNewLink); //заливаем турель в компонент контроллера(потенциал в будущем сделать массив турелей с одной консолью)
+        SubscribeLocalEvent<TurretControllerComponent, ReturnToBodyTurretEvent>(OnReturn);//чистим
     }
 
-    public void OnGettingControlled(EntityUid uid, TurretControllableComponent component, GettingControlledEvent args)
+    public void OnReturn(EntityUid uid, TurretControllerComponent component, ReturnToBodyTurretEvent args)
     {
-        component.User = args.User;
-        component.Controller = args.Controller;
+        component.CurrentUser = null;
+        component.CurrentTurret = null;
     }
 
-    public void OnReturn(EntityUid uid, TurretControllableComponent component, ControlReturnActionEvent args)
+    public void OnLinkAttempt(EntityUid uid, TurretControllerComponent component, LinkAttemptEvent args)
     {
-        Return(uid, component);
+        if (component.CurrentUser is not null)
+            args.Cancel();
     }
 
-    public void Return(EntityUid uid, TurretControllableComponent component)
+    public void AfterInteract(EntityUid uid, TurretControllerComponent component, InteractHandEvent args)
     {
-        if (TryComp<MindContainerComponent>(uid, out var mind))
+        if (TryComp<GhostComponent>(args.User, out var _))
+            return;
+
+        if (TryComp<TurretControllableComponent>(args.User, out var _)) // чтобы обьект умеющий взаимодействовать с консолями не мог контролить сам себя
+            return;
+
+        if (!TryComp<DeviceLinkSourceComponent>(uid, out var linkSource))
+            return;
+
+        if (linkSource.LinkedPorts.Count != 0)
         {
-            if (mind.HasMind)
-                TryReturnToBody(uid, component);
-        }
-        component.User = null;
-        if (component.Controller is not null)
-        {
-            RaiseLocalEvent((EntityUid)component.Controller, new ReturnToBodyTurretEvent(uid));
-            component.Controller = null;
-        }
-    }
-
-    public void OnStartup(EntityUid uid, TurretControllableComponent component, MapInitEvent args)
-    {
-        _actionsSystem.AddAction(uid, ref component.ControlReturnActEntity, component.ControlReturnAction);
-    }
-    public void OnShutdown(EntityUid uid, TurretControllableComponent component, ComponentShutdown args)
-    {
-        Return(uid, component);
-
-        _actionsSystem.RemoveAction(component.ControlReturnActEntity);
-    }
-
-    public bool TryReturnToBody(EntityUid uid, TurretControllableComponent component)
-    {
-        if (component.User is not null)
-        {
-            _mindSystem.ControlMob(uid, (EntityUid)component.User);
-            return true;
-        }
-        else return false;
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-        var entityes = EntityQueryEnumerator<TurretControllableComponent>();
-        while (entityes.MoveNext(out var uid, out var comp))
-        {
-            if (comp.User is not null && comp.Controller is not null && (!_mobStateSystem.IsAlive((EntityUid)comp.User) ||
-            TryComp<SleepingComponent>((EntityUid)comp.User, out var _) ||
-            TryComp<ForcedSleepingComponent>((EntityUid)comp.User, out var _))) Return(uid, comp); //тут мейби можно убрать проверку на ещё один компонент(нужно тестить)
-            //
-
+            var target = linkSource.LinkedPorts.First().Key;
+            component.CurrentUser = args.User;
+            component.CurrentTurret = target;
+            RaiseLocalEvent(target, new GettingControlledEvent(args.User, uid));
+            _mindSystem.ControlMob(args.User, target);
         }
     }
 
-    // public bool IsControlling(EntityUid uid, TurretControllableComponent comp)
-    // {
-    //     if (TryComp<MindContainerComponent>(uid, out var mind))
-    //     {
-    //         return mind.HasMind;
-    //     }
-    //     else
-    //     {
-    //         comp.User = null;
-    //         return false;
-    //     }
-    // }
+    public void OnShutdown(EntityUid uid, TurretControllerComponent component, ComponentShutdown args)
+    {
+        if (component.CurrentUser is not null && component.CurrentTurret is not null)
+        {
+            if (!TryComp<TurretControllableComponent>(component.CurrentTurret, out var turretComp))
+                return;
+
+            if (turretComp.User is not null)
+                _mindSystem.ControlMob((EntityUid)component.CurrentTurret, (EntityUid)component.CurrentUser);
+        }
+    }
+
+    public void OnNewLink(EntityUid uid, TurretControllerComponent component, NewLinkEvent args)
+    {
+        if (TryComp<TurretControllableComponent>(args.Sink, out var _))
+            component.CurrentTurret = args.Sink;
+    }
 }
-
 /*
                                            ████▒
                              ░             ████▓             ░
