@@ -24,6 +24,31 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Runtime.InteropServices;
+using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
+using Content.Server.Administration.Systems;
+using Content.Server.Corvax.Sponsors;
+using Content.Server.MoMMI;
+using Content.Server.Players.RateLimiting;
+using Content.Server.Preferences.Managers;
+using Content.Shared.Administration;
+using Content.Shared.CCVar;
+using Content.Shared.Chat;
+using Content.Shared.Database;
+using Content.Shared.Mind;
+using Content.Shared.Players.RateLimiting;
+using Robust.Shared.Configuration;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Robust.Shared.Replays;
+using Robust.Shared.Utility;
+using Content.Shared.ADT.CCVar;
+using Content.Server.Discord;
+using Content.Server.Chat.Managers;
+
 namespace Content.Server.Administration;
 
 /// <summary>
@@ -81,6 +106,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat);
     }
 
     public void Initialize()
@@ -707,6 +733,85 @@ public sealed partial class ServerApi : IPostInjectInit
     {
         public required List<string> GameRules { get; init; }
     }
+
+    #endregion
+
+    #region ADT-Tweak
+    [Dependency] private readonly IReplayRecordingManager _replay = default!;
+
+    [Dependency] private readonly IMoMMILink _mommiLink = default!;
+    [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
+    [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly DiscordWebhook _discord = default!;
+    [Dependency] private readonly ChatManager _chatManager = default!;
+    private async Task ActionAdminChat(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<AdminChatActionBody>(context);
+        if (body == null)
+            return;
+
+        var message = body.Message;
+        if (message == null)
+            return;
+
+        var discordName = body.NickName;
+        if (discordName == null)
+            return;
+
+        var playerName = actor.Name;
+
+        if (_playerManager.TryGetSessionByUsername(playerName, out var player))
+        {
+            await RunOnMainThread(async () =>
+            {
+
+                var clients = _admin.ActiveAdmins.Select(p => p.Channel);
+                var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+                                                ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
+                                                ("playerName", discordName), ("message", FormattedMessage.EscapeText(message)));
+
+                foreach (var client in clients)
+                {
+                    var isSource = client != player.Channel;
+                    _chatManager.ChatMessageToOne(ChatChannel.AdminChat,
+                        message,
+                        wrappedMessage,
+                        default,
+                        false,
+                        client,
+                        audioPath: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default,
+                        audioVolume: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default,
+                        author: player.UserId);
+                }
+                await RespondOk(context);
+
+                _sawmill.Info($"Send message by {FormatLogActor(actor)}");
+            });
+        }
+
+    }
+                // $"АДМИН [bold]{discordName}[/bold]: {message}";
+// t-manager-entity-looc-wrap-message = LOOC: [bold]{$entityName}:[/bold] {$message}
+// chat-manager-send-ooc-wrap-message = OOC: [bold]{$playerName}:[/bold] {$message}
+// chat-manager-send-ooc-patron-wrap-message = OOC: [bold][color={$patronColor}]{$playerName}[/color]:[/bold] {$message}
+
+// chat-manager-send-dead-chat-wrap-message = {$deadChannelName}: [bold][BubbleHeader]{$playerName}[/BubbleHeader]:[/bold] [BubbleContent]{$message}[/BubbleContent]
+// chat-manager-send-admin-dead-chat-wrap-message = {$adminChannelName}: [bold]([BubbleHeader]{$userName}[/BubbleHeader]):[/bold] [BubbleContent]{$message}[/BubbleContent]
+// chat-manager-send-admin-chat-wrap-message = {$adminChannelName}: [bold]{$playerName}:[/bold] {$message}
+// chat-manager-send-admin-announcement-wrap-message = [bold]{$adminChannelName}: {$message}[/bold]
+
+    private sealed class AdminChatActionBody
+    {
+        public string? Message { get; init; }
+        public string? NickName { get; init; }
+    }
+
 
     #endregion
 }
