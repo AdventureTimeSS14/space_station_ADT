@@ -847,34 +847,6 @@ public sealed partial class ServerApi : IPostInjectInit
                 _sawmill.Info($"Message sent by {FormatLogActor(actor)}");
             });
         }
-        else
-        {
-            // В случае, если администратор не присутствует, все равно отправляем сообщение всем активным администраторам
-            await RunOnMainThread(async () =>
-            {
-                var clients = activeAdmins.Select(p => p.Channel).ToList();
-                var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
-                                                ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
-                                                ("playerName", discordName),
-                                                ("message", FormattedMessage.EscapeText(message)));
-
-                foreach (var client in clients)
-                {
-                    _chatManager.ChatMessageToOne(ChatChannel.AdminChat,
-                        message,
-                        wrappedMessage,
-                        default,
-                        false,
-                        client,
-                        audioPath: _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath),
-                        audioVolume: _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume),
-                        author: 0 // Используйте 0 или идентификатор бота
-                    );
-                }
-                await RespondOk(context);
-                _sawmill.Info($"Message sent by bot: {FormatLogActor(actor)}");
-            });
-        }
     }
                 // $"АДМИН [bold]{discordName}[/bold]: {message}";
 // t-manager-entity-looc-wrap-message = LOOC: [bold]{$entityName}:[/bold] {$message}
