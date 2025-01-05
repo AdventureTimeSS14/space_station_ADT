@@ -83,6 +83,7 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -749,7 +750,7 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly DiscordWebhook _discord = default!;
-    [Dependency] private readonly ChatManager _chatManager = default!;
+
     private async Task ActionAdminChat(IStatusHandlerContext context, Actor actor)
     {
         var body = await ReadJson<AdminChatActionBody>(context);
@@ -787,7 +788,8 @@ public sealed partial class ServerApi : IPostInjectInit
                         client,
                         audioPath: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default,
                         audioVolume: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default,
-                        author: player.UserId);
+                        author: player.UserId
+                    );
                 }
                 await RespondOk(context);
 
