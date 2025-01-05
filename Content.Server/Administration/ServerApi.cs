@@ -805,48 +805,40 @@ public sealed partial class ServerApi : IPostInjectInit
         if (body == null)
             return;
 
-        var message = body.Message;
-        if (message == null)
-            return;
-
         var discordName = body.NickName;
-        if (discordName == null)
-            return;
+        discordName += "(Discord)";
+        var message = body.Message;
+        var authorUser = new NetUserId(actor.Guid);
 
-        var playerName = actor.Name;
-
-        // Получаем список активных администраторов
-        var activeAdmins = _admin.ActiveAdmins.ToList();
-
-        if (_playerManager.TryGetSessionByUsername(playerName, out var player))
+        await RunOnMainThread(async () =>
         {
-            // В случае, если администратор присутствует на сервере, отправляем сообщения как обычно
-            await RunOnMainThread(async () =>
-            {
-                var clients = activeAdmins.Select(p => p.Channel).ToList();
-                var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
-                                                ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
-                                                ("playerName", discordName),
-                                                ("message", FormattedMessage.EscapeText(message)));
+            var clients = _admin.ActiveAdmins.Select(p => p.Channel);
+            var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+                                            ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
+                                            ("playerName", discordName), ("message", FormattedMessage.EscapeText(message)));
 
-                foreach (var client in clients)
-                {
-                    var isSource = client != player.Channel;
-                    _chatManager.ChatMessageToOne(ChatChannel.AdminChat,
-                        message,
-                        wrappedMessage,
-                        default,
-                        false,
-                        client,
-                        audioPath: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default,
-                        audioVolume: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default,
-                        author: player.UserId
-                    );
-                }
-                await RespondOk(context);
-                _sawmill.Info($"Message sent by {FormatLogActor(actor)}");
-            });
-        }
+            foreach (var client in clients)
+            {
+                var isSource = true;
+                // var NickName = body.NickName;
+
+                _chatManager.ChatMessageToOne(ChatChannel.AdminChat,
+                    message,
+                    wrappedMessage,
+                    default,
+                    false,
+                    client,
+                    audioPath: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default,
+                    audioVolume: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default,
+                    author: authorUser
+                );
+
+            }
+            await RespondOk(context);
+
+            _sawmill.Info($"Send message by {FormatLogActor(actor)}");
+        });
+
     }
                 // $"АДМИН [bold]{discordName}[/bold]: {message}";
 // t-manager-entity-looc-wrap-message = LOOC: [bold]{$entityName}:[/bold] {$message}
@@ -860,8 +852,8 @@ public sealed partial class ServerApi : IPostInjectInit
 
     private sealed class AdminChatActionBody
     {
-        public string? Message { get; init; }
-        public string? NickName { get; init; }
+        public required string Message { get; init; }
+        public required string NickName { get; init; }
     }
 
 
