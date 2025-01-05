@@ -595,4 +595,4 @@ binds:
   key: C #ADT Crawling
 - function: OfferItem # ADT-Tweak
   type: State
-  key: R
+  key: Alt
