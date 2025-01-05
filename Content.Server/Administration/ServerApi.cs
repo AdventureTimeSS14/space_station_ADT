@@ -751,6 +751,54 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly DiscordWebhook _discord = default!;
 
+    // private async Task ActionAdminChat(IStatusHandlerContext context, Actor actor)
+    // {
+    //     var body = await ReadJson<AdminChatActionBody>(context);
+    //     if (body == null)
+    //         return;
+
+    //     var message = body.Message;
+    //     if (message == null)
+    //         return;
+
+    //     var discordName = body.NickName;
+    //     if (discordName == null)
+    //         return;
+
+    //     var playerName = actor.Name;
+
+    //     if (_playerManager.TryGetSessionByUsername(playerName, out var player))
+    //     {
+    //         await RunOnMainThread(async () =>
+    //         {
+
+    //             var clients = _admin.ActiveAdmins.Select(p => p.Channel);
+    //             var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+    //                                             ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
+    //                                             ("playerName", discordName), ("message", FormattedMessage.EscapeText(message)));
+
+    //             foreach (var client in clients)
+    //             {
+    //                 var isSource = client != player.Channel;
+    //                 _chatManager.ChatMessageToOne(ChatChannel.AdminChat,
+    //                     message,
+    //                     wrappedMessage,
+    //                     default,
+    //                     false,
+    //                     client,
+    //                     audioPath: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default,
+    //                     audioVolume: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default,
+    //                     author: player.UserId
+    //                 );
+    //             }
+    //             await RespondOk(context);
+
+    //             _sawmill.Info($"Send message by {FormatLogActor(actor)}");
+    //         });
+    //     }
+
+    // }
+
     private async Task ActionAdminChat(IStatusHandlerContext context, Actor actor)
     {
         var body = await ReadJson<AdminChatActionBody>(context);
@@ -767,15 +815,19 @@ public sealed partial class ServerApi : IPostInjectInit
 
         var playerName = actor.Name;
 
+        // Получаем список активных администраторов
+        var activeAdmins = _admin.ActiveAdmins.ToList();
+
         if (_playerManager.TryGetSessionByUsername(playerName, out var player))
         {
+            // В случае, если администратор присутствует на сервере, отправляем сообщения как обычно
             await RunOnMainThread(async () =>
             {
-
-                var clients = _admin.ActiveAdmins.Select(p => p.Channel);
+                var clients = activeAdmins.Select(p => p.Channel).ToList();
                 var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
                                                 ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
-                                                ("playerName", discordName), ("message", FormattedMessage.EscapeText(message)));
+                                                ("playerName", discordName),
+                                                ("message", FormattedMessage.EscapeText(message)));
 
                 foreach (var client in clients)
                 {
@@ -792,11 +844,37 @@ public sealed partial class ServerApi : IPostInjectInit
                     );
                 }
                 await RespondOk(context);
-
-                _sawmill.Info($"Send message by {FormatLogActor(actor)}");
+                _sawmill.Info($"Message sent by {FormatLogActor(actor)}");
             });
         }
+        else
+        {
+            // В случае, если администратор не присутствует, все равно отправляем сообщение всем активным администраторам
+            await RunOnMainThread(async () =>
+            {
+                var clients = activeAdmins.Select(p => p.Channel).ToList();
+                var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+                                                ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
+                                                ("playerName", discordName),
+                                                ("message", FormattedMessage.EscapeText(message)));
 
+                foreach (var client in clients)
+                {
+                    _chatManager.ChatMessageToOne(ChatChannel.AdminChat,
+                        message,
+                        wrappedMessage,
+                        default,
+                        false,
+                        client,
+                        audioPath: _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath),
+                        audioVolume: _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume),
+                        author: 0 // Используйте 0 или идентификатор бота
+                    );
+                }
+                await RespondOk(context);
+                _sawmill.Info($"Message sent by bot: {FormatLogActor(actor)}");
+            });
+        }
     }
                 // $"АДМИН [bold]{discordName}[/bold]: {message}";
 // t-manager-entity-looc-wrap-message = LOOC: [bold]{$entityName}:[/bold] {$message}
