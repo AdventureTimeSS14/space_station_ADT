@@ -25,6 +25,6 @@ ent-ADTServantOfEvilGlasses = сварочные очки прислужника
 ent-ClothingEyesNightVision = прибор ночного видения
     .desc = Прибор, позволяющий лучше видеть в темноте или при плохой освещенности. Обратной стороной является возможность стать ослепленным при воздействии яркой вспышки света.
 
-ent-ClothingEyesNightVisionMGD = ПНВ компании MG&D
+ent-ADTClothingEyesNightVisionMGD = ПНВ компании MG&D
     .desc = Стандартный прибор ночного видения, используемый сотрудниками компании MG&D
     .suffix = { "MG&D" }

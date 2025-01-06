@@ -126,7 +126,7 @@
 
 - type: entity
   parent: [ClothingEyesBase]
-  id: ClothingEyesNightVisionMGD
+  id: ADTClothingEyesNightVisionMGD
   name: night vision
   description: jungar poka
   components:
