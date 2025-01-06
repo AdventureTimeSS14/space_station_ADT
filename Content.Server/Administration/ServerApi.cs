@@ -779,10 +779,10 @@ public sealed partial class ServerApi : IPostInjectInit
             _sawmill.Error("Failed to read JSON for AdminConsoleAction.");
             return;
         }
-
+        // ICommonSession? session;
         var username = new NetUserId(new Guid($"{actor.Guid}"));
 
-        if (_player.TryGetSessionById(username, out var session))
+        if (!_player.TryGetSessionById(username, out var session))
         {
             _sawmill.Info($"Session found: {session}");
 
