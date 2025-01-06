@@ -270,7 +270,7 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
         volume: -5
-    fireRate: 1
+    fireRate: 0.5
   - type: UpgradeableGun
     whitelist:
       tags:
@@ -278,3 +278,6 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 225
