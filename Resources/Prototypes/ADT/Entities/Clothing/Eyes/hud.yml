@@ -5,9 +5,9 @@
   description: Im tired
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Eyes/Hud/phantom_hud.rsi
+    sprite: ADT/Clothing/Eyes/HUD/phantom_hud.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Eyes/Hud/phantom_hud.rsi
+    sprite: ADT/Clothing/Eyes/HUD/phantom_hud.rsi
   - type: ShowHauntedIcons
 
 - type: entity
@@ -17,9 +17,9 @@
   description: owl attacking
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Eyes/Hud/mgd_hud.rsi
+    sprite: ADT/Clothing/Eyes/HUD/mgd_hud.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Eyes/Hud/mgd_hud.rsi
+    sprite: ADT/Clothing/Eyes/HUD/mgd_hud.rsi
   - type: ShowJobIcons
   - type: ShowCriminalRecordIcons
   - type: FlashImmunity
