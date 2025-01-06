@@ -1,0 +1,5 @@
+- type: stack
+  id: ADTArtificialBluespaceCrystal
+  name: artificial bluespace crystal
+  spawn: ADTArtificialBluespaceCrystal
+  maxCount: 10

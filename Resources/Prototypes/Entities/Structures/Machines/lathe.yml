@@ -423,6 +423,7 @@
       - PhantomHud
       - EctoShield
       # ^^ ADT Phantom ^^
+      - ADTArtificialBluespaceCrystal # ADT
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -596,7 +597,9 @@
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
       - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
-      - ADTIndustrialSMESMachineCircuitboard #ADT
+      - ADTIndustrialSMESMachineCircuitboard # ADT
+      - ADTMachineBluespaceHarvesterCircuitboard # ADT
+      - ADTMachineBluespaceTransitorCircuitboard # ADT
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard

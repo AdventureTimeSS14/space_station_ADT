@@ -1,0 +1,336 @@
+# Industrial Loot
+- type: entity
+  id: ADTCrateHarvesterSingularity
+  parent: ADTCrateLimitedSecure
+  description: You've got a bad feeling about this.
+  suffix: Bluespace Harvester, Singularity, DO NOT MAP
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: Singularity
+
+- type: entity
+  id: ADTCrateHarvesterSingularityFake
+  parent: ADTCrateLimitedSecure
+  description: You've got a bad feeling about this.
+  suffix: Bluespace Harvester, Singularity Fake
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: SingularityToy
+      amount: 1
+
+- type: entity
+  id: ADTCrateHarvesterMaterials
+  parent: ADTCrateIndustrialSecure
+  suffix: Bluespace Harvester, Materials
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterMaterials
+      amount: 5
+
+- type: entity
+  id: ADTCrateHarvesterPowerCell
+  parent: ADTCrateIndustrialSecure
+  suffix: Bluespace Harvester, Power Cell
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterPowerCell
+      amount: 3
+
+- type: entity
+  id: ADTCrateHarvesterBeer
+  parent: ADTCrateIndustrialSecure
+  suffix: Bluespace Harvester, Beer
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterBeer
+      amount: 30
+
+- type: entity
+  id: ADTCrateHarvesterTools
+  parent: ADTCrateIndustrialSecure
+  suffix: Bluespace Harvester, Tools
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterTools
+      amount: 3
+
+- type: entity
+  id: ADTCrateHarvesterBackpackHolding
+  parent: ADTCrateIndustrialSecure
+  suffix: Bluespace Harvester, Backpack Holding
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterBackpackHolding
+      amount: 2
+
+- type: entity
+  id: ADTCrateHarvesterAmeJar
+  parent: ADTCrateIndustrialSecure
+  suffix: Bluespace Harvester, AmeJar
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: AmeJar
+      amount: 10
+
+- type: entity
+  id: ADTCrateHarvesterCircuitboard
+  parent: ADTCrateIndustrialSecure
+  suffix: Bluespace Harvester, Circuitboard
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterCircuitboard
+      amount: 3
+
+# Technological Loot
+- type: entity
+  id: ADTCrateHarvesterResearchDisk
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, ResearchDisk
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterResearchDisk
+      amount: 4
+
+- type: entity
+  id: ADTCrateHarvesterTechnologyDisk
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, TechnologyDisk
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterTechnologyDisk
+      amount: 7
+
+- type: entity
+  id: ADTCrateHarvesterAnomaly
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, Anomaly
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomAnomalySpawner
+      amount: 1
+
+- type: entity
+  id: ADTCrateHarvesterArtifact
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, Artifact
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomArtifactSpawner
+      amount: 1
+
+- type: entity
+  id: ADTCrateHarvesterAnomalyKit
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, AnomalyKit
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterAnomalyKit
+      amount: 4
+
+- type: entity
+  id: ADTCrateHarvesterEncryptionKey
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, EncryptionKey
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterEncryptionKey
+      amount: 5
+
+- type: entity
+  id: ADTCrateHarvesterBorg
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, Borg
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterBorg
+      amount: 3
+
+- type: entity
+  id: ADTCrateHarvesterMech
+  parent: ADTCrateTechnologicalSecure
+  suffix: Bluespace Harvester, Mech
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterMech
+      amount: 2
+
+- type: entity
+  id: ADTCrateHarvesterReagentSlime
+  parent: ADTCrateLimitedSecure
+  suffix: Bluespace Harvester, ReagentSlime
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: ReagentSlimeSpawner
+      amount: 16
+
+- type: entity
+  id: ADTCrateHarvesterReagentPointSource
+  parent: ADTCrateLimitedSecure
+  suffix: Bluespace Harvester, PointSource
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: BaseResearchAndDevelopmentPointSource
+
+# Biological Loot
+- type: entity
+  id: ADTCrateHarvesterInjection
+  parent: ADTCrateBiologicalSecure
+  suffix: Bluespace Harvester, Injection
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterInjection
+      amount: 4
+
+- type: entity
+  id: ADTCrateHarvesterImplanter
+  parent: ADTCrateBiologicalSecure
+  suffix: Bluespace Harvester, Implanter
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterImplanter
+      amount: 7
+
+- type: entity
+  id: ADTCrateHarvesterMedkit
+  parent: ADTCrateBiologicalSecure
+  suffix: Bluespace Harvester, Medkit
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterMedkit
+      amount: 10
+
+- type: entity
+  id: ADTCrateHarvesterRomerol
+  parent: ADTCrateLimitedSecure
+  suffix: Bluespace Harvester, Romerol
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: SyringeRomerol
+      amount: 3
+    - id: PillRomerol
+      amount: 10
+
+- type: entity
+  id: ADTCrateHarvesterDoctorsDelight
+  parent: ADTCrateLimitedSecure
+  suffix: Bluespace Harvester, DoctorsDelight
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterDoctorsDelight
+      amount: 30
+
+
+- type: entity
+  id: ADTCrateHarvesterSeeds
+  parent: ADTCrateBiologicalSecure
+  suffix: Bluespace Harvester, Seeds
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterSeeds
+      amount: 4
+
+# Destructionl Loot
+- type: entity
+  id: ADTCrateHarvesterTurretSyndicate
+  parent: ADTCrateLimitedSecure
+  suffix: Bluespace Harvester, Behonker
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: SpawnMobBehonker
+      amount: 6
+
+- type: entity
+  id: ADTCrateHarvesterWeaponElite
+  parent: ADTCrateLimitedSecure
+  suffix: Bluespace Harvester, WeaponElite
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterWeaponElite
+      amount: 3
+
+- type: entity
+  id: ADTCrateHarvesterWeaponLaser
+  parent: ADTCrateDestructionSecure
+  suffix: Bluespace Harvester, WeaponLaser
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterWeaponLaser
+      amount: 6
+
+- type: entity
+  id: ADTCrateHarvesterWeaponShotgun
+  parent: ADTCrateDestructionSecure
+  suffix: Bluespace Harvester, WeaponShotgun
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterWeaponShotgun
+      amount: 4
+
+- type: entity
+  id: ADTCrateHarvesterWeaponRifle
+  parent: ADTCrateDestructionSecure
+  suffix: Bluespace Harvester, WeaponRifle
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterWeaponRifle
+      amount: 3
+
+- type: entity
+  id: ADTCrateHarvesterWeaponLight
+  parent: ADTCrateDestructionSecure
+  suffix: Bluespace Harvester, WeaponLight
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterWeaponLight
+      amount: 5
+
+- type: entity
+  id: ADTCrateHarvesterWeaponDisabler
+  parent: ADTCrateDestructionSecure
+  suffix: Bluespace Harvester, WeaponDisabler
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterWeaponDisabler
+      amount: 8
+
+- type: entity
+  id: ADTCrateHarvesterBomb
+  parent: ADTCrateDestructionSecure
+  suffix: Bluespace Harvester, Bomb
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: RandomHarvesterBomb
+      amount: 8

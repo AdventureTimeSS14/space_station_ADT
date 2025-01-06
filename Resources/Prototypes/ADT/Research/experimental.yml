@@ -1,0 +1,26 @@
+- type: technology
+  id: ADTBluespace
+  name: adt-research-technology-bluespace
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: ansible_crystal
+  discipline: Experimental
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ADTArtificialBluespaceCrystal
+  - ADTMachineBluespaceTransitorCircuitboard
+
+- type: technology
+  id: ADTBluespaceMining
+  name: adt-research-technology-bluespace-mining
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: ansible_crystal
+  discipline: Experimental
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - ADTMachineBluespaceHarvesterCircuitboard
+  technologyPrerequisites:
+  - ADTBluespace

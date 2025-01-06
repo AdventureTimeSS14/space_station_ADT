@@ -32,7 +32,11 @@
   id: ADTStationGoalTransitContraband
   text: adt-station-goal-transit-contraband
 
+- type: stationGoal
+  id: ADTBluespaceHarvest
+  text: adt-station-goal-bluespace-harvest
+
 # Множественные цели
 - type: stationGoal
   id: ADTStationGoalMultiple
-  text: adt-station-goal-multiple
+  text: ADTstation-goal-multiple

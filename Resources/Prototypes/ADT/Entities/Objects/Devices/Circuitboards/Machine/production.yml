@@ -59,3 +59,43 @@
       stackRequirements:
         Capacitor: 2
         Glass: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ADTMachineBluespaceHarvesterCircuitboard
+  name: Bluespace Harvester board
+  description: A machine board for a Bluespace Harvester
+  components:
+  - type: Sprite
+    sprite: ADT/Bluespace/module.rsi
+    state: bluespace
+  - type: MachineBoard
+    prototype: ADTBluespaceHarvester
+    stackRequirements:
+      Glass: 15
+      Steel: 15
+      CableHV: 5
+      ADTArtificialBluespaceCrystal: 5
+      Capacitor: 5
+      MatterBin: 15
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ADTMachineBluespaceTransitorCircuitboard
+  name: bluespace T.R.A.N.S.I.T.O.R board
+  description: A machine board for a bluespace T.R.A.N.S.I.T.O.R
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: bluespacearray
+  - type: MachineBoard
+    prototype: ADTBluespaceTransitor
+    stackRequirements:
+      Steel: 10
+      CableHV: 30
+      ADTArtificialBluespaceCrystal: 5
+      Capacitor: 15
+  - type: Item
+    size: Normal
