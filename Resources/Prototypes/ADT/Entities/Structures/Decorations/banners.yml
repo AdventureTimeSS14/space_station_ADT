@@ -15,6 +15,6 @@
   description: MG&D banner.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/banners64x64.rsi
+    sprite: ADT/Structures/Decoration/banners48x48.rsi
     state: mgdflag
     scale: 0.75, 0.75
