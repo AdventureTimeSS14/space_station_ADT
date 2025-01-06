@@ -776,22 +776,44 @@ public sealed partial class ServerApi : IPostInjectInit
         var body = await ReadJson<AdminConsoleActionBody>(context);
         if (body == null)
             return;
-        var username = new NetUserId(new Guid($"{actor.Guid}"));
+
+        var username = new NetUserId(actor.Guid);
 
         if (_player.TryGetSessionById(username, out var session))
         {
-            //_serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
-            _serverConsole.RemoteExecuteCommand(session, $"{body.StringConsole}");
-            _serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
+            // Логируем выполнение команд
+            _sawmill.Info($"Executing command: {body.StringConsole} for session: {session}");
 
-            var console = _serverConsole.GetSessionShell(session);
-            console.ExecuteCommand($"{body.StringConsole}");
-            console.RemoteExecuteCommand($"{body.StringConsole}");
+            try
+            {
+                // Выполнение команды через _serverConsole
+                _serverConsole.RemoteExecuteCommand(session, $"{body.StringConsole}");
+                _sawmill.Info($"Successfully executed RemoteExecuteCommand for session {session}");
+
+                _serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
+                _sawmill.Info($"Successfully executed ExecuteCommand for session {session}");
+
+                // Логируем выполнение команд в console
+                var console = _serverConsole.GetSessionShell(session);
+
+                _sawmill.Info($"Executing command in console shell: {body.StringConsole} for session {session}");
+                console.ExecuteCommand($"{body.StringConsole}");
+                _sawmill.Info($"Successfully executed command in console shell for session {session}");
+
+                _sawmill.Info($"Executing remote command in console shell: {body.StringConsole} for session {session}");
+                console.RemoteExecuteCommand($"{body.StringConsole}");
+                _sawmill.Info($"Successfully executed remote command in console shell for session {session}");
+            }
+            catch (Exception ex)
+            {
+                // Логируем ошибку, если команда не была выполнена
+                _sawmill.Error($"Error executing command {body.StringConsole} for session {session}: {ex.Message}");
+            }
         }
 
+        // Логирование после выполнения команд
+        _sawmill.Info($"Send command from {FormatLogActor(actor)} with command: {body.StringConsole}");
 
-        //ConsoleShell shell
-        _sawmill.Info($"Send commande from {FormatLogActor(actor)} con: {body.StringConsole}");
         await RespondOk(context);
     }
 
