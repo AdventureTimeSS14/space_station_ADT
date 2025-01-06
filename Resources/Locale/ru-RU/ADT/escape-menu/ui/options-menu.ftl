@@ -12,4 +12,5 @@ ui-options-function-cm-holster-secondary = Вытащить из кобуры, �
 ui-options-function-cm-holster-tertiary = Вытащить из кобуры, третье оружие
 ui-options-function-cm-holster-quaternary = Вытащить из кобуры, четвертое оружие
 ui-options-show-offer-mode-indicators = Показывать индикатор передачи предмета
+ui-options-function-toggle-crawling = Переключить ползание
 ui-options-function-offer-item = Передать что-либо
