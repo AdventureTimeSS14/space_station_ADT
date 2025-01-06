@@ -15,6 +15,9 @@
   naming: firstlast
   category: Unusual
   #sponsorOnly: true # Пока снимаем до решения проблем
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Urs.xml"
+  pros:
+  - Урсов не атакует космическая (карпы, клещи и т.д.) фауна.
 
 - type: speciesBaseSprites
   id: MobUrsusSprites

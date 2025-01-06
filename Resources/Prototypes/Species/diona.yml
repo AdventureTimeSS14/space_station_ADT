@@ -14,6 +14,15 @@
   femaleLastNames: DionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
+  pros:
+  - Не получают негативных эффектов от кудзу.
+  special:
+  - В критическом состоянии дионы могут распасться на нимф, после чего вернуться к жизни. Для этого нужна кровь.
+  - Выпив достаточно удобрений превращаются в дерево.
+  - Имеют коллективный разум.
+  cons:
+  - Получают гораздо больше урона от ожогов.
+  - Не могут носить обувь.
 
 - type: speciesBaseSprites
   id: MobDionaSprites

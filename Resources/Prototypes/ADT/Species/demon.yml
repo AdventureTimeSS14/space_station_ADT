@@ -14,6 +14,7 @@
   femaleLastNames: names_last_female
   naming: firstlast
   category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Arkan.xml"
 
 - type: speciesBaseSprites
   id: MobDemonSprites

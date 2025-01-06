@@ -12,6 +12,7 @@
   femaleFirstNames: names_reptilian_female #как у reptilian
   naming: FirstDashFirst #как у reptilian
   category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
 
 - type: speciesBaseSprites
   id: MobKoboltSprites

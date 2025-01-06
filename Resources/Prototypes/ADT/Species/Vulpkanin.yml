@@ -13,6 +13,7 @@
   femaleLastNames: VulpLast # ADT-LastnameGender
   naming: firstlast
   category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Vulpa.xml"
 
 - type: speciesBaseSprites
   id: MobVulpkaninSprites

@@ -7,3 +7,4 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"

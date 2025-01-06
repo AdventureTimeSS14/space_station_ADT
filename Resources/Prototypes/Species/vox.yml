@@ -13,6 +13,9 @@
   naming: First
   sexes:
   - Unsexed
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
+  cons:
+  - Получают урон при вдыхании кислорода.
 
 - type: speciesBaseSprites
   id: MobVoxSprites

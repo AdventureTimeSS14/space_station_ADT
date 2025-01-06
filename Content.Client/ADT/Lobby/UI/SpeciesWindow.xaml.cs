@@ -200,10 +200,10 @@ public sealed partial class SpeciesWindow : FancyWindow
 
         if (proto.Pros.Count <= 0 && proto.Special.Count <= 0 && proto.Cons.Count <= 0)
         {
-            var noProsConsLabel = new Label()
+            var noProsConsLabel = new RichTextLabel()
             {
                 Text = Loc.GetString("ui-species-no-pros-cons"),
-                Margin = new(2f),
+                Margin = new(4f),
             };
             DetailInfoContainer.AddChild(noProsConsLabel);
         }
@@ -215,9 +215,9 @@ public sealed partial class SpeciesWindow : FancyWindow
                 {
                     var label = new RichTextLabel()
                     {
-                        Text = "[color=#13f244] - " + Loc.GetString(item) + "[/color]",
+                        Text = "[color=#13f244]- " + Loc.GetString(item) + "[/color]",
                         StyleClasses = { StyleBase.ClassLowDivider },
-                        Margin = new(2f, 2f),
+                        Margin = new(4f, 2f),
                     };
                     prosConsContainer.AddChild(label);
                 }
@@ -230,9 +230,9 @@ public sealed partial class SpeciesWindow : FancyWindow
                 {
                     var label = new RichTextLabel()
                     {
-                        Text = " - " + Loc.GetString(item),
+                        Text = "- " + Loc.GetString(item),
                         StyleClasses = { StyleBase.ClassLowDivider },
-                        Margin = new(2f, 2f),
+                        Margin = new(4f, 2f),
                     };
                     prosConsContainer.AddChild(label);
                 }
@@ -245,9 +245,9 @@ public sealed partial class SpeciesWindow : FancyWindow
                 {
                     var label = new RichTextLabel()
                     {
-                        Text = "[color=#d63636] - " + Loc.GetString(item) + "[/color]",
+                        Text = "[color=#d63636]- " + Loc.GetString(item) + "[/color]",
                         StyleClasses = { StyleBase.ClassLowDivider },
-                        Margin = new(2f, 2f),
+                        Margin = new(4f, 2f),
                     };
                     prosConsContainer.AddChild(label);
                 }

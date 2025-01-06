@@ -8,6 +8,14 @@
   markingLimits: MobSlimeMarkingLimits
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Slime.xml"
+  pros:
+  - Могут хранить внутри себя небольшие объекты.
+  special:
+  - Могут дышать чистым азотом, но не чистым кислородом.
+  - Могут менять стиль своей причёски в любой момент.
+  cons:
+  - Получают урон от попадания воды на тело.
 
 - type: speciesBaseSprites
   id: MobSlimeSprites

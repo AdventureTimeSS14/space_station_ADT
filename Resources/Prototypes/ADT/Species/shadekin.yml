@@ -21,6 +21,7 @@
     - Female
     - Unsexed
   category: Special
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Shadekin.xml"
   pros:
   - Не нуждаются в дыхательной смеси.
   - Удары наносят урон порезами вместо ушибов.
