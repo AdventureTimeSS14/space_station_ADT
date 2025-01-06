@@ -3,6 +3,7 @@
   name: job-name-salvagespec
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
+  canBeAntag: false # ADT tweak
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo
@@ -24,6 +25,12 @@
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     id: SalvagePDA
     ears: ClothingHeadsetCargo
-  #storage:
-    #back:
-    #- Stuff
+    pocket1: AppraisalTool #ADT start
+    pocket2: OreBag
+  storage:
+    back:
+    - MineralScanner
+    - FlashlightSeclite
+    - MiningVoucher
+    - MiningSuitVoucher
+    # ADT end

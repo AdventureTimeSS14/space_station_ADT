@@ -20,8 +20,8 @@ ent-ADTMandarinSeeds = пакет семян мандарина
     .desc = Ох, скорей бы выросли!
     .suffix = Новый год
 # семяна
-seeds-mandarin-name = мандарина
-seeds-mandarin-display-name = мандарина
+seeds-mandarin-name = мандарин
+seeds-mandarin-display-name = мандарин
 # сок
 reagent-name-juice-mandarin = мандариновый сок
 reagent-desc-juice-mandarin = И вкусно, и богато витамином C. Чего ещё желать?

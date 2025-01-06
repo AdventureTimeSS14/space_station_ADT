@@ -74,3 +74,25 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetMiner
+  name: miner hood
+  description: Imbued with despair and hopelessness.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/mining.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/mining.rsi
+  - type: IngestionBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - HidesHair
