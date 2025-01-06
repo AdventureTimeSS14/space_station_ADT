@@ -786,6 +786,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
             var console = _serverConsole.GetSessionShell(session);
             console.ExecuteCommand($"{body.StringConsole}");
+            console.RemoteExecuteCommand($"{body.StringConsole}");
         }
 
 
