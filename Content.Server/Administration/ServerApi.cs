@@ -28,6 +28,7 @@ using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
 using Robust.Server.Console;
 using Robust.Server.Player;
+using Robust.Shared.Console;
 
 namespace Content.Server.Administration;
 
@@ -778,7 +779,9 @@ public sealed partial class ServerApi : IPostInjectInit
         var username = new NetUserId(new Guid($"{actor.Guid}"));
 
         if (_player.TryGetSessionById(username, out var session))
-            _serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
+            //_serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
+            _serverConsole.RemoteExecuteCommand(session, $"{body.StringConsole}");
+        //ConsoleShell shell
         _sawmill.Info($"Send commande by {FormatLogActor(actor)}");
         await RespondOk(context);
     }
