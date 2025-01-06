@@ -55,11 +55,11 @@
       entities:
         - ADTSpawnMobPRandomLavaland
     - !type:BiomeEntityLayer
-      threshold: 0.997
+      threshold: 0.995
       noise:
         seed: 0
         noiseType: OpenSimplex2
-        frequency: 0.4
+        frequency: 0.6
         lacunarity: 0.6
       allowedTiles:
         - FloorBasalt
