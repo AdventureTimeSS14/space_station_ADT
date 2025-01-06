@@ -27,7 +27,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterMaterials
+    - id: ADTRandomHarvesterMaterials
       amount: 5
 
 - type: entity
@@ -37,7 +37,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterPowerCell
+    - id: ADTRandomHarvesterPowerCell
       amount: 3
 
 - type: entity
@@ -47,7 +47,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterBeer
+    - id: ADTRandomHarvesterBeer
       amount: 30
 
 - type: entity
@@ -57,7 +57,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterTools
+    - id: ADTRandomHarvesterTools
       amount: 3
 
 - type: entity
@@ -67,7 +67,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterBackpackHolding
+    - id: ADTRandomHarvesterBackpackHolding
       amount: 2
 
 - type: entity
@@ -87,7 +87,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterCircuitboard
+    - id: ADTRandomHarvesterCircuitboard
       amount: 3
 
 # Technological Loot
@@ -98,7 +98,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterResearchDisk
+    - id: ADTRandomHarvesterResearchDisk
       amount: 4
 
 - type: entity
@@ -108,7 +108,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterTechnologyDisk
+    - id: ADTRandomHarvesterTechnologyDisk
       amount: 7
 
 - type: entity
@@ -138,7 +138,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterAnomalyKit
+    - id: ADTRandomHarvesterAnomalyKit
       amount: 4
 
 - type: entity
@@ -148,7 +148,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterEncryptionKey
+    - id: ADTRandomHarvesterEncryptionKey
       amount: 5
 
 - type: entity
@@ -158,7 +158,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterBorg
+    - id: ADTRandomHarvesterBorg
       amount: 3
 
 - type: entity
@@ -168,7 +168,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterMech
+    - id: ADTRandomHarvesterMech
       amount: 2
 
 - type: entity
@@ -178,7 +178,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: ReagentSlimeSpawner
+    - id: ADTReagentSlimeSpawner
       amount: 16
 
 - type: entity
@@ -198,7 +198,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterInjection
+    - id: ADTRandomHarvesterInjection
       amount: 4
 
 - type: entity
@@ -208,7 +208,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterImplanter
+    - id: ADTRandomHarvesterImplanter
       amount: 7
 
 - type: entity
@@ -218,7 +218,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterMedkit
+    - id: ADTRandomHarvesterMedkit
       amount: 10
 
 - type: entity
@@ -240,7 +240,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterDoctorsDelight
+    - id: ADTRandomHarvesterDoctorsDelight
       amount: 30
 
 
@@ -251,7 +251,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterSeeds
+    - id: ADTRandomHarvesterSeeds
       amount: 4
 
 # Destructionl Loot
@@ -272,7 +272,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterWeaponElite
+    - id: ADTRandomHarvesterWeaponElite
       amount: 3
 
 - type: entity
@@ -282,7 +282,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterWeaponLaser
+    - id: ADTRandomHarvesterWeaponLaser
       amount: 6
 
 - type: entity
@@ -292,7 +292,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterWeaponShotgun
+    - id: ADTRandomHarvesterWeaponShotgun
       amount: 4
 
 - type: entity
@@ -302,7 +302,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterWeaponRifle
+    - id: ADTRandomHarvesterWeaponRifle
       amount: 3
 
 - type: entity
@@ -312,7 +312,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterWeaponLight
+    - id: ADTRandomHarvesterWeaponLight
       amount: 5
 
 - type: entity
@@ -322,7 +322,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterWeaponDisabler
+    - id: ADTRandomHarvesterWeaponDisabler
       amount: 8
 
 - type: entity
@@ -332,5 +332,5 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: RandomHarvesterBomb
+    - id: ADTRandomHarvesterBomb
       amount: 8

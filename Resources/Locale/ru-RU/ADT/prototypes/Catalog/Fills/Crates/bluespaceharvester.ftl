@@ -18,7 +18,7 @@ ent-ADTCrateHarvesterTools = { ent-ADTCrateIndustrialSecure }
 
 ent-ADTCrateHarvesterBackpackHolding = { ent-ADTCrateIndustrialSecure }
     .desc = { ent-ADTCrateIndustrialSecure.desc }
-    .suffix = Bluespace Harvester, Пояса
+    .suffix = Bluespace Harvester, Блюспейс сумки
 
 ent-ADTCrateHarvesterAmeJar = { ent-ADTCrateIndustrialSecure }
     .desc = { ent-ADTCrateIndustrialSecure.desc }
