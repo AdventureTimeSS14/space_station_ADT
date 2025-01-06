@@ -277,3 +277,69 @@
         - Opaque
   - type: KnockdownOnCollide
   - type: BlurOnCollide
+
+- type: entity
+  id: ADTBulletKineticPistol
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 20
+        Structural: 20
+
+- type: entity
+  id: ADTBulletKineticRepeater
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 15
+        Structural: 20
+
+- type: entity
+  id: ADTBulletKineticRailgun
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Projectile
+    deleteOnCollide: false
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 70
+        Structural: 20
+  - type: GatheringProjectile
+    amount: 40
+
+- type: entity
+  id: ADTBulletKineticShotgunSpread
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: ProjectileSpread
+    proto: ADTBulletKineticShotgunPellet
+    count: 4
+    spread: 10
+
+- type: entity
+  id: ADTBulletKineticShotgunPellet
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 15
+        Structural: 20
