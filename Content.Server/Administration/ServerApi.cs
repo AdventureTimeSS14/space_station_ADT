@@ -26,6 +26,8 @@ using Robust.Shared.Utility;
 using Content.Server.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
+using Robust.Server.Console;
+using Robust.Server.Player;
 
 namespace Content.Server.Administration;
 
@@ -64,6 +66,8 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IServerConsoleHost _serverConsole = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -88,6 +92,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat); // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/action/console", AdminConsoleAction); // ADT Tweak
     }
 
     public void Initialize()
@@ -765,10 +770,29 @@ public sealed partial class ServerApi : IPostInjectInit
         });
     }
 
+    private async Task AdminConsoleAction(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<AdminConsoleActionBody>(context);
+        if (body == null)
+            return;
+        var username = new NetUserId(new Guid($"{actor.Guid}"));
+
+        if (_player.TryGetSessionById(username, out var session))
+            _serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
+        _sawmill.Info($"Send commande by {FormatLogActor(actor)}");
+        await RespondOk(context);
+    }
+
     private sealed class AdminChatActionBody
     {
         public required string Message { get; init; }
         public required string NickName { get; init; }
+    }
+
+
+    private sealed class AdminConsoleActionBody
+    {
+        public required string StringConsole { get; init; }
     }
 
     #endregion
