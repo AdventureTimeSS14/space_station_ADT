@@ -779,10 +779,18 @@ public sealed partial class ServerApi : IPostInjectInit
         var username = new NetUserId(new Guid($"{actor.Guid}"));
 
         if (_player.TryGetSessionById(username, out var session))
+        {
             //_serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
             _serverConsole.RemoteExecuteCommand(session, $"{body.StringConsole}");
+            _serverConsole.ExecuteCommand(session, $"{body.StringConsole}");
+
+            var console = _serverConsole.GetSessionShell(session);
+            console.ExecuteCommand($"{body.StringConsole}");
+        }
+
+
         //ConsoleShell shell
-        _sawmill.Info($"Send commande by {FormatLogActor(actor)}");
+        _sawmill.Info($"Send commande from {FormatLogActor(actor)} con: {body.StringConsole}");
         await RespondOk(context);
     }
 
