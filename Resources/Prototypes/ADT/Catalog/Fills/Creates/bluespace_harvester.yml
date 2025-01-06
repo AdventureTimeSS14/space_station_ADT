@@ -178,7 +178,7 @@
   components:
   - type: BluespaceHarvesterBundle
     contents:
-    - id: ADTReagentSlimeSpawner
+    - id: ReagentSlimeSpawner
       amount: 16
 
 - type: entity
