@@ -407,8 +407,9 @@
         Structural: 30
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.170 # ADT tweak 0.4 -> 0.170 ~4 tiles of range.
+    lifetime: 0.1 # ADT tweak 0.4 -> 0.1 ~4 tiles of range.
   - type: GatheringProjectile
+  - type: PressureDamageModify # ADT tweak
 
 - type: entity
   id: BulletKineticShuttle
