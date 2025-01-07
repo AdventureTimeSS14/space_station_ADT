@@ -7,3 +7,14 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/banners.rsi
     state: humanflag
+
+- type: entity
+  id: ADTBannerMGD
+  parent: BannerBase
+  name: MG&D banner
+  description: MG&D banner.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/banners48x48.rsi
+    state: mgdflag
+    scale: 0.75, 0.75
