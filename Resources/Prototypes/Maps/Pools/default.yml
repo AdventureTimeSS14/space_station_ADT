@@ -49,6 +49,7 @@
   # - ADT_SalternHalloween
   
 # ADT NewYear (Не забудьте отключить обычные)
+  - ADT_AspidNewYear
   - ADT_BagelNewYear
   - ADT_BoxNewYear
   - ADT_Cluster_LegacyNewYear

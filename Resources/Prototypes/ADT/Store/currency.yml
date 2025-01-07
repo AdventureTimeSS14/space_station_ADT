@@ -9,3 +9,10 @@
   id: EvolutionPoints
   displayName: store-currency-display-evolution-points
   canWithdraw: false
+
+- type: currency
+  id: Piastre
+  displayName: store-currency-display-Piastre
+  cash:
+    1: ADTPiratePiastr1
+  canWithdraw: true
