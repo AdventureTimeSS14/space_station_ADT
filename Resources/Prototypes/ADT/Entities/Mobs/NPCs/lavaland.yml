@@ -76,6 +76,12 @@
   - type: Fauna
   - type: AshStormImmune
   - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    damage:
+      types:
+        Heat: 0.75 #per second, scales with number of fire 'stacks'
+
 
 - type: entity
   id: ADTMobLegionSkull
@@ -167,6 +173,12 @@
     actions: AncientGoliathActions
     delay: 3
   - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    damage:
+      types:
+        Heat: 0.75 #per second, scales with number of fire 'stacks'
+
 
 - type: weightedRandomEntity
   id: AncientGoliathActions
