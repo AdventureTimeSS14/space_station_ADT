@@ -1,7 +1,7 @@
 # Спавн турелей у королевы
 - type: entity
   id: ActionXenoQueenTurret
-  name: Create Xeno turret [color=green]25[/color]
+  name: Create Xeno turret
   description: Create an xeno turret in front of you, if placeable there. 
   components:
   - type: InstantAction
@@ -15,7 +15,7 @@
 
 - type: entity
   id: ActionSpawnMobXenoQueen
-  name: Spawn Queen [color=green]100[/color]
+  name: Spawn Queen
   description: New offspring! 
   categories: [ HideSpawnMenu ]
   components:
@@ -35,7 +35,7 @@
 
 - type: entity
   id: ActionSpawnMobXenoBurrower
-  name: Spawn Burrower [color=green]10[/color]
+  name: Spawn Burrower
   description: Standard xeno
   categories: [ HideSpawnMenu ]
   components:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: ActionSpawnMobXenoSpitter
-  name: Spawn Spitter [color=green]20[/color]
+  name: Spawn Spitter
   description: Give birth to Spitter who will spit!
   categories: [ HideSpawnMenu ]
   components:
@@ -75,7 +75,7 @@
 
 - type: entity
   id: ActionSpawnMobXenoPraetorian
-  name: Spawn Praetorian [color=green]50[/color]
+  name: Spawn Praetorian
   description: Give birth to a Praetorian who will fight for you!
   categories: [ HideSpawnMenu ]
   components:
@@ -95,7 +95,7 @@
 
 - type: entity
   id: ActionSpawnMobXenoDrone
-  name: Just a Drone [color=green]30[/color]. Who needs it? 
+  name: Just a Drone. Who needs it? 
   description: Give birth to a worker, Drone.
   categories: [ HideSpawnMenu ]
   components:
@@ -115,7 +115,7 @@
 
 - type: entity
   id: ActionSpawnMobXenoRavager
-  name: Spawn Ravager [color=green]80[/color]
+  name: Spawn Ravager
   description: Give birth to death in the flesh!
   categories: [ HideSpawnMenu ]
   components:
@@ -135,7 +135,7 @@
 
 - type: entity
   id: ActionSpawnMobXenoRunner
-  name: Spawn Runner [color=green]40[/color]
+  name: Spawn Runner
   description: Give birth to the fastest larva!
   categories: [ HideSpawnMenu ]
   components:
