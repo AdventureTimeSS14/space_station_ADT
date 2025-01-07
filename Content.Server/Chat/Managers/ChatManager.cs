@@ -19,6 +19,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.CCVar;
+using Content.Server.Discord;
 
 namespace Content.Server.Chat.Managers;
 
@@ -46,6 +48,8 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly DiscordWebhook _discord = default!;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -264,14 +268,20 @@ internal sealed partial class ChatManager : IChatManager
             wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", sponsorData.OOCColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         }
         // Corvax-Sponsors-End
-
+        // Start-ADT Schrodinger Tweak
+        var adminData = _adminManager.GetAdminData(player);
+        if (adminData != null && adminData.Title != null)
+        {
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-wrap-message", ("patronTitle", $"\\[{adminData.Title}\\] "),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+        }
+        // End-ADT Tweak
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
         _mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/")); // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
     }
 
-    private void SendAdminChat(ICommonSession player, string message)
+    private async void SendAdminChat(ICommonSession player, string message)
     {
         if (!_adminManager.IsAdmin(player))
         {
@@ -281,9 +291,7 @@ internal sealed partial class ChatManager : IChatManager
         // Start-ADT Schrodinger Tweak: Отсюда сможем получить инфу о префиксе админа
         var senderAdmin = _adminManager.GetAdminData(player);
         if (senderAdmin == null)
-        {
             return;
-        }
         var senderName = player.Name;  // Добавил переменную senderName, в ней содержиться player.Name и приставляем префикс к имени
         if (!string.IsNullOrEmpty(senderAdmin.Title))
         {
@@ -311,6 +319,24 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
+        // ADT-Tweak-start: Постит в дис весь админчат, если есть данный вебхук
+        if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
+        {
+            var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
+
+            if (webhookUrl == null)
+                return;
+
+            if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
+                return;
+            var payload = new WebhookPayload
+            {
+                Content = $"***AdminChat***: `{player.Name}`[{senderAdmin.Title}]: {message}"
+            };
+            var identifier = webhookData.ToIdentifier();
+            await _discord.CreateMessage(identifier, payload);
+        }
+        // ADT-Tweak-end
     }
 
     #endregion

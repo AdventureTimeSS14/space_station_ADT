@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: ADTMiningShop
+  name: Salvage Vendor
+  description: A dwarf's best friend!
+  components:
+  - type: MiningShop
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/mining.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: ActivatableUI
+    key: enum.MiningShopUI.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningShopUI.Key:
+        type: MiningShopBui
+  - type: Tag
+    tags:
+    - MiningShop
