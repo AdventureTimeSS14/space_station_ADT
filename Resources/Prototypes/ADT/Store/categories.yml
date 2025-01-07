@@ -16,3 +16,7 @@
 - type: storeCategory
   id: ChangelingAbilities
   name: store-category-abilities
+
+- type: storeCategory
+  id: ADTPirate
+  name: store-category-wearables

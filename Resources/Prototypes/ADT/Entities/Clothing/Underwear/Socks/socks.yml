@@ -111,15 +111,6 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksComfy
-  name: socks for comfort
-  description: Socks for programmers with a cutout for the sharp claws of the Vulpkanin! They smell like tangerines.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Underwear/Socks/socks_liexer.rsi
-
-- type: entity
-  parent: ADTClothingUnderwearSocksBase
   id: ADTClothingUnderwearSocksStockingsBlueshield
   name: blueshield's stockings
   description: Excellent warm stockings for the most beautiful guardian.

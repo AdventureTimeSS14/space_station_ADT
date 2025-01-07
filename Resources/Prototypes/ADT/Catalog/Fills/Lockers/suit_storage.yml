@@ -25,3 +25,16 @@
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
+
+- type: entity
+  id: SuitStorageMiner
+  parent: SuitStorageBase
+  suffix: Miner
+  components:
+  - type: StorageFill
+    contents:
+        - id: ADTClothingOuterArmorMiner
+        - id: OxygenTankFilled
+        - id: ClothingMaskGasExplorer
+  - type: AccessReader
+    access: [["Salvage"]]

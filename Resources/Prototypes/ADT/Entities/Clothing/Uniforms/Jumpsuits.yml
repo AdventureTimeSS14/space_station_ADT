@@ -1230,6 +1230,8 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/winth_swimsuit.rsi
 
+# конец swimsuit
+
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitCamisoleQM
@@ -1240,3 +1242,52 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/qm_camisole.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/qm_camisole.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitMGDAgent
+  name: MG&D agent
+  description: MG&D agent
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mgd_agent.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mgd_agent.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitMGDParticipant
+  name: MG&D participant
+  description: MG&D participant
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mgd_participant.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mgd_participant.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitMGDGuard
+  name: MG&D guard
+  description: MG&D guard
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mgd_guard.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/mgd_guard.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
