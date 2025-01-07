@@ -376,3 +376,13 @@ ent-ADTClothingUniformSwimsuitWinth = купальник ведьмочки
 
 ent-ADTClothingUniformJumpsuitCamisoleQM = укороченный камзол квартирмейстера
     .desc = Камзол, который одновременно хорош как для работы так и для отдыха.
+
+ent-ADTClothingUniformJumpsuitMGDAgent = деловой костюм компании MG&D
+    .desc = Состоит из очень мягкой ткани. На себе имеет также имеет белую шубу с черным воротником.
+    .suffix = { "MG&D" }
+ent-ADTClothingUniformJumpsuitMGDParticipant = костюм участника голодных игр
+    .desc =  Состоит из белых и черных тканей. Костюм облегается на тело что дает свободу для передвижений.
+    .suffix = { "MG&D" }
+ent-ADTClothingUniformJumpsuitMGDGuard = бронированный костюм компании MG&D
+    .desc = Состоит из прочного бронежилета "Тактика" а также защиты для коленей и локтей, состоящих из кевлара.
+    .suffix = { "MG&D" }
