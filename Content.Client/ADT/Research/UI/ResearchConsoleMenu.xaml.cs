@@ -32,6 +32,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IClyde _clyde = default!;
     private readonly ResearchSystem _research;
     private readonly SpriteSystem _sprite;
     private readonly AccessReaderSystem _accessReader;
@@ -42,6 +43,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
     public int Points;
     public EntityUid Entity;
     private Vector2 _position = new Vector2(45, 250);
+    private IRenderTexture? _staticTexture;
 
     public ResearchConsoleMenu()
     {
@@ -51,6 +53,14 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         _research = _entity.System<ResearchSystem>();
         _sprite = _entity.System<SpriteSystem>();
         _accessReader = _entity.System<AccessReaderSystem>();
+        _staticTexture = _clyde.CreateRenderTarget((Vector2i)DragContainer.Size,
+                new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb),
+                name: "console-static");
+        ResearchesContainer.PanelOverride = new StyleBoxTexture()
+        {
+            Texture = _staticTexture.Texture,
+        };
+
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
         DragContainer.OnKeyBindDown += args => OnKeybindDown(args);
@@ -69,7 +79,10 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         DisciplinesContainer.DisposeAllChildren();
         List = state.AllowedPrototypes;
 
-        foreach (var proto in _prototype.EnumeratePrototypes<TechDisciplinePrototype>())
+        var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>().ToList();
+        disciplines.Sort((x, y) => x.UiName[0].CompareTo(y.UiName));
+
+        foreach (var proto in disciplines)
         {
             var discipline = new DisciplineButton(proto, state)
             {

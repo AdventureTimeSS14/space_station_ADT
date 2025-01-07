@@ -11,9 +11,6 @@
             SetSize="80 80"
             StyleClasses="ButtonSquare">
             <PanelContainer Name="Main" Margin="5" SetSize="64 64" Access="Public">
-                <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
-                </PanelContainer.PanelOverride>
                 <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
                     <TextureRect
                         Name="ResearchDisplay"
