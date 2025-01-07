@@ -31,7 +31,7 @@ namespace Content.Server.Abilities.XenoQueen
             SubscribeLocalEvent<XenoQueenComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<XenoQueenComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<XenoQueenComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<XenoQueenComponent, InvisibleWallActionEvent>(OnCreateTurret);
+            SubscribeLocalEvent<XenoQueenComponent, SpawnWallActionEvent>(OnCreateTurret);
             SubscribeLocalEvent<XenoQueenComponent, SpawnXenoQueenEvent>(OnWorldSpawn);
         }
 
@@ -98,7 +98,7 @@ namespace Content.Server.Abilities.XenoQueen
             _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoRavager);
             _actionsSystem.RemoveAction(uid, component.ActionSpawnXenoQueen);
         }
-        private void OnCreateTurret(EntityUid uid, XenoQueenComponent component, InvisibleWallActionEvent args)
+        private void OnCreateTurret(EntityUid uid, XenoQueenComponent component, SpawnWallActionEvent args)
         {
             if (!component.XenoCreatTurretEnabled)
                 return;
