@@ -1,7 +1,7 @@
 - type: entity
   name: Slug Cat
   parent: SimpleMobBase
-  id: ADTMobSlugCatCreek
+  id: ADTMobSlugCatBase
   description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
   components:
   - type: Sprite
@@ -9,7 +9,7 @@
     sprite: ADT/Mobs/slug-cat.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: creek
+      state: survivor
     - map: [ "mask" ]
   - type: Fixtures
     fixtures:
@@ -22,20 +22,14 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - VimPilot
-    - CannotSuicide
-  - type: Appearance
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: creek
+        Base: survivor
       Critical:
-        Base: dead-creek
+        Base: crit-survivor
       Dead:
-        Base: dead-creek
+        Base: dead-survivor
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -53,7 +47,7 @@
     attributes:
       gender: epicene
   - type: MobPrice
-    price: 2000
+    price: 1000
   - type: NpcFactionMember
     factions:
     - Passive
@@ -62,8 +56,13 @@
       0: Alive
       50: Critical
       100: Dead
+  - type: Puller
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4
+    baseWalkSpeed: 2
   - type: Inventory
     templateId: ADTSlugCat
+    speciesId: slugcat
   - type: Body
     prototype: Primate
   - type: Hands
@@ -78,9 +77,6 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: StatusIcon
-  - type: InputMover
-  - type: MobMover
-  - type: Clickable
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -88,7 +84,7 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 0
+        Slash: 2
   - type: ReplacementAccent
     accent: cat
   - type: NoSlip
@@ -100,34 +96,82 @@
       types:
         Blunt: 20
         Piercing: 15
-      groups:
-        Burn: 15
+        Heat: 15
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+    - CannotSuicide
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
-  id: ADTMobSlugCatHoly
+  parent: ADTMobSlugCatBase
+  id: ADTMobSlugCatArtificer
   description: cat
   components:
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: holy
+      state: artificer
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: holy
+        Base: artificer
       Critical:
-        Base: dead-holy
+        Base: crit-artificer
       Dead:
-        Base: dead-holy
-
+        Base: dead-artificer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Critical
+      120: Dead
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 3
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
+  parent: ADTMobSlugCatBase
+  id: ADTMobSlugCatHunter
+  description: cat
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hunter
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hunter
+      Critical:
+        Base: crit-hunter
+      Dead:
+        Base: dead-hunter
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 0
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatBase
   id: ADTMobSlugCatMonk
   description: cat
   components:
@@ -140,63 +184,151 @@
       Alive:
         Base: monk
       Critical:
-        Base: dead-monk
+        Base: crit-monk
       Dead:
         Base: dead-monk
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 1
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
-  id: ADTMobSlugCatSonfariel
+  parent: ADTMobSlugCatBase
+  id: ADTMobSlugCatRivulet
   description: cat
   components:
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: sonfariel
+      state: rivulet
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: sonfariel
+        Base: rivulet
       Critical:
-        Base: dead-sonfariel
+        Base: crit-rivulet
       Dead:
-        Base: dead-sonfariel
+        Base: dead-rivulet
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      45: Critical
+      90: Dead
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 2
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4.5
+    baseWalkSpeed: 2.5
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
-  id: ADTMobSlugCatSpearMaster
+  parent: ADTMobSlugCatBase
+  id: ADTMobSlugCatSaint
   description: cat
   components:
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: spear-master
+      state: saint
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: spear-master
+        Base: saint
       Critical:
-        Base: dead-spear-master
+        Base: crit-saint
       Dead:
-        Base: dead-spear-master
+        Base: dead-saint
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      45: Critical
+      90: Dead
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 0
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
-  id: ADTMobSlugCatTechnician
+  parent: ADTMobSlugCatBase
+  id: ADTMobSlugCatSpearmaster
   description: cat
   components:
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: technician
+      state: spearmaster
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: technician
+        Base: spearmaster
       Critical:
-        Base: dead-technician
+        Base: crit-spearmaster
       Dead:
-        Base: dead-technician
+        Base: dead-spearmaster
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      55: Critical
+      110: Dead
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 3
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatBase
+  id: ADTMobSlugCatWatcher
+  description: cat
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: watcher
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: watcher
+      Critical:
+        Base: crit-watcher
+      Dead:
+        Base: dead-watcher
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 2
+
