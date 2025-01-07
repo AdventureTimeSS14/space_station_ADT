@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Alert;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.Abilities.XenoQueen
+namespace Content.Server.ADT.Abilities.XenoQueen
 {
     /// <summary>
     /// Lets its owner entity use mime powers, like placing invisible walls.

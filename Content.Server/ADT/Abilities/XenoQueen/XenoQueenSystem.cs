@@ -13,7 +13,7 @@ using Content.Shared.Alert;
 using Content.Shared.Magic;
 using Content.Shared.FixedPoint;
 
-namespace Content.Server.Abilities.XenoQueen
+namespace Content.Server.ADT.Abilities.XenoQueen
 {
     public sealed class XenoQueenSystem : EntitySystem
     {
