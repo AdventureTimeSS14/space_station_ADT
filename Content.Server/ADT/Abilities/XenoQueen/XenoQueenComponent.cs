@@ -15,7 +15,7 @@ namespace Content.Server.Abilities.XenoQueen
         public bool XenoCreatTurretEnabled = true;
 
         // 
-        [DataField("wallPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField]
         public string XenoTurret = "WeaponTurretXeno";
         public string? XenoTurretAction = "ActionXenoQueenTurret";
 
