@@ -105,8 +105,9 @@ namespace Content.Server.Abilities.XenoQueen
 
             if (_container.IsEntityOrParentInContainer(uid))
                 return;
-            if (component.BloobCount >= 25) // В будущем заменю на переменную, а сейчас пусть катсыль
+            if (component.BloobCount >= args.Cost)
             {
+                component.BloobCount -= args.Cost.Value;
                 var xform = Transform(uid);
                 // Get the tile in front of the Queen
                 var offsetValue = xform.LocalRotation.ToWorldVec();
@@ -130,7 +131,7 @@ namespace Content.Server.Abilities.XenoQueen
             }
             else
             {
-                _popupSystem.PopupEntity(Loc.GetString("queen-no-bloob-count", ("CountBloob", 20 - component.BloobCount)), uid); // Заменю в будущем
+                _popupSystem.PopupEntity(Loc.GetString("queen-no-bloob-count", ("CountBloob", args.Cost.GetValueOrDefault() - component.BloobCount)), uid); // Заменю в будущем
             }
             UpdateAlertShow(uid, component);
         }
