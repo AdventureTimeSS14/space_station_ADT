@@ -209,7 +209,7 @@
     Asphyxiation: 0
     Radiation: 0 
     Cold: 0
-    Posion: 0
+    Poison: 0
 #
 # Syndicate Borg
 - type: damageModifierSet
@@ -224,5 +224,5 @@
     Asphyxiation: 0
     Radiation: 0 
     Cold: 0
-    Posion: 0
+    Poison: 0
 #
