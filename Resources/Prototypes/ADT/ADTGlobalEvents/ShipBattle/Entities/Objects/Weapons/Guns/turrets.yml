@@ -108,16 +108,6 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
       state: gau32_kmt_icon
-    # - type: IntrinsicUI
-    #   uis:
-    #     enum.RadarConsoleUiKey.Key:
-    #       toggleAction: ActionAGhostShowRadar
-    # - type: RadarConsole
-    #   followEntity: false
-    # - type: UserInterface
-    #   interfaces:
-    #     enum.RadarConsoleUiKey.Key:
-    #       type: RadarConsoleBoundUserInterface
     - type: Explosive
       explosionType: Default
       maxIntensity: 10
@@ -131,12 +121,13 @@
       interfaces:
         enum.RadarConsoleUiKey.Key:
           type: RadarConsoleBoundUserInterface
+    - type: RadarConsole
+      maxRange: 256
+      followEntity: true
     - type: IntrinsicUI
       uis:
         enum.RadarConsoleUiKey.Key:
-          toggleAction: ActionAGhostShowRadar
-    - type: RadarConsole
-      followEntity: true
+          toggleAction: ActionTurretShowRadar
 
 - type: entity
   parent: BaseStructure
