@@ -105,27 +105,33 @@ namespace Content.Server.Abilities.XenoQueen
 
             if (_container.IsEntityOrParentInContainer(uid))
                 return;
-
-            var xform = Transform(uid);
-            // Get the tile in front of the Qeen
-            var offsetValue = xform.LocalRotation.ToWorldVec();
-            var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-            var tile = coords.GetTileRef(EntityManager, _mapMan);
-            if (tile == null)
-                return;
-
-            // Check if the tile is blocked by a wall or mob, and don't create the wall if so
-            if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
+            if (component.BloobCount >= 20) // В будущем заменю на переменную, а сейчас пусть катсыль. Буду 
             {
-                _popupSystem.PopupEntity(Loc.GetString("create-turret-failed"), uid, uid);
-                return;
-            }
+                var xform = Transform(uid);
+                // Get the tile in front of the Queen
+                var offsetValue = xform.LocalRotation.ToWorldVec();
+                var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
+                var tile = coords.GetTileRef(EntityManager, _mapMan);
+                if (tile == null)
+                    return;
 
-            _popupSystem.PopupEntity(Loc.GetString("create-turret"), uid);
-            // Make sure we set the invisible wall to despawn properly
-            Spawn(component.XenoTurret, _turf.GetTileCenter(tile.Value));
-            // Handle args so cooldown works
-            args.Handled = true;
+                // Check if the tile is blocked by a wall or mob, and don't create the wall if so
+                if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("create-turret-failed"), uid, uid);
+                    return;
+                }
+
+                _popupSystem.PopupEntity(Loc.GetString("create-turret"), uid);
+                // Make sure we set the xeno turret to despawn properly
+                Spawn(component.XenoTurret, _turf.GetTileCenter(tile.Value));
+                // Handle args so cooldown works
+                args.Handled = true;
+            }
+            else
+            {
+                _popupSystem.PopupEntity(Loc.GetString("queen-no-bloob-count", ("CountBloob", 20 - component.BloobCount)), uid); // Заменю в будущем
+            }
             UpdateAlertShow(uid, component);
         }
         // Spawn Tipo
@@ -154,7 +160,7 @@ namespace Content.Server.Abilities.XenoQueen
         }
         private void UpdateAlertShow(EntityUid uid, XenoQueenComponent component)
         {
-            _alerts.ShowAlert(uid, _proto.Index(component.Alert), (short)Math.Clamp(Math.Round(component.BloobCount.Float() / 23), 0, 7)); // Почему ": 23" ? Все просто. 150 / 23 = 6.5.... Ну и все.
+            _alerts.ShowAlert(uid, _proto.Index(component.Alert), (short)Math.Clamp(Math.Round(component.BloobCount.Float() / 20), 0, 7)); // Почему ": 20" ? Все просто. 140 / 20 = 7.... Ну и все.
         }
     }
 }

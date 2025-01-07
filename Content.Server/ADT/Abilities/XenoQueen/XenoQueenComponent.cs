@@ -43,10 +43,10 @@ namespace Content.Server.Abilities.XenoQueen
         public FixedPoint2 BloobCount = 20; // Очки. Начальные очки равны 20
 
         [DataField]
-        public FixedPoint2 MaxBloobCount = 150; // Максимальыне количество очков
+        public FixedPoint2 MaxBloobCount = 140; // Максимальыне количество очков
 
         [DataField]
-        public int RegenBloobCount = 3; // Реген очков в минуту
+        public int RegenBloobCount = 5; // Реген очков в минуту
 
         // Иконка
         public ProtoId<AlertPrototype> Alert = "XenoQueenBloobCount";
