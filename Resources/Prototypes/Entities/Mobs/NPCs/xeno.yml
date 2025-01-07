@@ -81,6 +81,8 @@
   # Start ADT: Xeno Buff
   - type: StaminaDamageOnHit
     damage: 10 
+  - type: Damageable
+    damageModifierSet: ADTXenoDamageSet
   # End ADT
   - type: DamageStateVisuals
     rotate: true

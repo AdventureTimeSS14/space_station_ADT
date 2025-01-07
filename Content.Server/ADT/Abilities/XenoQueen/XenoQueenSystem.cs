@@ -105,7 +105,7 @@ namespace Content.Server.Abilities.XenoQueen
 
             if (_container.IsEntityOrParentInContainer(uid))
                 return;
-            if (component.BloobCount >= 20) // В будущем заменю на переменную, а сейчас пусть катсыль. Буду 
+            if (component.BloobCount >= 20) // В будущем заменю на переменную, а сейчас пусть катсыль
             {
                 var xform = Transform(uid);
                 // Get the tile in front of the Queen
