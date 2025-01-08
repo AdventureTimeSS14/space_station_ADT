@@ -781,9 +781,10 @@ public sealed partial class ServerApi : IPostInjectInit
         }
         // ICommonSession? session;
         var username = new NetUserId(new Guid($"{actor.Guid}"));
-        var username = new NetUserId({actor.Guid});
 
-        if (!_player.TryGetSessionById(username, out var session))
+        _playerManager.CreateAndAddSession(username, actor.Name);
+
+        if (_player.TryGetSessionById(username, out var session))
         {
             _sawmill.Info($"Session found: {session}");
 
