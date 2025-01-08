@@ -1,0 +1,71 @@
+- type: entity
+  id: ADTMechTSFOneStar
+  parent: ADTMechDurand
+  name: TSF One Star
+  description: Heavy armored combat mech for TSF.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/onestar.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: onestar_tsf
+  - type: Mech
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 1.0
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+        Structural: 0.5
+    maxintegrity: 400
+    baseState: onestar_tsf
+    openState: onestar_tsf-open
+    brokenState: onestar_tsf-broken
+    mechToPilotDamageMultiplier: 0.0
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 4
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    clickInsert: false
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+      # mech-equipment-container:
+      # - ADTMechGunUltraAC2
+      # # - ADTMechGunUltraAC2
+      # - ADTMechGunSRM8
+      # - ADTMechGunSRM8
+      # storagebase:
+      # - ADTBoxAmmoGranade
+      # - ADTBoxAmmoGranade
+      # - ADTBoxAmmoAC2Ultra
+      # - ADTBoxAmmoAC2Ultra
+      # - ADTBoxAmmoAC2Ultra
+      # - ADTBoxAmmoAC2Ultra
+      # - ADTBoxAmmoAC2Ultra
+      # - ADTBoxAmmoAC2Ultra
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.80
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
