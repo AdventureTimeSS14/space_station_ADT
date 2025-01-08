@@ -59,9 +59,9 @@
                                     <TextureButton Name="SpeciesInfoButton" Scale="0.3 0.3"
                                                    VerticalAlignment="Center"
                                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"
-                                                   Visible="False"/>
-                                    <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" Visible="False"/>
-                                    <Button Name="NewSpeciesButton" HorizontalAlignment="Right" ToggleMode="True" />
+                                                   Visible="False"/>                                        <!-- ADT tweak: Установил Visible="False" -->
+                                    <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" Visible="False"/>    <!-- ADT tweak: Установил Visible="False" -->
+                                    <Button Name="NewSpeciesButton" HorizontalAlignment="Right" ToggleMode="True" />    <!-- ADT tweak: Новая кнопка. -->
                                 </BoxContainer>
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">

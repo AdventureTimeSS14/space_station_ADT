@@ -7,4 +7,6 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
+  # ADT Species window start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
+  # ADT Species window end

@@ -135,10 +135,10 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField]
     public int MaxAge = 120;
 
+    // ADT Species Window start
     [DataField]
     public SpeciesCategory Category = SpeciesCategory.Classic;
 
-    // ADT Species Window start
     [DataField]
     public ResPath? Description;
 

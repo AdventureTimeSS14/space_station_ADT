@@ -111,7 +111,7 @@ namespace Content.Client.Lobby.UI
 
         private ISawmill _sawmill;
 
-        private SpeciesWindow? _speciesWindow;
+        private SpeciesWindow? _speciesWindow;  // ADT Species window
 
 
         public HumanoidProfileEditor(

@@ -11,6 +11,7 @@
   maleFirstNames: names_reptilian_male
   femaleFirstNames: names_reptilian_female
   naming: FirstDashFirst
+  # ADT Species window start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unath.xml"
   pros:
   - Могут таскать объекты хвостом.
@@ -18,6 +19,7 @@
   - Имеют общий язык с таярами.
   cons:
   - Шприцы не могут пройти через чешую унатхов.
+  # ADT Species window end
 
 - type: speciesBaseSprites
   id: MobReptilianSprites

@@ -13,6 +13,7 @@
   maleLastNames: DionaLast # Corvax-LastnameGender
   femaleLastNames: DionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
+  # ADT Species window start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
   pros:
   - Не получают негативных эффектов от кудзу.
@@ -23,6 +24,7 @@
   cons:
   - Получают гораздо больше урона от ожогов.
   - Не могут носить обувь.
+  # ADT Species window end
 
 - type: speciesBaseSprites
   id: MobDionaSprites
