@@ -39,6 +39,8 @@ public sealed partial class SpeciesWindow : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
+        Title = Loc.GetString("species-window-title");
+
         Profile = profile;
         _entityManager = entMan;
         _proto = proto;
