@@ -11,7 +11,8 @@
 
 - type: entity
   id: Present
-  parent: [PresentBase, BaseStorageItem]
+  # parent: [PresentBase, BaseStorageItem] # ADT-Tweak
+  parent: PresentBase # ADT-Tweak
   suffix: Empty
   components:
   - type: Item
