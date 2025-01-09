@@ -108,6 +108,11 @@
         500: Dead
     - type: Damageable
       damageModifierSet: ADTBorgChassisSyndicateAssaultSet
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor  
     #ADT End Borg Syndicate buff
     - type: BorgChassis
       maxModules: 3
