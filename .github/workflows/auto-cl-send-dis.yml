@@ -1,0 +1,37 @@
+name: Notify Discord on Merge to Master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests disnake asyncio logging datetime
+
+      - name: Check if commit is a merge
+        id: check_merge
+        run: |
+          echo "Commit message: ${{ github.event.head_commit.message }}"
+          if [[ "${{ github.event.head_commit.message }}" != "Merge branch"* ]]; then
+            echo "This is not a merge commit. Skipping Discord notification."
+            exit 0
+          fi
+
+      - name: Send Discord notification
+        if: steps.check_merge.outcome == 'success'
+        run: python Tools/ADT/send_discord_message.py "${{ secrets.PAT_CL_TOKEN }}" "${{ secrets.DEV_BOT }}"
