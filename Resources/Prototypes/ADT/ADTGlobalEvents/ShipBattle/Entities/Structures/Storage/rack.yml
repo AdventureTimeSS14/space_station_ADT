@@ -1,0 +1,137 @@
+- type: entity
+  id: ADTShipBattleShellRack
+  parent: BaseStructure
+  name: shell rack
+  description: Mostly filled with shells.
+  suffix: SpaceShip Battle
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Storage/shellrack.rsi
+    snapCardinals: false
+    layers:
+      - state: icon
+      - state: base-0
+        map: ["enum.StorageFillLayers.Fill"]
+  - type: Appearance
+  - type: StorageFillVisualizer
+    maxFillLevels: 6
+    fillBaseName: base
+  - type: Damageable
+    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Tag
+    tags:
+    - Structure
+  - type: Transform
+    anchored: true
+    # noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Pullable
+  # - type: Occluder
+  - type: Storage
+    grid:
+    - 0,0,29,5
+    maxItemSize: Ginormous
+    whitelist:
+      tags:
+        - ADTShipBattle100mmShell
+        - ADTShipBattle155mmShell
+  - type: UserInterface
+    interfaces:
+     enum.StorageUiKey.Key:
+      type: StorageBoundUserInterface
+  - type: InteractionOutline
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: BlockWeather
+  - type: WallMount
+    arc: 360
+
+- type: entity
+  id: ADTShipBattleShellRackMovable
+  parent: BaseStructureDynamic
+  name: shell rack movable
+  description: Used to carry shells.
+  suffix: SpaceShip Battle
+  components:
+    - type: Transform
+      noRot: true
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Storage/shellrackmovable.rsi
+      noRot: true
+      layers:
+      - state: icon
+      - state: rack-0
+        map: ["enum.StorageFillLayers.Fill"]
+    - type: MovedByPressure
+    # - type: DamageOnHighSpeedImpact
+    #   soundHit:
+    #     collection: MetalThud
+    - type: InteractionOutline
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.4,0.4,0.29"
+          density: 50
+          mask:
+          - CrateMask #this is so they can go under plastic flaps
+          layer:
+          - MachineLayer
+    - type: Damageable
+      damageModifierSet: Metallic
+      damageContainer: StructuralInorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 1
+                  max: 1
+    - type: Pullable
+    - type: Appearance
+    - type: Storage
+      grid:
+      - 0,0,29,5
+      maxItemSize: Ginormous
+      whitelist:
+        tags:
+          - ADTShipBattle100mmShell
+          - ADTShipBattle155mmShell
+    - type: UserInterface
+      interfaces:
+       enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+    - type: StorageFillVisualizer
+      maxFillLevels: 5
+      fillBaseName: rack

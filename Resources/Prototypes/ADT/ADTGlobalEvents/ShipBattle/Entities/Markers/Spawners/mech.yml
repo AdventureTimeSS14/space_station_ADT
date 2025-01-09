@@ -1,0 +1,27 @@
+- type: entity
+  name: One Star TSF Spawner
+  id: SpawnMechTSFOneStar 
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/onestar.rsi
+        state: onestar_tsf
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechTSFOneStar
+
+- type: entity
+  name: One Star KMT Spawner
+  id: SpawnADTMechKMTOneStar
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/onestar.rsi
+        state: onestar_kmt
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechKMTOneStar
