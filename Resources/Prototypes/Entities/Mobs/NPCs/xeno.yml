@@ -83,6 +83,7 @@
     damage: 10 
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
+  - type: Fauna
   # End ADT
   - type: DamageStateVisuals
     rotate: true
