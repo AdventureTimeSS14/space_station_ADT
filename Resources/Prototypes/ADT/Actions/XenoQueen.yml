@@ -10,7 +10,7 @@
     icon:
       sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
       state: icon
-    event: !type:SpawnWallActionEvent 
+    event: !type:EmptyXenoActionEvent 
       cost: 25
 # Я не смог сделать отдельный ивент для спавнта турели. Он не видел прототип ивента.
 
