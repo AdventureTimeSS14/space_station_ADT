@@ -119,17 +119,12 @@ async def post_last_merged_pull_request():
 
     await send_pull_request_to_disnake(latest_pr, description, pr_title, pr_url, coauthors)
 
-# Основная команда бота
-@bot.command()
-async def post_pr(ctx):
-    """Команда бота для отправки последнего замерженного пулл-реквеста."""
-    await post_last_merged_pull_request()
-    await ctx.send("✅ Последний замерженный пулл-реквест был отправлен в канал CHANGELOG.")
-
 # Основная функция для запуска бота
 async def main():
     token = sys.argv[2]
     bot.run(token)
+    await post_last_merged_pull_request()
+    await bot.close()  # Завершаем работу бота после выполнения отправки
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
