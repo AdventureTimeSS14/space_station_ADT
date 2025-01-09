@@ -10,7 +10,6 @@ from disnake.ext import commands
 MAX_FIELD_LENGTH = 1024  # Максимальный размер поля для Embed
 CHANGELOG_CHANNEL_ID = 1089490875182239754 # ID канала для чейнжлогов
 
-# Создаем бота
 bot = commands.Bot(command_prefix="!")
 
 # Умная обрезка текста
@@ -119,7 +118,7 @@ async def post_last_merged_pull_request():
 
     await send_pull_request_to_disnake(latest_pr, description, pr_title, pr_url, coauthors)
 
-# Основная функция для запуска бота
+# Основная функция для запуска
 async def main():
     token = sys.argv[2]
     bot.run(token)
