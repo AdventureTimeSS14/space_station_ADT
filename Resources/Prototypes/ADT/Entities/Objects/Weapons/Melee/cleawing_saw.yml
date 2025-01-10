@@ -1,0 +1,59 @@
+- type: entity
+  name: cleawing saw
+  parent: BaseItem
+  id: ADTCleawingSaw
+  description: Big, dangerous telescopic baton. Can be stored in pockets when turned off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/cleaving_saw.rsi
+    layers:
+    - state: icon_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    damageOpen:
+      types:
+        Slash: 30
+    damageFolded:
+      types:
+        Slash: 15
+    attackRateOpen: 1
+    attackRateFolded: 2
+    sizeOpened: Large
+    sizeClosed: Normal
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Weapons/Melee/cleaving_saw-inhands.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon_on}
+          False: {state: icon_off}
+  - type: ComponentToggler
+    components:
+    - type: Reflect
+      reflectProb: 0.15
+      reflective:
+        - NonEnergy
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/cleaving_saw.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/ADT/Effects/Magic/Clockwork/fellowship_armory.ogg
+    soundDeactivate:
+      path: /Audio/ADT/Effects/Magic/Clockwork/fellowship_armory_edited.ogg

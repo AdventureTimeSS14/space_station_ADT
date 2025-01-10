@@ -1,0 +1,159 @@
+- type: entity
+  id: ADTMobBloodMiner
+  parent: BaseMobAsteroid
+  name: blood miner
+  description:
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTMobBloodMinerBuffed:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/ADT/Effects/Magic/Clockwork/fellowship_armory.ogg
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive_1
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.4
+    baseSprintSpeed : 4.4
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    attackRate: 2
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 10
+    range: 1
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: NoSlip
+  - type: Damageable
+    damageContainer: BloodMiner
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: NPCUseActionOnTarget
+    actions: BloodMinerActionsNoRage
+    delay: 1
+  - type: HTN
+    rootTask:
+      task: GoliathCompound
+    blackboard:
+      VisionRadius: !type:Single
+        30
+      AggroVisionRadius: !type:Single
+        16
+  - type: Fauna
+  - type: Megafauna
+  - type: ActionGun
+    action: ActionBloodMinerShoot
+    gunProto: WeaponProtoKineticAccelerator
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: TeleportAct
+
+
+
+- type: entity
+  id: ADTMobBloodMinerBuffed
+  parent: ADTMobBloodMiner
+  name: blood miner
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTCleawingSaw:
+            min: 1
+            max: 1
+          WeaponProtoKineticAccelerator:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/ADT/hallucinations/far_noise.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    attackRate: 0.9
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 16
+    range: 2
+  - type: NPCUseActionOnTarget
+    actions: BloodMinerActionsEnraged
+    delay: 6
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive_2
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.2
+    baseSprintSpeed : 4.2
+
+- type: weightedRandomEntity
+  id: BloodMinerActionsNoRage
+  weights:
+    ActionBloodMinerShoot: 1
+
+- type: weightedRandomEntity
+  id: BloodMinerActionsEnraged
+  weights:
+    ActionBloodMinerShoot: 0.6
+    CompActionTeleport: 0.4
+
+- type: entity
+  id: ActionBloodMinerShoot
+  name: shoot kinetic
+  components:
+  - type: WorldTargetAction
+    event: !type:ActionGunShootEvent
+    useDelay: 5
+    priority: 2
+    checkCanAccess: false
+    range: 0
+    itemIconStyle: BigAction
+
+- type: entity
+  name: blood miner spawner
+  id: ADTSpawnMobBloodMiner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: RandomSpawner
+    prototypes:
+      - ADTMobBloodMiner
+  - type: TimedDespawn
+    lifetime: 1
