@@ -260,7 +260,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 17
+        Heat: 7
   - type: Ammo
     muzzleFlash: null
   - type: Reflective
@@ -277,6 +277,10 @@
         - Opaque
   - type: KnockdownOnCollide
   - type: BlurOnCollide
+  - type: StaminaDamageOnCollide
+    damage: 65
+  - type: TimedDespawn
+    lifetime: 0.1
 
 - type: entity
   id: ADTBulletKineticPistol
