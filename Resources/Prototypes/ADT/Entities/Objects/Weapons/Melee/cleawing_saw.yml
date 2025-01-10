@@ -44,8 +44,6 @@
     components:
     - type: Reflect
       reflectProb: 0.15
-      reflective:
-        - NonEnergy
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/cleaving_saw.rsi
     quickEquip: false

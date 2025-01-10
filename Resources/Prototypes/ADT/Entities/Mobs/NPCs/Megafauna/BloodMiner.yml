@@ -72,7 +72,12 @@
       2500: Dead
   - type: TeleportAct
 
-
+- type: damageContainer
+  id: BloodMiner
+  supportedGroups:
+    - Brute
+    - Toxin
+    - Genetic
 
 - type: entity
   id: ADTMobBloodMinerBuffed

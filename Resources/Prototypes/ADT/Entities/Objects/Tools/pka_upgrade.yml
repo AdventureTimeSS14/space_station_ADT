@@ -94,7 +94,7 @@
     - state: overlay-3
       color: "#9bf134"
   - type: GunUpgrade
-    tags: [ GunUpgradeLight ]
+    tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-light
   - type: GunComponentUpgrate
     components:
