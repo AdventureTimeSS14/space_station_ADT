@@ -1,0 +1,44 @@
+<Control  xmlns="https://spacestation14.io"
+            xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+            MinSize="210 30"
+            SetSize="210 30"
+            MaxSize="210 30">
+    <BoxContainer Name="Main"
+                    Orientation="Horizontal"
+                    HorizontalExpand="True"
+                    VerticalExpand="True">
+        <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="5" Name="SelectButtonPanel">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#162031" BorderColor="#4972A1"
+                                    BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <Button Name="SelectButton"
+                    HorizontalExpand="True"
+                    StyleClasses="ButtonSquare"
+                    ModulateSelfOverride="#00000000"
+                    Access="Public"/>
+        </PanelContainer>
+        <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="5" Name="FollowButtonPanel" SetSize="30 30" MinSize="30 30">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#162031" BorderColor="#4972A1"
+                                    BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <Button Name="FollowButton"
+                    SetSize="30 30"
+                    MinSize="30 30"
+                    StyleClasses="ButtonSquare"
+                    ModulateSelfOverride="#00000000"/>
+        </PanelContainer>
+        <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="5" Name="ExpandButtonPanel" SetSize="30 30" MinSize="30 30" Access="Public">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#162031" BorderColor="#4972A1"
+                                    BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <Button Name="ExpandButton"
+                    SetSize="30 30"
+                    MinSize="30 30"
+                    StyleClasses="ButtonSquare"
+                    ModulateSelfOverride="#00000000"/>
+        </PanelContainer>
+    </BoxContainer>
+</Control>

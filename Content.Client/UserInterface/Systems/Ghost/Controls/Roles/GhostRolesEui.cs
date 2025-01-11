@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.UserInterface.Systems.Ghost.Controls.GhostRoles;
 using Content.Client.Eui;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Shared.Eui;
@@ -11,13 +12,13 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
     [UsedImplicitly]
     public sealed class GhostRolesEui : BaseEui
     {
-        private readonly GhostRolesWindow _window;
+        private readonly FancyGhostRolesWindow _window;
         private GhostRoleRulesWindow? _windowRules = null;
         private uint _windowRulesId = 0;
 
         public GhostRolesEui()
         {
-            _window = new GhostRolesWindow();
+            _window = new FancyGhostRolesWindow();
 
             _window.OnRoleRequestButtonClicked += info =>
             {
@@ -106,7 +107,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                     out var reason);
 
                 // Adding a new role
-                _window.AddEntry(name, description, hasAccess, reason, group, spriteSystem);
+                _window.AddEntry(name, description, hasAccess, GhostRoleCategory.Station, reason, group, spriteSystem);
             }
 
             // Restore the Collapsible box state if it is saved

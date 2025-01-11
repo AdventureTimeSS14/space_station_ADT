@@ -7,7 +7,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client.ADT.UserInterface.Systems.Ghost.Controls
+namespace Content.Client.ADT.UserInterface.Systems.Ghost.Controls.GhostBar
 {
     [GenerateTypedNameReferences]
     public sealed partial class GhostBarRulesWindow : DefaultWindow

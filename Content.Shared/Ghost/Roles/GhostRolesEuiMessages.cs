@@ -104,4 +104,13 @@ namespace Content.Shared.Ghost.Roles
         /// </summary>
         RaffleJoined
     }
+
+    [NetSerializable, Serializable]
+    public enum GhostRoleCategory
+    {
+        Station,
+        Visitor,
+        Antag
+    }
+
 }
