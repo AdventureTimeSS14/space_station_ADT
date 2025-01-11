@@ -4,7 +4,6 @@ using System.Text;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
-using Content.Server.Examine;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Components;
@@ -18,13 +17,11 @@ using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
-using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
+using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
-using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -39,6 +36,11 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
+using Content.Shared.Interaction;
+using Content.Shared.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
+using System.Globalization;
+using System.Linq;
+using System.Text;
 
 namespace Content.Server.Chat.Systems;
 
@@ -128,6 +130,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                     _configurationManager.SetCVar(CCVars.OocEnabled, false);
                 break;
             case GameRunLevel.PostRound:
+            case GameRunLevel.PreRoundLobby:
                 if (!_configurationManager.GetCVar(CCVars.OocEnableDuringRound))
                     _configurationManager.SetCVar(CCVars.OocEnabled, true);
                 break;
@@ -281,6 +284,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             case InGameICChatType.Emote:
                 SendEntityEmote(source, sanitizedMessage, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);     // ADT Languages
                 break;
+            // ADT-CollectiveMind-Tweak-Start
+            case InGameICChatType.CollectiveMind:
+                SendCollectiveMindChat(source, message, false);
+                break;
+            // ADT-CollectiveMind-Tweak-End
         }
     }
 
@@ -431,6 +439,78 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
+    // ADT-CollectiveMind-Tweak-Start
+    public void SendCollectiveMindChat(EntityUid source, string message, bool hideChat)
+    {
+        if (!TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp))
+            return;
+
+        var clients = Filter.Empty();
+        var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
+        while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
+        {
+            if (collectMindComp.Channel == sourseCollectiveMindComp.Channel)
+            {
+                clients.AddPlayer(actorComp.PlayerSession);
+            }
+        }
+
+        var admins = _adminManager.ActiveAdmins
+            .Select(p => p.Channel);
+        string messageWrap;
+        string adminMessageWrap;
+
+        var channelProto = IoCManager.Resolve<IPrototypeManager>().Index<RadioChannelPrototype>(sourseCollectiveMindComp.Channel);
+
+        messageWrap =
+            sourseCollectiveMindComp.ShowRank && sourseCollectiveMindComp.ShowName ?
+                Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank-name",
+                ("source", source),
+                ("rank", Loc.GetString(sourseCollectiveMindComp.RankName)),
+                ("message", message),
+                ("channel", channelProto.LocalizedName)) :
+
+            sourseCollectiveMindComp.ShowName ?
+                Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-name",
+                ("source", source),
+                ("message", message),
+                ("channel", channelProto.LocalizedName)) :
+
+            sourseCollectiveMindComp.ShowRank ?
+                Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank",
+                ("rank", Loc.GetString(sourseCollectiveMindComp.RankName)),
+                ("message", message),
+                ("channel", channelProto.LocalizedName)) :
+
+           Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message", ("message", message), ("channel", channelProto.LocalizedName));
+
+        adminMessageWrap = Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-admin",
+            ("source", source),
+            ("rank", Loc.GetString(sourseCollectiveMindComp.RankName)),
+            ("message", message),
+            ("channel", channelProto.LocalizedName));
+
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
+
+        _chatManager.ChatMessageToManyFiltered(clients,
+            ChatChannel.CollectiveMind,
+            message,
+            messageWrap,
+            source,
+            hideChat,
+            true,
+            channelProto.Color);
+
+        _chatManager.ChatMessageToMany(ChatChannel.CollectiveMind,
+            message,
+            adminMessageWrap,
+            source,
+            hideChat,
+            true,
+            admins,
+            channelProto.Color);
+    }
+    // ADT-CollectiveMind-Tweak-End
     private void SendEntitySpeak(
         EntityUid source,
         string originalMessage,
@@ -466,9 +546,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             var nameEv = new TransformSpeakerNameEvent(source, Name(source));
             RaiseLocalEvent(source, nameEv);
-            name = nameEv.Name;
+            name = nameEv.VoiceName;
             // Check for a speech verb override
-            if (nameEv.SpeechVerb != null && _prototypeManager.TryIndex<SpeechVerbPrototype>(nameEv.SpeechVerb, out var proto))
+            if (nameEv.SpeechVerb != null && _prototypeManager.TryIndex(nameEv.SpeechVerb, out var proto))
                 speech = proto;
         }
 
@@ -478,12 +558,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        string coloredMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-
-        string coloredLanguageMessage = SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, FormattedMessage.EscapeText(message), language), out _);
-
-        coloredMessage = FormattedMessage.EscapeText(coloredMessage);
-        coloredLanguageMessage = FormattedMessage.EscapeText(coloredLanguageMessage);
+        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var (coloredMessage, coloredLanguageMessage) = GetLanguageColoredMessages(source, sanitizedMessage, language);
 
         if (language.Color != null)
         {
@@ -515,7 +591,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, source, range, language: language);    // ADT Languages
 
-        var ev = new EntitySpokeEvent(source, message, language, null, null);
+        var ev = new EntitySpokeEvent(source, sanitizedMessage, language, null, null);  // ADT message => sanitizedMessage
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -564,9 +640,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         // ADT Languages start
         if (language == null)
             language = _language.GetCurrentLanguage(source);
-
-        var languageMessage = SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, message, language), out _);
-        var obfuscatedLanguageMessage = ObfuscateMessageReadability(SanitizeInGameICMessage(source, _language.ObfuscateMessage(source, message, language), out _), 0.2f);
         // ADT Languages end
 
         // get the entity's name by visual identity (if no override provided).
@@ -581,7 +654,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             var nameEv = new TransformSpeakerNameEvent(source, Name(source));
             RaiseLocalEvent(source, nameEv);
-            name = nameEv.Name;
+            name = nameEv.VoiceName;
         }
         // ADT Languages start
 
@@ -590,24 +663,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        string coloredMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-        string coloredObfuscatedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(obfuscatedMessage), out _, true, shouldPunctuate, shouldCapitalizeTheWordI);
-
-        string coloredObfuscatedLanguageMessage = FormattedMessage.EscapeText(obfuscatedLanguageMessage);
-        string coloredLanguageMessage = FormattedMessage.EscapeText(languageMessage);
-
-        coloredMessage = FormattedMessage.EscapeText(coloredMessage);
-        coloredObfuscatedMessage = FormattedMessage.EscapeText(coloredObfuscatedMessage);
-        coloredObfuscatedLanguageMessage = FormattedMessage.EscapeText(coloredObfuscatedLanguageMessage);
-        coloredLanguageMessage = FormattedMessage.EscapeText(coloredLanguageMessage);
-
-        if (language.WhisperColor != null)
-        {
-            coloredMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
-            coloredObfuscatedMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredObfuscatedMessage + "[/color]";
-            coloredObfuscatedLanguageMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredObfuscatedLanguageMessage + "[/color]";
-            coloredLanguageMessage = "[color=" + language.WhisperColor.Value.ToHex().ToString() + "]" + coloredLanguageMessage + "[/color]";
-        }
+        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var (coloredMessage, coloredLanguageMessage, coloredObfuscatedMessage, coloredObfuscatedLanguageMessage) = GetColoredObfuscatedLanguageMessages(source, sanitizedMessage, language);
 
         name = FormattedMessage.EscapeText(name);
 
@@ -675,7 +732,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, language, channel, obfuscatedMessage, true);
+        var ev = new EntitySpokeEvent(source, sanitizedMessage, language, channel, obfuscatedMessage, true);    // ADT message => sanitizedMessage
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
@@ -893,8 +950,12 @@ public sealed partial class ChatSystem : SharedChatSystem
     // ReSharper disable once InconsistentNaming
     public string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
-        var newMessage = message.Trim();
-        newMessage = SanitizeMessageReplaceWords(newMessage);
+        var newMessage = SanitizeMessageReplaceWords(message.Trim());
+
+        GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
+
+        // Sanitize it first as it might change the word order
+        _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
 
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);
@@ -903,9 +964,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (punctuate)
             newMessage = SanitizeMessagePeriod(newMessage);
 
-        _sanitizer.TrySanitizeOutSmilies(newMessage, source, out newMessage, out emoteStr);
-
-        return newMessage;
+        return prefix + newMessage;
     }
 
     private string SanitizeInGameOOCMessage(string message)
@@ -1055,20 +1114,6 @@ public record ExpandICChatRecipientsEvent(EntityUid Source, float VoiceRange, Di
 {
 }
 
-public sealed class TransformSpeakerNameEvent : EntityEventArgs
-{
-    public EntityUid Sender;
-    public string Name;
-    public string? SpeechVerb;
-
-    public TransformSpeakerNameEvent(EntityUid sender, string name, string? speechVerb = null)
-    {
-        Sender = sender;
-        Name = name;
-        SpeechVerb = speechVerb;
-    }
-}
-
 /// <summary>
 ///     Raised broadcast in order to transform speech.transmit
 /// </summary>
@@ -1131,7 +1176,8 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper
+    Whisper,
+    CollectiveMind
 }
 
 /// <summary>

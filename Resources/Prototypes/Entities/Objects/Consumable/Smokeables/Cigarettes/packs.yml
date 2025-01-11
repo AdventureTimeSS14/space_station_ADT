@@ -50,6 +50,11 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    # ADT Tweak Start
+    whitelist:
+      tags:
+      - Cigarette
+    # ADT Tweak END
   - type: StorageFill
     contents:
     - id: Cigarette
@@ -119,6 +124,11 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    # ADT Tweak Start
+    whitelist:
+      tags:
+      - Cigarette
+    # ADT Tweak END
   - type: StorageFill
     contents:
     - id: CigaretteRandom
@@ -135,6 +145,10 @@
     - cig5
     - cig6
   - type: Appearance
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 40
+  # ADT Tweak END
 
 - type: entity
   id: CigPackGreen
@@ -146,6 +160,10 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 120
+  # ADT Tweak END
 
 - type: entity
   id: CigPackRed
@@ -157,6 +175,10 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 120
+  # ADT Tweak END
 
 - type: entity
   id: CigPackBlue
@@ -168,6 +190,10 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 120
+  # ADT Tweak END
 
 - type: entity
   id: CigPackBlack
@@ -179,6 +205,10 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 120
+  # ADT Tweak END
 
 - type: entity
   id: CigPackSyndicate

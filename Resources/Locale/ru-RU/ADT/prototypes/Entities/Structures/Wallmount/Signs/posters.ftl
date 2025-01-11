@@ -64,18 +64,6 @@ ent-ADTPosterContrabandLustArDeco = Таяранское ар-деко
 ent-ADTPosterSingoPizza = Пицца тайм!
     .desc = На плакате изображена сингулярность в виде пиццы.
 
-ent-ADTPosterNewYear = 2568 - Новый год
-    .desc = Плакат, напоминающий о смене Земного года.
-    .suffix = Новый Год
-
-ent-ADTPosterNewYear2 = Счастливого Нового Года!
-    .desc = Плакат, поздравляющий персонал NanoTrasen о предстоящем празднике.
-    .suffix = Новый Год
-
-ent-ADTPosterNewYear3 = Поздравляющая новогодная таяранка
-    .desc = Плакат, на котором таяранка, одетая в праздничную одежду, поздравляет вас с наступающим 2568 годом.
-    .suffix = Новый Год
-
 ent-ADTPosterLustyMoth = Плакат с похотливым серым нианом
     .desc = Кажется, где-то вы уже его видели.
 
@@ -115,6 +103,14 @@ ent-ADTPosterGasAttack = Газовая атака!
 ent-ADTPosterHappyHalloween = Счастливого Хеллоуина!
     .suffix = Хеллоуин
     .desc = Плакат, поздравляющий персонал станции с праздником.
+
+ent-ADTPosterHappyHalloween2 = { ent-ADTPosterHappyHalloween }
+    .suffix = { ent-ADTPosterHappyHalloween.suffix }
+    .desc =  { ent-ADTPosterHappyHalloween.desc }
+
+ent-ADTPosterHappyHalloween3 = { ent-ADTPosterHappyHalloween }
+    .suffix = { ent-ADTPosterHappyHalloween.suffix }
+    .desc =  { ent-ADTPosterHappyHalloween.desc }
 
 ent-ADTPosterTayarHalloween = хеллоуинская таярочка
     .suffix = Хеллоуин
@@ -217,9 +213,41 @@ ent-ADTPosterUSSPRHBZ = "Вступай в РХБЗ"
     .suffix = { "СССП" }
 
 ent-ADTPosterUSSPKS = "Ищем тебя в Космических Силах"
-    .desc = Постер с призывом вступить в Космические Силы СССП. 
+    .desc = Постер с призывом вступить в Космические Силы СССП.
     .suffix = { "СССП" }
 
 ent-ADTPosterUSSPKDV = "Никто кроме нас!"
     .desc = Плакат с бойцом Космо-Десантных войск СССП и их классическим девизом, ведущим свою историю уже почти шестой век.
     .suffix = { "СССП" }
+
+ent-ADTPosterContrabandUmaHot = горячая Ума
+    .desc = На плакате изображена высокая вульпа, с рельефными мышцами, в откровенном наряде.
+    .suffix = { "Спонсорское, Ума" }
+
+ent-ADTPosterContrabandUmaPress = горячая Ума
+    .desc = На плакате изображена высокая вульпа, демонстрирующая свой рельефный пресс.
+    .suffix = { "Спонсорское, Ума" }
+
+ent-ADTPosterContrabandUmaSport = Спорт - Жизнь!
+    .desc = Плакат, призывающий занятся тебя спортом. Посмотри на неё, и на свой пивной живот!
+    .suffix = { "Спонсорское, Ума" }
+
+ent-ADTPosterContrabandUmaAndAzalia = дружный коллектив
+    .desc = На плакате изображены два не безызвестных инженера, что очень "дружны"!
+    .suffix = { "Спонсорское, Ума" }
+
+ent-ADTPosterContrabandUmaRabbit = Ума - кролик
+    .desc = На плакате изображенна высокая вульпа, в облегающем костюме кролика.
+    .suffix = { "Спонсорское, Ума" }
+
+ent-ADTPosterContrabandUmaOnBeach = Пляжный сезон!
+    .desc = Плакат призывающий экипаж опробывать исскуственные пляжи на станции (пляж не доступен на некоторых станциях).
+    .suffix = { "Спонсорское, Ума" }
+
+ent-ADTPosterWhatDVLegit = Что такое Dar-Vaxed?
+    .desc = Dar-Vaxed - это многопрофильный холдинговая компания, специализирующийся на производстве гражданской и военной продукции. Ассортимент компании включает: спецодежды, скафандры, костюмы и униформы, а так-же швейные машины и швейные инструменты.
+    .suffix = ДВ
+
+ent-ADTPosterUnclePrazLegit = ТЫ нам нужен!
+    .desc = Рекламный плакат, стилизованный под военную пропаганду, описывает все преимущества работы в холдинговой компании Dar-Vaxed. В нем упоминаются нелепые вещи, такие как: "льготы для многодетных работников, страхование жизни, защита прав работника". Создано при поддержке проекта по обмену специалистами корпорации NanoTrasen.
+    .suffix = ДВ

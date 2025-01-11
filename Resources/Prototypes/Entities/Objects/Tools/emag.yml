@@ -17,15 +17,17 @@
     entries:
     - label: corvax-hidden-desc-Emag-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-Emag-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
     - label: corvax-hidden-desc-Emag-engineering
       jobRequired:
         - ChiefEngineer

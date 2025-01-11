@@ -181,22 +181,6 @@
 #   - type: Clothing
 #     sprite: ADT/Clothing/Mask/lapkeeset_mask.rsi
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTClothingMaskBorodaDedMoroz
-#   suffix: New Year
-#   name: Boroda ded moroz
-#   description: Boroda ded moroz
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-#     clothingVisuals:
-#       mask:
-#       - state: equipped-MASK
-#   - type: BreathMask
-
 - type: entity
   parent: ClothingMaskBase
   id: ADTChronosMask
@@ -211,8 +195,16 @@
   - type: BreathMask
   - type: NoShowFov # Отключает Fov при надевании
   - type: FlashImmunity
+  - type: NightVisionItem # RMC Night vision
+  - type: ItemToggle  # RMC Night vision
   - type: EyeProtection
     protectionTime: 5
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true
 
 # #противогаз СССП
 
@@ -323,3 +315,148 @@
   - type: HideLayerClothing
     slots:
     - Snout
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTJasonHockeyMask
+  name: hockey mask of maniac
+  description: hockey mask of maniac
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/jason.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/jason.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+  - type: BreathMask
+
+- type: entity
+  parent: WeldingMaskBase
+  id: ADTClothingHeadHatTagilla
+  name: Tagilla mask
+  description: Tagilla mask
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/tagilla_mask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingHeadHatClownArmor
+  name: ballistic mask of a psychopathic clown
+  description: OMFG YOU DO NOT KILL CLOWN! CLOWN KILLS YOU!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/clownballistic_mask.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+  - type: BreathMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTMichaelMyersMask
+  name: Michael Myers mask
+  description: Michael Myers mask
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/michael_myersmask.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+  - type: BreathMask
+
+# PayDay2 mask
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTPayDayChainsMask
+  name: squid game worker mask
+  description: squid game worker mask
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/payday_chains.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/payday_chains.rsi
+  - type: BreathMask
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTPayDayDallasMask
+  name: squid game worker mask
+  description: squid game worker mask
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/payday_dallas.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/payday_dallas.rsi
+  - type: BreathMask
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTPayDayHoustonMask
+  name: squid game worker mask
+  description: squid game worker mask
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/payday_houston.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/payday_houston.rsi
+  - type: BreathMask
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTPayDayWolfMask
+  name: squid game worker mask
+  description: squid game worker mask
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/payday_wolf.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/payday_wolf.rsi
+  - type: BreathMask
+
+- type: entity
+  id: ADTMaskCoif
+  parent: BaseItem
+  name: heat absorbent coif
+  description: A close-fitting cap that covers the top, back, and sides of the head. Can also be adjusted to cover the lower part of the face so it keeps the user warm in harsh conditions.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/coif.rsi
+    state: icon
+  - type: Clothing
+    slots: [mask]
+    sprite: ADT/Clothing/Mask/coif.rsi
+  - type: StaticPrice
+    price: 25
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: Item
+    storedRotation: -90
+    size: Small
+  - type: Mask

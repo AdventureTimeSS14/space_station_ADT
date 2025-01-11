@@ -6,12 +6,19 @@
 #     sprite: NES/GraviCore.rsi
 #     state: GraviCore
 
-# - type: stealTargetGroup
-#   id: MobileDefibrillator
-#   name: переносной дефибриллятор
-#   sprite:
-#     sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi
-#     state: icon
+- type: stealTargetGroup
+  id: ADTMobileDefibrillator
+  name: steal-target-groups-adt-mobile-defibrillator
+  sprite:
+    sprite: ADT/Objects/Specific/Medical/mobile_defib.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: ADTWeaponPistolX01
+  name: steal-target-groups-adt-pistol-x01
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
+    state: icon
 
 - type: stealTargetGroup
   id: ADTClothingMaskGasCE
@@ -19,3 +26,33 @@
   sprite:
     sprite: ADT/Clothing/Mask/gasCE.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: ADTHandheldShuttleConsoleSecurity
+  name: steal-target-groups-adt-handheld-shuttle-console-security
+  sprite:
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: security
+
+- type: stealTargetGroup
+  id: ADTHandheldShuttleConsoleSalvage
+  name: steal-target-groups-adt-handheld-shuttle-console-salvage
+  sprite:
+    sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
+    state: salvage
+
+# changeling
+
+- type: stealTargetGroup
+  id: CommandIDCard
+  name: steal-target-groups-command-id
+  sprite:
+    sprite: Objects/Misc/id_cards.rsi
+    state: silver
+
+- type: stealTargetGroup
+  id: MaterialSmileExtract
+  name: steal-target-groups-smile-extract
+  sprite:
+    sprite: Mobs/Aliens/slimes.rsi
+    state: rainbow_slime_extract

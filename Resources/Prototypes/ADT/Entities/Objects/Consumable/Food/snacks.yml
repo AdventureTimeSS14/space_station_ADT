@@ -502,3 +502,364 @@
     state: two-trash
 
 
+# halloween
+# Просто конфеты разные
+
+- type: entity
+  name: black candies
+  parent: FoodSnackBase
+  id: ADTFoodSnackBlackCandies
+  description: black candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/candy.rsi
+    state: black
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+    - ADTCandies
+
+- type: entity
+  name: green candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackGreenCandies
+  description: green candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: green
+
+- type: entity
+  name: red candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackRedCandies
+  description: red candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: red
+
+- type: entity
+  name: violet candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackVioletCandies
+  description: violet candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: violet
+
+- type: entity
+  name: yellow candies
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackYellowCandies
+  description: yellow candies
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: yellow
+
+- type: entity
+  name: chocolate coin
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackCoinCandies
+  description: chocolate coin
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: coin
+
+- type: entity
+  name: jelly brains
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackBrains
+  description: jelly brains
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: brains
+
+- type: entity
+  name: jelly heart
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackHeart
+  description: jelly heart
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: heart
+
+- type: entity
+  name: jelly worms
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackWorms
+  description: jelly worms
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: worms
+
+- type: entity
+  name: caramel stick
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackHLCaramel
+  description: caramel stick
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: hl_caramel
+
+- type: entity
+  name: caramel stick
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackMintCaramel
+  description: caramel stick
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: mint_caramel
+
+- type: entity
+  name: jelly eyes
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackCandyEyes
+  description: jelly eyes
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: eyes_3
+
+- type: entity
+  name: ADTCandy-OneeyeName
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackCandyEyes1
+  description: ADTCandy-OneeyeDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: eyes_1
+
+- type: entity
+  name: ADTCandy-TwoeyeName
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackCandyEyes2
+  description: ADTCandy-TwoeyeDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: eyes_2
+
+- type: entity
+  name: ADTCandy-ccornName
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackCandyСorn
+  description: ADTCandy-ccornDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: candy_corn
+
+- type: entity
+  name: chocolate bunny
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackBunny
+  description: chocolate bunny
+  suffix: Halloween
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    state: bunny
+
+# Леденцы на палочке
+
+- type: entity
+  name: candy red
+  parent: ADTFoodSnackBlackCandies
+  id: ADTFoodSnackCandyRed
+  description: candy red
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/candysticks.rsi
+    layers:
+    - state: trach
+    - state: candy_red
+
+- type: entity
+  name: candy mine
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyMine
+  description: candy mine
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_creeper
+
+- type: entity
+  name: candy blue
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyBlue
+  description: candy blue
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_blue
+
+- type: entity
+  name: candy gow
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyGoW
+  description: candy gow
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_kratos
+
+- type: entity
+  name: candy green
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyGreen
+  description: candy green
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_green
+
+- type: entity
+  name: candy green
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyApple
+  description: candy green
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_apple
+
+- type: entity
+  name: candy green
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyKinito
+  description: candy green
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_kinito
+
+- type: entity
+  name: candy green
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyPumpkin
+  description: candy green
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_pumpkin
+
+- type: entity
+  name: candy green
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyPurple
+  description: candy green
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_purple
+
+- type: entity
+  name: candy green
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyYellow
+  description: candy green
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_yellow
+
+- type: entity
+  name: bat gingerbread
+  parent: ADTFoodSnackCandyRed
+  id: ADTFoodSnackCandyBat
+  description: bat candy
+  suffix: Halloween
+  components:
+  - type: Sprite
+    layers:
+    - state: trach
+    - state: candy_bat
+
+- type: entity
+  name: hypoallergen chocolate bar
+  parent: FoodSnackBase
+  id: ADTHypoAllergenChocolateBar
+  description: It tastes like cardboard, but harmless to unaths and vulpes.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/hypoallergen_chocolate.rsi
+    state: hypoallergen_chocolate
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: CocoaPowder
+          Quantity: 1
+  - type: Extractable
+    grindableSolutionName: food
+  # - type: Tag
+  #   tags:
+  #   - ADTCarnivoreFriendlyFood
+  #   - ADTMothFriendlyFood
+

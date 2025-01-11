@@ -7,7 +7,7 @@
     issuer: objective-issuer-syndicate
   - type: RoleRequirement
     roles:
-      components:
+      mindRoles:
       - TraitorRole
 
 - type: entity
@@ -192,7 +192,7 @@
   - type: StealCondition
     stealGroup: HandTeleporter
 
-## hos
+## hos # adt warden
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -203,10 +203,10 @@
     # HoS will have this on them a lot of the time so..
     difficulty: 3
   - type: NotJobRequirement
-    job: HeadOfSecurity
+    job: Warden # ADT tweak
   - type: StealCondition
     stealGroup: WeaponEnergyShotgun
-    owner: job-name-hos
+    owner: job-name-warden # ADT tweak
 
 ## ce
 

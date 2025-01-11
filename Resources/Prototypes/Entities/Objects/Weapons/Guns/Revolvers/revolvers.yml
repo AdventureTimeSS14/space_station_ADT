@@ -49,6 +49,7 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
+  - type: UniqueAction # ADT TWEAK
 
 - type: entity
   name: Deckard
@@ -84,8 +85,16 @@
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo.
   components:
+  # ADT tweak Start
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/inspector.rsi # ADT tweak
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  # ADT tweak End
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/inspector.rsi # ADT tweak
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: RevolverAmmoProvider
@@ -99,10 +108,18 @@
   id: WeaponRevolverMateba
   description: The iconic sidearm of the dreaded death squads. Uses .45 magnum ammo.
   components:
+  # ADT tweak Start
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  # ADT tweak End
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -114,8 +131,16 @@
   id: WeaponRevolverPython
   description: A robust revolver favoured by Syndicate agents. Uses .45 magnum ammo.
   components:
+  # ADT tweak End
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/python.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  # ADT tweak End
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/python.rsi # ADT tweak
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Gun
@@ -147,8 +172,16 @@
   id: WeaponRevolverPirate
   description: An odd, old-looking revolver, favoured by pirate crews. Uses .45 magnum ammo.
   components:
+  # ADT tweak End
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  # ADT tweak End
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi # ADT tweak
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
   - type: Gun

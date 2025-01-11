@@ -9,19 +9,10 @@
   - type: Sprite
     scale: 1.07, 1.07
   - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.05
-        Bloodloss: 0.05
+  - type: Thirst
   - type: Icon
     sprite: ADT/Mobs/Species/Drask/parts.rsi
     state: full
-  - type: Thirst
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeatHuman
-      amount: 5
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -31,15 +22,21 @@
     damage:
       types:
         Blunt: 0.8
+  - type: PointLight
+    color: "#4682B4FF"
+    energy: 1
+    radius: 1.2
+  - type: Prying
+    speedModifier: 0.4
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
     allowedStates:
     - Alive
-    damageCap: 20
+    damageCap: 25
     damage:
       types:
-        Heat: -0.05
+        Heat: -0.08
       groups:
-        Brute: -0.05
+        Brute: -0.06
   - type: Body
     prototype: Drask
     requiredLegs: 2
@@ -52,9 +49,10 @@
       types:
         Blunt: 10
   - type: Bloodstream
+    bloodMaxVolume: 250
     bloodReagent: Cryoxadone
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.3
+    baseWalkSpeed : 2.3
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 330
@@ -71,11 +69,27 @@
         Heat : 0.6
   - type: TemperatureSpeed
     thresholds:
-      160: 0.8
-      140: 0.6
-      100: 0.4
+      40: 0.8
+      0: 0.6
+      -60: 0.4
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      62: 0.8
+      84: 0.6
   - type: ThermalRegulator
     normalBodyTemperature: 273.15
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 225 # bigger density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

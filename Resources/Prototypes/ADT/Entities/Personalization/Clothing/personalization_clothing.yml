@@ -165,6 +165,30 @@
         Piercing: 0.7
         Heat: 0.8
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsSatanHoop
+  name: hoop with spikes
+  description: hoop with spikes
+  suffix: Именное, Schrodinger
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/hoop_spikes.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/hoop_spikes.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSatanSuit
+  name: black suit with red shirt
+  description: black suit with red shirt
+  suffix: Именное, Schrodinger
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/satan_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/satan_suit.rsi
+
 # Pyotr
 - type: entity
   parent: ClothingOuterStorageBase
@@ -586,3 +610,119 @@
           - ADTSyrelBattleAxe
   - type: Appearance
 
+#cherreshnia (она же Ума)
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitUmaSport
+  name: dark sporting clothing
+  description: dark sporting clothing
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/uma_sport_clothing.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckUmaChoker
+  name: Uma`s choker
+  description: Uma`s choker
+  suffix: Sponsor, Uma
+  components:
+    - type: Sprite
+      sprite: ADT/Personalization/uma_choker.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorUma
+  name: Uma`s armor vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_armor.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/uma_armor.rsi
+
+#Anagiri
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ADTClothingHandsAnagiriGloves
+  name: Anagiri Gloves
+  description: Anagiri Gloves
+  suffix: Sponsor, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/anagiri_gloves.rsi
+
+#MleM
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatOktyabrina
+  name: Oktyabrina coat
+  description: Oktyabrina coat.
+  suffix: Personal, MleM
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/oktyabrina_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/oktyabrina_coat.rsi
+
+#ПразатДерВахед
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatPrazatBeret
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_beret.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_beret.rsi
+  - type: StaticPrice
+    price: 95
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ADTClothingOuterCoatPrazat
+  name: Prazat coat
+  description: Prazat coat.
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,4,2
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitPrazat
+  name: Prazat clothing
+  description: Prazat clothin
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_suit.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialDurathread1
+      amount: 3
+  - type: StaticPrice
+    price: 100

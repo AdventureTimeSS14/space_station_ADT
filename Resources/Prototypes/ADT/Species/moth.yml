@@ -12,6 +12,14 @@
   femaleFirstNames: first_female_moth # ADT-name-custom
   maleLastNames: last_moth # ADT-custom
   femaleLastNames: last_moth # ADT-custom
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Nian.xml"
+  pros:
+  - Могут быстро и манёвренно перемещаться без гравитации.
+  special:
+  - Могут есть ткань.
+  cons:
+  - Не могут переваривать мясную пищу.
+  - Получают повышенный урон от огня и высоких температур.
 
 - type: speciesBaseSprites
   id: MobMothSprites
@@ -53,7 +61,7 @@
       required: true
       defaultMarkings: [ MothWingsDefault ]
     Snout:
-      points: 1
+      points: 2
       required: false
     HeadTop:
       points: 1
@@ -66,13 +74,13 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 2
       required: false
     Legs:
-      points: 2
+      points: 4
       required: false
     Arms:
-      points: 2
+      points: 4
       required: false
 
 - type: humanoidBaseSprite

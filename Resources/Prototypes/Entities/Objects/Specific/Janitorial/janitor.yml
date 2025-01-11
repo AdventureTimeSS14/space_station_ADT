@@ -194,17 +194,19 @@
     entries:
     - label: corvax-hidden-desc-WetFloorSignMineExplosive-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-WetFloorSignMineExplosive-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
-        
+
 - type: entity
   name: plunger
   id: Plunger

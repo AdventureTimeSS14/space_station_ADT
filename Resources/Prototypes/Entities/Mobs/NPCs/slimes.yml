@@ -112,11 +112,19 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  # ADT tweak start
   - type: LanguageSpeaker # ADT
     speaks:
     - Bubblish
     understands:
     - Bubblish
+  - type: Prying # Open door from xeno.yml.
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  # ADT tweak end
 
 - type: entity
   name: basic slime
@@ -133,8 +141,8 @@
     name: ghost-role-information-slimes-name
     description: ghost-role-information-slimes-description
     rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
+#    raffle:
+#      settings: short ADT tweak для быстрого захода на рольку
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
@@ -174,8 +182,8 @@
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
-      raffle:
-        settings: short
+#      raffle:
+#        settings: short ADT tweak для быстрого захода на рольку
 
 - type: entity
   name: green slime
@@ -212,8 +220,8 @@
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
-      raffle:
-        settings: short
+#      raffle:
+#        settings: short ADT tweak для быстрого захода на рольку
 
 - type: entity
   name: yellow slime
@@ -250,5 +258,5 @@
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
-      raffle:
-        settings: short
+#      raffle:
+#        settings: short ADT tweak для быстрого захода на рольку

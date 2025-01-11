@@ -4,7 +4,7 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_astra.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 30
+  minPlayers: 50
   stations:
     ADT_Astra:
       stationProto: StandardNanotrasenStation
@@ -66,6 +66,7 @@
             SecurityCadet: [ 3, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]

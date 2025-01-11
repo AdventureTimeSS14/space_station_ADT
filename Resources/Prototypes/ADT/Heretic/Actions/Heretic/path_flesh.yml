@@ -1,7 +1,7 @@
 - type: entity
   id: ActionHereticFleshSurgery
-  name: flesh surgery
-  description: Remove a random organ from someone, or heal your teammates.
+  name: action-heretic-flesh-surgery-name
+  description: action-heretic-flesh-surgery-desc
   components:
   - type: EntityTargetAction
     useDelay: 30
@@ -13,17 +13,3 @@
   - type: HereticAction
     messageLoc: heretic-speech-flesh-surgery
 
-- type: entity
-  id: ActionPolymorphHereticHorror
-  name: REALITY UNCOIL
-  description: Transform into an eldritch horror.
-  components:
-  - type: InstantAction
-    useDelay: 60
-    event: !type:EventHereticFleshAscend
-    itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: final_hymn
-  - type: HereticAction
-    messageLoc: heretic-speech-flesh-worm

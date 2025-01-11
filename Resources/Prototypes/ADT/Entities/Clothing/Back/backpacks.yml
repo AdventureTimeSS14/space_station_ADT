@@ -33,6 +33,7 @@
   - type: StaticPrice
     price: 5
 
+# Med
 
 - type: entity
   parent: ClothingBackpackMedical
@@ -40,3 +41,35 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/pathologist_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: ADTClothingBackpackTimePatrol
+  name: backpack time patrol
+  description: desc
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Back/ertleader_cyb.rsi
+    - type: Unremoveable
+    - type: StorageFill
+      contents:
+        - id: Flash
+        - id: JawsOfLife
+        - id: CombatKnife
+        - id: FlashlightSeclite
+        - id: GrenadeStinger
+        - id: GrenadeStinger
+        - id: GrenadeFlashBang
+        - id: GrenadeFlashBang
+
+- type: entity
+  parent: ClothingBackpackMedical
+  id: ADTClothingBackpackParamedic
+  name: paramedical backpack
+  description: Backpack to store some paramedical equipment.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/paramedic_backpack.rsi
+  - type: StorageFill
+    contents:
+      - id: JawsOfLife

@@ -510,6 +510,7 @@
   - type: Tag
     tags:
     - Beer
+    - ADTBeerCan #ADTTweak
 
 - type: entity
   parent: DrinkCanBaseFull

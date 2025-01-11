@@ -13,12 +13,22 @@
   maleLastNames: NovakidLast
   femaleLastNames: NovakidLast
   naming: firstlast
+  category: Special
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Novakid.xml"
+  pros:
+  - Имеют крайне низкий урон от давления.
+  - Могут спокойно дышать смесью кислорода и плазмы.
+  special:
+  - Излучают свет цвета своего тела вне зависимости от обстоятельств.
+  cons:
+  - При получении смертельного урона разрываются на части.
+  - Имеют повышенный урон от холода.
 
 - type: speciesBaseSprites
   id: MobNovakidSprites
   sprites:
     Head: MobNovakidHead
-    Hair: MobHumanoidAnyMarking
+    Hair: MobNovakidAnyMarkingFollowSkin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -58,15 +68,18 @@
       points: 1
       required: false
     Snout:
-      points: 1
+      points: 2
       required: false
     Legs:
-      points: 2
+      points: 4
       required: false
     Arms:
-      points: 2
+      points: 4
       required: false
 
+- type: humanoidBaseSprite
+  id: MobNovakidAnyMarkingFollowSkin
+  markingsMatchSkin: true
 
 - type: humanoidBaseSprite
   id: MobNovakidHead

@@ -6,6 +6,11 @@
   - LawyerJumpsuit
   - CommonBackpack
   - Survival
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -14,10 +19,16 @@
   groups:
   - Inventory # Corvax-Loadouts
   - SecurityJumpsuit
+  - SecurityOfficerNeckADT # ADT-Loadouts
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityBelt
   - SecurityShoes
   - Survival
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - Trinkets
   - GroupSpeciesBreathTool

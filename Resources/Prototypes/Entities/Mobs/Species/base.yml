@@ -19,9 +19,14 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # ADT tweak start
+    - map: [ "underwearb" ] #Sirena
+    - map: [ "underweart" ] #Sirena
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "socks" ] #Sirena
     - map: ["jumpsuit"]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    # ADT tweak start
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: [ "gloves" ]
@@ -185,8 +190,6 @@
   - type: Stripping
   - type: UserInterface
     interfaces:
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
@@ -194,6 +197,8 @@
       # Goobstation - changelings & heretics
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -238,6 +243,7 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
+  - type: OfferItem # ADT-Tweak
   - type: Barotrauma
     damage:
       types:
@@ -269,8 +275,8 @@
   - type: TemperatureSpeed
     thresholds:
       293: 0.8
-      280: 0.6
-      260: 0.4
+      260: 0.6 # ADT tweak
+      230: 0.4 # ADT tweak
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -294,8 +300,11 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: BloodCough # ADT Tweak
+  # Start-ADT Tweak
+  - type: BloodCough
     postingSayDamage: blood-cough
+  - type: TimeDespawnDamage
+  # End-ADT Tweak
 
 - type: entity
   save: false
@@ -322,9 +331,14 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # ADT tweak start
+    - map: [ "underwearb" ] #Sirena
+    - map: [ "underweart" ] #Sirena
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "socks" ] #Sirena
     - map: ["jumpsuit"]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    # ADT tweak start
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]

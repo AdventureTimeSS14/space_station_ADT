@@ -117,3 +117,19 @@ ent-ADTDrinkSecUnfilteredBeerGlass = { ent-DrinkGlass }
 ent-ADTDrinkGlyphidStoutBeerGlass = { ent-DrinkGlass }
     .suffix = Глифидский стаут, Октоберфест
     .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkCocoaGlass = стакан какао
+    .desc = Бодрящий и вкусный способ начать рабочий день
+    .suffix = Новый Год
+
+ent-ADTDrinkOrangeTeaGlass = { ent-DrinkGlass }
+    .suffix = Апельсиновый чай
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkCherryTeaGlass = { ent-DrinkGlass }
+    .suffix = Вишнёвый чай
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkWatermelonTeaGlass = { ent-DrinkGlass }
+    .suffix = Арбузный чай
+    .desc = { ent-DrinkGlass.desc }

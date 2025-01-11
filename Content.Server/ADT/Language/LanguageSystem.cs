@@ -48,13 +48,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         component.CurrentLanguage = args.SelectedLanguage;
 
-        Dirty(uid, component);
-
-        if (!GetLanguages(uid, out var understood, out _, out var translatorUnderstood, out _, out var current))
-            return;
-
-        var state = new LanguageMenuStateMessage(args.Uid, current, understood, translatorUnderstood);
-        RaiseNetworkEvent(state, uid);
+        UpdateUi(uid);
     }
 
     public string ObfuscateMessage(EntityUid uid, string originalMessage, LanguagePrototype? proto = null)
@@ -64,6 +58,21 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
             proto = GetCurrentLanguage(uid);
         }
 
+        var builder = new StringBuilder();
+        if (proto.ObfuscateSyllables)
+            ObfuscateSyllables(builder, originalMessage, proto);
+        else
+            ObfuscatePhrases(builder, originalMessage, proto);
+
+        var result = builder.ToString();
+        result = _chat.SanitizeInGameICMessage(uid, result, out _);
+
+        return result;
+    }
+
+    public string ObfuscateMessage(EntityUid uid, string originalMessage, ProtoId<LanguagePrototype> protoId)
+    {
+        var proto = _proto.Index(protoId);
         var builder = new StringBuilder();
         if (proto.ObfuscateSyllables)
             ObfuscateSyllables(builder, originalMessage, proto);
@@ -149,5 +158,21 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         seed += Seed;
         var random = ((seed * 1103515245) + 12345) & 0x7fffffff; // Source: http://cs.uccs.edu/~cs591/bufferOverflow/glibc-2.2.4/stdlib/random_r.c
         return random % (max - min) + min;
+    }
+
+    public override void UpdateUi(EntityUid uid, LanguageSpeakerComponent? comp = null)
+    {
+        base.UpdateUi(uid, comp);
+
+        if (!Resolve(uid, ref comp))
+            return;
+
+        Dirty(uid, comp);
+
+        if (!GetLanguages(uid, out var understood, out _, out var translatorUnderstood, out _, out var current))
+            return;
+
+        var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, understood, translatorUnderstood);
+        RaiseNetworkEvent(state, uid);
     }
 }

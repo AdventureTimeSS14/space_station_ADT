@@ -3491,7 +3491,8 @@ entities:
           12,16:
             0: 13069
           12,17:
-            0: 13107
+            0: 13075
+            2: 32
           12,18:
             0: 48896
           12,19:
@@ -3510,8 +3511,8 @@ entities:
             0: 62463
           10,14:
             0: 61999
-            2: 16
-            3: 64
+            3: 16
+            4: 64
           10,11:
             0: 45311
           11,12:
@@ -4246,7 +4247,7 @@ entities:
             1: 61440
           13,-6:
             0: 112
-            4: 28672
+            5: 28672
           13,-5:
             0: 28784
           14,-7:
@@ -4363,7 +4364,7 @@ entities:
             0: 32624
           5,-2:
             0: 7
-            5: 60928
+            6: 60928
           5,-1:
             0: 65504
           5,0:
@@ -4528,8 +4529,8 @@ entities:
           12,-1:
             0: 65527
           13,-4:
-            6: 112
-            7: 28672
+            7: 112
+            8: 28672
           13,-3:
             1: 240
             0: 61952
@@ -4579,7 +4580,7 @@ entities:
           16,1:
             0: 10111
           16,2:
-            5: 1911
+            6: 1911
             0: 8192
           16,3:
             0: 46075
@@ -4817,6 +4818,29 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -5485,6 +5509,22 @@ entities:
     - type: Transform
       pos: 76.5,50.5
       parent: 2
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 18665
+    components:
+    - type: Transform
+      parent: 12100
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 18666
+    components:
+    - type: Transform
+      parent: 12100
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: AdvMopItem
   entities:
   - uid: 78
@@ -7064,7 +7104,7 @@ entities:
       pos: 68.5,30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -26846.428
+      secondsUntilStateChange: -26975.654
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7136,7 +7176,7 @@ entities:
       pos: 60.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7856.1377
+      secondsUntilStateChange: -7985.3657
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7642,7 +7682,7 @@ entities:
       pos: 65.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16006.144
+      secondsUntilStateChange: -16135.371
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7980,7 +8020,7 @@ entities:
       pos: 70.5,-27.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -32232.855
+      secondsUntilStateChange: -32362.082
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8436,7 +8476,7 @@ entities:
       pos: 67.5,35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -26869.455
+      secondsUntilStateChange: -26998.682
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8528,7 +8568,7 @@ entities:
       pos: 43.5,33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -39670.727
+      secondsUntilStateChange: -39799.953
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -9390,8 +9430,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 78.5,49.5
       parent: 2
-    - type: Apc
-      hasAccess: True
   - uid: 548
     components:
     - type: Transform
@@ -50199,7 +50237,7 @@ entities:
       - 8018
       - 101
     - type: Door
-      secondsUntilStateChange: -65288.508
+      secondsUntilStateChange: -65417.734
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 85100.4006158
@@ -50223,7 +50261,7 @@ entities:
       - 102
       - 8019
     - type: Door
-      secondsUntilStateChange: -65687.51
+      secondsUntilStateChange: -65816.734
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 86093.4281942
@@ -50424,7 +50462,7 @@ entities:
       - 8035
       - 118
     - type: Door
-      secondsUntilStateChange: -8827.35
+      secondsUntilStateChange: -8956.577
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 46795.2960638
@@ -50937,7 +50975,7 @@ entities:
       pos: 66.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -64053.797
+      secondsUntilStateChange: -64183.023
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -51402,7 +51440,7 @@ entities:
       pos: 82.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -65777.57
+      secondsUntilStateChange: -65906.8
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -52235,7 +52273,7 @@ entities:
       pos: 21.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -50703.637
+      secondsUntilStateChange: -50832.863
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -52317,7 +52355,7 @@ entities:
       pos: 16.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -51048.21
+      secondsUntilStateChange: -51177.438
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -52397,7 +52435,7 @@ entities:
       pos: 32.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -63689.625
+      secondsUntilStateChange: -63818.85
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -53034,7 +53072,7 @@ entities:
       pos: 58.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40534.4
+      secondsUntilStateChange: -40663.625
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -53146,7 +53184,7 @@ entities:
       pos: 82.5,62.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42111.137
+      secondsUntilStateChange: -42240.363
       state: Closing
   - uid: 8390
     components:
@@ -53269,7 +53307,7 @@ entities:
       pos: 64.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -52684.92
+      secondsUntilStateChange: -52814.15
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -53719,7 +53757,7 @@ entities:
       pos: 40.5,73.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -56757.89
+      secondsUntilStateChange: -56887.117
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 82208.0035082
@@ -80188,6 +80226,44 @@ entities:
     - type: Transform
       pos: 49.5,69.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 18665
+          - 18666
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: GunSafePistolMk58
   entities:
   - uid: 12101
@@ -80354,7 +80430,7 @@ entities:
       pos: 15.5,56.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13273.714
+      secondsUntilStateChange: -13402.941
       state: Closing
   - uid: 12128
     components:
@@ -95182,6 +95258,26 @@ entities:
     - type: Transform
       pos: 69.78162,33.806202
       parent: 2
+- proto: SheetPaper1
+  entities:
+  - uid: 14742
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.548704,14.490633
+      parent: 2
+  - uid: 14743
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.484875,14.022549
+      parent: 2
+  - uid: 14744
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.463598,13.618293
+      parent: 2
 - proto: SheetPlasma
   entities:
   - uid: 14724
@@ -95284,26 +95380,6 @@ entities:
     components:
     - type: Transform
       pos: 69.31287,33.759327
-      parent: 2
-- proto: SheetPrinter1
-  entities:
-  - uid: 14742
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 17.548704,14.490633
-      parent: 2
-  - uid: 14743
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 17.484875,14.022549
-      parent: 2
-  - uid: 14744
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 17.463598,13.618293
       parent: 2
 - proto: SheetRGlass
   entities:
@@ -98632,7 +98708,7 @@ entities:
       pos: 13.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9600.336
+      secondsUntilStateChange: -9729.563
       state: Opening
 - proto: SpaceCash10000
   entities:
@@ -98726,6 +98802,13 @@ entities:
     components:
     - type: Transform
       pos: 57.5,32.5
+      parent: 2
+- proto: SpawnPointADTGuardOfficer
+  entities:
+  - uid: 18664
+    components:
+    - type: Transform
+      pos: 36.5,55.5
       parent: 2
 - proto: SpawnPointADTPathologist
   entities:
@@ -99068,6 +99151,11 @@ entities:
     components:
     - type: Transform
       pos: 44.5,53.5
+      parent: 2
+  - uid: 18667
+    components:
+    - type: Transform
+      pos: 41.5,52.5
       parent: 2
 - proto: SpawnPointPsychologist
   entities:
@@ -117594,7 +117682,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -13069.088
+      secondsUntilStateChange: -13198.315
       state: Opening
   - uid: 18449
     components:
@@ -118782,7 +118870,7 @@ entities:
       pos: 98.5,53.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1701.963
+      secondsUntilStateChange: -1831.1908
       state: Opening
   - uid: 18662
     components:

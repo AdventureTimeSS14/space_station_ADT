@@ -17,6 +17,7 @@
     - id: MouseMigration
     - id: PowerGridCheck
     - id: RandomSentience
+    - id: ADTNeutralSpiderSpawn # ADT Tweak нейтральные паучки
     - id: SlimesSpawn
     - id: SolarFlare
     - id: SnakeSpawn
@@ -181,9 +182,8 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: DragonRole
-        prototype: Dragon
+      mindRoles:
+      - MindRoleDragon
 
 - type: entity
   parent: BaseGameRule
@@ -220,6 +220,7 @@
         color: Green
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
+      - type: EmpProtection # ADT TWEAK
       - type: SpaceNinja
       - type: NpcFactionMember
         factions:
@@ -231,9 +232,8 @@
         nameSegments:
         - names_ninja_title
         - names_ninja
-      mindComponents:
-      - type: NinjaRole
-        prototype: SpaceNinja
+      mindRoles:
+      - MindRoleNinja
 
 - type: entity
   parent: BaseGameRule
@@ -404,8 +404,18 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+# ADT tweak start Разные пауки
+#    - id: MobGiantSpiderAngry
+#      prob: 0.05
+    - id: ADTMobHunterSpiderAngry
+      prob: 0.02
+    - id: ADTMobGuardSpiderAngry
+      prob: 0.02
+    - id: ADTMobTarantulaSpiderAngry
+      prob: 0.005
+    - id: ADTMobViperSpiderAngry
+      prob: 0.005
+# ADT tweak end Разные пауки
 
 - type: entity
   id: SpiderClownSpawn
@@ -421,7 +431,7 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobClownSpider
+    - id: ADTMobClownSpider # ADT tweak
       prob: 0.05
 
 # ADT zombie remove
@@ -470,12 +480,12 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 2 # ADT TWEAK 5.5 >>> 2
     minimumPlayers: 30 #ADT-Tweak 20 >>> 30
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
+    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -487,7 +497,6 @@
       startingGear: SyndicateLoneOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie
-
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -497,9 +506,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops
 
 - type: entity
   parent: BaseTraitorRule
@@ -526,9 +534,8 @@
       blacklist:
         components:
         - AntagImmune
-      mindComponents:
-      - type: TraitorRole
-        prototype: TraitorSleeper
+      mindRoles:
+      - MindRoleTraitorSleeper
 
 - type: entity
   id: MassHallucinations

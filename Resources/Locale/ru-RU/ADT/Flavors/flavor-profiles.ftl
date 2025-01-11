@@ -36,4 +36,11 @@ flavor-complex-sausagebeer = как хмель, солод и колбаска
 flavor-complex-goldenale = как эль, золото и исцеление
 
 flavor-base-adtpoppy = маково
+flavor-complex-adtrelaxing = как довольно сильный наркотик
 flavor-base-adtvanilla = ванильно
+flavor-base-mandarin = сочная мандаринка
+
+flavor-complex-ADTChocolateDrinkFlavor = как теплый растопленный шоколад
+flavor-complex-ADTCocoaDrink = как тепло, уют и какао 
+
+flavor-base-adtsindipizza = зловеще сырно

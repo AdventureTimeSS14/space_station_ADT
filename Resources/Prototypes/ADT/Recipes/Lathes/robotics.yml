@@ -1,57 +1,4 @@
 - type: latheRecipe
-  id: ADTLeftArmBorgSecurity
-  result: ADTLeftArmBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
-
-- type: latheRecipe
-  id: ADTRightArmBorgSecurity
-  result: ADTRightArmBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
-
-- type: latheRecipe
-  id: ADTLeftLegBorgSecurity
-  result: ADTLeftLegBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
-
-- type: latheRecipe
-  id: ADTRightLegBorgSecurity
-  result: ADTRightLegBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
-
-- type: latheRecipe
-  id: ADTHeadBorgSecurity
-  result: ADTHeadBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
-
-- type: latheRecipe
-  id: ADTTorsoBorgSecurity
-  result: ADTTorsoBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-
-- type: latheRecipe
   id: ADTBorgModuleHarm
   result: ADTBorgModuleHarm
   category: Robotics
@@ -86,26 +33,19 @@
     Plastic: 250
 
 - type: latheRecipe
-  id: ADTHeadBorgKerfusNT
-  result: ADTHeadBorgKerfusNT
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 1500
-    Glass: 1250
-
-- type: latheRecipe
-  id: ADTTorsoBorgKerfusNT
-  result: ADTTorsoBorgKerfusNT
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 1750
-    Glass: 1500
-
-- type: latheRecipe
   id: ADTBorgModuleRPD
   result: ADTBorgModuleRPD
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+
+- type: latheRecipe
+  id: ADTCustomLawCircuitBoard
+  result: ADTCustomLawCircuitBoard
   category: Robotics
   completetime: 3
   materials:
@@ -388,3 +328,4 @@
     Steel: 1000
     Plastic: 250
     Gold: 100
+    Plasma: 50

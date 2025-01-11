@@ -3587,7 +3587,8 @@ entities:
           27,11:
             1: 1911
           27,7:
-            1: 65520
+            1: 65264
+            5: 256
           27,12:
             1: 655
           28,9:
@@ -4876,6 +4877,22 @@ entities:
     - type: Transform
       pos: 41.5,9.5
       parent: 2
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 15318
+    components:
+    - type: Transform
+      parent: 9665
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 15319
+    components:
+    - type: Transform
+      parent: 9665
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: AirAlarm
   entities:
   - uid: 62
@@ -5626,7 +5643,7 @@ entities:
       pos: 109.5,22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -43107.617
+      secondsUntilStateChange: -43228.266
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6018,7 +6035,7 @@ entities:
       pos: 60.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41218.59
+      secondsUntilStateChange: -41339.24
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6029,7 +6046,7 @@ entities:
       pos: 60.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11990.7295
+      secondsUntilStateChange: -12111.377
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7393,8 +7410,6 @@ entities:
     - type: Transform
       pos: 90.5,6.5
       parent: 2
-    - type: Apc
-      hasAccess: True
 - proto: APCHyperCapacity
   entities:
   - uid: 402
@@ -42315,7 +42330,7 @@ entities:
       - 6869
       - 67
     - type: Door
-      secondsUntilStateChange: -58040.812
+      secondsUntilStateChange: -58161.46
       state: Closing
   - uid: 6915
     components:
@@ -42328,7 +42343,7 @@ entities:
       - 6869
       - 67
     - type: Door
-      secondsUntilStateChange: -58023.41
+      secondsUntilStateChange: -58144.06
       state: Closing
   - uid: 6916
     components:
@@ -42422,7 +42437,7 @@ entities:
       - 6874
       - 68
     - type: Door
-      secondsUntilStateChange: -56970.27
+      secondsUntilStateChange: -57090.918
       state: Closing
   - uid: 6925
     components:
@@ -42633,7 +42648,7 @@ entities:
       - 91
       - 6879
     - type: Door
-      secondsUntilStateChange: -54599.87
+      secondsUntilStateChange: -54720.52
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 50062.9785103
@@ -42750,7 +42765,7 @@ entities:
       - 84
       - 6880
     - type: Door
-      secondsUntilStateChange: -55318.758
+      secondsUntilStateChange: -55439.406
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 49342.4078024
@@ -42863,7 +42878,7 @@ entities:
       - 6881
       - 79
     - type: Door
-      secondsUntilStateChange: -54814.44
+      secondsUntilStateChange: -54935.09
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 49846.7501552
@@ -43250,7 +43265,7 @@ entities:
       pos: 83.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3076.0557
+      secondsUntilStateChange: -3196.7026
       state: Closing
 - proto: FirelockEdge
   entities:
@@ -43428,7 +43443,7 @@ entities:
       pos: 106.5,30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3736.9978
+      secondsUntilStateChange: -3857.6448
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -44650,7 +44665,7 @@ entities:
       pos: 108.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12924.657
+      secondsUntilStateChange: -13045.305
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -44783,7 +44798,7 @@ entities:
       pos: 79.5,-24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -18159.271
+      secondsUntilStateChange: -18279.918
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -62597,6 +62612,44 @@ entities:
     - type: Transform
       pos: 108.5,30.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 15319
+          - 15318
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: GunSafeRifleLecter
   entities:
   - uid: 9666
@@ -75871,6 +75924,64 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 71.57399,-0.421242
       parent: 2
+- proto: SheetPaper1
+  entities:
+  - uid: 11999
+    components:
+    - type: Transform
+      pos: 103.65184,33.51758
+      parent: 2
+  - uid: 12000
+    components:
+    - type: Transform
+      pos: 103.1172,33.73965
+      parent: 2
+  - uid: 12001
+    components:
+    - type: Transform
+      pos: 103.43635,33.760925
+      parent: 2
+  - uid: 12002
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 52.300976,20.713058
+      parent: 2
+  - uid: 12003
+    components:
+    - type: Transform
+      pos: 52.428635,20.606678
+      parent: 2
+  - uid: 12004
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 52.620125,20.627953
+      parent: 2
+  - uid: 12005
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 52.492462,20.436464
+      parent: 2
+  - uid: 12006
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 52.428635,20.479017
+      parent: 2
+  - uid: 12007
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 52.38608,20.564123
+      parent: 2
+  - uid: 12008
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 52.662678,20.542847
+      parent: 2
 - proto: SheetPlasma
   entities:
   - uid: 11987
@@ -75937,64 +76048,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 71.53143,-0.31485915
-      parent: 2
-- proto: SheetPrinter1
-  entities:
-  - uid: 11999
-    components:
-    - type: Transform
-      pos: 103.65184,33.51758
-      parent: 2
-  - uid: 12000
-    components:
-    - type: Transform
-      pos: 103.1172,33.73965
-      parent: 2
-  - uid: 12001
-    components:
-    - type: Transform
-      pos: 103.43635,33.760925
-      parent: 2
-  - uid: 12002
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 52.300976,20.713058
-      parent: 2
-  - uid: 12003
-    components:
-    - type: Transform
-      pos: 52.428635,20.606678
-      parent: 2
-  - uid: 12004
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 52.620125,20.627953
-      parent: 2
-  - uid: 12005
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 52.492462,20.436464
-      parent: 2
-  - uid: 12006
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 52.428635,20.479017
-      parent: 2
-  - uid: 12007
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 52.38608,20.564123
-      parent: 2
-  - uid: 12008
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 52.662678,20.542847
       parent: 2
 - proto: SheetRGlass
   entities:
@@ -79284,6 +79337,13 @@ entities:
     - type: Transform
       pos: 108.5,24.5
       parent: 2
+- proto: SpawnPointADTGuardOfficer
+  entities:
+  - uid: 15317
+    components:
+    - type: Transform
+      pos: 104.5,24.5
+      parent: 2
 - proto: SpawnPointADTPathologist
   entities:
   - uid: 12574
@@ -79538,6 +79598,13 @@ entities:
     components:
     - type: Transform
       pos: 40.5,9.5
+      parent: 2
+- proto: SpawnPointPilot
+  entities:
+  - uid: 15320
+    components:
+    - type: Transform
+      pos: 103.5,27.5
       parent: 2
 - proto: SpawnPointPsychologist
   entities:

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Damage.Events; // ADT-Changeling-Tweak
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
@@ -368,6 +369,13 @@ public sealed partial class StaminaSystem : EntitySystem
         {
             return;
         }
+        // ADT staminacrit cancellation event start
+        var ev = new BeforeStaminaCritEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        if (ev.Cancelled)
+            return;
+        // ADT staminacrit cancellation event end
 
         // To make the difference between a stun and a stamcrit clear
         // TODO: Mask?
@@ -384,7 +392,11 @@ public sealed partial class StaminaSystem : EntitySystem
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
     }
 
-    private void ExitStamCrit(EntityUid uid, StaminaComponent? component = null)
+    // goob edit - made it public.
+    // in any case it requires a stamina component that can be freely modified.
+    // so it doesn't really matter if it's public or private. besides, very convenient.
+    // regards
+    public void ExitStamCrit(EntityUid uid, StaminaComponent? component = null)
     {
         if (!Resolve(uid, ref component) ||
             !component.Critical)

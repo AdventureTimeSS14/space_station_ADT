@@ -46,8 +46,13 @@
     DrinkWineBottleFull: 5
     DrinkChampagneBottleFull: 2 #because the premium drink
     ADTDrinkAppleLiqueurBottleFull: 2 #ADT_Tweak
+    # ADT Start Tweak New Years
+    ADTCarnationPack: 10
+    ADTCinnamonPack: 5
+    # ADT End Tweak New Years
     DrinkSakeBottleFull: 3
     DrinkBeerCan: 5
     DrinkWineCan: 5
+    ADTTeabox: 1 # ADT Tweak
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2

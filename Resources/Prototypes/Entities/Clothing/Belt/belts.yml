@@ -475,10 +475,12 @@
         - Sidearm
         - MagazinePistol
         - MagazineMagnum
+        - ADTTelescopicBaton #ADT-Tweak
         - ADTMagazineRifleBibis # ADT Tweak
         - CombatKnife
         - Truncheon
         - ADTLasgunRevolverCell #ADT Tweak
+        - ADTCartridgeBibis # ADT Tweak
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -487,10 +489,8 @@
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
-        - ADTCartridgeBibis # ADT Tweak
         - DoorRemote
         - Whistle
-        - HolosignProjector
         - BalloonPopper
   - type: ItemMapper
     mapLayers:

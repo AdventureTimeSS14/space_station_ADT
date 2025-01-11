@@ -367,44 +367,6 @@
   - type: Sprite
     state: poster_efficiencydiagram_legit #Спрайт от Иллюми
 
-#Новогодние постеры
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterNewYear
-  name: "2568"
-  description: Poster that celebrates New Year on Earth.
-  suffix: New Year
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от yamato_no_orochi8
-    state: new_year
-  - type: PointLight
-    radius: 3
-    energy: 2
-    color: "#5469e6"
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterNewYear2
-  name: happy new year
-  description: Poster that celebrates New Year on Earth.
-  suffix: New Year
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от prazat911
-    state: new_year2
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterNewYear3
-  name: new year tayaran
-  description: Poster that celebrates New Year on Earth.
-  suffix: New Year
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Wallmounts/poster_new_year.rsi #спрайты от prazat911
-    state: new_year3
 
 #Хеллоуинский декор
 
@@ -476,9 +438,31 @@
 
 - type: entity
   parent: ADTPosterBase
-  id: ADTPosterTayarHalloween
+  id: ADTPosterHappyHalloween2
   name: happy halloween
   description: happy halloween
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween-2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHappyHalloween3
+  name: happy halloween
+  description: happy halloween2
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween-3
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterTayarHalloween
+  name: happy halloween
+  description: happy halloween3
   suffix: Halloween
   components:
   - type: Sprite
@@ -795,3 +779,83 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/poster_syndicate.rsi
     state: gasattack
+
+#спонсорские контрабандные постеры с Умой
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaHot
+  name: Uma`s poster 1
+  description: Uma`s poster 1
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umahot_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaPress
+  name: Uma`s poster 2
+  description: Uma`s poster 2
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umapress_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaSport
+  name: Uma`s poster 3
+  description: Uma`s poster 3
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umasport_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaAndAzalia
+  name: Uma`s poster 4
+  description: Uma`s poster 4
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umaazalia_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaRabbit
+  name: Uma`s poster 5
+  description: Uma`s poster 5
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umarabbit_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUmaOnBeach
+  name: Uma`s poster 6
+  description: Uma`s poster 6
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    state: poster_umaonbeach_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterWhatDVLegit
+  name: What is Dar-Vaxed?
+  suffix: DV
+  components:
+  - type: Sprite
+    state: poster_whatdv_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterUnclePrazLegit
+  name: We need you!
+  suffix: DV
+  components:
+  - type: Sprite
+    state: poster_unclepraz_legit #Спрайт от Празата

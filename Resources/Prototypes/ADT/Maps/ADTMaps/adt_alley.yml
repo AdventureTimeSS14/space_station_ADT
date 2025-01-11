@@ -4,7 +4,7 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_alley.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 30
+  minPlayers: 60
   stations:
     ADT_Alley:
       stationProto: StandardNanotrasenStation
@@ -67,6 +67,7 @@
             Pilot: [ 1, 1]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]

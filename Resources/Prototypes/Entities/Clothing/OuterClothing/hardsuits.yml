@@ -155,6 +155,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - ADTHardsuitSalvage  # ADT tweak
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
@@ -170,8 +175,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 0.85 # ADT tweak 1.0 - 0.85
+    sprintModifier: 0.85 # ADT tweak 1.0 - 0.85
   - type: Armor
     modifiers:
       coefficients:
@@ -196,9 +201,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -227,9 +232,9 @@
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -259,9 +264,9 @@
   description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-warden.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-warden.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -425,9 +430,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-red.rsi # ADT Tweak
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/security-red.rsi # ADT Tweak
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -441,9 +446,10 @@
         Piercing: 0.5
         Radiation: 0.5
         Caustic: 0.6
+    staminaModifier: 0.7 # ADT tweak
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.75 # ADT tweak
+    sprintModifier: 0.75 # ADT tweak
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
@@ -519,6 +525,7 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: DNALocker # ADT-Tweak
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -540,6 +547,7 @@
   - type: ClothingSpeedModifier # ADT tweak
     walkModifier: 1.0
     sprintModifier: 1.0
+  - type: DNALocker # ADT-Tweak
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -580,6 +588,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
+  - type: DNALocker # ADT-Tweak
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -613,6 +622,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: DNALocker # ADT-Tweak
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -646,6 +656,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: DNALocker # ADT-Tweak
 
 #Wizard Hardsuit
 - type: entity
@@ -788,6 +799,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: DNALocker # ADT-Tweak
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -802,6 +814,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
+  - type: DNALocker # ADT-Tweak
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -816,6 +829,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: DNALocker # ADT-Tweak
 
 #ERT Medic Hardsuit
 - type: entity
@@ -830,6 +844,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+  - type: DNALocker # ADT-Tweak
 
 #ERT Security Hardsuit
 - type: entity
@@ -848,6 +863,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: DNALocker # ADT-Tweak
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -862,6 +878,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: DNALocker # ADT-Tweak
 
 #Deathsquad
 - type: entity
@@ -899,6 +916,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
+  - type: DNALocker # ADT-Tweak
 
 #CBURN Hardsuit
 - type: entity
@@ -922,20 +940,21 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 0.1
-        Cold: 0.1
-        Shock: 0.1
+        Blunt: 0.45 #ADT-tweak 0.7 -> 0.5
+        Slash: 0.45 #ADT-tweak 0.7 -> 0.5
+        Piercing: 0.65 #ADT-tweak 0.6 -> 0.65
+        Heat: 0.2 #ADT-tweak 0.05 -> 0.2
+        Cold: 0.2 #ADT-tweak 0.1 -> 0.2
+        Shock: 0.3 #ADT-tweak 0.1 -> 0.3
         Radiation: 0.1
-        Caustic: 0.1
+        Caustic: 0.3 #ADT-tweak
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
+  - type: DNALocker # ADT-Tweak
 
 #MISC. HARDSUITS
 #Clown Hardsuit

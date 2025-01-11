@@ -1,0 +1,217 @@
+# Sirena
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHigh
+  name: high socks
+  description: Nanotrasen high socks for station employees. Painted white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksknee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksNormal
+  name: socks
+  description: Standard Nanotrasen socks for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksnorm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksShort
+  name: short socks
+  description: Nanotrasen short socks for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksshort.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThigh
+  name: stockings
+  description: Standard Nanotrasen stockings for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksthigh.rsi
+
+# Wizards
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksBee # HACK
+  name: bee socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socksbee.rsi
+
+#приколы празата
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksLaceThigh
+  name: lace stockings
+  description: Good looking lace stockings.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/lace_socks_thigh.rsi
+
+
+#День Святого Валентина
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHeart
+  name: socks with hearts
+  description: socks with hearts
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_heart.rsi #Спрайты от lunalita
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsHeart
+  name: stockings with hearts
+  description: socks with hearts
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/stockings_heart.rsi #Спрайты от lunalita
+
+#Stockings
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsRed
+  name: red stockings
+  description: Red lace stockings. Not for a standart shift
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/red_stockings.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsBlack
+  name: black stockings
+  description: Black lace stockings. Not for a standart shift
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/black_stockings.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsWhite
+  name: white stockings
+  description: White lace stockings. With a pink bow
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/white_stockings.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksStockingsBlueshield
+  name: blueshield's stockings
+  description: Excellent warm stockings for the most beautiful guardian.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/stockings_blueshield.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksBlueshield
+  name: blueshield's socks
+  description: Excellent warm socks for the most beautiful guardian.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_blueshield.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksRabbit
+  name: rabbit socks
+  description: Cool rabbit socks
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_rabbit.rsi
+  - type: StaticPrice
+    price: 26
+
+# TGS
+
+## Носки
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyBlue
+  name: blue socks
+  description: Comfy blue socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyblue.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyGrey
+  name: grey socks
+  description: Comfy grey socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfygrey.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyRed
+  name: red socks
+  description: Comfy red socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyred.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksComfyViolet
+  name: violet socks
+  description: Comfy violet socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_comfyviolet.rsi
+
+## Чулки
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyBlue
+  name: blue knee socks
+  description: Comfy blue knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyblue.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyGrey
+  name: grey knee socks
+  description: Comfy grey knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfygrey.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyRed
+  name: red knee socks
+  description: Comfy red knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyred.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeComfyViolet
+  name: violet knee socks
+  description: Comfy violet knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyviolet.rsi

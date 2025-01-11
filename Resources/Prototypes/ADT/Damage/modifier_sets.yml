@@ -52,11 +52,37 @@
     Cellular: 1
 
 - type: damageModifierSet
+  id: ADTNovakid # новакиж
+  coefficients:
+    Blunt: 0.85
+    Piercing: 1.15
+    Slash: 1.15
+    Shock: 0.8
+    Cold: 1.65
+    Heat: 0.55
+    Poison: 0.5
+    Radiation: 0.8
+    Cellular: 0.8
+
+- type: damageModifierSet
+  id: ADTArachnid # пааук
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.95
+    Slash: 1.1
+    Cold: 1.2
+    Heat: 1.1
+    Poison: 0.6
+    Radiation: 1
+    Cellular: 1
+
+- type: damageModifierSet
   id: Drask # большие и хп больше + лечение, но медленнее и слабость к жаре
   coefficients:
-    Blunt: 1.1
+    Blunt: 1.05
     Piercing: 0.85
-    Slash: 1.05
+    Slash: 0.9
+    Cold: 0.5
     Heat: 1.5
     Asphyxiation: 2.0
 
@@ -120,9 +146,9 @@
 - type: damageModifierSet
   id: Ursus # что то типо медленных танков, но слабы к проникающим.
   coefficients:
-    Blunt: 0.9
+    Blunt: 0.85
     Slash: 0.8
-    Piercing: 1.15
+    Piercing: 1.1
     Heat: 1.1
 
 - type: damageModifierSet
@@ -147,7 +173,7 @@
     Cellular: 0.33
 
 #
-# ADT-damage modifier set
+# ADT-damage modifier sets
 #
 - type: damageModifierSet
   id: ADTMobCreatureDamageSet
@@ -162,3 +188,41 @@
     Radiation: 0 # похуй. абсолютно.
     Asphyxiation: 0 # похуй. абсолютно.
     Bloodloss: 0 # похуй. абсолютно.
+
+- type: damageModifierSet
+  id: ADTDragonDamageSet # пофиг на холод и кровотёк, ибо твёрдая кожа
+  coefficients:
+    Cold: 0
+    Bloodloss: 0.7 # твёрдая кожа
+
+
+# Xeno
+- type: damageModifierSet
+  id: ADTXenoDamageSet
+  coefficients:
+    Shock: 1.2
+    Slash: 0.4
+    Piercing: 0.5
+    Heat: 2
+    Cellular: 0
+    Bloodloss: 0.5
+    Asphyxiation: 0
+    Radiation: 0 
+    Cold: 0
+    Poison: 0
+#
+# Syndicate Borg
+- type: damageModifierSet
+  id: ADTBorgChassisSyndicateAssaultSet
+  coefficients:
+    Shock: 1.5
+    Slash: 0.2
+    Piercing: 0.4
+    Heat: 0.6
+    Cellular: 0
+    Bloodloss: 0
+    Asphyxiation: 0
+    Radiation: 0 
+    Cold: 0
+    Poison: 0
+#

@@ -13,6 +13,13 @@
   maleLastNames: Draskfrist
   femaleLastNames: Draskfrist
   naming: FirstDashFirstDashFirst
+  category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Drask.xml"
+  pros:
+  - Наносят 10 урона ушибами в ближнем бою.
+  - Лечатся в холоде.
+  cons:
+  - Получают повышенный урон от ожогов.
 
 - type: speciesBaseSprites
   id: MobDraskSprites
@@ -50,16 +57,16 @@
       points: 1
       required: true
     Chest:
-      points: 1
+      points: 2
       required: true
     Tail:
       points: 1
       required: false
     Snout:
-      points: 1
+      points: 2
       required: false
     Legs:
-      points: 2
+      points: 4
       required: false
     Arms:
       points: 2

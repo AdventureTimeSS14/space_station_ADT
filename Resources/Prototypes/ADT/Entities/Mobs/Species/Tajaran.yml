@@ -10,6 +10,11 @@
     - type: Body
       prototype: Tajaran
       requiredLegs: 2
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        80: Critical
+        200: Dead
     - type: RoarAccent
     - type: Hunger
     - type: Thirst
@@ -20,16 +25,14 @@
       damageContainer: Biological
       damageModifierSet: Tajaran
     - type: MeleeWeapon
-      hidden: true
       soundHit:
-        path: /Audio/Weapons/pierce.ogg
-      angle: 30
-      animation: WeaponArcPunch
+        path: /Audio/Weapons/slash.ogg
+      animation: WeaponArcClaw
       damage:
         types:
-          Piercing: 5
+          Slash: 5
     - type: Temperature
-      heatDamageThreshold: 400
+      heatDamageThreshold: 325
       coldDamageThreshold: 240
       currentTemperature: 310.15
       specificHeat: 46
@@ -42,16 +45,27 @@
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 145 #lower density
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        42: 0.7
+        60: 0.5
     - type: TemperatureSpeed
       thresholds:
         273: 0.8
-        260: 0.6
-        240: 0.4
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        80: Critical
-        200: Dead
+        240: 0.6
+        210: 0.4
     - type: Sprite
       netsync: false
       noRot: true
@@ -87,6 +101,13 @@
       tallscale: 0.95
       short: true
       shortscale: 0.85
+    - type: Tag
+      tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - ADTCatEmotes
 
 - type: entity
   save: false

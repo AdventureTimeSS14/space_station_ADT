@@ -31,3 +31,31 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
+
+# Оригинал данного прототипа был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
+# Ganimed-Book-Printer-Start
+- type: entity
+  id: ADTBookPrinterMachineCircuitboard
+  categories: [ HideSpawnMenu ]
+  parent: BaseMachineCircuitboard
+  name: book printer machine board
+  components:
+  - type: MachineBoard
+    prototype: ADTBookPrinter
+    stackRequirements:
+      Capacitor: 2
+      Manipulator: 2
+      MatterBin: 2
+# Ganimed-Book-Printer-End
+
+- type: entity
+  id: ADTBarmenKettleCircuit
+  parent: BaseMachineCircuitboard
+  name: kettle machine board
+  description: A machine printed circuit board for a kettle.
+  components:
+    - type: MachineBoard
+      prototype: ADTBarmenKettle
+      stackRequirements:
+        Capacitor: 2
+        Glass: 1

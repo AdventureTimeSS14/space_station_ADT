@@ -105,3 +105,42 @@
       amount: 1
     - id: ADTVehicleKeySyndicateSegway
       amount: 1
+
+# halloween
+
+- type: entity
+  id: ADTCrateHalloweenCloth
+  parent: CratePlastic
+  name: halloween clothing crate
+  description: halloween clothing crate
+  suffix: Halloween
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoxHalloweenCandy
+      amount: 4
+    - id: ADTBoxNightmareClown
+    - id: ADTBoxCrueltySquad
+    - id: ADTBoxJason
+    - id: ADTBoxVyazov
+    - id: ADTBoxHotlineMiami
+    - id: ADTBoxKilla
+    - id: ADTBoxServantOfEvil
+    - id: ADTBoxDude
+    - id: ADTBoxSquidPlayers
+    - id: ADTBoxSquidOrganizer
+    - id: ADTBoxTagilla
+    - id: ADTBoxNevadaClown
+    - id: ADTBoxTransilvania
+    - id: ADTBoxVergile
+    - id: ADTXenoBox
+    - id: ADTSuperstarPoliceBox
+    - id: ADTSuperstarPoliceWingmanBox
+    - id: ADTBunnyDancerBox
+    - id: ADTPayDayBox
+    - id: ADTChainSawManBox
+    - id: ADTBoxSollux
+    - id: ADTBoxRedHat
+    - id: ADTBoxBadPolice
+    - id: ADTBoxLethalCompany
+    - id: ADTBoxEmpressOfLight

@@ -4,8 +4,8 @@
     - phantom
     - ghosts
   name: phantom-title
-  minPlayers: 25
-  showInVote: true
+  minPlayers: 1
+  showInVote: false
   description: phantom-description
   rules:
     - PhantomGameRule
@@ -23,7 +23,22 @@
   minPlayers: 25
   description: heretic-title
   rules:
-    - HereticGameRule
+    - Heretic
+    - BasicRoundstartVariation
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+
+- type: gamePreset
+  id: Changeling
+  alias:
+    - changeling
+  name: changelings-title
+  minPlayers: 20
+  showInVote: false
+  description: changelings-description
+  rules:
+    - ChangelingGameRule
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler

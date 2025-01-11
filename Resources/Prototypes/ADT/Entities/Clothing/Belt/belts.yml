@@ -133,7 +133,7 @@
     sprite: ADT/Clothing/Belt/black_suspenders.rsi #спрайты от prazat911
     quickEquip: true
   - type: StaticPrice
-    price: 160
+    price: 15
 
 - type: entity
   parent: ClothingBeltBase
@@ -147,7 +147,7 @@
     sprite: ADT/Clothing/Belt/leather_suspenders.rsi #спрайты от prazat911
     quickEquip: true
   - type: StaticPrice
-    price: 160
+    price: 15
 
 # Разгрузка и подсумки ТСФ
 
@@ -211,3 +211,170 @@
     maxItemSize: Small
   - type: Item
     size: Small
+
+#РПС Киллы
+
+- type: entity
+  id: ADTClothingBeltKilla
+  parent: ClothingBeltMilitaryWebbing
+  name: Triton belt
+  description: Triton belt
+  suffix: Halloween
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/killa_webbing.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ADTClothingBeltMedicalBag
+  name: medical bag
+  description: Small but capacious bag to hold various medical equipment. It even has some place for a tablet for paper!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/medical_bag.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - Folder
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+  - type: Appearance
+
+# Разгрузка с инструментами
+
+- type: entity
+  id: ADTClothingBeltUtilityWebbing
+  name: utility webbing
+  description: A special webbing for all your instruments. Comes in handy when you're bored of the belt.
+  parent: ClothingBeltStorageBase
+  components:
+  - type: Storage
+    grid:
+    - 0,0,7,1
+    maxItemSize: Normal
+    whitelist:
+      tags:
+        - Powerdrill
+        - Wirecutter
+        - Crowbar
+        - Screwdriver
+        - Flashlight
+        - Wrench
+        - GeigerCounter
+        - Flare
+        - CableCoil
+        - CigPack
+        - Radio
+        - HolofanProjector
+        - Multitool
+        - AppraisalTool
+        - JawsOfLife
+        - GPS
+        - WeldingMask
+      components:
+        - SprayPainter
+        - NetworkConfigurator
+        - RCD
+        - RCDAmmo
+        - Welder
+        - PowerCell
+        - Geiger
+        - TrayScanner
+        - GasAnalyzer
+        - HandLabeler
+  - type: ItemMapper
+    mapLayers:
+      geiger_counter:
+        whitelist:
+          tags:
+          - GeigerCounter
+      cutters:
+        whitelist:
+          tags:
+          - Wirecutter
+      crowbar:
+        whitelist:
+          tags:
+          - Crowbar
+          - CrowbarRed
+      screwdriver:
+        whitelist:
+          tags:
+          - Screwdriver
+      wrench:
+        whitelist:
+          tags:
+          - Wrench
+      multitool:
+        whitelist:
+          tags:
+            - Multitool
+    sprite: ADT/Clothing/Belt/utility_webbing_overlay.rsi
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/utility_webbing.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/utility_webbing.rsi
+
+- type: entity
+  id: ADTClothingBeltUtilityWebbingFilled
+  parent: ADTClothingBeltUtilityWebbing
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: UtilityWebbingEntityTable
+
+- type: entity
+  id: ADTClothingBeltUtilityWebbingEngineering
+  parent: ADTClothingBeltUtilityWebbing
+  suffix: Engineering
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: UtilityWebbingEngineerEntityTable
+
+- type: entityTable
+  id: UtilityWebbingEntityTable
+  table: !type:AllSelector
+    children:
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: NetworkConfigurator
+
+- type: entityTable
+  id: UtilityWebbingEngineerEntityTable
+  table: !type:AllSelector
+    children:
+      - id: CrowbarYellow
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: Multitool
+
+#

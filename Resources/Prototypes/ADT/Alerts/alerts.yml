@@ -152,3 +152,51 @@
   description: alerts-shadekin-power-desc
   minSeverity: 0
   maxSeverity: 4
+
+- type: alert
+  id: Chemicals
+  icons:
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals0
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals1
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals2
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals3
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals4
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals5
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals6
+  - sprite: /Textures/ADT/Changeling/Alerts/chemicals_counter.rsi
+    state: chemicals7
+  name: alerts-changeling-chemicals-name
+  description: alerts-changeling-chemicals-desc
+  minSeverity: 0
+  maxSeverity: 7
+
+- type: alert
+  id: XenoQueenBloobCount
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power0
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power1
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power2
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power3
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power4
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power5
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power6
+  - sprite: /Textures/ADT/Interface/Alerts/XenoQueenBloobCount.rsi
+    state: power7
+  name: alerts-xeno-queen-bloob-count-name
+  description: alerts-xeno-queen-bloob-count-desc
+  minSeverity: 0
+  maxSeverity: 7

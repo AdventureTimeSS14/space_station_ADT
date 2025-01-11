@@ -1,0 +1,33 @@
+- type: entity
+  id: ADTAtmosDeviceFanRPD
+  name: tiny fan
+  description: A tiny fan, releasing a thin gust of air.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/tinyfan.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    blockExplosions: false
+  - type: Clickable
+  - type: Tag
+    tags:
+      - SpreaderIgnore
+  # ADT-RPD-Start
+  - type: RPDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  # ADT-RPD-End

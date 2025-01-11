@@ -90,11 +90,18 @@
     Poison:
       effects:
         - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Plant
+            shouldHave: false
           damage:
             types:
               Poison: 2
         - !type:ChemVomit
           conditions:
+          - !type:OrganType
+            type: Plant
+            shouldHave: false
           - !type:ReagentThreshold
             min: 2
           probability: 0.2
@@ -637,7 +644,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.6 # Makes it 20 damage per unit.
+            Poison: 0.2 # Makes it 20 damage per unit. ADT nerf to 7 damage for unit.
 
 - type: reagent
   id: Bungotoxin

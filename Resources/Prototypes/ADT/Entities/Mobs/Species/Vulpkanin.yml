@@ -6,6 +6,13 @@
   abstract: true
   components:
     - type: Hunger
+      baseDecayRate: 0.045
+      thresholds:
+        Overfed: 225
+        Okay: 175
+        Peckish: 125
+        Starving: 75
+        Dead: 0
     - type: Thirst
     - type: Speech
       speechSounds: Vulpa
@@ -49,8 +56,8 @@
     - type: TemperatureSpeed
       thresholds:
         283: 0.8
-        260: 0.6
-        230: 0.4
+        240: 0.6
+        200: 0.4
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
@@ -62,6 +69,33 @@
     - type: Wagging
     - type: Inventory
       speciesId: vulp
+      maleDisplacements:
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit-female
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
     - type: InteractionPopup
       successChance: 1
       interactSuccessString: hugging-success-generic
@@ -83,6 +117,13 @@
       tallscale: 1
       short: true
       shortscale: 0.9
+    - type: Tag
+      tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - ADTDogEmotes
 
 - type: entity
   save: false
@@ -99,4 +140,31 @@
       noRot: true
       drawdepth: Mobs
       scale: 0.95, 0.95
-
+    - type: Inventory
+      maleDisplacements:
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit-female
+        head:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head
+        mask:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: head

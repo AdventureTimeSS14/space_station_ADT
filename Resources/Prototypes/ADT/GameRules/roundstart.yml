@@ -13,7 +13,7 @@
   id: PhantomGameRule
   components:
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 1
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -27,7 +27,11 @@
       mindComponents:
       - type: PhantomRole
         prototype: Phantom
+      mindRoles:
+      - MindRolePhantom
   - type: AntagRandomSpawn
+  - type: AntagSpawnEntityRule
+    prototype: ADTMobPhantom
 
 - type: entityTable
   id: RampingGameRulesTable
@@ -50,24 +54,21 @@
 
 - type: entity
   parent: BaseHereticRule
-  id: HereticGameRule
+  id: Heretic
   components:
+  - type: HereticRule
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 20
   - type: AntagSelection
+    agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 8
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        - BibleUser
+      max: 3
+      playerRatio: 20
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-        prototype: Heretic
-
+      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -89,3 +90,34 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
+
+- type: entity
+  parent: BaseGameRule
+  id: ChangelingGameRule
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 30
+      max: 60
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 5
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        tags:
+        - ChangelingBlacklist
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleChangeling
+      components:
+      - type: Changeling
+    agentName: ling-round-end-name
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5

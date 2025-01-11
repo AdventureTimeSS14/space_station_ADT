@@ -30,6 +30,23 @@
   id: ADTERTLeader
   parent: EventHumanoidMindShielded
   randomizeName: false
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
@@ -37,6 +54,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
     - type: RandomMetadata
@@ -54,6 +74,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVA ]
 
@@ -79,6 +102,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVARiot ]
 
@@ -103,6 +129,23 @@
 - type: randomHumanoidSettings
   id: ADTERTJanitor
   parent: ADTERTLeader
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-janitor-name
@@ -110,6 +153,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -139,6 +185,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVA ]
 
@@ -164,6 +213,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVARiot ]
 
@@ -188,6 +240,23 @@
 - type: randomHumanoidSettings
   id: ADTERTEngineer
   parent: ADTERTLeader
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-engineer-name
@@ -195,6 +264,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -224,6 +296,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVA ]
 
@@ -249,6 +324,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVARiot ]
 
@@ -272,8 +350,23 @@
 
 - type: randomHumanoidSettings
   id: ADTERTSecurity
-  speciesBlacklist:
+  speciesBlacklist: # ADT-Tweak-start
     - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   parent: ADTERTLeader
   components:
     - type: GhostRole
@@ -282,6 +375,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -311,6 +407,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTSecurityGearEVA ]
 
@@ -332,6 +431,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [  ADTERTSecurityGearEVARiot ]
 
@@ -356,6 +458,23 @@
 - type: randomHumanoidSettings
   id: ADTERTMedical
   parent: ADTERTLeader
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
       name: ghost-role-information-ert-medical-name
@@ -363,6 +482,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -392,6 +514,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVA ]
 
@@ -417,6 +542,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 
@@ -436,8 +564,23 @@
       - MindShieldImplant
 
 - type: randomHumanoidSettings
-  speciesBlacklist:
+  speciesBlacklist: # ADT-Tweak-start
     - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
   id: ADTCmndCBURNAgent
   components:
     - type: MindShield
@@ -657,3 +800,46 @@
       factions:
       - SpaceSecFaction
       - Passive # Костыль
+
+- type: entity
+  name: Pirate
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonPirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateGear]
+  - type: GhostRole
+    name: ghost-role-information-pirate-name
+    description: ghost-role-information-pirate-description
+    rules: ghost-role-information-pirate-rules
+
+- type: entity
+  name: Pirate Captain
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonCaptainPirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateCaptainGear]
+
+- type: entity
+  name: Firstmate Pirate
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonFirstmatePirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateFirstmateGear]

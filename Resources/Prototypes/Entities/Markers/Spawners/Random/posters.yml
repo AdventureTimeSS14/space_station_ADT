@@ -106,6 +106,14 @@
       - ADTPosterPanem
       - ADTPosterGasAttack
       - ADTPosterNoGood
+      - ADTPosterContrabandUmaHot
+      - ADTPosterContrabandUmaPress
+      - ADTPosterContrabandUmaSport
+      - ADTPosterContrabandUmaAndAzalia
+      - ADTPosterContrabandUmaRabbit
+      - ADTPosterContrabandUmaOnBeach
+      - ADTPosterWhatDVLegit
+      - ADTPosterUnclePrazLegit
       #ADT tweak ^^^
     chance: 1
 
@@ -164,6 +172,12 @@
       - PosterLegitPeriodicTable
       - PosterLegitRenault
       - PosterLegitNTTGC
+      - PosterLegitSafetyMothDelam
+      - PosterLegitSafetyMothEpi
+      - PosterLegitSafetyMothPiping
+      - PosterLegitSafetyMothMeth
+      - PosterLegitSafetyMothHardhat
+      - PosterLegitSafetyMothSSD
       #ADT tweak vvv
       - ADTPosterLegitEfficiency
       - ADTPosterLegitGreatFood #спрайт от Празата

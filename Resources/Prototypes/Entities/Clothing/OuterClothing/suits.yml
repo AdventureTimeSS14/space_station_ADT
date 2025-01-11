@@ -154,13 +154,34 @@
         Heat: 0.8
   # phase cloak
   - type: ToggleClothing
-    action: ActionTogglePhaseCloak
-  - type: ComponentToggler
-    parent: true
-    components:
-    - type: Stealth
-      minVisibility: -0.4 #ADT_Tweak
-      lastVisibility: -0.4 #ADT_Tweak
+    action: ADTActionToggleCloak # adt tweak
+  # ADT TWEAK START
+  # - type: ComponentToggler
+  #   parent: true
+  #   components:
+  #   - type: Stealth
+  #     minVisibility: -0.4 #ADT_Tweak
+  #     lastVisibility: -0.4 #ADT_Tweak
+  - type: ThermalCloak
+    opacity: 0.03
+    restrictWeapons: true
+    ninjaSuit: true
+    cloakedHideLayers:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Tail
+    - Snout # I don't know if this is hugely problematic but better safe than sorry
+    cloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_on.ogg
+      params:
+        variation: 0.09
+    uncloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_off.ogg
+      params:
+        variation: 0.09
+
+# ADT TWEAK END
   - type: PowerCellDraw
     drawRate: 1.8 # 200 seconds on the default cell
   - type: ToggleCellDraw
@@ -172,6 +193,7 @@
     noPowerPopup: ninja-no-power
   # core ninja suit stuff
   - type: NinjaSuit
+  - type: EmpProtection # ADT-Tweak
   - type: UseDelay
     delay: 5 # disable time
   - type: PowerCellSlot
@@ -187,6 +209,9 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSmall
         disableEject: true
+        whitelist:
+          tags:
+            - PowerCell
 
 - type: entity
   parent: ClothingOuterBase

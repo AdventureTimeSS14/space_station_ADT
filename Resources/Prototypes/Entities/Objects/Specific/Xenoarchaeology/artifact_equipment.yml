@@ -11,12 +11,10 @@
     - type: Lock
     - type: ResistLocker
     - type: Sprite
-      drawdepth: Objects
       sprite: Structures/Storage/Crates/artifact.rsi
       layers:
-      - state: artifact_container
-        map: ["enum.StorageVisualLayers.Base"]
-      - state: artifact_container_door
+      - state: base
+      - state: closed
         map: ["enum.StorageVisualLayers.Door"]
       - state: welded
         visible: false
@@ -25,6 +23,7 @@
         map: ["enum.LockVisualLayers.Lock"]
         shader: unshaded
       - state: paper
+        sprite: Structures/Storage/Crates/labels.rsi
         map: ["enum.PaperLabelVisuals.Layer"]
     - type: InteractionOutline
     - type: Physics
@@ -41,7 +40,7 @@
           - MachineLayer
     - type: Icon
       sprite: Structures/Storage/Crates/artifact.rsi
-      state: artifact_container_icon
+      state: icon
     - type: EntityStorage
       capacity: 1
       whitelist:
@@ -66,8 +65,8 @@
               acts: ["Destruction"]
     - type: PaperLabel
       labelSlot:
-        insertVerbText: Attach Label
-        ejectVerbText: Remove Label
+        insertVerbText: paper-label-attach # ADT translate
+        ejectVerbText: paper-label-remove # ADT translate
         whitelist:
           components:
             - Paper
@@ -76,20 +75,21 @@
           - Book
     - type: Appearance
     - type: EntityStorageVisuals
-      stateDoorOpen: artifact_container_open
-      stateDoorClosed: artifact_container_door
+      stateDoorOpen: open
+      stateDoorClosed: closed
     - type: GenericVisualizer
       visuals:
         enum.PaperLabelVisuals.HasLabel:
-          enum.PaperLabelVisuals.Layer:
-            True: { visible: true }
-            False: { visible: false }
+         enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
         enum.PaperLabelVisuals.LabelType:
           enum.PaperLabelVisuals.Layer:
             Paper: { state: paper }
             Bounty: { state: bounty }
             CaptainsPaper: { state: captains_paper }
             Invoice: { state: invoice }
+            
         enum.StorageVisuals.Open:
           enum.PaperLabelVisuals.Layer:
             True: { offset: "0.0,0.3125" }

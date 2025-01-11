@@ -1,23 +1,26 @@
 - type: entity
   id: WeaponProtoKineticAcceleratorBase
   abstract: true
-  parent: BaseItem
+  parent: [BaseItem, ADTBaseAttachableHolder] # ADT TWEAK
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Normal
-  - type: GunWieldBonus
-    minAngle: -43
-    maxAngle: -43
-  - type: Wieldable
+    size: Large # ADT tweak Normal -> large
+    shape:
+    - 0,0,2,1
+  # - type: GunWieldBonus # ADT tweak start
+  #   minAngle: -43
+  #   maxAngle: -43
+  # - type: Wieldable # ADT tweak end
   - type: Gun
+    resetOnHandSelected: false #ADT tweak
     fireRate: 0.5
     selectedMode: SemiAuto
     angleDecay: 45
-    minAngle: 44
-    maxAngle: 45
+    minAngle: 2 #ADT tweak
+    maxAngle: 3 #ADT tweak
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -47,3 +50,31 @@
     - Belt
   - type: UseDelay
     delay: 1
+  - type: AttachableHolder #ADT_Tweak
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - SurvivalKnifeAttachment
+      # rmc-aslot-stock:
+      #   whitelist:
+      #     tags:
+      # rmc-aslot-rail:
+      #   whitelist:
+      #       tags:
+  - type: AttachableHolderVisuals #ADT_Tweak
+    offsets:
+      rmc-aslot-underbarrel: 0.315, -0.209
+  - type: MeleeWeapon #ADT_Tweak
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee #ADT_Tweak
+    attackType: Heavy
+  - type: Tag #ADT tweak
+    tags:
+    - PKA

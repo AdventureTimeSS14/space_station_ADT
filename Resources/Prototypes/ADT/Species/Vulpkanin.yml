@@ -12,6 +12,8 @@
   maleLastNames: VulpLast # ADT-LastnameGender
   femaleLastNames: VulpLast # ADT-LastnameGender
   naming: firstlast
+  category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Vulpa.xml"
 
 - type: speciesBaseSprites
   id: MobVulpkaninSprites
@@ -52,10 +54,10 @@
       points: 1
       required: false
     Arms:
-      points: 2
+      points: 4
       required: false
     Legs:
-      points: 2
+      points: 4
       required: false
 
 

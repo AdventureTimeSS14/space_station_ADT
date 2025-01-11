@@ -15,10 +15,6 @@
   - type: Puller
     needsHands: false
   - type: Thirst
-  # Start ADT tweak
-  - type: Sprite
-    scale: 1.05, 1.05
-  # End ADT tweak
   - type: Icon
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: full
@@ -34,6 +30,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
+    allowedEmotes: ['Thump']
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -41,6 +38,8 @@
       Male: MaleReptilian
       Female: FemaleReptilian
       Unsexed: MaleReptilian
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -59,15 +58,15 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.15 #per second, scales with temperature & other constants ADT tweak from 0.1 to 0.15
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       301: 0.8
-      295: 0.6
-      285: 0.4
+      275: 0.6 # ADT tweak
+      255: 0.4 # ADT tweak
   - type: Wagging
   - type: Inventory
     speciesId: reptilian
@@ -87,6 +86,42 @@
     - Draconic
     - CintaTaj
   #Start ADT tweak
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#800000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damageCap: 45
+    damage:
+      types:
+        Cold: -0.06
+      groups:
+        Brute: -0.08
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      55: 0.8
+      75: 0.7
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 215 #weighs more than humans
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Sprite
+    scale: 1.05, 1.05
+  - type: Bloodstream
+    bloodReagent: ADTZessulsBlood
   - type: InjectorsBlocker
   - type: SizeAttributeWhitelist # Frontier
     tall: true

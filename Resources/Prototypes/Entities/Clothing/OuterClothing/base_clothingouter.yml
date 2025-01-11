@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: Clothing
+  parent: [Clothing, AllowSuitStorageClothing] #ADT_Tweak - вернул возможность на любой куртец и халактик вешать баллон
   id: ClothingOuterBase
   components:
   - type: Clothing
@@ -116,7 +116,8 @@
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Item
-    size: Ginormous
+#    size: Ginormous
+    size: Huge # ADT-Tweak
   - type: Armor
     modifiers:
       coefficients:

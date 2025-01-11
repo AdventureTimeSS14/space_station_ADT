@@ -10,6 +10,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ADTClothingNeckCloakSecondBlueshield
+  name: blueshield cloak
+  description: A blue cape with an armored shoulder pad, especially for the protection of station heads.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/blueshield_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ADTClothingNeckDarkGreyCloak
   name: dark grey cloak
   description: Even a greytide deserve his cloak.
@@ -84,3 +93,79 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTVergileCloak
+  name: Vergile cloak
+  description: Vergile cloak
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckCloakRedhat
+  name: redhat cloak
+  description: redhat cloak
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodRedhat
+    requiredSlot:
+    - neck
+    slot: head
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckInvisibleCloak
+  name: Invisible Cloak
+  description: kto eto chitaet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/invisible_cloak.rsi
+  - type: ThermalCloak
+    opacity: 0.08
+    cooldown: 7
+    restrictWeapons: true
+    cloakedHideLayers:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Tail
+    - Snout
+    cloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_on.ogg
+      params:
+        variation: 0.09
+    uncloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_off.ogg
+      params:
+        variation: 0.09
+  - type: ToggleClothing
+    action: ADTActionToggleCloak
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: HeldSpeedModifier
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+  - type: Item
+    size: Normal

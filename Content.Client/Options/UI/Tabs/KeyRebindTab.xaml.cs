@@ -13,6 +13,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
+using Content.Shared._RMC14.Input; // ADT TWEAK
 
 namespace Content.Client.Options.UI.Tabs
 {
@@ -150,6 +151,15 @@ namespace Content.Client.Options.UI.Tabs
 
                 KeybindsContainer.AddChild(newCheckBox);
             }
+            // ADT TWEAK START
+            AddHeader("ui-options-header-rmc");
+            AddButton(CMKeyFunctions.RMCActivateAttachableBarrel);
+            AddButton(CMKeyFunctions.RMCActivateAttachableRail);
+            AddButton(CMKeyFunctions.RMCActivateAttachableStock);
+            AddButton(CMKeyFunctions.RMCActivateAttachableUnderbarrel);
+            AddButton(CMKeyFunctions.RMCFieldStripHeldItem);
+            AddButton(CMKeyFunctions.CMUniqueAction);
+            // ADT TWEAK END
 
             AddHeader("ui-options-header-general");
             AddCheckBox("ui-options-hotkey-keymap", _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys), HandleToggleUSQWERTYCheckbox);
@@ -184,7 +194,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.MoveStoredItem);
             AddButton(ContentKeyFunctions.RotateStoredItem);
             AddButton(ContentKeyFunctions.SaveItemLocation);
-
+            AddButton(ContentKeyFunctions.OfferItem); // ADT-Tweak
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
@@ -205,6 +215,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.FocusLocalChat);
             AddButton(ContentKeyFunctions.FocusEmote);
             AddButton(ContentKeyFunctions.FocusWhisperChat);
+            AddButton(ContentKeyFunctions.FocusCollectiveMind); // ADT-CollectiveMind-Tweak
             AddButton(ContentKeyFunctions.FocusRadio);
             AddButton(ContentKeyFunctions.FocusLOOC);
             AddButton(ContentKeyFunctions.FocusOOC);

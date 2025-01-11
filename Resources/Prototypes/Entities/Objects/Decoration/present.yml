@@ -11,7 +11,7 @@
 
 - type: entity
   id: Present
-  parent: [PresentBase, BaseStorageItem]
+  parent: [PresentBase, BaseItem] # ADT-Tweak: FIX-BUG
   suffix: Empty
   components:
   - type: Item
@@ -26,7 +26,7 @@
     wrapper: PresentTrash
     sound:
       path: /Audio/Effects/unwrap.ogg
-    insaneMode: false
+    insaneMode: Unsafe
     contentsViewers:
       components:
       - Ghost
@@ -38,7 +38,7 @@
   suffix: Filled, any entity
   components:
     - type: RandomGift
-      insaneMode: true
+      insaneMode: Unsafe
 
 - type: entity
   id: PresentRandom
@@ -63,6 +63,8 @@
       - id: PlushieRouny
         orGroup: GiftPool
       - id: PlushieLizard #Weh!
+        orGroup: GiftPool
+      - id: PlushieRainbowLizard
         orGroup: GiftPool
       - id: PlushieNar
         orGroup: GiftPool

@@ -12,6 +12,10 @@
   maleLastNames: TajaranLast
   femaleLastNames: TajaranLast
   naming: firstlast
+  category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Tajaran.xml"
+  special:
+  - Имеют общий язык с унатхами.
 
 - type: speciesBaseSprites
   id: MobTajaranSprites
@@ -42,7 +46,7 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 2
       required: false
     Tail:
       points: 1

@@ -51,8 +51,10 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -64,6 +66,14 @@
   - type: Tag
     tags:
     - VimPilot
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   name: bee
@@ -215,8 +225,10 @@
         Base: dead-0
   - type: Butcherable
     spawned:
-    - id: FoodMeatChicken
-      amount: 1
+    # - id: FoodMeatChicken # ADT CHANGES START
+    #   amount: 1
+    - id: ADTChickenBody
+      amount: 1 # ADT CHANGES END
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -378,17 +390,26 @@
     tags:
     - Trash
     - VimPilot
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 10
-      behaviors:
-      - !type:GibBehavior { }
+  # - type: Destructible
+  #   thresholds:
+  #   - trigger:
+  #       !type:DamageTypeTrigger
+  #       damageType: Blunt
+  #       damage: 10
+  #     behaviors:
+  #     - !type:GibBehavior { }
+  # ADT-Tweak
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 0
 
 - type: entity
   name: glockroach
@@ -1354,7 +1375,7 @@
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Clumsy
-    clumsyDamage:
+    gunShootFailDamage:
       types:
         Blunt: 5
         Piercing: 4
@@ -1401,8 +1422,7 @@
   components:
     # make the player a traitor once its taken
   - type: AutoTraitor
-    giveUplink: false
-    giveObjectives: false
+    profile: TraitorReinforcement
 
 - type: entity
   id: MobMonkeySyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
@@ -1426,11 +1446,14 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
+    allowedEmotes: ['Thump']
   - type: Vocal
     sounds:
       Male: MaleReptilian
       Female: FemaleReptilian
       Unsexed: MaleReptilian
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: TypingIndicator
     proto: lizard
   - type: InteractionPopup
@@ -1528,7 +1551,7 @@
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   components:
   - type: Clumsy
-    clumsyDamage:
+    gunShootFailDamage:
       types:
         Blunt: 2
         Piercing: 7
@@ -1560,8 +1583,7 @@
   components:
     # make the player a traitor once its taken
   - type: AutoTraitor
-    giveUplink: false
-    giveObjectives: false
+    profile: TraitorReinforcement
 
 - type: entity
   id: MobKoboldSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
@@ -1699,8 +1721,10 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - Trash
@@ -1750,6 +1774,14 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+# ADT-Tweak-start
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
 
 - type: entity
   parent: MobMouse
@@ -1777,6 +1809,11 @@
   # intended for swarms that eat pills so only temporary
   - type: TimedDespawn
     lifetime: 60
+  - type: Hunger
+    baseDecayRate: 10 # always hungry
+    starvingSlowdownModifier: 1
+  - type: Thirst
+    baseDecayRate: 10 # always thirsty
 
 - type: entity
   parent: MobMouse
@@ -2275,6 +2312,7 @@
   name: tarantula
   parent: [ SimpleMobBase, MobCombat ]
   id: MobGiantSpider
+  abstract: true # ADT tweak для разных пауков
   description: Widely recognized to be the literal worst thing in existence.
   components:
   - type: Sprite
@@ -2394,6 +2432,7 @@
   name: tarantula
   parent: MobGiantSpider
   id: MobGiantSpiderAngry
+  abstract: true # ADT tweak для разных пауков
   suffix: Angry
   components:
     - type: NpcFactionMember
@@ -2417,6 +2456,7 @@
   name: clown spider
   parent: MobGiantSpiderAngry
   id: MobClownSpider
+  abstract: true # ADT tweak для разных пауков
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
     - type: Sprite
@@ -2463,7 +2503,7 @@
 
 - type: entity
   name: wizard spider
-  parent: MobGiantSpider
+  parent: ADTMobBaseSpider # ADT tweak для разных пауков
   id: MobGiantSpiderWizard
   description: This spider looks a little magical
   suffix: Wizard
@@ -3257,8 +3297,16 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+# ADT-Tweak-start
+  # - type: ReplacementAccent
+  #   accent: mouse
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+# ADT-Tweak-end
   - type: Tag
     tags:
     - VimPilot
@@ -3371,6 +3419,9 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
 
 - type: entity
   name: diona nymph
@@ -3445,6 +3496,19 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
+  # ADT Start Tweak Nimf
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/nymph.rsi
+    equippedPrefix: nimf
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: Item
+    size: Normal
+    sprite: Mobs/Animals/nymph.rsi
+    heldPrefix: nimf
+  # ADT End Tweak Nimf
 
 - type: entity
   parent: MobDionaNymph

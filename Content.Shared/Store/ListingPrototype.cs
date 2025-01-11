@@ -41,6 +41,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.OriginalCost,
         other.RestockTime,
         other.DiscountDownTo,
+        other.DisableRefund,
         other.ProductHereticKnowledge ///goob edit
     )
     {
@@ -66,6 +67,7 @@ public partial class ListingData : IEquatable<ListingData>
         IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
+        bool disableRefund,
         ProtoId<HereticKnowledgePrototype>? productHereticKnowledge ///goob edit
     )
     {
@@ -88,6 +90,7 @@ public partial class ListingData : IEquatable<ListingData>
         OriginalCost = originalCost;
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
+        DisableRefund = disableRefund;
     }
 
     [ViewVariables]
@@ -164,6 +167,9 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public EntProtoId? ProductAction;
 
+    [DataField("mindAction")] // ADT-Changeling-Tweak
+    public bool MindAction = true;
+
     /// <summary>
     /// The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
     /// upgrade or to use standalone as an upgrade
@@ -204,6 +210,12 @@ public partial class ListingData : IEquatable<ListingData>
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> DiscountDownTo = new();
+
+    /// <summary>
+    /// Whether or not to disable refunding for the store when the listing is purchased from it.
+    /// </summary>
+    [DataField]
+    public bool DisableRefund = false;
 
     public bool Equals(ListingData? listing)
     {
@@ -299,6 +311,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.OriginalCost,
             listingData.RestockTime,
             listingData.DiscountDownTo,
+            listingData.DisableRefund,
             listingData.ProductHereticKnowledge  //goob edit
         )
     {

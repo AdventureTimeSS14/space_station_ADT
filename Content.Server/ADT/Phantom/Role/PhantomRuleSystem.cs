@@ -8,6 +8,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.CCVar;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -171,13 +172,13 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
             return;
 
-        if (_roles.MindHasRole<PhantomRoleComponent>(mindId))
-            return;
+        // if (_roles.MindHasRole<PhantomRoleComponent>(mindId))
+        //     return;
 
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var nukeops, out _))
         {
-            _roles.MindAddRole(mindId, new PhantomRoleComponent { PrototypeId = "Phantom" });
+            //_roles.MindAddRole(mindId, new PhantomRoleComponent { PrototypeId = "Phantom" });
             var finObjective = _objectives.GetRandomObjective(mindId, mind, nukeops.FinalObjectiveGroup, 10f);
             if (finObjective == null)
                 return;
@@ -200,7 +201,7 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         var ruleQuery = QueryActiveRules();
         while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
         {
-            var objective = _objectives.GetRandomObjective(phantom.PhantomMind.Owner, phantom.PhantomMind.Comp, phantom.ObjectiveGroup, _cfg.GetCVar(CCVars.PhantomMaxDifficulty));
+            var objective = _objectives.GetRandomObjective(phantom.PhantomMind.Owner, phantom.PhantomMind.Comp, phantom.ObjectiveGroup, _cfg.GetCVar(ADTCCVars.PhantomMaxDifficulty));
             if (objective == null)
                 continue;
 
@@ -210,15 +211,12 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         }
     }
 
-    private void SetWinType(EntityUid uid, PhantomWinType type, PhantomRuleComponent? component = null, bool endRound = true)
+    private void SetWinType(EntityUid uid, PhantomWinType type, PhantomRuleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
 
         component.WinType = type;
-
-        if (endRound && (type == PhantomWinType.CrewMajor || type == PhantomWinType.PhantomMajor))
-            _roundEndSystem.EndRound();
     }
 
     private void OnCommandMobStateChanged(EntityUid uid, PhantomTyranyTargetComponent comp, MobStateChangedEvent ev)
@@ -268,13 +266,13 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
 
     private void AddObjectives(EntityUid mindId, MindComponent mind, PhantomRuleComponent component)
     {
-        var maxDifficulty = _cfg.GetCVar(CCVars.PhantomMaxDifficulty);
-        var maxPicks = _cfg.GetCVar(CCVars.PhantomMaxPicks);
+        var maxDifficulty = _cfg.GetCVar(ADTCCVars.PhantomMaxDifficulty);
+        var maxPicks = _cfg.GetCVar(ADTCCVars.PhantomMaxPicks);
         var difficulty = 0f;
         Log.Debug($"Attempting {maxPicks} objective picks with {maxDifficulty} difficulty");
         for (var pick = 0; pick < maxPicks && maxDifficulty > difficulty; pick++)
         {
-            var objective = _objectives.GetRandomObjective(mindId, mind, component.ObjectiveGroup, _cfg.GetCVar(CCVars.PhantomMaxDifficulty));
+            var objective = _objectives.GetRandomObjective(mindId, mind, component.ObjectiveGroup, _cfg.GetCVar(ADTCCVars.PhantomMaxDifficulty));
             if (objective == null)
                 continue;
 

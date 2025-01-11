@@ -1,12 +1,13 @@
 - type: species
   id: Felinid
   name: Фелинид
-  roundStart: true
+  roundStart: false  # на радость здравому смыслу
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
+  category: Unusual
   #sponsorOnly: true # Пока снимаем до решения проблем
 
 
@@ -28,11 +29,11 @@
       required: true
       defaultMarkings: [ CatEars ]
     Chest:
-      points: 1
+      points: 2
       required: false
     Legs:
-      points: 2
+      points: 4
       required: false
     Arms:
-      points: 2
+      points: 4
       required: false

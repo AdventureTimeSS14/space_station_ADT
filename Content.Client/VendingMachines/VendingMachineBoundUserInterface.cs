@@ -33,24 +33,43 @@ namespace Content.Client.VendingMachines
             _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 
             _menu.OnClose += Close; //ADT-Economy
-            _menu.OnItemSelected += OnItemSelected;
+            _menu.OnItemCountSelected += OnItemSelected;    // ADT vending eject count
             _menu.OnWithdraw += SendMessage; //ADT-Economy
             _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
 
             _menu.OpenCenteredLeft();
         }
 
+        public void Refresh()
+        {
+            var system = EntMan.System<VendingMachineSystem>();
+            var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
+            _cachedInventory = system.GetAllInventory(Owner);
+
+            _menu?.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak);
+        }
+
+        // START-ADT-TWEAK
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
 
+            var system = EntMan.System<VendingMachineSystem>();
+
             if (state is not VendingMachineInterfaceState newState)
                 return;
 
-            _cachedInventory = newState.Inventory;
+            _cachedInventory = system.GetAllInventory(Owner);
 
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
+
+        private void OnItemSelected(VendingMachineInventoryEntry entry, VendingMachineItem item)
+        {
+            SendMessage(new VendingMachineEjectCountMessage(entry, item.Count.SelectedId + 1));
+        }
+
+        // END-ADT-TWEAK
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
         {
@@ -80,7 +99,7 @@ namespace Content.Client.VendingMachines
             if (_menu == null)
                 return;
 
-            _menu.OnItemSelected -= OnItemSelected;
+            _menu.OnItemCountSelected -= OnItemSelected;    // ADT vending eject count
             _menu.OnClose -= Close;
             _menu.Dispose();
         }

@@ -14,20 +14,27 @@
     entries:
     - label: corvax-hidden-desc-HoloparasiteInjector-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-HoloparasiteInjector-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
     - label: corvax-hidden-desc-IllegalImplants-medical
       jobRequired:
         - Paramedic
         - MedicalDoctor
         - ChiefMedicalOfficer
+        # Start ADT tweak
+        - Brigmedic
+        - ADTSeniorPhysician
+        - ADTPathologist
+        # End ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -39,24 +46,31 @@
   - type: GuardianCreator
     guardianProto: MobHoloClownGuardian
 # Corvax-HiddenDesc-Start
-  - type: HiddenDescription 
+  - type: HiddenDescription
     entries:
     - label: corvax-hidden-desc-HoloClownInjector-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-HoloClownInjector-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
     - label: corvax-hidden-desc-IllegalImplants-medical
       jobRequired:
         - Paramedic
         - MedicalDoctor
         - ChiefMedicalOfficer
+        # Start ADT tweak
+        - Brigmedic
+        - ADTSeniorPhysician
+        - ADTPathologist
+        # End ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity

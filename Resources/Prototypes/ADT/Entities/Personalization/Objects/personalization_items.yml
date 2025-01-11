@@ -320,6 +320,36 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_jungar
+  - type: EmitSoundOnUse
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnActivate
+    sound: "/Audio/Animals/mouse_squeak.ogg"
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ToySqueak
+  - type: UseDelay
+    delay: 3
+  - type: Speech
+    speechSounds: Squeak
+  - type: SpeakOnUse
+    pack: ADTFigurinesPlushieJungar
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+    wilhelmProbability: 0.001
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      collection: ToySqueak
+    delay: 900
 
 # Maestro_HLT
 - type: entity
@@ -953,6 +983,137 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_liexer
 
+# Bobo
+- type: entity
+  parent: BasePlushie
+  id: PlushieBobo
+  name: bobo plushie
+  description: This is a toy made of different types of fabric with stuffing inside.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_bobo
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+  # Спальник для Бобо
+- type: entity
+  id: ADTBedSleepingBagBobo
+  parent: BaseDeployFoldable
+  name: sleeping bag
+  description: This is a special cocoon blanket that keeps a person warm during sleep.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: ADT/Structures/Furniture/meshok.rsi
+    layers:
+    - state: duffel_bag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: duffel_bag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Icon
+    sprite: ADT/Structures/Furniture/meshok.rsi
+    state: duffel_bag
+  - type: Tag
+    tags:
+    - BodyBag
+  - type: Clickable
+  - type: InteractionOutline
+  - type: MovedByPressure
+  - type: Physics
+    bodyType: Dynamic
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.1"
+        density: 20
+        mask:
+        - ItemMask
+  - type: EntityStorage
+    capacity: 1
+    isCollidableWhenOpen: true
+    closeSound:
+      path: /Audio/Misc/zip.ogg
+    openSound:
+      path: /Audio/Misc/zip.ogg
+  - type: EntityStorageLayingDownOverride
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: open_overlay
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Pullable
+  - type: AntiRottingContainer
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
+  - type: StaticPrice
+    price: 50
+  # св-ва кровати:
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.1
+        Blunt: -0.1
+  - type: Strap
+    enabled: true
+    position: Down
+    rotation: -90
+  # Слоты
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+
+- type: entity
+  id: ADTBedSleepingBagBoboFolded
+  name: sleeping bag fold
+  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
+  parent: ADTBedSleepingBagBobo
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Item
+    size: Normal
+  - type: Strap
+    enabled: false
+
 - type: entity
   parent: BasePlushie
   id: ADTPlushieEmma
@@ -1034,35 +1195,6 @@
       size: Small #ADT_Tweaks - ломы снова лезут в карман
       heldPrefix: gold
 
-# for Filo
-- type: entity
-  name: Owl's Scimitar
-  parent: BaseItem
-  id: ADTOwlScimitar
-  suffix: Filo
-  description:
-  components:
-  - type: Sharp
-  - type: Sprite
-    sprite: ADT/Personalization/owl_scimitar/icon.rsi
-    state: icon
-    scale: 0.66, 0.66
-  - type: MeleeWeapon
-    attackRate: 0.9
-    damage:
-      types:
-        Slash: 24
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Clothing
-    sprite: ADT/Personalization/owl_scimitar/other.rsi
-    slots:
-    - Belt
-  - type: Item
-    size: Huge
-    sprite: ADT/Personalization/owl_scimitar/other.rsi
-  - type: DisarmMalus
-
 # Moon_so_red
 - type: entity
   parent: BaseItem
@@ -1097,3 +1229,407 @@
       Wood: 250
   - type: Prying
 
+#cherreshnia (она же Ума)
+- type: entity
+  name: Uma`s pistol
+  parent: WeaponPistolMk58
+  id: ADTWeaponPistolUma
+  description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo.
+  suffix: Sponsor, Uma
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/uma_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Personalization/uma_pistol.rsi
+
+#Vladya (Урог-Джах)
+- type: entity
+  parent: IDCardStandard
+  id: ADTBartenderIDCardUrog
+  name: bartender ID card Urog
+  suffix: Именное, Урог-Джах
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/urog_card.rsi
+    state: icon
+  - type: PresetIdCard
+    job: Bartender
+
+# FigurinesData
+- type: entity
+  parent: BaseItem
+  id: ADTBaseFigurineNoObjective
+  name: figurine
+  description: A small miniature.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/figurines.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: StaticPrice
+    price: 75
+  - type: UseDelay
+    delay: 10
+  - type: Speech
+    speechSounds: Pai # it just sounds better
+
+# Lir Battlstorm, Sh4zik figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineLirBattlstorm
+  name: Lir Battlstorm
+  description: Funny Vulpcanine. Cool.
+  components:
+  - type: Sprite
+    state: LirBattlstorm
+  - type: SpeakOnUse
+    pack: FigurinesLirBattlstorm
+
+
+#Apatia Veystu, Inconnu figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineApatiaVeystu
+  name: Apatia Veystu
+  description: Haha. Talking plasma. Cool.
+  components:
+  - type: Sprite
+    state: ApatiaVeystu
+  - type: SpeakOnUse
+    pack: FigurinesApatia
+
+#Plush Samoobladania, coldangel figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurinePlushSamoobladania
+  name: Plush Samoobladania
+  description: Haha. Bush, Cool.
+  components:
+  - type: Sprite
+    state: PlushCamoobladania
+  - type: SpeakOnUse
+    pack: FigurinesBush
+
+#Uker Nighthauzer, 04karik figurine
+- type: entity
+  parent: ADTBaseFigurineNoObjective
+  id: ToyFigurineYukerNighthauzer
+  name: Uker Nighthauzer
+  description: Yay. Cool vulpcanine. I love him.
+  components:
+  - type: Sprite
+    state: YukerNighhauser
+  - type: SpeakOnUse
+    pack: FigurinesUker
+
+# Figurine box trash
+- type: entity
+  id: MysteryPlayerFigureBoxTrash
+  parent: BaseItem
+  name: unfolded cardboard box
+  description: A small, unfolded cardboard toy box.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    state: fig_box_unfolded
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+
+# Box with player figurines
+- type: entity
+  parent: PresentRandom
+  id: MysteryPlayerFigureBox
+  name: mystery spacemen player minifigure box
+  description: A box containing a mystery minifigure. The side of the box depicts a few blacked-out 'rare' figures, including one with a large, non-humanoid shilouette.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/figurines.rsi
+    state: present
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: ToyFigurineLirBattlstorm
+        orGroup: PlayerFig
+      - id: ToyFigurineApatiaVeystu
+        orGroup: PlayerFig
+      - id: ToyFigurinePlushSamoobladania
+        orGroup: PlayerFig
+      - id: ToyFigurineYukerNighthauzer
+        orGroup: PlayerFig
+
+# Hollowing
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieHollowing
+  name: Weaver
+  description: weaver
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_hollowing
+
+#ПразатДерВахед
+- type: entity
+  name: SNP-44 PDV «Maria»
+  parent: WeaponPistolMk58
+  id: ADTWeaponPistolMaria
+  description: SNP-44 PDV «Maria»
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/maria_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 1
+    maxAngle: 15
+    angleIncrease: 8
+    angleDecay: 9
+    fireRate: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/44-shot.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Empty/44-empty.ogg
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,3,0
+    - 0,1,0,1
+    sprite: ADT/Personalization/maria_pistol_inhand.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/maria_pistol_inhand.rsi
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Weapons/Guns/Cock/44-bolt-close.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
+  - type: Tag
+    tags:
+    - Sidearm
+    - ADTWeaponPistolMaria
+
+- type: entity
+  name: SNP .44 cal auto PDV "Hawk"
+  parent: ADTWeaponPistolMaria
+  id: ADTWeaponPistolPrazatHawk
+  description: SNP .44 cal auto PDV "Hawk"
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/hawk_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - Sidearm
+    - ADTWeaponPistolPrazatHawk
+  - type: Item
+    sprite: ADT/Personalization/hawk_pistol_inhand.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/hawk_pistol_inhand.rsi
+
+- type: entity
+  id: ADTWeaponCasePrazat
+  name: weapon case Prazat
+  description: weapon case Prazat
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    - state: pistolhawk
+      map: ["pistolhawk"]
+      visible: false
+    - state: pistolmaria
+      map: ["pistolmaria"]
+      visible: false
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/prazat_weaponcase.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Small
+  - type: StorageFill
+    contents:
+     - id: ADTWeaponPistolPrazatHawk
+     - id: ADTWeaponPistolMaria
+     - id: MagazineMagnum
+     - id: MagazineMagnum
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: ItemCounter
+    count:
+      tags: [ADTWeaponPistolPrazatHawk, ADTWeaponPistolMaria]
+    composite: true
+    layerStates:
+    - pistolhawk
+    - pistolmaria
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltPrazatSheath
+  name: Prazat sheath
+  description: Prazat sheath
+  suffix: Personal, 767sikon
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_sheath.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/prazat_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+          - ADTWeaponMeleePrasatChainsword
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTWeaponMeleePrasatChainsword
+  - type: Appearance
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+
+- type: entity
+  name: Prazat Chainsword
+  parent: BaseItem
+  id: ADTWeaponMeleePrasatChainsword
+  description: Prazat Chainsword
+  suffix: Personal, 767sikon
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/prazat_chainsword_icon.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: icon_chainsword
+      visible: false
+      map: [ "chainsword" ]
+  - type: MeleeWeapon
+    attackRate: 1.6
+    damage:
+      types:
+        Blunt: 2.5
+        Structural: 5
+    soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+  - type: Item
+    sprite: ADT/Personalization/prazat_chainsword.rsi
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - ADTWeaponMeleePrasatChainsword
+    - CaptainSabre
+  - type: Appearance
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+    soundDeactivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+  - type: UseDelay
+    delay: 1.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 15
+        Piercing: 2.5
+        Structural: 30
+  - type: ToggleableLightVisuals
+    spriteLayer: chainsword
+    inhandVisuals:
+      left:
+      - state: inhand-left-chainsword
+      right:
+      - state: inhand-right-chainsword
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon_chainsword}
+          False: {state: icon}

@@ -24,7 +24,11 @@ using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Atmos.Miasma; //ADT-Medicine
+using Content.Shared.ADT.Atmos.Miasma;
+using Content.Shared.Changeling.Components;
+using Robust.Server.Containers;
+using System.Linq;
+using Content.Server.Resist; //ADT-Medicine
 
 namespace Content.Server.Medical;
 
@@ -48,6 +52,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -78,7 +83,20 @@ public sealed class DefibrillatorSystem : EntitySystem
         Zap(uid, target, args.User, component);
     }
 
-    public bool CanZap(EntityUid uid, EntityUid target, EntityUid? user = null, DefibrillatorComponent? component = null)
+    /// <summary>
+    ///     Checks if you can actually defib a target.
+    /// </summary>
+    /// <param name="uid">Uid of the defib</param>
+    /// <param name="target">Uid of the target getting defibbed</param>
+    /// <param name="user">Uid of the entity using the defibrillator</param>
+    /// <param name="component">Defib component</param>
+    /// <param name="targetCanBeAlive">
+    ///     If true, the target can be alive. If false, the function will check if the target is alive and will return false if they are.
+    /// </param>
+    /// <returns>
+    ///     Returns true if the target is valid to be defibed, false otherwise.
+    /// </returns>
+    public bool CanZap(EntityUid uid, EntityUid target, EntityUid? user = null, DefibrillatorComponent? component = null, bool targetCanBeAlive = false)
     {
         if (!Resolve(uid, ref component))
             return false;
@@ -99,15 +117,25 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user))
             return false;
 
-        if (_mobState.IsAlive(target, mobState))
+        if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
             return false;
 
-        if (!component.CanDefibCrit && _mobState.IsCritical(target, mobState))
+        if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
         return true;
     }
 
+    /// <summary>
+    ///     Tries to start defibrillating the target. If the target is valid, will start the defib do-after.
+    /// </summary>
+    /// <param name="uid">Uid of the defib</param>
+    /// <param name="target">Uid of the target getting defibbed</param>
+    /// <param name="user">Uid of the entity using the defibrillator</param>
+    /// <param name="component">Defib component</param>
+    /// <returns>
+    ///     Returns true if the defibrillation do-after started, otherwise false.
+    /// </returns>
     public bool TryStartZap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -119,25 +147,42 @@ public sealed class DefibrillatorSystem : EntitySystem
         _audio.PlayPvs(component.ChargeSound, uid);
         return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.DoAfterDuration, new DefibrillatorZapDoAfterEvent(),
             uid, target, uid)
-            {
-                NeedHand = true,
-                BreakOnMove = !component.AllowDoAfterMovement
-            });
+        {
+            NeedHand = true,
+            BreakOnMove = !component.AllowDoAfterMovement
+        });
     }
 
-    public void Zap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null, MobStateComponent? mob = null, MobThresholdsComponent? thresholds = null)
+    /// <summary>
+    ///     Tries to defibrillate the target with the given defibrillator.
+    /// </summary>
+    public void Zap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null)
     {
-        if (!Resolve(uid, ref component) || !Resolve(target, ref mob, ref thresholds, false))
+        if (!Resolve(uid, ref component))
             return;
-
-        // clowns zap themselves
-        if (HasComp<ClumsyComponent>(user) && user != target)
-        {
-            Zap(uid, user, user, component);
-            return;
-        }
 
         if (!_powerCell.TryUseActivatableCharge(uid, user: user))
+            return;
+
+        var selfEvent = new SelfBeforeDefibrillatorZapsEvent(user, uid, target);
+        RaiseLocalEvent(user, selfEvent);
+
+        target = selfEvent.DefibTarget;
+
+        // Ensure thet new target is still valid.
+        if (selfEvent.Cancelled || !CanZap(uid, target, user, component, true))
+            return;
+
+        var targetEvent = new TargetBeforeDefibrillatorZapsEvent(user, uid, target);
+        RaiseLocalEvent(target, targetEvent);
+
+        target = targetEvent.DefibTarget;
+
+        if (targetEvent.Cancelled || !CanZap(uid, target, user, component, true))
+            return;
+
+        if (!TryComp<MobStateComponent>(target, out var mob) ||
+            !TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
         _audio.PlayPvs(component.ZapSound, uid);
@@ -148,12 +193,34 @@ public sealed class DefibrillatorSystem : EntitySystem
         ICommonSession? session = null;
 
         var dead = true;
+        // ADT Changeling start
+        if (TryComp<ChangelingHeadslugContainerComponent>(target, out var slug))
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-changeling-slug"),
+                InGameICChatType.Speak, true);
+
+            var headslug = slug.Container.ContainedEntities.First();
+            _container.EmptyContainer(slug.Container, true);
+            _electrocution.TryDoElectrocution(headslug, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
+            if (TryComp<ChangelingHeadslugComponent>(headslug, out var slugComp))
+            {
+                slugComp.Accumulator = 0;
+                slugComp.Alerted = false;
+                slugComp.Container = null;
+            }
+            EnsureComp<CanEscapeInventoryComponent>(headslug);
+
+            RemComp(target, slug);
+            return;
+        }
+        // ADT Changeling end
+
         if (_rotting.IsRotten(target))
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),
                 InGameICChatType.Speak, true);
         }
-        if (HasComp<EmbalmedComponent>(target)) //ADT-Medicine
+        else if (HasComp<EmbalmedComponent>(target)) //ADT-Medicine
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-embalmed"),
                 InGameICChatType.Speak, true);

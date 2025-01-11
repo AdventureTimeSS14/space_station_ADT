@@ -14,11 +14,22 @@ internal sealed class ChatManager : IChatManager
     [Dependency] private readonly IEntitySystemManager _systems = default!;
 
     private ISawmill _sawmill = default!;
+    public event Action? PermissionsUpdated; // ADT-CollectiveMind-Tweak
 
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("chat");
         _sawmill.Level = LogLevel.Info;
+    }
+
+    public void SendAdminAlert(string message)
+    {
+        // See server-side manager. This just exists for shared code.
+    }
+
+    public void SendAdminAlert(EntityUid player, string message)
+    {
+        // See server-side manager. This just exists for shared code.
     }
 
     public void SendMessage(string text, ChatSelectChannel channel)
@@ -67,8 +78,19 @@ internal sealed class ChatManager : IChatManager
                 _consoleHost.ExecuteCommand($"whisper \"{CommandParsing.Escape(str)}\"");
                 break;
 
+            case ChatSelectChannel.CollectiveMind:
+                _consoleHost.ExecuteCommand($"cmsay \"{CommandParsing.Escape(str)}\"");
+                break;
+
             default:
                 throw new ArgumentOutOfRangeException(nameof(channel), channel, null);
         }
     }
+
+// ADT-CollectiveMind-Tweak-Start
+    public void UpdatePermissions()
+    {
+        PermissionsUpdated?.Invoke();
+    }
+// ADT-CollectiveMind-Tweak-End
 }

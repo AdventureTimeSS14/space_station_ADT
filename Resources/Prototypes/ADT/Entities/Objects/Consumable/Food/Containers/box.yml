@@ -1,0 +1,41 @@
+# PizzaSindyk
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTFoodBoxSyndiPizza
+  name: sindi pizza box
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: boxclosed
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: boxopen
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Normal
+    whitelist:
+      components:
+      - Utensil
+      tags:
+      - Pizza
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
+    inhandVisuals:
+      left:
+      - state: box-inhand-left
+      right:
+      - state: box-inhand-right
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: boxopen
+    stateDoorClosed: boxclosed
+  - type: StaticPrice
+    price: 0
+  - type: StorageFill
+    contents:
+    - id: KnifePlastic
+    - id: ADRFoodPizzaSindi

@@ -10,6 +10,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: creek
+    - map: [ "mask" ]
   - type: Fixtures
     fixtures:
       fix1:
@@ -18,12 +19,14 @@
           radius: 0.35
         density: 15
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
   - type: Tag
     tags:
     - DoorBumpOpener
+    - VimPilot
+    - CannotSuicide
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -50,7 +53,7 @@
     attributes:
       gender: epicene
   - type: MobPrice
-    price: 10000
+    price: 2000
   - type: NpcFactionMember
     factions:
     - Passive
@@ -62,11 +65,9 @@
   - type: Inventory
     templateId: ADTSlugCat
   - type: Body
-    prototype: Human
+    prototype: Primate
   - type: Hands
-    showInHands: false
-  - type: Input
-    context: "human"
+    showInHands: true
   - type: Insulated
   - type: InventorySlots
   - type: Stripping
@@ -88,9 +89,22 @@
     damage:
       types:
         Slash: 0
-  - type: Muted
+  - type: ReplacementAccent
+    accent: cat
   - type: NoSlip
-        
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 20
+        Piercing: 15
+      groups:
+        Burn: 15
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+
 - type: entity
   name: Slug Cat
   parent: ADTMobSlugCatCreek

@@ -22,7 +22,9 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
-    EnergyShotgunStealObjective: 0.5
+#    EnergyShotgunStealObjective: 0.5 # ADT objective
+    ADTMobileDefibrillatorStealObjective: 1 # ADT Objective
+    ADTX01StealObjective: 0.5 # ADT Objective
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -64,7 +66,6 @@
     StampStealCollectionObjective: 1
     DoorRemoteStealCollectionObjective: 1
     TechnologyDiskStealCollectionObjective: 1        #rnd
-    FigurineStealCollectionObjective: 0.3          #service
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2 #only for moth
 
@@ -74,6 +75,7 @@
     ForensicScannerStealObjective: 1                    #sec
     FlippoEngravedLighterStealObjective: 0.5
     ClothingHeadHatWardenStealObjective: 1
+    WantedListCartridgeStealObjective: 1
     ClothingOuterHardsuitVoidParamedStealObjective: 1   #med
     MedicalTechFabCircuitboardStealObjective: 1
     ClothingHeadsetAltMedicalStealObjective: 1

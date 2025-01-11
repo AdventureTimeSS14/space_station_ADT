@@ -46,7 +46,7 @@
 - type: entity
   name: Bulldog
   # Don't parent to BaseWeaponShotgun because it differs significantly
-  parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
+  parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband, ADTBaseAttachableHolder] # adt tweak
   id: WeaponShotgunBulldog
   description: It's a magazine-fed shotgun designed for close quarters combat. Uses .50 shotgun shells.
   components:
@@ -100,6 +100,37 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon #ADT_Tweak. Для ШТЫКОВОЙ
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee #ADT_Tweak
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentM90GrenadeLauncher
+          - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.365, -0.1075
+      rmc-aslot-rail: -0.02375, -0.0325
+# ADT TWEAK END
 
 - type: entity
   name: double-barreled shotgun
@@ -108,12 +139,14 @@
   description: An immortal classic. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
   - type: Item
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
@@ -136,7 +169,7 @@
 
 - type: entity
   name: Enforcer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband, ADTBaseAttachableHolder] # adt tweak
   id: WeaponShotgunEnforcer
   description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells.
   components:
@@ -151,6 +184,35 @@
   - type: Gun # Corvax-Guns
     soundGunshot:
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_metal.ogg
+  - type: MeleeWeapon #ADT_Tweak. Для ШТЫКОВОЙ
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee #ADT_Tweak
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.2875, -0.125
+      rmc-aslot-rail: -0.0375, -0.1575
+# ADT TWEAK END
 
 - type: entity
   parent: WeaponShotgunEnforcer
@@ -165,7 +227,7 @@
 
 - type: entity
   name: Kammerer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband, ADTBasePumpingGun, ADTBaseMagneticGun] # adt tweak
   id: WeaponShotgunKammerer
   description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
   components:
@@ -173,11 +235,11 @@
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/pump.rsi # ADT tweak
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/pump.rsi # ADT tweak
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/pump.rsi # ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: BallisticAmmoProvider
     capacity: 4
@@ -195,12 +257,12 @@
   description: Groovy! Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Item
     size: Small
-    sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   - type: Gun
     fireRate: 4
     soundGunshot: # Corvax-Guns

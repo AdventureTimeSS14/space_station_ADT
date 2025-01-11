@@ -39,7 +39,7 @@
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
   - type: Sprite
-    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    sprite: ADT/Mobs/Aliens/Lavaland/goliath.rsi  # ADT resprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goliath
@@ -50,12 +50,12 @@
       Dead:
         Base: goliath_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.50
-    baseSprintSpeed : 2.50
+    baseWalkSpeed : 2.00
+    baseSprintSpeed : 2.00
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      250: Dead
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -78,7 +78,7 @@
       AggroVisionRadius: !type:Single
         10
   - type: NPCUseActionOnTarget
-    actionId: ActionGoliathTentacle
+    actions: GoliathActions
   - type: Tag
     tags:
     - CannotSuicide
@@ -90,6 +90,8 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
+  - type: Fauna # ADT tweak
+  - type: AshStormImmune # ADT tweak
 
 - type: entity
   id: ActionGoliathTentacle
@@ -159,7 +161,7 @@
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
   - type: InteractionOutline
   - type: TimedDespawn
-    lifetime: 0.7
+    lifetime: 1
 
 - type: entity
   id: EffectGoliathTentacleSpawn
@@ -334,3 +336,8 @@
     size: Normal
   - type: StaticPrice
     price: 500
+
+- type: weightedRandomEntity
+  id: GoliathActions
+  weights:
+    ActionGoliathTentacle: 1
