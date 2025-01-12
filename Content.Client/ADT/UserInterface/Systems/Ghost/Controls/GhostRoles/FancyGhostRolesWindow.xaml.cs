@@ -16,7 +16,6 @@ namespace Content.Client.ADT.UserInterface.Systems.Ghost.Controls.GhostRoles
         public event Action<GhostRoleInfo>? OnRoleRequestButtonClicked;
         public event Action<GhostRoleInfo>? OnRoleFollow;
 
-        private Dictionary<(string name, string description), Collapsible> _collapsibleBoxes = new();
         private HashSet<(string name, string description)> _uncollapsedStates = new();
 
         public FancyGhostRolesWindow()
@@ -28,27 +27,27 @@ namespace Content.Client.ADT.UserInterface.Systems.Ghost.Controls.GhostRoles
         {
             NoRolesMessage.Visible = true;
             EntryContainer.DisposeAllChildren();
-            _collapsibleBoxes.Clear();
+            // _collapsibleBoxes.Clear();
         }
 
         public void SaveCollapsibleBoxesStates()
         {
-            _uncollapsedStates.Clear();
-            foreach (var (key, collapsible) in _collapsibleBoxes)
-            {
-                if (collapsible.BodyVisible)
-                {
-                    _uncollapsedStates.Add(key);
-                }
-            }
+            // _uncollapsedStates.Clear();
+            // foreach (var (key, collapsible) in _collapsibleBoxes)
+            // {
+            //     if (collapsible.BodyVisible)
+            //     {
+            //         _uncollapsedStates.Add(key);
+            //     }
+            // }
         }
 
         public void RestoreCollapsibleBoxesStates()
         {
-            foreach (var (key, collapsible) in _collapsibleBoxes)
-            {
-                collapsible.BodyVisible = _uncollapsedStates.Contains(key);
-            }
+            // foreach (var (key, collapsible) in _collapsibleBoxes)
+            // {
+            //     collapsible.BodyVisible = _uncollapsedStates.Contains(key);
+            // }
         }
 
         public void AddEntry(string name, string description, bool hasAccess, GhostRoleCategory category, FormattedMessage? reason, IEnumerable<GhostRoleInfo> roles, SpriteSystem spriteSystem)
@@ -80,20 +79,26 @@ namespace Content.Client.ADT.UserInterface.Systems.Ghost.Controls.GhostRoles
 
             if (_uncollapsedStates.Contains((name, description)))
             {
-                for (var i = 1; i <= roles.Count(); i++)
+                var rolesList = roles.ToList();
+                for (var i = 1; i <= rolesList.Count(); i++)
                 {
-                    var panel = new FancyGhostRolePanel(category)
+                    var item = rolesList[i - 1];
+                    var panel = new FancyGhostRolePanel(item, category)
                     {
                         ToolTip = Loc.GetString(description),
                     };
+
                     panel.SelectButton.Text = Loc.GetString(name);
-                    panel.ExpandButtonPanel.Visible = i == roles.Count();
+                    panel.ExpandButtonPanel.Visible = i == rolesList.Count();
+                    panel.OnRoleRequestButtonClicked += args => OnRoleRequestButtonClicked?.Invoke(args);
+                    panel.OnRoleFollow += args => OnRoleFollow?.Invoke(args);
+
                     grid.AddChild(panel);
                 }
             }
             else
             {
-                var panel = new FancyGhostRolePanel(category)
+                var panel = new FancyGhostRolePanel(roles.First(), category)
                 {
                     ToolTip = Loc.GetString(description),
                 };

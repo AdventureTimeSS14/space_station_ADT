@@ -14,9 +14,19 @@ namespace Content.Client.ADT.UserInterface.Systems.Ghost.Controls.GhostRoles
         public Color BorderColor = Color.FromHex("#4972A1");
         public Color HoveredColor = Color.FromHex("#4972A1");
 
-        public FancyGhostRolePanel(GhostRoleCategory category)
+        public GhostRoleInfo RoleInfo;
+
+        public event Action<GhostRoleInfo>? OnRoleRequestButtonClicked;
+        public event Action<GhostRoleInfo>? OnRoleFollow;
+
+        public FancyGhostRolePanel(GhostRoleInfo info, GhostRoleCategory category)
         {
             RobustXamlLoader.Load(this);
+            RoleInfo = info;
+
+            SelectButton.OnPressed += args => OnRoleRequestButtonClicked?.Invoke(RoleInfo);
+            FollowButton.OnPressed += args => OnRoleFollow?.Invoke(RoleInfo);
+
 
             // TODO Сделать разные цвета
             switch (category)
@@ -57,6 +67,7 @@ namespace Content.Client.ADT.UserInterface.Systems.Ghost.Controls.GhostRoles
         protected override void EnteredTree()
         {
             base.EnteredTree();
+            UpdateColor();
         }
     }
 }
