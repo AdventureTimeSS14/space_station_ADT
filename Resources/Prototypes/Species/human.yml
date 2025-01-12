@@ -7,6 +7,9 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  # ADT Species window start
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Human.xml"
+  # ADT Species window end
 
 # The lack of a layer means that
 # this person cannot have round-start anything

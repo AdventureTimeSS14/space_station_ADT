@@ -1,3 +1,4 @@
+using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
@@ -20,6 +21,11 @@ public sealed partial class Ignite : EntityEffect
     public override void Effect(EntityEffectBaseArgs args)
     {
         var flamSys = args.EntityManager.System<FlammableSystem>();
+        // ADT Fix start
+        if (!args.EntityManager.HasComponent<FlammableComponent>(args.TargetEntity))
+            return;
+        // ADT Fix end
+
         if (args is EntityEffectReagentArgs reagentArgs)
         {
             flamSys.Ignite(reagentArgs.TargetEntity, reagentArgs.OrganEntity ?? reagentArgs.TargetEntity);
