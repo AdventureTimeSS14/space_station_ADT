@@ -166,7 +166,6 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
-    - ADTBorgModuleRPD # ADT-RPD
 
 - type: technology
   id: MassExcavation
