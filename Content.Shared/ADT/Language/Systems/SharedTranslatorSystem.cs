@@ -1,4 +1,5 @@
 using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
 using Content.Shared.Toggleable;
 
 namespace Content.Shared.ADT.Language;
@@ -12,6 +13,25 @@ public abstract class SharedTranslatorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HandheldTranslatorComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<HandheldTranslatorComponent, GetLanguagesEvent>(OnTranslatorGetLanguages);
+        SubscribeLocalEvent<HandsComponent, GetLanguagesEvent>(OnGetLanguages);
+    }
+
+    private void OnGetLanguages(EntityUid uid, HandsComponent comp, ref GetLanguagesEvent args)
+    {
+        foreach (var (_, hand) in comp.Hands)
+        {
+            if (hand.HeldEntity.HasValue)
+                RaiseLocalEvent(hand.HeldEntity.Value, ref args);
+        }
+    }
+
+    private void OnTranslatorGetLanguages(EntityUid uid, HandheldTranslatorComponent comp, ref GetLanguagesEvent args)
+    {
+        if (!comp.Enabled)
+            return;
+        args.TranslatorSpoken.AddRange(comp.ToSpeak);
+        args.TranslatorUnderstood.AddRange(comp.ToUnderstand);
     }
 
     private void OnExamined(EntityUid uid, HandheldTranslatorComponent component, ExaminedEvent args)

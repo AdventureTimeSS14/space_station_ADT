@@ -11,14 +11,12 @@ namespace Content.Client.ADT.Language.UI;
 [GenerateTypedNameReferences]
 public sealed partial class LanguageMenuWindow : DefaultWindow
 {
-    [Dependency] private readonly EntityManager _entManager = default!;
-
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-
     private readonly SharedLanguageSystem _language;
 
-    private readonly List<EntryState> _entries = new();
-    private readonly List<Option> _optionLists = new();
+    private readonly Dictionary<string, LanguageEntry> _entries = new();
+    public EntityUid Owner = EntityUid.Invalid;
+
+    public Action<string>? OnLanguageSelected;
 
     public LanguageMenuWindow()
     {
@@ -27,57 +25,25 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
         _language = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>();
 
         Title = Loc.GetString("language-menu-window-title");
-
-        var player = _playerManager.LocalSession?.AttachedEntity;
-
-        if (_language.GetLanguages(player, out var understood, out _, out var translatorUnderstood, out _, out var current) && player.HasValue)
-        {
-            var ev = new LanguageMenuStateMessage(_entManager.GetNetEntity(player.Value), current, understood, translatorUnderstood);
-            UpdateState(ev);
-        }
     }
 
-    public void UpdateState(LanguageMenuStateMessage state)
+    public void UpdateState(string current, List<string> options, List<string> translator)
     {
-        CurrentLanguageLabel.Text = Loc.GetString("language-menu-current-language", ("language", _language.GetLanguage(state.CurrentLanguage).LocalizedName));
+        CurrentLanguageLabel.Text = Loc.GetString("language-menu-current-language", ("language", _language.GetLanguage(current).LocalizedName));
 
-        List<string> options = new();
-        List<Option> optionList = _optionLists;
+        List<LanguageEntry> entries = _entries.Values.ToList();
 
-        options.AddRange(state.Options);
-
-        List<string> translatorOptions = state.TranslatorOptions;
-        List<EntryState> entries = _entries.ToList();
-        
-        foreach (var lng in state.Options)
+        foreach (var lng in options)
         {
-            translatorOptions.Remove(lng);
+            translator.Remove(lng);
         }
         foreach (var entry in entries)
         {
-            if (state.Options.Contains(entry.Language))
-            {
-                options.Remove(entry.Language);
+            if (options.Contains(entry.Language) || translator.Contains(entry.Language))
                 continue;
-            }
-            else if (state.TranslatorOptions.Contains(entry.Language))
-            {
-                translatorOptions.Remove(entry.Language);
-                continue;
-            }
-            else
-            {
-                _entries.Remove(entry);
 
-                foreach (var item in optionList.ToList())
-                {
-                    if (item.LanguageId == entry.Language)
-                    {
-                        _optionLists.Remove(item);
-                        OptionsList.RemoveChild(item.PanelContainer);
-                    }
-                }
-            }
+            OptionsList.RemoveChild(entry);
+            _entries.Remove(entry.Language);
         }
 
         if (options.Count > 0)
@@ -87,121 +53,36 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
                 AddLanguageEntry(language);
             }
         }
-        if (translatorOptions.Count > 0)
+        if (translator.Count > 0)
         {
-            foreach (var language in translatorOptions)
+            foreach (var language in translator)
             {
                 AddLanguageEntry(language, true);
             }
         }
 
         // Disable the button for the currently chosen language
-        foreach (var entry in _entries)
+        foreach (var entry in _entries.Values)
         {
-            if (entry.Button != null)
-            {
-                entry.Button.Disabled = entry.Language == state.CurrentLanguage || !_language.CanSpeak(_entManager.GetEntity(state.ComponentOwner), _language.GetLanguage(entry.Language));
-                if (entry.Language == state.CurrentLanguage)
-                    entry.Button.Text = Loc.GetString("language-choose-button-chosen");
-                if (!_language.CanSpeak(_entManager.GetEntity(state.ComponentOwner), _language.GetLanguage(entry.Language)))
-                    entry.Button.Text = Loc.GetString("language-choose-button-cannot");
-            }
+            entry.SelectButton.Disabled = entry.Language == current || !_language.CanSpeak(Owner, _language.GetLanguage(entry.Language));
+            if (entry.Language == current)
+                entry.SelectButton.Text = Loc.GetString("language-choose-button-chosen");
+            if (!_language.CanSpeak(Owner, _language.GetLanguage(entry.Language)))
+                entry.SelectButton.Text = Loc.GetString("language-choose-button-cannot");
         }
     }
 
     private void AddLanguageEntry(string language, bool translator = false)
     {
-        var state = new EntryState { Language = language };
-        var prototype = _language.GetLanguage(language);
-        var container = new BoxContainer();
-        container.Orientation = BoxContainer.LayoutOrientation.Vertical;
-
-        // Create and add a header with the name and the button to select the language
-        {
-            var header = new BoxContainer();
-            header.Orientation = BoxContainer.LayoutOrientation.Horizontal;
-
-            header.Orientation = BoxContainer.LayoutOrientation.Horizontal;
-            header.HorizontalExpand = true;
-            header.SeparationOverride = 2;
-
-            var name = new Label();
-            name.Text = prototype.LocalizedName;
-            if (prototype.Color != null)
-                name.FontColorOverride = prototype.Color.Value;
-            name.MinWidth = 50;
-            name.HorizontalExpand = true;
-
-            var button = new Button();
-            button.Text = Loc.GetString("language-choose-button");
-            button.OnPressed += _ => OnLanguageChosen(language);
-            button.ToolTip =
-                translator ?
-                Loc.GetString("language-choose-button-tooltip-translator") :
-                Loc.GetString("language-choose-button-tooltip-known");
-
-            state.Button = button;
-
-            header.AddChild(name);
-            header.AddChild(button);
-
-            container.AddChild(header);
-        }
-
-        // Create and add a collapsible description
-        {
-            var body = new CollapsibleBody();
-            body.HorizontalExpand = true;
-            body.Margin = new Thickness(4f, 4f);
-
-            var description = new RichTextLabel();
-            description.SetMessage(prototype.LocalizedDescription);
-            description.HorizontalExpand = true;
-
-            body.AddChild(description);
-
-            var collapser = new Collapsible(Loc.GetString("language-menu-description-header"), body);
-            collapser.Orientation = BoxContainer.LayoutOrientation.Vertical;
-            collapser.HorizontalExpand = true;
-
-            container.AddChild(collapser);
-        }
-
-        // Before adding, wrap the new container in a PanelContainer to give it a distinct look
-        var wrapper = new PanelContainer();
-        wrapper.StyleClasses.Add("PdaBorderRect");
-
-        wrapper.AddChild(container);
-        OptionsList.AddChild(wrapper);
-
-        _entries.Add(state);
-
-        var option = new Option();
-        option.LanguageId = state.Language;
-        option.PanelContainer = wrapper;
-
-        _optionLists.Add(option);
-    }
-
-    private void OnLanguageChosen(string id)
-    {
-        var player = _entManager.GetNetEntity(_playerManager.LocalSession?.AttachedEntity);
-        if (player == null)
+        if (_entries.ContainsKey(language))
             return;
 
-        _language.SelectLanguage(player.Value, id);
-    }
+        var prototype = _language.GetLanguage(language);
 
-    private struct EntryState
-    {
-        public string Language;
-        public Button? Button;
-    }
+        var entry = new LanguageEntry(prototype, translator);
+        entry.OnLanguageSelected += args => OnLanguageSelected?.Invoke(args);
 
-    private struct Option
-    {
-        public string LanguageId;
-        public PanelContainer PanelContainer;
+        OptionsList.AddChild(entry);
+        _entries.Add(language, entry);
     }
-
 }

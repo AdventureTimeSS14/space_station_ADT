@@ -172,7 +172,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         if (!GetLanguages(uid, out var understood, out _, out var translatorUnderstood, out _, out var current))
             return;
 
-        var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, understood, translatorUnderstood);
+        var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, understood.ToList(), translatorUnderstood.ToList());
         RaiseNetworkEvent(state, uid);
     }
 }
