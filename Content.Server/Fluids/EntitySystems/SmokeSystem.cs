@@ -86,7 +86,7 @@ public sealed class SmokeSystem : EntitySystem
             return;
         // ADT Tester fix start
         if (Deleted(args.OtherEntity) || Terminating(args.OtherEntity))
-            continue;
+            return;
         // ADT Tester fix end
 
         var smokeAffected = AddComp<SmokeAffectedComponent>(args.OtherEntity);
