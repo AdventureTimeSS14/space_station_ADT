@@ -14,7 +14,6 @@ using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Eui;
-using Robust.Server.Player;
 using Robust.Shared.Network;
 
 namespace Content.Server.Administration;
@@ -36,7 +35,7 @@ public sealed class BanPanelEui : BaseEui
     private NetUserId? PlayerId { get; set; }
     private string PlayerName { get; set; } = string.Empty;
     private IPAddress? LastAddress { get; set; }
-    private ImmutableArray<byte>? LastHwid { get; set; }
+    private ImmutableTypedHwid? LastHwid { get; set; }
     private const int Ipv4_CIDR = 32;
     private const int Ipv6_CIDR = 64;
 
@@ -60,7 +59,7 @@ public sealed class BanPanelEui : BaseEui
         switch (msg)
         {
             case BanPanelEuiStateMsg.CreateBanRequest r:
-                BanPlayer(r.Player, r.IpAddress, r.UseLastIp, r.Hwid?.ToImmutableArray(), r.UseLastHwid, r.Minutes, r.Severity, r.Reason, r.Roles, r.Erase);
+                BanPlayer(r.Player, r.IpAddress, r.UseLastIp, r.Hwid, r.UseLastHwid, r.Minutes, r.Severity, r.Reason, r.Roles, r.Erase);
                 break;
             case BanPanelEuiStateMsg.GetPlayerInfoRequest r:
                 ChangePlayer(r.PlayerUsername);
@@ -68,7 +67,7 @@ public sealed class BanPanelEui : BaseEui
         }
     }
 
-    private async void BanPlayer(string? target, string? ipAddressString, bool useLastIp, ImmutableArray<byte>? hwid, bool useLastHwid, uint minutes, NoteSeverity severity, string reason, IReadOnlyCollection<string>? roles, bool erase)
+    private async void BanPlayer(string? target, string? ipAddressString, bool useLastIp, ImmutableTypedHwid? hwid, bool useLastHwid, uint minutes, NoteSeverity severity, string reason, IReadOnlyCollection<string>? roles, bool erase)
     {
         if (!_admins.HasAdminFlag(Player, AdminFlags.Ban))
         {
@@ -213,7 +212,7 @@ public sealed class BanPanelEui : BaseEui
         ChangePlayer(located?.UserId, located?.Username ?? string.Empty, located?.LastAddress, located?.LastHWId);
     }
 
-    public void ChangePlayer(NetUserId? playerId, string playerName, IPAddress? lastAddress, ImmutableArray<byte>? lastHwid)
+    public void ChangePlayer(NetUserId? playerId, string playerName, IPAddress? lastAddress, ImmutableTypedHwid? lastHwid)
     {
         PlayerId = playerId;
         PlayerName = playerName;

@@ -155,6 +155,7 @@
   # phase cloak
   - type: ToggleClothing
     action: ADTActionToggleCloak # adt tweak
+    disableOnUnequip: true
   # ADT TWEAK START
   # - type: ComponentToggler
   #   parent: true

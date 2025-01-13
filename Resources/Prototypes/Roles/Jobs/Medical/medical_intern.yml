@@ -13,7 +13,7 @@
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
-  canBeAntag: true # Corvax-MRP: Available not only for newbies
+  canBeAntag: false
   access:
   - Medical
   - Maintenance

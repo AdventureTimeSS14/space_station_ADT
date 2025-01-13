@@ -8,6 +8,7 @@
     - Zombie
     - Revolutionary
     - Ursus # ADT tweak
+    - AllHostile
 
 - type: npcFaction
   id: NanoTrasen
@@ -18,11 +19,14 @@
   - Zombie
   - Revolutionary
   - DroneAntag # ADT tweak
+  - Dragon
+  - AllHostile
 
 - type: npcFaction
   id: Mouse
   hostile:
     - PetsNT
+    - AllHostile
 
 - type: npcFaction
   id: Passive
@@ -34,6 +38,7 @@
   - SimpleHostile
   - Zombie
   - Xeno
+  - AllHostile
 
 - type: npcFaction
   id: SimpleHostile
@@ -45,6 +50,7 @@
   - Zombie
   - Revolutionary
   - Ursus # ADT tweak
+  - AllHostile
 
 - type: npcFaction
   id: SimpleNeutral
@@ -59,6 +65,8 @@
   - Zombie
   - DroneAntag # ADT tweak
   - Ursus # ADT tweak
+  - Dragon
+  - AllHostile
 
 - type: npcFaction
   id: Xeno
@@ -70,6 +78,7 @@
   - Zombie
   - Revolutionary
   - Ursus # ADT tweak
+  - AllHostile
 
 - type: npcFaction
   id: Zombie
@@ -82,6 +91,7 @@
   - PetsNT
   - Revolutionary
   - Ursus # ADT tweak
+  - AllHostile
 
 - type: npcFaction
   id: Revolutionary
@@ -91,3 +101,21 @@
   - SimpleHostile
   - Dragon
   - Ursus # ADT tweak
+  - AllHostile
+
+- type: npcFaction
+  id: AllHostile
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Ursus # ADT tweak
+  - DroneAntag # ADT tweak

@@ -153,6 +153,7 @@
       - LightBulb
       - LedLightBulb
       - DimLightBulb
+      - WarmLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -549,7 +550,6 @@
       - SolarControlComputerCircuitboard
       - SolarTrackerElectronics
       - TurboItemRechargerCircuitboard
-      - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
       - CircuitImprinterHyperConvectionMachineCircuitboard
@@ -595,6 +595,8 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
+      - SMESAdvancedMachineCircuitboard
+      - HolopadMachineCircuitboard
       - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
       - ADTIndustrialSMESMachineCircuitboard #ADT
   - type: EmagLatheRecipes
@@ -662,7 +664,6 @@
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - ADTBorgModuleRPD # ADT-RPD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
@@ -1426,7 +1427,7 @@
       staticRecipes:
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlassRaw
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1460,7 +1461,7 @@
     staticRecipes:
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlassRaw
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1

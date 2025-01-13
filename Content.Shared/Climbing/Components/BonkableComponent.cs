@@ -13,25 +13,16 @@ public sealed partial class BonkableComponent : Component
 {
     /// <summary>
     ///     How long to stun players on bonk, in seconds.
+    // ADT TWEAK START
+    /// <summary>
+    /// Chance of bonk triggering if the user is clumsy.
+
     /// </summary>
     [DataField]
     public TimeSpan BonkTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     ///     How much damage to apply on bonk.
-    /// </summary>
-    [DataField]
-    public DamageSpecifier? BonkDamage;
-
-    // ADT TWEAK START
-    /// <summary>
-    /// Chance of bonk triggering if the user is clumsy.
-    /// </summary>
-    [DataField("bonkClumsyChance")]
-    public float BonkClumsyChance = 0.5f;
-
-    /// <summary>
-    /// Sound to play when bonking.
     /// </summary>
     /// <seealso cref="Bonk"/>
     [DataField("bonkSound")]
@@ -43,4 +34,6 @@ public sealed partial class BonkableComponent : Component
     [DataField("bonkDelay")]
     public float BonkDelay = 1.5f;
     // ADT TWEAK END
+    [DataField]
+    public DamageSpecifier? BonkDamage;
 }

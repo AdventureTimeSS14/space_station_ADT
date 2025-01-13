@@ -23,6 +23,8 @@
       - !type:OverallPlaytimeRequirement
         time: 7200 # 2h overall
 # ADT-Tweak-end
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -45,6 +47,8 @@
       - !type:OverallPlaytimeRequirement
         time: 7200 # 2h overall
 # ADT-Tweak-end
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -66,6 +70,8 @@
       - !type:OverallPlaytimeRequirement
         time: 7200 # 2h overall
 # ADT-Tweak-end
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
