@@ -3,6 +3,8 @@ using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
+using Robust.Shared.Audio;
+using Robust.Client.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -12,7 +14,7 @@ public sealed class QueueState : State
 {
     [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
     [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     private const string JoinSoundPath = "/Audio/Effects/voteding.ogg";
 

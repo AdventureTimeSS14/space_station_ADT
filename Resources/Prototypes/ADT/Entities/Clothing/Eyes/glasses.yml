@@ -123,3 +123,23 @@
         icon:
           True: { state: icon }
           False: { state: icon }
+
+- type: entity
+  parent: [ClothingEyesBase]
+  id: ADTClothingEyesNightVisionMGD
+  name: night vision
+  description: jungar poka
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/mgd_pnvhud.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/mgd_pnvhud.rsi
+  - type: NightVisionItem # RMC Night vision
+  - type: ItemToggle  # RMC Night vision
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }

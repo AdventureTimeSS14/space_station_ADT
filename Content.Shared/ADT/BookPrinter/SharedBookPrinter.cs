@@ -1,3 +1,5 @@
+// Оригинал данного файла был сделан @temporaldarkness (discord). Код был взят с https://github.com/ss14-ganimed/ENT14-Master.
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.BookPrinter
