@@ -1,0 +1,173 @@
+- type: entity
+  id: ADTMobLegion
+  parent: BaseMobAsteroid
+  name: legion
+  description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/legion.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: legion
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: legion
+      Dead:
+        Base: legion_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      75: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+  - type: Gun
+    fireRate: 0.3
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes:
+    - SemiAuto
+    soundGunshot: null
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 0
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: ADTMobLegionSkull
+    capacity: 1
+    count: 1
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        4
+      AggroVisionRadius: !type:Single
+        9
+  - type: Butcherable
+    spawned:
+    - id: FoodHivelordRemains
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          RandomCargoCorpseSpawner:
+            min: 1
+            max: 1
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTLegionCore:
+            min: 1
+            max: 1
+  - type: Fauna
+  - type: AshStormImmune
+
+- type: entity
+  id: ADTMobLegionSkull
+  parent: BaseMobAsteroid
+  name: legion skull
+  description: A fragment of the original hivelord, rallying behind its original. One isn't much of a threat, but...
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/Lavaland/legion.rsi
+    layers:
+    - state: legion_skull
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      5: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    attackRate: 1.0
+    range: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 7
+  - type: Ammo
+    muzzleFlash: null
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        15
+      AggroVisionRadius: !type:Single
+        15
+  - type: TimedDespawn
+    lifetime: 30
+  - type: AshStormImmune
+
+- type: entity
+  id: MobAncientGoliath
+  parent: MobGoliath
+  name: ancient goliath
+  description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goliath
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath
+      Dead:
+        Base: goliath_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.00
+    baseSprintSpeed : 1.50
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 20
+        Piercing: 5
+  - type: NPCUseActionOnTarget
+    actions: AncientGoliathActions
+    delay: 3
+
+- type: weightedRandomEntity
+  id: AncientGoliathActions
+  weights:
+    ActionAncientGoliathTentacle: 0.5
+    ActionGoliathTentacle: 0.5
