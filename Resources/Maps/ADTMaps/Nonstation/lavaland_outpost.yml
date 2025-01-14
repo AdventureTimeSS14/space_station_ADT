@@ -30,7 +30,6 @@ entities:
     - type: MetaData
       name: Mining Base
     - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         -2,1:

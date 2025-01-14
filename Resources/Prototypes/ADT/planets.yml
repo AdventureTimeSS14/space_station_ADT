@@ -7,16 +7,6 @@
   - type: SpawnInRange
     protosToSpawn:
       - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
-      - LavaDungeonRoomMarker
       - BloodMinerDungeMarker
     minX: -200
     maxX: 200
