@@ -33,7 +33,7 @@
       alwaysCombustible: true
       canExtinguish: true
       firestacksOnIgnite: 3.0
-      firestackFade: -0.01
+      firestackFade: -0.005
       damage:
         types:
           Heat: 0.1
@@ -50,7 +50,7 @@
         - state: inhand-right-flame
           shader: unshaded
     - type: Damageable
-      damageModifierSet: Wood
+      damageModifierSet: ADTCandle
     - type: Destructible
       thresholds:
       - trigger:

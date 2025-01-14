@@ -64,15 +64,11 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
+          !type:PhysShapeCircle
+          radius: 0.2
         density: 190
         mask:
         - TableMask
-  - type: HealOnBuckle
-    damage:
-      types:
-        Poison: -0.1
-        Blunt: -0.1
   - type: Strap
     position: Down
     rotation: 0 # ADT CHANGE END sleep

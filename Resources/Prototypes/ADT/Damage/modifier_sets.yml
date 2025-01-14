@@ -194,3 +194,11 @@
   coefficients:
     Cold: 0
     Bloodloss: 0.7 # твёрдая кожа
+
+- type: damageModifierSet
+  id: ADTCandle
+  coefficients:
+    Blunt: 1.5
+    Slash: 2
+    Piercing: 1
+    Heat: 0.05

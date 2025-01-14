@@ -331,18 +331,21 @@
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianNeck
   name: loadout-group-atmospheric-technician-neck
+  minLimit: 0
   loadouts:
   - ADTCloakAtmosian
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianGasMask
   name: loadout-group-atmospheric-technician-gasmask
+  minLimit: 0
   loadouts:
   - ADTMaskGasAtmosian
 
 - type: loadoutGroup
   id: ADTAtmosphericTechnicianHead
   name: loadout-group-atmospheric-technician-head
+  minLimit: 0
   loadouts:
   - ADTHatBeretAtmos
 
