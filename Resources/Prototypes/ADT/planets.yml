@@ -4,6 +4,14 @@
   mapName: shuttle-destination-lavaland
   mapLight: "#1F0E11"
   addedComponents:
+  - type: SpawnInRange
+    protosToSpawn:
+      - LavaDungeonRoomMarker
+      - BloodMinerDungeMarker
+    minX: -200
+    maxX: 200
+    minY: -200
+    maxY: 200
   - type: FTLDestination
     whitelist:
       components:
