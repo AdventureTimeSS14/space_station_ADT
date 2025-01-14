@@ -20,17 +20,17 @@
 
 # ADT Maps Базовые Актуальные
   # - ADT_Aspid
-  # - ADT_Avrit
-  # - ADT_Bagel
-  # - ADT_Box
-  # - ADT_Cluster
-  # - ADT_Cluster_Legacy
-  # - ADT_Delta
-  # - ADT_Gemini
+  - ADT_Avrit
+  - ADT_Bagel
+  - ADT_Box
+  - ADT_Cluster
+  - ADT_Cluster_Legacy
+  - ADT_Delta
+  - ADT_Gemini
   # - ADT_kilo
-  # - ADT_Marathon
+  - ADT_Marathon
   # - ADT_Pie
-  # - ADT_Saltern
+  - ADT_Saltern
 
 # ADT Maps Выведенные на переработку
   # - ADT_Alley до ремонта
@@ -49,11 +49,11 @@
   # - ADT_SalternHalloween
   
 # ADT NewYear (Не забудьте отключить обычные)
-  - ADT_AspidNewYear
-  - ADT_BagelNewYear
-  - ADT_BoxNewYear
-  - ADT_Cluster_LegacyNewYear
-  - ADT_DeltaNewYear
-  - ADT_GeminiNewYear
-  - ADT_PieNewYear
-  - ADT_SalternNewYear
+  # - ADT_AspidNewYear
+  # - ADT_BagelNewYear
+  # - ADT_BoxNewYear
+  # - ADT_Cluster_LegacyNewYear
+  # - ADT_DeltaNewYear
+  # - ADT_GeminiNewYear
+  # - ADT_PieNewYear
+  # - ADT_SalternNewYear
