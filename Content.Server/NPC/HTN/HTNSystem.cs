@@ -165,8 +165,8 @@ public sealed class HTNSystem : EntitySystem
             if (count >= maxUpdates)
                 break;
 
-            // if (!IsNPCActive(uid))  // Frontier ВРЕМЕННО В КОММЕНТАРИЯХ вернуть, если на сервере будут лаги или когда починят
-            //     continue;
+            if (!IsNPCActive(uid))  // Frontier
+                continue;
 
             if (comp.PlanningJob != null)
             {
