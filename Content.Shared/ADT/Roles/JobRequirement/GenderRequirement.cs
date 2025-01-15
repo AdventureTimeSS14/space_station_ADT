@@ -10,17 +10,18 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Roles
 {
     /// <summary>
-    /// Requires the character to be or not be of a specified sex.
+    /// Requires the character to be of a specified sex.
     /// </summary>
     [UsedImplicitly]
     [Serializable, NetSerializable]
     public sealed partial class GenderRequirement : JobRequirement
     {
+        // Теперь AllowSex будет содержать только одно значение пола
         [DataField(required: true)]
-        public HashSet<Sex> AllowedSexes = new() { Sex.Male, Sex.Female };
+        public Sex AllowedSex { get; set; }
 
         /// <summary>
-        /// Проверка, соответствует ли персонаж требуемым половым условиям
+        /// Проверка, соответствует ли персонаж требуемому полу
         /// </summary>
         /// <param name="entManager">Менеджер сущностей</param>
         /// <param name="protoManager">Менеджер прототипов</param>
@@ -36,29 +37,26 @@ namespace Content.Shared.Roles
         {
             reason = new FormattedMessage();
 
-            if (profile is null) // Если профиль персонажа не существует, роль разрешена
+            if (profile is null)
                 return true;
 
             var sb = new StringBuilder();
             sb.Append("[color=yellow]");
-            foreach (var sex in AllowedSexes)
-            {
-                sb.Append(Loc.GetString(sex.ToString()) + " ");
-            }
+            sb.Append(Loc.GetString(AllowedSex.ToString()));
             sb.Append("[/color]");
 
             if (!Inverted)
             {
                 reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-whitelisted-sex")}\n{sb}");
 
-                if (!AllowedSexes.Contains(profile.Sex))
+                if (profile.Sex != AllowedSex)
                     return false;
             }
             else
             {
                 reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-blacklisted-sex")}\n{sb}");
 
-                if (AllowedSexes.Contains(profile.Sex))
+                if (profile.Sex == AllowedSex)ъ\
                     return false;
             }
 
