@@ -1461,181 +1461,11 @@ entities:
     - type: Transform
       pos: 22.5,5.5
       parent: 1
-    - type: MiningShop
-      orderList:
-      - price: 1050
-        name: null
-        id: WeaponKineticHammer
-      sections:
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 750
-          name: null
-          id: WeaponCrusher
-        - price: 1050
-          name: null
-          id: WeaponKineticSpear
-        - price: 1050
-          name: null
-          id: WeaponKineticHammer
-        - price: 1050
-          name: null
-          id: WeaponKineticClaws
-        - price: 1050
-          name: null
-          id: WeaponKineticMachete
-        name: Крашеры
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 550
-          name: null
-          id: WeaponProtoKineticAccelerator
-        name: ПКА
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 600
-          name: null
-          id: FultonBeacon
-        - price: 1150
-          name: null
-          id: Fulton
-        name: фултоны
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 700
-          name: null
-          id: MedkitBruteFilled
-        - price: 600
-          name: null
-          id: MedkitBurnFilled
-        name: медицина
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 500
-          name: null
-          id: ClothingBeltSalvageWebbing
-        - price: 3000
-          name: null
-          id: ClothingOuterHardsuitSalvage
-        - price: 1000
-          name: null
-          id: ADTClothingOuterArmorMiner
-        - price: 3600
-          name: null
-          id: ADTClothingOuterArmorMinerHeavy
-        - price: 4000
-          name: null
-          id: ClothingOuterArmorMinerLight
-        name: снаряжение
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 500
-          name: null
-          id: PKAUpgradeDamage
-        - price: 500
-          name: null
-          id: PKAUpgradeRange
-        - price: 500
-          name: null
-          id: PKAUpgradeFireRate
-        - price: 500
-          name: null
-          id: PKAUpgradeLight
-        name: улучшения
   - uid: 1835
     components:
     - type: Transform
       pos: 21.5,5.5
       parent: 1
-    - type: MiningShop
-      sections:
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 750
-          name: null
-          id: WeaponCrusher
-        - price: 1050
-          name: null
-          id: WeaponKineticSpear
-        - price: 1050
-          name: null
-          id: WeaponKineticHammer
-        - price: 1050
-          name: null
-          id: WeaponKineticClaws
-        - price: 1050
-          name: null
-          id: WeaponKineticMachete
-        name: Крашеры
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 550
-          name: null
-          id: WeaponProtoKineticAccelerator
-        name: ПКА
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 600
-          name: null
-          id: FultonBeacon
-        - price: 1150
-          name: null
-          id: Fulton
-        name: фултоны
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 700
-          name: null
-          id: MedkitBruteFilled
-        - price: 600
-          name: null
-          id: MedkitBurnFilled
-        name: медицина
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 500
-          name: null
-          id: ClothingBeltSalvageWebbing
-        - price: 3000
-          name: null
-          id: ClothingOuterHardsuitSalvage
-        - price: 1000
-          name: null
-          id: ADTClothingOuterArmorMiner
-        - price: 3600
-          name: null
-          id: ADTClothingOuterArmorMinerHeavy
-        - price: 4000
-          name: null
-          id: ClothingOuterArmorMinerLight
-        name: снаряжение
-      - jobs: []
-        sharedSpecLimit: null
-        entries:
-        - price: 500
-          name: null
-          id: PKAUpgradeDamage
-        - price: 500
-          name: null
-          id: PKAUpgradeRange
-        - price: 500
-          name: null
-          id: PKAUpgradeFireRate
-        - price: 500
-          name: null
-          id: PKAUpgradeLight
-        name: улучшения
 - proto: ADTSalvageAirlock
   entities:
   - uid: 6
@@ -1644,7 +1474,7 @@ entities:
       pos: 24.5,5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -9462.181
+      secondsUntilStateChange: -10372.733
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1883,7 +1713,7 @@ entities:
       pos: -8.5,20.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -7573.811
+      secondsUntilStateChange: -8484.363
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2028,7 +1858,7 @@ entities:
       pos: 11.5,3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -13150.839
+      secondsUntilStateChange: -14061.392
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2042,7 +1872,7 @@ entities:
       pos: 7.5,8.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -34132.797
+      secondsUntilStateChange: -35043.348
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2057,7 +1887,7 @@ entities:
       access:
       - - Engineering
     - type: Door
-      secondsUntilStateChange: -9618.952
+      secondsUntilStateChange: -10529.505
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5326,6 +5156,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 9.5,7.5
       parent: 1
+- proto: ComputerShuttleMining
+  entities:
+  - uid: 1615
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,11.5
+      parent: 1
 - proto: ComputerSurveillanceCameraMonitor
   entities:
   - uid: 687
@@ -6122,7 +5960,6 @@ entities:
     - type: Transform
       pos: 27.5,1.5
       parent: 1
-    - type: DisposalUnit
   - uid: 825
     components:
     - type: Transform
@@ -10669,8 +10506,6 @@ entities:
     - type: Transform
       pos: 27.5,6.5
       parent: 1
-    - type: Lock
-      locked: False
   - uid: 1456
     components:
     - type: Transform
@@ -10707,6 +10542,20 @@ entities:
     components:
     - type: Transform
       pos: -17.5,20.5
+      parent: 1
+- proto: LootSpawnerArmory
+  entities:
+  - uid: 1765
+    components:
+    - type: Transform
+      pos: -14.5,21.5
+      parent: 1
+- proto: LootSpawnerMedicalClassy
+  entities:
+  - uid: 1695
+    components:
+    - type: Transform
+      pos: 1.5,10.5
       parent: 1
 - proto: MaintenanceFluffSpawner
   entities:
@@ -11577,11 +11426,6 @@ entities:
     - type: Transform
       pos: 22.5,14.5
       parent: 1
-  - uid: 1615
-    components:
-    - type: Transform
-      pos: 21.5,11.5
-      parent: 1
   - uid: 1616
     components:
     - type: Transform
@@ -11762,7 +11606,8 @@ entities:
   - uid: 1644
     components:
     - type: Transform
-      pos: -8.5,12.5
+      rot: -1.5707963267948966 rad
+      pos: -7.5,11.5
       parent: 1
   - uid: 1645
     components:
@@ -11931,6 +11776,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-6.5
       parent: 1
+  - uid: 1757
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,12.5
+      parent: 1
 - proto: Rack
   entities:
   - uid: 1675
@@ -12054,11 +11905,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,17.5
-      parent: 1
-  - uid: 1695
-    components:
-    - type: Transform
-      pos: -14.5,21.5
       parent: 1
   - uid: 1696
     components:
@@ -12282,6 +12128,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -10.5,-3.5
+      parent: 1
+- proto: SpawnMobGorillaLargo
+  entities:
+  - uid: 1758
+    components:
+    - type: Transform
+      pos: 22.5,13.5
       parent: 1
 - proto: StasisBed
   entities:

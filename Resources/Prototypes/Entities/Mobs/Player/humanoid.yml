@@ -522,8 +522,8 @@
   parent: EventHumanoidMindShielded
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
-      roleLoadout: [ RoleSurvivalEVA ]
+      prototypes: [ADTCBURNGear] # ADT tweak
+      roleLoadout: [ ADTRoleSurvivalCBURN ] # ADT tweak
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description

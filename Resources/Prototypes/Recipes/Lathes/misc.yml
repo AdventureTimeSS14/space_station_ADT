@@ -127,12 +127,13 @@
     Steel: 1000
     Plastic: 500
 
-- type: latheRecipe
-  id: ClothingShoesBootsMoon
-  result: ClothingShoesBootsMoon
-  completetime: 2
-  materials:
-    Steel: 600
+# ADT tweak - убираем луноходы
+# - type: latheRecipe
+#   id: ClothingShoesBootsMoon
+#   result: ClothingShoesBootsMoon
+#   completetime: 2
+#   materials:
+#     Steel: 600
 
 - type: latheRecipe
   id: ClothingShoesBootsSpeed

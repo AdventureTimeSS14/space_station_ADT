@@ -1195,35 +1195,6 @@
       size: Small #ADT_Tweaks - ломы снова лезут в карман
       heldPrefix: gold
 
-# for Filo
-- type: entity
-  name: Owl's Scimitar
-  parent: BaseItem
-  id: ADTOwlScimitar
-  suffix: Filo
-  description:
-  components:
-  - type: Sharp
-  - type: Sprite
-    sprite: ADT/Personalization/owl_scimitar/icon.rsi
-    state: icon
-    scale: 0.66, 0.66
-  - type: MeleeWeapon
-    attackRate: 0.9
-    damage:
-      types:
-        Slash: 24
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Clothing
-    sprite: ADT/Personalization/owl_scimitar/other.rsi
-    slots:
-    - Belt
-  - type: Item
-    size: Huge
-    sprite: ADT/Personalization/owl_scimitar/other.rsi
-  - type: DisarmMalus
-
 # Moon_so_red
 - type: entity
   parent: BaseItem

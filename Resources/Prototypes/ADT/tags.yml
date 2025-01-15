@@ -450,3 +450,9 @@
 
 - type: Tag
   id: MiningShop
+
+- type: Tag
+  id: PKA
+
+- type: Tag
+  id: LavaDungeonBloodMiner

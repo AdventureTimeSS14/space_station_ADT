@@ -25,6 +25,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.Preferences.Managers;
 
 namespace Content.Server.Administration.Systems
 {
@@ -43,6 +44,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IAfkManager _afkManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
+        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
 
         [GeneratedRegex(@"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
         private static partial Regex DiscordRegex();
@@ -669,7 +671,24 @@ namespace Content.Server.Administration.Systems
             }
             else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp))
             {
-                bwoinkText = $"[color=red]{adminPrefix}{senderSession.Name}[/color]";
+                // ADT-Tweak-Start: Теперь цвета установленные setadminooc также будут красить ник с префиксом в ф1
+                Color? colorOverride = null;
+                var prefs = _preferencesManager.GetPreferences(senderSession.UserId);
+                colorOverride = prefs.AdminOOCColor;
+                if (colorOverride.HasValue)
+                {
+                    var colorString = $"#"
+                    + $"{(int)(colorOverride.Value.R * 255):X2}"
+                    + $"{(int)(colorOverride.Value.G * 255):X2}"
+                    + $"{(int)(colorOverride.Value.B * 255):X2}"
+                    + $"{(int)(colorOverride.Value.A * 255):X2}"; // Color -> переводим в #RGBAFORMAT
+                    bwoinkText = $"[color={colorString}]{adminPrefix}{senderSession.Name}[/color]";
+                }
+                else
+                {
+                    bwoinkText = $"[color=red]{adminPrefix}{senderSession.Name}[/color]";
+                }
+                // ADT-Tweak-End
             }
             else
             {

@@ -1,0 +1,27 @@
+- type: startingGear
+  id: ADTCBURNGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCBURN
+    shoes: ClothingShoesBootsCombatFilled
+    id: CBURNPDA
+    pocket2: WeaponLaserGun
+    belt: ADTClothingBeltBandolierFilledIncendiary
+    suitstorage: WeaponShotgunEnforcer
+  storage:
+    back:
+    - CrowbarOrange
+    - Chainsaw
+    - MedkitCombatFilled
+    - MagazineShotgunIncendiary
+    - MagazineShotgunIncendiary
+    - MagazineShotgun
+    - GrenadeFlashBang
+    - PillAmbuzolPlus
+    - PillAmbuzol
+    - SpaceCash500

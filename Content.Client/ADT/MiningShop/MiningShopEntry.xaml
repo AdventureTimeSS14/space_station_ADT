@@ -5,7 +5,7 @@
     <BoxContainer Orientation="Horizontal">
         <LayeredTextureRect Name="Texture" Access="Public"
                             HorizontalExpand="False" VerticalExpand="False" />
-        <Label Name="Price" Access="Public" MinWidth="30" Align="Left" Margin="5 0 0 0" />
+        <Label Name="Price" Access="Public" MinWidth="60" Align="Left" Margin="5 0 0 0" />
         <Control MinWidth="5" />
         <cc:MiningShopPanel Name="Panel" Access="Public" />
         <Button Text="?" Name="TooltipLabel" Access="Public" ModulateSelfOverride="#00000000" />

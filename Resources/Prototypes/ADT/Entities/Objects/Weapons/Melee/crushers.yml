@@ -66,7 +66,7 @@
       collection: MetalThud
     angle: 0
     animation: WeaponArcThrust
-    range: 2.3
+    range: 2.6
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -83,6 +83,11 @@
     bonusDamage:
       types:
         Slash: 10
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
+        Slash: 15
 
 - type: entity
   parent: WeaponKineticBase
@@ -122,6 +127,11 @@
   - type: FlipOnHit
   - type: GunRequiresWield
   - type: Wieldable
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
+        Slash: 15
 
 - type: entity
   parent: WeaponKineticBase
@@ -139,7 +149,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 20
+        Slash: 15
     soundHit:
       collection: MetalThud
     angle: 0
@@ -154,12 +164,17 @@
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
-        Slash: 40
+        Slash: 20
   - type: GunRequiresWield
   - type: Wieldable
   - type: Item
     size: Normal
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
+        Slash: 15
 
 - type: entity
   parent: WeaponKineticBase
@@ -176,7 +191,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 25
+        Slash: 20
     soundHit:
       collection: MetalThud
     angle: 0
@@ -188,4 +203,9 @@
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
+        Slash: 10
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
         Slash: 15

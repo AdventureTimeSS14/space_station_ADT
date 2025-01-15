@@ -37,15 +37,6 @@
   completetime: 0
   miningPoints: 1 # ADT tweak
   materials:
-    Glass: 100
-    Steel: 50
-
-# This version is for the ore processor
-- type: latheRecipe
-  id: SheetRGlassRaw
-  result: SheetRGlass1
-  completetime: 0
-  materials:
     RawQuartz: 100
     RawIron: 50
     Coal: 15

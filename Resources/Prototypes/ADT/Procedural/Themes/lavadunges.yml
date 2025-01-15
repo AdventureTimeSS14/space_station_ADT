@@ -174,6 +174,22 @@
   tags:
   - LavaDungeon
 
+- type: dungeonRoom
+  id: LavaDungeonEngie
+  size: 12,11
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 84, 1
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonBloodMiner
+  size: 11,10
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 130, -37
+  tags:
+  - LavaDungeonBloodMiner
+
 - type: entity
   id: LavaDungeonRoomMarker
   parent: BaseRoomMarker
@@ -184,3 +200,12 @@
     roomWhitelist:
       tags:
       - LavaDungeon
+
+  parent: BaseRoomMarker
+  name: blood miner dunge spawer
+  components:
+  - type: RoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - LavaDungeonBloodMiner

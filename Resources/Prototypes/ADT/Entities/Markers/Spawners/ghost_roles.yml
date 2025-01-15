@@ -1,0 +1,56 @@
+- type: entity
+  id: ADTSpawnPointPirate
+  name: pirate spawn point
+  suffix: pirate
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-pirate-name
+    description: ghost-role-information-pirate-description
+    rules: ghost-role-information-pirate-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobSkeletonPirate
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Skeleton/parts.rsi
+        state: skull_icon
+
+- type: entity
+  id: ADTSpawnPointLostCaptainPirate
+  name: pirate capitan spawn point
+  suffix: pirate
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-captain-pirate-name
+    description: ghost-role-information-captain-pirate-description
+    rules: ghost-role-information-captain-pirate-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobSkeletonCaptainPirate
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Skeleton/parts.rsi
+        state: skull_icon
+
+- type: entity
+  id: ADTSpawnPointLostFirstmate
+  name: pirate firstmate spawn point
+  suffix: pirate
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-pirate-firstmate-name
+    description: ghost-role-information-pirate-firstmate-description
+    rules: ghost-role-information-pirate-firstmate-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobSkeletonFirstmatePirate
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Skeleton/parts.rsi
+        state: skull_icon

@@ -11,6 +11,7 @@
       - id: SpaceCash500
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelFilled
   components:

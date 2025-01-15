@@ -77,6 +77,7 @@
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
+  - type: IonStormTarget # ADT edit
 
 - type: entity
   id: AiHeldIntellicard

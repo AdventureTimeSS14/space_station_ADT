@@ -20,11 +20,14 @@
     layers:
       - state: green
       - state: ai
-  - type: ConditionalSpawner
+  - type: RandomSpawner
+    rareChance: 0.6
     prototypes:
       - MobWatcherLavaland
-      - MobWatcherMagmawing
       - MobGoliath
       - ADTMobLegion
+    rarePrototypes:
+      - MobAncientGoliath
+      - ADTRandomTendrilSpawner
   - type: TimedDespawn
     lifetime: 1

@@ -14,7 +14,7 @@ public sealed partial class CCVars
     ///     The token used to authenticate with the admin API. Leave empty to disable the admin API. This is a secret! Do not share!
     /// </summary>
     public static readonly CVarDef<string> AdminApiToken =
-        CVarDef.Create("admin.api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("admin.api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE); // ADT-Tweak
 
     /// <summary>
     ///     Should users be able to see their own notes? Admins will be able to see and set notes regardless

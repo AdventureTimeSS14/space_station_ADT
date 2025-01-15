@@ -40,8 +40,9 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
+            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT edit
             // ADT-New-Year-Start
-            "/Maps/ADTMaps/ADTStations/NewYear/adt_centcom.yml",
+            "/Maps/ADTMaps/ADTStations/NewYear/adt_centcom.yml"
             // ADT-New-Year-End
         };
 
@@ -89,7 +90,6 @@ namespace Content.IntegrationTests.Tests
             "Loop",
             "Elkridge"
             // ADT-Start
-            "ADT_Frontier",
             "ADT_Astra",
             "ADT_Avrit",
             "ADT_Bagel",
@@ -115,17 +115,16 @@ namespace Content.IntegrationTests.Tests
             // ADT-End
 
             // ADT-Halloween-Start
-            "ADT_FrontierHalloween",
             "ADT_TrainHalloween",
             "ADT_SalternHalloween",
             // ADT-Halloween-End
 
             // ADT-New-Year-Start
+            "ADT_AspidNewYear",
             "ADT_BagelNewYear",
             "ADT_BoxNewYear",
             "ADT_Cluster_LegacyNewYear",
             "ADT_DeltaNewYear",
-            "ADT_FrontierNewYear",
             "ADT_GeminiNewYear",
             "ADT_PieNewYear",
             "ADT_SalternNewYear"
