@@ -4,6 +4,7 @@ using Content.Server.Access.Systems;
 using Content.Server.Forensics;
 using Content.Server.GameTicking;
 using Content.Shared.Access.Components;
+using Content.Shared.Clothing;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
@@ -160,7 +161,8 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             Gender = gender,
             DisplayPriority = jobPrototype.RealDisplayWeight,
             Fingerprint = mobFingerprint,
-            DNA = dna
+            DNA = dna,
+            Profile = profile   // ADT Station Records Showcase Tweaked
         };
 
         var key = AddRecordEntry(station, record);
