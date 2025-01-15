@@ -233,6 +233,7 @@ namespace Content.IntegrationTests.Tests
                 "MapGrid",
                 "StationEvent",
                 "TimedDespawn",
+                "RoomFill",
 
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
