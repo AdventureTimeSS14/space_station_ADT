@@ -56,7 +56,7 @@ namespace Content.Shared.Roles
             {
                 reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-blacklisted-sex")}\n{sb}");
 
-                if (profile.Sex == AllowedSex)ъ\
+                if (profile.Sex == AllowedSex)
                     return false;
             }
 
