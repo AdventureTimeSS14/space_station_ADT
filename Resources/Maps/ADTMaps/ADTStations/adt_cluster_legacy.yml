@@ -25923,8 +25923,8 @@ entities:
       pos: -19.5,-14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
   - uid: 9083
@@ -25933,8 +25933,8 @@ entities:
       pos: -19.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
 - proto: Fireplace
@@ -36462,8 +36462,8 @@ entities:
       pos: -23.5,-14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
     - type: AtmosPipeColor
@@ -37202,8 +37202,8 @@ entities:
       pos: -23.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
     - type: AtmosPipeColor
