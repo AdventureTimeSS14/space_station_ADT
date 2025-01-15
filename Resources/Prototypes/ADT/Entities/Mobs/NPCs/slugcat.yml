@@ -2,6 +2,7 @@
   name: Slug Cat
   parent: SimpleMobBase
   id: ADTMobSlugCatBase
+  abstract: true
   description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
   components:
   - type: Sprite
@@ -62,11 +63,12 @@
     baseWalkSpeed: 2
   - type: Inventory
     templateId: ADTSlugCat
-    speciesId: slugcat
   - type: Body
     prototype: Primate
   - type: Hands
     showInHands: true
+    baseThrowspeed: 8
+    throwRange: 6
   - type: Insulated
   - type: InventorySlots
   - type: Stripping
@@ -104,6 +106,13 @@
     - DoorBumpOpener
     - VimPilot
     - CannotSuicide
+
+- type: entity
+  name: Slug Cat
+  parent: ADTMobSlugCatBase
+  id: ADTMobSlugCatSurvivor
+  description: cat
+  components:
 
 - type: entity
   name: Slug Cat
@@ -259,6 +268,7 @@
       0: Alive
       45: Critical
       90: Dead
+  - type: Pacified
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
