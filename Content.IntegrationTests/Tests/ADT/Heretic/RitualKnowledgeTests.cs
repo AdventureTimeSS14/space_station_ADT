@@ -6,7 +6,7 @@ using Content.Shared.Tag;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests._Goobstation.Heretic;
+namespace Content.IntegrationTests.Tests.ADT.Heretic;
 
 [TestFixture, TestOf(typeof(RitualKnowledgeBehavior))]
 public sealed class RitualKnowledgeTests
