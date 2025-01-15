@@ -340,7 +340,7 @@
       - WeaponGauntletGorilla
       - SynthesizerInstrument
       - ClothingShoesBootsMagSci
-      - ClothingShoesBootsMoon
+      # - ClothingShoesBootsMoon  # ADT tweak - убираем луноходы
       - ClothingShoesBootsSpeed
       - NodeScanner
       - HolofanProjector
@@ -350,6 +350,9 @@
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
       #ADT plasmacutters start
+      - PKAUpgradeDamage
+      - PKAUpgradeRange
+      - PKAUpgradeFireRate
       - ADTWeaponCutter
       - ADTWeaponCutterAdv
       #ADT plasmacutters end
@@ -1441,7 +1444,11 @@
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
-    # ADT tweak end
+    - type: MiningPoints
+      transferSound:
+        path: /Audio/Effects/Cargo/ping.ogg
+    - type: MiningPointsLathe
+     # ADT tweak end
 
 - type: entity
   parent: OreProcessor

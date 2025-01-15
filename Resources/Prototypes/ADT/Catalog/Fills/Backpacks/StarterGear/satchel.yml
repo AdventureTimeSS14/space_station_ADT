@@ -10,6 +10,7 @@
      # До добавления слота носков - id: ADTFootTag
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelFilled
   components:

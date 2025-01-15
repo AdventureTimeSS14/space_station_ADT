@@ -1,0 +1,163 @@
+- type: entity
+  name: proto-kinetic pistol
+  id: ADTWeaponProtoKineticPistol
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: The Pistol trades base damage, and range, for double mod capacity, making it a truely customizable PKA.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_pistol.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: UpgradeableGun
+    maxUpgradeCount: 7
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_pistol.rsi
+    size: Small
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletKineticPistol
+    capacity: 1
+    count: 1
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_pistol.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+
+- type: entity
+  name: proto-kinetic repeater
+  id: ADTWeaponProtoKineticRepeater
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: The Repeater trades mod space and a bit of damage for the ability to fire three shots in rapid succession before needing to recharge, while also doing more damage than base PKA if all three shots are landed.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_repeater.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: UpgradeableGun
+    maxUpgradeCount: 2
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_repeater.rsi
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletKineticRepeater
+    capacity: 3
+    count: 3
+  - type: Gun
+    resetOnHandSelected: false
+    burstCooldown: 2
+    fireRate: 0.5
+    selectedMode: Burst
+    angleDecay: 45
+    minAngle: 2
+    maxAngle: 3
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.25
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_repeater.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+
+- type: entity
+  name: proto-kinetic raingun
+  id: ADTWeaponProtoKineticRailgun
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: The Railgun trades customization, fire rate, and storage capabilities for the ability to fire a high damage shot that penetrates creatures!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_railgun.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: UpgradeableGun
+    maxUpgradeCount: 1
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_railgun.rsi
+    size: Normal
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletKineticRailgun
+    capacity: 1
+    count: 1
+  - type: Gun
+    resetOnHandSelected: false
+    fireRate: 0.3
+    angleDecay: 45
+    minAngle: 2
+    maxAngle: 3
+    cameraRecoilScalar: 6
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/beam_sniper.ogg
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_railgun.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+
+- type: entity
+  name: proto-kinetic shotgun
+  id: ADTWeaponProtoKineticShotgun
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: The Shotgun fires a short range set of three rounds that does more damage than base PKA if all three shots land. This trades mod capacity and cooldown speed.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_shotgun.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: UpgradeableGun
+    maxUpgradeCount: 2
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_shotgun.rsi
+    size: Normal
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletKineticShotgunSpread
+    capacity: 1
+    count: 1
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_shotgun.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt

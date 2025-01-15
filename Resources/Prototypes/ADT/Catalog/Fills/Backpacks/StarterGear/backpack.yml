@@ -10,9 +10,9 @@
       # До добавления слота носков- id: ADTFootTag
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackFilled
-  categories: [ HideSpawnMenu ]
   components:
   - type: StorageFill
     contents:

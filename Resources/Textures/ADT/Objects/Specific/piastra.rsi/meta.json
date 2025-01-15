@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by ratyyy",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "piastra_0" },
+        { "name": "piastra_1" },
+        { "name": "piastra_2" },
+        { "name": "piastra_3" },
+        { "name": "piastra_4" },
+        { "name": "piastra_5" },
+        { "name": "piastra_6" },
+        { "name": "piastra_7" },
+        { "name": "piastra_8" },
+        { "name": "piastra_9" },
+        { "name": "piastra_10" }
+    ]
+}

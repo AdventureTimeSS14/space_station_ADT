@@ -31,8 +31,8 @@ public sealed partial class DungeonSystem
 
         foreach (var proto in _prototype.EnumeratePrototypes<DungeonRoomPrototype>())
         {
-            if (proto.Size != size)
-                continue;
+            // if (proto.Size != size) #ADT tweak
+            //     continue;
 
             if (whitelist == null)
             {
@@ -184,6 +184,16 @@ public sealed partial class DungeonSystem
             var childXform = _xformQuery.GetComponent(ent);
             var anchored = templateXform.Anchored;
             _transform.SetLocalRotation(ent, childRot, childXform);
+
+            // ADT - чиним тестер
+            _transform.AttachToGridOrMap(ent);
+
+            if (grid == null || gridUid != childXform.GridUid)
+            {
+                Log.Debug("Спавнер данжа находится в космосе?");
+                return;
+            }
+            // ADT - конец фикса
 
             // If the templated entity was anchored then anchor us too.
             if (anchored && !childXform.Anchored)
