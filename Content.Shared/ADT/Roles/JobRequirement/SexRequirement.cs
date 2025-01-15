@@ -40,7 +40,7 @@ namespace Content.Shared.Roles
                 return true;
 
             var sb = new StringBuilder();
-            sb.Append("[color=yellow]");
+            sb.Append("[color=yellow]"); // Красим в жёлтый 
 
             // Преобразование коллекции AllowedSex в строку для отображения
             sb.Append(string.Join(", ", AllowedSex));
@@ -52,11 +52,6 @@ namespace Content.Shared.Roles
                 reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-whitelisted-sex")}\n{sb}");
 
                 if (!AllowedSex.Contains(profile.Sex))
-                    return false;
-            }
-            else
-            {
-                if (AllowedSex.Contains(profile.Sex))
                     return false;
             }
 
