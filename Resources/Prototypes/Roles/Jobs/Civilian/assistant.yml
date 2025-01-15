@@ -10,8 +10,7 @@
   - Maintenance
   requirements:
     - !type:GenderRequirement
-      allowedSexes:
-        - Female
+      allowedSexes: Female
 
 
 - type: startingGear
