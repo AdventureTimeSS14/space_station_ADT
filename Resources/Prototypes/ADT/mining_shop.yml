@@ -19,6 +19,14 @@
   entries:
   - id: WeaponProtoKineticAccelerator
     price: 550
+  - id: ADTWeaponProtoKineticPistol
+    price: 1550
+  - id: ADTWeaponProtoKineticShotgun
+    price: 1500
+  - id: ADTWeaponProtoKineticRepeater
+    price: 1650
+  - id: ADTWeaponProtoKineticRailgun
+    price: 1750
 
 - type: miningShopSection
   id: Fulton
