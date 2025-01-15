@@ -56,3 +56,5 @@ heretic-speech-blind = E'E'S
 heretic-speech-emp = E'P
 heretic-speech-shapeshift = SH'PE
 heretic-speech-link = PI'RC' TH' M'ND
+
+heretic-cant-shoot = Я не могу использовать {($entity)} из-за моей священной приверженности пути клинка.
