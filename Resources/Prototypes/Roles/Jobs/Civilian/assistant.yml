@@ -8,11 +8,6 @@
   supervisors: job-supervisors-everyone
   access: # Corvax-MRP, ADT tweak
   - Maintenance
-  requirements:
-    - !type:SexRequirement
-      allowedSex:
-      - Female
-
 
 - type: startingGear
   id: PassengerGear
