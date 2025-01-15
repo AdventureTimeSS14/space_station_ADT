@@ -21,6 +21,18 @@
   naming: FirstDashLast
   sexes:
   - Unsexed
+  category: Special
+  description: "/ServerInfo/ADT/SpeciesDescriptions/IPC.xml"
+  pros:
+  - Не получают урона от токсинов, генетики и прочих, свойственных органикам.
+  - Имеют встроенный фонарик.
+  special:
+  - Вместо еды заряжаются от ЛКП (Alt+ЛКМ).
+  - Получают негативные эффекты от ЭМИ.
+  - Для использования ключей шифрования помещают их напрямую в тело.
+  - Лечатся не стандартными медикаментами, а сваркой, стеклом и проводами.
+  cons:
+  - Умирают при получении 125 урона.
 
 # The lack of a layer means that
 # this person cannot have round-start anything
