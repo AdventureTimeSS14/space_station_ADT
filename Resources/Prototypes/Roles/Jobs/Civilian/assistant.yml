@@ -9,8 +9,9 @@
   access: # Corvax-MRP, ADT tweak
   - Maintenance
   requirements:
-    - !type:GenderRequirement
-      allowedSex: Female
+    - !type:SexRequirement
+      allowedSex:
+      - Female
 
 
 - type: startingGear

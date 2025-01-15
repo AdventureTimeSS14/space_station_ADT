@@ -14,11 +14,10 @@ namespace Content.Shared.Roles
     /// </summary>
     [UsedImplicitly]
     [Serializable, NetSerializable]
-    public sealed partial class GenderRequirement : JobRequirement
+    public sealed partial class SexRequirement : JobRequirement
     {
-        // Теперь AllowSex будет содержать только одно значение пола
         [DataField(required: true)]
-        public Sex AllowedSex { get; set; }
+        public HashSet<Sex> AllowedSex = new();
 
         /// <summary>
         /// Проверка, соответствует ли персонаж требуемому полу
@@ -42,21 +41,22 @@ namespace Content.Shared.Roles
 
             var sb = new StringBuilder();
             sb.Append("[color=yellow]");
-            sb.Append(Loc.GetString(AllowedSex.ToString()));
+
+            // Преобразование коллекции AllowedSex в строку для отображения
+            sb.Append(string.Join(", ", AllowedSex));
+
             sb.Append("[/color]");
 
             if (!Inverted)
             {
                 reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-whitelisted-sex")}\n{sb}");
 
-                if (profile.Sex != AllowedSex)
+                if (!AllowedSex.Contains(profile.Sex))
                     return false;
             }
             else
             {
-                reason = FormattedMessage.FromMarkupPermissive($"{Loc.GetString("role-timer-blacklisted-sex")}\n{sb}");
-
-                if (profile.Sex == AllowedSex)
+                if (AllowedSex.Contains(profile.Sex))
                     return false;
             }
 

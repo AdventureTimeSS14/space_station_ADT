@@ -9,8 +9,11 @@
       time: 600000
     - !type:AgeRequirement #ADT-Tweak
       requiredAge: 30
-    - !type:GenderRequirement
-      allowedSex: Male
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+      - Unsexed
+      - Female
     # - !type:DepartmentTimeRequirement
     #   department: Sponsor
     #   time: 10
