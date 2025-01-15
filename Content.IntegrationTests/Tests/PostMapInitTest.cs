@@ -88,7 +88,7 @@ namespace Content.IntegrationTests.Tests
             "Gate",
             "Amber",
             "Loop",
-            "Elkridge"
+            "Elkridge",
             // ADT-Start
             "ADT_Astra",
             "ADT_Avrit",
