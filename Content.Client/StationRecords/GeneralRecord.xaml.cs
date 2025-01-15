@@ -37,7 +37,7 @@ public sealed partial class GeneralRecord : Control
             ("job", Loc.GetString(record.JobTitle))), defaultColor: Color.White);
         Species.SetMessage(Loc.GetString("general-station-record-console-record-species", ("species", Loc.GetString("species-name-" + record.Species.ToLower()))), defaultColor: Color.White);
         Gender.SetMessage(Loc.GetString("general-station-record-console-record-gender",
-            ("gender", Loc.GetString("humanoid-profile-editor-pronouns-" + record.Gender.ToString().ToLower() + "-text"))), defaultColor: Color.White);
+            ("sex", Loc.GetString("station-records-sex-" + record.Profile.Sex.ToString().ToLower()))), defaultColor: Color.White);
         // // ADT Station Records Showcase End
         Fingerprint.Text = Loc.GetString("general-station-record-console-record-fingerprint",
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
