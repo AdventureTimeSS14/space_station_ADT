@@ -57,4 +57,5 @@ heretic-speech-emp = E'P
 heretic-speech-shapeshift = SH'PE
 heretic-speech-link = PI'RC' TH' M'ND
 
-heretic-cant-shoot = Я не могу использовать {($entity)} из-за моей священной приверженности пути клинка.
+heretic-cant-shoot = Я не могу использовать {$entity} из-за моей священной приверженности пути клинка.
+heretic-ability-fail-lowhealth = Это заклинание наносит {$damage} урона, оно введёт вас в критическое состояние, если его использовать!
