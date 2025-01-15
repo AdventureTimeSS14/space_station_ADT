@@ -28,15 +28,16 @@
   - ADT_Delta
   - ADT_Gemini
   # - ADT_kilo
+  - ADT_Fland
   - ADT_Marathon
   # - ADT_Pie
   - ADT_Saltern
+  - ADT_Packed
 
 # ADT Maps Выведенные на переработку
   # - ADT_Alley до ремонта
   # - ADT_Astra в комментерии до ремапа
   # - ADT_Core #В рамках уменьшения числа карт
-  # - ADT_Fland #В рамках уменьшения числа карт
   # - ADT_Meta
   # - ADT_Moose #В рамках уменьшения числа карт
   # - ADT_Oasis удалён чтоб жизнь малиной не казалась
