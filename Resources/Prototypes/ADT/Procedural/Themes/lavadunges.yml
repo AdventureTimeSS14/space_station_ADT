@@ -201,6 +201,8 @@
       tags:
       - LavaDungeon
 
+- type: entity
+  id: BloodMinerDungeMarker
   parent: BaseRoomMarker
   name: blood miner dunge spawer
   components:
