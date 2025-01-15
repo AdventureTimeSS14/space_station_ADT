@@ -1,0 +1,186 @@
+- type: dungeonRoom
+  id: LavaDungeon5x9a
+  size: 5,9
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 1,1
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonPet
+  size: 19, 19
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 7,-10
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonNoscope
+  size: 5, 6
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 1, 11
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonSyndiShuttle
+  size: 5, 8
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 1, 18
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonClockworkHouse
+  size: 19, 15
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 7, 11
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonRitual
+  size: 21, 15
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 28, 11
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonAshwalkersNest
+  size: 21, 20
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 28, -10
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonPizzaParty
+  size: 12, 9
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 21, -22
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonEnvy
+  size: 19, 9
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 36, -22
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonCarpcatCapsule
+  size: 8, 1
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 1, -39
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonArtifactCulte
+  size: 5, 1
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 10, -39
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonMothCulte
+  size: 3, 1
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 16, -39
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonTerrarium
+  size: 16, 15
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 21, -39
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonHermit
+  size: 17, 15
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 41, -39
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonLazy
+  size: 23, 22
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 60, -39
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonRomerol
+  size: 15, 13
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 84, -39
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonLibary
+  size: 7, 9
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 110, -38
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonRatvarSurgeon
+  size: 9, 7
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 110, -20
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonWeaponsShuttle
+  size: 17, 15
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 122, -22
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonSyndiLab
+  size: 15, 11
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 122, -5
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonLegionBarrack
+  size: 13, 13
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 84, -23
+  tags:
+  - LavaDungeon
+
+- type: dungeonRoom
+  id: LavaDungeonAbductor
+  size: 7, 6
+  atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
+  offset: 84, -7
+  tags:
+  - LavaDungeon
+
+- type: entity
+  id: LavaDungeonRoomMarker
+  parent: BaseRoomMarker
+  name: LavaDungeon interior marker
+  components:
+  - type: RoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - LavaDungeon

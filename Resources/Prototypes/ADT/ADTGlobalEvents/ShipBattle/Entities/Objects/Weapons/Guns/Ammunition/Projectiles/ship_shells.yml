@@ -1,0 +1,166 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: ADTShipBattleBullet30mm
+  name: bullet (30 mm AP)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 90 # ADT tweak
+        Structural: 30
+  - type: StaminaDamageOnCollide
+    damage: 75
+  - type: TimedDespawn
+    lifetime: 30
+
+#100 mm
+- type: entity
+  id: ADTShipBattleBullet100mmHE
+  name: 100 mm HE
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 400
+    intensitySlope: 2
+    maxIntensity: 20
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 200
+        Structural: 500
+  - type: TimedDespawn
+    lifetime: 30
+
+- type: entity
+  id: ADTShipBattleBullet100mmEMP
+  name: 100 mm EMP
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: EmpOnTrigger
+    range: 7
+    energyConsumption: 50000
+    disableDuration: 5
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 5.5
+    color: blue
+    energy: 2.5
+  - type: TimedDespawn
+    lifetime: 30
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: ADTShipBattleBullet100mmAP
+  name: 100 mm AP
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 500 # ADT tweak
+        Structural: 2000
+  - type: StaminaDamageOnCollide
+    damage: 300
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: TimedDespawn
+    lifetime: 30
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 20 # a ~2 tile radius
+    intensitySlope: 10
+    maxIntensity: 3
+  # - type: IFF
+  #   flags: HideLabel
+  #   color: "#ff0000"
+
+#100 mm
+- type: entity
+  id: ADTShipBattleBullet155mmHE
+  name: 155 mm HE
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 800 # a ~2 tile radius
+    intensitySlope: 3
+    maxIntensity: 40
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 200
+        Structural: 500
+  - type: TimedDespawn
+    lifetime: 30
+
+- type: entity
+  id: ADTShipBattleBullet155mmEMP
+  name: 155 mm EMP
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: EmpOnTrigger
+    range: 10
+    energyConsumption: 50000
+    disableDuration: 10
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 8.0
+    color: blue
+    energy: 4.5
+  - type: TimedDespawn
+    lifetime: 30
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: ADTShipBattleBullet155mmAP
+  name: 155 mm AP
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 500 # ADT tweak
+        Structural: 5500
+  - type: StaminaDamageOnCollide
+    damage: 300
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: TimedDespawn
+    lifetime: 30
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50 # a ~2 tile radius
+    intensitySlope: 10
+    maxIntensity: 5
