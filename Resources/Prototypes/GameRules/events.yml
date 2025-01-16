@@ -37,8 +37,9 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     # - id: ZombieOutbreak # ADT tweak
-    - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
+    - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
+    - id: Pirates # ADT tweak pirates
 
 - type: entity
   id: BaseStationEvent
