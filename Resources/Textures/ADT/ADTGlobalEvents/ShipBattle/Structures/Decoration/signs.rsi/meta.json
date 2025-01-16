@@ -8,12 +8,10 @@
     },
     "states": [
         {
-            "name": "tsf",
-            "directions": 4
+            "name": "tsf"
         },
         {
-            "name": "kmt",
-            "directions": 4
+            "name": "kmt"
         }
     ]
 }

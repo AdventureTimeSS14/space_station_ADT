@@ -15,7 +15,7 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/signs.rsi
     state: tsf
-    snapCardinals: false
+    snapCardinals: true
 
 - type: entity
   id: ADTSignKMT
@@ -34,4 +34,4 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/signs.rsi
     state: kmt
-    snapCardinals: false
+    snapCardinals: true
