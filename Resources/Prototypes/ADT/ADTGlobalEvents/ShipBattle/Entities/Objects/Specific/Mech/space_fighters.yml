@@ -1,0 +1,105 @@
+- type: entity
+  id: ADTMechTSFSabreFighter
+  parent: ADTMechDurand
+  name: TSF Sabre
+  description: Space Fighter
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/sabre.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: sabre_tsf
+  - type: Mech
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.25
+        Heat: 0.15
+        Radiation: 0.0
+        Caustic: 0.2
+        Structural: 0.5
+    maxintegrity: 500
+    baseState: sabre_tsf
+    openState: sabre_tsf-open
+    brokenState: sabre_tsf-broken
+    mechToPilotDamageMultiplier: 0.0
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentShuttleGun
+    maxEquipmentAmount: 3
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    clickInsert: false
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.5
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: null
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHoverBorg
+      params:
+        volume: -6
+  - type: MovementIgnoreGravity
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 60 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 120
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.0
+    baseSprintSpeed: 21.0
+    acceleration: 3
+    friction: 1.5
+  - type: MechOverload
+    damage:
+      types:
+        Structural: 5
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: Input
+    context: "human"
