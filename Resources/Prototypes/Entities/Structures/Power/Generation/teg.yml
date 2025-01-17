@@ -149,10 +149,10 @@
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
         # ADT-Teg-Update-Start
-        enum.AnchoredVisuals.VisualState:
+        enum.AnchorVisuals.Anchored:
           enum.TegVisualLayers.CirculatorBase:
-            Free: { state: circ-unassembled-0 }
-            Anchored: { state: circ-0 }
+            False: { state: circ-unassembled-0 }
+            True: { state: circ-0 }
         # ADT-Teg-Update-End
 
     - type: Appearance
