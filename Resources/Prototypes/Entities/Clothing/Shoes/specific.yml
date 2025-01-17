@@ -131,20 +131,20 @@
   - type: Clothing
     sprite: Clothing/Shoes/Specific/spaceninja.rsi
   - type: NoSlip
-# ADT-Tweak-start    
+# ADT-Tweak-start
   - type: FootstepModifier # Corvax-Sounds
     footstepSoundCollection:
       collection: FootstepBoots
       params:
         volume: -10
-# ADT-Tweak-end  
+# ADT-Tweak-end
   - type: Magboots # always have gravity because le suction cups
   - type: ClothingSpeedModifier
     # ninja are masters of sneaking around relatively quickly, won't break cloak
     walkModifier: 1.1
     sprintModifier: 1.3
-  - type: FootstepModifier
-    footstepSoundCollection: null
+  # - type: FootstepModifier # ADT-Commented
+  #   footstepSoundCollection: null
 # Corvax-HiddenDesc-Start
   - type: HiddenDescription
     entries:

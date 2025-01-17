@@ -8,4 +8,4 @@ gas-protonitrate-abbreviation = PH
 gas-zauker-abbreviation = Za
 gas-halon-abbreviation = H₂Al
 gas-helium-abbreviation = HeH
-gas-antinoblium-abbreviation AN
+gas-antinoblium-abbreviation = AN

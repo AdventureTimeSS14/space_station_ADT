@@ -36,17 +36,6 @@ public sealed class TagCommand : ToolshedCommand
     }
 
     [CommandImplementation("add")]
-    public EntityUid Add(
-            [CommandInvocationContext] IInvocationContext ctx,
-            [PipedArgument] EntityUid input,
-            [CommandArgument] ValueRef<string, Prototype<TagPrototype>> @ref
-        )
-    {
-        _tag ??= GetSys<TagSystem>();
-        return entities.Where(e => _tag.HasTag(e, tag.Evaluate(ctx)!));
-    }
-
-    [CommandImplementation("add")]
     public EntityUid Add([PipedArgument] EntityUid input, ProtoId<TagPrototype> tag)
     {
         _tag ??= GetSys<TagSystem>();

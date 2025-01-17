@@ -65,7 +65,6 @@ public sealed class KillPersonConditionSystem : EntitySystem
         }
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
