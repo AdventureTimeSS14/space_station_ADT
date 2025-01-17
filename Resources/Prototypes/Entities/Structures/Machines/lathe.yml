@@ -328,7 +328,7 @@
       - VoiceTrigger
       - Igniter
       - HandHeldMassScanner
-      - PowerCellMicroreactor
+      # - PowerCellMicroreactor #ADT tweak
       - RCD #ADT Tweak
       - RCDAmmo #ADT Tweak
       - RPDAmmo #ADT Tweak
