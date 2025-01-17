@@ -1353,8 +1353,6 @@
         - Write
   - type: PdaBorderColor
     borderColor: "#1c8f4d"
-  - type: Icon
-    state: pda-cluwne
   - type: Unremoveable
 
 - type: entity
