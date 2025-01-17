@@ -45,10 +45,10 @@
             10: { visible: true, state: teg-op10 }
             11: { visible: true, state: teg-op11 }
         # ADT-Teg-Update-Start
-        enum.AnchoredVisuals.VisualState:
+        enum.AnchorVisuals.Anchored:
           center:
-            Free: { state: teg-unassembled }
-            Anchored: { state: teg }
+            False: { state: teg-unassembled }
+            True: { state: teg }
         # ADT-Teg-Update-End
 
     - type: Anchorable
