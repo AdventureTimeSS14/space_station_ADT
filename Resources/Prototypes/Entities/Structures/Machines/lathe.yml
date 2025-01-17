@@ -1427,7 +1427,7 @@
       staticRecipes:
         - SheetSteel
         - SheetGlass1
-        - SheetRGlassRaw
+        - SheetRGlass # ADT-Fix
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1461,7 +1461,7 @@
     staticRecipes:
       - SheetSteel
       - SheetGlass1
-      - SheetRGlassRaw
+      - SheetRGlass # ADT-Fix
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1

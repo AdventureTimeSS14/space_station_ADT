@@ -144,6 +144,7 @@
     sprite: ADT/Objects/Devices/pda.rsi
   - type: Pda
     id: ADTTraderIDCard
+  - type: Icon
     state: pda-tradertsf
 
 # КПК надзирателя
