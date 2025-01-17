@@ -1351,8 +1351,6 @@
       whitelist:
         tags:
         - Write
-  - type: PdaBorderColor
-    borderColor: "#1c8f4d"
   - type: Unremoveable
 
 - type: entity
