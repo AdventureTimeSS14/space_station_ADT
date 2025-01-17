@@ -59,7 +59,6 @@
   components:
   - type: Pda
     id: MagistratIDCard
-    state: pda-lawyer
   - type: Icon
     state: pda-lawyer
 
@@ -71,7 +70,6 @@
   components:
   - type: Pda
     id: ADTRoboticistIDCard
-    state: pda-roboticist
   - type: PdaBorderColor
     borderColor: "#171716"
     accentVColor: "#d90000"
@@ -86,7 +84,6 @@
   components:
   - type: Pda
     id: ADTPathologistIDCard
-    state: pda-pathologist
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#15616b"
@@ -101,7 +98,6 @@
   components:
     - type: Pda
       id: ADTBlueShieldOfficerIDCard
-      state: pda-blueshield
     - type: PdaBorderColor
       borderColor: "#424248"
       accentHColor: "#2851a4"
@@ -133,7 +129,6 @@
   components:
   - type: Pda
     id: DetectiveIDCard
-    state: pda-investigator
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
@@ -160,7 +155,6 @@
   components:
   - type: Pda
     id: ADTGuardOfficerIDCard
-    state: pda-guardofficer
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
