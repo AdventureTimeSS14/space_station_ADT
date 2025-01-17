@@ -337,7 +337,7 @@
     delay: 3
   - type: Speech
     speechSounds: Squeak
-  - type: SpeakOnUse
+  - type: SpeakOnTrigger
     pack: ADTFigurinesPlushieJungar
   - type: Vocal
     sounds:
@@ -1289,7 +1289,7 @@
   components:
   - type: Sprite
     state: LirBattlstorm
-  - type: SpeakOnUse
+  - type: SpeakOnTrigger
     pack: FigurinesLirBattlstorm
 
 
@@ -1302,7 +1302,7 @@
   components:
   - type: Sprite
     state: ApatiaVeystu
-  - type: SpeakOnUse
+  - type: SpeakOnTrigger
     pack: FigurinesApatia
 
 #Plush Samoobladania, coldangel figurine
@@ -1314,7 +1314,7 @@
   components:
   - type: Sprite
     state: PlushCamoobladania
-  - type: SpeakOnUse
+  - type: SpeakOnTrigger
     pack: FigurinesBush
 
 #Uker Nighthauzer, 04karik figurine
@@ -1326,7 +1326,7 @@
   components:
   - type: Sprite
     state: YukerNighhauser
-  - type: SpeakOnUse
+  - type: SpeakOnTrigger
     pack: FigurinesUker
 
 # Figurine box trash
