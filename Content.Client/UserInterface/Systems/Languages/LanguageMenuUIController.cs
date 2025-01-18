@@ -55,13 +55,14 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
 
         if (_menu == null)
         {
-            if (!_entMan.System<LanguageSystem>().GetLanguages(player, out var understood, out _, out var translatorUnderstood, out _, out var current))
+            var lang = _entMan.System<LanguageSystem>();
+            if (!lang.GetLanguages(player, out _, out var translator, out var current) || !lang.GetLanguagesKnowledged(player, LanguageKnowledge.Understand, out var langs, out _))
                 return;
 
             // setup window
             _menu = UIManager.CreateWindow<LanguageMenuWindow>();
             _menu.Owner = player.Value;
-            _menu.UpdateState(current, understood.ToList(), translatorUnderstood.ToList());
+            _menu.UpdateState(current, langs, translator);
             _menu.OnClose += OnWindowClosed;
             _menu.OnOpen += OnWindowOpen;
             _menu.OnLanguageSelected += OnLanguageSelected;
@@ -69,14 +70,13 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
             if (LanguagesButton != null)
                 LanguagesButton.SetClickPressed(true);
 
-
             _menu.OpenCentered();
         }
         else
         {
             _menu.OnClose -= OnWindowClosed;
             _menu.OnOpen -= OnWindowOpen;
-            //_menu.OnPlayEmote -= OnPlayEmote;
+            _menu.OnLanguageSelected -= OnLanguageSelected;
 
             if (LanguagesButton != null)
                 LanguagesButton.SetClickPressed(false);

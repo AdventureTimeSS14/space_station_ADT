@@ -14,17 +14,13 @@ public sealed partial class LanguageSpeakerComponent : Component
     [AutoNetworkedField]
     public string? CurrentLanguage = default!;
 
+    /// <summary>
+    /// Список языков, которые знает сущность. Писать в компонентах как:
+    /// Прототип: Understand/BadSpeak/Speak
+    /// </summary>
     [DataField("languages"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public Dictionary<string, LanguageKnowledge> Languages = new();
-
-    [DataField("speaks"), ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
-    public List<string> SpokenLanguages = new();
-
-    [DataField("understands"), ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
-    public List<string> UnderstoodLanguages = new();
 }
 
 [Serializable, NetSerializable]

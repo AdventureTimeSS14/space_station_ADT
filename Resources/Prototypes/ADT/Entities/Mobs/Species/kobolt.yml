@@ -91,15 +91,11 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 4.5
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - Draconic
-    - CintaTaj
-    understands:
-    - GalacticCommon
-    - Draconic
-    - CintaTaj
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Draconic: Speak
+      CintaTaj: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 0.9

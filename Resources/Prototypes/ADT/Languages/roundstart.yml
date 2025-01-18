@@ -44,7 +44,7 @@
 
 # Spoken by moths.
 - type: language
-  id: Moffic
+  id: Arachnid
   obfuscateSyllables: true
   color: "#b34444"
   whisperColor: "#8a4343"
@@ -427,24 +427,6 @@
   - зсе
   - фжж
   - зсжу
-  roundstart: true
-
-# Spoken by the Novakid race.
-- type: language
-  id: Fire
-  obfuscateSyllables: true
-  color: "#ff6a00"
-  whisperColor: "#e0894a"
-  replacement:
-  - шш
-  - вшш
-  - шжшш
-  - сшшшс
-  - шсжсс
-  - ссш
-  - сс
-  - жжс
-  - жшж
   roundstart: true
 
 # The common language of the Sol system.

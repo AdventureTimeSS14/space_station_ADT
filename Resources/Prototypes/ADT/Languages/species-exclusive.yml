@@ -1,0 +1,42 @@
+  # Spoken by dionas.
+- type: language
+  id: RootSpeak
+  obfuscateSyllables: true
+  color: "#76ff61"
+  whisperColor: "#7fc474"
+  replacement:
+  - хс
+  - зт
+  - кр
+  - ст
+  - ш
+  - шш
+
+# Spoken by the Novakid race.
+- type: language
+  id: Fire
+  obfuscateSyllables: true
+  color: "#ff6a00"
+  whisperColor: "#e0894a"
+  replacement:
+  - шш
+  - вшш
+  - шжшш
+  - сшшшс
+  - шсжсс
+  - ссш
+  - сс
+  - жжс
+  - жшж
+
+# Second shadekin language, why not
+- type: language
+  id: Mar
+  obfuscateSyllables: true
+  color: "#ff6a00"
+  whisperColor: "#e0894a"
+  replacement:
+  - mar
+  - maar
+  - mara
+  - marr

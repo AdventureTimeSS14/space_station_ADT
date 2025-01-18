@@ -29,7 +29,6 @@
   - IPCTranslator
   - DwarfTranslator
 
-# Frontier - languages mechanic
 - type: technology
   id: AdvancedTranslation
   name: research-technology-advanced-translation

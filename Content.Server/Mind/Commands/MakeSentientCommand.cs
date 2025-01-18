@@ -59,14 +59,10 @@ namespace Content.Server.Mind.Commands
 
                 // Lang start
                 var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
-                if (!lang.SpokenLanguages.Contains("GalacticCommon"))
-                {
-                    lang.SpokenLanguages.Add("GalacticCommon");
-                }
-                if (!lang.UnderstoodLanguages.Contains("GalacticCommon"))
-                {
-                    lang.UnderstoodLanguages.Add("GalacticCommon");
-                }
+                if (!lang.Languages.ContainsKey("GalacticCommon"))
+                    lang.Languages.Add("GalacticCommon", LanguageKnowledge.Speak);
+                else
+                    lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
                 // Lang end
             }
 

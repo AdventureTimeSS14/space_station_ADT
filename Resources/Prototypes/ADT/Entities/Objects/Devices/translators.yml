@@ -74,19 +74,19 @@
 - type: entity
   id: MofficTranslator
   parent: [ Translator ]
-  name: Moffic translator
+  name: Arachnid translator
   description: "Translates speech."
   components:
   - type: HandheldTranslator
     toSpeak:
     - GalacticCommon
-    - Moffic
+    - Arachnid
     toUnderstand:
     - GalacticCommon
-    - Moffic
+    - Arachnid
     required:
     - GalacticCommon
-    - Moffic
+    - Arachnid
   - type: StaticPrice
     price: 1500
 
@@ -251,13 +251,13 @@
 #   - type: HandheldTranslator
 #     toSpeak:
 #     - GalacticCommon
-#     - Moffic
+#     - Arachnid
 #     toUnderstand:
 #     - GalacticCommon
-#     - Moffic
+#     - Arachnid
 #     required:
 #     - GalacticCommon
-#     - Moffic
+#     - Arachnid
 #   - type: StaticPrice
 #     price: 1500
 

@@ -2,23 +2,8 @@
 # Do not use otherwise. Try to use the respective component instead of this language.
 - type: language
   id: Universal
-  obfuscateSyllables: false
   replacement:
   - "*incomprehensible*"
-
-  # Spoken by dionas.
-- type: language
-  id: RootSpeak
-  obfuscateSyllables: true
-  color: "#76ff61"
-  whisperColor: "#7fc474"
-  replacement:
-  - хс
-  - зт
-  - кр
-  - ст
-  - ш
-  - шш
 
 # Syndicate operatives can use a series of codewords to convey complex information.
 - type: language
@@ -99,7 +84,6 @@
 
 - type: language
   id: Mothroach
-  obfuscateSyllables: false
   replacement:
   - Бзз
   - Чрик
@@ -128,7 +112,6 @@
 
 - type: language
   id: Bee
-  obfuscateSyllables: false
   replacement:
   - Бз
   - Бзз
@@ -138,7 +121,6 @@
 
 - type: language
   id: Mouse
-  obfuscateSyllables: false
   replacement:
   - Скуик
   - Пип
@@ -148,7 +130,6 @@
 
 - type: language
   id: Chicken
-  obfuscateSyllables: false
   replacement:
   - Coo
   - Coot
@@ -156,20 +137,17 @@
 
 - type: language
   id: Duck
-  obfuscateSyllables: false
   replacement:
   - Quack
 
 - type: language
   id: Cow
-  obfuscateSyllables: false
   replacement:
   - Moo
   - Mooo
 
 - type: language
   id: Sheep
-  obfuscateSyllables: false
   replacement:
   - Ba
   - Baa
@@ -177,14 +155,12 @@
 
 - type: language
   id: Kangaroo
-  obfuscateSyllables: false
   replacement:
   - Shreak
   - Chuu
 
 - type: language
   id: Pig
-  obfuscateSyllables: false
   replacement:
   - Oink
 

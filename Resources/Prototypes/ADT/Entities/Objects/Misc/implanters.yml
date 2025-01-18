@@ -17,7 +17,7 @@
 
 - type: entity
   id: MofficTranslatorImplanter
-  name: Moffic Translator implanter
+  name: Arachnid Translator implanter
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter

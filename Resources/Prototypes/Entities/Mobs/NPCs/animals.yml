@@ -67,12 +67,10 @@
     tags:
     - VimPilot
 # ADT-Tweak-start
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Mouse
-    understands:
-    - GalacticCommon
-    - Mouse
+  - type: LanguageSpeaker
+    languages:
+      Mouse: Speak
+      GalacticCommon: Understand
 # ADT-Tweak-end
 
 - type: entity
@@ -1775,12 +1773,10 @@
       Burger: RatBurger
       Skewer: RatSkewer
 # ADT-Tweak-start
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Mouse
-    understands:
-    - GalacticCommon
-    - Mouse
+  - type: LanguageSpeaker
+    languages:
+      Mouse: Speak
+      GalacticCommon: Understand
 # ADT-Tweak-end
 
 - type: entity
@@ -2758,8 +2754,9 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: ReplacementAccent
-    accent: dog
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: dog
   - type: InteractionPopup
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-generic
@@ -2776,6 +2773,11 @@
   - type: Tag
     tags:
     - VimPilot
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+  # ADT tweak end
 
 - type: entity
   name: corrupted corgi
@@ -2907,8 +2909,9 @@
     spawned:
     - id: FoodMeat
       amount: 3
-  - type: ReplacementAccent
-    accent: cat
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: cat
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cat
@@ -2933,6 +2936,9 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageSpeaker
+    languages:
+      Cat: Speak
 
 - type: entity
   name: calico cat
@@ -3300,12 +3306,10 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Mouse
-    understands:
-    - GalacticCommon
-    - Mouse
+  - type: LanguageSpeaker
+    languages:
+      Mouse: Speak
+      GalacticCommon: Understand
 # ADT-Tweak-end
   - type: Tag
     tags:
@@ -3508,6 +3512,9 @@
     size: Normal
     sprite: Mobs/Animals/nymph.rsi
     heldPrefix: nimf
+  - type: LanguageSpeaker
+    languages:
+      RootSpeak: Speak
   # ADT End Tweak Nimf
 
 - type: entity
@@ -3515,5 +3522,9 @@
   id: MobDionaNymphAccent # No talky. For non-brain & wild nymphs
   suffix: Accent
   components:
-  - type: ReplacementAccent
-    accent: nymph
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: nymph
+  - type: LanguageSpeaker
+    languages:
+      RootSpeak: Speak

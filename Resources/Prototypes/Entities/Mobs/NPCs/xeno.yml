@@ -119,17 +119,15 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Xeno
-    understands:
-    - Xeno
-  # ADT-CollectiveMind-Tweak-Start
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Xeno: Speak
   - type: CollectiveMind
     channel: XenoCollectiveMind
     showRank: true
     rankName: collective-mind-burrower-rank
-  # ADT-CollectiveMind-Tweak-End
+  # ADT tweak end
 
 - type: entity
   name: praetorian
@@ -156,7 +154,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 8    
+        Brute: 8
   # ADT End
   - type: Fixtures
     fixtures:
@@ -322,7 +320,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-    # ADT Start: Xeno buff    
+    # ADT Start: Xeno buff
   - type: MobThresholds
     thresholds:
       0: Alive

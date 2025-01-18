@@ -96,7 +96,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         {
             var ch = char.ToLower(message[i]);
             // A word ends when one of the following is found: a space, a sentence end, or EOM
-            if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ',') || i == message.Length - 1)
+            if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ','))
             {
                 var wordLength = i + 1 - wordBeginIndex;
                 if (wordLength > 0)
@@ -129,7 +129,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         for (var i = 0; i < message.Length; i++)
         {
             var ch = char.ToLower(message[i]);
-            if ((ch is '.' or '!' or '?' or '~' or '-' or ',') || i == message.Length - 1)
+            if ((ch is '.' or '!' or '?' or '~' or '-' or ','))
             {
                 var length = i + 1 - sentenceBeginIndex;
                 if (length > 0)
@@ -223,7 +223,9 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         Dirty(uid, comp);
 
-        if (!GetLanguages(uid, out var langs, out var translator, out var current))
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.Understand, out var langs, out _))
+            return;
+        if (!GetLanguages(uid, out _, out var translator, out var current))
             return;
 
         var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, langs, translator);

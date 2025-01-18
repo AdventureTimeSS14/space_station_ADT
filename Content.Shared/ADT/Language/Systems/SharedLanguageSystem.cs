@@ -59,6 +59,9 @@ public abstract class SharedLanguageSystem : EntitySystem
         if (HasComp<GhostComponent>(uid))
             return false;
 
+        if (HasComp<UniversalLanguageSpeakerComponent>(uid))
+            return true;
+
         if (proto.ID == Universal)
             return true;
 
@@ -77,6 +80,9 @@ public abstract class SharedLanguageSystem : EntitySystem
             return false;
 
         if (HasComp<GhostComponent>(uid))
+            return true;
+
+        if (HasComp<UniversalLanguageSpeakerComponent>(uid))
             return true;
 
         if (proto.ID == Universal)

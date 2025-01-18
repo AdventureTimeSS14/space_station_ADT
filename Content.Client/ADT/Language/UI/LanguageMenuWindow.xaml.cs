@@ -4,6 +4,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Client.ADT.Language.UI;
@@ -56,6 +57,7 @@ namespace Content.Client.ADT.Language.UI;
 public sealed partial class LanguageMenuWindow : DefaultWindow
 {
     private readonly SharedLanguageSystem _language;
+    private readonly IPrototypeManager _proto;
 
     private readonly Dictionary<string, LanguageEntry> _entries = new();
     public EntityUid Owner = EntityUid.Invalid;
@@ -67,23 +69,22 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _language = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>();
+        _proto = IoCManager.Resolve<IPrototypeManager>();
 
         Title = Loc.GetString("language-menu-window-title");
     }
 
-    public void UpdateState(string current, List<string> options, List<string> translator)
+    public void UpdateState(string current, Dictionary<string, LanguageKnowledge> options, Dictionary<string, LanguageKnowledge> translator)
     {
         CurrentLanguageLabel.Text = Loc.GetString("language-menu-current-language", ("language", _language.GetLanguage(current).LocalizedName));
 
         List<LanguageEntry> entries = _entries.Values.ToList();
+        _language.GetLanguagesKnowledged(Owner, LanguageKnowledge.Understand, out var langsDict, out _);
+        List<string> langs = langsDict.Keys.ToList();
 
-        foreach (var lng in options)
-        {
-            translator.Remove(lng);
-        }
         foreach (var entry in entries)
         {
-            if (options.Contains(entry.Language) || translator.Contains(entry.Language))
+            if (langs.Contains(entry.Language))
                 continue;
 
             OptionsList.RemoveChild(entry);
@@ -92,16 +93,14 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
 
         if (options.Count > 0)
         {
+            var list = options.ToList();
+            list.Sort((x, y) => _proto.Index<LanguagePrototype>(x.Key).LocalizedName[0].CompareTo(_proto.Index<LanguagePrototype>(y.Key).LocalizedName[0]));
+            list.Sort((x, y) => _proto.Index<LanguagePrototype>(y.Key).Priority.CompareTo(_proto.Index<LanguagePrototype>(x.Key).Priority));
+            list.Sort((x, y) => _language.CanSpeak(Owner, y.Key).CompareTo(_language.CanSpeak(Owner, x.Key)));
+
             foreach (var language in options)
             {
-                AddLanguageEntry(language);
-            }
-        }
-        if (translator.Count > 0)
-        {
-            foreach (var language in translator)
-            {
-                AddLanguageEntry(language, true);
+                AddLanguageEntry(language.Key, translator.ContainsKey(language.Key));
             }
         }
 

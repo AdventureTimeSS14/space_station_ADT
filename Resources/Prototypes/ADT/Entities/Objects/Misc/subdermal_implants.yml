@@ -135,9 +135,9 @@
 #   components:
 #   - type: TranslatorImplant
 #     toSpeak:
-#     - Moffic
+#     - Arachnid
 #     toUnderstand:
-#     - Moffic
+#     - Arachnid
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -260,7 +260,7 @@
     - Fire
     - Nian
     - SikTaj
-    - Moffic
+    - Arachnid
     - RootSpeak
     - SolCommon
     - Canilunzt
