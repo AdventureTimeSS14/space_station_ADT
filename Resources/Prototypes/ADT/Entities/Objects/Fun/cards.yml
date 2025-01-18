@@ -39,7 +39,7 @@
       damage:
         types:
         Slash: 5
-    - type: DamageOtherOnHit
+    - type: DamageOtherOnHit 
       damage:
       types:
         Slash: 10
@@ -810,7 +810,7 @@
           Off: { state: back-off }
 
 
-- type: entity #игральные карты антага
+- type: entity #игральные карты антага - то, что я дописал
   name: chemistry bag
   id: ADTFunAgentCardsBoxFull54
   parent: ADTFunCardsBox
@@ -880,7 +880,7 @@
 
 #пики
 - type: entity
-  name: playing card
+  name: playing card  
   parent: [ADTFunCardBase, ADTBaseAgentFunCard]
   id: ADTFunCardClubs2S
   suffix: Cards

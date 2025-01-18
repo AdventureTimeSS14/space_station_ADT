@@ -127,16 +127,3 @@
   icon:
     sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
     state: icon
-
-- type: construction
-  name: crowbar
-  id: Crowbar
-  graph: CrowbarGraph
-  startNode: start
-  targetNode: Crowbar
-  category: construction-category-weapons
-  objectType: Item
-  description: handmade.
-  icon:
-    sprite: Objects/Tools/crowbar.rsi
-    state: icon
