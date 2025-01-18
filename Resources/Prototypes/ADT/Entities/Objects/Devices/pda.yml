@@ -169,8 +169,6 @@
   name: trader PDA
   description: trader PDA
   components:
-  - type: Sprite
-    sprite: ADT/Objects/Devices/pda.rsi
   - type: Pda
     id: ADTTraderIDCard
   - type: Appearance
