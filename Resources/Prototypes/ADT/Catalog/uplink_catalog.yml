@@ -433,7 +433,7 @@
   icon: { sprite:ADT/Objects/Specific/Service/Game_Agent_Card.rsi, state: icon}
   productEntity: ADTGameAntagCard
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkPointless
 
