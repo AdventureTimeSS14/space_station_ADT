@@ -33,6 +33,7 @@
 
 - type: entity
   id: ADTBaseAgentFunCard
+  parent: ADTFunCardBase
   abstract: true
   components:
     - type: MeleeWeapon
@@ -881,7 +882,7 @@
 #пики
 - type: entity
   name: playing card  
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs2S
   suffix: Cards
   description: A high-tech scanning device that uses Terahertz Radiation to detect subfloor infrastructure.
@@ -894,7 +895,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs3S
   components:
   - type: GenericVisualizer
@@ -905,7 +906,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs4S
   components:
   - type: GenericVisualizer
@@ -916,7 +917,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs5S
   components:
   - type: GenericVisualizer
@@ -927,7 +928,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs6S
   components:
   - type: GenericVisualizer
@@ -938,7 +939,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs7S
   components:
   - type: GenericVisualizer
@@ -949,7 +950,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs8S
   components:
   - type: GenericVisualizer
@@ -960,7 +961,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs9S
   components:
   - type: GenericVisualizer
@@ -971,7 +972,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardClubs10S
   components:
   - type: GenericVisualizer
@@ -982,7 +983,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardAceOfClubsS
   components:
   - type: GenericVisualizer
@@ -993,7 +994,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardJackOfClubsS
   components:
   - type: GenericVisualizer
@@ -1004,7 +1005,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardQueenOfClubsS
   components:
   - type: GenericVisualizer
@@ -1015,7 +1016,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardKingOfClubsS
   components:
   - type: GenericVisualizer
@@ -1027,7 +1028,7 @@
 
 #бубс
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds2S
   components:
   - type: GenericVisualizer
@@ -1038,7 +1039,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds3S
   components:
   - type: GenericVisualizer
@@ -1049,7 +1050,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds4S
   components:
   - type: GenericVisualizer
@@ -1060,7 +1061,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds5S
   components:
   - type: GenericVisualizer
@@ -1072,7 +1073,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds6S
   components:
   - type: GenericVisualizer
@@ -1083,7 +1084,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds7S
   components:
   - type: GenericVisualizer
@@ -1094,7 +1095,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds8S
   components:
   - type: GenericVisualizer
@@ -1105,7 +1106,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds9S
   components:
   - type: GenericVisualizer
@@ -1116,7 +1117,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardDimonds10S
   components:
   - type: GenericVisualizer
@@ -1128,7 +1129,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardAceOfDimondsS
   components:
   - type: GenericVisualizer
@@ -1139,7 +1140,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardJackOfDimondsS
   components:
   - type: GenericVisualizer
@@ -1150,7 +1151,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardKingOfDimondsS
   components:
   - type: GenericVisualizer
@@ -1162,7 +1163,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardQueenOfDimondsS
   components:
   - type: GenericVisualizer
@@ -1174,7 +1175,7 @@
 
 #черви
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts2S
   components:
   - type: GenericVisualizer
@@ -1185,7 +1186,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts3S
   components:
   - type: GenericVisualizer
@@ -1196,7 +1197,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts4S
   components:
   - type: GenericVisualizer
@@ -1207,7 +1208,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts5S
   components:
   - type: GenericVisualizer
@@ -1219,7 +1220,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts6S
   components:
   - type: GenericVisualizer
@@ -1230,7 +1231,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts7S
   components:
   - type: GenericVisualizer
@@ -1241,7 +1242,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts8S
   components:
   - type: GenericVisualizer
@@ -1252,7 +1253,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts9S
   components:
   - type: GenericVisualizer
@@ -1263,7 +1264,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardHearts10S
   components:
   - type: GenericVisualizer
@@ -1275,7 +1276,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardAceOfHeartsS
   components:
   - type: GenericVisualizer
@@ -1286,7 +1287,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardJackOfHeartsS
   components:
   - type: GenericVisualizer
@@ -1297,7 +1298,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardKingOfHeartsS
   components:
   - type: GenericVisualizer
@@ -1309,7 +1310,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardQueenOfHeartsS
   components:
   - type: GenericVisualizer
@@ -1321,7 +1322,7 @@
 
 #крести
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades2S
   components:
   - type: GenericVisualizer
@@ -1332,7 +1333,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades3S
   components:
   - type: GenericVisualizer
@@ -1343,7 +1344,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades4S
   components:
   - type: GenericVisualizer
@@ -1354,7 +1355,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades5S
   components:
   - type: GenericVisualizer
@@ -1366,7 +1367,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades6S
   components:
   - type: GenericVisualizer
@@ -1377,7 +1378,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades7S
   components:
   - type: GenericVisualizer
@@ -1388,7 +1389,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades8S
   components:
   - type: GenericVisualizer
@@ -1399,7 +1400,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades9S
   components:
   - type: GenericVisualizer
@@ -1410,7 +1411,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardSpades10S
   components:
   - type: GenericVisualizer
@@ -1422,7 +1423,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardAceOfSpadesS
   components:
   - type: GenericVisualizer
@@ -1433,7 +1434,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardJackOfSpadesS
   components:
   - type: GenericVisualizer
@@ -1444,7 +1445,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardKingOfSpadesS
   components:
   - type: GenericVisualizer
@@ -1456,7 +1457,7 @@
 
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardQueenOfSpadesS
   components:
   - type: GenericVisualizer
@@ -1468,7 +1469,7 @@
 
 #Джокеры
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardBlackJokerS
   components:
   - type: GenericVisualizer
@@ -1479,7 +1480,7 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  parent: ADTBaseAgentFunCard
   id: ADTFunCardRedJokerS
   components:
   - type: GenericVisualizer
