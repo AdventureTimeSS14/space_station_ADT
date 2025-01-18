@@ -441,6 +441,13 @@
       spawned:
         - id: MaterialBananium1
           amount: 1
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: clown-moving
+    noMovementLayers:
+      movement:
+        state: clown
     - type: DamageStateVisuals
       states:
         Alive:
