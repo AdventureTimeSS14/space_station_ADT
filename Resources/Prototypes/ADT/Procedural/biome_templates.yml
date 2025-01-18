@@ -41,9 +41,9 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - FloraRockSolid01
-        - FloraRockSolid02
-        - FloraRockSolid03
+        - FloraRockSolid
+        - FloraRockSolid
+        - FloraRockSolid
     - !type:BiomeEntityLayer
       threshold: 0.97
       noise:
@@ -124,12 +124,12 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - FloraTreeSnow01
-        - FloraTreeSnow02
-        - FloraTreeSnow03
-        - FloraTreeSnow04
-        - FloraTreeSnow05
-        - FloraTreeSnow06
+        - FloraTreeSnow
+        - FloraTreeSnow
+        - FloraTreeSnow
+        - FloraTreeSnow
+        - FloraTreeSnow
+        - FloraTreeSnow
     # Fill basalt
     - !type:BiomeTileLayer
       threshold: -1

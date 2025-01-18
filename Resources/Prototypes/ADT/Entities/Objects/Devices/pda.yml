@@ -59,9 +59,13 @@
   components:
   - type: Pda
     id: MagistratIDCard
-    state: pda-lawyer
   - type: Icon
     state: pda-lawyer
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-lawyer
 
 - type: entity
   parent: ADTBasePDA
@@ -71,12 +75,16 @@
   components:
   - type: Pda
     id: ADTRoboticistIDCard
-    state: pda-roboticist
   - type: PdaBorderColor
     borderColor: "#171716"
     accentVColor: "#d90000"
   - type: Icon
     state: pda-roboticist
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-roboticist
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -86,12 +94,16 @@
   components:
   - type: Pda
     id: ADTPathologistIDCard
-    state: pda-pathologist
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#15616b"
   - type: Icon
     state: pda-pathologist
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-pathologist
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -101,13 +113,17 @@
   components:
     - type: Pda
       id: ADTBlueShieldOfficerIDCard
-      state: pda-blueshield
     - type: PdaBorderColor
       borderColor: "#424248"
       accentHColor: "#2851a4"
       accentVColor: "#e1e1e1"
     - type: Icon
       state: pda-blueshield
+    - type: Appearance
+      appearanceDataInit:
+       enum.PdaVisuals.PdaType:
+        !type:String
+        pda-blueshield
 
 - type: entity
   parent: ADTBasePDA
@@ -116,13 +132,17 @@
   description: Boo!
   components:
   - type: Pda
-    state: pda-ghost
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#333333"
   - type: Icon
     state: pda-ghost
   - type: Unremoveable
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-ghost
 
 # КПК Следователя
 - type: entity
@@ -133,11 +153,15 @@
   components:
   - type: Pda
     id: DetectiveIDCard
-    state: pda-investigator
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
     state: pda-investigator
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-investigator
 
 - type: entity
   parent: BasePDA
@@ -149,6 +173,12 @@
     sprite: ADT/Objects/Devices/pda.rsi
   - type: Pda
     id: ADTTraderIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-tradertsf
+  - type: Icon
     state: pda-tradertsf
 
 # КПК надзирателя
@@ -160,8 +190,12 @@
   components:
   - type: Pda
     id: ADTGuardOfficerIDCard
-    state: pda-guardofficer
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
     state: pda-guardofficer
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-guardofficer
