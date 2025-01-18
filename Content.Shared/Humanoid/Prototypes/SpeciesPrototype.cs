@@ -1,6 +1,7 @@
 using Content.Shared.ADT.Language;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Prototypes;
 
@@ -135,6 +136,22 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField]
     public int MaxAge = 120;
 
+    // ADT start
+    [DataField]
+    public SpeciesCategory Category = SpeciesCategory.Classic;
+
+    [DataField]
+    public ResPath? Description;
+
+    [DataField]
+    public List<string> Pros = new();
+
+    [DataField]
+    public List<string> Cons = new();
+
+    [DataField]
+    public List<string> Special = new();
+    
     /// <summary>
     /// Особые языки, которые не могут выбрать представители других рас.
     /// Уникальные языки не должны быть раундстартовыми.
@@ -147,6 +164,7 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public int MaxLanguages = 3;
+    // ADT end
 }
 
 public enum SpeciesNaming : byte
@@ -160,3 +178,12 @@ public enum SpeciesNaming : byte
     TheFirstofLast,
     FirstDashLast, // Parkstation-IPC
 }
+
+// ADT start
+public enum SpeciesCategory : byte
+{
+    Classic,
+    Unusual,
+    Special
+}
+// ADT end
