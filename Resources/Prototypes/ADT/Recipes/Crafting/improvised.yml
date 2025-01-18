@@ -126,4 +126,4 @@
   description: Big and modifyable.
   icon:
     sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
-    state: icon
+    state: icon 
