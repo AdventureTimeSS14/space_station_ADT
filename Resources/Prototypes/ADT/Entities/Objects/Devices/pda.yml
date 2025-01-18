@@ -164,7 +164,7 @@
       pda-investigator
 
 - type: entity
-  parent: BasePDA
+  parent: ADTBasePDA
   id: ADTTraderPDA
   name: trader PDA
   description: trader PDA
