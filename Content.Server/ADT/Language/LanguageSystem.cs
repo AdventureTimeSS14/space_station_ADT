@@ -28,8 +28,8 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     private void OnMapInit(EntityUid uid, LanguageSpeakerComponent component, MapInitEvent args)
     {
         if (component.CurrentLanguage == null)
-            component.CurrentLanguage = component.SpokenLanguages.FirstOrDefault("Universal");
-        Dirty(uid, component);
+            component.CurrentLanguage = component.Languages.Keys.Where(x => (int)component.Languages[x] > 0).FirstOrDefault("Universal");
+        UpdateUi(uid);
     }
 
     private void OnRoundStart(RoundStartingEvent args)
@@ -40,11 +40,10 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     private void OnLanguageSwitch(LanguageChosenMessage args)
     {
         var uid = GetEntity(args.Uid);
-        if (!TryComp<LanguageSpeakerComponent>(uid, out var component) || component.CurrentLanguage == null)
+        if (!TryComp<LanguageSpeakerComponent>(uid, out var component))
             return;
-
-        //if (langs == null || component.CurrentLanguage == null)
-        //    return;
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out _) || !langs.ContainsKey(args.SelectedLanguage))
+            return;
 
         component.CurrentLanguage = args.SelectedLanguage;
 
@@ -160,6 +159,61 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         return random % (max - min) + min;
     }
 
+    public string AccentuateMessage(EntityUid uid, string lang, string message)
+    {
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out _))
+            return message;
+        if (!langs.ContainsKey(lang))
+            return message;
+        if ((int)langs[lang] > (int)LanguageKnowledge.BadSpeak)
+            return message;
+
+        var sb = new StringBuilder();
+
+        // This is pretty much ported from TG.
+        foreach (var character in message)
+        {
+            if (_random.Prob(0.5f / 3f))
+            {
+                var lower = char.ToLowerInvariant(character);
+                var newString = lower switch
+                {
+                    'o' => "u",
+                    's' => "ch",
+                    'a' => "ah",
+                    'u' => "oo",
+                    'c' => "k",
+                    // Corvax-Localization Start
+                    'о' => "а",
+                    'к' => "кх",
+                    'щ' => "шч",
+                    'ц' => "тс",
+                    // Corvax-Localization End
+                    _ => $"{character}",
+                };
+
+                sb.Append(newString);
+            }
+
+            if (!_random.Prob(0.5f * 3/20))
+            {
+                sb.Append(character);
+                continue;
+            }
+
+            var next = _random.Next(1, 3) switch
+            {
+                1 => "'",
+                2 => $"{character}{character}",
+                _ => $"{character}{character}{character}",
+            };
+
+            sb.Append(next);
+        }
+
+        return sb.ToString();
+    }
+
     public override void UpdateUi(EntityUid uid, LanguageSpeakerComponent? comp = null)
     {
         base.UpdateUi(uid, comp);
@@ -169,10 +223,10 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         Dirty(uid, comp);
 
-        if (!GetLanguages(uid, out var understood, out _, out var translatorUnderstood, out _, out var current))
+        if (!GetLanguages(uid, out var langs, out var translator, out var current))
             return;
 
-        var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, understood.ToList(), translatorUnderstood.ToList());
+        var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, langs, translator);
         RaiseNetworkEvent(state, uid);
     }
 }

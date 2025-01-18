@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Language;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -133,6 +134,19 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MaxAge = 120;
+
+    /// <summary>
+    /// Особые языки, которые не могут выбрать представители других рас.
+    /// Уникальные языки не должны быть раундстартовыми.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> UniqueLanguages = new();
+
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> DefaultLanguages = new() { "GalacticCommon" };
+
+    [DataField]
+    public int MaxLanguages = 3;
 }
 
 public enum SpeciesNaming : byte

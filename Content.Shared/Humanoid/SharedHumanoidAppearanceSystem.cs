@@ -19,6 +19,7 @@ using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared.ADT.SpeechBarks;
+using Content.Shared.ADT.Language;
 
 namespace Content.Shared.Humanoid;
 
@@ -391,6 +392,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
         SetBarkData(uid, profile.Bark, humanoid); // ADT Barks
+        SetLanguages(uid, profile.Languages.ToList());
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
@@ -484,7 +486,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     }
     // Corvax-TTS-End
 
-    // ADT Barks start
+    // ADT start
     public void SetBarkData(EntityUid uid, BarkData data, HumanoidAppearanceComponent humanoid)
     {
         if (!TryComp<SpeechBarksComponent>(uid, out var comp))
@@ -494,7 +496,17 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         comp.Data.Sound = _proto.Index(comp.Data.Proto).Sound;
         humanoid.Bark = data;
     }
-    // ADT Barks end
+
+    public void SetLanguages(EntityUid uid, List<ProtoId<LanguagePrototype>> languages)
+    {
+        var languageSpeaker = EnsureComp<LanguageSpeakerComponent>(uid);
+        languageSpeaker.Languages.Clear();
+
+        languages.ForEach(x => languageSpeaker.Languages.Add(x.ToString(), LanguageKnowledge.Speak));
+
+        Dirty(uid, languageSpeaker);
+    }
+    // ADT end
 
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.

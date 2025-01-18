@@ -14,7 +14,6 @@ public sealed partial class LanguageEntry : Control
     public LanguageEntry(LanguagePrototype proto, bool translator)
     {
         RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);
         Name.Text = proto.LocalizedName;
         if (proto.Color.HasValue)
             Name.FontColorOverride = proto.Color.Value;

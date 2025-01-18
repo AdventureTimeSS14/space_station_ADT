@@ -4,8 +4,6 @@ namespace Content.Shared.ADT.Language;
 public record struct GetLanguagesEvent(EntityUid Uid)
 {
     public string Current = "";
-    public List<string> Spoken = new();
-    public List<string> Understood = new();
-    public List<string> TranslatorSpoken = new();
-    public List<string> TranslatorUnderstood = new();
+    public Dictionary<string, LanguageKnowledge> Languages = new();
+    public Dictionary<string, LanguageKnowledge> Translator = new();
 }

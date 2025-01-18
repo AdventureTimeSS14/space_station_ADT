@@ -7,6 +7,7 @@ using Content.Shared.Ghost;
 using Robust.Shared.Network;
 using Content.Shared.Hands.EntitySystems;
 using System.Linq;
+using Content.Shared.Implants.Components;
 
 namespace Content.Shared.ADT.Language;
 
@@ -17,6 +18,7 @@ public abstract class SharedLanguageSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -28,8 +30,15 @@ public abstract class SharedLanguageSystem : EntitySystem
     private void OnGetLanguages(EntityUid uid, LanguageSpeakerComponent comp, ref GetLanguagesEvent args)
     {
         args.Current = comp.CurrentLanguage ?? Universal;
-        args.Spoken.AddRange(comp.SpokenLanguages);
-        args.Understood.AddRange(comp.UnderstoodLanguages);
+        args.Languages = comp.Languages;
+
+        if (_container.TryGetContainer(uid, ImplanterComponent.ImplantSlotId, out var implantContainer))
+        {
+            foreach (var item in implantContainer.ContainedEntities)
+            {
+                RaiseLocalEvent(item, ref args);
+            }
+        }
     }
 
     public bool CanSpeak(EntityUid uid, LanguagePrototype proto)
@@ -53,10 +62,10 @@ public abstract class SharedLanguageSystem : EntitySystem
         if (proto.ID == Universal)
             return true;
 
-        if (!GetLanguages(uid, out _, out var spoken, out _, out var translator, out _))
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out _))
             return false;
 
-        if (spoken.Contains(protoId) || translator.Contains(protoId))
+        if (langs.ContainsKey(protoId))
             return true;
 
         return false;
@@ -73,10 +82,10 @@ public abstract class SharedLanguageSystem : EntitySystem
         if (proto.ID == Universal)
             return true;
 
-        if (!GetLanguages(uid, out var understood, out _, out var translator, out _, out _))
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.Understand, out var langs, out _))
             return false;
 
-        if (understood.Contains(protoId) || translator.Contains(protoId))
+        if (langs.ContainsKey(protoId))
             return true;
 
         return false;
@@ -102,31 +111,25 @@ public abstract class SharedLanguageSystem : EntitySystem
         if (!_netMan.IsServer)
             return;
 
-        var language = component.SpokenLanguages.FirstOrDefault("Universal");
+        component.CurrentLanguage = component.Languages.Where(x => (int)x.Value >= 1).ToDictionary().Keys.FirstOrDefault("Universal");
 
-        GetLanguages(uid, out _, out _, out var translator, out _, out _);
-        component.CurrentLanguage = language;
+        GetLanguages(uid, out var langs, out var translator, out var current);
 
         Dirty(uid, component);
 
-        RaiseNetworkEvent(new LanguageMenuStateMessage(GetNetEntity(uid), language, component.UnderstoodLanguages, translator.ToList()));
-        RaiseNetworkEvent(new LanguageChosenMessage(GetNetEntity(uid), language));
+        RaiseNetworkEvent(new LanguageMenuStateMessage(GetNetEntity(uid), current, langs, translator));
+        RaiseNetworkEvent(new LanguageChosenMessage(GetNetEntity(uid), current));
     }
 
     public bool GetLanguages(
         EntityUid? player,
-        out IEnumerable<string> understood,
-        out IEnumerable<string> spoken,
-        out IEnumerable<string> translatorUnderstood,
-        out IEnumerable<string> translatorSpoken,
-        out string current,
-        LanguageSpeakerComponent? comp = null)
+        out Dictionary<string, LanguageKnowledge> langs,
+        out Dictionary<string, LanguageKnowledge> translator,
+        out string current)
     {
 
-        understood = new List<string>();
-        spoken = new List<string>();
-        translatorUnderstood = new List<string>();
-        translatorSpoken = new List<string>();
+        langs = new();
+        translator = new();
         current = String.Empty;
 
         if (player == null)
@@ -136,17 +139,48 @@ public abstract class SharedLanguageSystem : EntitySystem
         var ev = new GetLanguagesEvent(uid);
         RaiseLocalEvent(uid, ref ev);
 
-        understood = ev.Understood.Distinct();
-        spoken = ev.Spoken.Distinct();
-        translatorUnderstood = ev.TranslatorUnderstood.Distinct();
-        translatorSpoken = ev.TranslatorSpoken.Distinct();
+        langs = ev.Languages;
+        translator = ev.Translator;
         current = ev.Current;
 
-        if (understood.Count() <= 0 || spoken.Count() <= 0 || current == String.Empty)
+        if (translator.Count() <= 0 || langs.Count() <= 0 || current == String.Empty)
             return false;
 
         return true;
     }
+
+    public bool GetLanguagesKnowledged(
+        EntityUid? player,
+        LanguageKnowledge required,
+        out Dictionary<string, LanguageKnowledge> langs,
+        out string current)
+    {
+
+        langs = new();
+        current = String.Empty;
+
+        if (player == null)
+            return false;
+        var uid = player.Value;
+
+        var ev = new GetLanguagesEvent(uid);
+        RaiseLocalEvent(uid, ref ev);
+
+        langs = ev.Languages.Where(x => x.Value >= required).ToDictionary();
+        foreach (var item in ev.Languages)
+        {
+            if (ev.Translator.ContainsKey(item.Key) && ev.Translator[item.Key] > item.Value)
+                langs[item.Key] = ev.Translator[item.Key];
+        }
+
+        current = ev.Current;
+
+        if (langs.Count() <= 0 || current == String.Empty)
+            return false;
+
+        return true;
+    }
+
     public LanguagePrototype GetLanguage(string id)
     {
         if (!_proto.TryIndex<LanguagePrototype>(id, out var result))
@@ -155,16 +189,16 @@ public abstract class SharedLanguageSystem : EntitySystem
         return result;
     }
 
-    public void AddSpokenLanguage(EntityUid uid, string lang, LanguageSpeakerComponent? comp = null)
+    public void AddSpokenLanguage(EntityUid uid, string lang, LanguageKnowledge knowledge = LanguageKnowledge.Speak, LanguageSpeakerComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
         if (!_proto.TryIndex<LanguagePrototype>(lang, out var proto))
             return;
-        if (!CanSpeak(uid, lang))
-            comp.SpokenLanguages.Add(lang);
-        if (!CanUnderstand(uid, lang))
-            comp.UnderstoodLanguages.Add(lang);
+        if (comp.Languages.ContainsKey(lang))
+            comp.Languages[lang] = knowledge;
+        else
+            comp.Languages.Add(lang, knowledge);
 
         UpdateUi(uid, comp);
     }
@@ -202,10 +236,10 @@ public sealed class LanguageMenuStateMessage : EntityEventArgs
 {
     public NetEntity ComponentOwner;
     public string CurrentLanguage;
-    public List<string> Options;
-    public List<string> TranslatorOptions;
+    public Dictionary<string, LanguageKnowledge> Options;
+    public Dictionary<string, LanguageKnowledge> TranslatorOptions;
 
-    public LanguageMenuStateMessage(NetEntity componentOwner, string currentLanguage, List<string> options, List<string> translatorOptions)
+    public LanguageMenuStateMessage(NetEntity componentOwner, string currentLanguage, Dictionary<string, LanguageKnowledge> options, Dictionary<string, LanguageKnowledge> translatorOptions)
     {
         ComponentOwner = componentOwner;
         CurrentLanguage = currentLanguage;

@@ -139,6 +139,19 @@
                         </BoxContainer>
                     </ScrollContainer>
                 </BoxContainer>
+                <!-- ADT Languages Start -->
+                <BoxContainer Orientation="Vertical">
+                    <PanelContainer StyleClasses="BackgroundDark">
+                        <BoxContainer Name="LangsInfoContainer" Orientation="Vertical">
+                            <Button Name="SetDefaultLanguagesButton" Text="{Loc 'humanoid-profile-editor-default-langs'}" Margin="5"/>
+                            <Label Name="LanguagesCountLabel" Text="Lelelelele" Margin="5" HorizontalAlignment="Center"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                    <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                        <BoxContainer Name="LanguagesList" Orientation="Vertical" />
+                    </ScrollContainer>
+                </BoxContainer>
+                <!-- ADT Languages End -->
                 <BoxContainer Orientation="Vertical">
                     <!-- Jobs -->
                     <OptionButton Name="PreferenceUnavailableButton" />

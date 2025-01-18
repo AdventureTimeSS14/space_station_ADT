@@ -7,6 +7,9 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  defaultLanguages:
+  - GalacticCommon
+  - SolCommon
 
 # The lack of a layer means that
 # this person cannot have round-start anything
