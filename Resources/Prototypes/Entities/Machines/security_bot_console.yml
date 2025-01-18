@@ -1,0 +1,9 @@
+- type: entity
+  id: sbconsole
+  name: "Консоль управления роботом СБ"
+  description: "Позволяет удаленное управлять иновационной разработкой НТ в виде робота Службы Безопасности"
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/security_bot_console.rsi
+    - type: Item
+    - type: BotControlConsole

@@ -32,6 +32,21 @@
     price: 1
 
 - type: entity
+  id: ADTBaseAgentFunCard
+  abstract: true
+  components:
+    - type: MeleeWeapon
+      damage:
+        types:
+        Slash: 5
+    - type: DamageOtherOnHit
+      damage:
+      types:
+        Slash: 10
+      soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+
+- type: entity
   name: chemistry bag
   id: ADTFunCardsBox
   parent: BaseStorageItem
@@ -786,6 +801,686 @@
 - type: entity
   parent: ADTFunCardBase
   id: ADTFunCardRedJoker
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: redjoker-on }
+          Off: { state: back-off }
+
+
+- type: entity #игральные карты антага
+  name: chemistry bag
+  id: ADTFunAgentCardsBoxFull54
+  parent: ADTFunCardsBox
+  description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
+  suffix: Антаг
+  components:
+  - type: Item
+    size: Small
+  - type: StorageFill
+    contents:
+      - id: ADTFunCardClubs2S
+      - id: ADTFunCardClubs3S
+      - id: ADTFunCardClubs4S
+      - id: ADTFunCardClubs5S
+      - id: ADTFunCardClubs6S
+      - id: ADTFunCardClubs7S
+      - id: ADTFunCardClubs8S
+      - id: ADTFunCardClubs9S
+      - id: ADTFunCardClubs10S
+      - id: ADTFunCardAceOfClubsS
+      - id: ADTFunCardJackOfClubsS
+      - id: ADTFunCardQueenOfClubsS
+      - id: ADTFunCardKingOfClubsS
+      - id: ADTFunCardDimonds2S
+      - id: ADTFunCardDimonds3S
+      - id: ADTFunCardDimonds4S
+      - id: ADTFunCardDimonds5S
+      - id: ADTFunCardDimonds6S
+      - id: ADTFunCardDimonds7S
+      - id: ADTFunCardDimonds8S
+      - id: ADTFunCardDimonds9S
+      - id: ADTFunCardDimonds10S
+      - id: ADTFunCardAceOfDimondsS
+      - id: ADTFunCardJackOfDimondsS
+      - id: ADTFunCardKingOfDimondsS
+      - id: ADTFunCardQueenOfDimondsS
+      - id: ADTFunCardHearts2S
+      - id: ADTFunCardHearts3S
+      - id: ADTFunCardHearts4S
+      - id: ADTFunCardHearts5S
+      - id: ADTFunCardHearts6S
+      - id: ADTFunCardHearts7S
+      - id: ADTFunCardHearts8S
+      - id: ADTFunCardHearts9S
+      - id: ADTFunCardHearts10S
+      - id: ADTFunCardAceOfHeartsS
+      - id: ADTFunCardJackOfHeartsS
+      - id: ADTFunCardKingOfHeartsS
+      - id: ADTFunCardQueenOfHeartsS
+      - id: ADTFunCardSpades2S
+      - id: ADTFunCardSpades3S
+      - id: ADTFunCardSpades4S
+      - id: ADTFunCardSpades5S
+      - id: ADTFunCardSpades6S
+      - id: ADTFunCardSpades7S
+      - id: ADTFunCardSpades8S
+      - id: ADTFunCardSpades9S
+      - id: ADTFunCardSpades10S
+      - id: ADTFunCardAceOfSpadesS
+      - id: ADTFunCardJackOfSpadesS
+      - id: ADTFunCardKingOfSpadesS
+      - id: ADTFunCardQueenOfSpadesS
+      - id: ADTFunCardBlackJokerS
+      - id: ADTFunCardRedJokerS
+
+
+
+#пики
+- type: entity
+  name: playing card
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs2S
+  suffix: Cards
+  description: A high-tech scanning device that uses Terahertz Radiation to detect subfloor infrastructure.
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs2-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs3S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs3-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs4S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs4-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs5S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs5-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs6S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs6-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs7S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs7-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs8S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs8-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs9S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs9-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardClubs10S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: clubs10-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardAceOfClubsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: aceofclubs-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardJackOfClubsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: jackofclubs-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardQueenOfClubsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: queenofclubs-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardKingOfClubsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: kingofclubs-on }
+          Off: { state: back-off }
+
+#бубс
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds2S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds2-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds3S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds3-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds4S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds4-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds5S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds5-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds6S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds6-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds7S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds7-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds8S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds8-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds9S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds9-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardDimonds10S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: dimonds10-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardAceOfDimondsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: aceofdimonds-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardJackOfDimondsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: jackofdimonds-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardKingOfDimondsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: kingofdimonds-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardQueenOfDimondsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: queenofdimonds-on }
+          Off: { state: back-off }
+
+#черви
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts2S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts2-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts3S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts3-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts4S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts4-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts5S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts5-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts6S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts6-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts7S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts7-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts8S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts8-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts9S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts9-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardHearts10S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: hearts10-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardAceOfHeartsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: aceofhearts-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardJackOfHeartsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: jackofhearts-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardKingOfHeartsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: kingofhearts-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardQueenOfHeartsS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: queenofhearts-on }
+          Off: { state: back-off }
+
+#крести
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades2S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades2-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades3S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades3-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades4S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades4-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades5S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades5-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades6S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades6-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades7S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades7-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades8S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades8-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades9S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades9-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardSpades10S
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: spades10-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardAceOfSpadesS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: aceofspades-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardJackOfSpadesS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: jackofspades-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardKingOfSpadesS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: kingofspades-on }
+          Off: { state: back-off }
+
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardQueenOfSpadesS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: queenofspades-on }
+          Off: { state: back-off }
+
+#Джокеры
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardBlackJokerS
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.HandleEnabledItemStateVisual.Visual:
+        base:
+          On: { state: blackjoker-on }
+          Off: { state: back-off }
+
+- type: entity
+  parent: [ADTFunCardBase, ADTBaseAgentFunCard]
+  id: ADTFunCardRedJokerS
   components:
   - type: GenericVisualizer
     visuals:

@@ -1,0 +1,41 @@
+- type: entity
+  id: securityBot
+  name: "Робот Службы Безопасности"
+  description: "Робот СБ с удаленным контролем"
+  components:
+    - type: sprite
+      sprite: Objects/Robots/security_bot.rsi
+    - type: Mech
+    - type: Camera
+    - type: ChatReplay
+    - type: Weapon
+      weapons:
+        - id: taser
+          type: ranged
+          enabled: true
+        - id: baton
+          type: melee
+          enabled: true
+        - id: laser
+          type: ranged
+          enabled: false
+    - type: Radio
+    - type: stationCodeListener
+      onCodeChange:
+        - type: enableweapon
+          weapon: laser
+          when:
+            - Blue
+            - Red
+            - Amber
+            - Gamma
+            - Delta
+            - Violet
+    - type: Physics
+      bodyType: Dynamic
+      collidable: true
+      anchored: false
+      mass: 50
+    - type: InteractionBlocker
+      flags:
+        - CanPickup

@@ -638,3 +638,24 @@
     Telecrystal: 9
   categories:
   - UplinkWeaponry
+
+
+- type: listing
+  id: ADTUplinkFunAgentCardsBoxFull54
+  name: uplink-fun-agent-cards-box-full-54-name
+  description: uplink-fun-agent-cards-box-full-54-desc
+  productEntity: ADTFunAgentCardsBoxFull54
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+    - Clown
+    - ServiceWorker
+    - Chef
+    - Bartender
+    - Botanist
+    - Librarian

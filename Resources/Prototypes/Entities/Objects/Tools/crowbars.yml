@@ -183,3 +183,27 @@
       - state: equipped-BELT
       - state: cover-equipped-BELT
         color: "#968000"
+
+# Handmade Crowbar (ADT NeloSyndicate)
+- type: entity
+  id: HandmadeCrowbar
+  parent: BaseCrowbar
+  name: "Самодельная монтировка"
+  description: "Кривая, ужасная и не прочная, но всё ещё монтировка.."
+  components:
+  - type: Sprite
+    state: icon
+    sprite: Objects/Tools/handmade_crowbar.rsi
+  - type: Item
+    storedSprite:
+      sprite: Objects/Tools/handmade_crowbar.rsi
+      state: storage
+    inhandVisuals:
+    left:
+    - state: inhand-left
+    right:
+    - state: inhand-right
+  - type: Clothing
+  clothingVisuals:
+    belt:
+    - state: equipped-BELT

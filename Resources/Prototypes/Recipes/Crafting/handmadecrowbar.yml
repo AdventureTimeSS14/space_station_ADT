@@ -1,14 +1,14 @@
 - type: constructionGraph
-  id: makeshifthandcuffs
+  id: HandmadeCrowbar
   start: start
   graph:
     - node: start
       edges:
         - to: cuffscable
           steps:
-            - material: Cable
-              amount: 15
-              doAfter: 5
+            - material: PartRodMetal
+              amount: 6
+              doAfter: 15
     - node: cuffscable
       entity: Cablecuffs
     

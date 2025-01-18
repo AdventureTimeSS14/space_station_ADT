@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: CrowbarGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: Crowbar
+      steps:
+      - tag: rods
+        icon:
+          sprite: Objects/Materials/parts.rsi
+          state: rods
+          name: rods 6
+          material: PartRodMetal
+          amount: 6
+          doAfter: 15
+  - node: Crowbar
+    entity: Crowbar
