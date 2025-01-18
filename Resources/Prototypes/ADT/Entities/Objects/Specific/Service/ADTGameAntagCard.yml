@@ -2,7 +2,7 @@
   id: ADTGameAntagCard
   name: Strange business card
   parent: [ BaseItem, BaseSyndicateContraband ]
-  description: A strange business card with the letter "S" on the back
+  description: A strange business card with the letter "S" on the back.
   suffix: Антаг
   components:
   - type: Sprite 
