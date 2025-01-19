@@ -92,13 +92,14 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         // This means that identical words will be obfuscated identically. Simple words like "hello" or "yes" in different langs can be memorized.
         var wordBeginIndex = 0;
         var hashCode = 0;
+        bool newSentence = true;
         for (var i = 0; i < message.Length; i++)
         {
             var ch = char.ToLower(message[i]);
             // A word ends when one of the following is found: a space, a sentence end, or EOM
             if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ',') || i == message.Length - 1)
             {
-                var wordLength = i + 1 - wordBeginIndex;
+                var wordLength = i - wordBeginIndex;
                 if (wordLength > 0)
                 {
                     var newWordLength = PseudoRandomNumber(hashCode, 1, 4);
@@ -106,12 +107,25 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
                     for (var j = 0; j < newWordLength; j++)
                     {
                         var index = PseudoRandomNumber(hashCode + j, 0, language.Replacement.Count);
-                        builder.Append(language.Replacement[index]);
+                        var replacement = language.Replacement[index];
+                        if (newSentence)
+                        {
+                            var replacementBuilder = new StringBuilder(replacement);
+                            replacementBuilder[0] = char.ToUpper(replacement[0]);
+                            replacement = replacementBuilder.ToString();
+                            newSentence = false;
+                        }
+
+                        builder.Append(replacement);
                     }
                 }
 
                 if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ','))
                     builder.Append(ch);
+                if (ch is ('.' or '!' or '?' or '~' or ',') && message.Length >= i + 2 && char.ToLower(message[i + 1]) is not ('.' or '!' or '?' or '~' or ','))
+                    builder.Append(' ');
+                if (ch is '.' or '!' or '?')
+                    newSentence = true;
 
                 hashCode = 0;
                 wordBeginIndex = i + 1;
