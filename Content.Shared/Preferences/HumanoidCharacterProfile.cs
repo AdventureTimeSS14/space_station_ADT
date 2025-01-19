@@ -233,11 +233,11 @@ namespace Content.Shared.Preferences
         /// <returns>Humanoid character profile with default settings.</returns>
         public static HumanoidCharacterProfile DefaultWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
         {
-            var proto = IoCManager.Resolve<IPrototypeManager>();
+            var proto = IoCManager.Resolve<IPrototypeManager>();    // ADT Languages
             return new()
             {
                 Species = species,
-                _languages = proto.Index<SpeciesPrototype>(species).DefaultLanguages.ToHashSet()
+                _languages = proto.Index<SpeciesPrototype>(species).DefaultLanguages.ToHashSet()    // ADT Languages
             };
         }
 
@@ -263,12 +263,12 @@ namespace Content.Shared.Preferences
 
             var sex = Sex.Unsexed;
             var age = 18;
-            HashSet<ProtoId<LanguagePrototype>> languages = new();
+            HashSet<ProtoId<LanguagePrototype>> languages = new();  // ADT Languages
             if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
             {
                 sex = random.Pick(speciesPrototype.Sexes);
                 age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
-                languages = speciesPrototype.DefaultLanguages.ToHashSet();
+                languages = speciesPrototype.DefaultLanguages.ToHashSet();  // ADT Languages
             }
 
             // Corvax-TTS-Start
@@ -550,7 +550,7 @@ namespace Content.Shared.Preferences
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
-            if (!_languages.SequenceEqual(other._languages)) return false;
+            if (!_languages.SequenceEqual(other._languages)) return false;  // ADT Languages
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
             // ADT Barks start
@@ -737,6 +737,7 @@ namespace Content.Shared.Preferences
                 _loadouts.Remove(value);
             }
 
+            // ADT Languages start
             if (_languages.Count <= 0)
                 _languages = new(speciesPrototype.DefaultLanguages);
             List<ProtoId<LanguagePrototype>> langsInvalid = new();
@@ -749,6 +750,7 @@ namespace Content.Shared.Preferences
             {
                 _languages.Remove(lang);
             }
+            // ADT Languages end
         }
 
         /// <summary>

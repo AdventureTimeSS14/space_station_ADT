@@ -129,10 +129,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             {
                 _profileEditor.RefreshTraits();
             }
+            // ADT Languages start
             if (obj.WasModified<LanguagePrototype>())
             {
                 _profileEditor.RefreshLanguages();
             }
+            // ADT Languages end
         }
     }
 

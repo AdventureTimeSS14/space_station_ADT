@@ -392,7 +392,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
         SetBarkData(uid, profile.Bark, humanoid); // ADT Barks
-        SetLanguages(uid, profile.Languages.ToList());
+        SetLanguages(uid, profile.Languages.ToList());  // ADT Languages
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
