@@ -20,6 +20,9 @@
   cons:
   - Не могут переваривать мясную пищу.
   - Получают повышенный урон от огня и высоких температур.
+  defaultLanguages:
+  - GalacticCommon
+  - Nian
 
 - type: speciesBaseSprites
   id: MobMothSprites

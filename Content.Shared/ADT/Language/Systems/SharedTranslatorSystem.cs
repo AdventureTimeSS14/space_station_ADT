@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Toggleable;
@@ -30,8 +31,22 @@ public abstract class SharedTranslatorSystem : EntitySystem
     {
         if (!comp.Enabled)
             return;
-        args.TranslatorSpoken.AddRange(comp.ToSpeak);
-        args.TranslatorUnderstood.AddRange(comp.ToUnderstand);
+        if (!TryComp<LanguageSpeakerComponent>(comp.User, out var speaker))
+            return;
+        if (speaker.Languages.Keys.Where(x => comp.Languages.ContainsKey(x)).Count() <= 0)
+            return;
+
+        foreach (var (key, value) in comp.Languages)
+        {
+            if (args.Translator.ContainsKey(key))
+            {
+                if (args.Translator[key] >= value)
+                    continue;
+                args.Translator[key] = value;
+            }
+            else
+                args.Translator.Add(key, value);
+        }
     }
 
     private void OnExamined(EntityUid uid, HandheldTranslatorComponent component, ExaminedEvent args)

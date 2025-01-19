@@ -96,7 +96,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         {
             var ch = char.ToLower(message[i]);
             // A word ends when one of the following is found: a space, a sentence end, or EOM
-            if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ','))
+            if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ',') || i == message.Length - 1)
             {
                 var wordLength = i + 1 - wordBeginIndex;
                 if (wordLength > 0)
@@ -110,7 +110,9 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
                     }
                 }
 
-                builder.Append(ch);
+                if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ','))
+                    builder.Append(ch);
+
                 hashCode = 0;
                 wordBeginIndex = i + 1;
             }
@@ -129,7 +131,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         for (var i = 0; i < message.Length; i++)
         {
             var ch = char.ToLower(message[i]);
-            if ((ch is '.' or '!' or '?' or '~' or '-' or ','))
+            if ((ch is '.' or '!' or '?' or '~' or '-' or ',') || i == message.Length - 1)
             {
                 var length = i + 1 - sentenceBeginIndex;
                 if (length > 0)
@@ -173,7 +175,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         // This is pretty much ported from TG.
         foreach (var character in message)
         {
-            if (_random.Prob(0.5f / 3f))
+            if (_random.Prob(0.2f / 3f))
             {
                 var lower = char.ToLowerInvariant(character);
                 var newString = lower switch

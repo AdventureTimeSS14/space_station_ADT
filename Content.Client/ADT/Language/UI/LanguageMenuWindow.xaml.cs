@@ -98,7 +98,7 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
             list.Sort((x, y) => _proto.Index<LanguagePrototype>(y.Key).Priority.CompareTo(_proto.Index<LanguagePrototype>(x.Key).Priority));
             list.Sort((x, y) => _language.CanSpeak(Owner, y.Key).CompareTo(_language.CanSpeak(Owner, x.Key)));
 
-            foreach (var language in options)
+            foreach (var language in list)
             {
                 AddLanguageEntry(language.Key, translator.ContainsKey(language.Key));
             }

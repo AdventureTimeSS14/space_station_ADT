@@ -8,7 +8,7 @@
   markingLimits: MobSlimeMarkingLimits
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
-  # ADT Species window start
+  # ADT start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Slime.xml"
   pros:
   - Могут хранить внутри себя небольшие объекты.
@@ -17,7 +17,12 @@
   - Могут менять стиль своей причёски в любой момент.
   cons:
   - Получают урон от попадания воды на тело.
-  # ADT Species window end
+  defaultLanguages:
+  - GalacticCommon
+  - Bubblish
+  uniqueLanguages:
+  - Bubblish
+  # ADT end
 
 - type: speciesBaseSprites
   id: MobSlimeSprites

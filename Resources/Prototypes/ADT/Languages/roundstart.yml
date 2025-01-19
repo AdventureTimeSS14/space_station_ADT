@@ -25,23 +25,6 @@
   roundstart: true
   priority: 2
 
-# Spoken by slimes.
-- type: language
-  id: Bubblish
-  obfuscateSyllables: true
-  color: "#61daff"
-  whisperColor: "#5f9db0"
-  replacement:
-  - блоб
-  - плоп
-  - поп
-  - боп
-  - буп
-  - блюп
-  - бульп
-  - блеб
-  roundstart: true
-
 # Spoken by moths.
 - type: language
   id: Arachnid
@@ -764,40 +747,54 @@
   - ghh
   roundstart: true
 
+# Gutter language for... idk
 - type: language
-  id: VoxPidgin
+  id: Gutter
   obfuscateSyllables: true
-  color: "#419167"
-  whisperColor: "#2fcc7b"
+  color: "#0030db"
+  whisperColor: "#41559c"
   replacement:
-  - щик-щик
-  - пшик-пшик
-  - фррр
-  - трринг
-  - шшш-щ
-  - бжжж
-  - куууук
-  - бип-боп
-  - чирк-чирк
-  - дзынь-дзынь
-  - зинг-зинг
-  - шух-шух
-  - тик-так
-  - хрюк-хрюк
-  - ззззз
-  - чмок-чмок
-  - бзибзибзи
-  - щип-щип
-  - жуужу
-  - хихи-хахи
-  - вжужу
-  - клек-клек
-  - ррррр
-  - свист-свист
-  - прыщ-прыщ
-  - гуд-гуд
-  - киии
-  - трынь-трынь
-  - пум-пум
-  - зак-зак
+  - gra
+  - ba
+  - ba
+  - breh
+  - bra
+  - rah
+  - dur
+  - ra
+  - ro
+  - gro
+  - go
+  - ber
+  - bar
+  - geh
+  - heh
+  - gra
   roundstart: true
+
+# Neo-Russkiya language for USSP
+- type: language
+  id: NeoRusskiya
+  obfuscateSyllables: true
+  color: "#ff1212"
+  whisperColor: "#d65858"
+  replacement: [ "день","бар","бота","век","тво","слов","слав","сен","доп","вах","лах","глоз","ет","нет","да","глав","глаз","нец","думат","зат","моч","боз","коми","врад","враде","тай","бли","ау","нов","ливн","толп","глаз","глиз","уй","евт","дат","ботат","нев","новый","взи","нов","шо","обш","даски","ки","овский","ская","биб","киев","студен","вар","бул","вян","цион","вая","мяу","гино","воло","олам","мити","нино","менов","перов","одаски","тров","ники","ивано","дотсов","сокол","упа","первом","шел","тизан","чка","таган","добрый","окт","бода","вета","иди","сук","блят","хуй","на","иди","лички","каса","линка","толи","анатов","вич","веч","вуч","той","ка","вод" ]
+  roundstart: true
+
+# Clown language
+- type: language
+  id: Clownish
+  obfuscateSyllables: true
+  color: "#fff700"
+  whisperColor: "#d1ce69"
+  replacement:
+  - хонк
+  - хонк
+  - скуик
+  - боньк
+  - пуп
+  - наф
+  - ниф
+  - ви
+  roundstart: true
+

@@ -1,7 +1,7 @@
 # Translators
 - type: entity
   id: TranslatorBase
-  categories: [ HideSpawnMenu  ]
+  abstract: true
   parent: [ BaseItem ]
   name: Translator
   description: "Translates speech."
@@ -23,18 +23,12 @@
           True: { visible: true }
           False: { visible: false }
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    toUnderstand:
-    - GalacticCommon
-    required:
-    - GalacticCommon
     enabled: false
   - type: ItemToggle
 
 - type: entity
   id: Translator
-  categories: [ HideSpawnMenu  ]
+  abstract: true
   parent: [ TranslatorBase, PowerCellSlotMediumItem ]
   suffix: Powered
   components:
@@ -43,7 +37,7 @@
 
 - type: entity
   id: TranslatorEmpty
-  categories: [ HideSpawnMenu  ]
+  abstract: true
   parent: [ Translator ]
   suffix: Empty
   components:
@@ -59,15 +53,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Bubblish
-    toUnderstand:
-    - GalacticCommon
-    - Bubblish
-    required:
-    - GalacticCommon
-    - Bubblish
+    languages:
+      GalacticCommon: Speak
+      Bubblish: Speak
   - type: StaticPrice
     price: 1500
 
@@ -78,15 +66,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Arachnid
-    toUnderstand:
-    - GalacticCommon
-    - Arachnid
-    required:
-    - GalacticCommon
-    - Arachnid
+    languages:
+      GalacticCommon: Speak
+      Arachnid: Speak
   - type: StaticPrice
     price: 1500
 
@@ -97,15 +79,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - RootSpeak
-    toUnderstand:
-    - GalacticCommon
-    - RootSpeak
-    required:
-    - GalacticCommon
-    - RootSpeak
+    languages:
+      GalacticCommon: BadSpeak
+      RootSpeak: BadSpeak
   - type: StaticPrice
     price: 1500
 
@@ -116,15 +92,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Nekomimetic
-    toUnderstand:
-    - GalacticCommon
-    - Nekomimetic
-    required:
-    - GalacticCommon
-    - Nekomimetic
+    languages:
+      GalacticCommon: Speak
+      Nekomimetic: Speak
   - type: StaticPrice
     price: 1500
 
@@ -135,15 +105,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Draconic
-    toUnderstand:
-    - GalacticCommon
-    - Draconic
-    required:
-    - GalacticCommon
-    - Draconic
+    languages:
+      GalacticCommon: Speak
+      Draconic: Speak
   - type: StaticPrice
     price: 1500
 
@@ -154,15 +118,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Canilunzt
-    toUnderstand:
-    - GalacticCommon
-    - Canilunzt
-    required:
-    - GalacticCommon
-    - Canilunzt
+    languages:
+      GalacticCommon: Speak
+      Canilunzt: Speak
   - type: StaticPrice
     price: 1500
 
@@ -173,15 +131,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - RobotTalk
-    toUnderstand:
-    - GalacticCommon
-    - RobotTalk
-    required:
-    - GalacticCommon
-    - RobotTalk
+    languages:
+      GalacticCommon: Speak
+      RobotTalk: Speak
   - type: StaticPrice
     price: 1500
 
@@ -192,15 +144,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Fire
-    toUnderstand:
-    - GalacticCommon
-    - Fire
-    required:
-    - GalacticCommon
-    - Fire
+    languages:
+      GalacticCommon: BadSpeak
+      Fire: BadSpeak
   - type: StaticPrice
     price: 1500
 
@@ -211,15 +157,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - SolCommon
-    toUnderstand:
-    - GalacticCommon
-    - SolCommon
-    required:
-    - GalacticCommon
-    - SolCommon
+    languages:
+      GalacticCommon: BadSpeak
+      SolCommon: BadSpeak
   - type: StaticPrice
     price: 1500
 
@@ -230,15 +170,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - VoxPidgin
-    toUnderstand:
-    - GalacticCommon
-    - VoxPidgin
-    required:
-    - GalacticCommon
-    - VoxPidgin
+    languages:
+      GalacticCommon: BadSpeak
+      VoxPidgin: BadSpeak
   - type: StaticPrice
     price: 1500
 
@@ -268,15 +202,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Drask
-    toUnderstand:
-    - GalacticCommon
-    - Drask
-    required:
-    - GalacticCommon
-    - Drask
+    languages:
+      GalacticCommon: Speak
+      Drask: Speak
   - type: StaticPrice
     price: 1500
 
@@ -287,15 +215,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Urs
-    toUnderstand:
-    - GalacticCommon
-    - Urs
-    required:
-    - GalacticCommon
-    - Urs
+    languages:
+      GalacticCommon: Speak
+      Urs: Speak
   - type: StaticPrice
     price: 1500
 
@@ -306,15 +228,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Arkane
-    toUnderstand:
-    - GalacticCommon
-    - Arkane
-    required:
-    - GalacticCommon
-    - Arkane
+    languages:
+      GalacticCommon: Speak
+      Arkane: Speak
   - type: StaticPrice
     price: 1500
 
@@ -325,15 +241,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Shadekin
-    toUnderstand:
-    - GalacticCommon
-    - Shadekin
-    required:
-    - GalacticCommon
-    - Shadekin
+    languages:
+      GalacticCommon: BadSpeak
+      Shadekin: BadSpeak
   - type: StaticPrice
     price: 1500
 
@@ -344,15 +254,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Dwarf
-    toUnderstand:
-    - GalacticCommon
-    - Dwarf
-    required:
-    - GalacticCommon
-    - Dwarf
+    languages:
+      GalacticCommon: Speak
+      Dwarf: Speak
   - type: StaticPrice
     price: 1500
 
@@ -363,15 +267,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - CintaTaj
-    toUnderstand:
-    - GalacticCommon
-    - CintaTaj
-    required:
-    - GalacticCommon
-    - CintaTaj
+    languages:
+      GalacticCommon: Speak
+      CintaTaj: Speak
   - type: StaticPrice
     price: 1500
 
@@ -382,15 +280,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Nian
-    toUnderstand:
-    - GalacticCommon
-    - Nian
-    required:
-    - GalacticCommon
-    - Nian
+    languages:
+      GalacticCommon: BadSpeak
+      Nian: BadSpeak
   - type: StaticPrice
     price: 1500
 
@@ -401,15 +293,9 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - SikTaj
-    toUnderstand:
-    - GalacticCommon
-    - SikTaj
-    required:
-    - GalacticCommon
-    - SikTaj
+    languages:
+      GalacticCommon: Speak
+      SikTaj: Speak
   - type: StaticPrice
     price: 1500
 
@@ -420,49 +306,19 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Cat
-    - Dog
-    - Mothroach
-    - Monkey
-    - Bee
-    - Mouse
-    - Chicken
-    - Duck
-    - Cow
-    - Sheep
-    - Kangaroo
-    - Pig
-    toUnderstand:
-    - GalacticCommon
-    - Cat
-    - Dog
-    - Mothroach
-    - Mothroach
-    - Monkey
-    - Bee
-    - Mouse
-    - Chicken
-    - Duck
-    - Cow
-    - Sheep
-    - Kangaroo
-    - Pig
-    required:
-    - GalacticCommon
-    - Cat
-    - Dog
-    - Mothroach
-    - Mothroach
-    - Monkey
-    - Bee
-    - Mouse
-    - Chicken
-    - Duck
-    - Cow
-    - Sheep
-    - Kangaroo
-    - Pig
+    languages:
+      GalacticCommon: BadSpeak
+      Cat: BadSpeak
+      Dog: BadSpeak
+      Mothroach: BadSpeak
+      Monkey: BadSpeak
+      Bee: BadSpeak
+      Mouse: BadSpeak
+      Chicken: BadSpeak
+      Duck: BadSpeak
+      Cow: BadSpeak
+      Sheep: BadSpeak
+      Kangaroo: BadSpeak
+      Pig: BadSpeak
   - type: StaticPrice
     price: 1500

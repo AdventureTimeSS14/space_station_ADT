@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Client.ADT.Language.UI;
 using Content.Shared.ADT.Language;
 using Content.Shared.Humanoid.Prototypes;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Lobby.UI;
 
@@ -11,6 +12,8 @@ public sealed partial class HumanoidProfileEditor
     {
         LanguagesList.DisposeAllChildren();
         TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-languages-tab"));
+        SetDefaultLanguagesButton.OnPressed += SetDefaultLanguages;
+
         if (Profile == null)
             return;
         var species = _prototypeManager.Index(Profile.Species);
@@ -29,7 +32,7 @@ public sealed partial class HumanoidProfileEditor
         list.Sort((x, y) => y.Priority.CompareTo(x.Priority));
 
         List<LanguagePrototype> defaultList = new();
-        defaultList.AddRange(list.Where(x => species.DefaultLanguages.Contains(x)));
+        defaultList.AddRange(list.Where(x => species.DefaultLanguages.Contains(x) && !species.UniqueLanguages.Contains(x)));
         defaultList.AddRange(list.Where(x => species.UniqueLanguages.Contains(x)));
         defaultList.Sort((x, y) => x.LocalizedName[0].CompareTo(y.LocalizedName[0]));
         defaultList.Sort((x, y) => y.Priority.CompareTo(x.Priority));
@@ -64,6 +67,24 @@ public sealed partial class HumanoidProfileEditor
     public void SelectLanguage(string protoId)
     {
         Profile = (Profile?.Languages.Contains(protoId) ?? false) ? Profile?.WithoutLanguage(protoId) : Profile?.WithLanguage(protoId);
+        SetDirty();
+        RefreshLanguages();
+    }
+
+    private void SetDefaultLanguages(BaseButton.ButtonEventArgs args)
+    {
+        if (Profile == null)
+            return;
+        var species = _prototypeManager.Index(Profile.Species);
+        foreach (var item in Profile.Languages)
+        {
+            Profile = Profile?.WithoutLanguage(item);
+        }
+        foreach (var item in species.DefaultLanguages)
+        {
+            Profile = Profile?.WithLanguage(item);
+        }
+
         SetDirty();
         RefreshLanguages();
     }

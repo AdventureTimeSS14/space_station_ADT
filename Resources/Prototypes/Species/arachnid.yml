@@ -14,13 +14,16 @@
   femaleLastNames: names_arachnid_last # Corvax-LastnameGender
   sexes:
   - Unsexed
-  # ADT Species window start
+  # ADT start
   pros:
   - Наносят 7 проникающего урона в ближнем бою.
   special:
   - Могут плести шёлк, из которого создаются некоторые вещи.
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
-  # ADT Species window end
+  defaultLanguages:
+  - GalacticCommon
+  - Arachnid
+  # ADT end
 
 - type: speciesBaseSprites
   id: MobArachnidSprites

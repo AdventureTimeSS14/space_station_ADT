@@ -77,8 +77,8 @@ language-Kangaroo-description = A collection of sounds made by kangaroos.
 language-Pig-name = Animal pig
 language-Pig-description = A collection of sounds made by pigs.
 
-language-Moffic-name = Паучий
-language-Moffic-description = Древний язык, на котором говорят арахниды.
+language-Arachnid-name = Паучий
+language-Arachnid-description = Древний язык, на котором говорят арахниды.
 
 language-Drask-name = Орлуум
 language-Drask-description = Монотонный, вибрирующий язык драсков. Он чем-то напоминает китовую песню.
@@ -93,7 +93,7 @@ language-Arkane-name = Каукиттен
 language-Arkane-description = Протяжный, чем-то напоминающий Солнечный язык, на котором говорят арканы.
 
 language-Shadekin-name = Миар
-language-Shadekin-description = Загадочный язык, на котором говорят сумеречники.
+language-Shadekin-description = Лишь недавно сформировавшийся язык, на котором говорят многие молодые сумеречники.
 
 language-Dwarf-name = Шахт
 language-Dwarf-description = Rock and stone!
@@ -106,6 +106,18 @@ language-CintaTaj-description = Язык, разработанный таяра�
 
 language-VoxPidgin-name = Вокс-пиджин
 language-VoxPidgin-description = Смесь чириканья и визгов, труднопонимаемая для других рас из-за ультразвуковых характеристик.
+
+language-Mar-name = Мар
+language-Mar-description = Древний и загадочный язык сумеречников, состоящий из всего одного слова.
+
+language-Gutter-name = Гаттер
+language-Gutter-description = Официально не признанный язык, используемый маргинальными группировками в трущобах.
+
+language-NeoRusskiya-name = Нео-русский
+language-NeoRusskiya-description = Язык, на котором говорят жители СССП. Отдаёт коммунизмом и водкой.
+
+language-Clownish-name = Хихич
+language-Clownish-description = Клоунский язык! Хонк!
 
 language-GalacticCommon = Общ.
 language-Bubblish = Пузырчатый

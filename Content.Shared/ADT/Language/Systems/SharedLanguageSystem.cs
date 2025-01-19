@@ -65,7 +65,7 @@ public abstract class SharedLanguageSystem : EntitySystem
         if (proto.ID == Universal)
             return true;
 
-        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out _))
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out var translator))
             return false;
 
         if (langs.ContainsKey(protoId))
@@ -88,7 +88,7 @@ public abstract class SharedLanguageSystem : EntitySystem
         if (proto.ID == Universal)
             return true;
 
-        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.Understand, out var langs, out _))
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.Understand, out var langs, out var translator))
             return false;
 
         if (langs.ContainsKey(protoId))
@@ -149,7 +149,7 @@ public abstract class SharedLanguageSystem : EntitySystem
         translator = ev.Translator;
         current = ev.Current;
 
-        if (translator.Count() <= 0 || langs.Count() <= 0 || current == String.Empty)
+        if ((translator.Count() <= 0 && langs.Count() <= 0) || current == String.Empty)
             return false;
 
         return true;
@@ -173,10 +173,18 @@ public abstract class SharedLanguageSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         langs = ev.Languages.Where(x => x.Value >= required).ToDictionary();
-        foreach (var item in ev.Languages)
+        foreach (var item in ev.Translator)
         {
-            if (ev.Translator.ContainsKey(item.Key) && ev.Translator[item.Key] > item.Value)
+            if (item.Value < required)
+                continue;
+            if (ev.Languages.ContainsKey(item.Key))
+            {
+                if (ev.Languages[item.Key] <= item.Value)
+                    continue;
                 langs[item.Key] = ev.Translator[item.Key];
+            }
+            else
+                langs.Add(item.Key, item.Value);
         }
 
         current = ev.Current;
