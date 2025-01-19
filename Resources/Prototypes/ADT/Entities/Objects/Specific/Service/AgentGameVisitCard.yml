@@ -6,7 +6,7 @@
   suffix: Антаг
   components:
   - type: Sprite 
-    sprite: ADT/Objects/Specific/Service/Game_Agent_Card.rsi
+    sprite: ADT/Objects/Specific/Service/agent_game_visit_card.rsi
     state: icon
   - type: MeleeWeapon
     damage:
