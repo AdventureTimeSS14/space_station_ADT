@@ -427,7 +427,7 @@
     - Bartender
 
 - type: listing
-  id: ADTUplinkADTGameAntagCard
+  id: ADTUplinkGameAntagCard
   name: ADTUplink-GameAntagCard-name
   description: ADTGameAntagCard-desc
   icon: { sprite: ADT/Objects/Specific/Service/Game_Agent_Card.rsi, state: icon}
