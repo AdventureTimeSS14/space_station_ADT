@@ -116,6 +116,7 @@ public abstract class SharedLanguageSystem : EntitySystem
             return;
         if (!_netMan.IsServer)
             return;
+        SortLanguages(uid);
 
         component.CurrentLanguage = component.Languages.Where(x => (int)x.Value >= 1).ToDictionary().Keys.FirstOrDefault("Universal");
 
@@ -217,9 +218,21 @@ public abstract class SharedLanguageSystem : EntitySystem
         UpdateUi(uid, comp);
     }
 
+    public void SortLanguages(EntityUid uid, LanguageSpeakerComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+        var list = comp.Languages.ToList();
+        list.Sort((x, y) => _proto.Index<LanguagePrototype>(x.Key).LocalizedName[0].CompareTo(_proto.Index<LanguagePrototype>(y.Key).LocalizedName[0]));
+        list.Sort((x, y) => _proto.Index<LanguagePrototype>(y.Key).Priority.CompareTo(_proto.Index<LanguagePrototype>(x.Key).Priority));
+        list.Sort((x, y) => CanSpeak(uid, y.Key).CompareTo(CanSpeak(uid, x.Key)));
+
+        comp.Languages = list.ToDictionary();
+    }
+
     public virtual void UpdateUi(EntityUid uid, LanguageSpeakerComponent? comp = null)
     {
-
+        SortLanguages(uid);
     }
 }
 

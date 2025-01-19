@@ -79,16 +79,19 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
         CurrentLanguageLabel.Text = Loc.GetString("language-menu-current-language", ("language", _language.GetLanguage(current).LocalizedName));
 
         List<LanguageEntry> entries = _entries.Values.ToList();
-        _language.GetLanguagesKnowledged(Owner, LanguageKnowledge.Understand, out var langsDict, out _);
-        List<string> langs = langsDict.Keys.ToList();
 
         foreach (var entry in entries)
         {
-            if (langs.Contains(entry.Language))
+            if (options.ContainsKey(entry.Language) || translator.ContainsKey(entry.Language))
                 continue;
 
             OptionsList.RemoveChild(entry);
             _entries.Remove(entry.Language);
+        }
+        foreach (var item in translator.ToList())
+        {
+            if (options.ContainsKey(item.Key) && options[item.Key] >= translator[item.Key])
+                translator.Remove(item.Key);
         }
 
         if (options.Count > 0)
@@ -97,6 +100,7 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
             list.Sort((x, y) => _proto.Index<LanguagePrototype>(x.Key).LocalizedName[0].CompareTo(_proto.Index<LanguagePrototype>(y.Key).LocalizedName[0]));
             list.Sort((x, y) => _proto.Index<LanguagePrototype>(y.Key).Priority.CompareTo(_proto.Index<LanguagePrototype>(x.Key).Priority));
             list.Sort((x, y) => _language.CanSpeak(Owner, y.Key).CompareTo(_language.CanSpeak(Owner, x.Key)));
+            list.Sort((x, y) => translator.ContainsKey(x.Key).CompareTo(translator.ContainsKey(y.Key)));
 
             foreach (var language in list)
             {

@@ -10,12 +10,12 @@ using Robust.Client.Player;
 using Content.Client.ADT.Language;
 using System.Linq;
 
-namespace Content.Client.UserInterface.Systems.Language;    // ADT Languages
+namespace Content.Client.ADT.UserInterface.Systems.Language;
 
 public sealed class LanguageMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
 {
     public LanguageMenuWindow? _menu;
-    private MenuButton? LanguagesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.LanguagesButton;
+    private MenuButton? LanguagesButton => UIManager.GetActiveUIWidgetOrNull<Content.Client.UserInterface.Systems.MenuBar.Widgets.GameTopMenuBar>()?.LanguagesButton;
 
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
