@@ -120,15 +120,6 @@
     implant: ArkaneTranslatorImplant
 
 - type: entity
-  id: ShadekinTranslatorImplanter
-  parent: BaseImplantOnlyImplanter
-  name: Shadekin translator implant
-  description: "An implant giving the ability to understand and speak Shadekin language."
-  components:
-  - type: Implanter
-    implant: ShadekinTranslatorImplant
-
-- type: entity
   id: DwarfTranslatorImplanter
   name: Dwarf Translator implanter
   parent: BaseImplantOnlyImplanter

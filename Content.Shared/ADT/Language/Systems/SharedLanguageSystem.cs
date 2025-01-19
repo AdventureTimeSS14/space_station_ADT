@@ -214,8 +214,6 @@ public abstract class SharedLanguageSystem : EntitySystem
             comp.Languages[lang] = knowledge;
         else
             comp.Languages.Add(lang, knowledge);
-
-        UpdateUi(uid, comp);
     }
 
     public void SortLanguages(EntityUid uid, LanguageSpeakerComponent? comp = null)

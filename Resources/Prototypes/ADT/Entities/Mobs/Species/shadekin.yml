@@ -252,7 +252,7 @@
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
-      Shadekin: Speak
+      Mar: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1

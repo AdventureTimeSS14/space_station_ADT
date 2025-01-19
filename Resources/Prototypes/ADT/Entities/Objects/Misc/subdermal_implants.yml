@@ -178,17 +178,6 @@
 
 - type: entity
   parent: BaseTranslatorImplant
-  id: ShadekinTranslatorImplant
-  name: translator implant
-  # description: This implant grants language knowledge.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: TranslatorImplant
-    languages:
-      Shadekin: BadSpeak
-
-- type: entity
-  parent: BaseTranslatorImplant
   id: DwarfTranslatorImplant
   name: translator implant
   # description: This implant grants language knowledge.
@@ -219,7 +208,6 @@
   - type: TranslatorImplant
     languages:
       RobotTalk: Understand
-      Shadekin: Understand
       Arkane: Understand
       Urs: Understand
       Drask: Understand

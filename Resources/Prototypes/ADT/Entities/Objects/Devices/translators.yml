@@ -235,19 +235,6 @@
     price: 1500
 
 - type: entity
-  id: ShadekinTranslator
-  parent: [ Translator ]
-  name: Shadekin translator
-  description: "Translates speech."
-  components:
-  - type: HandheldTranslator
-    languages:
-      GalacticCommon: BadSpeak
-      Shadekin: BadSpeak
-  - type: StaticPrice
-    price: 1500
-
-- type: entity
   id: DwarfTranslator
   parent: [ Translator ]
   name: Dwarf translator

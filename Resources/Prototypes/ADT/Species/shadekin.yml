@@ -34,7 +34,6 @@
   - Через некоторое время после достижении максимума энергии автоматически телепортируются в случайную точку рядом.
   defaultLanguages:
   - GalacticCommon
-  - Shadekin
   - Mar
   uniqueLanguages:
   - Mar

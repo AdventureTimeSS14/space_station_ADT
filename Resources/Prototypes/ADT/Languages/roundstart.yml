@@ -545,32 +545,6 @@
   - ин
   roundstart: true
 
-# Spoken by the Shadekin race.
-- type: language
-  id: Shadekin
-  obfuscateSyllables: true
-  color: "#c048f7"
-  whisperColor: "#a68bb3"
-  replacement:
-  - mia
-  - ar
-  - ren
-  - naar
-  - mae
-  - tre
-  - ien
-  - trr
-  - ou
-  - rin
-  - nae
-  - ena
-  - oi
-  - kerr
-  - que
-  - uoh
-  - een
-  roundstart: true
-
 # Spoken by the Dwarf race.
 - type: language
   id: Dwarf
