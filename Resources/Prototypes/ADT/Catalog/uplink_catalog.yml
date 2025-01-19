@@ -428,9 +428,9 @@
 
 - type: listing
   id: ADTUplinkGameAntagCard
-  name: ADTUplink-ADTGameAntagCard-name
-  description: ADTGameAntagCard-desc
-  icon: { sprite: ADT/Objects/Specific/Service/Game_Agent_Card.rsi, state: icon}
+  name: uplink-agent-game-visit-card-name
+  description: uplink-agent-game-visit-card-desc
+  icon: { sprite: ADT/Objects/Specific/Service/agent_game_visit_card.rsi, state: icon}
   productEntity: ADTGameAntagCard
   cost:
     Telecrystal: 4
