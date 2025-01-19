@@ -428,7 +428,7 @@
 
 - type: listing
   id: ADTUplinkGameAntagCard
-  name: ADTUplink-GameAntagCard-name
+  name: ADTUplink-ADTGameAntagCard-name
   description: ADTGameAntagCard-desc
   icon: { sprite: ADT/Objects/Specific/Service/Game_Agent_Card.rsi, state: icon}
   productEntity: ADTGameAntagCard
