@@ -1,3 +1,4 @@
+using Content.Client.Lobby;
 using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
@@ -14,6 +15,7 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
     private readonly AccessReaderSystem _accessReader;
 
     private CriminalRecordsConsoleWindow? _window;
@@ -30,7 +32,7 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
 
         var comp = EntMan.GetComponent<CriminalRecordsConsoleComponent>(Owner);
 
-        _window = new(Owner, comp.MaxStringLength, _playerManager, _proto, _random, _accessReader);
+        _window = new(Owner, comp.MaxStringLength, _playerManager, _proto, _random, _accessReader, _ent);   // ADT Station Records Showcase Tweaked
         _window.OnKeySelected += key =>
             SendMessage(new SelectStationRecord(key));
         _window.OnFiltersChanged += (type, filterValue) =>

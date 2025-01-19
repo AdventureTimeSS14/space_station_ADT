@@ -34,7 +34,6 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
                 {
                     UnReceive(offerItem.Target.Value, offerItem: offerItem);
                     offerItem.IsInOfferMode = false;
-                    Dirty(uid, offerItem);
                 }
                 else
                     UnOffer(uid, offerItem);

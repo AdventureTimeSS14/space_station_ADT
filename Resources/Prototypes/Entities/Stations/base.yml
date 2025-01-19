@@ -80,7 +80,7 @@
           - /Maps/Ruins/corvax_research_station.yml
           - /Maps/Ruins/corvax_rnd_debris.yml
           # - /Maps/Ruins/corvax_sanctus.yml
-          - /Maps/Ruins/corvax_syndi_base.yml
+          # - /Maps/Ruins/corvax_syndi_base.yml Сказали убрать из пула
           - /Maps/Ruins/corvax_ussp_debris.yml
           - /Maps/Ruins/corvax_ussp_asteroid.yml
           # Corvax-Mapping-End
@@ -90,7 +90,7 @@
           - /Maps/ADTMaps/Ruins/kamikaze.yml
           - /Maps/ADTMaps/Ruins/rnd_debris.yml
           - /Maps/ADTMaps/Ruins/sindy_apling.yml
-          - /Maps/ADTMaps/Ruins/syndi_base.yml
+          # - /Maps/ADTMaps/Ruins/syndi_base.yml  Сказали убрать из пула
           - /Maps/ADTMaps/Ruins/ussp_asteroid.yml
           - /Maps/ADTMaps/Ruins/ussp_debris.yml
         # ADT Ruins End
