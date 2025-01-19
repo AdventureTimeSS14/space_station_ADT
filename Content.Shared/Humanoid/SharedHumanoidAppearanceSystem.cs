@@ -39,6 +39,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
@@ -503,8 +504,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         languageSpeaker.Languages.Clear();
 
         languages.ForEach(x => languageSpeaker.Languages.Add(x.ToString(), LanguageKnowledge.Speak));
-
-        Dirty(uid, languageSpeaker);
+        _language.SelectDefaultLanguage(uid);
+        _language.UpdateUi(uid);
     }
     // ADT end
 

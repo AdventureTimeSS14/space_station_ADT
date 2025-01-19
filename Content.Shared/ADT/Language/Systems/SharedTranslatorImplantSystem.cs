@@ -15,6 +15,8 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<TranslatorImplantComponent, GetLanguagesEvent>(OnGetLanguages);
+        SubscribeLocalEvent<TranslatorImplantComponent, ImplantImplantedEvent>(OnImplanted);
+        SubscribeLocalEvent<TranslatorImplantComponent, ImplantRemovedEvent>(OnUnimplanted);
         SubscribeLocalEvent<TranslatorImplantComponent, ContainerGettingRemovedAttemptEvent>(OnRemoveAttempt);
     }
 
@@ -33,6 +35,19 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
         }
     }
 
+    private void OnImplanted(EntityUid uid, TranslatorImplantComponent comp, ref ImplantImplantedEvent args)
+    {
+        if (args.Implanted.HasValue)
+            _language.UpdateUi(args.Implanted.Value);
+        comp.ImplantedEntity = args.Implanted;
+    }
+
+    private void OnUnimplanted(EntityUid uid, TranslatorImplantComponent comp, ref ImplantRemovedEvent args)
+    {
+        if (args.Implanted.HasValue)
+            _language.UpdateUi(args.Implanted.Value);
+        comp.ImplantedEntity = null;
+    }
     private void OnRemoveAttempt(EntityUid uid, TranslatorImplantComponent component, ContainerGettingRemovedAttemptEvent args)
     {
         if (component.Permanent && component.ImplantedEntity != null)
