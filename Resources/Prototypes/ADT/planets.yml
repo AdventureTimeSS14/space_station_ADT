@@ -4,6 +4,22 @@
   mapName: shuttle-destination-lavaland
   mapLight: "#1F0E11"
   addedComponents:
+  - type: SpawnInRange
+    protosToSpawn:
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - BloodMinerDungeMarker
+    minX: -200
+    maxX: 200
+    minY: -200
+    maxY: 200
   - type: FTLDestination
     whitelist:
       components:
@@ -11,7 +27,7 @@
   - type: WeatherScheduler # Regular ash storms
     stages:
     - duration: # 5-10 minutes of calm
-        min: 300
+        min: 400
         max: 600
     - weather: AshfallLight # ash starts to fall, 30 second warning
       message: ash-storm-telegraph
@@ -31,9 +47,9 @@
   atmosphere:
     volume: 2500
     temperature: 313.15 # 40C
-    moles: # 107kPa, 14% O2 (unbreathable)
-    - 14.38346
-    - 88.35554
+    moles: # 82ka, 14% O2 (unbreathable)
+    - 13.65346
+    - 23.24754
   biomeMarkerLayers:
   - OreIron
   - OreQuartz

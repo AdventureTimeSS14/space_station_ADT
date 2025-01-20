@@ -1,0 +1,44 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         SetSize="800 800"
+         MinSize="800 128"
+         Resizable="False">
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" Margin="5">
+            <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Name="SpeciesContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Vertical"/>
+            </PanelContainer>
+        </ScrollContainer>
+        <BoxContainer Name="InfoContainer" Orientation="Vertical" VerticalExpand="True" Margin="5">
+            <BoxContainer Name="Showcase" Orientation="Horizontal" VerticalAlignment="Top">
+                <PanelContainer SetSize="200 200" MaxSize="200 200" VerticalAlignment="Top" Margin="5">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                <SpriteView Name="Mob" Scale="4 4"/>
+                </PanelContainer>
+                <PanelContainer SetSize="200 200" MaxSize="200 200" VerticalAlignment="Top" Margin="5">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                <SpriteView Name="JobLoadout" Scale="4 4"/>
+                </PanelContainer>
+            </BoxContainer>
+            <Button Name="Select" Text="{ Loc 'ui-species-select-button' }" SetWidth="410" MinWidth="410"/>
+            <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" Margin="5">
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Name="DetailInfoContainer" VerticalExpand="True" MaxWidth="380" Orientation="Vertical">
+
+                    </BoxContainer>
+                </PanelContainer>
+            </ScrollContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
