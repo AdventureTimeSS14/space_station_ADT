@@ -78,6 +78,13 @@
     damage:
       groups:
         Brute: 6
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 10 
+  - type: Damageable
+    damageModifierSet: ADTXenoDamageSet
+  - type: Fauna
+  # End ADT
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -146,12 +153,20 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      350: Dead # ADT Tweak
   - type: Stamina
     critThreshold: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
+  #ADT Start: Xeno baff
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 8    
+  - type: StaminaDamageOnHit
+    damage: 12 
+  # ADT End
   - type: Fixtures
     fixtures:
       fix1:
@@ -183,14 +198,18 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      100: Dead # ADT Tweak
   - type: SlowOnDamage
     speedModifierThresholds:
       40: 0.7
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 6
+        Brute: 5 # ADT Tweak
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 15 
+  # End ADT
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -214,6 +233,9 @@
   parent: MobXeno
   id: MobXenoQueen
   components:
+  # ADT Start: Xeno buff
+  - type: XenoQueen # ADT Tweak: Способности королевы
+  #ADT End
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/queen.rsi
@@ -224,7 +246,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      1000: Dead # ADT Tweak
   - type: SlowOnDamage
     speedModifierThresholds:
       150: 0.7
@@ -232,7 +254,11 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 12
+       Brute: 20 # ADT Tweak
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 35
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -252,7 +278,6 @@
     rankName: collective-mind-queen-rank
   # ADT-CollectiveMind-Tweak-End
 
-
 - type: entity
   name: ravager
   parent: MobXeno
@@ -268,16 +293,20 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      750: Dead # ADT Tweak
   - type: MovementSpeedModifier
-    baseSprintSpeed: 4
+    baseSprintSpeed: 2 # ADT Tweak
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 10
+       Brute: 30 # ADT Tweak
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 45 # 60
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -306,12 +335,22 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
+    # ADT Start: Xeno buff    
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+    # ADT End
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6.0
+    baseSprintSpeed: 12.0 # ADT Tweak
   - type: MeleeWeapon
     damage:
      groups:
        Brute: 5
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 5
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -362,7 +401,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead
+      80: Dead # ADT Tweak
   - type: SlowOnDamage
     speedModifierThresholds:
       25: 0.7

@@ -309,7 +309,7 @@
 - type: emote
   id: Spit
   name: chat-emote-name-spit
-  icon: Interface/Emotes/yawn.png
+  icon: Interface/Emotes/sigh.png
   category: Vocal
   whitelist:
     components:
@@ -317,7 +317,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-sigh"]
+  chatMessages: ["chat-emote-msg-spit"]
   chatTriggers:
     - spit
     - spits

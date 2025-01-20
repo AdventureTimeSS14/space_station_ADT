@@ -100,6 +100,20 @@
           shader: unshaded
           map: ["light"]
           visible: false
+    #ADT start TWEARK  Borg Syndicate Buff
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        450: Critical
+        500: Dead
+    - type: Damageable
+      damageModifierSet: ADTBorgChassisSyndicateAssaultSet
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMicroreactor  
+    #ADT End Borg Syndicate buff
     - type: BorgChassis
       maxModules: 3
       moduleWhitelist:
