@@ -511,7 +511,7 @@ namespace Content.Server.GameTicking
 
             foreach (var playerInfo in groupedPlayers)
             {
-                stringBuilder.AppendLine($"*{playerInfo.PlayerOOCName}* '**{playerInfo.PlayerICName}**' в роли: {Loc.GetString(playerInfo.Roles)}");
+                stringBuilder.AppendLine($"`{playerInfo.PlayerOOCName}` '**{playerInfo.PlayerICName}**' в роли: {Loc.GetString(playerInfo.Roles)}");
             }
 
             return stringBuilder.ToString();
