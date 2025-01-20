@@ -345,7 +345,7 @@ namespace Content.Server.GameTicking
                 Log.Error($"Error while showing round end scoreboard: {e}");
             }
 
-            // try
+            // try // ADT-Tweak: Закоменчено, эту функцию вызываем в другом месте.
             // {
             //     SendRoundEndDiscordMessage();
             // }
