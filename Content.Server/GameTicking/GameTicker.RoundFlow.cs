@@ -464,16 +464,40 @@ namespace Content.Server.GameTicking
 
             return text;
         }
-        // Метод для разбивки сообщения на части
+        // Метод для разделения сообщения на части по предложениям
         private List<string> SplitMessage(string message, int maxLength)
         {
             var parts = new List<string>();
-            for (int i = 0; i < message.Length; i += maxLength)
+            var sentences = message.Split(new[] { ". ", "! ", "? " }, StringSplitOptions.None);  // Разделяем на предложения по символам ". ", "! ", "? "
+
+            var currentPart = new System.Text.StringBuilder();
+
+            foreach (var sentence in sentences)
             {
-                // Берем подстроку длиной maxLength или оставшуюся часть сообщения
-                var part = message.Substring(i, Math.Min(maxLength, message.Length - i));
-                parts.Add(part);
+                // Добавляем предложение в текущую часть
+                if (currentPart.Length + sentence.Length + 1 <= maxLength) // +1 для учёта пробела
+                {
+                    if (currentPart.Length > 0)
+                    {
+                        currentPart.Append(". ");  // Добавляем точку и пробел
+                    }
+                    currentPart.Append(sentence);
+                }
+                else
+                {
+                    // Если текущая часть слишком длинная, сохраняем её в список
+                    parts.Add(currentPart.ToString());
+                    currentPart.Clear();
+                    currentPart.Append(sentence); // Начинаем новую часть с этого предложения
+                }
             }
+
+            // Добавляем последнюю часть, если она не пустая
+            if (currentPart.Length > 0)
+            {
+                parts.Add(currentPart.ToString());
+            }
+
             return parts;
         }
         // Метод для отправки сообщения о завершении раунда с группировкой игроков
@@ -489,9 +513,30 @@ namespace Content.Server.GameTicking
             if (!string.IsNullOrWhiteSpace(roundEndTextMarkdown))
             {
                 var content = $"**Информация**: {roundEndTextMarkdown}\n";
-                var payloadd = new WebhookPayload { Content = content };
-                payloadd.AllowedMentions.AllowRoleMentions();
-                SendWebHOOkDiscrodInfoENDRound(payloadd);
+
+                // Проверяем, не превышает ли длина контента лимит Discord
+                const int discordMessageLimit = 2000;
+
+                if (content.Length > discordMessageLimit)
+                {
+                    // Разбиваем на части, если контент слишком длинный
+                    var parts = SplitMessage(content, discordMessageLimit);
+
+                    // Отправляем каждую часть по очереди
+                    foreach (var part in parts)
+                    {
+                        var payloadd = new WebhookPayload { Content = part };
+                        payloadd.AllowedMentions.AllowRoleMentions();
+                        SendWebHOOkDiscrodInfoENDRound(payloadd);
+                    }
+                }
+                else
+                {
+                    // Если контент не превышает лимит, отправляем целиком
+                    var payloadd = new WebhookPayload { Content = content };
+                    payloadd.AllowedMentions.AllowRoleMentions();
+                    SendWebHOOkDiscrodInfoENDRound(payloadd);
+                }
             }
 
             var groupedPlayers = playerInfoArray
