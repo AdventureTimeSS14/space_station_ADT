@@ -127,3 +127,16 @@
   icon:
     sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
     state: icon
+
+- type: construction
+  name: handmade crowbar
+  id: ADTHandmadeCrowbar
+  graph: ADTHandmadeCrowbarGraph
+  startNode: start
+  targetNode: сrowbar
+  category: construction-category-weapons
+  objectType: Item
+  description: This is real need you?.
+  icon:
+    sprite: Objects/Tools/crowbar.rsi
+    state: icon

@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: ADTHandmadeCrowbarGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTCompHandmadeCrowbar
+      steps:
+      - material: MetalRod
+        amount: 3
+        doAfter: 1
+  - node: ADTCompHandmadeCrowbar
+    entity: Crowbar
