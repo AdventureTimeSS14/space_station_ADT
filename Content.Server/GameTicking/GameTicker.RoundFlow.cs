@@ -476,10 +476,10 @@ namespace Content.Server.GameTicking
             }
             return parts;
         }
+        // Метод для отправки сообщения о завершении раунда с группировкой игроков
         private string GenerateRoundEndSummary(string gamemodeTitle, string roundEndText, RoundEndMessageEvent.RoundEndPlayerInfo[] playerInfoArray)
         {
             var roundEndTextMarkdown = ConvertBBCodeToMarkdown(roundEndText);
-
 
             var contentt = $"**Режим**: {gamemodeTitle}\n";
             var payload = new WebhookPayload { Content = contentt };
@@ -509,9 +509,27 @@ namespace Content.Server.GameTicking
             stringBuilder.AppendLine($"**Всего было игроков**: {totalPlayers}\n");
             stringBuilder.AppendLine($"**Игроки**:\n");
 
-            foreach (var playerInfo in groupedPlayers)
+            // Разбиваем список игроков на группы по 30 человек
+            var playerChunks = groupedPlayers
+                .Select((player, index) => new { Index = index, Player = player })
+                .GroupBy(x => x.Index / 30)
+                .Select(g => g.Select(x => x.Player).ToList())
+                .ToList();
+
+            // Отправляем группы по 30 игроков
+            foreach (var chunk in playerChunks)
             {
-                stringBuilder.AppendLine($"`{playerInfo.PlayerOOCName}` '**{playerInfo.PlayerICName}**' в роли: {Loc.GetString(playerInfo.Roles)}");
+                var chunkStringBuilder = new System.Text.StringBuilder();
+                foreach (var playerInfo in chunk)
+                {
+                    chunkStringBuilder.AppendLine($"`{playerInfo.PlayerOOCName}` '**{playerInfo.PlayerICName}**' в роли: {Loc.GetString(playerInfo.Roles)}");
+                }
+
+                // Отправка каждого чанка в Discord
+                var content = chunkStringBuilder.ToString();
+                var chunkPayload = new WebhookPayload { Content = content };
+                payload.AllowedMentions.AllowRoleMentions();
+                SendWebHOOkDiscrodInfoENDRound(chunkPayload);
             }
 
             return stringBuilder.ToString();
