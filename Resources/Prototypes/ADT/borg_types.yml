@@ -1,0 +1,30 @@
+- type: borgType
+  id: security
+
+  # Description
+  dummyPrototype: ADTBorgChassisSec
+
+  # Functional
+  extraModuleCount: 4
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - ADTBorgModuleSecurity
+  defaultModules:
+  - BorgModuleTool
+  - ADTBorgModuleDetention
+
+  radioChannels:
+  - Science
+  - Security
+
+  # Visual
+  inventoryTemplateId: adtborgVeryTall
+  spriteBodyState: sec
+  spriteHasMindState: sec_e
+  spriteNoMindState: sec_e_r
+  spriteToggleLightState: sec_l
+
+  # Pet
+  petSuccessString: petting-success-generic-cyborg
+  petFailureString: petting-failure-generic-cyborg
