@@ -15,6 +15,8 @@
   - Unsexed
   # ADT Species window start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
+  pros:
+  - Если у вокса имеется менее 20 единиц повреждений от ядов, он восстанавливает их.
   cons:
   - Получают урон при вдыхании кислорода.
   # ADT Species window end
