@@ -455,4 +455,8 @@
   id: PKA
 
 - type: Tag
+  id: ADTStorageBlacklist
+
+- type: Tag
   id: LavaDungeonBloodMiner
+
