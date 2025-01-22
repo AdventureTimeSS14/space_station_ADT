@@ -58,7 +58,8 @@
   components:
   - type: Anchorable
   - type: Rotatable
-  - type: Physics # ADT CHANGE START sleep
+  # ADT CHANGE START sleep
+  - type: Physics
     bodyType: Static
   - type: Fixtures
     fixtures:
@@ -71,7 +72,8 @@
         - TableMask
   - type: Strap
     position: Down
-    rotation: 0 # ADT CHANGE END sleep
+    rotation: 0
+  # ADT CHANGE END sleep
 
 #Start anchored, cannot be rotated while anchored
 - type: entity
