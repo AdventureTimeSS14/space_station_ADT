@@ -36,7 +36,7 @@
           - /Maps/ADTMaps/Ruins/kamikaze.yml
           - /Maps/ADTMaps/Ruins/rnd_debris.yml
           - /Maps/ADTMaps/Ruins/sindy_apling.yml
-          - /Maps/ADTMaps/Ruins/syndi_base.yml
+          # - /Maps/ADTMaps/Ruins/syndi_base.yml Сказали убрать из пула
           - /Maps/ADTMaps/Ruins/ussp_asteroid.yml
           - /Maps/ADTMaps/Ruins/ussp_debris.yml
         # ADT Ruins End

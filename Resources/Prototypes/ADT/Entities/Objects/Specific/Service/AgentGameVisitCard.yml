@@ -1,0 +1,25 @@
+- type: entity
+  id: ADTGameAntagCard
+  name: Strange business card
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  description: A strange business card with the letter "S" on the back..
+  suffix: Антаг
+  components:
+  - type: Sprite 
+    sprite: ADT/Objects/Specific/Service/agent_game_visit_card.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+      soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: StaminaDamageOnCollide
+    damage: 35
+  - type: Item
+    size: Tiny
+    

@@ -7,7 +7,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Projectiles/projectiles2.rsi, state: ball }
   productEntity: CannonBall
   cost:
-    Piastre: 100
+    Piastre: 2200
   categories:
   - ADTPirate
 
@@ -19,7 +19,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: grapeshot }
   productEntity: CannonBallGrapeshot
   cost:
-    Piastre: 120
+    Piastre: 1060
   categories:
   - ADTPirate
 
@@ -30,7 +30,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/sawn.rsi, state: icon }
   productEntity: WeaponShotgunSawn
   cost:
-    Piastre: 1200
+    Piastre: 5000
   categories:
   - ADTPirate
 
@@ -41,7 +41,7 @@
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi, state: icon }
   productEntity: WeaponRevolverPirate
   cost:
-    Piastre: 1000
+    Piastre: 3000
   categories:
   - ADTPirate
 
@@ -52,7 +52,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/pirate_cannon.rsi, state: icon }
   productEntity: WeaponLauncherPirateCannon
   cost:
-    Piastre: 2000
+    Piastre: 21000
   categories:
   - ADTPirate
 
@@ -63,7 +63,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/podwars_armor.rsi, state: icon }
   productEntity: ClothingOuterArmorPodWars
   cost:
-    Piastre: 2000
+    Piastre: 12000
   categories:
   - ADTPirate
 
@@ -74,7 +74,7 @@
   icon: { sprite: /Textures/Clothing/Head/Helmets/podwars_helmet.rsi, state: icon }
   productEntity: ClothingHeadHelmetPodWars
   cost:
-    Piastre: 1500
+    Piastre: 4500
   categories:
   - ADTPirate
 
@@ -85,7 +85,7 @@
   icon: { sprite: /Textures/Corvax/Clothing/OuterClothing/Coats/captain.rsi, state: icon }
   productEntity: ClothingOuterCoatCaptain
   cost:
-    Piastre: 2500
+    Piastre: 18000
   categories:
   - ADTPirate
 
@@ -96,7 +96,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/svalinn.rsi, state: icon }
   productEntity: WeaponLaserSvalinn
   cost:
-    Piastre: 1000
+    Piastre: 6000
   categories:
   - ADTPirate
 
@@ -107,7 +107,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Battery/laser_retro.rsi, state: icon }
   productEntity: WeaponLaserGun
   cost:
-    Piastre: 1900
+    Piastre: 5000
   categories:
   - ADTPirate
 
@@ -118,7 +118,7 @@
   icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi, state: icon }
   productEntity: ADTWeaponCutterAdv
   cost:
-    Piastre: 2500
+    Piastre: 4000
   categories:
   - ADTPirate
 
@@ -129,7 +129,7 @@
   icon: { sprite: /Textures/Objects/Power/power_cells.rsi, state: microreactor }
   productEntity: PowerCellMicroreactor
   cost:
-    Piastre: 3000
+    Piastre: 9000
   categories:
   - ADTPirate
 
@@ -138,9 +138,9 @@
   name: uplink-pirate-pirate-name
   description: uplink-pirate-pirate-desc
   icon: { sprite: /Textures/Mobs/Species/Skeleton/parts.rsi, state: skull_icon }
-  productEntity: ADTMobSkeletonPirate
+  productEntity: ADTSpawnPointPirate
   cost:
-    Piastre: 6000
+    Piastre: 40000
   categories:
   - ADTPirate
 
@@ -149,9 +149,9 @@
   name: uplink-pirate-cannon-name
   description: uplink-pirate-cannon-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shuttles/pirate_cannon.rsi, state: base }
-  productEntity: ShuttleGunPirateCannon 
+  productEntity: ShuttleGunPirateCannon
   cost:
-    Piastre: 4500
+    Piastre: 18500
   categories:
   - ADTPirate
 
@@ -162,7 +162,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Grenades/grenade.rsi, state: icon }
   productEntity: ExGrenade
   cost:
-    Piastre: 500
+    Piastre: 1000
   categories:
   - ADTPirate
 
@@ -173,7 +173,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Grenades/empgrenade.rsi, state: icon }
   productEntity: EmpGrenade
   cost:
-    Piastre: 500
+    Piastre: 2500
   categories:
   - ADTPirate
 
@@ -184,7 +184,7 @@
   icon: { sprite: /Textures/Objects/Consumable/Drinks/glass_white.rsi, state: icon }
   productEntity: DrinkMilkCarton
   cost:
-    Piastre: 500
+    Piastre: 2000
   categories:
   - ADTPirate
 
@@ -195,7 +195,7 @@
   icon: { sprite: /Textures/Mobs/Animals/cow.rsi, state: cow }
   productEntity: MobCow
   cost:
-    Piastre: 7000
+    Piastre: 21000
   categories:
   - ADTPirate
 
@@ -206,18 +206,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/bulletproof.rsi, state: icon }
   productEntity: ClothingOuterArmorBulletproof
   cost:
-    Piastre: 4000
-  categories:
-  - ADTPirate
-
-- type: listing
-  id: ADTPirateMagnum
-  name: uplink-pirate-bullet-magnum-name
-  description: uplink-pirate-bullet-magnum-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
-  productEntity: SpeedLoaderMagnum
-  cost:
-    Piastre: 300
+    Piastre: 3000
   categories:
   - ADTPirate
 
@@ -228,7 +217,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
   productEntity: SpeedLoaderMagnum
   cost:
-    Piastre: 300
+    Piastre: 900
   categories:
   - ADTPirate
 
@@ -239,6 +228,6 @@
   icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: shelllethal }
   productEntity: BoxLethalshot
   cost:
-    Piastre: 300
+    Piastre: 1100
   categories:
   - ADTPirate

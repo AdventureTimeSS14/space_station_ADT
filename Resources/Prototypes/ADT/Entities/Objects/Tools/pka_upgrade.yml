@@ -103,3 +103,5 @@
       color: "#ffeead"
       enabled: false
       radius: 4
+  - type: GunUpgradeSpeed
+    coefficient: 1
