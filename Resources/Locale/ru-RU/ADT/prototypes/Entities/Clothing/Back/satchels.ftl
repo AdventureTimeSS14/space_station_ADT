@@ -6,6 +6,3 @@ ent-ADTClothingCentComBackpack = сумка Центком
 
 ent-ADTClothingBackpackSatchelParamedic = сумка парамедика
     .desc = Стерильная сумка для экстренных вызовов медицинской помощи.
-
-ent-ClothingBackpackSatchelBrigmedic = сумка бригмедика
-    .desc = Стерильная сумка для оказания медицинской помощи в полевых условиях.
