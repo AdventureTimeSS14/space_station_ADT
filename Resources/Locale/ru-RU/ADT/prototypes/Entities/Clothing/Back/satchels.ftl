@@ -4,5 +4,8 @@ ent-ADTClothingBackpackSatchelBlueshield = сумка Офицера "Синий
 ent-ADTClothingCentComBackpack = сумка Центком
     .desc = Зелёная сумка. Пахнет свежестью.
 
-ent-ADTClothingBackpackSatchelParamedic = сумка Парамедика
+ent-ADTClothingBackpackSatchelParamedic = сумка парамедика
     .desc = Стерильная сумка для экстренных вызовов медицинской помощи.
+
+ent-ClothingBackpackSatchelBrigmedic = сумка бригмедика
+    .desc = Стерильная сумка для оказания медицинской помощи в полевых условиях.
