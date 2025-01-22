@@ -19,7 +19,7 @@
   - Security
 
   # Visual
-  inventoryTemplateId: adtborgVeryTall
+  inventoryTemplateId: borgTall
   spriteBodyState: sec
   spriteHasMindState: sec_e
   spriteNoMindState: sec_e_r
