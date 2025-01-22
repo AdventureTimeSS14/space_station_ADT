@@ -1286,18 +1286,24 @@
       - ADTClothingBackpackCargo
       - ADTClothingBackpackMedical
       - ADTClothingBackpackEngineering
+      - ADTClothingBackpackClown
+      - ADTClothingBackpackMime
       - ADTClothingBackpackSatchel
       - ADTClothingBackpackSatchelSecurity
       - ADTClothingBackpackSatchelScience
       - ADTClothingBackpackSatchelCargo
       - ADTClothingBackpackSatchelMedical
       - ADTClothingBackpackSatchelEngineering
+      - ADTClothingBackpackSatchelClown
+      - ADTClothingBackpackSatchelMime
       - ADTClothingBackpackDuffel
       - ADTClothingBackpackDuffelSecurity
       - ADTClothingBackpackDuffelScience
       - ADTClothingBackpackDuffelCargo
       - ADTClothingBackpackDuffelMedical
       - ADTClothingBackpackDuffelEngineering
+      - ADTClothingBackpackDuffelClown
+      - ADTClothingBackpackDuffelMime
       - ADTClothingBackpackDuffelDurathead
       # ADT Backpacks End
   - type: EmagLatheRecipes
