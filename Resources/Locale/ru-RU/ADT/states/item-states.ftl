@@ -1,2 +1,2 @@
-comp-switchable-examined-on = Сложен
-comp-switchable-examined-off = Разложен
+comp-switchable-examined-on = Разложен
+comp-switchable-examined-off = Сложен
