@@ -48,7 +48,7 @@
     sprite: ADT/Clothing/Back/paramedic_duffel.rsi
 
 - type: entity
-  parent: ClothingBackpackDuffelMedical
+  parent: ADTClothingBackpackDuffelParamedic
   id: ADTClothingBackpackDuffelParamedicFilled
   name: parsmedical duffel bag
   suffix: Paramedic,Filled

@@ -72,7 +72,7 @@
     sprite: ADT/Clothing/Back/paramedic_backpack.rsi
 
 - type: entity
-  parent: ClothingBackpackMedical
+  parent: ADTClothingBackpackParamedic
   id: ADTClothingBackpackParamedicFilled
   name: paramedical backpack
   suffix: Paramedic,Filled
