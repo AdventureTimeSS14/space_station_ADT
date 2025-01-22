@@ -1,54 +1,62 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by #boctonskuitea (discord)",
+  "copyright": "Made by #boctonskuitea (discord), refactored by discord:moroz_3",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "icon-creek"
-    },
-    {
-      "name": "icon-holy"
+      "name": "icon-hunter"
     },
     {
       "name": "icon-monk"
     },
     {
-      "name": "icon-sonfariel"
+      "name": "icon-rivulet"
     },
     {
-      "name": "icon-spear-master"
+      "name": "icon-saint"
     },
     {
-      "name": "icon-technician"
+      "name": "icon-spearmaster"
     },
     {
-      "name": "creek-rest"
+      "name": "icon-survivor"
     },
     {
-      "name": "holy-rest"
+      "name": "icon-artificer"
+    },
+    {
+      "name": "icon-watcher"
+    },
+    {
+      "name": "hunter-rest"
     },
     {
       "name": "monk-rest"
     },
     {
-      "name": "sonfariel-rest"
+      "name": "rivulet-rest"
     },
     {
-      "name": "spear-master-rest"
+      "name": "saint-rest"
     },
     {
-      "name": "technician-rest"
+      "name": "spearmaster-rest"
     },
     {
-      "name": "creek",
-      "directions": 4
+      "name": "survivor-rest"
     },
     {
-      "name": "holy",
+      "name": "artificer-rest"
+    },
+    {
+      "name": "watcher-rest"
+    },
+    {
+      "name": "hunter",
       "directions": 4
     },
     {
@@ -56,34 +64,76 @@
       "directions": 4
     },
     {
-      "name": "sonfariel",
+      "name": "rivulet",
       "directions": 4
     },
     {
-      "name": "spear-master",
+      "name": "saint",
       "directions": 4
     },
     {
-      "name": "technician",
+      "name": "spearmaster",
       "directions": 4
     },
     {
-      "name": "dead-creek"
+      "name": "survivor",
+      "directions": 4
     },
     {
-      "name": "dead-holy"
+      "name": "artificer",
+      "directions": 4
+    },
+    {
+      "name": "watcher",
+      "directions": 4
+    },
+    {
+      "name": "dead-hunter"
     },
     {
       "name": "dead-monk"
     },
     {
-      "name": "dead-sonfariel"
+      "name": "dead-rivulet"
     },
     {
-      "name": "dead-spear-master"
+      "name": "dead-saint"
     },
     {
-      "name": "dead-technician"
+      "name": "dead-spearmaster"
+    },
+    {
+      "name": "dead-survivor"
+    },
+    {
+      "name": "dead-artificer"
+    },
+    {
+      "name": "dead-watcher"
+    },
+    {
+      "name": "crit-hunter"
+    },
+    {
+      "name": "crit-monk"
+    },
+    {
+      "name": "crit-rivulet"
+    },
+    {
+      "name": "crit-saint"
+    },
+    {
+      "name": "crit-spearmaster"
+    },
+    {
+      "name": "crit-survivor"
+    },
+    {
+      "name": "crit-artificer"
+    },
+    {
+      "name": "crit-watcher"
     }
   ]
 }
