@@ -1,0 +1,33 @@
+- type: entity
+  parent: [BaseStructure]
+  id: ADTmarbleMan
+  name: marble man
+  description: he stands
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/marbleman.rsi
+    state: marman
+    noRot: true
+    snapCardinals: true
+    drawdepth: Mobs
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTmarble:
+            min: 1
+            max: 3
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam

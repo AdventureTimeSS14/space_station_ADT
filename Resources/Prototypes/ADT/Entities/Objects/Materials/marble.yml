@@ -1,0 +1,19 @@
+
+
+- type: entity
+  id: ADTmarble
+  parent: BaseItem
+  name: marble
+  description: marble... So what?
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: ADT/Objects/Materials/marble.rsi
+    layers:
+    - state: icon
+  - type: Appearance
+  - type: Material
+  - type: PhysicalComposition
+  - type: StaticPrice
+    price: 300

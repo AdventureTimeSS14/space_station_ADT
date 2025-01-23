@@ -1,0 +1,32 @@
+- type: entity
+  parent: [BaseStructure]
+  id: ADTmarblelady
+  name: beutiful marble lady
+  description: She's so pretty
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/marble_lady.rsi
+    state: marlady
+    snapCardinals: true
+    drawdepth: Mobs
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTmarble:
+            min: 1
+            max: 3
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam

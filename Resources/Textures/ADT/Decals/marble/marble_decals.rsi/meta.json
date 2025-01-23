@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by ADT team",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "marble_box"
+        },
+        {
+            "name": "marble_corner_ne"
+        },
+        {
+            "name": "marble_corner_nw"
+        },
+        {
+            "name": "marble_corner_se"
+        },
+        {
+            "name": "marble_corner_sw"
+        },
+        {
+            "name": "marble_end_e"
+        },
+        {
+            "name": "marble_end_n"
+        },
+        {
+            "name": "marble_end_s"
+        },
+        {
+            "name": "marble_end_w"
+        },
+        {
+            "name": "marble_inner_ne"
+        },
+        {
+            "name": "marble_inner_nw"
+        },
+        {
+            "name": "marble_inner_se"
+        },
+        {
+            "name": "marble_inner_sw"
+        },
+        {
+            "name": "marble_line_e"
+        },
+        {
+            "name": "marble_line_w"
+        },
+        {
+            "name": "marble_line_n"
+        },
+        {
+            "name": "marble_line_s"
+        }
+    ]
+}
