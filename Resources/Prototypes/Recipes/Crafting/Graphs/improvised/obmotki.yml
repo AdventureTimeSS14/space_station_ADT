@@ -6,7 +6,7 @@
       edges:
         - to: WrapsWhite
           steps:
-            - material: cloth
+            - material: Cloth
               amount: 2
 
 
