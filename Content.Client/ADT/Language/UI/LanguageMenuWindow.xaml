@@ -1,10 +1,12 @@
 <!--Original window taken from https://github.com/new-frontiers-14/frontier-station-14/pull/671-->
-<DefaultWindow xmlns="https://spacestation14.io"
+<ui:FancyWindow xmlns="https://spacestation14.io"
                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                Title="a"
-               SetSize="400 450">
+               SetSize="400 450"
+               MaxSize="600 850">
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
-        <PanelContainer Name="CurrentLanguageContainer" Access="Public" StyleClasses="PdaBorderRect">
+        <PanelContainer Name="CurrentLanguageContainer" Access="Public" StyleClasses="PdaBorderRect"
+            Margin="5">
             <Label Name="CurrentLanguageLabel" Access="Public" Text="Current Language:" HorizontalExpand="True"></Label>
         </PanelContainer>
 
@@ -16,4 +18,4 @@
             </BoxContainer>
         </ScrollContainer>
     </BoxContainer>
-</DefaultWindow>
+</ui:FancyWindow>

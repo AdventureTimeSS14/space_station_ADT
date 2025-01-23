@@ -1,12 +1,14 @@
 <Control
-    xmlns="https://spacestation14.io">
+    xmlns="https://spacestation14.io"
+    Margin="5">
     <PanelContainer Name="Wrapper"
         StyleClasses="PdaBorderRect">
         <BoxContainer Orientation="Vertical">
             <BoxContainer
                 Orientation="Horizontal"
                 HorizontalExpand="True"
-                SeparationOverride="2">
+                SeparationOverride="2"
+                Margin="4">
                 <Label Name="Name"
                     MinWidth="50"
                     HorizontalExpand="True"/>
@@ -21,7 +23,7 @@
                 <CollapsibleBody
                     HorizontalExpand="True"
                     Margin="4">
-                    <RichTextLabel Name="Description" />
+                    <RichTextLabel Name="Description" MaxWidth="700" />
                 </CollapsibleBody>
             </Collapsible>
         </BoxContainer>
