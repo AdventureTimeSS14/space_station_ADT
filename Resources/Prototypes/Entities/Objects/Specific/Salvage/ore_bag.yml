@@ -31,4 +31,5 @@
   - type: Tag
     tags:
     - ADTOreBag
+    - ADTStorageBlacklist
   # ADT tweak end

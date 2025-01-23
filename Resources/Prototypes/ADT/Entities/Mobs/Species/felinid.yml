@@ -165,12 +165,9 @@
     interactDelay: 4
   - type: NyaAccent
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Nekomimetic
-    understands:
-    - GalacticCommon
-    - Nekomimetic
+    languages:
+      GalacticCommon: Speak
+      Nekomimetic: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 0.95

@@ -63,10 +63,8 @@
     tags:
     - BypassInteractionRangeChecks
   - type: LanguageSpeaker
-    speaks:
-    - Universal
-    understands:
-    - Universal
+    languages:
+      Universal: Understand
   #ADT Observer PDA start
   - type: Hands
     showInHands: false

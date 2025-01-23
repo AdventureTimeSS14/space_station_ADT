@@ -17,7 +17,7 @@
 
 - type: entity
   id: MofficTranslatorImplanter
-  name: Moffic Translator implanter
+  name: Arachnid Translator implanter
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
@@ -118,15 +118,6 @@
   components:
   - type: Implanter
     implant: ArkaneTranslatorImplant
-
-- type: entity
-  id: ShadekinTranslatorImplanter
-  parent: BaseImplantOnlyImplanter
-  name: Shadekin translator implant
-  description: "An implant giving the ability to understand and speak Shadekin language."
-  components:
-  - type: Implanter
-    implant: ShadekinTranslatorImplant
 
 - type: entity
   id: DwarfTranslatorImplanter

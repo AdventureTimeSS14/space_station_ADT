@@ -7,3 +7,14 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
+  # ADT start
+  pros:
+  - Не получают вреда от алкоголя.
+  - Лечат механические травмы, пока в организме имеется алкоголь.
+  special:
+  - Ходячий мем.
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
+  defaultLanguages:
+  - GalacticCommon
+  - Dwarf
+  # ADT end
