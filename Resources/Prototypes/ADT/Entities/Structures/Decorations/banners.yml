@@ -18,3 +18,13 @@
     sprite: ADT/Structures/Decoration/banners48x48.rsi
     state: mgdflag
     scale: 0.75, 0.75
+
+- type: entity
+  id: ADTBannerPirate
+  parent: BannerBase
+  name: pirate banner
+  description: pirate banner.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/pirate.rsi
+    state: icon

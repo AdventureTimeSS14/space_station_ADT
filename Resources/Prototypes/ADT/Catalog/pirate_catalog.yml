@@ -11,7 +11,6 @@
   categories:
   - ADTPirate
 
-
 - type: listing
   id: ADTPirateGrapeshot
   name: uplink-pirate-grapeshot-name
@@ -229,5 +228,16 @@
   productEntity: BoxLethalshot
   cost:
     Piastre: 1100
+  categories:
+  - ADTPirate
+
+- type: listing
+  id: ADTCarpPirate
+  name: uplink-pirate-carppirate-name
+  description: uplink-pirate-carppirate-desc
+  icon: { sprite: /Textures/ADT/Mobs/Aliens/carppirate.rsi, state: icon }
+  productEntity: ADTMobCarpPirate
+  cost:
+    Piastre: 1500
   categories:
   - ADTPirate
