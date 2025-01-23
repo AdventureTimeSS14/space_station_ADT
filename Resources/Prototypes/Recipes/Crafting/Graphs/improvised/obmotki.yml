@@ -1,0 +1,14 @@
+- type: constructionGraph
+  id: ADTClothingFootWrapsWhite
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WrapsWhite
+          steps:
+            - material: cloth
+              amount: 2
+
+
+    - node: ADTClothingFootWrapsWhite
+      entity: ADTClothingFootWrapsWhite
