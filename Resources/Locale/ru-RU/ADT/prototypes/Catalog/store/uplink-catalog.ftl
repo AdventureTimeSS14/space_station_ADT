@@ -102,6 +102,9 @@ uplink-pirate-grapeshot-desc = Картечное ядро для пушки.
 uplink-pirate-sawn-name = обрез
 uplink-pirate-sawn-desc = Против всякой шелупони. Использует патроны калибра .50 ружейный.
 
+uplink-pirate-carppirate-name = костлявая рыба
+uplink-pirate-carppirate-desc = ЙААРРР! Ррррыбка!
+
 uplink-pirate-revolver-name = пиратский револьвер
 uplink-pirate-revolver-desc = Странный дульнозарядный револьвер, который использовали пираты. Использует патроны калибра .45 магнум.
 
