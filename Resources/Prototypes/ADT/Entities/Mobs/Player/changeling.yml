@@ -4,12 +4,10 @@
   suffix: changeling
   categories: [ HideSpawnMenu ]
   components:
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Monkey
-    understands:
-    - GalacticCommon
-    - Monkey
+  - type: LanguageSpeaker
+    languages:
+      Monkey: Speak
+      GalacticCommon: Understand
 
 - type: polymorph
   id: ADTChangelingLesserForm
@@ -111,11 +109,9 @@
     price: 5000
   - type: BadFood
   - type: NonSpreaderZombie
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Xeno
-    understands:
-    - Xeno
+  - type: LanguageSpeaker
+    languages:
+      Xeno: Speak
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg

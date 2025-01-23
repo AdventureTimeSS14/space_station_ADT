@@ -84,6 +84,10 @@ public sealed class SmokeSystem : EntitySystem
     {
         if (_smokeAffectedQuery.HasComponent(args.OtherEntity))
             return;
+        // ADT Tester fix start
+        if (Deleted(args.OtherEntity) || Terminating(args.OtherEntity))
+            return;
+        // ADT Tester fix end
 
         var smokeAffected = AddComp<SmokeAffectedComponent>(args.OtherEntity);
         smokeAffected.SmokeEntity = entity;
@@ -111,6 +115,11 @@ public sealed class SmokeSystem : EntitySystem
 
             if (!_smokeQuery.HasComponent(ent))
                 continue;
+
+            // ADT Tester fix start
+            if (Deleted(ent) || Terminating(ent))
+                continue;
+            // ADT Tester fix end
 
             smokeAffectedComponent ??= EnsureComp<SmokeAffectedComponent>(args.OtherEntity);
             smokeAffectedComponent.SmokeEntity = ent;

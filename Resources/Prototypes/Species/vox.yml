@@ -13,13 +13,18 @@
   naming: First
   sexes:
   - Unsexed
-  # ADT Species window start
+  # ADT start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
   pros:
   - Если у вокса имеется менее 20 единиц повреждений от ядов, он восстанавливает их.
   cons:
   - Получают урон при вдыхании кислорода.
-  # ADT Species window end
+  defaultLanguages:
+  - GalacticCommon
+  - VoxPidgin
+  uniqueLanguages:
+  - VoxPidgin
+  # ADT end
 
 - type: speciesBaseSprites
   id: MobVoxSprites

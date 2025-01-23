@@ -67,8 +67,9 @@
       types:
         Piercing: 6
   - type: MobState
-  - type: ReplacementAccent
-    accent: xeno
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -113,11 +114,9 @@
       groups:
         Brute: -0.07
         Burn: -0.07
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Moffic
-    understands:
-    - Moffic
+  - type: LanguageSpeaker
+    languages:
+      Arachnid: Speak
 
 - type: entity
   name: hunter
