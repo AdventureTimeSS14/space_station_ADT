@@ -3,3 +3,4 @@ ent-ADTMobCarpNukie = Карпкат
 
 ent-ADTMobCarpPirate = Костлявая рыба
     .desc = Склеен из костей своих товарищей
+    .suffix = Пират
