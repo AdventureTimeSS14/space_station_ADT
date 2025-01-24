@@ -143,6 +143,7 @@
     - Adrenaline # ADT-Medicine
     - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
+    - SeeingStatic 
   - type: Body
     prototype: Human
     requiredLegs: 2
