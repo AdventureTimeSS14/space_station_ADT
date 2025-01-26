@@ -584,20 +584,21 @@
   categories:
     - UplinkWearables
 
-- type: listing
-  id: ADTUplinkGFFImplant
-  name: uplink-GFF-name
-  description: uplink-GFF-desc
-  productEntity: ADTGorlaxFriendlyFireImplant
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+# Отключено до починки импланта
+# - type: listing
+#   id: ADTUplinkGFFImplant
+#   name: uplink-GFF-name
+#   description: uplink-GFF-desc
+#   productEntity: ADTGorlaxFriendlyFireImplanter
+#   cost:
+#     Telecrystal: 15
+#   categories:
+#   - UplinkImplants
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     whitelist:
+#       tags:
+#       - NukeOpsUplink
       
 - type: listing
   id: ADTUplinkInvisibleCloak
