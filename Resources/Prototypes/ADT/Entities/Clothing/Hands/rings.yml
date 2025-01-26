@@ -7,12 +7,12 @@
   - type: Sprite
     sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/RingBlood.rsi
+    sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
   - type: Item
     size: Tiny
   - type: StaticPrice
     price: 1000
-    
+
 - type: entity
   parent: ClothingHandsBase
   id: ADTClothingHandsRingEmerald

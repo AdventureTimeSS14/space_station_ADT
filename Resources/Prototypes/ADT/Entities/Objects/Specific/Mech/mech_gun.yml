@@ -345,8 +345,8 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: ADT40mmGrenadeHEAT
-    shots: 9
-    capacity: 9
+    shots: 4
+    capacity: 4
     ammoType: granade
     reloadTime: 5
   - type: UIFragment

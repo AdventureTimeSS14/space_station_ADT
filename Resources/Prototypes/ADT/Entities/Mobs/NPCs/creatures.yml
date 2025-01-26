@@ -243,13 +243,9 @@
   - type: Damageable
     damageModifierSet: ADTMobCreatureDamageSet
 #
-  # Frontier - languages mechanic
-#
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+    languages:
+      GalacticCommon: Speak
 
 - type: entity
   parent: [BaseMob, MobCombat]
@@ -290,10 +286,8 @@
     - Alive
     - Dead
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+    languages:
+      GalacticCommon: Speak
   - type: ComplexInteraction
   - type: Strippable
   - type: UserInterface

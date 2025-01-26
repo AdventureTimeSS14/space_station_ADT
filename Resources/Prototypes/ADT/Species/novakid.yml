@@ -23,6 +23,11 @@
   cons:
   - При получении смертельного урона разрываются на части.
   - Имеют повышенный урон от холода.
+  defaultLanguages:
+  - GalacticCommon
+  - Fire
+  uniqueLanguages:
+  - Fire
 
 - type: speciesBaseSprites
   id: MobNovakidSprites

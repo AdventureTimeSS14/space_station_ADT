@@ -35,3 +35,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/paramedic_satchel.rsi
+
+- type: entity
+  parent: ADTClothingBackpackSatchelParamedic
+  id: ADTClothingBackpackSatchelParamedicFilled
+  name: paramedical satchel
+  suffix: Paramedic,Filled
+  description: A satchel to store some paramedical equipment.
+  components:
+  - type: StorageFill
+    contents:
+      - id: JawsOfLife

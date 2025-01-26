@@ -78,11 +78,11 @@
 - type: latheRecipe
   id: ADT40mmGrenadeHEATRecipe
   result: ADT40mmGrenadeHEAT
-  completetime: 5
+  completetime: 15
   materials:
-    Steel: 300
-    Plastic: 100
-    Plasma: 100
+    Steel: 1000
+    Plastic: 1000
+    Plasma: 500
 
 - type: latheRecipe
   id: ADT40mmGrenadeBatonRecipe

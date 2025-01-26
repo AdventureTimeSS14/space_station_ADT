@@ -57,17 +57,13 @@ namespace Content.Server.Mind.Commands
                 entityManager.EnsureComponent<SpeechComponent>(uid);
                 entityManager.EnsureComponent<EmotingComponent>(uid);
 
-                // Lang start
+                // ADT Languages start
                 var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
-                if (!lang.SpokenLanguages.Contains("GalacticCommon"))
-                {
-                    lang.SpokenLanguages.Add("GalacticCommon");
-                }
-                if (!lang.UnderstoodLanguages.Contains("GalacticCommon"))
-                {
-                    lang.UnderstoodLanguages.Add("GalacticCommon");
-                }
-                // Lang end
+                if (!lang.Languages.ContainsKey("GalacticCommon"))
+                    lang.Languages.Add("GalacticCommon", LanguageKnowledge.Speak);
+                else
+                    lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
+                // ADT Langusges end
             }
 
             entityManager.EnsureComponent<ExaminerComponent>(uid);

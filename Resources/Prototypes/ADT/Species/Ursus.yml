@@ -18,6 +18,9 @@
   description: "/ServerInfo/ADT/SpeciesDescriptions/Urs.xml"
   pros:
   - Урсов не атакует космическая (карпы, клещи и т.д.) фауна.
+  defaultLanguages:
+  - GalacticCommon
+  - Urs
 
 - type: speciesBaseSprites
   id: MobUrsusSprites
