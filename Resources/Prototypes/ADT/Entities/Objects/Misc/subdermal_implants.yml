@@ -277,10 +277,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - VoxPidgin
-    toUnderstand:
-    - VoxPidgin
     languages:
       VoxPidgin: BadSpeak
       
