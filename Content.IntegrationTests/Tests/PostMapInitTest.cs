@@ -42,9 +42,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
             "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT edit
-            // ADT-New-Year-Start
-            "/Maps/ADTMaps/ADTStations/NewYear/adt_centcom.yml"
-            // ADT-New-Year-End
         };
 
         private static readonly string[] GameMaps =
