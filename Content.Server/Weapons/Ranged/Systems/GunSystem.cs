@@ -298,10 +298,10 @@ public sealed partial class GunSystem : SharedGunSystem
                     // ADT Mech start
                     if (TryComp<MechComponent>(user, out var hmech))
                     {
-                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, hmech.PilotSlot.ContainedEntity);
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, hmech.PilotSlot.ContainedEntity);
                     }
                     else
-                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     // ADT Mech end
                     break;
                 default:

@@ -11,15 +11,23 @@
   maleFirstNames: names_reptilian_male
   femaleFirstNames: names_reptilian_female
   naming: FirstDashFirst
-  # ADT Species window start
+  # ADT start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unath.xml"
   pros:
   - Могут таскать объекты хвостом.
+  - Меньше замедляются от накопленных повреждений.
+  - Имеют высокую комфортную температуру до 127 единиц по цельсию.
   special:
   - Имеют общий язык с таярами.
   cons:
+  - Получают на 30% больше урона от холода.
+  - Имеет низкую комфортную температуру до 12 единиц по цельсию.
   - Шприцы не могут пройти через чешую унатхов.
-  # ADT Species window end
+  defaultLanguages:
+  - GalacticCommon
+  - Draconic
+  - CintaTaj
+  # ADT end
 
 - type: speciesBaseSprites
   id: MobReptilianSprites

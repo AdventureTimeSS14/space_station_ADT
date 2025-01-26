@@ -658,9 +658,10 @@
   category: Mech
   completetime: 4
   materials:
-    Steel: 9000
-    Plastic: 3000
-    Gold: 1000
+    Steel: 27000
+    Plastic: 9000
+    Gold: 3000
+    Plasma: 2000
 
 - type: latheRecipe
   id: ADTBoxAmmoAC2Ultra
@@ -705,10 +706,10 @@
   category: Mech
   completetime: 1
   materials:
-    Steel: 550
-    Plastic: 150
-    Plasma: 100
-    Glass: 100
+    Steel: 1100
+    Plastic: 450
+    Plasma: 300
+    Glass: 300
 
 - type: latheRecipe
   id: ADTBoxPlasmaBox

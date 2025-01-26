@@ -427,6 +427,17 @@
     - Bartender
 
 - type: listing
+  id: ADTUplinkGameAntagCard
+  name: uplink-agent-game-visit-card-name
+  description: uplink-agent-game-visit-card-desc
+  icon: { sprite: ADT/Objects/Specific/Service/agent_game_visit_card.rsi, state: icon}
+  productEntity: ADTGameAntagCard
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: ADTuplinkExplosivePizzabox
   name: uplink-explosive-pizzabox-name
   description: uplink-explosive-pizzabox-desc

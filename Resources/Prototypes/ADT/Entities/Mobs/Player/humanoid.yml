@@ -808,7 +808,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - Syndicate
+      - Pirate # Изменено с Syndicate -> Pirate
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
@@ -825,7 +825,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - Syndicate
+      - Pirate # Изменено с Syndicate -> Pirate
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
@@ -838,7 +838,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - Syndicate
+      - Pirate # Изменено с Syndicate -> Pirate
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
