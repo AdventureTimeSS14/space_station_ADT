@@ -92,12 +92,12 @@ namespace Content.IntegrationTests.Tests
             "ADT_Box",
             "ADT_Cluster",
             //"ADT_Core",
-            //"ADT_Fland",
+            "ADT_Fland",
             "ADT_Delta",
             "ADT_Marathon",
             "ADT_Meta",
-            "ADT_Oasis",
-            "ADT_Origin",
+            //"ADT_Oasis",
+            //"ADT_Origin",
             "ADT_Saltern",
             "ADT_Packed",
             //"ADT_Train",
@@ -107,7 +107,7 @@ namespace Content.IntegrationTests.Tests
             //"ADT_Alley",
             //"ADT_kilo",
             //"ADT_Pie",
-            "ADT_Cluster_Legacy",
+            "ADT_Cluster_Legacy"
             // ADT-End
 
             // ADT-Halloween-Start
