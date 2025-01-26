@@ -122,14 +122,11 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Bubblish
-    understands:
-    - GalacticCommon
-    - Bubblish
   #Start ADT tweak
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Bubblish: Speak
   - type: SlimeHair # ADT-SlimeHair
   - type: SizeAttributeWhitelist # Frontier
     tall: true

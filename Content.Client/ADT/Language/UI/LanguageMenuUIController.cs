@@ -6,14 +6,19 @@ using Content.Client.UserInterface.Controls;
 using Content.Shared.Input;
 using Content.Client.ADT.Language.UI;
 using Robust.Shared.Input.Binding;
+using Robust.Client.Player;
+using Content.Client.ADT.Language;
+using System.Linq;
 
-namespace Content.Client.UserInterface.Systems.Language;    // ADT Languages
+namespace Content.Client.ADT.UserInterface.Systems.Language;
 
 public sealed class LanguageMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
 {
     public LanguageMenuWindow? _menu;
-    private MenuButton? LanguagesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.LanguagesButton;
+    private MenuButton? LanguagesButton => UIManager.GetActiveUIWidgetOrNull<Content.Client.UserInterface.Systems.MenuBar.Widgets.GameTopMenuBar>()?.LanguagesButton;
 
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
     public override void Initialize()
     {
 
@@ -25,7 +30,7 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
         if (_menu == null)
             return;
 
-        _menu.UpdateState(ev);
+        _menu.UpdateState(ev.CurrentLanguage, ev.Options, ev.TranslatorOptions);
     }
 
 
@@ -44,12 +49,23 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
 
     private void ToggleLanguagesMenu()
     {
+        var player = _player.LocalEntity;
+        if (!player.HasValue)
+            return;
+
         if (_menu == null)
         {
+            var lang = _entMan.System<LanguageSystem>();
+            if (!lang.GetLanguages(player, out _, out var translator, out var current) || !lang.GetLanguagesKnowledged(player, LanguageKnowledge.Understand, out var langs, out _))
+                return;
+
             // setup window
             _menu = UIManager.CreateWindow<LanguageMenuWindow>();
+            _menu.Owner = player.Value;
+            _menu.UpdateState(current, langs, translator);
             _menu.OnClose += OnWindowClosed;
             _menu.OnOpen += OnWindowOpen;
+            _menu.OnLanguageSelected += OnLanguageSelected;
 
             if (LanguagesButton != null)
                 LanguagesButton.SetClickPressed(true);
@@ -60,13 +76,23 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
         {
             _menu.OnClose -= OnWindowClosed;
             _menu.OnOpen -= OnWindowOpen;
-            //_menu.OnPlayEmote -= OnPlayEmote;
+            _menu.OnLanguageSelected -= OnLanguageSelected;
 
             if (LanguagesButton != null)
                 LanguagesButton.SetClickPressed(false);
 
             CloseMenu();
         }
+    }
+
+    private void OnLanguageSelected(string lang)
+    {
+        var player = _player.LocalEntity;
+        if (!player.HasValue)
+            return;
+
+        var ev = new LanguageChosenMessage(_entMan.GetNetEntity(player.Value), lang);
+        _entMan.RaisePredictiveEvent(ev);
     }
 
     public void UnloadButton()
