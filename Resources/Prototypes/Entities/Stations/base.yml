@@ -139,7 +139,7 @@
   abstract: true
   components:
     - type: StationCentcomm
-      map: "/Maps/corvax_centcom.yml"
+      map: "/Maps/corvax_centcomm.yml"
 
 - type: entity
   id: BaseStationEvacuation
