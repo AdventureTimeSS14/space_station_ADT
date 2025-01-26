@@ -14,6 +14,9 @@
   naming: firstlast
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vulpa.xml"
+  defaultLanguages:
+  - GalacticCommon
+  - Canilunzt
 
 - type: speciesBaseSprites
   id: MobVulpkaninSprites

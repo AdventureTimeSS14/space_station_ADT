@@ -1,0 +1,31 @@
+<Control
+    xmlns="https://spacestation14.io"
+    Margin="5">
+    <PanelContainer Name="Wrapper"
+        StyleClasses="PdaBorderRect">
+        <BoxContainer Orientation="Vertical">
+            <BoxContainer
+                Orientation="Horizontal"
+                HorizontalExpand="True"
+                SeparationOverride="2"
+                Margin="4">
+                <Label Name="Name"
+                    MinWidth="50"
+                    HorizontalExpand="True"/>
+                <Button Name="SelectButton"
+                    Text = "{Loc 'language-choose-button'}"
+                    Access="Public"/>
+            </BoxContainer>
+            <Collapsible
+                Orientation="Vertical"
+                HorizontalExpand="True">
+                <CollapsibleHeading Title="{Loc 'language-menu-description-header'}" />
+                <CollapsibleBody
+                    HorizontalExpand="True"
+                    Margin="4">
+                    <RichTextLabel Name="Description" MaxWidth="700" />
+                </CollapsibleBody>
+            </Collapsible>
+        </BoxContainer>
+    </PanelContainer>
+</Control>

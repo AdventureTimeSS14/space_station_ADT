@@ -327,7 +327,7 @@
       - VoiceTrigger
       - Igniter
       - HandHeldMassScanner
-      - PowerCellMicroreactor
+      # - PowerCellMicroreactor #ADT tweak
       - RCD #ADT Tweak
       - RCDAmmo #ADT Tweak
       - RPDAmmo #ADT Tweak
@@ -396,14 +396,12 @@
       - DraskTranslatorImplanter
       - UrsTranslatorImplanter
       - ArkaneTranslatorImplanter
-      - ShadekinTranslatorImplanter
       - CintaTajTranslatorImplanter
       - IPCTranslatorImplanter
       - BorgTranslatorImplanter
       - DwarfTranslatorImplanter
       - UrsTranslator
       - ArkaneTranslator
-      - ShadekinTranslator
       - NianTranslator
       - FireTranslator
       - SikTajTranslator
@@ -927,7 +925,6 @@
       - ADTAttachmentT2MiniscopeRecipe
       - ADTAttachmentM90UnderbarrelShotgunRecipe
       - ADTAttachmentM90GrenadeLauncherRecipe
-      - ADT40mmGrenadeHEATRecipe
       - ADT40mmGrenadeBatonRecipe
       - ADT40mmGrenadeEMPRecipe
       - ADT40mmGrenadeFlashRecipe
@@ -1286,18 +1283,24 @@
       - ADTClothingBackpackCargo
       - ADTClothingBackpackMedical
       - ADTClothingBackpackEngineering
+      - ADTClothingBackpackClown
+      - ADTClothingBackpackMime
       - ADTClothingBackpackSatchel
       - ADTClothingBackpackSatchelSecurity
       - ADTClothingBackpackSatchelScience
       - ADTClothingBackpackSatchelCargo
       - ADTClothingBackpackSatchelMedical
       - ADTClothingBackpackSatchelEngineering
+      - ADTClothingBackpackSatchelClown
+      - ADTClothingBackpackSatchelMime
       - ADTClothingBackpackDuffel
       - ADTClothingBackpackDuffelSecurity
       - ADTClothingBackpackDuffelScience
       - ADTClothingBackpackDuffelCargo
       - ADTClothingBackpackDuffelMedical
       - ADTClothingBackpackDuffelEngineering
+      - ADTClothingBackpackDuffelClown
+      - ADTClothingBackpackDuffelMime
       - ADTClothingBackpackDuffelDurathead
       # ADT Backpacks End
   - type: EmagLatheRecipes

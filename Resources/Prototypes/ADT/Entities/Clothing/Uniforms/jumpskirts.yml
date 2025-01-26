@@ -219,7 +219,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
+  id: ADTClothingUniformJumpskirtBrigmedicTurtleneck
   name: brigmedic turtleneck
   description: Comfortable and warm turtleneck. Especially for the guardian angel.
   components:

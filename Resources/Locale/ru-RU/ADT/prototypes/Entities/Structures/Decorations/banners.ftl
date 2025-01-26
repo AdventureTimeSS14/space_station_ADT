@@ -4,3 +4,7 @@ ent-ADTBannerTSFOld = знамя ТСФ
 ent-ADTBannerMGD = знамя MG&D
     .desc = Флаг корпорации MG&D - Marshall Gohnson & Dark
     .suffix = { "MG&D" }
+
+ent-ADTBannerPirate = знамя пиратов
+    .desc = Это знамя с логотипом пиратов.
+    .suffix = { "Пират" }

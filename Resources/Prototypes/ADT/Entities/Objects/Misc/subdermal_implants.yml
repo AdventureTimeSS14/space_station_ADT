@@ -17,10 +17,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - GalacticCommon
-    toUnderstand:
-    - GalacticCommon
+    languages:
+      GalacticCommon: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -30,10 +28,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Bubblish
-    toUnderstand:
-    - Bubblish
+    languages:
+      Bubblish: BadSpeak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -43,10 +39,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Nian
-    toUnderstand:
-    - Nian
+    languages:
+      Nian: BadSpeak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -56,10 +50,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-#    toSpeak:
-#    - RootSpeak  # Никто кроме дион не может шуршать ветками, когда их нет, даже с имплантом
-    toUnderstand:
-    - RootSpeak
+    languages:
+      RootSpeak: Understand
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -69,10 +61,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Nekomimetic
-    toUnderstand:
-    - Nekomimetic
+    languages:
+      Nekomimetic: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -82,10 +72,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Draconic
-    toUnderstand:
-    - Draconic
+    languages:
+      Draconic: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -95,10 +83,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Canilunzt
-    toUnderstand:
-    - Canilunzt
+    languages:
+      Canilunzt: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -108,10 +94,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - RobotTalk
-    toUnderstand:
-    - RobotTalk
+    languages:
+      RobotTalk: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -121,10 +105,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - BorgTalk
-    toUnderstand:
-    - BorgTalk
+    languages:
+      BorgTalk: Speak
 
 # - type: entity
 #   parent: BaseTranslatorImplant
@@ -135,9 +117,9 @@
 #   components:
 #   - type: TranslatorImplant
 #     toSpeak:
-#     - Moffic
+#     - Arachnid
 #     toUnderstand:
-#     - Moffic
+#     - Arachnid
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -147,10 +129,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-#    toSpeak:
-#    - Fire # как с дионами
-    toUnderstand:
-    - Fire
+    languages:
+      Fire: Understand
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -160,10 +140,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - SolCommon
-    toUnderstand:
-    - SolCommon
+    languages:
+      SolCommon: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -173,10 +151,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Drask
-    toUnderstand:
-    - Drask
+    languages:
+      Drask: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -186,10 +162,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Urs
-    toUnderstand:
-    - Urs
+    languages:
+      Urs: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -199,23 +173,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Arkane
-    toUnderstand:
-    - Arkane
-
-- type: entity
-  parent: BaseTranslatorImplant
-  id: ShadekinTranslatorImplant
-  name: translator implant
-  # description: This implant grants language knowledge.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: TranslatorImplant
-    toSpeak:
-    - Shadekin
-    toUnderstand:
-    - Shadekin
+    languages:
+      Arkane: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -225,10 +184,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Dwarf
-    toUnderstand:
-    - Dwarf
+    languages:
+      Dwarf: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -238,10 +195,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - CintaTaj
-    toUnderstand:
-    - CintaTaj
+    languages:
+      CintaTaj: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -251,25 +206,24 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toUnderstand:
-    - RobotTalk
-    - Shadekin
-    - Arkane
-    - Urs
-    - Drask
-    - Fire
-    - Nian
-    - SikTaj
-    - Moffic
-    - RootSpeak
-    - SolCommon
-    - Canilunzt
-    - Draconic
-    - Bubblish
-    - Nekomimetic
-    - BorgTalk
-    - Dwarf
-    - CintaTaj
+    languages:
+      RobotTalk: Understand
+      Arkane: Understand
+      Urs: Understand
+      Drask: Understand
+      Fire: Understand
+      Nian: Understand
+      SikTaj: Understand
+      Arachnid: Understand
+      RootSpeak: Understand
+      SolCommon: Understand
+      Canilunzt: Understand
+      Draconic: Understand
+      Bubblish: Understand
+      Nekomimetic: Understand
+      BorgTalk: Understand
+      Dwarf: Understand
+      CintaTaj: Understand
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -279,10 +233,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - CodeSpeak
-    toUnderstand:
-    - CodeSpeak
+    languages:
+      CodeSpeak: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -292,10 +244,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - SikTaj
-    toUnderstand:
-    - SikTaj
+    languages:
+      SikTaj: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -305,10 +255,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Nian
-    toUnderstand:
-    - Nian
+    languages:
+      Nian: BadSpeak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -318,10 +266,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - Dev
-    toUnderstand:
-    - Dev
+    languages:
+      Dev: Speak
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -331,7 +277,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
-    toSpeak:
-    - VoxPidgin
-    toUnderstand:
-    - VoxPidgin
+    languages:
+      VoxPidgin: BadSpeak
