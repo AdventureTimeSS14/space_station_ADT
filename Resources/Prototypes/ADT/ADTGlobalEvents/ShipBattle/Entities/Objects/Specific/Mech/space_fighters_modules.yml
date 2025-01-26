@@ -59,16 +59,16 @@
       - ADTMechEquipmentShuttleGun
 
 - type: entity
-  name: SRM-12 Missile Rack
+  name: SRM-9 Missile Rack
   parent: ADTBaseMechGun
-  id: ADTMechGunSRM12
-  description: SRM-12 Missile Rack
+  id: ADTMechGunSRM9
+  description: SRM-9 Missile Rack
   components:
   - type: Sprite
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_missilerack
   - type: Gun
-    fireRate: 2
+    fireRate: 1
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -78,8 +78,8 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: ADT40mmGrenadeBlast
-    shots: 12
-    capacity: 12
+    shots: 9
+    capacity: 9
     ammoType: granade
     reloadTime: 20
   - type: UIFragment

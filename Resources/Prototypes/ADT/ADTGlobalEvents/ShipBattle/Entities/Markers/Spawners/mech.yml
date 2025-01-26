@@ -25,3 +25,31 @@
   - type: ConditionalSpawner
     prototypes:
       - ADTMechKMTOneStar
+
+- type: entity
+  name: Sabre TSF Spawner
+  id: SpawnMechTSFSabre
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/sabre.rsi
+        state: sabre_tsf
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechTSFSabreFighter
+
+- type: entity
+  name: Sabre KMT Spawner
+  id: SpawnADTMechKMTSabre
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/sabre.rsi
+        state: sabre_kmt
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMechKMTSabreFighter

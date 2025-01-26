@@ -47,12 +47,12 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 1.5
+          radius: 1.2
         density: 1000
         mask:
-        - MobMask
+        - FlyingMobMask
         layer:
-        - MobLayer
+        - FlyingMobLayer
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Destructible
@@ -73,7 +73,7 @@
     damageModifierSet: null
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepHoverBorg
+      path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/space_fighter_flight.ogg
       params:
         volume: -6
   - type: MovementIgnoreGravity
@@ -87,19 +87,60 @@
         Blunt: 60 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 120
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5.0
-    baseSprintSpeed: 21.0
-    acceleration: 3
-    friction: 1.5
+    baseWalkSpeed: 5
+    baseSprintSpeed: 18
+    acceleration: 2
+    friction: 2
+    weightlessFriction: 5
+    weightlessAcceleration: 2.5
   - type: MechOverload
     damage:
       types:
-        Structural: 5
-  - type: MouseRotator
-    angleTolerance: 5
-    rotationSpeed: 180
-    simple4DirMode: false
+        Structural: 3
   - type: NoRotateOnInteract
-  - type: NoRotateOnMove
   - type: Input
     context: "human"
+  - type: Prying
+    pryPowered: false
+  - type: AmbientSound
+    sound: /Audio/Effects/shuttle_thruster.ogg
+    range: 12
+    volume: 6
+    enabled: true
+
+- type: entity
+  id: ADTMechKMTSabreFighter
+  parent: ADTMechTSFSabreFighter
+  name: KMT Sabre
+  description: Space Fighter
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/sabre.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: sabre_kmt
+  - type: Mech
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.25
+        Heat: 0.15
+        Radiation: 0.0
+        Caustic: 0.2
+        Structural: 0.5
+    maxintegrity: 500
+    baseState: sabre_kmt
+    openState: sabre_kmt-open
+    brokenState: sabre_kmt-broken
+    mechToPilotDamageMultiplier: 0.0
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentShuttleGun
+    maxEquipmentAmount: 3
