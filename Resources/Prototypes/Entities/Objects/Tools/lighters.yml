@@ -91,6 +91,9 @@
   # ADT Tweak Start
   - type: StaticPrice
     price: 80
+  - type: Tag
+    tags:
+    - ADTLighter
   # ADT Tweak END
 
 - type: entity
@@ -218,6 +221,11 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  # ADT Tweak Start
+  - type: Tag
+    tags:
+    - ADTLighter
+  # ADT Tweak END
 
 - type: entity
   name: flippo engraved lighter
