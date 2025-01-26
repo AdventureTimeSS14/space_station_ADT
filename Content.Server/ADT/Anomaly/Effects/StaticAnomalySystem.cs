@@ -30,7 +30,7 @@ public sealed class StaticAnomalySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StaticAnomalyComponent, AnomalyPulseEvent>(OnPulse);
+        /*        SubscribeLocalEvent<StaticAnomalyComponent, AnomalyPulseEvent>(OnPulse);*/
         //  SubscribeLocalEvent<SeeingStaticComponent, LocalPlayerAttachedEvent>(_static.OnPlayerAttached);
         //    SubscribeLocalEvent<SeeingStaticComponent, LocalPlayerDetachedEvent>(_static.OnPlayerDetached);*/
 
@@ -40,28 +40,39 @@ public sealed class StaticAnomalySystem : EntitySystem
 
     /*    EntityCoordinates _coords;*/
     /*    public readonly EntityUid uid;*/
-/*    public override void Update(float frameTime)
+    public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var uid in EntityQuery<MobStateComponent>())
+        var query = EntityQueryEnumerator<StaticAnomalyComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            foreach (var ent in _lookup.GetEntitiesInRange(uid.Owner, 1f))
+            foreach (var ent in _lookup.GetEntitiesInRange(uid, comp.NoiseRange))
             {
+                if (!_entityManager.TryGetComponent<SeeingStaticComponent>(ent, out var staticComp))
+                    return;
                 _status.TryAddStatusEffect<SeeingStaticComponent>(ent, "SeeingStatic", TimeSpan.FromSeconds(5f), true);
+
+                staticComp.Multiplier = 0.55f;
             }
-        } */// TODO: выяснить как SeeingStatic определяет кто робот, а кто нет. добавить более плавное вхождение и настройку силы
-/*    }*/
-/* private void OnPulse(EntityUid uid, StaticAnomalyComponent component, ref AnomalyPulseEvent args)
-    {
-        _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SharedSeeingStaticSystem.StaticKey, TimeSpan.FromSeconds(10f), true);
-    }*/
-private void OnPulse(EntityUid uid, StaticAnomalyComponent component, ref AnomalyPulseEvent args)
+        }
+    } // TODO: выяснить как SeeingStatic определяет кто робот, а кто нет. добавить более плавное вхождение и настройку силы
+}
+
+
+
+
+
+/*private void OnPulse(EntityUid uid, StaticAnomalyComponent component, ref AnomalyPulseEvent args)
 {
     foreach (var ent in _lookup.GetEntitiesInRange(uid, 1f))
     {
         _status.TryAddStatusEffect<SeeingStaticComponent>(ent, "SeeingStatic", TimeSpan.FromSeconds(5f), true);
     }
+}*/
+
+
+
     //Entity<StaticAnomalyComponent> anomaly
     /*    var player = _player.LocalSession;
         var uid = player?.AttachedEntity;
@@ -77,7 +88,6 @@ private void OnPulse(EntityUid uid, StaticAnomalyComponent component, ref Anomal
             _status.TryAddStatusEffect<SeeingStaticComponent>(ent, SharedSeeingStaticSystem.StaticKey, TimeSpan.FromSeconds(10f), true);
             statics.Multiplier = anomaly.Comp.NoiseRange * args.Severity;
         }*/
-}
     /*        Transform(anomaly).Coordinates.TryDistance(EntityManager, _coords, out var distance);*/
     /*        if (distance <= anomaly.Comp.NoiseRange)*/
     /*        if ((uid != null) && (Transform(uid).Coordinates.TryDistance(EntityManager, Transform(anomaly).Coordinates, out var distance) &&
@@ -112,5 +122,4 @@ private void OnPulse(EntityUid uid, StaticAnomalyComponent component, ref Anomal
 
             _chat.TrySanitizeEmoteShorthands(newMessage, uid, "chatsan-laughs");
         }*/
-}
 

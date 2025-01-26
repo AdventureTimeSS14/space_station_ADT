@@ -6,7 +6,7 @@ namespace Content.Shared.ADT.Anomaly.Effects.Components;
 public sealed partial class StaticAnomalyComponent : Component
 {
     [DataField]
-    public float NoiseRange = 140;
+    public float NoiseRange = 12;
 
     [DataField]
     public float NoiseStrong = 2;
