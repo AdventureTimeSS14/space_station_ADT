@@ -107,13 +107,12 @@
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - BorgTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+  # ADT tweak end
 
 - type: entity
   parent: MobSiliconBase

@@ -189,12 +189,10 @@
   #   guides:
   #     - Cyborgs
   - type: LanguageSpeaker
-    speaks:
-    - BorgTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - SolCommon
+    languages:
+      BorgTalk: Speak
+      GalacticCommon: Understand
+      SolCommon: Understand
 
 - type: entity
   id: ADTDroneAntagMiner
@@ -320,14 +318,11 @@
       - CannotSuicide
   - type: StaticPrice
     price: 5000
-  # Frontier - languages mechanic
   - type: LanguageSpeaker
-    speaks:
-    - BorgTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - SolCommon
+    languages:
+      BorgTalk: Speak
+      GalacticCommon: Understand
+      SolCommon: Understand
   - type: NpcFactionMember
     factions:
       - DroneAntag
@@ -477,14 +472,11 @@
       - CannotSuicide
   - type: StaticPrice
     price: 5000
-  # Frontier - languages mechanic
   - type: LanguageSpeaker
-    speaks:
-    - BorgTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - SolCommon
+    languages:
+      BorgTalk: Speak
+      GalacticCommon: Understand
+      SolCommon: Understand
   - type: NpcFactionMember
     factions:
       - DroneAntag
@@ -635,14 +627,11 @@
       - CannotSuicide
   - type: StaticPrice
     price: 5000
-  # Frontier - languages mechanic
   - type: LanguageSpeaker
-    speaks:
-    - BorgTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - SolCommon
+    languages:
+      BorgTalk: Speak
+      GalacticCommon: Understand
+      SolCommon: Understand
   - type: NpcFactionMember
     factions:
       - DroneAntag

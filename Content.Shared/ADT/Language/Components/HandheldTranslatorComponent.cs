@@ -13,16 +13,8 @@ namespace Content.Shared.ADT.Language;
 public sealed partial class HandheldTranslatorComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("toUnderstand", required: true), AutoNetworkedField]
-    public List<string> ToUnderstand;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("toSpeak", required: true), AutoNetworkedField]
-    public List<string> ToSpeak;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("required", required: true), AutoNetworkedField]
-    public List<string> Required;
+    [DataField("languages", required: true), AutoNetworkedField]
+    public Dictionary<string, LanguageKnowledge> Languages;
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("toggle")]
