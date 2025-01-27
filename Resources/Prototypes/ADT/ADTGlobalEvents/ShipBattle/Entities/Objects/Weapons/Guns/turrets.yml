@@ -116,18 +116,30 @@
     - type: TurretControllable #компонент контролируемой турели
     - type: DeviceLinkSink
       ports:
-      - On #можно переписать нахуй прототип турели, но главное что б
-    - type: UserInterface
-      interfaces:
-        enum.RadarConsoleUiKey.Key:
-          type: RadarConsoleBoundUserInterface
-    - type: RadarConsole
-      maxRange: 256
-      followEntity: true
-    - type: IntrinsicUI
-      uis:
-        enum.RadarConsoleUiKey.Key:
-          toggleAction: ActionTurretShowRadar
+      - Input #можно переписать нахуй прототип турели, но главное что б
+    # - type: UserInterface
+    #   interfaces:
+    #     enum.RadarConsoleUiKey.Key:
+    #       type: RadarConsoleBoundUserInterface
+    # - type: RadarConsole
+    #   maxRange: 256
+    #   followEntity: true
+    # - type: IntrinsicUI
+    #   uis:
+    #     enum.RadarConsoleUiKey.Key:
+    #       toggleAction: ActionTurretShowRadar
+    - type: ActiveRadio
+      channels:
+      - Common
+    - type: TypingIndicator
+      proto: robot
+    - type: Speech
+      speechVerb: Robotic
+      speechSounds: Pai
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Common
 
 - type: entity
   parent: BaseStructure
@@ -454,7 +466,30 @@
     - type: TurretControllable #компонент контролируемой турели
     - type: DeviceLinkSink
       ports:
-      - On #можно переписать нахуй прототип турели, но главное что б
+      - Input #можно переписать нахуй прототип турели, но главное что б
+    # - type: UserInterface
+    #   interfaces:
+    #     enum.RadarConsoleUiKey.Key:
+    #       type: RadarConsoleBoundUserInterface
+    # - type: RadarConsole
+    #   maxRange: 256
+    #   followEntity: true
+    # - type: IntrinsicUI
+    #   uis:
+    #     enum.RadarConsoleUiKey.Key:
+    #       toggleAction: ActionTurretShowRadar
+    - type: ActiveRadio
+      channels:
+      - Common
+    - type: TypingIndicator
+      proto: robot
+    - type: Speech
+      speechVerb: Robotic
+      speechSounds: Pai
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Common
 
 - type: entity
   parent: ADTgau32Broken
