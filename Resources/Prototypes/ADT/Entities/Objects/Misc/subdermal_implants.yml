@@ -279,3 +279,18 @@
   - type: TranslatorImplant
     languages:
       VoxPidgin: BadSpeak
+
+# Отключено до починки импланта
+# - type: entity
+#   parent: BaseSubdermalImplant
+#   id: ADTGorlaxFriendlyFireImplant
+#   name: GFF implant
+#   description: Gorlax Friendly Fire
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: SubdermalImplant
+#     # permanent: true
+#     implantAction: ActionToggleFriendlyFire
+#   - type: FriendlyFire
+#     enabled: true
+#   - type: FriendlyFireToggleable

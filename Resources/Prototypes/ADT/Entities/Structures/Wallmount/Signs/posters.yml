@@ -859,3 +859,21 @@
   components:
   - type: Sprite
     state: poster_unclepraz_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterNoLRP
+  name: NoLRP
+  description: "-"
+  components:
+  - type: Sprite
+    state: poster_noLRP
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterPangaariBirthday
+  name: Pangaari
+  description: "-"
+  components:
+  - type: Sprite
+    state: poster_HB_Pangaari

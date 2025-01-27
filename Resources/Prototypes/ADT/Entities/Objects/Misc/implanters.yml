@@ -182,3 +182,12 @@
   components:
   - type: Implanter
     implant: VoxPidginTranslatorImplant
+
+# Отключено до починки импланта
+# - type: entity
+#   id: ADTGorlaxFriendlyFireImplanter
+#   suffix: storage
+#   parent: BaseImplantOnlyImplanterSyndi
+#   components:
+#     - type: Implanter
+#       implant: ADTGorlaxFriendlyFireImplant

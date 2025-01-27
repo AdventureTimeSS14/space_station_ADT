@@ -214,10 +214,39 @@
     Cellular: 0
     Bloodloss: 0.5
     Asphyxiation: 0
-    Radiation: 0 
+    Radiation: 0
     Cold: 0
     Poison: 0
-#
+
+#Abominations
+- type: damageModifierSet
+  id: ADTAbominationHypertrophiedDamageSet
+  coefficients:
+    Shock: 0.7
+    Slash: 0.7
+    Piercing: 0.7
+    Heat: 0.7
+    Cellular: 0
+    Bloodloss: 0
+    Asphyxiation: 0
+    Radiation: 0
+    Cold: 0
+    Poison: 0
+
+- type: damageModifierSet
+  id: ADTAbominationDeathDamageSet
+  coefficients:
+    Shock: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.5
+    Cellular: 0
+    Bloodloss: 0
+    Asphyxiation: 0
+    Radiation: 0
+    Cold: 0
+    Poison: 0
+
 # Syndicate Borg
 - type: damageModifierSet
   id: ADTBorgChassisSyndicateAssaultSet
@@ -229,7 +258,7 @@
     Cellular: 0
     Bloodloss: 0
     Asphyxiation: 0
-    Radiation: 0 
+    Radiation: 0
     Cold: 0
     Poison: 0
 #
