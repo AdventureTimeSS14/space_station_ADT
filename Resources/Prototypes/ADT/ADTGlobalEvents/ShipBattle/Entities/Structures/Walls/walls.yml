@@ -29,6 +29,10 @@
             #       max: 1
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: RCDDeconstructable
+      cost: 6
+      delay: 8
+      fx: EffectRCDDeconstruct8
 
 - type: entity
   parent: ADTWallLightArmorKMT
@@ -59,6 +63,8 @@
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: RCDDeconstructable
+      deconstructable: false
 
 - type: entity
   parent: ADTWallHeavyArmorKMT
@@ -108,6 +114,10 @@
             collection: MetalSlam
   - type: Reflect
     reflectProb: 0
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
 
 - type: entity
   parent: ADTWallLightArmorKMTDiagonal
@@ -159,6 +169,8 @@
             collection: MetalSlam
   - type: Reflect
     reflectProb: 0
+  - type: RCDDeconstructable
+    deconstructable: false
 
 - type: entity
   parent: ADTWallHeavyArmorKMTDiagonal
@@ -209,6 +221,10 @@
             collection: MetalSlam
   - type: Reflect
     reflectProb: 0
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
 
 - type: entity
   parent: ADTWallLightArmorKMTBevel
@@ -259,6 +275,8 @@
             collection: MetalSlam
   - type: Reflect
     reflectProb: 0
+  - type: RCDDeconstructable
+    deconstructable: false
 
 - type: entity
   parent: ADTWallHeavyArmorKMTBevel
@@ -309,6 +327,10 @@
             collection: MetalSlam
   - type: Reflect
     reflectProb: 0
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
 
 - type: entity
   parent: ADTWallLightArmorKMTRound
@@ -359,6 +381,8 @@
             collection: MetalSlam
   - type: Reflect
     reflectProb: 0
+  - type: RCDDeconstructable
+    deconstructable: false
 
 - type: entity
   parent: ADTWallHeavyArmorKMTRound
