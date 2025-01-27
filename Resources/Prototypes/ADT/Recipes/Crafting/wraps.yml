@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: ADTFootWrapsWhite
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: WrapsWhite
+        steps:
+          - material: Cloth
+            amount: 2
+            doAfter: 5
+    - node: WrapsWhite
+      entity: ADTClothingFootWrapsWhite
+
+- type: construction
+  name: Wraps white
+  id: WrapsWhite
+  graph: ADTFootWrapsWhite
+  startNode: start
+  targetNode: WrapsWhite
+  category: construction-category-misc
+  objectType: Item
+  description: A truly ingenious source of power.
+  icon:
+    sprite: ADT/Clothing/Shoes/Specific/white_footwraps.rsi
+    state: icon

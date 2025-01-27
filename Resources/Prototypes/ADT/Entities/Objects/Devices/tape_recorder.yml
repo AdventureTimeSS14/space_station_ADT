@@ -51,10 +51,8 @@
       enum.TapeRecorderUIKey.Key:
         type: TapeRecorderBoundUserInterface
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+    languages:
+      GalacticCommon: Speak
 
 - type: entity
   parent: BaseItem

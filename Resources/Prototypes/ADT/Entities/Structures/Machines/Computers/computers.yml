@@ -159,3 +159,41 @@
     radius: 1.5
     energy: 1.6
     color: "#b89f25"
+
+- type: entity #прототип консоли для управления турелями (скопировал с базовой консоли, не имеет платы из которой собирается, пока что чисто выдаётся)
+  parent: BaseComputer
+  id: TurretControllerConsole
+  name: turret-controller-console
+  description: RATATATATATATATA!
+  components:
+  - type: StationAiWhitelist
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: dna
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: ApcPowerReceiver
+    powerLoad: 100 #We want this to fail first so I transferred most of the scanner and pod's power here. (3500 in total)
+  # - type: Computer
+  #   board: TurretControllerConsoleCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#1f8c28"
+  - type: DeviceLinkSource
+    range: 20 #не сильно важная хуйня, растояние на котором можно залинкать, турели как допишу - будут сами отлинкиваться по причине потери связи из за растояния, будь то отломанная турель летящая на куске корабля, или дрон)
+    ports:
+      - TurretControllerSender #собственно наш порт
+  - type: TurretController
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+#SS40k end
