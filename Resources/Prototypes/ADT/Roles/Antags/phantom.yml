@@ -1,0 +1,6 @@
+- type: antag
+  id: Phantom
+  name: roles-antag-phantom-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-phantom-objective
