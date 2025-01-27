@@ -11,9 +11,3 @@ ent-ADTVehicleHoverbikeTSF = ховербайк ТСФ
 ent-ADTVehicleHoverbikeKMT = ховербайк КМТ
     .desc = Многоцелевой транспорт с антигравитационной технологией и микроракетным двигателем - позволяет быстро передвигаться по кораблю, по планете и по космосу.
     .suffix = Космические бои, КМТ
-
-ent-ADTSpawnVehicleHoverbikeTSF = спавнер ховербайка ТСФ
-    .desc = { ent-MarkerBase.desc }
-
-ent-ADTSpawnVehicleHoverbikeKMT = спавнер ховербайка КМТ
-    .desc = { ent-MarkerBase.desc }

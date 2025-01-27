@@ -6,12 +6,6 @@ ent-ADTMechKMTOneStar = "One Star" КМТ
     .suffix = Космические бои, КМТ
     .desc = Модель тяжелого боевого меха, взятый в качестве трофея Конфедерацией Миров Тауреи с одного из складов техники ТСФ. Живуч, опасен, но считается устаревшим и слишком тяжелым.
 
-ent-SpawnMechTSFOneStar = Спавнер OneStar ТСФ
-    .desc = { ent-MarkerBase.desc }
-
-ent-SpawnADTMechKMTOneStar = Спавнер OneStar КМТ
-    .desc = { ent-MarkerBase.desc }
-
 ent-ADTMechTSFSabreFighter = "Сейбр" ТСФ
     .suffix = Космические бои, ТСФ
     .desc = SF-16 "Сейбр" - многоцелевой истребитель, способный действовать как в космосе, так и в атмосфере планеты. Считается уже слегка устаревшей моделью, но все еще применяется на окраинах ТСФ.
@@ -19,12 +13,6 @@ ent-ADTMechTSFSabreFighter = "Сейбр" ТСФ
 ent-ADTMechKMTSabreFighter = "Сейбр" КМТ
     .suffix = Космические бои, КМТ
     .desc = SF-16 "Сейбр" - многоцелевой истребитель, способный действовать как в космосе, так и в атмосфере планеты. Считается уже слегка устаревшей моделью, но все еще применяется на окраинах ТСФ.
-
-ent-SpawnADTMechTSFSabre = Спавнер Sabre ТСФ
-    .desc = { ent-MarkerBase.desc }
-
-ent-SpawnADTMechKMTSabre = Спавнер Sabre КМТ
-    .desc = { ent-MarkerBase.desc }
 
 ent-ADTMechGunGAU32A = GAU-32A
     .suffix = Космические бои
