@@ -38,8 +38,9 @@ public abstract class SharedJumpbootsSystem : EntitySystem
     }
 }
 
+[DataDefinition]
 public sealed partial class JumpbootsActionEvent : WorldTargetActionEvent
 {
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Effects/Footsteps/suitstep2.ogg");
+    public SoundSpecifier? Sound { get; private set; } = new SoundPathSpecifier("/Audio/Effects/Footsteps/suitstep2.ogg");
 }

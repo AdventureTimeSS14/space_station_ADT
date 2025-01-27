@@ -817,6 +817,8 @@
     name: ghost-role-information-pirate-name
     description: ghost-role-information-pirate-description
     rules: ghost-role-information-pirate-rules
+  - type: GhostTakeoverAvailable
+
 
 - type: entity
   name: Pirate Captain
