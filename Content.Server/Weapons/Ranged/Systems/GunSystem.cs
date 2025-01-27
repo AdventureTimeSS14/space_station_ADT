@@ -171,10 +171,27 @@ public sealed partial class GunSystem : SharedGunSystem
                         for (var reflectAttempt = 0; reflectAttempt < 3; reflectAttempt++)
                         {
                             var ray = new CollisionRay(from.Position, dir, hitscan.CollisionMask);
-                            var rayCastResults =
-                                Physics.IntersectRay(from.MapId, ray, hitscan.MaxLength, lastUser, false).ToList();
-                            if (!rayCastResults.Any())
+                            // ADT TornadoTech Tweak start
+                            // var rayCastResults =
+                            //     Physics.IntersectRay(from.MapId, ray, hitscan.MaxLength, lastUser, false).ToList();
+                            // if (!rayCastResults.Any())
+                            //     break;
+                            var rayCastResults = new List<RayCastResults>();
+
+                            foreach (var rayCastResult in Physics.IntersectRay(from.MapId, ray, hitscan.MaxLength, lastUser, false))
+                            {
+                                var attemptEvent = new HitScanHitAttemptEvent(user, rayCastResult.HitEntity, gunUid);
+                                RaiseLocalEvent(rayCastResult.HitEntity, attemptEvent);
+
+                                if (attemptEvent.Cancelled)
+                                    continue;
+
+                                rayCastResults.Add(rayCastResult);
+                            }
+
+                            if (rayCastResults.Count == 0)
                                 break;
+                            // ADT TornadoTech Tweak end
 
                             var result = rayCastResults[0];
 
