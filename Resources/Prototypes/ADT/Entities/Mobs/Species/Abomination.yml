@@ -207,7 +207,7 @@
     price: 2500
   - type: MovementSpeedModifier
     baseSprintSpeed: 3
-    baseWallSpeed: 2
+    baseWalkSpeed: 2
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
