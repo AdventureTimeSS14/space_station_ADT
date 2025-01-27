@@ -28,7 +28,7 @@
   description: A luxurious fountain pen for the ce of the station.
   components:
   - type: Sprite
-    state: ADTpen_CE
+    state: pen_ce
 
 - type: entity
   name: cmo's fountain pen
@@ -37,7 +37,7 @@
   description: A luxurious fountain pen for the cmo of the station.
   components:
   - type: Sprite
-    state: ADTpen_cmo
+    state: pen_cmo
 
 - type: entity
   name: QM's fountain pen
@@ -46,7 +46,7 @@
   description: A luxurious fountain pen for the QM of the station.
   components:
   - type: Sprite
-    state: ADTpen_QM
+    state: pen_qm
 
 - type: entity
   name: RD's fountain pen
@@ -55,7 +55,7 @@
   description: A luxurious fountain pen for the RD of the station.
   components:
   - type: Sprite
-    state: ADTpen_RD
+    state: pen_rd
 
 - type: entity
   name: Hos's fountain pen
@@ -64,7 +64,16 @@
   description: A luxurious fountain pen for the Hos of the station.
   components:
   - type: Sprite
-    state: ADTpen_hos
+    state: pen_hos
+
+- type: entity
+  name: gorlax's fountain pen
+  parent: ADTPenEmbeddable
+  id: ADTPenGorlax
+  description: A luxurious fountain pen for the gorlax.
+  components:
+  - type: Sprite
+    state: pen_gorlax
 
 - type: entity
   name: DV`s pen
@@ -73,7 +82,7 @@
   suffix: DV
   components:
   - type: Sprite
-    state: ADTpen_dv
+    state: pen_dv
   - type: DamageOtherOnHit
     damage:
       types:
@@ -87,6 +96,6 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/pens.rsi
-    state: ADTpen_capdv
+    state: pen_capdv
   - type: Item
     sprite: ADT/Objects/Misc/pens.rsi

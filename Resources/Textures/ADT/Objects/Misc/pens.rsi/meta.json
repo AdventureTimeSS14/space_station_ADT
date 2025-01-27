@@ -1,32 +1,35 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "ADTpen_CE, ADTpen_cmo, ADTpen_hos, ADTpen_QM, ADTpen_RD is drawn by mascotvalera (Discord); ADTpen_dv was drawn by discord: prazat911",
+    "copyright": "pen_CE, pen_cmo, pen_hos, pen_QM, pen_RD is drawn by mascotvalera (Discord); pen_dv adn gorlax was drawn by discord: prazat911, all upgraded by discord:prazat911",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "ADTpen_CE"
+            "name": "pen_ce"
         },
         {
-            "name": "ADTpen_cmo"
+            "name": "pen_cmo"
         },
         {
-            "name": "ADTpen_hos"
+            "name": "pen_hos"
         },
         {
-            "name": "ADTpen_QM"
+            "name": "pen_qm"
         },
         {
-            "name": "ADTpen_RD"
+            "name": "pen_rd"
         },
         {
-            "name": "ADTpen_capdv"
+            "name": "pen_capdv"
         },
         {
-            "name": "ADTpen_dv"
+            "name": "pen_gorlax"
+        },
+        {
+            "name": "pen_dv"
         }
     ]
 }

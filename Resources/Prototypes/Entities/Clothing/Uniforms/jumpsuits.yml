@@ -480,28 +480,34 @@
   description: Busted.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-    layers:
-    - state: icon
-      color: "#ff8300"
-    - state: prisoner-icon
+# ADT tweak start
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/prisoner.rsi
+#    layers: 
+#    - state: icon
+#      color: "#ff8300"
+#    - state: prisoner-icon
+# ADT tweak end
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#ff8300"
-      - state: prisoner-inhand-left
-      right:
-      - state: inhand-right
-        color: "#ff8300"
-      - state: prisoner-inhand-right
+# ADT tweak start
+#    inhandVisuals: ADT tweak start
+#      left:
+#      - state: inhand-left
+#        color: "#ff8300"
+#      - state: prisoner-inhand-left
+#      right:
+#      - state: inhand-right
+#        color: "#ff8300"
+#      - state: prisoner-inhand-right
+# ADT tweak end
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-INNERCLOTHING
-        color: "#ff8300"
-      - state: prisoner-equipped-INNERCLOTHING
+# ADT tweak start
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/prisoner.rsi
+#    clothingVisuals: ADT tweak start
+#      jumpsuit:
+#      - state: equipped-INNERCLOTHING
+#        color: "#ff8300"
+#      - state: prisoner-equipped-INNERCLOTHING
+# ADT tweak end
   - type: SuitSensor
     controlsLocked: true
     randomMode: false
