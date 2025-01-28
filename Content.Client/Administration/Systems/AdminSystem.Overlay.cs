@@ -3,7 +3,6 @@ using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
-using Content.Shared.Administration;
 
 namespace Content.Client.Administration.Systems
 {
@@ -15,7 +14,6 @@ namespace Content.Client.Administration.Systems
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        private readonly PlayerPanelEuiState _playerPanelEuiState = default!;
 
         private AdminNameOverlay _adminNameOverlay = default!;
 
