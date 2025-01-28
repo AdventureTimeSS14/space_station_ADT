@@ -6,6 +6,7 @@ using Robust.Client.UserInterface;
 using Robust.Shared;
 using Robust.Shared.Enums;
 using Robust.Shared.Configuration;
+using Content.Shared.Administration;
 
 namespace Content.Client.Administration;
 
@@ -17,11 +18,9 @@ internal sealed class AdminNameOverlay : Overlay
     private readonly EntityLookupSystem _entityLookup;
     private readonly IUserInterfaceManager _userInterfaceManager;
     private readonly Font _font;
-    private int? _notes;
-    private int? _bans;
-    private int? _roleBans;
+    private readonly PlayerPanelEuiState _playerPanelEuiState;
 
-    public AdminNameOverlay(AdminSystem system, IEntityManager entityManager, IEyeManager eyeManager, IResourceCache resourceCache, EntityLookupSystem entityLookup, IUserInterfaceManager userInterfaceManager)
+    public AdminNameOverlay(AdminSystem system, IEntityManager entityManager, IEyeManager eyeManager, IResourceCache resourceCache, EntityLookupSystem entityLookup, IUserInterfaceManager userInterfaceManager, PlayerPanelEuiState playerPanelEuiState) // ADT-Tweak
     {
         _system = system;
         _entityManager = entityManager;
@@ -30,6 +29,7 @@ internal sealed class AdminNameOverlay : Overlay
         _userInterfaceManager = userInterfaceManager;
         ZIndex = 200;
         _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+        _playerPanelEuiState = playerPanelEuiState; // ADT-Tweak
     }
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
@@ -94,19 +94,19 @@ internal sealed class AdminNameOverlay : Overlay
                 args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, "Sponsor", uiScale, playerInfo.Connected ? Color.Gold : Color.White);
                 currentOffset += lineoffset;
             }
-            if (_notes.HasValue)
+            if (_playerPanelEuiState.TotalNotes.HasValue)
             {
-                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Notes: {_notes.Value}", uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Notes: {_playerPanelEuiState.TotalNotes}", uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
                 currentOffset += lineoffset;
             }
-            if (_bans.HasValue)
+            if (_playerPanelEuiState.TotalBans.HasValue)
             {
-                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Bans: {_bans.Value}", uiScale, playerInfo.Connected ? Color.Red : Color.White);
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Bans: {_playerPanelEuiState.TotalBans}", uiScale, playerInfo.Connected ? Color.Red : Color.White);
                 currentOffset += lineoffset;
             }
-            if (_roleBans.HasValue)
+            if (_playerPanelEuiState.TotalRoleBans.HasValue)
             {
-                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Role Bans: {_roleBans.Value}", uiScale, playerInfo.Connected ? Color.Purple : Color.White);
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Role Bans: {_playerPanelEuiState.TotalRoleBans}", uiScale, playerInfo.Connected ? Color.Purple : Color.White);
                 currentOffset += lineoffset;
             }
             // ADT-END
