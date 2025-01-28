@@ -1,0 +1,146 @@
+- type: entity
+  id: ADTMechTSFSabreFighter
+  parent: ADTMechDurand
+  name: TSF Sabre
+  description: Space Fighter
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/sabre.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: sabre_tsf
+  - type: Mech
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.25
+        Heat: 0.15
+        Radiation: 0.0
+        Caustic: 0.2
+        Structural: 0.5
+    maxintegrity: 500
+    baseState: sabre_tsf
+    openState: sabre_tsf-open
+    brokenState: sabre_tsf-broken
+    mechToPilotDamageMultiplier: 0.0
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentShuttleGun
+    maxEquipmentAmount: 3
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    clickInsert: false
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.2
+        density: 1000
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: null
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/space_fighter_flight.ogg
+      params:
+        volume: -6
+  - type: MovementIgnoreGravity
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 60 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 120
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 18
+    acceleration: 2
+    friction: 2
+    weightlessFriction: 5
+    weightlessAcceleration: 2.5
+  - type: MechOverload
+    damage:
+      types:
+        Structural: 3
+  - type: NoRotateOnInteract
+  - type: Input
+    context: "human"
+  - type: Prying
+    pryPowered: false
+  - type: AmbientSound
+    sound: /Audio/Effects/shuttle_thruster.ogg
+    range: 12
+    volume: 6
+    enabled: true
+
+- type: entity
+  id: ADTMechKMTSabreFighter
+  parent: ADTMechTSFSabreFighter
+  name: KMT Sabre
+  description: Space Fighter
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/sabre.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: sabre_kmt
+  - type: Mech
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.25
+        Heat: 0.15
+        Radiation: 0.0
+        Caustic: 0.2
+        Structural: 0.5
+    maxintegrity: 500
+    baseState: sabre_kmt
+    openState: sabre_kmt-open
+    brokenState: sabre_kmt-broken
+    mechToPilotDamageMultiplier: 0.0
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentShuttleGun
+    maxEquipmentAmount: 3

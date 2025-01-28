@@ -1,0 +1,5 @@
+#SS40k
+- type: sourcePort #прототип порта, который отправляет данные
+  id: TurretControllerSender
+  name: signal-port-name-tur-sender
+  description: signal-port-description-tur-sender
