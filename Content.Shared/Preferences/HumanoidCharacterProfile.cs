@@ -883,7 +883,7 @@ namespace Content.Shared.Preferences
             return new HumanoidCharacterProfile(this);
         }
 
-        // ADT Languages start
+        // ADT start
         public HumanoidCharacterProfile WithLanguage(ProtoId<LanguagePrototype> language)
         {
             var proto = IoCManager.Resolve<IPrototypeManager>();
@@ -923,7 +923,6 @@ namespace Content.Shared.Preferences
                 _languages = list,
             };
         }
-        // ADT Languages end
 
         public bool CanToggleQuirk(TraitPrototype proto)
         {
@@ -961,5 +960,6 @@ namespace Content.Shared.Preferences
 
             return -count;
         }
+        // ADT end
     }
 }
