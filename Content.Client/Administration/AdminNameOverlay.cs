@@ -62,14 +62,15 @@ internal sealed class AdminNameOverlay : Overlay
             var screenCoordinates = _eyeManager.WorldToScreen(aabb.Center +
                                                               new Angle(-_eyeManager.CurrentEye.Rotation).RotateVec(
                                                                   aabb.TopRight - aabb.Center)) + new Vector2(1f, 7f);
-            // if (playerInfo.Antag) // Я ЭТО КОМЕНЧУ ПОТОМУ ЧТО ТУТ НАПИСАНА ПОЕБОТА ПОЛНАЯ БЛЯТЬ, КТО ТАК делАеТ НАХУЙ
+            // if (playerInfo.Antag) // ADT-TWEAK: Я ЭТО КОМЕНЧУ ПОТОМУ ЧТО ТУТ НАПИСАНА ПОЕБОТА ПОЛНАЯ БЛЯТЬ, КТО ТАК делАеТ НАХУЙ
             // {
             //     args.ScreenHandle.DrawString(_font, screenCoordinates + (lineoffset * 2), "ANTAG", uiScale, Color.OrangeRed);
             // }
             // args.ScreenHandle.DrawString(_font, screenCoordinates+lineoffset, playerInfo.Username, uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
             // args.ScreenHandle.DrawString(_font, screenCoordinates, playerInfo.CharacterName, uiScale, playerInfo.Connected ? Color.Aquamarine : Color.White);
+
             // ADT-STart-Tweak: Переписываю нормальный оверлей
-            var currentOffset = Vector2.Zero;
+            Vector2 currentOffset = Vector2.Zero;
             if (playerInfo.Antag)
             {
                 args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, "ANTAG", uiScale, Color.OrangeRed);
