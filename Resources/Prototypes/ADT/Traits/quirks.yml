@@ -84,7 +84,7 @@
   category: Quirks
   components:
     - type: LightweightDrunk
-      modifier: 0.5
+      boozeStrengthMultiplier: 0.5
   cost: 2
   quirk: true
   speciesBlacklist:
