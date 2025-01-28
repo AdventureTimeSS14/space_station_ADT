@@ -90,6 +90,11 @@ internal sealed class AdminNameOverlay : Overlay
                 args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, "Sponsor", uiScale, playerInfo.Connected ? Color.Gold : Color.White);
                 currentOffset += lineoffset;
             }
+            if (playerInfo.StartingJob != null)
+            {
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, Loc.GetString(playerInfo.StartingJob), uiScale, playerInfo.Connected ? Color.GreenYellow : Color.White);
+                currentOffset += lineoffset;
+            }
             // ADT-END
         }
     }
