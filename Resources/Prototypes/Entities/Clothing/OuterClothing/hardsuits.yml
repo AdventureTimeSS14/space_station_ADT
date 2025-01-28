@@ -215,6 +215,7 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.6
+        Heat: 0.8 # ADT tweak 1 > 0.8
         Caustic: 0.7
     staminaModifier: 0.8  # ADT
   - type: ClothingSpeedModifier
@@ -242,13 +243,15 @@
     modifiers:
       coefficients:
         Blunt: 0.8
+    # ADT tweak start
         Slash: 0.7
-        Piercing: 0.6
+        Piercing: 0.7
         Heat: 0.7
         Radiation: 0.8
         Caustic: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.25
+    # ADT tweak end
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.90
@@ -278,6 +281,7 @@
         Blunt: 0.5
         Slash: 0.6
         Piercing: 0.6
+        Heat: 0.75 # ADT tweak 1 > 0.75
         Caustic: 0.7
     staminaModifier: 0.7  # ADT
   - type: ClothingSpeedModifier
@@ -444,6 +448,7 @@
         Blunt: 0.6
         Slash: 0.5
         Piercing: 0.5
+        Heat: 0.7 # ADT tweak 1 > 0.7
         Radiation: 0.5
         Caustic: 0.6
     staminaModifier: 0.7 # ADT tweak
