@@ -49,7 +49,6 @@ namespace Content.Server.Ghost
 {
     public sealed class GhostSystem : SharedGhostSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!; //ADT tweak
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;

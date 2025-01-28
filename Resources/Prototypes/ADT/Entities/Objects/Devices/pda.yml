@@ -143,14 +143,12 @@
      enum.PdaVisuals.PdaType:
       !type:String
       pda-ghost
-  # ADT-Tweak-start: Какая то обнова для гостов
   - type: Clothing
     sprite: Tips/tippy.rsi #просто рандомный спрайт, чтобы не засорять визуал гостов
     quickEquip: false
     slots:
     - idcard
     - Belt
-  # ADT-Tweak-end
 
 # КПК Следователя
 - type: entity
