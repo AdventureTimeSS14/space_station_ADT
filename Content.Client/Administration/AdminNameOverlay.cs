@@ -17,6 +17,9 @@ internal sealed class AdminNameOverlay : Overlay
     private readonly EntityLookupSystem _entityLookup;
     private readonly IUserInterfaceManager _userInterfaceManager;
     private readonly Font _font;
+    private int? _notes;
+    private int? _bans;
+    private int? _roleBans;
 
     public AdminNameOverlay(AdminSystem system, IEntityManager entityManager, IEyeManager eyeManager, IResourceCache resourceCache, EntityLookupSystem entityLookup, IUserInterfaceManager userInterfaceManager)
     {
@@ -70,6 +73,43 @@ internal sealed class AdminNameOverlay : Overlay
             // }
             // args.ScreenHandle.DrawString(_font, screenCoordinates+lineoffset, playerInfo.Username, uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
             // args.ScreenHandle.DrawString(_font, screenCoordinates, playerInfo.CharacterName, uiScale, playerInfo.Connected ? Color.Aquamarine : Color.White);
+            // ADT-STart-Tweak: Переписываю нормальный оверлей
+            var currentOffset = Vector2.Zero;
+            if (playerInfo.Antag)
+            {
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, "ANTAG", uiScale, Color.OrangeRed);
+                currentOffset += lineoffset;
+            }
+            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
+            currentOffset += lineoffset;
+            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.CharacterName, uiScale, playerInfo.Connected ? Color.Aquamarine : Color.White);
+            currentOffset += lineoffset;
+            if (!string.IsNullOrEmpty(playerInfo.PlaytimeString))
+            {
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.PlaytimeString, uiScale, playerInfo.Connected ? Color.Red : Color.White);
+                currentOffset += lineoffset;
+            }
+            if (playerInfo.Sponsor != null)
+            {
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, "Sponsor", uiScale, playerInfo.Connected ? Color.Gold : Color.White);
+                currentOffset += lineoffset;
+            }
+            if (_notes.HasValue)
+            {
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Notes: {_notes.Value}", uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
+                currentOffset += lineoffset;
+            }
+            if (_bans.HasValue)
+            {
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Bans: {_bans.Value}", uiScale, playerInfo.Connected ? Color.Red : Color.White);
+                currentOffset += lineoffset;
+            }
+            if (_roleBans.HasValue)
+            {
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Role Bans: {_roleBans.Value}", uiScale, playerInfo.Connected ? Color.Purple : Color.White);
+                currentOffset += lineoffset;
+            }
+            // ADT-END
         }
     }
 }

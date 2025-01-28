@@ -222,5 +222,7 @@ public sealed class PlayerPanelEui : BaseEui
         }
 
         StateDirty();
+        // var overlayMessage = new PlayerPanelOverlayDataMessage(_notes, _bans, _roleBans);
+        // _eui.SendMessageToClient(overlayMessage); хуйня
     }
 }
