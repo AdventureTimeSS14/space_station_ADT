@@ -20,12 +20,6 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
-    - MonkeyWearable
-
 
 - type: entity
   parent: ClothingUniformBase
