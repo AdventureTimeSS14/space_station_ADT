@@ -194,3 +194,71 @@
   coefficients:
     Cold: 0
     Bloodloss: 0.7 # твёрдая кожа
+
+- type: damageModifierSet
+  id: ADTCandle
+  coefficients:
+    Blunt: 1.5
+    Slash: 2
+    Piercing: 1
+    Heat: 0.05
+
+# Xeno
+- type: damageModifierSet
+  id: ADTXenoDamageSet
+  coefficients:
+    Shock: 1.2
+    Slash: 0.4
+    Piercing: 0.5
+    Heat: 2
+    Cellular: 0
+    Bloodloss: 0.5
+    Asphyxiation: 0
+    Radiation: 0
+    Cold: 0
+    Poison: 0
+
+#Abominations
+- type: damageModifierSet
+  id: ADTAbominationHypertrophiedDamageSet
+  coefficients:
+    Shock: 0.7
+    Slash: 0.7
+    Piercing: 0.7
+    Heat: 0.7
+    Cellular: 0
+    Bloodloss: 0
+    Asphyxiation: 0
+    Radiation: 0
+    Cold: 0
+    Poison: 0
+
+- type: damageModifierSet
+  id: ADTAbominationDeathDamageSet
+  coefficients:
+    Shock: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.5
+    Cellular: 0
+    Bloodloss: 0
+    Asphyxiation: 0
+    Radiation: 0
+    Cold: 0
+    Poison: 0
+
+# Syndicate Borg
+- type: damageModifierSet
+  id: ADTBorgChassisSyndicateAssaultSet
+  coefficients:
+    Shock: 1.5
+    Slash: 0.2
+    Piercing: 0.4
+    Heat: 0.6
+    Cellular: 0
+    Bloodloss: 0
+    Asphyxiation: 0
+    Radiation: 0
+    Cold: 0
+    Poison: 0
+#

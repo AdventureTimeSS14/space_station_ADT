@@ -16,7 +16,7 @@
   icon: "JobIconMagistrat"
   requireAdminNotify: true
   joinNotifyCrew: true
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
     - Command

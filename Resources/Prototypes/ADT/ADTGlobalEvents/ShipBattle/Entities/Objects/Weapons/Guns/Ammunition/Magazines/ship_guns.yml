@@ -1,0 +1,115 @@
+- type: entity
+  id: ADTBaseShipGunMagazine
+  name: GAU-32 magazine
+  parent: [ BaseItem ]
+  suffix: Space Battleships
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - ADTturretGAU32Magazine
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeCaselessRifle
+    capacity: 200
+    soundRack:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        variation: 0.05
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        variation: 0.05
+  - type: Item
+    size: Large
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Magazine/gau32.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-7
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
+
+#магазины под безгильзовую турель
+- type: entity
+  id: ADTShipGunMagazineGAU32Empty
+  name: GAU-32 magazine
+  parent: ADTBaseShipGunMagazine
+  suffix: Space Battleships, Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  id: ADTShipGunMagazineGAU32
+  name: GAU-32 magazine
+  parent: ADTBaseShipGunMagazine
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifle
+
+#30 мм
+- type: entity
+  id: ADTShipGunMagazineDS30Empty
+  name: DS30 magazine
+  parent: ADTShipGunMagazineDS30
+  suffix: Space Battleships, Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+
+- type: entity
+  id: ADTShipGunMagazineDS30
+  name: DS30 magazine
+  parent: ADTBaseShipGunMagazine
+  components:
+  - type: Tag
+    tags:
+    - ADTturretDS30Magazine
+  - type: BallisticAmmoProvider
+    proto: ADTShipBattleCartridge30mm
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTShipBattleCartridge30mm
+    capacity: 50
+    soundRack:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        variation: 0.05
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        variation: 0.05
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Ammunition/Magazine/ds30.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-9
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 10 
+    zeroVisible: false

@@ -41,9 +41,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
-            // ADT-New-Year-Start
-            "/Maps/ADTMaps/ADTStations/NewYear/adt_centcom.yml",
-            // ADT-New-Year-End
+            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT edit
         };
 
         private static readonly string[] GameMaps =
@@ -85,44 +83,20 @@ namespace Content.IntegrationTests.Tests
             "Oasis",
             "Cog",
             // ADT-Start
-            "ADT_Astra",
             "ADT_Avrit",
             "ADT_Bagel",
             "ADT_Box",
             "ADT_Cluster",
-            "ADT_Core",
             "ADT_Fland",
             "ADT_Delta",
             "ADT_Marathon",
-            "ADT_Meta",
-            "ADT_Oasis",
-            "ADT_Origin",
             "ADT_Saltern",
             "ADT_Packed",
-            "ADT_Train",
             "ADT_Gemini",
             "ADT_Aspid",
-            "ADT_Moose",
-            "ADT_Alley",
-            "ADT_kilo",
-            "ADT_Pie",
-            "ADT_Cluster_Legacy",
+            "ADT_Cluster_Legacy"
             // ADT-End
 
-            // ADT-Halloween-Start
-            "ADT_TrainHalloween",
-            "ADT_SalternHalloween",
-            // ADT-Halloween-End
-
-            // ADT-New-Year-Start
-            "ADT_BagelNewYear",
-            "ADT_BoxNewYear",
-            "ADT_Cluster_LegacyNewYear",
-            "ADT_DeltaNewYear",
-            "ADT_GeminiNewYear",
-            "ADT_PieNewYear",
-            "ADT_SalternNewYear"
-            // ADT-New-Year-End
         };
 
         /// <summary>

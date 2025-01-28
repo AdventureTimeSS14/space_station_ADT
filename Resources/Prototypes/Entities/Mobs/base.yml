@@ -44,12 +44,12 @@
   - type: TTS # Corvax-TTS
   - type: RequireProjectileTarget
     active: False
-  - type: CanEscapeMech # ADT tweak
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+  # ADT tweak start
+  - type: CanEscapeMech
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+  # ADT tweak end
 
 - type: entity
   save: false
@@ -208,7 +208,7 @@
     canResistFire: true
     damage: #per second, scales with number of fire 'stacks'
       types:
-        Heat: 1.5
+        Heat: 0.5 # goob edit - ash heretic must weep
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning

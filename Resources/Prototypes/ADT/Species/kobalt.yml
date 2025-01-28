@@ -11,6 +11,11 @@
   maleFirstNames: names_reptilian_male #как у reptilian
   femaleFirstNames: names_reptilian_female #как у reptilian
   naming: FirstDashFirst #как у reptilian
+  category: Unusual
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
+  defaultLanguages:
+  - GalacticCommon
+  - Draconic
 
 - type: speciesBaseSprites
   id: MobKoboltSprites

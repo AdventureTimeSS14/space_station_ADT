@@ -106,7 +106,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         // Raise a specific event for projectiles.
         if (TryComp(uid, out ProjectileComponent? projectile))
         {
-            var ev = new ProjectileEmbedEvent(projectile.Shooter!.Value, projectile.Weapon!.Value, args.Target);
+            var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon, args.Target);  // ADT fix
             RaiseLocalEvent(uid, ref ev);
         }
     }
@@ -183,3 +183,19 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// </summary>
 [ByRefEvent]
 public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
+
+// ADT TornadoTech TWEAK START
+public sealed class ProjectileHitAttemptEvent(DamageSpecifier damage, EntityUid target, EntityUid? shooter = null) : CancellableEntityEventArgs
+{
+    public DamageSpecifier Damage { get; } = damage;
+    public EntityUid Target { get; } = target;
+    public EntityUid? Shooter { get; } = shooter;
+}
+
+public sealed class HitScanHitAttemptEvent(EntityUid? shooter, EntityUid target, EntityUid sourceItem) : CancellableEntityEventArgs
+{
+    public readonly EntityUid? Shooter = shooter;
+    public readonly EntityUid Target = target;
+    public readonly EntityUid SourceItem = sourceItem;
+}
+// ADT TornadoTech TWEAK END

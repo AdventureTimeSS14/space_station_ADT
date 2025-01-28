@@ -175,8 +175,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 0.85 # ADT tweak 1.0 - 0.85
+    sprintModifier: 0.85 # ADT tweak 1.0 - 0.85
   - type: Armor
     modifiers:
       coefficients:
@@ -804,7 +804,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -819,7 +820,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -834,7 +836,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Medic Hardsuit
 - type: entity
@@ -849,7 +852,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Security Hardsuit
 - type: entity
@@ -868,7 +872,8 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -883,7 +888,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #Deathsquad
 - type: entity
@@ -921,7 +927,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
-  - type: DNALocker # ADT-Tweak
 
 #CBURN Hardsuit
 - type: entity
@@ -959,7 +964,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #MISC. HARDSUITS
 #Clown Hardsuit

@@ -24,6 +24,7 @@
     - WhitelistChameleon
   - type: StealTarget
     stealGroup: IDCard
+  - type: MiningPoints # ADT tweak
 
 #IDs with layers
 

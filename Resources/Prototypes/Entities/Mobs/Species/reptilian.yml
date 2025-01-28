@@ -76,16 +76,12 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - Draconic
-    - CintaTaj
-    understands:
-    - GalacticCommon
-    - Draconic
-    - CintaTaj
-  #Start ADT tweak
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Draconic: Speak
+      CintaTaj: Speak
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -128,7 +124,7 @@
     tallscale: 1.12
     short: true
     shortscale: 0.98
-  #End ADT tweak
+  # ADT tweak end
 
 - type: entity
   parent: BaseSpeciesDummy

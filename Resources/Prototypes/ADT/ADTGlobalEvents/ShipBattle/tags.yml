@@ -1,0 +1,23 @@
+- type: Tag
+  id: ADTturretGAU32Magazine
+
+- type: Tag
+  id: ADTShipBattleCartridge30mm
+
+- type: Tag
+  id: ADTturretDS30Magazine
+
+- type: Tag
+  id: ADTShipBattle100mmShell
+
+- type: Tag
+  id: ADTShipBattle155mmShell
+
+- type: Tag
+  id: HoverbikeKeysTSF
+
+- type: Tag
+  id: HoverbikeKeysKMT
+
+- type: Tag
+  id: ADTMechEquipmentShuttleGun

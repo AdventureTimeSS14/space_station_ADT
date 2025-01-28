@@ -1,0 +1,12 @@
+- type: entity
+  id: ADTPafosHereticRune
+  name: Pasnaya Runa
+  description: An ancient drawing used by sinister individuals for sacrifices
+  suffix: Decor
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: ADT/Heretic/ritual_rune.rsi
+    state: icon

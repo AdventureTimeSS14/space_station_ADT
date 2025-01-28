@@ -327,7 +327,7 @@
       - VoiceTrigger
       - Igniter
       - HandHeldMassScanner
-      - PowerCellMicroreactor
+      # - PowerCellMicroreactor #ADT tweak
       - RCD #ADT Tweak
       - RCDAmmo #ADT Tweak
       - RPDAmmo #ADT Tweak
@@ -340,7 +340,7 @@
       - WeaponGauntletGorilla
       - SynthesizerInstrument
       - ClothingShoesBootsMagSci
-      - ClothingShoesBootsMoon
+      # - ClothingShoesBootsMoon  # ADT tweak - убираем луноходы
       - ClothingShoesBootsSpeed
       - NodeScanner
       - HolofanProjector
@@ -350,6 +350,9 @@
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
       #ADT plasmacutters start
+      - PKAUpgradeDamage
+      - PKAUpgradeRange
+      - PKAUpgradeFireRate
       - ADTWeaponCutter
       - ADTWeaponCutterAdv
       #ADT plasmacutters end
@@ -393,14 +396,12 @@
       - DraskTranslatorImplanter
       - UrsTranslatorImplanter
       - ArkaneTranslatorImplanter
-      - ShadekinTranslatorImplanter
       - CintaTajTranslatorImplanter
       - IPCTranslatorImplanter
       - BorgTranslatorImplanter
       - DwarfTranslatorImplanter
       - UrsTranslator
       - ArkaneTranslator
-      - ShadekinTranslator
       - NianTranslator
       - FireTranslator
       - SikTajTranslator
@@ -924,7 +925,6 @@
       - ADTAttachmentT2MiniscopeRecipe
       - ADTAttachmentM90UnderbarrelShotgunRecipe
       - ADTAttachmentM90GrenadeLauncherRecipe
-      - ADT40mmGrenadeHEATRecipe
       - ADT40mmGrenadeBatonRecipe
       - ADT40mmGrenadeEMPRecipe
       - ADT40mmGrenadeFlashRecipe
@@ -1283,18 +1283,24 @@
       - ADTClothingBackpackCargo
       - ADTClothingBackpackMedical
       - ADTClothingBackpackEngineering
+      - ADTClothingBackpackClown
+      - ADTClothingBackpackMime
       - ADTClothingBackpackSatchel
       - ADTClothingBackpackSatchelSecurity
       - ADTClothingBackpackSatchelScience
       - ADTClothingBackpackSatchelCargo
       - ADTClothingBackpackSatchelMedical
       - ADTClothingBackpackSatchelEngineering
+      - ADTClothingBackpackSatchelClown
+      - ADTClothingBackpackSatchelMime
       - ADTClothingBackpackDuffel
       - ADTClothingBackpackDuffelSecurity
       - ADTClothingBackpackDuffelScience
       - ADTClothingBackpackDuffelCargo
       - ADTClothingBackpackDuffelMedical
       - ADTClothingBackpackDuffelEngineering
+      - ADTClothingBackpackDuffelClown
+      - ADTClothingBackpackDuffelMime
       - ADTClothingBackpackDuffelDurathead
       # ADT Backpacks End
   - type: EmagLatheRecipes
@@ -1435,7 +1441,11 @@
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
-    # ADT tweak end
+    - type: MiningPoints
+      transferSound:
+        path: /Audio/Effects/Cargo/ping.ogg
+    - type: MiningPointsLathe
+     # ADT tweak end
 
 - type: entity
   parent: OreProcessor

@@ -1,0 +1,23 @@
+- type: entity
+  id: ControlReturnAction
+  name: Stop controlling turret
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Objects/Tools/crowbar.rsi #заменить спрайт с монтировки на что то сносное
+      state: icon
+    event: !type:ControlReturnActionEvent {}
+    useDelay: 1
+
+- type: entity
+  id: ActionTurretShowRadar
+  name: Mass Scanner Interface
+  description: View a Mass Scanner Interface.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Objects/Tools/crowbar.rsi #заменить спрайт с монтировки на что то сносное
+      state: icon
+    event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
+    useDelay: 1
+    checkCanInteract: false

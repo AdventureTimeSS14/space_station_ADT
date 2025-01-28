@@ -427,6 +427,17 @@
     - Bartender
 
 - type: listing
+  id: ADTUplinkGameAntagCard
+  name: uplink-agent-game-visit-card-name
+  description: uplink-agent-game-visit-card-desc
+  icon: { sprite: ADT/Objects/Specific/Service/agent_game_visit_card.rsi, state: icon}
+  productEntity: ADTGameAntagCard
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: ADTuplinkExplosivePizzabox
   name: uplink-explosive-pizzabox-name
   description: uplink-explosive-pizzabox-desc
@@ -573,6 +584,22 @@
   categories:
     - UplinkWearables
 
+# Отключено до починки импланта
+# - type: listing
+#   id: ADTUplinkGFFImplant
+#   name: uplink-GFF-name
+#   description: uplink-GFF-desc
+#   productEntity: ADTGorlaxFriendlyFireImplanter
+#   cost:
+#     Telecrystal: 15
+#   categories:
+#   - UplinkImplants
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     whitelist:
+#       tags:
+#       - NukeOpsUplink
+      
 - type: listing
   id: ADTUplinkInvisibleCloak
   name: uplink-invisible-cloak-name
@@ -627,3 +654,14 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+
+- type: listing
+  id: ADTUplinkMiniatureEnergyCrossbow
+  name: uplink-miniature-energy-crossbow-name
+  description: uplink-miniature-energy-crossbow-desc
+  icon: { sprite:  /Textures/ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+  productEntity: ADTWeaponMiniatureEnergyCrossbow
+  cost:
+    Telecrystal: 9
+  categories:
+  - UplinkWeaponry

@@ -70,6 +70,7 @@
     title: comms-console-announcement-title-station-ai
     color: "#2ed2fd"
   - type: ShowJobIcons
+  - type: IonStormTarget # ADT edit
 
 - type: entity
   id: AiHeldIntellicard
@@ -403,13 +404,32 @@
     - StationAi
     - NoConsoleSound
     - ADTSiliconStealthWhitelist  # ADT tweak
-    
-  # Start-ADT-Tweak: Ai chat
+  # Start-ADT-Tweak
   - type: HighlightWordsInChat
     highlightWords:
       '#e00':
       - hl-words-ai-1
       - hl-words-ai-2
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      RobotTalk: Speak
+      Arkane: Speak
+      Urs: Speak
+      Drask: Speak
+      Fire: Speak
+      Nian: Speak
+      SikTaj: Speak
+      Arachnid: Speak
+      RootSpeak: Speak
+      SolCommon: Speak
+      Canilunzt: Speak
+      Draconic: Speak
+      Bubblish: Speak
+      Nekomimetic: Speak
+      BorgTalk: Speak
+      Dwarf: Speak
+      CintaTaj: Speak
   # End-ADT-Tweak
 
 # Hologram projection that the AI's eye tracks.

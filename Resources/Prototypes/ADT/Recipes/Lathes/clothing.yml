@@ -53,6 +53,16 @@
   id: ADTClothingBackpackEngineering
   result: ClothingBackpackEngineering
 
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpackClown
+  result: ClothingBackpackClown
+
+- type: latheRecipe
+  parent: ADTBaseBackpackRecipe
+  id: ADTClothingBackpackMime
+  result: ClothingBackpackMime
+
 # satchels
 
 - type: latheRecipe
@@ -84,6 +94,16 @@
   parent: ADTBaseBackpackSatchelRecipe
   id: ADTClothingBackpackSatchelEngineering
   result: ClothingBackpackSatchelEngineering
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchelClown
+  result: ClothingBackpackSatchelClown
+
+- type: latheRecipe
+  parent: ADTBaseBackpackSatchelRecipe
+  id: ADTClothingBackpackSatchelMime
+  result: ClothingBackpackSatchelMime
 
 # Duffel
 
@@ -117,6 +137,16 @@
   parent: ADTBaseBackpackDuffelRecipe
   id: ADTClothingBackpackDuffelEngineering
   result: ClothingBackpackDuffelEngineering
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffelClown
+  result: ClothingBackpackDuffelClown
+
+- type: latheRecipe
+  parent: ADTBaseBackpackDuffelRecipe
+  id: ADTClothingBackpackDuffelMime
+  result: ClothingBackpackDuffelMime
 
 - type: latheRecipe
   id: ADTClothingBackpackDuffelSyndicate

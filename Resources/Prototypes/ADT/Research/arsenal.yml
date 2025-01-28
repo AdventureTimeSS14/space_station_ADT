@@ -12,6 +12,20 @@
   technologyPrerequisites:
     - SalvageWeapons
 
+- type: technology
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
+  icon:
+    sprite: ADT/Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+
 #Технологии модулей
 - type: technology
   id: ADTArsenalBasicModules
@@ -42,7 +56,6 @@
     - ADTAttachmentT2MiniscopeRecipe
     - ADTAttachmentM90UnderbarrelShotgunRecipe
     - ADTAttachmentM90GrenadeLauncherRecipe
-    - ADT40mmGrenadeHEATRecipe
     - ADT40mmGrenadeBatonRecipe
     - ADT40mmGrenadeEMPRecipe
     - ADT40mmGrenadeFlashRecipe

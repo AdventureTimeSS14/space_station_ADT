@@ -12,7 +12,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Content.Server.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
-using Content.Shared.Actions;
 using Content.Shared.Throwing;
 using Content.Shared.Inventory.Events;
 using Content.Server.Actions;
