@@ -566,6 +566,8 @@ namespace Content.Client.Lobby.UI
             TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-traits-tab"));   // ADT Languages tweak
 
             // ADT Quirks Window start
+            if (Profile != null)
+                _quirksWindow?.Populate(Profile);
             QuirksMenuButton.OnToggled += args =>
             {
                 if (Profile == null)
