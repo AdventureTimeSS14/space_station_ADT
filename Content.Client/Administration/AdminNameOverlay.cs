@@ -81,7 +81,7 @@ internal sealed class AdminNameOverlay : Overlay
             currentOffset += lineoffset;
             if (!string.IsNullOrEmpty(playerInfo.PlaytimeString))
             {
-                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.PlaytimeString, uiScale, playerInfo.Connected ? Color.Red : Color.White);
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.PlaytimeString, uiScale, playerInfo.Connected ? Color.Orange : Color.White);
                 currentOffset += lineoffset;
             }
             if (playerInfo.Sponsor != null)
@@ -89,23 +89,6 @@ internal sealed class AdminNameOverlay : Overlay
                 args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, "Sponsor", uiScale, playerInfo.Connected ? Color.Gold : Color.White);
                 currentOffset += lineoffset;
             }
-
-
-            // if (_playerPanelEuiState.TotalNotes.HasValue)
-            // {
-            //     args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Notes: {_playerPanelEuiState.TotalNotes}", uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
-            //     currentOffset += lineoffset;
-            // }
-            // if (_playerPanelEuiState.TotalBans.HasValue)
-            // {
-            //     args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Bans: {_playerPanelEuiState.TotalBans}", uiScale, playerInfo.Connected ? Color.Red : Color.White);
-            //     currentOffset += lineoffset;
-            // }
-            // if (_playerPanelEuiState.TotalRoleBans.HasValue)
-            // {
-            //     args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, $"Role Bans: {_playerPanelEuiState.TotalRoleBans}", uiScale, playerInfo.Connected ? Color.Purple : Color.White);
-            //     currentOffset += lineoffset;
-            // }
             // ADT-END
         }
     }
