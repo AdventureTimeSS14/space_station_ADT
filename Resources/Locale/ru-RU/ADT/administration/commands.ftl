@@ -35,3 +35,9 @@ cmd-export-help = Экспортирует на ваш компьютер ука
 cmd-lslawset_get-desc = Выводит список законов у сущности которая имеет SiliconLawProviderComponent.
 cmd-lslawset_get-error-component = Сущность не имеет SiliconLawProviderComponent.
 cmd-lslawset_get-help = Использование: lslawset_get <userName/Uid>
+
+# Команда: setmind_swap
+set-mind-swap-command-description = Меняет местами сознания указанных сущностей. Сущности должна иметь { $requiredComponent }.
+set-mind-swap-command-help-text = Использование: { $command } <entityUid1> <entityUid2> [unvisit]
+set-mind-swap-success-message = Сознания успешно поменялись между собой.
+set-mind-swap-command-minds-not-found = Ошибка.
