@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.ADT.Language;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -12,24 +13,14 @@ namespace Content.Shared.Implants.Components;
 public sealed partial class TranslatorImplantComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("toUnderstand")]
-    public List<string> ToUnderstand = new();
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("toSpeak")]
-    public List<string> ToSpeak = new();
+    [DataField("languages")]
+    public Dictionary<string, LanguageKnowledge> Languages = new();
 
     /// <summary>
     /// The entity this implant is inside
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public EntityUid? ImplantedEntity;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public List<string> ImplantedToUnderstand = new();
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public List<string> ImplantedToSpeak = new();
 
     /// <summary>
     /// Should this implant be removeable?

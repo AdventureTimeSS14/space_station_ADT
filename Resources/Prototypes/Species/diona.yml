@@ -13,18 +13,28 @@
   maleLastNames: DionaLast # Corvax-LastnameGender
   femaleLastNames: DionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
-  # ADT Species window start
+  # ADT start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
   pros:
   - Не получают негативных эффектов от кудзу.
+  - Меньше замедляются от накопленных повреждений.
+  - Получают на 30% меньше тупого урона.
+  - Получают на 20% меньше колющего урона.
   special:
   - В критическом состоянии дионы могут распасться на нимф, после чего вернуться к жизни. Для этого нужна кровь.
-  - Выпив достаточно удобрений превращаются в дерево.
+  - При употреблении реагента робаст харвест, могут превратиться в дерево.
   - Имеют коллективный разум.
   cons:
-  - Получают гораздо больше урона от ожогов.
   - Не могут носить обувь.
-  # ADT Species window end
+  - Получают на 50% больше урона от ожогов.
+  - Получают на 20% больше урона от электричества.
+  defaultLanguages:
+  - GalacticCommon
+  - RootSpeak
+  uniqueLanguages:
+  - RootSpeak
+  # ADT end
+
 
 - type: speciesBaseSprites
   id: MobDionaSprites

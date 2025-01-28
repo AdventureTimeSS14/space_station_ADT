@@ -539,6 +539,42 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("book_printer_entry_id");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("content");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("name");
+
+                    b.Property<string>("StampState")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("stamp_state");
+
+                    b.HasKey("Id")
+                        .HasName("PK_book_printer_entry");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.ToTable("book_printer_entry", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -653,6 +689,31 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasFilter("priority = 3");
 
                     b.ToTable("job", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("language_id");
+
+                    b.Property<string>("LanguageName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("language_name");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_language");
+
+                    b.HasIndex("ProfileId", "LanguageName")
+                        .IsUnique();
+
+                    b.ToTable("language", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
@@ -1282,41 +1343,50 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("server_unban", (string)null);
                 });
 
-            // ADT-BookPrinter-Start
-            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
+            modelBuilder.Entity("Content.Server.Database.Sponsor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.Property<bool>("AllowJob")
                         .HasColumnType("INTEGER")
-                        .HasColumnName("book_printer_entry_id");
+                        .HasColumnName("allow_job");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("AllowedMarkings")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasColumnName("content");
+                        .HasColumnName("allowed_markings");
 
-                    b.Property<string>("Description")
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("expire_date");
+
+                    b.Property<int>("ExtraSlots")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("extra_slots");
+
+                    b.Property<bool>("HavePriorityJoin")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("have_priority_join");
+
+                    b.Property<string>("OOCColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasColumnName("description");
+                        .HasColumnName("ooccolor");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("name");
+                    b.Property<int>("Tier")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tier");
 
-                    b.Property<string>("StampState")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("stamp_state");
+                    b.HasKey("UserId")
+                        .HasName("PK_sponsors");
 
-                    b.HasKey("Id")
-                        .HasName("PK_book_printer_entry");
-
-                    b.HasIndex("Id")
+                    b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("book_printer_entry", (string)null);
+                    b.ToTable("sponsors", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.StampedData", b =>
@@ -1348,45 +1418,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.ToTable("stamped_data", (string)null);
                 });
-            // ADT-BookPrinter-End
-
-            // ADT-Sponsors-Start
-            modelBuilder.Entity("Content.Server.Database.Sponsor", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("user_id");
-                    b.Property<bool>("AllowJob")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("allow_job");
-                    b.Property<string>("AllowedMarkings")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("allowed_markings");
-                    b.Property<DateTime>("ExpireDate")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("expire_date");
-                    b.Property<int>("ExtraSlots")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("extra_slots");
-                    b.Property<bool>("HavePriorityJoin")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("have_priority_join");
-                    b.Property<string>("OOCColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("ooccolor");
-                    b.Property<int>("Tier")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("tier");
-                    b.HasKey("UserId")
-                        .HasName("PK_sponsors");
-                    b.HasIndex("UserId")
-                        .IsUnique();
-                    b.ToTable("sponsors", (string)null);
-                });
-            // ADT-Sponsors-End
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
@@ -1532,16 +1563,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.Navigation("Player");
                 });
-
-            // ADT-BookPrinter-Start
-            modelBuilder.Entity("Content.Server.Database.StampedData", b =>
-                {
-                    b.HasOne("Content.Server.Database.BookPrinterEntry", null)
-                        .WithMany("StampedBy")
-                        .HasForeignKey("BookPrinterEntryId")
-                        .HasConstraintName("FK_stamped_data_book_printer_entry_book_printer_entry_id");
-                });
-            // ADT-BookPrinter-End
 
             modelBuilder.Entity("Content.Server.Database.AdminMessage", b =>
                 {
@@ -1756,6 +1777,20 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.Navigation("Profile");
                 });
+
+            // ADT-START
+            modelBuilder.Entity("Content.Server.Database.Language", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("Languages")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_language_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+                // ADT-TWEAK-END
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
@@ -2018,6 +2053,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Ban");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.StampedData", b =>
+                {
+                    b.HasOne("Content.Server.Database.BookPrinterEntry", null)
+                        .WithMany("StampedBy")
+                        .HasForeignKey("BookPrinterEntryId")
+                        .HasConstraintName("FK_stamped_data_book_printer_entry_book_printer_entry_id");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2062,6 +2105,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Admins");
 
                     b.Navigation("Flags");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
+                {
+                    b.Navigation("StampedBy");
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
@@ -2113,18 +2161,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profiles");
                 });
 
-            // ADT-BookPrinter-Start
-            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
-                {
-                    b.Navigation("StampedBy");
-                });
-            // ADT-BookPrinter-End
-
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.Navigation("Antags");
 
                     b.Navigation("Jobs");
+
+                    b.Navigation("Languages");
 
                     b.Navigation("Loadouts");
 

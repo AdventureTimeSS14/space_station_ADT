@@ -17,6 +17,11 @@
     grid:
     - 0,0,6,3
     maxItemSize: Huge
+    # ADT Start
+    blacklist:
+      tags:
+      - ADTOreBag
+    # ADT End
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

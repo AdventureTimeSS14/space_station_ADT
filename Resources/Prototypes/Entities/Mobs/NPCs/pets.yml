@@ -36,12 +36,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalIan
-  - type: LanguageSpeaker # ADT
-    speaks:
-    - Dog
-    understands:
-    - GalacticCommon
-    - Dog
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Dog: Speak
+      GalacticCommon: Understand
+  # ADT tweak end
 
 - type: entity
   name: Old Ian
@@ -154,12 +154,13 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Cat
-    understands:
-    - GalacticCommon
-    - Cat
+    # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Cat: Speak
+      GalacticCommon: Understand
+    # ADT tweak end
+
 
 - type: entity
   name: Exception
@@ -180,12 +181,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Cat
-    understands:
-    - GalacticCommon
-    - Cat
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Cat: Speak
+      GalacticCommon: Understand
+  # ADT tweak end
 
 - type: entity
   name: Floppa
@@ -213,12 +214,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Cat
-    understands:
-    - GalacticCommon
-    - Cat
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Cat: Speak
+      GalacticCommon: Understand
+  # ADT tweak end
 
 - type: entity
   name: Bandito
@@ -331,8 +332,9 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: ReplacementAccent
-    accent: dog
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: dog
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-dog
@@ -350,12 +352,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMcGriff
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Dog
-    understands:
-    - GalacticCommon
-    - Dog
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Dog: Speak
+      GalacticCommon: Understand
+  # ADT tweak end
 
 - type: entity
   name: Paperwork
@@ -430,8 +432,9 @@
     spawned:
     - id: FoodMeat
       amount: 3
-  - type: ReplacementAccent
-    accent: dog
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: dog
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-dog
@@ -449,12 +452,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalWalter
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Dog
-    understands:
-    - GalacticCommon
-    - Dog
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Dog: Speak
+      GalacticCommon: Understand
+  # ADT tweak end
 
 - type: entity
   name: Morty
@@ -622,11 +625,11 @@
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
     rules: ghost-role-information-nonantagonist-rules
-# ADT-Tweak-start    
+# ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall    
-# ADT-Tweak-end       
+        time: 7200 # 2h overall
+# ADT-Tweak-end
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -653,12 +656,12 @@
     flavors:
     - meaty
     - sadness
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Mouse
-    understands:
-    - GalacticCommon
-    - Mouse
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Mouse: Speak
+      GalacticCommon: Understand
+  # ADT tweak end
 
 - type: entity
   name: Shiva
@@ -752,11 +755,11 @@
     name: ghost-role-information-willow-name
     description: ghost-role-information-willow-description
     rules: ghost-role-information-nonantagonist-rules
-# ADT-Tweak-start    
+# ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall    
-# ADT-Tweak-end       
+        time: 7200 # 2h overall
+# ADT-Tweak-end
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
@@ -840,17 +843,17 @@
     description: ghost-role-information-smile-description
     rules: ghost-role-information-nonantagonist-rules
     raffle: null
-# ADT-Tweak-start    
+# ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall    
+        time: 7200 # 2h overall
   - type: Prying
     pryPowered: false
     force: false
     speedModifier: 0.1
     useSound:
       path: /Audio/Items/crowbar.ogg
-# ADT-Tweak-end       
+# ADT-Tweak-end
   - type: Grammar
     attributes:
       proper: true
@@ -872,11 +875,11 @@
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
-# ADT-Tweak-start    
+# ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall    
-# ADT-Tweak-end        
+        time: 7200 # 2h overall
+# ADT-Tweak-end
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
@@ -897,12 +900,12 @@
     attributes:
       proper: true
       gender: male
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Monkey
-    understands:
-    - GalacticCommon
-    - Monkey
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Monkey: Speak
+      GalacticCommon: Understand
+  # ADT tweak end
 
 - type: entity
   name: Tropico

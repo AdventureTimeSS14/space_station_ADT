@@ -1,12 +1,12 @@
 - type: entity
   id: ADTCrateSecurityBrigmedic
+  abstract: true
   parent: CrateSecgear
   components:
   - type: StorageFill
     contents:
       - id: BrigmedicPDA
-      - id: ClothingHeadHatBeretSecurityMedic
-      - id: ClothingHeadHatBeretBrigmedic
+      - id: ADTClothingHeadHatBeretBrigmedic
       - id: ClothingBackpackDuffelBrigmedic
       - id: ClothingBackpackBrigmedic
       - id: ClothingBackpackSatchelBrigmedic

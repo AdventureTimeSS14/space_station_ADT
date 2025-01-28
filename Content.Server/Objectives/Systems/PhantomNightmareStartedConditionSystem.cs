@@ -42,7 +42,7 @@ public sealed class PhantomNightmareStartedConditionSystem : EntitySystem
         if (!TryComp<PhantomComponent>(uid, out var component))
             return 0f;
         if (!component.NightmareStarted)
-            return (float) Math.Clamp(component.Vessels.Count, 0f, 0.9f);
+            return (float) Math.Clamp((float)component.Vessels.Count / 10f, 0f, 0.9f);
 
         return 1f;
     }

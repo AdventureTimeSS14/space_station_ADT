@@ -93,17 +93,33 @@
           - /Maps/ADTMaps/Ruins/ussp_asteroid.yml
           - /Maps/ADTMaps/Ruins/ussp_debris.yml
         # ADT Ruins End
-        vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 300
-          maximumDistance: 350
-          nameDataset: NamesBorer
-          stationGrid: false
-          addComponents:
-          - type: Gravity
-            enabled: true
-            inherent: true
-          protos:
-          - VGRoid
+        # Руины Корвакса закомментированы по причине отсутствия баланса
+          # - /Maps/Ruins/corvax_accident.yml
+          # - /Maps/Ruins/corvax_adventurer.yml
+          # - /Maps/Ruins/corvax_aplink.yml
+          # - /Maps/Ruins/corvax_battleship.yml
+          # - /Maps/Ruins/corvax_gas_station.yml
+          # - /Maps/Ruins/corvax_bss_unluck.yml
+          # - /Maps/Ruins/corvax_hotel_trivago.yml
+          # - /Maps/Ruins/corvax_kamikaze.yml
+          # - /Maps/Ruins/corvax_ore.yml
+          # - /Maps/Ruins/corvax_research_station.yml
+          # - /Maps/Ruins/corvax_rnd_debris.yml
+          # - /Maps/Ruins/corvax_sanctus.yml
+          # - /Maps/Ruins/corvax_syndi_base.yml
+          # - /Maps/Ruins/corvax_ussp_debris.yml
+          # - /Maps/Ruins/corvax_ussp_asteroid.yml
+#        vgroid: !type:DungeonSpawnGroup  ADT remove start
+#          minimumDistance: 300
+#          maximumDistance: 350
+#          nameDataset: names_borer
+#          stationGrid: false
+#          addComponents:             ГИГАНТСКИЙ АСТЕРОИД ЗАКОММЕНЧЕН ДЛЯ ОПТИМИЗАЦИИ И У НАС ЕСТЬ ЛАВАЛЕНД С РУДОЙ
+#          - type: Gravity
+#            enabled: true
+#            inherent: true
+#          protos:
+#          - VGRoid                       ADT remove end
         # ADT-Mining-Start
         mining: !type:GridSpawnGroup
           nameGrid: false
@@ -122,7 +138,7 @@
   abstract: true
   components:
     - type: StationCentcomm
-      map: "/Maps/ADTMaps/ADTStations/NewYear/adt_centcom.yml" # ADT_NewYear
+      map: "/Maps/corvax_centcomm.yml"
 
 - type: entity
   id: BaseStationEvacuation

@@ -1,0 +1,87 @@
+{
+  "copyright" : "Make by not_so_big_chungus for Adventure Time Station",
+  "license" : "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+    "states": [
+        {
+            "name": "sabre_tsf",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "sabre_kmt",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "sabre_kmt-open",
+            "directions": 4
+        },
+        {
+            "name": "sabre_kmt-broken",
+            "directions": 4
+        },
+        {
+            "name": "sabre_tsf-open",
+            "directions": 4
+        },
+        {
+            "name": "sabre_tsf-broken",
+            "directions": 4
+        }
+    ]
+}

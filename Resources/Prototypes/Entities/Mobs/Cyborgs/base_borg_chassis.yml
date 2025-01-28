@@ -166,14 +166,10 @@
       Unsexed: UnisexSilicon
 # Start ADT Tweak
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      RobotTalk: Understand
 # End ADT Tweak
   - type: UnblockableSpeech
   - type: Construction

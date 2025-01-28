@@ -5,6 +5,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Content.Server.GameTicking.Events;
 using Content.Server.Chat.Systems;
+using Content.Server.Mind;
 
 namespace Content.Server.ADT.Language;
 
@@ -12,6 +13,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     public int Seed { get; private set; }
 
@@ -28,8 +30,8 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     private void OnMapInit(EntityUid uid, LanguageSpeakerComponent component, MapInitEvent args)
     {
         if (component.CurrentLanguage == null)
-            component.CurrentLanguage = component.SpokenLanguages.FirstOrDefault("Universal");
-        Dirty(uid, component);
+            component.CurrentLanguage = component.Languages.Keys.Where(x => (int)component.Languages[x] > 0).FirstOrDefault("Universal");
+        UpdateUi(uid);
     }
 
     private void OnRoundStart(RoundStartingEvent args)
@@ -40,11 +42,10 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     private void OnLanguageSwitch(LanguageChosenMessage args)
     {
         var uid = GetEntity(args.Uid);
-        if (!TryComp<LanguageSpeakerComponent>(uid, out var component) || component.CurrentLanguage == null)
+        if (!TryComp<LanguageSpeakerComponent>(uid, out var component))
             return;
-
-        //if (langs == null || component.CurrentLanguage == null)
-        //    return;
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out _) || !langs.ContainsKey(args.SelectedLanguage))
+            return;
 
         component.CurrentLanguage = args.SelectedLanguage;
 
@@ -93,13 +94,14 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         // This means that identical words will be obfuscated identically. Simple words like "hello" or "yes" in different langs can be memorized.
         var wordBeginIndex = 0;
         var hashCode = 0;
+        bool newSentence = true;
         for (var i = 0; i < message.Length; i++)
         {
             var ch = char.ToLower(message[i]);
             // A word ends when one of the following is found: a space, a sentence end, or EOM
             if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ',') || i == message.Length - 1)
             {
-                var wordLength = i + 1 - wordBeginIndex;
+                var wordLength = i - wordBeginIndex;
                 if (wordLength > 0)
                 {
                     var newWordLength = PseudoRandomNumber(hashCode, 1, 4);
@@ -107,11 +109,26 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
                     for (var j = 0; j < newWordLength; j++)
                     {
                         var index = PseudoRandomNumber(hashCode + j, 0, language.Replacement.Count);
-                        builder.Append(language.Replacement[index]);
+                        var replacement = language.Replacement[index];
+                        if (newSentence)
+                        {
+                            var replacementBuilder = new StringBuilder(replacement);
+                            replacementBuilder[0] = char.ToUpper(replacement[0]);
+                            replacement = replacementBuilder.ToString();
+                            newSentence = false;
+                        }
+
+                        builder.Append(replacement);
                     }
                 }
 
-                builder.Append(ch);
+                if (char.IsWhiteSpace(ch) || (ch is '.' or '!' or '?' or '~' or '-' or ','))
+                    builder.Append(ch);
+                if (ch is ('.' or '!' or '?' or '~' or ',') && message.Length >= i + 2 && char.ToLower(message[i + 1]) is not ('.' or '!' or '?' or '~' or ','))
+                    builder.Append(' ');
+                if (ch is '.' or '!' or '?')
+                    newSentence = true;
+
                 hashCode = 0;
                 wordBeginIndex = i + 1;
             }
@@ -160,6 +177,61 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         return random % (max - min) + min;
     }
 
+    public string AccentuateMessage(EntityUid uid, string lang, string message)
+    {
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.BadSpeak, out var langs, out _))
+            return message;
+        if (!langs.ContainsKey(lang))
+            return message;
+        if ((int)langs[lang] > (int)LanguageKnowledge.BadSpeak)
+            return message;
+
+        var sb = new StringBuilder();
+
+        // This is pretty much ported from TG.
+        foreach (var character in message)
+        {
+            if (_random.Prob(0.2f / 3f))
+            {
+                var lower = char.ToLowerInvariant(character);
+                var newString = lower switch
+                {
+                    'o' => "u",
+                    's' => "ch",
+                    'a' => "ah",
+                    'u' => "oo",
+                    'c' => "k",
+                    // Corvax-Localization Start
+                    'о' => "а",
+                    'к' => "кх",
+                    'щ' => "шч",
+                    'ц' => "тс",
+                    // Corvax-Localization End
+                    _ => $"{character}",
+                };
+
+                sb.Append(newString);
+            }
+
+            if (!_random.Prob(0.5f * 3/20))
+            {
+                sb.Append(character);
+                continue;
+            }
+
+            var next = _random.Next(1, 3) switch
+            {
+                1 => "'",
+                2 => $"{character}{character}",
+                _ => $"{character}{character}{character}",
+            };
+
+            sb.Append(next);
+        }
+
+        return sb.ToString();
+    }
+
     public override void UpdateUi(EntityUid uid, LanguageSpeakerComponent? comp = null)
     {
         base.UpdateUi(uid, comp);
@@ -169,10 +241,14 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         Dirty(uid, comp);
 
-        if (!GetLanguages(uid, out var understood, out _, out var translatorUnderstood, out _, out var current))
+        if (!GetLanguagesKnowledged(uid, LanguageKnowledge.Understand, out var langs, out _))
+            return;
+        if (!GetLanguages(uid, out _, out var translator, out var current))
+            return;
+        if (!_mind.TryGetMind(uid, out _, out var mind) || mind == null || mind.Session == null)
             return;
 
-        var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, understood, translatorUnderstood);
-        RaiseNetworkEvent(state, uid);
+        var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, langs, translator);
+        RaiseNetworkEvent(state, mind.Session);
     }
 }

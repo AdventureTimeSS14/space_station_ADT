@@ -144,12 +144,9 @@
             state: shoes
   #ADT Tweak start
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - VoxPidgin
-    understands:
-    - GalacticCommon
-    - VoxPidgin
+    languages:
+      GalacticCommon: Speak
+      VoxPidgin: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.05

@@ -5,6 +5,7 @@ using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
+using Content.Shared.ADT.Language;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -128,6 +129,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             {
                 _profileEditor.RefreshTraits();
             }
+            // ADT Languages start
+            if (obj.WasModified<LanguagePrototype>())
+            {
+                _profileEditor.RefreshLanguages();
+            }
+            // ADT Languages end
         }
     }
 

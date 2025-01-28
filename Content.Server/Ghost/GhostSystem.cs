@@ -41,11 +41,15 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.OnGhostAttemtpDamage;
 using Content.Shared.ADT.Ghost;
+using Content.Shared.Humanoid;
+using Content.Server.Humanoid;
+using Robust.Shared.Random;
 
 namespace Content.Server.Ghost
 {
     public sealed class GhostSystem : SharedGhostSystem
     {
+        [Dependency] private readonly IRobustRandom _random = default!; //ADT tweak
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -70,7 +74,9 @@ namespace Content.Server.Ghost
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly GameTicker _ticker = default!; //ADT tweak
 
+    [   Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -90,6 +96,7 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<GhostComponent, MindRemovedMessage>(OnMindRemovedMessage);
             SubscribeLocalEvent<GhostComponent, MindUnvisitedMessage>(OnMindUnvisitedMessage);
             SubscribeLocalEvent<GhostComponent, PlayerDetachedEvent>(OnPlayerDetached);
+            SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnPlayerAttached); //ADT tweak
 
             SubscribeLocalEvent<GhostOnMoveComponent, MoveInputEvent>(OnRelayMoveInput);
 
@@ -261,7 +268,29 @@ namespace Content.Server.Ghost
         {
             DeleteEntity(uid);
         }
+        //ADT tweak start
+        private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
+        {
+            if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
+            {
+                return;
+            }
+            if (!TryComp(uid, out ActorComponent? actor))
+            {
+                return;
+            }
+            var profile = _ticker.GetPlayerProfile(actor.PlayerSession);
+            if (profile == null)
+                return;
+            _humanoidSystem.LoadProfile(uid, profile);
 
+            if (component.AbleClothingMarkings != null)
+            {
+                var clothing = _random.Pick(component.AbleClothingMarkings); // без этого вара рандома не будет
+                _humanoidSystem.AddMarking(uid, clothing);
+            }
+        }
+        //ADT tweak end
         private void DeleteEntity(EntityUid uid)
         {
             if (Deleted(uid) || Terminating(uid))

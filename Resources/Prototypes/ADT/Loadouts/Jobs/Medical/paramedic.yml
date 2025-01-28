@@ -6,17 +6,17 @@
 - type: loadout
   id: ADTParamedicBackpack
   equipment:
-    back: ADTClothingBackpackParamedic
+    back: ADTClothingBackpackParamedicFilled
 
 - type: loadout
   id: ADTParamedicSatchel
   equipment:
-    back: ADTClothingBackpackSatchelParamedic
+    back: ADTClothingBackpackSatchelParamedicFilled
 
 - type: loadout
   id: ADTParamedicDuffel
   equipment:
-    back: ADTClothingBackpackDuffelParamedic
+    back: ADTClothingBackpackDuffelParamedicFilled
 
 - type: loadout
   id: ADTParamedicBeltEMT

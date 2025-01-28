@@ -40,6 +40,8 @@
     - id: DerelictCyborgSpawn
     - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
     - id: Pirates # ADT tweak pirates
+    - id: PhantomSpawn # ADT tweak phantom
+    # - id: ZombieOutbreak
 
 - type: entity
   id: BaseStationEvent

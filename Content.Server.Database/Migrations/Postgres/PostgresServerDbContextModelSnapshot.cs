@@ -570,6 +570,44 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("book_printer_entry_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("content");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.Property<string>("StampState")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("stamp_state");
+
+                    b.HasKey("Id")
+                        .HasName("PK_book_printer_entry");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.ToTable("book_printer_entry", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -690,6 +728,33 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasFilter("priority = 3");
 
                     b.ToTable("job", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("language_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("LanguageName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("language_name");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_language");
+
+                    b.HasIndex("ProfileId", "LanguageName")
+                        .IsUnique();
+
+                    b.ToTable("language", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
@@ -1354,43 +1419,50 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("server_unban", (string)null);
                 });
 
-            // ADT-BookPrinter-Start
-            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
+            modelBuilder.Entity("Content.Server.Database.Sponsor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.Property<bool>("AllowJob")
+                        .HasColumnType("boolean")
+                        .HasColumnName("allow_job");
+
+                    b.Property<string>("AllowedMarkings")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("allowed_markings");
+
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expire_date");
+
+                    b.Property<int>("ExtraSlots")
                         .HasColumnType("integer")
-                        .HasColumnName("book_printer_entry_id");
+                        .HasColumnName("extra_slots");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<bool>("HavePriorityJoin")
+                        .HasColumnType("boolean")
+                        .HasColumnName("have_priority_join");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("OOCColor")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("content");
+                        .HasColumnName("ooccolor");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("description");
+                    b.Property<int>("Tier")
+                        .HasColumnType("integer")
+                        .HasColumnName("tier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name");
+                    b.HasKey("UserId")
+                        .HasName("PK_sponsors");
 
-                    b.Property<string>("StampState")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("stamp_state");
-
-                    b.HasKey("Id")
-                        .HasName("PK_book_printer_entry");
-
-                    b.HasIndex("Id")
+                    b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("book_printer_entry", (string)null);
+                    b.ToTable("sponsors", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.StampedData", b =>
@@ -1424,45 +1496,6 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     b.ToTable("stamped_data", (string)null);
                 });
-            // ADT-BookPrinter-End
-
-            // ADT-Sponsors-Start
-            modelBuilder.Entity("Content.Server.Database.Sponsor", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-                    b.Property<bool>("AllowJob")
-                        .HasColumnType("boolean")
-                        .HasColumnName("allow_job");
-                    b.Property<string>("AllowedMarkings")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("allowed_markings");
-                    b.Property<DateTime>("ExpireDate")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("expire_date");
-                    b.Property<int>("ExtraSlots")
-                        .HasColumnType("integer")
-                        .HasColumnName("extra_slots");
-                    b.Property<bool>("HavePriorityJoin")
-                        .HasColumnType("boolean")
-                        .HasColumnName("have_priority_join");
-                    b.Property<string>("OOCColor")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ooccolor");
-                    b.Property<int>("Tier")
-                        .HasColumnType("integer")
-                        .HasColumnName("tier");
-                    b.HasKey("UserId")
-                        .HasName("PK_sponsors");
-                    b.HasIndex("UserId")
-                        .IsUnique();
-                    b.ToTable("sponsors", (string)null);
-                });
-            // ADT-Sponsors-Start
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
@@ -1775,14 +1808,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.StampedData", b =>
-                {
-                    b.HasOne("Content.Server.Database.BookPrinterEntry", null)
-                        .WithMany("StampedBy")
-                        .HasForeignKey("BookPrinterEntryId")
-                        .HasConstraintName("FK_stamped_data_book_printer_entry_book_printer_entry_id");
-                });
-
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Server", "Server")
@@ -1834,6 +1859,20 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     b.Navigation("Profile");
                 });
+
+            // ADT-START: НЕ БЫЛО ПОДПИСАНО НАХУЙ
+            modelBuilder.Entity("Content.Server.Database.Language", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("Languages")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_language_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+                // ADT-END
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
@@ -2072,13 +2111,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Round");
                 });
 
-            // ADT-BookPrinter-Start
-            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
-                {
-                    b.Navigation("StampedBy");
-                });
-            // ADT-BookPrinter-End
-
             modelBuilder.Entity("Content.Server.Database.ServerRoleUnban", b =>
                 {
                     b.HasOne("Content.Server.Database.ServerRoleBan", "Ban")
@@ -2101,6 +2133,14 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasConstraintName("FK_server_unban_server_ban_ban_id");
 
                     b.Navigation("Ban");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.StampedData", b =>
+                {
+                    b.HasOne("Content.Server.Database.BookPrinterEntry", null)
+                        .WithMany("StampedBy")
+                        .HasForeignKey("BookPrinterEntryId")
+                        .HasConstraintName("FK_stamped_data_book_printer_entry_book_printer_entry_id");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
@@ -2147,6 +2187,11 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Admins");
 
                     b.Navigation("Flags");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
+                {
+                    b.Navigation("StampedBy");
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
@@ -2203,6 +2248,8 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Antags");
 
                     b.Navigation("Jobs");
+
+                    b.Navigation("Languages");
 
                     b.Navigation("Loadouts");
 

@@ -1,0 +1,154 @@
+# у всей одежды должен быть белый/серый верх, а то будут видны бубсы
+
+- type: marking
+  id: ClothingJumpsuitPhysician
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/senior_physician.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitResearcher
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/senior_researcher.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitWeb
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/web.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitSecurity
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitBartender
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/bartender.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitBartenderPurple
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitChef
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitChemistry
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitDetective
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/detective.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitHawai
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitHos
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitJanitor
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/janitor.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitKimono
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/kimono.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitMime
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/mime.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitMonatic
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitParamedic
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/paramedic.rsi
+    state: equipped-INNERCLOTHING
+
+- type: marking
+  id: ClothingJumpsuitPirate
+  bodyPart: [ RArm, LArm, LLeg, RLeg]
+  markingCategory: Chest
+  speciesRestriction: [Ghost]
+  sprites:
+  - sprite: Clothing/Uniforms/Jumpsuit/pirate.rsi
+    state: equipped-INNERCLOTHING

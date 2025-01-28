@@ -58,24 +58,22 @@
   components:
   - type: Anchorable
   - type: Rotatable
-  - type: Physics # ADT CHANGE START sleep
+  # ADT CHANGE START sleep
+  - type: Physics
     bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
+          !type:PhysShapeCircle
+          radius: 0.2
         density: 190
         mask:
         - TableMask
-  - type: HealOnBuckle
-    damage:
-      types:
-        Poison: -0.1
-        Blunt: -0.1
   - type: Strap
     position: Down
-    rotation: 0 # ADT CHANGE END sleep
+    rotation: 0
+  # ADT CHANGE END sleep
 
 #Start anchored, cannot be rotated while anchored
 - type: entity

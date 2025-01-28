@@ -113,11 +113,9 @@
   - type: TypingIndicator
     proto: slime
   # ADT tweak start
-  - type: LanguageSpeaker # ADT
-    speaks:
-    - Bubblish
-    understands:
-    - Bubblish
+  - type: LanguageSpeaker
+    languages:
+      Bubblish: Speak
   - type: Prying # Open door from xeno.yml.
     pryPowered: true
     force: true
@@ -133,8 +131,9 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
-  - type: ReplacementAccent
-    accent: slimes
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: slimes
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
@@ -157,6 +156,9 @@
       task: SimpleHostileCompound
   - type: TTS # Corvax-TTS
     voice: neco_arc_2 #ADT-Tweak
+  - type: LanguageSpeaker
+    languages:
+      Bubblish: Speak
 
 - type: entity
   name: blue slime

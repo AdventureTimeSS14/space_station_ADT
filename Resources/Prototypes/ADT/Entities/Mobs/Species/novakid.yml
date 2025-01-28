@@ -141,12 +141,9 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Fire
-    understands:
-    - GalacticCommon
-    - Fire
+    languages:
+      GalacticCommon: Speak
+      Fire: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.1

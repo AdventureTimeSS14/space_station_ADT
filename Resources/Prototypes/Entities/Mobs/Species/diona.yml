@@ -111,26 +111,21 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - RootSpeak
-    understands:
-    - GalacticCommon
-    - RootSpeak
-  #Start ADT tweak
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      RootSpeak: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.08
     short: true
     shortscale: 0.92
-  #End ADT tweak
-  # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMind
     channel: DionsCollectiveMind
     showRank: false
     rankName: collective-mind-burrower-rank
-  # ADT-CollectiveMind-Tweak-End
+  # ADT tweak end
 
 - type: entity
   parent: BaseSpeciesDummy

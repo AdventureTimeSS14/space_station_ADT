@@ -78,6 +78,12 @@ namespace Content.Server.Database
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.TraitName})
                 .IsUnique();
 
+            // ADT Languages start
+            modelBuilder.Entity<Language>()
+                .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.LanguageName})
+                .IsUnique();
+            // ADT Languages end
+
             modelBuilder.Entity<ProfileRoleLoadout>()
                 .HasOne(e => e.Profile)
                 .WithMany(e => e.Loadouts)
@@ -434,6 +440,7 @@ namespace Content.Server.Database
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
+        public List<Language> Languages { get; } = new(); // ADT Languages
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
@@ -553,6 +560,16 @@ namespace Content.Server.Database
 
     #endregion
 
+    #region Languages (ADT)
+    public class Language
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string LanguageName { get; set; } = null!;
+    }
+    #endregion
     public enum DbPreferenceUnavailableMode
     {
         // These enum values HAVE to match the ones in PreferenceUnavailableMode in Shared.
