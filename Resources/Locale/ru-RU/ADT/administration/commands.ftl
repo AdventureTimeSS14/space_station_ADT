@@ -41,3 +41,4 @@ set-mind-swap-command-description = Меняет местами сознания
 set-mind-swap-command-help-text = Использование: { $command } <entityUid1> <entityUid2> [unvisit]
 set-mind-swap-success-message = Сознания успешно поменялись между собой.
 set-mind-swap-command-minds-not-found = Ошибка.
+set-mind-swap-command-target-has-no-mind-message = У одной из указанных сущностей нет компонента MindContainerComponent.
