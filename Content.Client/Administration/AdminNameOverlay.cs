@@ -114,11 +114,6 @@ internal sealed class AdminNameOverlay : Overlay
                 args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, label, uiScale, color);
                 currentOffset += lineoffset;
             }
-            // if (playerInfo.Antag)
-            // {
-            //     args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, "ANTAG", uiScale, Color.OrangeRed);
-            //     currentOffset += lineoffset;
-            // }
             args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? Color.Yellow : Color.White);
             currentOffset += lineoffset;
             args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.CharacterName, uiScale, playerInfo.Connected ? Color.Aquamarine : Color.White);
