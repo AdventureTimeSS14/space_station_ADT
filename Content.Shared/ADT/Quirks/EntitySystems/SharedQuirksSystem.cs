@@ -12,6 +12,7 @@ using Content.Shared.Tag;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.StepTrigger.Components;
+using Content.Shared.Damage;
 
 namespace Content.Shared.ADT.Traits;
 
@@ -31,6 +32,8 @@ public abstract class SharedQuirksSystem : EntitySystem
         SubscribeLocalEvent<SprinterComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<HardThrowerComponent, CheckThrowRangeModifiersEvent>(OnThrowerRangeModify);
+
+        SubscribeLocalEvent<FrailComponent, DamageModifyEvent>(OnFrailDamaged);
     }
 
     public void TryHide(EntityUid uid, EntityUid closet)
@@ -66,4 +69,12 @@ public abstract class SharedQuirksSystem : EntitySystem
         args.VectorMod = component.Modifier;
     }
 
+    private void OnFrailDamaged(EntityUid uid, FrailComponent comp, DamageModifyEvent args)
+    {
+        foreach (var type in args.Damage.DamageDict.Keys)
+        {
+            if (comp.Modifiers.ContainsKey(type))
+                args.Damage.DamageDict[type] = args.Damage.DamageDict[type] * comp.Modifiers[type];
+        }
+    }
 }
