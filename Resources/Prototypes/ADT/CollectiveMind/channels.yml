@@ -2,7 +2,7 @@
   id: DionsCollectiveMind
   name: collective-mind-dionas
   frequency: 1331
-  keycode: 't'
+  keycode: 'd'
   color: "#3de500"
   longRange: true
 
