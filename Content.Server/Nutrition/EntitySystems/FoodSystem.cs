@@ -34,6 +34,7 @@ using Content.Shared.Containers.ItemSlots;
 using Robust.Server.GameObjects;
 using Content.Shared.Whitelist;
 using Content.Shared.Destructible;
+using Content.Shared.ADT.Traits;
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -191,9 +192,15 @@ public sealed class FoodSystem : EntitySystem
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(target):target} is eating {ToPrettyString(food):food} {SharedSolutionContainerSystem.ToPrettyString(foodSolution)}");
         }
 
+        // ADT Quirks start
+        var delay = foodComp.Delay;
+        if (TryComp<FoodConsumptionSpeedModifierComponent>(user, out var modifier))
+            delay *= modifier.Modifier;
+        // ADT Quirks end
+
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
-            forceFeed ? foodComp.ForceFeedDelay : foodComp.Delay,
+            forceFeed ? foodComp.ForceFeedDelay : delay,    // ADT Quirks tweak
             new ConsumeDoAfterEvent(foodComp.Solution, flavors),
             eventTarget: food,
             target: target,
