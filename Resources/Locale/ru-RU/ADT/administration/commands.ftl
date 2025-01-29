@@ -42,3 +42,7 @@ set-mind-swap-command-help-text = Использование: { $command } <enti
 set-mind-swap-success-message = Сознания успешно поменялись между собой.
 set-mind-swap-command-minds-not-found = Ошибка: сознания не найдены или сущности некорректны.
 set-mind-swap-command-target-has-no-mind-message = У одной из указанных сущностей нет компонента MindContainerComponent.
+
+# Комманда: adjstationjob
+cmd-adjstationjob-desc = Изменить манифест рабочих мест на станции.
+cmd-adjstationjob-help = Использование: adjstationjob <station id> <job id> <amount>
