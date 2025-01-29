@@ -43,6 +43,10 @@
         - TrayScanner
         - GasAnalyzer
         - HandLabeler
+        # ADT tweak start
+        - RPD
+        - RPDAmmo
+        # ADT tweak end
   - type: ItemMapper
     mapLayers:
       drill:
