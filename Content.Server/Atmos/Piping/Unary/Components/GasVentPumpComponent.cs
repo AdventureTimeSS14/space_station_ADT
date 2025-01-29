@@ -35,7 +35,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     In releasing mode, do not pump when environment pressure is below this limit.
         /// </summary>
         [DataField]
-        public float UnderPressureLockoutThreshold = 80; // this must be tuned in conjunction with atmos.mmos_spacing_speed
+        public float UnderPressureLockoutThreshold = 55; // this must be tuned in conjunction with atmos.mmos_spacing_speed // ADT TWEAK 80 > 55
 
         /// <summary>
         ///     Pressure locked vents still leak a little (leading to eventual pressurization of sealed sections)
@@ -58,7 +58,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         [DataField]
         public bool IsPressureLockoutManuallyDisabled = false;
         /// <summary>
-        /// The time when the manual pressure lockout will be reenabled. 
+        /// The time when the manual pressure lockout will be reenabled.
         /// </summary>
         [DataField]
         [AutoPausedField]

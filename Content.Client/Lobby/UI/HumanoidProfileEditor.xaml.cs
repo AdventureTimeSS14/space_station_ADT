@@ -112,6 +112,7 @@ namespace Content.Client.Lobby.UI
         private ISawmill _sawmill;
 
         private SpeciesWindow? _speciesWindow;  // ADT Species window
+        private QuirksWindow? _quirksWindow;  // ADT Quirks window
 
 
         public HumanoidProfileEditor(
@@ -446,9 +447,14 @@ namespace Content.Client.Lobby.UI
 
             #endregion Appearance
 
+            // ADT Languages start
+            #region Languages
+            RefreshLanguages();
+            #endregion Languages
+            // ADT Languages end
             #region Jobs
 
-            TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-jobs-tab"));
+            TabContainer.SetTabTitle(2, Loc.GetString("humanoid-profile-editor-jobs-tab")); // ADT Languages tweak
 
             PreferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-stay-in-lobby-button"),
@@ -472,13 +478,13 @@ namespace Content.Client.Lobby.UI
 
             #endregion Jobs
 
-            TabContainer.SetTabTitle(2, Loc.GetString("humanoid-profile-editor-antags-tab"));
+            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-antags-tab"));   // ADT Languages tweak
 
             RefreshTraits();
 
             #region Markings
 
-            TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-markings-tab"));
+            TabContainer.SetTabTitle(5, Loc.GetString("humanoid-profile-editor-markings-tab")); // ADT Languages tweak
 
             Markings.OnMarkingAdded += OnMarkingChange;
             Markings.OnMarkingRemoved += OnMarkingChange;
@@ -556,8 +562,46 @@ namespace Content.Client.Lobby.UI
         {
             TraitsList.DisposeAllChildren();
 
-            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
-            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().Where(t => !t.Quirk).OrderBy(t => Loc.GetString(t.Name)).ToList(); // ADT Quirks tweaked
+            TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-traits-tab"));   // ADT Languages tweak
+
+            // ADT Quirks Window start
+            if (Profile != null)
+                _quirksWindow?.Populate(Profile);
+            QuirksMenuButton.OnToggled += args =>
+            {
+                if (Profile == null)
+                    return;
+
+                _quirksWindow?.Dispose();
+
+                if (!args.Pressed)
+                {
+                    _quirksWindow = null;
+                }
+                else
+                {
+                    _quirksWindow = new(_prototypeManager);
+                    _quirksWindow.Populate(Profile);
+                    _quirksWindow.OpenCenteredRight();
+                    _quirksWindow.QuirkSelected += args =>
+                    {
+                        if (Profile.TraitPreferences.Contains(args.ID))
+                            Profile = Profile.WithoutTraitPreference(args.ID, _prototypeManager);
+                        else
+                            Profile = Profile.WithTraitPreference(args.ID, _prototypeManager);
+
+                        SetDirty();
+                        _quirksWindow?.Populate(Profile);
+                    };
+                    _quirksWindow.OnClose += () =>
+                    {
+                        QuirksMenuButton.Pressed = false;
+                        _quirksWindow = null;
+                    };
+                }
+            };
+            // ADT Quirks Window end
 
             if (traits.Count < 1)
             {
@@ -847,6 +891,7 @@ namespace Content.Client.Lobby.UI
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
 
+            RefreshLanguages(); // ADT Languages
             RefreshAntags();
             RefreshJobs();
             RefreshLoadouts();

@@ -75,14 +75,6 @@
     Plastic: 500
     Plasma: 500
 
-- type: latheRecipe
-  id: ADT40mmGrenadeHEATRecipe
-  result: ADT40mmGrenadeHEAT
-  completetime: 5
-  materials:
-    Steel: 300
-    Plastic: 100
-    Plasma: 100
 
 - type: latheRecipe
   id: ADT40mmGrenadeBatonRecipe

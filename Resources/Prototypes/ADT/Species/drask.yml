@@ -20,6 +20,9 @@
   - Лечатся в холоде.
   cons:
   - Получают повышенный урон от ожогов.
+  defaultLanguages:
+  - GalacticCommon
+  - Drask
 
 - type: speciesBaseSprites
   id: MobDraskSprites

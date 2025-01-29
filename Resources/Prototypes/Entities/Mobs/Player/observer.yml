@@ -42,9 +42,33 @@
   - type: Sprite
     sprite: Mobs/Ghosts/ghost_human.rsi
     color: "#fff8"
-    layers:
-    - state: animated
+    layers: # ADT ghost start
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
       shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      shader: unshaded
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      shader: unshaded
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+      shader: unshaded
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+      shader: unshaded
+  # ОЧЕНЬ ЧЁРТ ВОЗЬМИ ВАЖНЫЙ TODO: придумать, как сделать аншейдед на госта
+  # ADT ghost end
   - type: ContentEye
     maxZoom: 1.44,1.44
   - type: Eye
@@ -54,6 +78,24 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
+    ableClothingMarkings: #ADT tweak
+    - ClothingJumpsuitPhysician
+    - ClothingJumpsuitResearcher
+    - ClothingJumpsuitWeb
+    - ClothingJumpsuitSecurity
+    - ClothingJumpsuitBartender
+    - ClothingJumpsuitBartenderPurple
+    - ClothingJumpsuitChef
+    - ClothingJumpsuitChemistry
+    - ClothingJumpsuitDetective
+    - ClothingJumpsuitHawai
+    - ClothingJumpsuitHos
+    - ClothingJumpsuitJanitor
+    - ClothingJumpsuitKimono
+    - ClothingJumpsuitMime
+    - ClothingJumpsuitMonatic
+    - ClothingJumpsuitParamedic
+    - ClothingJumpsuitPirate
   - type: GhostHearing
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
@@ -63,10 +105,8 @@
     tags:
     - BypassInteractionRangeChecks
   - type: LanguageSpeaker
-    speaks:
-    - Universal
-    understands:
-    - Universal
+    languages:
+      Universal: Understand
   #ADT Observer PDA start
   - type: Hands
     showInHands: false
@@ -76,6 +116,9 @@
     prototypes: [ MobGhostGear ]
   - type: InventorySlots
   - type: ComplexInteraction
+  - type: HumanoidAppearance
+    species: GhostSpecies
+    shader: unshaded
   #ADT Observer PDA end
 
 # proto for player ghosts specifically

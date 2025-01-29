@@ -77,12 +77,9 @@
         - SecretStash
   # ADT-Tweak-start
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - BorgTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
   # ADT-Tweak-end
 
 

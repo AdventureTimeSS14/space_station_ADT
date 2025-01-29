@@ -138,7 +138,8 @@ namespace Content.Shared.Interaction
 
         private void RateLimitAlertAdmins(ICommonSession session)
         {
-            _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name)));
+            if (CCVars.InteractionRateLimitAnnounceAdmins.DefaultValue) // ADT-Tweak:
+                _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name))); // ADT-Tweak:
         }
 
         public override void Shutdown()

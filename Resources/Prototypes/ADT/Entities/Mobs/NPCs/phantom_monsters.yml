@@ -35,11 +35,9 @@
     thresholds:
       0: Alive
       125: Dead
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
   - type: Tag
     tags:
     - DoorBumpOpener

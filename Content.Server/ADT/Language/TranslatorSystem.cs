@@ -4,7 +4,6 @@ using Content.Shared.Interaction;
 using Content.Shared.ADT.Language;
 using Content.Shared.PowerCell;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Hands;
 
 namespace Content.Server.ADT.Language;

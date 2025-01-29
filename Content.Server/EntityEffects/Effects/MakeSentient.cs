@@ -23,17 +23,13 @@ public sealed partial class MakeSentient : EntityEffect
         entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
 
-        // Lang start
+        // ADT Languages start
         var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
-        if (!lang.SpokenLanguages.Contains("GalacticCommon"))
-        {
-            lang.SpokenLanguages.Add("GalacticCommon");
-        }
-        if (!lang.UnderstoodLanguages.Contains("GalacticCommon"))
-        {
-            lang.UnderstoodLanguages.Add("GalacticCommon");
-        }
-        // Lang end
+        if (!lang.Languages.ContainsKey("GalacticCommon"))
+            lang.Languages.Add("GalacticCommon", LanguageKnowledge.Speak);
+        else
+            lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
+        // ADT Languages end
 
         // Stops from adding a ghost role to things like people who already have a mind
         if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
