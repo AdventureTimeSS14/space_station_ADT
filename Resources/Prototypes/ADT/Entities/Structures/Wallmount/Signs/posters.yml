@@ -40,6 +40,15 @@
 
 - type: entity
   parent: ADTPosterBase
+  id: ADTPosterChih
+  name: Poster "Chih"
+  description: "This picture depicts the deep meaning of the existence of all possible races of our vast observable universe. The personification of the disease process gives reason to think about the meaning of our state of health (which generally does not exist)."
+  components:
+  - type: Sprite
+    state: poster_adtchihposter
+
+- type: entity
+  parent: ADTPosterBase
   id: ADTPosterLegitTurnOnSensors
   name: Turn on the sensors
   description: "A reminder from the paramedic to everyone at the station - turn on the sensors so that you are quickly found in case of trouble."
