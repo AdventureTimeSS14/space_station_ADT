@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseItem
+  id: ADTVehicleKeyHoverbikeTSF
+  name: hoverbike keys tsf
+  description: Cute bibelot.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - HoverbikeKeysTSF
+    - VehicleKey
+  - type: Sprite
+    sprite: Objects/Vehicles/atv.rsi
+    state: keys
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: BaseItem
+  id: ADTVehicleKeyHoverbikeKMT
+  name: hoverbike keys kmt
+  description: Cute bibelot.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - HoverbikeKeysKMT
+    - VehicleKey
+  - type: Sprite
+    sprite: Objects/Vehicles/atv.rsi
+    state: keys
+  - type: StaticPrice
+    price: 50

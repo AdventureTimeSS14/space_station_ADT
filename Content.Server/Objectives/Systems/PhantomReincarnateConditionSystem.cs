@@ -42,7 +42,7 @@ public sealed class PhantomReincarnateConditionSystem : EntitySystem
         if (TryComp<PhantomComponent>(uid, out var component))
         {
             if (!component.FinalAbilityUsed)
-                return (float) Math.Clamp(component.Vessels.Count, 0f, 0.9f);
+                return (float) Math.Clamp((float)component.Vessels.Count / 10f, 0f, 0.9f);
             else
                 return 0f;
         }

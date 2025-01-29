@@ -1,0 +1,21 @@
+- type: entity
+  id: ADTBannerTSF
+  parent: BannerBase
+  name: TSF banner
+  description: A banner displaying TSF.
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/banner.rsi
+    state: tsf
+
+- type: entity
+  id: ADTBannerKMT
+  parent: BannerBase
+  name: KMT banner
+  description: A banner displaying KMT.
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/banner.rsi
+    state: kmt

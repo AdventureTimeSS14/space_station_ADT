@@ -22,7 +22,9 @@
         sound:
           collection: MetalSlam
   - type: RCDDeconstructable
-    deconstructable: false
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Tag
     tags:
       - ForceNoFixRotations
@@ -73,6 +75,9 @@
         sound:
           collection: MetalSlam
   - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Tag
     tags:
       - ForceNoFixRotations
@@ -121,3 +126,5 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+  - type: RCDDeconstructable
+    deconstructable: false

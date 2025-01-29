@@ -1,0 +1,12 @@
+<Control
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.ADT.MiningShop"
+    Margin="4">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal">
+            <controls:MiningShopPanel Name="Panel" Access="Public" Margin="4" HorizontalAlignment="Left" MaxWidth="200"/>
+            <RichTextLabel Name="Label" Text="Blabla" Access="Public" Margin="4" HorizontalExpand="True" SizeFlagsStretchRatio="4"/>
+        </BoxContainer>
+        <RichTextLabel Name="DescLabel" Access="Public" Margin="4" HorizontalAlignment="Left"/>
+    </BoxContainer>
+</Control>

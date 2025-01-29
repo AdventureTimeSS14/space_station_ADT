@@ -108,21 +108,38 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
       state: gau32_kmt_icon
-    # - type: IntrinsicUI
-    #   uis:
-    #     enum.RadarConsoleUiKey.Key:
-    #       toggleAction: ActionAGhostShowRadar
-    # - type: RadarConsole
-    #   followEntity: false
-    # - type: UserInterface
-    #   interfaces:
-    #     enum.RadarConsoleUiKey.Key:
-    #       type: RadarConsoleBoundUserInterface
     - type: Explosive
       explosionType: Default
       maxIntensity: 10
       intensitySlope: 2
       totalIntensity: 100
+    - type: TurretControllable #компонент контролируемой турели
+    - type: DeviceLinkSink
+      ports:
+      - Input #можно переписать нахуй прототип турели, но главное что б
+    # - type: UserInterface
+    #   interfaces:
+    #     enum.RadarConsoleUiKey.Key:
+    #       type: RadarConsoleBoundUserInterface
+    # - type: RadarConsole
+    #   maxRange: 256
+    #   followEntity: true
+    # - type: IntrinsicUI
+    #   uis:
+    #     enum.RadarConsoleUiKey.Key:
+    #       toggleAction: ActionTurretShowRadar
+    - type: ActiveRadio
+      channels:
+      - Common
+    - type: TypingIndicator
+      proto: robot
+    - type: Speech
+      speechVerb: Robotic
+      speechSounds: Pai
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Common
 
 - type: entity
   parent: BaseStructure
@@ -446,6 +463,33 @@
       maxIntensity: 15
       intensitySlope: 2
       totalIntensity: 200
+    - type: TurretControllable #компонент контролируемой турели
+    - type: DeviceLinkSink
+      ports:
+      - Input #можно переписать нахуй прототип турели, но главное что б
+    # - type: UserInterface
+    #   interfaces:
+    #     enum.RadarConsoleUiKey.Key:
+    #       type: RadarConsoleBoundUserInterface
+    # - type: RadarConsole
+    #   maxRange: 256
+    #   followEntity: true
+    # - type: IntrinsicUI
+    #   uis:
+    #     enum.RadarConsoleUiKey.Key:
+    #       toggleAction: ActionTurretShowRadar
+    - type: ActiveRadio
+      channels:
+      - Common
+    - type: TypingIndicator
+      proto: robot
+    - type: Speech
+      speechVerb: Robotic
+      speechSounds: Pai
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Common
 
 - type: entity
   parent: ADTgau32Broken
