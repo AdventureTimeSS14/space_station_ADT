@@ -11,19 +11,15 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.ADT.Administration.Commands;
 
 [AdminCommand(AdminFlags.Round)]
-public sealed class AdjustStationJobCommand : IConsoleCommand
+public sealed class AdjustStationJobCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entSysManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    public string Command => "adjstationjob";
+    public override string Command => "adjstationjob";
 
-    public string Description => "Adjust the job manifest on a station.";
-
-    public string Help => "adjstationjob <station id> <job id> <amount>";
-
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 3)
         {
@@ -62,7 +58,7 @@ public sealed class AdjustStationJobCommand : IConsoleCommand
         stationJobs.TrySetJobSlot(station, job, amount, true);
     }
 
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
         {
