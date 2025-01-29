@@ -14543,15 +14543,15 @@ entities:
     - type: Transform
       pos: -58.50044,23.5087
       parent: 2
-- proto: ActionToggleBlock
-  entities:
-  - uid: 5100
-    components:
-    - type: Transform
-      parent: 8291
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 8291
+# - proto: ActionToggleBlock
+#   entities:
+#   - uid: 5100
+#     components:
+#     - type: Transform
+#       parent: 8291
+#     - type: InstantAction
+#       originalIconColor: '#FFFFFFFF'
+#       container: 8291
 - proto: ActionToggleLight
   entities:
   - uid: 121
@@ -122056,14 +122056,14 @@ entities:
     - type: Transform
       pos: -21.461847,6.590386
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 5100
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 5100
+    # - type: Blocking
+    #   blockingToggleActionEntity: 5100
+    # - type: ActionsContainer
+    # - type: ContainerContainer
+    #   containers:
+    #     actions: !type:Container
+    #       ents:
+    #       - 5100
 - proto: RiotLaserShield
   entities:
   - uid: 632

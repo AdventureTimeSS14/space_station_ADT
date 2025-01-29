@@ -8534,22 +8534,22 @@ entities:
     - type: Transform
       pos: -42.541283,-55.258762
       parent: 5350
-- proto: ActionToggleBlock
-  entities:
-  - uid: 6512
-    components:
-    - type: Transform
-      parent: 6511
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 6511
-  - uid: 7540
-    components:
-    - type: Transform
-      parent: 7539
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 7539
+# - proto: ActionToggleBlock
+#   entities:
+#   - uid: 6512
+#     components:
+#     - type: Transform
+#       parent: 6511
+#     - type: InstantAction
+#       originalIconColor: '#FFFFFFFF'
+#       container: 6511
+#   - uid: 7540
+#     components:
+#     - type: Transform
+#       parent: 7539
+#     - type: InstantAction
+#       originalIconColor: '#FFFFFFFF'
+#       container: 7539
 - proto: ActionToggleInternals
   entities:
   - uid: 4778
@@ -141059,14 +141059,14 @@ entities:
     - type: Transform
       pos: -9.799423,38.722095
       parent: 5350
-    - type: Blocking
-      blockingToggleActionEntity: 6512
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 6512
+    # - type: Blocking
+    #   blockingToggleActionEntity: 6512
+    # - type: ActionsContainer
+    # - type: ContainerContainer
+    #   containers:
+    #     actions: !type:Container
+    #       ents:
+    #       - 6512
 - proto: RiotLaserShield
   entities:
   - uid: 8001
@@ -141091,14 +141091,14 @@ entities:
     - type: Transform
       pos: -9.549423,38.409595
       parent: 5350
-    - type: Blocking
-      blockingToggleActionEntity: 7540
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 7540
+    # - type: Blocking
+    #   blockingToggleActionEntity: 7540
+    # - type: ActionsContainer
+    # - type: ContainerContainer
+    #   containers:
+    #     actions: !type:Container
+    #       ents:
+    #       - 7540
 - proto: RobocopCircuitBoard
   entities:
   - uid: 26934
