@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ActionBlocker;
@@ -138,7 +139,8 @@ namespace Content.Shared.Interaction
 
         private void RateLimitAlertAdmins(ICommonSession session)
         {
-            // _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name))); // ADT-Tweak: Просто убираю это. Адмемы попросили, конфиги редачить лень
+            if (CCVars.InteractionRateLimitAnnounceAdmins.DefaultValue) // ADT-Tweak:
+                _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name))); // ADT-Tweak:
         }
 
         public override void Shutdown()
