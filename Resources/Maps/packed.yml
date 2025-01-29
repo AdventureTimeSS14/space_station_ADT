@@ -4654,24 +4654,6 @@ entities:
             3413: 9,32
             3535: 9,33
         - node:
-            color: '#92000093'
-            id: QuarterTileOverlayGreyscale180
-          decals:
-            4021: 36,-1
-            4023: 34,-1
-            4025: 32,-1
-            4026: 31,-1
-            4027: 30,-1
-            4028: 29,-1
-            4029: 28,-1
-            4030: 27,-1
-            4031: 27,-2
-            4032: 27,-3
-            4033: 27,-4
-            4034: 27,-5
-            4036: 27,-7
-            4037: 27,-8
-        - node:
             color: '#951710FF'
             id: QuarterTileOverlayGreyscale180
           decals:
@@ -4872,18 +4854,6 @@ entities:
             2514: 105,-20
             2515: 102,-20
             2516: 102,-17
-        - node:
-            color: '#1F820993'
-            id: QuarterTileOverlayGreyscale270
-          decals:
-            4003: 37,-1
-            4004: 36,-1
-            4006: 34,-1
-            4008: 32,-1
-            4009: 31,-1
-            4010: 30,-1
-            4011: 29,-1
-            4012: 28,-1
         - node:
             color: '#334E6DC8'
             id: QuarterTileOverlayGreyscale270
@@ -5162,17 +5132,6 @@ entities:
             2518: 104,-17
             2519: 107,-18
             2520: 106,-20
-        - node:
-            color: '#1F820993'
-            id: QuarterTileOverlayGreyscale90
-          decals:
-            4013: 27,-2
-            4014: 27,-3
-            4015: 27,-4
-            4016: 27,-5
-            4018: 27,-7
-            4019: 27,-8
-            4020: 27,-9
         - node:
             color: '#334E6DC8'
             id: QuarterTileOverlayGreyscale90
@@ -33231,21 +33190,6 @@ entities:
     - type: Transform
       pos: 36.5,-6.5
       parent: 2
-  - uid: 1661
-    components:
-    - type: Transform
-      pos: 29.5,-3.5
-      parent: 2
-  - uid: 1662
-    components:
-    - type: Transform
-      pos: 30.5,-2.5
-      parent: 2
-  - uid: 1664
-    components:
-    - type: Transform
-      pos: 29.5,-2.5
-      parent: 2
   - uid: 2516
     components:
     - type: Transform
@@ -33563,21 +33507,6 @@ entities:
     components:
     - type: Transform
       pos: 14.5,15.5
-      parent: 2
-  - uid: 12374
-    components:
-    - type: Transform
-      pos: 31.5,-3.5
-      parent: 2
-  - uid: 12793
-    components:
-    - type: Transform
-      pos: 31.5,-2.5
-      parent: 2
-  - uid: 15085
-    components:
-    - type: Transform
-      pos: 30.5,-3.5
       parent: 2
 - proto: CarpetBlack
   entities:
@@ -37095,7 +37024,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 34.5,-5.5
       parent: 2
-  - uid: 16610
+  - uid: 1661
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -39183,33 +39112,6 @@ entities:
     components:
     - type: Transform
       pos: 70.51337,28.554468
-      parent: 2
-- proto: ClothingOuterSanta
-  entities:
-  - uid: 15114
-    components:
-    - type: Transform
-      pos: 40.61844,22.747278
-      parent: 2
-  - uid: 15115
-    components:
-    - type: Transform
-      pos: 40.708717,22.802872
-      parent: 2
-  - uid: 15116
-    components:
-    - type: Transform
-      pos: 40.52816,22.677786
-      parent: 2
-  - uid: 15117
-    components:
-    - type: Transform
-      pos: 40.43094,22.615242
-      parent: 2
-  - uid: 15118
-    components:
-    - type: Transform
-      pos: 40.326775,22.566597
       parent: 2
 - proto: ClothingOuterSkub
   entities:
@@ -44184,13 +44086,6 @@ entities:
     - type: Transform
       pos: 67.6423,-14.594364
       parent: 2
-- proto: DrinkGlassWhite
-  entities:
-  - uid: 15126
-    components:
-    - type: Transform
-      pos: 36.1319,-8.358889
-      parent: 2
 - proto: DrinkGoldenCup
   entities:
   - uid: 12097
@@ -47525,13 +47420,6 @@ entities:
     components:
     - type: Transform
       pos: 27.383966,6.5099545
-      parent: 2
-- proto: FoodPlate
-  entities:
-  - uid: 15119
-    components:
-    - type: Transform
-      pos: 35.454815,-8.306768
       parent: 2
 - proto: FoodPlateSmallTrash
   entities:
@@ -73480,18 +73368,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 41.5,-12.5
       parent: 2
-- proto: PresentRandom
-  entities:
-  - uid: 15086
-    components:
-    - type: Transform
-      pos: 29.5,-3.5
-      parent: 2
-  - uid: 15087
-    components:
-    - type: Transform
-      pos: 31.5,-3.5
-      parent: 2
 - proto: Protolathe
   entities:
   - uid: 5305
@@ -80600,18 +80476,6 @@ entities:
     components:
     - type: Transform
       pos: 54.5,37.5
-      parent: 2
-  - uid: 15120
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 29.777733,-4.241445
-      parent: 2
-  - uid: 15121
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 31.173567,-4.241445
       parent: 2
 - proto: StoolBar
   entities:
