@@ -30,17 +30,17 @@ jobs:
       - name: Create GitHub Release
         run: |
           echo "Creating release with tag v${{ github.sha }}"
-
-          # Create a release with the tag v${{ github.sha }}
+          
+          # Creating a release with tag v${{ github.sha }}
           response=$(curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d '{
-                  "tag_name": "v${{ github.sha }}",
-                  "target_commitish": "main",  # or use the specific commit SHA
-                  "name": "Release v${{ github.sha }}",
-                  "body": "Release for build ${{ github.sha }}",
-                  "draft": false,
-                  "prerelease": false
-                }' \
+            -d "{
+                  \"tag_name\": \"v${{ github.sha }}\",
+                  \"target_commitish\": \"main\",
+                  \"name\": \"Release v${{ github.sha }}\",
+                  \"body\": \"Release for build ${{ github.sha }}\",
+                  \"draft\": false,
+                  \"prerelease\": false
+                }" \
             https://api.github.com/repos/${{ github.repository }}/releases)
           
           echo "Response: $response"
