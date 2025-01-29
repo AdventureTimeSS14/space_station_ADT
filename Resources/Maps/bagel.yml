@@ -17302,7 +17302,7 @@ entities:
       parent: 60
 - proto: ButtonFrameCaution
   entities:
-  - uid: 666
+  - uid: 66600
     components:
     - type: Transform
       pos: -8.5,-2.5

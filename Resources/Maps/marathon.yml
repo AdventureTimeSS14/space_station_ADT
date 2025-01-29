@@ -111389,7 +111389,7 @@ entities:
       parent: 30
 - proto: PresentRandom
   entities:
-  - uid: 21378
+  - uid: 213780
     components:
     - type: Transform
       pos: -1.579752,8.102257
