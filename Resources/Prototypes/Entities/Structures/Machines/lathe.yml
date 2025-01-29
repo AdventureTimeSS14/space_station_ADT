@@ -142,7 +142,7 @@
       - Pickaxe
       - ModularReceiver
       - AppraisalTool
-      - SheetRGlass
+      # - SheetRGlass ADT-Fix
       - Beaker
       - Syringe
       - HandLabeler
