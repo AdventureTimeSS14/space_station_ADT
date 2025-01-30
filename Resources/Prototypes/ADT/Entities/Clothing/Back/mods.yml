@@ -16,7 +16,7 @@
       shoes: ADTClothingModsuitShoesBase
   - type: ContainerContainer
     containers:
-      modsuit-part: !type:Container {}
+      modsuit-part: !type:Container
         showEnts: False
         occludes: True
         ents: []
@@ -122,7 +122,7 @@
           - ModSuitMod
   - type: ContainerContainer
     containers:
-      modsuit-part: !type:Container {}
+      modsuit-part: !type:Container
         showEnts: False
         occludes: True
         ents: []
@@ -264,7 +264,7 @@
           - ModSuitMod
   - type: ContainerContainer
     containers:
-      modsuit-part: !type:Container {}
+      modsuit-part: !type:Container
         showEnts: False
         occludes: True
         ents: []
@@ -304,7 +304,7 @@
       shoes: ADTClothingModsuitShoesCience
   - type: ContainerContainer
     containers:
-      modsuit-part: !type:Container {}
+      modsuit-part: !type:Container
         showEnts: False
         occludes: True
         ents: []
