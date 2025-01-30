@@ -16,7 +16,7 @@ namespace Content.Shared.ADT.ModSuits;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ModSuitComponent : Component
 {
-    public const string DefaultClothingContainerId = "modsuit-clothing";
+    public const string DefaultClothingContainerId = "modsuit-part";
 
     /// <summary>
     ///     Action used to toggle the clothing on or off.
