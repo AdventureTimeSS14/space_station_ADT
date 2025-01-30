@@ -39,13 +39,13 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
         if (clothingContainer == null)
             return;
 
-        foreach(var attached in clothing.ClothingUids)
+        foreach (var attached in clothing.ClothingUids)
         {
             // Change tooltip text if attached clothing is toggle/untoggled
-            var tooltipText = Loc.GetString("modsuit-clothing-unattach-tooltip");
+            var tooltipText = Loc.GetString("modsuit-unattach-tooltip");
 
             if (clothingContainer.Contains(attached.Key))
-                tooltipText = Loc.GetString("modsuit-clothing-attach-tooltip");
+                tooltipText = Loc.GetString("modsuit-attach-tooltip");
 
             var button = new ModSuitRadialMenuButton()
             {
@@ -55,7 +55,7 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
                 AttachedClothingId = attached.Key
             };
 
-            var entProtoView = new EntityPrototypeView()
+            var spriteView = new SpriteView()
             {
                 SetSize = new Vector2(48, 48),
                 VerticalAlignment = VAlignment.Center,
@@ -63,9 +63,9 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
                 Stretch = SpriteView.StretchMode.Fill
             };
 
-            entProtoView.SetEntity(attached.Key);
+            spriteView.SetEntity(attached.Key);
 
-            button.AddChild(entProtoView);
+            button.AddChild(spriteView);
             main.AddChild(button);
         }
 

@@ -43,6 +43,7 @@
   technologyPrerequisites:
     - ADTSecMODsuit
 
+- type: technology
   id: KineticModifications
   name: research-technology-kinetic-modifications
   icon:

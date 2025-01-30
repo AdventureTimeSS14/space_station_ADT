@@ -28,6 +28,7 @@
   technologyPrerequisites:
     - ADTMedicalMODsuit
 
+- type: technology
   id: ADTCloning
   name: research-technology-medical-cloning-adt
   icon:

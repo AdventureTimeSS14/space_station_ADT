@@ -9,7 +9,7 @@
     sprite: ADT/Clothing/Back/Modsuit/standart.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitBase
       gloves: ADTClothingHandsModsuitBase
       outerClothing: ADTClothingOuterModsuitBodyBase
@@ -26,7 +26,7 @@
         ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
-      enum.ToggleModSuitUiKey.Key:
+      enum.ModSuitUiKey.Key:
         type: ModSuitBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
@@ -75,7 +75,7 @@
     sprite: ADT/Clothing/Back/Modsuit/atmospheric.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitAtmos
       gloves: ADTClothingHandsModsuitAtmos
       outerClothing: ADTClothingOuterModsuitBodyAtmos
@@ -103,11 +103,11 @@
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container {}
-      modsuit-mod1: !type:ContainerSlot 
+      modsuit-mod1: !type:ContainerSlot
       modsuit-mod2: !type:ContainerSlot
       modsuit-mod3: !type:ContainerSlot
       storagebase: !type:Container
-        ents: [] 
+        ents: []
 
 #смешной
 - type: entity
@@ -120,7 +120,7 @@
     sprite: ADT/Clothing/Back/Modsuit/clown.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitClown
       gloves: ADTClothingHandsModsuitClown
       outerClothing: ADTClothingOuterModsuitBodyClown
@@ -140,7 +140,7 @@
     sprite: ADT/Clothing/Back/Modsuit/engineering.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitEngineering
       gloves: ADTClothingHandsModsuitEngineering
       outerClothing: ADTClothingOuterModsuitBodyEngineering
@@ -160,7 +160,7 @@
     sprite: ADT/Clothing/Back/Modsuit/medical.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitMedical
       gloves: ADTClothingHandsModsuitMedical
       outerClothing: ADTClothingOuterModsuitBodyMedical
@@ -180,7 +180,7 @@
     sprite: ADT/Clothing/Back/Modsuit/mining.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitMining
       gloves: ADTClothingHandsModsuitMining
       outerClothing: ADTClothingOuterModsuitBodyMining
@@ -203,7 +203,7 @@
     sprite: ADT/Clothing/Back/Modsuit/security.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitSecurity
       gloves: ADTClothingHandsModsuitSecurity
       outerClothing: ADTClothingOuterModsuitBodySecurity
@@ -231,11 +231,11 @@
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container {}
-      modsuit-mod1: !type:ContainerSlot 
+      modsuit-mod1: !type:ContainerSlot
       modsuit-mod2: !type:ContainerSlot
       modsuit-mod3: !type:ContainerSlot
       storagebase: !type:Container
-        ents: [] 
+        ents: []
 
 # учёный
 
@@ -249,7 +249,7 @@
     sprite: ADT/Clothing/Back/Modsuit/cience.rsi
     state: icon
   - type: ModSuit
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitСience
       gloves: ADTClothingHandsModsuitCience
       outerClothing: ADTClothingOuterModsuitBodyCience
@@ -267,7 +267,7 @@
         ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
-      enum.ToggleModSuitUiKey.Key:
+      enum.ModSuitUiKey.Key:
         type: ModSuitBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
