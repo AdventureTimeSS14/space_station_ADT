@@ -236,7 +236,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        string sanitizedMessage = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
+        string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
         // ADT Languages end
 
@@ -954,6 +954,24 @@ public sealed partial class ChatSystem : SharedChatSystem
         if ((message != newMessage) && HasComp<ActorComponent>(source))
             _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}"); // ADT-Tweak:
 
+        GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
+
+        // Sanitize it first as it might change the word order
+        _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
+
+        if (capitalize)
+            newMessage = SanitizeMessageCapital(newMessage);
+        if (capitalizeTheWordI)
+            newMessage = SanitizeMessageCapitalizeTheWordI(newMessage, "i");
+        if (punctuate)
+            newMessage = SanitizeMessagePeriod(newMessage);
+
+        return prefix + newMessage;
+    }
+
+    public string SanitizeInGameICMessageLanguages(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
+    {
+        var newMessage = message;
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
 
         // Sanitize it first as it might change the word order
