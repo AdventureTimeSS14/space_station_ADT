@@ -1,4 +1,6 @@
 ﻿using Content.Shared.Alert;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -10,7 +12,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(PullingSystem))]
+[Access(typeof(PullingSystem), typeof(SharedHandsSystem))]
 public sealed partial class PullerComponent : Component
 {
     // My raiding guild
@@ -43,6 +45,32 @@ public sealed partial class PullerComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> PullingAlert = "Pulling";
+
+    [DataField]
+    public GrabStage Stage = GrabStage.None;
+
+    [DataField]
+    public Dictionary<GrabStage, int> RequiredHands = new()
+    {
+        {GrabStage.None, 1},
+        {GrabStage.Soft, 1},
+        {GrabStage.Hard, 1},
+        {GrabStage.Choke, 2}
+    };
+
+    [DataField]
+    public float EscapeAttemptDelay = 0.5f;
+
+    [ViewVariables]
+    public List<Entity<VirtualItemComponent>> VirtualItems = new();
 }
 
 public sealed partial class StopPullingAlertEvent : BaseAlertEvent;
+
+public enum GrabStage : int
+{
+    None = 0,
+    Soft = 1,
+    Hard = 2,
+    Choke = 3
+}

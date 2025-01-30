@@ -1,10 +1,12 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Hands;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -33,7 +35,7 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public sealed class PullingSystem : EntitySystem
+public sealed partial class PullingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -66,13 +68,15 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
         SubscribeLocalEvent<PullerComponent, EntGotInsertedIntoContainerMessage>(OnPullerContainerInsert);
         SubscribeLocalEvent<PullerComponent, EntityUnpausedEvent>(OnPullerUnpaused);
-        SubscribeLocalEvent<PullerComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
+        SubscribeLocalEvent<PullerComponent, BeforeVirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<PullerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<PullerComponent, DropHandItemsEvent>(OnDropHandItems);
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
+
+        InitializeGrab();
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
@@ -127,7 +131,7 @@ public sealed class PullingSystem : EntitySystem
             return;
         if (!TryComp<PullableComponent>(ent.Comp.Pulling, out var pullable))
             return;
-        args.Handled = TryStopPull(ent.Comp.Pulling.Value, pullable, ent);
+        args.Handled = TryLowerGrabStageOrStopPulling(ent, (ent.Comp.Pulling.Value, pullable));
     }
 
     private void OnPullerContainerInsert(Entity<PullerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -162,8 +166,13 @@ public sealed class PullingSystem : EntitySystem
     {
         if (args.Handled)
             return;
+        if (!ent.Comp.Puller.HasValue)
+        {
+            TryStopPull(ent, ent);
+            return;
+        }
 
-        args.Handled = TryStopPull(ent, ent, ent);
+        args.Handled = TryEscapeFromGrab(ent, ent.Comp.Puller.Value);
     }
 
     public override void Shutdown()
@@ -177,7 +186,7 @@ public sealed class PullingSystem : EntitySystem
         component.NextThrow += args.PausedTime;
     }
 
-    private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, VirtualItemDeletedEvent args)
+    private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, BeforeVirtualItemDeletedEvent args)
     {
         // If client deletes the virtual hand then stop the pull.
         if (component.Pulling == null)
@@ -188,7 +197,9 @@ public sealed class PullingSystem : EntitySystem
 
         if (EntityManager.TryGetComponent(args.BlockingEntity, out PullableComponent? comp))
         {
-            TryStopPull(args.BlockingEntity, comp);
+            if (_combat.IsInCombatMode(uid))
+                args.Cancel();
+            TryLowerGrabStageOrStopPulling((uid, component), (args.BlockingEntity, comp));
         }
     }
 
@@ -246,6 +257,8 @@ public sealed class PullingSystem : EntitySystem
         var entity = args.Entity;
 
         if (!_blocker.CanMove(entity))
+            return;
+        if (TryComp<PullerComponent>(component.Puller, out var puller) && puller.Stage > GrabStage.None)
             return;
 
         TryStopPull(uid, component, user: uid);
@@ -315,6 +328,8 @@ public sealed class PullingSystem : EntitySystem
             var pullerUid = oldPuller.Value;
             _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
+            pullerComp.VirtualItems.ForEach(x => QueueDel(x));
+            pullerComp.Stage = GrabStage.None;
             Dirty(oldPuller.Value, pullerComp);
 
             // Messaging
@@ -353,7 +368,8 @@ public sealed class PullingSystem : EntitySystem
             return;
         }
 
-        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player);
+        TryLowerGrabStageOrStopPulling((player, pullerComp), (pullerComp.Pulling.Value, pullableComp));
+        // TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player);
     }
 
     public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null)
@@ -406,13 +422,16 @@ public sealed class PullingSystem : EntitySystem
     {
         if (!Resolve(pullable, ref pullable.Comp, false))
             return false;
+        if (!TryComp<PullerComponent>(pullerUid, out var puller))
+            return false;
 
-        if (pullable.Comp.Puller == pullerUid)
-        {
-            return TryStopPull(pullable, pullable.Comp);
-        }
+        return TryStartPullingOrGrab((pullerUid, puller), (pullable, pullable.Comp));
+        // if (pullable.Comp.Puller == pullerUid)
+        // {
+        //     return TryStopPull(pullable, pullable.Comp);
+        // }
 
-        return TryStartPull(pullerUid, pullable, pullableComp: pullable);
+        // return TryStartPull(pullerUid, pullable, pullableComp: pullable);
     }
 
     public bool TogglePull(EntityUid pullerUid, PullerComponent puller)

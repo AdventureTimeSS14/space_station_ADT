@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -41,6 +42,31 @@ public sealed partial class PullableComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> PulledAlert = "Pulled";
+
+    [ViewVariables]
+    public TimeSpan LastEscapeAttempt = TimeSpan.Zero;
+
+    [DataField]
+    public Dictionary<GrabStage, float> GrabEscapeAttemptTimes = new()
+    {
+        {GrabStage.None, 0f},
+        {GrabStage.Soft, 1f},
+        {GrabStage.Hard, 1.5f},
+        {GrabStage.Choke, 2f}
+    };
+
+    [DataField]
+    public Dictionary<GrabStage, int> GrabEscapeAttemptCount = new()
+    {
+        {GrabStage.None, 0},
+        {GrabStage.Soft, 1},
+        {GrabStage.Hard, 2},
+        {GrabStage.Choke, 2}
+    };
+
+    public int EscapeAttemptCounter = 0;
+
+    public DoAfterId? EscapeAttemptDoAfter;
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent;

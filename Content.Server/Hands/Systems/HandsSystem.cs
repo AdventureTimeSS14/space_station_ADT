@@ -137,10 +137,12 @@ namespace Content.Server.Hands.Systems
             if (TryComp<PullerComponent>(args.PullerUid, out var pullerComp) && !pullerComp.NeedsHands)
                 return;
 
-            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid))
+            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virtualItem))
             {
                 DebugTools.Assert("Unable to find available hand when starting pulling??");
             }
+
+            pullerComp?.VirtualItems.Add((virtualItem.Value, Comp<VirtualItemComponent>(virtualItem.Value)));
         }
 
         private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)

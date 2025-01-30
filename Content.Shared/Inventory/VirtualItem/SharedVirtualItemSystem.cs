@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Hands;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -24,7 +25,7 @@ namespace Content.Shared.Inventory.VirtualItem;
 /// and <see cref="InventoryUiController"/>, see the <see cref="VirtualItemComponent"/>
 /// references there for more information
 /// </remarks>
-public abstract class SharedVirtualItemSystem : EntitySystem
+public abstract partial class SharedVirtualItemSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
