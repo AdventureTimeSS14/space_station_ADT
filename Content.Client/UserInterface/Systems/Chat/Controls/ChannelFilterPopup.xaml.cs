@@ -62,7 +62,6 @@ public sealed partial class ChannelFilterPopup : Popup
             active |= key;
         }
 
-
         return active;
     }
 
