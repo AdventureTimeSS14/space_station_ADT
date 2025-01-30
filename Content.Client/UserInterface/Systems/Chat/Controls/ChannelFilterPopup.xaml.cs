@@ -54,12 +54,19 @@ public sealed partial class ChannelFilterPopup : Popup
 
             active |= key;
         }
-
+        // ADT-Tweak-start
+        // Всегда добавляем ChatChannel.AdminChat в активные каналы
+        active |= ChatChannel.AdminChat;
+        //ADT-Tweak-End
         return active;
     }
 
     public void SetChannels(ChatChannel channels)
     {
+        // ADT-Tweak-start
+        // Добавляем ChatChannel.AdminChat в активные каналы по умолчанию
+        channels |= ChatChannel.AdminChat;
+        // ADT-Tweak-End
         foreach (var channel in ChannelFilterOrder)
         {
             if (!_filterStates.TryGetValue(channel, out var checkbox))
