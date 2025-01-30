@@ -17,12 +17,32 @@
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container {}
+        showEnts: False
+        occludes: True
+        ents: []
       modsuit-mod1: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо сделать систему комплектации, ноо мне лень.
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod4: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod5: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
@@ -103,10 +123,24 @@
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container {}
+        showEnts: False
+        occludes: True
+        ents: []
       modsuit-mod1: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents: []
 
 #смешной
@@ -231,10 +265,24 @@
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container {}
+        showEnts: False
+        occludes: True
+        ents: []
       modsuit-mod1: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents: []
 
 # учёный
@@ -257,13 +305,36 @@
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container {}
+        showEnts: False
+        occludes: True
+        ents: []
       modsuit-mod1: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо ещё сделать систему комплектации, ноо мне лень.
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod4: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod5: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       modsuit-mod6: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
