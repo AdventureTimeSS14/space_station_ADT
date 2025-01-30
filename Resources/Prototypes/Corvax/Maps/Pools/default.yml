@@ -1,0 +1,23 @@
+# ADT-Commented
+# - type: gameMapPool
+#   id: CorvaxDefaultMapPool
+#   maps:
+#   # Highpop
+#   - CorvaxDelta
+#   - CorvaxAvrite
+#   - CorvaxAstra
+#   - CorvaxPilgrim
+#   #- CorvaxGlacier
+#   - Box
+#   # Midpop
+#   - CorvaxPaper
+#   - CorvaxPearl
+#   - CorvaxAwesome
+#   - Bagel
+#   - Marathon
+#   - Meta
+#   - Oasis
+#   - Omega
+#   - Saltern
+#   - Packed
+#   - Omega
