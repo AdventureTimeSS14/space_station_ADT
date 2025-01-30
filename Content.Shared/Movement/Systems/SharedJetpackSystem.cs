@@ -135,7 +135,7 @@ public abstract class SharedJetpackSystem : EntitySystem
         if (gridUid == null || !TryComp<GravityComponent>(gridUid, out var comp))
             return true;
 
-        return !comp.Enabled;
+        return !comp.Enabled; 
         // ADT Tweak End
     }
 

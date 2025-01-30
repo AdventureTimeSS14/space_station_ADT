@@ -1,0 +1,17 @@
+- type: technology
+  id: ADTModsuitBase
+  name: research-technology-basic-modsuit
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: mod-core-standard
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ADTModsuitGauntlets
+  - ADTModsuitChestplate
+  - ADTModsuitBoots
+  - ADTModsuitAssembly
+  - ADTModsuitPlateStandard
+  - ADTModsuitHelmet
+  - ADTModsuitPlateCience
