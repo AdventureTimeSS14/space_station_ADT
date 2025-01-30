@@ -23,7 +23,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.Dead,
         ChatChannel.Admin,
         ChatChannel.AdminAlert,
-        ChatChannel.AdminChat,
+        // ChatChannel.AdminChat, // ADT-Tweak: Убираем фильтр а-чата. (Должен быть всегда включен)
         ChatChannel.Server
     };
 
