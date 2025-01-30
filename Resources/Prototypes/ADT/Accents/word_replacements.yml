@@ -71,5 +71,7 @@
 - type: accent
   id: adt_chatsanitize
   wordReplacements:
-    # accent-adt_chatsanitize-words-1: accent-adt_chatsanitize-replace-1
-    текст: "текст мой"
+    accent-adt_chatsanitize-words-1: accent-adt_chatsanitize-replace-1
+
+
+

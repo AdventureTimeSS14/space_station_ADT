@@ -235,7 +235,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
-
+        // ADT-Tweak: SanitizeInGameICMessageLanguages Да это дублирование уже сущетвующей функции, но без проверки на замены
         string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
         // ADT Languages end
@@ -951,8 +951,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     public string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
+        // ADT-Tweak-start: Проверка, нужно ли отправлять в чат админам об использовании замены.
         if ((message != newMessage) && HasComp<ActorComponent>(source))
-            _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}"); // ADT-Tweak:
+            _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
+        // ADT-Tweak-end
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
 
@@ -968,7 +970,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         return prefix + newMessage;
     }
-
+    // ADT-Tweak-start: дааааааааааа дублируем чучучуть код
     public string SanitizeInGameICMessageLanguages(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = message;
@@ -986,6 +988,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         return prefix + newMessage;
     }
+    // ADT-Tweak-end
 
     private string SanitizeInGameOOCMessage(string message)
     {
