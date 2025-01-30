@@ -37,6 +37,11 @@ public sealed class ModSuitModSystem : EntitySystem
         var container = modsuit.Container;
         if (container == null)
             return;
+        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
+        {
+            _clothing.ModifySpeed(uid, modify, component.SpeedMod);
+            component.Inserted = true;
+        }
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
         {
@@ -56,12 +61,6 @@ public sealed class ModSuitModSystem : EntitySystem
                 EntityManager.RemoveComponents(attached.Key, component.RemoveComponents);
             break;
         }
-
-        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
-        {
-            _clothing.ModifySpeed(uid, modify, component.SpeedMod);
-            component.Inserted = true;
-        }
     }
     private void OnEject(EntityUid uid, ModSuitModComponent component, ref ItemSlotEjectAttemptEvent args)
     {
@@ -72,15 +71,25 @@ public sealed class ModSuitModSystem : EntitySystem
         }
         if (args.Cancelled || !component.Inserted)
             return;
-        if (!TryComp<ModSuitComponent>(args.SlotEntity, out var modsuit))
+        if (!TryComp<ModSuitComponent>(args.SlotEntity, out var modsuit) || _modsuit.GetAttachedToggleStatus(args.SlotEntity, modsuit) != ModSuitAttachedStatus.NoneToggled)
+        {
+            args.Cancelled = true;
             return;
+        }
         var container = modsuit.Container;
         if (container == null)
             return;
+
+        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
+        {
+            _clothing.ModifySpeed(uid, modify, -component.SpeedMod);
+            component.Inserted = false;
+        }
+
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
         {
-            EntityManager.AddComponents(args.SlotEntity, component.Components);
+            EntityManager.RemoveComponents(args.SlotEntity, component.Components);
             component.Inserted = false;
             return;
         }
@@ -95,12 +104,6 @@ public sealed class ModSuitModSystem : EntitySystem
             if (component.RemoveComponents != null)
                 EntityManager.AddComponents(attached.Key, component.RemoveComponents);
             break;
-        }
-
-        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
-        {
-            _clothing.ModifySpeed(uid, modify, -component.SpeedMod);
-            component.Inserted = false;
         }
     }
 }

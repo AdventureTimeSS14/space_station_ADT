@@ -57,7 +57,7 @@ public sealed class ModSuitSystem : EntitySystem
         SubscribeLocalEvent<ModSuitComponent, InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>>>(GetRelayedVerbs);
         SubscribeLocalEvent<ModSuitComponent, GetVerbsEvent<EquipmentVerb>>(OnGetVerbs);
         SubscribeLocalEvent<ModAttachedClothingComponent, GetVerbsEvent<EquipmentVerb>>(OnGetAttachedStripVerbsEvent);
-        SubscribeLocalEvent<ModSuitComponent, ToggleClothingDoAfterEvent>(OnDoAfterComplete);
+        SubscribeLocalEvent<ModSuitComponent, TogglePartDoAfterEvent>(OnDoAfterComplete);
     }
 
     private void GetRelayedVerbs(Entity<ModSuitComponent> modSuit, ref InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>> args)
@@ -74,6 +74,9 @@ public sealed class ModSuitSystem : EntitySystem
 
         var text = comp.VerbText ?? (comp.ActionEntity == null ? null : Name(comp.ActionEntity.Value));
         if (text == null)
+            return;
+
+        if (!_inventorySystem.InSlotWithFlags(modSuit.Owner, comp.RequiredFlags))
             return;
 
         var wearer = Transform(modSuit).ParentUid;
@@ -109,7 +112,7 @@ public sealed class ModSuitSystem : EntitySystem
 
         var (time, stealth) = _strippable.GetStripTimeModifiers(user, wearer, modSuit, comp.StripDelay.Value);
 
-        var args = new DoAfterArgs(EntityManager, user, time, new ToggleClothingDoAfterEvent(), modSuit, wearer, modSuit)
+        var args = new DoAfterArgs(EntityManager, user, time, new TogglePartDoAfterEvent(), modSuit, wearer, modSuit)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -137,7 +140,7 @@ public sealed class ModSuitSystem : EntitySystem
         OnGetVerbs((comp.AttachedUid, modSuitComp), ref args);
     }
 
-    private void OnDoAfterComplete(Entity<ModSuitComponent> modSuit, ref ToggleClothingDoAfterEvent args)
+    private void OnDoAfterComplete(Entity<ModSuitComponent> modSuit, ref TogglePartDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
@@ -340,7 +343,12 @@ public sealed class ModSuitSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString("modsuit-close-wires"), user, user);
             return;
         }
+
         var comp = modSuit.Comp;
+
+        if (!_inventorySystem.InSlotWithFlags(modSuit.Owner, comp.RequiredFlags))
+            return;
+
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
 
@@ -576,7 +584,7 @@ public sealed partial class ToggleModPartEvent : InstantActionEvent
 }
 
 [Serializable, NetSerializable]
-public sealed partial class ToggleClothingDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class TogglePartDoAfterEvent : SimpleDoAfterEvent
 {
 }
 

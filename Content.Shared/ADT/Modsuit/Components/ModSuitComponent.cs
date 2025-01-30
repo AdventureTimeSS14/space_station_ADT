@@ -85,6 +85,9 @@ public sealed partial class ModSuitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ReplaceCurrentClothing = true;
+
+    [DataField("requiredSlot"), AutoNetworkedField]
+    public SlotFlags RequiredFlags = SlotFlags.BACK;
 }
 
 [Serializable, NetSerializable]
