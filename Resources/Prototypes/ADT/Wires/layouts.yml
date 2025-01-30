@@ -2,3 +2,12 @@
 
 - type: wireLayout
   id: IPC
+
+# Bluespace-harvester
+- type: wireLayout
+  id: BluespaceHarvester
+  dummyWires: 12
+  wires:
+  - !type:AiInteractWireAction
+  - !type:PowerWireAction
+  - !type:AccessWireAction

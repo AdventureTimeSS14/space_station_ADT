@@ -1,4 +1,7 @@
 - type: Tag
+  id: ADTArtificialBluespaceCrystal
+
+- type: Tag
   id: ADTMothFriendlyFood
 
 - type: Tag
