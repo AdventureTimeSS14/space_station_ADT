@@ -951,6 +951,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     public string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
+        if ((message != newMessage) && HasComp<ActorComponent>(source))
+            _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}"); // ADT-Tweak:
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
 
@@ -1014,16 +1016,21 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public const string ChatSanitize_Accent = "chatsanitize";
+    public static readonly string[] ChatSanitize_Accent = { "chatsanitize", "adt_chatsanitize" }; // ADT-Tweak
 
     public string SanitizeMessageReplaceWords(string message)
     {
         if (string.IsNullOrEmpty(message)) return message;
 
         var msg = message;
-
-        msg = _wordreplacement.ApplyReplacements(msg, ChatSanitize_Accent);
-
+        // ADT-Tweak-start: теперь можно обрабатывать сразу несколько прототипов списка общих акцентов.
+        foreach (var accent in ChatSanitize_Accent)
+        {
+            msg = _wordreplacement.ApplyReplacements(msg, accent);
+        }
+        // ... ... ^_^
+        // msg = _wordreplacement.ApplyReplacements(msg, ChatSanitize_Accent);
+        // ADT-Tweak-end
         return msg;
     }
 

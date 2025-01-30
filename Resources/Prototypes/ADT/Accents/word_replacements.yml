@@ -67,3 +67,9 @@
     accent-shitcure-words-63: accent-shitcure-words-replace-18
     accent-shitcure-words-64: accent-shitcure-words-replace-18
     accent-shitcure-words-65: accent-shitcure-words-replace-18
+
+- type: accent
+  id: adt_chatsanitize
+  wordReplacements:
+    # accent-adt_chatsanitize-words-1: accent-adt_chatsanitize-replace-1
+    текст: "текст мой"
