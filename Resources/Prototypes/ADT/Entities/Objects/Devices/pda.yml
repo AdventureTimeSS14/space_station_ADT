@@ -72,6 +72,14 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-lawyer"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: ADTBasePDA
@@ -96,6 +104,14 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-roboticist"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -120,6 +136,14 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-pathologist"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -145,6 +169,14 @@
       layers:
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: "pda-blueshield"
+      - state: "light_overlay"
+        map: [ "enum.PdaVisualLayers.Flashlight" ]
+        shader: "unshaded"
+        visible: false
+      - state: "id_overlay"
+        map: [ "enum.PdaVisualLayers.IdLight" ]
+        shader: "unshaded"
+        visible: false
 
 - type: entity
   parent: ADTBasePDA
@@ -175,6 +207,14 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-ghost"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 # КПК Следователя
 - type: entity
@@ -199,6 +239,14 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-investigator"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: ADTBasePDA
@@ -220,6 +268,14 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-tradertsf"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 # КПК надзирателя
 - type: entity
@@ -244,3 +300,11 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-guardofficer"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
