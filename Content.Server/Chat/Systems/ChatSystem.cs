@@ -970,22 +970,20 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         return prefix + newMessage;
     }
+
     // ADT-Tweak-start: дааааааааааа дублируем чучучуть код
     public string SanitizeInGameICMessageLanguages(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = message;
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
-
         // Sanitize it first as it might change the word order
         _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
-
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);
         if (capitalizeTheWordI)
             newMessage = SanitizeMessageCapitalizeTheWordI(newMessage, "i");
         if (punctuate)
             newMessage = SanitizeMessagePeriod(newMessage);
-
         return prefix + newMessage;
     }
     // ADT-Tweak-end
