@@ -60,6 +60,7 @@
   - type: Pda
     id: MagistratIDCard
   - type: Icon
+    sprite: ADT/Objects/Devices/pda.rsi
     state: pda-lawyer
   - type: Appearance
     appearanceDataInit:

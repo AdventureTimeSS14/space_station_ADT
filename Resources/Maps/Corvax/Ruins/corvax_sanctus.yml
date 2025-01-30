@@ -202,13 +202,13 @@ entities:
     - type: Transform
       pos: -1.5,-2.5
       parent: 2
-- proto: ArmBlade
-  entities:
-  - uid: 75
-    components:
-    - type: Transform
-      pos: -9.542018,-1.4161515
-      parent: 2
+# - proto: ADTArmBlade
+#   entities:
+#   - uid: 75
+#     components:
+#     - type: Transform
+#       pos: -9.542018,-1.4161515
+#       parent: 2
 - proto: BibleNecronomicon
   entities:
   - uid: 153
