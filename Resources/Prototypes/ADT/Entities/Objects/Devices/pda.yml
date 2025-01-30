@@ -67,6 +67,11 @@
      enum.PdaVisuals.PdaType:
       !type:String
       pda-lawyer
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-lawyer"
 
 - type: entity
   parent: ADTBasePDA
@@ -86,6 +91,11 @@
      enum.PdaVisuals.PdaType:
       !type:String
       pda-roboticist
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-roboticist"
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -105,6 +115,11 @@
      enum.PdaVisuals.PdaType:
       !type:String
       pda-pathologist
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-pathologist"
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -125,6 +140,11 @@
        enum.PdaVisuals.PdaType:
         !type:String
         pda-blueshield
+    - type: Sprite
+      sprite: ADT/Objects/Devices/pda.rsi
+      layers:
+      - map: [ "enum.PdaVisualLayers.Base" ]
+        state: "pda-blueshield"
 
 - type: entity
   parent: ADTBasePDA
@@ -150,6 +170,11 @@
     slots:
     - idcard
     - Belt
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-ghost"
 
 # КПК Следователя
 - type: entity
@@ -169,6 +194,11 @@
      enum.PdaVisuals.PdaType:
       !type:String
       pda-investigator
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-investigator"
 
 - type: entity
   parent: ADTBasePDA
@@ -185,6 +215,11 @@
       pda-tradertsf
   - type: Icon
     state: pda-tradertsf
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-tradertsf"
 
 # КПК надзирателя
 - type: entity
@@ -204,3 +239,8 @@
      enum.PdaVisuals.PdaType:
       !type:String
       pda-guardofficer
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-guardofficer"
