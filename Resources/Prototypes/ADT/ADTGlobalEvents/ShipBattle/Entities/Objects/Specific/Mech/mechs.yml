@@ -1,0 +1,94 @@
+- type: entity
+  id: ADTMechTSFOneStar
+  parent: ADTMechDurand
+  name: TSF One Star
+  description: Heavy armored combat mech for TSF.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/onestar.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: onestar_tsf
+  - type: Mech
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.15
+        Heat: 0.15
+        Radiation: 0.0
+        Caustic: 0.2
+        Structural: 0.5
+    maxintegrity: 400
+    baseState: onestar_tsf
+    openState: onestar_tsf-open
+    brokenState: onestar_tsf-broken
+    mechToPilotDamageMultiplier: 0.0
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+    maxEquipmentAmount: 4
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    clickInsert: false
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.80
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: null
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/ADT/Mecha/mechstep.ogg
+
+- type: entity
+  id: ADTMechKMTOneStar
+  parent: ADTMechTSFOneStar
+  name: KMT One Star
+  description: Heavy armored combat mech for KMT.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Specific/Mech/onestar.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: onestar_kmt
+  - type: Mech
+    baseState: onestar_kmt
+    openState: onestar_kmt-open
+    brokenState: onestar_kmt-broken

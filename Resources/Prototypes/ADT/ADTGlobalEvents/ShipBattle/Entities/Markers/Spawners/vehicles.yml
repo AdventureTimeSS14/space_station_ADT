@@ -1,0 +1,27 @@
+- type: entity
+  name: hoverbike spawner
+  id: ADTSpawnVehicleHoverbikeTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
+      state: vehicle_tsf
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTVehicleHoverbikeTSF
+
+- type: entity
+  name: hoverbike spawner
+  id: ADTSpawnVehicleHoverbikeKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
+      state: vehicle_kmt
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTVehicleHoverbikeKMT

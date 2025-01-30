@@ -1,0 +1,17 @@
+- type: entity
+  id: ActionAbominationDeathJump
+  name: action-jump
+  description: action-jump-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    range: 16
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: ADT/Interface/Actions/muscles_implant.rsi
+      state: jump-icon
+    event: !type:JumpbootsActionEvent
+      sound: /Audio/ADT/Effects/MobsEffects/jump_mob_death.ogg

@@ -123,6 +123,12 @@
   - type: Icon
     state: pda-ghost
   - type: Unremoveable
+  - type: Clothing
+    sprite: Tips/tippy.rsi #просто рандомный спрайт, чтобы не засорять визуал гостов
+    quickEquip: false
+    slots:
+    - idcard
+    - Belt
 
 # КПК Следователя
 - type: entity

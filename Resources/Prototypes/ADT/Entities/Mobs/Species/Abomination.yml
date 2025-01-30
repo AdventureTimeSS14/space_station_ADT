@@ -1,0 +1,231 @@
+- type: entity
+  id: ADTBaseAbomination
+  parent: SimpleSpaceMobBase
+  abstract: true
+  components:
+  - type: Insulated
+  - type: CombatMode
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: AbominationADT
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Hands
+  - type: ComplexInteraction
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      25: 0.5
+  - type: Stamina
+    critThreshold: 150
+  - type: Bloodstream
+    bloodReagent: FluorosulfuricAcid
+    bloodMaxVolume: 200
+  - type: StaminaDamageOnHit
+    damage: 30
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: running
+      Dead:
+        Base: dead
+  - type: Puller
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: -150
+    currentTemperature: 310.15
+  - type: TypingIndicator
+    proto: alien
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+  - type: NoSlip
+  - type: Speech
+    speechVerb: LargeMob
+  # - type: LanguageSpeaker
+  #   speaks:
+  #   - "Не Создан"
+
+- type: entity
+  id: ADTAbominationHypertrophied
+  parent: ADTBaseAbomination
+  suffix: ADT
+  name: Hypertrophied abomination
+  description: A creepy and bloodthirsty failed clone suffering from constant pain due to hypertrophied muscles.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Abominations/hypertrophied.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: running
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: MobPrice
+    price: 1000
+  - type: Damageable
+    damageModifierSet: ADTAbominationHypertrophiedDamageSet
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 2.5
+  - type: MeleeThrowOnHit
+    lifetime: 0.5
+    enabled: true
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcClaw
+    damage:
+      groups:
+        Brute: 30
+  - type: ReplacementAccent
+    accent: ADTReplaceAbomination
+
+- type: entity
+  id: ADTAbominationDeath
+  parent: ADTBaseAbomination
+  suffix: ADT
+  name: Death
+  description: A pale and hypertrophied clone that constantly twitches and seems ready to jump at any moment.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Abominations/death.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: running
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      750: Dead
+  - type: MobPrice
+    price: 1500
+  - type: Damageable
+    damageModifierSet: ADTAbominationDeathDamageSet
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4.5
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcClaw
+    damage:
+      groups:
+        Brute: 20
+  - type: Jumpboots
+    jumpAction: ActionAbominationDeathJump
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/Effects/MobsEffects/spawn_mob_death.ogg
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-Abomination-Death-name
+    description: ghost-role-information-Abomination-Death-description
+    rules: ghost-role-information-antagonist-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: ADTAbominationBloated
+  parent: ADTBaseAbomination
+  suffix: ADT
+  name: Bloated
+  description: A creepy and bloated failed clone that is about to explode from an unnecessary touch.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Abominations/bloated.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: running
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MobPrice
+    price: 2500
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3
+    baseWalkSpeed: 2
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcClaw
+    damage:
+      groups:
+        Brute: 15
+  - type: ExplodeOnTrigger
+  - type: GibOnTrigger
+    deleteItems: true
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 800
+    intensitySlope: 15
+    maxIntensity: 30
+    canCreateVacuum: true
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
