@@ -138,7 +138,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+    proto: RedLaser #ADT_Tweak - понерфил
     fireCost: 62.5
   - type: MagazineVisuals
     magState: mag
@@ -216,11 +216,12 @@
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
     selectedMode: SemiAuto
+    fireRate: 3 #ADT_Tweak 2 -> 3
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 62.5
+    fireCost: 10 #ADT_Tweak 62.5 -> 25
   - type: StaticPrice
     price: 300
 
@@ -233,8 +234,8 @@
   - type: StaticPrice
     price: 420
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedMediumLaser #ADT_Tweak
+    fireCost: 25 #ADT_Tweak 62.5 -> 25
   - type: MeleeWeapon #ADT_Tweak
     resetOnHandSelected: false
     attackRate: 1
