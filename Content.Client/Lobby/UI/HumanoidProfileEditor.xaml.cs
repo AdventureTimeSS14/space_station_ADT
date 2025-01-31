@@ -272,7 +272,15 @@ namespace Content.Client.Lobby.UI
                 }
                 else
                 {
-                    _speciesWindow = new(Profile, prototypeManager, entManager, _controller, _resManager, _parsingMan); // СЮда его ещё добавить
+                    _speciesWindow = new(
+                        Profile,
+                        prototypeManager,
+                        entManager,
+                        _controller,
+                        _resManager,
+                        _parsingMan,
+                        this);
+
                     _speciesWindow.OpenCenteredLeft();
                     var oldProfile = Profile.Clone();
                     _speciesWindow.ChooseAction += args =>
