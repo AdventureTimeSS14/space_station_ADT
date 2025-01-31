@@ -32,4 +32,3 @@
     damageCoefficient: 0.7
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURNLeader
-  - type: DNALocker # ADT-Tweak

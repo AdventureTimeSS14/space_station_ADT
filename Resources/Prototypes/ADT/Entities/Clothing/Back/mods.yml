@@ -1,0 +1,381 @@
+#базовый
+- type: entity
+  parent: Clothing
+  id: ADTClothingModsuitBackBase
+  name: base MOD control unit
+  description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/standart.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitBase
+      gloves: ADTClothingHandsModsuitBase
+      outerClothing: ADTClothingOuterModsuitBodyBase
+      shoes: ADTClothingModsuitShoesBase
+  - type: ContainerContainer
+    containers:
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-mod1: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо сделать систему комплектации, ноо мне лень.
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod4: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod5: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+  - type: UserInterface
+    interfaces:
+      enum.ModSuitUiKey.Key:
+        type: ModSuitBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: ClothingSpeedModifier
+  - type: Construction
+    graph: ADTModsuitStandard
+    node: adtmodsuitstandard
+  - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
+    slots:
+      modsuit-mod1:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod2:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod3:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod4:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod5:
+        whitelist:
+          components:
+          - ModSuitMod
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+    requireOpen: false
+
+#атмосферный
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackAtmos
+  name: atmos MOD control unit
+  description: An atmospheric-resistant suit by Nakamura Engineering, offering extreme heat resistance compared to the engineer suit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/atmospheric.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitAtmos
+      gloves: ADTClothingHandsModsuitAtmos
+      outerClothing: ADTClothingOuterModsuitBodyAtmos
+      shoes: ADTClothingModsuitShoesAtmos
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Construction
+    graph: ADTModsuitAtmospheric
+    node: adtmodsuitatmospheric
+  - type: ItemSlots # меньше модулей, сильнее базовый МОД
+    slots:
+      modsuit-mod1:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod2:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod3:
+        whitelist:
+          components:
+          - ModSuitMod
+  - type: ContainerContainer
+    containers:
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-mod1: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+
+#смешной
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackClown
+  name: clown MOD control unit
+  description: A suit by Honk Ltd. Protects against low humor environments.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/clown.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitClown
+      gloves: ADTClothingHandsModsuitClown
+      outerClothing: ADTClothingOuterModsuitBodyClown
+      shoes: ADTClothingModsuitShoesClown
+  - type: Construction
+    graph: ADTModsuitClown
+    node: adtmodsuitclown
+
+#инженерный
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackEngineering
+  name: engineering MOD control unit
+  description: An engineer-fit suit with heat and shock resistance. Nakamura Engineering's classic.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/engineering.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitEngineering
+      gloves: ADTClothingHandsModsuitEngineering
+      outerClothing: ADTClothingOuterModsuitBodyEngineering
+      shoes: ADTClothingModsuitShoesEngineering
+  - type: Construction
+    graph: ADTModsuitEngineering
+    node: adtmodsuitengineering
+
+#медицинский
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackMedical
+  name: medical MOD control unit
+  description: A lightweight suit by DeForest Medical Corporation, allows for easier movement.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/medical.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitMedical
+      gloves: ADTClothingHandsModsuitMedical
+      outerClothing: ADTClothingOuterModsuitBodyMedical
+      shoes: ADTClothingModsuitShoesMedical
+  - type: Construction
+    graph: ADTModsuitMedical
+    node: adtmodsuitmedical
+
+#шахтёрский
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackMining
+  name: mining MOD control unit
+  description: A Nanotrasen mining suit for on-site operations, fit with accreting ash armor and a sphere form.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/mining.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitMining
+      gloves: ADTClothingHandsModsuitMining
+      outerClothing: ADTClothingOuterModsuitBodyMining
+      shoes: ADTClothingModsuitShoesMining
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Construction
+    graph: ADTModsuitMining
+    node: adtmodsuitmining
+
+#охранный
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackSecurity
+  name: security MOD control unit
+  description: An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/security.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSecurity
+      gloves: ADTClothingHandsModsuitSecurity
+      outerClothing: ADTClothingOuterModsuitBodySecurity
+      shoes: ADTClothingModsuitShoesSecurity
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Construction
+    graph: ADTModsuitSecurity
+    node: adtmodsuitsecurity
+  - type: ItemSlots # меньше модулей, сильнее базовый МОД
+    slots:
+      modsuit-mod1:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod2:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod3:
+        whitelist:
+          components:
+          - ModSuitMod
+  - type: ContainerContainer
+    containers:
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-mod1: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+
+# учёный
+
+- type: entity
+  parent: Clothing
+  id: ADTClothingModsuitBackCience
+  name: ciene MOD control unit
+  description: Made by scientists for scientists.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/cience.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitСience
+      gloves: ADTClothingHandsModsuitCience
+      outerClothing: ADTClothingOuterModsuitBodyCience
+      shoes: ADTClothingModsuitShoesCience
+  - type: ContainerContainer
+    containers:
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-mod1: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо ещё сделать систему комплектации, ноо мне лень.
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod4: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod5: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod6: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+  - type: UserInterface
+    interfaces:
+      enum.ModSuitUiKey.Key:
+        type: ModSuitBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: ClothingSpeedModifier
+  - type: Construction
+    graph: ADTModsuitCience
+    node: adtmodsuitcience
+  - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
+    slots:
+      modsuit-mod1:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod2:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod3:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod4:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod5:
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod6:
+        whitelist:
+          components:
+          - ModSuitMod
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+    requireOpen: false

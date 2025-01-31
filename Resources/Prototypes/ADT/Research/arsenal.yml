@@ -13,6 +13,37 @@
     - SalvageWeapons
 
 - type: technology
+  id: ADTSecMODsuit
+  name: research-technology-security-modsuit
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: security
+  discipline: Arsenal
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+    - ADTModsuitPlateSecurity
+  technologyPrerequisites:
+    - ADTModsuitBase
+
+- type: technology
+  id: ADTSecMODsuitMODs
+  name: research-technology-security-modsuit-mods
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: no_baton
+  discipline: Arsenal
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+    - ADTModsuitModArmor
+    - ADTModsuitModSechud
+    - ADTModsuitModPowerKick
+    - ADTModsuitModStun
+  technologyPrerequisites:
+    - ADTSecMODsuit
+
+- type: technology
   id: KineticModifications
   name: research-technology-kinetic-modifications
   icon:
@@ -56,7 +87,6 @@
     - ADTAttachmentT2MiniscopeRecipe
     - ADTAttachmentM90UnderbarrelShotgunRecipe
     - ADTAttachmentM90GrenadeLauncherRecipe
-    - ADT40mmGrenadeHEATRecipe
     - ADT40mmGrenadeBatonRecipe
     - ADT40mmGrenadeEMPRecipe
     - ADT40mmGrenadeFlashRecipe

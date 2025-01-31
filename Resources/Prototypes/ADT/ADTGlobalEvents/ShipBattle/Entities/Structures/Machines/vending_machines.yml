@@ -1,0 +1,37 @@
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineShell
+  name: Shell Dispenser
+  description: Shell Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTShellDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    # screenState: screen
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/shelldispenser.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    # - state: "screen"
+    #   map: ["enum.VendingMachineVisualLayers.Screen"]
+    #   shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"

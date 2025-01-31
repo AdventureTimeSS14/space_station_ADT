@@ -71,18 +71,10 @@
   result: ADTAttachmentM90GrenadeLauncher
   completetime: 10
   materials:
-    Steel: 1500
-    Plastic: 500
+    Steel: 2500
+    Plastic: 1500
     Plasma: 500
 
-- type: latheRecipe
-  id: ADT40mmGrenadeHEATRecipe
-  result: ADT40mmGrenadeHEAT
-  completetime: 15
-  materials:
-    Steel: 1000
-    Plastic: 1000
-    Plasma: 500
 
 - type: latheRecipe
   id: ADT40mmGrenadeBatonRecipe

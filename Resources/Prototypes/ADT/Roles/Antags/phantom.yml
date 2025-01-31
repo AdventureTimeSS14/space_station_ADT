@@ -2,17 +2,5 @@
   id: Phantom
   name: roles-antag-phantom-name
   antagonist: true
-  setPreference: true
+  setPreference: false
   objective: roles-antag-phantom-objective
-  requirements:
-   - !type:DepartmentTimeRequirement
-     department: Security
-     time: 18000 #5 hrs
-   - !type:DepartmentTimeRequirement
-     department: Civilian
-     time: 36000 #10 hrs
-   - !type:OverallPlaytimeRequirement
-     time: 180000 # 50h overall
-   - !type:RoleTimeRequirement
-     role: JobChaplain
-     time: 36000 #10 hrs

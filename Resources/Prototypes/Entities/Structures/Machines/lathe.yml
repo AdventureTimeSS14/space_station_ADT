@@ -689,6 +689,38 @@
     - ADTBorgModuleDisabler #ADT secborg
     - ADTBorgModuleDetention #ADT secborg
     - ADTBorgModuleHarm # ADT secborg
+    - ADTModsuitHelmet #ADT modsuits start
+    - ADTModsuitGauntlets
+    - ADTModsuitChestplate
+    - ADTModsuitBoots
+    - ADTModsuitPlateAtmospheric
+    - ADTModsuitPlateCosmohonk
+    - ADTModsuitPlateEngineering
+    - ADTModsuitPlateMedical
+    - ADTModsuitPlateSecurity
+    - ADTModsuitPlateStandard
+    - ADTModsuitPlateCience
+    - ADTModsuitPlateMining
+    - ADTModsuitAssembly 
+    - ADTModsuitModAntigrav
+    - ADTModsuitModApparatus
+    - ADTModsuitModDrill
+    - ADTModsuitModJetpack
+    - ADTModsuitModJetpack
+    - ADTModsuitModMagboot
+    - ADTModsuitModNightVision
+    - ADTModsuitModStun
+    - ADTModsuitModPowerKick
+    - ADTModsuitModSechud
+    - ADTModsuitModStorage
+    - ADTModsuitModWelding
+    - ADTModsuitModArmor
+    - ADTModsuitModStorageLarge
+    - ADTModsuitModTray
+    - ADTModsuitModIsulation
+    - ADTModsuitModJump
+    - ADTModsuitModNoslip
+    #ADT modsuits end 
     # ADT mech start
     - ADTGygaxHarness
     - ADTGygaxLArm
@@ -925,7 +957,6 @@
       - ADTAttachmentT2MiniscopeRecipe
       - ADTAttachmentM90UnderbarrelShotgunRecipe
       - ADTAttachmentM90GrenadeLauncherRecipe
-      - ADT40mmGrenadeHEATRecipe
       - ADT40mmGrenadeBatonRecipe
       - ADT40mmGrenadeEMPRecipe
       - ADT40mmGrenadeFlashRecipe
