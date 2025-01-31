@@ -20,7 +20,7 @@ public sealed class ModSuitModSystem : EntitySystem
 
     private void OnInsert(EntityUid uid, ModSuitModComponent component, ref ItemSlotInsertAttemptEvent args)
     {
-        if (args.Cancelled || component.Inserted)
+        if (args.Cancelled)
             return;
         if (!TryComp<WiresPanelComponent>(args.SlotEntity, out var panel) || !panel.Open)
         {
@@ -40,13 +40,11 @@ public sealed class ModSuitModSystem : EntitySystem
         if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
         {
             _clothing.ModifySpeed(uid, modify, component.SpeedMod);
-            component.Inserted = true;
         }
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
         {
             EntityManager.AddComponents(args.SlotEntity, component.Components);
-            component.Inserted = true;
             return;
         }
 
@@ -69,13 +67,13 @@ public sealed class ModSuitModSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
-        if (args.Cancelled || !component.Inserted)
-            return;
         if (!TryComp<ModSuitComponent>(args.SlotEntity, out var modsuit) || _modsuit.GetAttachedToggleStatus(args.SlotEntity, modsuit) != ModSuitAttachedStatus.NoneToggled)
         {
             args.Cancelled = true;
             return;
         }
+        if (args.Cancelled)
+            return;
         var container = modsuit.Container;
         if (container == null)
             return;
@@ -83,14 +81,12 @@ public sealed class ModSuitModSystem : EntitySystem
         if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
         {
             _clothing.ModifySpeed(uid, modify, -component.SpeedMod);
-            component.Inserted = false;
         }
 
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
         {
             EntityManager.RemoveComponents(args.SlotEntity, component.Components);
-            component.Inserted = false;
             return;
         }
 
