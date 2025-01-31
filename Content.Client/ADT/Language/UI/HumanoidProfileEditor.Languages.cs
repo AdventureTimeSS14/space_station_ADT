@@ -73,7 +73,7 @@ public sealed partial class HumanoidProfileEditor
         RefreshLanguages();
     }
 
-    private void SetDefaultLanguages(BaseButton.ButtonEventArgs args)
+    public void SetDefaultLanguages(BaseButton.ButtonEventArgs args)
     {
         if (Profile == null)
             return;
