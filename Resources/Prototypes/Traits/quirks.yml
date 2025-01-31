@@ -6,6 +6,7 @@
   components:
   - type: Pacified
   cost: -2  # ADT quirks
+  quirk: true  # ADT Quirks
 
 - type: trait
   id: LightweightDrunk
@@ -18,6 +19,7 @@
   cost: -1  # ADT quirks
   speciesBlacklist:
   - IPC
+  quirk: true  # ADT Quirks
 
 - type: trait
   id: Snoring
@@ -29,3 +31,4 @@
   cost: 0  # ADT quirks
   speciesBlacklist:
   - IPC
+  quirk: true  # ADT Quirks
