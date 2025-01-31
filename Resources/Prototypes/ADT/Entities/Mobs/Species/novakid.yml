@@ -9,7 +9,7 @@
     species: NovakidSpecies
   - type: Hunger
     baseDecayRate: 0.025
-    currentHunger: 400
+    lastAuthoritativeHungerValue: 400
     thresholds:
       Overfed: 400
       Okay: 300

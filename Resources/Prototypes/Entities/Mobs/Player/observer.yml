@@ -97,6 +97,7 @@
     - ClothingJumpsuitParamedic
     - ClothingJumpsuitPirate
   - type: GhostHearing
+  - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     receiveAllChannels: true

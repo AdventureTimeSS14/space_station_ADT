@@ -26,6 +26,8 @@ public sealed partial class PlayerTabEntry : PanelContainer
         //ADT-SPONSORS
         SponsorLabel.Text = Loc.GetString(player.Sponsor != null ? "player-tab-is-sponsor-yes" : "player-tab-is-sponsor-no");
         //ADT-SPONSORS
+        RoleTypeLabel.Text = Loc.GetString(player.RoleProto.Name);
+        RoleTypeLabel.FontColorOverride = player.RoleProto.Color;
         BackgroundColorPanel.PanelOverride = styleBoxFlat;
         OverallPlaytimeLabel.Text = player.PlaytimeString;
         PlayerEntity = player.NetEntity;
