@@ -99,7 +99,7 @@
       params:
         volume: -2
   - type: RMCSelectiveFire
-    baseFireRate: 2.0
+    baseFireRate: 1.25
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
