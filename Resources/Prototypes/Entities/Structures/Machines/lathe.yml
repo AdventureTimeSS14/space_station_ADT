@@ -523,7 +523,7 @@
     - SodaDispenserMachineCircuitboard
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
-    - StationAnchorCircuitboard
+    # - StationAnchorCircuitboard # ADT-YAMLLinter
     - ADTCustomLawCircuitBoard # ADT tweak
     - SalvageMagnetMachineCircuitboard
     dynamicRecipes:
