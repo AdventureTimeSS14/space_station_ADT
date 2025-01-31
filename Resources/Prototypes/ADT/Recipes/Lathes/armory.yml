@@ -71,8 +71,8 @@
   result: ADTAttachmentM90GrenadeLauncher
   completetime: 10
   materials:
-    Steel: 1500
-    Plastic: 500
+    Steel: 2500
+    Plastic: 1500
     Plasma: 500
 
 

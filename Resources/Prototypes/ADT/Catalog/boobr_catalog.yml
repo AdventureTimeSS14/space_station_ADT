@@ -16,7 +16,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
   productEntity: WeaponCaseNTM90GrenadeLauncherAttachment
   cost:
-    Productunit: 5
+    Productunit: 8
   categories:
   - ADTUplinkERTAttachments
 

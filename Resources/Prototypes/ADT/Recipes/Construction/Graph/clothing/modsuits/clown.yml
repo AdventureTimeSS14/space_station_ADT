@@ -1,0 +1,22 @@
+﻿- type: constructionGraph
+  id: ADTModsuitClown
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adtmodsuitclown
+          steps:
+            - tag: ADTModsuitPlateCosmohonk
+              name: Cosmohonk MOD plate
+              icon:
+                sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+                state: cosmohonk
+              doAfter: 2
+            - tag: ADTModsuitAssembledPart
+              name: MOD core
+              icon:
+                sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+                state: modcore8
+              doAfter: 2
+    - node: adtmodsuitclown
+      entity: ADTClothingModsuitBackClown
