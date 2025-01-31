@@ -83,6 +83,8 @@
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
+  - type: Item
+    size: Huge
 
 #атмосферный
 - type: entity
