@@ -416,12 +416,14 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="address">The ip address of the user.</param>
         /// <param name="userId">The id of the user.</param>
-        /// <param name="hwId">The HWId of the user.</param>
+        /// <param name="hwId">The legacy HWId of the user.</param>
+        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <returns>The user's latest received un-pardoned ban, or null if none exist.</returns>
         public abstract Task<ServerBanDef?> GetServerBanAsync(
             IPAddress? address,
             NetUserId? userId,
-            ImmutableArray<byte>? hwId);
+            ImmutableArray<byte>? hwId,
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds);
 
         /// <summary>
         ///     Looks up an user's ban history.
@@ -430,13 +432,15 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="address">The ip address of the user.</param>
         /// <param name="userId">The id of the user.</param>
-        /// <param name="hwId">The HWId of the user.</param>
+        /// <param name="hwId">The legacy HWId of the user.</param>
+        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <param name="includeUnbanned">Include pardoned and expired bans.</param>
         /// <returns>The user's ban history.</returns>
         public abstract Task<List<ServerBanDef>> GetServerBansAsync(
             IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
             bool includeUnbanned);
 
         public abstract Task<ServerBanDef?> GetLastServerBanAsync(); //ADT-Tweak: Логи банов для диса
@@ -528,11 +532,13 @@ namespace Content.Server.Database
         /// <param name="address">The IP address of the user.</param>
         /// <param name="userId">The NetUserId of the user.</param>
         /// <param name="hwId">The Hardware Id of the user.</param>
+        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <param name="includeUnbanned">Whether expired and pardoned bans are included.</param>
         /// <returns>The user's role ban history.</returns>
         public abstract Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
             bool includeUnbanned);
 
         public abstract Task<ServerRoleBanDef?> GetLastServerRoleBanAsync(); //ADT-Tweak: Логи банов для диса
@@ -623,7 +629,7 @@ namespace Content.Server.Database
             NetUserId userId,
             string userName,
             IPAddress address,
-            ImmutableArray<byte> hwId)
+            ImmutableTypedHwid? hwId)
         {
             await using var db = await GetDb();
 
@@ -640,7 +646,7 @@ namespace Content.Server.Database
             record.LastSeenTime = DateTime.UtcNow;
             record.LastSeenAddress = address;
             record.LastSeenUserName = userName;
-            record.LastSeenHWId = hwId.ToArray();
+            record.LastSeenHWId = hwId;
 
             await db.DbContext.SaveChangesAsync();
         }
@@ -686,7 +692,7 @@ namespace Content.Server.Database
                 player.LastSeenUserName,
                 new DateTimeOffset(NormalizeDatabaseTime(player.LastSeenTime)),
                 player.LastSeenAddress,
-                player.LastSeenHWId?.ToImmutableArray());
+                player.LastSeenHWId);
         }
 
         #endregion
@@ -695,11 +701,11 @@ namespace Content.Server.Database
         /*
          * CONNECTION LOG
          */
-        public abstract Task<int> AddConnectionLogAsync(
-            NetUserId userId,
+        public abstract Task<int> AddConnectionLogAsync(NetUserId userId,
             string userName,
             IPAddress address,
-            ImmutableArray<byte> hwId,
+            ImmutableTypedHwid? hwId,
+            float trust,
             ConnectionDenyReason? denied,
             int serverId);
 
@@ -1764,6 +1770,70 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 return false;
 
             db.DbContext.RoleWhitelists.Remove(entry);
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        #endregion
+
+        # region IPIntel
+
+        public async Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
+        {
+            while (true)
+            {
+                try
+                {
+                    await using var db = await GetDb();
+
+                    var existing = await db.DbContext.IPIntelCache
+                        .Where(w => ip.Equals(w.Address))
+                        .SingleOrDefaultAsync();
+
+                    if (existing == null)
+                    {
+                        var newCache = new IPIntelCache
+                        {
+                            Time = time,
+                            Address = ip,
+                            Score = score,
+                        };
+                        db.DbContext.IPIntelCache.Add(newCache);
+                    }
+                    else
+                    {
+                        existing.Time = time;
+                        existing.Score = score;
+                    }
+
+                    await Task.Delay(5000);
+
+                    await db.DbContext.SaveChangesAsync();
+                    return true;
+                }
+                catch (DbUpdateException)
+                {
+                    _opsLog.Warning("IPIntel UPSERT failed with a db exception... retrying.");
+                }
+            }
+        }
+
+        public async Task<IPIntelCache?> GetIPIntelCache(IPAddress ip)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.IPIntelCache
+                .SingleOrDefaultAsync(w => ip.Equals(w.Address));
+        }
+
+        public async Task<bool> CleanIPIntelCache(TimeSpan range)
+        {
+            await using var db = await GetDb();
+
+            await db.DbContext.IPIntelCache
+                .Where(w => DateTime.UtcNow - w.Time >= range)
+                .ExecuteDeleteAsync();
+
             await db.DbContext.SaveChangesAsync();
             return true;
         }
