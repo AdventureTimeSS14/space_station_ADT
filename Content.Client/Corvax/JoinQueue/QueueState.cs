@@ -3,10 +3,8 @@ using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
-using Robust.Shared.Player;
-using Robust.Client.Audio;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Client.Corvax.JoinQueue;
 
