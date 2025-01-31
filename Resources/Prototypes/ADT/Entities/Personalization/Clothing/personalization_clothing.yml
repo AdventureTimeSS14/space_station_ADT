@@ -440,6 +440,19 @@
   - type: Clothing
     sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
 
+#tweak
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingUniformPanjaariJacket
+  name: Cropped leather jacket
+  description: A short leather jacket with studs on the shoulders. It doesn't look like something that will keep you warm, but its appearance speaks of the wearer's excellent sense of style.
+  suffix: Pangaari
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_jacket.rsi
+
 #Rip_Zoro
 - type: entity
   parent: ClothingNeckBase
