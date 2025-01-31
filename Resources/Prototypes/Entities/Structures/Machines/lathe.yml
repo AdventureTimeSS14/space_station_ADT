@@ -702,7 +702,7 @@
     - ADTModsuitPlateStandard
     - ADTModsuitPlateCience
     - ADTModsuitPlateMining
-    - ADTModsuitAssembly 
+    - ADTModsuitAssembly
     - ADTModsuitModAntigrav
     - ADTModsuitModApparatus
     - ADTModsuitModDrill
@@ -721,7 +721,7 @@
     - ADTModsuitModIsulation
     - ADTModsuitModJump
     - ADTModsuitModNoslip
-    #ADT modsuits end 
+    #ADT modsuits end
     # ADT mech start
     - ADTGygaxHarness
     - ADTGygaxLArm
@@ -1296,6 +1296,25 @@
       - CarpetPurple
       - CarpetCyan
       - CarpetWhite
+      # Bedsheets
+      - BedsheetBlack
+      - BedsheetBlue
+      - BedsheetBrown
+      - BedsheetGreen
+      - BedsheetGrey
+      - BedsheetOrange
+      - BedsheetPurple
+      - BedsheetRed
+      - BedsheetWhite
+      - BedsheetYellow
+      - BedsheetClown
+      - BedsheetCosmos
+      - BedsheetIan
+      - BedsheetMedical
+      - BedsheetMime
+      - BedsheetNT
+      - BedsheetRainbow
+      - BedsheetBrigmedic
       # Corvax-Clothing-Start
       - ClothingHeadHatCapHoS
       - ClothingHeadHatBeretSecurityMedic
@@ -1338,6 +1357,7 @@
       # ADT Backpacks End
   - type: EmagLatheRecipes
     emagStaticRecipes:
+      # Clothing
       - ClothingHeadHatCentcomcap
       - ClothingHeadHatCentcom
       - ClothingUniformJumpsuitCentcomAgent
@@ -1360,6 +1380,8 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Bedsheets
+      - BedsheetSyndie
       - ADTClothingBackpackDuffelSyndicate # ADT tweak
   - type: MaterialStorage
     whitelist:

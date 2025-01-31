@@ -69,7 +69,6 @@ public sealed class AdminSystem : EntitySystem
 
     private readonly HashSet<NetUserId> _roundActivePlayers = new();
     public readonly PanicBunkerStatus PanicBunker = new();
-    public readonly BabyJailStatus BabyJail = new();
 
     public override void Initialize()
     {
@@ -87,16 +86,7 @@ public sealed class AdminSystem : EntitySystem
         Subs.CVar(_config, CCVars.PanicBunkerShowReason, OnPanicBunkerShowReasonChanged, true);
         Subs.CVar(_config, CCVars.PanicBunkerMinAccountAge, OnPanicBunkerMinAccountAgeChanged, true);
         Subs.CVar(_config, CCVars.PanicBunkerMinOverallMinutes, OnPanicBunkerMinOverallMinutesChanged, true);
-
-        /*
-         * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
-         */
-
-        // Baby Jail Settings
-        Subs.CVar(_config, CCVars.BabyJailEnabled, OnBabyJailChanged, true);
-        Subs.CVar(_config, CCVars.BabyJailShowReason, OnBabyJailShowReasonChanged, true);
-        Subs.CVar(_config, CCVars.BabyJailMaxAccountAge, OnBabyJailMaxAccountAgeChanged, true);
-        Subs.CVar(_config, CCVars.BabyJailMaxOverallMinutes, OnBabyJailMaxOverallMinutesChanged, true);
+        Subs.CVar(_config, CCCVars.PanicBunkerDenyVPN, OnPanicBunkerDenyVpnChanged, true); // Corvax-VPNGuard
 
         SubscribeLocalEvent<IdentityChangedEvent>(OnIdentityChanged);
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
@@ -289,17 +279,6 @@ public sealed class AdminSystem : EntitySystem
         SendPanicBunkerStatusAll();
     }
 
-    private void OnBabyJailChanged(bool enabled)
-    {
-        BabyJail.Enabled = enabled;
-        _chat.SendAdminAlert(Loc.GetString(enabled
-            ? "admin-ui-baby-jail-enabled-admin-alert"
-            : "admin-ui-baby-jail-disabled-admin-alert"
-        ));
-
-        SendBabyJailStatusAll();
-    }
-
     private void OnPanicBunkerDisableWithAdminsChanged(bool enabled)
     {
         PanicBunker.DisableWithAdmins = enabled;
@@ -324,22 +303,10 @@ public sealed class AdminSystem : EntitySystem
         SendPanicBunkerStatusAll();
     }
 
-    private void OnBabyJailShowReasonChanged(bool enabled)
-    {
-        BabyJail.ShowReason = enabled;
-        SendBabyJailStatusAll();
-    }
-
     private void OnPanicBunkerMinAccountAgeChanged(int minutes)
     {
         PanicBunker.MinAccountAgeMinutes = minutes;
         SendPanicBunkerStatusAll();
-    }
-
-    private void OnBabyJailMaxAccountAgeChanged(int minutes)
-    {
-        BabyJail.MaxAccountAgeMinutes = minutes;
-        SendBabyJailStatusAll();
     }
 
     private void OnPanicBunkerMinOverallMinutesChanged(int minutes)
@@ -348,11 +315,13 @@ public sealed class AdminSystem : EntitySystem
         SendPanicBunkerStatusAll();
     }
 
-    private void OnBabyJailMaxOverallMinutesChanged(int minutes)
+    // Corvax-VPNGuard-Start
+    private void OnPanicBunkerDenyVpnChanged(bool deny)
     {
-        BabyJail.MaxOverallMinutes = minutes;
-        SendBabyJailStatusAll();
+        PanicBunker.DenyVpn = deny;
+        SendPanicBunkerStatusAll();
     }
+    // Corvax-VPNGuard-End
 
     private void UpdatePanicBunker()
     {
@@ -394,15 +363,6 @@ public sealed class AdminSystem : EntitySystem
     private void SendPanicBunkerStatusAll()
     {
         var ev = new PanicBunkerChangedEvent(PanicBunker);
-        foreach (var admin in _adminManager.AllAdmins)
-        {
-            RaiseNetworkEvent(ev, admin);
-        }
-    }
-
-    private void SendBabyJailStatusAll()
-    {
-        var ev = new BabyJailChangedEvent(BabyJail);
         foreach (var admin in _adminManager.AllAdmins)
         {
             RaiseNetworkEvent(ev, admin);
