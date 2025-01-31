@@ -36,7 +36,7 @@ public sealed class QueueState : State
         //Ding(); // ADT TWEAK 
     }
 
-    //private void Ding() // ADT TWEAK 
+    //private void Ding() // ADT TWEAK, Не понятно как фиксить ошибку с этой хуйней, потому проще вырезать по сути ненужную функцию
     //{
     //    _audio.PlayGlobal(JoinSoundPath, Filter.Local(), false);
     //}
