@@ -12,7 +12,7 @@ public sealed partial class HumanoidProfileEditor
     {
         LanguagesList.DisposeAllChildren();
         TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-languages-tab"));
-        SetDefaultLanguagesButton.OnPressed += SetDefaultLanguages;
+        SetDefaultLanguagesButton.OnPressed += _ => SetDefaultLanguages();
 
         if (Profile == null)
             return;
@@ -73,7 +73,7 @@ public sealed partial class HumanoidProfileEditor
         RefreshLanguages();
     }
 
-    public void SetDefaultLanguages(BaseButton.ButtonEventArgs args)
+    public void SetDefaultLanguages()
     {
         if (Profile == null)
             return;

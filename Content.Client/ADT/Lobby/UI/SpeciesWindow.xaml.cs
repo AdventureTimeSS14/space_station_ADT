@@ -13,7 +13,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
-using Content.Client.Lobby.UI;
 
 namespace Content.Client.ADT.Lobby.UI;
 
@@ -28,7 +27,6 @@ public sealed partial class SpeciesWindow : FancyWindow
     private readonly IPrototypeManager _proto;
     private readonly LobbyUIController _uIController;
     private readonly IResourceManager _resMan;
-    private readonly HumanoidProfileEditor _humanoidProfileEditor;
     [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
     public SpeciesWindow(HumanoidCharacterProfile profile,
@@ -36,8 +34,7 @@ public sealed partial class SpeciesWindow : FancyWindow
                         IEntityManager entMan,
                         LobbyUIController uIController,
                         IResourceManager resManager,
-                        DocumentParsingManager parsing,
-                        HumanoidProfileEditor humanoidProfileEditor)
+                        DocumentParsingManager parsing)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -49,7 +46,6 @@ public sealed partial class SpeciesWindow : FancyWindow
         _proto = proto;
         _uIController = uIController;
         _resMan = resManager;
-        _humanoidProfileEditor = humanoidProfileEditor;
 
         var protoList = _proto.EnumeratePrototypes<SpeciesPrototype>().Where(x => x.RoundStart).ToList();
         protoList.Sort((x, y) => Loc.GetString(x.Name)[0].CompareTo(Loc.GetString(y.Name)[0]));
@@ -181,11 +177,7 @@ public sealed partial class SpeciesWindow : FancyWindow
         JobLoadout.SetEntity(loadoutMob);
 
         Select.Disabled = Profile.Species == protoId;
-        Select.OnPressed += args =>
-        {
-            ChooseAction?.Invoke(protoId);
-            _humanoidProfileEditor.SetDefaultLanguages(args);
-        };
+        Select.OnPressed += args => ChooseAction?.Invoke(protoId);
 
         // Тут у нас идёт штука для создание контейнера плюсов и минусов. Я не уверен, зачем я впихнул это сюда, но мне уже лень переделывать
         var prosConsContainer = new BoxContainer()
