@@ -11,26 +11,29 @@ spellbook-polymorph-rod-name = Полиморф-жезл
 spellbook-polymorph-rod-desc = Превратитесь в неподвижный жезл с ограниченной возможностью передвижения.
 spellbook-charge-name = Зарядка
 spellbook-charge-desc = Добавляет заряд вашей палочке!
-spellbook-ethereal-jaunt-name = Ethereal Jaunt
-spellbook-ethereal-jaunt-description = Slip into the ethereal plane to slip away from your enemies!
-
+spellbook-ethereal-jaunt-name = Эфирная прогулка
+spellbook-ethereal-jaunt-description = Перейдите на Эфирный план чтобы ускользнуть от врагов!
+spellbook-mind-swap-name = Обмен разумом
+spellbook-mind-swap-description = Обменяйтесь телами с другим человеком!
 # Equipment
 
 spellbook-wand-polymorph-door-name = Волшебная палочка входа
 spellbook-wand-polymorph-door-description = На случай, когда нужен маршрут для побега.
 spellbook-wand-polymorph-carp-name = Волшебная палочка полиморфа карпа
 spellbook-wand-polymorph-carp-description = На случай, когда вам срочно нужно филе карпа, а клоун выглядит уж очень аппетитно.
+spellbook-wand-locker-name = Волшебная палочка шкафчика
+spellbook-wand-locker-description = Стреляйте в своих врагов проклятыми шкафчиками и запирайте их!
 
 # Events
 
-spellbook-event-summon-ghosts-name = Призвать призраков
+spellbook-event-summon-ghosts-name = Призыв призраков
 spellbook-event-summon-ghosts-description = Who ya gonna call?
-spellbook-event-summon-guns-name = Summon Guns
-spellbook-event-summon-guns-description = AK47s for everyone! Places a random gun in front of everybody. Disables refunds when bought!
-spellbook-event-summon-magic-name = Summon Magic
-spellbook-event-summon-magic-description = Places a random magical item in front of everybody. Nothing could go wrong! Disables refunds when bought!
+spellbook-event-summon-guns-name = Призыв оружия
+spellbook-event-summon-guns-description = АК-47 для всех! Размещает перед каждым случайное огнестрельное оружие. Отключает возврат средств при покупке!
+spellbook-event-summon-magic-name = Призыв магии
+spellbook-event-summon-magic-description = Размещает перед каждым случайный магический предмет. Что может пойти не так? Отключает возврат средств при покупке!
 # Upgrades
 spellbook-upgrade-fireball-name = Улучшение Огненного шара
 spellbook-upgrade-fireball-description = Позволяет улучшить Огненный шар до максимального 3-го уровня!
-spellbook-upgrade-jaunt-name = Upgrade Ethereal Jaunt
-spellbook-upgrade-jaunt-description = Upgrades Jaunt to a maximum of level 3!
+spellbook-upgrade-jaunt-name = Улучшение Эфирной прогулки
+spellbook-upgrade-jaunt-description = Позволяет улучшить Эфирную прогулку до максимального 3-го уровня!

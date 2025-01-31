@@ -45,10 +45,10 @@
             10: { visible: true, state: teg-op10 }
             11: { visible: true, state: teg-op11 }
         # ADT-Teg-Update-Start
-        enum.AnchoredVisuals.VisualState:
+        enum.AnchorVisuals.Anchored:
           center:
-            Free: { state: teg-unassembled }
-            Anchored: { state: teg }
+            False: { state: teg-unassembled }
+            True: { state: teg }
         # ADT-Teg-Update-End
 
     - type: Anchorable
@@ -149,10 +149,10 @@
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
         # ADT-Teg-Update-Start
-        enum.AnchoredVisuals.VisualState:
+        enum.AnchorVisuals.Anchored:
           enum.TegVisualLayers.CirculatorBase:
-            Free: { state: circ-unassembled-0 }
-            Anchored: { state: circ-0 }
+            False: { state: circ-unassembled-0 }
+            True: { state: circ-0 }
         # ADT-Teg-Update-End
 
     - type: Appearance

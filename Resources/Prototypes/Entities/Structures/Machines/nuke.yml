@@ -121,6 +121,7 @@
     tags:
     - ADTVaultAmbience
   # ADT-Sound-Update-End
+  - type: FTLSmashImmune
 
 - type: entity
   parent: NuclearBomb

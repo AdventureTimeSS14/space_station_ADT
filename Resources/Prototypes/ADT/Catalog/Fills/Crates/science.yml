@@ -43,7 +43,7 @@
         amount: 1
       - id: OverlordCircuitBoard
         amount: 1
-      - id: DungeonMasterCircuitBoard
+      - id: GameMasterCircuitBoard
         amount: 1
       - id: ArtistCircuitBoard
         amount: 1

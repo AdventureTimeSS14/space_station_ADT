@@ -85,6 +85,7 @@ namespace Content.Server.IoC
             IoCManager.Register<MappingManager>();
             IoCManager.Register<IDiscordBanInfoSender, DiscordBanInfoSender>(); //ADT Tweak: логи банов для диса
             IoCManager.Register<ExportManager>(); // ADT Export
+            IoCManager.Register<ConnectionManager>();
         }
     }
 }

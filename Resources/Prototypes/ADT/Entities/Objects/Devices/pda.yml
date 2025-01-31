@@ -59,9 +59,27 @@
   components:
   - type: Pda
     id: MagistratIDCard
-    state: pda-lawyer
   - type: Icon
+    sprite: ADT/Objects/Devices/pda.rsi
     state: pda-lawyer
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-lawyer
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-lawyer"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: ADTBasePDA
@@ -71,12 +89,29 @@
   components:
   - type: Pda
     id: ADTRoboticistIDCard
-    state: pda-roboticist
   - type: PdaBorderColor
     borderColor: "#171716"
     accentVColor: "#d90000"
   - type: Icon
     state: pda-roboticist
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-roboticist
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-roboticist"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -86,12 +121,29 @@
   components:
   - type: Pda
     id: ADTPathologistIDCard
-    state: pda-pathologist
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#15616b"
   - type: Icon
     state: pda-pathologist
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-pathologist
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-pathologist"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: ADTBaseMedicalPDA
@@ -101,13 +153,30 @@
   components:
     - type: Pda
       id: ADTBlueShieldOfficerIDCard
-      state: pda-blueshield
     - type: PdaBorderColor
       borderColor: "#424248"
       accentHColor: "#2851a4"
       accentVColor: "#e1e1e1"
     - type: Icon
       state: pda-blueshield
+    - type: Appearance
+      appearanceDataInit:
+       enum.PdaVisuals.PdaType:
+        !type:String
+        pda-blueshield
+    - type: Sprite
+      sprite: ADT/Objects/Devices/pda.rsi
+      layers:
+      - map: [ "enum.PdaVisualLayers.Base" ]
+        state: "pda-blueshield"
+      - state: "light_overlay"
+        map: [ "enum.PdaVisualLayers.Flashlight" ]
+        shader: "unshaded"
+        visible: false
+      - state: "id_overlay"
+        map: [ "enum.PdaVisualLayers.IdLight" ]
+        shader: "unshaded"
+        visible: false
 
 - type: entity
   parent: ADTBasePDA
@@ -116,19 +185,36 @@
   description: Boo!
   components:
   - type: Pda
-    state: pda-ghost
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#333333"
   - type: Icon
     state: pda-ghost
   - type: Unremoveable
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-ghost
   - type: Clothing
     sprite: Tips/tippy.rsi #просто рандомный спрайт, чтобы не засорять визуал гостов
     quickEquip: false
     slots:
     - idcard
     - Belt
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-ghost"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 # КПК Следователя
 - type: entity
@@ -139,23 +225,57 @@
   components:
   - type: Pda
     id: DetectiveIDCard
-    state: pda-investigator
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
     state: pda-investigator
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-investigator
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-investigator"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
-  parent: BasePDA
+  parent: ADTBasePDA
   id: ADTTraderPDA
   name: trader PDA
   description: trader PDA
   components:
-  - type: Sprite
-    sprite: ADT/Objects/Devices/pda.rsi
   - type: Pda
     id: ADTTraderIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-tradertsf
+  - type: Icon
     state: pda-tradertsf
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-tradertsf"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 # КПК надзирателя
 - type: entity
@@ -166,8 +286,25 @@
   components:
   - type: Pda
     id: ADTGuardOfficerIDCard
-    state: pda-guardofficer
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
     state: pda-guardofficer
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-guardofficer
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-guardofficer"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false

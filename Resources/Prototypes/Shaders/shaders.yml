@@ -105,7 +105,14 @@
   kind: source
   path: "/Textures/Shaders/cataracts.swsl"
 
+# Инконну, Швондер, где комментарии?
 - type: shader
   id: RMCInvisible
   kind: source
   path: "/Textures/ADT/Shaders/invisible.swsl"
+# Инконну, Швондер, где комментарии?
+
+- type: shader
+  id: Hologram
+  kind: source
+  path: "/Textures/Shaders/hologram.swsl"
