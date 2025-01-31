@@ -74,7 +74,9 @@
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
     - type: Weldable
-
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+      
 - type: entity
   parent: GasUnaryBase
   id: GasPassiveVent
@@ -98,7 +100,9 @@
     - type: Construction
       graph: GasUnary
       node: passivevent
-
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+      
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
   id: GasVentScrubber
@@ -147,7 +151,9 @@
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
     - type: Weldable
-
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentScrubber
+      
 - type: entity
   parent: GasUnaryBase
   id: GasOutletInjector
@@ -186,7 +192,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
       - enum.LightLayers.Unshaded
-
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+      
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: BaseGasThermoMachine
@@ -232,6 +240,9 @@
     - type: PowerSwitch
     - type: StationAiWhitelist #ADT-Tweak
 
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: Thermoregulator
+      
 - type: entity
   parent: BaseGasThermoMachine
   id: GasThermoMachineFreezer
@@ -520,3 +531,5 @@
   - type: ExaminableSolution
     solution: tank
   - type: PowerSwitch
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: Thermoregulator
