@@ -28,7 +28,7 @@ public sealed partial class SpeciesWindow : FancyWindow
     private readonly IPrototypeManager _proto;
     private readonly LobbyUIController _uIController;
     private readonly IResourceManager _resMan;
-    private readonly HumanoidProfileEditor _humanoidProfileEditor;
+    [Dependency] private readonly HumanoidProfileEditor _humanoidProfileEditor = default!;
     [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
     public SpeciesWindow(HumanoidCharacterProfile profile,
@@ -36,8 +36,7 @@ public sealed partial class SpeciesWindow : FancyWindow
                         IEntityManager entMan,
                         LobbyUIController uIController,
                         IResourceManager resManager,
-                        DocumentParsingManager parsing,
-                        HumanoidProfileEditor humanoidProfileEditor)
+                        DocumentParsingManager parsing)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -49,7 +48,6 @@ public sealed partial class SpeciesWindow : FancyWindow
         _proto = proto;
         _uIController = uIController;
         _resMan = resManager;
-        _humanoidProfileEditor = humanoidProfileEditor;
 
         var protoList = _proto.EnumeratePrototypes<SpeciesPrototype>().Where(x => x.RoundStart).ToList();
         protoList.Sort((x, y) => Loc.GetString(x.Name)[0].CompareTo(Loc.GetString(y.Name)[0]));
