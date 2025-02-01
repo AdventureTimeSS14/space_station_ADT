@@ -61,22 +61,27 @@
   - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
     slots:
       modsuit-mod1:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod2:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod3:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod4:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod5:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
@@ -111,14 +116,17 @@
   - type: ItemSlots # меньше модулей, сильнее базовый МОД
     slots:
       modsuit-mod1:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod2:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod3:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
@@ -253,14 +261,17 @@
   - type: ItemSlots # меньше модулей, сильнее базовый МОД
     slots:
       modsuit-mod1:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod2:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod3:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
@@ -355,26 +366,32 @@
   - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
     slots:
       modsuit-mod1:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod2:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod3:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod4:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod5:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
       modsuit-mod6:
+        swap: false
         whitelist:
           components:
           - ModSuitMod
