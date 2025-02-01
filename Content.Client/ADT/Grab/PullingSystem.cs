@@ -1,5 +1,6 @@
 using Content.Client.Effects;
 using Content.Client.Popups;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
@@ -43,7 +44,13 @@ public sealed partial class PullingSystem : SharedPullingSystem
         }
 
         // Do grab stage change effects
-        _popup.PopupPredicted(Loc.GetString($"grab-increase-{targetStage.ToString().ToLower()}-popup"), pullable, puller, popupType);
+        _popup.PopupPredicted(
+                                Loc.GetString($"grab-increase-{targetStage.ToString().ToLower()}-popup-self",
+                                                ("target", Identity.Entity(pullable, EntityManager))),
+                                Loc.GetString($"grab-increase-{targetStage.ToString().ToLower()}-popup-others",
+                                                ("target", Identity.Entity(pullable, EntityManager)),
+                                                ("puller", Identity.Entity(pullable, EntityManager))),
+                                pullable, puller, popupType);
         _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable, puller);
         _color.RaiseEffect(Color.Yellow, new List<EntityUid>() { pullable.Owner }, Filter.Pvs(pullable.Owner));
 
@@ -59,7 +66,13 @@ public sealed partial class PullingSystem : SharedPullingSystem
         // Do grab stage change effects
         if (effects)
         {
-            _popup.PopupPredicted(Loc.GetString($"grab-lower-{targetStage.ToString().ToLower()}-popup"), pullable, puller, PopupType.Small);
+            _popup.PopupPredicted(
+                                    Loc.GetString($"grab-lower-{targetStage.ToString().ToLower()}-popup-self",
+                                                    ("target", Identity.Entity(pullable, EntityManager))),
+                                    Loc.GetString($"grab-lower-{targetStage.ToString().ToLower()}-popup-others",
+                                                    ("target", Identity.Entity(pullable, EntityManager)),
+                                                    ("puller", Identity.Entity(pullable, EntityManager))),
+                                    pullable, puller, PopupType.Small);
             _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable, puller);
         }
 

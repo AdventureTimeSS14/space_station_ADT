@@ -224,14 +224,14 @@ public abstract partial class SharedPullingSystem
                 Dirty(uid, comp);
             }
 
-            _popup.PopupPredicted(Loc.GetString("grab-escape-attempt-popup"), uid, uid, PopupType.Small);
+            _popup.PopupPredicted(Loc.GetString("grab-escape-attempt-popup-self"), Loc.GetString("grab-escape-attempt-popup-others", ("pullable", Identity.Entity(uid, EntityManager))), uid, uid, PopupType.Small);
             if (args.DoAfter.Id == comp.EscapeAttemptDoAfter)
                 args.Repeat = true;
         }
         else
         {
             comp.EscapeAttemptCounter = 1;
-            _popup.PopupPredicted(Loc.GetString("grab-escape-success-popup"), uid, uid, PopupType.Small);
+            _popup.PopupPredicted(Loc.GetString("grab-escape-success-popup-self"), Loc.GetString("grab-escape-success-popup-others", ("pullable", Identity.Entity(uid, EntityManager))), uid, uid, PopupType.Small);
             TryLowerGrabStage((comp.Puller.Value, puller), (uid, comp), true, false);
             args.Repeat = false;
             comp.EscapeAttemptDoAfter = null;
@@ -436,7 +436,7 @@ public abstract partial class SharedPullingSystem
         pullable.Comp.LastEscapeAttempt = _timing.CurTime;
 
         // Do escape effects
-        _popup.PopupPredicted(Loc.GetString("pulling-system-grab-escape-popup"), pullable, pullable, PopupType.Small);
+        _popup.PopupPredicted(Loc.GetString("grab-escape-attempt-popup-self"), Loc.GetString("grab-escape-attempt-popup-others", ("pullable", Identity.Entity(pullable, EntityManager))), pullable, pullable, PopupType.Small);
 
         if (!_net.IsServer)
             return true;
