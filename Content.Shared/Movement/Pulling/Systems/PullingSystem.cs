@@ -10,6 +10,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -35,7 +36,7 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public sealed partial class PullingSystem : EntitySystem
+public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab tweak: Сделал класс абстрактным и partial, а так же переименовал в SharedPullingSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -80,7 +81,7 @@ public sealed partial class PullingSystem : EntitySystem
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
-            .Register<PullingSystem>();
+            .Register<SharedPullingSystem>();
     }
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
@@ -178,7 +179,7 @@ public sealed partial class PullingSystem : EntitySystem
     public override void Shutdown()
     {
         base.Shutdown();
-        CommandBinds.Unregister<PullingSystem>();
+        CommandBinds.Unregister<SharedPullingSystem>();
     }
 
     private void OnPullerUnpaused(EntityUid uid, PullerComponent component, ref EntityUnpausedEvent args)
@@ -197,9 +198,11 @@ public sealed partial class PullingSystem : EntitySystem
 
         if (EntityManager.TryGetComponent(args.BlockingEntity, out PullableComponent? comp))
         {
+            // ADT Grab start
             if (_combat.IsInCombatMode(uid))
                 args.Cancel();
             TryLowerGrabStageOrStopPulling((uid, component), (args.BlockingEntity, comp));
+            // ADT Grab end
         }
     }
 
@@ -218,7 +221,7 @@ public sealed partial class PullingSystem : EntitySystem
             Verb verb = new()
             {
                 Text = Loc.GetString("pulling-verb-get-data-text-stop-pulling"),
-                Act = () => TryStopPull(uid, component, user: args.User),
+                Act = () => TryLowerGrabStageOrStopPulling((args.User, Comp<PullerComponent>(args.User)), (uid, component)),    // ADT Grab tweaked
                 DoContactInteraction = false // pulling handle its own contact interaction.
             };
             args.Verbs.Add(verb);
@@ -245,7 +248,12 @@ public sealed partial class PullingSystem : EntitySystem
             return;
         }
 
-        args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
+        // ADT Grab start
+        int index = (int)component.Stage + component.GrabbingDirection;
+
+        args.ModifySpeed(component.WalkSpeedModifier, component.GrabStats[(GrabStage)index].MovementSpeedModifier);
+        component.GrabbingDirection = 0;
+        // ADT Grab end
     }
 
     private void OnPullableMoveInput(EntityUid uid, PullableComponent component, ref MoveInputEvent args)
@@ -258,10 +266,11 @@ public sealed partial class PullingSystem : EntitySystem
 
         if (!_blocker.CanMove(entity))
             return;
-        if (TryComp<PullerComponent>(component.Puller, out var puller) && puller.Stage > GrabStage.None)
+        if (!TryComp<PullerComponent>(component.Puller, out var puller))
             return;
 
-        TryStopPull(uid, component, user: uid);
+        TryEscapeFromGrab((uid, component), (component.Puller.Value, puller));
+        //TryStopPull(uid, component, user: uid);
     }
 
     private void OnPullableCollisionChange(EntityUid uid, PullableComponent component, ref CollisionChangeEvent args)
@@ -328,7 +337,18 @@ public sealed partial class PullingSystem : EntitySystem
             var pullerUid = oldPuller.Value;
             _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
-            pullerComp.VirtualItems.ForEach(x => QueueDel(x));
+            // ADT grab start
+            // Not the best way to do this, but idc
+            _doAfter.Cancel(pullerComp.StageIncreaseDoAfter);
+            _doAfter.Cancel(pullableComp.EscapeAttemptDoAfter);
+            pullerComp.VirtualItems.ForEach(x =>
+            {
+                var item = GetEntity(x);
+                if (Exists(item) && !Terminating(item))
+                    _virtualItem.DeleteVirtualItem((item, Comp<VirtualItemComponent>(item)), pullerUid);
+            });
+            pullerComp.VirtualItems.Clear();
+            // ADT Grab end
             pullerComp.Stage = GrabStage.None;
             Dirty(oldPuller.Value, pullerComp);
 
@@ -341,7 +361,7 @@ public sealed partial class PullingSystem : EntitySystem
             RaiseLocalEvent(pullableUid, message);
         }
 
-
+        _blocker.UpdateCanMove(pullableUid);    // ADT Grab
         _alertsSystem.ClearAlert(pullableUid, pullableComp.PulledAlert);
     }
 
@@ -368,7 +388,7 @@ public sealed partial class PullingSystem : EntitySystem
             return;
         }
 
-        TryLowerGrabStageOrStopPulling((player, pullerComp), (pullerComp.Pulling.Value, pullableComp));
+        TryLowerGrabStageOrStopPulling((player, pullerComp), (pullerComp.Pulling.Value, pullableComp)); // ADT Grab
         // TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player);
     }
 
@@ -422,6 +442,8 @@ public sealed partial class PullingSystem : EntitySystem
     {
         if (!Resolve(pullable, ref pullable.Comp, false))
             return false;
+
+        // ADT Grab start
         if (!TryComp<PullerComponent>(pullerUid, out var puller))
             return false;
 
@@ -432,6 +454,7 @@ public sealed partial class PullingSystem : EntitySystem
         // }
 
         // return TryStartPull(pullerUid, pullable, pullableComp: pullable);
+        // ADT Grab end
     }
 
     public bool TogglePull(EntityUid pullerUid, PullerComponent puller)

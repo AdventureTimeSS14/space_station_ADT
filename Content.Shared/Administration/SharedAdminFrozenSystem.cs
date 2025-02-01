@@ -15,7 +15,7 @@ namespace Content.Shared.Administration;
 public abstract class SharedAdminFrozenSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedPullingSystem _pulling = default!;
 
     public override void Initialize()
     {

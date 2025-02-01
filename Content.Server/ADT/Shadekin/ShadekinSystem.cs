@@ -42,7 +42,7 @@ public sealed partial class ShadekinSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly AlertsSystem _alert = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedPullingSystem _pulling = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
 

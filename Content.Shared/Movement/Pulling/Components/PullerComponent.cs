@@ -1,4 +1,6 @@
-﻿using Content.Shared.Alert;
+﻿using Content.Shared.ADT.Grab;
+using Content.Shared.Alert;
+using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Pulling.Systems;
@@ -12,7 +14,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(PullingSystem), typeof(SharedHandsSystem))]
+[Access(typeof(SharedPullingSystem), typeof(SharedHandsSystem))]
 public sealed partial class PullerComponent : Component
 {
     // My raiding guild
@@ -46,23 +48,51 @@ public sealed partial class PullerComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> PullingAlert = "Pulling";
 
-    [DataField]
-    public GrabStage Stage = GrabStage.None;
-
-    [DataField]
-    public Dictionary<GrabStage, int> RequiredHands = new()
+    // ADT Grab start
+    [ViewVariables]
+    public GrabStage Stage
     {
-        {GrabStage.None, 1},
-        {GrabStage.Soft, 1},
-        {GrabStage.Hard, 1},
-        {GrabStage.Choke, 2}
+        get => _stage;
+        set => _stage = (GrabStage)Math.Clamp((int)value, (int)GrabStage.None, (int)GrabStage.Choke);
+    }
+
+    [AutoNetworkedField]
+    private GrabStage _stage = GrabStage.None;
+
+    /// <summary>
+    /// Specified stats for every grab stage
+    /// </summary>
+    [DataField]
+    public Dictionary<GrabStage, GrabStageStats> GrabStats = new()
+    {
+        {GrabStage.None, new() { RequiredHands = 1, DoaftersToEscape = 0, MovementSpeedModifier = 0.95f, EscapeAttemptTime = 0f, SetStageTime = 0f }},
+        {GrabStage.Soft, new() { RequiredHands = 1, DoaftersToEscape = 1, MovementSpeedModifier = 0.9f, EscapeAttemptTime = 1f, SetStageTime = 0.5f }},
+        {GrabStage.Hard, new() { RequiredHands = 1, DoaftersToEscape = 2, MovementSpeedModifier = 0.8f, EscapeAttemptTime = 1.25f, SetStageTime = 0.75f }},
+        {GrabStage.Choke, new() { RequiredHands = 2, DoaftersToEscape = 2, MovementSpeedModifier = 0.65f, EscapeAttemptTime = 1.5f, SetStageTime = 1.25f }}
     };
 
+    /// <summary>
+    /// Delay between escape attempts for grabbed person
+    /// </summary>
     [DataField]
     public float EscapeAttemptDelay = 0.5f;
 
+    /// <summary>
+    /// Virtual items for grab stages that require more than one hand
+    /// </summary>
     [ViewVariables]
-    public List<Entity<VirtualItemComponent>> VirtualItems = new();
+    [AutoNetworkedField]
+    public List<NetEntity> VirtualItems = new();
+
+    [ViewVariables]
+    [AutoNetworkedField]
+    public TimeSpan NextStageChange = TimeSpan.Zero;
+
+    [ViewVariables]
+    public DoAfterId? StageIncreaseDoAfter;
+
+    public int GrabbingDirection = 0; // костыль
+    // ADT Grab end
 }
 
 public sealed partial class StopPullingAlertEvent : BaseAlertEvent;

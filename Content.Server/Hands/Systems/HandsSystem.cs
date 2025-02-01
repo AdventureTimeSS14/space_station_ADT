@@ -3,6 +3,7 @@ using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
+using Content.Shared.ADT.Hands;
 using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
@@ -34,7 +35,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly VirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly PullingSystem _pullingSystem = default!;
+        [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
 
         public override void Initialize()
@@ -142,7 +143,13 @@ namespace Content.Server.Hands.Systems
                 DebugTools.Assert("Unable to find available hand when starting pulling??");
             }
 
-            pullerComp?.VirtualItems.Add((virtualItem.Value, Comp<VirtualItemComponent>(virtualItem.Value)));
+            // ADT Grab start
+            if (pullerComp != null)
+            {
+                pullerComp.VirtualItems.Add(GetNetEntity(virtualItem.Value));
+                Dirty(args.PullerUid, pullerComp);
+            }
+            // ADT Grab end
         }
 
         private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
@@ -192,6 +199,21 @@ namespace Content.Server.Hands.Systems
             if (_timing.CurTime < hands.NextThrowTime)
                 return false;
             hands.NextThrowTime = _timing.CurTime + hands.ThrowCooldown;
+
+            // ADT Grab start
+            if (TryComp<VirtualItemComponent>(throwEnt, out var virtualItem))
+            {
+                var userEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(player, userEv);
+
+                var targEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(virtualItem.BlockingEntity, targEv);
+
+                if (userEv.Cancelled || targEv.Cancelled)
+                    return false;
+            }
+            // ADT Grab end
+
 
             if (EntityManager.TryGetComponent(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
             {

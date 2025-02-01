@@ -28,7 +28,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedPullingSystem _pulling = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private   readonly TagSystem _tagSystem = default!;

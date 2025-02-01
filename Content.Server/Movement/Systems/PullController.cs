@@ -84,7 +84,7 @@ public sealed class PullController : VirtualController
     {
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.MovePulledObject, new PointerInputCmdHandler(OnRequestMovePulledObject))
-            .Register<PullingSystem>();
+            .Register<SharedPullingSystem>();
 
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _pullableQuery = GetEntityQuery<PullableComponent>();
@@ -134,7 +134,7 @@ public sealed class PullController : VirtualController
         var range = 2f;
         var fromUserCoords = coords.WithEntityId(player, EntityManager);
         var userCoords = new EntityCoordinates(player, Vector2.Zero);
-        
+
         if (!_transformSystem.InRange(coords, userCoords, range))
         {
             var direction = fromUserCoords.Position - userCoords.Position;

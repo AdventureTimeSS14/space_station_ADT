@@ -21,7 +21,7 @@ public sealed partial class SharedPhantomPortalSystem : EntitySystem
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedPullingSystem _pulling = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     /// <inheritdoc/>
