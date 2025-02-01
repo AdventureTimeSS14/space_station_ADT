@@ -28,7 +28,6 @@
   - type: Sprite
     state: apparatus
   - type: ModSuitMod
-    speedMod: -0.02
     slot: head
     components:
     - type: IngestionBlocker
@@ -44,7 +43,6 @@
   - type: Sprite
     state: drill
   - type: ModSuitMod
-    speedMod: -0.03
     slot: gloves
     components:
     - type: IngestionBlocker
@@ -74,7 +72,6 @@
     state: jetpack_adv
   - type: ModSuitMod
     slot: MODcore
-    speedMod: -0.03
     components:
     - type: MovementSpeedModifier
       weightlessAcceleration: 1
@@ -116,7 +113,6 @@
   - type: Sprite
     state: night_visor
   - type: ModSuitMod
-    speedMod: -0.05
     slot: head
     components:
     - type: NightVisionItem
@@ -132,7 +128,6 @@
   - type: Sprite
     state: no_baton
   - type: ModSuitMod
-    speedMod: -0.05
     slot: gloves
     components:
     - type: StaminaDamageOnHit
@@ -154,7 +149,6 @@
   - type: Sprite
     state: noslip
   - type: ModSuitMod
-    speedMod: -0.03
     slot: shoes
     components:
     - type: NoSlip
@@ -168,7 +162,6 @@
   - type: Sprite
     state: power_kick
   - type: ModSuitMod
-    speedMod: -0.03
     slot: gloves
     components:
     - type: MeleeThrowOnHit
@@ -189,7 +182,6 @@
   components:
   - type: Sprite
     state: sechud_viisor
-    speedMod: -0.02
   - type: ModSuitMod
     slot: head
     components:
@@ -222,7 +214,6 @@
   - type: Sprite
     state: welding
   - type: ModSuitMod
-    speedMod: -0.02
     slot: head
     components:
     - type: EyeProtection
@@ -236,7 +227,6 @@
   - type: Sprite
     state: plate_compression
   - type: ModSuitMod
-    speedMod: -0.07
     slot: outerClothing
     components:
     - type: Armor
@@ -274,7 +264,6 @@
     state: tray
   - type: ModSuitMod
     slot: head
-    speedMod: -0.03
     components:
     - type: TrayScanner
       enabled: true
@@ -289,7 +278,6 @@
   - type: Sprite
     state: carry
   - type: ModSuitMod
-    speedMod: -0.03
     slot: gloves
     components:
     - type: Insulated
@@ -303,7 +291,6 @@
   - type: Sprite
     state: longfall
   - type: ModSuitMod
-    speedMod: -0.02
     slot: shoes
     components:
     - type: Jumpboots
