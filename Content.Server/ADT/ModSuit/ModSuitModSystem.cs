@@ -1,9 +1,9 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Clothing;
 using Content.Shared.Wires;
-using Robust.Shared.Containers;
+using Content.Shared.ADT.ModSuits;
 
-namespace Content.Shared.ADT.ModSuits;
+namespace Content.Server.ADT.ModSuits;
 
 
 public sealed class ModSuitModSystem : EntitySystem
@@ -37,10 +37,6 @@ public sealed class ModSuitModSystem : EntitySystem
         var container = modsuit.Container;
         if (container == null)
             return;
-        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
-        {
-            _clothing.ModifySpeed(uid, modify, component.SpeedMod);
-        }
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
         {
@@ -72,16 +68,12 @@ public sealed class ModSuitModSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
-        if (args.Cancelled)
+        if (args.Cancelled || args.User == null)
             return;
         var container = modsuit.Container;
         if (container == null)
             return;
 
-        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
-        {
-            _clothing.ModifySpeed(uid, modify, -component.SpeedMod);
-        }
 
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
