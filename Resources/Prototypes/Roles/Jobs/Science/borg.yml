@@ -13,6 +13,8 @@
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
   containerInsert: true # ADT station AI spawn fix
+  jobPreviewEntity: PlayerStationAiPreview
+  applyTraits: false
 
 - type: job
   id: Borg
