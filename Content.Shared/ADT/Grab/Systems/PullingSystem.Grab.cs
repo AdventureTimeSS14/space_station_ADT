@@ -36,7 +36,6 @@ namespace Content.Shared.Movement.Pulling.Systems;
 public abstract partial class SharedPullingSystem
 {
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly INetManager _net = default!;

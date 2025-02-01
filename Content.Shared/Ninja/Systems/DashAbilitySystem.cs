@@ -26,7 +26,7 @@ public sealed class DashAbilitySystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PullingSystem _pullingSystem = default!;
+    [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
