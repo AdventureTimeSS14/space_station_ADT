@@ -242,6 +242,11 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
 
     private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
+        // ADT Start
+        if (!component.Pulling.HasValue)
+            return;
+        // ADT End
+
         if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var heldMoveSpeed) && component.Pulling.HasValue)
         {
             var (walkMod, sprintMod) =
