@@ -1,4 +1,5 @@
 using Content.Shared.Corvax.Sponsors;
+using Content.Shared.Mind;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -12,6 +13,7 @@ public sealed record PlayerInfo(
     string StartingJob,
     bool Antag,
     SponsorInfo? Sponsor,
+    RoleTypePrototype RoleProto,
     NetEntity? NetEntity,
     NetUserId SessionId,
     bool Connected,

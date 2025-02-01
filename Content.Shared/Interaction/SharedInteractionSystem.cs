@@ -21,6 +21,7 @@ using Content.Shared.Physics;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
+using Content.Shared.Strip;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
@@ -67,6 +68,7 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+        [Dependency] private readonly SharedStrippableSystem _strippable = default!;
         [Dependency] private readonly SharedPlayerRateLimitManager _rateLimit = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly ISharedChatManager _chat = default!;
@@ -138,7 +140,8 @@ namespace Content.Shared.Interaction
 
         private void RateLimitAlertAdmins(ICommonSession session)
         {
-            _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name)));
+            if (CCVars.InteractionRateLimitAnnounceAdmins.DefaultValue) // ADT-Tweak:
+                _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name))); // ADT-Tweak:
         }
 
         public override void Shutdown()
@@ -1111,7 +1114,7 @@ namespace Content.Shared.Interaction
             if (checkDeletion && (IsDeleted(user) || IsDeleted(used)))
                 return false;
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));
+            //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
             _delayQuery.TryComp(used, out var delayComponent);
             if (checkUseDelay && delayComponent != null && _useDelay.IsDelayed((used, delayComponent)))
                 return false;
@@ -1141,7 +1144,7 @@ namespace Content.Shared.Interaction
                 return true;
             }
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));
+            //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
             var userEv = new UserActivateInWorldEvent(user, used, complexInteractions.Value);
             RaiseLocalEvent(user, userEv, true);
             if (!userEv.Handled)
@@ -1194,7 +1197,7 @@ namespace Content.Shared.Interaction
                 return true;
             }
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));
+            //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
             // else, default to activating the item
             return InteractionActivate(user, used, false, false, false, checkDeletion: false);
         }
@@ -1321,7 +1324,7 @@ namespace Content.Shared.Interaction
             if (wearer == user)
                 return true;
 
-            if (slotDef.StripHidden)
+            if (_strippable.IsStripHidden(slotDef, user))
                 return false;
 
             return InRangeUnobstructed(user, wearer) && _containerSystem.IsInSameOrParentContainer(user, wearer);

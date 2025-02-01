@@ -1,0 +1,89 @@
+- type: planet
+  id: Lavaland
+  biome: LavaLand
+  mapName: shuttle-destination-lavaland
+  mapLight: "#1F0E11"
+  addedComponents:
+  - type: SpawnInRange
+    protosToSpawn:
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - BloodMinerDungeMarker
+    minX: -200
+    maxX: 200
+    minY: -200
+    maxY: 200
+  - type: FTLDestination
+    whitelist:
+      components:
+      - MiningShuttle
+  - type: WeatherScheduler # Regular ash storms
+    stages:
+    - duration: # 5-10 minutes of calm
+        min: 400
+        max: 600
+    - weather: AshfallLight # ash starts to fall, 30 second warning
+      message: ash-storm-telegraph
+      duration:
+        min: 30
+        max: 30
+    - weather: Ashfall # 1-2 minutes of damaging storm
+      message: ash-storm-alert
+      duration:
+        min: 60
+        max: 120
+    - weather: AshfallLight # ash clears away for 30 seconds
+      message: ash-storm-clearing
+      duration:
+        min: 30
+        max: 30
+  atmosphere:
+    volume: 2500
+    temperature: 313.15 # 40C
+    moles: # 82ka, 14% O2 (unbreathable)
+    - 13.65346
+    - 23.24754
+  biomeMarkerLayers:
+  - OreIron
+  - OreQuartz
+  - OreCoal
+  - OreGold
+  - OreSilver
+  - OrePlasma
+  - OreUranium
+  - OreDiamond
+  - OreArtifactFragment
+
+- type: planet
+  id: GlacierSurface
+  biome: Snow
+  mapName: shuttle-destination-icemoon
+  mapLight: "#2B3153"
+  addedComponents:
+  - type: FTLDestination
+    whitelist:
+      components:
+      - MiningShuttle
+  atmosphere:
+    volume: 2500
+    temperature: 180 # -93, extreme cold
+    moles: # 119kPa, 21% O2
+    - 42
+    - 158
+  biomeMarkerLayers:
+  - OreIron
+  - OreQuartz
+  - OreCoal
+  - OreGold
+  - OreSilver
+  - OrePlasma
+  - OreUranium
+  - OreDiamond
+  - OreArtifactFragment

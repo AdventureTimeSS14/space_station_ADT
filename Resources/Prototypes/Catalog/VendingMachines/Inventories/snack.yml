@@ -1,11 +1,6 @@
 - type: vendingMachineInventory
   id: GetmoreChocolateCorpInventory
   startingInventory:
-  # ADT Tweak Start New Years
-    ADTBoxNewYearSnack1: 3
-    ADTBoxNewYearSnack2: 3
-    ADTBoxNewYearSnack3: 3
-  # ADT Tweak End New Years
     FoodSnackRaisins: 3
     FoodSnackChocolate: 3
     FoodSnackCnDs: 3

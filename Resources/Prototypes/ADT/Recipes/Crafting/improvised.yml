@@ -114,3 +114,16 @@
   icon:
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
     state: icon
+
+- type: construction
+  name: energy crossbow
+  id: ADTEnergyCrossbow
+  graph: EnergyCrossbowGraph
+  startNode: start
+  targetNode: crossbow
+  category: construction-category-weapons
+  objectType: Item
+  description: Big and modifyable.
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
+    state: icon

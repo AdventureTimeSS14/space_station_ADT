@@ -27,6 +27,8 @@
     - alertType: Pacified
     - alertType: Crawling #ADT crawling
     - alertType: Chemicals # ADT Changeling
+    - alertType: Offer # ADT-Tweak
+
 - type: entity
   id: AlertSpriteView
   categories: [ HideSpawnMenu ]
@@ -93,6 +95,16 @@
   name: alerts-on-fire-name
   description: alerts-on-fire-desc
 
+# ADT-Tweak start
+- type: alert
+  id: Offer
+  clickEvent: !type:AcceptOfferAlertEvent
+  icons:
+  - sprite: /Textures/ADT/Alerts/offer_item.rsi
+    state: offer_item
+  name: alerts-offer-name
+  description: alerts-offer-desc
+# ADT-Tweak end
 
 - type: alert
   id: Cold

@@ -1,0 +1,9 @@
+- type: ninjaHackingThreat
+  id: Pirate
+  announcement: terror-pirate
+  rule: Pirates
+
+- type: ninjaHackingThreat
+  id: Phantom
+  announcement: terror-revenant
+  rule: PhantomSpawn

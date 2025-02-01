@@ -31,7 +31,7 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
         // Проверяем количество аргументов
         if (args.Length != 3 && !(args.Length == 4 && args[3] == "false"))
         {
-            shell.WriteLine("Error: invalid arguments! Maximum 3.");
+            shell.WriteLine(Loc.GetString("echo_chat-whisper-error-args"));
             return;
         }
 

@@ -558,7 +558,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
         var (coloredMessage, coloredLanguageMessage) = GetLanguageColoredMessages(source, sanitizedMessage, language);
 
         if (language.Color != null)
@@ -663,7 +663,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
         var (coloredMessage, coloredLanguageMessage, coloredObfuscatedMessage, coloredObfuscatedLanguageMessage) = GetColoredObfuscatedLanguageMessages(source, sanitizedMessage, language);
 
         name = FormattedMessage.EscapeText(name);

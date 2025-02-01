@@ -1,9 +1,11 @@
+# Оригинал данного файла был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
+
 - type: entity
   id: ADTBookPrinterInkCartridge
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   name: printer cartridge
-  description: A black box containing a strange black substance. I think they're called ink...
+  description: A black box containing a strange black substance. You think they're called ink...
   components:
   - type: BookPrinterCartridge
   - type: StaticPrice

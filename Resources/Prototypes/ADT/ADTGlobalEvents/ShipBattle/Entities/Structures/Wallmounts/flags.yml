@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseFlag
+  id: ADTFlagTSF
+  name: TSF flag
+  description: Glory to Trans Solar Federation!
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/flag.rsi
+    state: tsf
+
+- type: entity
+  parent: BaseFlag
+  id: ADTFlagKMT
+  name: KMT flag
+  description: Glory to Taurei Confederation!
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/flag.rsi
+    state: kmt

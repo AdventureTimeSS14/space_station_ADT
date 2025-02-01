@@ -23,6 +23,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server.Administration.Managers;
+using Content.Shared.Chat;
+using Content.Server.Chat.Managers;
 
 namespace Content.Server.Administration;
 
@@ -58,6 +61,9 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -81,6 +87,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat); // ADT Tweak
     }
 
     public void Initialize()
@@ -706,6 +713,62 @@ public sealed partial class ServerApi : IPostInjectInit
     private sealed class GameruleResponse
     {
         public required List<string> GameRules { get; init; }
+    }
+
+    #endregion
+
+    #region ADT-Tweak
+
+    private async Task ActionAdminChat(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<AdminChatActionBody>(context);
+        if (body == null)
+            return;
+
+        string discordName = $"{body.NickName}(Discord)";
+        string message = body.Message;
+        var authorUser = new NetUserId(actor.Guid);
+
+        await RunOnMainThread(async () =>
+        {
+            var clients = _admin.ActiveAdmins.Select(p => p.Channel).ToList();
+
+            // Используем Loc.GetString для формирования сообщения
+            var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+                ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
+                ("playerName", discordName),
+                ("message", FormattedMessage.EscapeText(body.Message))
+            );
+
+            // Отправляем сообщения всем администраторам
+            foreach (var client in clients)
+            {
+                bool isSource = true;
+                string? audioPath = isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default;
+                float audioVolume = isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default;
+
+                _chatManager.ChatMessageToOne(
+                    ChatChannel.AdminChat,
+                    message,
+                    wrappedMessage,
+                    default,
+                    false,
+                    client,
+                    audioPath: audioPath,
+                    audioVolume: audioVolume,
+                    author: authorUser
+                );
+            }
+
+            await RespondOk(context);
+            _sawmill.Info($"Send message by {FormatLogActor(actor)}");
+        });
+    }
+
+    private sealed class AdminChatActionBody
+    {
+        public required string Message { get; init; }
+        public required string NickName { get; init; }
     }
 
     #endregion

@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Language;
 
@@ -13,11 +14,19 @@ public sealed partial class LanguageSpeakerComponent : Component
     [AutoNetworkedField]
     public string? CurrentLanguage = default!;
 
-    [DataField("speaks"), ViewVariables(VVAccess.ReadWrite)]
+    /// <summary>
+    /// Список языков, которые знает сущность. Писать в компонентах как:
+    /// Прототип: Understand/BadSpeak/Speak
+    /// </summary>
+    [DataField("languages"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public List<string> SpokenLanguages = new();
+    public Dictionary<string, LanguageKnowledge> Languages = new();
+}
 
-    [DataField("understands"), ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
-    public List<string> UnderstoodLanguages = new();
+[Serializable, NetSerializable]
+public enum LanguageKnowledge : int
+{
+    Understand = 0,
+    BadSpeak = 1,
+    Speak = 2
 }
