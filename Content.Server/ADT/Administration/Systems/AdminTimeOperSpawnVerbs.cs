@@ -1,14 +1,14 @@
+using Content.Shared.Actions;
+using Content.Shared.Administration;
+using Content.Shared.ComponentalActions.Components;
 using Content.Shared.Database;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
-using Robust.Shared.Player;
-using Robust.Shared.Utility;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.ComponentalActions.Components;
-using Content.Shared.Actions;
-using Content.Server.Administration.Managers;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+
 
 // ADT Content: Time Patrol "ОБВА" by Schrodinger71
 namespace Content.Server.Administration.Systems;
@@ -16,18 +16,17 @@ namespace Content.Server.Administration.Systems;
 public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IAdminManager _admins = default!;
 
-
-    // All antag verbs have names so invokeverb works.
     private void AddAdminTimeOperSpawnVerbs(GetVerbsEvent<Verb> args)
     {
         if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
             return;
 
         var player = actor.PlayerSession;
-        //var hasBan = _admins.HasAdminFlag(player, AdminFlags.Ban);
+
+        if (!_adminManager.HasAdminFlag(player, AdminFlags.Admin))
+            return;
+
         if (_adminManager.IsAdmin(player))
         {
             if (TryComp(args.Target, out ActorComponent? targetActor))
@@ -47,7 +46,7 @@ public sealed partial class AdminVerbSystem
                         }
 
                         var stationUid = _stations.GetOwningStation(args.Target);
-                        ProtoId<JobPrototype> job =  "ADTJobTimePatrol";
+                        ProtoId<JobPrototype> job = "ADTJobTimePatrol";
                         var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
                         var mobUid = _spawning.SpawnPlayerMob(coords.Value, job, profile, stationUid);
                         var targetMind = _mindSystem.GetMind(args.Target);
