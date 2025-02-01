@@ -1,0 +1,22 @@
+﻿- type: constructionGraph
+  id: ADTModsuitStandard
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adtmodsuitstandard
+          steps:
+            - tag: ADTModsuitPlateStandard
+              name: Standard MOD plate
+              icon:
+                sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+                state: standard
+              doAfter: 2
+            - tag: ADTModsuitAssembledPart
+              name: MOD core
+              icon:
+                sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+                state: modcore8
+              doAfter: 2
+    - node: adtmodsuitstandard
+      entity: ADTClothingModsuitBackBase

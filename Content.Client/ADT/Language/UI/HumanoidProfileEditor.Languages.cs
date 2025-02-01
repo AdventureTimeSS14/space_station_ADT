@@ -54,13 +54,15 @@ public sealed partial class HumanoidProfileEditor
     {
         if (Profile == null)
             return;
-        var entry = new LanguageEntry(proto, false);
+        var entry = new LanguageEntry(proto, false)
+        {
+            Margin = new(7),
+            HorizontalExpand = true
+        };
         entry.SelectButton.Text = Loc.GetString(!Profile.Languages.Contains(proto) ? "language-lobby-add-button" : "language-lobby-remove-button");
         entry.SelectButton.ToolTip = null;
         entry.SelectButton.Disabled = Profile.Languages.Count >= species.MaxLanguages && !Profile.Languages.Contains(proto);
         entry.OnLanguageSelected += SelectLanguage;
-        entry.Margin = new(7);
-        entry.MaxWidth = 750f;
         LanguagesList.AddChild(entry);
     }
 

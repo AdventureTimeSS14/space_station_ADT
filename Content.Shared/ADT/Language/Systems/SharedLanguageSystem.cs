@@ -122,10 +122,7 @@ public abstract class SharedLanguageSystem : EntitySystem
 
         GetLanguages(uid, out var langs, out var translator, out var current);
 
-        Dirty(uid, component);
-
-        RaiseNetworkEvent(new LanguageMenuStateMessage(GetNetEntity(uid), current, langs, translator));
-        RaiseNetworkEvent(new LanguageChosenMessage(GetNetEntity(uid), current));
+        UpdateUi(uid);
     }
 
     public bool GetLanguages(

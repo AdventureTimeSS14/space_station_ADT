@@ -101,7 +101,7 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: Corvax/Mobs/Species/displacement.rsi # Corvax-Digitigrade
             state: jumpsuit-female
   # ADT tweak start
   - type: LanguageSpeaker
@@ -171,7 +171,25 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: Corvax/Mobs/Species/displacement.rsi # Corvax-Digitigrade
             state: jumpsuit-female
+    # Corvax-Digitigrade-Start
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    # Corvax-Digitigrade-End
 
 #Weh

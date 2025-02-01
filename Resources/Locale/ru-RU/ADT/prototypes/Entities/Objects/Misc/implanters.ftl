@@ -79,3 +79,7 @@ ent-IPCTranslatorImplanter = Имплантер IPC-транслятора
 ent-VoxPidginTranslatorImplanter = Имплантантер-транслятор VoxCommon
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = VoxCommon
+
+ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = FriendlyFire

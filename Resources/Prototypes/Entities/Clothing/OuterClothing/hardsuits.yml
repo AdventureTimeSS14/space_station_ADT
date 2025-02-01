@@ -215,6 +215,7 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.6
+        Heat: 0.8 # ADT tweak 1 > 0.8
         Caustic: 0.7
     staminaModifier: 0.8  # ADT
   - type: ClothingSpeedModifier
@@ -242,13 +243,15 @@
     modifiers:
       coefficients:
         Blunt: 0.8
+    # ADT tweak start
         Slash: 0.7
-        Piercing: 0.6
+        Piercing: 0.7
         Heat: 0.7
         Radiation: 0.8
         Caustic: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.25
+    # ADT tweak end
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.90
@@ -278,6 +281,7 @@
         Blunt: 0.5
         Slash: 0.6
         Piercing: 0.6
+        Heat: 0.75 # ADT tweak 1 > 0.75
         Caustic: 0.7
     staminaModifier: 0.7  # ADT
   - type: ClothingSpeedModifier
@@ -444,6 +448,7 @@
         Blunt: 0.6
         Slash: 0.5
         Piercing: 0.5
+        Heat: 0.7 # ADT tweak 1 > 0.7
         Radiation: 0.5
         Caustic: 0.6
     staminaModifier: 0.7 # ADT tweak
@@ -799,7 +804,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -814,7 +820,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -829,7 +836,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Medic Hardsuit
 - type: entity
@@ -844,7 +852,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Security Hardsuit
 - type: entity
@@ -863,7 +872,8 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -878,7 +888,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #Deathsquad
 - type: entity
@@ -916,7 +927,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
-  - type: DNALocker # ADT-Tweak
 
 #CBURN Hardsuit
 - type: entity
@@ -954,7 +964,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
-  - type: DNALocker # ADT-Tweak
+  - type: DNALocker # ADT-Tweak костыль
+    enabled: false
 
 #MISC. HARDSUITS
 #Clown Hardsuit

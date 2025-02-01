@@ -5,6 +5,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Content.Server.GameTicking.Events;
 using Content.Server.Chat.Systems;
+using Content.Server.Mind;
 
 namespace Content.Server.ADT.Language;
 
@@ -12,6 +13,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     public int Seed { get; private set; }
 
@@ -243,8 +245,10 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
             return;
         if (!GetLanguages(uid, out _, out var translator, out var current))
             return;
+        if (!_mind.TryGetMind(uid, out _, out var mind) || mind == null || mind.Session == null)
+            return;
 
         var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, langs, translator);
-        RaiseNetworkEvent(state, uid);
+        RaiseNetworkEvent(state, mind.Session);
     }
 }

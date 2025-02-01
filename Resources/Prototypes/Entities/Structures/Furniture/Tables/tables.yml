@@ -192,6 +192,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: metaltable
+    base: state_
   - type: Construction
     graph: Table
     node: Table
@@ -233,6 +236,8 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: metalreinforcedtable
   - type: Construction
     graph: Table
     node: TableReinforced
@@ -289,6 +294,8 @@
         node: TableFrame
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: glasstable
   - type: Construction
     graph: Table
     node: TableGlass
@@ -344,6 +351,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: reinforcedglasstable
   - type: Construction
     graph: Table
     node: TableReinforcedGlass
@@ -399,6 +408,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: plasmaglasstable
   - type: Construction
     graph: Table
     node: TablePlasmaGlass
@@ -443,6 +454,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: brasstable
   - type: Construction
     graph: Table
     node: TableBrass
@@ -484,6 +497,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: woodtable
   - type: Construction
     graph: Table
     node: TableWood
@@ -525,6 +540,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: woodgambletable
   - type: Construction
     graph: Table
     node: TableCarpet
@@ -556,6 +573,8 @@
           path: /Audio/Effects/picaxe2.ogg
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: stonetable
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepFloor
@@ -585,6 +604,8 @@
       Brute:
         path:
           "/Audio/Weapons/slash.ogg"
+  - type: IconSmooth
+    key: webtable
   - type: Construction
     graph: WebStructures
     node: table
@@ -622,6 +643,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: fancytable
   - type: Tag
     tags:
     - Wooden
@@ -641,6 +664,8 @@
   - type: Construction
     graph: Table
     node: TableFancyBlue
+  - type: IconSmooth
+    key: fancytableblue
 
 - type: entity
   id: TableFancyCyan
@@ -654,6 +679,8 @@
   - type: Construction
     graph: Table
     node: TableFancyCyan
+  - type: IconSmooth
+    key: fancytablecyan
 
 - type: entity
   id: TableFancyBlack
@@ -667,6 +694,8 @@
   - type: Construction
     graph: Table
     node: TableFancyBlack
+  - type: IconSmooth
+    key: fancytableblack
 
 - type: entity
   id: TableFancyRed
@@ -680,6 +709,8 @@
   - type: Construction
     graph: Table
     node: TableFancyRed
+  - type: IconSmooth
+    key: fancytablered
 
 - type: entity
   id: TableFancyPurple
@@ -693,6 +724,8 @@
   - type: Construction
     graph: Table
     node: TableFancyPurple
+  - type: IconSmooth
+    key: fancytablepurple
 
 - type: entity
   id: TableFancyPink
@@ -706,6 +739,8 @@
   - type: Construction
     graph: Table
     node: TableFancyPink
+  - type: IconSmooth
+    key: fancytablepink
 
 - type: entity
   id: TableFancyGreen
@@ -719,6 +754,8 @@
   - type: Construction
     graph: Table
     node: TableFancyGreen
+  - type: IconSmooth
+    key: fancytablegreen
 
 - type: entity
   id: TableFancyOrange
@@ -732,6 +769,8 @@
   - type: Construction
     graph: Table
     node: TableFancyOrange
+  - type: IconSmooth
+    key: fancytableorange
 
 - type: entity
   id: TableFancyWhite
@@ -745,6 +784,8 @@
   - type: Construction
     graph: Table
     node: TableFancyWhite
+  - type: IconSmooth
+    key: fancytablewhite
 
 #Debug
 
@@ -809,6 +850,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: counterwood
+    base: state_
   - type: Construction
     graph: Table
     node: CounterWood
@@ -854,6 +898,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: countermetal
+    base: state_
   - type: Construction
     graph: Table
     node: CounterMetal
