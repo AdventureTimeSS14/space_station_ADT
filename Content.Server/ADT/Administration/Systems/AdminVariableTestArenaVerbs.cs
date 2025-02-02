@@ -7,7 +7,25 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Numerics;
 
-// ADT Content by Schrodinger71
+/*
+    ADT Content by 🐾 Schrödinger's Code 🐾
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+            ██╗░░███████╗░░░██╗
+            █╔╝░░███╔═══╝░░░░█║
+            █║══░╚█████╗░░══░█║
+            █║░░░░╚══███╗░░░░█║
+            ██╗░░███████║░░░██║
+            ╚═╝░░╚══════╝░░░╚═╝
+        Wiskey Echo Wiskey Lima Alpha Delta
+    ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+*/
+
+
 namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
@@ -24,6 +42,7 @@ public sealed partial class AdminVerbSystem
         ("/Maps/ADTMaps/ARoom/aroom_sandbox.yml", "SandBox", "/Textures/ADT/Interface/VerbIcons/icons8-sandbox.png"),    // index: 4
     };
 
+
     private void AdminTestArenaVariableVerbs(GetVerbsEvent<Verb> args)
     {
         if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
@@ -35,7 +54,7 @@ public sealed partial class AdminVerbSystem
             return;
 
         // Классическая арума
-        Verb sendToTestArenaClassic = new()
+        Verb sendToTestArenaClassic = new ()
         {
             Text = "Send to test arena classic",
             Category = VerbCategory.AdminRoom,
@@ -144,4 +163,6 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(sendToTestArenaSandBox);
     }
+
 }
+

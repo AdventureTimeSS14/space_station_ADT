@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 
-// ADT Content: Time Patrol "ОБВА" by Schrodinger71
+// ADT Content: Time Patrol "ОБВА" by 🐾 Schrödinger's Code 🐾
 namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
