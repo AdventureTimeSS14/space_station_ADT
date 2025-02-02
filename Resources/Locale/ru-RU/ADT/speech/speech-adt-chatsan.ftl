@@ -29,7 +29,7 @@ accent-adt_chatsanitize-words-8 = имба
 accent-adt_chatsanitize-replace-8 = нечто
 
 accent-adt_chatsanitize-words-9 = гойда
-accent-adt_chatsanitize-replace-9 = аперёд!
+accent-adt_chatsanitize-replace-9 = вперёд!
 
 accent-adt_chatsanitize-words-10-1 = хилль
 accent-adt_chatsanitize-words-10-2 = хиль
