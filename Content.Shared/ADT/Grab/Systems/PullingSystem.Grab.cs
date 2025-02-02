@@ -15,6 +15,7 @@ using Content.Shared.Gravity;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
@@ -291,6 +292,8 @@ public abstract partial class SharedPullingSystem
             return TryStartPull(puller, pullable);
         if (!_combat.IsInCombatMode(puller.Owner))
             return TryStopPull(pullable, pullable.Comp, puller);
+        if (!HasComp<MobStateComponent>(pullable))
+            return TryStopPull(pullable, pullable.Comp, puller);
 
         return TryStartGrabDoAfter(puller, pullable, 1);
     }
@@ -300,6 +303,8 @@ public abstract partial class SharedPullingSystem
         if (puller.Comp.Pulling != pullable.Owner)
             return false;
         if (!_combat.IsInCombatMode(puller.Owner))
+            return TryStopPull(pullable, pullable.Comp, puller);
+        if (!HasComp<MobStateComponent>(pullable))
             return TryStopPull(pullable, pullable.Comp, puller);
 
         return TryStartGrabDoAfter(puller, pullable, -1);
