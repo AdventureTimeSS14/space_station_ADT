@@ -82,5 +82,5 @@ namespace Content.Server.Administration.Commands
                 ██╗░░███████║░░░██║
                 ╚═╝░░╚══════╝░░░╚═╝
             Wiskey Echo Wiskey Lima Alpha Delta
-    ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+      ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 */
