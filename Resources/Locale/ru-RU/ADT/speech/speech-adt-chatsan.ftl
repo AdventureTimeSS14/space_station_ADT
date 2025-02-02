@@ -14,7 +14,8 @@ accent-adt_chatsanitize-replace-3 = трансвестит
 accent-adt_chatsanitize-words-4 = соло
 accent-adt_chatsanitize-replace-4 = в одиночку
 
-accent-adt_chatsanitize-words-5 = позер
+accent-adt_chatsanitize-words-5-1 = позер
+accent-adt_chatsanitize-words-5-2 = позёр
 accent-adt_chatsanitize-replace-5 = выпендрёжник
 
 accent-adt_chatsanitize-words-6-1 = робаст
