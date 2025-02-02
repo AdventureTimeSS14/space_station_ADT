@@ -92,3 +92,7 @@ accent-adt_chatsanitize-replace-25 = выключи
 accent-adt_chatsanitize-words-26-1 = оффнул
 accent-adt_chatsanitize-words-26-2 = офнул
 accent-adt_chatsanitize-replace-26 = выключил
+
+accent-adt_chatsanitize-words-27-1 = чек
+accent-adt_chatsanitize-words-27-2 = чекай
+accent-adt_chatsanitize-replace-27 = смотри
