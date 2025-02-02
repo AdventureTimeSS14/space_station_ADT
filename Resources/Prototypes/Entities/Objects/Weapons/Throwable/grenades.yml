@@ -110,22 +110,17 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
 # (Откат PR https://github.com/space-wizards/space-station-14/pull/32429)
-  # - type: ExplosionResistance
-  #   damageCoefficient: 0.1
-  # - type: Destructible
-  #   thresholds:
-  #   - trigger:
-  #       !type:DamageTrigger
-  #       damage: 10
-  #     behaviors:
-  #     - !type:TimerStartBehavior
-  #   - trigger:
-  #       !type:DamageTrigger
-  #       damage: 45
-  #     behaviors:
-  #     - !type:TriggerBehavior
-  #     - !type:DoActsBehavior
-  #       acts: ["Destruction"]
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
 # Запрещает минибомбе срабатывать, если рядом взорвалось С4
   - type: OnUseTimerTrigger
     delay: 5
@@ -133,9 +128,9 @@
   - type: Explosive
     explosionType: Minibomb
     # Стандартные значения (200, 30, 60)
-    totalIntensity: 350
-    intensitySlope: 45 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
-    maxIntensity: 90
+    totalIntensity: 700
+    intensitySlope: 100 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
+    maxIntensity: 200
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:

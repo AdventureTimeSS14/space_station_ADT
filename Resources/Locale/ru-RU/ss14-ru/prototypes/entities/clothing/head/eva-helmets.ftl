@@ -1,6 +1,6 @@
-ent-ClothingHeadHelmetEVA = шлем ВКД
+ent-ClothingHeadHelmetEVA = шлем EVA
     .desc = Старый добрый шлем, предназначенный для внекорабельной деятельности. Известен тем, что вызывает паранойю у сотрудников службы безопасности.
-ent-ClothingHeadHelmetEVALarge = шлем ВКД
+ent-ClothingHeadHelmetEVALarge = шлем EVA
     .desc = Старый добрый шлем, предназначенный для внекорабельной деятельности.
 # Corvax-HiddenDesc-Start
 ent-ClothingHeadHelmetSyndicate = стильный шлем
