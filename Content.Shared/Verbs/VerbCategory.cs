@@ -69,7 +69,7 @@ namespace Content.Shared.Verbs
 
         // adt-tweak-start
         public static readonly VerbCategory AdminRoom =
-            new("verb-categories-adminroom", "/Textures/Interface/VerbIcons/eject.svg.192dpi.png", iconsOnly: true) { Columns = 5};
+            new("verb-categories-adminroom", "/Textures/Interface/VerbIcons/eject.svg.192dpi.png", iconsOnly: true) { Columns = 2 };
         // adt-tweak-end
         public static readonly VerbCategory SetTransferAmount =
             new("verb-categories-transfer", "/Textures/Interface/VerbIcons/spill.svg.192dpi.png");

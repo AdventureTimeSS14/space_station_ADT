@@ -16,7 +16,6 @@ public sealed class AdminTestArenaVariableSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
 
-
     public Dictionary<(NetUserId, string), EntityUid> ArenaMap { get; private set; } = new();
     public Dictionary<(NetUserId, string), EntityUid?> ArenaGrid { get; private set; } = new();
 
