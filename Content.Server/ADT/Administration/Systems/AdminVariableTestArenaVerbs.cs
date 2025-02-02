@@ -52,7 +52,7 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-send-to-test-arena-classic-description"),
-            Priority = (int) TricksVerbPriorities.SetBulletAmount,
+            Priority = (int) TricksVerbPriorities.Bolt,
         };
         args.Verbs.Add(sendToTestArenaClassic);
 
@@ -74,7 +74,7 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-send-to-test-arena-dev-description"),
-            Priority = (int) TricksVerbPriorities.SetBulletAmount,
+            Priority = (int) TricksVerbPriorities.Bolt,
         };
         args.Verbs.Add(sendToTestArenaDevelop);
 
@@ -96,7 +96,7 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-send-to-test-arena-hell-description"),
-            Priority = (int) TricksVerbPriorities.SetBulletAmount,
+            Priority = (int) TricksVerbPriorities.Bolt,
         };
         args.Verbs.Add(sendToTestArenaHell);
 
@@ -118,7 +118,7 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-send-to-test-arena-paradise-description"),
-            Priority = (int) TricksVerbPriorities.SetBulletAmount,
+            Priority = (int) TricksVerbPriorities.Bolt,
         };
         args.Verbs.Add(sendToTestArenaParadise);
 
@@ -140,7 +140,7 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-send-to-test-arena-sandbox-description"),
-            Priority = (int) TricksVerbPriorities.SetBulletAmount,
+            Priority = (int) TricksVerbPriorities.Bolt,
         };
         args.Verbs.Add(sendToTestArenaSandBox);
     }
