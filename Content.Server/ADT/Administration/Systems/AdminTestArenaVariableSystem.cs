@@ -17,37 +17,44 @@ public sealed class AdminTestArenaVariableSystem : EntitySystem
 
 
 
-    public Dictionary<NetUserId, EntityUid> ArenaMap { get; private set; } = new();
-    public Dictionary<NetUserId, EntityUid?> ArenaGrid { get; private set; } = new();
+    public Dictionary<(NetUserId, string), EntityUid> ArenaMap { get; private set; } = new();
+    public Dictionary<(NetUserId, string), EntityUid?> ArenaGrid { get; private set; } = new();
 
-    public (EntityUid Map, EntityUid? Grid) AssertArenaLoaded(ICommonSession admin, string pachGridAdminRoom, string prefixNameAdminRoom)
+    public (EntityUid Map, EntityUid? Grid) AssertArenaLoaded(
+        ICommonSession admin,
+        string pachGridAdminRoom,
+        string prefixNameAdminRoom)
     {
-        if (ArenaMap.TryGetValue(admin.UserId, out var arenaMap) && !Deleted(arenaMap) && !Terminating(arenaMap))
+        if (ArenaMap.TryGetValue((admin.UserId, prefixNameAdminRoom), out var arenaMap)
+            && !Deleted(arenaMap) && !Terminating(arenaMap))
         {
-            if (ArenaGrid.TryGetValue(admin.UserId, out var arenaGrid) && !Deleted(arenaGrid) && !Terminating(arenaGrid.Value))
+            if (ArenaGrid.TryGetValue((admin.UserId, prefixNameAdminRoom), out var arenaGrid)
+                && arenaGrid.HasValue && !Deleted(arenaGrid.Value) && !Terminating(arenaGrid.Value))
             {
                 return (arenaMap, arenaGrid);
             }
             else
             {
-                ArenaGrid[admin.UserId] = null;
+                ArenaGrid[(admin.UserId, prefixNameAdminRoom)] = null;
                 return (arenaMap, null);
             }
         }
 
-        ArenaMap[admin.UserId] = _mapManager.GetMapEntityId(_mapManager.CreateMap());
-        _metaDataSystem.SetEntityName(ArenaMap[admin.UserId], $"{prefixNameAdminRoom}M-{admin.Name}");
-        var grids = _map.LoadMap(Comp<MapComponent>(ArenaMap[admin.UserId]).MapId, pachGridAdminRoom);
+        var key = (admin.UserId, prefixNameAdminRoom);
+        ArenaMap[key] = _mapManager.GetMapEntityId(_mapManager.CreateMap());
+        _metaDataSystem.SetEntityName(ArenaMap[key], $"{prefixNameAdminRoom}M-{admin.Name}");
+
+        var grids = _map.LoadMap(Comp<MapComponent>(ArenaMap[key]).MapId, pachGridAdminRoom);
         if (grids.Count != 0)
         {
             _metaDataSystem.SetEntityName(grids[0], $"{prefixNameAdminRoom}G-{admin.Name}");
-            ArenaGrid[admin.UserId] = grids[0];
+            ArenaGrid[key] = grids[0];
         }
         else
         {
-            ArenaGrid[admin.UserId] = null;
+            ArenaGrid[key] = null;
         }
 
-        return (ArenaMap[admin.UserId], ArenaGrid[admin.UserId]);
+        return (ArenaMap[key], ArenaGrid[key]);
     }
 }
