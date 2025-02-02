@@ -11,7 +11,6 @@ using Robust.Shared;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
 
-
 namespace Content.Client.Options.UI.Tabs;
 
 [GenerateTypedNameReferences]
