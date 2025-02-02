@@ -1,9 +1,6 @@
-using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-using Content.Shared.Players;
-using Robust.Server.Player;
 using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands
@@ -69,3 +66,21 @@ namespace Content.Server.Administration.Commands
         }
     }
 }
+
+
+/*
+        ╔════════════════════════════════════╗
+        ║   Schrödinger's Cat Code   🐾      ║
+        ║   /\_/\\                           ║
+        ║  ( o.o )  Meow!                    ║
+        ║   > ^ <                            ║
+        ╚════════════════════════════════════╝
+                ██╗░░███████╗░░░██╗
+                █╔╝░░███╔═══╝░░░░█║
+                █║══░╚█████╗░░══░█║
+                █║░░░░╚══███╗░░░░█║
+                ██╗░░███████║░░░██║
+                ╚═╝░░╚══════╝░░░╚═╝
+            Wiskey Echo Wiskey Lima Alpha Delta
+    ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+*/

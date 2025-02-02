@@ -1,9 +1,9 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
+using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Silicons.Laws.Components;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -80,3 +80,19 @@ public sealed class ListLawsSetGetCommand : LocalizedCommands
     }
 }
 
+/*
+        ╔════════════════════════════════════╗
+        ║   Schrödinger's Cat Code   🐾      ║
+        ║   /\_/\\                           ║
+        ║  ( o.o )  Meow!                    ║
+        ║   > ^ <                            ║
+        ╚════════════════════════════════════╝
+                ██╗░░███████╗░░░██╗
+                █╔╝░░███╔═══╝░░░░█║
+                █║══░╚█████╗░░══░█║
+                █║░░░░╚══███╗░░░░█║
+                ██╗░░███████║░░░██║
+                ╚═╝░░╚══════╝░░░╚═╝
+            Wiskey Echo Wiskey Lima Alpha Delta
+    ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+*/

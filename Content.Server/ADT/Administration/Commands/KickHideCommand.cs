@@ -1,10 +1,10 @@
-using System.Linq;
+using Content.Server.Administration;
+using Content.Server.Administration.Managers;
+using Content.Server.GhostKick;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-using Content.Server.GhostKick;
-using Content.Server.Administration;
-using Content.Server.Administration.Managers;
+using System.Linq;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -60,3 +60,20 @@ public sealed class KickHideCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
+
+/*
+        ╔════════════════════════════════════╗
+        ║   Schrödinger's Cat Code   🐾      ║
+        ║   /\_/\\                           ║
+        ║  ( o.o )  Meow!                    ║
+        ║   > ^ <                            ║
+        ╚════════════════════════════════════╝
+                ██╗░░███████╗░░░██╗
+                █╔╝░░███╔═══╝░░░░█║
+                █║══░╚█████╗░░══░█║
+                █║░░░░╚══███╗░░░░█║
+                ██╗░░███████║░░░██║
+                ╚═╝░░╚══════╝░░░╚═╝
+            Wiskey Echo Wiskey Lima Alpha Delta
+    ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+*/

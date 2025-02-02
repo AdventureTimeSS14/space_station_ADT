@@ -1,6 +1,5 @@
 using Content.Shared.Administration;
 using Content.Shared.Database;
-using Content.Shared.Inventory;
 using Content.Shared.Verbs;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -22,7 +21,7 @@ using System.Numerics;
             ██╗░░███████║░░░██║
             ╚═╝░░╚══════╝░░░╚═╝
         Wiskey Echo Wiskey Lima Alpha Delta
-    ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+  ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 */
 
 
