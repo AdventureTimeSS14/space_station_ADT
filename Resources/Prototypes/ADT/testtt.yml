@@ -13,28 +13,11 @@
   rules:
     - ShipVsShipRule
 
-# - type: gamePreset
-#   id: Nukeops
-#   alias:
-#     - nukeops
-#   name: nukeops-title
-#   description: nukeops-description
-#   showInVote: false
-#   rules:
-#     - Nukeops
-#     - SubGamemodesRule
-#     - BasicStationEventScheduler
-#     - MeteorSwarmScheduler
-#     - SpaceTrafficControlEventScheduler
-#     - BasicRoundstartVariation
-
 - type: entity
   parent: BaseGameRule
   id: ShipVsShipRule
   components:
   - type: ShipsVsShipsRule
-
-
 
 
 #################################################### КАРТЫ
@@ -171,6 +154,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: ShipsVsShipsPlayer
+      side: Attackers
 
 - type: job
   id: SecurityOfficerDefenders
@@ -195,6 +182,11 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: ShipsVsShipsPlayer
+      side: Defenders
+
 
 # СПавн поинты атакующего и защитника
 - type: entity
