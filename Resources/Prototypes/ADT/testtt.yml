@@ -85,18 +85,21 @@
             prefixCreator: '14-L'
         - type: StationJobs
           availableJobs:
-            # Command
-            Captain: [ 1, 1 ]
-            ADTBlueShieldOfficer: [ 1, 1 ]
+            # # Security
+            SecurityOfficerAttackers: [ 6, 6 ]
 
-            # Security
-            HeadOfSecurity: [ 1, 1 ]
-            Warden: [ 1, 1 ]
-            Detective: [ 1, 1 ]
-            SecurityOfficer: [ 3, 3 ]
-            SecurityCadet: [ 2, 2 ]
-            Brigmedic: [ 1, 1 ]
-            ADTSeniorOfficer: [ 1, 1 ]
+            # Command
+            # Captain: [ 1, 1 ]
+            # ADTBlueShieldOfficer: [ 1, 1 ]
+
+            # # Security
+            # HeadOfSecurity: [ 1, 1 ]
+            # Warden: [ 1, 1 ]
+            # Detective: [ 1, 1 ]
+            # SecurityOfficer: [ 3, 3 ]
+            # SecurityCadet: [ 2, 2 ]
+            # Brigmedic: [ 1, 1 ]
+            # ADTSeniorOfficer: [ 1, 1 ]
 
 # Станция обороняющихся
 - type: gameMap
@@ -118,16 +121,103 @@
             prefixCreator: '14-L'
         - type: StationJobs
           availableJobs:
+            # # Security
+            SecurityOfficerDefenders: [ 6, 6 ]
+
+
             # Command
-            Captain: [ 1, 1 ]
-            ADTBlueShieldOfficer: [ 1, 1 ]
+            # Captain: [ 1, 1 ]
+            # ADTBlueShieldOfficer: [ 1, 1 ]
 
-            # Security
-            HeadOfSecurity: [ 1, 1 ]
-            Warden: [ 1, 1 ]
-            Detective: [ 1, 1 ]
-            SecurityOfficer: [ 3, 3 ]
-            SecurityCadet: [ 2, 2 ]
-            Brigmedic: [ 1, 1 ]
-            ADTSeniorOfficer: [ 1, 1 ]
+            # # Security
+            # HeadOfSecurity: [ 1, 1 ]
+            # Warden: [ 1, 1 ]
+            # Detective: [ 1, 1 ]
+            # SecurityOfficer: [ 3, 3 ]
+            # SecurityCadet: [ 2, 2 ]
+            # Brigmedic: [ 1, 1 ]
+            # ADTSeniorOfficer: [ 1, 1 ]
 
+######################## ДОЛЖНОСТИ
+
+# Да плэй таймс трекеры
+- type: playTimeTracker
+  id: JobSecurityOfficerAttackers
+
+- type: playTimeTracker
+  id: JobSecurityOfficerDefenders
+
+
+# Джобки Атакующего и защитника
+- type: job
+  id: SecurityOfficerAttackers
+  name: job-name-security-attackers
+  description: job-description-security
+  playTimeTracker: JobSecurityOfficerAttackers
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 #15 hrs # ADT-RoleTime
+  startingGear: SecurityOfficerGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: job
+  id: SecurityOfficerDefenders
+  name: job-name-security-defenders
+  description: job-description-security
+  playTimeTracker: JobSecurityOfficerDefenders
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 #15 hrs # ADT-RoleTime
+  startingGear: SecurityOfficerGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+# СПавн поинты атакующего и защитника
+- type: entity
+  id: SpawnPointSecurityOfficerAttackers
+  parent: SpawnPointJobBase
+  name: "securityofficer Attackers"
+  components:
+  - type: SpawnPoint
+    job_id: SecurityOfficerAttackers
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_officer
+
+- type: entity
+  id: SpawnPointSecurityOfficerDefenders
+  parent: SpawnPointJobBase
+  name: "securityofficer Defenders"
+  components:
+  - type: SpawnPoint
+    job_id: SecurityOfficerDefenders
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_officer
