@@ -5,6 +5,7 @@ using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
+using Content.Shared.ADT.Language;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -128,6 +129,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             {
                 _profileEditor.RefreshTraits();
             }
+            // ADT Languages start
+            if (obj.WasModified<LanguagePrototype>())
+            {
+                _profileEditor.RefreshLanguages();
+            }
+            // ADT Languages end
         }
     }
 
@@ -455,7 +462,21 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     {
         EntityUid dummyEnt;
 
-        if (humanoid is not null)
+        EntProtoId? previewEntity = null;
+        if (humanoid != null && jobClothes)
+        {
+            job ??= GetPreferredJob(humanoid);
+
+            previewEntity = job.JobPreviewEntity ?? (EntProtoId?)job?.JobEntity;
+        }
+
+        if (previewEntity != null)
+        {
+            // Special type like borg or AI, do not spawn a human just spawn the entity.
+            dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
+            return dummyEnt;
+        }
+        else if (humanoid is not null)
         {
             var dummy = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
             dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
@@ -469,7 +490,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
 
         if (humanoid != null && jobClothes)
         {
-            job ??= GetPreferredJob(humanoid);
+            DebugTools.Assert(job != null);
+
             GiveDummyJobClothes(dummyEnt, humanoid, job);
 
             if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID)))

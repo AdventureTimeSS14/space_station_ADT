@@ -43,3 +43,15 @@
   - Zombie
   - Dragon
   - DroneAntag
+
+- type: npcFaction
+  id: Pirate
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Heretic # goob edit - heretics
+  - Ursus

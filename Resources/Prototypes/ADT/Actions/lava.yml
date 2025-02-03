@@ -1,3 +1,4 @@
+# Игроки
 - type: entity
   id: ActionPumpCursedHeart
   name: action-pump-heart
@@ -12,6 +13,7 @@
     event: !type:PumpHeartActionEvent
     useDelay: 1
 
+# Фауна
 - type: entity
   id: ActionAncientGoliathTentacle
   name: "[color=red]Tentacle Slam[/color]"
@@ -30,3 +32,66 @@
     event: !type:GoliathSummonRandomTentacleAction
     useDelay: 1
     range: 10
+
+# Мегафауна
+- type: entity
+  id: ActionDrakeFire
+  name: "[color=red]Dragon Fire[/color]"
+  description: fshhhhh
+  components:
+  - type: EntityWorldTargetAction
+    raiseOnUser: true
+    icon:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_spawn
+    iconOn:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_wiggle
+    event: !type:AshDrakeFireActionEvent
+    useDelay: 10
+    range: 15
+
+- type: entity
+  id: ActionDrakeBreath
+  name: "[color=red]Dragon Breath[/color]"
+  description: fshhhhh
+  components:
+  - type: EntityWorldTargetAction
+    raiseOnUser: true
+    icon:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_spawn
+    iconOn:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_wiggle
+    event: !type:AshDrakeBreathActionEvent
+    useDelay: 9
+    range: 15
+
+- type: entity
+  id: ActionDrakeMeteors
+  name: "[color=red]Meteorites![/color]"
+  description: fshhhhh
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: cursed_heart
+    itemIconStyle: BigAction
+    event: !type:AshDrakeMeteoritesActionEvent
+    useDelay: 10
+
+- type: entity
+  id: ActionDrakeSwoop
+  name: "[color=red]Fly[/color]"
+  description: fshhhhh
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+      state: cursed_heart
+    itemIconStyle: BigAction
+    event: !type:AshDrakeSwoopActionEvent
+    useDelay: 60

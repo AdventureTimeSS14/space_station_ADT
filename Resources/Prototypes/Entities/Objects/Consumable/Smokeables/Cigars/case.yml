@@ -43,6 +43,7 @@
       tags:
       - Cigar
       - ADTMedipen
+      - ADTLighter
     # ADT Tweak END
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigars/case.rsi

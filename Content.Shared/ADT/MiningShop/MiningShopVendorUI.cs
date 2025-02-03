@@ -9,10 +9,9 @@ public enum MiningShopUI : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class MiningShopBuiMsg(int section, int entry) : BoundUserInterfaceMessage
+public sealed class MiningShopBuiMsg(MiningShopEntry entry) : BoundUserInterfaceMessage
 {
-    public readonly int Section = section;
-    public readonly int Entry = entry;
+    public readonly MiningShopEntry Entry = entry;
 }
 
 [Serializable, NetSerializable]

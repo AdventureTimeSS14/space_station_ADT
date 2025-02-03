@@ -7,14 +7,14 @@
   components:
     - type: MothAccent
 
-- type: trait
-  id: ADTNyaAccent
-  name: trait-nya-accent-name
-  description: trait-nya-accent-desc
-  category: SpeechTraits
-  cost: 2
-  components:
-    - type: NyaAccent
+#- type: trait       "Удаление мрр-мяф акцента"
+#  id: ADTNyaAccent
+#  name: trait-nya-accent-name
+#  description: trait-nya-accent-desc
+#  category: SpeechTraits
+#  cost: 2
+#  components:
+#    - type: NyaAccent
 
 # Визарды добавили свой немецкий язык
 # - type: trait

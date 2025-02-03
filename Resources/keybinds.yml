@@ -593,3 +593,6 @@ binds:
 - function: ToggleCrawling
   type: State
   key: C #ADT Crawling
+- function: OfferItem # ADT-Tweak
+  type: State
+  key: F

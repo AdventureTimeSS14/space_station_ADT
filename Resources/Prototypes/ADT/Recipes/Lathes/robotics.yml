@@ -53,4 +53,279 @@
     Glass: 500
     Plastic: 250
     Gold: 50
+
+- type: latheRecipe
+  id: ADTModsuitHelmet
+  result: ADTModsuitHelmet
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 600
+
+- type: latheRecipe
+  id: ADTModsuitGauntlets
+  result: ADTModsuitGauntlets
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 600
+
+- type: latheRecipe
+  id: ADTModsuitChestplate
+  result: ADTModsuitChestplate
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 600
+
+- type: latheRecipe
+  id: ADTModsuitBoots
+  result: ADTModsuitBoots
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 600
+
+- type: latheRecipe
+  id: ADTModsuitPlateAtmospheric
+  result: ADTModsuitPlateAtmospheric
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+    Silver: 200
+
+- type: latheRecipe
+  id: ADTModsuitPlateCosmohonk
+  result: ADTModsuitPlateCosmohonk
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+
+- type: latheRecipe
+  id: ADTModsuitPlateEngineering
+  result: ADTModsuitPlateEngineering
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+    Silver: 200
+
+- type: latheRecipe
+  id: ADTModsuitPlateMedical
+  result: ADTModsuitPlateMedical
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+    Gold: 200
+
+- type: latheRecipe
+  id: ADTModsuitPlateSecurity
+  result: ADTModsuitPlateSecurity
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+    Silver: 200
+    Gold: 200
+
+- type: latheRecipe
+  id: ADTModsuitPlateStandard
+  result: ADTModsuitPlateStandard
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+
+- type: latheRecipe
+  id: ADTModsuitPlateCience
+  result: ADTModsuitPlateCience
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+    Gold: 500
+
+- type: latheRecipe
+  id: ADTModsuitPlateMining
+  result: ADTModsuitPlateMining
+  completetime: 2
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 250
+    Gold: 200
+
+- type: latheRecipe
+  id: ADTModsuitAssembly
+  result: ADTModsuitAssembly
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 600
+
+- type: latheRecipe
+  id: ADTModsuitModAntigrav
+  result: ADTModsuitModAntigrav
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 250
+
+- type: latheRecipe
+  id: ADTModsuitModApparatus
+  result: ADTModsuitModApparatus
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 250
+    Gold: 200
+
+- type: latheRecipe
+  id: ADTModsuitModDrill
+  result: ADTModsuitModDrill
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 250
+    Glass: 200
+
+- type: latheRecipe
+  id: ADTModsuitModJetpack
+  result: ADTModsuitModJetpack
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 250
+    Glass: 200
+
+- type: latheRecipe
+  id: ADTModsuitModMagboot
+  result: ADTModsuitModMagboot
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 250
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTModsuitModNightVision
+  result: ADTModsuitModNightVision
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 250
+    Gold: 100
+    Silver: 200
+
+- type: latheRecipe
+  id: ADTModsuitModStun
+  result: ADTModsuitModStun
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 400
+    Gold: 100
+
+- type: latheRecipe
+  id: ADTModsuitModPowerKick
+  result: ADTModsuitModPowerKick
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 400
+    Gold: 500
+    Silver: 600
+
+- type: latheRecipe
+  id: ADTModsuitModSechud
+  result: ADTModsuitModSechud
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 400
+    Glass: 500
+
+- type: latheRecipe
+  id: ADTModsuitModStorage
+  result: ADTModsuitModStorage
+  completetime: 2
+  materials:
+    Steel: 1500
+    Plastic: 400
+    Glass: 500
+    Silver: 100
+
+- type: latheRecipe
+  id: ADTModsuitModWelding
+  result: ADTModsuitModWelding
+  completetime: 2
+  materials:
+    Steel: 500
+    Plastic: 400
+    Glass: 500
+
+- type: latheRecipe
+  id: ADTModsuitModArmor
+  result: ADTModsuitModArmor
+  completetime: 2
+  materials:
+    Steel: 2000
+    Plastic: 400
+    Glass: 500
+    Silver: 300
+
+- type: latheRecipe
+  id: ADTModsuitModStorageLarge
+  result: ADTModsuitModStorageLarge
+  completetime: 2
+  materials:
+    Steel: 2500
+    Plastic: 800
+    Glass: 1000
+    Silver: 200
+
+- type: latheRecipe
+  id: ADTModsuitModTray
+  result: ADTModsuitModTray
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 800
+
+- type: latheRecipe
+  id: ADTModsuitModIsulation
+  result: ADTModsuitModIsulation
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 800
+    Glass: 300
+    Silver: 200
+
+- type: latheRecipe
+  id: ADTModsuitModJump
+  result: ADTModsuitModJump
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 800
+
+- type: latheRecipe
+  id: ADTModsuitModNoslip
+  result: ADTModsuitModNoslip
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 250
+    Gold: 100
     Plasma: 50

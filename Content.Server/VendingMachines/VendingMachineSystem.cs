@@ -52,6 +52,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         //ADT-Economy-End
+        [Dependency] private readonly SharedPointLightSystem _light = default!;
 
         private const float WallVendEjectDistanceFromWall = 1f;
         private const double GlobalPriceMultiplier = 2.0; //ADT-Economy
@@ -468,6 +469,12 @@ namespace Content.Server.VendingMachines
             else if (!this.IsPowered(uid, EntityManager))
             {
                 finalState = VendingMachineVisualState.Off;
+            }
+
+            if (_light.TryGetLight(uid, out var pointlight))
+            {
+                var lightState = finalState != VendingMachineVisualState.Broken && finalState != VendingMachineVisualState.Off;
+                _light.SetEnabled(uid, lightState, pointlight);
             }
 
             _appearanceSystem.SetData(uid, VendingMachineVisuals.VisualState, finalState);

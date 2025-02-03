@@ -30,6 +30,10 @@
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
     pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
 #    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
 #    socks: ClothingUnderwearSocksNormal
 #  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear

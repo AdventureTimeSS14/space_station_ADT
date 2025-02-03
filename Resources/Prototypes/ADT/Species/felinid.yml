@@ -7,6 +7,7 @@
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
+  category: Unusual
   #sponsorOnly: true # Пока снимаем до решения проблем
 
 

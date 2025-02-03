@@ -9,6 +9,7 @@
   cost: -2  # ADT Quirks
   speciesBlacklist:
   - IPC
+  quirk: true  # ADT Quirks
 
 # Simple Station
 
@@ -20,3 +21,21 @@
   components:
     - type: Monochromacy
   cost: -1  # ADT Quirks
+  quirk: true  # ADT Quirks
+
+- type: trait
+  id: Frail
+  name: trait-frail-name
+  description: trait-frail-description
+  category: Quirks  # ADT Quirks
+  components:
+    - type: Frail
+      modifiers:
+        Blunt: 1.5
+        Slash: 1.5
+        Piercing: 1.5
+        Heat: 1.2
+        Cold: 1.2
+        Shock: 1.2
+  cost: -2  # ADT Quirks
+  quirk: true  # ADT Quirks

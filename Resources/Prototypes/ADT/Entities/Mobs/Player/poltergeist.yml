@@ -53,11 +53,9 @@
     layer: 2 #ghost vis layer
   - type: Speech
     speechVerb: Ghost
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
   - type: Jetpack # да, костыль.
   - type: OuijaBoardUser
   - type: UniversalLanguageSpeaker

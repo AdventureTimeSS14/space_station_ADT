@@ -23,6 +23,7 @@ public sealed class MiningShopBui : BoundUserInterface
     [Dependency] private readonly IResourceCache _resource = default!;
     private readonly MiningPointsSystem _miningPoints;
     private MiningShopWindow? _window;
+    private List<SharedMiningShopSectionPrototype> _sections = new();
     public MiningShopBui(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _miningPoints = EntMan.System<MiningPointsSystem>();
@@ -34,63 +35,61 @@ public sealed class MiningShopBui : BoundUserInterface
         _window.OnClose += Close;
         _window.Title = EntMan.GetComponentOrNull<MetaDataComponent>(Owner)?.EntityName ?? "MiningShop";
 
-        if (EntMan.TryGetComponent(Owner, out MiningShopComponent? vendor))
+        if (!EntMan.TryGetComponent(Owner, out MiningShopComponent? vendor))
+            return;
+        var sections = _prototype.EnumeratePrototypes<SharedMiningShopSectionPrototype>().ToList();
+        sections.Sort((x, y) => x.Name[0].CompareTo(x.Name[0]));
+
+        foreach (var section in sections)
         {
-            for (var sectionIndex = 0; sectionIndex < vendor.Sections.Count; sectionIndex++)
+            var uiSection = new MiningShopSection();
+            uiSection.Label.SetMessage(GetSectionName(section));
+            _sections.Add(section);
+
+            foreach (var entry in section.Entries)
             {
-                var section = vendor.Sections[sectionIndex];
+                var uiEntry = new MiningShopEntry();
 
-                var uiSection = new MiningShopSection();
-                uiSection.Label.SetMessage(GetSectionName(section));
-
-
-                for (var entryIndex = 0; entryIndex < section.Entries.Count; entryIndex++)
+                if (_prototype.TryIndex(entry.Id, out var entity))
                 {
-                    var entry = section.Entries[entryIndex];
-                    var uiEntry = new MiningShopEntry();
+                    uiEntry.Texture.Textures = SpriteComponent.GetPrototypeTextures(entity, _resource)
+                        .Select(o => o.Default)
+                        .ToList();
+                    uiEntry.Panel.Button.Label.Text = entry.Name?.Replace("\\n", "\n") ?? entity.Name;
 
-                    if (_prototype.TryIndex(entry.Id, out var entity))
-                    {
-                        uiEntry.Texture.Textures = SpriteComponent.GetPrototypeTextures(entity, _resource)
-                            .Select(o => o.Default)
-                            .ToList();
-                        uiEntry.Panel.Button.Label.Text = entry.Name?.Replace("\\n", "\n") ?? entity.Name;
+                    var name = entity.Name;
+                    var color = MiningShopPanel.DefaultColor;
+                    var borderColor = MiningShopPanel.DefaultBorderColor;
+                    var hoverColor = MiningShopPanel.DefaultBorderColor;
 
-                        var name = entity.Name;
-                        var color = MiningShopPanel.DefaultColor;
-                        var borderColor = MiningShopPanel.DefaultBorderColor;
-                        var hoverColor = MiningShopPanel.DefaultBorderColor;
+                    uiEntry.Panel.Color = color;
+                    uiEntry.Panel.BorderColor = borderColor;
+                    uiEntry.Panel.HoveredColor = hoverColor;
 
-                        uiEntry.Panel.Color = color;
-                        uiEntry.Panel.BorderColor = borderColor;
-                        uiEntry.Panel.HoveredColor = hoverColor;
+                    var msg = new FormattedMessage();
+                    msg.AddText(name);
+                    msg.PushNewline();
 
-                        var msg = new FormattedMessage();
-                        msg.AddText(name);
-                        msg.PushNewline();
+                    if (!string.IsNullOrWhiteSpace(entity.Description))
+                        msg.AddText(entity.Description);
 
-                        if (!string.IsNullOrWhiteSpace(entity.Description))
-                            msg.AddText(entity.Description);
+                    var tooltip = new Tooltip();
+                    tooltip.SetMessage(msg);
+                    tooltip.MaxWidth = 250f;
 
-                        var tooltip = new Tooltip();
-                        tooltip.SetMessage(msg);
-                        tooltip.MaxWidth = 250f;
+                    uiEntry.TooltipLabel.ToolTip = entity.Description;
+                    uiEntry.TooltipLabel.TooltipDelay = 0;
+                    uiEntry.TooltipLabel.TooltipSupplier = _ => tooltip;
 
-                        uiEntry.TooltipLabel.ToolTip = entity.Description;
-                        uiEntry.TooltipLabel.TooltipDelay = 0;
-                        uiEntry.TooltipLabel.TooltipSupplier = _ => tooltip;
-
-                        var sectionI = sectionIndex;
-                        var entryI = entryIndex;
-                        uiEntry.Panel.Button.OnPressed += _ => OnButtonPressed(sectionI, entryI);
-                    }
-
-                    uiSection.Entries.AddChild(uiEntry);
+                    uiEntry.Panel.Button.OnPressed += _ => OnButtonPressed(entry);
                 }
 
-                _window.Sections.AddChild(uiSection);
+                uiSection.Entries.AddChild(uiEntry);
             }
+
+            _window.Sections.AddChild(uiSection);
         }
+
         _window.Express.OnPressed += _ => OnExpressDeliveryButtonPressed();
         _window.Search.OnTextChanged += OnSearchChanged;
 
@@ -99,9 +98,9 @@ public sealed class MiningShopBui : BoundUserInterface
         _window.OpenCentered();
     }
 
-    private void OnButtonPressed(int sectionIndex, int entryIndex)
+    private void OnButtonPressed(Content.Shared.ADT.MiningShop.MiningShopEntry entry)
     {
-        var msg = new MiningShopBuiMsg(sectionIndex, entryIndex);
+        var msg = new MiningShopBuiMsg(entry);
         SendMessage(msg);
         Refresh();
     }
@@ -168,10 +167,12 @@ public sealed class MiningShopBui : BoundUserInterface
 
         _window.PointsLabel.Text = $"Осталось очков: {userpoints}";
 
-        for (var sectionIndex = 0; sectionIndex < vendor.Sections.Count; sectionIndex++)
+        var sections = _prototype.EnumeratePrototypes<SharedMiningShopSectionPrototype>();
+
+        for (var sectionIndex = 0; sectionIndex < _sections.Count; sectionIndex++)
         {
-            var section = vendor.Sections[sectionIndex];
-            var uiSection = (MiningShopSection) _window.Sections.GetChild(sectionIndex);
+            var section = _sections[sectionIndex];
+            var uiSection = (MiningShopSection)_window.Sections.GetChild(sectionIndex);
             uiSection.Label.SetMessage(GetSectionName(section));
 
             var sectionDisabled = false;
@@ -179,7 +180,7 @@ public sealed class MiningShopBui : BoundUserInterface
             for (var entryIndex = 0; entryIndex < section.Entries.Count; entryIndex++)
             {
                 var entry = section.Entries[entryIndex];
-                var uiEntry = (MiningShopEntry) uiSection.Entries.GetChild(entryIndex);
+                var uiEntry = (MiningShopEntry)uiSection.Entries.GetChild(entryIndex);
                 var disabled = sectionDisabled;
 
                 if (userpoints < entry.Price)
@@ -210,7 +211,7 @@ public sealed class MiningShopBui : BoundUserInterface
         }
     }
 
-    private FormattedMessage GetSectionName(SharedMiningShopSection section)
+    private FormattedMessage GetSectionName(SharedMiningShopSectionPrototype section)
     {
         var name = new FormattedMessage();
         name.PushTag(new MarkupNode("bold", new MarkupParameter(section.Name.ToUpperInvariant()), null));

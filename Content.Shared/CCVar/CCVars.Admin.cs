@@ -14,7 +14,7 @@ public sealed partial class CCVars
     ///     The token used to authenticate with the admin API. Leave empty to disable the admin API. This is a secret! Do not share!
     /// </summary>
     public static readonly CVarDef<string> AdminApiToken =
-        CVarDef.Create("admin.api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("admin.api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE); // ADT-Tweak
 
     /// <summary>
     ///     Should users be able to see their own notes? Admins will be able to see and set notes regardless
@@ -147,6 +147,22 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> AdminBypassMaxPlayers =
         CVarDef.Create("admin.bypass_max_players", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Determines whether admins count towards the total playercount when determining whether the server is over <see cref="SoftMaxPlayers"/>
+    ///     Ideally this should be used in conjuction with <see cref="AdminBypassPlayers"/>.
+    ///     This also applies to playercount limits in whitelist conditions
+    ///     If false, then admins will not be considered when checking whether the playercount is already above the soft player cap
+    /// </summary>
+    public static readonly CVarDef<bool> AdminsCountForMaxPlayers =
+        CVarDef.Create("admin.admins_count_for_max_players", false, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Should admins be hidden from the player count reported to the launcher/via api?
+    /// This is hub advert safe, in case that's a worry.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminsCountInReportedPlayerCount =
+        CVarDef.Create("admin.admins_count_in_playercount", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     Determine if custom rank names are used.

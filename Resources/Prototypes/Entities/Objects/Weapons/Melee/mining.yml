@@ -123,7 +123,7 @@
     fireRate: 1
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2 # ADT tweak 0.5 -> 2
+    rechargeCooldown: 1 # ADT tweak 0.5 -> 1
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider

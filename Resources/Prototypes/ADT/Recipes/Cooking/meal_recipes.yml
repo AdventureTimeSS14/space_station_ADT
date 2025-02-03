@@ -118,3 +118,13 @@
   solids:
     ADTEmptyTeaPack: 1
     FoodWatermelonSlice: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodMeatSalami
+  name: salami recipe
+  result: FoodMeatSalami
+  time: 10
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodMeat: 1

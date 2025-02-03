@@ -1,0 +1,25 @@
+- type: constructionGraph
+  id: EnergyCrossbowGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crossbow
+      steps:
+      - tag: PKA
+        icon:
+          sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+          state: icon
+        name: PKA
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: modular receiver
+      - material: Cable
+        amount: 15
+      - material: Uranium
+        amount: 10
+        doAfter: 10
+  - node: crossbow
+    entity: ADTWeaponEnergyCrossbow
