@@ -1,0 +1,3 @@
+file: [ icons8-dev.png, icons8-hell.png, icons8-paradise.png, icons8-sandbox.png ]
+license: "CC-BY-SA-3.0"
+copyright: "Created by discord:prazat911 for Adventure Time"
