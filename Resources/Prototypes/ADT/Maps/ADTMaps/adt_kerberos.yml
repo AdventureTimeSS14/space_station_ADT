@@ -4,7 +4,7 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_kerberos.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 40
+  minPlayers: 50
   stations:
     ADT_Kerberos:
       stationProto: StandardNanotrasenStation
