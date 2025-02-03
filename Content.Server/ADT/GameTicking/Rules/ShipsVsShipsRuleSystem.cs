@@ -1,4 +1,5 @@
-﻿using Content.Server.ADT.ShipsVsShips;
+﻿using System.Diagnostics;
+using Content.Server.ADT.ShipsVsShips;
 using Content.Server.Chat.Systems;
 using Content.Server.Communications;
 using Content.Server.GameTicking;
@@ -28,8 +29,8 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     {
         base.Initialize();
 
-        // SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt); // Подписка на событие начала раунда.
-        // SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText); // Подписка на событие добавления текста при окончании раунда.
+        SubscribeLocalEvent<ShipsVsShipsRuleComponent, RoundStartAttemptEvent>(OnStartAttempt); // Подписка на событие начала раунда.
+        SubscribeLocalEvent<ShipsVsShipsRuleComponent, RoundEndTextAppendEvent>(OnRoundEndText); // Подписка на событие добавления текста при окончании раунда.
 
         SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded); // Подписка на событие взрыва ядерной бомбы.
 
@@ -89,13 +90,13 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     }
 
     // Обработчик события начала раунда.
-    private void OnStartAttempt(RoundStartAttemptEvent ev)
+    private void OnStartAttempt(EntityUid uid, ShipsVsShipsRuleComponent component, RoundStartAttemptEvent ev)
     {
         // Здесь можно добавить логику для обработки начала раунда.
     }
 
     // Обработчик события добавления текста при окончании раунда.
-    private void OnRoundEndText(RoundEndTextAppendEvent ev)
+    private void OnRoundEndText(EntityUid uid, ShipsVsShipsRuleComponent component, RoundEndTextAppendEvent ev)
     {
         var ruleQuery = QueryActiveRules(); // Запрос активных правил игры.
         while (ruleQuery.MoveNext(out _, out _, out var shipsVsShips, out _)) // Перебор активных правил "Ships vs Ships".
@@ -156,6 +157,7 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
                 continue; // Если компонента нет, переходим к следующему.
 
             var side = player.Side; // Получаем сторону игрока.
+            Log.Debug($"Player {ev.Player} spawned on side {side}");
 
             // Если сторона игрока еще не зарегистрирована в правилах, добавляем её.
             if (!shipsVsShips.Players.ContainsKey(side))
@@ -163,6 +165,7 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
 
             shipsVsShips.TotalAllPlayers++; // Увеличиваем общее количество игроков.
             shipsVsShips.Players[side].Add(ev.Player); // Добавляем игрока в соответствующий набор по его стороне.
+            Log.Debug($"Player {ev.Player} added to {side} side.");
         }
     }
 

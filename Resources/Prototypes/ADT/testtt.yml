@@ -124,7 +124,6 @@
             # # Security
             SecurityOfficerDefenders: [ 6, 6 ]
 
-
             # Command
             # Captain: [ 1, 1 ]
             # ADTBlueShieldOfficer: [ 1, 1 ]
@@ -221,3 +220,21 @@
     layers:
       - state: green
       - state: security_officer
+
+
+- type: department
+  id: DepartmentAttackers
+  name: department-Security-Attackers
+  description: department-Security-Attackers-description
+  color: "#DE3A3A"
+  weight: 20
+  roles:
+  - SecurityOfficerAttackers
+
+- type: department
+  id: DepartmentDefenders
+  name: department-Security-Defenders
+  description: department-Security-Defenders-description
+  color: "#334E6D"
+  roles:
+  - SecurityOfficerDefenders
