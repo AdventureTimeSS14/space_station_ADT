@@ -28,8 +28,8 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt); // Подписка на событие начала раунда.
-        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText); // Подписка на событие добавления текста при окончании раунда.
+        // SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt); // Подписка на событие начала раунда.
+        // SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText); // Подписка на событие добавления текста при окончании раунда.
 
         SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded); // Подписка на событие взрыва ядерной бомбы.
 
