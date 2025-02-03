@@ -114,7 +114,7 @@
         doaftersToEscape: 1
         movementSpeedModifier: 0.8
         escapeAttemptTime: 1
-        setStageTime: 0.5
+        setStageTime: 0
       Hard:
         requiredHands: 1
         doaftersToEscape: 2

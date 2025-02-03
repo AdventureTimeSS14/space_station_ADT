@@ -1,6 +1,8 @@
 using System.Numerics;
+using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Shared.ADT.Grab;
+using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -23,6 +25,7 @@ public sealed partial class PullingSystem : SharedPullingSystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override bool TryIncreaseGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable)
     {
@@ -58,6 +61,9 @@ public sealed partial class PullingSystem : SharedPullingSystem
                                 pullable, puller, popupType);
         _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable, puller);
         Dirty(puller);
+
+        _adminLogger.Add(LogType.Grab, LogImpact.Low,
+            $"{ToPrettyString(puller):user} increased grab stage to {puller.Comp.Stage} while grabbing {ToPrettyString(pullable):target}");
 
         return true;
     }
@@ -101,5 +107,8 @@ public sealed partial class PullingSystem : SharedPullingSystem
         EnsureComp<GrabThrownComponent>(pullable);
         _throwing.TryThrow(pullable, vector, 8, animated: false, playSound: false, doSpin: false);
         _throwing.TryThrow(puller, selfVec, 5, animated: false, playSound: false, doSpin: false);
+
+        _adminLogger.Add(LogType.Grab, LogImpact.Low,
+            $"{ToPrettyString(puller):user} throwed {ToPrettyString(pullable):target} by grab");
     }
 }

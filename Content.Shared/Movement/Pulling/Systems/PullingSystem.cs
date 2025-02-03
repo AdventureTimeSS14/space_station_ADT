@@ -14,6 +14,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -389,6 +390,16 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
             return;
         }
 
+        // ADT Grab start
+        if (TryComp<PullableComponent>(player, out var playerPullable) &&
+            TryComp<PullerComponent>(playerPullable.Puller, out var playerPuller) &&
+            playerPuller.Stage > GrabStage.None)
+        {
+            TryEscapeFromGrab((player, playerPullable), (playerPullable.Puller.Value, playerPuller));
+            return;
+        }
+        // ADT Grab end
+
         if (!TryComp(player, out PullerComponent? pullerComp) ||
             !TryComp(pullerComp.Pulling, out PullableComponent? pullableComp))
         {
@@ -563,12 +574,19 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
         Dirty(pullerUid, pullerComp);
         Dirty(pullableUid, pullableComp);
 
-        var pullingMessage =
-            Loc.GetString("getting-pulled-popup", ("puller", Identity.Entity(pullerUid, EntityManager)));
-        _popup.PopupEntity(pullingMessage, pullableUid, pullableUid);
+        if (_combat.IsInCombatMode(pullerUid) && HasComp<MobStateComponent>(pullableUid))
+        {
+            TryStartPullingOrGrab((pullerUid, pullerComp), (pullableUid, pullableComp));
+        }
+        else
+        {
+            var pullingMessage =
+                Loc.GetString("getting-pulled-popup", ("puller", Identity.Entity(pullerUid, EntityManager)));
+            _popup.PopupEntity(pullingMessage, pullableUid, pullableUid);
 
-        _adminLogger.Add(LogType.Action, LogImpact.Low,
-            $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
+            _adminLogger.Add(LogType.Action, LogImpact.Low,
+                $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
+        }
         return true;
     }
 

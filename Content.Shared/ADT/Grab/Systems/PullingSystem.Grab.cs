@@ -19,6 +19,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -27,6 +28,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -58,6 +60,9 @@ public abstract partial class SharedPullingSystem
         SubscribeLocalEvent<PullableComponent, SelfBeforeClimbEvent>(OnBeforeClimb);
         SubscribeLocalEvent<PullableComponent, GrabEscapeDoAfterEvent>(OnEscapeDoAfter);
         SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+        SubscribeLocalEvent<PullableComponent, BeingPulledAttemptEvent>(OnBeingPulledAttempt);
+        SubscribeLocalEvent<PullableComponent, StartPullAttemptEvent>(OnStartPullAttempt);
+
         SubscribeLocalEvent<GrabThrownComponent, ThrowDoHitEvent>(OnThrownDoHit);
     }
 
@@ -251,8 +256,44 @@ public abstract partial class SharedPullingSystem
         args.Cancel();
     }
 
+    private void OnBeingPulledAttempt(EntityUid uid, PullableComponent comp, BeingPulledAttemptEvent args)
+    {
+        if (comp.Puller == args.Puller)
+            return;
+        if (!TryComp<PullerComponent>(comp.Puller, out var puller))
+            return;
+        if (puller.Stage == GrabStage.None)
+            return;
+        args.Cancel();
+    }
+
+    private void OnStartPullAttempt(EntityUid uid, PullableComponent comp, StartPullAttemptEvent args)
+    {
+        if (!comp.Puller.HasValue)
+            return;
+        if (!TryComp<PullerComponent>(comp.Puller, out var puller))
+            return;
+        if (puller.Stage == GrabStage.None)
+            return;
+        args.Cancel();
+    }
+
     private void OnThrownDoHit(EntityUid uid, GrabThrownComponent comp, ThrowDoHitEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+        if (comp.HitEntities.Contains(args.Target))
+            return;
+        comp.HitEntities.Add(args.Target);
+
+        if (TryComp<PhysicsComponent>(args.Target, out var physics) && physics.BodyType == BodyType.Static)
+        {
+            var stunTime = TimeSpan.FromSeconds(5);
+            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 22));
+            _stun.TryParalyze(uid, stunTime, true);
+            _audio.PlayPredicted(new SoundCollectionSpecifier("MetalThud"), uid, uid);
+        }
+
         if (!HasComp<StaminaComponent>(args.Target))
             return;
         if (_standing.IsDown(args.Target))
@@ -394,7 +435,7 @@ public abstract partial class SharedPullingSystem
             return false;
 
         // Check if the puller has enough hands to progress to the next stage
-        if (puller.Comp.GrabStats.TryGetValue(puller.Comp.Stage + 1, out var stats))
+        if (puller.Comp.GrabStats.TryGetValue(puller.Comp.Stage + direction, out var stats))
         {
             var freeableHands = 0;
             if (TryComp<HandsComponent>(puller, out var hands))
@@ -402,6 +443,10 @@ public abstract partial class SharedPullingSystem
 
             if (freeableHands < stats.RequiredHands)
                 return false;
+
+            // We dont need to start DoAfter if stage sets instantly
+            if (stats.SetStageTime <= 0)
+                return direction > 0 ? TryIncreaseGrabStage(puller, pullable) : TryLowerGrabStage(puller, pullable);
         }
 
         if (!_net.IsServer)
