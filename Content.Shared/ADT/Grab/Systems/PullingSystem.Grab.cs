@@ -14,6 +14,7 @@ using Content.Shared.Effects;
 using Content.Shared.Gravity;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
@@ -64,6 +65,10 @@ public abstract partial class SharedPullingSystem
         SubscribeLocalEvent<PullableComponent, StartPullAttemptEvent>(OnStartPullAttempt);
 
         SubscribeLocalEvent<GrabThrownComponent, ThrowDoHitEvent>(OnThrownDoHit);
+        SubscribeLocalEvent<GrabThrownComponent, LandEvent>(OnThrownLand);
+
+        SubscribeLocalEvent<ModifyGrabStageTimeComponent, ModifyGrabStageTimeEvent>(OnGrabStageTimeModify);
+        SubscribeLocalEvent<ModifyGrabStageTimeComponent, InventoryRelayedEvent<ModifyGrabStageTimeEvent>>(OnRelayGrabStageTimeModify);
     }
 
     #region Events handle
@@ -183,7 +188,7 @@ public abstract partial class SharedPullingSystem
         args.Cancel();
 
         var puller = args.PuttingOnTable;
-        var stunTime = TimeSpan.FromSeconds(3);
+        var stunTime = TimeSpan.FromSeconds(2);
 
         _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 17));
         _stun.TryParalyze(uid, stunTime, true);
@@ -288,8 +293,8 @@ public abstract partial class SharedPullingSystem
 
         if (TryComp<PhysicsComponent>(args.Target, out var physics) && physics.BodyType == BodyType.Static)
         {
-            var stunTime = TimeSpan.FromSeconds(5);
-            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 22));
+            var stunTime = TimeSpan.FromSeconds(1);
+            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 8));
             _stun.TryParalyze(uid, stunTime, true);
             _audio.PlayPredicted(new SoundCollectionSpecifier("MetalThud"), uid, uid);
         }
@@ -300,21 +305,37 @@ public abstract partial class SharedPullingSystem
             return;
 
         _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid, uid);
-        _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(3), true);
+        _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(2), true);
         _stamina.TakeStaminaDamage(args.Target, 65f);
         _stamina.TakeStaminaDamage(uid, 65f);
         _standing.Down(uid);
 
-        if (_timing.IsFirstTimePredicted)
-            comp.CollideCounter++;
+        comp.CollideCounter++;
         if (comp.CollideCounter < comp.MaxCollides)
             return;
 
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(6), true);
+        _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), true);
         if (!_gravity.IsWeightless(uid))
             _physics.SetLinearVelocity(uid, Vector2.Zero);
         if (TryComp<ThrownItemComponent>(uid, out var thrown))
             _thrown.LandComponent(uid, thrown, Comp<PhysicsComponent>(uid), true);
+    }
+
+    private void OnThrownLand(EntityUid uid, GrabThrownComponent comp, LandEvent args)
+    {
+        RemComp(uid, comp);
+    }
+
+    private void OnGrabStageTimeModify(EntityUid uid, ModifyGrabStageTimeComponent comp, ref ModifyGrabStageTimeEvent args)
+    {
+        if (comp.Modifiers.TryGetValue(args.Stage, out var value))
+            args.Modifier *= value;
+    }
+
+    private void OnRelayGrabStageTimeModify(EntityUid uid, ModifyGrabStageTimeComponent comp, ref InventoryRelayedEvent<ModifyGrabStageTimeEvent> args)
+    {
+        if (comp.Modifiers.TryGetValue(args.Args.Stage, out var value))
+            args.Args.Modifier *= value;
     }
     #endregion
 
@@ -452,7 +473,12 @@ public abstract partial class SharedPullingSystem
         if (!_net.IsServer)
             return true;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, puller, puller.Comp.GrabStats[puller.Comp.Stage + direction].SetStageTime, new SetGrabStageDoAfterEvent(direction), puller)
+        var ev = new ModifyGrabStageTimeEvent(puller.Comp.Stage + direction);
+        RaiseLocalEvent(pullable, ref ev);
+
+        var time = puller.Comp.GrabStats[puller.Comp.Stage + direction].SetStageTime * ev.Modifier;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, puller, time, new SetGrabStageDoAfterEvent(direction), puller)
         {
             BreakOnDamage = true,
             BreakOnMove = false,

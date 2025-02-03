@@ -172,6 +172,12 @@
     autoRecharge: true
     autoRechargeRate: 2
   - type: InjectorsBlocker  # ADT
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.2
+      Choke: 1.2
+  # ADT Grab end
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -215,6 +221,12 @@
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: InjectorsBlocker  # ADT
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.3
+      Choke: 1.5
+  # ADT Grab end
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -314,6 +326,12 @@
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: InjectorsBlocker  # ADT
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.75
+      Choke: 1.5
+  # ADT Grab end
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -363,4 +381,10 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.25
+      Choke: 1.25
+  # ADT Grab end
 

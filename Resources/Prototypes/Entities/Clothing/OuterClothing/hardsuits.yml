@@ -27,6 +27,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBasic
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.75
+      Choke: 1.5
+  # ADT Grab end
 
 #Atmospherics Hardsuit
 - type: entity
@@ -531,6 +537,12 @@
     - Hardsuit
     - WhitelistChameleon
   - type: DNALocker # ADT-Tweak
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 2.25
+      Choke: 2
+  # ADT Grab end
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -662,6 +674,12 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
   - type: DNALocker # ADT-Tweak
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 3.75
+      Choke: 3
+  # ADT Grab end
 
 #Wizard Hardsuit
 - type: entity
