@@ -109,7 +109,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
-# (Откат PR https://github.com/space-wizards/space-station-14/pull/32429)
+# ADT-Tweak START - Вместо уничтожения минибомба при повреждении взрывается
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Destructible
@@ -121,7 +121,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:ExplodeBehavior
-# Запрещает минибомбе срабатывать, если рядом взорвалось С4
+# ADT-Tweak END
   - type: OnUseTimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
