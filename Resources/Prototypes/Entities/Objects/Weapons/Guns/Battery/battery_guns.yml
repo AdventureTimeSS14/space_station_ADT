@@ -216,12 +216,12 @@
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 3 #ADT_Tweak 2 -> 3
+    fireRate: 2
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 10 #ADT_Tweak 62.5 -> 25
+    fireCost: 20 #ADT_Tweak 62.5 -> 20
   - type: StaticPrice
     price: 300
 
@@ -235,7 +235,7 @@
     price: 420
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser #ADT_Tweak
-    fireCost: 25 #ADT_Tweak 62.5 -> 25
+    fireCost: 28.5 #ADT_Tweak 62.5 -> 28.5
   - type: MeleeWeapon #ADT_Tweak
     resetOnHandSelected: false
     attackRate: 1

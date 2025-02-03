@@ -87,8 +87,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
-        density: 1000
+          radius: 0.5
+        density: 1350
         mask:
         - MobMask
         layer:
@@ -117,6 +117,8 @@
         Brute: 30
   - type: ReplacementAccent
     accent: ADTReplaceAbomination
+  - type: TTS
+    voice: moriarti
 
 - type: entity
   id: ADTAbominationDeath
@@ -136,8 +138,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
-        density: 1000
+          radius: 0.5
+        density: 12000
         mask:
         - MobMask
         layer:
@@ -174,6 +176,8 @@
     description: ghost-role-information-Abomination-Death-description
     rules: ghost-role-information-antagonist-rules
   - type: GhostTakeoverAvailable
+  - type: TTS
+    voice: biden
 
 - type: entity
   id: ADTAbominationBloated
@@ -217,6 +221,8 @@
     damage:
       groups:
         Brute: 15
+  - type: ReplacementAccent
+    accent: ADTReplaceAbomination
   - type: ExplodeOnTrigger
   - type: GibOnTrigger
     deleteItems: true
@@ -229,3 +235,5 @@
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
+  - type: TTS
+    voice: briman
