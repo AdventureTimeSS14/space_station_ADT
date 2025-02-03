@@ -2,9 +2,8 @@
 # Айди - станция-база, в списке она не нужна. В списке - дополнительные карты.
 
 # - type: additionalMap
-#   id: CorvaxDelta
+#   id: Dev
 #   maps:
 #   - ADT_Aspid
-#   - CorvaxTerra
 #   - MeteorArena
 #   - Dev
