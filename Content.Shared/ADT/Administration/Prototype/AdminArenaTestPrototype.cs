@@ -40,3 +40,13 @@ namespace Content.Shared.ADT.Administration
         public string IconAltVerb { get; private set; } = string.Empty;
     }
 }
+
+/*
+    ADT Content by 🐾 Schrödinger's Code 🐾
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+*/
