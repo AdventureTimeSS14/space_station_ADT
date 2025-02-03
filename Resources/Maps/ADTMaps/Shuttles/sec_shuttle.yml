@@ -226,6 +226,26 @@ entities:
           - 0
         chunkSize: 4
     - type: GasTileOverlay
+- proto: ADTPoweredShuttleLightLED
+  entities:
+  - uid: 219
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,0.5
+      parent: 1
+  - uid: 220
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-1.5
+      parent: 1
+  - uid: 221
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-1.5
+      parent: 1
 - proto: AirlockGlassShuttle
   entities:
   - uid: 2
@@ -615,7 +635,6 @@ entities:
       inletTwoConcentration: 0.78
       inletOneConcentration: 0.22
       targetPressure: 303
-      enabled: True
 - proto: GasPassiveVent
   entities:
   - uid: 157
@@ -987,6 +1006,11 @@ entities:
     - type: Transform
       pos: 1.5,0.5
       parent: 1
+  - uid: 9
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
+      parent: 1
   - uid: 20
     components:
     - type: Transform
@@ -1001,6 +1025,11 @@ entities:
     components:
     - type: Transform
       pos: 0.5,0.5
+      parent: 1
+  - uid: 52
+    components:
+    - type: Transform
+      pos: -1.5,-0.5
       parent: 1
   - uid: 99
     components:
@@ -1243,6 +1272,16 @@ entities:
     - type: Transform
       pos: 1.5,0.5
       parent: 1
+  - uid: 217
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
+      parent: 1
+  - uid: 218
+    components:
+    - type: Transform
+      pos: -1.5,-0.5
+      parent: 1
 - proto: SinkStemlessWater
   entities:
   - uid: 200
@@ -1326,12 +1365,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-9.5
       parent: 1
-  - uid: 9
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,-0.5
-      parent: 1
   - uid: 12
     components:
     - type: Transform
@@ -1354,12 +1387,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-8.5
-      parent: 1
-  - uid: 52
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-0.5
       parent: 1
   - uid: 55
     components:
