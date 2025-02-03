@@ -18,14 +18,7 @@ using Robust.Shared.Utility;
     ║  ( o.o )  Meow!                    ║
     ║   > ^ <                            ║
     ╚════════════════════════════════════╝
-            ██╗░░███████╗░░░██╗
-            █╔╝░░███╔═══╝░░░░█║
-            █║══░╚█████╗░░══░█║
-            █║░░░░╚══███╗░░░░█║
-            ██╗░░███████║░░░██║
-            ╚═╝░░╚══════╝░░░╚═╝
-        Wiskey Echo Wiskey Lima Alpha Delta
-  ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+
 */
 namespace Content.Server.Administration.Systems;
 
