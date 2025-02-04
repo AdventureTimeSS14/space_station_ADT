@@ -66,7 +66,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
             ObfuscatePhrases(builder, originalMessage, proto);
 
         var result = builder.ToString();
-        result = _chat.SanitizeInGameICMessage(uid, result, out _);
+        result = _chat.SanitizeInGameICMessageLanguages(uid, result, out _);
 
         return result;
     }
@@ -81,7 +81,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
             ObfuscatePhrases(builder, originalMessage, proto);
 
         var result = builder.ToString();
-        result = _chat.SanitizeInGameICMessage(uid, result, out _);
+        result = _chat.SanitizeInGameICMessageLanguages(uid, result, out _);
 
         return result;
     }
