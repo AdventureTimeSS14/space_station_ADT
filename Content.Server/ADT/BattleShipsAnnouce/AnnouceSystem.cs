@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace Content.Server.ADT.BattleShipsAnnouce;
 
-public sealed class MarineAnnounceSystem : SharedAnnounceSystem
+public sealed class BattleShipsAnnouceSystem : SharedAnnounceSystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
