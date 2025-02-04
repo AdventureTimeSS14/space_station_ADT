@@ -86,7 +86,7 @@ public sealed class ThermalCloakSystem : EntitySystem
         comp.RestrictWeapons = ent.Comp.RestrictWeapons;
         comp.UncloakWeaponLock = ent.Comp.UncloakWeaponLock;
         if (!ent.Comp.NinjaSuit)
-            _action.AddAction(args.Equipee, ent.Comp.Action, ent.Comp.ActionId);
+            _action.AddAction(args.Equipee, ent.Comp.ActionId, ent.Comp.Action);
 
         Dirty(args.Equipee, comp);
     }
