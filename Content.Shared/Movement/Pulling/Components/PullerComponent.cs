@@ -14,7 +14,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(PullingSystem), typeof(SharedHandsSystem))]
+[Access(typeof(PullingSystem), typeof(SharedHandsSystem))]  // ADT Grab tweaked
 public sealed partial class PullerComponent : Component
 {
     // My raiding guild
@@ -97,6 +97,7 @@ public sealed partial class PullerComponent : Component
 
 public sealed partial class StopPullingAlertEvent : BaseAlertEvent;
 
+// ADT Grab start
 public enum GrabStage : int
 {
     None = 0,
@@ -104,3 +105,5 @@ public enum GrabStage : int
     Hard = 2,
     Choke = 3
 }
+// ADT Grab end
+
