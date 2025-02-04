@@ -14,7 +14,7 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(SharedPullingSystem), typeof(SharedHandsSystem))]
+[Access(typeof(PullingSystem), typeof(SharedHandsSystem))]
 public sealed partial class PullerComponent : Component
 {
     // My raiding guild

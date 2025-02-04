@@ -28,7 +28,7 @@ public abstract partial class SharedScopeSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPullingSystem _pulling = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     public override void Initialize()
     {

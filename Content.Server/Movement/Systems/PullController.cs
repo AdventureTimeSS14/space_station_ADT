@@ -84,7 +84,7 @@ public sealed class PullController : VirtualController
     {
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.MovePulledObject, new PointerInputCmdHandler(OnRequestMovePulledObject))
-            .Register<SharedPullingSystem>();
+            .Register<PullingSystem>();
 
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _pullableQuery = GetEntityQuery<PullableComponent>();

@@ -28,7 +28,7 @@ public sealed class TeleportSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
+    [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IAdminLogManager _alog = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;

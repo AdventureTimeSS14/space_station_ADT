@@ -13,7 +13,7 @@ namespace Content.Client.ADT.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public sealed partial class PullingSystem : SharedPullingSystem
+public sealed partial class ClientPullingSystem : PullingSystem
 {
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;

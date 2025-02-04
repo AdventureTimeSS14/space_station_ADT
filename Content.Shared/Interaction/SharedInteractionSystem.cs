@@ -63,7 +63,7 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly SharedVerbSystem _verbSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
-        [Dependency] private readonly SharedPullingSystem _pullSystem = default!;
+        [Dependency] private readonly PullingSystem _pullSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;

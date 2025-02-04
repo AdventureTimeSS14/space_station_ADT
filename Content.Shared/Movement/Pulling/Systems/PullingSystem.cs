@@ -38,7 +38,7 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab tweak: Сделал класс абстрактным и partial, а так же переименовал в SharedPullingSystem
+public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak: Сделал класс абстрактным и partial, а так же переименовал в SharedPullingSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -84,7 +84,7 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
-            .Register<SharedPullingSystem>();
+            .Register<PullingSystem>();
     }
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
@@ -182,7 +182,7 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
     public override void Shutdown()
     {
         base.Shutdown();
-        CommandBinds.Unregister<SharedPullingSystem>();
+        CommandBinds.Unregister<PullingSystem>();
     }
 
     private void OnPullerUnpaused(EntityUid uid, PullerComponent component, ref EntityUnpausedEvent args)

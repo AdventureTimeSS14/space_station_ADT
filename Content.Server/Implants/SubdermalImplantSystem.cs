@@ -39,7 +39,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
-    [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
+    [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;

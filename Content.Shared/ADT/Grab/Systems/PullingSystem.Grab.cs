@@ -42,7 +42,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
-public abstract partial class SharedPullingSystem
+public abstract partial class PullingSystem
 {
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
