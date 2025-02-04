@@ -36,14 +36,14 @@ public sealed class AnnouceSystem : SharedAnnounceSystem
 
     public override void AnnounceTSF(string message, SoundSpecifier? sound = null)
     {
-        var filterKMT = Filter.Empty()
+        var filterTSF = Filter.Empty()
             .AddWhereAttachedEntity(ent =>
                 HasComp<TSFComponent>(ent) ||
                 HasComp<GhostComponent>(ent)
             );
 
-        _chatManager.ChatMessageToManyFiltered(filterKMT, ChatChannel.Radio, message, message, default, false, true, null);
-        _audio.PlayGlobal(sound ?? AnnouncementSound, filterKMT, true, AudioParams.Default.WithVolume(-2f));
+        _chatManager.ChatMessageToManyFiltered(filterTSF, ChatChannel.Radio, message, message, default, false, true, null);
+        _audio.PlayGlobal(sound ?? AnnouncementSound, filterTSF, true, AudioParams.Default.WithVolume(-2f));
     }
 
 
