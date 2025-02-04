@@ -19,6 +19,8 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.PowerCell;
+using Content.Shared.Examine;
 
 namespace Content.Shared._RMC14.Armor.ThermalCloak;
 
@@ -36,12 +38,13 @@ public sealed class ThermalCloakSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedSpaceNinjaSystem _ninja = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedActionsSystem _action = default!;
+    [Dependency] private readonly SharedPowerCellSystem _cell = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ThermalCloakComponent, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<ThermalCloakComponent, ThermalCloakTurnInvisibleActionEvent>(OnCloakAction);
         SubscribeLocalEvent<ThermalCloakComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<ThermalCloakComponent, GotUnequippedEvent>(OnUnequipped);
@@ -54,21 +57,6 @@ public sealed class ThermalCloakSystem : EntitySystem
         SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnGetItemActions(Entity<ThermalCloakComponent> ent, ref GetItemActionsEvent args)
-    {
-        var comp = ent.Comp;
-
-        if (comp.HandsBlock && _hands.IsHolding(ent.Owner, comp.Owner))
-            return;
-
-        if (comp.NinjaSuit && _ninja.IsNinja(ent))
-            args.AddAction(ref comp.Action, comp.ActionId);
-        else if (!comp.NinjaSuit)
-            args.AddAction(ref comp.Action, comp.ActionId);
-
-        Dirty(ent);
-    }
-
     private void OnCloakAction(Entity<ThermalCloakComponent> ent, ref ThermalCloakTurnInvisibleActionEvent args)
     {
         if (args.Handled)
@@ -76,7 +64,17 @@ public sealed class ThermalCloakSystem : EntitySystem
 
         args.Handled = true;
 
-        SetInvisibility(ent, args.Performer, !ent.Comp.Enabled, false);
+        var comp = ent.Comp;
+
+        if (comp.NinjaSuit)
+        {
+            var uid = ent.Owner;
+            var draw = Comp<PowerCellDrawComponent>(uid);
+            _cell.QueueUpdate((uid, draw));
+            _cell.SetDrawEnabled((uid, draw), !comp.Enabled);
+        }
+
+        SetInvisibility(ent, args.Performer, !comp.Enabled, false);
     }
 
     private void OnEquipped(Entity<ThermalCloakComponent> ent, ref GotEquippedEvent args)
@@ -84,12 +82,12 @@ public sealed class ThermalCloakSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
-        // if (!_inventory.InSlotWithFlags((ent, null, null), SlotFlags.All))
-        //     return;
-
         var comp = EnsureComp<EntityTurnInvisibleComponent>(args.Equipee);
         comp.RestrictWeapons = ent.Comp.RestrictWeapons;
         comp.UncloakWeaponLock = ent.Comp.UncloakWeaponLock;
+        if (!ent.Comp.NinjaSuit)
+            _action.AddAction(args.Equipee, ent.Comp.Action, ent.Comp.ActionId);
+
         Dirty(args.Equipee, comp);
     }
 
@@ -98,9 +96,7 @@ public sealed class ThermalCloakSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
-        // if (_inventory.InSlotWithFlags((ent, null, null), SlotFlags.All))
-        //     return;
-
+        _action.RemoveAction(args.Equipee, ent.Comp.Action);
         SetInvisibility(ent, args.Equipee, false, false);
         RemCompDeferred<EntityTurnInvisibleComponent>(args.Equipee);
     }
@@ -122,7 +118,7 @@ public sealed class ThermalCloakSystem : EntitySystem
             {
                 action.Cooldown = (_timing.CurTime, _timing.CurTime + ent.Comp.Cooldown);
                 action.UseDelay = ent.Comp.Cooldown;
-                Dirty(ent.Comp.Action.Value, action);
+                Dirty(ent.Comp.Action, action);
             }
 
             turnInvisible.UncloakTime = _timing.CurTime; // Just in case
@@ -152,7 +148,7 @@ public sealed class ThermalCloakSystem : EntitySystem
                 {
                     action.Cooldown = (_timing.CurTime, _timing.CurTime + ent.Comp.ForcedCooldown);
                     action.UseDelay = ent.Comp.ForcedCooldown;
-                    Dirty(ent.Comp.Action.Value, action);
+                    Dirty(ent.Comp.Action, action);
                 }
 
                 turnInvisible.UncloakTime = _timing.CurTime;
@@ -166,7 +162,7 @@ public sealed class ThermalCloakSystem : EntitySystem
                 {
                     action.Cooldown = (_timing.CurTime, _timing.CurTime + ent.Comp.Cooldown);
                     action.UseDelay = ent.Comp.Cooldown;
-                    Dirty(ent.Comp.Action.Value, action);
+                    Dirty(ent.Comp.Action, action);
                 }
 
                 turnInvisible.UncloakTime = _timing.CurTime;
@@ -265,5 +261,22 @@ public sealed class ThermalCloakSystem : EntitySystem
         var rotation = _transform.GetWorldRotation(user);
 
         Spawn(cloakProtoId, coordinates, rotation: rotation);
+    }
+
+    private void OnExamineAttempt(EntityUid uid, EntityActiveInvisibleComponent component, ExamineAttemptEvent args)
+    {
+        // if (!component.Enabled || GetVisibility(uid, component) > component.ExamineThreshold || !CheckStealthWhitelist(args.Examiner, uid))
+        //     return;
+        // мне лень
+        var source = args.Examiner;
+        do
+        {
+            if (source == uid)
+                return;
+            source = Transform(source).ParentUid;
+        }
+        while (source.IsValid());
+
+        args.Cancel();
     }
 }
