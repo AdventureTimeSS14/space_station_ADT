@@ -71,19 +71,6 @@
             # # Security
             SecurityOfficerAttackers: [ 6, 6 ]
 
-            # Command
-            # Captain: [ 1, 1 ]
-            # ADTBlueShieldOfficer: [ 1, 1 ]
-
-            # # Security
-            # HeadOfSecurity: [ 1, 1 ]
-            # Warden: [ 1, 1 ]
-            # Detective: [ 1, 1 ]
-            # SecurityOfficer: [ 3, 3 ]
-            # SecurityCadet: [ 2, 2 ]
-            # Brigmedic: [ 1, 1 ]
-            # ADTSeniorOfficer: [ 1, 1 ]
-
 # Станция обороняющихся
 - type: gameMap
   id: ADT_Cluster_Legacy_deffend_ship
@@ -110,7 +97,6 @@
             # Command
             # Captain: [ 1, 1 ]
             # ADTBlueShieldOfficer: [ 1, 1 ]
-
             # # Security
             # HeadOfSecurity: [ 1, 1 ]
             # Warden: [ 1, 1 ]
@@ -230,3 +216,47 @@
   color: "#334E6D"
   roles:
   - SecurityOfficerDefenders
+
+- type: roleLoadout
+  id: JobSecurityOfficerAttackers
+  groups:
+  - Inventory # Corvax-Loadouts
+  - SecurityHead
+  - SecurityOfficerNeckADT # ADT-Loadouts
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityPDA
+  - SecurityBelt
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalSecurity
+  - Trinkets
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobSecurityOfficerDefenders
+  groups:
+  - Inventory # Corvax-Loadouts
+  - SecurityHead
+  - SecurityOfficerNeckADT # ADT-Loadouts
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityPDA
+  - SecurityBelt
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalSecurity
+  - Trinkets
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
+  - GroupSpeciesBreathToolSecurity
