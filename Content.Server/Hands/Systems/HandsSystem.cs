@@ -138,7 +138,7 @@ namespace Content.Server.Hands.Systems
             if (TryComp<PullerComponent>(args.PullerUid, out var pullerComp) && !pullerComp.NeedsHands)
                 return;
 
-            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virtualItem))
+            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virtualItem))    // ADT Grab tweaked
             {
                 DebugTools.Assert("Unable to find available hand when starting pulling??");
             }

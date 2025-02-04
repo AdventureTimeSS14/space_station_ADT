@@ -72,7 +72,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
         SubscribeLocalEvent<PullerComponent, EntGotInsertedIntoContainerMessage>(OnPullerContainerInsert);
         SubscribeLocalEvent<PullerComponent, EntityUnpausedEvent>(OnPullerUnpaused);
-        SubscribeLocalEvent<PullerComponent, BeforeVirtualItemDeletedEvent>(OnVirtualItemDeleted);
+        SubscribeLocalEvent<PullerComponent, BeforeVirtualItemDeletedEvent>(OnVirtualItemDeleted);  // ADT Grab tweaked
         SubscribeLocalEvent<PullerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<PullerComponent, DropHandItemsEvent>(OnDropHandItems);
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
@@ -80,7 +80,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
 
-        InitializeGrab();
+        InitializeGrab();   // ADT Grab
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
@@ -135,7 +135,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             return;
         if (!TryComp<PullableComponent>(ent.Comp.Pulling, out var pullable))
             return;
-        args.Handled = TryLowerGrabStageOrStopPulling(ent, (ent.Comp.Pulling.Value, pullable));
+        args.Handled = TryLowerGrabStageOrStopPulling(ent, (ent.Comp.Pulling.Value, pullable)); // ADT Grab tweaked
     }
 
     private void OnPullerContainerInsert(Entity<PullerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -170,6 +170,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
     {
         if (args.Handled)
             return;
+        // ADT Grab start
         if (!ent.Comp.Puller.HasValue)
         {
             TryStopPull(ent, ent);
@@ -177,6 +178,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         }
 
         args.Handled = TryEscapeFromGrab(ent, ent.Comp.Puller.Value);
+        // ADT Grab end
     }
 
     public override void Shutdown()
@@ -190,7 +192,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         component.NextThrow += args.PausedTime;
     }
 
-    private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, BeforeVirtualItemDeletedEvent args)
+    private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, BeforeVirtualItemDeletedEvent args) // ADT Grab tweaked
     {
         // If client deletes the virtual hand then stop the pull.
         if (component.Pulling == null)
@@ -274,11 +276,13 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
 
         if (!_blocker.CanMove(entity))
             return;
+        // ADT Grab start
         if (!TryComp<PullerComponent>(component.Puller, out var puller))
             return;
 
         TryEscapeFromGrab((uid, component), (component.Puller.Value, puller));
         //TryStopPull(uid, component, user: uid);
+        // ADT Grab end
     }
 
     private void OnPullableCollisionChange(EntityUid uid, PullableComponent component, ref CollisionChangeEvent args)

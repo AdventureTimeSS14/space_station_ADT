@@ -56,22 +56,13 @@ public sealed partial class ServerPullingSystem : PullingSystem
 
         puller.Comp.Stage++;
         // Switch the popup type based on the new grab stage
-        var popupType = PopupType.Small;
-        switch (puller.Comp.Stage)
+        var popupType = puller.Comp.Stage switch
         {
-            case GrabStage.Soft:
-                popupType = PopupType.Small;
-                break;
-            case GrabStage.Hard:
-                popupType = PopupType.SmallCaution;
-                break;
-            case GrabStage.Choke:
-                popupType = PopupType.MediumCaution;
-                break;
-            default:
-                popupType = PopupType.Small;
-                break;
-        }
+            GrabStage.Soft => PopupType.Small,
+            GrabStage.Hard => PopupType.SmallCaution,
+            GrabStage.Choke => PopupType.MediumCaution,
+            _ => PopupType.Small,
+        };
 
         // Do grab stage change effects
         _popup.PopupPredicted(
