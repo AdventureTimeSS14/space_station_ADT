@@ -20,3 +20,5 @@ grab-escape-attempt-popup-self = Вы начинаете выбираться и
 grab-escape-attempt-popup-others = { $pullable } пытается вырваться из захвата.
 grab-escape-success-popup-self = Вы ослабили захват.
 grab-escape-success-popup-others = { $pullable } ослабляет захват.
+
+grab-speech-attempt-choke = Вы не можете дышать!

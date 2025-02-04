@@ -57,14 +57,14 @@ public sealed partial class PullingSystem : SharedPullingSystem
         return true;
     }
 
-    public override bool TryLowerGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, bool ignoreTimings = false, bool effects = true)
+    public override bool TryLowerGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, EntityUid user)
     {
-        if (!base.TryLowerGrabStage(puller, pullable, ignoreTimings, effects))
+        if (!base.TryLowerGrabStage(puller, pullable, user))
             return false;
 
         var targetStage = puller.Comp.Stage - 1;
         // Do grab stage change effects
-        if (effects)
+        if (user != pullable.Owner)
         {
             _popup.PopupPredicted(
                                     Loc.GetString($"grab-lower-{targetStage.ToString().ToLower()}-popup-self",

@@ -283,6 +283,13 @@
     tallscale: 1
     short: true
     shortscale: 0.85
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTIgnoreChokeSpeechBlocking
 
 - type: entity
   save: false

@@ -1,6 +1,8 @@
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Actions.Events;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.Hands;
 using Content.Shared.Climbing.Events;
@@ -9,6 +11,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Effects;
 using Content.Shared.Gravity;
@@ -16,11 +19,13 @@ using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
+using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -57,7 +62,9 @@ public abstract partial class SharedPullingSystem
         SubscribeLocalEvent<PullerComponent, GrabStageChangedEvent>(HandleGrabStageChanged);
         SubscribeLocalEvent<PullerComponent, SetGrabStageDoAfterEvent>(OnSetGrabStage);
         SubscribeLocalEvent<PullerComponent, BeforeVirtualItemThrownEvent>(OnVirtualItemThrow);
+        SubscribeLocalEvent<PullerComponent, DisarmAttemptEvent>(OnDisarmAttempt);
 
+        SubscribeLocalEvent<PullableComponent, GrabStageChangedEvent>(HandlePullableGrabStageChanged);
         SubscribeLocalEvent<PullableComponent, SelfBeforeClimbEvent>(OnBeforeClimb);
         SubscribeLocalEvent<PullableComponent, GrabEscapeDoAfterEvent>(OnEscapeDoAfter);
         SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
@@ -72,11 +79,14 @@ public abstract partial class SharedPullingSystem
     }
 
     #region Events handle
-    private void HandleGrabStageChanged(EntityUid uid, PullerComponent puller, GrabStageChangedEvent args)
+    private void HandleGrabStageChanged(EntityUid uid, PullerComponent puller, ref GrabStageChangedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
         if (args.Puller.Owner != uid)
+            return;
+
+        _alertsSystem.ShowAlert(uid, puller.PullingAlert, (short)args.NewStage);
+
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         if (args.NewStage > args.OldStage)
@@ -138,7 +148,7 @@ public abstract partial class SharedPullingSystem
         if (args.Direction > 0)
             TryIncreaseGrabStage((uid, comp), (comp.Pulling.Value, pullable));
         else
-            TryLowerGrabStage((uid, comp), (comp.Pulling.Value, pullable));
+            TryLowerGrabStage((uid, comp), (comp.Pulling.Value, pullable), uid);
 
         comp.StageIncreaseDoAfter = null;
     }
@@ -172,6 +182,31 @@ public abstract partial class SharedPullingSystem
         _modifierSystem.RefreshMovementSpeedModifiers(uid);
 
         Throw((uid, comp), (target, pullable), args.Coords);
+    }
+
+    private void OnDisarmAttempt(EntityUid uid, PullerComponent comp, DisarmAttemptEvent args)
+    {
+        if (comp.Stage < GrabStage.Soft)
+            return;
+        if (args.DisarmerUid != comp.Pulling)
+            return;
+        args.Cancel();
+    }
+    private void HandlePullableGrabStageChanged(EntityUid uid, PullableComponent puller, ref GrabStageChangedEvent args)
+    {
+        if (args.Puller.Owner == uid)
+            return;
+
+        _alertsSystem.ShowAlert(uid, puller.PulledAlert, (short)args.NewStage);
+
+        if (args.NewStage != GrabStage.Choke)
+            return;
+        if (!TryComp<HandsComponent>(uid, out var hands))
+            return;
+        foreach (var hand in hands.Hands)
+        {
+            _handsSystem.TryDrop(uid, hand.Value);
+        }
     }
 
     private void OnBeforeClimb(EntityUid uid, PullableComponent comp, SelfBeforeClimbEvent args)
@@ -243,7 +278,7 @@ public abstract partial class SharedPullingSystem
         {
             comp.EscapeAttemptCounter = 1;
             _popup.PopupPredicted(Loc.GetString("grab-escape-success-popup-self"), Loc.GetString("grab-escape-success-popup-others", ("pullable", Identity.Entity(uid, EntityManager))), uid, uid, PopupType.Small);
-            TryLowerGrabStage((comp.Puller.Value, puller), (uid, comp), true, false);
+            TryLowerGrabStage((comp.Puller.Value, puller), (uid, comp), uid);
             args.Repeat = false;
             comp.EscapeAttemptDoAfter = null;
             _blocker.UpdateCanMove(uid);
@@ -298,6 +333,10 @@ public abstract partial class SharedPullingSystem
             _stun.TryParalyze(uid, stunTime, true);
             _audio.PlayPredicted(new SoundCollectionSpecifier("MetalThud"), uid, uid);
         }
+
+        // To avoid mouse throwing abuse
+        if (HasComp<ItemComponent>(uid))
+            return;
 
         if (!HasComp<StaminaComponent>(args.Target))
             return;
@@ -405,14 +444,15 @@ public abstract partial class SharedPullingSystem
         RaiseLocalEvent(pullable, ref message);
         _blocker.UpdateCanMove(pullable);
 
+        _adminLogger.Add(LogType.Grab, LogImpact.Low, $"{ToPrettyString(puller.Owner)} increased grab stage for {ToPrettyString(pullable.Owner)} (Current - {puller.Comp.Stage + 1})");
         return true;
     }
 
-    public virtual bool TryLowerGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, bool ignoreTimings = false, bool effects = true)
+    public virtual bool TryLowerGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, EntityUid user)
     {
         if (puller.Comp.Pulling != pullable.Owner)
             return false;
-        if (puller.Comp.NextStageChange > _timing.CurTime && !ignoreTimings)
+        if (puller.Comp.NextStageChange > _timing.CurTime && user != pullable.Owner)
             return false;
 
         // Stop pulling if the puller is at the lowest grab stage
@@ -432,6 +472,7 @@ public abstract partial class SharedPullingSystem
         RaiseLocalEvent(pullable, ref message);
         _blocker.UpdateCanMove(pullable);
 
+        _adminLogger.Add(LogType.Grab, LogImpact.Low, $"{ToPrettyString(puller.Owner)} lowered grab stage for {ToPrettyString(pullable.Owner)} (Current - {puller.Comp.Stage - 1})");
         return true;
     }
 
@@ -467,7 +508,7 @@ public abstract partial class SharedPullingSystem
 
             // We dont need to start DoAfter if stage sets instantly
             if (stats.SetStageTime <= 0)
-                return direction > 0 ? TryIncreaseGrabStage(puller, pullable) : TryLowerGrabStage(puller, pullable);
+                return direction > 0 ? TryIncreaseGrabStage(puller, pullable) : TryLowerGrabStage(puller, pullable, puller.Owner);
         }
 
         if (!_net.IsServer)
@@ -527,6 +568,7 @@ public abstract partial class SharedPullingSystem
             BlockDuplicate = true
         };
 
+        _adminLogger.Add(LogType.Grab, LogImpact.Low, $"{ToPrettyString(pullable.Owner)} started to escage from {ToPrettyString(pullable.Owner)}'s grab");
         return _doAfter.TryStartDoAfter(doAfterArgs, out pullable.Comp.EscapeAttemptDoAfter);
     }
 

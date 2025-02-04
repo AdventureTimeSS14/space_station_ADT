@@ -46,7 +46,7 @@ public sealed partial class PullerComponent : Component
     public bool NeedsHands = true;
 
     [DataField]
-    public ProtoId<AlertPrototype> PullingAlert = "Pulling";
+    public ProtoId<AlertPrototype> PullingAlert = "ADTPulling"; // ADT Grab
 
     // ADT Grab start
     [ViewVariables]

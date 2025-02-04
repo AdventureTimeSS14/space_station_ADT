@@ -7,6 +7,8 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Speech;
+using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -26,6 +28,26 @@ public sealed partial class PullingSystem : SharedPullingSystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnPullableSpeakAttempt);
+    }
+
+    private void OnPullableSpeakAttempt(EntityUid uid, PullableComponent comp, SpeakAttemptEvent args)
+    {
+        if (!TryComp<PullerComponent>(comp.Puller, out var puller) || puller.Stage < GrabStage.Choke)
+            return;
+        if (_tag.HasTag(uid, "ADTIgnoreChokeSpeechBlocking"))
+            return;
+
+        // Ran only on server so we dont care about prediction
+        _popup.PopupEntity(Loc.GetString("grab-speech-attempt-choke"), uid, uid, PopupType.SmallCaution);
+        args.Cancel();
+    }
 
     public override bool TryIncreaseGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable)
     {
@@ -68,14 +90,14 @@ public sealed partial class PullingSystem : SharedPullingSystem
         return true;
     }
 
-    public override bool TryLowerGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, bool ignoreTimings = false, bool effects = true)
+    public override bool TryLowerGrabStage(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, EntityUid user)
     {
-        if (!base.TryLowerGrabStage(puller, pullable, ignoreTimings, effects))
+        if (!base.TryLowerGrabStage(puller, pullable, user))
             return false;
         puller.Comp.Stage--;
 
         // Do grab stage change effects
-        if (effects)
+        if (user != pullable.Owner)
         {
             _popup.PopupPredicted(
                                     Loc.GetString($"grab-lower-{puller.Comp.Stage.ToString().ToLower()}-popup-self",
@@ -109,6 +131,6 @@ public sealed partial class PullingSystem : SharedPullingSystem
         _throwing.TryThrow(puller, selfVec, 5, animated: false, playSound: false, doSpin: false);
 
         _adminLogger.Add(LogType.Grab, LogImpact.Low,
-            $"{ToPrettyString(puller):user} throwed {ToPrettyString(pullable):target} by grab");
+            $"{ToPrettyString(puller):user} thrown {ToPrettyString(pullable):target} by grab");
     }
 }

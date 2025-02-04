@@ -42,7 +42,7 @@ public sealed partial class PullableComponent : Component
     public bool PrevFixedRotation;
 
     [DataField]
-    public ProtoId<AlertPrototype> PulledAlert = "Pulled";
+    public ProtoId<AlertPrototype> PulledAlert = "ADTPulled";   // ADT Grab
 
     // ADT Grab start
     [ViewVariables]

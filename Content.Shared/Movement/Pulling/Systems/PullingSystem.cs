@@ -562,11 +562,12 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
             _physics.SetFixedRotation(pullableUid, pullableComp.FixedRotationOnPull, body: pullablePhysics);
         }
 
+        bool grab = _combat.IsInCombatMode(pullerUid) && HasComp<MobStateComponent>(pullableUid);   // ADT Grab
         // Messaging
         var message = new PullStartedMessage(pullerUid, pullableUid);
         _modifierSystem.RefreshMovementSpeedModifiers(pullerUid);
-        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert);
-        _alertsSystem.ShowAlert(pullableUid, pullableComp.PulledAlert);
+        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert, grab ? (short)1 : (short)0); // ADT Grab tweaked
+        _alertsSystem.ShowAlert(pullableUid, pullableComp.PulledAlert, grab ? (short)1 : (short)0);  // ADT Grab tweaked
 
         RaiseLocalEvent(pullerUid, message);
         RaiseLocalEvent(pullableUid, message);
@@ -574,7 +575,8 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
         Dirty(pullerUid, pullerComp);
         Dirty(pullableUid, pullableComp);
 
-        if (_combat.IsInCombatMode(pullerUid) && HasComp<MobStateComponent>(pullableUid))
+        // ADT Grab start
+        if (grab)
         {
             TryStartPullingOrGrab((pullerUid, pullerComp), (pullableUid, pullableComp));
         }
@@ -587,6 +589,7 @@ public abstract partial class SharedPullingSystem : EntitySystem    // ADT Grab 
             _adminLogger.Add(LogType.Action, LogImpact.Low,
                 $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
         }
+        // ADT Grab end
         return true;
     }
 
