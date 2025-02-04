@@ -44,18 +44,6 @@
     {
       "name": "on-inhand-right",
       "directions": 4
-    },
-    {
-        "name": "off-equipped-FEET",
-        "directions": 4
-    },
-    {
-        "name": "off-inhand-left",
-        "directions": 4
-    },
-    {
-        "name": "off-inhand-right",
-        "directions": 4
     }
   ]
 }
