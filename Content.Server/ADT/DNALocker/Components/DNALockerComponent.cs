@@ -1,4 +1,6 @@
 using Robust.Shared.Audio;
+using Content.Shared.NPC.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.DNALocker;
 
@@ -17,6 +19,12 @@ public sealed partial class DNALockerComponent : Component
 
     [DataField]
     public bool CanBeEmagged = true;
+
+    [DataField]
+    public bool FactionLocker = false;
+
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> Factions = new();
 
     [DataField("lockSound")]
     public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/ADT/dna-lock.ogg");
