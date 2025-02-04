@@ -142,7 +142,7 @@
       - Pickaxe
       - ModularReceiver
       - AppraisalTool
-      - SheetRGlass
+      # - SheetRGlass ADT-Fix
       - Beaker
       - Syringe
       - HandLabeler
@@ -153,6 +153,7 @@
       - LightBulb
       - LedLightBulb
       - DimLightBulb
+      - WarmLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -327,7 +328,7 @@
       - VoiceTrigger
       - Igniter
       - HandHeldMassScanner
-      - PowerCellMicroreactor
+      # - PowerCellMicroreactor #ADT tweak
       - RCD #ADT Tweak
       - RCDAmmo #ADT Tweak
       - RPDAmmo #ADT Tweak
@@ -396,14 +397,12 @@
       - DraskTranslatorImplanter
       - UrsTranslatorImplanter
       - ArkaneTranslatorImplanter
-      - ShadekinTranslatorImplanter
       - CintaTajTranslatorImplanter
       - IPCTranslatorImplanter
       - BorgTranslatorImplanter
       - DwarfTranslatorImplanter
       - UrsTranslator
       - ArkaneTranslator
-      - ShadekinTranslator
       - NianTranslator
       - FireTranslator
       - SikTajTranslator
@@ -524,7 +523,7 @@
     - SodaDispenserMachineCircuitboard
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
-    - StationAnchorCircuitboard
+    # - StationAnchorCircuitboard # ADT-YAMLLinter
     - ADTCustomLawCircuitBoard # ADT tweak
     - SalvageMagnetMachineCircuitboard
     dynamicRecipes:
@@ -549,7 +548,6 @@
       - SolarControlComputerCircuitboard
       - SolarTrackerElectronics
       - TurboItemRechargerCircuitboard
-      - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
       - CircuitImprinterHyperConvectionMachineCircuitboard
@@ -595,6 +593,8 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
+      - SMESAdvancedMachineCircuitboard
+      - HolopadMachineCircuitboard
       - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
       - ADTIndustrialSMESMachineCircuitboard #ADT
   - type: EmagLatheRecipes
@@ -662,7 +662,6 @@
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - ADTBorgModuleRPD # ADT-RPD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
@@ -691,6 +690,38 @@
     - ADTBorgModuleDisabler #ADT secborg
     - ADTBorgModuleDetention #ADT secborg
     - ADTBorgModuleHarm # ADT secborg
+    - ADTModsuitHelmet #ADT modsuits start
+    - ADTModsuitGauntlets
+    - ADTModsuitChestplate
+    - ADTModsuitBoots
+    - ADTModsuitPlateAtmospheric
+    - ADTModsuitPlateCosmohonk
+    - ADTModsuitPlateEngineering
+    - ADTModsuitPlateMedical
+    - ADTModsuitPlateSecurity
+    - ADTModsuitPlateStandard
+    - ADTModsuitPlateCience
+    - ADTModsuitPlateMining
+    - ADTModsuitAssembly
+    - ADTModsuitModAntigrav
+    - ADTModsuitModApparatus
+    - ADTModsuitModDrill
+    - ADTModsuitModJetpack
+    - ADTModsuitModJetpack
+    - ADTModsuitModMagboot
+    - ADTModsuitModNightVision
+    - ADTModsuitModStun
+    - ADTModsuitModPowerKick
+    - ADTModsuitModSechud
+    - ADTModsuitModStorage
+    - ADTModsuitModWelding
+    - ADTModsuitModArmor
+    - ADTModsuitModStorageLarge
+    - ADTModsuitModTray
+    - ADTModsuitModIsulation
+    - ADTModsuitModJump
+    - ADTModsuitModNoslip
+    #ADT modsuits end
     # ADT mech start
     - ADTGygaxHarness
     - ADTGygaxLArm
@@ -927,7 +958,6 @@
       - ADTAttachmentT2MiniscopeRecipe
       - ADTAttachmentM90UnderbarrelShotgunRecipe
       - ADTAttachmentM90GrenadeLauncherRecipe
-      - ADT40mmGrenadeHEATRecipe
       - ADT40mmGrenadeBatonRecipe
       - ADT40mmGrenadeEMPRecipe
       - ADT40mmGrenadeFlashRecipe
@@ -1266,6 +1296,25 @@
       - CarpetPurple
       - CarpetCyan
       - CarpetWhite
+      # Bedsheets
+      - BedsheetBlack
+      - BedsheetBlue
+      - BedsheetBrown
+      - BedsheetGreen
+      - BedsheetGrey
+      - BedsheetOrange
+      - BedsheetPurple
+      - BedsheetRed
+      - BedsheetWhite
+      - BedsheetYellow
+      - BedsheetClown
+      - BedsheetCosmos
+      - BedsheetIan
+      - BedsheetMedical
+      - BedsheetMime
+      - BedsheetNT
+      - BedsheetRainbow
+      - BedsheetBrigmedic
       # Corvax-Clothing-Start
       - ClothingHeadHatCapHoS
       - ClothingHeadHatBeretSecurityMedic
@@ -1286,22 +1335,29 @@
       - ADTClothingBackpackCargo
       - ADTClothingBackpackMedical
       - ADTClothingBackpackEngineering
+      - ADTClothingBackpackClown
+      - ADTClothingBackpackMime
       - ADTClothingBackpackSatchel
       - ADTClothingBackpackSatchelSecurity
       - ADTClothingBackpackSatchelScience
       - ADTClothingBackpackSatchelCargo
       - ADTClothingBackpackSatchelMedical
       - ADTClothingBackpackSatchelEngineering
+      - ADTClothingBackpackSatchelClown
+      - ADTClothingBackpackSatchelMime
       - ADTClothingBackpackDuffel
       - ADTClothingBackpackDuffelSecurity
       - ADTClothingBackpackDuffelScience
       - ADTClothingBackpackDuffelCargo
       - ADTClothingBackpackDuffelMedical
       - ADTClothingBackpackDuffelEngineering
+      - ADTClothingBackpackDuffelClown
+      - ADTClothingBackpackDuffelMime
       - ADTClothingBackpackDuffelDurathead
       # ADT Backpacks End
   - type: EmagLatheRecipes
     emagStaticRecipes:
+      # Clothing
       - ClothingHeadHatCentcomcap
       - ClothingHeadHatCentcom
       - ClothingUniformJumpsuitCentcomAgent
@@ -1324,6 +1380,8 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Bedsheets
+      - BedsheetSyndie
       - ADTClothingBackpackDuffelSyndicate # ADT tweak
   - type: MaterialStorage
     whitelist:
@@ -1426,7 +1484,7 @@
       staticRecipes:
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlass # ADT-Fix
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1460,7 +1518,7 @@
     staticRecipes:
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlass # ADT-Fix
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1

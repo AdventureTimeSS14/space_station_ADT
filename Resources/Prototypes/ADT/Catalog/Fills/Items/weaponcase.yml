@@ -23,7 +23,7 @@
     - id: ADTAttachmentM90GrenadeLauncher
     - id: ADT40mmGrenadeBlast
       amount: 6
-    - id: ADT40mmGrenadeHEAT
+    - id: ADT40mmGrenadeBlast
       amount: 4
     - id: ADT40mmGrenadeBaton
       amount: 4

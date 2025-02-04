@@ -68,5 +68,8 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<SpeciesPrototype>> SpeciesBlacklist = new();
+
+    [DataField]
+    public bool Quirk = false;
     // ADT Tweak end
 }

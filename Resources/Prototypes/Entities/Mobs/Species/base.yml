@@ -223,14 +223,13 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  # Frontier - languages mechanic
+  # ADT tweak start
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+    languages:
+      GalacticCommon: Speak
   - type: SpeechBarks
   - type: Crawler
+  # ADT tweak end
 
 - type: entity
   save: false

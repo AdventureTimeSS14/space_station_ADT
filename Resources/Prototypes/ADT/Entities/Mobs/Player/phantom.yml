@@ -68,11 +68,9 @@
     layer: 2 #ghost vis layer
   - type: Speech
     speechVerb: Ghost
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Universal
-    understands:
-    - Universal
+  - type: LanguageSpeaker
+    languages:
+      Universal: Speak
   - type: TypingIndicator
     proto: alien
   - type: UniversalLanguageSpeaker
@@ -105,11 +103,9 @@
   - type: Alerts
   - type: Speech
     speechVerb: Ghost
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    understands:
-    - GalacticCommon
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
   - type: TransformAnimation
     transformingTo: ADTMobPhantomReincarnated
     duration: 2.5

@@ -1,0 +1,11 @@
+- type: vendingMachineInventory
+  id: ADTShellDispenserInventory
+  startingInventory:
+    ADTShipGunMagazineGAU32: 100
+    ADTShipGunMagazineDS30: 50
+    ADTShipBattle100mmHEShell: 120
+    ADTShipBattle100mmEMPShell: 40
+    ADTShipBattle100mmAPShell: 60
+    ADTShipBattle155mmHEShell: 90
+    ADTShipBattle155mmEMPShell: 30
+    ADTShipBattle155mmAPShell: 45

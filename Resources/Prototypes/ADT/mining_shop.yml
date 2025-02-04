@@ -19,6 +19,14 @@
   entries:
   - id: WeaponProtoKineticAccelerator
     price: 550
+  - id: ADTWeaponProtoKineticPistol
+    price: 1550
+  - id: ADTWeaponProtoKineticShotgun
+    price: 1500
+  - id: ADTWeaponProtoKineticRepeater
+    price: 1650
+  - id: ADTWeaponProtoKineticRailgun
+    price: 1750
 
 - type: miningShopSection
   id: Fulton
@@ -44,20 +52,22 @@
   entries:
   - id: ClothingBeltSalvageWebbing
     price: 500
-  - id: ClothingOuterHardsuitSalvage
-    price: 3000
+  - id: ADTAdvancedOreBag
+    price: 500
+  - id: ADTWeaponCutter
+    price: 500
+  - id: ADTJaunter
+    price: 900
   - id: ADTClothingOuterArmorMiner
     price: 1000
+  - id: ClothingOuterHardsuitSalvage
+    price: 3000
   - id: ADTClothingOuterArmorMinerHeavy
     price: 3600
   - id: ClothingOuterArmorMinerLight
     price: 4000
-  - id: ADTWeaponCutter
-    price: 500
   - id: ADTClothingJumpBoots
     price: 2500
-  - id: ADTJaunter
-    price: 900
 
 - type: miningShopSection
   id: Upgrades

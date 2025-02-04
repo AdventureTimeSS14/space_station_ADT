@@ -24,14 +24,15 @@ namespace Content.Server.Ghost
                 shell.WriteLine(Loc.GetString("ghost-command-no-session"));
                 return;
             }
-            // ADT-Tweak-start: fix-bug "ghost"
+
             var gameTicker = _entities.System<GameTicker>();
-            if (!gameTicker.PlayerGameStatuses.TryGetValue(player.UserId, out var status) || status is not PlayerGameStatus.JoinedGame)
+            if (!gameTicker.PlayerGameStatuses.TryGetValue(player.UserId, out var playerStatus) ||
+                playerStatus is not PlayerGameStatus.JoinedGame)
             {
-                shell.WriteLine("You can't ghost right now. You are not in the game!");
+                shell.WriteLine(Loc.GetString("ghost-command-error-lobby"));
                 return;
             }
-            // ADT-Tweak-end
+
             if (player.AttachedEntity is { Valid: true } frozen &&
                 _entities.HasComponent<AdminFrozenComponent>(frozen))
             {

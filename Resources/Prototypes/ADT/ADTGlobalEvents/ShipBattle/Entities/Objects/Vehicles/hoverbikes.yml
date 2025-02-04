@@ -1,0 +1,123 @@
+- type: entity
+  parent: ADTVehicleATV
+  id: ADTVehicleHoverbikeTSF
+  name: hoverbike TSF
+  description: A turbine with bike handles. Very safe.
+  components:
+  - type: MovementIgnoreGravity
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: AmbientSound
+    sound: /Audio/Effects/shuttle_thruster.ogg
+    range: 8
+    volume: 5
+    enabled: false
+  - type: Strap
+    buckleOffset: "0.1, -0.05"
+    #maxBuckleDistance: 1
+  - type: MovementSpeedModifier
+    acceleration: 2
+    friction: 1.5
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 7
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
+    layers:
+    - state: hull_tsf
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: engine
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: lights
+      shader: unshaded
+    noRot: true
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - HoverbikeKeysTSF
+        startingItem: ADTVehicleKeyHoverbikeTSF
+        priority: 1
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -5
+      bag:
+        name: stored bag
+        whitelist:
+          components:
+            - Storage
+        priority: 2
+        insertSound:
+          path: /Audio/Items/belt_equip.ogg
+          params:
+            volume: -3
+  - type: ItemMapper
+    mapLayers:
+      bag:
+        whitelist:
+          components:
+            - Storage
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
+  - type: Appearance
+  - type: PointLight
+    enabled: true
+    radius: 7
+    energy: 3
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
+    state: vehicle_tsf
+  - type: Vehicle
+    southOver: true
+    northOver: true
+    northOverride: -0.1
+    southOverride: 0.1
+  - type: UnpoweredFlashlight
+
+- type: entity
+  parent: ADTVehicleHoverbikeTSF
+  id: ADTVehicleHoverbikeKMT
+  name: hoverbike KMT
+  description: A turbine with bike handles. Very safe.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
+    layers:
+    - state: hull_kmt
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: engine
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: lights
+      shader: unshaded
+    noRot: true
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - HoverbikeKeysKMT
+        startingItem: ADTVehicleKeyHoverbikeKMT
+        priority: 1
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -5
+      bag:
+        name: stored bag
+        whitelist:
+          components:
+            - Storage
+        priority: 2
+        insertSound:
+          path: /Audio/Items/belt_equip.ogg
+          params:
+            volume: -3
+  - type: Icon
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Vehicles/hoverbike.rsi
+    state: vehicle_kmt

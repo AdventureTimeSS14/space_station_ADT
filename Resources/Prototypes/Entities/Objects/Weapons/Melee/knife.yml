@@ -108,6 +108,7 @@
         Slash: 12
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     damage:
@@ -144,7 +145,6 @@
     rsi: ADT/Objects/Weapons/Guns/Attachments/under.rsi
     prefix: combatknife
 # ADT TWEAK END
-
 - type: entity
   name: survival knife
   parent: [CombatKnife, BaseSecurityCargoContraband, ADTUnderAttachmentBase] # ADT TWEAK
@@ -183,7 +183,7 @@
 
 - type: entity
   name: kukri knife
-  parent: [CombatKnife, BaseMinorContraband]
+  parent: [CombatKnife, BaseSecurityCargoContraband]
   id: KukriKnife
   description: Professionals have standards. Be polite. Be efficient. Have a plan to kill everyone you meet.
   components:
@@ -197,6 +197,7 @@
         Slash: 15
   - type: Item
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
+    storedSprite: null
 
 - type: entity
   parent: [ClothingHeadHatGreyFlatcap] #, BaseSyndicateContraband] # ADT Remove cringe
@@ -343,6 +344,7 @@
         Slash: 5
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     ignoreResistances: true
@@ -352,3 +354,5 @@
         Piercing: 15
   - type: Item
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
+  - type: ThrowingAngle
+    angle: 225

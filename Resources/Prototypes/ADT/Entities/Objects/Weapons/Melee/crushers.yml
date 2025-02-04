@@ -83,6 +83,11 @@
     bonusDamage:
       types:
         Slash: 10
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
+        Slash: 15
 
 - type: entity
   parent: WeaponKineticBase
@@ -122,6 +127,11 @@
   - type: FlipOnHit
   - type: GunRequiresWield
   - type: Wieldable
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
+        Slash: 15
 
 - type: entity
   parent: WeaponKineticBase
@@ -160,6 +170,11 @@
   - type: Item
     size: Normal
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
+        Slash: 15
 
 - type: entity
   parent: WeaponKineticBase
@@ -189,3 +204,8 @@
     bonusDamage:
       types:
         Slash: 10
+  - type: PressureDamageModify
+    additionalDamage:
+      types:
+        Blunt: 10
+        Slash: 15

@@ -54,6 +54,7 @@
     whitelist:
       tags:
       - Cigarette
+      - ADTLighter
     # ADT Tweak END
   - type: StorageFill
     contents:

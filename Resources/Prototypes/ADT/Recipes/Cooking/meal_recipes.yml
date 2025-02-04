@@ -118,3 +118,25 @@
   solids:
     ADTEmptyTeaPack: 1
     FoodWatermelonSlice: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodMeatSalami
+  name: salami recipe
+  result: FoodMeatSalami
+  time: 10
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodMeat: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoupUzbekPilafRecipe
+  name: uzbek pilaf
+  result: ADTFoodSoupUzbekPilaf
+  time: 10
+  solids:
+    FoodRiceBoiled: 1
+    FoodGarlic: 1
+    FoodMeat: 1
+    FoodCarrot: 1
+    FoodOnionSlice: 2

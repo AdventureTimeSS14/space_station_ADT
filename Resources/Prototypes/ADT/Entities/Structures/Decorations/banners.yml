@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTBannerTSF
+  id: ADTBannerTSFOld
   parent: BannerBase
   name: tsf banner
   description: tsf banner.
@@ -7,3 +7,24 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/banners.rsi
     state: humanflag
+
+- type: entity
+  id: ADTBannerMGD
+  parent: BannerBase
+  name: MG&D banner
+  description: MG&D banner.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/banners48x48.rsi
+    state: mgdflag
+    scale: 0.75, 0.75
+
+- type: entity
+  id: ADTBannerPirate
+  parent: BannerBase
+  name: pirate banner
+  description: pirate banner.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/pirate.rsi
+    state: icon

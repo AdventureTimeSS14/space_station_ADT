@@ -93,7 +93,7 @@
   id: ADTNearResearch
   rules:
     - !type:NearbyAccessRule
-      count: 3
+      count: 5
       access:
         - Research
       range: 3
@@ -119,6 +119,7 @@
   id: ADTNearSecurity
   rules:
     - !type:NearbyAccessRule
+      count: 5
       access:
         - Security
       range: 3

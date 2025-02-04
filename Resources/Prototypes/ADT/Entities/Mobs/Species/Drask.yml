@@ -113,12 +113,9 @@
     damageContainer: Biological
     damageModifierSet: Drask
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Drask
-    understands:
-    - GalacticCommon
-    - Drask
+    languages:
+      GalacticCommon: Speak
+      Drask: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.15
