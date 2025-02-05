@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.OnGhostAttemtpDamage;
+namespace Content.Server.ADT.OnGhostAttemtpDamage;
 
 [RegisterComponent]
 [NetworkedComponent]
