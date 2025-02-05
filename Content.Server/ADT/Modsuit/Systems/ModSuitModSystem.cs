@@ -15,7 +15,7 @@ public sealed class ModSuitModSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ModSuitModComponent, ItemSlotInsertAttemptEvent>(OnInsert);
-        SubscribeLocalEvent<ModSuitModComponent, ItemSlotEjectAttemptEvent>(OnEject);
+        SubscribeLocalEvent<ModSuitModComponent, ItemSlotEjectedEvent>(OnEject);
     }
 
     private void OnInsert(EntityUid uid, ModSuitModComponent component, ref ItemSlotInsertAttemptEvent args)
@@ -37,6 +37,10 @@ public sealed class ModSuitModSystem : EntitySystem
         var container = modsuit.Container;
         if (container == null)
             return;
+        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
+        {
+            _clothing.ModifySpeed(uid, modify, component.SpeedMod);
+        }
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
         {
@@ -56,7 +60,7 @@ public sealed class ModSuitModSystem : EntitySystem
             break;
         }
     }
-    private void OnEject(EntityUid uid, ModSuitModComponent component, ref ItemSlotEjectAttemptEvent args)
+    private void OnEject(EntityUid uid, ModSuitModComponent component, ref ItemSlotEjectedEvent args)
     {
         if (!TryComp<WiresPanelComponent>(args.SlotEntity, out var panel) || !panel.Open)
         {
@@ -68,12 +72,11 @@ public sealed class ModSuitModSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
-        if (args.Cancelled || args.User == null)
+        if (args.Cancelled)
             return;
         var container = modsuit.Container;
         if (container == null)
             return;
-
 
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")

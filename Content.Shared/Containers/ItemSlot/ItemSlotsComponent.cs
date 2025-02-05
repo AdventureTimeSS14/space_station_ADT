@@ -275,4 +275,10 @@ namespace Content.Shared.Containers.ItemSlots
     /// </summary>
     [ByRefEvent]
     public record struct ItemSlotEjectAttemptEvent(EntityUid SlotEntity, EntityUid Item, EntityUid? User, ItemSlot Slot, bool Cancelled = false);
+
+    /// <summary>
+    /// ADT tweak: fix ejecting item success
+    /// </summary>
+    [ByRefEvent]
+    public record struct ItemSlotEjectedEvent(EntityUid SlotEntity, EntityUid Item, EntityUid? User, ItemSlot Slot, bool Handled = false);
 }
