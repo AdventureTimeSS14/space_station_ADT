@@ -813,6 +813,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
+        // ADT Disarm tweak start
+        if (component.LastDisarm < Timing.CurTime - TimeSpan.FromSeconds(3) || target != component.CurrentlyDisarming)
+            component.DisarmAttemptsCount = 0;
+        if (Timing.IsFirstTimePredicted)
+            component.DisarmAttemptsCount++;
+
+        component.LastDisarm = Timing.CurTime;
+        component.CurrentlyDisarming = target;
+        DirtyField(meleeUid, component, nameof(MeleeWeaponComponent.LastDisarm));
+        DirtyField(meleeUid, component, nameof(MeleeWeaponComponent.DisarmAttemptsCount));
+        // ADT Disarm tweak end
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);
         return true;

@@ -9,6 +9,9 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/white_footwraps.rsi #спрайты от floppo4ka
+  - type: Construction
+    graph: ADTFootWrapsWhite
+    node: WrapsWhite
 
 - type: entity
   parent: ClothingShoesBaseButcherable

@@ -1,0 +1,27 @@
+#SS40k Turrets with components for control
+
+- type: entity
+  id: ShuttleGunFriendshipControllable
+  parent: ShuttleGunFriendship
+  suffix: CONTROLLABLE, DO NOT MAP
+  abstract: true
+  components:
+  - type: TurretControllable #компонент контролируемой турели
+  - type: DeviceLinkSink
+    ports:
+    - On #можно переписать нахуй прототип турели, но главное что бы в прототипе был порт для линка(даже если он ничего не делает, вот например ВКЛ - сойдёт)
+  - type: MouseRotator #настраивать по вкусу
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false #выключить что бы турель красиво вертелась(а не резко поворачивалась в одну из 4 сторон)
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: CombatMode
+    toggleMouseRotator: false #нужно выключить, что бы у нас компонент ротатора не пропадал нахуй при переключении режимов
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      ballistic-ammo: !type:Container
+      actions: !type:Container
+  - type: Actions

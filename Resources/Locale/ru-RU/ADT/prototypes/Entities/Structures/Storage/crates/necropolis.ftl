@@ -1,4 +1,4 @@
-ent-ADTCrateNecropolis = суднук некрополя
+ent-ADTCrateNecropolis = сундук некрополя
     .desc = Сундук, состоящий из костей и мяса. Таит внутри себя неизведанные артефакты.
 
 ent-ADTCrateNecropolisHeart = { ent-ADTCrateNecropolis }

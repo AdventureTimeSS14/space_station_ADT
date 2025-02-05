@@ -3,3 +3,6 @@ ent-ADTFoodSoupSawdust = суп с опилками
 
 ent-ADTFoodSoupPumpkin = тыквенный суп
     .desc = Сытный и кремоподобный суп из тыквы и других овощей.
+
+ent-ADTFoodSoupUzbekPilaf = плов
+    .desc = Национальные блюдо восточной и среднеазиатской кухни.

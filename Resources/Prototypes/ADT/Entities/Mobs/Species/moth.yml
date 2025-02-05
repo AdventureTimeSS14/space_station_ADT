@@ -137,13 +137,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - Nian
-    understands:
-    - GalacticCommon
-    - Nian
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Nian: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1

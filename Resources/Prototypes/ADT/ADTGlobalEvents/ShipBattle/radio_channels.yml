@@ -1,0 +1,95 @@
+- type: radioChannel
+  id: ADTShipBattleRadioCommonTSF
+  name: ADT-ShipBattle-Channel-CommonTSF
+  keycode: 't'
+  frequency: 800
+  color: "#96bbff"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioCommandTSF
+  name: ADT-ShipBattle-Channel-CommandTSF
+  keycode: 'r'
+  frequency: 801
+  color: "#fcdf03"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioGunnerTSF
+  name: ADT-ShipBattle-Channel-GunnerTSF
+  keycode: 'y'
+  frequency: 802
+  color: "#ff4242"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioPilotTSF
+  name: ADT-ShipBattle-Channel-PilotTSF
+  keycode: 'w'
+  frequency: 803
+  color: "#cd7ccd"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioMarineTSF
+  name: ADT-ShipBattle-Channel-MarineTSF
+  keycode: 'u'
+  frequency: 804
+  color: "#074bc7"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioMedEngiTSF
+  name: ADT-ShipBattle-Channel-MedEngiTSF
+  keycode: 'i'
+  frequency: 805
+  color: "#ff733c"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioCommonKMT
+  name: ADT-ShipBattle-Channel-CommonKMT
+  keycode: 'o'
+  frequency: 900
+  color: "#ffaf00"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioCommandKMT
+  name: ADT-ShipBattle-Channel-CommandKMT
+  keycode: 'p'
+  frequency: 901
+  color: "#fcdf03"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioGunnerKMT
+  name: ADT-ShipBattle-Channel-GunnerKMT
+  keycode: 'a'
+  frequency: 902
+  color: "#ff4242"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioPilotKMT
+  name: ADT-ShipBattle-Channel-PilotKMT
+  keycode: 's'
+  frequency: 903
+  color: "#cd7ccd"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioMarineKMT
+  name: ADT-ShipBattle-Channel-MarineKMT
+  keycode: 'f'
+  frequency: 904
+  color: "#ffcd60"
+  longRange: true
+
+- type: radioChannel
+  id: ADTShipBattleRadioMedEngiKMT
+  name: ADT-ShipBattle-Channel-MedEngiKMT
+  keycode: 'g'
+  frequency: 905
+  color: "#ff733c"
+  longRange: true

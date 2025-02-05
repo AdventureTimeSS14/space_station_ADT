@@ -47,4 +47,10 @@ public sealed partial class SwitchableWeaponComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)][DataField("sizeClosed")]
     public ProtoId<ItemSizePrototype> SizeClosed = "Normal";
+
+    [ViewVariables(VVAccess.ReadWrite)][DataField("attackRateFolded")]
+    public float AttackRateFolded = 1;
+
+    [ViewVariables(VVAccess.ReadWrite)][DataField("attackRateOpen")]
+    public float AttackRateOpen = 1;
 }

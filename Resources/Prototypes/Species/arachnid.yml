@@ -14,13 +14,24 @@
   femaleLastNames: names_arachnid_last # Corvax-LastnameGender
   sexes:
   - Unsexed
-  # ADT Species window start
+  # ADT start
   pros:
   - Наносят 7 проникающего урона в ближнем бою.
+  - Имеют два дополнительных слота (как карманы, но содержимое видно при обыске).
+  - Получают на 10% меньше тупого урона.
+  - Получают на 5% меньше колющего урона.
+  - Получают на 40% меньше урона от ядов.
   special:
   - Могут плести шёлк, из которого создаются некоторые вещи.
+  cons:
+  - Получают на 10% больше урона от порезов.
+  - Получают на 20% больше урона от холода.
+  - Получают на 10% больше урона от ожогов.
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
-  # ADT Species window end
+  defaultLanguages:
+  - GalacticCommon
+  - Arachnid
+  # ADT end
 
 - type: speciesBaseSprites
   id: MobArachnidSprites

@@ -235,8 +235,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
-
-        string sanitizedMessage = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
+        // ADT-Tweak: SanitizeInGameICMessageLanguages Да это дублирование уже сущетвующей функции, но без проверки на замены
+        string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
         // ADT Languages end
 
@@ -558,7 +558,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
         var (coloredMessage, coloredLanguageMessage) = GetLanguageColoredMessages(source, sanitizedMessage, language);
 
         if (language.Color != null)
@@ -663,7 +663,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        var (sanitizedMessage, sanitizedLanguageMessage) = GetLanguageICSanitizedMessages(source, message, language);
+        var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
         var (coloredMessage, coloredLanguageMessage, coloredObfuscatedMessage, coloredObfuscatedLanguageMessage) = GetColoredObfuscatedLanguageMessages(source, sanitizedMessage, language);
 
         name = FormattedMessage.EscapeText(name);
@@ -951,6 +951,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     public string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
+        // ADT-Tweak-start: Проверка, нужно ли отправлять в чат админам об использовании замены.
+        if ((message != newMessage) && HasComp<ActorComponent>(source))
+            _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
+        // ADT-Tweak-end
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
 
@@ -966,6 +970,23 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         return prefix + newMessage;
     }
+
+    // ADT-Tweak-start: дааааааааааа дублируем чучучуть код
+    public string SanitizeInGameICMessageLanguages(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
+    {
+        var newMessage = message;
+        GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
+        // Sanitize it first as it might change the word order
+        _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
+        if (capitalize)
+            newMessage = SanitizeMessageCapital(newMessage);
+        if (capitalizeTheWordI)
+            newMessage = SanitizeMessageCapitalizeTheWordI(newMessage, "i");
+        if (punctuate)
+            newMessage = SanitizeMessagePeriod(newMessage);
+        return prefix + newMessage;
+    }
+    // ADT-Tweak-end
 
     private string SanitizeInGameOOCMessage(string message)
     {
@@ -1014,16 +1035,21 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public const string ChatSanitize_Accent = "chatsanitize";
+    public static readonly string[] ChatSanitize_Accent = { "chatsanitize", "adt_chatsanitize" }; // ADT-Tweak
 
     public string SanitizeMessageReplaceWords(string message)
     {
         if (string.IsNullOrEmpty(message)) return message;
 
         var msg = message;
-
-        msg = _wordreplacement.ApplyReplacements(msg, ChatSanitize_Accent);
-
+        // ADT-Tweak-start: теперь можно обрабатывать сразу несколько прототипов списка общих акцентов.
+        foreach (var accent in ChatSanitize_Accent)
+        {
+            msg = _wordreplacement.ApplyReplacements(msg, accent);
+        }
+        // ... ... ^_^
+        // msg = _wordreplacement.ApplyReplacements(msg, ChatSanitize_Accent);
+        // ADT-Tweak-end
         return msg;
     }
 

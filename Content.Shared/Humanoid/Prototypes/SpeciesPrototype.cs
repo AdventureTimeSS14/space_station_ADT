@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Language;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Utility;
@@ -135,7 +136,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField]
     public int MaxAge = 120;
 
-    // ADT Species Window start
+    // ADT start
     [DataField]
     public SpeciesCategory Category = SpeciesCategory.Classic;
 
@@ -150,7 +151,20 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public List<string> Special = new();
-    // ADT Species Window end
+    
+    /// <summary>
+    /// Особые языки, которые не могут выбрать представители других рас.
+    /// Уникальные языки не должны быть раундстартовыми.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> UniqueLanguages = new();
+
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> DefaultLanguages = new() { "GalacticCommon" };
+
+    [DataField]
+    public int MaxLanguages = 3;
+    // ADT end
 }
 
 public enum SpeciesNaming : byte

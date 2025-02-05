@@ -9,8 +9,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 4.5
-        Radiation: 2
+        Slash: 6
   - type: ToolRefinable
     refineResult:
     - id: SheetGlass1
@@ -31,7 +30,7 @@
         reagents:
         - ReagentId: Silicon
           Quantity: 5
-        - ReagentId: Uranium
+        - ReagentId: Plasma
           Quantity: 5
   - type: Construction
     graph: ADTPShiv

@@ -89,8 +89,6 @@
     damage:
       types:
         Slash: 0
-  - type: ReplacementAccent
-    accent: cat
   - type: NoSlip
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -104,6 +102,9 @@
         Burn: 15
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
+  - type: LanguageSpeaker
+    languages:
+      Cat: Speak
 
 - type: entity
   name: Slug Cat
