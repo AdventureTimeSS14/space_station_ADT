@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.ADT.AutoPostingChat;
+namespace Content.Server.ADT.AutoPostingChat;
 
 [RegisterComponent]
 [NetworkedComponent]
@@ -24,6 +24,14 @@ public sealed partial class AutoSpeakPostingChatComponent : Component
     [DataField("min"), ViewVariables(VVAccess.ReadWrite)]
     public int IntervalRandomSpeakMin = 2;
 
-
-
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

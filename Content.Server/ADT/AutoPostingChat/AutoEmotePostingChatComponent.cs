@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.ADT.AutoPostingChat;
+namespace Content.Server.ADT.AutoPostingChat;
 
 [RegisterComponent]
 [NetworkedComponent]
@@ -24,3 +24,13 @@ public sealed partial class AutoEmotePostingChatComponent : Component
     [DataField("min"), ViewVariables(VVAccess.ReadWrite)]
     public int IntervalRandomEmoteMin = 2;
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/
