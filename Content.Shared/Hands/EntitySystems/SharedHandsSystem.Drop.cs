@@ -113,8 +113,8 @@ public abstract partial class SharedHandsSystem
         var entity = hand.HeldEntity!.Value;
 
         // if item is a fake item (like with pulling), just delete it rather than bothering with trying to drop it into the world
-        if (TryComp(entity, out VirtualItemComponent? @virtual))
-            _virtualSystem.DeleteVirtualItem((entity, @virtual), uid);
+        if (TryComp(entity, out VirtualItemComponent? @virtual) && !_virtualSystem.TryDeleteVirtualItem((entity, @virtual), uid))   // ADT Grab tweaked
+            return false;   // ADT Grab tweaked
 
         if (TerminatingOrDeleted(entity))
             return true;
