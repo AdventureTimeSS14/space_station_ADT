@@ -90,6 +90,7 @@
       sprite: ADT/Objects/Weapons/Guns/Battery/tsd_gun.rsi
       quickEquip: false
       slots:
+        - suitStorage
         - Belt
     - type: Gun
       fireRate: 1.5
@@ -107,6 +108,7 @@
       maxCharge: 2000
       startingCharge: 2000
     - type: DNAGunLocker
+    - type: RMCMagneticItem
 
 - type: entity
   name: Cutter

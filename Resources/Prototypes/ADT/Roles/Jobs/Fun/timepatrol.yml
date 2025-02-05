@@ -32,7 +32,7 @@
     #suitstorage: OxygenTankFilled
     back: ADTClothingBackpackTimePatrol
     #id: ADTSecurityCybPDA #ADTSecurityCybPDA
-    belt: ADTWeaponPulseTimePatrol
+    belt: EmergencyOxygenTankFilled
     #pocket1: ADtWeaponSecCyborg
     #pocket2: WeaponDisabler
     neck: ADTClothingNeckMantleTimePatrol
@@ -45,7 +45,7 @@
     outerClothing: ADTClothingOuterHardsuitTimePatrol
     #id: CentcomPDA
     #ears: ClothingHeadsetAltCentCom
-    suitstorage: EmergencyOxygenTankFilled
+    suitstorage: ADTWeaponPulseTimePatrol
     pocket1: EnergySword
     pocket2: MindFlushingFlash
     #underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
