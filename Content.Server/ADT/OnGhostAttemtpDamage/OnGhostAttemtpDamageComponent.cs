@@ -11,3 +11,13 @@ public sealed partial class OnGhostAttemtpDamageComponent : Component
     [DataField]
     public ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/
