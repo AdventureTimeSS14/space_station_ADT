@@ -280,5 +280,5 @@ namespace Content.Shared.Containers.ItemSlots
     /// ADT tweak: fix ejecting item success
     /// </summary>
     [ByRefEvent]
-    public record struct ItemSlotEjectedEvent(EntityUid SlotEntity, EntityUid Item, EntityUid? User, ItemSlot Slot, bool Handled = false);
+    public record struct ItemSlotEjectedEvent(EntityUid SlotEntity, EntityUid Item, EntityUid? User, ItemSlot Slot, bool Cancelled = false);
 }
