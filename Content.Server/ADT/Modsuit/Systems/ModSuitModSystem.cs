@@ -37,10 +37,7 @@ public sealed class ModSuitModSystem : EntitySystem
         var container = modsuit.Container;
         if (container == null)
             return;
-        if (TryComp<ClothingSpeedModifierComponent>(args.SlotEntity, out var modify))
-        {
-            _clothing.ModifySpeed(uid, modify, component.SpeedMod);
-        }
+
         var attachedClothings = modsuit.ClothingUids;
         if (component.Slot == "MODcore")
         {
