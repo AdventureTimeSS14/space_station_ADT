@@ -1,0 +1,39 @@
+- type: constructionGraph
+  id: ADTPShiv
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTCompPlasmaShiv
+      steps:
+      - tag: ADTRPlasmaShard
+        name: "Осколок закалённого плазменного стекла"
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: ADTCompPlasmaShiv
+    entity: ADTReinforcedPlasmaShiv
+
+- type: constructionGraph
+  id: ADTUShiv
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTCompUraniumShiv
+      steps:
+      - tag: ADTRUranShard
+        name: "Осколок закалённого уранового стекла"
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: ADTCompUraniumShiv
+    entity: ADTReinforcedUraniumShiv

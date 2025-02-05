@@ -23,7 +23,7 @@
       Min: 1
       Max: 4
       PotencyDivisor: 5
-    ADTMOpium:
+    ADTOpium:
       Min: 1
       Max: 10
       PotencyDivisor: 5

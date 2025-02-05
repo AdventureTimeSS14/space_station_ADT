@@ -31,6 +31,11 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
+  # ADT-Tweak-Start
+  - type: Construction
+    graph: ADTFan
+    node: litleFan
+  # ADT-Tweak-End
 
 - type: entity
   id: AtmosDeviceFanDirectional
@@ -60,3 +65,8 @@
   - type: Tag
     tags:
       - SpreaderIgnore
+  # ADT-Tweak-Start
+  - type: Construction
+    graph: ADTFan
+    node: directionalFan
+  # ADT-Tweak-End

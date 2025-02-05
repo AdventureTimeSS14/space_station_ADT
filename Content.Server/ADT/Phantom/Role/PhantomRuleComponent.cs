@@ -64,7 +64,7 @@ public sealed partial class PhantomRuleComponent : Component
     [DataField]
     public Dictionary<EntityUid, string> OperativeMindPendingData = new();
 
-    public Entity<MindComponent> PhantomMind = new();
+    public Entity<MindComponent>? PhantomMind;
 
     [DataField]
     public ProtoId<WeightedRandomPrototype> ObjectiveGroup = "PhantomObjectiveGroups";

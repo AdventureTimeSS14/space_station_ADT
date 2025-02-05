@@ -38,13 +38,13 @@ ent-ADTClothingBeltMedicalBag = медицинская поясная сумка
     .desc = Небольшая, но вместительная сумка для хранения медикаментов. Тут даже поместится планшет для бумаги!
     .suffix = { "" }
 
-ent-ADTClothingBeltUtilityWebbing = Жилет для инструментов
+ent-ADTClothingBeltUtilityWebbing = жилет для инструментов
     .desc = Жилет для хранения ваших инструментов. То, что нужно, когда обычный пояс надоел.
 
-ent-ADTClothingBeltUtilityWebbingFilled = Жилет для инструментов
+ent-ADTClothingBeltUtilityWebbingFilled = жилет для инструментов
     .desc = { ent-ADTClothingBeltUtilityWebbing.desc }
     .suffix = Заполненный
 
-ent-ADTClothingBeltUtilityWebbingEngineering = Жилет для инструментов
+ent-ADTClothingBeltUtilityWebbingEngineering = жилет для инструментов
     .desc = { ent-ADTClothingBeltUtilityWebbing.desc }
     .suffix = Инженерный

@@ -3,17 +3,19 @@ using Content.Server.Humanoid;
 using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
-using Content.Server.Nutrition;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
+using Content.Shared.Follower;
+using Content.Shared.Follower.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
@@ -25,7 +27,8 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Forensics; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
-using Robust.Shared.Serialization.Manager; // ADT-Changeling-Tweak
+using Robust.Shared.Serialization.Manager;
+using Content.Server.DetailExaminable; // ADT-Changeling-Tweak
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -49,6 +52,8 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
+
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -203,6 +208,9 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var targetTransformComp = Transform(uid);
 
+        if (configuration.PolymorphSound != null)
+            _audio.PlayPvs(configuration.PolymorphSound, targetTransformComp.Coordinates);
+
         var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
         MakeSentientCommand.MakeSentient(child, EntityManager);
@@ -307,6 +315,15 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (PausedMap != null)
             _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
 
+        // goob edit
+        if (TryComp<FollowedComponent>(uid, out var followed))
+            foreach (var f in followed.Following)
+            {
+                _follow.StopFollowingEntity(f, uid);
+                _follow.StartFollowingEntity(f, child);
+            }
+        // goob edit end
+
         return child;
     }
     // ADT-Changeling-Tweak-Start
@@ -364,6 +381,9 @@ public sealed partial class PolymorphSystem : EntitySystem
         var uidXform = Transform(uid);
         var parentXform = Transform(parent);
 
+        if (component.Configuration.ExitPolymorphSound != null)
+            _audio.PlayPvs(component.Configuration.ExitPolymorphSound, uidXform.Coordinates);
+
         _transform.SetParent(parent, parentXform, uidXform.ParentUid);
         _transform.SetCoordinates(parent, parentXform, uidXform.Coordinates, uidXform.LocalRotation);
 
@@ -416,7 +436,13 @@ public sealed partial class PolymorphSystem : EntitySystem
         QueueDel(uid);
 
         // goob edit
-        RaiseLocalEvent(parent, new PolymorphRevertEvent());
+        if (TryComp<FollowedComponent>(uid, out var followed))
+            foreach (var f in followed.Following)
+            {
+                _follow.StopFollowingEntity(f, uid);
+                _follow.StartFollowingEntity(f, parent);
+            }
+        // goob edit end
 
         return parent;
     }
@@ -497,6 +523,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             var copiedMindshieldComp = (Component) _serialization.CreateCopy(mindshieldComp, notNullableOverride: true);
             EntityManager.AddComponent(newEntityUid, copiedMindshieldComp);
+        }
+        if (TryComp<DetailExaminableComponent>(source, out var desc))
+        {
+            var newDesc = EnsureComp<DetailExaminableComponent>(newEntityUid);
+            newDesc.Content = desc.Content;
         }
 
         SendToPausedMap(newEntityUid, newEntityUidTransformComp);

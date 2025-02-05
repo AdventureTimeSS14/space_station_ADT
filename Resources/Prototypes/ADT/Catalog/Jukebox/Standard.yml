@@ -39,3 +39,63 @@
   name: Conjurerq - Gift of Adventure from Conjurer
   path:
     path: /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasCountdown
+  name: Alex Productions - Christmas Countdown
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-countdown-deck-the-halls.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasIsComing
+  name: Alex Productions - Christmas is Coming
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-is-coming.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasMood
+  name: Alex Productions - Christmas Mood
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-mood.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasVibes
+  name: Alex Productions - Christmas Vibes
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-vibes.ogg
+
+- type: jukebox
+  id: ESCPMidnightRoom
+  name: < e s c p > - Midnight Room
+  path:
+    path: /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
+
+- type: jukebox
+  id: ESCPNeonscapes
+  name: < e s c p > - Neonscapes
+  path:
+    path: /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
+
+- type: jukebox
+  id: MaxKoMusicChristmasIsComing
+  name: MaxKoMusic - Christmas is Coming
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/maxkomusic-christmas-is-coming.ogg
+
+- type: jukebox
+  id: RoaMusicWinterMagic
+  name: Roa Music - Winter Magic
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/roa-music-winter-magic.ogg
+
+- type: jukebox
+  id: PianoSaysYuletide
+  name: Piano Says - Yuletide
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/the-piano-says-yuletide.ogg
+
+- type: jukebox
+  id: FSMTeamEagle
+  name: FSM team - Eagle
+  path:
+    path: /Audio/ADT/Jukebox/fsm-team-eagle.ogg

@@ -1,6 +1,6 @@
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
-// using Content.Shared.Popups; // ADT TWEAK
+using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
@@ -12,7 +12,7 @@ namespace Content.Shared.Revolutionary;
 
 public abstract class SharedRevolutionarySystem : EntitySystem
 {
-    //[Dependency] private readonly SharedPopupSystem _popupSystem = default!; // ADT TWEAK: лишнее так как попап закомментирован
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStunSystem _sharedStun = default!;
 
     public override void Initialize()
@@ -32,8 +32,6 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     /// </summary>
     private void MindShieldImplanted(EntityUid uid, MindShieldComponent comp, MapInitEvent init)
     {
-
-        /* - ADT TWEAK START
         if (HasComp<HeadRevolutionaryComponent>(uid))
         {
             RemCompDeferred<MindShieldComponent>(uid);
@@ -48,7 +46,6 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             _sharedStun.TryParalyze(uid, stunTime, true);
             _popupSystem.PopupEntity(Loc.GetString("rev-break-control", ("name", name)), uid);
         }
-        */// - ADT TWEAK END
 
         // who and why have done it THIS way
         // ADT phantom start

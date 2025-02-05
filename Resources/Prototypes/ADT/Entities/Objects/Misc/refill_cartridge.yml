@@ -1,0 +1,17 @@
+# Оригинал данного файла был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
+
+- type: entity
+  id: ADTBookPrinterInkCartridge
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  name: printer cartridge
+  description: A black box containing a strange black substance. You think they're called ink...
+  components:
+  - type: BookPrinterCartridge
+  - type: StaticPrice
+    price: 150
+  - type: Sprite
+    sprite: ADT/Objects/Misc/refill_cartridge.rsi
+    state: icon
+  - type: Item
+    size: Normal

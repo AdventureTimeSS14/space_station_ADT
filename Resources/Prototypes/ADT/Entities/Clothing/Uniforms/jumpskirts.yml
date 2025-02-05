@@ -219,7 +219,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
+  id: ADTClothingUniformJumpskirtBrigmedicTurtleneck
   name: brigmedic turtleneck
   description: Comfortable and warm turtleneck. Especially for the guardian angel.
   components:
@@ -519,3 +519,13 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/redhat.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpskirtCamisoleQM
+  name: Quartermaster's camisole with skirt
+  description: short camisole
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi

@@ -1,0 +1,16 @@
+- type: tile
+  id: ADTFloorFleshPlanet
+  name: adt-tiles-flesh-floor
+  sprite: /Textures/Tiles/meat.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepBlood
+  weather: true
+  indestructible: true
+  heatCapacity: 10000

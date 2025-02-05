@@ -100,7 +100,7 @@
 
 - type: entity
   name: AR-12
-  parent: WeaponRifleLecter
+  parent: [WeaponRifleLecter, ADTBaseMagneticGun]
   id: ADTWeaponRifleAR12
   description: AR-12
   components:
@@ -155,7 +155,7 @@
 
 - type: entity
   name: xC67
-  parent: BaseWeaponRifle
+  parent: [BaseWeaponRifle, ADTBaseAttachableHolder]
   id: ADTWeaponRifleXC67
   description: A high end prototipe assault rifle. Uses .20 rifle ammo.
   components:
@@ -169,8 +169,8 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
   - type: Gun
-    #minAngle: 2
-    #maxAngle: 8
+    minAngle: 20.5
+    maxAngle: 31
     fireRate: 6
     #angleIncrease: 1
     #angleDecay: 12
@@ -208,3 +208,38 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        startingAttachable: ADTAttachmentVerticalGrip
+        whitelist:
+          tags:
+          - ADTAttachmentM90GrenadeLauncher
+          - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        startingAttachable: ADTAttachmentT2Miniscope
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.3125, -0.03125
+      rmc-aslot-rail: -0.0940, -0.0325
+      rmc-aslot-barrel: 0.96875, 0.03125
+  - type: ItemSizeChange
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui

@@ -3,6 +3,7 @@ using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
+using Content.Shared.ADT.Hands;
 using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
@@ -137,10 +138,18 @@ namespace Content.Server.Hands.Systems
             if (TryComp<PullerComponent>(args.PullerUid, out var pullerComp) && !pullerComp.NeedsHands)
                 return;
 
-            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid))
+            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virtualItem))    // ADT Grab tweaked
             {
                 DebugTools.Assert("Unable to find available hand when starting pulling??");
             }
+
+            // ADT Grab start
+            if (pullerComp != null)
+            {
+                pullerComp.VirtualItems.Add(GetNetEntity(virtualItem.Value));
+                Dirty(args.PullerUid, pullerComp);
+            }
+            // ADT Grab end
         }
 
         private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
@@ -190,6 +199,21 @@ namespace Content.Server.Hands.Systems
             if (_timing.CurTime < hands.NextThrowTime)
                 return false;
             hands.NextThrowTime = _timing.CurTime + hands.ThrowCooldown;
+
+            // ADT Grab start
+            if (TryComp<VirtualItemComponent>(throwEnt, out var virtualItem))
+            {
+                var userEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(player, userEv);
+
+                var targEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(virtualItem.BlockingEntity, targEv);
+
+                if (userEv.Cancelled || targEv.Cancelled)
+                    return false;
+            }
+            // ADT Grab end
+
 
             if (EntityManager.TryGetComponent(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
             {

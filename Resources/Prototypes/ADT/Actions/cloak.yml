@@ -1,0 +1,10 @@
+﻿- type: entity
+  id: ADTActionToggleCloak
+  categories:
+    - HideSpawnMenu
+  name: Toggle Cloak
+  description: Enable or Disable your Thermal Cloak
+  components:
+    - type: InstantAction
+      event: !type:ThermalCloakTurnInvisibleActionEvent
+      useDelay: 5

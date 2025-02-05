@@ -104,9 +104,9 @@
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusher
   components:
-  - type: Tag
-    tags:
-      - Pickaxe
+  # - type: Tag ADT tweak
+  #   tags:
+  #     - Pickaxe
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher.rsi
     state: icon
@@ -114,16 +114,16 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
-  - type: LeechOnMarker
-    leech:
-      groups:
-        Brute: -10
+  # - type: LeechOnMarker ADT tweak
+  #   leech:
+  #     groups:
+  #       Brute: -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
+    rechargeCooldown: 1 # ADT tweak 0.5 -> 1
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -131,7 +131,8 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1 #ADT tweak 1.5 -> 1
+    angle: 0 #ADT tweak
     wideAnimationRotation: -135
     damage:
       types:
@@ -184,14 +185,14 @@
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi
   - type: UseDelay
     delay: 1.9
-  - type: LeechOnMarker
-    leech:
-      groups:
-        Brute: -21
+  # - type: LeechOnMarker ADT crusher reskin
+  #   leech:
+  #     groups:
+  #       Brute: -21
   - type: MeleeWeapon
-  - type: Tag
-    tags:
-      - Pickaxe
+  # - type: Tag ADT crusher reskin
+  #   tags:
+  #     - Pickaxe
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi

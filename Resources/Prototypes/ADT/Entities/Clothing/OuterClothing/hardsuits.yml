@@ -101,8 +101,9 @@
 - type: entity
   parent: ClothingOuterHardsuitBasic
   id: ADTClothingOuterERTRiotHardsuit
-  name: riot ERT helmet
+  name: Cheap Riot ERT suit
   description: The cheapest ERT hardsuit choice, designed especially for economy and anti-riot actions
+  suffix: ADT
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Hardsuits/riotert.rsi
@@ -118,6 +119,7 @@
         Piercing: 0.7
         Heat: 0.6
         Radiation: 0.9
+    staminaModifier: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -148,7 +150,7 @@
         Heat: 0.7
         Radiation: 0.3
         Caustic: 0.5
-        # Stun: 0.9
+    staminaModifier: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: ToggleableClothing

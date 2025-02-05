@@ -2,7 +2,7 @@
   id: ArtifactContainer
   icon:
     sprite: Structures/Storage/Crates/artifact.rsi
-    state: artifact_container_icon
+    state: base
   product: CrateArtifactContainer
   cost: 500
   category: cargoproduct-category-name-science
@@ -25,5 +25,15 @@
     state: icon
   product: CrateScienceBiosuit
   cost: 800
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
+  id: CrewMonitoring
+  icon:
+    sprite: Structures/Machines/server.rsi
+    state: server
+  product: CrateCrewMonitoring
+  cost: 2000
   category: cargoproduct-category-name-science
   group: market

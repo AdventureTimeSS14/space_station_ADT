@@ -63,7 +63,7 @@
 
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLabPathologist] # ADT-fix-senior-and-patholog-labcoat
   id: ADTClothingOuterCoatLabPathologistOpened
   name: pathologist's lab coat
 
@@ -135,6 +135,35 @@
       sprite: ADT/Clothing/OuterClothing/Coats/atmosian.rsi
     - type: Clothing
       sprite: ADT/Clothing/OuterClothing/Coats/atmosian.rsi
+
+#Пальто ЦентКом
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatCentCom
+  name: centcom coat
+  description: A green coat with gold inserts. The golden letter N is emblazoned on the back. Only the big shots wear this coat...
+  components:
+    - type: Storage
+      grid:
+      - 0,0,2,1
+      maxItemSize: Normal
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
+    - type: StorageFill
+      contents:
+      - id: RubberStampCentcom
+      - id: PenCentcom
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.6
+          Heat: 0.7
+    - type: ExplosionResistance
+      damageCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -225,4 +254,3 @@
     state: icon-open
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
-

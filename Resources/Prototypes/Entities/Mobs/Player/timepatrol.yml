@@ -32,7 +32,6 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener # авто открытие двери, когда подходишь к ней
-  # Frontier - languages mechanic
   - type: UniversalLanguageSpeaker # Ghosts should understand any language.
   - type: RandomMetadata
     nameSegments:

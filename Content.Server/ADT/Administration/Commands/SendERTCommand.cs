@@ -16,6 +16,7 @@ using Robust.Shared.Player;
 using System.Numerics;
 using Content.Server.Chat.Managers;
 using Robust.Shared.ContentPack;
+using System.Threading.Tasks;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -33,7 +34,8 @@ public sealed class SendERTCommand : IConsoleCommand
     public string Command => "sendert";
     public string Description => Loc.GetString("send-ert-description");
     public string Help => Loc.GetString("send-ert-help");
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+
+    public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         #region Setup vars
         string audioPath = "";
@@ -158,12 +160,6 @@ public sealed class SendERTCommand : IConsoleCommand
 
         if (isAnnounce) // Write announce & play audio
         {
-            if (isSetAlertLevel)
-            {
-                if (stationUid == null) { shell.WriteLine(Loc.GetString("sent-ert-invalid-grid")); return; } //We are on station?
-                _system.GetEntitySystem<AlertLevelSystem>().SetLevel(stationUid.Value, alertLevelCode, false, true, true, true);
-            }
-
             if (isPlayAudio)
             {
                 Filter filter = Filter.Empty().AddAllPlayers(_playerManager);
@@ -175,6 +171,15 @@ public sealed class SendERTCommand : IConsoleCommand
             }
 
             _system.GetEntitySystem<ChatSystem>().DispatchGlobalAnnouncement(Loc.GetString($"ert-send-{args[0].ToLower()}-announcement"), Loc.GetString($"ert-send-{args[0].ToLower()}-announcer"), playSound: playAuidoFromAnnouncement, colorOverride: announceColor);
+
+            if (args[0].ToLower() != "denial") // Если отказ то задержка нам не нужна
+                await Task.Delay(10000); // Ставим задержку на 10 секунд
+
+            if (isSetAlertLevel)
+            {
+                if (stationUid == null) { shell.WriteLine(Loc.GetString("sent-ert-invalid-grid")); return; } //We are on station?
+                _system.GetEntitySystem<AlertLevelSystem>().SetLevel(stationUid.Value, alertLevelCode, false, true, true, true);
+            }
         }
         #endregion
 
@@ -214,3 +219,14 @@ public sealed class SendERTCommand : IConsoleCommand
         return CompletionResult.Empty;
     }
 }
+
+
+/*
+        ╔════════════════════════════════════╗
+        ║   Schrödinger's Cat Code   🐾      ║
+        ║   /\_/\\                           ║
+        ║  ( o.o )  Meow!                    ║
+        ║   > ^ <                            ║
+        ╚════════════════════════════════════╝
+
+*/

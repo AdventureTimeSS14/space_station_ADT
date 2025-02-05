@@ -67,7 +67,7 @@
   suffix: Filled Insane, New Year
   components:
   - type: RandomGift
-    insaneMode: true
+    insaneMode: ADTUnSafe
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
     layers:
@@ -98,4 +98,4 @@
     rarePrototypes: #временный прикол, который стоит потом убрать.
       - toyC4Package
       - ADTPresentRandomInsaneSyndicate
-    rareChance: 0.25
+    rareChance: 0.10 #Был 0.25. Даже с таким слишком часто падает.

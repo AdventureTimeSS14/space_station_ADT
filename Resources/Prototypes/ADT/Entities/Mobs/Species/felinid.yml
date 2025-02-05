@@ -165,17 +165,21 @@
     interactDelay: 4
   - type: NyaAccent
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Nekomimetic
-    understands:
-    - GalacticCommon
-    - Nekomimetic
+    languages:
+      GalacticCommon: Speak
+      Nekomimetic: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 0.95
     short: true
     shortscale: 0.8
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTCatEmotes
 
 - type: entity
   save: false

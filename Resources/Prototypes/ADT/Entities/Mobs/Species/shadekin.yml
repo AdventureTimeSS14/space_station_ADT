@@ -23,6 +23,31 @@
     requiredLegs: 2
   - type: Puller
     needsHands: false
+    grabStats:
+      None:
+        requiredHands: 0
+        doaftersToEscape: 0
+        movementSpeedModifier: 0.95
+        escapeAttemptTime: 0
+        setStageTime: 0
+      Soft:
+        requiredHands: 0
+        doaftersToEscape: 1
+        movementSpeedModifier: 0.9
+        escapeAttemptTime: 1
+        setStageTime: 0.5
+      Hard:
+        requiredHands: 1
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.8
+        escapeAttemptTime: 1.25
+        setStageTime: 0.75
+      Choke:
+        requiredHands: 2
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.7
+        escapeAttemptTime: 1.5
+        setStageTime: 1.25
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -249,21 +274,22 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: socks
-
-
-  # Frontier - languages mechanic
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Shadekin
-    understands:
-    - GalacticCommon
-    - Shadekin
+    languages:
+      GalacticCommon: Speak
+      Mar: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1
     short: true
     shortscale: 0.85
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ADTIgnoreChokeSpeechBlocking
 
 - type: entity
   save: false

@@ -24,7 +24,7 @@
     - ADTGasVentPump
     - ADTGasValve
     - ADTGasVentScrubber
-    - ADTAtmosDeviceFanTiny
+    # - ADTAtmosDeviceFanTiny Удалено в целях баланса
     - ADTGasPassiveGate
     - ADTGasDualPortVentPump
     - ADTSignalControlledValve

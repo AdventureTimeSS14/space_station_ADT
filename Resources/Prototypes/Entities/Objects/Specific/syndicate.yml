@@ -27,9 +27,9 @@
     entries:
     - label: corvax-hidden-desc-Telecrystal-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-Telecrystal-cargo
       jobRequired:
         - SalvageSpecialist
@@ -132,6 +132,7 @@
     categories:
     - UplinkWeaponry
     - UplinkAmmo
+    - UplinkAttachments #ADT_Tweak
     - UplinkExplosives
     - UplinkChemicals
     - UplinkDeception

@@ -6,6 +6,7 @@
     sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
     state: icon
   content:
+  - ChameleonPDA
   - ClothingUniformJumpsuitChameleon
   - ClothingOuterChameleon
   - ClothingNeckChameleon
@@ -64,6 +65,7 @@
   - Lighter
   - CigPackSyndicate
   - Telecrystal10 #The thief cannot use them, but it may induce communication with traitors
+  - ADTClothingNeckInvisibleCloak #ADT Tweak
 
 - type: thiefBackpackSet
   id: SleeperSet

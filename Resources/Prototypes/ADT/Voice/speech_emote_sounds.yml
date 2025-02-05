@@ -31,6 +31,8 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: FemaleDrask
@@ -65,6 +67,8 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: MaleMoth
@@ -177,6 +181,8 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
     # ADT-Apathy Sounds.
     Scream-apathy:
       collection: TajaranMaleScreams
@@ -226,7 +232,8 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-
+    Spit:
+      collection: HumanSpits
     # ADT-Apathy Sounds.
     Scream-apathy:
       collection: TajaranFemaleScreams
@@ -366,8 +373,6 @@
       path: /Audio/ADT/IPC/synth_yes.ogg
     SynthNo:
       path: /Audio/ADT/IPC/synth_no.ogg
-    Ping:
-      path: /Audio/ADT/IPC/ping.ogg
     Buzz:
       path: /Audio/ADT/IPC/buzz-sigh.ogg
     SighBuzz:
@@ -376,6 +381,16 @@
       path: /Audio/ADT/IPC/buzz-two.ogg
     Scream:
       path: /Audio/ADT/IPC/synth_scream.ogg
+    Beep:
+      path: /Audio/Machines/twobeep.ogg
+    Chime:
+      path: /Audio/Machines/chime.ogg
+    Buzz-Two:
+      path: /Audio/Machines/buzz-two.ogg
+    Honk:
+      path: /Audio/Items/bikehorn.ogg
+    Ping:
+      path: /Audio/Effects/Cargo/ping.ogg
   params:
     variation: 0.125
 
@@ -412,6 +427,8 @@
       collection: UrsusCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: FemaleUrsus
@@ -446,6 +463,8 @@
       collection: UrsusCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: NesMaleVulpa
@@ -490,6 +509,8 @@
       collection: Whistles
     Heckaet:
       collection: VulpHeckaetSound
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: NesFemaleVulpa
@@ -534,6 +555,8 @@
       collection: Whistles
     Heckaet:
       collection: VulpHeckaetSound
+    Spit:
+      collection: HumanSpits
 
 - type: emoteSounds
   id: MaleFelinid

@@ -50,7 +50,10 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  # Start ADT tweak
   - ADTBorgModuleHarm #ADT secborg
+  - ADTMechGunImmolatorLaser
+  # End ADT tweak
 
 - type: technology
   id: NonlethalAmmunition
@@ -83,7 +86,7 @@
   - MagazinePistolUranium
   # Start ADT tweak
   - ADTMagazineMagnumUranium
-  # Start ADT tweak
+  # End ADT tweak
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
@@ -106,6 +109,10 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  # Start ADT tweak - часть технологий подходящих по стилю переношу сюда
+  - ClothingBackpackElectropack
+  - ADTMechGunPeacemakerDisabler
+  # End ADT tweak
 
 - type: technology
   id: ExplosiveTechnology
@@ -125,17 +132,17 @@
   - ExplosivePayload
   - ChemicalPayload
 
-- type: technology
-  id: SpecialMeans
-  name: research-technology-special-means
-  icon:
-    sprite: Clothing/Back/Backpacks/electropack.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ClothingBackpackElectropack
+# - type: technology #ADT_Tweak - электрорюкзак перенесен в технологию контроля беспорядков
+#   id: SpecialMeans
+#   name: research-technology-special-means
+#   icon:
+#     sprite: Clothing/Back/Backpacks/electropack.rsi
+#     state: icon
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - ClothingBackpackElectropack
 
 # Tier 2
 
@@ -150,6 +157,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponLaserCannon
+  - ADTMechGunSolarisLaserCannon #ADT_Tweak
 
 - type: technology
   id: WaveParticleHarnessing
@@ -162,6 +170,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
+  - ADTMechGunTeslaCannon #ADT_Tweak
 
 - type: technology
   id: BasicShuttleArmament

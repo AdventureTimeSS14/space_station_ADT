@@ -1,0 +1,235 @@
+# Flooring 
+- type: rcd
+  id: ADTFloorSteelDarkGray
+  name: rcd-component-floor-steeldarkgray
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/steel_darkgray.png
+  mode: ConstructTile
+  prototype: ADTFloorSteelDarkGray
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+  
+- type: rcd
+  id: ADTFloorSteelPlateDarkGray
+  name: rcd-component-floor-steelplatedarkgray
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/steelplate_darkgray.png
+  mode: ConstructTile
+  prototype: ADTFloorSteelPlateDarkGray
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: ADTFloorShipGray
+  name: rcd-component-floor-shipgray
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/ship_gray.png
+  mode: ConstructTile
+  prototype: ADTFloorShipGray
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: ADTFloorShipDarkGray
+  name: rcd-component-floor-darkgray
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Tiles/ship_darkgray.png
+  mode: ConstructTile
+  prototype: ADTFloorShipDarkGray
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+# Walls
+- type: rcd
+  id: ADTWallLightArmorKMT
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/wall_light_kmt.png
+  mode: ConstructObject
+  prototype: ADTWallLightArmorKMT
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: ADTWallLightArmorTSF
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/wall_light_tsf.png
+  mode: ConstructObject
+  prototype: ADTWallLightArmorTSF
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: ADTWallLightArmorTSFBevel
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/light_bevel_tsf.png
+  mode: ConstructObject
+  prototype: ADTWallLightArmorTSFBevel
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: ADTWallLightArmorKMTBevel
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/light_bevel_kmt.png
+  mode: ConstructObject
+  prototype: ADTWallLightArmorKMTBevel
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+# Windows
+- type: rcd
+  id: ADTWindowKMT
+  category: WindowsAndGrilles
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/window_kmt.png
+  mode: ConstructObject
+  prototype: ADTWindowKMT
+  cost: 3
+  delay: 2
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: ADTWindowTSF
+  category: WindowsAndGrilles
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/window_tsf.png
+  mode: ConstructObject
+  prototype: ADTWindowTSF
+  cost: 3
+  delay: 2
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: ADTWindowKMTHeavy
+  category: WindowsAndGrilles
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/window_heavy_kmt.png
+  mode: ConstructObject
+  prototype: ADTWindowKMTHeavy
+  cost: 6
+  delay: 4
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: ADTWindowTSFHeavy
+  category: WindowsAndGrilles
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/window_heavy_tsf.png
+  mode: ConstructObject
+  prototype: ADTWindowTSFHeavy
+  cost: 6
+  delay: 4
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
+# Airlocks
+- type: rcd
+  id: ADTPlasticFlapsShipBattle
+  category: Airlocks
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/flaps.png
+  mode: ConstructObject
+  prototype: ADTPlasticFlapsShipBattle
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: ADTAirlockKMT
+  category: Airlocks
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/airlock_kmt.png
+  mode: ConstructObject
+  prototype: ADTAirlockKMT
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+  
+- type: rcd
+  id: ADTAirlockTSF
+  category: Airlocks
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/airlock_tsf.png
+  mode: ConstructObject
+  prototype: ADTAirlockTSF
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: ADTAirlockKMTGlass
+  category: Airlocks
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/airlock_glass_kmt.png
+  mode: ConstructObject
+  prototype: ADTAirlockKMTGlass
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+  
+- type: rcd
+  id: ADTAirlockTSFGlass
+  category: Airlocks
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/airlock_glass_tsf.png
+  mode: ConstructObject
+  prototype: ADTAirlockTSFGlass
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: ADTAirlockShipBattleShuttle
+  category: Airlocks
+  sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Radial/RCD/airlock_glass_docking.png
+  mode: ConstructObject
+  prototype: ADTAirlockShipBattleShuttle
+  cost: 8
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4

@@ -4,7 +4,6 @@ using Content.Shared.Interaction;
 using Content.Shared.ADT.Language;
 using Content.Shared.PowerCell;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Hands;
 
 namespace Content.Server.ADT.Language;
@@ -35,11 +34,8 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         Dirty(translator, component);
 
         ToggleTranslator(translator);
-        if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
-        {
-            var ev = new LanguageMenuStateMessage(GetNetEntity(args.User), current, understood, translatorUnderstood);
-            RaiseNetworkEvent(ev, args.User);
-        }
+
+        _language.UpdateUi(args.User);
     }
 
     private void OnTranslatorUseInHand(EntityUid translator, HandheldTranslatorComponent component, UseInHandEvent args)
@@ -51,11 +47,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         ToggleTranslator(translator);
         component.User = component.Enabled ? args.User : null;
 
-        if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
-        {
-            var ev = new LanguageMenuStateMessage(GetNetEntity(args.User), current, understood, translatorUnderstood);
-            RaiseNetworkEvent(ev, args.User);
-        }
+        _language.UpdateUi(args.User);
     }
 
     private void OnPickUp(EntityUid translator, HandheldTranslatorComponent component, GotEquippedHandEvent args)
@@ -64,11 +56,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
 
         component.User = args.User;
 
-        if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
-        {
-            var ev = new LanguageMenuStateMessage(GetNetEntity(args.User), current, understood, translatorUnderstood);
-            RaiseNetworkEvent(ev, args.User);
-        }
+        _language.UpdateUi(args.User);
     }
 
     private void OnDrop(EntityUid translator, HandheldTranslatorComponent component, GotUnequippedHandEvent args)
@@ -80,11 +68,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
 
         component.User = null;
 
-        if (_language.GetLanguages(args.User, out var understood, out _, out var translatorUnderstood, out _, out var current))
-        {
-            var ev = new LanguageMenuStateMessage(GetNetEntity(args.User), current, understood, translatorUnderstood);
-            RaiseNetworkEvent(ev, args.User);
-        }
+        _language.UpdateUi(args.User);
     }
 
     private void ToggleTranslator(EntityUid uid, HandheldTranslatorComponent? component = null)

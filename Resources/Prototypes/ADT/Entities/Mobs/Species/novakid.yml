@@ -9,7 +9,7 @@
     species: NovakidSpecies
   - type: Hunger
     baseDecayRate: 0.025
-    currentHunger: 400
+    lastAuthoritativeHungerValue: 400
     thresholds:
       Overfed: 400
       Okay: 300
@@ -122,7 +122,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Сold: 0.12 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
+            Heat: 0.25 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -141,12 +141,9 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Fire
-    understands:
-    - GalacticCommon
-    - Fire
+    languages:
+      GalacticCommon: Speak
+      Fire: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.1

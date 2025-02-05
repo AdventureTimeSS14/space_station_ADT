@@ -83,3 +83,7 @@ ent-VoxPidginTranslatorImplanter = Имплантантер-транслятор
 ent-ScratchesTranslatorImplanter = Имплантантер-транслятор ScratchesCommon
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = ScratchesCommon
+
+ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = FriendlyFire

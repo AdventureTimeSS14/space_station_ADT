@@ -25,3 +25,41 @@
     state: beer_messiah_right
     drawdepth: Mobs
     offset: "0.0,0.5"
+
+- type: entity
+  id: ADTStatueCryingAngel
+  parent: BaseStructureDynamic
+  name: crying angel
+  description: crying angel
+  suffix: Statue
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Mobs/Demons/angel_crying.rsi
+    state: angel
+    drawdepth: Mobs
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.4,0.3,0.4"
+        density: 500
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Rotatable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]

@@ -183,6 +183,105 @@
   metamorphicChangeColor: false
 
 - type: reagent
+  id: ADTOrangeTeaReg
+  name: reagent-name-orangetea
+  parent: BaseDrink
+  desc: reagent-desc-orangetea
+  physicalDesc: reagent-physical-desc-orangetea
+  flavor: sweet
+  color: "#FF8C00"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.6
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+
+- type: reagent
+  id: ADTCherryTeaReg
+  name: reagent-name-cherrytea
+  parent: BaseDrink
+  desc: reagent-desc-cherrytea
+  physicalDesc: reagent-physical-desc-cherrytea
+  flavor: sweet
+  color: "#FFB6C1"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.6
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+
+- type: reagent
+  id: ADTWatermelonTeaReg
+  name: reagent-name-watermelontea
+  parent: BaseDrink
+  desc: reagent-desc-watermelontea
+  physicalDesc: reagent-physical-desc-watermelontea
+  flavor: sweet
+  color: "#F08080"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.6
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+
+- type: reagent
+  id: ADTOrangepackReg
+  name: reagent-name-orangepack
+  parent: BaseDrink
+  desc: reagent-desc-orangepack
+  physicalDesc: reagent-physical-desc-orangepack
+  flavor: sweet
+  color: "#FF8C00"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.1
+
+- type: reagent
+  id: ADTCherrypackReg
+  name: reagent-name-cherrypack
+  parent: BaseDrink
+  desc: reagent-desc-cherrypack
+  physicalDesc: reagent-physical-desc-cherrypack
+  flavor: sweet
+  color: "#FFB6C1"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.1
+
+- type: reagent
+  id: ADTWatermelonpackReg
+  name: reagent-name-watermelonpack
+  parent: BaseDrink
+  desc: reagent-desc-watermelonpack
+  physicalDesc: reagent-physical-desc-watermelonpack
+  flavor: sweet
+  color: "#F08080"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.1
+        
+- type: reagent
   id: ADTCocoaDrink
   name: cocoa-drink-name
   parent: BaseDrink

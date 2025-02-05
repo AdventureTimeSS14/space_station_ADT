@@ -1,0 +1,129 @@
+- type: construction
+  name: Shitmade Full Shiel
+  id: ADTFullShield
+  graph: ADTShield
+  startNode: start
+  targetNode: ADTCompShield
+  category: construction-category-weapons
+  objectType: Item
+  description: Big shield for big people.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/fullshield.rsi
+    state: icon
+
+- type: construction
+  name: Reinforced Plasma Shive
+  id: ADTPlasmaShiv
+  graph: ADTPShiv
+  startNode: start
+  targetNode: ADTCompPlasmaShiv
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Shive from reinforced plasma
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Rplasma_shiv.rsi
+    state: icon
+
+- type: construction
+  name: Reinforced Uranium Shive
+  id: ADTUraniumShiv
+  graph: ADTUShiv
+  startNode: start
+  targetNode: ADTCompUraniumShiv
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Shive from reinforced uran
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Ruranium_shiv.rsi
+    state: icon
+
+- type: construction
+  name: Reinforced Uranium Spear
+  id: ADTUraniumSpear
+  graph: ADTUraniumSpear
+  startNode: start
+  targetNode: ADTCompUraniumSpear
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Spear from reinforced uran
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Ruranium_spear.rsi
+    state: spear
+
+- type: construction
+  name: Reinforced Plasma Spear
+  id: SpearReinforcedPlasma
+  graph: ADTPSpear
+  startNode: start
+  targetNode: ADTCompPlasmaSpear
+  category: construction-category-weapons
+  objectType: Item
+  description: Woah. Spear from reinforced plasma
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/Rplasma_spear.rsi
+    state: spear
+
+- type: construction
+  name: glass dagger
+  id: ADTDaggerGlass
+  graph: ADTGDagger
+  startNode: start
+  targetNode: ADTCompGlassDager
+  category: construction-category-weapons
+  objectType: Item
+  description: Dagger to cut your enemies.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/glassdagger.rsi
+    state: icon
+
+- type: construction
+  name: reinforced glass dagger
+  id: ADTDaggerRefGlass
+  graph: ADTGRDagger
+  startNode: start
+  targetNode: ADTCompGlassRefDager
+  category: construction-category-weapons
+  objectType: Item
+  description: Dagger to cut your enemies.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/reinforceddagger.rsi
+    state: icon
+
+- type: construction
+  name: plasma dagger
+  id: ADTDaggerPlasma
+  graph: ADTPDagger
+  startNode: start
+  targetNode: ADTCompPlasmaDager
+  category: construction-category-weapons
+  objectType: Item
+  description: Dagger to cut your enemies.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/plasmadagger.rsi
+    state: icon
+
+- type: construction
+  name: uranium dagger
+  id: ADTDaggerUranium
+  graph: ADTUDagger
+  startNode: start
+  targetNode: ADTCompUranDager
+  category: construction-category-weapons
+  objectType: Item
+  description: Dagger to cut your enemies.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
+    state: icon
+
+- type: construction
+  name: energy crossbow
+  id: ADTEnergyCrossbow
+  graph: EnergyCrossbowGraph
+  startNode: start
+  targetNode: crossbow
+  category: construction-category-weapons
+  objectType: Item
+  description: Big and modifyable.
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
+    state: icon

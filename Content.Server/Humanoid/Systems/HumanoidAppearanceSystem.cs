@@ -9,6 +9,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes; // ADT-Changeling-Tweak
+using Content.Server.Forensics; // ADT DNA-Cloning Tweak
 
 namespace Content.Server.Humanoid;
 
@@ -59,11 +60,18 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
         SetTTSVoice(targetHumanoid.Owner, sourceHumanoid.Voice, targetHumanoid); // Corvax-TTS
+        SetBarkData(targetHumanoid.Owner, sourceHumanoid.Bark, targetHumanoid);  // ADT Barks
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
         if (TryComp<GrammarComponent>(targetHumanoid.Owner, out var grammar))
         {
             grammar.Gender = sourceHumanoid.Gender;
+        }
+
+        if (TryComp<DnaComponent>(targetHumanoid.Owner, out var targetDNAComp) &&
+            TryComp<DnaComponent>(sourceHumanoid.Owner, out var sourceDNAComp))
+        {
+            targetDNAComp.DNA = sourceDNAComp.DNA; // ADT DNA-Cloning Tweak
         }
 
         Dirty(targetHumanoid.Owner, targetHumanoid);

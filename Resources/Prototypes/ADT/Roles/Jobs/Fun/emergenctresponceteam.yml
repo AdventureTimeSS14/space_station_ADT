@@ -3,7 +3,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMag
     head: ClothingHeadHelmetERTLeader
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
@@ -11,21 +11,23 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltAssault
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
     - BoxZiptie
     - CrowbarRed
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: startingGear
   id: ADTERTLeaderGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMag
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
@@ -33,15 +35,16 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltAssault
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
-    suitstorage: AirTankFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
     - BoxZiptie
     - CrowbarRed
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: job
   id: ERTLeader
@@ -63,7 +66,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMag
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     mask: ClothingMaskGasERT
@@ -71,14 +74,15 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltAssault
+    pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
-    suitstorage: AirTankFilled
   storage:
     back:
     - BoxSurvivalEngineering
     - BoxZiptie
     - CrowbarRed
     - PinpointerNuclear
+    - SpaceCash500
 
 #engie
 
@@ -95,14 +99,12 @@
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
-    - trayScanner
     - RCD
-    - RCDAmmo
     - RCDAmmo
     - CableMVStack
     - CableHVStack
@@ -110,31 +112,29 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - GasAnalyzer
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: startingGear
   id: ADTERTEngineerGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMag
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTEngineer
-    suitstorage: AirTankFilled
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
-    - trayScanner
     - RCD
-    - RCDAmmo
     - RCDAmmo
     - CableMVStack
     - CableHVStack
@@ -142,8 +142,9 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - GasAnalyzer
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: job
   id: ERTEngineer
@@ -165,22 +166,20 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMag
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
-    suitstorage: AirTankFilled
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
   storage:
     back:
     - BoxSurvivalEngineering
-    - trayScanner
     - RCD
-    - RCDAmmo
     - RCDAmmo
     - CableMVStack
     - CableHVStack
@@ -188,8 +187,8 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - GasAnalyzer
     - PinpointerNuclear
+    - SpaceCash500
 
 # Security
 
@@ -206,14 +205,16 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
     - BoxZiptie
     - CrowbarRed
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: startingGear
   id: ADTERTSecurityGearEVA
@@ -225,18 +226,19 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
-    suitstorage: AirTankFilled
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
     - BoxZiptie
     - CrowbarRed
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: job
   id: ERTSecurity
@@ -263,10 +265,10 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
-    suitstorage: AirTankFilled
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
   inhand:
     - AirTankFilled
@@ -276,7 +278,7 @@
     - BoxZiptie
     - CrowbarRed
     - PinpointerNuclear
-
+    - SpaceCash500
 
 # Medical
 
@@ -292,19 +294,17 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMedicalFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    belt: ADTClothingBeltMedicalSecurityERTFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
-    - Hypospray
     - MedkitAdvancedFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
-    - EpinephrineChemistryBottle
-    - EpinephrineChemistryBottle
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: startingGear
   id: ADTERTMedicalGearEVA
@@ -316,22 +316,19 @@
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
     outerClothing: ClothingOuterHardsuitERTMedical
-    suitstorage: AirTankFilled
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMedicalFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    belt: ADTClothingBeltMedicalSecurityERTFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
-    - Hypospray
     - MedkitAdvancedFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
-    - EpinephrineChemistryBottle
-    - EpinephrineChemistryBottle
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: job
   id: ERTMedical
@@ -358,21 +355,18 @@
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
     outerClothing: ADTClothingOuterERTRiotHardsuit
-    suitstorage: AirTankFilled
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMedicalFilled
+    belt: ADTClothingBeltMedicalSecurityERTFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
-    - Hypospray
     - MedkitAdvancedFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
-    - EpinephrineChemistryBottle
-    - EpinephrineChemistryBottle
     - PinpointerNuclear
+    - SpaceCash500
 
 #Janitor
 
@@ -388,8 +382,8 @@
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
@@ -400,6 +394,8 @@
     - CrowbarRed
     - AdvMopItem
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: startingGear
   id: ADTERTJanitorGearEVA
@@ -410,12 +406,11 @@
     mask: ClothingMaskGasERT
     gloves: ClothingHandsGlovesColorPurple
     outerClothing: ClothingOuterHardsuitERTJanitor
-    suitstorage: AirTankFilled
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
-    pocket1: ADTBaseUplinkBOBERT
-    pocket2: FlashlightSeclite
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
   storage:
     back:
     - BoxSurvivalEngineering
@@ -426,6 +421,8 @@
     - CrowbarRed
     - AdvMopItem
     - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
 - type: job
   id: ERTJanitor
@@ -451,10 +448,10 @@
     mask: ClothingMaskGasERT
     gloves: ClothingHandsGlovesColorPurple
     outerClothing: ADTClothingOuterERTRiotHardsuit
-    suitstorage: AirTankFilled
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
   storage:
     back:
@@ -466,3 +463,4 @@
     - CrowbarRed
     - AdvMopItem
     - PinpointerNuclear
+    - SpaceCash500

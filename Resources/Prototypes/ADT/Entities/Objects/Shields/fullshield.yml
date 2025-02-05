@@ -1,0 +1,67 @@
+- type: entity
+  name: Full Riot Shield
+  parent: BaseShield
+  id: ADTFullRiotShield
+  suffix: Full Shield
+  description: A big big shield. yeah.  very creative.
+  components:
+    - type: MeleeWeapon
+      wideAnimationRotation: -10
+      angle: 0
+      damage:
+        types:
+          Blunt: 10
+      soundHit:
+        collection: MetalThud
+    - type: Reflect
+      reflectProb: 0.05
+      spread: 90
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/fullshield.rsi
+      state: icon
+    - type: Item
+      sprite: ADT/Objects/Weapons/Melee/fullshield.rsi
+      inhandVisuals:
+        left:
+          - state: metal-inhand
+        right:
+          - state: metal-inhand
+      size: Ginormous
+    - type: MultiHandedItem
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.4
+          Slash: 0.4
+          Piercing: 0.4
+        flatReductions:
+          Blunt: 0.4
+          Slash: 0.4
+          Piercing: 0.4
+    - type: ClothingSpeedModifier
+      walkModifier: 0.4
+      sprintModifier: 0.4	
+    - type: HeldSpeedModifier
+    - type: Construction
+      graph: ADTShield
+      node: ADTCompShield
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 500
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 400 #Weaker shield
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: WoodDestroy
+    - type: Tag
+      tags:
+      - ADTFullRiotShitmadeShield

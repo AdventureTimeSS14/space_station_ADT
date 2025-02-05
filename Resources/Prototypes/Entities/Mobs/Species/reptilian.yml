@@ -14,6 +14,33 @@
   - type: Hunger
   - type: Puller
     needsHands: false
+    # ADT start
+    grabStats:
+      None:
+        requiredHands: 0
+        doaftersToEscape: 0
+        movementSpeedModifier: 0.95
+        escapeAttemptTime: 0
+        setStageTime: 0
+      Soft:
+        requiredHands: 0
+        doaftersToEscape: 1
+        movementSpeedModifier: 0.9
+        escapeAttemptTime: 1
+        setStageTime: 0
+      Hard:
+        requiredHands: 1
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.85
+        escapeAttemptTime: 1.5
+        setStageTime: 0.75
+      Choke:
+        requiredHands: 2
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.8
+        escapeAttemptTime: 1.75
+        setStageTime: 1.25
+    # ADT end
   - type: Thirst
   - type: Icon
     sprite: Mobs/Species/Reptilian/parts.rsi
@@ -74,18 +101,14 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: Corvax/Mobs/Species/displacement.rsi # Corvax-Digitigrade
             state: jumpsuit-female
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - Draconic
-    - CintaTaj
-    understands:
-    - GalacticCommon
-    - Draconic
-    - CintaTaj
-  #Start ADT tweak
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Draconic: Speak
+      CintaTaj: Speak
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -128,7 +151,7 @@
     tallscale: 1.12
     short: true
     shortscale: 0.98
-  #End ADT tweak
+  # ADT tweak end
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -148,7 +171,25 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: Corvax/Mobs/Species/displacement.rsi # Corvax-Digitigrade
             state: jumpsuit-female
+    # Corvax-Digitigrade-Start
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    # Corvax-Digitigrade-End
 
 #Weh

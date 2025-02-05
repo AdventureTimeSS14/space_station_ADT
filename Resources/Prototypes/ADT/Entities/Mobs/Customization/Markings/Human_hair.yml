@@ -186,3 +186,23 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_brow_r
+
+# Я не захотел создавать отдельный файл для двух ушек. Чмок.
+
+- type: marking
+  id: ADTHumanElfEars
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/elf.rsi
+    state: elf_ears
+
+- type: marking
+  id: ADTHumanElfEars2
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/elf.rsi
+    state: elf_ears2

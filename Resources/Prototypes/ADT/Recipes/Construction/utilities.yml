@@ -1,0 +1,28 @@
+# FAN
+- type: construction
+  name: little fan
+  id: ADTLitleFan
+  description: Fan to hold the air in and space outside.
+  graph: ADTFan
+  startNode: start
+  targetNode: litleFan
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/tinyfan.rsi
+    state: icon
+
+- type: construction
+  name: little directional fan
+  id: ADTLitleDirectionalFan
+  description: Fan to hold the air in and space outside.
+  graph: ADTFan
+  startNode: start
+  targetNode: directionalFan
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/directionalfan.rsi
+    state: icon

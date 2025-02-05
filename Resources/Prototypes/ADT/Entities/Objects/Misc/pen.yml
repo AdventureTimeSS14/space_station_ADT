@@ -65,3 +65,28 @@
   components:
   - type: Sprite
     state: ADTpen_hos
+
+- type: entity
+  name: DV`s pen
+  parent: ADTPenEmbeddable
+  id: ADTPenDV
+  suffix: DV
+  components:
+  - type: Sprite
+    state: ADTpen_dv
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 0
+
+- type: entity
+  name: Cap DV`s pen
+  parent: [BaseAdvancedPen]
+  id: ADTPenCapDV
+  suffix: DV
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/pens.rsi
+    state: ADTpen_capdv
+  - type: Item
+    sprite: ADT/Objects/Misc/pens.rsi

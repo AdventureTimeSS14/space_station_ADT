@@ -1,0 +1,48 @@
+- type: entity
+  id: ADTActionBase
+  categories:
+  - HideSpawnMenu
+
+- type: entity
+  parent: ADTActionBase
+  id: ADTActionToggleScope
+  name: Toggle Optics
+  description: Scope
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+      state: sniperscope
+    event: !type:ToggleActionEvent
+    useDelay: 0.25
+
+- type: entity
+  parent: ADTActionBase
+  id: ADTActionCycleZoomLevel
+  name: Cycle Zoom Level
+  description: Scope
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+      state: sniperscope
+    event: !type:ScopeCycleZoomLevelEvent
+    useDelay: 0.25
+  - type: Tag
+    tags:
+    - ADTActionCycleZoomLevel
+
+- type: entity
+  parent: ADTActionBase
+  id: ADTActionToggleAttachable
+  name: Toggle Attachable
+  description: Toggle an attachable.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+      state: sniperscope
+    event: !type:AttachableToggleActionEvent
+
+- type: Tag
+  id: ADTActionCycleZoomLevel

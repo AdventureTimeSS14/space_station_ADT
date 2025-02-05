@@ -159,10 +159,10 @@
     parent: true
     components:
     - type: Stealth
-      minVisibility: -0.4 #ADT_Tweak
-      lastVisibility: -0.4 #ADT_Tweak
+      minVisibility: -0.6 #ADT_Tweak
+      lastVisibility: -0.6 #ADT_Tweak
   - type: PowerCellDraw
-    drawRate: 1.8 # 200 seconds on the default cell
+    drawRate: 3.2 # #ADT_Tweak 1.8 -> 3.2
   - type: ToggleCellDraw
   # throwing star ability
   - type: ItemCreator

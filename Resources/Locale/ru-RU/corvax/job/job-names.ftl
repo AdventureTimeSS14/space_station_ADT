@@ -1,4 +1,4 @@
-job-name-iaa = Агент внутренних дел
-job-name-pilot = Пилот
-JobIAA = Агент внутренних дел
-JobPilot = Пилот
+job-name-iaa = агент внутренних дел
+job-name-pilot = пилот
+JobIAA = агент внутренних дел
+JobPilot = пилот

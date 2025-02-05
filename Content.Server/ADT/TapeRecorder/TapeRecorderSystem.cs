@@ -49,8 +49,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             if (message.Bark != null)
             {
                 var barkOverride = EnsureComp<SpeechBarksComponent>(ent);
-                barkOverride.BarkPrototype = message.Bark;
-                barkOverride.BarkPitch = message.BarkPitch;
+                barkOverride.Data = message.Bark;
             }
             if (message.TTS.HasValue)
             {
@@ -97,15 +96,14 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         //Add a new entry to the tape
         var name = nameEv.VoiceName;
         var verb = _chat.GetSpeechVerb(args.Source, args.Message);
-        var barkPitch = 1f;
-        string? bark = null;
+
+        BarkData? bark = null;
         ProtoId<TTSVoicePrototype>? tts = null;
         if (TryComp<SpeechBarksComponent>(args.Source, out var barksComponent))
         {
-            var barkEv = new TransformSpeakerBarkEvent(args.Source, barksComponent.Sound, barksComponent.BarkPitch);
+            var barkEv = new TransformSpeakerBarkEvent(args.Source, barksComponent.Data.Copy());
             RaiseLocalEvent(args.Source, barkEv);
-            bark = barkEv.Sound;
-            barkPitch = barkEv.Pitch;
+            bark = barkEv.Data;
         }
         if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId != null)
         {
@@ -114,7 +112,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             tts = ttsEv.VoiceId;
         }
 
-        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, bark, barkPitch, tts, _language.GetCurrentLanguage(args.Source), args.Message));
+        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, bark, tts, _language.GetCurrentLanguage(args.Source), args.Message));
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)

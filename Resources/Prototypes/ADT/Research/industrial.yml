@@ -24,3 +24,41 @@
     - RPDAmmo
     - RCD
     - RCDAmmo
+
+- type: technology
+  id: ADTIndustrialMODsuit
+  name: research-technology-industrial-modsuits
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: engineering
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTModsuitPlateMining
+    - ADTModsuitPlateEngineering
+    - ADTModsuitPlateAtmospheric
+  technologyPrerequisites:
+    - ADTModsuitBase
+
+- type: technology
+  id: ADTIndustrialMODsuitMODs
+  name: research-technology-industrial-modsuits-mods
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: welding
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTModsuitModJump
+    - ADTModsuitModIsulation
+    - ADTModsuitModTray
+    - ADTModsuitModWelding
+    - ADTModsuitModStorageLarge
+    - ADTModsuitModStorage
+    - ADTModsuitModMagboot
+    - ADTModsuitModJetpack
+    - ADTModsuitModDrill
+  technologyPrerequisites:
+    - ADTIndustrialMODsuit
