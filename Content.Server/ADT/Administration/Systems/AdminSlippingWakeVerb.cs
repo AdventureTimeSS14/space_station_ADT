@@ -36,7 +36,7 @@ public sealed partial class AdminVerbSystem
             {
                 Text = superslipNamee,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Rsi(new("Objects/Specific/Janitorial/soap.rsi"), "omega-4"),
+                Icon = new SpriteSpecifier.Texture(new("ADT/Interface/Alerts/charge.rsi/charge4.png")),
                 Act = () =>
                 {
                     var hadSlipComponent = TryComp<SlippingWakeComponent>(args.Target, out var slipWakeComponent);
