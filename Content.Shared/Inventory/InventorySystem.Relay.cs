@@ -24,6 +24,7 @@ using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.ADT.SpeechBarks;
+using Content.Shared.ADT.Grab;
 
 namespace Content.Shared.Inventory;
 
@@ -57,6 +58,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, GetSpeedModifierContactCapEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetSlowedOverSlipperyModifierEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifySlowOnDamageSpeedEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, ModifyGrabStageTimeEvent>(RefRelayInventoryEvent);  // ADT Grab
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);
@@ -125,7 +127,7 @@ public partial class InventorySystem
         var enumerator = new InventorySlotEnumerator(component);
         while (enumerator.NextItem(out var item, out var slotDef))
         {
-            if (!slotDef.StripHidden || args.User == uid)
+            if (!_strippable.IsStripHidden(slotDef, args.User) || args.User == uid)
                 RaiseLocalEvent(item, ev);
         }
     }

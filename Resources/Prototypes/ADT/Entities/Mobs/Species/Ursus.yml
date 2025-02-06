@@ -90,13 +90,10 @@
       Male: MaleUrsus
       Female: FemaleUrsus
       Unsexed: MaleUrsus
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - Urs
-    understands:
-    - GalacticCommon
-    - Urs
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Urs: Speak
   - type: Temperature
     heatDamageThreshold: 320
     coldDamageThreshold: 250

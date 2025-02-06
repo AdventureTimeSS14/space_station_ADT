@@ -108,3 +108,30 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 5
+
+
+- type: entity
+  name: uzbek pilaf
+  parent: ADTFoodBowlBase
+  id: ADTFoodSoupUzbekPilaf
+  description: National dish of Eastern and Central Asian cuisine.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTSawdust
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/uzber_plow.rsi
+    layers:
+    - state: bowl
+    - state: riceplow
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 21
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Water
+          Quantity: 15

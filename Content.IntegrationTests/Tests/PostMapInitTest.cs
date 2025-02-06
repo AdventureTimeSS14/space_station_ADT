@@ -17,7 +17,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Station.Components;
-using FastAccessors;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
@@ -42,31 +41,29 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
             "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT edit
-            // ADT-New-Year-Start
-            "/Maps/ADTMaps/ADTStations/NewYear/adt_centcom.yml"
-            // ADT-New-Year-End
         };
 
         private static readonly string[] GameMaps =
         {
             // Corvax-Start
-            "CorvaxAvrite",
-            "CorvaxDelta",
-            "CorvaxSilly",
-            "CorvaxOutpost",
-            "CorvaxAstra",
-            "CorvaxGelta",
-            "CorvaxMaus",
-            "CorvaxIshimura",
-            "CorvaxPaper",
-            "CorvaxPilgrim",
-            "CorvaxSplit",
-            "CorvaxTerra",
-            "CorvaxFrame",
-            "CorvaxPearl",
-            "CorvaxTushkan",
-            "CorvaxGlacier",
-            "CorvaxAwesome",
+            // "CorvaxAvrite", // ADT-Comment
+            // "CorvaxDelta",
+            // "CorvaxSilly",
+            // "CorvaxOutpost",
+            // "CorvaxAstra",
+            // "CorvaxGelta",
+			// "CorvaxMaus",
+			// "CorvaxIshimura",
+			// "CorvaxPaper",
+			// "CorvaxCute",
+            // "CorvaxPilgrim",
+            // "CorvaxSplit",
+            // "CorvaxTerra",
+            // "CorvaxFrame",
+            // "CorvaxPearl",
+            // "CorvaxTushkan",
+            // "CorvaxGlacier",
+            // "CorvaxAwesome",
             // Corvax-End
             "Dev",
             "TestTeg",
@@ -85,46 +82,27 @@ namespace Content.IntegrationTests.Tests
             "Train",
             "Oasis",
             "Cog",
+            "Gate",
+            "Amber",
+            "Loop",
+            "Elkridge",
+            "Plasma",
             // ADT-Start
-            "ADT_Astra",
             "ADT_Avrit",
             "ADT_Bagel",
             "ADT_Box",
             "ADT_Cluster",
-            "ADT_Core",
             "ADT_Fland",
             "ADT_Delta",
             "ADT_Marathon",
-            "ADT_Meta",
-            "ADT_Oasis",
-            "ADT_Origin",
+            "ADT_Kerberos",
             "ADT_Saltern",
             "ADT_Packed",
-            "ADT_Train",
             "ADT_Gemini",
             "ADT_Aspid",
-            "ADT_Moose",
-            "ADT_Alley",
-            "ADT_kilo",
-            "ADT_Pie",
-            "ADT_Cluster_Legacy",
+            "ADT_Cluster_Legacy"
             // ADT-End
 
-            // ADT-Halloween-Start
-            "ADT_TrainHalloween",
-            "ADT_SalternHalloween",
-            // ADT-Halloween-End
-
-            // ADT-New-Year-Start
-            "ADT_AspidNewYear",
-            "ADT_BagelNewYear",
-            "ADT_BoxNewYear",
-            "ADT_Cluster_LegacyNewYear",
-            "ADT_DeltaNewYear",
-            "ADT_GeminiNewYear",
-            "ADT_PieNewYear",
-            "ADT_SalternNewYear"
-            // ADT-New-Year-End
         };
 
         /// <summary>

@@ -138,7 +138,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+    proto: RedLaser #ADT_Tweak - понерфил
     fireCost: 62.5
   - type: MagazineVisuals
     magState: mag
@@ -216,11 +216,12 @@
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
     selectedMode: SemiAuto
+    fireRate: 2
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 62.5
+    fireCost: 20 #ADT_Tweak 62.5 -> 20
   - type: StaticPrice
     price: 300
 
@@ -233,8 +234,8 @@
   - type: StaticPrice
     price: 420
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedMediumLaser #ADT_Tweak
+    fireCost: 28.5 #ADT_Tweak 62.5 -> 28.5
   - type: MeleeWeapon #ADT_Tweak
     resetOnHandSelected: false
     attackRate: 1
@@ -768,7 +769,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
-    fireCost: 100
+    fireCost: 150
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletLaserSpread
@@ -792,5 +793,10 @@
     stealGroup: WeaponEnergyShotgun
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
-    maxCharge: 800
-    startingCharge: 800
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 24
+    autoRechargePause: true
+    autoRechargePauseTime: 30

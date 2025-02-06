@@ -1,0 +1,100 @@
+- type: entity
+  id: ADTSpaceShipBattleRCDKMT
+  parent: [ BaseItem, BaseEngineeringContraband ]
+  name: KMT RCD
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: RCD
+    availablePrototypes:
+    - ADTFloorSteelDarkGray
+    - ADTFloorSteelPlateDarkGray
+    - ADTFloorShipGray
+    - ADTFloorShipDarkGray
+    - ADTWallLightArmorKMT
+    - ADTWallLightArmorKMTBevel
+    - ADTWindowKMT
+    - ADTWindowKMTHeavy
+    - ADTPlasticFlapsShipBattle
+    - ADTAirlockKMT
+    - ADTAirlockKMTGlass
+    - ADTAirlockShipBattleShuttle
+    - FloorSteel
+    - Plating
+    - Catwalk
+    - Grille
+    - Firelock
+    - TubeLight
+    - BulbLight
+    - LVCable
+    - MVCable
+    - HVCable
+    - CableTerminal
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 30
+    charges: 30
+  - type: UseDelay
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tools/rcd_kmt.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tools/rcd_kmt.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 110
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RcdUiKey.Key
+
+- type: entity
+  id: ADTSpaceShipBattleRCDTSF
+  parent: ADTSpaceShipBattleRCDKMT
+  name: TSF RCD
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: RCD
+    availablePrototypes:
+    - ADTFloorSteelDarkGray
+    - ADTFloorSteelPlateDarkGray
+    - ADTFloorShipGray
+    - ADTFloorShipDarkGray
+    - ADTWallLightArmorTSF
+    - ADTWallLightArmorTSFBevel
+    - ADTWindowTSF
+    - ADTWindowTSFHeavy
+    - ADTPlasticFlapsShipBattle
+    - ADTAirlockTSF
+    - ADTAirlockTSFGlass
+    - ADTAirlockShipBattleShuttle
+    - FloorSteel
+    - Plating
+    - Catwalk
+    - Grille
+    - Firelock
+    - TubeLight
+    - BulbLight
+    - LVCable
+    - MVCable
+    - HVCable
+    - CableTerminal
+    - Deconstruct
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tools/rcd_tsf.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tools/rcd_tsf.rsi
+    quickEquip: false
+    slots:
+    - Belt

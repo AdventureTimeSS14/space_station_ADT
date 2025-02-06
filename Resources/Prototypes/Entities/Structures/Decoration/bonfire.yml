@@ -35,6 +35,9 @@
   - type: Construction
     graph: ADTBonfire
     node: bonfire
+  - type: Tag
+    tags:
+      - NoPaint
   # End ADT tweak
 
 - type: entity

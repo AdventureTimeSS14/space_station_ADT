@@ -19,7 +19,6 @@
   # - Train
 
 # ADT Maps Базовые Актуальные
-  # - ADT_Aspid
   - ADT_Avrit
   - ADT_Bagel
   - ADT_Box
@@ -27,12 +26,12 @@
   - ADT_Cluster_Legacy
   - ADT_Delta
   - ADT_Gemini
-  # - ADT_kilo
   - ADT_Fland
   - ADT_Marathon
-  # - ADT_Pie
   - ADT_Saltern
   - ADT_Packed
+  - ADT_Aspid
+  - ADT_Kerberos
 
 # ADT Maps Выведенные на переработку
   # - ADT_Alley до ремонта
@@ -48,7 +47,7 @@
 # ADT Halloween (Не забудьте отключить обычные)
   # - ADT_TrainHalloween
   # - ADT_SalternHalloween
-  
+
 # ADT NewYear (Не забудьте отключить обычные)
   # - ADT_AspidNewYear
   # - ADT_BagelNewYear

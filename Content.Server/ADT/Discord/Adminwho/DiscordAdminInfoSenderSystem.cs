@@ -132,3 +132,14 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
         await _discord.CreateMessage(identifier, payload);
     }
 }
+
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

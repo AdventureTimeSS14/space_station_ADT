@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.ADT.Language;
 using Content.Server.ADT.Salvage.Components;
@@ -43,13 +44,14 @@ public sealed class GrantAllLanguagesOnUseSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, GrantAllLanguagesOnUseComponent comp, UseInHandEvent args)
     {
-        var prototypes = _proto.EnumeratePrototypes<LanguagePrototype>();
+        var prototypes = _proto.EnumeratePrototypes<LanguagePrototype>().Where(x => x.Roundstart);
 
         foreach (var item in prototypes)
         {
             _language.AddSpokenLanguage(args.User, item.ID);
         }
 
+        _language.UpdateUi(args.User);
         _popup.PopupEntity(Loc.GetString("popup-vavilon-book-used"), args.User, args.User);
         QueueDel(uid);
     }

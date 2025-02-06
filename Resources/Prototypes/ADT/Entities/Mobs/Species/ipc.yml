@@ -108,14 +108,10 @@
   - type: TTS # Corvax-TTS
   # Frontier - languages mechanic
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      RobotTalk: Speak
   - type: Tag
     tags:
     # - ShoesRequiredStepTriggerImmune
@@ -125,6 +121,7 @@
     - ChangelingBlacklist
     - ADTSiliconStealthWhitelist
     - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
   - type: Inventory
     templateId: ipc
   - type: SizeAttributeWhitelist # Frontier
@@ -137,7 +134,7 @@
   - type: BloodCough
     postingSayDamage: blood-cough-ipc
   - type: TimeDespawnDamage
-  - type: OfferItem # ADT-Tweak 
+  - type: OfferItem # ADT-Tweak
 
 - type: entity
   save: false

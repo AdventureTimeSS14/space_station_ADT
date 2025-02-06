@@ -86,6 +86,11 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
 
             _container.RemoveEntity(storageImplant.Owner, entity, force: true, destination: entCoords);
         }
+
+        // ADT start
+        var ev = new ImplantRemovedEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(uid, ref ev);
+        // ADT end
     }
 
     /// <summary>
@@ -221,3 +226,19 @@ public readonly struct ImplantImplantedEvent
         Implanted = implanted;
     }
 }
+
+// ADT Start
+[ByRefEvent]
+public readonly struct ImplantRemovedEvent
+{
+    public readonly EntityUid Implant;
+    public readonly EntityUid? Implanted;
+
+    public ImplantRemovedEvent(EntityUid implant, EntityUid? implanted)
+    {
+        Implant = implant;
+        Implanted = implanted;
+    }
+}
+
+// ADT End

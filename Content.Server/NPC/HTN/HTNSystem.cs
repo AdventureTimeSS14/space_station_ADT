@@ -32,7 +32,6 @@ public sealed class HTNSystem : EntitySystem
     private EntityQuery<WorldControllerComponent> _mapQuery;
     private EntityQuery<LoadedChunkComponent> _loadedQuery;
     // Frontier
-
     private readonly JobQueue _planQueue = new(0.004);
 
     private readonly HashSet<ICommonSession> _subscribers = new();

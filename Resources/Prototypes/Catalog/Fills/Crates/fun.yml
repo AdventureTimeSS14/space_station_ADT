@@ -16,6 +16,8 @@
         weight: 9
       - id: PlushieSpaceLizard
         weight: 1
+      - id: PlushieLizardInversed
+        weight: 0.5
     - !type:GroupSelector
       children:
       - id: PlushieCarp
@@ -325,8 +327,10 @@
       - id: WhoopieCushion
       - id: ToyHammer
       - id: MrChips
+        prob: 0.5 # ADT tweak
         orGroup: GiftPool
       - id: MrDips
+        prob: 0.5 # ADT tweak
         orGroup: Giftpool
       - id: RevolverCapGun
       - id: BalloonNT
@@ -335,6 +339,14 @@
       - id: BeachBall
       - id: ClothingShoesSkates
       - id: RubberChicken
+      #ADT tweak start
+      - id: FunnyPaint
+        orGroup: Paint
+        prob: 0.5
+      - id: FunnyPaintYellow
+        orGroup: Paint
+        prob: 0.5
+      #ADT tweak end
 
 - type: entity
   id: CrateFunBikeHornImplants

@@ -1,0 +1,15 @@
+- type: entity
+  name: advanced ore bag
+  id: ADTAdvancedOreBag
+  parent: OreBag
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Salvage/advanced_ore_bag.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Objects/Specific/Salvage/advanced_ore_bag.rsi
+  - type: Storage
+    grid:
+    - 0,0,11,5
+  - type: MagnetPickup
+    range: 1.5

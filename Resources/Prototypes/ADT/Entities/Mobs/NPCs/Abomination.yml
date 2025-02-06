@@ -1,0 +1,10 @@
+- type: htnCompound
+  id: AbominationADT 
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+#Палка бить. Палка Видеть.

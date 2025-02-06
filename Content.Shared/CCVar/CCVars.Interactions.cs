@@ -40,6 +40,13 @@ public sealed partial class CCVars
     public static readonly CVarDef<int> InteractionRateLimitAnnounceAdminsDelay =
         CVarDef.Create("interaction.rate_limit_announce_admins_delay", 120, CVar.SERVERONLY);
 
+    // ADT-Tweak-start: отключение
+    /// <summary>
+    ///     Врубает или вырубает админ уведы об превышении лимита взаимодейтвия.
+    /// </summary>
+    public static readonly CVarDef<bool> InteractionRateLimitAnnounceAdmins =
+       CVarDef.Create("interaction.rate_limit_announce_admins", false, CVar.SERVERONLY | CVar.ARCHIVE);
+    //ADT-End.
     /// <summary>
     ///     Whether or not the storage UI is static and bound to the hotbar, or unbound and allowed to be dragged anywhere.
     /// </summary>

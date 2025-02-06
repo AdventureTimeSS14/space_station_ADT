@@ -26,7 +26,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3.2.0
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 9.0.x
 
     - name: Get Engine Tag
       run: |
@@ -44,7 +44,7 @@ jobs:
 
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
-    
+
     - name: Update Build Info
       run: |
         chmod +x Tools/gen_build_info.py
@@ -54,7 +54,7 @@ jobs:
       run: |
         mkdir "release/${{ github.sha }}"
         mv release/*.zip "release/${{ github.sha }}"
-  
+
     - name: Upload files to mothership
       uses: burnett01/rsync-deployments@7.0.0
       with:
@@ -65,7 +65,7 @@ jobs:
         remote_port: ${{ secrets.BUILDS_PORT }}
         remote_user: ${{ secrets.BUILDS_USERNAME }}
         remote_key: ${{ secrets.BUILDS_SSH_KEY }}
-  
+
     - name: Update manifest JSON
       uses: appleboy/ssh-action@v1.0.3
       with:
@@ -78,7 +78,7 @@ jobs:
     - name: Update CDN repository
       run: |
         curl -X POST -d "" -H 'Authorization: Bearer ${{ secrets.BUILDS_TOKEN }}' "http://${{ secrets.BUILDS_HOST }}:27690/control/update"
-      
+
 
     #- name: Upload build artifact
     #  id: artifact-upload-step

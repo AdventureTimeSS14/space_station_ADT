@@ -21,7 +21,7 @@ namespace Content.Client.ADT.Export
 
             if (data != null)
             {
-                await stream.WriteAsync(Encoding.ASCII.GetBytes(data));
+                await stream.WriteAsync(Encoding.UTF8.GetBytes(data));
                 await stream.FlushAsync();
                 await stream.DisposeAsync();
                 return;
