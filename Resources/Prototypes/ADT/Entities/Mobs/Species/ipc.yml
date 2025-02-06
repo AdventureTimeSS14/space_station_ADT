@@ -121,6 +121,7 @@
     - ChangelingBlacklist
     - ADTSiliconStealthWhitelist
     - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
   - type: Inventory
     templateId: ipc
   - type: SizeAttributeWhitelist # Frontier

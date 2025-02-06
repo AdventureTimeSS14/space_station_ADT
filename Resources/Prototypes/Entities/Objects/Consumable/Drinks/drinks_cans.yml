@@ -407,7 +407,7 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkNukieCan
-  name: Blood-red Brew can
+  name: Nukie Robust
   description: A home-brewed drink made from the crazed minds at the Syndicate. Not recommended by doctors.
   components:
   - type: SolutionContainerManager

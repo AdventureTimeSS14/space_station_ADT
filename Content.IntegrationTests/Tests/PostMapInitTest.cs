@@ -95,6 +95,7 @@ namespace Content.IntegrationTests.Tests
             "ADT_Fland",
             "ADT_Delta",
             "ADT_Marathon",
+            "ADT_Kerberos",
             "ADT_Saltern",
             "ADT_Packed",
             "ADT_Gemini",

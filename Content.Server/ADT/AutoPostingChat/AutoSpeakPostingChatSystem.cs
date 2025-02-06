@@ -3,6 +3,8 @@ using Content.Server.Chat.Systems;
 using Content.Shared.ADT.AutoPostingChat;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
+
+
 public sealed class AutoSpeakPostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -49,3 +51,13 @@ public sealed class AutoSpeakPostingChatSystem : EntitySystem
         }
     }
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

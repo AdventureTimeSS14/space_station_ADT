@@ -444,4 +444,11 @@ public enum LogType
     /// A player interacted with a PDA or its cartridge component
     /// </summary>
     PdaInteract = 96,
+
+    // ADT Start
+    /// <summary>
+    /// A player grabbed another player
+    /// </summary>
+    Grab = 97,
+    /// ADT End
 }
