@@ -4,7 +4,6 @@
   id: PaintBase
   name: spray paint
   description: A tin of spray paint.
-  noSpawn: true
   components:
   - type: Appearance
   - type: Sprite
