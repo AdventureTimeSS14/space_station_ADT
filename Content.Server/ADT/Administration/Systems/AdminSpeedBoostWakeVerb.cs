@@ -1,6 +1,5 @@
 using Content.Shared.Administration;
 using Content.Shared.Database;
-using Content.Shared.Slippery;
 using Content.Shared.Verbs;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
