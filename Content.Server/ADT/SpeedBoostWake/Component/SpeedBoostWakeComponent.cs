@@ -1,7 +1,7 @@
-namespace Content.Server.ADT.SlippingWake;
+namespace Content.Server.ADT.SpeedBoostWake;
 
 [RegisterComponent, AutoGenerateComponentState]
-public sealed partial class SlippingWakeComponent : Component
+public sealed partial class SpeedBoostWakeComponent : Component
 {
     /// <summary>
     /// The entity's speed boost.

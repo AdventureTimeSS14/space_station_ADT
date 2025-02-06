@@ -7,7 +7,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Content.Server.ADT.SlippingWake;
+using Content.Server.ADT.SpeedBoostWake;
 
 namespace Content.Server.Administration.Systems;
 
@@ -15,7 +15,7 @@ public sealed partial class AdminVerbSystem
 {
 
     // All smite verbs have names so invokeverb works.
-    private void AddSmiteSlippingWakeVerb(GetVerbsEvent<Verb> args)
+    private void AddSmiteSpeedBoostWakeVerb(GetVerbsEvent<Verb> args)
     {
         if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
             return;
@@ -31,29 +31,25 @@ public sealed partial class AdminVerbSystem
 
         if (TryComp<PhysicsComponent>(args.Target, out var physics))
         {
-            var superslipNamee = Loc.GetString("admin-smite-speed-boost-name").ToLowerInvariant();
-            Verb superslipp = new()
+            var superBoostSpeedName = Loc.GetString("admin-smite-speed-boost-name").ToLowerInvariant();
+            Verb superBoostSpeed = new()
             {
-                Text = superslipNamee,
+                Text = superBoostSpeedName,
                 Category = VerbCategory.Smite,
                 Icon = new SpriteSpecifier.Texture(new("ADT/Interface/Alerts/charge.rsi/charge4.png")),
                 Act = () =>
                 {
-                    var hadSlipComponent = TryComp<SlippingWakeComponent>(args.Target, out var slipWakeComponent);
+                    var hadSlipComponent = TryComp<SpeedBoostWakeComponent>(args.Target, out var _);
 
                     if (hadSlipComponent)
-                    {
-                        RemComp<SlippingWakeComponent>(args.Target);
-                    }
+                        RemComp<SpeedBoostWakeComponent>(args.Target);
                     else
-                    {
-                        EnsureComp<SlippingWakeComponent>(args.Target);
-                    }
+                        EnsureComp<SpeedBoostWakeComponent>(args.Target);
                 },
                 Impact = LogImpact.Extreme,
-                Message = string.Join(": ", superslipNamee, Loc.GetString("admin-smite-speed-boost-description"))
+                Message = string.Join(": ", superBoostSpeedName, Loc.GetString("admin-smite-speed-boost-description"))
             };
-            args.Verbs.Add(superslipp);
+            args.Verbs.Add(superBoostSpeed);
         }
 
     }

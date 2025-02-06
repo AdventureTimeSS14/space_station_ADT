@@ -13,7 +13,7 @@ using Robust.Shared.Physics;
 
 */
 
-namespace Content.Server.ADT.SlippingWake;
+namespace Content.Server.ADT.SpeedBoostWake;
 
 public sealed class SlippingWakeSystem : EntitySystem
 {
@@ -23,10 +23,10 @@ public sealed class SlippingWakeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SlippingWakeComponent, PhysicsWakeEvent>(MobWakeCheck);
+        SubscribeLocalEvent<SpeedBoostWakeComponent, PhysicsWakeEvent>(MobWakeCheck);
     }
 
-    public async void MobWakeCheck(EntityUid uid, SlippingWakeComponent comp, PhysicsWakeEvent args)
+    public async void MobWakeCheck(EntityUid uid, SpeedBoostWakeComponent comp, PhysicsWakeEvent args)
     {
         var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
 
