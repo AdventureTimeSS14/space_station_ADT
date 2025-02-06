@@ -1,8 +1,8 @@
 - type: entity
-  name: BzzTV
+  name: stativ TV
   parent: BaseStructure
-  id: BzTV
-  description: Brr
+  id: StativTV
+  description: Change the channel!
   components:
   - type: Fixtures
     fixtures:
@@ -34,6 +34,49 @@
     - trigger:
         !type:DamageTrigger
         damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  name: fake TV
+  parent: BaseStructure
+  id: FakeTV
+  description: He looks familiar.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 200
+        mask:
+        - TableMask
+        layer:
+        - WallLayer
+  - type: Sprite
+    sprite: ADT/Objects/Misc/fakeTV.rsi
+    state: fakeTV
+  - type: Physics
+  - type: MadnessSource
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 36
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

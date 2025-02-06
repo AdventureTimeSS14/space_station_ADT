@@ -84,10 +84,10 @@
     - settings:
         spawnOnPulse: true
         minAmount: 1
-        maxAmount: 5
+        maxAmount: 3
         maxRange: 4
       spawns:
-      - MobHuman
+      - FakeTV
     - settings:
         spawnOnSuperCritical: true
         minAmount: 1

@@ -5,8 +5,8 @@ using Content.Shared.ADT.Anomaly.Effects.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Body.Components;
 
-namespace Content.Server.ADT.StaticTV;
-public sealed class StaticAnomalySystem : EntitySystem
+namespace Content.Server.ADT.Anomaly.Effects.StaticTV;
+public sealed class StaticTVSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
