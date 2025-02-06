@@ -31,7 +31,7 @@ public sealed partial class AdminVerbSystem
 
         if (TryComp<PhysicsComponent>(args.Target, out var physics))
         {
-            var superslipNamee = Loc.GetString("admin-smite-super-slip-namee").ToLowerInvariant();
+            var superslipNamee = Loc.GetString("admin-smite-speed-boost-name").ToLowerInvariant();
             Verb superslipp = new()
             {
                 Text = superslipNamee,
@@ -43,17 +43,15 @@ public sealed partial class AdminVerbSystem
 
                     if (hadSlipComponent)
                     {
-                        // Если компонент уже есть, удаляем его
                         RemComp<SlippingWakeComponent>(args.Target);
                     }
                     else
                     {
-                        // Если компонента нет, добавляем его
-                        AddComp<SlippingWakeComponent>(args.Target);
+                        EnsureComp<SlippingWakeComponent>(args.Target);
                     }
                 },
                 Impact = LogImpact.Extreme,
-                Message = string.Join(": ", superslipNamee, Loc.GetString("admin-smite-super-slip-descriptionn"))
+                Message = string.Join(": ", superslipNamee, Loc.GetString("admin-smite-speed-boost-description"))
             };
             args.Verbs.Add(superslipp);
         }
