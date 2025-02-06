@@ -482,7 +482,7 @@
   - type: Sprite
 # ADT tweak start
     sprite: ADT/Clothing/Uniforms/Jumpsuit/prisoner.rsi
-#    layers: 
+#    layers:
 #    - state: icon
 #      color: "#ff8300"
 #    - state: prisoner-icon
