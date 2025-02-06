@@ -39,17 +39,17 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new("Objects/Specific/Janitorial/soap.rsi"), "omega-4"),
                 Act = () =>
                 {
-                    var hadSlipComponent = TryComp(args.Target, out SlippingWakeComponent slipWakeComponent);
+                    var hadSlipComponent = TryComp<SlippingWakeComponent>(args.Target, out var slipWakeComponent);
 
                     if (hadSlipComponent)
                     {
                         // Если компонент уже есть, удаляем его
-                        RemComp(args.Target, slipWakeComponent);
+                        RemComp<SlippingWakeComponent>(args.Target);
                     }
                     else
                     {
                         // Если компонента нет, добавляем его
-                        AddComp(args.Target, new SlippingWakeComponent());
+                        AddComp<SlippingWakeComponent>(args.Target);
                     }
                 },
                 Impact = LogImpact.Extreme,
