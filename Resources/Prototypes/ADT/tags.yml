@@ -504,3 +504,6 @@
 
 - type: Tag
   id: ADTLighter
+
+- type: Tag
+  id: NoPaint
