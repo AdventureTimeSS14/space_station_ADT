@@ -1,0 +1,65 @@
+- type: entity
+  parent: OreBase
+  id: ADTCopperOre
+  name: gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: CopperOre
+  - type: Sprite
+    state: copper
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawCopper: 300
+  - type: Item
+    heldPrefix: copper
+  - type: Extractable
+    grindableSolutionName: copper
+  - type: SolutionContainerManager
+    solutions:
+      copper:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 20
+
+- type: entity
+  parent: ADTCopperOre
+  id: ADTCopperOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: OreBase
+  id: ADTZinkOre
+  name: gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ZinkOre
+  - type: Sprite
+    state: copper
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawZink: 300
+  - type: Item
+    heldPrefix: copper
+  - type: Extractable
+    grindableSolutionName: steel
+  - type: SolutionContainerManager
+    solutions:
+      steel:
+        reagents:
+        - ReagentId: Zinc
+          Quantity: 20
+
+- type: entity
+  parent: ADTZinkOre
+  id: ADTZinkOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

@@ -41,6 +41,7 @@ using Content.Shared.Sirena.CollectiveMind; // ADT-CollectiveMind-Tweak
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server.ADT.Chat;
 
 namespace Content.Server.Chat.Systems;
 
@@ -693,7 +694,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (string.IsNullOrEmpty(FormattedMessage.EscapeText(coloredMessage)))  // ADT Chat fix
             return;
 
-        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
+        foreach (var (session, data) in GetWhisperRecipients(source, WhisperClearRange, WhisperMuffledRange))   // ADT tweaked
         {
             EntityUid listener;
 
@@ -705,28 +706,21 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
             // ADT Languages start
-            if (!_language.CanUnderstand(listener, language))
-            {if (data.Range <= (TryComp<ChatModifierComponent>(listener, out var modifier) ? modifier.WhisperListeningRange : WhisperClearRange)) //ADT-Resomi
+            var (langMessage, wrappedLangMessage, wrappedUnknownLangMessage) =
+                    _language.CanUnderstand(listener, language) ?
+                    (wrappedMessage, wrappedobfuscatedMessage, wrappedUnknownMessage) :
+                    (wrappedLanguageMessage, wrappedobfuscatedLanguageMessage, wrappedUnknownLanguageMessage);
 
-                    _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, wrappedLanguageMessage, source, false, session.Channel);
-                //If listener is too far, they only hear fragments of the message
-                else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))
-                    _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedobfuscatedLanguageMessage, source, false, session.Channel);
-                //If listener is too far and has no line of sight, they can't identify the whisperer's identity
-                else
-                    _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownLanguageMessage, source, false, session.Channel);
-            }
+            if (!data.Muffled)
+                _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, langMessage, source, false, session.Channel);
+
+            //If listener is too far, they only hear fragments of the message
+            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))
+                _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedLangMessage, source, false, session.Channel);
+
+            //If listener is too far and has no line of sight, they can't identify the whisperer's identity
             else
-            {
-                if (data.Range <= WhisperClearRange)
-                    _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, wrappedMessage, source, false, session.Channel);
-                //If listener is too far, they only hear fragments of the message
-                else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))
-                    _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedobfuscatedMessage, source, false, session.Channel);
-                //If listener is too far and has no line of sight, they can't identify the whisperer's identity
-                else
-                    _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownMessage, source, false, session.Channel);
-            }
+                _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownLangMessage, source, false, session.Channel);
             // ADT Languages end
         }
 
@@ -1080,8 +1074,16 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             var observer = ghostHearing.HasComponent(playerEntity);
 
+            // ADT Resomi start
+            var range = voiceGetRange;
+            if (TryComp<ChatModifierComponent>(playerEntity, out var modifier) && modifier.Modifiers.ContainsKey(ChatModifierType.Say))
+            {
+                range = modifier.Modifiers[ChatModifierType.Say];
+            }
+            // ADT Resomi end
+
             // even if they are a ghost hearer, in some situations we still need the range
-            if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < voiceGetRange)
+            if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < range) // ADT Resomi tweaked
             {
                 recipients.Add(player, new ICChatRecipientData(distance, observer));
                 continue;
@@ -1095,7 +1097,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return recipients;
     }
 
-    public readonly record struct ICChatRecipientData(float Range, bool Observer, bool? HideChatOverride = null)
+    public readonly record struct ICChatRecipientData(float Range, bool Observer, bool? HideChatOverride = null, bool Muffled = false)
     {
     }
 

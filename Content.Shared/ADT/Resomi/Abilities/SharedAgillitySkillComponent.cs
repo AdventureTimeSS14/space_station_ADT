@@ -4,57 +4,44 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.ADT.Resomi.Abilities;
 
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AgillitySkillComponent : Component
 {
-    [AutoNetworkedField, DataField]
-    public Dictionary<string, int> DisabledJumpUpFixtureMasks = new();
-    [AutoNetworkedField, DataField]
-    public Dictionary<string, int> DisabledJumpDownFixtureMasks = new();
-
-    [DataField("active")]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Active = false;
 
     /// <summary>
-    /// if we want the ability to not give the opportunity to jump on the tables and only accelerate
+    /// Может ли игрок запрыгивать на столы. Если false, он будет только ускоряться.
     /// </summary>
     [DataField("jumpEnabled")]
     public bool JumpEnabled = true;
 
-    [DataField("switchAgilityAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField("action", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? SwitchAgilityAction = "SwitchAgilityAction";
 
-    [DataField("switchAgilityActionEntity")] public EntityUid? SwitchAgilityActionEntity;
+    [ViewVariables]
+    public EntityUid? SwitchAgilityActionEntity;
 
     /// <summary>
-    /// how much stamina will be spent for each jump
+    /// Сколько стамины будет отниматься при прыжке на стол
     /// </summary>
     [DataField("staminaDamageOnJump")]
-    public float StaminaDamageOnJump = 10f;
+    public float StaminaDamageOnJump = 6f;
 
     /// <summary>
-    /// how much stamina will be passive spent while abilitty is activated
+    /// Пассивная трата стамины
     /// </summary>
     [DataField("staminaDamagePassive")]
     public float StaminaDamagePassive = 3f;
 
     [DataField("sprintSpeedModifier")]
-    public float SprintSpeedModifier = 0.1f; //+10%
-    public float SprintSpeedCurrent = 1f;
+    public float SprintSpeedModifier = 1.35f;
 
     /// <summary>
-    /// once in how many seconds is our stamina taken away while the ability is on
+    /// Частота пассивной траты стамины
     /// </summary>
     [DataField("delay")]
     public double Delay = 1.0;
-    public TimeSpan UpdateRate => TimeSpan.FromSeconds(Delay);
-    public TimeSpan NextUpdateTime;
 
-    /// <summary>
-    /// cooldown of ability. Called when the ability is disabled
-    /// </summary>
-    [DataField("cooldown")]
-    public double Cooldown = 20.0;
-    public TimeSpan CooldownDelay => TimeSpan.FromSeconds(Cooldown);
+    public TimeSpan NextUpdate;
 }

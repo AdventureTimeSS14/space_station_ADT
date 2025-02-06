@@ -258,7 +258,7 @@ public sealed class WieldableSystem : EntitySystem
         _popup.PopupPredicted(selfMessage, othersMessage, user, user);
 
         component.User = user; //Corvax-Next-Resomi
-        
+
         var ev = new ItemWieldedEvent(user);
         RaiseLocalEvent(used, ref ev);
 

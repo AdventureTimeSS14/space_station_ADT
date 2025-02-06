@@ -507,3 +507,6 @@
 
 - type: Tag
   id: ADTIgnoreChokeSpeechBlocking
+
+- type: Tag
+  id: ADTCoal

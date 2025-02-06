@@ -317,14 +317,8 @@
   description: "Translates speech."
   components:
   - type: HandheldTranslator
-    toSpeak:
-    - GalacticCommon
-    - Scratches
-    toUnderstand:
-    - GalacticCommon
-    - Scratches
-    required:
-    - GalacticCommon
-    - Scratches
+    languages:
+      GalacticCommon: Speak
+      Scratches: Speak
   - type: StaticPrice
     price: 1500

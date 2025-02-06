@@ -50,6 +50,14 @@
           - id: WallRockArtifactFragment
             prob: 0.01
             orGroup: rock
+          # ADT Ores start
+          - id: WallRockCopper
+            prob: 0.10
+            orGroup: rock
+          - id: WallRockZink
+            prob: 0.10
+            orGroup: rock
+          # ADT Ores end
     - type: IFF
       flags: HideLabel
       color: "#d67e27"

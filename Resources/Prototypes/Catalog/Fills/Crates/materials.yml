@@ -123,6 +123,7 @@
       - id: SheetGlass
       - id: SheetSteel
       - id: SheetPlastic
+      - id: ADTSheetCopper  # ADT Tweal
     - !type:GroupSelector # secondary materials, stack
       weight: 30
       children:

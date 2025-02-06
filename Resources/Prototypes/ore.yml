@@ -20,6 +20,20 @@
   minOreYield: 1
   maxOreYield: 5
 
+# ADT Ores start
+- type: ore
+  id: OreCopper
+  oreEntity: ADTCopperOre1
+  minOreYield: 1
+  maxOreYield: 4
+
+- type: ore
+  id: OreZink
+  oreEntity: ADTZinkOre1
+  minOreYield: 1
+  maxOreYield: 4
+# ADT Ores end
+
 # Medium yields
 - type: ore
   id: OreGold

@@ -6,6 +6,7 @@
   materials:
     Steel: 1000
     Plastic: 300
+    Brass: 500
 
 - type: latheRecipe
   id: RPDAmmo
@@ -15,3 +16,4 @@
   materials:
     Steel: 500
     Plastic: 250
+    Brass: 150

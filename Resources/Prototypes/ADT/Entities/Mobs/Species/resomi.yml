@@ -5,11 +5,12 @@
   id: BaseMobResomi
   abstract: true
   components:
-  - type: WeaponsUseInability
-  - type: AgillitySkill
-  - type: ChatModifier
-    whisperListeningRange: 4
-  - type: ResomiAccent
+  # Visuals
+  - type: Icon
+    sprite: ADT/Mobs/Species/Resomi/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: Resomi
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
@@ -29,44 +30,18 @@
     sprite: ADT/Mobs/Effects/onfire.rsi
     normalState: Resomi_minor_burning
     alternateState: Resomi_burning
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        # they r smaller
-        density: 120
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: HumanoidAppearance
-    species: Resomi
-  - type: Hunger
-  - type: Puller
-    needsHands: false
-  - type: Thirst
-  - type: Icon
-    sprite: ADT/Mobs/Species/Resomi/parts.rsi
-    state: full
+
+  # Mob
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      140: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Resomi
-  - type: Body
-    prototype: Resomi
-    requiredLegs: 2
   - type: Bloodstream
     bloodReagent: ResomiBlood
-  - type: MeleeWeapon
-    soundHit:
-      collection: AlienClaw
-    angle: 30
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Slash: 5
   - type: Temperature
     heatDamageThreshold: 325
     coldDamageThreshold: 230
@@ -85,13 +60,94 @@
       230: 0.4
   - type: ThermalRegulator
     normalBodyTemperature: 300.15
+
+  # Fixtures
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        # they r smaller
+        density: 120
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+  # Melee
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Puller
+    needsHands: false
+    grabStats:
+      None:
+        requiredHands: 0
+        doaftersToEscape: 0
+        movementSpeedModifier: 0.95
+        escapeAttemptTime: 0
+        setStageTime: 0
+      Soft:
+        requiredHands: 0
+        doaftersToEscape: 1
+        movementSpeedModifier: 0.8
+        escapeAttemptTime: 1
+        setStageTime: 0
+      Hard:
+        requiredHands: 1
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.65
+        escapeAttemptTime: 0.75
+        setStageTime: 1
+      Choke:
+        requiredHands: 2
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.5
+        escapeAttemptTime: 1
+        setStageTime: 2
+
+  # Resomi
+  - type: WeaponsUseInability
+  - type: AgillitySkill
+  - type: ChatModifier
+    modifiers:
+      Say: 12
+      WhisperClear: 4
+      WhisperMuffled: 7
+  - type: ResomiAccent
+  - type: FlashModifier
+    modifier: 2
+
+  # Body
+  - type: Body
+    prototype: Resomi
+    requiredLegs: 2
+  - type: Hunger
+  - type: Thirst
   - type: Vocal
     sounds:
       Male: MaleResomi
       Female: FemaleResomi
       Unsexed: MaleResomi
-  - type: FlashModifier
-    modifier: 2
+  - type: LanguageSpeaker
+    speaks:
+    - GalacticCommon
+    - Scratches
+    understands:
+    - GalacticCommon
+    - Scratches
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.05
+    short: true
+    shortscale: 0.95
   - type: Hands
     handDisplacement:
       sizeMaps:
@@ -102,6 +158,11 @@
     speciesId: resomi
     displacements:
       jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      outerClothing:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Resomi/displacement.rsi
@@ -156,18 +217,6 @@
           32:
             sprite: ADT/Mobs/Species/Resomi/displacement.rsi
             state: belt
-  - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Scratches
-    understands:
-    - GalacticCommon
-    - Scratches
-  - type: SizeAttributeWhitelist # Frontier
-    tall: true
-    tallscale: 1.05
-    short: true
-    shortscale: 0.95
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -186,6 +235,11 @@
     speciesId: resomi
     displacements:
       jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      outerClothing:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Resomi/displacement.rsi
