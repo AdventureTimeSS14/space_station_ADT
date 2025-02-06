@@ -53,7 +53,7 @@ namespace Content.Client.Credits
 
         private void PopulateOther(BoxContainer otherContainer)
         {
-            var text = _resourceManager.ContentFileReadAllText($"/Credits/ADT/Other.txt");
+            var text = _resourceManager.ContentFileReadAllText($"/Credits/Other.txt");
             var label = new RichTextLabel();
             label.SetMessage(text);
 
