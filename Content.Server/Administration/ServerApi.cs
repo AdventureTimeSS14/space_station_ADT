@@ -489,7 +489,9 @@ public sealed partial class ServerApi : IPostInjectInit
                     UserId = player.UserId.UserId,
                     Name = player.Name,
                     IsAdmin = adminData != null,
-                    IsDeadminned = !adminData?.Active ?? false
+                    IsDeadminned = !adminData?.Active ?? false,
+                    PingUser = player.Ping,                 // ADT-Tweak: Передаём пинг пользователя
+                    AdminTitle = adminData?.Title ?? "Null" // ADT-Tweak: Добавляем передачу инфы о Title админа
                 });
             }
 
@@ -689,6 +691,8 @@ public sealed partial class ServerApi : IPostInjectInit
             public required string Name { get; init; }
             public required bool IsAdmin { get; init; }
             public required bool IsDeadminned { get; init; }
+            public required short PingUser { get; init; } // ADT-Tweak
+            public required string AdminTitle { get; init; } // ADT-Tweak
         }
 
         public sealed class MapInfo

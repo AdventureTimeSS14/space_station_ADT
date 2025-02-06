@@ -1,0 +1,6 @@
+- type: typingIndicator
+  id: ghost
+  spritePath: "/Textures/ADT/Effects/speech.rsi"
+  typingState: ghost0
+  idleState: ghost0
+  offset: 0.14, 0.210
