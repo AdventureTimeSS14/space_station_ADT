@@ -121,6 +121,11 @@
     species: GhostSpecies
     shader: unshaded
   #ADT Observer PDA end
+  # ADT-Tweak-start
+  - type: TypingIndicator
+    proto: ghost
+  - type: Speech
+  # ADT-Tweak-end
 
 # proto for player ghosts specifically
 - type: entity

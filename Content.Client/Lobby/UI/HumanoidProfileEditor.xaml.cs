@@ -272,7 +272,14 @@ namespace Content.Client.Lobby.UI
                 }
                 else
                 {
-                    _speciesWindow = new(Profile, prototypeManager, entManager, _controller, _resManager, _parsingMan);
+                    _speciesWindow = new(
+                        Profile,
+                        prototypeManager,
+                        entManager,
+                        _controller,
+                        _resManager,
+                        _parsingMan);
+
                     _speciesWindow.OpenCenteredLeft();
                     var oldProfile = Profile.Clone();
                     _speciesWindow.ChooseAction += args =>
@@ -285,6 +292,7 @@ namespace Content.Client.Lobby.UI
                         var name1 = _prototypeManager.Index(Profile?.Species ?? "Human").Name;
                         NewSpeciesButton.Text = Loc.GetString(name1);
                         NewSpeciesButton.Pressed = false;
+                        this.SetDefaultLanguages();
                     };
                     _speciesWindow.OnClose += () =>
                     {
