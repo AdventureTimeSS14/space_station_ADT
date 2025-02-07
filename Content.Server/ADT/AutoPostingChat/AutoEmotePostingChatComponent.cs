@@ -3,7 +3,6 @@ using Robust.Shared.GameStates;
 namespace Content.Server.ADT.AutoPostingChat;
 
 [RegisterComponent]
-[NetworkedComponent]
 public sealed partial class AutoEmotePostingChatComponent : Component
 {
 

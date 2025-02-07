@@ -3,7 +3,6 @@ using Robust.Shared.GameStates;
 namespace Content.Server.ADT.BloodCough;
 
 [RegisterComponent]
-[NetworkedComponent]
 public sealed partial class BloodCoughComponent : Component
 {
     public TimeSpan NextSecond = TimeSpan.Zero;

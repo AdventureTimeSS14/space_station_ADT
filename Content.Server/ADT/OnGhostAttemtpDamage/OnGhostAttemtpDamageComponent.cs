@@ -5,7 +5,6 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.ADT.OnGhostAttemtpDamage;
 
 [RegisterComponent]
-[NetworkedComponent]
 public sealed partial class OnGhostAttemtpDamageComponent : Component
 {
     [DataField]

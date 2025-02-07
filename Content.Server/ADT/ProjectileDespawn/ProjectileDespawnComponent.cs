@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.ProjectileDespawn;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class ProjectileDespawnComponent : Component
 {
 }
