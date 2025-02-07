@@ -22,6 +22,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
+using System.Threading;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Net.Http;
@@ -506,7 +508,7 @@ namespace Content.Server.GameTicking
 
             foreach (var playerInfo in groupedPlayers)
             {
-                stringBuilder.AppendLine($"{playerInfo.PlayerICName}({playerInfo.PlayerOOCName}) в роли: {playerInfo.Roles}");
+                stringBuilder.AppendLine($"{playerInfo.PlayerICName}({playerInfo.PlayerOOCName}) в роли: {Loc.GetString(playerInfo.Roles)}");
             }
 
             return stringBuilder.ToString();}
