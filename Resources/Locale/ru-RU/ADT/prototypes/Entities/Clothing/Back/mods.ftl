@@ -19,7 +19,7 @@ ent-ADTClothingModsuitBackMining = шахтёрский МОД
 ent-ADTClothingModsuitBackSecurity = охранный МОД
     .desc = Защитный костюм Apadyne Technologies, обеспечивающий высокую скорость за счет снижения грузоподъемности.
 
-ent-ADTClothingModsuitBackCience = научный МОД
+ent-ADTClothingModsuitBackScience = научный МОД
     .desc = Сделано учёными для учёных. С любовью!
 
 # Понятие не имею где прописать части мода. Пропишу тут
@@ -41,7 +41,7 @@ ent-ADTClothingHeadHelmetModsuitMining = Шахтёрский шлем MOD
     .desc = Шлем шахтёрского MOD
 ent-ADTClothingHeadHelmetModsuitSecurity = Охранный шлем MOD
     .desc = Шлем охранного MOD
-ent-ADTClothingHeadHelmetModsuitCience = Научный шлем MOD
+ent-ADTClothingHeadHelmetModsuitScience = Научный шлем MOD
     .desc = Шлем научного MOD
 
 # Нагрудники
@@ -59,7 +59,7 @@ ent-ADTClothingOuterModsuitBodyMining = Шахтёрская броня MOD
     .desc = Броня шахтёрского MOD
 ent-ADTClothingOuterModsuitBodySecurity = Охранная броня MOD
     .desc = Броня охранного MOD
-ent-ADTClothingOuterModsuitBodyCience = Научная броня MOD
+ent-ADTClothingOuterModsuitBodyScience = Научная броня MOD
     .desc = Броня научного MOD
 
 # Ботинки
@@ -77,7 +77,7 @@ ent-ADTClothingModsuitShoesMining = Шахтёрские ботинки MOD
     .desc = Ботинки шахтёрского MOD
 ent-ADTClothingModsuitShoesSecurity = Охранные ботинки MOD
     .desc = Ботинки охранного MOD
-ent-ADTClothingModsuitShoesCience = Научные ботинки MOD
+ent-ADTClothingModsuitShoesScience = Научные ботинки MOD
     .desc = Ботинки научного MOD
 
 # Перчатки
@@ -95,5 +95,5 @@ ent-ADTClothingHandsModsuitMining = Шахтёрские перчатки MOD
     .desc = Перчатки шахтёрского MOD
 ent-ADTClothingHandsModsuitSecurity = Охранные перчатки MOD
     .desc = Перчатки охранного MOD
-ent-ADTClothingHandsModsuitCience = Научные перчатки MOD
+ent-ADTClothingHandsModsuitScience = Научные перчатки MOD
     .desc = Перчатки научного MOD

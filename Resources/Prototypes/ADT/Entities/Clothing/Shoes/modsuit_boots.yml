@@ -36,7 +36,7 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
 - type: entity
-  parent: [ClothingShoesClown, ADTClothingModsuitShoesBase]  
+  parent: [ClothingShoesClown, ADTClothingModsuitShoesBase]
   id: ADTClothingModsuitShoesClown
   name: clown MOD boots
   description: A pair of boots for a MODsuit.
@@ -120,8 +120,8 @@
 
 - type: entity
   parent: ADTClothingModsuitShoesBase
-  id: ADTClothingModsuitShoesCience
-  name: cience MOD boots
+  id: ADTClothingModsuitShoesScience
+  name: Science MOD boots
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
