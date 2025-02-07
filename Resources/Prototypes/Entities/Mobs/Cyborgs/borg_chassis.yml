@@ -107,18 +107,6 @@
         500: Dead
     - type: Damageable
       damageModifierSet: ADTBorgChassisSyndicateAssaultSet
-    - type: ExplodeOnTrigger
-    - type: GibOnTrigger
-      deleteItems: true
-    - type: Explosive
-      explosionType: Default
-      totalIntensity: 1200
-      intensitySlope: 15
-      maxIntensity: 30
-      canCreateVacuum: true
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Dead
     #ADT End Borg Syndicate buff
     - type: BorgChassis
       maxModules: 3
