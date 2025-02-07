@@ -41,7 +41,7 @@ ent-ADTClothingHeadHelmetModsuitMining = Шахтёрский шлем MOD
     .desc = Шлем шахтёрского MOD
 ent-ADTClothingHeadHelmetModsuitSecurity = Охранный шлем MOD
     .desc = Шлем охранного MOD
-ent-ADTClothingHeadHelmetModsuitСience = Научный шлем MOD
+ent-ADTClothingHeadHelmetModsuitCience = Научный шлем MOD
     .desc = Шлем научного MOD
 
 # Нагрудники

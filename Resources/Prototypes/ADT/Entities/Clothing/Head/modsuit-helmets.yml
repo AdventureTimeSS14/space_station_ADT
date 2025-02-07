@@ -170,7 +170,7 @@
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
-  id: ADTClothingHeadHelmetModsuitСience
+  id: ADTClothingHeadHelmetModsuitCience
   name: сience MOD helmet
   description: A helmet for a MODsuit.
   components:

@@ -311,7 +311,7 @@
     state: icon
   - type: ModSuit
     clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitСience
+      head: ADTClothingHeadHelmetModsuitCience
       gloves: ADTClothingHandsModsuitCience
       outerClothing: ADTClothingOuterModsuitBodyCience
       shoes: ADTClothingModsuitShoesCience
