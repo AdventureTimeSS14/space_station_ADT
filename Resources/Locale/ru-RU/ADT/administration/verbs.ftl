@@ -7,3 +7,10 @@ admin-trick-send-to-test-arena-dev-description = Отправляет объек
 admin-trick-send-to-test-arena-hell-description = Отправляет объект в адскую арену с экстремальными условиями и угрозами. Тестирование на выживание в критических ситуациях.
 admin-trick-send-to-test-arena-paradise-description = Отправляет объект в райскую арену с безопасной и комфортной средой.
 admin-trick-send-to-test-arena-sandbox-description = Отправляет объект на песочную арену с полной свободой действий. Экспериментируйте без ограничений!
+
+
+## Smites
+### Буст скорости
+admin-smite-speed-boost-name = Не двигайся!
+admin-smite-speed-boost-description = Вы точно этого хотите!? Он разобьётся об стену!! (Для отмены кары примените её повторно на объёкт).
+

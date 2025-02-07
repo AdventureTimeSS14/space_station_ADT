@@ -92,6 +92,7 @@ namespace Content.Server.Administration.Systems
             AddAntagVerbs(ev);
             AddAdminTimeOperSpawnVerbs(ev); // ADT-Tweak
             AdminTestArenaVariableVerbs(ev); // ADT-Tweak
+            AddSmiteSpeedBoostWakeVerb(ev); // ADT-Tweak
         }
 
         private void AddAdminVerbs(GetVerbsEvent<Verb> args)

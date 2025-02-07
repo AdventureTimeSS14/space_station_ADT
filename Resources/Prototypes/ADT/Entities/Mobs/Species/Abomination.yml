@@ -65,6 +65,7 @@
   - type: NoSlip
   - type: Speech
     speechVerb: LargeMob
+  - type: Fauna
   # - type: LanguageSpeaker
   #   speaks:
   #   - "Не Создан"

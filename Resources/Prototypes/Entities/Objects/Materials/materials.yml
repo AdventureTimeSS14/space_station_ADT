@@ -12,6 +12,7 @@
   - type: Tag
     tags:
       - RawMaterial
+      - NoPaint #ADT tweak
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
