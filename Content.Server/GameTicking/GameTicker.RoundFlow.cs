@@ -476,9 +476,7 @@ namespace Content.Server.GameTicking
         private string ConvertBBCodeToMarkdown(string text)
         {
             text = Regex.Replace(text, @"\[.*?\]", "**");
-
-            return text;
-        }
+            return text; }
         private string GenerateRoundEndSummary(string gamemodeTitle, string roundEndText, RoundEndMessageEvent.RoundEndPlayerInfo[] playerInfoArray)
         {
             var roundEndTextMarkdown = ConvertBBCodeToMarkdown(roundEndText);
