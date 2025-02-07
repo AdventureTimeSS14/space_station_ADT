@@ -4,6 +4,7 @@ using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
 using Content.Server.Maps;
+using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -20,21 +21,19 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using System.Text.RegularExpressions;
 
-using System;
+using System.Text.RegularExpressions;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
         [Dependency] private readonly DiscordWebhook _discord = default!;
+        [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
-
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -151,6 +150,7 @@ namespace Content.Server.GameTicking
                 LoadGameMap(map, toLoad, null);
             }
         }
+
 
         /// <summary>
         ///     Loads a new map, allowing systems interested in it to handle loading events.
@@ -466,11 +466,11 @@ namespace Content.Server.GameTicking
             var roundEndTextMarkdown = ConvertBBCodeToMarkdown(roundEndText);
             var stringBuilder = new System.Text.StringBuilder();
 
-            stringBuilder.AppendLine($"**Режим**: {gamemodeTitle}\n");
+            stringBuilder.AppendLine($"Режим: {gamemodeTitle}\n");
 
             if (!string.IsNullOrWhiteSpace(roundEndTextMarkdown))
             {
-                stringBuilder.AppendLine($"**Информация**: {roundEndTextMarkdown}\n");
+                stringBuilder.AppendLine($"Информация: {roundEndTextMarkdown}\n");
             }
 
             var groupedPlayers = playerInfoArray
@@ -485,12 +485,12 @@ namespace Content.Server.GameTicking
 
             int totalPlayers = groupedPlayers.Count;
 
-            stringBuilder.AppendLine($"**Всего было игроков**: {totalPlayers}\n");
-            stringBuilder.AppendLine($"**Игроки**:\n");
+            stringBuilder.AppendLine($"Всего было игроков: {totalPlayers}\n");
+            stringBuilder.AppendLine($"Игроки:\n");
 
             foreach (var playerInfo in groupedPlayers)
             {
-                stringBuilder.AppendLine($"*{playerInfo.PlayerOOCName}* '**{playerInfo.PlayerICName}**' в роли: {playerInfo.Roles}");
+                stringBuilder.AppendLine($"{playerInfo.PlayerICName}({playerInfo.PlayerOOCName}) в роли: {playerInfo.Roles}");
             }
 
             return stringBuilder.ToString();
