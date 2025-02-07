@@ -477,7 +477,7 @@ namespace Content.Server.GameTicking
         // ADT-Tweak-start
         private string ConvertBBCodeToMarkdown(string text)
         {
-            text = Regex.Replace(text, @"\[.*?\]", "**");
+            text = Regex.Replace(text, @"\[.*?\]", "");
             return text; }
         private string GenerateRoundEndSummary(string gamemodeTitle, string roundEndText, RoundEndMessageEvent.RoundEndPlayerInfo[] playerInfoArray)
         {
