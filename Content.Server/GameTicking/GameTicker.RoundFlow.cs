@@ -511,8 +511,7 @@ namespace Content.Server.GameTicking
                 stringBuilder.AppendLine($"{playerInfo.PlayerICName}({playerInfo.PlayerOOCName}) в роли: {playerInfo.Roles}");
             }
 
-            return stringBuilder.ToString();
-        }
+            return stringBuilder.ToString();}
         // ADT-Tweak-end
 
         private async void SendRoundEndDiscordMessage()
