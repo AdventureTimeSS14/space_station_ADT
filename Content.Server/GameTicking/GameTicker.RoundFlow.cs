@@ -4,7 +4,6 @@ using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
 using Content.Server.Maps;
-using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -21,14 +20,21 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using System.Text.RegularExpressions;
+
+using System;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
         [Dependency] private readonly DiscordWebhook _discord = default!;
-        [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
+
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -146,7 +152,6 @@ namespace Content.Server.GameTicking
             }
         }
 
-
         /// <summary>
         ///     Loads a new map, allowing systems interested in it to handle loading events.
         ///     In the base game, this is required to be used if you want to load a station.
@@ -192,6 +197,9 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(userId, out _))
                     continue;
 
+                if (_banManager.GetRoleBans(userId) == null)
+                    continue;
+
                 total++;
             }
 
@@ -235,7 +243,11 @@ namespace Content.Server.GameTicking
 #if DEBUG
                 DebugTools.Assert(_userDb.IsLoadComplete(session), $"Player was readied up but didn't have user DB data loaded yet??");
 #endif
-
+                if (_banManager.GetRoleBans(userId) == null)
+                {
+                    Logger.ErrorS("RoleBans", $"Role bans for player {session} {userId} have not been loaded yet.");
+                    continue;
+                }
                 readyPlayers.Add(session);
                 HumanoidCharacterProfile profile;
                 if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
@@ -335,23 +347,7 @@ namespace Content.Server.GameTicking
 
             RunLevel = GameRunLevel.PostRound;
 
-            try
-            {
-                ShowRoundEndScoreboard(text);
-            }
-            catch (Exception e)
-            {
-                Log.Error($"Error while showing round end scoreboard: {e}");
-            }
-
-            try
-            {
-                SendRoundEndDiscordMessage();
-            }
-            catch (Exception e)
-            {
-                Log.Error($"Error while sending round end Discord message: {e}");
-            }
+            ShowRoundEndScoreboard(text);
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -384,7 +380,7 @@ namespace Content.Server.GameTicking
                 var userId = mind.UserId ?? mind.OriginalOwnerUserId;
 
                 var connected = false;
-                var observer = _role.MindHasRole<ObserverRoleComponent>(mindId);
+                var observer = HasComp<ObserverRoleComponent>(mindId);
                 // Continuing
                 if (userId != null && _playerManager.ValidSessionId(userId.Value))
                 {
@@ -453,6 +449,51 @@ namespace Content.Server.GameTicking
 
             _replayRoundPlayerInfo = listOfPlayerInfoFinal;
             _replayRoundText = roundEndText;
+            var roundEndSummary = GenerateRoundEndSummary(gamemodeTitle, roundEndText, listOfPlayerInfoFinal);
+            SendRoundEndDiscordMessageFile(roundEndSummary);
+            SendRoundEndDiscordMessage();
+        }
+
+        private string ConvertBBCodeToMarkdown(string text)
+        {
+            text = Regex.Replace(text, @"\[.*?\]", "**");
+
+            return text;
+        }
+
+        private string GenerateRoundEndSummary(string gamemodeTitle, string roundEndText, RoundEndMessageEvent.RoundEndPlayerInfo[] playerInfoArray)
+        {
+            var roundEndTextMarkdown = ConvertBBCodeToMarkdown(roundEndText);
+            var stringBuilder = new System.Text.StringBuilder();
+
+            stringBuilder.AppendLine($"**Режим**: {gamemodeTitle}\n");
+
+            if (!string.IsNullOrWhiteSpace(roundEndTextMarkdown))
+            {
+                stringBuilder.AppendLine($"**Информация**: {roundEndTextMarkdown}\n");
+            }
+
+            var groupedPlayers = playerInfoArray
+                .GroupBy(p => new { p.PlayerOOCName, p.PlayerICName })
+                .Select(g => new
+                {
+                    PlayerOOCName = g.Key.PlayerOOCName,
+                    PlayerICName = g.Key.PlayerICName,
+                    Roles = string.Join(", ", g.Select(p => p.Role).Distinct())
+                })
+                .ToList();
+
+            int totalPlayers = groupedPlayers.Count;
+
+            stringBuilder.AppendLine($"**Всего было игроков**: {totalPlayers}\n");
+            stringBuilder.AppendLine($"**Игроки**:\n");
+
+            foreach (var playerInfo in groupedPlayers)
+            {
+                stringBuilder.AppendLine($"*{playerInfo.PlayerOOCName}* '**{playerInfo.PlayerICName}**' в роли: {playerInfo.Roles}");
+            }
+
+            return stringBuilder.ToString();
         }
 
         private async void SendRoundEndDiscordMessage()
@@ -484,6 +525,76 @@ namespace Content.Server.GameTicking
             catch (Exception e)
             {
                 Log.Error($"Error while sending discord round end message:\n{e}");
+            }
+        }
+
+        private async void SendRoundEndDiscordMessageFile(string roundEndSummary)
+        {
+            try
+            {
+                if (!_webhookIdentifier.HasValue)
+                {
+                    Log.Error("WebhookIdentifier is null or does not have a value.");
+                    return;
+                }
+
+                var duration = RoundDuration();
+                var content = $"Раунд {RoundId} завершен!\n" +
+                            $"Продолжительность: {Math.Truncate(duration.TotalHours)} часов {duration.Minutes} минут {duration.Seconds} секунд\n" +
+                            $"{roundEndSummary}";
+
+                var payload = new WebhookPayload { Content = content };
+
+                if (!string.IsNullOrWhiteSpace(DiscordRoundEndRole))
+                {
+                    content = Loc.GetString("discord-round-notifications-end-ping", ("roleId", DiscordRoundEndRole));
+                    payload.AllowedMentions.AllowRoleMentions();
+                }
+
+                // Создаем временный файл с информацией о завершении раунда
+                var tempFilePath = Path.GetTempFileName();
+                var fileName = $"Round_{RoundId}_Summary.txt";
+                await File.WriteAllTextAsync(tempFilePath, content);
+
+                // Construct the webhook URL using the Id and Token
+                string webhookUrl = $"https://discord.com/api/webhooks/{_webhookIdentifier.Value.Id}/{_webhookIdentifier.Value.Token}";
+
+                Uri webhookUri;
+                try
+                {
+                    // Create the URI from the constructed webhook URL
+                    webhookUri = new Uri(webhookUrl);
+                }
+                catch (UriFormatException e)
+                {
+                    Log.Error($"Ошибка при преобразовании webhookIdentifier в URI: {e.Message}");
+                    return;
+                }
+
+                using (var client = new HttpClient())
+                using (var form = new MultipartFormDataContent())
+                {
+                    var fileBytes = await File.ReadAllBytesAsync(tempFilePath);
+                    var fileContent = new ByteArrayContent(fileBytes);
+                    fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
+                    form.Add(fileContent, "file", fileName);
+
+                    var response = await client.PostAsync(webhookUri, form); // Using the constructed URI
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Log.Error($"Ошибка при отправке файла в Discord: {response.StatusCode}");
+                    }
+                    else
+                    {
+                        Log.Info("Файл с информацией о завершении раунда успешно отправлен.");
+                    }
+                }
+
+                File.Delete(tempFilePath);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Ошибка при отправке сообщения о завершении раунда в Discord:\n{e}");
             }
         }
 
