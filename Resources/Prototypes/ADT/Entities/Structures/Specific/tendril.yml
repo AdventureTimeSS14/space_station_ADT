@@ -52,6 +52,39 @@
   - type: AshStormImmune
 
 - type: entity
+  id: ADTTendrilHypertrophied
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Hypertrophied
+  components:
+  - type: Tendril
+    spawns:
+    - ADTAbominationHypertrophied
+
+- type: entity
+  id: ADTTendrilDeath
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Death
+  components:
+  - type: Tendril
+    spawns:
+    - ADTAbominationDeath
+
+- type: entity
+  id: ADTTendrilBloated
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Bloated
+  components:
+  - type: Tendril
+    spawns:
+    - ADTAbominationBloated
+
+- type: entity
   id: ADTTendrilGoliath
   parent: ADTTendrilBase
   name: tendrыl

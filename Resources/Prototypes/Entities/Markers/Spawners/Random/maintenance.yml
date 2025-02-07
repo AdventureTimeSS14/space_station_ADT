@@ -119,6 +119,13 @@
       - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
+      #ADT tweak start
+      - id: SprayPaintBlue
+      - id: SprayPaintRed
+      - id: SprayPaintGreen
+      - id: SprayPaintOrange
+      - id: DeathPaint
+      #ADT tweak end
       # Cult
       - !type:AllSelector
         children:
