@@ -63,7 +63,7 @@
         Heat: 0.2
         Radiation: 0.5
         Caustic: 0.5
-    staminaModifier: 0.8 
+    staminaModifier: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: FireProtection
@@ -190,8 +190,8 @@
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
-  id: ADTClothingOuterModsuitBodyCience
-  name: cience MOD chestplate
+  id: ADTClothingOuterModsuitBodyScience
+  name: Science MOD chestplate
   description: A chestplate for a MODsuit.
   components:
   - type: Sprite

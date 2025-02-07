@@ -83,7 +83,7 @@
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitEngineering
-  name: atmos MOD helmet
+  name: engineering MOD helmet
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
@@ -170,8 +170,8 @@
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
-  id: ADTClothingHeadHelmetModsuitСience
-  name: сience MOD helmet
+  id: ADTClothingHeadHelmetModsuitScience
+  name: Science MOD helmet
   description: A helmet for a MODsuit.
   components:
   - type: Sprite

@@ -9,28 +9,6 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/urs_hat.rsi
 
-- type: entity
-  parent: ClothingHeadBase
-  id: ADTClothingHeadHatBeretBlueshieldBlack
-  name: blueshield officer's beret
-  description: A corporate black beret with a blueshield officer's rank emblem.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/blueshield_beret_black.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/blueshield_beret_black.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ADTClothingHeadHatBeretBlueshield
-  name: blueshield officer's beret
-  description: A corporate blue beret with a blueshield officer's rank emblem.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/blueshield_beret.rsi
-
 #Стильномат
 - type: entity
   parent: ClothingHeadBase
@@ -76,18 +54,6 @@
     - HamsterWearable
     - WhitelistChameleon
 
-# Brigmedic beret
-- type: entity
-  parent: ClothingHeadBase
-  id: ADTClothingHeadHatBeretBrigmedic
-  name: brigmedic beret
-  description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
-  components:
-    - type: Sprite
-      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
-    - type: Clothing
-      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
-
 - type: entity
   parent: ClothingHeadBase
   id: ADTClothingHeadCapIlisium
@@ -123,9 +89,9 @@
   suffix: New Mekka
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/armyberet.rsi
+    sprite: ADT/Clothing/Head/Hats/beret_army.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/armyberet.rsi
+    sprite: ADT/Clothing/Head/Hats/beret_army.rsi
 
 # Фуражки надзирателя
 - type: entity
@@ -218,6 +184,51 @@
   - type: Tag
     tags:
       - HamsterWearable
+
+# Brigmedic beret
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBrigmedic
+  name: brigmedic beret
+  description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Head/Hats/beret_brigmedic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlueshieldBlack
+  name: blueshield officer's beret
+  description: A corporate black beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_blueshield_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_blueshield_black.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretBlueshield
+  name: blueshield officer's beret
+  description: A corporate blue beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_blueshield.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_blueshield.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretСE
+  name: blueshield officer's beret
+  description: A corporate blue beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_ce.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_ce.rsi
 
 #октоберфест
 
