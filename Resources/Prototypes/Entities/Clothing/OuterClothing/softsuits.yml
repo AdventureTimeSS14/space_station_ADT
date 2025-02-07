@@ -56,6 +56,12 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+# ADT tweak start
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - MonkeyWearable
+# ADT tweak end
 
 #Prisoner EVA
 - type: entity
