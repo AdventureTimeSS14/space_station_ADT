@@ -26,7 +26,6 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
@@ -197,7 +196,7 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(userId, out _))
                     continue;
 
-                if (_banManager.GetRoleBans(userId) == null)
+                if (_banManager.GetRoleBans(userId) == null) // ADT-Tweak
                     continue;
 
                 total++;
@@ -243,7 +242,8 @@ namespace Content.Server.GameTicking
 #if DEBUG
                 DebugTools.Assert(_userDb.IsLoadComplete(session), $"Player was readied up but didn't have user DB data loaded yet??");
 #endif
-                if (_banManager.GetRoleBans(userId) == null)
+
+                if (_banManager.GetRoleBans(userId) == null) // ADT-tweak
                 {
                     Logger.ErrorS("RoleBans", $"Role bans for player {session} {userId} have not been loaded yet.");
                     continue;
@@ -346,8 +346,25 @@ namespace Content.Server.GameTicking
             _sawmill.Info("Ending round!");
 
             RunLevel = GameRunLevel.PostRound;
-
-            ShowRoundEndScoreboard(text);
+            // ADT-Commented-start
+            // try
+            // {
+            //     ShowRoundEndScoreboard(text);
+            // }
+            // catch (Exception e)
+            // {
+            //     Log.Error($"Error while showing round end scoreboard: {e}");
+            // }
+            // try
+            // {
+            //     SendRoundEndDiscordMessage();
+            // }
+            // catch (Exception e)
+            // {
+            //     Log.Error($"Error while sending round end Discord message: {e}");
+            // }
+            // ADT-Commented-end
+            ShowRoundEndScoreboard(text); // ADT-tweak
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -449,18 +466,19 @@ namespace Content.Server.GameTicking
 
             _replayRoundPlayerInfo = listOfPlayerInfoFinal;
             _replayRoundText = roundEndText;
+            // ADT-Tweak-start
             var roundEndSummary = GenerateRoundEndSummary(gamemodeTitle, roundEndText, listOfPlayerInfoFinal);
             SendRoundEndDiscordMessageFile(roundEndSummary);
             SendRoundEndDiscordMessage();
+            // ADT-Tweak-end
         }
-
+        // ADT-Tweak-start
         private string ConvertBBCodeToMarkdown(string text)
         {
             text = Regex.Replace(text, @"\[.*?\]", "**");
 
             return text;
         }
-
         private string GenerateRoundEndSummary(string gamemodeTitle, string roundEndText, RoundEndMessageEvent.RoundEndPlayerInfo[] playerInfoArray)
         {
             var roundEndTextMarkdown = ConvertBBCodeToMarkdown(roundEndText);
@@ -495,6 +513,7 @@ namespace Content.Server.GameTicking
 
             return stringBuilder.ToString();
         }
+        // ADT-Tweak-end
 
         private async void SendRoundEndDiscordMessage()
         {
@@ -527,7 +546,7 @@ namespace Content.Server.GameTicking
                 Log.Error($"Error while sending discord round end message:\n{e}");
             }
         }
-
+        // ADT-Tweak-start
         private async void SendRoundEndDiscordMessageFile(string roundEndSummary)
         {
             try
@@ -544,12 +563,7 @@ namespace Content.Server.GameTicking
                             $"{roundEndSummary}";
 
                 var payload = new WebhookPayload { Content = content };
-
-                if (!string.IsNullOrWhiteSpace(DiscordRoundEndRole))
-                {
-                    content = Loc.GetString("discord-round-notifications-end-ping", ("roleId", DiscordRoundEndRole));
-                    payload.AllowedMentions.AllowRoleMentions();
-                }
+                payload = new WebhookPayload { Content = content };
 
                 // Создаем временный файл с информацией о завершении раунда
                 var tempFilePath = Path.GetTempFileName();
@@ -597,6 +611,7 @@ namespace Content.Server.GameTicking
                 Log.Error($"Ошибка при отправке сообщения о завершении раунда в Discord:\n{e}");
             }
         }
+        // ADT-Tweak-end
 
         public void RestartRound()
         {
