@@ -80,10 +80,11 @@
         Brute: 6
   # Start ADT: Xeno Buff
   - type: StaminaDamageOnHit
-    damage: 10 
+    damage: 10
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
   - type: Fauna
+  - type: AshStormImmune
   # End ADT
   - type: DamageStateVisuals
     rotate: true
@@ -161,9 +162,9 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 8    
+        Brute: 8
   - type: StaminaDamageOnHit
-    damage: 12 
+    damage: 12
   # ADT End
   - type: Fixtures
     fixtures:
@@ -206,7 +207,7 @@
         Brute: 5 # ADT Tweak
   # Start ADT: Xeno Buff
   - type: StaminaDamageOnHit
-    damage: 15 
+    damage: 15
   # End ADT
   - type: MovementSpeedModifier
     baseSprintSpeed: 4

@@ -1,12 +1,13 @@
+using Content.Shared.Salvage.Expeditions.Modifiers;
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Shared.Salvage.Expeditions.Modifiers;
+namespace Content.Shared.ADT.Salvage.Expeditions.Modifiers;
 
-[Prototype("salvageWeatherMod")]
-public sealed partial class SalvageWeatherMod : IPrototype, IBiomeSpecificMod
+[Prototype("salvageWindMod")]
+public sealed partial class SalvageWindMod : IPrototype, IBiomeSpecificMod
 {
     [IdDataField] public string ID { get; } = default!;
 
@@ -21,8 +22,8 @@ public sealed partial class SalvageWeatherMod : IPrototype, IBiomeSpecificMod
     public List<string>? Biomes { get; private set; } = null;
 
     /// <summary>
-    /// Weather prototype to use on the planet.
+    /// Wind strength
     /// </summary>
-    [DataField("weather", customTypeSerializer:typeof(PrototypeIdSerializer<WeatherPrototype>))]
-    public string WeatherPrototype = string.Empty;
+    [DataField("weather")]
+    public float Strength = 0f;
 }

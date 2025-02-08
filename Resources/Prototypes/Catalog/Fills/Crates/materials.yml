@@ -124,7 +124,7 @@
       - id: SheetSteel
       - id: SheetPlastic
       - id: ADTSheetCopper  # ADT Tweak
-      - id: ADTSheetZink  # ADT Tweak
+      - id: ADTSheetZinc  # ADT Tweak
     - !type:GroupSelector # secondary materials, stack
       weight: 30
       children:

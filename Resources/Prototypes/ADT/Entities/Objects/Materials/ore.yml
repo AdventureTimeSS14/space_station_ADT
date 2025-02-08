@@ -33,18 +33,18 @@
 
 - type: entity
   parent: OreBase
-  id: ADTZinkOre
+  id: ADTZincOre
   name: gold ore
   suffix: Full
   components:
   - type: Stack
-    stackType: ZinkOre
+    stackType: ZincOre
   - type: Sprite
     state: copper
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawZink: 300
+      RawZinc: 300
   - type: Item
     heldPrefix: copper
   - type: Extractable
@@ -57,8 +57,8 @@
           Quantity: 20
 
 - type: entity
-  parent: ADTZinkOre
-  id: ADTZinkOre1
+  parent: ADTZincOre
+  id: ADTZincOre1
   suffix: Single
   components:
   - type: Stack

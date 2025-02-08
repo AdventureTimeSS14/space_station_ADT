@@ -85,12 +85,13 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-  # ADT-CollectiveMind-Tweak-Start
+  # ADT Start
     - type: CollectiveMind
       channel: CarpCollectiveMind
       showRank: true
       rankName: collective-mind-carp-rank
-  # ADT-CollectiveMind-Tweak-End
+    - type: AshStormImmune
+  # ADT End
 
 - type: entity
   parent: BaseMobCarp

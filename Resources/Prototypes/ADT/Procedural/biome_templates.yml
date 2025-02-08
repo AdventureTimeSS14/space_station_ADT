@@ -134,7 +134,7 @@
     - !type:BiomeTileLayer
       threshold: -1
       tile: FloorBasalt
-      
+
 # For ADT BFUU Meat Planet
 - type: biomeTemplate
   id: AbominationPlanet
@@ -195,14 +195,7 @@
       allowedTiles:
         - FloorFlesh
       entities:
-        - FloraMeatPalmsTree
-        - FloraMeatPalmsTree1
-        - FloraMeatPalmsTree2
-        - FloraMeatLungTree
-        - FloraMeatLungTree1
-        - FloraMeatMembranaTree
-        - FloraMeatMembranaTree1
-        - FloraMeatMembranaTree2
+        - FloraMeatTreeRandom
 
 # ADT BFUU IcePlanet
 - type: biomeTemplate
@@ -287,12 +280,7 @@
       allowedTiles:
         - FloorSnow
       entities:
-        - FloraTreeSnow01
-        - FloraTreeSnow02
-        - FloraTreeSnow03
-        - FloraTreeSnow04
-        - FloraTreeSnow05
-        - FloraTreeSnow06
+        - FloraTreeSnow
     # Snow rock formations
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -486,6 +474,36 @@
         cellularReturnType: Distance2
       entities:
         - WallRockSnowBananium
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorIce
+      threshold: -0.03
+      noise:
+        seed: 100
+        noiseType: Cellular
+        frequency: 0.15
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 4
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSnowCopper
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorIce
+      threshold: -0.03
+      noise:
+        seed: 100
+        noiseType: Cellular
+        frequency: 0.15
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 4
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSnowZinc
 # Snow tiles islands
     - !type:BiomeTileLayer
       tile: FloorSnow
@@ -806,12 +824,7 @@
       allowedTiles:
         - FloorPlanetGrass
       entities:
-        - FloraTreeLarge01
-        - FloraTreeLarge02
-        - FloraTreeLarge03
-        - FloraTreeLarge04
-        - FloraTreeLarge05
-        - FloraTreeLarge06
+        - FloraTreeLarge
 # The Rock
     - !type:BiomeDecalLayer
       allowedTiles:
@@ -1010,6 +1023,36 @@
         cellularReturnType: Distance2
       entities:
         - WallRockSandBananium
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorDesert
+      threshold: 0.05
+      noise:
+        seed: 100
+        noiseType: Cellular
+        frequency: 0.15
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 4
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSandCopper
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorDesert
+      threshold: 0.05
+      noise:
+        seed: 100
+        noiseType: Cellular
+        frequency: 0.15
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 4
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSandZinc
 # Oops... Quicksand is over... Falling will be fast.
     - !type:BiomeEntityLayer
       allowedTiles:

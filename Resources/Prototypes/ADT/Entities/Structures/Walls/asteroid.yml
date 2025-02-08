@@ -29,21 +29,21 @@
         map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: WallRockZink
+  id: WallRockZinc
   parent: WallRock
   description: An ore vein rich with zinc.
-  suffix: Zink
+  suffix: Zinc
   components:
   - type: EntityRemap
     mask:
-      AsteroidRock: AsteroidRockZink
-      WallRockBasalt: WallRockBasaltZink
-      WallRockChromite: WallRockChromiteZink
-      WallRockSand: WallRockSandZink
-      WallRockSnow: WallRockSnowZink
+      AsteroidRock: AsteroidRockZinc
+      WallRockBasalt: WallRockBasaltZinc
+      WallRockChromite: WallRockChromiteZinc
+      WallRockSand: WallRockSandZinc
+      WallRockSnow: WallRockSnowZinc
   - type: OreVein
     oreChance: 1.0
-    currentOre: OreZink
+    currentOre: OreZinc
   - type: Sprite
     layers:
       - state: rock
@@ -242,14 +242,14 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: AsteroidRockZink
+  id: AsteroidRockZinc
   parent: AsteroidRock
   description: An ore vein rich with zinc.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: rock_asteroid
@@ -265,14 +265,14 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: MeteorRockZink
+  id: MeteorRockZinc
   parent: MeteorRock
   description: An ore vein rich with zinc.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: rock_asteroid
@@ -287,14 +287,14 @@
         - state: rock_zinc
 
 - type: entity
-  id: IronRockZink
+  id: IronRockZinc
   parent: IronRock
   description: An ore vein rich with zinc.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: ironrock
@@ -310,14 +310,14 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: WallRockBasaltZink
+  id: WallRockBasaltZinc
   parent: WallRockBasalt
   description: An ore vein rich with zinc.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: rock_wall
@@ -333,14 +333,14 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: WallRockSnowZink
+  id: WallRockSnowZinc
   parent: WallRockSnow
   description: An ore vein rich with zinc.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: rock_snow
@@ -356,14 +356,14 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: WallRockSandZink
+  id: WallRockSandZinc
   parent: WallRockSand
   description: An ore vein rich with quartz.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: rock_sand
@@ -379,14 +379,14 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: WallRockChromiteZink
+  id: WallRockChromiteZinc
   parent: WallRockChromite
   description: An ore vein rich with quartz.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: rock_chromite
@@ -402,14 +402,14 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
-  id: WallRockAndesiteZink
+  id: WallRockAndesiteZinc
   parent: WallRockAndesite
   description: An ore vein rich with quartz.
-  suffix: Zink
+  suffix: Zinc
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZink
+      currentOre: OreZinc
     - type: Sprite
       layers:
         - state: rock_andesite

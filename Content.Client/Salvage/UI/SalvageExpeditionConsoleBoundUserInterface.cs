@@ -56,7 +56,7 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
             var offering = new OfferingWindowOption();
             offering.Title = Loc.GetString($"salvage-expedition-type");
 
-            var difficultyId = "Moderate";
+            var difficultyId = missionParams.Difficulty;    // ADT Salvage
             var difficultyProto = _protoManager.Index<SalvageDifficultyPrototype>(difficultyId);
             // TODO: Selectable difficulty soon.
             var mission = salvage.GetMission(difficultyProto, missionParams.Seed);
@@ -72,7 +72,7 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
 
             offering.AddContent(new Label
             {
-                Text = Loc.GetString("salvage-expedition-difficulty-Moderate"),
+                Text = Loc.GetString($"salvage-expedition-difficulty-{mission.Difficulty}"),    // ADT
                 FontColorOverride = difficultyColor,
                 HorizontalAlignment = Control.HAlignment.Left,
                 Margin = new Thickness(0f, 0f, 0f, 5f),

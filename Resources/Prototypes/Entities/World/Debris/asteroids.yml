@@ -24,10 +24,10 @@
             prob: 0.15
             orGroup: rock
           - id: WallRockQuartz
-            prob: 0.15
+            prob: 0.10
             orGroup: rock
           - id: WallRockSalt
-            prob: 0.15
+            prob: 0.10
             orGroup: rock
           - id: WallRockGold
             prob: 0.05
@@ -54,7 +54,7 @@
           - id: WallRockCopper
             prob: 0.10
             orGroup: rock
-          - id: WallRockZink
+          - id: WallRockZinc
             prob: 0.10
             orGroup: rock
           # ADT Ores end

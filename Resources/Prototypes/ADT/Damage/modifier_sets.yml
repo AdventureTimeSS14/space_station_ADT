@@ -271,4 +271,70 @@
     Radiation: 0
     Cold: 0
     Poison: 0
-#
+
+# Abominations
+- type: damageModifierSet
+  id: distorted
+  coefficients:
+    Blunt: 1
+    Piercing: 1
+    Slash: 1.0
+    Cold: 0.5
+    Heat: 0.5
+    Poison: 0.5
+    Bloodloss: 1
+
+- type: damageModifierSet
+  id: echo
+  coefficients:
+    Blunt: 1
+    Piercing: 1
+    Slash: 0.4
+    Cold: 0.6
+    Heat: 0.6
+    Poison: 1.0
+    Bloodloss: 1
+
+- type: damageModifierSet
+  id: grant
+  coefficients:
+    Blunt: 0.5
+    Piercing: 0.7
+    Slash: 0.5
+    Cold: 0.7
+    Heat: 0.7
+    Poison: 0.7
+    Bloodloss: 1
+
+- type: damageModifierSet
+  id: hunter
+  coefficients:
+    Blunt: 0.45
+    Piercing: 0.6
+    Slash: 0.45
+    Cold: 0.6
+    Heat: 0.45
+    Poison: 0.6
+    Bloodloss: 1
+
+- type: damageModifierSet
+  id: soldier
+  coefficients:
+    Blunt: 0.8
+    Piercing: 0.8
+    Slash: 0.8
+    Cold: 0.8
+    Heat: 0.8
+    Poison: 0.8
+    Bloodloss: 1
+
+- type: damageModifierSet
+  id: wrecker
+  coefficients:
+    Blunt: 0.4
+    Piercing: 0.55
+    Slash: 0.4
+    Cold: 0.55
+    Heat: 0.65
+    Poison: 0.55
+    Bloodloss: 1

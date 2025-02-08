@@ -28,8 +28,8 @@
   maxOreYield: 4
 
 - type: ore
-  id: OreZink
-  oreEntity: ADTZinkOre1
+  id: OreZinc
+  oreEntity: ADTZincOre1
   minOreYield: 1
   maxOreYield: 4
 # ADT Ores end

@@ -34,6 +34,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Components;
+using Content.Shared.Weather;
+using Content.Server.ADT.Weather;
 
 namespace Content.Server.Salvage;
 
@@ -49,6 +51,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
     private readonly MetaDataSystem _metaData;
     private readonly SharedTransformSystem _xforms;
     private readonly SharedMapSystem _map;
+    private readonly SharedWeatherSystem _weather;  // ADT
 
     public readonly EntityUid Station;
     public readonly EntityUid? CoordinatesDisk;
@@ -69,6 +72,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         MetaDataSystem metaData,
         SharedTransformSystem xform,
         SharedMapSystem map,
+        SharedWeatherSystem weather,    // ADT
         EntityUid station,
         EntityUid? coordinatesDisk,
         SalvageMissionParams missionParams,
@@ -84,6 +88,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         _metaData = metaData;
         _xforms = xform;
         _map = map;
+        _weather = weather; // ADT
         Station = station;
         CoordinatesDisk = coordinatesDisk;
         _missionParams = missionParams;
@@ -148,6 +153,19 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             var atmos = _entManager.EnsureComponent<MapAtmosphereComponent>(mapUid);
             _entManager.System<AtmosphereSystem>().SetMapSpace(mapUid, air.Space, atmos);
             _entManager.System<AtmosphereSystem>().SetMapGasMixture(mapUid, new GasMixture(moles, mission.Temperature), atmos);
+
+            // ADT Salvage start
+            if (mission.Weather != null && mission.Weather != "")
+            {
+                _weather.SetWeather(mapId, _prototypeManager.Index<WeatherPrototype>(_prototypeManager.Index<SalvageWeatherMod>(mission.Weather).WeatherPrototype), null);
+            }
+
+            if (mission.WindStrength > 0 && mission.Weather != "")
+            {
+                var wind = _entManager.AddComponent<HeavyWindComponent>(mapUid);
+                wind.Speed = mission.WindStrength;
+            }
+            // ADT Salvage end
 
             if (mission.Color != null)
             {

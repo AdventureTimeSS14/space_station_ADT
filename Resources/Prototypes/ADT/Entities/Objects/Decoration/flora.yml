@@ -116,3 +116,24 @@
   - type: Sprite
     sprite: ADT/Objects/Decoration/meat_tree.rsi
     state: membrana_tree2
+
+- type: entity
+  parent: FloraMeatPalmsTree
+  id: FloraMeatTreeRandom
+  name: meat tree
+  components:
+  - type: Sprite
+    layers:
+    - state: palms_tree
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        palms_tree: ""
+        palms_tree1: ""
+        palms_tree2: ""
+        lung_tree: ""
+        lung_tree1: ""
+        membrana_tree: ""
+        membrana_tree1: ""
+        membrana_tree2: ""

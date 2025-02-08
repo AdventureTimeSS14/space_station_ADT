@@ -47,6 +47,14 @@
     params:
       loop: true
       volume: -6
+  # ADT Start
+  damage: # ADT
+    types:
+      Radiation: 1.5
+  damageBlacklist: # ADT
+    components:
+    - AshStormImmune
+  # ADT End
 
 - type: weather
   id: Hail
@@ -98,32 +106,44 @@
     params:
       loop: true
       volume: -6
+  # ADT Start
+  damage:
+    types:
+      Heat: 2
+  damageBlacklist: # ADT
+    components:
+    - AshStormImmune
+  # ADT End
 
 - type: weather
   id: SnowfallLight
   sprite:
     sprite: /Textures/Effects/weather.rsi
     state: snowfall_light
-  # Corvax-start
-  #sound:
-  #  path: /Audio/Effects/Weather/snowstorm_weak.ogg
-  #  params:
-  #    loop: true
-  #    volume: -12 # Corvax
-  # Corvax-end
+  sound:
+   path: /Audio/Effects/Weather/snowstorm_weak.ogg
+   params:
+     loop: true
+     volume: -12 # Corvax
 
 - type: weather
   id: SnowfallMedium
   sprite:
     sprite: /Textures/Effects/weather.rsi
     state: snowfall_med
-  # Corvax-start
-  #sound:
-  #  path: /Audio/Effects/Weather/snowstorm_weak.ogg
-  #  params:
-  #    loop: true
-  #    volume: -10 # Corvax
-  # Corvax-end
+  sound:
+   path: /Audio/Effects/Weather/snowstorm_weak.ogg
+   params:
+     loop: true
+     volume: -10 # Corvax
+  # ADT Start
+  damage:
+    types:
+      Cold: 2
+  damageBlacklist: # ADT
+    components:
+    - AshStormImmune
+  # ADT End
 
 - type: weather
   id: SnowfallHeavy
@@ -135,6 +155,14 @@
     params:
       loop: true
       volume: -6
+  # ADT Start
+  damage:
+    types:
+      Cold: 4
+  damageBlacklist: # ADT
+    components:
+    - AshStormImmune
+  # ADT End
 
 - type: weather
   id: Storm

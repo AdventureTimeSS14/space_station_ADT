@@ -25,6 +25,7 @@ public abstract class SharedWeatherSystem : EntitySystem
         base.Initialize();
         _blockQuery = GetEntityQuery<BlockWeatherComponent>();
         SubscribeLocalEvent<WeatherComponent, EntityUnpausedEvent>(OnWeatherUnpaused);
+        SubscribeLocalEvent<WeatherComponent, ComponentShutdown>(OnWeatherShutdown);    // ADT
     }
 
     private void OnWeatherUnpaused(EntityUid uid, WeatherComponent component, ref EntityUnpausedEvent args)
@@ -38,6 +39,16 @@ public abstract class SharedWeatherSystem : EntitySystem
         }
         component.NextUpdate += args.PausedTime; // ADT tweak
     }
+
+    // ADT Start
+    private void OnWeatherShutdown(EntityUid uid, WeatherComponent component, ComponentShutdown args)
+    {
+        foreach (var item in component.Weather)
+        {
+            EndWeather(uid, component, item.Key);
+        }
+    }
+    // ADT End
 
     public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef)
     {

@@ -8,8 +8,8 @@
   price: 0.075
 
 - type: material
-  id: RawZink
-  stackEntity: ADTZinkOre1
+  id: RawZinc
+  stackEntity: ADTZincOre1
   name: materials-raw-zinc
   unit: materials-unit-chunk
   icon: { sprite: Objects/Materials/ore.rsi, state: spacequartz }

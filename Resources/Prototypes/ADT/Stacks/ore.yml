@@ -6,8 +6,8 @@
   maxCount: 30
 
 - type: stack
-  id: ZinkOre
+  id: ZincOre
   name: zinc ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: zinc }
-  spawn: ADTZinkOre1
+  spawn: ADTZincOre1
   maxCount: 30
