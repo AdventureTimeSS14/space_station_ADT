@@ -1,10 +1,8 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.BloodCough;
+namespace Content.Server.ADT.BloodCough;
 
 [RegisterComponent]
-[NetworkedComponent]
 public sealed partial class BloodCoughComponent : Component
 {
     public TimeSpan NextSecond = TimeSpan.Zero;
@@ -20,3 +18,13 @@ public sealed partial class BloodCoughComponent : Component
 
     public bool CheckCoughBlood = false;
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

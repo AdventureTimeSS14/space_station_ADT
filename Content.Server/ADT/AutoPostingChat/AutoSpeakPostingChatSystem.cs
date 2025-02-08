@@ -1,10 +1,9 @@
 using Content.Shared.Mobs;
 using Content.Server.Chat.Systems;
-using Content.Shared.ADT.AutoPostingChat;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 
-
+namespace Content.Server.ADT.AutoPostingChat;
 public sealed class AutoSpeakPostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
