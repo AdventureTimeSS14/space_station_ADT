@@ -13,4 +13,5 @@ admin-trick-send-to-test-arena-sandbox-description = Отправляет объ
 ### Буст скорости
 admin-smite-speed-boost-name = Не двигайся!
 admin-smite-speed-boost-description = Вы точно этого хотите!? Он разобьётся об стену!! (Для отмены кары примените её повторно на объёкт).
-
+admin-smite-divine-delay-name = Ударить молнией всех вокруг!
+admin-smite-divine-delay-description = Удар молнией: Ебните всех вокруг!
