@@ -63,15 +63,27 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Texture(new("/Textures/ADT/Interface/Alerts/AdminSmite/divineDelay.png")),
                 Act = () =>
                 {
-                    var xform = Transform(args.Target);
-                    foreach (var entity in _entityLookup.GetEntitiesInRange(xform.Coordinates, 8f))
-                    {
-                        if (TryComp<InputMoverComponent>(entity, out var _))
+                    _quickDialog.OpenDialog(player, "Settings", "Radius", "Damage", "Time Span",
+                    (string sRadius, string sDamage, string sTimeSpan) =>
                         {
-                            _electrocutionSystem.TryDoElectrocution(entity, null, 20, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
-                            Spawn("Lightning",Transform(entity).Coordinates);
-                        }
-                    }
+                            if (!float.TryParse(sRadius, out var radius) || !int.TryParse(sDamage, out var damage) || !int.TryParse(sTimeSpan, out var timeSpan))
+                                return;
+                            if (radius < 0)
+                                radius = 999f;  // Искуственный выход за рамки :) 
+                            if (damage < 0)
+                                damage = 999;  // Искуственный выход за рамки :) 
+                            if (timeSpan < 0)
+                                timeSpan = 999; // Искуственный выход за рамки :) 
+                            var xform = Transform(args.Target);
+                            foreach (var entity in _entityLookup.GetEntitiesInRange(xform.Coordinates, radius))
+                            {
+                                if (TryComp<InputMoverComponent>(entity, out var _))
+                                {
+                                    _electrocutionSystem.TryDoElectrocution(entity, null, damage, TimeSpan.FromSeconds(timeSpan), refresh: true, ignoreInsulation: true);
+                                    Spawn("Lightning", Transform(entity).Coordinates);
+                                }
+                            }
+                    });
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-smite-divine-delay-description")
