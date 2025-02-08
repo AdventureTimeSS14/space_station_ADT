@@ -64,11 +64,11 @@ public sealed partial class AdminVerbSystem
                 Act = () =>
                 {
                     var xform = Transform(args.Target);
-                    foreach (var entity in _entityLookup.GetEntitiesInRange(xform.Coordinates, 10f))
+                    foreach (var entity in _entityLookup.GetEntitiesInRange(xform.Coordinates, 8f))
                     {
                         if (TryComp<InputMoverComponent>(entity, out var _))
                         {
-                            _electrocutionSystem.TryDoElectrocution(entity, null, 50, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
+                            _electrocutionSystem.TryDoElectrocution(entity, null, 20, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
                             Spawn("Lightning",Transform(entity).Coordinates);
                         }
                     }
