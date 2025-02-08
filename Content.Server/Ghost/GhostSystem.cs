@@ -37,13 +37,10 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Linq;
-using System.Numerics;
-using Content.Shared.ADT.OnGhostAttemtpDamage;
+using Content.Server.ADT.OnGhostAttemtpDamage;
 using Content.Shared.ADT.Ghost;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
-using Robust.Shared.Random;
 
 namespace Content.Server.Ghost
 {
