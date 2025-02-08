@@ -16,7 +16,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
 
     // All smite verbs have names so invokeverb works.
-    private void AddSmiteSpeedBoostWakeVerb(GetVerbsEvent<Verb> args)
+    private void AddAdminADTSmitesVerbs(GetVerbsEvent<Verb> args)
     {
         if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
             return;
@@ -69,11 +69,11 @@ public sealed partial class AdminVerbSystem
                             if (!float.TryParse(sRadius, out var radius) || !int.TryParse(sDamage, out var damage) || !int.TryParse(sTimeSpan, out var timeSpan))
                                 return;
                             if (radius < 0)
-                                radius = 999f;  // Искуственный выход за рамки :) 
+                                radius = 999f;  // Искуственный выход за рамки :)
                             if (damage < 0)
-                                damage = 999;  // Искуственный выход за рамки :) 
+                                damage = 999;  // Искуственный выход за рамки :)
                             if (timeSpan < 0)
-                                timeSpan = 999; // Искуственный выход за рамки :) 
+                                timeSpan = 999; // Искуственный выход за рамки :)
                             var xform = Transform(args.Target);
                             foreach (var entity in _entityLookup.GetEntitiesInRange(xform.Coordinates, radius))
                             {
