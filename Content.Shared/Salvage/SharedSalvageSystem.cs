@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.ADT.Salvage.Expeditions.Modifiers;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.Procedural;
@@ -47,10 +46,6 @@ public abstract partial class SharedSalvageSystem : EntitySystem
         var light = GetBiomeMod<SalvageLightMod>(biome.ID, rand, ref modifierBudget);
         var temp = GetBiomeMod<SalvageTemperatureMod>(biome.ID, rand, ref modifierBudget);
         var air = GetBiomeMod<SalvageAirMod>(biome.ID, rand, ref modifierBudget);
-        // ADT Start
-        var weather = GetBiomeMod<SalvageWeatherMod>(biome.ID, rand, ref modifierBudget);
-        var wind = GetBiomeMod<SalvageWindMod>(biome.ID, rand, ref modifierBudget);
-        // ADT End
         var dungeon = GetBiomeMod<SalvageDungeonModPrototype>(biome.ID, rand, ref modifierBudget);
         var factionProtos = _proto.EnumeratePrototypes<SalvageFactionPrototype>().ToList();
         factionProtos.Sort((x, y) => string.Compare(x.ID, y.ID, StringComparison.Ordinal));
@@ -69,17 +64,6 @@ public abstract partial class SharedSalvageSystem : EntitySystem
             mods.Add(Loc.GetString(temp.Description));
         }
 
-        // ADT Start
-        if (weather.Description != string.Empty)
-        {
-            mods.Add(Loc.GetString(weather.Description));
-        }
-
-        if (wind.Strength > 0 && weather.WeatherPrototype != string.Empty)
-        {
-            mods.Add(Loc.GetString(wind.Description));
-        }
-        // ADT End
         if (light.Description != string.Empty)
         {
             mods.Add(Loc.GetString(light.Description));
@@ -87,7 +71,7 @@ public abstract partial class SharedSalvageSystem : EntitySystem
 
         var duration = TimeSpan.FromSeconds(CfgManager.GetCVar(CCVars.SalvageExpeditionDuration));
 
-        return new SalvageMission(seed, dungeon.ID, faction.ID, biome.ID, air.ID, temp.Temperature, light.Color, duration, mods, weather.ID, wind.Strength, difficulty.ID);
+        return new SalvageMission(seed, dungeon.ID, faction.ID, biome.ID, air.ID, temp.Temperature, light.Color, duration, mods);
     }
 
     public T GetBiomeMod<T>(string biome, System.Random rand, ref float rating) where T : class, IPrototype, IBiomeSpecificMod

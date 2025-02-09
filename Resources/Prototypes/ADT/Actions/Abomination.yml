@@ -2,7 +2,7 @@
   id: CompActionShootAbomination
   name: action-shoot
   description: action-shoot-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 10
@@ -20,7 +20,7 @@
   id: CompActionHealAbomination
   name: action-heal
   description: action-heal-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -35,7 +35,7 @@
   id: CompActionJumpAbomination
   name: action-jump
   description: action-jump-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     useDelay: 35

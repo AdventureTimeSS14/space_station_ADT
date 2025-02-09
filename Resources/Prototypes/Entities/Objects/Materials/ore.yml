@@ -342,12 +342,6 @@
       Coal: 300   #ADT_Tweak - повышено со 100
   - type: Item
     heldPrefix: coal
-  # ADT Tweak start
-  - type: Tag
-    tags:
-    - Ore
-    - ADTCoal
-  # ADT Tweak end
 
 - type: entity
   parent: Coal

@@ -207,7 +207,6 @@
       - Flare
       - CassetteTape  # ADT
       - TapeRecorder  # ADT
-      - Brass         # ADT
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -1497,8 +1496,6 @@
         - MaterialBananium1
         - MaterialDiamond
     # ADT tweak start
-        - SheetCopper
-        - SheetZinc
     - type: AutoMaterialInsert
       tag: ADTOreBag
     - type: MiningPoints
@@ -1535,10 +1532,6 @@
       - IngotSilver1
       - MaterialBananium1
       - MaterialDiamond
-      # ADT Start
-      - SheetCopper
-      - SheetZinc
-      # ADT End
 
 - type: entity
   parent: BaseLathe

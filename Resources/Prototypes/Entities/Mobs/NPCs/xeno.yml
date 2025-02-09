@@ -84,7 +84,6 @@
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
   - type: Fauna
-  - type: AshStormImmune
   # End ADT
   - type: DamageStateVisuals
     rotate: true

@@ -157,7 +157,6 @@
   - type: StorageFill
     contents:
       - id: SheetSteel
-      - id: ADTSheetCopper  # ADT Tweak
       - id: CableApcStack
       - id: DoorElectronics
         amount: 6

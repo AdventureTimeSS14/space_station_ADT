@@ -49,30 +49,23 @@
   materials:
     Steel: 200
 
-# ADT Tweak start
 - type: latheRecipe
   id: CableStack
   result: CableApcStack1
   category: Parts
   completetime: 0.1
   materials:
-    Copper: 30
+    Steel: 30
 
 - type: latheRecipe
+  parent: CableStack
   id: CableMVStack
   result: CableMVStack1
-  completetime: 0.1
-  materials:
-    Copper: 30
 
 - type: latheRecipe
+  parent: CableStack
   id: CableHVStack
   result: CableHVStack1
-  completetime: 0.1
-  materials:
-    Silver: 15
-    Copper: 30
-# ADT Tweak end
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -105,7 +98,6 @@
   materials:
     Steel: 200
     Plastic: 200
-    Copper: 100 # ADT Tweak
 
 - type: latheRecipe
   parent: Multitool
@@ -119,7 +111,6 @@
   materials:
     Steel: 600
     Plastic: 200
-    Copper: 100 # ADT Tweak
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -129,7 +120,6 @@
   materials:
     Steel: 1000
     Plastic: 300
-    Brass: 500 # ADT Tweak
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -138,7 +128,6 @@
   materials:
     Steel: 500
     Plastic: 250
-    Brass: 150 # ADT Tweak
 
 - type: latheRecipe
   parent: BaseBigToolRecipe
@@ -194,7 +183,6 @@
   materials:
     Steel: 800
     Plasma: 200
-    Brass: 250 # ADT Tweak
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -206,7 +194,6 @@
     Glass: 500
     Plasma: 300
     Gold: 50
-    Brass: 150 # ADT Tweak
 
 - type: latheRecipe
   parent: BaseToolRecipe

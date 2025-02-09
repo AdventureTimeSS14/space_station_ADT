@@ -75,16 +75,6 @@ public sealed partial class SalvageExpeditionDataComponent : Component
     [ViewVariables] public ushort ActiveMission;
 
     public ushort NextIndex = 1;
-
-    // ADT Salvage start
-    [DataField]
-    public List<string> Difficulties = new()
-    {
-        "Moderate",
-        "Hard",
-        "Extreme"
-    };
-    // ADT Salvage end
 }
 
 [Serializable, NetSerializable]
@@ -111,10 +101,7 @@ public sealed record SalvageMission(
     float Temperature,
     Color? Color,
     TimeSpan Duration,
-    List<string> Modifiers,
-    string? Weather,       // ADT
-    float WindStrength,
-    string Difficulty)    // ADT
+    List<string> Modifiers)
 {
     /// <summary>
     /// Seed used for the mission.
@@ -160,14 +147,6 @@ public sealed record SalvageMission(
     /// Modifiers (outside of the above) applied to the mission.
     /// </summary>
     public List<string> Modifiers = Modifiers;
-
-    // ADT Start
-    public string? Weather = Weather;
-
-    public float WindStrength = WindStrength;
-
-    public string Difficulty = Difficulty;
-    // ADT End
 }
 
 [Serializable, NetSerializable]

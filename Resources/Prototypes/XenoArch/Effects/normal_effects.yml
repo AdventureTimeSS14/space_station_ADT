@@ -574,12 +574,6 @@
       orGroup: materials
     - id: SheetPlastic
       orGroup: materials
-    # ADT Start
-    - id: ADTSheetCopper
-      orGroup: materials
-    - id: ADTSheetZinc
-      orGroup: materials
-    # ADT End
 - type: artifactEffect
   id: EffectShuffle
   targetDepth: 3

@@ -57,7 +57,7 @@
   id: Night
   desc: salvage-light-mod-night
   cost: 1
-  color: "#141518"  # ADT - ночь станет чуть поярче
+  color: null
 
 # Temperatures
 - type: salvageTemperatureMod
@@ -238,8 +238,8 @@
   id: LavaBrig
   desc: salvage-dungeon-mod-lava-brig
   proto: LavaBrig
-  # biomes:
-  #   - Lava
+  biomes:
+    - Lava
 
 - type: salvageDungeonMod
   id: Mineshaft

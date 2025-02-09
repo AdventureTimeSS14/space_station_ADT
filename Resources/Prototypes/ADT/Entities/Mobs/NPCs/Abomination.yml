@@ -262,257 +262,257 @@
       Dead:
         Base: bloated_dead
 
-- type: entity
-  parent: BaseMobFleshSalvage
-  id: ADTMobDistorted
-  name: distorted
-  description: distorted
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abomination.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: distorted
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: distorted
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Slash: 7
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: distorted
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2.4
-    baseSprintSpeed: 4.4
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      100: Dead
+# - type: entity
+#   parent: BaseMobFleshSalvage
+#   id: ADTMobDistorted
+#   name: distorted
+#   description: distorted
+#   suffix: DO NOT MAP
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     sprite: ADT/Mobs/Aliens/abomination.rsi
+#     layers:
+#     - map: [ "enum.DamageStateVisualLayers.Base" ]
+#       state: distorted
+#   - type: DamageStateVisuals
+#     states:
+#       Alive:
+#         Base: distorted
+#       Critical:
+#         Base: dead
+#       Dead:
+#         Base: dead
+#   - type: MeleeWeapon
+#     soundHit:
+#         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+#     angle: 0
+#     animation: WeaponArcClaw
+#     damage:
+#       types:
+#         Slash: 7
+#   - type: Damageable
+#     damageContainer: Biological
+#     damageModifierSet: distorted
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed: 2.4
+#     baseSprintSpeed: 4.4
+#   - type: MobThresholds
+#     thresholds:
+#       0: Alive
+#       100: Dead
 
-- type: entity
-  parent: BaseMobFleshSalvage
-  id: ADTMobEcho
-  name: echo
-  description: echo
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abomination.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: echo
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: echo
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Slash: 6
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: echo
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3.0
-    baseSprintSpeed: 4.7
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      95: Dead
-  - type: JumpAct
-    jumpAction: CompActionJumpAbomination
+# - type: entity
+#   parent: BaseMobFleshSalvage
+#   id: ADTMobEcho
+#   name: echo
+#   description: echo
+#   suffix: DO NOT MAP
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     sprite: ADT/Mobs/Aliens/abomination.rsi
+#     layers:
+#     - map: [ "enum.DamageStateVisualLayers.Base" ]
+#       state: echo
+#   - type: DamageStateVisuals
+#     states:
+#       Alive:
+#         Base: echo
+#       Critical:
+#         Base: dead
+#       Dead:
+#         Base: dead
+#   - type: MeleeWeapon
+#     soundHit:
+#         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+#     angle: 0
+#     animation: WeaponArcClaw
+#     damage:
+#       types:
+#         Slash: 6
+#   - type: Damageable
+#     damageContainer: Biological
+#     damageModifierSet: echo
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed: 3.0
+#     baseSprintSpeed: 4.7
+#   - type: MobThresholds
+#     thresholds:
+#       0: Alive
+#       95: Dead
+#   - type: JumpAct
+#     jumpAction: CompActionJumpAbomination
 
-- type: entity
-  parent: BaseMobFleshSalvage
-  id: ADTMobGrant
-  name: grant
-  description: grant
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abomination.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: grant
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: grant
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Slash: 8
-        Poison: 5
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: grant
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2.2
-    baseSprintSpeed: 3.7
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      200: Dead
+# - type: entity
+#   parent: BaseMobFleshSalvage
+#   id: ADTMobGrant
+#   name: grant
+#   description: grant
+#   suffix: DO NOT MAP
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     sprite: ADT/Mobs/Aliens/abomination.rsi
+#     layers:
+#     - map: [ "enum.DamageStateVisualLayers.Base" ]
+#       state: grant
+#   - type: DamageStateVisuals
+#     states:
+#       Alive:
+#         Base: grant
+#       Critical:
+#         Base: dead
+#       Dead:
+#         Base: dead
+#   - type: MeleeWeapon
+#     soundHit:
+#         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+#     angle: 0
+#     animation: WeaponArcClaw
+#     damage:
+#       types:
+#         Slash: 8
+#         Poison: 5
+#   - type: Damageable
+#     damageContainer: Biological
+#     damageModifierSet: grant
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed: 2.2
+#     baseSprintSpeed: 3.7
+#   - type: MobThresholds
+#     thresholds:
+#       0: Alive
+#       200: Dead
 
-- type: entity
-  parent: BaseMobFleshSalvage
-  id: ADTMobHunter
-  name: hunter
-  description: hunter
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abom_wrecker.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: hunter
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: hunter
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Piercing: 10
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: hunter
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3.2
-    baseSprintSpeed: 4.75
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      300: Dead
-  - type: JumpAct
-    jumpAction: CompActionJumpAbomination
+# - type: entity
+#   parent: BaseMobFleshSalvage
+#   id: ADTMobHunter
+#   name: hunter
+#   description: hunter
+#   suffix: DO NOT MAP
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     sprite: ADT/Mobs/Aliens/abom_wrecker.rsi
+#     layers:
+#     - map: [ "enum.DamageStateVisualLayers.Base" ]
+#       state: hunter
+#   - type: DamageStateVisuals
+#     states:
+#       Alive:
+#         Base: hunter
+#       Critical:
+#         Base: dead
+#       Dead:
+#         Base: dead
+#   - type: MeleeWeapon
+#     soundHit:
+#         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+#     angle: 0
+#     animation: WeaponArcClaw
+#     damage:
+#       types:
+#         Piercing: 10
+#   - type: Damageable
+#     damageContainer: Biological
+#     damageModifierSet: hunter
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed: 3.2
+#     baseSprintSpeed: 4.75
+#   - type: MobThresholds
+#     thresholds:
+#       0: Alive
+#       300: Dead
+#   - type: JumpAct
+#     jumpAction: CompActionJumpAbomination
 
-- type: entity
-  parent: BaseMobFleshSalvage
-  id: ADTMobSoldier
-  name: soldier
-  description: soldier
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abomination.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: soldier
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: soldier
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Slash: 10
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: soldier
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2.7
-    baseSprintSpeed: 4.3
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      100: Dead
-  - type: HealAct
-    healAction: CompActionHealAbomination
-  - type: ProjectileAct
-    projAction: CompActionShootAbomination
-    prototype: BulletAcid
+# - type: entity
+#   parent: BaseMobFleshSalvage
+#   id: ADTMobSoldier
+#   name: soldier
+#   description: soldier
+#   suffix: DO NOT MAP
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     sprite: ADT/Mobs/Aliens/abomination.rsi
+#     layers:
+#     - map: [ "enum.DamageStateVisualLayers.Base" ]
+#       state: soldier
+#   - type: DamageStateVisuals
+#     states:
+#       Alive:
+#         Base: soldier
+#       Critical:
+#         Base: dead
+#       Dead:
+#         Base: dead
+#   - type: MeleeWeapon
+#     soundHit:
+#         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+#     angle: 0
+#     animation: WeaponArcClaw
+#     damage:
+#       types:
+#         Slash: 10
+#   - type: Damageable
+#     damageContainer: Biological
+#     damageModifierSet: soldier
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed: 2.7
+#     baseSprintSpeed: 4.3
+#   - type: MobThresholds
+#     thresholds:
+#       0: Alive
+#       100: Dead
+#   - type: HealAct
+#     healAction: CompActionHealAbomination
+#   - type: ProjectileAct
+#     projAction: CompActionShootAbomination
+#     prototype: BulletAcid
 
-- type: entity
-  parent: BaseMobFleshSalvage
-  id: ADTMobWrecker
-  name: wrecker
-  description: wrecker
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abom_wrecker.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: wrecker
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: wrecker
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Blunt: 20
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: wrecker
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2.2
-    baseSprintSpeed: 3.5
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      600: Dead
-  - type: HealAct
-    healAction: CompActionHealAbomination
-  - type: ProjectileAct
-    projAction: CompActionShootAbomination
-    prototype: BulletAcid
+# - type: entity
+#   parent: BaseMobFleshSalvage
+#   id: ADTMobWrecker
+#   name: wrecker
+#   description: wrecker
+#   suffix: DO NOT MAP
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     sprite: ADT/Mobs/Aliens/abom_wrecker.rsi
+#     layers:
+#     - map: [ "enum.DamageStateVisualLayers.Base" ]
+#       state: wrecker
+#   - type: DamageStateVisuals
+#     states:
+#       Alive:
+#         Base: wrecker
+#       Critical:
+#         Base: dead
+#       Dead:
+#         Base: dead
+#   - type: MeleeWeapon
+#     soundHit:
+#         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+#     angle: 0
+#     animation: WeaponArcClaw
+#     damage:
+#       types:
+#         Blunt: 20
+#   - type: Damageable
+#     damageContainer: Biological
+#     damageModifierSet: wrecker
+#   - type: MovementSpeedModifier
+#     baseWalkSpeed: 2.2
+#     baseSprintSpeed: 3.5
+#   - type: MobThresholds
+#     thresholds:
+#       0: Alive
+#       600: Dead
+#   - type: HealAct
+#     healAction: CompActionHealAbomination
+#   - type: ProjectileAct
+#     projAction: CompActionShootAbomination
+#     prototype: BulletAcid
