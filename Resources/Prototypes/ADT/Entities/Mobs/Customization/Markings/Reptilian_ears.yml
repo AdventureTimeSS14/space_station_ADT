@@ -18,9 +18,9 @@
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
-      state: resomi_inner
+      state: avali_inner
     - sprite: ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
-      state: resomi_outer
+      state: avali_outer
 
 - type: marking
   id: EarsChemlight

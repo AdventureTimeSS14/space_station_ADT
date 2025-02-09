@@ -137,12 +137,9 @@
       Female: FemaleResomi
       Unsexed: MaleResomi
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Scratches
-    understands:
-    - GalacticCommon
-    - Scratches
+    languages:
+      GalacticCommon: Speak
+      Scratches: Speak
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.05
