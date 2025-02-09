@@ -200,3 +200,37 @@
   description: alerts-xeno-queen-bloob-count-desc
   minSeverity: 0
   maxSeverity: 7
+
+- type: alert
+  id: ADTPulled
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: pulled
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: grabbed-soft
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: grabbed-hard
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: grabbed-choke
+  clickEvent: !type:StopBeingPulledAlertEvent
+  name: alerts-pulled-name
+  description: alerts-pulled-desc
+  minSeverity: 0
+  maxSeverity: 3
+
+- type: alert
+  id: ADTPulling
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: pulling
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: grab-soft
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: grab-hard
+  - sprite: /Textures/ADT/Interface/Alerts/grab.rsi
+    state: grab-choke
+  clickEvent: !type:StopPullingAlertEvent
+  name: alerts-pulling-name
+  description: alerts-pulling-desc
+  minSeverity: 0
+  maxSeverity: 3

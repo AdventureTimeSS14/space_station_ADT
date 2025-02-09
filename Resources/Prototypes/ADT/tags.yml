@@ -504,3 +504,10 @@
 
 - type: Tag
   id: ADTLighter
+
+- type: Tag
+  id: NoPaint
+
+- type: Tag
+  id: ADTIgnoreChokeSpeechBlocking
+

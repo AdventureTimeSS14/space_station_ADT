@@ -302,8 +302,8 @@
 
 - type: entity
   parent: Clothing
-  id: ADTClothingModsuitBackCience
-  name: ciene MOD control unit
+  id: ADTClothingModsuitBackScience
+  name: Sciene MOD control unit
   description: Made by scientists for scientists.
   components:
   - type: Sprite
@@ -311,10 +311,10 @@
     state: icon
   - type: ModSuit
     clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitСience
-      gloves: ADTClothingHandsModsuitCience
-      outerClothing: ADTClothingOuterModsuitBodyCience
-      shoes: ADTClothingModsuitShoesCience
+      head: ADTClothingHeadHelmetModsuitScience
+      gloves: ADTClothingHandsModsuitScience
+      outerClothing: ADTClothingOuterModsuitBodyScience
+      shoes: ADTClothingModsuitShoesScience
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container
