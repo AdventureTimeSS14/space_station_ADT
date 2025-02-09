@@ -91,6 +91,9 @@
       jobRequired:
         - SalvageSpecialist
 # Corvax-HiddenDesc-End
+  - type: Tag #ADT tweak
+    tags:
+      - NoPaint
 
 - type: entity
   name: energy sword

@@ -487,6 +487,7 @@
         - Truncheon
         - ADTLasgunRevolverCell #ADT Tweak
         - ADTCartridgeBibis # ADT Tweak
+        - ADTBola # ADT Tweak
       components:
         - Stunbaton
         - FlashOnTrigger

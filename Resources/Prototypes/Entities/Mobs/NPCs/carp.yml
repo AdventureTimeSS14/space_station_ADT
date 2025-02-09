@@ -76,6 +76,7 @@
       tags:
         - Carp
         - DoorBumpOpener
+        - NoPaint # ADT tweak
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech

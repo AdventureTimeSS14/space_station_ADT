@@ -74,6 +74,9 @@
   id: ADTTelescopicBaton
 
 - type: Tag
+  id: ADTBola
+
+- type: Tag
   id: Eyes
 
 - type: Tag
@@ -504,6 +507,9 @@
 
 - type: Tag
   id: ADTLighter
+
+- type: Tag
+  id: NoPaint
 
 - type: Tag
   id: ADTIgnoreChokeSpeechBlocking
