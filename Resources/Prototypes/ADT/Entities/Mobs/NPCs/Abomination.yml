@@ -78,10 +78,10 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abomination.rsi
+    sprite: ADT/Mobs/Abomination/hypertrophied.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: hypertrophied
+      state: running
   - type: Fixtures
     fixtures:
       fix1:
@@ -119,14 +119,6 @@
     accent: ADTReplaceAbomination
   - type: TTS
     voice: moriarti
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: hypertrophied
-      Critical:
-        Base: hypertrophied_dead
-      Dead:
-        Base: hypertrophied_dead
 
 - type: entity
   id: ADTAbominationDeath
@@ -137,10 +129,10 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abomination.rsi
+    sprite: ADT/Mobs/Abomination/death.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: death
+      state: running
   - type: Fixtures
     fixtures:
       fix1:
@@ -186,14 +178,6 @@
   - type: GhostTakeoverAvailable
   - type: TTS
     voice: biden
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: death
-      Critical:
-        Base: death_dead
-      Dead:
-        Base: death_dead
 
 - type: entity
   id: ADTAbominationBloated
@@ -204,10 +188,10 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: ADT/Mobs/Aliens/abomination.rsi
+    sprite: ADT/Mobs/Abomination/bloated.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: bloated
+      state: running
   - type: Fixtures
     fixtures:
       fix1:
@@ -253,14 +237,6 @@
     - Dead
   - type: TTS
     voice: briman
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: bloated
-      Critical:
-        Base: bloated_dead
-      Dead:
-        Base: bloated_dead
 
 # - type: entity
 #   parent: BaseMobFleshSalvage
