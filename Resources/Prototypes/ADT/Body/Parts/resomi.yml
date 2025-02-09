@@ -29,8 +29,6 @@
     state: "torso_m"
   - type: BodyPart
     partType: Torso
-    toolName: "a torso"
-    containerName: "torso_slot"
 
 - type: entity
   id: HeadResomi
