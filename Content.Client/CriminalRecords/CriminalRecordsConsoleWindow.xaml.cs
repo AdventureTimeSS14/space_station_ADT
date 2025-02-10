@@ -18,6 +18,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
+using System.Numerics;
+using Content.Shared.StatusIcon;
+using Robust.Client.GameObjects;
 
 namespace Content.Client.CriminalRecords;
 
@@ -29,6 +32,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     private readonly IPrototypeManager _proto;
     private readonly IRobustRandom _random;
     private readonly AccessReaderSystem _accessReader;
+    [Dependency] private readonly IEntityManager _entManager = default!;
+    private readonly SpriteSystem _spriteSystem;
     private readonly LobbyUIController _ui;
     private readonly IEntityManager _entMan;
 
@@ -40,10 +45,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     public Action<uint?>? OnKeySelected;
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
     public Action<SecurityStatus>? OnStatusSelected;
+    public Action<uint>? OnCheckStatus;
     public Action<CriminalRecord, bool, bool>? OnHistoryUpdated;
     public Action? OnHistoryClosed;
     public Action<SecurityStatus, string>? OnDialogConfirmed;
 
+    public Action<SecurityStatus>? OnStatusFilterPressed;
     private uint _maxLength;
     private bool _access;
     private uint? _selectedKey;
@@ -52,6 +59,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     private DialogWindow? _reasonDialog;
 
     private StationRecordFilterType _currentFilterType;
+    private SecurityStatus _currentCrewListFilter;
     public EntityUid? CurrentShowcase;  // ADT Station Records Showcase Tweaked
 
     public CriminalRecordsConsoleWindow(EntityUid console, uint maxLength, IPlayerManager playerManager, IPrototypeManager prototypeManager, IRobustRandom robustRandom, AccessReaderSystem accessReader, IEntityManager entMan)    // ADT Station Records Showcase Tweaked
@@ -63,6 +71,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         _proto = prototypeManager;
         _random = robustRandom;
         _accessReader = accessReader;
+        IoCManager.InjectDependencies(this);
+        _spriteSystem = _entManager.System<SpriteSystem>();
         // ADT Station Records Showcase Start
         _ui = UserInterfaceManager.GetUIController<LobbyUIController>();
         _entMan = entMan;
@@ -70,6 +80,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         _maxLength = maxLength;
         _currentFilterType = StationRecordFilterType.Name;
+
+        _currentCrewListFilter = SecurityStatus.None;
 
         OpenCentered();
 
@@ -81,6 +93,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         foreach (var status in Enum.GetValues<SecurityStatus>())
         {
             AddStatusSelect(status);
+        }
+
+        //Populate status to filter crew list
+        foreach (var item in Enum.GetValues<SecurityStatus>())
+        {
+            CrewListFilter.AddItem(GetCrewListFilterLocals(item), (int)item);
         }
 
         OnClose += () => _reasonDialog?.Close();
@@ -109,6 +127,20 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             }
         };
 
+        //Select Status to filter crew
+        CrewListFilter.OnItemSelected += eventArgs =>
+        {
+            var type = (SecurityStatus)eventArgs.Id;
+
+            if (_currentCrewListFilter != type)
+            {
+                _currentCrewListFilter = type;
+
+                StatusFilterPressed(type);
+
+            }
+        };
+
         FilterText.OnTextEntered += args =>
         {
             FilterListingOfRecords(args.Text);
@@ -116,14 +148,19 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         StatusOptionButton.OnItemSelected += args =>
         {
-            SetStatus((SecurityStatus) args.Id);
+            SetStatus((SecurityStatus)args.Id);
         };
 
         HistoryButton.OnPressed += _ =>
         {
-            if (_selectedRecord is {} record)
+            if (_selectedRecord is { } record)
                 OnHistoryUpdated?.Invoke(record, _access, true);
         };
+    }
+
+    public void StatusFilterPressed(SecurityStatus statusSelected)
+    {
+        OnStatusFilterPressed?.Invoke(statusSelected);
     }
 
     public void UpdateState(CriminalRecordsConsoleState state)
@@ -141,10 +178,14 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             }
         }
 
+        if (state.FilterStatus != _currentCrewListFilter)
+        {
+            _currentCrewListFilter = state.FilterStatus;
+        }
+
         _selectedKey = state.SelectedKey;
-
         FilterType.SelectId((int)_currentFilterType);
-
+        CrewListFilter.SelectId((int)_currentCrewListFilter);
         NoRecords.Visible = state.RecordListing == null || state.RecordListing.Count == 0;
         PopulateRecordListing(state.RecordListing);
 
@@ -191,7 +232,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         // in parallel to synchronize the items in RecordListing with `entries`.
         int i = RecordListing.Count - 1;
         int j = entries.Count - 1;
-        while(i >= 0 && j >= 0)
+        while (i >= 0 && j >= 0)
         {
             var strcmp = string.Compare(RecordListing[i].Text, entries[j].Value, StringComparison.Ordinal);
             if (strcmp == 0)
@@ -224,17 +265,32 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         // And finally, any remaining items in `entries`, don't exist in RecordListing. Create them.
         while (j >= 0)
         {
-            RecordListing.Insert(0, new ItemList.Item(RecordListing){Text = entries[j].Value, Metadata = entries[j].Key});
+            RecordListing.Insert(0, new ItemList.Item(RecordListing){ Text = entries[j].Value, Metadata = entries[j].Key });
             j--;
         }
     }
-
     private void PopulateRecordContainer(GeneralStationRecord stationRecord, CriminalRecord criminalRecord)
     {
+        var specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/job_icons.rsi"), "Unknown");
         var na = Loc.GetString("generic-not-available-shorthand");
         // PersonName.Text = stationRecord.Name;    // ADT Commented
-        PersonPrints.Text = Loc.GetString("general-station-record-console-record-fingerprint", ("fingerprint", stationRecord.Fingerprint ?? na));
-        PersonDna.Text = Loc.GetString("general-station-record-console-record-dna", ("dna", stationRecord.DNA ?? na));
+        PersonJob.Text = stationRecord.JobTitle ?? na;
+
+        // Job icon
+        if (_proto.TryIndex<JobIconPrototype>(stationRecord.JobIcon, out var proto))
+        {
+            PersonJobIcon.Texture = _spriteSystem.Frame0(proto.Icon);
+        }
+
+        PersonPrints.Text = stationRecord.Fingerprint ??  Loc.GetString("generic-not-available-shorthand");
+        PersonDna.Text = stationRecord.DNA ??  Loc.GetString("generic-not-available-shorthand");
+
+        if (criminalRecord.Status != SecurityStatus.None)
+        {
+            specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"),  GetStatusIcon(criminalRecord.Status));
+        }
+        PersonStatusTX.SetFromSpriteSpecifier(specifier);
+        PersonStatusTX.DisplayRect.TextureScale = new Vector2(3f, 3f);
 
         // ADT Station Records Showcase Start
         _entMan.DeleteEntity(CurrentShowcase);
@@ -244,11 +300,17 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         PersonJob.SetMessage(Loc.GetString("general-station-record-console-record-title", ("job", stationRecord.JobTitle ?? na)), defaultColor: Color.White);
         // ADT Station Records Showcase End
 
-        StatusOptionButton.SelectId((int) criminalRecord.Status);
-        if (criminalRecord.Reason is {} reason)
+        StatusOptionButton.SelectId((int)criminalRecord.Status);
+        if (criminalRecord.Reason is { } reason)
         {
             var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-wanted-reason"));
+
+            if (criminalRecord.Status == SecurityStatus.Suspected)
+            {
+                message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
+            }
             message.AddText($": {reason}");
+
             WantedReason.SetMessage(message);
             WantedReason.Visible = true;
         }
@@ -308,12 +370,38 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         _reasonDialog.OnClose += () => { _reasonDialog = null; };
     }
-
+    private string GetStatusIcon(SecurityStatus status)
+    {
+        return status switch
+        {
+            SecurityStatus.Paroled => "hud_paroled",
+            SecurityStatus.Wanted => "hud_wanted",
+            SecurityStatus.Detained => "hud_incarcerated",
+            SecurityStatus.Discharged => "hud_discharged",
+            SecurityStatus.Suspected => "hud_suspected",
+            _ => "SecurityIconNone"
+        };
+    }
     private string GetTypeFilterLocals(StationRecordFilterType type)
     {
         return Loc.GetString($"criminal-records-{type.ToString().ToLower()}-filter");
     }
+    private string GetCrewListFilterLocals(SecurityStatus type)
+    {
+        string result;
 
+        // If "NONE" override to "show all"
+        if (type == SecurityStatus.None)
+        {
+            result = Loc.GetString("criminal-records-console-show-all");
+        }
+        else
+        {
+            result = Loc.GetString($"criminal-records-status-{type.ToString().ToLower()}");
+        }
+
+        return result;
+    }
     // ADT Station Records Showcase Start
     protected override void Dispose(bool disposing)
     {

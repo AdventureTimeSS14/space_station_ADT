@@ -81,12 +81,13 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            "Cog",
             "Gate",
             "Amber",
             "Loop",
             "Elkridge",
             "Plasma",
+            "Convex",
+            "Relic",
             // ADT-Start
             "ADT_Avrit",
             "ADT_Bagel",
@@ -102,7 +103,6 @@ namespace Content.IntegrationTests.Tests
             "ADT_Aspid",
             "ADT_Cluster_Legacy"
             // ADT-End
-
         };
 
         /// <summary>
