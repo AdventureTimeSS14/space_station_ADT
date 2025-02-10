@@ -11,6 +11,21 @@
   naming: First
   dollPrototype: MobResomiDummy
   skinColoration: Hues
+  category: Special
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Novakid.xml"
+  pros:
+  - Слышат шёпот на дальней дистанции.
+  - Быстро бегают.
+  - Получают на 40% меньше урона от холода.
+  special:
+  - Имеют способность, позволяющую ускориться и прыгать по столам без задержки.
+  cons:
+  - Имеют крайне низкий порог критического состояния и смерти.
+  - Получают на 30% больше ЛЮБОГО урона (кроме холода).
+  - Плохо владеют двуручным огнестрельным оружием.
+  defaultLanguages:
+  - GalacticCommon
+  - Scratches
 
 - type: speciesBaseSprites
   id: MobResomiSprites

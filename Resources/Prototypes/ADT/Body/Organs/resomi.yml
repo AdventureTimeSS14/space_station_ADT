@@ -15,7 +15,7 @@
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Human ]
+    metabolizerTypes: [ Resomi ]
     groups:
     - id: Gas
       rateModifier: 200.0
