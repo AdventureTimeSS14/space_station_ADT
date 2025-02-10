@@ -17,18 +17,18 @@
 
 - type: latheRecipe
   id: SheetZinc
-  result: ADTSheetCopper1
+  result: ADTSheetZinc1
   completetime: 0
   miningPoints: 1 # ADT tweak
   materials:
-    RawCopper: 100
+    RawZinc: 100
     Coal: 30
 
 - type: latheRecipe
   id: SheetZinc30
-  result: ADTSheetCopper
+  result: ADTSheetZinc
   completetime: 2
   materials:
-    RawCopper: 3000
+    RawZinc: 3000
     Coal: 1000
 

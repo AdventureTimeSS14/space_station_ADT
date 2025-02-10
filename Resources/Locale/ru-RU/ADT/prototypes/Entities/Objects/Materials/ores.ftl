@@ -17,6 +17,6 @@ ent-ADTZincOre = рудный цинк
     .desc = { ent-OreBase.desc }
     .suffix = Полный
 
-ent-ADTZincOre1 = { ent-ADTCopperOre }
+ent-ADTZincOre1 = { ent-ADTZincOre }
     .desc = { ent-OreBase.desc }
     .suffix = Один

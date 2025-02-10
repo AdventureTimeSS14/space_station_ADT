@@ -20,4 +20,4 @@ ent-ADTSheetZinc10 = цинк
 
 ent-ADTSheetZinc1 = цинк
     .suffix = Один
-    .desc = { ent-ADTSheetZink.desc }
+    .desc = { ent-ADTSheetZinc.desc }

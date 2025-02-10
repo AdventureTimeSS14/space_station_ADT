@@ -40,13 +40,13 @@
   - type: Stack
     stackType: ZincOre
   - type: Sprite
-    state: copper
+    state: zinc
   - type: Material
   - type: PhysicalComposition
     materialComposition:
       RawZinc: 300
   - type: Item
-    heldPrefix: copper
+    heldPrefix: zinc
   - type: Extractable
     grindableSolutionName: steel
   - type: SolutionContainerManager

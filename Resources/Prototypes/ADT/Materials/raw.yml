@@ -3,7 +3,7 @@
   stackEntity: ADTCopperOre1
   name: materials-raw-copper
   unit: materials-unit-chunk
-  icon: { sprite: Objects/Materials/ore.rsi, state: spacequartz }
+  icon: { sprite: Objects/Materials/ore.rsi, state: copper }
   color: "#dd7d00"
   price: 0.075
 
@@ -12,6 +12,6 @@
   stackEntity: ADTZincOre1
   name: materials-raw-zinc
   unit: materials-unit-chunk
-  icon: { sprite: Objects/Materials/ore.rsi, state: spacequartz }
+  icon: { sprite: Objects/Materials/ore.rsi, state: zinc }
   color: "#087a67"
   price: 0.075
