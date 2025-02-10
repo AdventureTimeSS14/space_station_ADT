@@ -20,19 +20,6 @@
                           PlaceHolder="{Loc 'criminal-records-filter-placeholder'}"
                           HorizontalExpand="True" />
             </BoxContainer>
-            <!-- ADT Station Records Showcase Start -->
-            <BoxContainer Name="ShowcaseContainer" Orientation="Horizontal" Margin="5">
-                <SpriteView Name="Showcase"
-                            SetSize="96 96"
-                            OverrideDirection="South"
-                            Margin="5"
-                            Stretch="Fill"/>
-                <BoxContainer Orientation="Vertical" Margin="5">
-                    <RichTextLabel Name="PersonName"/>
-                    <RichTextLabel Name="PersonJob"/>
-                </BoxContainer>
-            </BoxContainer>
-            <!-- ADT Station Records Showcase End -->
             <BoxContainer Orientation="Horizontal"
                           VerticalExpand="True">
                 <!-- Record listing -->

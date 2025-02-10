@@ -16,6 +16,7 @@ using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Content.Shared.Forensics.Components;
 public sealed class TimeDespawnDamageSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
