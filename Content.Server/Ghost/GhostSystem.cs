@@ -41,6 +41,10 @@ using Content.Server.ADT.OnGhostAttemtpDamage;
 using Content.Shared.ADT.Ghost;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
+using Content.Server.Medical.SuitSensors;
+using Content.Shared.Inventory;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Humanoid.Prototypes;
 
 namespace Content.Server.Ghost
 {
@@ -71,6 +75,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly GameTicker _ticker = default!; //ADT tweak
+        [Dependency] private readonly InventorySystem _inventory = default!; //ADT tweak
 
     [   Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
         private EntityQuery<GhostComponent> _ghostQuery;
@@ -280,10 +285,21 @@ namespace Content.Server.Ghost
                 return;
             _humanoidSystem.LoadProfile(uid, profile);
 
-            if (component.AbleClothingMarkings != null)
+            if (component.AvailableClothing != null)
             {
-                var clothing = _random.Pick(component.AbleClothingMarkings); // без этого вара рандома не будет
-                _humanoidSystem.AddMarking(uid, clothing);
+                var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
+                if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
+                {
+                    ghostInv.Displacements = inv.Displacements;
+                    DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
+                }
+                QueueDel(mob);
+
+                var clothing = Spawn(_random.Pick(component.AvailableClothing));
+                RemComp<SuitSensorComponent>(clothing);
+                EnsureComp<UnremoveableComponent>(clothing);
+                if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
+                    QueueDel(clothing);
             }
         }
         //ADT tweak end
