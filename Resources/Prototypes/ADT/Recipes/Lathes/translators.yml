@@ -113,11 +113,6 @@
   parent: BaseTranslator
 
 - type: latheRecipe
-  id: ScratchesTranslator
-  result: ScratchesTranslator
-  parent: BaseTranslator
-
-- type: latheRecipe
   id: GalacticCommonTranslatorImplanter
   result: GalacticCommonTranslatorImplanter
   parent: BaseTranslatorImplanter
@@ -226,9 +221,4 @@
 - type: latheRecipe
   id: VoxPidginTranslatorImplanter
   result: VoxPidginTranslatorImplanter
-  parent: BaseTranslatorImplanter
-
-- type: latheRecipe
-  id: ScratchesTranslatorImplanter
-  result: ScratchesTranslatorImplanter
   parent: BaseTranslatorImplanter
