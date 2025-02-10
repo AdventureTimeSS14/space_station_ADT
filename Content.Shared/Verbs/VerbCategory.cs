@@ -67,6 +67,10 @@ namespace Content.Shared.Verbs
         public static readonly VerbCategory Tricks =
             new("verb-categories-tricks", "/Textures/Interface/AdminActions/tricks.png", iconsOnly: true) { Columns = 5 };
 
+        // adt-tweak-start
+        public static readonly VerbCategory AdminRoom =
+            new("verb-categories-adminroom", "/Textures/Interface/VerbIcons/eject.svg.192dpi.png", iconsOnly: true) { Columns = 3 };
+        // adt-tweak-end
         public static readonly VerbCategory SetTransferAmount =
             new("verb-categories-transfer", "/Textures/Interface/VerbIcons/spill.svg.192dpi.png");
 

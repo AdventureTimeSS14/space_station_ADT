@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - Sheet
+    - NoPaint #ADT tweak
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -110,6 +111,7 @@
   - type: Tag
     tags:
     - Sheet
+    - NoPaint #ADT tweak
 
 - type: entity
   parent: SheetPlasma
@@ -142,6 +144,7 @@
     tags:
     - Plastic
     - Sheet
+    - NoPaint #ADT tweak
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -258,6 +261,7 @@
     - type: Tag
       tags:
       - Sheet
+      - NoPaint #ADT tweak
     - type: Material
     - type: PhysicalComposition
       materialComposition:

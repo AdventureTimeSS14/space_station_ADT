@@ -90,3 +90,6 @@
   - type: Reactive
     groups:
       Acidic: [Touch]
+  - type: Tag #ADT tweak
+    tags:
+      - NoPaint

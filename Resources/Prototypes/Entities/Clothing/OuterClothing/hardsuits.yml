@@ -27,6 +27,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBasic
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.75
+      Choke: 1.5
+  # ADT Grab end
 
 #Atmospherics Hardsuit
 - type: entity
@@ -531,6 +537,12 @@
     - Hardsuit
     - WhitelistChameleon
   - type: DNALocker # ADT-Tweak
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 2.25
+      Choke: 2
+  # ADT Grab end
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -572,16 +584,16 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.8
   - type: Armor
     modifiers:
       coefficients: #ADT nukebuff
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
-        Heat: 0.2
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.1
         Radiation: 0.01
         Caustic: 0.5
     staminaModifier: 0.3  # ADT
@@ -662,6 +674,12 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
   - type: DNALocker # ADT-Tweak
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 3.75
+      Choke: 3
+  # ADT Grab end
 
 #Wizard Hardsuit
 - type: entity

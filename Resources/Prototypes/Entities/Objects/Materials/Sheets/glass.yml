@@ -15,6 +15,7 @@
   - type: Tag
     tags:
     - Sheet
+    - NoPaint #ADT tweak
   - type: Material
   - type: Damageable
     damageContainer: Inorganic

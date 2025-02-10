@@ -120,8 +120,8 @@
 
 - type: entity
   parent: ClothingHandsBase
-  id: ADTClothingHandsModsuitCience
-  name: cience MOD gauntlets
+  id: ADTClothingHandsModsuitScience
+  name: Science MOD gauntlets
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
