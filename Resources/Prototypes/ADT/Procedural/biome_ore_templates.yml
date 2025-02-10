@@ -1,0 +1,27 @@
+- type: biomeMarkerLayer
+  id: OreCopper
+  entityMask:
+    AsteroidRock: AsteroidRockCopper
+    WallRock: WallRockCopper
+    WallRockBasalt: WallRockBasaltCopper
+    WallRockChromite: WallRockChromiteCopper
+    WallRockSand: WallRockSandCopper
+    WallRockSnow: WallRockSnowCopper
+  maxCount: 30
+  minGroupSize: 10
+  maxGroupSize: 15
+  radius: 4
+
+- type: biomeMarkerLayer
+  id: OreZinc
+  entityMask:
+    AsteroidRock: AsteroidRockZinc
+    WallRock: WallRockZinc
+    WallRockBasalt: WallRockBasaltZinc
+    WallRockChromite: WallRockChromiteZinc
+    WallRockSand: WallRockSandZinc
+    WallRockSnow: WallRockSnowZinc
+  maxCount: 30
+  minGroupSize: 10
+  maxGroupSize: 15
+  radius: 4

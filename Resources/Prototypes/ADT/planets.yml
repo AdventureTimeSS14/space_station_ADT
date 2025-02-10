@@ -60,6 +60,8 @@
   - OreUranium
   - OreDiamond
   - OreArtifactFragment
+  - OreCopper
+  - OreZinc
 
 - type: planet
   id: GlacierSurface

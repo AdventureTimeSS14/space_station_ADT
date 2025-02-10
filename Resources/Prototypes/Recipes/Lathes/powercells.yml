@@ -6,6 +6,7 @@
   materials:
     Steel: 100
     Plastic: 50
+    Copper: 50 # ADT Tweak
 
 - type: latheRecipe
   id: PowerCellMedium
@@ -17,6 +18,7 @@
     Glass: 300
     Plastic: 100
     Gold: 10
+    Copper: 100 # ADT Tweak
 
 - type: latheRecipe
   id: PowerCellHigh
@@ -28,6 +30,7 @@
     Glass: 400
     Plastic: 200
     Gold: 50
+    Copper: 150 # ADT Tweak
 
 - type: latheRecipe
   id: PowerCellMicroreactor
@@ -39,6 +42,8 @@
     Glass: 400
     Uranium: 200
     Gold: 100
+    Copper: 250 # ADT Tweak
+    Brass: 100 # ADT Tweak
 
 - type: latheRecipe
   id: PowerCageSmall
@@ -47,6 +52,7 @@
   materials:
     Steel: 200
     Plastic: 100
+    Copper: 150 # ADT Tweak
 
 - type: latheRecipe
   id: PowerCageMedium
@@ -57,6 +63,7 @@
     Glass: 500
     Plastic: 250
     Gold: 40
+    Copper: 250 # ADT Tweak
 
 - type: latheRecipe
   id: PowerCageHigh
@@ -67,3 +74,5 @@
     Glass: 800
     Plastic: 400
     Gold: 100
+    Copper: 250 # ADT Tweak
+    Brass: 150 # ADT Tweak

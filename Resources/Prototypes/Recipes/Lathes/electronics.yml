@@ -16,6 +16,7 @@
   materials:
     Steel: 50
     Plastic: 50
+    Copper: 50 # ADT Tweak
 
 - type: latheRecipe
   abstract: true
@@ -24,6 +25,7 @@
   materials:
      Steel: 50
      Glass: 250
+     Copper: 50 # ADT Tweak
 
 - type: latheRecipe
   abstract: true
@@ -33,6 +35,7 @@
   materials:
     Steel: 100
     Glass: 500
+    Copper: 100 # ADT Tweak
 
 - type: latheRecipe
   abstract: true
@@ -42,6 +45,7 @@
     Steel: 100
     Glass: 500
     Gold: 100
+    Copper: 100 # ADT Tweak
 
 - type: latheRecipe
   abstract: true
@@ -51,6 +55,7 @@
     Steel: 100
     Glass: 500
     Silver: 100
+    Copper: 100 # ADT Tweak
 
 - type: latheRecipe
   abstract: true
@@ -60,6 +65,7 @@
     Steel: 100
     Glass: 500
     Bananium: 100
+    Copper: 100 # ADT Tweak
 
 # Recipes
 
