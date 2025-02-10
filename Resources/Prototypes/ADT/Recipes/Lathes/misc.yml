@@ -23,3 +23,11 @@
   materials:
     Steel: 250
     Plastic: 250
+
+- type: latheRecipe
+  id: Brass
+  result: SheetBrass10
+  completetime: 2
+  materials:
+    Zinc: 1000
+    Copper: 1000

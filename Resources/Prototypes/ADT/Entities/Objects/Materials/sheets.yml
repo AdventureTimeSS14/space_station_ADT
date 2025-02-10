@@ -1,0 +1,130 @@
+- type: entity
+  parent: SheetMetalBase
+  id: ADTSheetCopper
+  name: copper
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Copper: 100
+  - type: Stack
+    stackType: Copper
+    baseLayer: base
+    layerStates:
+    - copper
+    - copper_2
+    - copper_3
+  - type: Sprite
+    state: copper_3
+    layers:
+    - state: copper_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: copper
+  - type: Appearance
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: Extractable
+    grindableSolutionName: steel
+  - type: SolutionContainerManager
+    solutions:
+      steel:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 8.8
+        - ReagentId: Carbon
+          Quantity: 0.9
+  - type: Tag
+    tags:
+    - Sheet
+    - Metal
+
+- type: entity
+  parent: ADTSheetCopper
+  id: ADTSheetCopper10
+  name: copper
+  suffix: 10
+  components:
+  - type: Sprite
+    state: copper
+  - type: Stack
+    stackType: Copper
+    count: 10
+
+- type: entity
+  parent: ADTSheetCopper
+  id: ADTSheetCopper1
+  name: copper
+  suffix: Single
+  components:
+  - type: Sprite
+    state: copper
+  - type: Stack
+    stackType: Copper
+    count: 1
+
+- type: entity
+  parent: SheetOtherBase
+  id: ADTSheetZinc
+  name: zinc
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Zinc: 100
+  - type: Stack
+    stackType: Zinc
+    baseLayer: base
+    layerStates:
+    - zinc
+    - zinc_2
+    - zinc_3
+  - type: Sprite
+    state: zinc_3
+    layers:
+    - state: zinc_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: zinc
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: steel
+  - type: SolutionContainerManager
+    solutions:
+      steel:
+        reagents:
+        - ReagentId: Zinc
+          Quantity: 3.3
+        - ReagentId: Carbon
+          Quantity: 0.9
+  - type: Tag
+    tags:
+    - Sheet
+    - Metal
+
+- type: entity
+  parent: ADTSheetZinc
+  id: ADTSheetZinc10
+  name: zinc
+  suffix: 10
+  components:
+  - type: Sprite
+    state: zinc
+  - type: Stack
+    stackType: Zinc
+    count: 10
+
+- type: entity
+  parent: ADTSheetZinc
+  id: ADTSheetZinc1
+  name: zinc
+  suffix: Single
+  components:
+  - type: Sprite
+    state: zinc
+  - type: Stack
+    stackType: Zinc
+    count: 1

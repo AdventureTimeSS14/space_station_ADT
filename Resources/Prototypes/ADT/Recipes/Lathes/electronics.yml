@@ -6,6 +6,7 @@
     Steel: 900
     Plastic: 100
     Gold: 100
+    Copper: 150
 
 - type: latheRecipe
   id: ADTIndustrialSMESMachineCircuitboard
@@ -15,3 +16,4 @@
      Steel: 100
      Glass: 900
      Gold: 100
+     Copper: 150
