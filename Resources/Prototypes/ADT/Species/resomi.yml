@@ -12,7 +12,7 @@
   dollPrototype: MobResomiDummy
   skinColoration: Hues
   category: Special
-  description: "/ServerInfo/ADT/SpeciesDescriptions/Novakid.xml"
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Resomi.xml"
   pros:
   - Слышат шёпот на дальней дистанции.
   - Быстро бегают.
