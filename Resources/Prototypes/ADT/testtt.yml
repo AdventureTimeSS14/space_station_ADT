@@ -34,9 +34,9 @@
   maps:
   - ADT_Cluster_Legacy_deffend_ship # К ней добавачная станция
 
-# Настройки станции для тестов
+# Настройки станции для тестов. Станция атакующих
 - type: entity
-  id: StandardStationShipTest
+  id: StandardStationShipTestAttaked
   parent:
   - BaseStation
   - BaseStationJobsSpawning
@@ -44,9 +44,48 @@
   - BaseStationNanotrasen
   - BaseStationMagnet
   - BaseStationNews
+  - BaseStationShuttlesShipVsShipAttaked
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform
+
+# Настройки станции для тестов. Станция обороны
+- type: entity
+  id: StandardStationShipTestDefended
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  - BaseStationRecords
+  - BaseStationNanotrasen
+  - BaseStationMagnet
+  - BaseStationNews
+  - BaseStationShuttlesShipVsShipDefended
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Transform
+
+- type: entity
+  id: BaseStationShuttlesShipVsShipAttaked
+  abstract: true
+  components:
+    - type: GridSpawn
+      groups:
+        security: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/sec_shuttle_attaked.yml
+
+- type: entity
+  id: BaseStationShuttlesShipVsShipDefended
+  abstract: true
+  components:
+    - type: GridSpawn
+      groups:
+        security: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/sec_shuttle_defend.yml
+
 
 # Станция аттакующих
 - type: gameMap
@@ -57,7 +96,7 @@
   maxPlayers: 35
   stations:
     ADT_Cluster_Legacy:
-      stationProto: StandardStationShipTest
+      stationProto: StandardStationShipTestAttaked
       components:
         # - type: StationEmergencyShuttle
         #   emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
@@ -80,7 +119,7 @@
   maxPlayers: 35
   stations:
     ADT_Cluster_Legacy:
-      stationProto: StandardStationShipTest
+      stationProto: StandardStationShipTestDefended
       components:
         # - type: StationEmergencyShuttle
         #   emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml

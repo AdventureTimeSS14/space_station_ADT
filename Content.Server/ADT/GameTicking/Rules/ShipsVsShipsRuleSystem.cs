@@ -53,10 +53,11 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
         Log.Warning("Game rule ShipsVsShips added.");
 
         // Установка времени следующей атаки FTL.
-        component.AttackFtlTime = _timing.CurTime + component.AttackFtlDelay;
+        // component.AttackFtlTime = _timing.CurTime + component.AttackFtlDelay;
 
         // Получение всех карт и добавление их в компонент.
         var mapQuery = EntityQueryEnumerator<ShipsVsShipsMapComponent>();
+        Log.Warning($"[MAP] {mapQuery}");
         while (mapQuery.MoveNext(out var mapUid, out var map))
         {
             if (component.Maps.ContainsKey(map.Side)) // Проверка, содержит ли уже карта эту сторону.
@@ -205,7 +206,7 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
             if (!shipsVsShips.Shuttles.ContainsValue(ev.Entity))
                 continue; // Если шаттл не зарегистрирован, переходим к следующему.
 
-                // Если шаттл еще не атакует (не переместился для атаки).
+            // Если шаттл еще не атакует (не переместился для атаки).
             if (!shuttleComponent.FtlToAttack)
             {
                 // Проверяем, переместился ли шаттл на карту противника.
@@ -231,6 +232,7 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     // Обработчик события попытки FTL (сверхсветового) перемещения шаттла
     private void OnShuttleFTLAttempt(ref ConsoleFTLAttemptEvent ev)
     {
+        Log.Warning($"[INFO] ConsoleFTLAttemptEvent: {ToPrettyString(ev.Uid)}");
         // Запрашиваем активные правила игры
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var shipsVsShips, out _))
@@ -302,7 +304,8 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
                 }
                 Log.Warning($"Side {side}: {sideCountAlive} alive out of {sideCountTotal}");
 
-                var lossThreshold = sideCountTotal - sideCountTotal * shipsVsShips.MinDiedPercent; // Порог потерь
+                var lossThreshold = Math.Ceiling(sideCountTotal - sideCountTotal * shipsVsShips.MinDiedPercent); // Порог потерь (добавил Math.Ceiling чтобы при 1 на 1 режим работал)
+                //var lossThreshold = sideCountTotal - sideCountTotal * shipsVsShips.MinDiedPercent;
                 Log.Warning($"Loss threshold for side {side}: {lossThreshold}");
 
                 // Если количество живых игроков больше порога, продолжаем цикл
