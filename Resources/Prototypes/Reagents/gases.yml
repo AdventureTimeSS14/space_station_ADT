@@ -14,7 +14,7 @@
         conditions:
         - !type:OrganType
           type: Human
-      # Start ADT tweak: Drask
+      # Start ADT tweak
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -23,6 +23,10 @@
         conditions:
         - !type:OrganType
           type: Novakid
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Resomi
       # End ADT tweak
       - !type:Oxygenate
         conditions:
