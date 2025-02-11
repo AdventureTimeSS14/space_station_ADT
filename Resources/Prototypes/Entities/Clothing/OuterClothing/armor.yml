@@ -25,7 +25,7 @@
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
-  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBasic] # ADT-Tweak
+  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase] # ADT-Tweak
   id: ClothingOuterArmorBasic
 
 #Alternate / slim basic armor vest
