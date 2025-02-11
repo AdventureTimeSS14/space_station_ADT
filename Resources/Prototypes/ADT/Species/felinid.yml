@@ -1,7 +1,7 @@
 - type: species
   id: Felinid
   name: Фелинид
-  roundStart: false  # на радость здравому смыслу
+  roundStart: true
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
