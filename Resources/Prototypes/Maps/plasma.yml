@@ -62,7 +62,6 @@
             SecurityCadet: [ 4, 4 ]
             #Lawyer: [ 1, 2 ] # Corvax-IAA
             #supply
-            Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ 4, 6 ]
             #civilian - the tiders yearn for the mines
