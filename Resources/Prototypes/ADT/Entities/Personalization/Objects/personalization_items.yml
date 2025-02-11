@@ -1668,7 +1668,7 @@
       types:
         Slash: 10
   - type: Item
-    size: Tiny
+    size: Small
     sprite: ADT/Personalization/egflaer_folded_knife.rsi
     storedSprite:
       state: storage_off
@@ -1699,8 +1699,8 @@
         Slash: 2
     staminaDamageFolded: 0
     staminaDamageOpen: 0
-    sizeOpened: Small
-    sizeClosed: Tiny
+    sizeOpened: Normal
+    sizeClosed: Small
   - type: UseDelay
     delay: 1.0
   - type: Appearance
