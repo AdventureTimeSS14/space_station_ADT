@@ -13,7 +13,7 @@ using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.ADT.CCVar;
-using Content.Shared.ADT.SpeechBarks;
+using Content.Client.Corvax.Sponsors;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
@@ -637,6 +637,8 @@ namespace Content.Client.Lobby.UI
                 if (!_prototypeManager.HasIndex(trait.Category))
                     continue;
 
+                if (trait.SponsorOnly && !IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor))
+                    continue;
                 var group = traitGroups.GetOrNew(trait.Category);
                 group.Add(trait.ID);
             }
