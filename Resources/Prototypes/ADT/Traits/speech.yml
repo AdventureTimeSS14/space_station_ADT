@@ -7,7 +7,7 @@
   components:
     - type: MothAccent
 
-- type: trai
+- type: trait
   id: ADTNyaAccent
   name: trait-nya-accent-name
   description: trait-nya-accent-desc
