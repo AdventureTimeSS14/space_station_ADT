@@ -742,7 +742,7 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerHead
-  - ChiefEngineerBeret
+  - ADTChiefEngineerBeret # ADT tweak
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit

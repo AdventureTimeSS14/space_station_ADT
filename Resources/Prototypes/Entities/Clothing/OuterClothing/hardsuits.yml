@@ -584,16 +584,16 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.8
   - type: Armor
     modifiers:
       coefficients: #ADT nukebuff
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
-        Heat: 0.2
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.1
         Radiation: 0.01
         Caustic: 0.5
     staminaModifier: 0.3  # ADT
