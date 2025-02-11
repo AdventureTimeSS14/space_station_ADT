@@ -1670,9 +1670,9 @@
   - type: Item
     size: Small
     sprite: ADT/Personalization/egflaer_folded_knife.rsi
-    storedSprite:
-      state: storage_off
-      sprite: ADT/Personalization/egflaer_folded_knife.rsi
+    #storedSprite:
+    #  state: storage_off
+    #  sprite: ADT/Personalization/egflaer_folded_knife.rsi
   - type: DisarmMalus
     malus: 0.225
   - type: GenericVisualizer
