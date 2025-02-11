@@ -243,12 +243,13 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1
+    # ADT-Tweak-start: Corvax sound
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
+    # ADT-Tweak-end
   - type: Tag
     tags:
     - WeaponShotgunKammerer
-  - type: Gun # Corvax-Guns
-    soundGunshot:
-      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
 
 - type: entity
   name: sawn-off shotgun
