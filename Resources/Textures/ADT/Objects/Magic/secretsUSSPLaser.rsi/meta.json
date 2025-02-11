@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "license": "Custom",
+    "copyright": "Create by prazat911 only for Adventure Time MRP Server",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "wand-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wand-inhand-right",
+            "directions": 4
+        }
+    ]
+}

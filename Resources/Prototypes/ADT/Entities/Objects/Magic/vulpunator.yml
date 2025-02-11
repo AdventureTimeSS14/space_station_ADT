@@ -1,0 +1,23 @@
+# Магия не иначе
+- type: entity
+  name: disabler
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponPulseCarabinUSSP
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Magic/secretsUSSPLaser.rsi
+      layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+    - type: Gun
+      fireRate: 1.5
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: ADTProjectilePolyboltVulpkanin
+      fireCost: 300
+    - type: Appearance
+    - type: Battery
+      maxCharge: 2000
+      startingCharge: 2000
