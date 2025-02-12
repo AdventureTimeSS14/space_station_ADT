@@ -1,0 +1,108 @@
+# Biomes
+- type: salvageBiomeMod
+  id: AbominationPlanet
+  desc: salvage-biome-mod-abomination
+  cost: 1
+  biome: AbominationPlanet
+
+- type: salvageBiomeMod
+  id: BlizzzzzardPlanet
+  desc: salvage-biome-mod-blizzard
+  biome: BlizzzzzardPlanet
+
+- type: salvageBiomeMod
+  id: AquaPlanet
+  desc: salvage-biome-mod-aqua
+  biome: AquaPlanet
+
+- type: salvageBiomeMod
+  id: OasisDesertPlanet
+  desc: salvage-biome-mod-oasis-desert
+  biome: OasisDesertPlanet
+
+# Weather
+- type: salvageWeatherMod
+  id: None
+
+- type: salvageWeatherMod
+  id: Rain
+  desc: salvage-weather-mod-rain
+  weather: Rain
+  biomes:
+  - Grasslands
+  - AquaPlanet
+  - AbominationPlanet
+
+- type: salvageWeatherMod
+  id: Storm
+  desc: salvage-weather-mod-storm
+  weather: Storm
+  biomes:
+  - Grasslands
+  - AquaPlanet
+  - AbominationPlanet
+
+- type: salvageWeatherMod
+  id: SnowfallLight
+  desc: salvage-weather-mod-snowfall
+  weather: SnowfallLight
+  cost: 0
+  biomes:
+  - BlizzzzzardPlanet
+  - Snow
+
+- type: salvageWeatherMod
+  id: SnowfallMedium
+  desc: salvage-weather-mod-snowfall
+  weather: SnowfallMedium
+  cost: 1
+  biomes:
+  - BlizzzzzardPlanet
+  - Snow
+
+- type: salvageWeatherMod
+  id: SnowfallHeavy
+  desc: salvage-weather-mod-snowfall
+  weather: SnowfallHeavy
+  cost: 2
+  biomes:
+  - BlizzzzzardPlanet
+  - Snow
+
+- type: salvageWeatherMod
+  id: Sandstorm
+  desc: salvage-weather-mod-sandstorm
+  weather: Sandstorm
+  cost: 1
+  biomes:
+  - LowDesert
+  - OasisDesertPlanet
+
+- type: salvageWeatherMod
+  id: SandstormHeavy
+  desc: salvage-weather-mod-sandstorm-heavy
+  weather: SandstormHeavy
+  cost: 2
+  biomes:
+  - LowDesert
+  - OasisDesertPlanet
+
+# Wind strength
+- type: salvageWindMod
+  id: None
+  weather: 0
+
+- type: salvageWindMod
+  id: Light
+  desc: salvage-wind-mod-light
+  weather: 2
+
+- type: salvageWindMod
+  id: Medium
+  desc: salvage-wind-mod-medium
+  weather: 2
+
+- type: salvageWindMod
+  id: Storm
+  desc: salvage-wind-mod-storm
+  weather: 4
