@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by discord: unlumy for ADT",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "meat_planet_wall"
+        },
+        {
+            "name": "meat_planet_wall_north"
+        },
+        {
+            "name": "meat_planet_wall_south"
+        },
+        {
+            "name": "meat_planet_wall_east"
+        },
+        {
+            "name": "meat_planet_wall_west"
+        }
+    ]
+}
