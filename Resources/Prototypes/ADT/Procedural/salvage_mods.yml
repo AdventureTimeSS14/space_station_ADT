@@ -90,22 +90,22 @@
 # Wind strength
 - type: salvageWindMod
   id: None
-  weather: 0
+  strength: 0
 
 - type: salvageWindMod
   id: Light
   desc: salvage-wind-mod-light
-  weather: 2
+  strength: 2
 
 - type: salvageWindMod
   id: Medium
   desc: salvage-wind-mod-medium
-  weather: 2
+  strength: 2
 
 - type: salvageWindMod
   id: Storm
   desc: salvage-wind-mod-storm
-  weather: 4
+  strength: 4
 
 # Dungeons
 - type: salvageDungeonMod

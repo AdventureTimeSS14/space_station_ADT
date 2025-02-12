@@ -24,6 +24,6 @@ public sealed partial class SalvageWindMod : IPrototype, IBiomeSpecificMod
     /// <summary>
     /// Wind strength
     /// </summary>
-    [DataField("weather")]
+    [DataField("strength")]
     public float Strength = 0f;
 }
