@@ -28,8 +28,8 @@
         sprite: ADT/Mobs/Effects/Resomi/burn_damage.rsi
   - type: FireVisuals
     sprite: ADT/Mobs/Effects/onfire.rsi
-    normalState: resomi_minor_burning
-    alternateState: resomi_burning
+    normalState: resomi_minor-burning
+    alternateState: resomi-burning
 
   # Mob
   - type: MobThresholds
