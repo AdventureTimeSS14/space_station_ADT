@@ -25,7 +25,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Server.Forensics; // ADT-Changeling-Tweak
+using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
 using Content.Server.DetailExaminable; // ADT-Changeling-Tweak

@@ -34,5 +34,9 @@
     ADTZippoDV: 1
     # FlippoLighter: 2
     # ADT Tweak End
+  contrabandInventory:
+    GroundTobacco: 3
+    CigarGold: 2
+    Igniter: 1
   emaggedInventory:
     CigPackSyndicate: 1

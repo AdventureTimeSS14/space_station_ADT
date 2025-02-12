@@ -20,3 +20,6 @@
     ClothingNeckCloakCentcom: 3
     ADTClothingOuterCoatCentCom: 3 #ADT-Tweak
     ADTClothingCentComSatchel: 3 #ADT-Tweak
+  contrabandInventory:
+    ToyFigurineCaptain: 1
+    ToyFigurineHeadOfPersonnel: 1

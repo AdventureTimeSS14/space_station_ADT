@@ -108,9 +108,9 @@
     burstFireRate: 10 # ADT tweak
     burstCooldown: 0.2 # ADT tweak
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: ChamberMagazineAmmoProvider
@@ -165,12 +165,12 @@
       maxAngle: 32
       fireRate: 6 # ADT tweak
       burstFireRate: 8 # ADT nerf
-      selectedMode: FullAuto
+      selectedMode: FullAuto # ADT tweak
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
         - Burst
-        - FullAuto
+        - FullAuto # ADT tweak
       shotsPerBurst: 3
       burstCooldown: 0.25
     - type: ItemSlots
@@ -305,9 +305,9 @@
     burstCooldown: 0.2
     burstFireRate: 7
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
+    - SemiAuto
   - type: ItemSlots
     slots:
       gun_magazine:

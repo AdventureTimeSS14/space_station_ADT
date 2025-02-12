@@ -25,6 +25,7 @@
             Janitor: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -45,7 +46,7 @@
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 5, 5 ]
+            SecurityOfficer: [ 5, 7 ]
             Detective: [ 1, 1 ]
             SecurityCadet: [ 4, 4 ]
             #Lawyer: [ 2, 2 ] # Corvax-IAA
@@ -61,6 +62,3 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
-            # Юрдеп
-            Lawyer: [ 1, 1 ]
-

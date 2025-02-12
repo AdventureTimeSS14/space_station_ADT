@@ -10,7 +10,7 @@
     <!-- The radial menu will try to open so that its center is located where the player's cursor is currently -->
 
     <!-- Entry layer (shows main categories) -->
-    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" Radius="64" ReserveSpaceForHiddenChildren="False">
+    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="64" ReserveSpaceForHiddenChildren="False">
         <ui:RadialMenuTextureButton StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rpd-component-DisposalPipe'}" TargetLayer="DisposalPipe" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Interface/Radial/RPD/DisposalPipe.png"/>
         </ui:RadialMenuTextureButton>
@@ -23,12 +23,12 @@
     </ui:RadialContainer>
 
     <!-- DisposalPipe -->
-    <ui:RadialContainer Name="DisposalPipe"  VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
+    <ui:RadialContainer Name="DisposalPipe"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="64"/>
 
     <!-- Gaspipes -->
-    <ui:RadialContainer Name="Gaspipes"  VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
+    <ui:RadialContainer Name="Gaspipes"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="64"/>
 
     <!-- Devices -->
-    <ui:RadialContainer Name="Devices"  VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
+    <ui:RadialContainer Name="Devices"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="64"/>
 
 </ui:RadialMenu>

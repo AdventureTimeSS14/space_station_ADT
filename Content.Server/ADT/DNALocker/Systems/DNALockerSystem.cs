@@ -1,4 +1,3 @@
-using Content.Server.Forensics;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Server.Explosion.EntitySystems;
@@ -8,6 +7,7 @@ using Content.Shared.Emag.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Verbs;
+using Content.Shared.Forensics.Components;
 using Robust.Shared.Utility;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;

@@ -90,6 +90,10 @@
   - type: Construction
     graph: GasPipe
     node: half
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   parent: GasPipeBase
@@ -123,6 +127,10 @@
         Blunt: 8
     soundHit:
       collection: MetalThud # this NEEDS to changed to the metal pipe falling sound effect on april first every year
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   parent: GasPipeBase
@@ -163,6 +171,10 @@
     damage:
       types:
         Blunt: 8 # Woe, pipe be upon ye!
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   parent: GasPipeBase
@@ -199,6 +211,10 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   parent: GasPipeBase
@@ -234,6 +250,10 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   id: GasPipeBroken
@@ -259,3 +279,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks

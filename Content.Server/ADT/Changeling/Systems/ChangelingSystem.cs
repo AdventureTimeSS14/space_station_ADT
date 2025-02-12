@@ -12,7 +12,7 @@ using Content.Shared.IdentityManagement;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Flash;
 using Content.Shared.Polymorph;
-using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Actions;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Alert;
