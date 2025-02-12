@@ -106,3 +106,9 @@
   id: Storm
   desc: salvage-wind-mod-storm
   weather: 4
+
+# Dungeons
+- type: salvageDungeonMod
+  id: TestDungeon           # Заглушка для того, чтоб не падала локалка
+  desc: salvage-dungeon-mod-experiment
+  proto: Experiment
