@@ -356,7 +356,7 @@
     sprite: ADT/Mobs/Aliens/abomination.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: Grant
+      state: grant
   - type: DamageStateVisuals
     states:
       Alive:
@@ -376,7 +376,7 @@
         Poison: 5
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: grant
+    damageModifierSet: Grant
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
     baseSprintSpeed: 3.7
