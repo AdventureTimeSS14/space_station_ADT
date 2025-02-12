@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "SK aka Prasat (discord: prazat911) for Adventure Time",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "palms_tree"
+        },
+        {
+            "name": "palms_tree1"
+        },
+        {
+            "name": "palms_tree2"
+        },
+        {
+            "name": "lung_tree"
+        },
+        {
+            "name": "lung_tree1"
+        },
+        {
+            "name": "membrana_tree"
+        },
+        {
+            "name": "membrana_tree1"
+        },
+        {
+            "name": "membrana_tree2"
+        }
+    ]
+}
