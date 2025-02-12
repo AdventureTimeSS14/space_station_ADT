@@ -23,6 +23,7 @@
 # Weather
 - type: salvageWeatherMod
   id: None
+  desc: salvage-weather-mod-clear
   weather: Rain # В системе идёт проверка на айди, потому это ничего не значит
 
 - type: salvageWeatherMod
@@ -89,6 +90,7 @@
 # Wind strength
 - type: salvageWindMod
   id: None
+  desc: salvage-wind-mod-none
   strength: 0
 
 - type: salvageWindMod
