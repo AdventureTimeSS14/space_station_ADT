@@ -71,5 +71,8 @@ public sealed partial class TraitPrototype : IPrototype
 
     [DataField]
     public bool Quirk = false;
+
+    [DataField]
+    public bool SponsorOnly = false;
     // ADT Tweak end
 }
