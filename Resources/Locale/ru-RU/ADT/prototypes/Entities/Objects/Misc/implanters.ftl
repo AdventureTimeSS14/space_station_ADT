@@ -73,16 +73,16 @@ ent-DevTranslatorImplanter = имплант языка разработчика
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = АДМЕМЫ
 
-ent-IPCTranslatorImplanter = Имплантер IPC-транслятора
+ent-IPCTranslatorImplanter = полноценный языковой имплант троичного кода
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = IPC
-ent-VoxPidginTranslatorImplanter = Имплантантер-транслятор VoxCommon
+ent-VoxPidginTranslatorImplanter = полноценный языковой имплант Вокс-Пиджин
     .desc = { ent-BaseImplantOnlyImplanter.desc }
-    .suffix = VoxCommon
+    .suffix = Вокс-Пиджин
 
-ent-ScratchesTranslatorImplanter = Имплантантер-транслятор ScratchesCommon
+ent-ScratchesTranslatorImplanter = полноценный языковой имплант Скречи
     .desc = { ent-BaseImplantOnlyImplanter.desc }
-    .suffix = ScratchesCommon
+    .suffix = Скречи
 
 ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
     .desc = { ent-BaseImplantOnlyImplanter.desc }
