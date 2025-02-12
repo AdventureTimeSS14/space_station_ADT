@@ -23,6 +23,7 @@
 # Weather
 - type: salvageWeatherMod
   id: None
+  weather: Rain # В системе идёт проверка на айди, потому это ничего не значит
 
 - type: salvageWeatherMod
   id: Rain
@@ -75,7 +76,6 @@
   weather: Sandstorm
   cost: 1
   biomes:
-  - LowDesert
   - OasisDesertPlanet
 
 - type: salvageWeatherMod
@@ -84,7 +84,6 @@
   weather: SandstormHeavy
   cost: 2
   biomes:
-  - LowDesert
   - OasisDesertPlanet
 
 # Wind strength

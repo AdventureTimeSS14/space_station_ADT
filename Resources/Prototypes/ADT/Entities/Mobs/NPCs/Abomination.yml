@@ -172,7 +172,7 @@
       groups:
         Brute: 20
   - type: Jumpboots
-    jumpAction: CompActionJumpAbomination
+    jumpAction: CompActionShootAbomination
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/Effects/MobsEffects/spawn_mob_death.ogg
@@ -263,7 +263,7 @@
         Base: bloated_dead
 
 - type: entity
-  parent: BaseMobFleshSalvage
+  parent: ADTBaseAbomination
   id: ADTMobDistorted
   name: distorted
   description: distorted
@@ -293,7 +293,7 @@
         Slash: 7
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: distorted
+    damageModifierSet: Distorted
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.4
     baseSprintSpeed: 4.4
@@ -303,7 +303,7 @@
       100: Dead
 
 - type: entity
-  parent: BaseMobFleshSalvage
+  parent: ADTBaseAbomination
   id: ADTMobEcho
   name: echo
   description: echo
@@ -333,7 +333,7 @@
         Slash: 6
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: echo
+    damageModifierSet: Echo
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.0
     baseSprintSpeed: 4.7
@@ -345,7 +345,7 @@
     jumpAction: CompActionJumpAbomination
 
 - type: entity
-  parent: BaseMobFleshSalvage
+  parent: ADTBaseAbomination
   id: ADTMobGrant
   name: grant
   description: grant
@@ -356,7 +356,7 @@
     sprite: ADT/Mobs/Aliens/abomination.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: grant
+      state: Grant
   - type: DamageStateVisuals
     states:
       Alive:
@@ -386,7 +386,7 @@
       200: Dead
 
 - type: entity
-  parent: BaseMobFleshSalvage
+  parent: ADTBaseAbomination
   id: ADTMobHunter
   name: hunter
   description: hunter
@@ -416,7 +416,7 @@
         Piercing: 10
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: hunter
+    damageModifierSet: Hunter
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.2
     baseSprintSpeed: 4.75
@@ -428,7 +428,7 @@
     jumpAction: CompActionJumpAbomination
 
 - type: entity
-  parent: BaseMobFleshSalvage
+  parent: ADTBaseAbomination
   id: ADTMobSoldier
   name: soldier
   description: soldier
@@ -458,7 +458,7 @@
         Slash: 10
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: soldier
+    damageModifierSet: Soldier
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.7
     baseSprintSpeed: 4.3
@@ -473,7 +473,7 @@
     prototype: BulletAcid
 
 - type: entity
-  parent: BaseMobFleshSalvage
+  parent: ADTBaseAbomination
   id: ADTMobWrecker
   name: wrecker
   description: wrecker
@@ -503,7 +503,7 @@
         Blunt: 20
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: wrecker
+    damageModifierSet: Wrecker
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
     baseSprintSpeed: 3.5
