@@ -105,3 +105,49 @@
     sprite: ADT/Structures/Walls/yellow_bricks_wall.rsi
   - type: IconSmooth
     base: yellowbricks
+
+#this file created like analog of asteroid.yml from wizards (bcs they have fuck'n 1000+ strings) and there would be planet/expeditons rocks (u can use this file for every single rock type)
+
+#BFUU meat rock
+- type: entity
+  id: ADTMeatPlanetRock
+  parent: BaseWall
+  name: meaty rock
+  description: A rocky meat..?
+  components:
+  - type: Transform
+    noRot: true
+  - type: IconSmooth
+    key: walls
+    mode: noSprite
+  - type: SmoothEdge
+  - type: Icon
+    sprite: /Textures/ADT/Structures/Walls/rock.rsi
+    state: meat_planet_wall
+  - type: Sprite
+    sprite: /Textures/ADT/Structures/Walls/rock.rsi
+    layers:
+      - state: meat_planet_wall
+      - map: [ "enum.EdgeLayer.South" ]
+        state: meat_planet_wall_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: meat_planet_wall_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: meat_planet_wall_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: meat_planet_wall_west
+  - type: MiningScannerViewable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 3
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
