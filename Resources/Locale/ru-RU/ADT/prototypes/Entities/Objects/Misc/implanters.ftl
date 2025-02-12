@@ -80,9 +80,9 @@ ent-VoxPidginTranslatorImplanter = полноценный языковой им�
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = Вокс-Пиджин
 
-ent-ScratchesTranslatorImplanter = полноценный языковой имплант Скречи
+ent-ScratchesTranslatorImplanter = полноценный языковой имплант Скретчи
     .desc = { ent-BaseImplantOnlyImplanter.desc }
-    .suffix = Скречи
+    .suffix = Скретчи
 
 ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
     .desc = { ent-BaseImplantOnlyImplanter.desc }
