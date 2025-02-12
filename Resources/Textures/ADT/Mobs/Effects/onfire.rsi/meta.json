@@ -8,7 +8,7 @@
     "copyright": "Taken from https://github.com/tgstation/tgstation at 0d9c9a8233dfc3fc55edc538955a761a6328bee0",
     "states": [
         {
-            "name": "Resomi_burning",
+            "name": "resomi_burning",
             "directions": 4,
             "delays": [
                 [ 0.1, 0.1, 0.1, 0.1 ],
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "name": "Resomi_minor_burning",
+            "name": "resomi_minor_burning",
             "directions": 4,
             "delays": [
                 [ 0.1, 0.1, 0.1, 0.1 ],
