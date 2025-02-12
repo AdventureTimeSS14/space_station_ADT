@@ -71,21 +71,19 @@
     range: 5
     volume: -5
     sound:
-      path: /Audio/Ambience/anomaly_scary.ogg
+      path: Audio/ADT/Ambience/static_anomaly.ogg
   - type: Anomaly
-    corePrototype: AnomalyCoreShadow
-    coreInertPrototype: AnomalyCoreShadowInert
+    corePrototype: ADTAnomalyCoreStatic
+    coreInertPrototype: ADTAnomalyCoreStaticInert
     minPulseLength: 30
     maxPulseLength: 90
-    animationTime: 4
-    offset: "-0.1,0.1"
   - type: EntitySpawnAnomaly
     entries:
     - settings:
         spawnOnPulse: true
         minAmount: 1
         maxAmount: 3
-        maxRange: 4
+        maxRange: 5
       spawns:
       - FakeTV
     - settings:
@@ -94,7 +92,7 @@
         maxAmount: 1
         maxRange: 1
       spawns:
-      - BzTV
+      - StativTV
   - type: DamageOnInteract
     damage:
       types:

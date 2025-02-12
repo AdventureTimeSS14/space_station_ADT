@@ -12,18 +12,19 @@
   interval: 5.0
   chance: 0.5
   withChat: false
+
 #ADT
-# Madness
+# Nervous
 - type: autoEmote
   id: NervousCrying
   emote: Crying
-  interval: 10.0
+  interval: 15.0
   chance: 0.5
   withChat: false
 
 - type: autoEmote
   id: NervousSream
   emote: Scream
-  interval: 10.0
+  interval: 15.0
   chance: 0.5
   withChat: false

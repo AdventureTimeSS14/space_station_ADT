@@ -62,6 +62,10 @@
     sprite: ADT/Objects/Misc/fakeTV.rsi
     state: fakeTV
   - type: Physics
+  - type: PointLight
+    radius: 1.2
+    energy: 10.5
+    color: "#ffffff"
   - type: MadnessSource
   - type: Damageable
     damageContainer: Inorganic

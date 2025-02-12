@@ -1,6 +1,7 @@
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Anomaly.Effects.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Anomaly.Components;
 
 
 namespace Content.Server.ADT.Anomaly.Effects;
@@ -13,6 +14,7 @@ public sealed class StaticAnomalySystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<StaticAnomalyComponent, AnomalySupercriticalEvent>(OnSupercritical);
     }
 
     public override void Update(float frameTime)
@@ -31,5 +33,13 @@ public sealed class StaticAnomalySystem : EntitySystem
                     staticComp.Multiplier = comp.NoiseStrong;
             }
         }
-    } 
+    }
+
+    private void OnSupercritical(EntityUid uid, StaticAnomalyComponent comp, ref AnomalySupercriticalEvent args)
+    {
+        foreach (var ent in _lookup.GetEntitiesInRange(uid, comp.NoiseRange))
+        {
+            _status.TryRemoveStatusEffect(ent, "SeeingStatic");
+        }
+    }
 }
