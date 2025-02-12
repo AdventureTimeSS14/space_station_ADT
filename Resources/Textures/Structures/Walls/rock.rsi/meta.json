@@ -214,6 +214,9 @@
         },
         {
             "name": "rock_andesite_west"
+        },
+        {
+            "name": "rock_zinc"
         }
     ]
 }

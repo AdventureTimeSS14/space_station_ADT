@@ -21,6 +21,8 @@
         - CableApcStack
         - CableMVStack
         - CableHVStack
+        - ADTSheetCopper # ADT Tweak
+        - ADTSheetZinc # ADT Tweak
       chance: 0.8
       offset: 0.0
 
@@ -119,6 +121,8 @@
         - CableApcStack10
         - CableMVStack10
         - CableHVStack10
+        - ADTSheetCopper # ADT Tweak
+        - ADTSheetZinc # ADT Tweak
       chance: 0.9
       offset: 0.0
 
