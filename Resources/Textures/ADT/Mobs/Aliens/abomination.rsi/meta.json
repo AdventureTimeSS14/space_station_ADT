@@ -1,0 +1,51 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "distortedm echo, grant, soldier created by Prazat (discord: prazat911); bloated, bloated_dead, death, death_dead, hyperthrophied, hyperthrophied_dead created by Сычик, (discord: anvel)",
+    "states": [
+        {
+            "name": "distorted",
+            "directions": 4
+        },
+        {
+            "name": "echo",
+            "directions": 4
+        },
+        {
+            "name": "grant",
+            "directions": 4
+        },
+        {
+            "name": "soldier",
+            "directions": 4
+        },
+        {
+            "name": "bloated",
+            "directions": 4
+        },
+        {
+            "name": "hyperthrophied",
+            "directions": 4
+        },
+        {
+            "name": "death",
+            "directions": 4
+        },
+        {
+            "name": "bloated_dead"
+        },
+        {
+            "name": "hyperthrophied_dead"
+        },
+        {
+            "name": "death_dead"
+        },
+        {
+            "name": "dead"
+        }
+    ]
+}
