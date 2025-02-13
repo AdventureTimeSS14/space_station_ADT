@@ -4,9 +4,9 @@
   entries:
     - proto: ADTMobGrant
     - proto: ADTMobEcho
-      cost: 3
+      cost: 2
     - proto: ADTMobDistorted
-      cost: 3
+      cost: 2
     - proto: ADTMobHunter
       cost: 5
       prob: 0.4
@@ -17,6 +17,7 @@
       cost: 10
       prob: 0.02
     - proto: ADTAbominationBloated
+      cost: 10
       prob: 0.1
   configs:
     DefenseStructure: XenoWardingTower
