@@ -480,28 +480,34 @@
   description: Busted.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-    layers:
-    - state: icon
-      color: "#ff8300"
-    - state: prisoner-icon
+# ADT tweak start
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/prisoner.rsi
+#    layers:
+#    - state: icon
+#      color: "#ff8300"
+#    - state: prisoner-icon
+# ADT tweak end
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#ff8300"
-      - state: prisoner-inhand-left
-      right:
-      - state: inhand-right
-        color: "#ff8300"
-      - state: prisoner-inhand-right
+# ADT tweak start
+#    inhandVisuals: ADT tweak start
+#      left:
+#      - state: inhand-left
+#        color: "#ff8300"
+#      - state: prisoner-inhand-left
+#      right:
+#      - state: inhand-right
+#        color: "#ff8300"
+#      - state: prisoner-inhand-right
+# ADT tweak end
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-INNERCLOTHING
-        color: "#ff8300"
-      - state: prisoner-equipped-INNERCLOTHING
+# ADT tweak start
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/prisoner.rsi
+#    clothingVisuals: ADT tweak start
+#      jumpsuit:
+#      - state: equipped-INNERCLOTHING
+#        color: "#ff8300"
+#      - state: prisoner-equipped-INNERCLOTHING
+# ADT tweak end
   - type: SuitSensor
     controlsLocked: true
     randomMode: false
@@ -860,7 +866,7 @@
       mode: SensorOff
 
 - type: entity
-  parent: [ ClothingUniformBase, BaseRestrictedContraband ]
+  parent: [ ClothingUniformBase ]
   id: ClothingUniformJumpsuitMercenary
   name: mercenary jumpsuit
   description: Clothing for real mercenaries who have gone through fire, water and the jungle of planets flooded with dangerous monsters or targets for which a reward has been assigned.

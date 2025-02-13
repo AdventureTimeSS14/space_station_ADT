@@ -176,6 +176,9 @@ ent-ADTCapJumpsuitWarm = водолазка капитана
 ent-ClothingUniformJumpsuitBlueshieldTurtleneck = водолазка офицера синего щита
     .desc = Белая удобная водолазка Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
 
+ent-ADTClothingUniformJumpsuitBrigmedicTurtleneck = водолазка бригмедика
+    .desc = Комфортная и тёплая водолазка. Специально для боевого медика.
+
 ent-ADTSpaceSecUniformCadet = комбинезон кадета SPACE SEC
     .desc = Стандартная одежда корпорации SPACE SEC.
 ent-ADTSpaceSecUniformPilot = комбинезон пилота SPACE SEC
@@ -376,3 +379,13 @@ ent-ADTClothingUniformSwimsuitWinth = купальник ведьмочки
 
 ent-ADTClothingUniformJumpsuitCamisoleQM = укороченный камзол квартирмейстера
     .desc = Камзол, который одновременно хорош как для работы так и для отдыха.
+
+ent-ADTClothingUniformJumpsuitMGDAgent = деловой костюм компании MG&D
+    .desc = Состоит из очень мягкой ткани. На себе имеет также имеет белую шубу с черным воротником.
+    .suffix = { "MG&D" }
+ent-ADTClothingUniformJumpsuitMGDParticipant = костюм участника голодных игр
+    .desc =  Состоит из белых и черных тканей. Костюм облегается на тело что дает свободу для передвижений.
+    .suffix = { "MG&D" }
+ent-ADTClothingUniformJumpsuitMGDGuard = бронированный костюм компании MG&D
+    .desc = Состоит из прочного бронежилета "Тактика" а также защиты для коленей и локтей, состоящих из кевлара.
+    .suffix = { "MG&D" }

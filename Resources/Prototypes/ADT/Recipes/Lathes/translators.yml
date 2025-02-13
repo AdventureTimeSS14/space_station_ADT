@@ -318,17 +318,6 @@
     Silver: 50
 
 - type: latheRecipe
-  id: ShadekinTranslatorImplanter 
-  result: ShadekinTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
-
-- type: latheRecipe
   id: CintaTajTranslatorImplanter
   result: CintaTajTranslatorImplanter
   completetime: 2
@@ -352,16 +341,6 @@
 - type: latheRecipe
   id: ArkaneTranslator
   result: ArkaneTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
-
-- type: latheRecipe
-  id: ShadekinTranslator
-  result: ShadekinTranslator
   completetime: 2
   materials:
     Steel: 500

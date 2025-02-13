@@ -81,6 +81,9 @@
     guides:
     - Security
     - Antagonists
+  - type: Tag
+    tags:
+    - GrenadeFlashBang
 
 - type: entity
   id: GrenadeFlashEffect
@@ -106,33 +109,28 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
-# (Откат PR https://github.com/space-wizards/space-station-14/pull/32429)
-  # - type: ExplosionResistance
-  #   damageCoefficient: 0.1
-  # - type: Destructible
-  #   thresholds:
-  #   - trigger:
-  #       !type:DamageTrigger
-  #       damage: 10
-  #     behaviors:
-  #     - !type:TimerStartBehavior
-  #   - trigger:
-  #       !type:DamageTrigger
-  #       damage: 45
-  #     behaviors:
-  #     - !type:TriggerBehavior
-  #     - !type:DoActsBehavior
-  #       acts: ["Destruction"]
-# Запрещает минибомбе срабатывать, если рядом взорвалось С4
+# ADT-Tweak START - Вместо уничтожения минибомба при повреждении взрывается
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+# ADT-Tweak END
   - type: OnUseTimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Minibomb
     # Стандартные значения (200, 30, 60)
-    totalIntensity: 350
-    intensitySlope: 45 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
-    maxIntensity: 90
+    totalIntensity: 700
+    intensitySlope: 100 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
+    maxIntensity: 200
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:

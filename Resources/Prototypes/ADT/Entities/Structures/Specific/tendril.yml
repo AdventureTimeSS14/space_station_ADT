@@ -27,6 +27,13 @@
           ADTCrateNecropolisRandom:
             min: 1
             max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/ADT/SoundGen/destruction_1.ogg
+          radius: 7
+      - !type:PopupBehavior
+        popup: tendril-destruction-popup
+        popupType: MediumCaution
   - type: Physics
     bodyType: Static
   - type: Transform
@@ -43,6 +50,39 @@
         - MobLayer
         density: 200
   - type: AshStormImmune
+
+- type: entity
+  id: ADTTendrilHypertrophied
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Hypertrophied
+  components:
+  - type: Tendril
+    spawns:
+    - ADTAbominationHypertrophied
+
+- type: entity
+  id: ADTTendrilDeath
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Death
+  components:
+  - type: Tendril
+    spawns:
+    - ADTAbominationDeath
+
+- type: entity
+  id: ADTTendrilBloated
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Bloated
+  components:
+  - type: Tendril
+    spawns:
+    - ADTAbominationBloated
 
 - type: entity
   id: ADTTendrilGoliath

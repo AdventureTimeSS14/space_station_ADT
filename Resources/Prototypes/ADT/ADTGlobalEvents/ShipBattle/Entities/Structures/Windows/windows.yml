@@ -50,6 +50,10 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
 
 - type: entity
   id: ADTWindowTSF
@@ -101,6 +105,8 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: RCDDeconstructable
+    deconstructable: false
 
 - type: entity
   id: ADTWindowTSFHeavy

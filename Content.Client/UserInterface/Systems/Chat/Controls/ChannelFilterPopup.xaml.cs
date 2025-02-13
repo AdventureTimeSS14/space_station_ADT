@@ -23,7 +23,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.Dead,
         ChatChannel.Admin,
         ChatChannel.AdminAlert,
-        ChatChannel.AdminChat,
+        // ChatChannel.AdminChat, // ADT-Tweak: Убираем фильтр а-чата. (Должен быть всегда включен)
         ChatChannel.Server
     };
 
@@ -38,6 +38,13 @@ public sealed partial class ChannelFilterPopup : Popup
 
     public bool IsActive(ChatChannel channel)
     {
+        // ADT-Tweak-start
+        // AdminChat всегда активен
+        if (channel == ChatChannel.AdminChat)
+        {
+            return true;
+        }
+        // ADT-Tweak-end
         return _filterStates.TryGetValue(channel, out var checkbox) && checkbox.Pressed;
     }
 

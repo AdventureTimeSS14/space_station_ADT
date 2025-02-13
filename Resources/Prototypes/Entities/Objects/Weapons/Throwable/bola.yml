@@ -46,5 +46,8 @@
     sprintSpeed: 0.5
     staminaDamage: 0 # anything but this is gamebreaking
     canThrowTrigger: true
-    canMoveBreakout: true
+    canMoveBreakout: false # ADT-Tweak
   - type: LandAtCursor
+  - type: Tag
+    tags:
+      - ADTBola

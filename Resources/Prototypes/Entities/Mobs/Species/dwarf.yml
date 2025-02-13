@@ -63,18 +63,15 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  # ADT-Tweak start
+  # ADT tweak start
   - type: InnateMiningScannerViewer
     pingSound: null
     viewRange: 4
-  # ADT-Tweak end
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - Dwarf
-    understands:
-    - GalacticCommon
-    - Dwarf
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Dwarf: Speak
+  # ADT tweak start
 
 - type: entity
   parent: BaseSpeciesDummy

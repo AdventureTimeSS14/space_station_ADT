@@ -204,6 +204,7 @@ public sealed partial class AdminVerbSystem
                         var recharger = EnsureComp<BatterySelfRechargerComponent>(args.Target);
                         recharger.AutoRecharge = true;
                         recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
+                        recharger.AutoRechargePause = false; // No delay.
                     },
                     Impact = LogImpact.Medium,
                     Message = Loc.GetString("admin-trick-infinite-battery-object-description"),
@@ -317,22 +318,22 @@ public sealed partial class AdminVerbSystem
                 args.Verbs.Add(refillInternalsPlasma);
             }
 
-            Verb sendToTestArena = new()
-            {
-                Text = "Send to test arena",
-                Category = VerbCategory.Tricks,
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
-
-                Act = () =>
-                {
-                    var (mapUid, gridUid) = _adminTestArenaSystem.AssertArenaLoaded(player);
-                    _transformSystem.SetCoordinates(args.Target, new EntityCoordinates(gridUid ?? mapUid, Vector2.One));
-                },
-                Impact = LogImpact.Medium,
-                Message = Loc.GetString("admin-trick-send-to-test-arena-description"),
-                Priority = (int) TricksVerbPriorities.SendToTestArena,
-            };
-            args.Verbs.Add(sendToTestArena);
+            // ADT-Comment: Чуть переписана система админ рум
+            // Verb sendToTestArena = new()
+            // {
+            //     Text = "Send to test arena",
+            //     Category = VerbCategory.Tricks,
+            //     Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
+            //     Act = () =>
+            //     {
+            //         var (mapUid, gridUid) = _adminTestArenaSystem.AssertArenaLoaded(player);
+            //         _transformSystem.SetCoordinates(args.Target, new EntityCoordinates(gridUid ?? mapUid, Vector2.One));
+            //     },
+            //     Impact = LogImpact.Medium,
+            //     Message = Loc.GetString("admin-trick-send-to-test-arena-description"),
+            //     Priority = (int) TricksVerbPriorities.SendToTestArena,
+            // };
+            // args.Verbs.Add(sendToTestArena);
 
             var activeId = FindActiveId(args.Target);
 
@@ -603,6 +604,7 @@ public sealed partial class AdminVerbSystem
 
                         recharger.AutoRecharge = true;
                         recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
+                        recharger.AutoRechargePause = false; // No delay.
                     }
                 },
                 Impact = LogImpact.Extreme,

@@ -65,3 +65,14 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Misc/vampire_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ADTClothingNeckKubanoidPin
+  name: kubanoid pin
+  description: Be skuf eat kabachki.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/pins.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/pins.rsi

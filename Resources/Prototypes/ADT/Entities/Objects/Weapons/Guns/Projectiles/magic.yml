@@ -1,0 +1,20 @@
+- type: entity
+  id: ADTProjectileHealingBoltWeak
+  name: healing bolt weak
+  description: I COMMAND YOU TO LIVE!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: spell
+      color: white
+  - type: Projectile
+    damage:
+      groups: # хилит, но слабее.
+        Brute: -20
+        Burn: -20
+        Airloss: -20
+        Toxin: -20
+    ignoreResistances: true

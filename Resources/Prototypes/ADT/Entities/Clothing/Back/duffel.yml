@@ -46,3 +46,14 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/paramedic_duffel.rsi
+
+- type: entity
+  parent: ADTClothingBackpackDuffelParamedic
+  id: ADTClothingBackpackDuffelParamedicFilled
+  name: parsmedical duffel bag
+  suffix: Paramedic,Filled
+  description: A large duffel bag to hold paramedical equipment
+  components:
+  - type: StorageFill
+    contents:
+      - id: JawsOfLife

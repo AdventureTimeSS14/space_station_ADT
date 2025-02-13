@@ -251,6 +251,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitDeathsquad
+  - type: DNALocker
+  - type: Unremoveable
 
 #Скафандры Киберсана
 - type: entity
