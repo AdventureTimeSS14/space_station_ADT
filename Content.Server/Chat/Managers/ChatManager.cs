@@ -313,7 +313,7 @@ internal sealed partial class ChatManager : IChatManager
         {
             wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-sponsor-wrap-message",
                 ("patronColor", sponsorColorStr),
-                ("patronTitle", $"\\[{adminData!.Title}\\] "), // `!` так как hasTitle = true
+                ("patronTitle", $"\\[{adminData!.Title}\\] "),
                 ("playerName", player.Name),
                 ("message", FormattedMessage.EscapeText(message)));
         }
