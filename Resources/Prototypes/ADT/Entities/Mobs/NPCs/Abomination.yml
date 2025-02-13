@@ -172,7 +172,7 @@
       groups:
         Brute: 20
   - type: Jumpboots
-    jumpAction: CompActionShootAbomination
+    jumpAction: CompActionJumpAbomination
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/Effects/MobsEffects/spawn_mob_death.ogg

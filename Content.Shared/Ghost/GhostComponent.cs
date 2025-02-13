@@ -50,8 +50,8 @@ public sealed partial class GhostComponent : Component
     [DataField("booMaxTargets"), ViewVariables(VVAccess.ReadWrite)]
     public int BooMaxTargets = 3;
 
-    [DataField("ableClothingMarkings")] //ADT tweak
-    public List<string>? AbleClothingMarkings { get; private set; }
+    [DataField("availableClothing")] //ADT tweak
+    public List<string>? AvailableClothing { get; private set; }
 
     // TODO: instead of this funny stuff just give it access and update in system dirtying when needed
     [ViewVariables(VVAccess.ReadWrite)]

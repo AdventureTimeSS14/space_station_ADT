@@ -48,3 +48,6 @@
     canThrowTrigger: true
     canMoveBreakout: false # ADT-Tweak
   - type: LandAtCursor
+  - type: Tag
+    tags:
+      - ADTBola
