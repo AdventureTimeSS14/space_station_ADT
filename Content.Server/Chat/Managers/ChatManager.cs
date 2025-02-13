@@ -262,44 +262,13 @@ internal sealed partial class ChatManager : IChatManager
     //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
     //     }
 
-    //     // Corvax-Sponsors-Start // ADT-Commented
-    //     // if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && sponsorData.OOCColor != null)
-    //     // {
-    //     //     wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", sponsorData.OOCColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
-    //     // }
+    //     // Corvax-Sponsors-Start
+    //     if (_sponsorsManager != null && _sponsorsManager.TryGetServerOocColor(player.UserId, out var oocColor))
+    //     {
+    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", oocColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+    //     }
     //     // Corvax-Sponsors-End
-    //     // Start-ADT Schrodinger Tweak
-    //     var adminData = _adminManager.GetAdminData(player);
-    //     // Проверяем, является ли игрок спонсором
-    //     if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && !string.IsNullOrEmpty(sponsorData.OOCColor))
-    //     {
-    //         if (Color.TryFromName(sponsorData.OOCColor, out var sponsorColor))
-    //         {
-    //             colorOverride = sponsorColor;
-    //         }
-    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message",
-    //             ("patronColor", sponsorData.OOCColor),
-    //             ("playerName", player.Name),
-    //             ("message", FormattedMessage.EscapeText(message)));
-    //     }
-    //     // Если у админа есть title, добавляем его к имени
-    //     if (adminData != null && adminData.Title != null)
-    //     {
-    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-wrap-message",
-    //             ("patronTitle", $"\\[{adminData.Title}\\] "),
-    //             ("playerName", player.Name),
-    //             ("message", FormattedMessage.EscapeText(message)));
-    //     }
-    //     // Проверяем если у нас админ со спонсоркой
-    //     if ((adminData != null && adminData.Title != null) && (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorDataAdmin) && !string.IsNullOrEmpty(sponsorDataAdmin.OOCColor)))
-    //     {
-    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-sponsor-wrap-message",
-    //             ("patronColor", sponsorDataAdmin.OOCColor),
-    //             ("patronTitle", $"\\[{adminData.Title}\\] "),
-    //             ("playerName", player.Name),
-    //             ("message", FormattedMessage.EscapeText(message)));
-    //     }
-    //     // End-ADT Tweak
+
     //     //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
     //     ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
     //     _mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/")); // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force
