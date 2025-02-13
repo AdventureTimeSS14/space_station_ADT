@@ -794,11 +794,11 @@
     contents:
     - id: ADTFoodSnackCandyLove
       amount: 1
-    - id: ADTFoodSnackMinichoco1
+    - id: ADTFoodSnackMinichoco1Bar
       amount: 1
-    - id: ADTFoodSnackMinichoco2
+    - id: ADTFoodSnackMinichoco2Bar
       amount: 1
-    - id: ADTFoodSnackMinichoco3
+    - id: ADTFoodSnackMinichoco3Bar
       amount: 1
     - id: ADTFoodSnackMinichoco4
       amount: 1
