@@ -124,7 +124,9 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Decoration/meat_tree.rsi
-    state: membrana_tree2
+    layers:
+      - state: membrana_tree2
+        map: ["random"]
   - type: RandomSprite
     available:
     - random:
