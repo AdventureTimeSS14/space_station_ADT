@@ -117,7 +117,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                 if (!HasComp<TransformComponent>(entity) || !HasComp<TransformComponent>(_player.LocalEntity.Value))
                     continue;
                 if (Transform(entity).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity.Value).Coordinates, out var distance) &&
-                    distance > SharedChatSystem.VoiceRange)
+                    distance > (ev.IsWhisper ? SharedChatSystem.WhisperMuffledRange : SharedChatSystem.VoiceRange))
                     continue;
                 if (Transform(entity).ParentUid == EntityUid.Invalid)
                     continue;
