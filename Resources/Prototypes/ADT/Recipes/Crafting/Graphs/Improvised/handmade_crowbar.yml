@@ -4,10 +4,10 @@
   graph:
   - node: start
     edges:
-    - to: ADTCompHandmadeCrowbar
+    - to: ADTHandmadeCrowbarGraph
       steps:
       - material: MetalRod
         amount: 3
         doAfter: 1
-  - node: ADTCompHandmadeCrowbar
+  - node: ADTHandmadeCrowbarGraph
     entity: Crowbar
