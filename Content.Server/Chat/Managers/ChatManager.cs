@@ -235,15 +235,82 @@ internal sealed partial class ChatManager : IChatManager
     #endregion
 
     #region Private API
+    // ADT-Commented: функция переписана
+    // private void SendOOC(ICommonSession player, string message)
+    // {
+    //     if (_adminManager.IsAdmin(player))
+    //     {
+    //         if (!_adminOocEnabled)
+    //         {
+    //             return;
+    //         }
+    //     }
+    //     else if (!_oocEnabled)
+    //     {
+    //         return;
+    //     }
 
+    //     Color? colorOverride = null;
+    //     var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName",player.Name), ("message", FormattedMessage.EscapeText(message)));
+    //     if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
+    //     {
+    //         var prefs = _preferencesManager.GetPreferences(player.UserId);
+    //         colorOverride = prefs.AdminOOCColor;
+    //     }
+    //     if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
+    //     {
+    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+    //     }
+
+    //     // Corvax-Sponsors-Start // ADT-Commented
+    //     // if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && sponsorData.OOCColor != null)
+    //     // {
+    //     //     wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", sponsorData.OOCColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+    //     // }
+    //     // Corvax-Sponsors-End
+    //     // Start-ADT Schrodinger Tweak
+    //     var adminData = _adminManager.GetAdminData(player);
+    //     // Проверяем, является ли игрок спонсором
+    //     if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && !string.IsNullOrEmpty(sponsorData.OOCColor))
+    //     {
+    //         if (Color.TryFromName(sponsorData.OOCColor, out var sponsorColor))
+    //         {
+    //             colorOverride = sponsorColor;
+    //         }
+    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message",
+    //             ("patronColor", sponsorData.OOCColor),
+    //             ("playerName", player.Name),
+    //             ("message", FormattedMessage.EscapeText(message)));
+    //     }
+    //     // Если у админа есть title, добавляем его к имени
+    //     if (adminData != null && adminData.Title != null)
+    //     {
+    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-wrap-message",
+    //             ("patronTitle", $"\\[{adminData.Title}\\] "),
+    //             ("playerName", player.Name),
+    //             ("message", FormattedMessage.EscapeText(message)));
+    //     }
+    //     // Проверяем если у нас админ со спонсоркой
+    //     if ((adminData != null && adminData.Title != null) && (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorDataAdmin) && !string.IsNullOrEmpty(sponsorDataAdmin.OOCColor)))
+    //     {
+    //         wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-sponsor-wrap-message",
+    //             ("patronColor", sponsorDataAdmin.OOCColor),
+    //             ("patronTitle", $"\\[{adminData.Title}\\] "),
+    //             ("playerName", player.Name),
+    //             ("message", FormattedMessage.EscapeText(message)));
+    //     }
+    //     // End-ADT Tweak
+    //     //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
+    //     ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
+    //     _mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/")); // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force
+    //     _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
+    // }
+    // ADT-start
     private void SendOOC(ICommonSession player, string message)
     {
         if (_adminManager.IsAdmin(player))
         {
-            if (!_adminOocEnabled)
-            {
-                return;
-            }
+            if (!_adminOocEnabled) return;
         }
         else if (!_oocEnabled)
         {
@@ -251,60 +318,57 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         Color? colorOverride = null;
-        var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName",player.Name), ("message", FormattedMessage.EscapeText(message)));
-        if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
+        var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message",
+            ("playerName", player.Name),
+            ("message", FormattedMessage.EscapeText(message)));
+
+        var adminData = _adminManager.GetAdminData(player);
+        var isAdmin = _adminManager.HasAdminFlag(player, AdminFlags.Admin);
+        var hasTitle = !string.IsNullOrEmpty(adminData?.Title);
+        var isSponsor = _sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && !string.IsNullOrEmpty(sponsorData?.OOCColor);
+
+        // Определяем цвет ника
+        string sponsorColorStr = sponsorData?.OOCColor ?? "";
+        if (isSponsor && Color.TryFromName(sponsorColorStr, out var sponsorColor))
+        {
+            colorOverride = sponsorColor;
+        }
+        else if (isAdmin)
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
         }
-        if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
-        {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
-        }
 
-        // Corvax-Sponsors-Start // ADT-Commented
-        // if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && sponsorData.OOCColor != null)
-        // {
-        //     wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", sponsorData.OOCColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
-        // }
-        // Corvax-Sponsors-End
-        // Start-ADT Schrodinger Tweak
-        var adminData = _adminManager.GetAdminData(player);
-        // Проверяем, является ли игрок спонсором
-        if (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorData) && !string.IsNullOrEmpty(sponsorData.OOCColor))
-        {
-            if (Color.TryFromName(sponsorData.OOCColor, out var sponsorColor))
-            {
-                colorOverride = sponsorColor;
-            }
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message",
-                ("patronColor", sponsorData.OOCColor),
-                ("playerName", player.Name),
-                ("message", FormattedMessage.EscapeText(message)));
-        }
-        // Если у админа есть title, добавляем его к имени
-        if (adminData != null && adminData.Title != null)
-        {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-wrap-message",
-                ("patronTitle", $"\\[{adminData.Title}\\] "),
-                ("playerName", player.Name),
-                ("message", FormattedMessage.EscapeText(message)));
-        }
-        // Проверяем если у нас админ со спонсоркой
-        if ((adminData != null && adminData.Title != null) && (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorDataAdmin) && !string.IsNullOrEmpty(sponsorDataAdmin.OOCColor)))
+        // Определяем формат сообщения
+        if (isAdmin && hasTitle && isSponsor)
         {
             wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-sponsor-wrap-message",
-                ("patronColor", sponsorDataAdmin.OOCColor),
-                ("patronTitle", $"\\[{adminData.Title}\\] "),
+                ("patronColor", sponsorColorStr),
+                ("patronTitle", $"\\[{adminData!.Title}\\] "), // `!` так как hasTitle = true
                 ("playerName", player.Name),
                 ("message", FormattedMessage.EscapeText(message)));
         }
-        // End-ADT Tweak
-        //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
+        else if (isAdmin && hasTitle)
+        {
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-wrap-message",
+                ("patronTitle", $"\\[{adminData!.Title}\\] "),
+                ("playerName", player.Name),
+                ("message", FormattedMessage.EscapeText(message)));
+        }
+        else if (isSponsor)
+        {
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message",
+                ("patronColor", sponsorColorStr),
+                ("playerName", player.Name),
+                ("message", FormattedMessage.EscapeText(message)));
+        }
+
+        // Отправляем сообщение
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
-        _mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/")); // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force
+        _mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/"));
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
     }
+    // ADT-Tweak-end
 
     private async void SendAdminChat(ICommonSession player, string message)
     {
