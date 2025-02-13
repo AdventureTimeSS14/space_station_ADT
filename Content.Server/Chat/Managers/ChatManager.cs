@@ -290,6 +290,7 @@ internal sealed partial class ChatManager : IChatManager
                 ("playerName", player.Name),
                 ("message", FormattedMessage.EscapeText(message)));
         }
+        // Проверяем если у нас админ со спонсоркой
         if ((adminData != null && adminData.Title != null) && (_sponsorsManager.TryGetInfo(player.UserId, out var sponsorDataAdmin) && !string.IsNullOrEmpty(sponsorDataAdmin.OOCColor)))
         {
             wrappedMessage = Loc.GetString("chat-manager-send-ooc-admin-sponsor-wrap-message",
