@@ -118,7 +118,7 @@ public sealed class SupermatterSpreaderSystem : EntitySystem
 
         _robustRandom.Shuffle(spreaders);
 
-        // Remove the EdgeSpreaderComponent from any entity
+        // Remove the EdgeSupermatterSpreaderComponent from any entity
         // that doesn't meet a few trivial prerequisites
         foreach (var (uid, comp) in spreaders)
         {
@@ -212,7 +212,7 @@ public sealed class SupermatterSpreaderSystem : EntitySystem
             }
 
             // If we're on a blocked tile work out which directions we can go.
-            if (!airtightQuery.TryGetComponent(ent, out var airtight) || !airtight.AirBlocked ||
+            if (!airtightQuery.TryGetComponent(ent, out var airtight) || airtight.AirBlocked ||
                 _tag.HasTag(ent.Value, IgnoredTag))
             {
                 continue;
@@ -254,7 +254,7 @@ public sealed class SupermatterSpreaderSystem : EntitySystem
 
             while (directionEnumerator.MoveNext(out var ent))
             {
-                if (!airtightQuery.TryGetComponent(ent, out var airtight) || !airtight.AirBlocked || _tag.HasTag(ent.Value, IgnoredTag))
+                if (!airtightQuery.TryGetComponent(ent, out var airtight) || airtight.AirBlocked || _tag.HasTag(ent.Value, IgnoredTag))
                 {
                     continue;
                 }

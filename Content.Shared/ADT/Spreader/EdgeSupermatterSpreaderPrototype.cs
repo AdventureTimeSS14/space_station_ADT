@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Spreader;
 
 /// <summary>
-/// Adds this node group to <see cref="Content.Server.ADT.Spreader.SupermatterKudzuSystem"/> for tick updates.
+/// Adds this node group to <see cref="Content.Server.Spreader.SupermatterSpreaderSystem"/> for tick updates.
 /// </summary>
 [Prototype("edgeSupermatterSpreader")]
 public sealed partial class EdgeSupermatterSpreaderPrototype : IPrototype
