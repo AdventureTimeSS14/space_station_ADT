@@ -10,3 +10,10 @@
       uiWindowPos: 2,2
       strippingWindowPos: 2,3
       displayName: ID
+    - name: jumpsuit
+      slotTexture: uniform
+      slotFlags: INNERCLOTHING
+      stripTime: 6
+      uiWindowPos: 0,1
+      strippingWindowPos: 1,1
+      displayName: Jumpsuit
