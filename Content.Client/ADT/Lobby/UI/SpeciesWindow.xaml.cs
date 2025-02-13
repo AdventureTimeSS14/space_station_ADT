@@ -13,6 +13,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
+using Content.Client.Corvax.Sponsors;
 
 namespace Content.Client.ADT.Lobby.UI;
 
@@ -93,6 +94,24 @@ public sealed partial class SpeciesWindow : FancyWindow
             };
             button.OnToggled += args => SelectSpecies(item.ID);
             SpeciesContainer.AddChild(button);
+        }
+
+        if (IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor))
+        {
+            AddLabel("Спонсорские");
+            foreach (var item in protoList.Where(x => x.Category == SpeciesCategory.Sponsor))
+            {
+                var button = new SpeciesButton(item)
+                {
+                    HorizontalExpand = true,
+                    ToggleMode = true,
+                    Pressed = Profile.Species == item.ID,
+                    Text = Loc.GetString(item.Name),
+                    Margin = new Thickness(5f, 5f),
+                };
+                button.OnToggled += args => SelectSpecies(item.ID);
+                SpeciesContainer.AddChild(button);
+            }
         }
 
         CurrentSpecies = Profile.Species;
