@@ -1,0 +1,23 @@
+- type: entity
+  name: box of small syringes
+  parent: BoxCardboard
+  id: ADTSmallSyringeBox
+  description: It's plastic a box with small syringes inside.
+  components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,1
+  - type: StorageFill
+    contents:
+      - id: ADTSmallSyringe
+        amount: 6
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/syringe.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Chemistry/syringe.rsi
+    size: Normal
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50

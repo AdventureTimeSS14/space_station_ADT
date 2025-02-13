@@ -15,6 +15,7 @@
   # they like eat it idk lol
   - type: Storage
     clickInsert: false
+    openOnActivate: false
     grid:
     - 0,0,1,2
     maxItemSize: Large
@@ -28,8 +29,6 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
@@ -38,6 +37,8 @@
       enum.SlimeHairUiKey.Key:
         type: SlimeHairBoundUserInterface
     # ADT-SlimeHair-End
+      enum.StoreUiKey.Key:                # Чтобы не ломался генокрад
+        type: StoreBoundUserInterface               # Чтобы не ломался генокрад
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -122,14 +123,11 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - Bubblish
-    understands:
-    - GalacticCommon
-    - Bubblish
   #Start ADT tweak
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Bubblish: Speak
   - type: SlimeHair # ADT-SlimeHair
   - type: SizeAttributeWhitelist # Frontier
     tall: true

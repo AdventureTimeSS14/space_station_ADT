@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by wiki.ss220.space and discord: not_so_big_chungus и prazat911 для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "dead"
+        },
+        {
+            "name": "harvest"
+        },
+        {
+            "name": "produce"
+        },
+        {
+            "name": "seed"
+        },
+        {
+            "name": "stage-1"
+        },
+        {
+            "name": "stage-2"
+        },
+        {
+            "name": "stage-3"
+        },
+        {
+            "name": "stage-4"
+        },
+        {
+            "name": "stage-5"
+        },
+        {
+            "name": "stage-6"
+        },
+        {
+            "name": "slice"
+        }
+    ]
+}

@@ -36,6 +36,11 @@
   equipment:
     neck: ADTClothingNeckCloakBlueshield
 
+- type: loadout
+  id: ADTBlueshieldCloakSecond
+  equipment:
+    neck: ADTClothingNeckCloakSecondBlueshield
+
 # Back
 - type: loadout
   id: ADTBlueshieldBackpack

@@ -1,0 +1,76 @@
+- type: entity
+  name: halloween candy bowl
+  id: ADTHalloweenCandyBowl
+  parent: ADTBoxHalloweenCandy
+  description: Trick or treats!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/halloween_candy_bowl.rsi
+    layers:
+      - state: icon-0
+        map: ["enum.StorageFillLayers.Fill"]
+  - type: Storage
+    maxItemSize: Huge
+    whitelist:
+      components:
+        - Pill
+      tags:
+        - FoodSnack
+        - ADTCandies
+  - type: Appearance
+  - type: StorageFillVisualizer
+    maxFillLevels: 4
+    fillBaseName: icon
+  - type: Item
+    size: Huge
+
+- type: entity
+  name: halloween candy bowl
+  id: ADTHalloweenSmileCandyBowl
+  parent: ADTHalloweenCandyBowl
+  description: Trick or treats!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/halloween_smilecandy_bowl.rsi
+
+- type: entity
+  name: halloween NT candy bowl
+  id: ADTHalloweenNTCandyBowl
+  parent: ADTHalloweenCandyBowl
+  description: Trick or treats!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/halloween_NTcandy_bowl.rsi
+
+- type: entity
+  name: halloween syndie candy bowl
+  id: ADTHalloweenSyndieCandyBowl
+  parent: ADTHalloweenCandyBowl
+  description: Trick or treats!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/halloween_syndiecandy_bowl.rsi
+
+- type: entity
+  name: halloween zombie candy bowl
+  id: ADTHalloweenZombieCandyBowl
+  parent: ADTHalloweenCandyBowl
+  description: Trick or treats!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/halloween_zombiecandy_bowl.rsi
+
+- type: entity
+  name: halloween seal candy bowl
+  id: ADTHalloweenSealCandyBowl
+  parent: ADTHalloweenCandyBowl
+  description: Trick or treats!
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/halloween_sealcandy_bowl.rsi

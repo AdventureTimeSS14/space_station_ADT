@@ -14,6 +14,9 @@
       "name": "omnilaser_greyscale"
     },
     {
+      "name": "omnilaser_yellow"
+    },
+    {
       "name": "impact_bullet",
       "delays": [
         [
@@ -38,6 +41,17 @@
     },
     {
       "name": "impact_laser_greyscale",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "impact_laser_yellow",
       "delays": [
         [
           0.05,

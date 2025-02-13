@@ -21,6 +21,12 @@
         },
         {
             "name": "brezel_vanilla"
+        },
+        {
+            "name": "brezel_pumpkin"
+        },
+        {
+            "name": "muffin_pumpkin"
         }
     ]
 }

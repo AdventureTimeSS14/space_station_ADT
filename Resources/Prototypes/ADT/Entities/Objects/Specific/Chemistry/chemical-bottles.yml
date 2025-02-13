@@ -1,0 +1,450 @@
+# бутылочки
+
+##пластиковая
+
+- type: entity
+  name: bottle
+  parent: BaseItem
+  id: ADTBaseChemistryEmptyPlasticBottle
+  abstract: true
+  description: A small plastic bottle.
+  components:
+  - type: Tag
+    tags:
+    - Bottle
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+  - type: SpaceGarbage
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 7
+    fillBaseName: fill
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: MixableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: DrawableSolution
+    solution: drink
+  - type: SolutionTransfer
+    maxTransferAmount: 30
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: drink
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Chemistry/plastic-bottle.rsi
+  - type: Spillable
+    solution: drink
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+          params:
+            volume: -4
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 0
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Openable
+    sound:
+      path: /Audio/Items/pop.ogg
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  id: ADTPlasticBottle
+  name: plastic bottle
+  parent: ADTBaseChemistryEmptyPlasticBottle
+
+##стеклянная
+
+- type: entity
+  name: bottle
+  parent: BaseChemistryEmptyBottle
+  id: ADTBaseChemistryEmptyBottle
+  abstract: true
+  description: A small plastic bottle.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 25
+  - type: SpaceGarbage
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/glass-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Appearance
+  - type: SolutionTransfer
+    minTransferAmount: 1
+    transferAmount: 5
+    maxTransferAmount: 30
+    canChangeTransferAmount: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Chemistry/glass-bottle.rsi
+  - type: Openable
+    sound:
+      path: /Audio/Items/pop.ogg
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  id: ADTGlassBottle
+  name: glass bottle
+  parent: ADTBaseChemistryEmptyBottle
+
+# Заполненные бутылочки
+
+#пластиковые
+- type: entity
+  id: ADTPeroHydrogenBottle
+  name: perohydrogen bottle
+  parent: ADTPlasticBottle
+  description: A small plastic bottle. The letters on the label so small that they form a funny face.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-perohydrogen
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ADTPeroHydrogen
+          Quantity: 30
+
+- type: entity
+  id: ADTNikematideBottle
+  name: nikematide bottle
+  description: A small plastic bottle. The letters on the label so small that they form a funny face.
+  parent: ADTPlasticBottle
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-nikematide
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ADTNikematide
+          Quantity: 30
+
+- type: entity
+  id: ADTDiethamilateBottle
+  name: diethamilate bottle
+  description: A small plastic bottle. The letters on the label so small that they form a funny face.
+  parent: ADTPlasticBottle
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/plastic-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-diethamilate
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ADTDiethamilate
+          Quantity: 30
+
+- type: entity
+  id: ADTDyloveneBiomicineBottle
+  name: dylovene & biomicine bottle
+  parent: ADTPlasticBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dylovene
+          Quantity: 15
+        - ReagentId: ADTBiomicine
+          Quantity: 15
+
+#стеклянные ADT
+- type: entity
+  id: ADTMorphineBottle
+  name: morphine bottle
+  parent: ADTGlassBottle
+  description: A small bottle with morphine.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/glass-bottle.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front-morphine
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ADTMorphine
+          Quantity: 30
+
+- type: entity
+  id: ADTOpiumBottle
+  name: opium bottle
+  parent: ADTMorphineBottle
+  description: A small bottle with opium.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ADTOpium
+          Quantity: 30
+
+- type: entity
+  id: ADTFormalinBottle
+  name: Formalin bottle
+  parent: ADTGlassBottle
+  description: A basis of pathologist's work.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/glass-bottle.rsi
+    layers:
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon_formalin
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: fill
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15
+        reagents:
+        - ReagentId: ADTFormalin
+          Quantity: 15
+
+#стеклянные обычные
+- type: entity
+  id: ADTObjectsSpecificArithrazineChemistryBottle
+  name: Arithrazine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Arithrazine
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificBicaridineChemistryBottle
+  name: Bicaridine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificDexalinPlusChemistryBottle
+  name: DexalinPlus bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DexalinPlus
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificDermalineChemistryBottle
+  name: Dermaline bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificDexalinChemistryBottle
+  name: Dexalin bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dexalin
+          Quantity: 30
+
+- type: entity
+  id:  ADTObjectsSpecificLeporazineChemistryBottle
+  name: Leporazine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Leporazine
+          Quantity: 30
+
+- type: entity
+  id: ADTOmnizineBottle
+  name: omnizine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 30
+
+- type: entity
+  id: ADTAmatoxinChemistryBottle
+  name: amatoxin bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Amatoxin
+              Quantity: 30
+
+- type: entity
+  id: ADTLicoxideChemistryBottle
+  name: licoxide bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Licoxide
+              Quantity: 30
+
+- type: entity
+  id: ADTLexorinChemistryBottle
+  name: lexorin bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Lexorin
+              Quantity: 30
+
+- type: entity
+  id: ADTObjectsSpecificFluorosurfactantChemistryBottle
+  name: Fluorosurfactant bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 30
+
+- type: entity
+  id: ADTSalineChemistryBottle
+  name: saline bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Saline
+          Quantity: 30

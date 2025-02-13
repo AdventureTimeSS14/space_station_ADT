@@ -1,0 +1,70 @@
+- type: entity
+  name: trick grenade kega
+  description: All the grenade without any of the boom.
+  parent: GrenadeBase
+  id: ADTGrenadeKega
+  suffix: Адмемы
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Grenades/grenade.rsi
+  - type: DeleteOnTrigger
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/ADT/Effects/kega.ogg
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg
+
+- type: entity
+  name: TritiumGrenades
+  description: Tritium Grenades
+  parent: GrenadeBase
+  id: ADTTritiumGrenades
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Grenades/tritiumgrenad/tritiumgrenades.rsi
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Effects/falling.ogg"
+  - type: DeleteOnTrigger
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Radioactive
+    totalIntensity: 150
+    intensitySlope: 1
+    maxIntensity: 100
+  - type: SpawnOnTrigger
+    proto: ADTTritiumGasSpawner
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/glass_break1.ogg
+
+- type: entity
+  name: ADTGasSpawnerTritiumEffect
+  description: Gas Spawner Tritium
+  id: ADTTritiumGasSpawner
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      canCollide: false
+    - type: Fixtures
+    - type: Transform
+      anchored: true
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Grenades/tritiumgrenad/effect.rsi
+      state: miner
+    - type: AtmosDevice
+    - type: GasMiner
+      spawnGas: Tritium
+      maxExternalPressure: 300
+      spawnAmount: 200
+    - type: TimedDespawn
+      lifetime: 0.5
+    - type: Tag
+      tags:
+      - HideContextMenu

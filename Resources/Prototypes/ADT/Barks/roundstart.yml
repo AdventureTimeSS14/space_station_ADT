@@ -24,6 +24,11 @@
   sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C3.ogg
 
 - type: speechBark
+  id: MerpSound
+  name: bark-merp-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/merp.ogg
+
+- type: speechBark
   id: GuitarMutedHigh
   name: bark-guitar-muted-high-name
   sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C4.ogg
@@ -103,6 +108,117 @@
   id: Asgore
   name: bark-asgore-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-asgore.ogg
+
+- type: speechBark
+  id: Undyne
+  name: bark-undyne-name # @@@ QWERTY barks addont folder
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-undyne.ogg
+
+- type: speechBark
+  id: UnderswapSans # U-hu. A bit different from normal sans @@@ QWERTY barks addont folder
+  name: bark-underswap-sans-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/underswap-sans.ogg
+
+
+# UNY some new shit brah @@@ QWERTY barks addont folder
+
+- type: speechBark
+  id: Ace
+  name: bark-ace-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ace.ogg
+
+- type: speechBark
+  id: Axis
+  name: bark-axis-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-axis.ogg
+
+- type: speechBark
+  id: Chujin
+  name: bark-chujin-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-chujin.ogg
+
+- type: speechBark
+  id: Ceroba
+  name: bark-ceroba-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ceroba.ogg
+
+- type: speechBark
+  id: Dalv
+  name: bark-davl-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-davl.ogg
+
+- type: speechBark
+  id: Ed
+  name: bark-ed-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ed.ogg
+
+- type: speechBark
+  id: Marlet
+  name: bark-marlet-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-martlet.ogg
+
+- type: speechBark
+  id: Moray
+  name: bark-moray-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-moray.ogg
+
+- type: speechBark
+  id: Starlo
+  name: bark-starlo-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-starlo.ogg
+   # Deltarune crap its going to happen now @@@ QWERTY barks addont folder
+
+- type: speechBark
+  id: Susie
+  name: bark-susie-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-susie.ogg
+
+- type: speechBark
+  id: Spamton
+  name: bark-spamton-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-spamton.ogg
+
+- type: speechBark
+  id: Rudolph
+  name: bark-rudolph-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-roxlscaard.ogg
+
+- type: speechBark
+  id: RoxlsCaard
+  name: bark-roxlscaard-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-roxlscaard.ogg
+
+- type: speechBark
+  id: Ralsei
+  name: bark-ralsei-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-ralsei.ogg
+
+- type: speechBark
+  id: Queen
+  name: bark-queen-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
+
+- type: speechBark
+  id: Noelle
+  name: bark-noelle-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-noelle.ogg
+
+- type: speechBark
+  id: Lancer
+  name: bark-lancer-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-lancer.ogg
+
+- type: speechBark
+  id: Jevil
+  name: bark-jevil-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-jevil.ogg
+
+- type: speechBark
+  id: Berdly
+  name: bark-berdly-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-berdly.ogg
+
+### The end of the Addon for roundstart.yml. @@@ QWERTY barks addont folder
 
 # Weh
 - type: speechBark

@@ -1,0 +1,16 @@
+- type: vendingMachineInventory
+  id: ADTCiviMedVendInventory
+  startingInventory:
+    ADTBrutepack1: 40
+    ADTOintment1: 40
+    ADTBloodpack1: 40
+    ADTGauze1: 40
+    ADTPillTricordrazine: 20
+    ADTPatchHealingMini: 15
+    ADTPatchBurnMini: 15
+  emaggedInventory:
+    ADTBrutepackAdvanced1: 10
+    ADTOintmentAdvanced1: 10
+    ADTEphedrinePill: 3
+    ADTHappinessPill: 3
+    ADTToxinPill: 3

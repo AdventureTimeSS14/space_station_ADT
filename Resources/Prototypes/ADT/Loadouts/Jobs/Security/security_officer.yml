@@ -8,11 +8,42 @@
       department: Security
       time: 1080000 #300 hrs
 
+# Для значков СБ
+- type: loadoutEffectGroup
+  id: ADTSecurity100hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 #100 hrs
+
 # Neck Security Officer ADT
+# - type: loadout
+#   id: ADTSecurityOfficerNeck
+#   equipment:
+#     neck: ADTClothingNeckSecBadge
+
 - type: loadout
-  id: ADTSecurityOfficerNeck
+  id: ADTSecurityOfficerNeckBadgeBronze
   equipment:
-    neck: ADTClothingNeckSecBadge
+    neck: ADTClothingNeckSecBadgeBronze
+
+- type: loadout
+  id: ADTSecurityOfficerNeckBadgeSilver
+  equipment:
+    neck: ADTClothingNeckSecBadgeSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+
+- type: loadout
+  id: ADTSecurityOfficerNeckBadgeGold
+  equipment:
+    neck: ADTClothingNeckSecBadgeGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
 
 # Jumpsuit
 - type: loadout

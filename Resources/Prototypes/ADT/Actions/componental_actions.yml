@@ -1,0 +1,113 @@
+- type: entity
+  id: CompActionTeleport
+  name: action-teleport
+  description: action-teleport-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 5
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    event: !type:CompTeleportActionEvent
+
+- type: entity
+  id: CompActionShoot
+  name: action-shoot
+  description: action-shoot-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 2
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+      state: icon
+    event: !type:CompProjectileActionEvent
+
+- type: entity
+  id: CompActionHeal
+  name: action-heal
+  description: action-heal-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:CompHealActionEvent
+    useDelay: 5
+
+- type: entity
+  id: CompActionJump
+  name: action-jump
+  description: action-jump-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 15
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: icon
+    event: !type:CompJumpActionEvent
+
+- type: entity
+  id: CompActionStasisHeal
+  name: action-stasis-heal
+  description: action-stasis-heal-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:CompStasisHealActionEvent
+    useDelay: 5
+
+- type: entity
+  id: CompActionStealth
+  name: action-stealth
+  description: action-stealth-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: chameleon
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:CompInvisibilityActionEvent
+    useDelay: 1
+
+- type: entity
+  id: CompElectrionPulseAction
+  name: action-levitation
+  description: action-levitation-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: /Textures/ADT/Interface/Alerts/evaporation.rsi
+      state: evaporation
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:CompElectrionPulseActionEvent
+    useDelay: 5

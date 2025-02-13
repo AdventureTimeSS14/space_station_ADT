@@ -14,9 +14,11 @@
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
+    - id: ADTHandheldShuttleConsoleSalvage # ADT-handheld-shuttle-console
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
+    - id: AstroNavCartridge
     - id: PrinterDocFlatpack # Corvax-Printer
     # ADT-Economy-Start
     - id: ADTCommandBudgetCard
@@ -254,12 +256,17 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
-    # ADT-WikiBooks-Start
+    - id: MedTekCartridge
+    # ADT tweak Start
+    - id: ADTMobileDefibrillator
+    - id: ADTBriefcaseBrownHikingCmoFilled
+    - id: ADTBriefcaseMedicalFilled
     - id: ADTBookSRPcmd
     - id: ADTBookSRPmed
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
+    - id: OpporozidoneBeakerSmall
+    # ADT tweak End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -301,6 +308,7 @@
   id: LockerFillResearchDirectorNoHardsuit
   table: !type:AllSelector
     children:
+    - id: Intellicard
     - id: BoxEncryptionKeyScience
     - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled
@@ -358,7 +366,8 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyShotgun
+    - id: ADTWeaponPistolX01 # ADT tweak Мультифаза для гсб
+#    - id: WeaponEnergyShotgun ADT tweak Дробовик для смотрителя
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -370,10 +379,12 @@
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
+    - id: ADTHandheldShuttleConsoleSecurity # ADT-handheld-shuttle-console
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
+    - id: WantedListCartridge
     - id: ClothingHeadHatCapHoS # Corvax-SecFashion
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite

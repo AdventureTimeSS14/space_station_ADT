@@ -27,9 +27,9 @@
     entries:
     - label: corvax-hidden-desc-Telecrystal-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-Telecrystal-cargo
       jobRequired:
         - SalvageSpecialist
@@ -39,6 +39,7 @@
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -127,6 +128,19 @@
   suffix: 60 TC, LoneOps
   components:
   - type: Store
+    name: store-preset-name-uplink #ADT-Tweak-start
+    categories:
+    - UplinkWeaponry
+    - UplinkAmmo
+    - UplinkAttachments #ADT_Tweak
+    - UplinkExplosives
+    - UplinkChemicals
+    - UplinkDeception
+    - UplinkDisruption
+    - UplinkImplants
+    - UplinkWearables
+    - UplinkJob
+    - UplinkPointless #ADT-Tweak-end
     balance:
       Telecrystal: 60
   - type: Tag

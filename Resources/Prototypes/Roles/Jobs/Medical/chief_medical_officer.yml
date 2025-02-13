@@ -17,12 +17,9 @@
       time: 54000 #15 hrs # Corvax-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
-    - !type:AgeRequirement
-      requiredAge: 21
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
-  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -39,14 +36,14 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: PhantomTyranyTarget # ADT Phantom
+      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: CMOGear
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetCMO
-    belt: ClothingBeltMedicalFilled
+#    belt: ClothingBeltMedicalFilled ADT tweak
   storage:
     back:
     - Flash

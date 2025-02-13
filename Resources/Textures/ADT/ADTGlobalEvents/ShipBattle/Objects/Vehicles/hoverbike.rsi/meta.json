@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited for New Frontier by erhardsteinhauer, modified by not_so_big_chungus",
+  "states": [
+    {
+      "name": "vehicle",
+      "directions": 4
+    },    {
+      "name": "vehicle_kmt",
+      "directions": 4
+    },    {
+      "name": "vehicle_tsf",
+      "directions": 4
+    },
+    {
+      "name": "bag",
+      "directions": 4,
+      "delays": [
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ]
+      ]
+    },
+    {
+      "name": "hull_tsf",
+      "directions": 4,
+      "delays": [
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ]
+      ]
+    },{
+      "name": "hull_kmt",
+      "directions": 4,
+      "delays": [
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ]
+      ]
+    },
+    {
+      "name": "engine",
+      "directions": 4,
+      "delays": [
+        [ 0.1, 0.1, 0.2, 0.1 ],
+        [ 0.1, 0.1, 0.2, 0.1 ],
+        [ 0.1, 0.1, 0.2, 0.1 ],
+        [ 0.1, 0.1, 0.2, 0.1 ]
+      ]
+    },
+    {
+      "name": "lights",
+      "directions": 4,
+      "delays": [
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ],
+        [ 0.2, 0.2, 0.2, 0.2 ]
+      ]
+    }
+  ]
+}

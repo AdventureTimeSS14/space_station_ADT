@@ -21,6 +21,7 @@
     # RiotBulletShield: 2 ADT no nullet shield
     RadioHandheldSecurity: 5
     Bola: 5 #ADT tweak
+    ADTClothingNeckBodyCamera: 3 #ADT-tweak
   # security officers need to follow a diet regimen!
   contrabandInventory:
     FoodDonutHomer: 12

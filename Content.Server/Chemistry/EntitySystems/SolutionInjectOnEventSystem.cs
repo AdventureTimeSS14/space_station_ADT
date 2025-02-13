@@ -3,6 +3,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -30,6 +31,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         SubscribeLocalEvent<SolutionInjectOnProjectileHitComponent, ProjectileHitEvent>(HandleProjectileHit);
         SubscribeLocalEvent<SolutionInjectOnEmbedComponent, EmbedEvent>(HandleEmbed);
         SubscribeLocalEvent<MeleeChemicalInjectorComponent, MeleeHitEvent>(HandleMeleeHit);
+        SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, InjectOverTimeEvent>(OnInjectOverTime);
     }
 
     private void HandleProjectileHit(Entity<SolutionInjectOnProjectileHitComponent> entity, ref ProjectileHitEvent args)
@@ -84,6 +86,11 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             }
             TryInjectTargets((entity.Owner, entity.Comp), list, args.User);
         }
+    }
+
+    private void OnInjectOverTime(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref InjectOverTimeEvent args)
+    {
+        DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid);
     }
 
     private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)

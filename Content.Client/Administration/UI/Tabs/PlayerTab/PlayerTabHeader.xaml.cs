@@ -22,6 +22,7 @@ public sealed partial class PlayerTabHeader : Control
         //ADT-SPONSORS
         SponsorLabel.OnKeyBindDown += SponsorClicked;
         //ADT-SPONSORS
+        RoleTypeLabel.OnKeyBindDown += RoleTypeClicked;
         PlaytimeLabel.OnKeyBindDown += PlaytimeClicked;
     }
 
@@ -36,6 +37,7 @@ public sealed partial class PlayerTabHeader : Control
             //ADT-SPONSORS
             Header.Sponsor => SponsorLabel,
             //ADT-SPONSORS
+            Header.RoleType => RoleTypeLabel,
             Header.Playtime => PlaytimeLabel,
             _ => throw new ArgumentOutOfRangeException(nameof(header), header, null)
         };
@@ -50,6 +52,7 @@ public sealed partial class PlayerTabHeader : Control
         //ADT-SPONSORS
         SponsorLabel.Text = Loc.GetString("player-tab-sponsor");
         //ADT-SPONSORS
+        RoleTypeLabel.Text = Loc.GetString("player-tab-roletype");
         PlaytimeLabel.Text = Loc.GetString("player-tab-playtime");
     }
 
@@ -90,6 +93,10 @@ public sealed partial class PlayerTabHeader : Control
         HeaderClicked(args, Header.Sponsor);
     }
     //ADT-SPONSORS
+    private void RoleTypeClicked(GUIBoundKeyEventArgs args)
+    {
+        HeaderClicked(args, Header.RoleType);
+    }
 
     private void PlaytimeClicked(GUIBoundKeyEventArgs args)
     {
@@ -109,6 +116,7 @@ public sealed partial class PlayerTabHeader : Control
             //ADT-SPONSORS
             SponsorLabel.OnKeyBindDown -= SponsorClicked;
             //ADT-SPONSORS
+            RoleTypeLabel.OnKeyBindDown -= RoleTypeClicked;
             PlaytimeLabel.OnKeyBindDown -= PlaytimeClicked;
         }
     }
@@ -122,6 +130,7 @@ public sealed partial class PlayerTabHeader : Control
         //ADT-SPONSORS
         Sponsor,
         //ADT-SPONSORS
+        RoleType,
         Playtime
     }
 }

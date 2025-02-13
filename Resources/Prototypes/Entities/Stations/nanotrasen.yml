@@ -23,9 +23,10 @@
     - BaseStationAlertLevels
     - BaseStationMagnet
     - BaseStationExpeditions
-    - BaseStationSiliconLawCrewsimov
+    - BaseStationSiliconLawNTDefault # Corvax-NTDefault
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
+    - BaseStationLavaland # ADT
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

@@ -48,6 +48,13 @@
   name: signal-port-name-trigger
   description: signal-port-description-trigger
 
+# (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423) 
+#- type: sinkPort
+#  id: Timer
+#  name: signal-port-name-timer
+#  description: signal-port-description-timer
+#
+
 - type: sinkPort
   id: OrderReceiver
   name: signal-port-name-order-receiver

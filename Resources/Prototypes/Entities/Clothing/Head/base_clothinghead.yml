@@ -177,6 +177,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: InjectorsBlocker # ADT TWEAK
 
 - type: entity
   abstract: true

@@ -1,4 +1,4 @@
-﻿- type: vendingMachineInventory
+- type: vendingMachineInventory
   id: StarkistInventory
   startingInventory:
     DrinkStarkistCan: 4
@@ -7,6 +7,7 @@
     DrinkIcedTeaCan: 2
     DrinkSolDryCan: 2
     DrinkLemonLimeCan: 2
+    DrinkLemonLimeCranberryCan: 2
     DrinkFourteenLokoCan: 2
   emaggedInventory:
     DrinkNukieCan: 2

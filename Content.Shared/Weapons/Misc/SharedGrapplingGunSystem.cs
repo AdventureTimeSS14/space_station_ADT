@@ -114,19 +114,14 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
     private void OnGunActivate(EntityUid uid, GrapplingGunComponent component, ActivateInWorldEvent args)
     {
-        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex)
-            return;
-
-        if (Deleted(component.Projectile))
+        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not {} projectile)
             return;
 
         _audio.PlayPredicted(component.CycleSound, uid, args.User);
         _appearance.SetData(uid, SharedTetherGunSystem.TetherVisualsStatus.Key, true);
 
         if (_netManager.IsServer)
-        {
-            QueueDel(component.Projectile.Value);
-        }
+            QueueDel(projectile);
 
         component.Projectile = null;
         SetReeling(uid, component, false, args.User);
@@ -209,9 +204,13 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
     {
         if (!Timing.IsFirstTimePredicted)
             return;
+        // ADT fix start
+        if (!args.Shooter.HasValue || !args.Weapon.HasValue)
+            return;
+        // ADT fix end
 
         var jointComp = EnsureComp<JointComponent>(uid);
-        var joint = _joints.CreateDistanceJoint(uid, args.Weapon, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
+        var joint = _joints.CreateDistanceJoint(uid, args.Weapon.Value, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
         joint.MaxLength = joint.Length + 0.2f;
         joint.Stiffness = 1f;
         joint.MinLength = 0.35f;

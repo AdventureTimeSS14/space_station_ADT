@@ -1,0 +1,15 @@
+- type: latheRecipe
+  id: ADTSmallSyringe
+  result: ADTSmallSyringe
+  completetime: 1
+  materials:
+    Plastic: 25
+    Steel: 25
+
+- type: latheRecipe
+  id: ADTAntibioticOintment
+  result: ADTAntibioticOintment1
+  completetime: 2
+  materials:
+    Glass: 50
+    Plastic: 50

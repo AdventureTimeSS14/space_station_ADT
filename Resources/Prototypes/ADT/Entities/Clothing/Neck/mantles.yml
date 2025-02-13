@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingNeckMantleHOSShoulder
+  id: ADTClothingNeckMantleTimePatrol
+  name: Mantle time patrol
+  description: desc
+  suffix: "ОБВА"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/tsd_mantles.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Cloaks/tsd_mantles.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK
+      - state: equipped-NECK-unshaded
+        shader: unshaded

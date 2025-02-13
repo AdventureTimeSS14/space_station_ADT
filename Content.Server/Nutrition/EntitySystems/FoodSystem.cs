@@ -33,6 +33,8 @@ using System.Linq;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Server.GameObjects;
 using Content.Shared.Whitelist;
+using Content.Shared.Destructible;
+using Content.Shared.ADT.Traits;
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -190,9 +192,15 @@ public sealed class FoodSystem : EntitySystem
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(target):target} is eating {ToPrettyString(food):food} {SharedSolutionContainerSystem.ToPrettyString(foodSolution)}");
         }
 
+        // ADT Quirks start
+        var delay = foodComp.Delay;
+        if (TryComp<FoodConsumptionSpeedModifierComponent>(user, out var modifier))
+            delay *= modifier.Modifier;
+        // ADT Quirks end
+
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
-            forceFeed ? foodComp.ForceFeedDelay : foodComp.Delay,
+            forceFeed ? foodComp.ForceFeedDelay : delay,    // ADT Quirks tweak
             new ConsumeDoAfterEvent(foodComp.Solution, flavors),
             eventTarget: food,
             target: target,
@@ -267,7 +275,7 @@ public sealed class FoodSystem : EntitySystem
         if (stomachToUse == null)
         {
             _solutionContainer.TryAddSolution(soln.Value, split);
-            _popup.PopupEntity(forceFeed ? Loc.GetString("food-system-you-cannot-eat-any-more-other") : Loc.GetString("food-system-you-cannot-eat-any-more"), args.Target.Value, args.User);
+            _popup.PopupEntity(forceFeed ? Loc.GetString("food-system-you-cannot-eat-any-more-other", ("target", args.Target.Value)) : Loc.GetString("food-system-you-cannot-eat-any-more"), args.Target.Value, args.User);
             return;
         }
 
@@ -295,7 +303,7 @@ public sealed class FoodSystem : EntitySystem
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(args.User):target} ate {ToPrettyString(entity.Owner):food}");
         }
 
-        _audio.PlayPvs(entity.Comp.UseSound, args.Target.Value, AudioParams.Default.WithVolume(-1f));
+        _audio.PlayPvs(entity.Comp.UseSound, args.Target.Value, AudioParams.Default.WithVolume(-1f).WithVariation(0.20f));
 
         // Try to break all used utensils
         foreach (var utensil in utensils)
@@ -334,6 +342,9 @@ public sealed class FoodSystem : EntitySystem
         RaiseLocalEvent(food, ev);
         if (ev.Cancelled)
             return;
+
+        var dev = new DestructionEventArgs();
+        RaiseLocalEvent(food, dev);
 
         if (component.Trash.Count == 0)
         {

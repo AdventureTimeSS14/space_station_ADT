@@ -2,23 +2,23 @@
 # I would cry if we didn't have them. -swept
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ADTClothingUnderwearSocksBase # ADT tweak
   id: ClothingUnderSocksBee
   name: bee socks
   description: Make them loins buzz!
   components:
   - type: Sprite
-    sprite: Clothing/Under/Socks/bee.rsi
+    sprite: ADT/Clothing/Underwear/Socks/bee.rsi # ADT tweak
   - type: Clothing
-    sprite: Clothing/Under/Socks/bee.rsi
+    sprite: ADT/Clothing/Underwear/Socks/bee.rsi # ADT tweak
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ADTClothingUnderwearSocksBase # ADT tweak
   id: ClothingUnderSocksCoder
   name: coder socks
   description: It's time to code sisters!!11!
   components:
   - type: Sprite
-    sprite: Clothing/Under/Socks/coder.rsi
+    sprite: ADT/Clothing/Underwear/Socks/coder.rsi # ADT tweak
   - type: Clothing
-    sprite: Clothing/Under/Socks/coder.rsi
+    sprite: ADT/Clothing/Underwear/Socks/coder.rsi # ADT tweak

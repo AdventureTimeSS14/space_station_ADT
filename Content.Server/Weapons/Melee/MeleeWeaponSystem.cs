@@ -56,8 +56,14 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee"));
     }
 
-    protected override bool ArcRaySuccessful(EntityUid targetUid, Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId,
-        EntityUid ignore, ICommonSession? session)
+    protected override bool ArcRaySuccessful(EntityUid targetUid,
+        Vector2 position,
+        Angle angle,
+        Angle arcWidth,
+        float range,
+        MapId mapId,
+        EntityUid ignore,
+        ICommonSession? session)
     {
         // Originally the client didn't predict damage effects so you'd intuit some level of how far
         // in the future you'd need to predict, but then there was a lot of complaining like "why would you add artifical delay" as if ping is a choice.
@@ -129,19 +135,25 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (attemptEvent.Cancelled)
             return false;
 
-        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
-
-        if (_random.Prob(chance))
-        {
-            // Yknow something tells me this comment is hilariously out of date...
-            // Don't play a sound as the swing is already predicted.
-            // Also don't play popups because most disarms will miss.
+        // ADT Disarm tweak start
+        if (component.DisarmAttemptsCount < component.ShovesToDisarm)
             return false;
-        }
+
+        component.DisarmAttemptsCount = 0;
+        // var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
+
+        // if (_random.Prob(chance))
+        // {
+        //     // Yknow something tells me this comment is hilariously out of date...
+        //     // Don't play a sound as the swing is already predicted.
+        //     // Also don't play popups because most disarms will miss.
+        //     return false;
+        // }
+        // ADT Disarm tweak end
 
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
-        var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 1 - chance };
+        var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 0.22f };  // ADT Disarm tweak
         RaiseLocalEvent(target, eventArgs);
 
         if (!eventArgs.Handled)

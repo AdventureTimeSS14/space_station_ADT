@@ -1,0 +1,161 @@
+- type: entity
+  name: patch pack
+  id: ADTPatchPack
+  parent: BaseStorageItem
+  description: It's a container for storing medical patches.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/patch.rsi
+    scale: 1.3, 1.3
+    state: patchpack
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    maxItemSize: Small
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - ADTPatch
+
+#BasePatch
+
+- type: entity
+  name: patch
+  parent: BaseItem
+  description:
+  id: ADTBasePatch
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/patch.rsi
+    layers:
+    - state: patch0
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/patch.rsi
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+  - type: DeleteOnSolutionEmpty
+    solution: pen
+  - type: Hypospray
+    onlyAffectsMobs: true
+    solutionName: pen
+    transferAmount: 20
+    injectSound: /Audio/Items/Medical/brutepack_end.ogg
+  - type: Extractable
+    grindableSolutionName: pen
+  - type: Appearance
+  - type: StaticPrice
+    price: 10
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: patchused
+  - type: Tag
+    tags:
+    - ADTPatch
+
+#Patch healing
+
+- type: entity
+  name: healing patch
+  parent: ADTBasePatch
+  id: ADTPatchHealing
+  description: Helps with brute injuries.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch2
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 18
+        reagents:
+        - ReagentId: ADTStypticPowder
+          Quantity: 18
+
+#Patch healing small
+
+- type: entity
+  name: healing mini-patch
+  parent: ADTBasePatch
+  id: ADTPatchHealingMini
+  description: Helps with brute injuries.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch1
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: ADTStypticPowder
+          Quantity: 10
+
+#Patch burn
+
+- type: entity
+  name: burn patch
+  parent: ADTBasePatch
+  id: ADTPatchBurn
+  description: Helps with burn injuries.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch4
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 14
+        reagents:
+        - ReagentId: ADTSilverSulfadiazine
+          Quantity: 14
+
+#Patch burn small
+
+- type: entity
+  name: burn mini-patch.
+  parent: ADTBasePatch
+  id: ADTPatchBurnMini
+  description: Helps with burn injuries.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch3
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 7
+        reagents:
+        - ReagentId: ADTSilverSulfadiazine
+          Quantity: 7
+
+#honk honk?
+
+- type: entity
+  name: honk patch
+  parent: ADTBasePatch
+  id: ADTPatchHonk
+  description: Miracle honk-medicine, increases the level of fun in the blood.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch20
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 6
+        reagents:
+        - ReagentId: Honk
+          Quantity: 6

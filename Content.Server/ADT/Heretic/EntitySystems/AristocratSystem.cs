@@ -1,5 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Heretic;
@@ -61,7 +61,7 @@ public sealed partial class AristocratSystem : EntitySystem
                 continue;
 
             if (TryComp<TemperatureComponent>(look, out var temp))
-                _temp.ChangeHeat(look, -100f, true, temp);
+                _temp.ChangeHeat(look, -200f, true, temp);
 
             _statusEffect.TryAddStatusEffect<MutedComponent>(look, "Muted", TimeSpan.FromSeconds(5), true);
 

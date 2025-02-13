@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: emergency flare
   parent: BaseItem
   id: Flare
@@ -12,7 +12,7 @@
   - type: ExpendableLight
     spentName: expendable-light-spent-flare-name
     spentDesc: expendable-light-spent-flare-desc
-    glowDuration: 225
+    glowDuration: 300 #ADT_Tweak
     fadeOutDuration: 15
     iconStateOn: flare_unlit
     iconStateSpent: flare_spent
@@ -59,7 +59,7 @@
     behaviours:
       - !type:FadeBehaviour # have the radius start small and get larger as it starts to burn
         id: turn_on
-        maxDuration: 45.0
+        maxDuration: 25.0 #ADT_Tweak
         startValue: 2.5
         endValue: 10.0
       - !type:RandomizeBehaviour # weaker flicker as it fades out

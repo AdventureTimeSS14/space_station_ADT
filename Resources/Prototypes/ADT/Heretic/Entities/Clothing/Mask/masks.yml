@@ -1,8 +1,9 @@
 - type: entity
-  parent: ClothingMaskBase
+  parent: [ ClothingMaskBase, BaseMagicContraband ]
   id: ClothingMaskMadHeretic
   name: abyssal mask
   description: A mask created from suffering. When you look into its eyes, it looks back.
+  suffix: ADT
   components:
   # what heretic would remove the mask that will shit on everyone around him?
   # also forcing the mask on heathens will be funny.

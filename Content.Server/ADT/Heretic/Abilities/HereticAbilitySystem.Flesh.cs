@@ -16,7 +16,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgery>(OnFleshSurgery);
         SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgeryDoAfter>(OnFleshSurgeryDoAfter);
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshAscend>(OnFleshAscendPolymorph);
+        SubscribeLocalEvent<HereticComponent, HereticAscensionFleshEvent>(OnFleshAscendPolymorph);
     }
 
     private void OnFleshSurgery(Entity<HereticComponent> ent, ref EventHereticFleshSurgery args)
@@ -86,6 +86,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnFleshSurgeryDoAfter(Entity<HereticComponent> ent, ref EventHereticFleshSurgeryDoAfter args)
     {
+        if (args.Cancelled)
+            return;
+
         if (args.Target == null) // shouldn't really happen. just in case
             return;
 
@@ -96,17 +99,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _dmg.SetAllDamage((EntityUid) args.Target, dmg, 0);
         args.Handled = true;
     }
-    private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref EventHereticFleshAscend args)
+    private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
         var urist = _poly.PolymorphEntity(ent, "EldritchHorror");
         if (urist == null)
             return;
 
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg"), (EntityUid) urist, AudioParams.Default.AddVolume(2f));
-
-        args.Handled = true;
     }
 }

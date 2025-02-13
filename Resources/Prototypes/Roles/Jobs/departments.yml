@@ -57,6 +57,7 @@
   color: "#334E6D"
   roles:
   - Captain
+  - Magistrat # ADT tweak
   - IAA # Corvax-IAA
   - ChiefEngineer
   - ChiefMedicalOfficer
@@ -119,6 +120,7 @@
   - Warden
   - Brigmedic # ADT rework brigmedic
   - ADTSeniorOfficer # ADT Role
+  - ADTGuardOfficer # ADT Role
 
 - type: department
   id: Science

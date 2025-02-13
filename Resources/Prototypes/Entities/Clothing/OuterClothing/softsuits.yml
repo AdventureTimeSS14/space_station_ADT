@@ -56,6 +56,12 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+# ADT tweak start
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - MonkeyWearable
+# ADT tweak end
 
 #Prisoner EVA
 - type: entity
@@ -99,9 +105,9 @@
   description: A void suit made for paramedics.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi # ADT tweak респрайт от празата
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi # ADT tweak респрайт от празата
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000

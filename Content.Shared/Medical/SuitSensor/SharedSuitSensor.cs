@@ -7,13 +7,14 @@ namespace Content.Shared.Medical.SuitSensor;
 [Serializable, NetSerializable]
 public sealed class SuitSensorStatus
 {
-    public SuitSensorStatus(NetEntity suitSensorUid, string name, string job, string jobIcon, List<string> jobDepartments)
+    public SuitSensorStatus(NetEntity suitSensorUid, string name, string job, string jobIcon, List<string> jobDepartments, SuitSensorMode sensorMode) // ADT-Tweak
     {
         SuitSensorUid = suitSensorUid;
         Name = name;
         Job = job;
         JobIcon = jobIcon;
         JobDepartments = jobDepartments;
+        Mode = sensorMode; // ADT-Tweak
     }
 
     public TimeSpan Timestamp;
@@ -27,6 +28,7 @@ public sealed class SuitSensorStatus
     public int? TotalDamageThreshold;
     public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float) TotalDamageThreshold;
     public NetCoordinates? Coordinates;
+    public SuitSensorMode Mode; // ADT-Tweak
 }
 
 [Serializable, NetSerializable]
@@ -64,6 +66,7 @@ public static class SuitSensorConstants
     public const string NET_TOTAL_DAMAGE_THRESHOLD = "vitalsThreshold";
     public const string NET_COORDINATES = "coords";
     public const string NET_SUIT_SENSOR_UID = "uid";
+    public const string NET_SUIT_SENSOR_MODE = "mode"; // ADT-Tweak
 
     ///Used by the CrewMonitoringServerSystem to send the status of all connected suit sensors to each crew monitor
     public const string NET_STATUS_COLLECTION = "suit-status-collection";

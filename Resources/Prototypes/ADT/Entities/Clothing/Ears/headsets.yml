@@ -129,3 +129,14 @@
     sprite: ADT/Clothing/Ears/Headsets/trader.rsi
   - type: Clothing
     sprite: ADT/Clothing/Ears/Headsets/trader.rsi
+
+- type: entity
+  parent: ClothingHeadsetMedical
+  id: ADTClothingHeadsetParamedic
+  name: paramedic's headset
+  description: A headset for the paramedic.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Ears/Headsets/headset_paramedic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Ears/Headsets/headset_paramedic.rsi

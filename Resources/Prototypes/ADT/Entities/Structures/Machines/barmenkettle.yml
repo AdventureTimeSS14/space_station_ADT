@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseHeaterMachine
+  id: ADTBarmenKettle
+  name: kettle
+  description: "Kettle. Wow"
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/hotplatebarmen.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: icon
+    - state: on
+      map: ["enum.SolutionHeaterVisuals.IsOn"]
+      shader: unshaded
+  - type: SolutionHeater
+    heatPerSecond: 160
+  - type: ItemPlacer
+    whitelist:
+      components:
+      - FitsInDispenser
+  - type: PlaceableSurface
+    placeCentered: true
+    positionOffset: 0, 0.25
+  - type: Machine
+    board: ADTBarmenKettleCircuit
+  - type: GenericVisualizer
+    visuals:
+      enum.SolutionHeaterVisuals.IsOn:
+        enum.SolutionHeaterVisuals.IsOn:
+          True: { visible: true }
+          False: { visible: false }

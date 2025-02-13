@@ -7,3 +7,12 @@
   - type: Drink
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/armyflask.rsi
+
+- type: entity
+  parent: FlaskBase
+  id: ADTDrinkFlaskDV
+  name: DV`s Flask
+  components:
+  - type: Drink
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/flask_dv.rsi

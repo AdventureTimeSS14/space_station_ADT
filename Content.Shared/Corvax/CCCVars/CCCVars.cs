@@ -73,8 +73,8 @@ public sealed class CCCVars
     /// Tts rate limit values are accounted in periods of this size (seconds).
     /// After the period has passed, the count resets.
     /// </summary>
-    public static readonly CVarDef<int> TTSRateLimitPeriod =
-        CVarDef.Create("tts.rate_limit_period", 2, CVar.SERVERONLY);
+    public static readonly CVarDef<float> TTSRateLimitPeriod =
+        CVarDef.Create("tts.rate_limit_period", 2f, CVar.SERVERONLY);
 
     /// <summary>
     /// How many tts preview messages are allowed in a single rate limit period.
@@ -93,9 +93,18 @@ public sealed class CCCVars
         CVarDef.Create("game.peaceful_end", true, CVar.SERVERONLY);
 
     /*
-     * Discord Auth
+     * Station Goal
      */
 
+    /// <summary>
+    /// Send station goal on round start or not.
+    /// </summary>
+    public static readonly CVarDef<bool> StationGoal =
+        CVarDef.Create("game.station_goal", true, CVar.SERVERONLY);
+    // ADT-Tweak-start
+    /*
+     * Discord Auth
+     */
     /// <summary>
     ///     Enabled Discord linking, show linking button and modal window
     /// </summary>
@@ -113,4 +122,5 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<string> DiscordAuthApiKey =
         CVarDef.Create("discord_auth.api_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+    // ADT-Tweak-end
 }

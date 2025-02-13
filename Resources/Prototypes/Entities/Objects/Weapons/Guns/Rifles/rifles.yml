@@ -50,10 +50,19 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon #ADT_Tweak. Для ШТЫКОВОЙ
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee #ADT_Tweak
 
 - type: entity
   name: AKMS
-  parent: [BaseWeaponRifle, BaseRestrictedContraband]
+  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseMagneticGun] # adt tweak
   id: WeaponRifleAk
   description: An iconic weapon of war. Uses .30 rifle ammo.
   components:
@@ -102,7 +111,7 @@
 
 - type: entity
   name: M-90gl
-  parent: [BaseWeaponRifle, BaseSyndicateContraband]
+  parent: [BaseWeaponRifle, ADTBaseAttachableHolder] # ADT TWEAK М90 ОБР ЯВЛЯЕТСЯ КОНТРАБАНДОЙ СИНДИКАТА XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
   id: WeaponRifleM90GrenadeLauncher
   description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
   components:
@@ -134,7 +143,34 @@
         whitelist:
           tags:
             - CartridgeRifle
-            - Grenade
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentM90GrenadeLauncher
+          - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.3125, -0.0625
+      rmc-aslot-rail: 0.0, -0.0325
+      rmc-aslot-barrel: 0.96875, 0
+# ADT TWEAK END
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -147,7 +183,7 @@
 
 - type: entity
   name: Lecter
-  parent: [BaseWeaponRifle, BaseRestrictedContraband]
+  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .20 rifle ammo.
   components:
@@ -191,6 +227,34 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+# ADT TWEAK START
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentM90GrenadeLauncher
+          - ADTAttachmentM90UnderbarrelShotgun
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.3125, -0.0625
+      rmc-aslot-rail: 0, 0
+      rmc-aslot-barrel: 0.96875, 0
+# ADT TWEAK END
 
 - type: entity
   name: Foam Force Astro Ace

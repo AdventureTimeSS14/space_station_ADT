@@ -21,3 +21,66 @@
     contents:
         - id: WeaponPistolMk58
         - id: MagazinePistol
+
+- type: entity
+  id: ADTClothingBeltMedicalBagFilled
+  parent: ADTClothingBeltMedicalBag
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
+        amount: 1
+      - id: Bloodpack
+        amount: 1
+      - id: Gauze
+      - id: EmergencyMedipen
+
+- type: entity
+  id: ADTClothingBeltMedicalBagEMTFilled
+  parent: ADTClothingBeltMedicalBag
+  suffix: Filled, Paramedic
+  components:
+  - type: StorageFill
+    contents:
+      - id: Brutepack
+      - id: Ointment
+      - id: Bloodpack
+      - id: Gauze
+      - id: EmergencyMedipen
+        amount: 3
+
+- type: entity
+  id: ADTClothingBeltMilitaryWebbingCBURNFilled
+  parent: ClothingBeltMilitaryWebbing
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: CombatKnife
+      - id: MagazineShotgunIncendiary
+        amount: 3
+      - id: MagazineShotgun
+        amount: 2
+      - id: MagazineShotgunSlug
+
+- type: entity
+  id: ADTClothingBeltMedicalSecurityERTFilled
+  parent: ADTClothingBeltMedicalSecurity
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTCombatHypospray
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: Bloodpack
+      - id: OmnizineChemistryBottle
+      - id: EpinephrineChemistryBottle
+      - id: EpinephrineChemistryBottle
+      - id: ADTSalineChemistryBottle
+      - id: BruteAutoInjector
+      - id: BurnAutoInjector
+

@@ -10,6 +10,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Store; // ADT-Changeling-Tweak
 
 namespace Content.Server.Store.Systems;
 
@@ -92,14 +93,12 @@ public sealed partial class StoreSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        args.Handled = TryAddCurrency(GetCurrencyValue(uid, component), args.Target.Value, store);
+        if (!TryAddCurrency((uid, component), (args.Target.Value, store)))
+            return;
 
-        if (args.Handled)
-        {
-            var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", args.Target));
-            _popup.PopupEntity(msg, args.Target.Value, args.User);
-            QueueDel(args.Used);
-        }
+        args.Handled = true;
+        var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", args.Target));
+        _popup.PopupEntity(msg, args.Target.Value, args.User);
     }
 
     private void OnImplantActivate(EntityUid uid, StoreComponent component, OpenUplinkImplantEvent args)
@@ -108,9 +107,25 @@ public sealed partial class StoreSystem : EntitySystem
     }
 
     /// <summary>
+    /// Toggles the shop UI if the given entityuid has a shop component.
+    /// Used for things such as revenants or changelings.
+    /// </summary>
+
+    public void OnInternalShop(EntityUid uid)
+    {
+        if (!TryComp(uid, out StoreComponent? store))
+            return;
+        ToggleUi(uid, uid, store);
+    }
+
+    /// <summary>
     /// Gets the value from an entity's currency component.
     /// Scales with stacks.
     /// </summary>
+    /// <remarks>
+    /// If this result is intended to be used with <see cref="TryAddCurrency(Robust.Shared.GameObjects.Entity{Content.Server.Store.Components.CurrencyComponent?},Robust.Shared.GameObjects.Entity{Content.Shared.Store.Components.StoreComponent?})"/>,
+    /// consider using <see cref="TryAddCurrency(Robust.Shared.GameObjects.Entity{Content.Server.Store.Components.CurrencyComponent?},Robust.Shared.GameObjects.Entity{Content.Shared.Store.Components.StoreComponent?})"/> instead to ensure that the currency is consumed in the process.
+    /// </remarks>
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <returns>The value of the currency</returns>
@@ -121,19 +136,34 @@ public sealed partial class StoreSystem : EntitySystem
     }
 
     /// <summary>
-    /// Tries to add a currency to a store's balance.
+    /// Tries to add a currency to a store's balance. Note that if successful, this will consume the currency in the process.
     /// </summary>
-    /// <param name="currencyEnt"></param>
-    /// <param name="storeEnt"></param>
-    /// <param name="currency">The currency to add</param>
-    /// <param name="store">The store to add it to</param>
-    /// <returns>Whether or not the currency was succesfully added</returns>
-    [PublicAPI]
-    public bool TryAddCurrency(EntityUid currencyEnt, EntityUid storeEnt, StoreComponent? store = null, CurrencyComponent? currency = null)
+    public bool TryAddCurrency(Entity<CurrencyComponent?> currency, Entity<StoreComponent?> store)
     {
-        if (!Resolve(currencyEnt, ref currency) || !Resolve(storeEnt, ref store))
+        if (!Resolve(currency.Owner, ref currency.Comp))
             return false;
-        return TryAddCurrency(GetCurrencyValue(currencyEnt, currency), storeEnt, store);
+
+        if (!Resolve(store.Owner, ref store.Comp))
+            return false;
+
+        var value = currency.Comp.Price;
+        if (TryComp(currency.Owner, out StackComponent? stack) && stack.Count != 1)
+        {
+            value = currency.Comp.Price
+                .ToDictionary(v => v.Key, p => p.Value * stack.Count);
+        }
+
+        if (!TryAddCurrency(value, store, store.Comp))
+            return false;
+
+        // Avoid having the currency accidentally be re-used. E.g., if multiple clients try to use the currency in the
+        // same tick
+        currency.Comp.Price.Clear();
+        if (stack != null)
+            _stack.SetCount(currency.Owner, 0, stack);
+
+        QueueDel(currency);
+        return true;
     }
 
     /// <summary>
@@ -164,6 +194,77 @@ public sealed partial class StoreSystem : EntitySystem
         UpdateUserInterface(null, uid, store);
         return true;
     }
+
+    // ADT changeling start
+    public bool TryAddStore(EntityUid uid,
+                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
+                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
+                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
+                            bool allowRefund,
+                            bool ownerOnly)
+    {
+        if (HasComp<StoreComponent>(uid))
+            return false;
+
+        AddStore(uid, currencyWhitelist, categories, balance, allowRefund, ownerOnly);
+
+        return true;
+    }
+
+    public void AddStore(EntityUid uid,
+                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
+                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
+                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
+                            bool allowRefund,
+                            bool ownerOnly)
+    {
+        var comp = new StoreComponent();
+        comp.CurrencyWhitelist = currencyWhitelist;
+        comp.Categories = categories;
+        comp.Balance = balance;
+        comp.RefundAllowed = allowRefund;
+        comp.OwnerOnly = ownerOnly;
+
+        AddComp(uid, comp);
+    }
+
+    public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
+    {
+        if (!Resolve(uid, ref store))
+            return false;
+
+        //verify these before values are modified
+        foreach (var type in currency)
+        {
+            if (!store.CurrencyWhitelist.Contains(type.Key))
+                return false;
+        }
+
+        foreach (var type in currency)
+        {
+            if (!store.Balance.TryAdd(type.Key, type.Value))
+                store.Balance[type.Key] = type.Value;
+        }
+
+        UpdateUserInterface(null, uid, store);
+        return true;
+    }
+
+    public bool TryRefreshStoreStock(EntityUid uid, StoreComponent? store = null)
+    {
+        if (!Resolve(uid, ref store))
+            return false;
+
+        foreach (var item in store.FullListingsCatalog)
+        {
+            item.PurchaseAmount = 0;
+        }
+
+        UpdateUserInterface(null, uid, store);
+        return true;
+    }
+
+    // ADT changeling end
 }
 
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs

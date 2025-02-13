@@ -6,8 +6,8 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
-#  access: # Corvax-MRP
-#  - Maintenance
+  access: # Corvax-MRP, ADT tweak
+  - Maintenance
 
 - type: startingGear
   id: PassengerGear

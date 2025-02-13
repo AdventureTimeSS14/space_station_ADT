@@ -33,3 +33,29 @@
       - id: ADTClothingNeckPyotrCloak
       - id: ADTClothingOuterCoatPyotrCoat
       - id: ADTClothingUniformPyotrOfficialSuit
+
+- type: entity
+  name: box of medical treatment
+  parent: ADTBriefcaseMedical
+  id: ADTBriefcaseMedicalFilled
+  description: A plastic a box with bottles with medicaments.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMorphineBottle
+      - id: ADTDyloveneBiomicineBottle
+      - id: EpinephrineChemistryBottle
+      - id: ADTOmnizineBottle
+
+- type: entity
+  id: ADTBriefcaseBrownHikingCmoFilled
+  name: Chief medical officer's hiking briefcase
+  parent: BriefcaseBrown
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingOuterCoatLabcoatCMOHike
+      - id: ADTClothingUniformJumpskirtCMOHike
+      - id: ADTClothingUniformJumpsuitCMOHike
+      - id: ADTClothingShoesHighboots

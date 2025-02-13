@@ -1,0 +1,107 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by not_so_big_chungus for AdventureTime MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "tsf1"
+        },
+        {
+            "name": "kmt1"
+        },
+        {
+            "name": "tsf2"
+        },
+        {
+            "name": "kmt2"
+        },
+        {
+            "name": "tsf3"
+        },
+        {
+            "name": "kmt3"
+        },
+        {
+            "name": "tsf4"
+        },
+        {
+            "name": "kmt4"
+        },
+        {
+            "name": "tsf5"
+        },
+        {
+            "name": "kmt5"
+        },
+        {
+            "name": "tsf6"
+        },
+        {
+            "name": "kmt6"
+        },
+        {
+            "name": "tsf7"
+        },
+        {
+            "name": "kmt7"
+        },
+        {
+            "name": "tsf8"
+        },
+        {
+            "name": "kmt8"
+        },
+        {
+            "name": "tsf9"
+        },
+        {
+            "name": "kmt9"
+        },
+        {
+            "name": "tsf10"
+        },
+        {
+            "name": "kmt10"
+        },
+        {
+            "name": "tsf11"
+        },
+        {
+            "name": "kmt11"
+        },
+        {
+            "name": "tsf12"
+        },
+        {
+            "name": "kmt12"
+        },
+        {
+            "name": "tsf13"
+        },
+        {
+            "name": "kmt13"
+        },
+        {
+            "name": "tsf14"
+        },
+        {
+            "name": "kmt14"
+        },
+        {
+            "name": "tsf15"
+        },
+        {
+            "name": "kmt15"
+        },
+        {
+            "name": "tsf16"
+        },
+        {
+            "name": "kmt16"
+        }
+    ]
+}

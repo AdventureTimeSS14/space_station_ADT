@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "taken from tg at https://github.com/tgstation/tgstation/commit/3e9ea4d77cdf4173777e665b2b4f4ba8cecf2c03#diff-06a6d3876124f6bb0adf70a4dffab8d82b9a7ae0abf9ec0ebc22211ca9d8ad4b. Sprites made by KREKS (#.kreks. discord), ported to Space Station 14 by Username228 (#serj3428 discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4,
+      "delays": [
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ],
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ],
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ],
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ]
+      ]
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4,
+      "delays": [
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ],
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ],
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ],
+        [
+        0.3,
+        0.2,
+        0.3,
+        0.3,
+        0.3
+        ]
+      ]
+    }
+  ]
+}

@@ -61,6 +61,9 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Item
+    size: Small
+    heldPrefix: lungs
   - type: Tag # goob edit
     tags:
     - Meat
@@ -92,6 +95,9 @@
     groups:
     - id: Food
     - id: Drink
+  - type: Item
+    size: Small
+    heldPrefix: stomach
   - type: Tag # goob edit
     tags:
     - Meat
@@ -108,6 +114,9 @@
     solutions:
       stomach:
         maxVol: 30
+  - type: Item
+    size: Small
+    heldPrefix: stomach
 
 - type: entity
   id: OrganAnimalLiver
@@ -124,6 +133,9 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: Item
+    size: Small
+    heldPrefix: liver
   - type: Tag # goob edit
     tags:
     - Meat
@@ -146,6 +158,9 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Item
+    size: Small
+    heldPrefix: heart
   - type: Tag # goob edit
     tags:
     - Meat
@@ -167,6 +182,9 @@
     maxReagents: 5
     metabolizerTypes: [ Animal ]
     removeEmpty: true
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
   - type: Tag # goob edit
     tags:
     - Meat

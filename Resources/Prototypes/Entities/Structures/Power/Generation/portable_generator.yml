@@ -81,6 +81,12 @@
     - type: PortableGenerator
       startSoundEmpty: { collection: GeneratorTugEmpty }
       startSound: { collection: GeneratorTug }
+      # ADT-Sound-Update-Start
+      successSound:
+        path: /Audio/ADT/Machines/pacman_on.ogg
+      failureSound:
+        path: /Audio/ADT/Machines/pacman_off.ogg
+      # ADT-Sound-Update-End
     - type: FuelGenerator
     - type: PowerSupplier
       supplyRate: 3000

@@ -26,7 +26,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/pink_glasses.rsi #спрайты от dion_clawed
   - type: StaticPrice
-    price: 200
+    price: 25
 
 - type: entity
   parent: ClothingEyesBase
@@ -52,3 +52,94 @@
     tags:
     - WhitelistChameleon
     - HudMedical
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesMimicry
+  name: mimicy glasses
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
+
+    # halloween
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTNeonTacticalGlasses
+  name: neon tactical glasses
+  description: Ordinary tactical glasses made of acid-green polycarbonate.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/neontactical.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/neontactical.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTServantOfEvilGlasses
+  name: welding glasses
+  description: welding glasses
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesSollux
+  name: welding glasses
+  description: welding glasses
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi
+
+- type: entity
+  parent: [ClothingEyesBase, BaseMajorContraband]
+  id: ClothingEyesNightVision
+  name: night vision
+  description: jungar privet
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+  - type: NightVisionItem # RMC Night vision
+  - type: ItemToggle  # RMC Night vision
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }
+
+- type: entity
+  parent: [ClothingEyesBase]
+  id: ADTClothingEyesNightVisionMGD
+  name: night vision
+  description: jungar poka
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/mgd_pnvhud.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/mgd_pnvhud.rsi
+  - type: NightVisionItem # RMC Night vision
+  - type: ItemToggle  # RMC Night vision
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        icon:
+          True: { state: icon }
+          False: { state: icon }

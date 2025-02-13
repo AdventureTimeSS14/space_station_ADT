@@ -116,6 +116,12 @@
   - type: WarpPoint
     follow: true
     location: nuclear bomb
+  # ADT-Sound-Update-Start
+  - type: Tag
+    tags:
+    - ADTVaultAmbience
+  # ADT-Sound-Update-End
+  - type: FTLSmashImmune
 
 - type: entity
   parent: NuclearBomb

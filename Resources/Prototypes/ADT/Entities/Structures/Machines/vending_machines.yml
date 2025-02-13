@@ -37,6 +37,7 @@
   description: A vending machine for specific clothing.
   components:
   - type: VendingMachine
+    priceMultiplier: 0.8
     pack: ADTPrazatClothesMateInventory
     offState: off
     brokenState: broken
@@ -64,6 +65,10 @@
     color: "#c2adff"
   - type: TTS # Corvax-TTS
     voice: bebey
+  - type: StaticPrice
+    price: -4000
+
+# Оружейная тсф
 
 - type: entity
   parent: VendingMachine
@@ -85,3 +90,240 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+
+      # halloween
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineHalloween
+  name: HalloMate
+  description: A vending machine for Halloween things.
+  components:
+  - type: VendingMachine
+    pack: ADTHalloweenMateInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  #- type: Advertise
+  #  pack: ClothesMateAds
+  - type: Speech
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/halloweenmat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#c2adff"
+
+# Таблеткомат
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachinePill
+  name: Pill-O-Mat
+  description: (Almost) A practical solution to many of your sores.
+  components:
+  - type: VendingMachine
+    pack: PillInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    ejectState: eject-unshaded
+    ejectDelay: 0.6
+  - type: Advertise
+    pack: PillAds
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/pillomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#a1e1f0"
+  - type: StaticPrice
+    price: 2600
+
+# Парашкаф
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineParaDrobe
+  name: ParaDrobe
+  description: A vending machine that dispences new clothing for paramedics.
+  components:
+  - type: VendingMachine
+    pack: ParadrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: MediDrobeAds
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/paradrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#1ca9d4"
+  - type: StaticPrice
+    price: 2600
+
+
+# ГраждоМед
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineCiviMedVend
+  name: CiviMedVend
+  description: CiviMed, distributing lifesaving meds harder than the rocks you break! Miners, DON'T DIE!
+  components:
+  - type: VendingMachine
+    pack: ADTCiviMedVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    priceMultiplier: 1.1
+    ejectDelay: 0.6
+    # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
+  - type: Advertise
+    pack: ADTCiviMedAds
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/civimed.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#4b93ad"
+  - type: StaticPrice
+    price: -2000
+
+
+# Автомат с мороженкой.
+
+- type: entity
+  parent: VendingMachine
+  id: ADTIceCreamVendInventory
+  name: Ice CreamMat
+  description: Look! There a ice cream!
+  components:
+  - type: VendingMachine
+    pack: ADTIceCreamVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    priceMultiplier: 0.57 # ADT-Economy
+    ejectDelay: 1
+  - type: Advertise
+    pack: IceCreammatAds
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/icecream.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#9dc5c9"
+
+#Бесплатные версии торгоматов
+- type: entity
+  parent: VendingMachineCoffee
+  id: ADTVendingMachineCoffeeFree
+  name: Solar's Best Hot Drinks
+  description: Served boiling so it stays hot all shift!
+  suffix: Free
+  components:
+  - type: VendingMachine
+    pack: HotDrinksMachineInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    screenState: screen
+    ejectDelay: 5
+    soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
+    initialStockQuality: 0.33
+    allForFree: true # ADT-Economy
+
+- type: entity
+  parent: VendingMachineGames
+  id: ADTVendingMachineGamesFree
+  name: Good Clean Fun
+  description: Vends things that the Captain and Head of Personnel are probably not going to appreciate you fiddling with instead of your job...
+  suffix: Free
+  components:
+  - type: VendingMachine
+    pack: GoodCleanFunInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    ejectDelay: 1.8
+    allForFree: true # ADT-Economy
+
+- type: entity
+  parent: VendingMachineSnack
+  id: ADTVendingMachineSnackFree
+  name: Getmore Chocolate Corp
+  description: A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars.
+  suffix: Free
+  components:
+  - type: VendingMachine
+    pack: GetmoreChocolateCorpInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    initialStockQuality: 0.33
+    allForFree: true # ADT-Economy

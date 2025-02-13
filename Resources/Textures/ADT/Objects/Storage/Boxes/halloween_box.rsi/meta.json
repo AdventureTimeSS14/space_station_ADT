@@ -1,0 +1,92 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by discord: prazat911 для Времени Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "freddy"
+        },
+        {
+            "name": "harry"
+        },
+        {
+            "name": "jasonvoorhees"
+        },
+        {
+            "name": "jecket"
+        },
+        {
+            "name": "killa"
+        },
+        {
+            "name": "kim"
+        },
+        {
+            "name": "minion"
+        },
+        {
+            "name": "pennywise"
+        },
+        {
+            "name": "postal2"
+        },
+        {
+            "name": "rabbit"
+        },
+        {
+            "name": "tagilla"
+        },
+        {
+            "name": "tricky"
+        },
+        {
+            "name": "vampire"
+        },
+        {
+            "name": "vergil"
+        },
+        {
+            "name": "xeno"
+        },
+        {
+            "name": "сrueltysquad"
+        },
+        {
+            "name": "chainsaw"
+        },
+        {
+            "name": "payday"
+        },
+        {
+            "name": "squid_org"
+        },
+        {
+            "name": "squid_player"
+        },
+        {
+            "name": "lethal_company"
+        },
+        {
+            "name": "bad_police"
+        },
+        {
+            "name": "empress_of_light"
+        },
+        {      
+            "name": "redhat"
+        },
+        {
+            "name": "sollux"
+        },
+        {
+            "name": "michael"
+        }
+    ]
+}

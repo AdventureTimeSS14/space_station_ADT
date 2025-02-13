@@ -6,6 +6,9 @@ marking-HumanPiercingNippleR = Правый сосок
 marking-HumanPiercingNipple = Сосок
 
 marking-ADTFoxTail = Лисий хвост
+marking-ADTMilkyTail = Шипастый хвост, Человек
+marking-ADTMilkyEars = Удлинённые уши, Человек
+marking-ADTMilkyHorns = Рога, Человек
 
 # Аргументации
 marking-AugmentsRoboticArmRight-r_roboarm = Аугментация, правая рука (Робот)
@@ -48,3 +51,5 @@ marking-Malstrem = Мальстрём
 marking-Beholder = Наблюдатель
 marking-Terminator = Терминатор
 marking-Iron_jaw = Стальная челюсть
+marking-ADTHumanElfEars = Эльфийские уши
+marking-ADTHumanElfEars2 = Эльфийские уши 2

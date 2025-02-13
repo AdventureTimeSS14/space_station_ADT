@@ -210,7 +210,7 @@
       - Biological
     damage:
       types:
-        Bloodloss: -0.5 #lowers bloodloss damage
+        Bloodloss: -2.5 #lowers bloodloss damage  # ADT tweak было до этого -0.5
     ModifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -276,6 +276,7 @@
       - Biological
     damage:
       types:
+        Blunt: 0 # благодаря этому дает лечить кровотек всегда ADT tweak
         Slash: -5
         Piercing: -10
     bloodlossModifier: -10
@@ -1036,7 +1037,7 @@
   id: SyringeStimulants
   components:
   - type: Label
-    currentLabel: reagent-name-hyperzine
+    currentLabel: reagent-name-stimulants
   - type: SolutionContainerManager
     solutions:
       injector:

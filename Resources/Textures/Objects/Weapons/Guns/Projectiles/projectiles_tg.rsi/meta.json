@@ -49,6 +49,9 @@
     },
     {
       "name": "heavylaser"
+    },
+    {
+        "name": "adtomnilaser"
     }
   ]
 }

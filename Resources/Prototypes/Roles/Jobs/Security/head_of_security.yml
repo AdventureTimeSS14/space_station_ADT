@@ -15,12 +15,9 @@
       time: 198000 #55 hrs # ADT-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
-    - !type:AgeRequirement
-      requiredAge: 21
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
-  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -40,7 +37,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: PhantomTyranyTarget # ADT Phantom
+      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: HoSGear

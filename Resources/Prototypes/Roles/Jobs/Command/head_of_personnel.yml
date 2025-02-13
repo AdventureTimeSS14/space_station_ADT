@@ -18,12 +18,9 @@
 #      time: 72000 # 20 hrs
     - !type:OverallPlaytimeRequirement
       time: 180000 #50 hrs # Corvax-RoleTime
-    - !type:AgeRequirement
-      requiredAge: 21
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
-  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -59,7 +56,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: PhantomTyranyTarget # ADT Phantom
+      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: HoPGear

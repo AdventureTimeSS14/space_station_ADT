@@ -40,3 +40,7 @@ ent-ADTArmchairBlue = синее кресло
 
 ent-ADTArmchairBlue2 = { ent-ADTArmchairBlue }
     .desc = { ent-ADTArmchairWhite.desc }
+
+ent-ADTSpiderStool = паучий стул
+    .suffix = Хеллоуин
+    .desc = Выглядит страшноватенько.

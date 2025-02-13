@@ -16,6 +16,10 @@
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
     ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
+  # ADT start
+  storage:
+    back:
+    - ADTTapeRecorder
+    - ADTCassetteTape
+    - ADTCassetteTape
+  # ADT end

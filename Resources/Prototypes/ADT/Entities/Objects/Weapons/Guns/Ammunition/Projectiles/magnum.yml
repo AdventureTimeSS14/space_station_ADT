@@ -1,0 +1,26 @@
+- type: entity
+  id: ADTADTBulletMagnumHighVelocityTranquilizer
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Shock: 7
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
+    forceSound: true
+  - type: ProjectileDespawn
+  - type: StaminaDamageOnCollide
+    damage: 40 # 4 hits to stun
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_tsd.rsi
+    layers:
+    - state: adtomnilaser
+      shader: unshaded
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo

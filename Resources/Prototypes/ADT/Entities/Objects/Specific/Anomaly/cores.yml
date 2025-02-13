@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseAnomalyCore
+  id: ADTAnomalyCoreMonkey
+  suffix: Monkey
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/Cores/monkey_core.rsi
+  - type: PointLight
+    radius: 1.5
+    energy: 2.0
+    color: "#FFFE42"
+    castShadows: false
+
+- type: entity
+  parent: BaseAnomalyInertCore
+  id: ADTAnomalyCoreMonkeyInert
+  suffix: Monkey, Inert
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/Cores/monkey_core.rsi
+  - type: PointLight
+    radius: 1.5
+    energy: 2.0
+    color: "#FFFE42"
+    castShadows: false

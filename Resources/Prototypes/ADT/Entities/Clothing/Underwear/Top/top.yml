@@ -1,0 +1,205 @@
+# Sirena
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraWhite
+  name: bra
+  description: Standard Nanotrasen bra for station staff. Painted white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraSports
+  name: sports bra
+  description: Sports bra. Painted white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/sportsbra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraSportsAlternative
+  name: alternative sports bra
+  description: Sports bra. Alternate version. Painted white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/sportsbraalt.rsi
+
+#Underwear-for-the-Heads
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraCap
+  name: captain's bra
+  description: Standard station captain's underwear.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/Heads/capitan_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraCE
+  name: chief engineer's bra
+  description: Standard station chief engineer's underwear.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/Heads/ce_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraCMO
+  name: chief medical officer's bra
+  description: Standard underwear of the station chief medical officer. For some reason it smells like chloral hydrate...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/Heads/cmo_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraHOP
+  name: head of personnel's bra
+  description: The standard underwear of the station's chief of staff.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/Heads/hop_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraHOS
+  name: head of security's bra
+  description: Standard underwear of the station's head of security.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/Heads/hos_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraQM
+  name: quartermaster's bra
+  description: Standard station quartermaster underwear.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/Heads/qm_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraRD
+  name: research director's bra
+  description: Standard research director's underwear.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/Heads/rd_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopMonokiniWhite
+  name: white monokini top
+  description: monokini top. Painted white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/monokini_top_white.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopMonokiniBlack
+  name: black monokini top
+  description: monokini top. Painted black.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/monokini_top_black.rsi
+
+# ADT
+
+#бра от Празата для Стильномата
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraSportsBlack
+  name: black sports bra
+  description: Sports bra. Painted black.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/sportsbrablack.rsi
+  - type: StaticPrice
+    price: 28
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraPea
+  name: pea bra
+  description: pea bra
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/peabra.rsi
+  - type: StaticPrice
+    price: 28
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraLace
+  name: lace bra
+  description: Good looking lace underwear.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/lace_bra.rsi
+  - type: StaticPrice
+    price: 28
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraLaceBlueAlternative
+  name: blueshield bra
+  description: Standard Nanotrasen bra for Blue Shield Officer.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/muns_bra_blue.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraLaceRedAlternative
+  name: blueshield bra
+  description: Standard Nanotrasen bra for Blue Shield Officer.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/muns_bra_red.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraLaceRed
+  name: red lace bra
+  description: Red, lacy and, probably, very expensive.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/red_bra.rsi
+  - type: StaticPrice
+    price: 28
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraLaceBlack
+  name: black lace bra
+  description: Black, lacy and, probably, very expensive.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/black_bra.rsi
+  - type: StaticPrice
+    price: 28
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraComfyWhite
+  name: comfy white bra
+  description: White, very comfortable and with a pink bow
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/whitecomfy_bra.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraBlueshield
+  name: blueshield bra
+  description: Standard Nanotrasen bra for Blue Shield Officer.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/blueshield_bra.rsi

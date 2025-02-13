@@ -41,11 +41,17 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
+        // ADT TornadoTech Tweak Start
+        var hitAttempt = new ProjectileHitAttemptEvent(component.Damage, target, component.Shooter);
+        RaiseLocalEvent(target, hitAttempt);
+        if (hitAttempt.Cancelled)
+            return;
+        // ADT TornadoTech Tweak End
+
         var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter);
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);
-        var direction = args.OurBody.LinearVelocity.Normalized();
         var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, origin: component.Shooter);
         var deleted = Deleted(target);
 
@@ -64,7 +70,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (!deleted)
         {
             _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound);
-            _sharedCameraRecoil.KickCamera(target, direction);
+
+            if (!args.OurBody.LinearVelocity.IsLengthZero())
+                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
 
         component.DamagedEntity = true;

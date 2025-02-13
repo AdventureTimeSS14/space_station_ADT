@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: IceCreammatAds
+  values:
+    prefix: advertisement-icecreammat-
+    count: 6

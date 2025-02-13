@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911",
+    "size": {
+        "x": 48,
+        "y": 48
+    },
+    "states": [
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        },
+        {
+            "name": "sheath-sabre-equipped-BELT",
+            "directions": 4
+        },
+        {
+            "name": "sheath-sabre"
+        },
+        {
+            "name": "sheath"
+        }
+    ]
+}

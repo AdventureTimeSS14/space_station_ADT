@@ -13,7 +13,7 @@
     torso:
       part: TorsoKobolt
       organs:
-        heart: OrganAnimalHeart #как у reptilian
+        heart: ADTOrganReptilianHeart #как у reptilian
         lungs: OrganHumanLungs #как у reptilian
         stomach: OrganKoboltStomach
         liver: OrganAnimalLiver #как у reptilian

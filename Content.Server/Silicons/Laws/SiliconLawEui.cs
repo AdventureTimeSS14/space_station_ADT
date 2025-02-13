@@ -1,4 +1,4 @@
-﻿using Content.Server.Administration.Managers;
+using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
@@ -32,8 +32,8 @@ public sealed class SiliconLawEui : BaseEui
 
     public void UpdateLaws(SiliconLawBoundComponent? lawBoundComponent, EntityUid player)
     {
-        if (!IsAllowed())
-            return;
+        // if (!IsAllowed())
+        //     return; ADT Custom ai law
 
         var laws = _siliconLawSystem.GetLaws(player, lawBoundComponent);
         _laws = laws.Laws;
@@ -48,12 +48,12 @@ public sealed class SiliconLawEui : BaseEui
             return;
         }
 
-        if (!IsAllowed())
-            return;
+        // if (!IsAllowed())
+        //     return; ADT Custom ai law
 
         var player = _entityManager.GetEntity(message.Target);
-
-        _siliconLawSystem.SetLaws(message.Laws, player);
+        if (_entityManager.TryGetComponent<SiliconLawProviderComponent>(player, out var playerProviderComp))
+            _siliconLawSystem.SetLaws(message.Laws, player, playerProviderComp.LawUploadSound);
     }
 
     private bool IsAllowed()

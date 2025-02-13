@@ -8,6 +8,7 @@
   components:
   - type: Input
     context: "ghost"
+  - type: Spectral
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
     baseSprintSpeed: 6
@@ -20,7 +21,8 @@
     - Stun
     - Corporeal
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: ManifestedSpirit
+    damageModifierSet: ManifestedSpirit
   - type: NoSlip
   - type: TTS # Corvax-TTS
     voice: illidan
@@ -38,6 +40,8 @@
     name: ghost-role-information-revenant-name
     description: ghost-role-information-revenant-description
     rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -71,9 +75,9 @@
     - StolenEssence
   - type: RandomMetadata
     nameSegments:
-    - The
+    # - The # ADT CHANGE
     - RevenantType
-    - of
+    # - of # ADT CHANGE
     - RevenantAdjective
     - RevenantTheme
   - type: Speech
@@ -83,3 +87,9 @@
     - Biological
   - type: ShowHealthIcons
   - type: OuijaBoardUser
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: Tag #ADT tweak
+    tags:
+      - NoPaint

@@ -1,5 +1,7 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 
 namespace Content.Shared.Polymorph;
 
@@ -115,6 +117,18 @@ public sealed partial record PolymorphConfiguration
     [DataField(serverOnly: true)]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan Cooldown = TimeSpan.Zero;
+
+    /// <summary>
+    ///     If not null, this sound will be played when being polymorphed into something.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? PolymorphSound;
+
+    /// <summary>
+    ///     If not null, this sound will be played when being reverted from a polymorph.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? ExitPolymorphSound;
 }
 
 public enum PolymorphInventoryChange : byte
@@ -123,3 +137,13 @@ public enum PolymorphInventoryChange : byte
     Drop,
     Transfer,
 }
+// ADT-Changeling-Tweak-Start
+public struct PolymorphHumanoidData
+{
+    public EntityPrototype EntityPrototype;
+    public MetaDataComponent MetaDataComponent;
+    public HumanoidAppearanceComponent HumanoidAppearanceComponent;
+    public string DNA;
+    public EntityUid EntityUid;
+}
+// ADT-Changeling-Tweak-End

@@ -1,17 +1,22 @@
 using Content.Client.Interactable.Components;
 using Content.Client.StatusIcon;
+using Content.Shared.ADT.Stealth.Components;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Stealth;
 
-public sealed class StealthSystem : SharedStealthSystem
+public sealed partial class StealthSystem : SharedStealthSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private ShaderInstance _shader = default!;
 
@@ -24,6 +29,8 @@ public sealed class StealthSystem : SharedStealthSystem
         SubscribeLocalEvent<StealthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StealthComponent, BeforePostShaderRenderEvent>(OnShaderRender);
+
+        InitializeADT();    // ADT tweak
     }
 
     public override void SetEnabled(EntityUid uid, bool value, StealthComponent? component = null)
@@ -39,6 +46,10 @@ public sealed class StealthSystem : SharedStealthSystem
     {
         if (!Resolve(uid, ref component, ref sprite, false))
             return;
+        // ADT start
+        if (!CheckStealthWhitelist(_player.LocalEntity, uid))
+            enabled = false;
+        // ADT end
 
         sprite.Color = Color.White;
         sprite.PostShader = enabled ? _shader : null;
@@ -72,6 +83,15 @@ public sealed class StealthSystem : SharedStealthSystem
 
     private void OnShaderRender(EntityUid uid, StealthComponent component, BeforePostShaderRenderEvent args)
     {
+        // ADT start
+        if (!CheckStealthWhitelist(_player.LocalEntity, uid))
+        {
+            SetShader(uid, false);
+            return;
+        }
+
+        // ADT end
+
         // Distortion effect uses screen coordinates. If a player moves, the entities appear to move on screen. this
         // makes the distortion very noticeable.
 

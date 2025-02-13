@@ -72,10 +72,16 @@ public sealed partial class NukeopsRuleComponent : Component
     public TimeSpan WarNukieArriveDelay = TimeSpan.FromMinutes(15);
 
     /// <summary>
+    ///     Time crew can't call emergency shuttle after war declaration.
+    /// </summary>
+    [DataField]
+    public TimeSpan WarEvacShuttleDisabled = TimeSpan.FromMinutes(25);
+
+    /// <summary>
     ///     Minimal operatives count for war declaration
     /// </summary>
     [DataField]
-    public int WarDeclarationMinOps = 4;
+    public int WarDeclarationMinOps = 3; // adt tweak
 
     [DataField]
     public WinType WinType = WinType.Neutral;

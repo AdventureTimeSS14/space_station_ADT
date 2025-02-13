@@ -1,0 +1,6 @@
+- type: decal
+  id: ADTWhiteConcreteTrimBox
+  tags: ["planet", "markings"]
+  sprite:
+    sprite: ADT/Decals/concretetrim.rsi
+    state: whiteconcrete_box

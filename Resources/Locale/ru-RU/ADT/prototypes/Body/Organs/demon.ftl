@@ -1,2 +1,6 @@
 ent-OrganDemonStomach = { ent-OrganAnimalStomach }
-    .desc = { ent-OrganAnimalStomach.desc }
+    .desc = { ent-OrganAnimalHeart.desc }
+    .suffix = { "Аркана" }
+ent-OrganDemonHeart = сердце арканы
+    .desc = { ent-OrganAnimalHeart.desc }
+    .suffix = { "Аркана" }

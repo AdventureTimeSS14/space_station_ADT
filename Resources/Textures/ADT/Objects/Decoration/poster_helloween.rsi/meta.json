@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:m1and1b и prazat911 для Время Приключений MRP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "spooky"
+        },
+        {
+            "name": "yummy"
+        },
+        {
+            "name": "spider"
+        },
+        {
+            "name": "spiderweb1"
+        },
+        {
+            "name": "spiderweb2"
+        },
+        {
+            "name": "happyhalloween"
+        },
+        {
+            "name": "tayarhalloween"
+        }
+    ]
+}

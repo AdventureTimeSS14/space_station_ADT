@@ -13,8 +13,11 @@ public sealed partial class SignalTimerWindow : DefaultWindow
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private const int MaxTextLength = 5;
+    private const int MaxTextLengthAnother = 19; // ADT Статьи
+    
 
     public event Action<string>? OnCurrentTextChanged;
+    public event Action<string>? OnCurrentTextChangedAnother; // ADT остальной текст
     public event Action<string>? OnCurrentDelayMinutesChanged;
     public event Action<string>? OnCurrentDelaySecondsChanged;
 
@@ -30,6 +33,7 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         IoCManager.InjectDependencies(this);
 
         CurrentTextEdit.OnTextChanged += e => OnCurrentTextChange(e.Text);
+        CurrentTextEditAnother.OnTextChanged += e => OnCurrentTextChangeAnother(e.Text); // ADT CurrentTextEdit
         CurrentDelayEditMinutes.OnTextChanged += e => OnCurrentDelayMinutesChange(e.Text);
         CurrentDelayEditSeconds.OnTextChanged += e => OnCurrentDelaySecondsChange(e.Text);
         StartTimer.OnPressed += _ => StartTimerWeh();
@@ -67,7 +71,7 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         }
     }
 
-    public void OnCurrentTextChange(string text)
+    public void OnCurrentTextChange(string text) 
     {
         if (CurrentTextEdit.Text.Length > MaxTextLength)
         {
@@ -76,6 +80,17 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         }
         OnCurrentTextChanged?.Invoke(text);
     }
+
+    public void OnCurrentTextChangeAnother(string text) // ADT START
+    {
+        if (CurrentTextEditAnother.Text.Length > MaxTextLengthAnother)
+        {
+            CurrentTextEditAnother.Text = CurrentTextEditAnother.Text.Remove(MaxTextLengthAnother);
+            CurrentTextEditAnother.CursorPosition = MaxTextLengthAnother;
+        }
+
+        OnCurrentTextChangedAnother?.Invoke(text);
+    } // ADT END
 
     public void OnCurrentDelayMinutesChange(string text)
     {

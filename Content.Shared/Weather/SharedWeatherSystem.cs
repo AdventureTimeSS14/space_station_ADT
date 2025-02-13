@@ -36,6 +36,7 @@ public abstract class SharedWeatherSystem : EntitySystem
             if (weather.EndTime != null)
                 weather.EndTime = weather.EndTime.Value + args.PausedTime;
         }
+        component.NextUpdate += args.PausedTime; // ADT tweak
     }
 
     public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef)
@@ -135,6 +136,10 @@ public abstract class SharedWeatherSystem : EntitySystem
                     if (elapsed < WeatherComponent.StartupTime)
                     {
                         SetState(uid, WeatherState.Starting, comp, weather, weatherProto);
+                    }
+                    else // ADT: Set state to Running when it finishes the starting time
+                    {
+                        SetState(uid, WeatherState.Running, comp, weather, weatherProto);
                     }
                 }
 

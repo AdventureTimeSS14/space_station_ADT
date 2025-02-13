@@ -14,7 +14,7 @@
         </BoxContainer>
         <!-- Corvax-TTS-Start -->
         <BoxContainer Orientation="Horizontal" Margin="5" Visible="False" Name="TTSContainer">
-            <Label Text="{Loc 'voice-mask-voice-change-info'}" />
+            <Label Text="{Loc 'voice-mask-TTS-voice-change-info'}" />
             <OptionButton Name="VoiceSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>
         <!-- Corvax-TTS-End -->
@@ -25,7 +25,7 @@
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" Margin="5" Visible="False" Name="BarksPitchContainer">
             <Label Text="{Loc 'voice-mask-pitch-change-info'}" />
-            <LineEdit Name="PitchSelector" HorizontalExpand="True" HorizontalAlignment="Right" MaxSize="15 5"/>
+            <LineEdit Name="PitchSelector" VerticalExpand="True" HorizontalExpand="True"/>
             <!-- Populated in LoadVerbs -->
         </BoxContainer>
         <!-- ADT Barks end -->

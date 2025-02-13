@@ -1,0 +1,36 @@
+- type: entity
+  name: Poppy Spawner
+  id: ADTSpawnMobPossumPoppy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobPossumPoppy
+
+- type: entity
+  name: lavaland mob spawner
+  id: ADTSpawnMobPRandomLavaland
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: RandomSpawner
+    rareChance: 0.6
+    prototypes:
+#      - ADTAbominationHypertrophied
+#      - ADTAbominationBloated
+      - MobWatcherLavaland
+      - MobGoliath
+      - ADTMobLegion
+    rarePrototypes:
+      - MobAncientGoliath
+      - ADTRandomTendrilSpawner
+#      - ADTAbominationDeath
+  - type: TimedDespawn
+    lifetime: 1

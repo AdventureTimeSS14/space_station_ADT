@@ -71,3 +71,14 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    amber: #ADT start
+      announcement: alert-level-amber-announcement
+      sound:
+        path: /Audio/ADT/Misc/amber.ogg
+        params:
+          volume: -2
+      color: "#ffbf00"
+      emergencyLightColor: "#ffbf00"
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200
+      #ADT end

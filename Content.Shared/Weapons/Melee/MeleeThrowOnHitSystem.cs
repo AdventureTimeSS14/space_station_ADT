@@ -1,5 +1,7 @@
 using System.Numerics;
 using Content.Shared.Construction.Components;
+using Content.Shared.Damage;
+using Content.Shared.Standing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics;
@@ -18,6 +20,8 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // ADT-Changeling-Tweak
+    [Dependency] private readonly DamageableSystem _damage = default!; // ADT-Changeling-Tweak
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -57,9 +61,14 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
             {
                 Velocity = angle.Normalized() * comp.Speed,
                 Lifetime = comp.Lifetime,
-                MinLifetime = comp.MinLifetime
+                MinLifetime = comp.MinLifetime,
+                CollideDamage = comp.CollideDamage,  // ADT tweak
+                ToCollideDamage = comp.ToCollideDamage  // ADT tweak
             };
             AddComp(hit, thrownComp);
+
+            if (comp.DownOnHit) // ADT tweak
+                _standing.Down(hit);
         }
     }
 
@@ -96,6 +105,11 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
 
         if (_timing.CurTime < comp.MinLifetimeTime)
             return;
+
+        if (ent.Comp.CollideDamage != null)   // ADT tweak
+            _damage.TryChangeDamage(ent.Owner, ent.Comp.CollideDamage);
+        if (ent.Comp.ToCollideDamage != null) // ADT tweak
+            _damage.TryChangeDamage(args.OtherEntity, ent.Comp.ToCollideDamage);
 
         RemCompDeferred(ent, ent.Comp);
     }

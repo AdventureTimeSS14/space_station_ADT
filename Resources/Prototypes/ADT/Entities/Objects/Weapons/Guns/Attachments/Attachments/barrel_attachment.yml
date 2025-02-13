@@ -1,0 +1,54 @@
+## BASE
+- type: entity
+  abstract: true
+  parent: ADTAttachableBase
+  id: ADTBarrelAttachmentBase
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/barrel.rsi
+  - type: Tag
+    tags:
+    - ADTAttachmentBarrel
+##
+
+- type: entity
+  parent: ADTBarrelAttachmentBase
+  id: ADTAttachmentSuppressor
+  name: suppressor
+  description: "A small tube with exhaust ports to expel noise and gas.
+    Does not completely silence a weapon, but does make it much quieter at the cost of slightly reduced damage."
+  # categories:
+  # - HideSpawnMenu
+  components:
+  - type: Sprite
+    state: suppressor
+  - type: Tag
+    tags:
+    - ADTAttachmentBarrel
+    - ADTAttachmentSuppressor
+  - type: AttachableVisuals
+    prefix: suppressor
+  - type: AttachableSilencer
+    sound:
+      collection: ADTSilencedShoot
+      params:
+        maxDistance: 6
+  # - type: AttachableWeaponRangedMods Пока не работает
+  #   modifiers:
+  #   - damageFalloffAddMult: 0.1
+
+- type: entity
+  parent: ADTBarrelAttachmentBase
+  id: ADTAttachmentAntiLyingWarrior
+  name: Anti Lying Warrior
+  description: AntiLyingWarrior
+  components:
+  - type: Sprite
+    state: antilying
+  - type: Tag
+    tags:
+    - ADTAttachmentBarrel
+    - ADTAttachmentAntiLyingWarrior
+  - type: AttachableVisuals
+    prefix: antilying
+  - type: AttachableAntiLyingWarrior

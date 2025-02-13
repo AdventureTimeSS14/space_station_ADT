@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: MaterialModCore
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: mod-core-standard
+  product: CrateMaterialModCore
+  cost: 10000
+  category: Materials
+  group: market

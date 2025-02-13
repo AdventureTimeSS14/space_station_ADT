@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Magistrat and ADTPathologist icon made by JustKeks(github), Blueshield made by Tamioki.",
+    "copyright": "Magistrat and ADTPathologist icon made by JustKeks(github), Blueshield made by Tamioki, GuardOfficer made by schrodinger71",
 
     "size": {
         "x": 8,
@@ -16,6 +16,9 @@
         },
         {
             "name": "ADTBlueShieldOfficer"
+        },
+        {
+            "name": "GuardOfficer"
         }
     ]
 }

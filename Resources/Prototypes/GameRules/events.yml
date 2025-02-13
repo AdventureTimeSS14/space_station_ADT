@@ -10,6 +10,7 @@
     - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
+    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
@@ -17,6 +18,7 @@
     - id: MouseMigration
     - id: PowerGridCheck
     - id: RandomSentience
+    - id: ADTNeutralSpiderSpawn # ADT Tweak нейтральные паучки
     - id: SlimesSpawn
     - id: SolarFlare
     - id: SnakeSpawn
@@ -34,7 +36,11 @@
     - id: NinjaSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
+    # - id: ZombieOutbreak # ADT tweak
+    - id: DerelictCyborgSpawn
     - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
+    - id: Pirates # ADT tweak pirates
+    - id: PhantomSpawn # ADT tweak phantom
     # - id: ZombieOutbreak
 
 - type: entity
@@ -160,7 +166,7 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 6.5
+    weight: 4.5  # ADT tweak 6.5 > 4.5
     earliestStart: 40
     reoccurrenceDelay: 20
     minimumPlayers: 30 #ADT-Tweak 20 >>> 30
@@ -181,16 +187,15 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: DragonRole
-        prototype: Dragon
+      mindRoles:
+      - MindRoleDragon
 
 - type: entity
   parent: BaseGameRule
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 4.5 # ADT tweak 6 > 4.5
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20
@@ -220,6 +225,7 @@
         color: Green
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
+      - type: EmpProtection # ADT TWEAK
       - type: SpaceNinja
       - type: NpcFactionMember
         factions:
@@ -231,16 +237,15 @@
         nameSegments:
         - names_ninja_title
         - names_ninja
-      mindComponents:
-      - type: NinjaRole
-        prototype: SpaceNinja
+      mindRoles:
+      - MindRoleNinja
 
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 6.5  # ADT tweak  7.5 > 6.5
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -404,8 +409,18 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+# ADT tweak start Разные пауки
+#    - id: MobGiantSpiderAngry
+#      prob: 0.05
+    - id: ADTMobHunterSpiderAngry
+      prob: 0.02
+    - id: ADTMobGuardSpiderAngry
+      prob: 0.02
+    - id: ADTMobTarantulaSpiderAngry
+      prob: 0.005
+    - id: ADTMobViperSpiderAngry
+      prob: 0.005
+# ADT tweak end Разные пауки
 
 - type: entity
   id: SpiderClownSpawn
@@ -421,7 +436,7 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-    - id: MobClownSpider
+    - id: ADTMobClownSpider # ADT tweak
       prob: 0.05
 
 # ADT zombie remove
@@ -470,12 +485,12 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 2 # ADT TWEAK 5.5 >>> 2
     minimumPlayers: 30 #ADT-Tweak 20 >>> 30
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
+    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -487,7 +502,6 @@
       startingGear: SyndicateLoneOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie
-
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -497,9 +511,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops
 
 - type: entity
   parent: BaseTraitorRule
@@ -526,9 +539,8 @@
       blacklist:
         components:
         - AntagImmune
-      mindComponents:
-      - type: TraitorRole
-        prototype: TraitorSleeper
+      mindRoles:
+      - MindRoleTraitorSleeper
 
 - type: entity
   id: MassHallucinations
@@ -566,3 +578,45 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
   - type: MobReplacementRule
+
+- type: entity
+  id: GreytideVirus
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    minimumPlayers: 25
+    reoccurrenceDelay: 20
+  - type: GreytideVirusRule
+    accessGroups:
+    - Cargo
+    - Command
+    - Engineering
+    - Research
+    - Security
+    - Service
+    blacklist:
+    - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelict
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborg
+      min: 1
+      max: 1
+      pickPlayer: false

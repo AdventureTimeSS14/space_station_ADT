@@ -4,7 +4,7 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_gemini.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 20
+  minPlayers: 25
   stations:
     Gemini:
       stationProto: StandardNanotrasenStation
@@ -41,7 +41,7 @@
             Warden: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 6, 6 ]
             Musician: [ 2, 2 ]
             AtmosphericTechnician: [ 2, 3 ]
             TechnicalAssistant: [ 3, 3 ]
@@ -51,6 +51,7 @@
             SecurityCadet: [ 3, 3 ]
             Detective: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
+            Pilot: [ 1, 1] # Corvax-Pilot
             Magistrat: [ 1, 1 ] #ADT-Roles
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTPathologist: [ 1, 1 ] #ADT-Roles
@@ -60,6 +61,7 @@
             ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]

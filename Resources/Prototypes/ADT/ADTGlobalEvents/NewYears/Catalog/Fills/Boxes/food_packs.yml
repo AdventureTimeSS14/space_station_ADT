@@ -1,0 +1,44 @@
+#New Year
+- type: entity
+  name: carnation pack
+  parent: BoxCardboard
+  id: ADTCarnationPack
+  description: Just a usual pack of an usual carnation.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/carnation_pack.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/carnation_pack.rsi
+    size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,5,0
+    maxItemSize: Tiny
+  - type: StorageFill
+    contents:
+      - id: ADTFoodCarnation
+        amount: 6
+
+- type: entity
+  name: cinnamon pack
+  parent: BoxCardboard
+  id: ADTCinnamonPack
+  description: A pack of cinnamon.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/cinnamon_pack.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/cinnamon_pack.rsi
+    size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,4,0
+    maxItemSize: Tiny
+  - type: StorageFill
+    contents:
+      - id: ADTFoodCinnamon
+        amount: 5

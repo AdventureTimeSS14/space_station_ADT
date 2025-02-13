@@ -2,7 +2,7 @@
   id: ADT_Box
   mapName: 'Box Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_box.yml
-  minPlayers: 20
+  minPlayers: 30
   stations:
     ADT_Boxstation:
       stationProto: StandardNanotrasenStation
@@ -57,10 +57,12 @@
             SecurityCadet: [ 4, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            Pilot: [ 1, 1] # Corvax-Pilot
             #Lawyer: [ 2, 2 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 6, 6 ]
             CargoTechnician: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]

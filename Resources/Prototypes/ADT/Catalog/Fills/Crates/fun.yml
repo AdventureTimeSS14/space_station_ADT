@@ -105,3 +105,77 @@
       amount: 1
     - id: ADTVehicleKeySyndicateSegway
       amount: 1
+
+# halloween
+
+- type: entity
+  id: ADTCrateHalloweenCloth
+  parent: CratePlastic
+  name: halloween clothing crate
+  description: halloween clothing crate
+  suffix: Halloween
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoxHalloweenCandy
+      amount: 4
+    - id: ADTBoxNightmareClown
+    - id: ADTBoxCrueltySquad
+    - id: ADTBoxJason
+    - id: ADTBoxVyazov
+    - id: ADTBoxHotlineMiami
+    - id: ADTBoxKilla
+    - id: ADTBoxServantOfEvil
+    - id: ADTBoxDude
+    - id: ADTBoxSquidPlayers
+    - id: ADTBoxSquidOrganizer
+    - id: ADTBoxTagilla
+    - id: ADTBoxNevadaClown
+    - id: ADTBoxTransilvania
+    - id: ADTBoxVergile
+    - id: ADTXenoBox
+    - id: ADTSuperstarPoliceBox
+    - id: ADTSuperstarPoliceWingmanBox
+    - id: ADTBunnyDancerBox
+    - id: ADTPayDayBox
+    - id: ADTChainSawManBox
+    - id: ADTBoxSollux
+    - id: ADTBoxRedHat
+    - id: ADTBoxBadPolice
+    - id: ADTBoxLethalCompany
+    - id: ADTBoxEmpressOfLight
+
+- type: entity
+  id: ADTCrateFunSprayPaints
+  name: spray paint crate
+  description: a crate filled with spray paint.
+  parent: CratePlastic
+  suffix: Spray Paint
+  components:
+  - type: StorageFill
+    contents:
+      - id: SprayPaintBlue
+        amount: 2
+        prob: 0.33
+      - id: SprayPaintRed
+        amount: 2
+        prob: 0.33
+      - id: SprayPaintOrange
+        amount: 2
+        prob: 0.33
+      - id: SprayPaintBlack
+        amount: 2
+        prob: 0.33
+      - id: SprayPaintGreen
+        amount: 2
+        prob: 0.33
+      - id: SprayPaintPurple
+        amount: 2
+        prob: 0.33
+      - id: SprayPaintWhite
+        amount: 2
+        prob: 0.33
+      - id: DeathPaint
+        amount: 2
+      - id: DeathPaintTwo
+        amount: 2

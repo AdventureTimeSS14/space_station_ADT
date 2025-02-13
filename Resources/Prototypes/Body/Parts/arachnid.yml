@@ -90,7 +90,6 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/parts.rsi
     state: "l_leg"
-  - type: MovementBodyPart
 
 - type: entity
   id: RightLegArachnid
@@ -100,7 +99,6 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/parts.rsi
     state: "r_leg"
-  - type: MovementBodyPart
 
 - type: entity
   id: LeftFootArachnid

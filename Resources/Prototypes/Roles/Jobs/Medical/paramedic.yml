@@ -12,9 +12,11 @@
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
+  canBeAntag: false # ADT tweak?
   access:
   - Medical
   - Maintenance
+  - External # ADT tweak
   extendedAccess:
   - Chemistry
 
@@ -22,8 +24,10 @@
   id: ParamedicGear
   equipment:
     id: ParamedicPDA
-    ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalEMTFilled
+# ADT tweak Start
+    ears: ADTClothingHeadsetParamedic
+#    belt: ClothingBeltMedicalEMTFilled
+# ADT tweak End
   storage:
     back:
     - EmergencyRollerBedSpawnFolded

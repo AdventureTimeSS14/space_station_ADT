@@ -4,7 +4,6 @@ using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Emp;
-using Content.Server.GameTicking;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
@@ -14,8 +13,10 @@ using Content.Shared.Damage;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
 using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
@@ -349,8 +350,9 @@ public sealed class SuitSensorSystem : EntitySystem
         if (!Resolve(uid, ref sensor, ref transform))
             return null;
 
-        // check if sensor is enabled and worn by user
-        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
+        // ADT-Tweak-Start
+        // check if sensor worn by user
+        if (sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
             return null;
 
         // try to get mobs id from ID slot
@@ -363,8 +365,8 @@ public sealed class SuitSensorSystem : EntitySystem
         {
             if (card.Comp.FullName != null)
                 userName = card.Comp.FullName;
-            if (card.Comp.JobTitle != null)
-                userJob = card.Comp.JobTitle;
+            if (card.Comp.LocalizedJobTitle != null)
+                userJob = card.Comp.LocalizedJobTitle;
             userJobIcon = card.Comp.JobIcon;
 
             foreach (var department in card.Comp.JobDepartments)
@@ -383,48 +385,37 @@ public sealed class SuitSensorSystem : EntitySystem
 
         // Get mob total damage crit threshold
         int? totalDamageThreshold = null;
-        if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, Shared.Mobs.MobState.Critical, out var critThreshold))
+        if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
             totalDamageThreshold = critThreshold.Value.Int();
 
         // finally, form suit sensor status
-        var status = new SuitSensorStatus(GetNetEntity(uid), userName, userJob, userJobIcon, userJobDepartments);
-        switch (sensor.Mode)
+        var status = new SuitSensorStatus(GetNetEntity(uid), userName, userJob, userJobIcon, userJobDepartments, sensor.Mode);
+
+        status.IsAlive = isAlive;
+        status.TotalDamage = totalDamage;
+        status.TotalDamageThreshold = totalDamageThreshold;
+        status.Mode = sensor.Mode;
+        EntityCoordinates coordinates;
+        var xformQuery = GetEntityQuery<TransformComponent>();
+
+        if (transform.GridUid != null)
         {
-            case SuitSensorMode.SensorBinary:
-                status.IsAlive = isAlive;
-                break;
-            case SuitSensorMode.SensorVitals:
-                status.IsAlive = isAlive;
-                status.TotalDamage = totalDamage;
-                status.TotalDamageThreshold = totalDamageThreshold;
-                break;
-            case SuitSensorMode.SensorCords:
-                status.IsAlive = isAlive;
-                status.TotalDamage = totalDamage;
-                status.TotalDamageThreshold = totalDamageThreshold;
-                EntityCoordinates coordinates;
-                var xformQuery = GetEntityQuery<TransformComponent>();
-
-                if (transform.GridUid != null)
-                {
-                    coordinates = new EntityCoordinates(transform.GridUid.Value,
-                        Vector2.Transform(_transform.GetWorldPosition(transform, xformQuery),
-                            _transform.GetInvWorldMatrix(xformQuery.GetComponent(transform.GridUid.Value), xformQuery)));
-                }
-                else if (transform.MapUid != null)
-                {
-                    coordinates = new EntityCoordinates(transform.MapUid.Value,
-                        _transform.GetWorldPosition(transform, xformQuery));
-                }
-                else
-                {
-                    coordinates = EntityCoordinates.Invalid;
-                }
-
-                status.Coordinates = GetNetCoordinates(coordinates);
-                break;
+            coordinates = new EntityCoordinates(transform.GridUid.Value,
+                Vector2.Transform(_transform.GetWorldPosition(transform, xformQuery),
+                    _transform.GetInvWorldMatrix(xformQuery.GetComponent(transform.GridUid.Value), xformQuery)));
+        }
+        else if (transform.MapUid != null)
+        {
+            coordinates = new EntityCoordinates(transform.MapUid.Value,
+                _transform.GetWorldPosition(transform, xformQuery));
+        }
+        else
+        {
+            coordinates = EntityCoordinates.Invalid;
         }
 
+        status.Coordinates = GetNetCoordinates(coordinates);
+        // ADT-Tweak-End
         return status;
     }
 
@@ -442,6 +433,7 @@ public sealed class SuitSensorSystem : EntitySystem
             [SuitSensorConstants.NET_JOB_DEPARTMENTS] = status.JobDepartments,
             [SuitSensorConstants.NET_IS_ALIVE] = status.IsAlive,
             [SuitSensorConstants.NET_SUIT_SENSOR_UID] = status.SuitSensorUid,
+            [SuitSensorConstants.NET_SUIT_SENSOR_MODE] = status.Mode, // ADT-Tweak
         };
 
         if (status.TotalDamage != null)
@@ -472,13 +464,14 @@ public sealed class SuitSensorSystem : EntitySystem
         if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_DEPARTMENTS, out List<string>? jobDepartments)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_IS_ALIVE, out bool? isAlive)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_UID, out NetEntity suitSensorUid)) return null;
+        if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_MODE, out SuitSensorMode mode)) return null; // ADT-Tweak
 
         // try get total damage and cords (optionals)
         payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE, out int? totalDamage);
         payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
         payload.TryGetValue(SuitSensorConstants.NET_COORDINATES, out NetCoordinates? coords);
 
-        var status = new SuitSensorStatus(suitSensorUid, name, job, jobIcon, jobDepartments)
+        var status = new SuitSensorStatus(suitSensorUid, name, job, jobIcon, jobDepartments, mode) // ADT-Tweak
         {
             IsAlive = isAlive.Value,
             TotalDamage = totalDamage,

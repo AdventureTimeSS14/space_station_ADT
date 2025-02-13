@@ -1,0 +1,78 @@
+- type: entity
+  parent: BaseStructure
+  id: ADTBoxMaintenance
+  name: box maintenance
+  description: Iconic symbol of maintenance areas. The variety of these boxes is simply amazing.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/boxes.rsi
+    snapCardinals: true
+    layers:
+    - state: box_b1
+      map: [ "box" ]
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Pullable
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Damageable
+    damageContainer: Box
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: ADTBoxMaintenance
+    node: ADTBoxMaintenance
+
+- type: entity
+  parent: ADTBoxMaintenance
+  id: ADTBoxMaintenanceRandom
+  suffix: Random
+  components:
+  - type: RandomSprite
+    available:
+      - box:
+          box_b1: ""
+          box_b2: ""
+          box_b3: ""
+          box_b4: ""
+          box_b5: ""
+          box_l1: ""
+          box_l1_2: ""
+          box_l1_3: ""
+          box_l2: ""
+          box_l3: ""
+          box_s1: ""
+          box_s2: ""
+          box_s3: ""
+          box_spec_smile: ""
+          box_spec_theyarewatching: ""
+          box_spec_xxxxxxxxxx: ""
+          box_spec1: ""
+          box_spec2: ""
+          box_spec3: ""
+          box_t1: ""
+          box_t2: ""
+          box_t3: ""
+          box_t4: ""
+          box_t5: ""
+          box2: ""
+          box3: ""
+          box4: ""
+          box5: ""

@@ -1,0 +1,21 @@
+- files: ["lateraligator.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Later Alligator By Silverman Sound Studios. Converted to mono ogg"
+  source: "https://soundcloud.com/silvermansound/later-alligator"
+
+- files: ["A_beautiful_lull.ogg", "A_Tense_Adventure.ogg", "Happy_ending.ogg", "The_fall_of_the_corporation.ogg", "Waiting_for_the_meeting.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Created for ADT by discord: conjurerq"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT/pull/800"
+
+- files: ["fsm-team-eagle.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "by FSM team https://www.free-stock-music.com. Converted to mono ogg"
+  source: "https://www.free-stock-music.com/fsm-team-eagle.html"
+
+- files:
+  - fsm-team-escp-midnight-room.ogg
+  - fsm-team-escp-neonscapes.ogg
+  license: "CC-BY-3.0"
+  copyright: "by | e s c p | https://www.escp.space https://escp-music.bandcamp.com. Converted to mono ogg"
+  source: "https://www.free-stock-music.com"

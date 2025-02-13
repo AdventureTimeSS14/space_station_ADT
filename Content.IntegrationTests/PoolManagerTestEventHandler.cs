@@ -1,11 +1,11 @@
-﻿namespace Content.IntegrationTests;
+namespace Content.IntegrationTests;
 
 [SetUpFixture]
 public sealed class PoolManagerTestEventHandler
 {
     // This value is completely arbitrary.
-    private static TimeSpan MaximumTotalTestingTimeLimit => TimeSpan.FromMinutes(20);
-    private static TimeSpan HardStopTimeLimit => MaximumTotalTestingTimeLimit.Add(TimeSpan.FromMinutes(1));
+    private static TimeSpan MaximumTotalTestingTimeLimit => TimeSpan.FromMinutes(60); // ADT-Tweak - увеличили с 20 до 60 минут
+    private static TimeSpan HardStopTimeLimit => MaximumTotalTestingTimeLimit.Add(TimeSpan.FromMinutes(5)); // ADT-Tweak - увеличили с 1 до 5 минут
 
     [OneTimeSetUp]
     public void Setup()

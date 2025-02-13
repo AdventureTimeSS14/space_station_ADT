@@ -1,0 +1,101 @@
+- type: jukebox
+  id: lateraligator
+  name: Silverman Sound Studios - Later Alligator
+  path:
+    path: /Audio/ADT/Jukebox/lateraligator.ogg
+
+- type: jukebox
+  id: ABeautifulLull
+  name: Conjurerq - A beautiful lull
+  path:
+    path: /Audio/ADT/Jukebox/A_beautiful_lull.ogg
+
+- type: jukebox
+  id: ATenseAdventure
+  name: Conjurerq - A Tense Adventure
+  path:
+    path: /Audio/ADT/Jukebox/A_Tense_Adventure.ogg
+
+- type: jukebox
+  id: HappyEnding
+  name: Conjurerq - Happy ending
+  path:
+    path: /Audio/ADT/Jukebox/Happy_ending.ogg
+
+- type: jukebox
+  id: TheFallOfTheCorporation
+  name: Conjurerq - The fall of the corporation
+  path:
+    path: /Audio/ADT/Jukebox/The_fall_of_the_corporation.ogg
+
+- type: jukebox
+  id: WaitingForTheMeeting
+  name: Conjurerq - Waiting for the meeting
+  path:
+    path: /Audio/ADT/Jukebox/Waiting_for_the_meeting.ogg
+
+- type: jukebox
+  id: GiftOfAdventureFromConjurer
+  name: Conjurerq - Gift of Adventure from Conjurer
+  path:
+    path: /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasCountdown
+  name: Alex Productions - Christmas Countdown
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-countdown-deck-the-halls.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasIsComing
+  name: Alex Productions - Christmas is Coming
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-is-coming.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasMood
+  name: Alex Productions - Christmas Mood
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-mood.ogg
+
+- type: jukebox
+  id: AlexProductionsChristmasVibes
+  name: Alex Productions - Christmas Vibes
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-vibes.ogg
+
+- type: jukebox
+  id: ESCPMidnightRoom
+  name: < e s c p > - Midnight Room
+  path:
+    path: /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
+
+- type: jukebox
+  id: ESCPNeonscapes
+  name: < e s c p > - Neonscapes
+  path:
+    path: /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
+
+- type: jukebox
+  id: MaxKoMusicChristmasIsComing
+  name: MaxKoMusic - Christmas is Coming
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/maxkomusic-christmas-is-coming.ogg
+
+- type: jukebox
+  id: RoaMusicWinterMagic
+  name: Roa Music - Winter Magic
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/roa-music-winter-magic.ogg
+
+- type: jukebox
+  id: PianoSaysYuletide
+  name: Piano Says - Yuletide
+  path:
+    path: /Audio/ADT/Jukebox/NewYear/the-piano-says-yuletide.ogg
+
+- type: jukebox
+  id: FSMTeamEagle
+  name: FSM team - Eagle
+  path:
+    path: /Audio/ADT/Jukebox/fsm-team-eagle.ogg

@@ -1,9 +1,22 @@
 - type: storeCategory
   id: ADTUplinkERTWeapon
-  name: вооружение
+  name: Оружие
   priority: 1
 
 - type: storeCategory
   id: ADTUplinkERTMisc
-  name: прочее
+  name: Прочее
   priority: 2
+
+- type: storeCategory
+  id: ADTUplinkERTAttachments
+  name: Оруж. обвесы
+  priority: 3
+
+- type: storeCategory
+  id: ChangelingAbilities
+  name: store-category-abilities
+
+- type: storeCategory
+  id: ADTPirate
+  name: store-category-wearables

@@ -67,3 +67,54 @@
     accent-shitcure-words-63: accent-shitcure-words-replace-18
     accent-shitcure-words-64: accent-shitcure-words-replace-18
     accent-shitcure-words-65: accent-shitcure-words-replace-18
+
+- type: accent
+  id: adt_chatsanitize
+  wordReplacements:
+    accent-adt_chatsanitize-words-1-1: accent-adt_chatsanitize-replace-1
+    accent-adt_chatsanitize-words-1-2: accent-adt_chatsanitize-replace-1
+    accent-adt_chatsanitize-words-2-1: accent-adt_chatsanitize-replace-2
+    accent-adt_chatsanitize-words-2-2: accent-adt_chatsanitize-replace-2
+    accent-adt_chatsanitize-words-2-3: accent-adt_chatsanitize-replace-2
+    accent-adt_chatsanitize-words-2-4: accent-adt_chatsanitize-replace-2
+    accent-adt_chatsanitize-words-3: accent-adt_chatsanitize-replace-3
+    accent-adt_chatsanitize-words-4: accent-adt_chatsanitize-replace-4
+    accent-adt_chatsanitize-words-5-1: accent-adt_chatsanitize-replace-5
+    accent-adt_chatsanitize-words-5-2: accent-adt_chatsanitize-replace-5
+    accent-adt_chatsanitize-words-6-1: accent-adt_chatsanitize-replace-6
+    accent-adt_chatsanitize-words-6-2: accent-adt_chatsanitize-replace-6
+    accent-adt_chatsanitize-words-6-3: accent-adt_chatsanitize-replace-6
+    accent-adt_chatsanitize-words-7: accent-adt_chatsanitize-replace-7
+    accent-adt_chatsanitize-words-8: accent-adt_chatsanitize-replace-8
+    accent-adt_chatsanitize-words-9: accent-adt_chatsanitize-replace-9
+    accent-adt_chatsanitize-words-10-1: accent-adt_chatsanitize-replace-10
+    accent-adt_chatsanitize-words-10-2: accent-adt_chatsanitize-replace-10
+    accent-adt_chatsanitize-words-10-3: accent-adt_chatsanitize-replace-10
+    accent-adt_chatsanitize-words-11-1: accent-adt_chatsanitize-replace-11
+    accent-adt_chatsanitize-words-11-2: accent-adt_chatsanitize-replace-11
+    accent-adt_chatsanitize-words-11-3: accent-adt_chatsanitize-replace-11
+    accent-adt_chatsanitize-words-11-4: accent-adt_chatsanitize-replace-11
+    accent-adt_chatsanitize-words-12: accent-adt_chatsanitize-replace-12
+    accent-adt_chatsanitize-words-13: accent-adt_chatsanitize-replace-13
+    accent-adt_chatsanitize-words-14: accent-adt_chatsanitize-replace-14
+    accent-adt_chatsanitize-words-15: accent-adt_chatsanitize-replace-15
+    accent-adt_chatsanitize-words-16: accent-adt_chatsanitize-replace-16
+    accent-adt_chatsanitize-words-17: accent-adt_chatsanitize-replace-17
+    accent-adt_chatsanitize-words-18: accent-adt_chatsanitize-replace-18
+    accent-adt_chatsanitize-words-19: accent-adt_chatsanitize-replace-19
+    accent-adt_chatsanitize-words-20-1: accent-adt_chatsanitize-replace-20
+    accent-adt_chatsanitize-words-20-2: accent-adt_chatsanitize-replace-20
+    accent-adt_chatsanitize-words-21: accent-adt_chatsanitize-replace-21
+    accent-adt_chatsanitize-words-22: accent-adt_chatsanitize-replace-22
+    accent-adt_chatsanitize-words-23-1: accent-adt_chatsanitize-replace-23
+    accent-adt_chatsanitize-words-23-2: accent-adt_chatsanitize-replace-23
+    accent-adt_chatsanitize-words-23-3: accent-adt_chatsanitize-replace-23
+    accent-adt_chatsanitize-words-23-4: accent-adt_chatsanitize-replace-23
+    accent-adt_chatsanitize-words-24: accent-adt_chatsanitize-replace-24
+    accent-adt_chatsanitize-words-25-1: accent-adt_chatsanitize-replace-25
+    accent-adt_chatsanitize-words-25-2: accent-adt_chatsanitize-replace-25
+    accent-adt_chatsanitize-words-26-1: accent-adt_chatsanitize-replace-26
+    accent-adt_chatsanitize-words-26-2: accent-adt_chatsanitize-replace-26
+    accent-adt_chatsanitize-words-27-1: accent-adt_chatsanitize-replace-27
+    accent-adt_chatsanitize-words-27-2: accent-adt_chatsanitize-replace-27
+

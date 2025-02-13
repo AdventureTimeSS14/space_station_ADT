@@ -98,6 +98,9 @@
             "name": "plushie_timrika"
         },
         {
+            "name": "plushie_bobo"
+        },
+        {
             "name": "plushie_amira"
         },
         {
@@ -184,6 +187,9 @@
         },
         {
             "name": "plushie_emma"
-        }
+        },
+		{
+			"name": "plushie_hollowing"
+		}
     ]
 }

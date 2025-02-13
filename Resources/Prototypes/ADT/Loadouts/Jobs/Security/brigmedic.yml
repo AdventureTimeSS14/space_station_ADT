@@ -5,16 +5,6 @@
     head: ADTClothingHeadHatBeretBrigmedic
 
 - type: loadout
-  id: ADTClotHeadHatBeretBrigmedic
-  equipment:
-    head: ClothingHeadHatBeretBrigmedic
-
-- type: loadout
-  id: ADTHeadHatBeretSecurityMedic
-  equipment:
-    head: ClothingHeadHatBeretSecurityMedic
-
-- type: loadout
   id: ADTHeadHelmetSecurityMedic
   equipment:
     head: ClothingHeadHelmetSecurityMedic
@@ -33,23 +23,44 @@
 - type: loadout
   id: ADTUniformBrigmedicJumpsuitTurtleneck
   equipment:
-    jumpsuit: ADTClothingUniformBrigmedicJumpsuitTurtleneck
+    jumpsuit: ADTClothingUniformJumpsuitBrigmedicTurtleneck
 
 - type: loadout
   id: ADTUniformSkirtBrigmedicJumpskirtTurtleneck
   equipment:
-    jumpsuit: ADTClothingUniformSkirtBrigmedicJumpskirtTurtleneck
+    jumpsuit: ADTClothingUniformJumpskirtBrigmedicTurtleneck
 
 # Neck
-- type: loadout
-  id: ADTNeckSecBadge
-  equipment:
-    neck: ADTClothingNeckSecBadge
+# - type: loadout
+#   id: ADTNeckSecBadge
+#   equipment:
+#     neck: ADTClothingNeckSecBadge
 
 #- type: loadout
 #  id: ADTBrigmedicCloak
 #  equipment:
 #    neck: ADTClothingNeckCloakBrigmedic
+
+- type: loadout
+  id: ADTNeckSecBadgeBronze
+  equipment:
+    neck: ADTClothingNeckSecBadgeBronze
+
+- type: loadout
+  id: ADTNeckSecBadgeSilver
+  equipment:
+    neck: ADTClothingNeckSecBadgeSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurity100hours
+
+- type: loadout
+  id: ADTNeckSecBadgeGold
+  equipment:
+    neck: ADTClothingNeckSecBadgeGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
 
  #Back
 
@@ -66,75 +77,64 @@
 - type: loadout
   id: ADTBackpackSatchelBrigmedicFilled
   equipment:
-    back: ClothingBackpackSatchelBrigmedicFilled
+    back: ClothingBackpackSatchelBrigmedic
 
 # Eyes
 - type: loadout
   id: ADTEyesGlassesMed
   equipment:
-    back: ADTClothingEyesGlassesMed
+    eyes: ADTClothingEyesGlassesMed
 
 - type: loadout
   id: ADTEyesGlassesSecurity
   equipment:
-    back: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSecurity
 
 - type: loadout
   id: ADTEyesGlassesSunglasses
   equipment:
-    back: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSunglasses
 
 # Hands Gloves
 - type: loadout
   id: ADTHandsGlovesLatex
   equipment:
-    back: ClothingHandsGlovesLatex
+    gloves: ClothingHandsGlovesLatex
 
 - type: loadout
   id: ADTHandsGlovesNitrile
   equipment:
-    back: ClothingHandsGlovesNitrile
-
-- type: loadout
-  id: ADTHandsGlovesCombat
-  equipment:
-    back: ClothingHandsGlovesCombat
-
-# PDA
-- type: loadout
-  id: ADTBrigmedicPDA
-  equipment:
-    back: BrigmedicPDA
+    gloves: ClothingHandsGlovesNitrile
 
 # belt
 - type: loadout
   id: ADTBeltMedicalFilled
   equipment:
-    back: ClothingBeltMedicalFilled
+    belt: ClothingBeltMedicalFilled
 
 - type: loadout
   id: ADTBeltSecurityRPS
   equipment:
-    back: ClothingBeltSecurityWebbingFilled
+    belt: ClothingBeltSecurityWebbingFilled
 
 - type: loadout
   id: ADTBeltSecurityForBrigmedic
   equipment:
-    back: ClothingBeltSecurityFilled
+    belt: ClothingBeltSecurityFilled
 
 # outerwear
 - type: loadout
   id: ADTOuterCoatBrigmedicWB
   equipment:
-    back: ADTClothingOuterCoatBrigmedicWB
+    outerClothing: ADTClothingOuterCoatBrigmedicWB
 
 - type: loadout
   id: ADTOuterVestSecurityMedic
   equipment:
-    back: ClothingOuterVestSecurityMedic
+    outerClothing: ClothingOuterVestSecurityMedic
 
 - type: loadout
   id: ADTOuterCoatLabSecurityMedic
   equipment:
-    back: ClothingOuterCoatLabSecurityMedic
+    outerClothing: ClothingOuterCoatLabSecurityMedic
 

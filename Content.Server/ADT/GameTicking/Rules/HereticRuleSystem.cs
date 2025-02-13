@@ -48,7 +48,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     {
         TryMakeHeretic(args.EntityUid, ent.Comp);
 
-        for (int i = 0; i < _rand.Next(6, 12); i++)
+        for (int i = 0; i < _rand.Next(4, 8); i++)
             if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
                 Spawn("EldritchInfluence", coords);
     }
@@ -61,14 +61,10 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         // briefing
         if (HasComp<MetaDataComponent>(target))
         {
-            var briefingShort = Loc.GetString("heretic-role-greeting-short");
-
             _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting-fluff"), Color.MediumPurple, null);
             _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting"), Color.Red, BriefingSound);
 
-            if (_mind.TryGetRole<RoleBriefingComponent>(mindId, out var rbc))
-                rbc.Briefing += $"\n{briefingShort}";
-            else _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
+            _role.MindAddRole(mindId, "MindRoleHeretic", mind, true);
         }
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, HereticFactionId);

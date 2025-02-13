@@ -57,4 +57,7 @@ public sealed partial class HitscanPrototype : IPrototype, IShootable
 
     [DataField]
     public List<object> TargetEvents = new();   // ADT Hitscan events
+
+    [DataField]
+    public float? BloodlossModifier = null;   // ADT Hitscan bloodloss modify
 }

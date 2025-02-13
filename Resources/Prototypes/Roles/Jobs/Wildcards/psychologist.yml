@@ -3,6 +3,11 @@
   name: job-name-psychologist
   description: job-description-psychologist
   playTimeTracker: JobPsychologist
+  # ADT-Tweak-start
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
+  # ADT-tweak-end
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo
@@ -20,5 +25,4 @@
     ears: ClothingHeadsetMedical
   storage:
     back:
-#    - BoxSurvivalMedical
-    - RubberStampPsychologist # Corvax-MRP
+    - RubberStampPsychologist

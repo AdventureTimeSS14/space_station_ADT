@@ -8,7 +8,7 @@ using Content.Shared.Mind;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
-[RegisterComponent, Access(typeof(PhantomRuleSystem))]
+[RegisterComponent]//, Access(typeof(PhantomRuleSystem))]
 public sealed partial class PhantomRuleComponent : Component
 {
     /// <summary>
@@ -64,7 +64,7 @@ public sealed partial class PhantomRuleComponent : Component
     [DataField]
     public Dictionary<EntityUid, string> OperativeMindPendingData = new();
 
-    public Entity<MindComponent> PhantomMind = new();
+    public Entity<MindComponent>? PhantomMind;
 
     [DataField]
     public ProtoId<WeightedRandomPrototype> ObjectiveGroup = "PhantomObjectiveGroups";

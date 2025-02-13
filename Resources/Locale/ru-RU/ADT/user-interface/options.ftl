@@ -7,3 +7,5 @@ ui-options-tts-speech = TextToSpeech
 ui-options-barks-volume = Громкость барков:
 
 ui-options-boombox-volume = Громкость бумбокса
+
+roadmap-name = Дорожная карта

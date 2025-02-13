@@ -88,27 +88,26 @@ public abstract class SharedCrawlingSystem : EntitySystem
         }
         _standing.Stand(uid);
     }
+
     private void OnStandUp(EntityUid uid, CrawlerComponent component, StandAttemptEvent args)
     {
         if (args.Cancelled)
             return;
         RemCompDeferred<CrawlingComponent>(uid);
-        _alerts.ClearAlert(uid, component.CtawlingAlert);
+        _alerts.ClearAlert(uid, component.CrawlingAlert);
     }
     private void OnFall(EntityUid uid, CrawlerComponent component, DownAttemptEvent args)
     {
         if (args.Cancelled)
             return;
-        _alerts.ShowAlert(uid, component.CtawlingAlert);
-        if (!HasComp<CrawlingComponent>(uid))
-            AddComp<CrawlingComponent>(uid);
+        _alerts.ShowAlert(uid, component.CrawlingAlert);
+        EnsureComp<CrawlingComponent>(uid);
         //TODO: add hiding under table
     }
     private void OnStunned(EntityUid uid, CrawlerComponent component, StunnedEvent args)
     {
-        if (!HasComp<CrawlingComponent>(uid))
-            AddComp<CrawlingComponent>(uid);
-        _alerts.ShowAlert(uid, component.CtawlingAlert);
+        EnsureComp<CrawlingComponent>(uid);
+        _alerts.ShowAlert(uid, component.CrawlingAlert);
     }
     private void OnGetExplosionResistance(EntityUid uid, CrawlerComponent component, ref GetExplosionResistanceEvent args)
     {
@@ -120,7 +119,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
             var ev = new ExplosionDownAttemptEvent(args.ExplosionPrototype);
             RaiseLocalEvent(uid, ref ev);
             if (!ev.Cancelled)
-                _standing.Down(uid, dropHeldItems: false);
+                _standing.Down(uid);
         }
 
     }

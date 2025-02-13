@@ -19,6 +19,52 @@
     damageCoefficient: 0.80
 
 - type: entity
+  abstract: true
+  id: BadgeOnClothing
+  components:
+  - type: Badgeable
+  - type: ContainerContainer
+    containers:
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+
+- type: entity
+  abstract: true
+  id: BadgeOnClothingWithContainer
+  components:
+  - type: Badgeable
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: ItemSlots
+    slots:
+      badge:
+        name: Badge
+        insertVerbText: attach-to-armor
+        ejectVerbText: unattach-to-armor
+        whitelist:
+          tags:
+          - ADTBadge
+
+- type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
   id: ClothingOuterArmorAirsoftBlue
   name: airsoft suit
@@ -104,3 +150,150 @@
     damageCoefficient: 0.80
   - type: Item
     size: Large
+
+
+    # halloween
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTTagillaArmor
+  name: Tagilla bulletproof vest
+  description: Tagilla bulletproof vest
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/tagilla_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/tagilla_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  #- type: Storage
+  #  capacity: 12
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTKillaArmor
+  name: Killa armor vest
+  description: Killa armor vest
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/killa_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/killa_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTCSIJArmor
+  name: CSIJ bulletproof vest
+  description: No one knows what this bulletproof vest is made of, and it's better not to know... On the back there are the initials CS - 'Cruelty Squad'.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/CSIJ_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingOuterArmorBasic, BadgeOnClothing]
+  id: ADTClothingOuterArmorMiner
+  name: miner armor
+  description: Will not protect you from pressure, but will help you well in the battle with space fauna.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetMiner
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ADTClothingOuterArmorMiner
+  id: ADTClothingOuterArmorMinerHeavy
+  name: heavy miner armor
+  description: Improved version of miner's armor. With this xeno scale, you sacrifice speed, but have more protection.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-xeno
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-xeno
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.65
+        Heat: 0.55
+        Caustic: 0.55
+
+- type: entity
+  parent: ADTClothingOuterArmorMiner
+  id: ClothingOuterArmorMinerLight
+  name: light miner armor
+  description: A lightweight version of miner's armor, made from dragon sinew. Thanks to ichor, you don't feel your weight.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon-unshaded-layer
+      shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2

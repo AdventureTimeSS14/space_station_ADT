@@ -61,7 +61,7 @@
     - state: id-spacesec-cadet
   - type: IdCard
     jobIcon: JobIconADTSpaceSecCadet
-    jobTitle: Кадет SPACE SEC
+    jobTitle: cadet-space-sec
   - type: Access
     tags:
     - SpaceSecOfficial
@@ -80,7 +80,7 @@
     - state: id-spacesec-officer
   - type: IdCard
     jobIcon: JobIconADTSpaceSecOfficer
-    jobTitle: Офицер SPACE SEC
+    jobTitle: officer-space-sec
   - type: Access
     tags:
     - SpaceSecOfficial
@@ -101,7 +101,7 @@
     - state: id-spacesec-pilot
   - type: IdCard
     jobIcon: JobIconADTSpaceSecPilot
-    jobTitle: Пилот SPACE SEC
+    jobTitle: pilot-space-sec
   - type: Access
     tags:
     - SpaceSecOfficial
@@ -122,7 +122,7 @@
     - state: id-spacesec-commander
   - type: IdCard
     jobIcon: JobIconADTSpaceSecCommander
-    jobTitle: Командир SPACE SEC
+    jobTitle: commander-space-sec
   - type: Access
     tags:
     - SpaceSecOfficial
@@ -144,7 +144,7 @@
     - state: id-spacesec-service
   - type: IdCard
     jobIcon: JobIconADTSpaceSecService
-    jobTitle: Сотрудник SPACE SEC
+    jobTitle: member-space-sec
   - type: Access
     tags:
     - SpaceSecOfficial
@@ -162,8 +162,31 @@
         - state: tsf_trader
         - state: id-trader-tsf
     - type: IdCard
-      jobTitle: Торговец
+      jobTitle: trader-tsf
     - type: Access
       tags:
       - ADTTrader
       - External
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTGuardOfficerIDCard
+  name: guard officer ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: id-guardofficer
+  - type: PresetIdCard
+    job: ADTGuardOfficer
+
+- type: entity
+  parent: PassengerIDCard
+  id: ADTPassagerRDIDCard
+  components:
+  - type: PresetIdCard
+    job: Passenger
+  - type: Access
+    groups:
+    - Research

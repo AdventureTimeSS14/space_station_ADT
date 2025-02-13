@@ -45,7 +45,8 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         EntityUid receiver,
         MaterialStorageComponent? storage = null,
         MaterialComponent? material = null,
-        PhysicalCompositionComponent? composition = null)
+        PhysicalCompositionComponent? composition = null,
+        bool showPopup = true) // ADT tweak
     {
         if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;

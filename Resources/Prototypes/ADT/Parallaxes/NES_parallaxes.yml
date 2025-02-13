@@ -1,0 +1,298 @@
+#NES паралксы
+- type: parallax
+  id: NesPurple
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/PurpleParallax.png"
+      slowness: 0.99
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.9999999
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
+      slowness: 0.99999999
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.999999999
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
+      slowness: 0.99999999
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/planet4.png"
+      slowness: 0.99
+      scale: "0.6, 0.6"
+      tiled: false
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesMir
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/Frontier.png"
+      slowness: 0.99992
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.999
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.998
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
+      slowness: 0.9999
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/planet2.png"
+      slowness: 0.99
+      scale: "0.4, 0.4"
+      tiled: false
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/LunaChe.png"
+      slowness: 0.9
+      scale: "2, 2"
+      tiled: false
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesAsteroids
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/GreenParallax.png"
+      slowness: 0.98
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.99
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/Asteroids.png"
+      slowness: 0.94
+      scale: "1, 1"
+      tiled: true
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/Asteroids.png"
+      slowness: 0.9
+      scale: "2, 2"
+      tiled: true
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesFrontier
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/Frontier.png"
+      slowness: 0.99
+      scale: "0.8, 0.8"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.9494994
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesGreen
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/GreenParallax2.png"
+      slowness: 0.999
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.999
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.998
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.9998
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/GreenPlanet.png"
+      slowness: 0.99
+      scale: "0.3, 0.3"
+      tiled: false
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesBlue
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/NebulaBlue.png"
+      slowness: 0.99
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.987265625
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/CoolBluePlanet.png"
+      slowness: 0.99
+      scale: "0.3, 0.3"
+      tiled: false
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesPurple2
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/MirStationParallaxBG.png"
+      slowness: 0.99
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.988998
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.99939
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.987265625
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/PurplePlanet.png"
+      slowness: 0.99
+      scale: "0.8, 0.8"
+      tiled: false
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesRed
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/NebulaRed.png"
+      slowness: 0.99959
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.9993999
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/PystinaPlanet.png"
+      slowness: 0.992
+      scale: "0.8, 0.8"
+      tiled: false
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false
+
+- type: parallax
+  id: NesAqua
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/NES/NebulaAqua.png"
+      slowness: 0.99
+      scale: "1, 1"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.999
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.99999939
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.9999
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false

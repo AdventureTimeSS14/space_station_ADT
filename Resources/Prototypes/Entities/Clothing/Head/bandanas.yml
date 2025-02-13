@@ -28,6 +28,8 @@
     tags:
     - Bandana
     - ClothMade
+  - type: StaticPrice # ADT START CHANGES
+    price: 20 # ADT END CHANGES
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandBlack]

@@ -294,28 +294,34 @@
   description: Busted.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-    layers:
-    - state: icon
-      color: "#ff8300"
-    - state: prisoner-icon
+# ADT tweak start
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/prisoner.rsi
+#    layers:
+#    - state: icon
+#      color: "#ff8300"
+#    - state: prisoner-icon
+# ADT tweak end
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#ff8300"
-      - state: prisoner-inhand-left
-      right:
-      - state: inhand-right
-        color: "#ff8300"
-      - state: prisoner-inhand-right
+# ADT tweak start
+#    inhandVisuals: ADT tweak start
+#      left:
+#      - state: inhand-left
+#        color: "#ff8300"
+#      - state: prisoner-inhand-left
+#      right:
+#      - state: inhand-right
+#        color: "#ff8300"
+#      - state: prisoner-inhand-right
+# ADT tweak end
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-INNERCLOTHING
-        color: "#ff8300"
-      - state: prisoner-equipped-INNERCLOTHING
+# ADT tweak start
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/prisoner.rsi
+#    clothingVisuals: ADT tweak start
+#      jumpsuit:
+#      - state: equipped-INNERCLOTHING
+#        color: "#ff8300"
+#      - state: prisoner-equipped-INNERCLOTHING
+# ADT tweak end
   - type: SuitSensor
     controlsLocked: true
     randomMode: false
@@ -821,6 +827,36 @@
       - state: equipped-INNERCLOTHING-jumpskirt
       - state: equipped-INNERCLOTHING-shirt
         color: "#b30000"
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCasualGreen
+  name: casual green jumpskirt
+  description: A loose worn green shirt with a grey skirt, perfect for someone looking to relax.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    layers:
+    - state: icon-jumpskirt
+    - state: icon-shirt
+      color: "#00661D"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-jumpskirt
+      - state: inhand-left-shirt
+        color: "#00661D"
+      right:
+      - state: inhand-right-jumpskirt
+      - state: inhand-right-shirt
+        color: "#00661D"
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING-jumpskirt
+      - state: equipped-INNERCLOTHING-shirt
+        color: "#00661D"
 
 - type: entity
   parent: ClothingUniformSkirtBase

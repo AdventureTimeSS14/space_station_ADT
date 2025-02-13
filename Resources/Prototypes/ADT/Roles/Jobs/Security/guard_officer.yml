@@ -1,0 +1,35 @@
+- type: job
+  id: ADTGuardOfficer
+  name: job-name-guard-officer
+  description: job-description-guard-officer
+  playTimeTracker: JobADTGuardOfficer
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 102000 # 28,33 hrs #ADT-RoleTime
+  startingGear: GuardOfficerGear
+  icon: "JobIconADTGuardOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: GuardOfficerGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity
+    pocket1: WeaponPistolMk58
+    id: ADTGuardOfficerPDA
+  storage:
+    back:
+    - Flash
+    - MagazinePistol

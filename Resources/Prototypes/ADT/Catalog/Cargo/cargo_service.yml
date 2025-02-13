@@ -1,0 +1,12 @@
+# Оригинал данного прототипа был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
+
+# Закомментировано пока принтер книг не будет снова введен в сборку с решенными проблемами
+# - type: cargoProduct
+#   id: ADTServiceBookPrinterCartridge
+#   icon:
+#     sprite: ADT/Objects/Misc/refill_cartridge.rsi
+#     state: icon
+#   product: ADTCrateServicePrinterInkCartridge
+#   cost: 1500
+#   category: Service
+#   group: market

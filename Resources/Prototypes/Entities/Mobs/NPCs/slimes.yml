@@ -112,11 +112,17 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
-  - type: LanguageSpeaker # ADT
-    speaks:
-    - Bubblish
-    understands:
-    - Bubblish
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Bubblish: Speak
+  - type: Prying # Open door from xeno.yml.
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  # ADT tweak end
 
 - type: entity
   name: basic slime
@@ -125,16 +131,17 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
-  - type: ReplacementAccent
-    accent: slimes
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: slimes
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-slimes-name
     description: ghost-role-information-slimes-description
     rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
+#    raffle:
+#      settings: short ADT tweak для быстрого захода на рольку
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
@@ -149,6 +156,9 @@
       task: SimpleHostileCompound
   - type: TTS # Corvax-TTS
     voice: neco_arc_2 #ADT-Tweak
+  - type: LanguageSpeaker
+    languages:
+      Bubblish: Speak
 
 - type: entity
   name: blue slime
@@ -174,8 +184,10 @@
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
-      raffle:
-        settings: short
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+#      raffle:
+#        settings: short ADT tweak для быстрого захода на рольку
 
 - type: entity
   name: green slime
@@ -212,8 +224,10 @@
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
-      raffle:
-        settings: short
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+#      raffle:
+#        settings: short ADT tweak для быстрого захода на рольку
 
 - type: entity
   name: yellow slime
@@ -235,8 +249,7 @@
         types:
           Blunt: 6
           Structural: 4
-          Caustic: 1
-          Cellular: 3
+          Caustic: 4
 
 - type: entity
   name: yellow slime
@@ -250,5 +263,7 @@
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
-      raffle:
-        settings: short
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+#      raffle:
+#        settings: short ADT tweak для быстрого захода на рольку

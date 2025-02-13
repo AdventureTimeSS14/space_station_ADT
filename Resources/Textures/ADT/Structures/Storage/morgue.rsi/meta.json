@@ -68,6 +68,10 @@
     {
       "name": "morgue_tray",
       "directions": 4
+    },
+    {
+      "name": "morgue_paper",
+      "directions": 4
     }
   ]
 }

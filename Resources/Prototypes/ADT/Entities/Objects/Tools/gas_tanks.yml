@@ -1,0 +1,42 @@
+- type: entity
+  parent: DoubleEmergencyOxygenTank
+  id: ADTDoubleLethalCompanyOxygenTank
+  name: lethal company double emergency oxygen tank
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of oxygen for its small size. It can hold 2.5 L of gas.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+  - type: Item
+    sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+  - type: GasTank
+    air:
+      volume: 2.5
+      temperature: 293.15
+  - type: Clothing
+    sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      types:
+        Blunt: 7.5
+
+- type: entity
+  parent: DoubleEmergencyOxygenTank
+  id: ADTDoubleLethalCompanyNitrogenTank
+  name: lethal company double emergency nitrogen tank
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of nitrogen for its small size. It can hold 2.5 L of gas.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+  - type: Item
+    sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Tanks/lethal_company_tanks.rsi
+    quickEquip: false
+    slots:
+    - back

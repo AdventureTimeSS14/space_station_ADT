@@ -1,0 +1,22 @@
+- type: vendingMachineInventory
+  id: ADTIceCreamVendInventory
+  startingInventory:
+    ADTFoodFrozenPackedVanillaIceCream: 3
+    ADTFoodFrozenPackedStrawberryIceCream: 3
+    ADTFoodFrozenPackedSpaceIceCream: 3
+    ADTFoodFrozenPackedChocolateIceCream: 3
+    ADTFoodFrozenPackedIceCreamWaffleconeNuts: 1
+    ADTFoodFrozenPackedIceCreamWafflecone: 1
+    ADTFoodFrozenVanillaFreezyCaramel: 2
+    ADTFoodFrozenVanillaFreezy: 2
+    ADTFoodFrozenChocolateFreezyCaramel: 2
+    ADTFoodFrozenSpaceFreezy: 2
+    ADTFoodFrozenThreeFlavorsFreezy: 2
+    ADTFoodFrozenChocolateFreezy: 2
+    FoodFrozenSundae: 2
+    ADTFoodFrozenHonkdae: 1
+    FoodFrozenPopsicleJumbo: 2
+    FoodFrozenPopsicleOrange: 2
+    FoodFrozenPopsicleBerry: 2
+    FoodFrozenSandwich: 3
+    FoodFrozenSandwichStrawberry: 3

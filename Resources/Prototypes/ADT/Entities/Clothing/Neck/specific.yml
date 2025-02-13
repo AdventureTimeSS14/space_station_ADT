@@ -1,11 +1,16 @@
 - type: entity
-  parent: ClothingNeckBase
-  id: ADTClothingNeckSecBadge
+  abstract: true
+  parent: ClothingNeckBase #Выведено из сборки, заменено на жетоны трех видов достоинства
+  id: ADTClothingNeckSecBadge 
   name: sec badge
   description: sec badge
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Specific/secbadge.rsi
+    - type: Badge
+    - type: Tag
+      tags:
+      - ADTBadge
 
 - type: entity
   parent: ClothingNeckBase
@@ -39,3 +44,42 @@
   components:
     - type: Sprite
       sprite: ADT/Clothing/Neck/Specific/tsf_patch.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSecBadgeBronze
+  name: bronze sec badge
+  description: bronze sec badge
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Specific/bronze_secbadge.rsi
+    - type: Badge
+    - type: Tag
+      tags:
+      - ADTBadge
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSecBadgeSilver
+  name: silver sec badge
+  description: silver sec badge
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Specific/silver_secbadge.rsi
+    - type: Badge
+    - type: Tag
+      tags:
+      - ADTBadge
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckSecBadgeGold
+  name: gold sec badge
+  description: gold sec badge
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Specific/gold_secbadge.rsi
+    - type: Badge
+    - type: Tag
+      tags:
+      - ADTBadge

@@ -1,7 +1,7 @@
 - type: entity
   id: ActionHereticVoidBlast
-  name: Void Blast
-  description: Fire off a cone of ice in front of you.
+  name: action-heretic-void-blast-name
+  description: action-heretic-void-blast-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -17,8 +17,8 @@
 
 - type: entity
   id: ActionHereticVoidPhase
-  name: Void Phase
-  description: Shift through the void, knocking down everyone around you.
+  name: action-heretic-void-phase-name
+  description: action-heretic-void-phase-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
@@ -36,8 +36,8 @@
 
 - type: entity
   id: ActionHereticVoidPull
-  name: Void Pull
-  description: Pull and damage nearby heathens.
+  name: action-heretic-void-pull-name
+  description: action-heretic-void-pull-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

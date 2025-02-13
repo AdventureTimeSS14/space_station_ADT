@@ -1,8 +1,8 @@
 # actions
 - type: entity
   id: ActionHereticOpenStore
-  name: Open Knowledge Store
-  description: Open the Knowledge Store.
+  name: action-heretic-store-name
+  description: action-heretic-store-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -16,8 +16,8 @@
 
 - type: entity
   id: ActionHereticMansusGrasp
-  name: Mansus Grasp
-  description: Channel the power of the Old Gods through your grip.
+  name: action-heretic-grasp-name
+  description: action-heretic-grasp-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -31,9 +31,25 @@
     requireMagicItem: false
 
 - type: entity
+  id: ActionHereticLivingHeart
+  name: action-heretic-heart-name
+  description: action-heretic-heart-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: living_heart
+    event: !type:EventHereticLivingHeart {}
+  - type: HereticAction
+    requireMagicItem: false
+
+- type: entity
   id: ActionHereticMansusLink
   name: Manse Link
-  description: This spell allows you to pierce through reality and connect minds to one another via your Mansus Link.
+  description: Pierce through reality and connect minds to one another. Default radio key is :z
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction

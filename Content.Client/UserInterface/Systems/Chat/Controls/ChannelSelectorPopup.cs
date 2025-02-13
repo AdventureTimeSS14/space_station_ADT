@@ -13,6 +13,7 @@ public sealed class ChannelSelectorPopup : Popup
         ChatSelectChannel.Whisper,
         ChatSelectChannel.Emotes,
         ChatSelectChannel.Radio,
+        ChatSelectChannel.CollectiveMind, // ADT-CollectiveMind-Tweak
         ChatSelectChannel.LOOC,
         ChatSelectChannel.OOC,
         ChatSelectChannel.Dead,

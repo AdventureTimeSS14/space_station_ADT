@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTCrateVendingMachineRestockCiviMedVend
+  icon:
+    sprite: ADT/Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: ADTCrateSecuredVendingMachineRestockCiviMedVendFilled
+  cost: 2300
+  category: cargoproduct-category-name-medical
+  group: market

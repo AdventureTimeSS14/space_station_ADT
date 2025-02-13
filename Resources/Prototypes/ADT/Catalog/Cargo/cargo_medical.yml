@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ADTChemistryAllInOne
+  icon:
+    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    state: icon
+  product: ADTCrateChemistryAllInOne
+  cost: 2000
+  category: cargoproduct-category-name-medical
+  group: market

@@ -1,0 +1,29 @@
+- type: loadout
+  id: ADTParamedicBeret
+  equipment:
+    head: ADTClothingHeadHatsParamedicBeret
+
+- type: loadout
+  id: ADTParamedicBackpack
+  equipment:
+    back: ADTClothingBackpackParamedicFilled
+
+- type: loadout
+  id: ADTParamedicSatchel
+  equipment:
+    back: ADTClothingBackpackSatchelParamedicFilled
+
+- type: loadout
+  id: ADTParamedicDuffel
+  equipment:
+    back: ADTClothingBackpackDuffelParamedicFilled
+
+- type: loadout
+  id: ADTParamedicBeltEMT
+  equipment:
+    belt: ClothingBeltMedicalEMTFilled
+
+- type: loadout
+  id: ADTParamedicBeltEMTBag
+  equipment:
+    belt: ADTClothingBeltMedicalBagEMTFilled

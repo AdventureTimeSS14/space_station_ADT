@@ -1,0 +1,9 @@
+- type: entity
+  id: ADTActionToggleMODPiece
+  name: Toggle Suit Piece
+  description: Remember to equip the important pieces of your suit before going into action.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    useDelay: 1 # equip noise spam.
+    event: !type:ToggleModPartEvent

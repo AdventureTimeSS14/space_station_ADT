@@ -20,7 +20,7 @@
   id: DoctorGear
   equipment:
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalFilled
+#    belt: ClothingBeltMedicalFilled ADT tweak
   #storage:
     #back:
     #- Stuff

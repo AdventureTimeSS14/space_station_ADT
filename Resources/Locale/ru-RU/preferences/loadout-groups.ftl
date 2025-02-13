@@ -98,6 +98,7 @@ loadout-group-station-engineer-backpack = Инженер, рюкзак
 loadout-group-station-engineer-outerclothing = Инженер, верхняя одежда
 loadout-group-station-engineer-shoes = Инженер, обувь
 loadout-group-station-engineer-id = Инженер, ID
+loadout-group-engineering-belt = Инженерный отдел, пояс
 loadout-group-atmospheric-technician-jumpsuit = Атмосферный техник, комбинезон
 loadout-group-atmospheric-technician-backpack = Атмосферный техник, рюкзак
 loadout-group-atmospheric-technician-outerclothing = Атмосферный техник, верхняя одежда

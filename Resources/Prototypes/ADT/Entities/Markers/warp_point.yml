@@ -1,0 +1,8 @@
+- type: entity
+  id: ADTWarpPointBeaconERTShuttle
+  parent: WarpPoint
+  name: warp point (Шаттл ОБР)
+  components:
+  - type: NavMapBeacon
+  - type: WarpPoint
+    location: "Шаттл ОБР"

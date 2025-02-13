@@ -1,0 +1,107 @@
+- type: roadmap
+  id: PrazatVend
+  name: roadmap-prazatvend
+  desc: roadmap-prazatvend-desc
+  state: Complete
+
+- type: roadmap
+  id: Languages
+  name: roadmap-languages
+  desc: roadmap-languages-desc
+  state: Complete
+
+- type: roadmap
+  id: CollectiveMind
+  name: roadmap-collectivemind
+  desc: roadmap-collectivemind-desc
+  state: Complete
+
+- type: roadmap
+  id: Crawling
+  name: roadmap-crawling
+  desc: roadmap-crawling-desc
+  state: Complete
+
+- type: roadmap
+  id: Service
+  name: roadmap-service
+  desc: roadmap-service-desc
+  state: Complete
+
+- type: roadmap
+  id: Phantom
+  name: roadmap-phantom
+  desc: roadmap-phantom-desc
+  state: Complete
+
+- type: roadmap
+  id: Economy
+  name: roadmap-economy
+  desc: roadmap-economy-desc
+  state: Complete
+
+- type: roadmap
+  id: ERT
+  name: roadmap-ert
+  desc: roadmap-ert-desc
+  state: Complete
+
+- type: roadmap
+  id: Atmos
+  name: roadmap-atmos
+  desc: roadmap-atmos-desc
+  state: Complete
+
+- type: roadmap
+  id: Spiders
+  name: roadmap-spiders
+  desc: roadmap-spiders-desc
+  state: Complete
+
+- type: roadmap
+  id: Mech
+  name: roadmap-mech
+  desc: roadmap-mech-desc
+  state: Complete
+
+- type: roadmap
+  id: Changeling
+  name: roadmap-changeling
+  desc: roadmap-changeling-desc
+  state: Complete
+
+- type: roadmap
+  id: Revolutionary
+  name: roadmap-rev
+  desc: roadmap-rev-desc
+  state: Complete
+
+- type: roadmap
+  id: WeaponModules
+  name: roadmap-weaponmodules
+  desc: roadmap-weaponmodules-desc
+  state: InProgress
+
+- type: roadmap
+  id: ShipBattle
+  name: roadmap-shipbattle
+  desc: roadmap-shipbattle-desc
+  state: InProgress
+
+- type: roadmap
+  id: Ninja
+  name: roadmap-ninja
+  desc: roadmap-ninja-desc
+  state: InProgress
+
+- type: roadmap
+  id: Zombie
+  name: roadmap-zombie
+  desc: roadmap-zombie-desc
+  state: Planned
+
+- type: roadmap
+  id: Salvage
+  name: roadmap-salvage
+  desc: roadmap-salvage-desc
+  state: Planned

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "copyright": "Taken from TG-Station.",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "agentbox"
+    },
+    {
+      "name": "cardboard"
+    },
+    {
+      "name": "cardboard_open"
+    },
+    {
+      "name": "cardboard_special"
+    },
+    {
+      "name": "metalbox"
+    },
+    {
+      "name": "metalbox_open"
+    }
+  ]
+}

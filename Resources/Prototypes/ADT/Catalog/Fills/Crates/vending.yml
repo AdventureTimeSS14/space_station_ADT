@@ -1,0 +1,9 @@
+- type: entity
+  id: ADTCrateSecuredVendingMachineRestockCiviMedVendFilled
+  parent: CratePlastic
+  name: CiviMed restock crate
+  description: Contains two restock boxes for the CiviMed vending machine.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTSecuredVendingMachineRestockCiviMedVend

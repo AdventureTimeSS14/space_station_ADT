@@ -2,7 +2,7 @@
   id: ADT_Fland
   mapName: 'Fland Installation'
   mapPath: /Maps/ADTMaps/ADTStations/adt_fland.yml
-  minPlayers: 25
+  minPlayers: 35
   stations:
     ADT_Fland:
       stationProto: StandardNanotrasenStation
@@ -58,6 +58,8 @@
             SecurityCadet: [ 4, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            Pilot: [ 1, 1] # Corvax-Pilot
             #Lawyer: [ 2, 2 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]

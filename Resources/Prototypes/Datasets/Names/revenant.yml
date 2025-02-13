@@ -1,14 +1,14 @@
 - type: dataset
   id: RevenantType
   values:
-  - сущность
-  - привидение
-  - фантом
-  - полтергейст
-  - ревенант
-  - душа
-  - тень
-  - дух
+  - Сущность # ADT CHANGES START
+  - Привидение
+  - Фантом
+  - Полтергейст
+  - Ревенант
+  - Душа
+  - Тень
+  - Дух # ADT CHANGES END
 
 - type: dataset
   id: RevenantAdjective

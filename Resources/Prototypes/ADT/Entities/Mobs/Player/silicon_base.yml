@@ -52,8 +52,8 @@
     #   safe: false
     - type: StandingState
     - type: Alerts
-    # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
-    #   protectionTime: 12
+    - type: EyeProtection #ipc nerf
+      protectionTime: 12
     - type: Silicon
       entityType: enum.SiliconType.Player
       batteryPowered: false # Needs to also have a battery!
@@ -290,6 +290,8 @@
           type: HumanoidMarkingModifierBoundUserInterface
         enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
+        enum.StoreUiKey.Key:
+          type: StoreBoundUserInterface
     - type: Emoting
     - type: Grammar
       attributes:

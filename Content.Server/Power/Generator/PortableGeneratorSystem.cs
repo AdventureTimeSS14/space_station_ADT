@@ -83,6 +83,8 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
     private void StopGenerator(EntityUid uid, PortableGeneratorComponent component, EntityUid user)
     {
         _generator.SetFuelGeneratorOn(uid, false);
+
+        _audio.PlayEntity(component.FailureSound, Filter.Pvs(uid), uid, true); // ADT-Sound-Update
     }
 
     private void OnGeneratorStarted(EntityUid uid, PortableGeneratorComponent component, GeneratorStartedEvent args)
@@ -117,7 +119,7 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
         var clogged = _generator.GetIsClogged(uid);
 
         var sound = empty ? component.StartSoundEmpty : component.StartSound;
-        _audio.PlayEntity(sound, Filter.Pvs(uid), uid, true);
+        _audio.PlayPvs(sound, uid);
 
         if (!clogged && !empty && _random.Prob(component.StartChance))
         {
@@ -127,6 +129,7 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
                 return;
 
             _popup.PopupEntity(Loc.GetString("portable-generator-start-success"), uid, user.Value);
+            _audio.PlayEntity(component.SuccessSound, Filter.Pvs(uid), uid, true); // ADT-Sound-Update
 
         }
         else

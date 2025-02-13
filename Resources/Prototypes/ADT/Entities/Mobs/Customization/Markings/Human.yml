@@ -75,3 +75,34 @@
     state: tail_fox_wag_stripes_second # AdventureTime-Sponsors
   - sprite: ADT/Mobs/Customization/Human/fox_parts.rsi
     state: tail_fox_wag_stripes_third # AdventureTime-Sponsors
+
+- type: marking
+  id: ADTMilkyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_tail
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_tail_secondary
+
+- type: marking
+  id: ADTMilkyEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_ears
+
+- type: marking
+  id: ADTMilkyHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_horns
+  - sprite: ADT/Mobs/Customization/Human/demon.rsi
+    state: milky_horns_secondary

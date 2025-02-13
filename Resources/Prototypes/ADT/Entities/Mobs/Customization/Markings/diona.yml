@@ -1,0 +1,13 @@
+- type: marking
+  id: ADTDionaTreePaintOverlay
+  bodyPart: [ RFoot, LFoot] 
+  markingCategory: Overlay
+  speciesRestriction: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #       color: "#5f7039"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Diona/customization.rsi
+    state: tree_paint

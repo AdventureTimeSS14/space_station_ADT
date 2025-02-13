@@ -24,4 +24,26 @@ public sealed partial class HeadRevolutionaryComponent : Component
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
 
     public override bool SessionSpecific => true;
+
+    /// <summary>
+    /// ADT - wizden bugfix
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public uint ConvertedCount = 0;
 }
+// ADT rerev start
+[ByRefEvent]
+public sealed class ConvertAttemtEvent
+{
+    public EntityUid User;
+    public EntityUid Target;
+    public HeadRevolutionaryComponent? Comp;
+
+    public ConvertAttemtEvent(EntityUid user, EntityUid target, HeadRevolutionaryComponent? comp)
+    {
+        Target = target;
+        User = user;
+        Comp = comp;
+    }
+}
+// ADT rerev end

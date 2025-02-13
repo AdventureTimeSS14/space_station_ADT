@@ -123,7 +123,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PhantomRuleSystem _phantomGameRule = default!;
+    //[Dependency] private readonly PhantomRuleSystem _phantomGameRule = default!; // ADT tweak
 
     #endregion
 

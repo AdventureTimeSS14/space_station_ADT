@@ -24,6 +24,19 @@ namespace Content.Shared.VendingMachines
     public sealed class VendingMachineWithdrawMessage : BoundUserInterfaceMessage
     {
     }
+
+    [Serializable, NetSerializable]
+    public sealed class VendingMachineEjectCountMessage : BoundUserInterfaceMessage
+    {
+        public readonly VendingMachineInventoryEntry Entry;
+        public readonly int Count;
+        public VendingMachineEjectCountMessage(VendingMachineInventoryEntry entry, int count)
+        {
+            Entry = entry;
+            Count = count;
+        }
+    }
+
     //ADT-Economy-End
 
     [Serializable, NetSerializable]

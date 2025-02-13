@@ -29,6 +29,22 @@
     - name: mask
       slotTexture: mask
       slotFlags: MASK
-      uiWindowPos: 0,1
+      uiWindowPos: 1,1
       strippingWindowPos: 1,1
       displayName: Mask
+    # ADT-Tweak-Start
+    - name: eyes
+      slotTexture: glasses
+      slotFlags: EYES
+      stripTime: 3
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,0
+      displayName: Eyes
+    - name: jumpsuit
+      slotTexture: uniform
+      slotFlags: INNERCLOTHING
+      stripTime: 6
+      uiWindowPos: 0,1
+      strippingWindowPos: 1,1
+      displayName: Jumpsuit
+    # ADT-Tweak-End

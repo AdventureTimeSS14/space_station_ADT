@@ -12,6 +12,4 @@ store-currency-display-telecrystal = ТК
 store-currency-display-stolen-essence = Украденная эссенция
 store-currency-display-wizcoin = Маг₭øин™
 
-store-currency-display-evolution-points = Очки Эволюции
-
 store-currency-display-tradeunit = ЕТ

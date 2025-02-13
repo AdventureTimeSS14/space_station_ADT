@@ -23,6 +23,9 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Mech.Components;
+using Content.Server.Disposal.Unit.Components;
+using Content.Shared.Bed.Cryostorage;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -67,6 +70,8 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (comp.Blackeye)
                 continue;
             if (_mobState.IsIncapacitated(uid))
+                continue;
+            if (HasComp<CryostorageContainedComponent>(uid))
                 continue;
 
             _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
@@ -126,9 +131,19 @@ public sealed partial class ShadekinSystem : EntitySystem
             return;
         // if (_interaction.InRangeUnobstructed(uid, args.Target, -1f))
         //     return;
+
+        if (
+            HasComp<MechPilotComponent>(uid)
+            || HasComp<BeingDisposedComponent>(uid)
+        )
+        {
+            return;
+        }
+
         if (!TryUseAbility(uid, 50))
             return;
         args.Handled = true;
+
         if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
             _pulling.TryStopPull(puller.Pulling.Value, pullable);
         _transform.SetCoordinates(uid, args.Target);
@@ -161,7 +176,11 @@ public sealed partial class ShadekinSystem : EntitySystem
         var coordsValid = false;
         EntityCoordinates coords = Transform(uid).Coordinates;
 
-        if (TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable), true))
+        if (
+            (TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable), true))
+            || HasComp<MechPilotComponent>(uid)
+            || HasComp<BeingDisposedComponent>(uid)
+        )
         {
             comp.MaxedPowerAccumulator = 0f;
             return;

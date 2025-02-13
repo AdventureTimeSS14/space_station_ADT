@@ -1,0 +1,75 @@
+- type: entity
+  name: steel dark gray tile
+  parent: FloorTileItemSteel
+  id: ADTFloorTileItemSteelDarkGray
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    state: darkgray
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorSteelDarkGray
+  - type: Stack
+    stackType: ADTFloorTileSteelDarkGray
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    size: Normal
+    heldPrefix: darkgray
+
+- type: entity
+  name: steel dark gray plate
+  parent: FloorTileItemSteel
+  id: ADTFloorTileItemSteelPlateDarkGray
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    state: darkgrayplate
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorSteelPlateDarkGray
+  - type: Stack
+    stackType: ADTFloorTileSteelPlateDarkGray
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    size: Normal
+    heldPrefix: darkgrayplate
+
+- type: entity
+  name: ship gray tile
+  parent: FloorTileItemSteel
+  id: ADTFloorTileItemShipGray
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    state: shipgray
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorShipGray
+  - type: Stack
+    stackType: ADTFloorTileShipGray
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    size: Normal
+    heldPrefix: shipgray
+
+- type: entity
+  name: ship dark gray tile
+  parent: FloorTileItemSteel
+  id: ADTFloorTileItemShipDarkGray
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    state: shipdarkgray
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorShipDarkGray
+  - type: Stack
+    stackType: ADTFloorTileShipDarkGray
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tiles/tile.rsi
+    size: Normal
+    heldPrefix: shipdarkgray

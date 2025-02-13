@@ -41,6 +41,7 @@
   - type: Tool
     qualities:
       - Prying
+      - AdvancedPrying # ADT-Axe-Great-Return
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay
@@ -73,9 +74,9 @@
     entries:
     - label: corvax-hidden-desc-FireAxeFlaming-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-FireAxeFlaming-research
       jobRequired:
         - ResearchAssistant

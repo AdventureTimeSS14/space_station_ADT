@@ -159,10 +159,10 @@
     parent: true
     components:
     - type: Stealth
-      minVisibility: -0.4 #ADT_Tweak
-      lastVisibility: -0.4 #ADT_Tweak
+      minVisibility: -0.6 #ADT_Tweak
+      lastVisibility: -0.6 #ADT_Tweak
   - type: PowerCellDraw
-    drawRate: 1.8 # 200 seconds on the default cell
+    drawRate: 3.2 # #ADT_Tweak 1.8 -> 3.2
   - type: ToggleCellDraw
   # throwing star ability
   - type: ItemCreator
@@ -172,6 +172,7 @@
     noPowerPopup: ninja-no-power
   # core ninja suit stuff
   - type: NinjaSuit
+  - type: EmpProtection # ADT-Tweak
   - type: UseDelay
     delay: 5 # disable time
   - type: PowerCellSlot
@@ -187,6 +188,9 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSmall
         disableEject: true
+        whitelist:
+          tags:
+            - PowerCell
 
 - type: entity
   parent: ClothingOuterBase

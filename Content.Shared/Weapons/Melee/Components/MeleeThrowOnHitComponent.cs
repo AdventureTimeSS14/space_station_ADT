@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -47,6 +48,17 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public bool Enabled = true;
+
+    // ADT tweak start
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier? CollideDamage;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier? ToCollideDamage;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool DownOnHit = false;
+    // ADT tweak end
 }
 
 /// <summary>
@@ -96,6 +108,14 @@ public sealed partial class MeleeThrownComponent : Component
     /// </summary>
     [DataField]
     public BodyStatus PreviousStatus;
+
+    // ADT tweak start
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier? CollideDamage;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier? ToCollideDamage;
+    // ADT tweak end
 }
 
 /// <summary>

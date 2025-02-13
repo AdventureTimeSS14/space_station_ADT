@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Remade for a specified item (utility webbing by discord: juuungarik). Original taken from tgstation at commit https://github.com/tgstation/tgstation/commit/dc89ef0239830774bd3d9d7d6c8da2856da2b869",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "crowbar"
+    },
+    {
+      "name": "cutters"
+    },
+    {
+      "name": "geiger_counter"
+    },
+    {
+      "name": "multitool"
+    },
+    {
+      "name": "screwdriver"
+    },
+    {
+      "name": "wrench"
+    }
+  ]
+}

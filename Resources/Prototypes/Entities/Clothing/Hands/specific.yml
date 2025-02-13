@@ -26,15 +26,17 @@
       entries:
       - label: corvax-hidden-desc-Chameleon-syndicate
         whitelistMind:
-          components:
-            - TraitorRole
-            - NukeOperative
+          mindRoles:
+          - TraitorRole
+          - NukeopsRole
       - label: corvax-hidden-desc-Chameleon-research
         jobRequired:
           - ResearchAssistant
           - ResearchDirector
           - Scientist
           - Borg
+          - ADTSeniorResearcher # ADT tweak
+          - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
 - type: entity
@@ -50,26 +52,28 @@
     entries:
     - label: corvax-hidden-desc-Chameleon-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-ThievingGloves-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-Chameleon-thief
       whitelistMind:
-        components:
-          - ThiefRole
+        mindRoles:
+        - ThiefRole
     - label: corvax-hidden-desc-ThievingGloves-thief
       whitelistMind:
-        components:
-          - ThiefRole
+        mindRoles:
+        - ThiefRole
     - label: corvax-hidden-desc-Chameleon-research
       jobRequired:
         - ResearchAssistant
         - ResearchDirector
         - Scientist
         - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseMagicContraband ]
   id: HereticBladeBase
   name: eldritch blade
   description: The sickly blade used by sinister individuals for rituals and sacrifices.
@@ -15,6 +15,8 @@
     damage:
       types:
         Slash: 17.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Normal
     sprite: ADT/Heretic/Blades/blade_blade-inhand.rsi
@@ -40,6 +42,8 @@
       types:
         Heat: 10
         Slash: 7.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
 
 - type: entity
   parent: HereticBladeBase
@@ -49,6 +53,9 @@
   components:
   - type: HereticBlade
     path: Blade
+  - type: Reflect
+    reflectProb: 0.5
+    spread: 0
 
 - type: entity
   parent: HereticBladeBase
@@ -112,3 +119,5 @@
       types:
         Cold: 10
         Slash: 7.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg

@@ -1,0 +1,44 @@
+- type: constructionGraph
+  id: ADTsmokeableGroundCannabisWhite
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ground
+          steps:
+            - material: ADTLeavesCannabisWhiteDried
+              amount: 2
+              doAfter: 5
+    - node: ground
+      entity: ADTGroundCannabisWhite
+
+#сами сигарки
+
+- type: constructionGraph
+  id: ADTsmokeableJoint
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: joint
+          steps:
+            - material: PaperRolling
+            - material: CigaretteFilter
+            - material: ADTGroundCannabisWhite
+              doAfter: 2
+    - node: joint
+      entity: ADTJointWhite
+
+- type: constructionGraph
+  id: ADTsmokeableBlunt
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: blunt
+          steps:
+            - material: LeavesTobaccoDried
+            - material: ADTGroundCannabisWhite
+              doAfter: 2
+    - node: blunt
+      entity: ADTBluntWhite

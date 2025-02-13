@@ -1,0 +1,27 @@
+- type: entity
+  id: ADTDoubleLethalCompanyOxygenTankFilled
+  parent: ADTDoubleLethalCompanyOxygenTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      # 31 minutes
+      volume: 5
+      moles:
+        - 2.051379050 # oxygen
+      temperature: 293.15
+
+- type: entity
+  id: ADTDoubleLethalCompanyNitrogenTankFilled
+  parent: ADTDoubleLethalCompanyNitrogenTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    air:
+      # 31 minutes
+      volume: 5
+      moles:
+        - 0           # oxygen not included
+        - 2.051379050 # nitrogen
+      temperature: 293.15

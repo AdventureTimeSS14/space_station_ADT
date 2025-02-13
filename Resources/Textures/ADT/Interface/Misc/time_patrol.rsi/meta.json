@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by hyrmik",
+    "size": {
+        "x": 28,
+        "y": 28
+    },
+    "states": [
+        {
+            "name": "icon"
+        }
+    ]
+}

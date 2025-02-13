@@ -24,6 +24,7 @@ public sealed class BanCommand : LocalizedCommands
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "ban";
 
@@ -94,6 +95,16 @@ public sealed class BanCommand : LocalizedCommands
 
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
+
+        // ADT-Tweak-Start: Пользователя с флагом Permission не забанить
+        var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
+        if (dbData != null && dbData.AdminRank != null)
+        {
+            var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+            if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+                return;
+        }
+        // ADT-Tweak-End
         //Start-ADT-Tweak: логи банов для диса
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;

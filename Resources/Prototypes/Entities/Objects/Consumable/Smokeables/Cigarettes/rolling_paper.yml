@@ -38,6 +38,10 @@
         amount: 2
       - id: CigaretteFilter
         amount: 2
+  # ADT Tweak Start
+  - type: StaticPrice
+    price: 40
+  # ADT Tweak END
 
 - type: entity
   id: PaperRolling

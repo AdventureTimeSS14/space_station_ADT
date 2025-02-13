@@ -19,10 +19,10 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Parallax.Biomes;
-using Content.Shared.Preferences;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Tiles;
@@ -342,15 +342,15 @@ public sealed class ArrivalsSystem : EntitySystem
         if (!Enabled || _ticker.RunLevel != GameRunLevel.InRound)
             return;
 
-        // ADT station AI tweak start
-        if (ev.Job != null &&
-            ev.Job.Prototype.HasValue &&
-            _protoManager.Index(ev.Job.Prototype.Value).ContainerInsert)
-        {
-            _containerSpawnPointSystem.HandlePlayerSpawning(ev, true);
-            return;
-        }
-        // ADT station AI tweak end
+        // // ADT station AI tweak start
+        // if (ev.Job != null &&
+        //     ev.Job.Prototype.HasValue &&
+        //     _protoManager.Index(ev.Job.Prototype.Value).ContainerInsert)
+        // {
+        //     _containerSpawnPointSystem.HandlePlayerSpawning(ev, true);
+        //     return;
+        // }
+        // // ADT station AI tweak end
 
         if (!HasComp<StationArrivalsComponent>(ev.Station))
             return;

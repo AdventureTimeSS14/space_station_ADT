@@ -36,6 +36,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Construction.Steps;
+using Content.Shared.Tag;
 
 namespace Content.Shared.Storage.EntitySystems;
 
@@ -61,6 +63,7 @@ public abstract class SharedStorageSystem : EntitySystem
     [Dependency] protected readonly UseDelaySystem UseDelay = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
     private EntityQuery<StackComponent> _stackQuery;
@@ -129,7 +132,6 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeAllEvent<StorageInteractWithItemEvent>(OnInteractWithItem);
         SubscribeAllEvent<StorageSetItemLocationEvent>(OnSetItemLocation);
         SubscribeAllEvent<StorageInsertItemIntoLocationEvent>(OnInsertItemIntoLocation);
-        SubscribeAllEvent<StorageRemoveItemEvent>(OnRemoveItem);
         SubscribeAllEvent<StorageSaveItemLocationEvent>(OnSaveItemLocation);
 
         SubscribeLocalEvent<StorageComponent, GotReclaimedEvent>(OnReclaimed);
@@ -144,6 +146,10 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private void OnRemove(Entity<StorageComponent> entity, ref ComponentRemove args)
     {
+        //ADT tweak start
+        var coordinates = TransformSystem.GetMoverCoordinates(entity);
+        _containerSystem.EmptyContainer(entity.Comp.Container, destination: coordinates);
+        //ADT tweak end
         _ui.CloseUi(entity.Owner, StorageComponent.StorageUiKey.Key);
     }
 
@@ -361,7 +367,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// <returns>true if inserted, false otherwise</returns>
     private void OnInteractUsing(EntityUid uid, StorageComponent storageComp, InteractUsingEvent args)
     {
-        if (args.Handled || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert, false))
+        if (args.Handled || !storageComp.ClickInsert || !CanInteract(args.User, (uid, storageComp), silent: false))
             return;
 
         var attemptEv = new StorageInteractUsingAttemptEvent();
@@ -381,7 +387,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// </summary>
     private void OnActivate(EntityUid uid, StorageComponent storageComp, ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert))
+        if (args.Handled || !args.Complex || !storageComp.OpenOnActivate || !CanInteract(args.User, (uid, storageComp)))
             return;
 
         // Toggle
@@ -453,7 +459,7 @@ public abstract class SharedStorageSystem : EntitySystem
             }
 
             //If there's only one then let's be generous
-            if (_entList.Count > 1)
+            if (_entList.Count >= 1)
             {
                 var doAfterArgs = new DoAfterArgs(EntityManager, args.User, delay, new AreaPickupDoAfterEvent(GetNetEntityList(_entList)), uid, target: uid)
                 {
@@ -547,7 +553,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
             var angle = targetXform.LocalRotation;
 
-            if (PlayerInsertEntityInWorld((uid, component), args.Args.User, entity))
+            if (PlayerInsertEntityInWorld((uid, component), args.Args.User, entity, playSound: false))
             {
                 successfullyInserted.Add(entity);
                 successfullyInsertedPositions.Add(position);
@@ -639,19 +645,6 @@ public abstract class SharedStorageSystem : EntitySystem
         TrySetItemStorageLocation(item!, storage!, msg.Location);
     }
 
-    private void OnRemoveItem(StorageRemoveItemEvent msg, EntitySessionEventArgs args)
-    {
-        if (!ValidateInput(args, msg.StorageEnt, msg.ItemEnt, out var player, out var storage, out var item))
-            return;
-
-        _adminLog.Add(
-            LogType.Storage,
-            LogImpact.Low,
-            $"{ToPrettyString(player):player} is removing {ToPrettyString(item):item} from {ToPrettyString(storage):storage}");
-        TransformSystem.DropNextTo(item.Owner, player.Owner);
-        Audio.PlayPredicted(storage.Comp.StorageRemoveSound, storage, player, _audioParams);
-    }
-
     private void OnInsertItemIntoLocation(StorageInsertItemIntoLocationEvent msg, EntitySessionEventArgs args)
     {
         if (!ValidateInput(args, msg.StorageEnt, msg.ItemEnt, out var player, out var storage, out var item, held: true))
@@ -666,7 +659,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private void OnSaveItemLocation(StorageSaveItemLocationEvent msg, EntitySessionEventArgs args)
     {
-        if (!ValidateInput(args, msg.Storage, msg.Item, out var player, out var storage, out var item, held: true))
+        if (!ValidateInput(args, msg.Storage, msg.Item, out var player, out var storage, out var item))
             return;
 
         SaveItemLocation(storage!, item.Owner);
@@ -824,7 +817,8 @@ public abstract class SharedStorageSystem : EntitySystem
         }
 
         if (_whitelistSystem.IsWhitelistFail(storageComp.Whitelist, insertEnt) ||
-            _whitelistSystem.IsBlacklistPass(storageComp.Blacklist, insertEnt))
+            _whitelistSystem.IsBlacklistPass(storageComp.Blacklist, insertEnt) ||
+            _tag.HasTag(insertEnt, "ADTStorageBlacklist"))  // ADT tweak
         {
             reason = "comp-storage-invalid-container";
             return false;
@@ -1040,12 +1034,12 @@ public abstract class SharedStorageSystem : EntitySystem
     /// <param name="player">The player to insert an entity with</param>
     /// <param name="toInsert"></param>
     /// <returns>true if inserted, false otherwise</returns>
-    public bool PlayerInsertEntityInWorld(Entity<StorageComponent?> uid, EntityUid player, EntityUid toInsert)
+    public bool PlayerInsertEntityInWorld(Entity<StorageComponent?> uid, EntityUid player, EntityUid toInsert, bool playSound = true)
     {
         if (!Resolve(uid, ref uid.Comp) || !_interactionSystem.InRangeUnobstructed(player, uid.Owner))
             return false;
 
-        if (!Insert(uid, toInsert, out _, user: player, uid.Comp))
+        if (!Insert(uid, toInsert, out _, user: player, uid.Comp, playSound: playSound))
         {
             _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-insert"), uid, player);
             return false;

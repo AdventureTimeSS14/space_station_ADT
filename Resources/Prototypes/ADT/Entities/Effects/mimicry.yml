@@ -1,0 +1,22 @@
+- type: entity
+  id: ADTEffectiMicriaTentacleRetract
+  parent: BaseEffectGoliathTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+    state: mimicria_tentacle_retract
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: ADTEffectiMicriaTentacleSpawn
+  parent: BaseEffectGoliathTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: tentacle
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
+      state: mimicria_tentacle_spawn
+    - type: SpawnOnDespawn
+      prototype: ADTMimicriaTentacle

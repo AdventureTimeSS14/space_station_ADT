@@ -86,6 +86,11 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
 
             _container.RemoveEntity(storageImplant.Owner, entity, force: true, destination: entCoords);
         }
+
+        // ADT start
+        var ev = new ImplantRemovedEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(uid, ref ev);
+        // ADT end
     }
 
     /// <summary>
@@ -94,20 +99,36 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     /// </summary>
     public void AddImplants(EntityUid uid, IEnumerable<String> implants)
     {
-        var coords = Transform(uid).Coordinates;
         foreach (var id in implants)
         {
-            var ent = Spawn(id, coords);
-            if (TryComp<SubdermalImplantComponent>(ent, out var implant))
-            {
-                ForceImplant(uid, ent, implant);
-            }
-            else
-            {
-                Log.Warning($"Found invalid starting implant '{id}' on {uid} {ToPrettyString(uid):implanted}");
-                Del(ent);
-            }
+            AddImplant(uid, id);
         }
+    }
+
+    /// <summary>
+    /// Adds a single implant to a person, and returns the implant.
+    /// Logs any implant ids that don't have <see cref="SubdermalImplantComponent"/>.
+    /// </summary>
+    /// <returns>
+    /// The implant, if it was successfully created. Otherwise, null.
+    /// </returns>>
+    public EntityUid? AddImplant(EntityUid uid, String implantId)
+    {
+        var coords = Transform(uid).Coordinates;
+        var ent = Spawn(implantId, coords);
+
+        if (TryComp<SubdermalImplantComponent>(ent, out var implant))
+        {
+            ForceImplant(uid, ent, implant);
+        }
+        else
+        {
+            Log.Warning($"Found invalid starting implant '{implantId}' on {uid} {ToPrettyString(uid):implanted}");
+            Del(ent);
+            return null;
+        }
+
+        return ent;
     }
 
     /// <summary>
@@ -205,3 +226,19 @@ public readonly struct ImplantImplantedEvent
         Implanted = implanted;
     }
 }
+
+// ADT Start
+[ByRefEvent]
+public readonly struct ImplantRemovedEvent
+{
+    public readonly EntityUid Implant;
+    public readonly EntityUid? Implanted;
+
+    public ImplantRemovedEvent(EntityUid implant, EntityUid? implanted)
+    {
+        Implant = implant;
+        Implanted = implanted;
+    }
+}
+
+// ADT End

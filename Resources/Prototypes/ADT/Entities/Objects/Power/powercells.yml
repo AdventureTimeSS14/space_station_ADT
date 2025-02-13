@@ -1,6 +1,6 @@
 - type: entity
   name: mysterious power cell
-  description: Unrechargeable powercell made from ectoplasm.
+  # description: Unrechargeable powercell made from ectoplasm.
   id: ADTPowerCellEctoplasm
   parent: BasePowerCell
   components:
@@ -23,7 +23,7 @@
 
 - type: entity
   name: small mysterious power cell
-  description: Unrechargeable powercell made from ectoplasm.
+  # description: Unrechargeable powercell made from ectoplasm.
   id: ADTPowerCellEctoplasmSmall
   parent: BasePowerCell
   components:

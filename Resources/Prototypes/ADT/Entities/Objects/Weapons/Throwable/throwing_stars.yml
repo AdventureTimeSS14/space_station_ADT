@@ -1,0 +1,12 @@
+- type: entity
+  parent: ThrowingStar
+  id: ADTThrowingStarChangeling
+  name: bone shard
+  components:
+  - type: Sprite
+    sprite: ADT/Changeling/Objects/bone_shard.rsi
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: TimedDespawn
+    lifetime: 30

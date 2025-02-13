@@ -1,4 +1,4 @@
-﻿using Content.Server.GameTicking;
+﻿﻿using Content.Server.GameTicking;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Preferences;
@@ -12,10 +12,10 @@ namespace Content.Server.Spawners.EntitySystems;
 
 public sealed class ContainerSpawnPointSystem : EntitySystem
 {
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
 
@@ -25,25 +25,14 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new []{ typeof(SpawnPointSystem) });
     }
 
-    public void HandlePlayerSpawning(PlayerSpawningEvent args)   // ADT station AI tweak
-    {
-        if (args.Job != null &&
-            args.Job.Prototype.HasValue &&
-            _proto.Index(args.Job.Prototype.Value).ContainerInsert)
-            HandlePlayerSpawning(args, true);   // ADT station AI tweak
-        else
-            HandlePlayerSpawning(args, false);   // ADT station AI tweak
-    }
-
-    // ADT station AI tweak start
-    public void HandlePlayerSpawning(PlayerSpawningEvent args, bool forceJob = false)
+    public void HandlePlayerSpawning(PlayerSpawningEvent args)
     {
         if (args.SpawnResult != null)
             return;
 
         // If it's just a spawn pref check if it's for cryo (silly).
         if (args.HumanoidCharacterProfile?.SpawnPriority != SpawnPriorityPreference.Cryosleep &&
-            (!_proto.TryIndex(args.Job?.Prototype, out var jobProto) || jobProto.JobEntity == null))
+            (!_proto.TryIndex(args.Job, out var jobProto) || jobProto.JobEntity == null))
         {
             return;
         }
@@ -56,37 +45,25 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
             if (args.Station != null && _station.GetOwningStation(uid, xform) != args.Station)
                 continue;
 
-            if (forceJob)
+            // If it's unset, then we allow it to be used for both roundstart and midround joins
+            if (spawnPoint.SpawnType == SpawnPointType.Unset)
             {
-                if (args.Job != null &&
-                    spawnPoint.Job == args.Job.Prototype)
-                {
+                // make sure we also check the job here for various reasons.
+                if (spawnPoint.Job == null || spawnPoint.Job == args.Job)
                     possibleContainers.Add((uid, spawnPoint, container, xform));
-                }
+                continue;
             }
 
-            else
+            if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
             {
-                // If it's unset, then we allow it to be used for both roundstart and midround joins
-                if (spawnPoint.SpawnType == SpawnPointType.Unset)
-                {
-                    // make sure we also check the job here for various reasons.
-                    if (spawnPoint.Job == null || spawnPoint.Job == args.Job?.Prototype)
-                        possibleContainers.Add((uid, spawnPoint, container, xform));
-                    continue;
-                }
+                possibleContainers.Add((uid, spawnPoint, container, xform));
+            }
 
-                if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
-                {
-                    possibleContainers.Add((uid, spawnPoint, container, xform));
-                }
-
-                if (_gameTicker.RunLevel != GameRunLevel.InRound &&
-                    spawnPoint.SpawnType == SpawnPointType.Job &&
-                    (args.Job == null || spawnPoint.Job == args.Job.Prototype))
-                {
-                    possibleContainers.Add((uid, spawnPoint, container, xform));
-                }
+            if (_gameTicker.RunLevel != GameRunLevel.InRound &&
+                spawnPoint.SpawnType == SpawnPointType.Job &&
+                (args.Job == null || spawnPoint.Job == args.Job))
+            {
+                possibleContainers.Add((uid, spawnPoint, container, xform));
             }
         }
 
@@ -116,5 +93,4 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         Del(args.SpawnResult);
         args.SpawnResult = null;
     }
-    // ADT station AI tweak end
 }

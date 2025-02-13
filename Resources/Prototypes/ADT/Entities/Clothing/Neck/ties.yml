@@ -9,7 +9,7 @@
     - type: Clothing
       sprite: ADT/Clothing/Neck/Ties/blue_tie.rsi #спрайты от prazat911
     - type: StaticPrice
-      price: 150
+      price: 65
 
 - type: entity
   parent: ClothingNeckBase
@@ -22,4 +22,4 @@
     - type: Clothing
       sprite: ADT/Clothing/Neck/Ties/gold_tie.rsi #спрайты от prazat911
     - type: StaticPrice
-      price: 150
+      price: 75

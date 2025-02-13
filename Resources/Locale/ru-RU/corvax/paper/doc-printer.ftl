@@ -597,7 +597,7 @@ doc-text-printer-permission-equipment =
 
     =============================================
                                 ⠀[italic]Место для печатей[/italic]
-doc-text-printer-permission-to-travel-in-case-of-threat=
+doc-text-printer-permission-to-travel-in-case-of-threat =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
