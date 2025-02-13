@@ -155,6 +155,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 0.22f };  // ADT Disarm tweak
         RaiseLocalEvent(target, eventArgs);
+        RaiseLocalEvent(user, eventArgs); //ADT tweak
 
         if (!eventArgs.Handled)
         {

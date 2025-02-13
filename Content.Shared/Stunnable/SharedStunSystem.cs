@@ -42,7 +42,7 @@ public abstract class SharedStunSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<KnockedDownComponent, ComponentInit>(OnKnockInit);
+        // SubscribeLocalEvent<KnockedDownComponent, ComponentInit>(OnKnockInit); ADT tweak
         SubscribeLocalEvent<KnockedDownComponent, ComponentShutdown>(OnKnockShutdown);
         SubscribeLocalEvent<KnockedDownComponent, StandAttemptEvent>(OnStandAttempt);
 
@@ -135,10 +135,10 @@ public abstract class SharedStunSystem : EntitySystem
         TryKnockdown(args.OtherEntity, ent.Comp.Duration, true, status);
     }
 
-    private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
-    {
-        _standingState.Down(uid);
-    }
+    // private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args) ADT tweak, stun no droping items
+    // {
+    //     _standingState.Down(uid);
+    // }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
     {
@@ -198,7 +198,8 @@ public abstract class SharedStunSystem : EntitySystem
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null)
+        StatusEffectsComponent? status = null,
+        bool dropItems = true, bool down = true) //ADT tweak
     {
         if (time <= TimeSpan.Zero)
             return false;
@@ -212,6 +213,8 @@ public abstract class SharedStunSystem : EntitySystem
         var ev = new KnockedDownEvent();
         RaiseLocalEvent(uid, ref ev);
 
+        if (down)  //ADT tweak
+            _standingState.Down(uid, dropHeldItems: dropItems); //ADT tweak
         return true;
     }
 
