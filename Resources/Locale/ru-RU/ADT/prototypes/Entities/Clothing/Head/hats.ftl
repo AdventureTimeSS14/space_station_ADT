@@ -127,3 +127,6 @@ ent-ADTClothingHeadHatPurpleBenie = фиолетовая зимняя шапка
 
 ent-ADTClothingHeadHatRedBenie = красная зимняя шапка
     .desc = Тёплая вязанная шапка, которая точно сохранит вашу голову во время зимних вечеров на станции
+
+ent-ADTClothingHeadRomanticHat = широкая красно-белая шляпа
+    .desc = Снимаю шляпу из уважения к вам!

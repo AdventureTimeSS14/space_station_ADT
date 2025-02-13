@@ -657,7 +657,7 @@
   suffix: Halloweeen
   components:
   - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi  
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: redhat
     #layers:
     #- state: base
@@ -712,7 +712,7 @@
       amount: 1
     - id: ADTClothingHeadHatPoliceHat
       amount: 1
-      
+
 # Lethal Company
 
 - type: entity
@@ -722,6 +722,8 @@
   description: Lethal Company box
   suffix: Halloween
   components:
+  - type: StaticPrice
+    price: 20
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: lethal_company
@@ -740,8 +742,8 @@
     - id: ADTDoubleLethalCompanyNitrogenTankFilled
       amount: 1
     - id: ADTLethalCompanyAirHorn
-      prob: 0.3  
-      
+      prob: 0.3
+
 # Empress of light
 
 - type: entity
@@ -750,7 +752,7 @@
   name: Empress of Light costume box
   description: Empress of Light costume box
   suffix: Halloween
-  components:  
+  components:
   - type: Sprite
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: empress_of_light
@@ -765,4 +767,40 @@
     - id: ADTClothingHandsEmpressOfLightGloves
       amount: 1
     - id: ADTEmpressOfLightShoes
-      amount: 1      
+      amount: 1
+
+- type: entity
+  id: ADTCandyBox
+  parent: BaseStorageItem
+  name: candy box
+  description: I give you my heart!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: chocobox
+  - type: Item
+    size: Small
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,1,2
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackCandyLove
+      amount: 1
+    - id: ADTFoodSnackMinichoco1
+      amount: 1
+    - id: ADTFoodSnackMinichoco2
+      amount: 1
+    - id: ADTFoodSnackMinichoco3
+      amount: 1
+    - id: ADTFoodSnackMinichoco4
+      amount: 1
+    - id: ADTFoodSnackMinichoco5
+      amount: 1

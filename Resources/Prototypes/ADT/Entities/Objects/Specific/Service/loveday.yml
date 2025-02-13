@@ -1,0 +1,336 @@
+- type: entity
+  parent: BaseItem
+  id: ADTObjectWhiteBouquet
+  name: White bouquet
+  description: Bouquet of white roses. Classic!
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectRoseBouquet
+  name: Rose bouquet
+  description: Delicate bouquet of pink hibiscus flowers. Especialy for her!
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectYellowBouquet
+  name: Yellow bouquet
+  description: This is a bouquet of yellow peonies. Especially for connoisseurs of peonies
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectBouquetWithBeer
+  name: Bouquet with beer
+  description: Be unique! GIve a bouquet that you can eat, at the same time knocking over a bottle of beer
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectBlackBouquet
+  name: Black bouquet
+  description: This roses are difinietly not colored, thay have always been like thah
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectLiliacBouquet
+  name: liliac roses bouquet
+  description: This roses are difinietly not colored, thay have always been like thah
+  components:
+ # - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
+  - type: DisarmMalus
+
+- type: entity
+  parent: BaseItem
+  id: ADTObjectBouquetDarkRose
+  name: bouquet of black roses
+  description: The flowers of black roses grow exclusively on corpses, however, despite their vile origin, they are very beautiful.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_bouquet.rsi
+    state: bouquet-blackrose
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 1
+  - type: Item
+    size: Normal
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ADTObjectBouquetDarkRose
+  id: ADTObjectBouquetGalakto
+  name: bouquet of galactocherthistle
+  description: Give a gift to your favorite chemist at the station!
+  components:
+  - type: Sprite
+    state: bouquet-galakto
+  - type: Construction
+    graph: ADTObjectBouquetGalaktoGraph
+    node: bouquetgalakto
+
+- type: entity
+  parent: ADTObjectBouquetDarkRose
+  id: ADTObjectBouquetMac
+  name: bouquet of poppies
+  description: A long thin stalk, with a scarlet light on top. Not a plant, but a lighthouse — it's a bright red poppy!
+  components:
+  - type: Sprite
+    state: bouquet-mac
+  - type: Construction
+    graph: ADTObjectBouquetMacGraph
+    node: bouquetmac
+
+- type: entity
+  parent: ADTObjectBouquetDarkRose
+  id: ADTObjectBouquetMix
+  name: bouquet of flowers
+  description: A bouquet of different flowers, bright and colorful, just like you!
+  components:
+  - type: Sprite
+    state: bouquet-mix
+  - type: Construction
+    graph: ADTObjectBouquetMixGraph
+    node: bouquetmix
+
+- type: entity
+  parent: ADTObjectBouquetDarkRose
+  id: ADTObjectBouquetRose
+  name: bouquet of flowers
+  description: These roses are for you.
+  components:
+  - type: Sprite
+    state: bouquet-rose
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTObjectBouquetDarkRose
+  id: ADTObjectBouquetYellow
+  name: bouquet of dandelions
+  description: It looks cheap and simple, but the important thing is attention!
+  components:
+  - type: Sprite
+    state: bouquet-yellow
+  - type: StaticPrice
+    price: 10
+
+
+- type: entity
+  name: candy
+  parent: BaseItem
+  id: ADTFoodSnackMinichoco1Bar
+  description: For you!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco1
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodSnackMinichoco1
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: candy
+  parent: BaseItem
+  id: ADTFoodSnackMinichoco2Bar
+  description: For you!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco2
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodSnackMinichoco2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: candy
+  parent: BaseItem
+  id: ADTFoodSnackMinichoco3Bar
+  description: For you!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco3
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodSnackMinichoco3
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: FoodSnackBase
+  id: ADTFoodSnackCandyLove
+  description: Love is as sweet as ever!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: candy_love
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco1
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco1-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco2
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco2-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco3
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco3-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco4
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco4-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco5
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco5-open

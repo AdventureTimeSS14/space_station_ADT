@@ -1,0 +1,11 @@
+- type: vendingMachineInventory
+  id: ADTLoveLandInventory
+  startingInventory:
+    ADTClothingHeadRomanticHat: 2
+    ADTClothingUniformJumpskirtRomanticSuit: 2
+    ADTClothingUniformJumpskirtTurtleHeart: 5
+    ADTCandyBox: 5
+    ADTObjectBouquetDarkRose : 2
+    ADTObjectBouquetRose: 3
+    ADTObjectBouquetYellow: 5
+    ClothingShoesBootsLaceup: 2
