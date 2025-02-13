@@ -113,3 +113,27 @@
   id: TestDungeon           # Заглушка для того, чтоб не падала локалка
   desc: salvage-dungeon-mod-experiment
   proto: Experiment
+
+- type: salvageDungeonMod
+  id: Bunker
+  proto: Bunker
+  biomes:
+    - Caves
+    - AbominationPlanet
+
+- type: salvageDungeonMod
+  id: Medicine
+  proto: Medicine
+  biomes:
+    - Snow
+    - Grasslands
+    - AquaPlanet
+
+- type: salvageDungeonMod
+  id: Botany
+  proto: Botany
+  biomes:
+    - Snow
+    - Grasslands
+    - AquaPlanet
+    - OasisDesertPlanet
