@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.BoomBox;
+namespace Content.Shared.ADT.BoomBox;
 
 [Serializable, NetSerializable]
 public enum BoomBoxUiKey : byte
@@ -46,5 +46,23 @@ public sealed class BoomBoxStartMessage : BoundUserInterfaceMessage
 
 [Serializable, NetSerializable]
 public sealed class BoomBoxStopMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class BoomBoxPlayMessage : EntityEventArgs
+{
+    public string SoundPath { get; }
+    public float ServerVolume { get; }
+
+    public BoomBoxPlayMessage(string soundPath, float serverVolume)
+    {
+        SoundPath = soundPath;
+        ServerVolume = serverVolume;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class BoomBoxStopClientMessage : BoundUserInterfaceMessage
 {
 }

@@ -1,59 +1,38 @@
-using Content.Server.Interaction;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
-using System;
-using System.Timers;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using AudioComponent = Robust.Shared.Audio.Components.AudioComponent;
-using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
-using Content.Shared.BoomBox;
-using Content.Server.NPC.HTN;
-using Content.Server.UserInterface;
+using Content.Shared.ADT.BoomBox;
 using Content.Shared.UserInterface;
-using System.Threading;
-using System.Threading.Tasks;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Radio.Components;
-using Content.Server.DeviceLinking.Components;
-using Content.Server.DeviceLinking.Systems;
 using Content.Shared.ADT.CCVar;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 
 namespace Content.Server.BoomBox;
 
-public sealed class BoomBoxSystem : EntitySystem
+public sealed partial class BoomBoxSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BoomBoxComponent, ComponentInit>(OnComponentInit);
 
         SubscribeLocalEvent<BoomBoxComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
         SubscribeLocalEvent<BoomBoxComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
-
-        //User
         SubscribeLocalEvent<BoomBoxComponent, InteractUsingEvent>(OnInteractUsing);
-
         SubscribeLocalEvent<BoomBoxComponent, GotEmaggedEvent>(OnEmagged);
-
-        // UI
         SubscribeLocalEvent<BoomBoxComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
         SubscribeLocalEvent<BoomBoxComponent, BoomBoxPlusVolMessage>(OnPlusVolButtonPressed);
         SubscribeLocalEvent<BoomBoxComponent, BoomBoxMinusVolMessage>(OnMinusVolButtonPressed);
@@ -61,63 +40,26 @@ public sealed class BoomBoxSystem : EntitySystem
         SubscribeLocalEvent<BoomBoxComponent, BoomBoxStopMessage>(OnStopButtonPressed);
     }
 
-
-    // This method makes it possible to insert cassettes into the boombox
-    private void OnComponentInit(EntityUid uid, BoomBoxComponent component, ComponentInit args)
-    {
-
-        foreach (var slot in component.Slots)
-        {
-            _itemSlotsSystem.AddItemSlot(uid, slot.Key, slot.Value);
-        }
-
-        _signalSystem.EnsureSourcePorts(uid, component.Port);
-    }
-
     private void OnItemInserted(EntityUid uid, BoomBoxComponent comp, EntInsertedIntoContainerMessage args)
     {
         _popup.PopupEntity(Loc.GetString("tape-in"), uid);
 
-        // We change the value of this field to prevent the boombox from being turned on without a cassette.
         comp.Inserted = true;
 
-        // This method is an intermediate step where we embed additional checks.
-        UpdateSoundPath(uid, comp);
+        if (!TryComp<BoomBoxTapeComponent>(args.Entity, out var tapeComp) || tapeComp.SoundPath == null)
+            return;
+
+        comp.SoundPath = tapeComp.SoundPath;
     }
 
     private void OnItemRemoved(EntityUid uid, BoomBoxComponent comp, EntRemovedFromContainerMessage args)
     {
         _popup.PopupEntity(Loc.GetString("tape-out"), uid);
 
-        // Turn off the playback of the melody, because the cassette is no longer there
-        comp.Stream = _audioSystem.Stop(comp.Stream);
+        StopPlay(uid, comp);
 
-        // We change the value of this field to prevent the boombox from being turned on without a cassette.
         comp.Inserted = false;
         comp.Enabled = false;
-    }
-
-    // This method is an intermediate step where we embed additional checks.
-    private void UpdateSoundPath(EntityUid uid, BoomBoxComponent comp)
-    {
-        foreach (var slot in comp.Slots.Values)
-        {
-            if (slot.ContainerSlot is not null && slot.ContainerSlot.ContainedEntity is not null)
-                AddCurrentSoundPath(uid, comp, (EntityUid) slot.ContainerSlot.ContainedEntity);
-        }
-    }
-
-    // This method updates the path to the music being played. That is why the initial value of the field is not particularly important
-    private void AddCurrentSoundPath(EntityUid uid, BoomBoxComponent comp, EntityUid added)
-    {
-
-        var tagComp = EnsureComp<TagComponent>(uid);
-
-        if (!TryComp<BoomBoxTapeComponent>(added, out var BoomBoxTapeComp) || BoomBoxTapeComp.SoundPath is null)
-            return;
-
-
-        comp.SoundPath = BoomBoxTapeComp.SoundPath;
     }
 
     private void OnMinusVolButtonPressed(EntityUid uid, BoomBoxComponent component, BoomBoxMinusVolMessage args)
@@ -144,8 +86,6 @@ public sealed class BoomBoxSystem : EntitySystem
     {
         UpdateUserInterface(uid, component);
     }
-
-    // ----------------------------------------------------------------------------------------------------------------
 
     private void UpdateUserInterface(EntityUid uid, BoomBoxComponent? component = null)
     {
@@ -195,8 +135,6 @@ public sealed class BoomBoxSystem : EntitySystem
         component.Volume = component.Volume - 3f;
         _audioSystem.SetVolume(component.Stream, component.Volume);
 
-        _signalSystem.InvokePort(uid, component.Port);
-
         UpdateUserInterface(uid, component);
     }
 
@@ -208,8 +146,6 @@ public sealed class BoomBoxSystem : EntitySystem
         component.Volume = component.Volume + 3f;
         _audioSystem.SetVolume(component.Stream, component.Volume);
 
-        _signalSystem.InvokePort(uid, component.Port);
-
         UpdateUserInterface(uid, component);
     }
 
@@ -220,18 +156,14 @@ public sealed class BoomBoxSystem : EntitySystem
 
         if (component.Inserted && !component.Enabled)
         {
-            component.Volume = _cfg.GetCVar(ADTCCVars.BoomBoxVolume);
             component.Enabled = true;
-
             _popup.PopupEntity(Loc.GetString("boombox-on"), uid);
 
-            // We play music with these parameters. Be sure to set "WithLoop(true)" this will allow the music to play indefinitely.
-            component.Stream = _audioSystem.PlayPvs(component.SoundPath, uid, AudioParams.Default.WithVolume(component.Volume).WithRolloffFactor(0f).WithReferenceDistance(1).WithLoop(true).WithMaxDistance(50))?.Entity;
+            // Отправляем клиентам сообщение о начале проигрывания
+            var msg = new BoomBoxPlayMessage(component.SoundPath, component.Volume);
+            RaiseNetworkEvent(msg, uid); // Отправляем всем, кто находится рядом
         }
 
-        _signalSystem.InvokePort(uid, component.Port);
-
-        CheckSyndStatus(uid, component);
         UpdateUserInterface(uid, component);
     }
 
@@ -246,39 +178,11 @@ public sealed class BoomBoxSystem : EntitySystem
 
             _popup.PopupEntity(Loc.GetString("boombox-off"), uid);
 
-            // Turning off the looped audio stream
-            component.Stream = _audioSystem.Stop(component.Stream);
+            // Отправляем клиентам команду остановить звук
+            RaiseNetworkEvent(new BoomBoxStopClientMessage(), uid);
         }
-
-        _signalSystem.InvokePort(uid, component.Port);
 
         UpdateUserInterface(uid, component);
-    }
-
-    private void CheckSyndStatus(EntityUid uid, BoomBoxComponent comp)
-    {
-        foreach (var slot in comp.Slots.Values)
-        {
-            if (slot.ContainerSlot is not null && slot.ContainerSlot.ContainedEntity is not null)
-                SpawnSyndEntity(uid, comp, (EntityUid) slot.ContainerSlot.ContainedEntity);
-        }
-    }
-
-    private void SpawnSyndEntity(EntityUid uid, BoomBoxComponent comp, EntityUid added)
-    {
-        var tagComp = EnsureComp<TagComponent>(uid);
-
-        if (!TryComp<BoomBoxTapeComponent>(added, out var BoomBoxTapeComp) || BoomBoxTapeComp.SyndStatus == false)
-            return;
-
-        if (BoomBoxTapeComp.SyndStatus && !BoomBoxTapeComp.Used)
-        {
-            _popup.PopupEntity(Loc.GetString("boombox-synd-spawn"), uid);
-            var product = EntityManager.SpawnEntity(BoomBoxTapeComp.SyndItem, Transform(uid).Coordinates);
-            _hands.PickupOrDrop(comp.User, product);
-
-            BoomBoxTapeComp.Used = true;
-        }
     }
 
     private void OnInteractUsing(EntityUid uid, BoomBoxComponent component, InteractUsingEvent args)
@@ -288,13 +192,13 @@ public sealed class BoomBoxSystem : EntitySystem
 
     public void OnEmagged(EntityUid uid, BoomBoxComponent component, ref GotEmaggedEvent args)
     {
-        var comp = _entities.AddComponent<RadioMicrophoneComponent>(uid);
+        var comp = EnsureComp<RadioMicrophoneComponent>(uid);
         comp.Enabled = true;
         comp.BroadcastChannel = "Syndicate";
         comp.ToggleOnInteract = false;
         comp.ListenRange = 4;
 
-        var comp2 = _entities.AddComponent<ActiveListenerComponent>(uid);
+        var comp2 = EnsureComp<ActiveListenerComponent>(uid);
         comp2.Range = 4;
 
         _popup.PopupEntity(Loc.GetString("boombox-emagged"), uid);

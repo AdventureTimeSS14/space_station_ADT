@@ -27,13 +27,8 @@ public sealed partial class BoomBoxComponent : Component
 
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
 
-    [DataField("port", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string Port = "Pressed";
-
     public string SoundPath = "/Audio/Stories/Objects/Devices/boombox/FanfareRussian.ogg";
 
 
-    [DataField("slots")]
-    public Dictionary<string, ItemSlot> Slots = new();
 
 }
