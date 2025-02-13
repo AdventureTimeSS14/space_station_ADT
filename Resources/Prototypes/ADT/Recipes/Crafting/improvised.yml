@@ -134,7 +134,7 @@
   graph: ADTHandmadeCrowbarGraph
   startNode: start
   targetNode: ADTHandmadeCrowbarGraph
-  category: construction-category-weapons
+  category: construction-category-tools
   objectType: Item
   description: This is real need you?.
   icon:
