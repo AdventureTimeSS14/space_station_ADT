@@ -518,6 +518,14 @@
   id: ADTIgnoreChokeSpeechBlocking
 
 - type: Tag
+  id: SalvageBotany
+
+- type: Tag
+  id: SalvageBunker
+
+- type: Tag
+  id: SalvageMedicine
+- type: Tag
   id: ADTMiningGuestShuttle
 
 - type: Tag
