@@ -1,21 +1,21 @@
-using Content.Shared.ADT.TimeDespawnDamage;
-using Content.Shared.Damage;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Audio;
-using Content.Shared.Inventory;
-using Content.Shared.Popups;
-using Robust.Server.GameObjects;
-using Robust.Shared.Player;
-using Robust.Server.Player;
-using Content.Shared.IdentityManagement;
 using Content.Server.Forensics;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.StationRecords.Systems;
+using Content.Shared.ADT.TimeDespawnDamage;
+using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.PDA;
+using Content.Shared.Popups;
 using Content.Shared.StationRecords;
 using Content.Shared.Throwing;
+using Robust.Server.GameObjects;
+using Robust.Server.Player;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 public sealed class TimeDespawnDamageSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -100,3 +100,13 @@ public sealed class TimeDespawnDamageSystem : EntitySystem
         QueueDel(entity);
     }
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

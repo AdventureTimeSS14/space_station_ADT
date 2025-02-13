@@ -25,6 +25,7 @@ public sealed class SwitchableWeaponSystem : EntitySystem
         SubscribeLocalEvent<SwitchableWeaponComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
         SubscribeLocalEvent<SwitchableWeaponComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
         SubscribeLocalEvent<SwitchableWeaponComponent, ComponentAdd>(OnComponentAdded);
+        SubscribeLocalEvent<SwitchableWeaponComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
     }
 
     private void OnComponentAdded(EntityUid uid, SwitchableWeaponComponent component, ComponentAdd args)
@@ -79,5 +80,10 @@ public sealed class SwitchableWeaponSystem : EntitySystem
 
         var soundToPlay = comp.IsOpen ? comp.OpenSound : comp.CloseSound;
         _audio.PlayPvs(soundToPlay, args.User);
+    }
+
+    private void OnGetMeleeAttackRate(EntityUid uid, SwitchableWeaponComponent component, ref GetMeleeAttackRateEvent args)
+    {
+        args.Multipliers = component.IsOpen ? component.AttackRateOpen : component.AttackRateFolded;
     }
 }

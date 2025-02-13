@@ -15,3 +15,5 @@ ent-ADTTendrilIcewingWatcher = { ent-ADTTendrilBase }
 
 ent-ADTTendrilMagmawingWatcher = { ent-ADTTendrilBase }
     .desc = { ent-ADTTendrilBase.desc }
+
+tendril-destruction-popup = Земля под шипом обваливается!

@@ -3,7 +3,6 @@
   name: job-name-salvagespec
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
-  canBeAntag: false # ADT tweak
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo

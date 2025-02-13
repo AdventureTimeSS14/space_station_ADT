@@ -1,0 +1,1 @@
+research-technology-basic-modsuit = Сборка МОДов

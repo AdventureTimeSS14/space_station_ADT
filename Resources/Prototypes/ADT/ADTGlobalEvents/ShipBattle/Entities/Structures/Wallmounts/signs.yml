@@ -1,0 +1,37 @@
+- type: entity
+  id: ADTSignTSF
+  name: TSF sign
+  parent: BaseSign
+  suffix: ShipBattle, TSF
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/signs.rsi
+    state: tsf
+    snapCardinals: true
+
+- type: entity
+  id: ADTSignKMT
+  name: KMT sign
+  parent: BaseSign
+  suffix: ShipBattle, KMT
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/signs.rsi
+    state: kmt
+    snapCardinals: true

@@ -1,21 +1,12 @@
 - type: dataset
   id: EligibleTags
   values:
-  - BreathMask
-  - ClownEmergencyOxygenTank
-  - EmergencyMedipen
-  - EmergencyNitrogenTank
-  - EmergencyOxygenTank
-  - ExtendedEmergencyOxygenTank
-  - MedicalPatch
-  - SecurityBreathMask
-  - SpaceMedipen
   - AirAlarm
   - AirAlarmElectronics
   - Airlock
   - AirSensor
   - Ambrosia
-  - ApprisalTool
+  - AppraisalTool
   - Arrow
   - ArtifactFragment
   - Banana

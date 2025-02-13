@@ -135,6 +135,8 @@
     children:
     - id: StrangePill
       prob: 0.20
+    - id: ADTModsuitCoreEnergy # ADT Modsuits
+      prob: 0.03
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
@@ -160,6 +162,15 @@
     - !type:NestedSelector
       tableId: SyndieMaintLoot
       prob: 0.05
+    # Recursive
+    - id: ClosetMaintenanceFilledRandom
+      prob: 0.01
+    #ADT tweak start
+    - id: DeathPaint
+      prob: 0.05
+    - id: DeathPaintTwo
+      prob: 0.05
+    #ADT tweak end
 
 - type: entity
   id: ClosetMaintenanceFilledRandom

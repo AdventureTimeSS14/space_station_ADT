@@ -3,6 +3,8 @@ using Content.Shared.Body.Part;
 using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Slippery;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.CombatMode.Pacification;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -10,6 +12,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 {
     private void SubscribeBlade()
     {
+        SubscribeLocalEvent<HereticComponent, HereticCuttingEdgeEvent>(OnCuttingEdge);
+        SubscribeLocalEvent<HereticComponent, ShotAttemptedEvent>(OnShootAttempt);
+
         SubscribeLocalEvent<HereticComponent, HereticDanceOfTheBrandEvent>(OnDanceOfTheBrand);
         SubscribeLocalEvent<HereticComponent, EventHereticRealignment>(OnRealignment);
         SubscribeLocalEvent<HereticComponent, HereticChampionStanceEvent>(OnChampionStance);
@@ -18,10 +23,25 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, HereticAscensionBladeEvent>(OnAscensionBlade);
     }
 
+    private void OnCuttingEdge(Entity<HereticComponent> ent, ref HereticCuttingEdgeEvent args)
+    {
+        ent.Comp.CanShootGuns = false;
+    }
+
+    private void OnShootAttempt(Entity<HereticComponent> ent, ref ShotAttemptedEvent args)
+    {
+        if (ent.Comp.CanShootGuns == false)
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-cant-shoot", ("entity", args.Used)), ent, ent);
+            args.Cancel();
+        }
+    }
+
     private void OnDanceOfTheBrand(Entity<HereticComponent> ent, ref HereticDanceOfTheBrandEvent args)
     {
         EnsureComp<RiposteeComponent>(ent);
     }
+    
     private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
     {
         if (!TryUseAbility(ent, args))
@@ -44,7 +64,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             Dirty(ent, stam);
         }
 
-        _statusEffect.TryAddStatusEffect(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
+        _statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
 
         args.Handled = true;
     }

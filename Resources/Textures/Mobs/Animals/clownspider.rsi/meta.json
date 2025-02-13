@@ -18,6 +18,16 @@
     {
       "name": "clown",
       "directions": 4
+    },
+    {
+      "name": "clown-moving",
+      "directions": 4,
+      "delays": [
+        [0.2,0.2,0.2],
+        [0.2,0.2,0.2],
+        [0.2,0.2,0.2],
+        [0.2,0.2,0.2]
+      ]
     }
   ]
 }

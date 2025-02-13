@@ -44,3 +44,42 @@
   - type: ConditionalSpawner
     prototypes:
     - ADTMobCarpNukie
+
+- type: entity
+  name: Carp pirate
+  id: ADTMobCarpPirate
+  parent: ADTMobCarpNukie
+  suffix: Пират
+  components:
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-information-carppirate-name
+      description: ghost-role-information-carppirate-description
+      rules: ghost-role-information-carppirate-rules
+      raffle:
+        settings: short
+    - type: NpcFactionMember
+      factions:
+        - Pirate
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: ADT/Mobs/Aliens/carppirate.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+
+- type: entity
+  name: CarpPirate Spawner
+  id: ADTSpawnMobCarpPirate
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: icon
+      sprite: Mobs/Aliens/Carps/magic.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobCarpPirate

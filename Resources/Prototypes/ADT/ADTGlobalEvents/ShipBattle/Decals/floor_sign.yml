@@ -1,0 +1,226 @@
+- type: decal
+  id: ShipBattleKMT1
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt1
+
+- type: decal
+  id: ShipBattleKMT2
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt2
+
+- type: decal
+  id: ShipBattleKMT3
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt3
+
+- type: decal
+  id: ShipBattleKMT4
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt4
+
+- type: decal
+  id: ShipBattleKMT5
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt5
+
+- type: decal
+  id: ShipBattleKMT6
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt6
+
+- type: decal
+  id: ShipBattleKMT7
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt7
+
+- type: decal
+  id: ShipBattleKMT8
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt8
+
+- type: decal
+  id: ShipBattleKMT9
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt9
+
+- type: decal
+  id: ShipBattleKMT10
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt10
+
+- type: decal
+  id: ShipBattleKMT11
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt11
+
+- type: decal
+  id: ShipBattleKMT12
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt12
+
+- type: decal
+  id: ShipBattleKMT13
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt13
+
+- type: decal
+  id: ShipBattleKMT14
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt14
+
+- type: decal
+  id: ShipBattleKMT15
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt15
+
+- type: decal
+  id: ShipBattleKMT16
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: kmt16
+
+
+
+
+- type: decal
+  id: ShipBattleTSF1
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf1
+
+- type: decal
+  id: ShipBattleTSF2
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf2
+
+- type: decal
+  id: ShipBattleTSF3
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf3
+
+- type: decal
+  id: ShipBattleTSF4
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf4
+
+- type: decal
+  id: ShipBattleTSF5
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf5
+
+- type: decal
+  id: ShipBattleTSF6
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf6
+
+- type: decal
+  id: ShipBattleTSF7
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf7
+
+- type: decal
+  id: ShipBattleTSF8
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf8
+
+- type: decal
+  id: ShipBattleTSF9
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf9
+
+- type: decal
+  id: ShipBattleTSF10
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf10
+
+- type: decal
+  id: ShipBattleTSF11
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf11
+
+- type: decal
+  id: ShipBattleTSF12
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf12
+
+- type: decal
+  id: ShipBattleTSF13
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf13
+
+- type: decal
+  id: ShipBattleTSF14
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf14
+
+- type: decal
+  id: ShipBattleTSF15
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf15
+
+- type: decal
+  id: ShipBattleTSF16
+  tags: ["station"]
+  sprite:
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Decals/floorsign.rsi
+    state: tsf16

@@ -21,7 +21,19 @@
             <Label Name="RecordUnselected" Text="{Loc 'criminal-records-console-select-record-info'}" HorizontalExpand="True" Align="Center" FontColorOverride="DarkGray"/>
             <!-- Selected record info -->
             <BoxContainer Name="PersonContainer" Orientation="Vertical" Margin="5" Visible="False">
-                <Label Name="PersonName" StyleClasses="LabelBig"/>
+            <!-- ADT Station Records Showcase Start -->
+                <BoxContainer Name="ShowcaseContainer" Orientation="Horizontal" Margin="5">
+                    <SpriteView Name="Showcase"
+                                SetSize="96 96"
+                                OverrideDirection="South"
+                                Margin="5"
+                                Stretch="Fill"/>
+                    <BoxContainer Orientation="Vertical" Margin="5">
+                        <RichTextLabel Name="PersonName"/>
+                        <RichTextLabel Name="PersonJob"/>
+                    </BoxContainer>
+                </BoxContainer>
+                <!-- ADT Station Records Showcase End -->
                 <Label Name="PersonPrints"/>
                 <Label Name="PersonDna"/>
                 <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5" />
