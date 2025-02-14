@@ -27,7 +27,9 @@ public sealed partial class ChatSystem
             if (transformEntity.MapID != sourceMapId)
                 continue;
 
-            var observer = ghostHearing.HasComponent(playerEntity);
+            if (ghostHearing.HasComponent(playerEntity))
+                recipients.Add(player, new ICChatRecipientData(-1, true));
+
             var entClearRange = clearRange;
             var entMuffledRange = muffledRange;
 
@@ -46,18 +48,15 @@ public sealed partial class ChatSystem
             {
                 if (distance < entClearRange)
                 {
-                    recipients.Add(player, new ICChatRecipientData(distance, observer, Muffled: false));
+                    recipients.Add(player, new ICChatRecipientData(distance, false, Muffled: false));
                     continue;
                 }
-                else if (distance < entMuffledRange)
+                if (distance < entMuffledRange)
                 {
-                    recipients.Add(player, new ICChatRecipientData(distance, observer, Muffled: true));
+                    recipients.Add(player, new ICChatRecipientData(distance, false, Muffled: true));
                     continue;
                 }
             }
-
-            if (observer)
-                recipients.Add(player, new ICChatRecipientData(-1, true));
         }
 
         RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, muffledRange, recipients));
