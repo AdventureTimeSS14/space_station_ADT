@@ -39,7 +39,7 @@
   # ADT Tweak start
   - type: Construction
     graph: ADTHandmadeCrowbarGraph
-    node: ADTCompHandmadeCrowbar
+    node: HandmadeCrowbar
   # ADT Tweak end
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
