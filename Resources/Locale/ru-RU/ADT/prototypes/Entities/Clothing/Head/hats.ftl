@@ -130,3 +130,4 @@ ent-ADTClothingHeadHatRedBenie = красная зимняя шапка
 
 ent-ADTClothingHeadRomanticHat = широкая красно-белая шляпа
     .desc = Снимаю шляпу из уважения к вам!
+    .suffix = { "День Святого Валентина" }
