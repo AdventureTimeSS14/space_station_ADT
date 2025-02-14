@@ -25,7 +25,7 @@ ent-RootSpeakTranslatorImplanter = базовый языковой имплан�
     .suffix = язык Песни корней
     .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-MofficTranslatorImplanter = полноценный языковой имплант Паучьего языка
-    .suffix = язык Паучий 
+    .suffix = язык Паучий
     .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-VoxCommonTranslatorImplanter = полноценный языковой имплант Вокс-пиджин
     .suffix = язык Вокс-пиджин
@@ -73,12 +73,16 @@ ent-DevTranslatorImplanter = имплант языка разработчика
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = АДМЕМЫ
 
-ent-IPCTranslatorImplanter = Имплантер IPC-транслятора
+ent-IPCTranslatorImplanter = полноценный языковой имплант троичного кода
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = IPC
-ent-VoxPidginTranslatorImplanter = Имплантантер-транслятор VoxCommon
+ent-VoxPidginTranslatorImplanter = полноценный языковой имплант Вокс-Пиджин
     .desc = { ent-BaseImplantOnlyImplanter.desc }
-    .suffix = VoxCommon
+    .suffix = Вокс-Пиджин
+
+ent-ScratchesTranslatorImplanter = полноценный языковой имплант Скретчи
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = Скретчи
 
 ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
     .desc = { ent-BaseImplantOnlyImplanter.desc }

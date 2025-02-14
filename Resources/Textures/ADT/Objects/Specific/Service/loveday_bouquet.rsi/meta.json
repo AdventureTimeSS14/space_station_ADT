@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bouquet-blackrose"
+        },
+        {
+            "name": "bouquet-galakto"
+        },
+        {
+            "name": "bouquet-mac"
+        },
+        {
+            "name": "bouquet-mix"
+        },
+        {
+            "name": "bouquet-rose"
+        },
+        {
+            "name": "bouquet-yellow"
+        }
+    ]
+}

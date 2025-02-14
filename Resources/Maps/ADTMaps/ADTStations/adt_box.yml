@@ -9849,6 +9849,18 @@ entities:
     - type: Transform
       pos: -12.5,53.5
       parent: 2
+- proto: ADTVendingMachineLoveVend
+  entities:
+  - uid: 23809
+    components:
+    - type: Transform
+      pos: -40.5,-4.5
+      parent: 2
+  - uid: 23810
+    components:
+    - type: Transform
+      pos: 22.5,15.5
+      parent: 2
 - proto: ADTVendingMachineParaDrobe
   entities:
   - uid: 191
@@ -12689,7 +12701,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16146.45
+      secondsUntilStateChange: -16219.231
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -85920,7 +85932,7 @@ entities:
       pos: 41.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12758.915
+      secondsUntilStateChange: -12831.696
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -148962,11 +148974,6 @@ entities:
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraSupply
-    # - type: UserInterface
-    #   actors:
-    #     enum.SurveillanceCameraSetupUiKey.Camera:
-    #     - invalid
-    # - type: ActiveUserInterface
 - proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
   - uid: 22950
@@ -153848,18 +153855,6 @@ entities:
     components:
     - type: Transform
       pos: 34.5,-33.5
-      parent: 2
-- proto: VendingMachineWinter
-  entities:
-  - uid: 23809
-    components:
-    - type: Transform
-      pos: -40.5,-4.5
-      parent: 2
-  - uid: 23810
-    components:
-    - type: Transform
-      pos: 22.5,15.5
       parent: 2
 - proto: VendingMachineYouTool
   entities:
