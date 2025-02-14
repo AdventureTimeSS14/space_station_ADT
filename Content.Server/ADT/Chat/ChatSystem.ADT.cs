@@ -28,26 +28,28 @@ public sealed partial class ChatSystem
                 continue;
 
             var observer = ghostHearing.HasComponent(playerEntity);
+            var entClearRange = clearRange;
+            var entMuffledRange = muffledRange;
 
             if (TryComp<ChatModifierComponent>(playerEntity, out var modifier))
             {
                 if (modifier.Modifiers.ContainsKey(ChatModifierType.WhisperClear))
-                    clearRange = modifier.Modifiers[ChatModifierType.WhisperClear];
+                    entClearRange = modifier.Modifiers[ChatModifierType.WhisperClear];
 
                 if (modifier.Modifiers.ContainsKey(ChatModifierType.WhisperMuffled))
-                    muffledRange = modifier.Modifiers[ChatModifierType.WhisperMuffled];
+                    entMuffledRange = modifier.Modifiers[ChatModifierType.WhisperMuffled];
             }
 
 
             // even if they are a ghost hearer, in some situations we still need the range
             if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance))
             {
-                if (distance < clearRange)
+                if (distance < entClearRange)
                 {
                     recipients.Add(player, new ICChatRecipientData(distance, observer, Muffled: false));
                     continue;
                 }
-                else if (distance < muffledRange)
+                else if (distance < entMuffledRange)
                 {
                     recipients.Add(player, new ICChatRecipientData(distance, observer, Muffled: true));
                     continue;
