@@ -126,8 +126,8 @@
   description: The flowers of black roses grow exclusively on corpses, however, despite their vile origin, they are very beautiful.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Specific/Service/loveday_bouquet.rsi
-    state: bouquet-blackrose
+    sprite: ADT/Objects/Specific/Service/blackrose_bouquet.rsi
+    state: icon
   - type: MeleeWeapon
     attackRate: 1.0
     damage:
@@ -135,6 +135,7 @@
         Slash: 1
   - type: Item
     size: Normal
+    sprite: ADT/Objects/Specific/Service/blackrose_bouquet.rsi
   - type: StaticPrice
     price: 40
 
@@ -145,10 +146,13 @@
   description: Give a gift to your favorite chemist at the station!
   components:
   - type: Sprite
-    state: bouquet-galakto
+    sprite: ADT/Objects/Specific/Service/galakto_bouquet.rsi
   - type: Construction
     graph: ADTObjectBouquetGalaktoGraph
     node: bouquetgalakto
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/galakto_bouquet.rsi
 
 - type: entity
   parent: ADTObjectBouquetDarkRose
@@ -157,10 +161,13 @@
   description: A long thin stalk, with a scarlet light on top. Not a plant, but a lighthouse — it's a bright red poppy!
   components:
   - type: Sprite
-    state: bouquet-mac
+    sprite: ADT/Objects/Specific/Service/mac_bouquet.rsi
   - type: Construction
     graph: ADTObjectBouquetMacGraph
     node: bouquetmac
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/mac_bouquet.rsi
 
 - type: entity
   parent: ADTObjectBouquetDarkRose
@@ -169,10 +176,13 @@
   description: A bouquet of different flowers, bright and colorful, just like you!
   components:
   - type: Sprite
-    state: bouquet-mix
+    sprite: ADT/Objects/Specific/Service/mix_bouquet.rsi
   - type: Construction
     graph: ADTObjectBouquetMixGraph
     node: bouquetmix
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/mix_bouquet.rsi
 
 - type: entity
   parent: ADTObjectBouquetDarkRose
@@ -181,9 +191,12 @@
   description: These roses are for you.
   components:
   - type: Sprite
-    state: bouquet-rose
+    sprite: ADT/Objects/Specific/Service/love_rose_bouquet.rsi
   - type: StaticPrice
     price: 30
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/love_rose_bouquet.rsi
 
 - type: entity
   parent: ADTObjectBouquetDarkRose
@@ -192,6 +205,9 @@
   description: It looks cheap and simple, but the important thing is attention!
   components:
   - type: Sprite
-    state: bouquet-yellow
+    sprite: ADT/Objects/Specific/Service/love_yellow_bouquet.rsi
   - type: StaticPrice
     price: 10
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Service/love_yellow_bouquet.rsi
