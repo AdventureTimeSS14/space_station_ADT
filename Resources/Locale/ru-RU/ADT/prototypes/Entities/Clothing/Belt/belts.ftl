@@ -48,3 +48,7 @@ ent-ADTClothingBeltUtilityWebbingFilled = жилет для инструмент
 ent-ADTClothingBeltUtilityWebbingEngineering = жилет для инструментов
     .desc = { ent-ADTClothingBeltUtilityWebbing.desc }
     .suffix = Инженерный
+
+ent-ADTClothingBeltQuiverCupidon = колчан купидона
+    .desc = Для доставки влюбленностей, и пусть никто не уйдет без стрелы в сердце!
+    .suffix = { "День Святого Валентина" }

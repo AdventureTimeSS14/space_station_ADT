@@ -15,3 +15,22 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  name: wall light shuttle
+  id: shuttle
+  graph: ADTLightFixtureShuttle
+  startNode: start
+  targetNode: shuttle
+  category: construction-category-structures
+  description: A wall light a shuttle fixture. Use light tubes.
+  icon:
+    sprite: ADT/Structures/Wallmounts/Lighting/shuttle_light.rsi
+    state: empty
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+  # Need an *additional* condition here that forces there to be a wall in the opposite direction to the one used for placement.
+  # Also see below. Didn't add it b/c construction ECS work going on. Cheers, - 20kdc
+    - !type:TileNotBlocked
