@@ -50,6 +50,8 @@
       tags:
       - Pickaxe
     - type: MeleeWeapon
+    - type: StaminaDamageOnHit
+      damage: 1
       autoAttack: true
       angle: 0
       wideAnimationRotation: -90
