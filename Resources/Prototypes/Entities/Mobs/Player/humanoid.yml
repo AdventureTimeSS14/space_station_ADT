@@ -51,6 +51,8 @@
     - SlimePerson
     - Dwarf
     - IPC
+    - Felinid
+    - Resomi
     - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
@@ -515,6 +517,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -563,6 +567,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end

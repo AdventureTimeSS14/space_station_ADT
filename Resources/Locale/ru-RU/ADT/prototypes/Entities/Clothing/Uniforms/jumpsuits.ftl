@@ -390,8 +390,8 @@ ent-ADTClothingUniformJumpsuitMGDGuard = бронированный костюм
     .desc = Состоит из прочного бронежилета "Тактика" а также защиты для коленей и локтей, состоящих из кевлара.
     .suffix = { "MG&D" }
 
-ent-ADTClothingUniformJumpskirtRomanticSuit = красно-белый костюм
+ent-ADTClothingUniformJumpsuitRomanticSuit = красно-белый костюм
     .desc = Модный романтичный костюм.
 
-ent-ADTClothingUniformJumpskirtTurtleHeart = водолазка с сердцем
+ent-ADTClothingUniformJumpsuitTurtleHeart = водолазка с сердцем
     .desc = Милая забавная водолазка.

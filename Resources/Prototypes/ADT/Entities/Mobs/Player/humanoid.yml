@@ -43,6 +43,8 @@
     - Shadekin
     - Arachnid
     - Reptilian
+    - Felinid
+    - Resomi
     - SlimePerson
     - Dwarf
     - IPC
@@ -142,6 +144,8 @@
     - Shadekin
     - Arachnid
     - Reptilian
+    - Felinid
+    - Resomi
     - SlimePerson
     - Dwarf
     - IPC
@@ -253,6 +257,8 @@
     - Shadekin
     - Arachnid
     - Reptilian
+    - Felinid
+    - Resomi
     - SlimePerson
     - Dwarf
     - IPC
@@ -364,6 +370,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -473,6 +481,8 @@
     - Reptilian
     - SlimePerson
     - Dwarf
+    - Felinid
+    - Resomi
     - IPC
     - DraskSpecies # ADT-Tweak-end
   components:
@@ -579,6 +589,8 @@
     - Reptilian
     - SlimePerson
     - Dwarf
+    - Felinid
+    - Resomi
     - IPC
     - DraskSpecies # ADT-Tweak-end
   id: ADTCmndCBURNAgent
