@@ -5615,6 +5615,51 @@ Entries:
     id: 708
   - author: Котя & Unlumy & Hyrmik
     changes:
+      - {message: Добавлено веселье!, type: Add}
+      - {message: Удалено веселье!, type: Remove}
+      - {message: Изменено веселье!, type: Tweak}
+      - {message: Исправлено веселье!, type: Fix}
       - {message: 'Была добавлена новая, долгожданная раса - резоми!', type: Add}
     time: '2025-02-13T13:33:29Z'
     id: 709
+  - author: Шрёдька
+    changes:
+      - {message: Исправлена отправка в ooc чат от админа со спонсоркой. Теперь никнейм
+          админа также красится в спонсорский., type: Fix}
+    time: '2025-02-13T18:13:26Z'
+    id: 710
+  - author: NekoSyndicate
+    changes:
+      - {message: Добавил крафт лома в категорию инструментов, type: Add}
+    time: '2025-02-13T21:45:12Z'
+    id: 711
+  - author: Friskis
+    changes:
+      - {message: Добавлен Любовенд и его содержимое, type: Add}
+      - {message: Добавлен крафт букетов в раздел Разное, type: Add}
+    time: '2025-02-14T01:39:29Z'
+    id: 712
+  - author: Darkiich
+    changes:
+      - {message: По просьбе добавлена фара шаттла в меню строительства, type: Add}
+    time: '2025-02-14T01:40:01Z'
+    id: 713
+  - author: Петр
+    changes:
+      - {message: 'Обновлен Багель, автор Костегрыз', type: Tweak}
+      - {message: 'Мелкие фиксы Джемини, автор Костегрыз', type: Fix}
+      - {message: 'Мелкие фиксы Кербероса, автор Вильгельм Келер', type: Fix}
+      - {message: 'Мелкие фиксы Кластер Легаси, автор Нума', type: Fix}
+      - {message: 'Мелкие фиксы Салтерна, автор Зоич', type: Fix}
+    time: '2025-02-14T04:26:08Z'
+    id: 714
+  - author: Петр
+    changes:
+      - {message: Добавлен контент ко Дню Святого Валентина из старой сборки, type: Add}
+    time: '2025-02-14T05:12:45Z'
+    id: 715
+  - author: Петр
+    changes:
+      - {message: Торговые автоматы на картах ко Дню Святого Валентина, type: Add}
+    time: '2025-02-14T05:13:18Z'
+    id: 716
