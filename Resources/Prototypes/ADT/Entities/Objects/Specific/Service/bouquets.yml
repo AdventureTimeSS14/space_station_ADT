@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: ADTObjectWhiteBouquet  
+  id: ADTObjectWhiteBouquet
   name: White bouquet
   description: Bouquet of white roses. Classic!
   components:
@@ -9,7 +9,7 @@
     sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.0 
+    attackRate: 1.0
     damage:
       types:
         Slash: 1
@@ -29,7 +29,7 @@
     sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.0 
+    attackRate: 1.0
     damage:
       types:
         Slash: 1
@@ -49,7 +49,7 @@
     sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.0 
+    attackRate: 1.0
     damage:
       types:
         Slash: 1
@@ -69,7 +69,7 @@
     sprite: ADT/Objects/Specific/Service/bouquet_with_beer.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.0 
+    attackRate: 1.0
     damage:
       types:
         Slash: 1
@@ -89,7 +89,7 @@
     sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.0 
+    attackRate: 1.0
     damage:
       types:
         Slash: 1
@@ -109,7 +109,7 @@
     sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.0 
+    attackRate: 1.0
     damage:
       types:
         Slash: 1
