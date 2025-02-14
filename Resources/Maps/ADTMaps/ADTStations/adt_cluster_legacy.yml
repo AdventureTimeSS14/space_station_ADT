@@ -5315,6 +5315,18 @@ entities:
     - type: Transform
       pos: 34.5,-22.5
       parent: 2
+- proto: ADTVendingMachineLoveVend
+  entities:
+  - uid: 7372
+    components:
+    - type: Transform
+      pos: -24.5,-21.5
+      parent: 2
+  - uid: 9071
+    components:
+    - type: Transform
+      pos: 1.5,-18.5
+      parent: 2
 - proto: ADTVendingMachinePatholoDrobe
   entities:
   - uid: 87
@@ -5805,7 +5817,7 @@ entities:
       pos: 0.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2754.9392
+      secondsUntilStateChange: -2870.156
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5918,7 +5930,7 @@ entities:
       pos: 13.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -49292.445
+      secondsUntilStateChange: -49407.664
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5972,7 +5984,7 @@ entities:
       pos: 8.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -92197.555
+      secondsUntilStateChange: -92312.77
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6152,7 +6164,7 @@ entities:
       pos: 31.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -88891.266
+      secondsUntilStateChange: -89006.484
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -6235,7 +6247,7 @@ entities:
       pos: -27.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -64011.625
+      secondsUntilStateChange: -64126.844
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6358,7 +6370,7 @@ entities:
       pos: -10.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58874.03
+      secondsUntilStateChange: -58989.25
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6598,7 +6610,7 @@ entities:
       pos: -8.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -80777.734
+      secondsUntilStateChange: -80892.95
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26192,8 +26204,6 @@ entities:
       pos: -5.5,2.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 105
   - uid: 2571
@@ -26202,8 +26212,6 @@ entities:
       pos: -4.5,2.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 105
   - uid: 2580
@@ -26212,8 +26220,6 @@ entities:
       pos: 1.5,5.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 105
   - uid: 2581
@@ -26222,8 +26228,6 @@ entities:
       pos: 0.5,5.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 105
   - uid: 3759
@@ -26425,8 +26429,6 @@ entities:
       pos: 7.5,2.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 105
   - uid: 3828
@@ -26435,8 +26437,6 @@ entities:
       pos: 6.5,2.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 105
   - uid: 9385
@@ -27212,8 +27212,6 @@ entities:
       pos: 6.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 93
   - uid: 6870
@@ -27223,8 +27221,6 @@ entities:
       pos: 7.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 93
   - uid: 9079
@@ -27233,8 +27229,6 @@ entities:
       pos: -19.5,-14.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 9086
   - uid: 9083
@@ -27243,8 +27237,6 @@ entities:
       pos: -19.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 9086
 - proto: Fireplace
@@ -37702,8 +37694,6 @@ entities:
       pos: -23.5,-14.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 9086
     - type: AtmosPipeColor
@@ -38423,8 +38413,6 @@ entities:
       pos: 7.5,-14.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 93
     - type: AtmosPipeColor
@@ -38444,8 +38432,6 @@ entities:
       pos: -23.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      # configurators:
-      # - invalid
       deviceLists:
       - 9086
     - type: AtmosPipeColor
@@ -43185,13 +43171,6 @@ entities:
     components:
     - type: Transform
       pos: -23.5,-17.5
-      parent: 2
-- proto: PottedPlantRandomPlastic
-  entities:
-  - uid: 9071
-    components:
-    - type: Transform
-      pos: -24.5,-21.5
       parent: 2
 - proto: PowerCellHigh
   entities:
@@ -51907,11 +51886,6 @@ entities:
     components:
     - type: Transform
       pos: 34.5,-16.5
-      parent: 2
-  - uid: 7372
-    components:
-    - type: Transform
-      pos: 1.5,-18.5
       parent: 2
   - uid: 7373
     components:
@@ -61105,7 +61079,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -133443.48
+      secondsUntilStateChange: -133558.7
       state: Opening
     - type: Airlock
       autoClose: False
@@ -61124,7 +61098,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -45231.82
+      secondsUntilStateChange: -45347.04
       state: Opening
     - type: Airlock
       autoClose: False
@@ -61185,7 +61159,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -133441.48
+      secondsUntilStateChange: -133556.7
       state: Opening
     - type: Airlock
       autoClose: False
