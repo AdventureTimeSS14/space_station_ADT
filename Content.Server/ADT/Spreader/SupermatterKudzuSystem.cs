@@ -68,23 +68,9 @@ public sealed class SupermatterKudzuSystem : EntitySystem
         foreach (var neighbor in args.NeighborFreeTiles)
         {
             var neighborUid = Spawn(prototype, _map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices));
-
-            if (!HasComp<EdgeSupermatterSpreaderComponent>(neighborUid))
-            {
-                Logger.Error($"[SupermatterKudzu] neighborUid={neighborUid} не содержит EdgeSupermatterSpreaderComponent!");
-                continue;
-            }
-            if (!HasComp<ActiveEdgeSupermatterSpreaderComponent>(neighborUid))
-            {
-                Logger.Error($"[SupermatterKudzu] neighborUid={neighborUid} не содержит ActiveEdgeSupermatterSpreaderComponent!");
-                continue;
-            }
-            if (Comp<EdgeSupermatterSpreaderComponent>(neighborUid).Id != KudzuGroup)
-            {
-                Logger.Error($"[SupermatterKudzu] neighborUid={neighborUid} имеет Id={Comp<EdgeSupermatterSpreaderComponent>(neighborUid).Id}, а ожидался {KudzuGroup}!");
-                continue;
-            }
-
+            DebugTools.Assert(HasComp<EdgeSupermatterSpreaderComponent>(neighborUid));
+            DebugTools.Assert(HasComp<ActiveEdgeSupermatterSpreaderComponent>(neighborUid));
+            DebugTools.Assert(Comp<EdgeSupermatterSpreaderComponent>(neighborUid).Id == KudzuGroup);
             args.Updates--;
             if (args.Updates <= 0)
                 return;
