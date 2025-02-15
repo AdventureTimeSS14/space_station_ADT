@@ -1,8 +1,8 @@
 namespace Content.Shared.ADT.Anomaly.Effects.Components;
 
 [RegisterComponent]
-public sealed partial class MadnessSourceComponent : Component
+public sealed partial class NervousSourceComponent : Component
 {
     [DataField]
-    public float MadnessRange = 7;
+    public float NervousRange = 7;
 }

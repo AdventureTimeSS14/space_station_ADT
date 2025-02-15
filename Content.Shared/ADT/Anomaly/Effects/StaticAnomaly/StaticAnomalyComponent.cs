@@ -7,5 +7,5 @@ public sealed partial class StaticAnomalyComponent : Component
     public float NoiseRange = 12;
 
     [DataField]
-    public float NoiseStrong = 0.45f;
+    public float NoiseStrong = 0.55f;
 }

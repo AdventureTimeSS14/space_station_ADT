@@ -66,7 +66,7 @@
     radius: 1.2
     energy: 10.5
     color: "#ffffff"
-  - type: MadnessSource
+  - type: NervousSource
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
