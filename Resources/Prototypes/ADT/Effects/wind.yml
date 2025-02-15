@@ -1,0 +1,19 @@
+- type: entity
+  id: ADTWindEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.15
+  - type: Sprite
+    rotation: 90
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: ADT/Effects/wind.rsi
+        state: icon
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
