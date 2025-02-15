@@ -66,6 +66,19 @@
       - StealCondition
   - type: DieCondition
 
+- type: entity
+  parent: BaseTraitorObjective
+  id: CascadeObjective
+  name: objective-condition-do-cascade
+  description: objective-condition-do-cascade-desc
+  components:
+  - type: Objective
+    difficulty: 0.5
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon
+  - type: CascadeCondition
+
 #- type: entity
 #  parent: [BaseTraitorObjective, BaseLivingObjective]
 #  id: HijackShuttleObjective

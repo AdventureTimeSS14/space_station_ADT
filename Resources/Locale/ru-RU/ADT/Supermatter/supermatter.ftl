@@ -1,6 +1,3 @@
-// Entities
-// Start
-
 guide-entry-sm =
     Сверхматерия
     
@@ -19,10 +16,6 @@ ent-SupermatterCascade = Сверхматерия?
 ent-SupermatterKudzu = Сверхматерия?
     .desc = Это такой конец...
 
-// End
-
-// Supermatter Announcements
-// Start
 
 supermatter-announcer = Автоматический Двигатель Сверхматерии
 
@@ -62,11 +55,6 @@ supermatter-announcement-cc-tamper =
     Нашей автоматической системой обнаружения несчастных случаев зафиксировано нарушение структурной целостности кристалла сверхматерии в результате воздействия внешней силы.
     Инженерному отделу приказывается немедленно явиться к двигателю Сверхматерии.
 
-// End
-
-// Agents Shit
-// Start
-
 
 supermatter-tamper-begin =
     Вы начинаете осторожно отрезать кусочек от кристалла Сверхматерии...
@@ -86,4 +74,3 @@ objective-condition-do-cascade =
 objective-condition-do-cascade-description =
     Используйте Анти-Ноблиум как хладоген для Сверхматерии. Уничтожьте эту станцию.
     
-// End
