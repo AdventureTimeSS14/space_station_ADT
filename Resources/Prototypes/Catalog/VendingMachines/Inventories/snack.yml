@@ -7,5 +7,12 @@
     FoodSnackPistachios: 3
     FoodSnackSus: 3
     FoodSnackSemki: 3
-  contrabandInventory:
+    #ADT_Tweak_Start
+    ADTFoodCakeChocolateHeart: 2
+    ADTFoodBananChocolate: 3
+    ADTFoodBananChocolatePink: 3
+    ADTFoodBoxEclairs: 2
+    ADTCandyBox: 2
+    #ADT_Tweak_End
+  emaggedInventory:
     FoodSnackSyndi: 3

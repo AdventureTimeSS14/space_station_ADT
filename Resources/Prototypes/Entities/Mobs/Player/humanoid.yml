@@ -49,6 +49,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -515,6 +517,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -563,6 +567,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end

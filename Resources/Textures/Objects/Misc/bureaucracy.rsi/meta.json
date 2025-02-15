@@ -239,6 +239,30 @@
         },
         {
             "name": "paper_stamp-dv"
+        },
+        {
+            "name": "paper-valentine-white"
+        },
+        {
+            "name": "paper-valentine-white_words"
+        },
+        {
+            "name": "paper-valentine-red"
+        },
+        {
+            "name": "paper-valentine-red_words"
+        },
+        {
+            "name": "folder-valentine-white"
+        },
+        {
+            "name": "folder-valentine-red"
+        },
+        {
+            "name": "folder-valentine-white-overlay-paper"
+        },
+        {
+            "name": "folder-valentine-red-overlay-paper"
         }
     ]
 }
