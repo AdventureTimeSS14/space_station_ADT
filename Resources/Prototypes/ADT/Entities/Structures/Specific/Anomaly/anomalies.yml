@@ -50,7 +50,7 @@
       - ADTSpecialMobGorilla
 
 - type: entity
-  id: AnomalyStatic
+  id: ADTAnomalyStatic
   parent: BaseAnomaly
   suffix: Static
   components:
@@ -67,11 +67,6 @@
     radius: 1.5
     energy: 12.5
     color: "#ffffff"
-  - type: AmbientSound
-    range: 5
-    volume: -5
-    sound:
-      path: Audio/ADT/Ambience/static_anomaly.ogg
   - type: Anomaly
     corePrototype: ADTAnomalyCoreStatic
     coreInertPrototype: ADTAnomalyCoreStaticInert
