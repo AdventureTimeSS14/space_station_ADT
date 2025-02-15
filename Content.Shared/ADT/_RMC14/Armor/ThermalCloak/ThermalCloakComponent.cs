@@ -45,7 +45,7 @@ public sealed partial class ThermalCloakComponent : Component
     public EntProtoId ActionId = "ADTActionToggleCloak";
 
     [DataField, AutoNetworkedField]
-    public EntityUid? Action;
+    public EntityUid Action;
 
     [DataField, AutoNetworkedField]
     public EntProtoId CloakEffect = "RMCEffectCloak";
