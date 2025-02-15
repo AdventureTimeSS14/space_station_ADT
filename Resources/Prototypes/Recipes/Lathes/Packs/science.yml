@@ -34,7 +34,7 @@
   id: ScienceClothing
   recipes:
   - ClothingShoesBootsMagSci
-  - ClothingShoesBootsMoon
+  # - ClothingShoesBootsMoon # ADT-Tweak - убираем луноходы
   - ClothingShoesBootsSpeed
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
