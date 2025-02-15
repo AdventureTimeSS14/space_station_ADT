@@ -85,3 +85,6 @@
   id: Shadekin
   name: metabolizer-type-shadekin
 
+- type: metabolizerType
+  id: Resomi
+  name: metabolizer-type-resomi

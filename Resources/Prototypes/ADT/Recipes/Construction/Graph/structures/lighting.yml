@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: ADTLightFixtureShuttle
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shuttle
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 2.0
+    - node: shuttle
+      entity: ADTPoweredShuttleLightEmpty
