@@ -1,5 +1,5 @@
 using Content.Shared.Damage;
-using Content.Shared.Spreader;
+using Content.Shared.ADT.Spreader;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -14,8 +14,8 @@ public sealed class SupermatterKudzuSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
-    [ValidatePrototypeId<EdgeSpreaderPrototype>]
-    private const string KudzuGroup = "Kudzu";
+    [ValidatePrototypeId<EdgeSupermatterSpreaderPrototype>]
+    private const string KudzuGroup = "SupermatterKudzu";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -68,9 +68,23 @@ public sealed class SupermatterKudzuSystem : EntitySystem
         foreach (var neighbor in args.NeighborFreeTiles)
         {
             var neighborUid = Spawn(prototype, _map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices));
-            DebugTools.Assert(HasComp<EdgeSupermatterSpreaderComponent>(neighborUid));
-            DebugTools.Assert(HasComp<ActiveEdgeSupermatterSpreaderComponent>(neighborUid));
-            DebugTools.Assert(Comp<EdgeSupermatterSpreaderComponent>(neighborUid).Id == KudzuGroup);
+
+            if (!HasComp<EdgeSupermatterSpreaderComponent>(neighborUid))
+            {
+                Logger.Error($"[SupermatterKudzu] neighborUid={neighborUid} не содержит EdgeSupermatterSpreaderComponent!");
+                continue;
+            }
+            if (!HasComp<ActiveEdgeSupermatterSpreaderComponent>(neighborUid))
+            {
+                Logger.Error($"[SupermatterKudzu] neighborUid={neighborUid} не содержит ActiveEdgeSupermatterSpreaderComponent!");
+                continue;
+            }
+            if (Comp<EdgeSupermatterSpreaderComponent>(neighborUid).Id != KudzuGroup)
+            {
+                Logger.Error($"[SupermatterKudzu] neighborUid={neighborUid} имеет Id={Comp<EdgeSupermatterSpreaderComponent>(neighborUid).Id}, а ожидался {KudzuGroup}!");
+                continue;
+            }
+
             args.Updates--;
             if (args.Updates <= 0)
                 return;
