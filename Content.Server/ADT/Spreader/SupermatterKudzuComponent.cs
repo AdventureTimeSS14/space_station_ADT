@@ -1,5 +1,3 @@
-using Content.Shared.Damage;
-
 namespace Content.Server.ADT.Spreader;
 
 /// <summary>
@@ -19,24 +17,6 @@ public sealed partial class SupermatterKudzuComponent : Component
     /// </summary>
     [DataField]
     public float SpreadChance = 1f;
-
-    /// <summary>
-    /// How much damage is required to reduce growth level
-    /// </summary>
-    [DataField]
-    public float GrowthHealth = 10.0f;
-
-    /// <summary>
-    /// How much damage is required to prevent growth
-    /// </summary>
-    [DataField]
-    public float GrowthBlock = 20.0f;
-
-    /// <summary>
-    /// How much the kudzu heals each tick
-    /// </summary>
-    [DataField]
-    public DamageSpecifier? DamageRecovery = null;
 
     [DataField]
     public float GrowthTickChance = 1f;

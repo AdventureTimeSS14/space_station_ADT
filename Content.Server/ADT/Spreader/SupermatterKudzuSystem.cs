@@ -22,25 +22,6 @@ public sealed class SupermatterKudzuSystem : EntitySystem
     {
         SubscribeLocalEvent<SupermatterKudzuComponent, ComponentStartup>(SetupKudzu);
         SubscribeLocalEvent<SupermatterKudzuComponent, SupermatterSpreadNeighborsEvent>(OnKudzuSpread);
-        SubscribeLocalEvent<SupermatterKudzuComponent, DamageChangedEvent>(OnDamageChanged);
-    }
-
-    private void OnDamageChanged(EntityUid uid, SupermatterKudzuComponent component, DamageChangedEvent args)
-    {
-        // Every time we take any damage, we reduce growth depending on all damage over the growth impact
-        //   So the kudzu gets slower growing the more it is hurt.
-        var growthDamage = (int) (args.Damageable.TotalDamage / component.GrowthHealth);
-        if (growthDamage > 0)
-        {
-            if (!EnsureComp<SupermatterGrowingKudzuComponent>(uid, out _))
-                component.GrowthLevel = 3;
-
-            component.GrowthLevel = Math.Max(1, component.GrowthLevel - growthDamage);
-            if (EntityManager.TryGetComponent<AppearanceComponent>(uid, out var appearance))
-            {
-                _appearance.SetData(uid, KudzuVisuals.GrowthLevel, component.GrowthLevel, appearance);
-            }
-        }
     }
 
     private void OnKudzuSpread(EntityUid uid, SupermatterKudzuComponent component, ref SupermatterSpreadNeighborsEvent args)
@@ -113,26 +94,6 @@ public sealed class SupermatterKudzuSystem : EntitySystem
             if (!_robustRandom.Prob(kudzu.GrowthTickChance))
             {
                 continue;
-            }
-
-            if (damageableQuery.TryGetComponent(uid, out var damage))
-            {
-                if (damage.TotalDamage > 1.0)
-                {
-                    if (kudzu.DamageRecovery != null)
-                    {
-                        // This kudzu features healing, so Gradually heal
-                        _damageable.TryChangeDamage(uid, kudzu.DamageRecovery, true);
-                    }
-                    if (damage.TotalDamage >= kudzu.GrowthBlock)
-                    {
-                        // Don't grow when quite damaged
-                        if (_robustRandom.Prob(0.95f))
-                        {
-                            continue;
-                        }
-                    }
-                }
             }
 
             kudzu.GrowthLevel += 1;
