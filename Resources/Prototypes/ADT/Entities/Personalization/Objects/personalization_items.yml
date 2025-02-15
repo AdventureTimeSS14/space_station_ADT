@@ -1622,6 +1622,20 @@
           True: {state: icon_chainsword}
           False: {state: icon}
 
+# Anvel, гордость сообщества. Спрайтер
+- type: entity
+  parent: BaseItem
+  id: ADTShabbyPolaroidAnvel
+  name: "Shabby Polaroid"
+  description: "You see a tattered Polaroid photograph of a married couple of two Unathi. They are holding an egg, one of them is wearing a graduation cap from some higher education institution. They both look so happy... You don't recognize anyone in this photograph."
+  suffix: "Personal, Anvel"
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/polaroid_anvel.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+
 #ADT-TEAM-ITEMS-END
 
 #SPONSOR-ITEMS-START
