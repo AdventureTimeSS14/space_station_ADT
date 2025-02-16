@@ -8,7 +8,6 @@
       # - id: BoxSurvivalMedical
       - id: BodyBagFolded
      # До добавления слота носков - id: ADTFootTag
-      - id: SpaceCash500
 
 - type: entity
   categories: [ HideSpawnMenu ]

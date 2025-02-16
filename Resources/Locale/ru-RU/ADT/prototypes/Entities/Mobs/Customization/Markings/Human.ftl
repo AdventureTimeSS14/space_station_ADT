@@ -51,3 +51,5 @@ marking-Malstrem = Мальстрём
 marking-Beholder = Наблюдатель
 marking-Terminator = Терминатор
 marking-Iron_jaw = Стальная челюсть
+marking-ADTHumanElfEars = Эльфийские уши
+marking-ADTHumanElfEars2 = Эльфийские уши 2

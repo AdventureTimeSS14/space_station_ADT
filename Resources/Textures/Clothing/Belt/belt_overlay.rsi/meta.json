@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/dc89ef0239830774bd3d9d7d6c8da2856da2b869",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/dc89ef0239830774bd3d9d7d6c8da2856da2b869, upgraded crowbar, crowbar_red, kitchenknife, plantbgone, screwdriver, screwdriver_head, screwdriver_nuke by discord:prazat911",
   "size": {
     "x": 32,
     "y": 32

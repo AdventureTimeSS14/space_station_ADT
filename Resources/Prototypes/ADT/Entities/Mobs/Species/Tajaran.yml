@@ -88,14 +88,10 @@
         Female: ADTFemaleTajaran
         Unsexed: ADTMaleTajaran
     - type: LanguageSpeaker
-      speaks:
-      - GalacticCommon
-      - SikTaj
-      - CintaTaj
-      understands:
-      - GalacticCommon
-      - SikTaj
-      - CintaTaj
+      languages:
+        GalacticCommon: Speak
+        SikTaj: Speak
+        CintaTaj: Speak
     - type: SizeAttributeWhitelist # Frontier
       tall: true
       tallscale: 0.95

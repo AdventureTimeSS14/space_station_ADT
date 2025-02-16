@@ -15,6 +15,9 @@
   naming: firstlast
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Arkan.xml"
+  defaultLanguages:
+  - GalacticCommon
+  - Arkane
 
 - type: speciesBaseSprites
   id: MobDemonSprites

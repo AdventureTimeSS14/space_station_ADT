@@ -31,6 +31,11 @@
         collection: SadTrombone
         params:
           variation: 0.125
+    # ADT tweak start
+    - type: TranslatorImplant
+      languages:
+        Clownish: Speak
+    # ADT tweak end
 
 - type: entity
   parent: BaseSubdermalImplant

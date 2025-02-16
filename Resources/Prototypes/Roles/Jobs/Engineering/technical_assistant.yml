@@ -16,7 +16,7 @@
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  canBeAntag: true # Corvax-MRP: Available not only for newbies
+  canBeAntag: false
   access:
   - Maintenance
   - Engineering

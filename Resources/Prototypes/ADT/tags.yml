@@ -74,6 +74,12 @@
   id: ADTTelescopicBaton
 
 - type: Tag
+  id: ADTBola
+
+- type: Tag
+  id: ADTAloe
+
+- type: Tag
   id: Eyes
 
 - type: Tag
@@ -120,6 +126,48 @@
 
 - type: Tag
   id: ADTSyrelBattleAxe
+
+- type: Tag
+  id: ADTModsuitHelmet
+
+- type: Tag
+  id: ADTModsuitGauntlets
+
+- type: Tag
+  id: ADTModsuitCoreEnergy
+
+- type: Tag
+  id: ADTModsuitChestplate
+
+- type: Tag
+  id: ADTModsuitBoots
+
+- type: Tag
+  id: ADTModsuitPlateMining
+
+- type: Tag
+  id: ADTModsuitAssembledPart
+
+- type: Tag
+  id: ADTModsuitPlateAtmospheric
+
+- type: Tag
+  id: ADTModsuitPlateCosmohonk
+
+- type: Tag
+  id: ADTModsuitPlateEngineering
+
+- type: Tag
+  id: ADTModsuitPlateMedical
+
+- type: Tag
+  id: ADTModsuitPlateSecurity
+
+- type: Tag
+  id: ADTModsuitPlateStandard
+
+- type: Tag
+  id: ADTModsuitPlateCience
 
 - type: Tag
   id: VehicleKey
@@ -455,4 +503,17 @@
   id: PKA
 
 - type: Tag
+  id: ADTStorageBlacklist
+
+- type: Tag
   id: LavaDungeonBloodMiner
+
+- type: Tag
+  id: ADTLighter
+
+- type: Tag
+  id: NoPaint
+
+- type: Tag
+  id: ADTIgnoreChokeSpeechBlocking
+

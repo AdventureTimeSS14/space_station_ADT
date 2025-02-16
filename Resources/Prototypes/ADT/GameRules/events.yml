@@ -20,9 +20,30 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 5
+    earliestStart: 40
+    weight: 2
     minimumPlayers: 30
     reoccurrenceDelay: 30
     duration: 1
   - type: PiratesRule
+
+- type: entity
+  parent: BaseGameRule
+  id: PhantomSpawn
+  components:
+  - type: PhantomRule
+  - type: GameRule
+    minPlayers: 1
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ Phantom ]
+      spawnerPrototype: SpawnPointGhostPhantom
+      max: 1
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRolePhantom
+  - type: AntagRandomSpawn

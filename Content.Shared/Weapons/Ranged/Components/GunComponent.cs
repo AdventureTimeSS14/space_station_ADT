@@ -9,7 +9,7 @@ using Content.Shared._RMC14.Weapons.Ranged;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 [Access(typeof(SharedGunSystem), typeof(RMCSelectiveFireSystem))] // ADT TWEAK
 public sealed partial class GunComponent : Component
 {

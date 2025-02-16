@@ -20,6 +20,12 @@ public sealed class LanguagePrototype : IPrototype
     [DataField("replacement", required: true)]
     public List<string> Replacement = new();
 
+    [DataField]
+    public int Priority = 1;
+
+    [DataField]
+    public bool Roundstart = false;
+
     public string LocalizedName => Loc.GetString("language-" + ID + "-name");
 
     public string LocalizedDescription => Loc.GetString("language-" + ID + "-description");

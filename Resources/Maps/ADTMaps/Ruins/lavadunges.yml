@@ -31438,7 +31438,7 @@ entities:
       canCollide: False
     missingComponents:
     - Gun
-- proto: WeaponStaffHealing
+- proto: ADTWeaponStaffHealingWeak
   entities:
   - uid: 5006
     components:

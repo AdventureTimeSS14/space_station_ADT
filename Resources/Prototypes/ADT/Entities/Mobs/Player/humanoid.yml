@@ -43,6 +43,8 @@
     - Shadekin
     - Arachnid
     - Reptilian
+    - Felinid
+    - Resomi
     - SlimePerson
     - Dwarf
     - IPC
@@ -143,6 +145,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -254,6 +258,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -364,6 +370,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -469,6 +477,8 @@
     - Moth
     - VulpkaninSpecies
     - Shadekin
+    - Felinid
+    - Resomi
     - Arachnid
     - Reptilian
     - SlimePerson
@@ -577,6 +587,8 @@
     - Shadekin
     - Arachnid
     - Reptilian
+    - Felinid
+    - Resomi
     - SlimePerson
     - Dwarf
     - IPC
@@ -808,7 +820,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - Syndicate
+      - Pirate # Изменено с Syndicate -> Pirate
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
@@ -817,6 +829,8 @@
     name: ghost-role-information-pirate-name
     description: ghost-role-information-pirate-description
     rules: ghost-role-information-pirate-rules
+  - type: GhostTakeoverAvailable
+
 
 - type: entity
   name: Pirate Captain
@@ -825,7 +839,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - Syndicate
+      - Pirate # Изменено с Syndicate -> Pirate
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
@@ -838,7 +852,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - Syndicate
+      - Pirate # Изменено с Syndicate -> Pirate
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout

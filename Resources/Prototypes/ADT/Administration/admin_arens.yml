@@ -1,0 +1,34 @@
+- type: adminArenaVerb
+  id: ClassicARoom
+  name: "Send to test arena classic"
+  description: admin-trick-send-to-test-arena-classic-description
+  pathMap: "/Maps/Test/admin_test_arena.yml"
+  iconAltVerb: "/Textures/Interface/VerbIcons/eject.svg.192dpi.png"
+
+- type: adminArenaVerb
+  id: DevBox
+  name: "Send to test arena develop"
+  description: admin-trick-send-to-test-arena-dev-description
+  pathMap: "/Maps/ADTMaps/ARoom/aroom_dev.yml"
+  iconAltVerb: "/Textures/ADT/Interface/VerbIcons/icons8-dev.png"
+
+- type: adminArenaVerb
+  id: Hell
+  name: "Send to test arena hell"
+  description: admin-trick-send-to-test-arena-hell-description
+  pathMap: "/Maps/ADTMaps/ARoom/aroom_hell.yml"
+  iconAltVerb: "/Textures/ADT/Interface/VerbIcons/icons8-hell.png"
+
+- type: adminArenaVerb
+  id: Paradise
+  name: "Send to test arena paradise"
+  description: admin-trick-send-to-test-arena-paradise-description
+  pathMap: "/Maps/ADTMaps/ARoom/aroom_paradise.yml"
+  iconAltVerb: "/Textures/ADT/Interface/VerbIcons/icons8-paradise.png"
+
+- type: adminArenaVerb
+  id: SandBox
+  name: "Send to test arena SandBox"
+  description: admin-trick-send-to-test-arena-sandbox-description
+  pathMap: "/Maps/ADTMaps/ARoom/aroom_sandbox.yml"
+  iconAltVerb: "/Textures/ADT/Interface/VerbIcons/icons8-sandbox.png"

@@ -6,7 +6,7 @@
   randomRotation: false
   minPlayers: 55
   stations:
-    Delta:
+    ADT_Delta:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_corvaxdelta.yml
+          emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
         - type: StationJobs
           availableJobs:
             Boxer: [ 2, 2 ]

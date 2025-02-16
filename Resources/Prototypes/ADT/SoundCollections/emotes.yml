@@ -208,10 +208,21 @@
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
 
-# Other
+# Resomi
+- type: soundCollection
+  id: MaleResomiScreams
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
 
+- type: soundCollection
+  id: FemaleResomiScreams
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+
+# Other
 - type: soundCollection
   id: HumanSpits
   files:
   - /Audio/ADT/Voice/Human/spit_1.ogg
   - /Audio/ADT/Voice/Human/spit_2.ogg
+

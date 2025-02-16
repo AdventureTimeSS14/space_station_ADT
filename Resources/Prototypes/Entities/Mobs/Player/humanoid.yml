@@ -49,6 +49,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -59,6 +61,8 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -513,6 +517,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -561,6 +567,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end

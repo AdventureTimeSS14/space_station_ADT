@@ -69,14 +69,10 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: LanguageSpeaker
-    speaks:
-      - GalacticCommon
-      - SolCommon
-      - Arkane
-    understands:
-      - GalacticCommon
-      - SolCommon
-      - Arkane
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+      Arkane: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.08
