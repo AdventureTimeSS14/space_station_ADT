@@ -25,18 +25,17 @@
               setStageTime: 0
             Hard:
               requiredHands: 1
-              doaftersToEscape: 10
+              doaftersToEscape: 4
               movementSpeedModifier: 0.75
               escapeAttemptTime: 1.2
               setStageTime: 0.75
             Choke:
               requiredHands: 2
-              doaftersToEscape: 20
+              doaftersToEscape: 5
               movementSpeedModifier: 0.7
               escapeAttemptTime: 1.25
               setStageTime: 1.25
         - type: MeleeWeapon
-          angle: 30
           animation: WeaponArcFist
           damage:
             types:
@@ -140,17 +139,18 @@
               setStageTime: 0
             Hard:
               requiredHands: 1
-              doaftersToEscape: 10
+              doaftersToEscape: 4
               movementSpeedModifier: 0.75
               escapeAttemptTime: 1.2
               setStageTime: 0.75
             Choke:
               requiredHands: 2
-              doaftersToEscape: 20
+              doaftersToEscape: 5
               movementSpeedModifier: 0.7
               escapeAttemptTime: 1.25
               setStageTime: 1.25
         - type: MeleeWeapon
+          animation: WeaponArcFist
           damage:
             types:
               Blunt: 15

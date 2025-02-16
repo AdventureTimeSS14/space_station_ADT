@@ -23,12 +23,6 @@ public sealed partial class ComboComponent : Component
     public List<CombatMove> AvailableMoves { get; private set; } = new List<CombatMove>();
     public EntityUid TargetEntity;
     public List<CombatAction> CurrestActions { get; private set; } = new List<CombatAction>();
-
-    [DataField]
-    public SoundSpecifier? ToggleCombatModeOn = new SoundPathSpecifier("/Audio/ADT/Misc/ui_togglecombat.ogg");
-
-    [DataField]
-    public SoundSpecifier? ToggleCombatModeOff = new SoundPathSpecifier("/Audio/ADT/Misc/ui_toggleoffcombat.ogg");
 }
 
 [Serializable, NetSerializable]
