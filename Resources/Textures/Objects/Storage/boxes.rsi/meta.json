@@ -208,6 +208,9 @@
         },
         {
             "name": "recorder"
+        },
+        {
+            "name": "shelllethal"
         }
     ]
 }
