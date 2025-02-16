@@ -1,6 +1,6 @@
-using Content.Server.Objectives.Systems;
+using Content.Server.ADT.Objectives.Systems;
 
-namespace Content.Server.Objectives.Components;
+namespace Content.Server.ADT.Objectives.Components;
 
 /// <summary>
 /// An objective condition that requires the player to have the "Cascade" code at the station.

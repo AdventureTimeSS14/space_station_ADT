@@ -1,6 +1,6 @@
 using Content.Shared.Atmos;
 using Content.Shared.Radiation.Components;
-using Content.Shared.Supermatter.Components;
+using Content.Shared.ADT.Supermatter.Components;
 using System.Text;
 using Content.Shared.Chat;
 using System.Linq;
@@ -14,9 +14,9 @@ using Robust.Shared.Utility;
 using Robust.Shared.GameObjects;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
-using Content.Shared.CCVar;
+using Content.Shared.ADT.CCVar;
 
-namespace Content.Server.Supermatter.Systems;
+namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {    
@@ -119,7 +119,7 @@ public sealed partial class SupermatterSystem
             sm.Power
             * Math.Max(0, 1f + transmissionBonus / 10f)
             * 0.003f
-            * _config.GetCVar(CCVars.SupermatterRadsModifier);
+            * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);
 
         // Power * 0.55 * 0.8~1
         var energy = sm.Power * sm.ReactionPowerModifier;
@@ -174,7 +174,7 @@ public sealed partial class SupermatterSystem
             return;
         }
 
-        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam)
+        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam)
          &&  sm.ResonantFrequency >= 1)
         {
          var integrity = GetIntegrity(sm);
@@ -314,7 +314,7 @@ public sealed partial class SupermatterSystem
         // We are not taking consistent damage, Engineers aren't needed
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-            if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+            if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
             {
                 message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
             }
@@ -325,7 +325,7 @@ public sealed partial class SupermatterSystem
 
             if (sm.Damage >= sm.DamageEmergencyThreshold)
             {
-                if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+                if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
                 {
                     message = Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity));
                     global = true;
@@ -370,7 +370,7 @@ public sealed partial class SupermatterSystem
 
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(CCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
         {
             if (!sm.KudzuSpawned)
             {

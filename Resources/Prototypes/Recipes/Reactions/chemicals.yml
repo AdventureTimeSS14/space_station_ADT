@@ -60,7 +60,7 @@
     Hydrogen:
       amount: 1
   products:
-    FoamingAgent: 1000000
+    FoamingAgent: 2
 
 - type: reaction
   id: PolytrinicAcid

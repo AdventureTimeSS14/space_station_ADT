@@ -1,4 +1,6 @@
 using Robust.Shared.Configuration;
+using Content.Shared.ADT.Supermatter;
+using Content.Shared.ADT.Supermatter.Components;
 
 namespace Content.Shared.ADT.CCVar;
 
@@ -60,4 +62,19 @@ public sealed class ADTCCVars
     */
     public static readonly CVarDef<bool> OfferModeIndicatorsPointShow =
         CVarDef.Create("hud.offer_mode_indicators_point_show", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /*
+    * Supermatter
+    */
+    /// <summary>
+    ///     Toggles cascade
+    /// </summary>
+    public static readonly CVarDef<bool> SupermatterDoCascadeDelam =
+        CVarDef.Create("supermatter.do_cascade", true, CVar.SERVER);
+
+    /// <summary>   
+    ///     Directly multiplies the amount of rads put out by the supermatter. Be VERY conservative with this.
+    /// </summary>
+    public static readonly CVarDef<float> SupermatterRadsModifier =
+        CVarDef.Create("supermatter.rads_modifier", 1f, CVar.SERVER);
 }

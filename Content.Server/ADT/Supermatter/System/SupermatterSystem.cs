@@ -21,9 +21,9 @@ using Content.Shared.Examine;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Audio;
-using Content.Shared.Supermatter.Components;
+using Content.Shared.ADT.Supermatter.Components;
 
-namespace Content.Server.Supermatter.Systems;
+namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {
@@ -79,7 +79,9 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
+        // Cycle for lightning
         sm.ZapAccumulator++;
+        // Cycle for announcements
         sm.YellAccumulator++;
 
         ProcessAtmos(uid, sm);
@@ -116,6 +118,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
+        // The part responsible for removing objects upon contact
         if (!sm.Activated)
               sm.Activated = true;
 
@@ -145,6 +148,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
     {
+        // The part responsible for removing creatures when touching Supermatter with hands
          if (!sm.Activated)
              sm.Activated = true;
 
@@ -162,6 +166,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
+        // Ability to cut Sliver Supermatter if the object in your hand is sharp
         if (!sm.Activated)
             sm.Activated = true;
 

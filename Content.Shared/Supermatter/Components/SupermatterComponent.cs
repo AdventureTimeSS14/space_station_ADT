@@ -7,7 +7,7 @@ using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Supermatter.Components;
+namespace Content.Shared.ADT.Supermatter.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SupermatterComponent : Component
