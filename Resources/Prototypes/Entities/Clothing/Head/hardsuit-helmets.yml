@@ -317,7 +317,7 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
-  - type: SupermatterImmune
+  - type: SupermatterImmune # ADT-Tweak
 
 #Chief Medical Officer's Hardsuit
 - type: entity
