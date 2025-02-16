@@ -14,7 +14,7 @@ public sealed class CascadeConditionSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-         SubscribeLocalEvent<CascadeConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
+        SubscribeLocalEvent<CascadeConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
     }
 
     private void OnGetProgress(EntityUid uid, CascadeConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -29,9 +29,13 @@ public sealed class CascadeConditionSystem : EntitySystem
 
         var stationUid = mind.OwnedEntity.Value;
         var station = _stationSystem.GetOwningStation(stationUid);
-        var currentAlertLevel = _alertLevelSystem.GetLevel(station);
 
-        return currentAlertLevel.Equals("cascade", StringComparison.OrdinalIgnoreCase) ? 1f : 0f;
+        if (station.HasValue)
+        {
+            var currentAlertLevel = _alertLevelSystem.GetLevel(station.Value);
+            return currentAlertLevel.Equals("cascade", StringComparison.OrdinalIgnoreCase) ? 1f : 0f;
+        }
+
+        return 0f;
     }
-
 }

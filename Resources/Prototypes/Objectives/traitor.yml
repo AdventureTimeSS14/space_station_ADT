@@ -75,7 +75,7 @@
   - type: Objective
     difficulty: 0.5
     icon:
-      sprite: Mobs/Ghosts/ghost_human.rsi
+      sprite: ADT\Structures\Storage\canister.rsi
       state: icon
   - type: CascadeCondition
 
