@@ -129,7 +129,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             RaiseLocalEvent(inTargetHand.Value, attemptEvent);
         }
-
+        RaiseLocalEvent(user, attemptEvent); //ADT tweak
         RaiseLocalEvent(target, attemptEvent);
 
         if (attemptEvent.Cancelled)

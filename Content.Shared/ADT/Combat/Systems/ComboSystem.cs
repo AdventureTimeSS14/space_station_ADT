@@ -1,49 +1,33 @@
 using System.Linq;
-using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Damage.Events; // ADT-Changeling-Tweak
-using Content.Shared.Alert;
 using Content.Shared.CombatMode;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Events;
-using Content.Shared.Database;
-using Content.Shared.Effects;
-using System.Linq;
 using Content.Shared.Actions;
-using Content.Shared.Random.Helpers;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
-using JetBrains.Annotations;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
 using Content.Shared.ADT.Grab;
-using Content.Shared.Damage;
-using Content.Shared.Chat;
+using Content.Shared.Actions.Events;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Shared.ADT.Combat;
 
 public abstract class SharedComboSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly PullingSystem _pullingSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ComboComponent, DisarmedEvent>(OnDisarmUsed);
+        SubscribeLocalEvent<ComboComponent, DisarmAttemptEvent>(OnDisarmUsed);
         SubscribeLocalEvent<ComboComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<ComboComponent, GrabStageChangedEvent>(OnGrab);
 
-        SubscribeLocalEvent<ComboTargetDamageEvent>(OnTargetDamage);
-        SubscribeLocalEvent<ComboUserDamageEvent>(OnUserDamage);
+        SubscribeLocalEvent<ComboComponent, ToggleCombatActionEvent>(OnCombatToggled);
     }
 
-    private void OnDisarmUsed(EntityUid uid, ComboComponent comp, DisarmedEvent args)
+    private void OnDisarmUsed(EntityUid uid, ComboComponent comp, DisarmAttemptEvent args)
     {
-        if (args.Source != uid)
+        if (args.DisarmerUid != uid || args.DisarmerUid == args.TargetUid)
             return;
 
         comp.CurrestActions.Add(CombatAction.Disarm);
@@ -52,7 +36,7 @@ public abstract class SharedComboSystem : EntitySystem
         {
             comp.CurrestActions.RemoveAt(1);
         }
-        TryDoCombo(uid, args.Target, comp);
+        TryDoCombo(args.DisarmerUid, args.TargetUid, comp);
     }
 
     private void OnMeleeHit(EntityUid uid, ComboComponent comp, MeleeHitEvent args)
@@ -61,7 +45,6 @@ public abstract class SharedComboSystem : EntitySystem
         {
             return;
         }
-
         comp.CurrestActions.Add(CombatAction.Hit);
 
         if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
@@ -76,7 +59,8 @@ public abstract class SharedComboSystem : EntitySystem
     {
         if (args.Puller.Owner != uid)
             return;
-
+        if (args.NewStage <= args.OldStage)
+            return;
         comp.CurrestActions.Add(CombatAction.Grab);
 
         if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
@@ -84,18 +68,13 @@ public abstract class SharedComboSystem : EntitySystem
             comp.CurrestActions.RemoveAt(1);
         }
 
-        TryDoCombo(uid, args.Puller.Owner, comp);
+        TryDoCombo(args.Puller.Owner, args.Pulling.Owner, comp);
     }
-
     private void UseEventOnTarget(EntityUid user, EntityUid target, CombatMove combo)
     {
         foreach (var comboEvent in combo.ComboEvent)
         {
-            var eventArgs = comboEvent;
-            eventArgs.User = user;
-            eventArgs.Target = target;
-
-            RaiseLocalEvent(target, eventArgs);
+            comboEvent.DoEffect(user, target, EntityManager);
         }
     }
     private void TryDoCombo(EntityUid user, EntityUid hited, ComboComponent comp)
@@ -114,6 +93,8 @@ public abstract class SharedComboSystem : EntitySystem
         }
         if (isComboCompleted)
             comp.CurrestActions.Clear();
+        if (TryComp<PullableComponent>(hited, out var pulled) && isComboCompleted)
+            _pullingSystem.TryStopPull(hited, pulled, user);
     }
     public static bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)
     {
@@ -130,15 +111,10 @@ public abstract class SharedComboSystem : EntitySystem
 
         return false;
     }
-    #region combo events
-
-    private void OnTargetDamage(ComboTargetDamageEvent args)
+    private void OnCombatToggled(EntityUid uid, ComboComponent comp, ToggleCombatActionEvent args)
     {
-        _damageableSystem.TryChangeDamage(args.Target, args.Damage, args.IgnoreResistances);
+        if (!TryComp<CombatModeComponent>(uid, out var combat))
+            return;
+        comp.CurrestActions.Clear();
     }
-    private void OnUserDamage(ComboUserDamageEvent args)
-    {
-        _damageableSystem.TryChangeDamage(args.User, args.Damage, args.IgnoreResistances);
-    }
-    #endregion combo events
 }

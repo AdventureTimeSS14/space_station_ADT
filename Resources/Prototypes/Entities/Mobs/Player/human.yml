@@ -3,17 +3,6 @@
   name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
-  components:
-  - type: Combo
-    availableMoves:
-      - actionsNeeds:
-          - Grab
-          - Hit
-        comboEvent:
-          - !type:ComboTargetDamageEvent
-              damage:
-                types:
-                  Slash: 10
 
 #Syndie
 - type: entity
