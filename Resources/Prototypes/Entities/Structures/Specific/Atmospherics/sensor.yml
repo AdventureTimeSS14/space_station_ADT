@@ -46,12 +46,12 @@
     guides:
     - DeviceMonitoringAndControl
     - AtmosphericsSystems
-    # ADT-RPD-Start
-    # - type: RPDDeconstructable
-    #   cost: 4
-    #   delay: 2
-    #   fx: EffectRCDDeconstruct2
-    # ADT-RPD-End
+  # ADT-RPD-Start
+  - type: RPDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  # ADT-RPD-End
 
 - type: entity
   id: AirSensor
