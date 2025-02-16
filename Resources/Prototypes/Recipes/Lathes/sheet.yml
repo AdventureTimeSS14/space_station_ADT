@@ -41,6 +41,16 @@
     RawIron: 50
     Coal: 15
 
+# This version is for the ore processor
+- type: latheRecipe
+  id: SheetRGlassRaw
+  result: SheetRGlass1
+  completetime: 0
+  materials:
+    RawQuartz: 100
+    RawIron: 50
+    Coal: 15
+
 - type: latheRecipe
   id: SheetRGlass30
   result: SheetRGlass
