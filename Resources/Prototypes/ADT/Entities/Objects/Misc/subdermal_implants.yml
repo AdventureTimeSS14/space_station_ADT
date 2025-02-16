@@ -280,6 +280,17 @@
     languages:
       VoxPidgin: BadSpeak
 
+- type: entity
+  parent: BaseTranslatorImplant
+  id: ScratchesTranslatorImplant
+  name: translator implant
+  # description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    languages:
+      Scratches: Speak
+
 # Отключено до починки импланта
 # - type: entity
 #   parent: BaseSubdermalImplant

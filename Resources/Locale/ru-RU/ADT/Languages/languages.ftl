@@ -119,6 +119,9 @@ language-NeoRusskiya-description = Язык, на котором говорят 
 language-Clownish-name = Хихич
 language-Clownish-description = Клоунский язык! Хонк!
 
+language-Scratches-name = Скретчи
+language-Scratches-description = Язык резоми, состоящий из различных хрипов, тресков и писков, которые нетренированным ухом часто воспринимается, как какофония.
+
 language-GalacticCommon = Общ.
 language-Bubblish = Пузырчатый
 language-RootSpeak = Песнь корней
