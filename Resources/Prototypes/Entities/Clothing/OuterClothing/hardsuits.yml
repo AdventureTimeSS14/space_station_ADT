@@ -627,10 +627,12 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
   - type: DNALocker # ADT-Tweak
+  # ADT-Tweak-start
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
   - type: SupermatterImmune
+  # ADT-Tweak-end
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
