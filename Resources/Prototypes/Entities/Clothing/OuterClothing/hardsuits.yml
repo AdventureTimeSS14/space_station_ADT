@@ -353,10 +353,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
+  # ADT-Tweak-start
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
-  - type: SupermatterImmune 
+  - type: SupermatterImmune
+  # ADT-Tweak-end
 
 #Chief Medical Officer's Hardsuit
 - type: entity
