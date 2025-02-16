@@ -47,10 +47,10 @@
     - DeviceMonitoringAndControl
     - AtmosphericsSystems
     # ADT-RPD-Start
-    - type: RPDDeconstructable
-      cost: 4
-      delay: 2
-      fx: EffectRCDDeconstruct2
+    # - type: RPDDeconstructable
+    #   cost: 4
+    #   delay: 2
+    #   fx: EffectRCDDeconstruct2
     # ADT-RPD-End
 
 - type: entity
