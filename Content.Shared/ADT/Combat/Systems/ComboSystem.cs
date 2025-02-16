@@ -6,6 +6,7 @@ using Content.Shared.ADT.Grab;
 using Content.Shared.Actions.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Humanoid;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -42,9 +43,9 @@ public abstract class SharedComboSystem : EntitySystem
     private void OnMeleeHit(EntityUid uid, ComboComponent comp, MeleeHitEvent args)
     {
         if (!args.IsHit || !args.HitEntities.Any())
-        {
             return;
-        }
+        if (!HasComp<HumanoidAppearanceComponent>(args.HitEntities[0]))
+            return;
         comp.CurrestActions.Add(CombatAction.Hit);
 
         if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)

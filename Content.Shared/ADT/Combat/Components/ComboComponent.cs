@@ -13,6 +13,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Coordinates;
 using Content.Shared.Throwing;
 using Content.Shared.Hands.Components;
+using Content.Shared.StatusEffect;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -160,14 +161,17 @@ public sealed partial class ComboStunEffect : IComboEffect
     [DataField]
     public bool Fall = true;
     [DataField]
-    public TimeSpan StunTime;
+    public int StunTime;
     [DataField]
     public bool DropItems = true;
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
+        if (!entMan.TryGetComponent<StatusEffectsComponent>(target, out var status))
+            return;
         var down = entMan.System<SharedStunSystem>();
-        down.TryKnockdown(target, StunTime, true, dropItems: DropItems, down: Fall);
+        down.TryKnockdown(target, TimeSpan.FromSeconds(StunTime), false, status, dropItems: DropItems, down: Fall);
+        down.TryStun(target, TimeSpan.FromSeconds(StunTime), true, status);
     }
 }
 [Serializable, NetSerializable]
