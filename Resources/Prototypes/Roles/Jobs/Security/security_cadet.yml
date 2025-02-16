@@ -12,6 +12,12 @@
     #   time: 72000 #20 hrs # Corvax-RoleTime
     #   inverted: true # stop playing intern if you're good at security!
 # ADT-Tweak
+# ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+    # ADT RESTRICT End
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
