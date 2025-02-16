@@ -35,7 +35,7 @@ public abstract class SharedComboSystem : EntitySystem
 
         if (comp.CurrestActions.Count >= 5)
         {
-            comp.CurrestActions.RemoveAt(1);
+            comp.CurrestActions.RemoveAt(0);
         }
         TryDoCombo(args.DisarmerUid, args.TargetUid, comp);
     }
@@ -50,7 +50,7 @@ public abstract class SharedComboSystem : EntitySystem
 
         if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
         {
-            comp.CurrestActions.RemoveAt(1);
+            comp.CurrestActions.RemoveAt(0);
         }
 
         TryDoCombo(uid, args.HitEntities[0], comp);
@@ -66,7 +66,7 @@ public abstract class SharedComboSystem : EntitySystem
 
         if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
         {
-            comp.CurrestActions.RemoveAt(1);
+            comp.CurrestActions.RemoveAt(0);
         }
 
         TryDoCombo(args.Puller.Owner, args.Pulling.Owner, comp);
@@ -78,7 +78,7 @@ public abstract class SharedComboSystem : EntitySystem
             comboEvent.DoEffect(user, target, EntityManager);
         }
     }
-    private void TryDoCombo(EntityUid user, EntityUid hited, ComboComponent comp)
+    private void TryDoCombo(EntityUid user, EntityUid target, ComboComponent comp)
     {
         var mainList = comp.CurrestActions;
         if (mainList == null)
@@ -89,13 +89,13 @@ public abstract class SharedComboSystem : EntitySystem
             var subList = combo.ActionsNeeds;
             if (!ContainsSubsequence(mainList, subList))
                 continue;
-            UseEventOnTarget(user, hited, combo);
+            UseEventOnTarget(user, target, combo);
             isComboCompleted = true;
         }
         if (isComboCompleted)
             comp.CurrestActions.Clear();
-        if (TryComp<PullableComponent>(hited, out var pulled) && isComboCompleted)
-            _pullingSystem.TryStopPull(hited, pulled, user);
+        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted)
+            _pullingSystem.TryStopPull(target, pulled, user);
     }
     public static bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)
     {

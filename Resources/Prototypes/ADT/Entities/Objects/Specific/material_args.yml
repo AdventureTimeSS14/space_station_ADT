@@ -331,3 +331,4 @@
                 - !type:ComboPopupEffect
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
+                  dropItems: false

@@ -222,12 +222,13 @@ public abstract class SharedStunSystem : EntitySystem
     ///     Applies knockdown and stun to the entity temporarily.
     /// </summary>
     public bool TryParalyze(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null)
+        StatusEffectsComponent? status = null,
+        bool dropItems = true, bool down = true) //ADT tweak
     {
         if (!Resolve(uid, ref status, false))
             return false;
 
-        return TryKnockdown(uid, time, refresh, status) && TryStun(uid, time, refresh, status);
+        return TryKnockdown(uid, time, refresh, status, dropItems: dropItems, down: down) && TryStun(uid, time, refresh, status); //ADT tweaked
     }
 
     /// <summary>
