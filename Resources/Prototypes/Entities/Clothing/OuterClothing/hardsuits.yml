@@ -931,10 +931,12 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
   - type: DNALocker # ADT-Tweak
+  # ADT-Tweak-start
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
   - type: SupermatterImmune
+  # ADT-Tweak-end
 
 #CBURN Hardsuit
 - type: entity
