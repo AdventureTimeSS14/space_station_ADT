@@ -1646,7 +1646,9 @@
   components:
   - type: FlavorProfile
     flavors:
+      - fruity
       - sweet
+      - sour
   - type: Sprite
     sprite: ADT/Personalization/kiwi_fruit_tartalio.rsi
     state: icon
