@@ -26,7 +26,7 @@ public sealed partial class CCVars
     ///     Link to website to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksWebsite =
-        CVarDef.Create("infolinks.website", "https://boosty.to/adventuretime", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.website", "https://boosty.to/adventuretime", CVar.SERVER | CVar.REPLICATED); // ADT-Tweak
 
     /// <summary>
     ///     Link to wiki to show in the launcher.
