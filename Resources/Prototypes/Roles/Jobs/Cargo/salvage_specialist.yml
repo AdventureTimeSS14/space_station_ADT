@@ -9,6 +9,12 @@
       time: 10800 # 3 hrs
 #    - !type:OverallPlaytimeRequirement
 #      time: 36000 #10 hrs
+# ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+  # ADT RESTRICT End
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
