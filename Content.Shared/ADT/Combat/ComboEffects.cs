@@ -10,6 +10,8 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Coordinates;
 using Content.Shared.Hands.Components;
 using Content.Shared.StatusEffect;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -146,5 +148,17 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
         if (!entMan.TryGetComponent<HandsComponent>(target, out var hand) || hand.ActiveHand == null)
             return;
         hands.DoDrop(target, hand.ActiveHand);
+    }
+}
+[Serializable, NetSerializable]
+public sealed partial class ComboAudioEffect : IComboEffect
+{
+    [DataField]
+    public SoundSpecifier? Sound;
+
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var audio = entMan.System<SharedAudioSystem>();
+        audio.PlayPvs(Sound, user);
     }
 }

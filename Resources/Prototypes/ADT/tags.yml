@@ -517,3 +517,5 @@
 - type: Tag
   id: ADTIgnoreChokeSpeechBlocking
 
+- type: Tag
+  id: ADTBSOWeapon

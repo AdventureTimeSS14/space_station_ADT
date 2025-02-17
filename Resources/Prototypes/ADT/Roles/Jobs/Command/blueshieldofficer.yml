@@ -44,7 +44,13 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-
+  - !type:AddComponentSpecial
+    components:
+    - type: CantShoot
+      whitelist:
+        tags:
+          - ADTBSOWeapon
+      popup: cant-shoot-popup-bso
 - type: startingGear
   id: ADTBlueShieldOfficerGear
   equipment:

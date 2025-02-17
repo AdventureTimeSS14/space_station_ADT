@@ -251,7 +251,7 @@
                 - !type:ComboFallEffect
                   dropItems: false
 
-- type: entity
+- type: entity #TODO: когда визарды добавят области, добавьте повару свой стиль с привязкой к области
   id: ADTCqcManualWeak
   name: cqc manual for the smallest
   description: A one-off manual teaching the user Mideast Combat Tactics at a basic level.
