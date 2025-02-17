@@ -30,7 +30,7 @@
                 <Button Name="PriorityJoinButton" Text="{Loc 'queue-priority-join'}" HorizontalExpand="True" StyleClasses="OpenRight" />
             </BoxContainer>
             <BoxContainer Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 20 0 0">
-                <Button Name="WebSiteButton" Text="{Loc 'queue-website'}" HorizontalExpand="True" StyleClasses="OpenRight" />
+                <Button Name="WebSiteButton" Text="{Loc 'queue-website'}" HorizontalExpand="True" StyleClasses="Caution" />
             </BoxContainer>
         </BoxContainer>
     </Control>
