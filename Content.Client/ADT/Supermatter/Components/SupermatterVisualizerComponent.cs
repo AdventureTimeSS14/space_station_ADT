@@ -1,7 +1,7 @@
-using Content.Client._EinsteinEngines.Supermatter.Systems;
-using Content.Shared._EinsteinEngines.Supermatter.Components;
+using Content.Client.ADT.Supermatter.Systems;
+using Content.Shared.ADT.Supermatter.Components;
 
-namespace Content.Client._EinsteinEngines.Supermatter.Components;
+namespace Content.Client.ADT.Supermatter.Components;
 
 [RegisterComponent]
 [Access(typeof(SupermatterVisualizerSystem))]
