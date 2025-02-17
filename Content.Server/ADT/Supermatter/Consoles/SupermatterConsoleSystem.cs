@@ -1,13 +1,13 @@
-using Content.Shared.ADT._EinsteinEngines.CCVar;
-using Content.Shared.ADT._EinsteinEngines.Supermatter.Components;
-using Content.Shared.ADT._EinsteinEngines.Supermatter.Consoles;
+using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.Supermatter.Components;
+using Content.Shared.ADT.Supermatter.Consoles;
 using Content.Shared.Atmos;
 using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using System.Linq;
 
-namespace Content.Server.ADT._EinsteinEngines.Supermatter.Console.Systems;
+namespace Content.Server.ADT.Supermatter.Console.Systems;
 
 public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 {

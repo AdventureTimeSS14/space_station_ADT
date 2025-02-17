@@ -13,6 +13,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Lightning;
+using Content.Shared.ADT.Supermatter.Monitor;
 using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Server.Kitchen.Components;
@@ -22,6 +23,7 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Audio;
 using Content.Shared.ADT.Supermatter.Components;
+using Content.Shared.Speech;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
@@ -84,6 +86,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Cycle for announcements
         sm.YellAccumulator++;
 
+        HandleStatus(uid, sm);
         ProcessAtmos(uid, sm);
         HandleDamage(uid, sm);
 
@@ -210,5 +213,33 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         if (args.IsInDetailsRange)
             args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
+    }
+
+    private SupermatterStatusType GetStatus(EntityUid uid, SupermatterComponent sm)
+    {
+        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+
+        if (mix is not { })
+            return SupermatterStatusType.Error;
+
+        if (sm.Delamming || sm.Damage >= sm.DamageDelaminationPoint)
+            return SupermatterStatusType.Delaminating;
+
+        if (sm.Damage >= sm.DamagePenaltyPoint)
+            return SupermatterStatusType.Emergency;
+
+        if (sm.Damage >= sm.DamageDelamAlertPoint)
+            return SupermatterStatusType.Danger;
+
+        if (sm.Damage >= sm.DamageWarningThreshold)
+            return SupermatterStatusType.Warning;
+
+        if (mix.Temperature > Atmospherics.T0C + (sm.HeatPenaltyThreshold * 0.8))
+            return SupermatterStatusType.Caution;
+
+        if (sm.Power > 5)
+            return SupermatterStatusType.Normal;
+
+        return SupermatterStatusType.Inactive;
     }
 }

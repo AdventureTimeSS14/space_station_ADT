@@ -1,8 +1,8 @@
-using Content.Client.ADT._EinsteinEngines.Supermatter.Components;
-using Content.Shared.ADT._EinsteinEngines.Supermatter.Components;
+using Content.Client.ADT.Supermatter.Components;
+using Content.Shared.ADT.Supermatter.Components;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.ADT._EinsteinEngines.Supermatter.Systems;
+namespace Content.Client.ADT.Supermatter.Systems;
 
 public sealed class SupermatterVisualizerSystem : VisualizerSystem<SupermatterVisualsComponent>
 {

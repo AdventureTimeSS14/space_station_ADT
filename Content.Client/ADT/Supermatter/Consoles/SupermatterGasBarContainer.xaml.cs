@@ -1,6 +1,6 @@
 using Content.Client.Stylesheets;
-using Content.Shared.ADT._EinsteinEngines.CCVar;
-using Content.Shared.ADT._EinsteinEngines.Supermatter.Components;
+using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Prototypes;
 using Content.Shared.CCVar;
@@ -12,7 +12,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.ADT._EinsteinEngines.Supermatter.Consoles;
+namespace Content.Client.ADT.Supermatter.Consoles;
 
 [GenerateTypedNameReferences]
 public sealed partial class SupermatterGasBarContainer : BoxContainer

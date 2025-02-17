@@ -1,28 +1,26 @@
-using Content.Shared.Atmos;
-using Content.Shared.Radiation.Components;
-using Content.Shared.ADT.Supermatter.Components;
-using System.Text;
-using Content.Shared.Chat;
 using System.Linq;
-using Content.Shared.Audio;
-using Content.Shared.Radio;
-using Content.Shared.UserInterface;
+using System.Text;
 using Content.Server.Chat.Systems;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Sound.Components;
+using Content.Shared.ADT.Supermatter.Components;
+using Content.Shared.ADT.Supermatter.Monitor;
+using Content.Shared.Atmos;
+using Content.Shared.Audio;
+using Content.Shared.CCVar;
+using Content.Shared.Popups;
+using Content.Shared.Radiation.Components;
+using Content.Shared.Speech;
+using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared.Random;
-using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
-using Content.Shared.UserInterface;
-using Robust.Server.GameObjects;
-using Content.Shared.ADT.CCVar;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
-{    
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-
+{
     /// <summary>
     ///     Handle power and radiation output depending on atmospheric things.
     /// </summary>
@@ -38,7 +36,7 @@ public sealed partial class SupermatterSystem
 
         if (!(moles > 0f))
             return;
-        
+
         var gases = sm.GasStorage;
         var facts = sm.GasDataFields;
 
@@ -58,17 +56,12 @@ public sealed partial class SupermatterSystem
         // Minimum value of -10, maximum value of 23. Affects plasma, o2 and heat output.
         var transmissionBonus = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].TransmitModifier);
 
-        // If greater then zero, then supermatter gonna take damage. Used for cascade.
-        var resonantfrequency = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].ResonantFrequency);
-
         var h2OBonus = 1 - gases[Gas.WaterVapor] * 0.25f;
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         heatModifier = Math.Max(heatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
-        resonantfrequency = Math.Max(resonantfrequency, 0.5f);
 
-        sm.ResonantFrequency = resonantfrequency;
         // Effects the damage heat does to the crystal
         sm.DynamicHeatResistance = 1f;
 
@@ -113,13 +106,17 @@ public sealed partial class SupermatterSystem
         sm.Power = Math.Max(absorbedGas.Temperature * tempFactor / Atmospherics.T0C * powerRatio + sm.Power, 0);
 
         // Irradiate stuff
-
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
+        {
             rad.Intensity =
-            sm.Power
-            * Math.Max(0, 1f + transmissionBonus / 10f)
-            * 0.003f
-            * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);
+                _config.GetCVar(CCVars.SupermatterRadsBase) +
+                (sm.Power
+                * Math.Max(0, 1f + transmissionBonus / 10f)
+                * 0.003f
+                * _config.GetCVar(CCVars.SupermatterRadsModifier));
+
+            rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
+        }
 
         // Power * 0.55 * 0.8~1
         var energy = sm.Power * sm.ReactionPowerModifier;
@@ -142,6 +139,14 @@ public sealed partial class SupermatterSystem
         // After this point power is lowered
         // This wraps around to the begining of the function
         sm.Power = Math.Max(sm.Power - Math.Min(powerReduction * powerlossInhibitor, sm.Power * 0.83f * powerlossInhibitor), 0f);
+
+        // Save values to the supermatter
+        sm.GasStorage = sm.GasStorage.ToDictionary(
+            gas => gas.Key,
+            gas => absorbedGas.GetMoles(gas.Key)
+        );
+        sm.Temperature = absorbedGas.Temperature;
+        sm.WasteMultiplier = heatModifier;
     }
 
     /// <summary>
@@ -149,10 +154,35 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void SupermatterZap(EntityUid uid, SupermatterComponent sm)
     {
-        // Divide power by its' threshold to get a value from 0-1, then multiply by the amount of possible lightnings
-        var zapPower = sm.Power / sm.PowerPenaltyThreshold * sm.LightningPrototypes.Length;
-        var zapPowerNorm = (int) Math.Clamp(zapPower, 0, sm.LightningPrototypes.Length - 1);
-        _lightning.ShootRandomLightnings(uid, 3.5f, sm.Power > sm.PowerPenaltyThreshold ? 3 : 1, sm.LightningPrototypes[zapPowerNorm]);
+        var zapPower = 0;
+        var zapCount = 0;
+        var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
+
+        // fuck this
+        if (_random.Prob(0.05f))
+        {
+            zapCount += 1;
+        }
+
+        if (sm.Power >= sm.PowerPenaltyThreshold)
+        {
+            zapCount += 2;
+        }
+
+        if (sm.Power >= sm.SeverePowerPenaltyThreshold)
+        {
+            zapPower = 1;
+            zapCount++;
+        }
+
+        if (sm.Power >= sm.CriticalPowerPenaltyThreshold)
+        {
+            zapPower = 2;
+            zapCount++;
+        }
+
+        if (zapCount >= 1)
+            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance);
     }
 
     /// <summary>
@@ -174,21 +204,12 @@ public sealed partial class SupermatterSystem
             return;
         }
 
-        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam)
-         &&  sm.ResonantFrequency >= 1)
+        // If gas have ResonantFrequency Supermatter gonna take damage
+        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
         {
-         var integrity = GetIntegrity(sm);
-
-           if(integrity < 50)
-            {
-              sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 5f);
-               return;
-            }
-           else
-            {
-              sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 10f);
-              return;
-            }
+            var integrity = GetIntegrity(sm);
+            var damageIncrement = integrity < 50 ? 5f : 10f;
+            sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, damageIncrement);
         }
 
         // Absorbed gas from surrounding area
@@ -217,14 +238,13 @@ public sealed partial class SupermatterSystem
         totalDamage += powerDamage;
 
         // Mol count only starts affecting damage when it is above 1800
-        var moleDamage = Math.Max(moles - sm.MolePenaltyThreshold, 0) / 80 * sm.DamageIncreaseMultiplier;
+        var moleDamage = Math.Max(moles - sm.MolePenaltyThreshold, 0f) / 80 * sm.DamageIncreaseMultiplier;
         totalDamage += moleDamage;
 
         // Healing damage
         if (moles < sm.MolePenaltyThreshold)
         {
-            // There's a very small float so that it doesn't divide by 0
-            var healHeatDamage = Math.Min(absorbedGas.Temperature - tempThreshold, 0.001f) / 150;
+            var healHeatDamage = Math.Min(absorbedGas.Temperature - tempThreshold, 0f) / 150;
             totalDamage += healHeatDamage;
         }
 
@@ -247,12 +267,12 @@ public sealed partial class SupermatterSystem
                 _ => 0f
             };
 
-            totalDamage += Math.Clamp(sm.Power * factor * sm.DamageIncreaseMultiplier, 0, sm.MaxSpaceExposureDamage);
+            totalDamage += Math.Clamp(sm.Power * factor * sm.DamageIncreaseMultiplier, 0f, sm.MaxSpaceExposureDamage);
 
             break;
         }
 
-        var damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DamageDelaminationPoint, totalDamage);
+        var damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DamageDelaminationPoint, sm.Damage + totalDamage);
 
         // Prevent it from going negative
         sm.Damage = Math.Clamp(damage, 0, float.PositiveInfinity);
@@ -263,19 +283,16 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void AnnounceCoreDamage(EntityUid uid, SupermatterComponent sm)
     {
+        // If undamaged, no need to announce anything
+        if (sm.Damage == 0)
+            return;
+
         var message = string.Empty;
         var global = false;
 
         var integrity = GetIntegrity(sm).ToString("0.00");
 
-        // Special cases
-        if (sm.Damage < sm.DamageDelaminationPoint && sm.Delamming)
-        {
-            message = Loc.GetString("supermatter-delam-cancel", ("integrity", integrity));
-            sm.DelamAnnounced = false;
-            global = true;
-        }
-
+        // Instantly announce delamination
         if (sm.Delamming && !sm.DelamAnnounced)
         {
             var sb = new StringBuilder();
@@ -286,24 +303,74 @@ public sealed partial class SupermatterSystem
                 case DelamType.Cascade: loc = "supermatter-delam-cascade";   break;
                 default:                loc = "supermatter-delam-explosion"; break;
             }
-
-            var station = _station.GetOwningStation(uid);
-            if (station != null)
-               if (sm.ResonantFrequency >= 1)
-        
-                 _alert.SetLevel((EntityUid) station, sm.AlertCodeCascadeId, true, true, true, false);
-               else
-               
-                 _alert.SetLevel((EntityUid) station, sm.AlertCodeDeltaId, true, true, true, false);
-
+            
             sb.AppendLine(Loc.GetString(loc));
-            sb.AppendLine(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
+            sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
 
             message = sb.ToString();
             global = true;
             sm.DelamAnnounced = true;
+            sm.YellTimer = TimeSpan.FromSeconds(sm.DelamTimer / 2);
 
-            SupermatterAnnouncement(uid, message, global);
+            SendSupermatterAnnouncement(uid, sm, message, global);
+            return;
+        }
+
+        // Only announce every YellTimer seconds
+        if (_timing.CurTime < sm.YellLast + sm.YellTimer)
+            return;
+
+        // Recovered after the delamination point
+        if (sm.Damage < sm.DamageDelaminationPoint && sm.DelamAnnounced)
+        {
+            message = Loc.GetString("supermatter-delam-cancel", ("integrity", integrity));
+            sm.DelamAnnounced = false;
+            sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(CCVars.SupermatterYellTimer));
+            global = true;
+
+            SendSupermatterAnnouncement(uid, sm, message, global);
+            return;
+        }
+
+        // Oh god oh fuck
+        if (sm.Delamming && sm.DelamAnnounced)
+        {
+            var seconds = Math.Ceiling(sm.DelamEndTime.TotalSeconds - _timing.CurTime.TotalSeconds);
+
+            if (seconds <= 0)
+                return;
+
+            var loc = seconds switch
+            {
+                >  5 => "supermatter-seconds-before-delam-countdown",
+                <= 5 => "supermatter-seconds-before-delam-imminent",
+                _ => String.Empty
+            };
+
+            sm.YellTimer = seconds switch
+            {
+                > 30 => TimeSpan.FromSeconds(10),
+                >  5 => TimeSpan.FromSeconds(5),
+                <= 5 => TimeSpan.FromSeconds(1),
+                _ => TimeSpan.FromSeconds(_config.GetCVar(CCVars.SupermatterYellTimer))
+            };
+
+            message = Loc.GetString(loc, ("seconds", seconds));
+            global = true;
+
+            SendSupermatterAnnouncement(uid, sm, message, global);
+            return;
+        }
+
+        // We're safe
+        if (sm.Damage < sm.DamageArchived && sm.Status >= SupermatterStatusType.Warning)
+        {
+            message = Loc.GetString("supermatter-healing", ("integrity", integrity));
+
+            if (sm.Status >= SupermatterStatusType.Emergency)
+                global = true;
+
+            SendSupermatterAnnouncement(uid, sm, message, global);
             return;
         }
 
@@ -314,48 +381,46 @@ public sealed partial class SupermatterSystem
         // We are not taking consistent damage, Engineers aren't needed
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-            if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
-            {
-                message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
-            }
-            else
-            {
-                message = Loc.GetString("supermatter-warning", ("integrity", integrity));
-            }
+            //Checking cascade stuff
+            bool cascade = _config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1;
+            
+            // If CCVar and ResonantFrequency >= 1 Supermatter gonna yell cascade warning
+            message = cascade 
+                ? Loc.GetString("supermatter-warning-cascade", ("integrity", integrity)) 
+                : Loc.GetString("supermatter-warning", ("integrity", integrity));
 
             if (sm.Damage >= sm.DamageEmergencyThreshold)
             {
-                if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
-                {
-                    message = Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity));
-                    global = true;
-                }
-                else
-                {
-                    message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
-                    global = true;
-                }
+                message = cascade 
+                    ? Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity)) 
+                    : Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                
+                global = true;
             }
         }
 
-        SupermatterAnnouncement(uid, message, global);
+        SendSupermatterAnnouncement(uid, sm, message, global);
     }
 
-        /// <summary>
-        ///     Help the SM announce something.
-        /// </summary>
-        /// <param name="global">If true, does the station announcement.</param>
-        /// <param name="customSender">If true, sends the announcement from Central Command.</param>
-        public void SupermatterAnnouncement(EntityUid uid, string message, bool global = false, string? customSender = null)
-        {
-            if (global)
-            {
-                var sender = customSender != null ? customSender : Loc.GetString("supermatter-announcer");
-                _chat.DispatchStationAnnouncement(uid, message, sender, colorOverride: Color.Yellow);
-                return;
-            }
-            _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
-        }
+    /// <param name="global">If true, sends the message to the common radio</param>
+    /// <param name="customSender">Localisation string for a custom announcer name</param>
+    public void SendSupermatterAnnouncement(EntityUid uid, SupermatterComponent sm, string message, bool global = false)
+    {
+        if (message == String.Empty)
+            return;
+
+        var channel = sm.Channel;
+
+        if (global)
+            channel = sm.ChannelGlobal;
+
+        // Ensure status, otherwise the wrong speech sound may be used
+        HandleStatus(uid, sm);
+
+        sm.YellLast = _timing.CurTime;
+        _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
+        _radio.SendRadioMessage(uid, message, channel, uid);
+    }
 
     /// <summary>
     ///     Returns the integrity rounded to hundreds, e.g. 100.00%
@@ -370,20 +435,19 @@ public sealed partial class SupermatterSystem
 
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+        bool cascade = _config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1;
+
+        if (cascade)
         {
             if (!sm.KudzuSpawned)
             {
                 var xform = Transform(uid);
                 Spawn(sm.KudzuPrototype, xform.Coordinates);
-
                 sm.KudzuSpawned = true;
             }
 
             return DelamType.Cascade;
         }
-
-        // Создаем список событий с их вероятностями
         var events = new List<IProbEntry>
         {
             new ProbEntry { Type = DelamType.Explosion, Prob = 0.9f },
@@ -393,7 +457,6 @@ public sealed partial class SupermatterSystem
         var probSum = events.Sum(e => e.Prob);
         var random = new System.Random();
 
-        // Выбираем событие с использованием RandomSystem
         var randomSystem = EntitySystem.Get<RandomSystem>();
         var selectedEvent = randomSystem.GetProbEntry(events, probSum, random) as ProbEntry;
 
@@ -402,11 +465,11 @@ public sealed partial class SupermatterSystem
             return selectedEvent.Type;
         }
 
-        // Значение по умолчанию
+        // Standart
         return DelamType.Explosion;
     }
 
-    // Вспомогательный класс для хранения типа события и вероятности
+    // Helper class for storing event type and probability
     private sealed class ProbEntry : IProbEntry
     {
         public DelamType Type { get; set; }
@@ -458,6 +521,55 @@ public sealed partial class SupermatterSystem
     }
 
     /// <summary>
+    ///     Sets the supermatter's status and speech sound based on thresholds
+    /// </summary>
+    private void HandleStatus(EntityUid uid, SupermatterComponent sm)
+    {
+        var currentStatus = GetStatus(uid, sm);
+
+        if (sm.Status != currentStatus)
+        {
+            sm.Status = currentStatus;
+
+            if (!TryComp<SpeechComponent>(uid, out var speech))
+                return;
+
+            sm.StatusCurrentSound = currentStatus switch
+            {
+                SupermatterStatusType.Warning => sm.StatusWarningSound,
+                SupermatterStatusType.Danger => sm.StatusDangerSound,
+                SupermatterStatusType.Emergency => sm.StatusEmergencySound,
+                SupermatterStatusType.Delaminating => sm.StatusDelamSound,
+                _ => null
+            };
+
+            ProtoId<SpeechSoundsPrototype>? speechSound = sm.StatusCurrentSound;
+
+            if (currentStatus == SupermatterStatusType.Warning)
+                speech.AudioParams = AudioParams.Default.AddVolume(7.5f);
+            else
+                speech.AudioParams = AudioParams.Default.AddVolume(10f);
+
+            if (currentStatus == SupermatterStatusType.Delaminating)
+                speech.SoundCooldownTime = 6.8f; // approximate length of bloblarm.ogg
+            else
+                speech.SoundCooldownTime = 0.0f;
+
+            speech.SpeechSounds = speechSound;
+        }
+
+        // Supermatter is healing, don't play any speech sounds
+        if (sm.Damage < sm.DamageArchived)
+        {
+            if (!TryComp<SpeechComponent>(uid, out var speech))
+                return;
+
+            sm.StatusCurrentSound = null;
+            speech.SpeechSounds = null;
+        }
+    }
+
+    /// <summary>
     ///     Swaps out ambience sounds when the SM is delamming or not.
     /// </summary>
     private void HandleSoundLoop(EntityUid uid, SupermatterComponent sm)
@@ -467,13 +579,77 @@ public sealed partial class SupermatterSystem
         if (ambient == null)
             return;
 
-        if (sm.Delamming && sm.CurrentSoundLoop != sm.DelamSound)
-            sm.CurrentSoundLoop = sm.DelamSound;
+        var volume = (float) Math.Round(Math.Clamp((sm.Power / 50) - 5, -5, 5));
 
-        else if (!sm.Delamming && sm.CurrentSoundLoop != sm.CalmSound)
-            sm.CurrentSoundLoop = sm.CalmSound;
+        _ambient.SetVolume(uid, volume);
+
+        if (sm.Status >= SupermatterStatusType.Danger && sm.CurrentSoundLoop != sm.DelamLoopSound)
+            sm.CurrentSoundLoop = sm.DelamLoopSound;
+
+        else if (sm.Status < SupermatterStatusType.Danger && sm.CurrentSoundLoop != sm.CalmLoopSound)
+            sm.CurrentSoundLoop = sm.CalmLoopSound;
 
         if (ambient.Sound != sm.CurrentSoundLoop)
             _ambient.SetSound(uid, sm.CurrentSoundLoop, ambient);
+    }
+
+    /// <summary>
+    ///     Plays normal/delam sounds at a rate determined by power and damage
+    /// </summary>
+    private void HandleAccent(EntityUid uid, SupermatterComponent sm)
+    {
+        var emit = Comp<EmitSoundOnTriggerComponent>(uid);
+
+        if (emit == null)
+            return;
+
+        if (sm.AccentLastTime >= _timing.CurTime || !_random.Prob(0.05f))
+            return;
+
+        var aggression = Math.Min((sm.Damage / 800) * (sm.Power / 2500), 1) * 100;
+        var nextSound = Math.Max(Math.Round((100 - aggression) * 5), sm.AccentMinCooldown);
+
+        if (sm.AccentLastTime + TimeSpan.FromSeconds(nextSound) > _timing.CurTime)
+            return;
+
+        if (sm.Status >= SupermatterStatusType.Danger && emit.Sound != sm.DelamAccent)
+            emit.Sound = sm.DelamAccent;
+
+        else if (sm.Status < SupermatterStatusType.Danger && emit.Sound != sm.CalmAccent)
+            emit.Sound = sm.CalmAccent;
+
+        sm.AccentLastTime = _timing.CurTime;
+
+        var ev = new TriggerEvent(uid);
+        RaiseLocalEvent(uid, ev);
+    }
+
+    // Console stuff
+    private SupermatterStatusType GetStatus(EntityUid uid, SupermatterComponent sm)
+    {
+        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+
+        if (mix is not { })
+            return SupermatterStatusType.Error;
+
+        if (sm.Delamming || sm.Damage >= sm.DamageDelaminationPoint)
+            return SupermatterStatusType.Delaminating;
+
+        if (sm.Damage >= sm.DamagePenaltyPoint)
+            return SupermatterStatusType.Emergency;
+
+        if (sm.Damage >= sm.DamageDelamAlertPoint)
+            return SupermatterStatusType.Danger;
+
+        if (sm.Damage >= sm.DamageWarningThreshold)
+            return SupermatterStatusType.Warning;
+
+        if (mix.Temperature > Atmospherics.T0C + (sm.HeatPenaltyThreshold * 0.8))
+            return SupermatterStatusType.Caution;
+
+        if (sm.Power > 5)
+            return SupermatterStatusType.Normal;
+
+        return SupermatterStatusType.Inactive;
     }
 }

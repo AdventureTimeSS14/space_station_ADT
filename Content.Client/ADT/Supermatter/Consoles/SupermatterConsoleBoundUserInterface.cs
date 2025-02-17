@@ -1,6 +1,6 @@
-using Content.Shared.ADT._EinsteinEngines.Supermatter.Components;
+using Content.Shared.ADT.Supermatter.Components;
 
-namespace Content.Client.ADT._EinsteinEngines.Supermatter.Consoles;
+namespace Content.Client.ADT.Supermatter.Consoles;
 
 public sealed class SupermatterConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {

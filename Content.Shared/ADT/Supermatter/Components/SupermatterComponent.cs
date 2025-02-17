@@ -1,10 +1,11 @@
-using Robust.Shared.GameStates;
-using Robust.Shared.Audio;
+using Content.Shared.ADT.Supermatter.Monitor;
 using Content.Shared.Atmos;
-using Content.Shared.Whitelist;
 using Content.Shared.DoAfter;
-using Content.Shared.DeviceLinking;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Radio;
+using Content.Shared.Speech;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Supermatter.Components;
@@ -18,7 +19,13 @@ public sealed partial class SupermatterComponent : Component
     ///     The SM will only cycle if activated.
     /// </summary>
     [DataField]
-    public bool Activated = false;
+    public bool Activated = true;
+
+    /// <summary>
+    ///     The current status of the singularity, used for alert sounds and the monitoring console
+    /// </summary>
+    [DataField]
+    public SupermatterStatusType Status = SupermatterStatusType.Inactive;
 
     [DataField]
     public string SliverPrototype = "SupermatterSliver";
@@ -41,14 +48,19 @@ public sealed partial class SupermatterComponent : Component
 
     public string[] LightningPrototypes =
     {
-        "Lightning",
-        "ChargedLightning",
-        "SuperchargedLightning",
-        "HyperchargedLightning"
+        "SupermatterLightning",
+        "SupermatterLightningCharged",
+        "SupermatterLightningSupercharged"
     };
 
     [DataField]
-    public string CascadeSpawnPrototype = "SupermatterCascade";
+    public string SingularitySpawnPrototype = "Singularity";
+
+    [DataField]
+    public string TeslaSpawnPrototype = "TeslaEnergyBall";
+
+    [DataField]
+    public string KudzuSpawnPrototype = "SupermatterKudzu";
 
     /// <summary>
     ///     What spawns in the place of an unfortunate entity that got removed by the SM.
@@ -56,23 +68,45 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public string CollisionResultPrototype = "Ash";
 
-    [DataField]
-    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/Effects/Grenades/Supermatter/supermatter_start.ogg");
+    #endregion
+
+    #region Sounds
 
     [DataField]
-    public SoundSpecifier CalmSound = new SoundPathSpecifier("/Audio/ADT/Supermatter/calm.ogg");
+    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/supermatter.ogg");
 
     [DataField]
-    public SoundSpecifier DelamSound = new SoundPathSpecifier("/Audio/ADT/Supermatter/delamming.ogg");
+    public SoundSpecifier DistortSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/distort.ogg");
 
     [DataField]
-    public SoundSpecifier CurrentSoundLoop = new SoundPathSpecifier("/Audio/ADT/Supermatter/calm.ogg");
+    public SoundSpecifier CalmLoopSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/calm.ogg");
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? SupermatterConsole = null;
+    [DataField]
+    public SoundSpecifier DelamLoopSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/delamming.ogg");
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string LinkingPort = "SupermatterLinks";
+    [DataField]
+    public SoundSpecifier CurrentSoundLoop = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/calm.ogg");
+
+    [DataField]
+    public SoundSpecifier CalmAccent = new SoundCollectionSpecifier("SupermatterAccentNormal");
+
+    [DataField]
+    public SoundSpecifier DelamAccent = new SoundCollectionSpecifier("SupermatterAccentDelam");
+
+    [DataField]
+    public string StatusWarningSound = "SupermatterWarning";
+
+    [DataField]
+    public string StatusDangerSound = "SupermatterDanger";
+
+    [DataField]
+    public string StatusEmergencySound = "SupermatterEmergency";
+
+    [DataField]
+    public string StatusDelamSound = "SupermatterDelaminating";
+
+    [DataField]
+    public string? StatusCurrentSound = null;
 
     #endregion
 
@@ -81,11 +115,11 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float Power;
 
-    /// <summary>
-    ///     Some shit for cascade
-    /// </summary>
     [DataField]
-    public float ResonantFrequency = 0f;
+    public float Temperature;
+
+    [DataField]
+    public float WasteMultiplier;
 
     [DataField]
     public float MatterPower;
@@ -151,6 +185,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float OxygenReleaseEfficiencyModifier = 0.0031f;
 
+    /// <summary>
+    ///     The chance for supermatter lightning to strike random coordinates instead of an entity
+    /// </summary>
+    [DataField]
+    public float ZapHitCoordinatesChance = 0.75f;
+
     #endregion
 
     #region Timing
@@ -159,43 +199,40 @@ public sealed partial class SupermatterComponent : Component
     ///     We yell if over 50 damage every YellTimer Seconds
     /// </summary>
     [DataField]
-    public float YellTimer = 60f;
+    public TimeSpan YellTimer = TimeSpan.Zero;
 
     /// <summary>
-    ///     Set to YellTimer at first so it doesnt yell a minute after being hit
+    ///     Last time the supermatter's damage was announced
     /// </summary>
     [DataField]
-    public float YellAccumulator = 60f;
+    public TimeSpan YellLast = TimeSpan.Zero;
 
     /// <summary>
-    ///     Timer for delam
+    ///     Time when the delamination will occuer
     /// </summary>
     [DataField]
-    public float DelamTimerAccumulator;
+    public TimeSpan DelamEndTime;
 
     /// <summary>
-    ///     Time until delam
+    ///     How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
     public float DelamTimer = 30f;
 
     /// <summary>
-    ///     The message timer
+    ///     Last time a supermatter accent sound was triggered
     /// </summary>
     [DataField]
-    public float SpeakAccumulator = 60f;
+    public TimeSpan AccentLastTime = TimeSpan.Zero;
+
+    /// <summary>
+    ///     Minimum time in seconds between supermatter accent sounds
+    /// </summary>
+    [DataField]
+    public float AccentMinCooldown = 2f;
 
     [DataField]
-    public float UpdateAccumulator = 0f;
-
-    [DataField]
-    public float UpdateTimer = 1f;
-
-    [DataField]
-    public float ZapAccumulator = 0f;
-
-    [DataField]
-    public float ZapTimer = 10f;
+    public TimeSpan ZapLast = TimeSpan.Zero;
 
     #endregion
 
@@ -227,10 +264,10 @@ public sealed partial class SupermatterComponent : Component
     public float PowerlossInhibitionMoleBoostThreshold = 500f;
 
     /// <summary>
-    ///     Above this value we can get independent mol damage, below it we can heal damage
+    ///     Above this value we can get lord singulo and independent mol damage, below it we can heal damage
     /// </summary>
     [DataField]
-    public float MolePenaltyThreshold = 900f;
+    public float MolePenaltyThreshold = 1800f;
 
     /// <summary>
     ///     More moles of gases are harder to heat than fewer, so let's scale heat damage around them
@@ -240,10 +277,22 @@ public sealed partial class SupermatterComponent : Component
 
     /// <summary>
     ///     The cutoff on power properly doing damage, pulling shit around,
-    ///     Low chance of pyro anomalies, +2 bolts of electricity
+    ///     and delamming into a tesla. Low chance of pyro anomalies, +2 bolts of electricity
     /// </summary>
     [DataField]
-    public float PowerPenaltyThreshold = 4000f;
+    public float PowerPenaltyThreshold = 5000f;
+
+    /// <summary>
+    ///     +1 bolt of electricity, TODO: anomaly spawning
+    /// </summary>
+    [DataField]
+    public float SeverePowerPenaltyThreshold = 7000f;
+
+    /// <summary>
+    ///     +1 bolt of electricity
+    /// </summary>
+    [DataField]
+    public float CriticalPowerPenaltyThreshold = 9000f;
 
     /// <summary>
     ///     Maximum safe operational temperature in degrees Celsius.
@@ -300,10 +349,22 @@ public sealed partial class SupermatterComponent : Component
     public float DamageEmergencyThreshold = 500;
 
     /// <summary>
+    ///     The point at which the SM begins shooting lightning.
+    /// </summary>
+    [DataField]
+    public int DamagePenaltyPoint = 550;
+
+    /// <summary>
     ///     The point at which the SM begins delaminating.
     /// </summary>
     [DataField]
     public int DamageDelaminationPoint = 900;
+
+    /// <summary>
+    ///     The point at which the SM begins showing warning signs.
+    /// </summary>
+    [DataField]
+    public int DamageDelamAlertPoint = 300;
 
     [DataField]
     public bool Delamming = false;
