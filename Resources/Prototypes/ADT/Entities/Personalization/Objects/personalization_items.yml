@@ -1636,6 +1636,29 @@
   - type: Item
     size: Tiny
 
+# kiwi_fruit, на днюху, лапка кошечка Шрёди 🐾
+- type: entity
+  parent: FoodSnackBase
+  id: ADTFoodKiwiTartaliokiwi_fruit
+  name: "tartalio with kiwi"
+  description: "tartalio with kiwi"
+  suffix: kiwi_fruit
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_fruit_tartalio.rsi
+    state: icon
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+
 #ADT-TEAM-ITEMS-END
 
 #SPONSOR-ITEMS-START
