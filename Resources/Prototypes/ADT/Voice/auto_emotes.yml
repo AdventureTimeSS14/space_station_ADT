@@ -1,0 +1,13 @@
+- type: autoEmote
+  id: NervousCrying
+  emote: Crying
+  interval: 15.0
+  chance: 0.5
+  withChat: false
+
+- type: autoEmote
+  id: NervousSream
+  emote: Scream
+  interval: 15.0
+  chance: 0.5
+  withChat: false
