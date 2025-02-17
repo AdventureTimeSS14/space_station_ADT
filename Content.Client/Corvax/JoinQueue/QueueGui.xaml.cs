@@ -11,17 +11,18 @@ namespace Content.Client.Corvax.JoinQueue;
 public sealed partial class QueueGui : Control
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    
+    [Dependency] private readonly IUriOpener _uri = default!;
+
     public event Action? QuitPressed;
-    
+
     public QueueGui()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         LayoutContainer.SetAnchorPreset(this, LayoutContainer.LayoutPreset.Wide);
-        
+
         QuitButton.OnPressed += (_) => QuitPressed?.Invoke();
-        
+
         // Disable "priority join" button on Steam builds
         // since it violates Valve's rules about alternative storefronts.
         PriorityJoinButton.Visible = !_cfg.GetCVar(CCVars.BrandingSteam);
@@ -30,6 +31,11 @@ public sealed partial class QueueGui : Control
         {
             var linkPatreon = _cfg.GetCVar(CCVars.InfoLinksPatreon);
             IoCManager.Resolve<IUriOpener>().OpenUri(linkPatreon);
+        };
+
+        WebSiteButton.OnPressed += (_) =>
+        {
+            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWebsite));
         };
     }
 

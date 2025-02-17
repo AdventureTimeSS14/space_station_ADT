@@ -12,9 +12,9 @@ public sealed class QueueState : State
 {
     [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
     [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-    //[Dependency] private readonly SharedAudioSystem _audio = default!; // ADT TWEAK 
+    //[Dependency] private readonly SharedAudioSystem _audio = default!; // ADT TWEAK
 
-    //private const string JoinSoundPath = "/Audio/Effects/voteding.ogg"; // ADT TWEAK 
+    //private const string JoinSoundPath = "/Audio/Effects/voteding.ogg"; // ADT TWEAK
 
     private QueueGui? _gui;
 
@@ -31,7 +31,7 @@ public sealed class QueueState : State
         _gui!.QuitPressed -= OnQuitPressed;
         _gui.Dispose();
 
-        //Ding(); // ADT TWEAK 
+        //Ding(); // ADT TWEAK
     }
 
     //private void Ding() // ADT TWEAK, Не понятно как фиксить ошибку с этой хуйней, потому проще вырезать по сути ненужную функцию
