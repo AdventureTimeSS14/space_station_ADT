@@ -12,9 +12,8 @@ public sealed partial class QueueGui : Control
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IUriOpener _uri = default!;
-
     public event Action? QuitPressed;
-
+    
     public QueueGui()
     {
         RobustXamlLoader.Load(this);
@@ -32,11 +31,12 @@ public sealed partial class QueueGui : Control
             var linkPatreon = _cfg.GetCVar(CCVars.InfoLinksPatreon);
             IoCManager.Resolve<IUriOpener>().OpenUri(linkPatreon);
         };
-
+        // ADT-Tweak-start
         WebSiteButton.OnPressed += (_) =>
         {
             _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWebsite));
         };
+        // ADT-Tweak-end
     }
 
     public void UpdateInfo(int total, int position)
