@@ -18,3 +18,16 @@
         Airloss: -20
         Toxin: -20
     ignoreResistances: true
+
+- type: entity
+  parent: ProjectilePolyboltBase
+  id: ProjectilePolyboltVulpkanin
+  name: vulp polybolt
+  description: Nooo, I don't wanna be furry!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PolymorphOnCollide
+    polymorph: ADTWizardForcedVulpkanin
+    whitelist:
+      components:
+      - Body

@@ -1,0 +1,25 @@
+- type: entity
+  name: vulpizator
+  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  id: WeaponVulpizator
+  description: A self-defense weapon that... turns you into vulpkanin..
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: BasicEntityAmmoProvider
+    proto: ProjectilePolyboltVulpkanin
+    fireCost: 25
+
+
