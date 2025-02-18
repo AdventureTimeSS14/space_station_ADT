@@ -64,7 +64,6 @@ namespace Content.Server.VendingMachines
 
             SubscribeLocalEvent<VendingMachineComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
-            // SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged); // ADT-Tweak
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage); //ADT-Economy
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
@@ -123,11 +122,6 @@ namespace Content.Server.VendingMachines
                 args.Cancel();
         }
 
-        private void OnBoundUIOpened(EntityUid uid, VendingMachineComponent component, BoundUIOpenedEvent args)
-        {
-            UpdateVendingMachineInterfaceState(uid, component);
-        }
-
         private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), GetPriceMultiplier(component),
@@ -156,14 +150,6 @@ namespace Content.Server.VendingMachines
         {
             vendComponent.Broken = true;
             TryUpdateVisualState(uid, vendComponent);
-        }
-
-        private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
-        {
-            //ADT-Economy-Start
-            args.Handled = component.EmaggedInventory.Count > 0 || component.PriceMultiplier > 0;
-            UpdateVendingMachineInterfaceState(uid, component);
-            //ADT-Economy-End
         }
 
         private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args) //ADT-Economy

@@ -62,7 +62,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             return;
 
         // only emag if there are emag-only items
-        args.Handled = component.EmaggedInventory.Count > 0;
+        args.Handled = component.EmaggedInventory.Count > 0 || component.PriceMultiplier > 0; // ADT-Economy
     }
 
     /// <summary>
