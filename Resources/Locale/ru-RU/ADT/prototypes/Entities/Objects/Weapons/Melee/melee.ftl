@@ -1,10 +1,10 @@
-ent-ADTtelescopicBaton = Телескопическая дубинка
+ent-ADTtelescopicBaton = телескопическая дубинка
     .desc = "Большая, опасная и выдвижная дубинка. Может храниться в карманах в сложенном состоянии."
     .suffix = { "" }
-ent-ADTtelescopicBatonBob = Телескопическая дубинка Боба
+ent-ADTtelescopicBatonBob = телескопическая дубинка Боба
     .desc = "Эксклюзивная телескопическая дубинка, полностью из золота."
     .suffix = { "" }
-ent-ADTtelescopicBatonKon = Телескопическая дубинка Йохана
+ent-ADTtelescopicBatonKon = телескопическая дубинка Йохана
     .desc = "Непонятно, кровь это или цвет дубинки.."
     .suffix = { "" }
 
