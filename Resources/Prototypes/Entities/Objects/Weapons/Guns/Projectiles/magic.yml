@@ -297,3 +297,16 @@
     whitelist:
       components:
       - Body
+
+- type: entity
+  parent: ProjectilePolyboltBase
+  id: ProjectilePolyboltBread
+  name: bread polybolt
+  description: Nooo, I don't wanna be bread!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PolymorphOnCollide
+    polymorph: PolymorphBread
+    whitelist:
+      components:
+      - Body
