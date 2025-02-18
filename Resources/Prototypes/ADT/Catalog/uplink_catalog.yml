@@ -504,7 +504,7 @@
   icon:
     sprite: Objects/Vehicles/syndicatesegway.rsi
     state: vehicle
-  productEntity: ADTVehicleSyndicateSegway
+  productEntity: ADTCrateFunSyndicateSegway # ADT-Tweak (сегвей был без коробки и ключей)
   cost:
     Telecrystal: 5
   categories:
@@ -599,7 +599,7 @@
 #     whitelist:
 #       tags:
 #       - NukeOpsUplink
-      
+
 - type: listing
   id: ADTUplinkInvisibleCloak
   name: uplink-invisible-cloak-name

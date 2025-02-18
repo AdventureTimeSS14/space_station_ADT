@@ -376,6 +376,7 @@
       - NekomimeticTranslator
       - DraconicTranslator
       - VoxPidginTranslator
+      - ScratchesTranslator
       - SolCommonTranslator
       - RootSpeakTranslator
       #- XenoTranslator
@@ -386,6 +387,7 @@
       - DraconicTranslatorImplanter
       - CanilunztTranslatorImplanter
       - VoxPidginTranslatorImplanter
+      - ScratchesTranslatorImplanter
       - SolCommonTranslatorImplanter
       - RootSpeakTranslatorImplanter
       - AnimalTranslator

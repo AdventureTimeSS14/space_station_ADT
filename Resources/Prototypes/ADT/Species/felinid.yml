@@ -1,13 +1,13 @@
 - type: species
   id: Felinid
   name: Фелинид
-  roundStart: false  # на радость здравому смыслу
+  roundStart: true
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
-  category: Unusual
+  category: Sponsor
   #sponsorOnly: true # Пока снимаем до решения проблем
 
 

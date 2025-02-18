@@ -151,7 +151,7 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public List<string> Special = new();
-    
+
     /// <summary>
     /// Особые языки, которые не могут выбрать представители других рас.
     /// Уникальные языки не должны быть раундстартовыми.
@@ -184,6 +184,7 @@ public enum SpeciesCategory : byte
 {
     Classic,
     Unusual,
-    Special
+    Special,
+    Sponsor
 }
 // ADT end
