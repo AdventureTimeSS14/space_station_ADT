@@ -131,8 +131,10 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    # ADT-tweak-start
     - ADTRecorderStaticPack
     - ADTMicsStaticPack
+    # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -212,10 +214,12 @@
     - Instruments
     - Equipment
     - FauxTiles
-    - ADTRCDPack #ADT-tweak
+    #ADT-tweak-start
+    - ADTRCDPack
     - ADTPKAPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
+    #ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -274,7 +278,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
-    - ADTEnergyBoardsPack
+    - ADTEnergyBoardsPack # ADT-tweak
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -326,6 +330,7 @@
     - BorgModules
     - MechParts
     - MechEquipment
+    # ADT-tweak-start
     - ADTSecBorgPack
     - ADTModsuitPack
     - ADTGygaxPack
@@ -334,6 +339,7 @@
     - ADTDurandPack
     - ADTPhazonPack
     - ADTMechEquipmentPack
+    # ADT-tweak-end
   - type: MaterialStorage
     whitelist:
       tags:
@@ -417,16 +423,18 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    - ADTMagazineStaticPack
+    - ADTMagazineStaticPack # ADT-tweak
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
+    # ADT-tweak-start
     - ADTMagazineUraniumPack
     - ADTAttachmentPack
     - ADT40mmGrenadePack
+    # ADT-tweak-end
   - type: MaterialStorage
     whitelist:
       tags:
@@ -497,7 +505,7 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    - ADTMedicalMiscStaticPack
+    - ADTMedicalMiscStaticPack # ADT-Tweak
     dynamicPacks:
     - Chemistry
   - type: Machine
