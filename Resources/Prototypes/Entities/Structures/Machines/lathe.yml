@@ -131,6 +131,8 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - ADTRecorderStaticPack
+    - ADTMicsStaticPack
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -272,6 +274,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - ADTEnergyBoardsPack
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards

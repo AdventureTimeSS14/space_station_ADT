@@ -17,3 +17,13 @@
   - GasPipeBend
   - GasPipeTJunction
   - GasPipeFourway
+
+- type: latheRecipePack
+  id: ADTEnergyBoardsPack
+  recipes:
+  - ADTIndustrialSMESMachineCircuitboard
+
+- type: latheRecipePack
+  id: ADTMicsStaticPack
+  recipes:
+  - StorageCanister

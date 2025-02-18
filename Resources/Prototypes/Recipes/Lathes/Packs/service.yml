@@ -22,8 +22,6 @@
   - MopItem
   - Holoprojector
   - WetFloorSign
-  - CassetteTape #ADT-Tweak
-  - TapeRecorder #ADT-Tweak
 
 - type: latheRecipePack
   id: ServiceBoardsStatic

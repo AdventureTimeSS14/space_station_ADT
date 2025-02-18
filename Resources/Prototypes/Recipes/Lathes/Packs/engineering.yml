@@ -25,7 +25,6 @@
   recipes:
   - AirTank
   - GasAnalyzer
-  - StorageCanister #ADT-Tweak
 
 - type: latheRecipePack
   id: ElectronicsStatic
@@ -86,4 +85,4 @@
   - TelecomServerCircuitboard
   - SMESAdvancedMachineCircuitboard
   - HolopadMachineCircuitboard
-  - ADTIndustrialSMESMachineCircuitboard #ADT
+

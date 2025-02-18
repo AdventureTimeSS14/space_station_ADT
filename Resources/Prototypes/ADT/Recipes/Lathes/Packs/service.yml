@@ -68,3 +68,9 @@
   - PrintedDocumentBusinessDealRecipe
   - PrintedDocumentNoteBeginningMilitaryActionsRecipe
   - PrintedDocumentReportAccomplishmentGoalsRecipe
+
+- type: latheRecipePack
+  id: ADTRecorderStaticPack
+  recipes:
+  - CassetteTape
+  - TapeRecorder
