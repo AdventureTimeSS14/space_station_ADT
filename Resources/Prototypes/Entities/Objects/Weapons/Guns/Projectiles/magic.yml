@@ -285,18 +285,6 @@
         Cold: 20
         Structural: 50
 
-- type: entity
-  parent: ProjectilePolyboltBase
-  id: ADTProjectilePolyboltVulpkanin
-  name: vulp polybolt
-  description: Nooo, I don't wanna be furry!
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: PolymorphOnCollide
-    polymorph: ADTWizardForcedVulpkanin
-    whitelist:
-      components:
-      - Body
 
 - type: entity
   parent: ProjectilePolyboltBase
