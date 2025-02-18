@@ -309,3 +309,16 @@
       Pig: BadSpeak
   - type: StaticPrice
     price: 1500
+
+- type: entity
+  id: ScratchesTranslator
+  parent: [ Translator ]
+  name: Scratches translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    languages:
+      GalacticCommon: Speak
+      Scratches: Speak
+  - type: StaticPrice
+    price: 1500

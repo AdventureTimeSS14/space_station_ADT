@@ -104,6 +104,11 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Resomi
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType

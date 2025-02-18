@@ -655,3 +655,46 @@
       collection: FemaleSigh
     Crying-apathy:
       collection: FemaleCry
+
+- type: emoteSounds
+  id: MaleResomi
+  params:
+    variation: 0.125
+  sounds:
+    Scream: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+    Laugh:
+      collection: MaleLaugh
+    Honk:
+      collection: BikeHorn
+    Whistle:
+      collection: Whistles
+    Crying:
+      collection: MaleCry
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+
+- type: emoteSounds
+  id: FemaleResomi
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+    Laugh:
+      collection: FemaleLaugh
+    Honk:
+      collection: BikeHorn
+    Whistle:
+      collection: Whistles
+    Crying:
+      collection: FemaleCry
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
