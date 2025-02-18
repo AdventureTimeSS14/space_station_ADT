@@ -379,7 +379,6 @@ public sealed partial class RevenantSystem
 
             var ev = new GotEmaggedEvent(uid, EmagType.Interaction | EmagType.Access);
             RaiseLocalEvent(ent, ref ev);
-
             // ADT Revenant malfunction for IPC
             if (_status.TryAddStatusEffect<SeeingStaticComponent>(ent, "SeeingStatic", TimeSpan.FromSeconds(15), true))
                 _status.TryAddStatusEffect<SlowedDownComponent>(ent, "SlowedDown", TimeSpan.FromSeconds(15), true);
