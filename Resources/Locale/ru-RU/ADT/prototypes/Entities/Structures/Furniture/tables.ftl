@@ -1,20 +1,20 @@
 ent-ADTTableFrame = каркас стола
     .desc = Металлические детали, составляющие каркас стола
 
-ent-ADTTableRed = красный деревянный стол
+ent-ADTTableRedWood = красный деревянный стол
     .desc = Деревянный стол с красивой скатертью.
 
-ent-ADTTableWhite = белый деревянный стол
-    .desc = { ent-ADTRedTable }
+ent-ADTTableWhiteWood = белый деревянный стол
+    .desc = { ent-ADTTableRed }
 
 ent-ADTTableRoundPlastic = пластиковый круглый столик
-    .desc = { ent-ADTRedTable }
+    .desc = Круглый столик, сделанный из пластика.
 
 ent-ADTTableRoundWood = деревянный круглый столик
-    .desc = { ent-ADTRoundTablePlastic }
+    .desc = Круглый столик, сделанный из дерева.
 
 ent-ADTTableRoundGlass = стеклянный круглый столик
-    .desc = { ent-ADTRoundTablePlastic }
+    .desc = Круглый столик, сделанный из стекла.
 
 ent-ADTTableOktoberfest = стол для Октоберфеста
     .suffix = { "Октоберфест" }
