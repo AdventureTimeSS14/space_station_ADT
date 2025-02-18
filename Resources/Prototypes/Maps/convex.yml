@@ -1,6 +1,6 @@
 - type: gameMap
-  id: Cog
-  mapName: 'Cog'
+  id: Convex
+  mapName: 'Convex'
   mapPath: /Maps/convex.yml
   minPlayers: 55 # Corvax
   stations:
