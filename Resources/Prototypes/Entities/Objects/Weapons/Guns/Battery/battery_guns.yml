@@ -500,11 +500,6 @@
     guides:
     - Security
     - Antagonists
-  - type: Tag #ADT tweak
-    tags:
-    - ADTBSOWeapon
-    - Taser
-    - Sidearm
 
 - type: entity
   name: disabler SMG

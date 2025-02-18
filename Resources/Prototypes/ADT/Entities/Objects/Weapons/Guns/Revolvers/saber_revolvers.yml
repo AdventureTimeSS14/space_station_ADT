@@ -105,6 +105,3 @@
             - ADTLasgunRevolverCell
   - type: AltFireMelee
     attackType: Heavy
-  - type: Tag
-    tags:
-    - ADTBSOWeapon
