@@ -19,6 +19,6 @@
       - suitStorage
       - Belt
   - type: BasicEntityAmmoProvider
-    proto: ProjectilePolyboltVulpkanin
+    proto: ADTProjectilePolyboltVulpkanin
 
 
