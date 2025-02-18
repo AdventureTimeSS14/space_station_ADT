@@ -1,1 +1,1 @@
-cant-shoot-popup-bso = Ваша честь не позвооляет использовать { $used }
+cant-shoot-popup-bso = Ваша честь не позволяет использовать { $used }
