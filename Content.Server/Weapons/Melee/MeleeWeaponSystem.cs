@@ -129,7 +129,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             RaiseLocalEvent(inTargetHand.Value, attemptEvent);
         }
-
+        RaiseLocalEvent(user, attemptEvent); //ADT tweak
         RaiseLocalEvent(target, attemptEvent);
 
         if (attemptEvent.Cancelled)
@@ -155,6 +155,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 0.22f };  // ADT Disarm tweak
         RaiseLocalEvent(target, eventArgs);
+        RaiseLocalEvent(user, eventArgs); //ADT tweak
 
         if (!eventArgs.Handled)
         {
