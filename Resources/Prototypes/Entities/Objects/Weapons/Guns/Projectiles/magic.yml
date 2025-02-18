@@ -285,7 +285,6 @@
         Cold: 20
         Structural: 50
 
-
 - type: entity
   parent: ProjectilePolyboltBase
   id: ProjectilePolyboltBread
@@ -294,7 +293,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: PolymorphOnCollide
-    polymorph: PolymorphBread
+    polymorph: BreadMorph
     whitelist:
       components:
       - Body
