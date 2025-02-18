@@ -1,7 +1,7 @@
 - type: entity
   name: vulpizator
   parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
-  id: WeaponVulpizator
+  id: ADTWeaponVulpizator
   description: A self-defense weapon that... turns you into vulpkanin..
   components:
   - type: Sprite
