@@ -20,6 +20,5 @@
       - Belt
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltVulpkanin
-    fireCost: 25
 
 
