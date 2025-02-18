@@ -59,7 +59,7 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString(arena.Description ?? "No description available"),
-                Priority = 1000,
+                Priority = -100000000,
             };
 
             args.Verbs.Add(sendToArena);
