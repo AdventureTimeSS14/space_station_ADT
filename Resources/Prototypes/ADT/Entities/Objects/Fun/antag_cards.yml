@@ -1,7 +1,7 @@
 - type: entity
   name: playing card
   parent: BaseItem
-  id: ADTFunCardBase
+  id: ADTFunSyndicateCardBase
   suffix: Cards
   description: A high-tech scanning device that uses Terahertz Radiation to detect subfloor infrastructure.
   abstract: true
@@ -16,6 +16,17 @@
   - type: Item
     size: Tiny
     sprite: ADT/Objects/Fun/cards.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+      Slash: 5
+  - type: DamageOtherOnHit 
+    damage:
+    types:
+      Slash: 10
+    soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -31,163 +42,79 @@
   - type: StaticPrice
     price: 1
 
-- type: entity
+- type: entity #игральные карты антага - то, что я дописал
   name: chemistry bag
-  id: ADTFunCardsBox
-  parent: BaseStorageItem
-  description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
-  suffix: Empty
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/box_card.rsi
-    drawdepth: SmallObjects
-    layers:
-    - state: box
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: box-open
-      map: ["enum.StorageVisualLayers.Door"]
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateDoorOpen: box-open
-    stateDoorClosed: box
-  - type: Item
-    sprite: ADT/Objects/Fun/box_card.rsi
-    heldPrefix: box
-    size: Small
-    shape:
-    - 0,0,0,0
-  - type: Storage
-    maxItemSize: Tiny # allow up to 5 large beakers / 10 beakers / 10 pill canisters
-    grid:
-    - 0,0,8,5
-    #     9 6
-    quickInsert: true
-    areaInsert: true
-    whitelist:
-      tags:
-        - ADTCard
-  - type: Dumpable
-
-- type: entity
-  name: chemistry bag
-  id: ADTFunCardsBoxFull54
+  id: ADTFunAgentCardsBoxFull54
   parent: ADTFunCardsBox
   description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
-  suffix: Full
+  suffix: Антаг
   components:
   - type: Item
     size: Small
   - type: StorageFill
     contents:
-      - id: ADTFunCardClubs2
-      - id: ADTFunCardClubs3
-      - id: ADTFunCardClubs4
-      - id: ADTFunCardClubs5
-      - id: ADTFunCardClubs6
-      - id: ADTFunCardClubs7
-      - id: ADTFunCardClubs8
-      - id: ADTFunCardClubs9
-      - id: ADTFunCardClubs10
-      - id: ADTFunCardAceOfClubs
-      - id: ADTFunCardJackOfClubs
-      - id: ADTFunCardQueenOfClubs
-      - id: ADTFunCardKingOfClubs
-      - id: ADTFunCardDimonds2
-      - id: ADTFunCardDimonds3
-      - id: ADTFunCardDimonds4
-      - id: ADTFunCardDimonds5
-      - id: ADTFunCardDimonds6
-      - id: ADTFunCardDimonds7
-      - id: ADTFunCardDimonds8
-      - id: ADTFunCardDimonds9
-      - id: ADTFunCardDimonds10
-      - id: ADTFunCardAceOfDimonds
-      - id: ADTFunCardJackOfDimonds
-      - id: ADTFunCardKingOfDimonds
-      - id: ADTFunCardQueenOfDimonds
-      - id: ADTFunCardHearts2
-      - id: ADTFunCardHearts3
-      - id: ADTFunCardHearts4
-      - id: ADTFunCardHearts5
-      - id: ADTFunCardHearts6
-      - id: ADTFunCardHearts7
-      - id: ADTFunCardHearts8
-      - id: ADTFunCardHearts9
-      - id: ADTFunCardHearts10
-      - id: ADTFunCardAceOfHearts
-      - id: ADTFunCardJackOfHearts
-      - id: ADTFunCardKingOfHearts
-      - id: ADTFunCardQueenOfHearts
-      - id: ADTFunCardSpades2
-      - id: ADTFunCardSpades3
-      - id: ADTFunCardSpades4
-      - id: ADTFunCardSpades5
-      - id: ADTFunCardSpades6
-      - id: ADTFunCardSpades7
-      - id: ADTFunCardSpades8
-      - id: ADTFunCardSpades9
-      - id: ADTFunCardSpades10
-      - id: ADTFunCardAceOfSpades
-      - id: ADTFunCardJackOfSpades
-      - id: ADTFunCardKingOfSpades
-      - id: ADTFunCardQueenOfSpades
-      - id: ADTFunCardBlackJoker
-      - id: ADTFunCardRedJoker
+      - id: ADTFunCardClubs2S
+      - id: ADTFunCardClubs3S
+      - id: ADTFunCardClubs4S
+      - id: ADTFunCardClubs5S
+      - id: ADTFunCardClubs6S
+      - id: ADTFunCardClubs7S
+      - id: ADTFunCardClubs8S
+      - id: ADTFunCardClubs9S
+      - id: ADTFunCardClubs10S
+      - id: ADTFunCardAceOfClubsS
+      - id: ADTFunCardJackOfClubsS
+      - id: ADTFunCardQueenOfClubsS
+      - id: ADTFunCardKingOfClubsS
+      - id: ADTFunCardDimonds2S
+      - id: ADTFunCardDimonds3S
+      - id: ADTFunCardDimonds4S
+      - id: ADTFunCardDimonds5S
+      - id: ADTFunCardDimonds6S
+      - id: ADTFunCardDimonds7S
+      - id: ADTFunCardDimonds8S
+      - id: ADTFunCardDimonds9S
+      - id: ADTFunCardDimonds10S
+      - id: ADTFunCardAceOfDimondsS
+      - id: ADTFunCardJackOfDimondsS
+      - id: ADTFunCardKingOfDimondsS
+      - id: ADTFunCardQueenOfDimondsS
+      - id: ADTFunCardHearts2S
+      - id: ADTFunCardHearts3S
+      - id: ADTFunCardHearts4S
+      - id: ADTFunCardHearts5S
+      - id: ADTFunCardHearts6S
+      - id: ADTFunCardHearts7S
+      - id: ADTFunCardHearts8S
+      - id: ADTFunCardHearts9S
+      - id: ADTFunCardHearts10S
+      - id: ADTFunCardAceOfHeartsS
+      - id: ADTFunCardJackOfHeartsS
+      - id: ADTFunCardKingOfHeartsS
+      - id: ADTFunCardQueenOfHeartsS
+      - id: ADTFunCardSpades2S
+      - id: ADTFunCardSpades3S
+      - id: ADTFunCardSpades4S
+      - id: ADTFunCardSpades5S
+      - id: ADTFunCardSpades6S
+      - id: ADTFunCardSpades7S
+      - id: ADTFunCardSpades8S
+      - id: ADTFunCardSpades9S
+      - id: ADTFunCardSpades10S
+      - id: ADTFunCardAceOfSpadesS
+      - id: ADTFunCardJackOfSpadesS
+      - id: ADTFunCardKingOfSpadesS
+      - id: ADTFunCardQueenOfSpadesS
+      - id: ADTFunCardBlackJokerS
+      - id: ADTFunCardRedJokerS
 
-- type: entity
-  name: chemistry bag
-  id: ADTFunCardsBoxFull36
-  parent: ADTFunCardsBox
-  description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
-  suffix: Full
-  components:
-  - type: Item
-    size: Small
-  - type: StorageFill
-    contents:
-      - id: ADTFunCardClubs6
-      - id: ADTFunCardClubs7
-      - id: ADTFunCardClubs8
-      - id: ADTFunCardClubs9
-      - id: ADTFunCardClubs10
-      - id: ADTFunCardAceOfClubs
-      - id: ADTFunCardJackOfClubs
-      - id: ADTFunCardQueenOfClubs
-      - id: ADTFunCardKingOfClubs
-      - id: ADTFunCardDimonds6
-      - id: ADTFunCardDimonds7
-      - id: ADTFunCardDimonds8
-      - id: ADTFunCardDimonds9
-      - id: ADTFunCardDimonds10
-      - id: ADTFunCardAceOfDimonds
-      - id: ADTFunCardJackOfDimonds
-      - id: ADTFunCardKingOfDimonds
-      - id: ADTFunCardQueenOfDimonds
-      - id: ADTFunCardHearts6
-      - id: ADTFunCardHearts7
-      - id: ADTFunCardHearts8
-      - id: ADTFunCardHearts9
-      - id: ADTFunCardHearts10
-      - id: ADTFunCardAceOfHearts
-      - id: ADTFunCardJackOfHearts
-      - id: ADTFunCardKingOfHearts
-      - id: ADTFunCardQueenOfHearts
-      - id: ADTFunCardSpades6
-      - id: ADTFunCardSpades7
-      - id: ADTFunCardSpades8
-      - id: ADTFunCardSpades9
-      - id: ADTFunCardSpades10
-      - id: ADTFunCardAceOfSpades
-      - id: ADTFunCardJackOfSpades
-      - id: ADTFunCardKingOfSpades
-      - id: ADTFunCardQueenOfSpades
 
 
 #пики
 - type: entity
-  name: playing card
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs2
+  name: playing card  
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs2S
   suffix: Cards
   description: A high-tech scanning device that uses Terahertz Radiation to detect subfloor infrastructure.
   components:
@@ -199,8 +126,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs3
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs3S
   components:
   - type: GenericVisualizer
     visuals:
@@ -210,8 +137,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs4
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs4S
   components:
   - type: GenericVisualizer
     visuals:
@@ -221,8 +148,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs5
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs5S
   components:
   - type: GenericVisualizer
     visuals:
@@ -232,8 +159,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs6
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs6S
   components:
   - type: GenericVisualizer
     visuals:
@@ -243,8 +170,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs7
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs7S
   components:
   - type: GenericVisualizer
     visuals:
@@ -254,8 +181,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs8
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs8S
   components:
   - type: GenericVisualizer
     visuals:
@@ -265,8 +192,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs9
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs9S
   components:
   - type: GenericVisualizer
     visuals:
@@ -276,8 +203,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardClubs10
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardClubs10S
   components:
   - type: GenericVisualizer
     visuals:
@@ -287,8 +214,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardAceOfClubs
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardAceOfClubsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -298,8 +225,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardJackOfClubs
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardJackOfClubsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -309,8 +236,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardQueenOfClubs
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardQueenOfClubsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -320,8 +247,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardKingOfClubs
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardKingOfClubsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -332,8 +259,8 @@
 
 #бубс
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds2
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds2S
   components:
   - type: GenericVisualizer
     visuals:
@@ -343,8 +270,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds3
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds3S
   components:
   - type: GenericVisualizer
     visuals:
@@ -354,8 +281,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds4
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds4S
   components:
   - type: GenericVisualizer
     visuals:
@@ -365,8 +292,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds5
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds5S
   components:
   - type: GenericVisualizer
     visuals:
@@ -377,8 +304,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds6
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds6S
   components:
   - type: GenericVisualizer
     visuals:
@@ -388,8 +315,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds7
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds7S
   components:
   - type: GenericVisualizer
     visuals:
@@ -399,8 +326,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds8
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds8S
   components:
   - type: GenericVisualizer
     visuals:
@@ -410,8 +337,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds9
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds9S
   components:
   - type: GenericVisualizer
     visuals:
@@ -421,8 +348,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardDimonds10
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardDimonds10S
   components:
   - type: GenericVisualizer
     visuals:
@@ -433,8 +360,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardAceOfDimonds
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardAceOfDimondsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -444,8 +371,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardJackOfDimonds
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardJackOfDimondsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -455,8 +382,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardKingOfDimonds
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardKingOfDimondsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -467,8 +394,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardQueenOfDimonds
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardQueenOfDimondsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -479,8 +406,8 @@
 
 #черви
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts2
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts2S
   components:
   - type: GenericVisualizer
     visuals:
@@ -490,8 +417,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts3
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts3S
   components:
   - type: GenericVisualizer
     visuals:
@@ -501,8 +428,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts4
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts4S
   components:
   - type: GenericVisualizer
     visuals:
@@ -512,8 +439,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts5
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts5S
   components:
   - type: GenericVisualizer
     visuals:
@@ -524,8 +451,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts6
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts6S
   components:
   - type: GenericVisualizer
     visuals:
@@ -535,8 +462,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts7
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts7S
   components:
   - type: GenericVisualizer
     visuals:
@@ -546,8 +473,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts8
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts8S
   components:
   - type: GenericVisualizer
     visuals:
@@ -557,8 +484,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts9
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts9S
   components:
   - type: GenericVisualizer
     visuals:
@@ -568,8 +495,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardHearts10
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardHearts10S
   components:
   - type: GenericVisualizer
     visuals:
@@ -580,8 +507,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardAceOfHearts
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardAceOfHeartsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -591,8 +518,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardJackOfHearts
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardJackOfHeartsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -602,8 +529,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardKingOfHearts
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardKingOfHeartsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -614,8 +541,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardQueenOfHearts
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardQueenOfHeartsS
   components:
   - type: GenericVisualizer
     visuals:
@@ -626,8 +553,8 @@
 
 #крести
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades2
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades2S
   components:
   - type: GenericVisualizer
     visuals:
@@ -637,8 +564,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades3
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades3S
   components:
   - type: GenericVisualizer
     visuals:
@@ -648,8 +575,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades4
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades4S
   components:
   - type: GenericVisualizer
     visuals:
@@ -659,8 +586,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades5
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades5S
   components:
   - type: GenericVisualizer
     visuals:
@@ -671,8 +598,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades6
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades6S
   components:
   - type: GenericVisualizer
     visuals:
@@ -682,8 +609,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades7
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades7S
   components:
   - type: GenericVisualizer
     visuals:
@@ -693,8 +620,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades8
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades8S
   components:
   - type: GenericVisualizer
     visuals:
@@ -704,8 +631,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades9
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades9S
   components:
   - type: GenericVisualizer
     visuals:
@@ -715,8 +642,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardSpades10
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardSpades10S
   components:
   - type: GenericVisualizer
     visuals:
@@ -727,8 +654,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardAceOfSpades
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardAceOfSpadesS
   components:
   - type: GenericVisualizer
     visuals:
@@ -738,8 +665,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardJackOfSpades
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardJackOfSpadesS
   components:
   - type: GenericVisualizer
     visuals:
@@ -749,8 +676,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardKingOfSpades
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardKingOfSpadesS
   components:
   - type: GenericVisualizer
     visuals:
@@ -761,8 +688,8 @@
 
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardQueenOfSpades
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardQueenOfSpadesS
   components:
   - type: GenericVisualizer
     visuals:
@@ -773,8 +700,8 @@
 
 #Джокеры
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardBlackJoker
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardBlackJokerS
   components:
   - type: GenericVisualizer
     visuals:
@@ -784,8 +711,8 @@
           Off: { state: back-off }
 
 - type: entity
-  parent: ADTFunCardBase
-  id: ADTFunCardRedJoker
+  parent: ADTFunSyndicateCardBase
+  id: ADTFunCardRedJokerS
   components:
   - type: GenericVisualizer
     visuals:
