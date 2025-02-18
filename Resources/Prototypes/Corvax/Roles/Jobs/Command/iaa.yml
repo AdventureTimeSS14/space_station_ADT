@@ -6,10 +6,15 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 72000
+    time: 54000 # ADT-Tweak 74000 -> 54000 (15h)
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000
+    time: 36000 # (10h)
+# ADT-Tweak-start
+  - !type:DepartmentTimeRequirement
+    department: Juridical
+    time: 18000 # (5 hours)
+# ADT-Tweak-end
   - !type:AgeRequirement
     requiredAge: 21
   startingGear: IAAGear
@@ -22,7 +27,7 @@
   - Maintenance
   - Command
   - External
-  - Lawyer 
+  - Lawyer
   - IAA # ADT Tweak
   special:
   - !type:AddImplantSpecial

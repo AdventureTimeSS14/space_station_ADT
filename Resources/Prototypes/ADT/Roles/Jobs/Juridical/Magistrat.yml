@@ -4,9 +4,17 @@
   description: job-description-magistrat
   playTimeTracker: JobMagistrat
   requirements:
+# ADT-Tweak-start
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 108000 # (30 hours)
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 600000
+      time: 198000 # 600000 -> 198000 (100h -> 55h)
+    - !type:DepartmentTimeRequirement
+      department: Juridical
+      time: 108000 # (30 hours)
+# ADT-Tweak-end
     - !type:AgeRequirement #ADT-Tweak
       requiredAge: 30
     # - !type:DepartmentTimeRequirement
