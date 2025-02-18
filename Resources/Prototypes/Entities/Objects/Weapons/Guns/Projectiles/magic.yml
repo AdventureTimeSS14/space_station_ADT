@@ -287,26 +287,13 @@
 
 - type: entity
   parent: ProjectilePolyboltBase
-  id: ADTProjectilePolyboltVulpkanin
-  name: vulp polybolt
-  description: Nooo, I don't wanna be furry!
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: PolymorphOnCollide
-    polymorph: ADTWizardForcedVulpkanin
-    whitelist:
-      components:
-      - Body
-
-- type: entity
-  parent: ProjectilePolyboltBase
   id: ProjectilePolyboltBread
   name: bread polybolt
   description: Nooo, I don't wanna be bread!
   categories: [ HideSpawnMenu ]
   components:
   - type: PolymorphOnCollide
-    polymorph: PolymorphBread
+    polymorph: BreadMorph
     whitelist:
       components:
       - Body
