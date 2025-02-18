@@ -16,23 +16,8 @@
     - type: Lathe
       idleState: icon
       runningState: printing
-      # staticRecipes:
-      #   - DisposalPipe
-      #   - DisposalTagger
-      #   - DisposalTrunk
-      #   - DisposalRouter
-      #   - DisposalRouterFlipped
-      #   - DisposalJunction
-      #   - DisposalJunctionFlipped
-      #   - DisposalYJunction
-      #   - DisposalBend
-      #   - DisposalSignalRouter
-      #   - DisposalSignalRouterFlipped
-      #   - GasPipeHalf
-      #   - GasPipeStraight
-      #   - GasPipeBend
-      #   - GasPipeTJunction
-      #   - GasPipeFourway
+      staticPacks:
+      - ADTDisposalPack
     - type: MaterialStorage
       whitelist:
         tags:

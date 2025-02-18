@@ -1,0 +1,19 @@
+- type: latheRecipePack
+  id: ADTDisposalPack
+  recipes:
+  - DisposalPipe
+  - DisposalTagger
+  - DisposalTrunk
+  - DisposalRouter
+  - DisposalRouterFlipped
+  - DisposalJunction
+  - DisposalJunctionFlipped
+  - DisposalYJunction
+  - DisposalBend
+  - DisposalSignalRouter
+  - DisposalSignalRouterFlipped
+  - GasPipeHalf
+  - GasPipeStraight
+  - GasPipeBend
+  - GasPipeTJunction
+  - GasPipeFourway
