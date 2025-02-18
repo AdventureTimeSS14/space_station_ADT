@@ -33,6 +33,7 @@
         amount: 2
       - id: ADTSecShuttleConsoleCircuitboard
       - id: BoxTapeRecorder
+      - id: ADTBookPTCR
       # ADT-Tweak-End
 
 - type: entity
@@ -70,6 +71,7 @@
         amount: 2
       - id: ADTSecShuttleConsoleCircuitboard
       - id: BoxTapeRecorder
+      - id: ADTBookPTCR
       # ADT-Tweak-End
 
 - type: entity
@@ -101,6 +103,7 @@
         prob: 0.6
       - id: BookSpaceLaw
         prob: 0.5
+      - id: ADTBookPTCR #ADT tweak
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec

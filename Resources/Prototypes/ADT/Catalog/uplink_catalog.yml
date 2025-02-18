@@ -665,3 +665,34 @@
     Telecrystal: 9
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkSleepingCarp
+  name: uplink-agent-sleepint-carp-name
+  description: uplink-agent-sleepint-carp-desc
+  productEntity: ADTScrollSleepingCarp
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkcqc
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: ADTCqcManual
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
