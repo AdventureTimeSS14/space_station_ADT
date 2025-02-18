@@ -93,6 +93,7 @@ namespace Content.Server.Administration.Systems
             AddAdminTimeOperSpawnVerbs(ev); // ADT-Tweak
             AdminTestArenaVariableVerbs(ev); // ADT-Tweak
             AddAdminADTSmitesVerbs(ev); // ADT-Tweak
+            AddADTTricksVerbs(ev); // ADT-Tweak
         }
 
         private void AddAdminVerbs(GetVerbsEvent<Verb> args)
