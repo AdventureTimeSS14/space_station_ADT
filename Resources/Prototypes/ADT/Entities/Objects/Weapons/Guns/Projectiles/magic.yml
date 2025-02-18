@@ -20,7 +20,7 @@
     ignoreResistances: true
 
 - type: entity
-  parent: ProjectilePolyboltBase
+  parent: ADTProjectilePolyboltBase
   id: ProjectilePolyboltVulpkanin
   name: vulp polybolt
   description: Nooo, I don't wanna be furry!
