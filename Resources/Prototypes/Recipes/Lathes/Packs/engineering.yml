@@ -25,6 +25,7 @@
   recipes:
   - AirTank
   - GasAnalyzer
+  - StorageCanister #ADT-Tweak
 
 - type: latheRecipePack
   id: ElectronicsStatic

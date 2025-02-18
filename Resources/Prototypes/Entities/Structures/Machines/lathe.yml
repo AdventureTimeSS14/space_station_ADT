@@ -210,6 +210,10 @@
     - Instruments
     - Equipment
     - FauxTiles
+    - ADTRCDPack #ADT-tweak
+    - ADTPKAPack
+    - ADTTranslatorPack
+    - ADTXenoTranslatorPack
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -319,6 +323,14 @@
     - BorgModules
     - MechParts
     - MechEquipment
+    - ADTSecBorgPack
+    - ADTModsuitPack
+    - ADTGygaxPack
+    - ADTOdysseusPack
+    - ADTClarkePack
+    - ADTDurandPack
+    - ADTPhazonPack
+    - ADTMechEquipmentPack
   - type: MaterialStorage
     whitelist:
       tags:
@@ -402,12 +414,16 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    - ADTMagazineStaticPack
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
+    - ADTMagazineUraniumPack
+    - ADTAttachmentPack
+    - ADT40mmGrenadePack
   - type: MaterialStorage
     whitelist:
       tags:
@@ -478,6 +494,7 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
+    - ADTMedicalMiscStaticPack
     dynamicPacks:
     - Chemistry
   - type: Machine
