@@ -53,6 +53,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         //ADT-Economy-End
         [Dependency] private readonly SharedPointLightSystem _light = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         private const float WallVendEjectDistanceFromWall = 1f;
         private const double GlobalPriceMultiplier = 2.0; //ADT-Economy
@@ -63,7 +64,6 @@ namespace Content.Server.VendingMachines
 
             SubscribeLocalEvent<VendingMachineComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
-            SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage); //ADT-Economy
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
@@ -122,11 +122,6 @@ namespace Content.Server.VendingMachines
                 args.Cancel();
         }
 
-        private void OnBoundUIOpened(EntityUid uid, VendingMachineComponent component, BoundUIOpenedEvent args)
-        {
-            UpdateVendingMachineInterfaceState(uid, component);
-        }
-
         private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), GetPriceMultiplier(component),
@@ -155,14 +150,6 @@ namespace Content.Server.VendingMachines
         {
             vendComponent.Broken = true;
             TryUpdateVisualState(uid, vendComponent);
-        }
-
-        private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
-        {
-            //ADT-Economy-Start
-            args.Handled = component.EmaggedInventory.Count > 0 || component.PriceMultiplier > 0;
-            UpdateVendingMachineInterfaceState(uid, component);
-            //ADT-Economy-End
         }
 
         private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args) //ADT-Economy
@@ -321,7 +308,7 @@ namespace Content.Server.VendingMachines
             if (!TryComp<AccessReaderComponent>(uid, out var accessReader))
                 return true;
 
-            if (_accessReader.IsAllowed(sender, uid, accessReader) || HasComp<EmaggedComponent>(uid))
+            if (_accessReader.IsAllowed(sender, uid, accessReader))
                 return true;
 
             Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-denied"), uid, sender); //ADT-Economy
@@ -563,7 +550,7 @@ namespace Content.Server.VendingMachines
             if (!Resolve(uid, ref component))
                 return null;
 
-            if (type == InventoryType.Emagged && HasComp<EmaggedComponent>(uid))
+            if (type == InventoryType.Emagged && _emag.CheckFlag(uid, EmagType.Interaction))
                 return component.EmaggedInventory.GetValueOrDefault(entryId);
 
             if (type == InventoryType.Contraband && component.Contraband)

@@ -8,7 +8,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Stealth.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
-using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Cuffs.Components;
