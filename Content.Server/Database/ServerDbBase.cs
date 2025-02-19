@@ -1142,7 +1142,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .SingleOrDefaultAsync());
         }
 
-        public async Task SetLastReadRules(NetUserId player, DateTimeOffset date)
+        public async Task SetLastReadRules(NetUserId player, DateTimeOffset? date)
         {
             await using var db = await GetDb();
 
@@ -1152,7 +1152,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 return;
             }
 
-            dbPlayer.LastReadRules = date.UtcDateTime;
+            dbPlayer.LastReadRules = date?.UtcDateTime;
             await db.DbContext.SaveChangesAsync();
         }
 
@@ -1856,6 +1856,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
 
         #endregion
+
+        public abstract Task SendNotification(DatabaseNotification notification);
 
         // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.
         // Normalize DateTimes here so they're always Utc. Thanks.

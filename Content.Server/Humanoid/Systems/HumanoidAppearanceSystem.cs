@@ -9,7 +9,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes; // ADT-Changeling-Tweak
-using Content.Server.Forensics; // ADT DNA-Cloning Tweak
+using Content.Shared.Forensics.Components; // ADT DNA-Cloning Tweak
 
 namespace Content.Server.Humanoid;
 

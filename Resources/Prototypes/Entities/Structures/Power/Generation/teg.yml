@@ -108,7 +108,9 @@
       sound:
         path: /Audio/Ambience/Objects/vending_machine_hum.ogg
     - type: GuideHelp
-      guides: [ TEG, Power ]
+      guides:
+        - TEG
+        - Power
     - type: StealTarget
       stealGroup: Teg
 
@@ -173,7 +175,9 @@
     - type: Anchorable
     - type: Pullable
     - type: GuideHelp
-      guides: [ TEG, Power ]
+      guides:
+        - TEG
+        - Power
 
     # functionality
     - type: NodeContainer

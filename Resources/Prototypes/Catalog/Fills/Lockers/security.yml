@@ -58,6 +58,7 @@
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
+      - id: Binoculars
       - id: ClothingBackpackWarden # Corvax-SecFashion
       # ADT-Tweak-Start
       - id: WeaponEnergyShotgun # Дробовик для смотрителя
