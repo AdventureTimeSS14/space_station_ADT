@@ -21,6 +21,9 @@ public partial interface IComboEffect
     void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan);
 }
 
+/// <summary>
+/// наносит урон цели, damage - урон
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboDamageEffect : IComboEffect
 {
@@ -33,6 +36,9 @@ public sealed partial class ComboDamageEffect : IComboEffect
         damageable.TryChangeDamage(target, Damage);
     }
 }
+/// <summary>
+/// наносит цели урон про стамине. StaminaDamage надо указывать целым числом
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboStaminaDamageEffect : IComboEffect
 {
@@ -45,6 +51,9 @@ public sealed partial class ComboStaminaDamageEffect : IComboEffect
         stun.TakeStaminaDamage(target, StaminaDamage);
     }
 }
+/// <summary>
+/// спавнит на месте цели или пользователя прототип. SpawnOnUser и SpawnOnTarget отвечат за спавн прототипа на юзере и таргете соответственно
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboSpawnEffect : IComboEffect
 {
@@ -61,6 +70,9 @@ public sealed partial class ComboSpawnEffect : IComboEffect
             entMan.SpawnAtPosition(SpawnOnUser, target.ToCoordinates());
     }
 }
+/// <summary>
+/// кидает человека на пол. DropItems отвечает за то, будут ли вещи из рук выпадать true - выпадает, false - не выпадает
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboFallEffect : IComboEffect
 {
@@ -75,6 +87,9 @@ public sealed partial class ComboFallEffect : IComboEffect
         down.Down(target, dropHeldItems: DropItems);
     }
 }
+/// <summary>
+/// добавочный урон по тем, кто лежит на земле. IgnoreResistances отвечает за то, будут ли резисты учитываться при нанесения урона
+/// </summary>
 
 [Serializable, NetSerializable]
 public sealed partial class ComboMoreDamageToDownedEffect : IComboEffect
@@ -93,6 +108,9 @@ public sealed partial class ComboMoreDamageToDownedEffect : IComboEffect
         }
     }
 }
+/// <summary>
+/// кидачет человека в стан после комбо. Fall отвечает за падение человека, StunTime - время стана, DropItems - выпадают ли вещи при падении
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboStunEffect : IComboEffect
 {
@@ -111,22 +129,9 @@ public sealed partial class ComboStunEffect : IComboEffect
         down.TryParalyze(target, TimeSpan.FromSeconds(StunTime), false, status, dropItems: DropItems, down: Fall);
     }
 }
-[Serializable, NetSerializable]
-public sealed partial class ComboDropFromActiveHandEffect : IComboEffect
-{
-    [DataField]
-    public bool Fall = true;
-    [DataField]
-    public TimeSpan StunTime;
-    [DataField]
-    public bool DropItems = true;
-
-    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
-    {
-        var down = entMan.System<SharedStunSystem>();
-        down.TryKnockdown(target, StunTime, true, dropItems: DropItems, down: Fall);
-    }
-}
+/// <summary>
+/// вызывает попаут на таргете. LocaleText - текст. Желательно использоваль локаль, а так же есть параметры для локали target и user
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboPopupEffect : IComboEffect
 {
@@ -139,6 +144,9 @@ public sealed partial class ComboPopupEffect : IComboEffect
         popup.PopupEntity(Loc.GetString(LocaleText, ("user", Identity.Entity(user, entMan)), ("target", target)), target, PopupType.LargeCaution);
     }
 }
+/// <summary>
+/// выбрасывает что угодно из активной руки таргета
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboDropFromHandsEffect : IComboEffect
 {
@@ -150,6 +158,9 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
         hands.DoDrop(target, hand.ActiveHand);
     }
 }
+/// <summary>
+/// играет любой звук после комбо. Sound - звук, что очевидно
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboAudioEffect : IComboEffect
 {

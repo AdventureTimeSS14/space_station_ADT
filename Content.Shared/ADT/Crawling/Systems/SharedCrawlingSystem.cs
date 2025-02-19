@@ -34,7 +34,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
+using Content.Shared.Gravity;
 using Content.Shared.Coordinates;
 
 namespace Content.Shared.ADT.Crawling;
@@ -48,7 +48,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly BonkSystem _bonk = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     public override void Initialize()
     {
@@ -86,6 +86,33 @@ public abstract class SharedCrawlingSystem : EntitySystem
         {
             case false:
                 _standing.Down(uid, dropHeldItems: false);
+                if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
+                    combatMode.IsInCombatMode)
+                {
+                    var targetTile = Vector2.Zero;
+
+                    if (TryComp<PhysicsComponent>(uid, out var physics) && !_gravity.IsWeightless(uid))
+                    {
+                        var velocity = physics.LinearVelocity;
+
+                        if (velocity.LengthSquared() > 0)
+                        {
+                            var direction = velocity.Normalized();
+
+                            var currentPosition = uid.ToCoordinates();
+
+                            var targetTileX = currentPosition.X + direction.X * 1;
+                            var targetTileY = currentPosition.Y + direction.Y * 1;
+
+                            int tileX = (int)MathF.Round(targetTileX);
+                            int tileY = (int)MathF.Round(targetTileY);
+
+                            targetTile = new Vector2(tileX, tileY);
+                        }
+                    }
+                    EnsureComp<GrabThrownComponent>(uid);
+                    _throwing.TryThrow(uid, targetTile, 8, animated: false, playSound: false, doSpin: false);
+                }
                 break;
             case true:
                 _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.StandUpTime, new CrawlStandupDoAfterEvent(),
@@ -125,33 +152,6 @@ public abstract class SharedCrawlingSystem : EntitySystem
             return;
         _alerts.ShowAlert(uid, component.CrawlingAlert);
 
-        if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
-            combatMode.IsInCombatMode)
-        {
-            var targetTile = Vector2.Zero;
-
-            if (TryComp<PhysicsComponent>(uid, out var physics))
-            {
-                var velocity = physics.LinearVelocity;
-
-                if (velocity.LengthSquared() > 0)
-                {
-                    var direction = velocity.Normalized();
-
-                    var currentPosition = uid.ToCoordinates();
-
-                    var targetTileX = currentPosition.X + direction.X * 1;
-                    var targetTileY = currentPosition.Y + direction.Y * 1;
-
-                    int tileX = (int)MathF.Round(targetTileX);
-                    int tileY = (int)MathF.Round(targetTileY);
-
-                    targetTile = new Vector2(tileX, tileY);
-                }
-            }
-            EnsureComp<GrabThrownComponent>(uid);
-            _throwing.TryThrow(uid, targetTile, 8, animated: false, playSound: false, doSpin: false);
-        }
 
         EnsureComp<CrawlingComponent>(uid);
     }
