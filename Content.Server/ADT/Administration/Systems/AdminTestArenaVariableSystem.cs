@@ -1,8 +1,12 @@
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization;
+using System.Numerics;
+using System.Linq;
+using Robust.Shared.Utility;
 
 /*
     ADT Content by 🐾 Schrödinger's Code 🐾
@@ -55,11 +59,12 @@ public sealed class AdminTestArenaVariableSystem : EntitySystem
         ArenaMap[key] = _mapManager.GetMapEntityId(_mapManager.CreateMap());
         _metaDataSystem.SetEntityName(ArenaMap[key], $"{prefixNameAdminRoom}M-{admin.Name}");
 
-        var grids = _map.LoadMap(Comp<MapComponent>(ArenaMap[key]).MapId, pachGridAdminRoom);
-        if (grids.Count != 0)
+        _map.TryLoadMapWithId(Comp<MapComponent>(ArenaMap[key]).MapId, new ResPath(pachGridAdminRoom), out _, out var grids);
+        if (grids?.Count > 0)
         {
-            _metaDataSystem.SetEntityName(grids[0], $"{prefixNameAdminRoom}G-{admin.Name}");
-            ArenaGrid[key] = grids[0];
+            var firstEntity = grids.First();
+            _metaDataSystem.SetEntityName(firstEntity, $"{prefixNameAdminRoom}G-{admin.Name}");
+            ArenaGrid[key] = firstEntity;
         }
         else
         {

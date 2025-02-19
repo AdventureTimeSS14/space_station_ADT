@@ -38,8 +38,8 @@ public sealed class AdditionalMapLoaderSystem : EntitySystem
     private void CreateAndInitializeMap(Maps.GameMapPrototype mapProto)
     {
         var map = _mapManager.CreateMap();
-        _mapManager.AddUninitializedMap(map);
-        _gameTicker.LoadGameMap(mapProto, map, null);
+        _mapManager.CreateMap(map);
+        _gameTicker.LoadGameMap(mapProto, out map, null);
         _mapManager.DoMapInitialize(map);
     }
 }

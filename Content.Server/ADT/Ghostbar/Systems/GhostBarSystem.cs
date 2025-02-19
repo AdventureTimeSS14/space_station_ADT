@@ -1,10 +1,8 @@
-using Robust.Server.GameObjects;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Station.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Server.Maps;
 using Robust.Shared.Random;
 using Content.Shared.Ghost;
 using Content.Server.ADT.Ghostbar.Components;
@@ -17,10 +15,11 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Weather;
 using Content.Shared.Stealth.Components;
 using Content.Server.Stealth;
-using Content.Server.Popups;
-using Content.Shared.NameModifier.EntitySystems;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization;
+using System.Numerics;
 using System.Linq;
-using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Ghostbar;
 
@@ -48,14 +47,17 @@ public sealed class GhostBarSystem : EntitySystem
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _mapSystem.CreateMap(out var mapId);
-        var options = new MapLoadOptions { LoadMap = true };
+        var opts = new DeserializationOptions {
+            StoreYamlUids = true,
+            InitializeMaps = true,
+        };
 
         var mapList = _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>().ToList();
         GhostBarMap = _random.Pick(mapList);
         if (GhostBarMap == null)
             return;
 
-        if (!_mapLoader.TryLoad(mapId, GhostBarMap.Path, out _, options))
+        if (!_mapLoader.TryLoadMapWithId(mapId, new ResPath(GhostBarMap.Path), out _, out _, opts))
             return;
 
         _mapSystem.SetPaused(mapId, false);

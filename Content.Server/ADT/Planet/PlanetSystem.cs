@@ -6,6 +6,11 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization;
+using System.Numerics;
+using System.Linq;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Planet;
 
@@ -55,7 +60,7 @@ public sealed class PlanetSystem : EntitySystem
     {
         var map = SpawnPlanet(id, runMapInit: false);
         var mapId = Comp<MapComponent>(map).MapId;
-        if (!_mapLoader.TryLoad(mapId, path, out var grids))
+        if (!_mapLoader.TryLoadMapWithId(mapId, new ResPath(path), out _, out var grids))
         {
             Log.Error($"Failed to load planet grid {path} for planet {id}!");
             Del(map);
