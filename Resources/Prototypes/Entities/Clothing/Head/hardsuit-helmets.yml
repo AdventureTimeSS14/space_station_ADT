@@ -560,7 +560,7 @@
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase # Corvax-Resprite
+  parent: ClothingHeadSuitWithLightBase # Corvax-Resprite
   id: ClothingHeadHelmetHardsuitCybersun
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
@@ -864,7 +864,7 @@
 
 #Deathsquad Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ] # Corvax-Resprite
+  parent: [ BaseCentcommContraband, ClothingHeadSuitWithLightBase ] # Corvax-Resprite
   id: ClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -894,7 +894,7 @@
 #MISC. HARDSUITS
 #Clown Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase # ADT tweak
+  parent: ClothingHeadSuitWithLightBase # ADT tweak
   id: ClothingHeadHelmetHardsuitClown
   name: clown hardsuit helmet
   description: A clown hardsuit helmet.
@@ -911,7 +911,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase # ADT tweak
+  parent: ClothingHeadSuitWithLightBase # ADT tweak
   id: ClothingHeadHelmetHardsuitMime
   name: mime hardsuit helmet
   description: A mime hardsuit helmet.
