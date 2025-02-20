@@ -155,9 +155,8 @@ public sealed class SendERTCommand : IConsoleCommand
 
             var mapId = _mapManager.CreateMap();
             _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapEntityId(mapId), Loc.GetString("sent-ert-map-name"));
-            var offset = new Vector2(0, 0);
             var opts = new DeserializationOptions {StoreYamlUids = true, InitializeMaps = true};
-            _system.GetEntitySystem<MapLoaderSystem>().TryLoadMapWithId(mapId, new ResPath(gridPath), out _, out _, opts, offset);
+            _system.GetEntitySystem<MapLoaderSystem>().TryLoadGrid(mapId, new ResPath(gridPath), out _, opts);
             shell.WriteLine($"Карта {gridPath} успешно загружена! :з");
             _chat.SendAdminAlert($"Админ {player.Name} вызвал {args[0].ToLower()}. Карте 'Сектор патрулирования' было присовино ID: {mapId}. Точка телепортации для призраков появилась на шаттле.");
         }
