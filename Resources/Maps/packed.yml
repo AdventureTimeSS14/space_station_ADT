@@ -76926,114 +76926,114 @@ entities:
         actions: !type:Container
           ents:
           - 2409
-#   - uid: 7584
-#     components:
-#     - type: Transform
-#       pos: 40.594807,28.656036
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 7822
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 7822
-#   - uid: 8351
-#     components:
-#     - type: Transform
-#       pos: 40.57918,28.913849
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 8413
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 8413
-# - proto: RiotLaserShield
-#   entities:
-#   - uid: 6422
-#     components:
-#     - type: Transform
-#       pos: 40.04793,28.648224
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 7583
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 7583
-#   - uid: 8419
-#     components:
-#     - type: Transform
-#       pos: 40.04012,28.835724
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 8420
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 8420
-#   - uid: 8422
-#     components:
-#     - type: Transform
-#       pos: 40.063557,28.726349
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 8423
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 8423
-# - proto: RiotShield
-#   entities:
-#   - uid: 8348
-#     components:
-#     - type: Transform
-#       pos: 40.368244,28.741974
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 8350
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 8350
-#   - uid: 8417
-#     components:
-#     - type: Transform
-#       pos: 40.368244,28.609161
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 8418
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 8418
-#   - uid: 14664
-#     components:
-#     - type: Transform
-#       pos: 40.336994,28.882599
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 15461
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 15461
+  - uid: 7584
+    components:
+    - type: Transform
+      pos: 40.594807,28.656036
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 7822
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 7822
+  - uid: 8351
+    components:
+    - type: Transform
+      pos: 40.57918,28.913849
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8413
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 8413
+- proto: RiotLaserShield
+  entities:
+  - uid: 6422
+    components:
+    - type: Transform
+      pos: 40.04793,28.648224
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 7583
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 7583
+  - uid: 8419
+    components:
+    - type: Transform
+      pos: 40.04012,28.835724
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8420
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 8420
+  - uid: 8422
+    components:
+    - type: Transform
+      pos: 40.063557,28.726349
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8423
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 8423
+- proto: RiotShield
+  entities:
+  - uid: 8348
+    components:
+    - type: Transform
+      pos: 40.368244,28.741974
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8350
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 8350
+  - uid: 8417
+    components:
+    - type: Transform
+      pos: 40.368244,28.609161
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8418
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 8418
+  - uid: 14664
+    components:
+    - type: Transform
+      pos: 40.336994,28.882599
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 15461
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 15461
 - proto: RobocopCircuitBoard
   entities:
   - uid: 14284
