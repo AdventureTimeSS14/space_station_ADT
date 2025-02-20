@@ -11,6 +11,7 @@ using Robust.Shared.EntitySerialization;
 using System.Numerics;
 using System.Linq;
 using Robust.Shared.Utility;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Server.ADT.Planet;
 
@@ -22,6 +23,7 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
 
     private List<(Vector2i, Tile)> _setTiles = new();
 
@@ -56,26 +58,36 @@ public sealed class PlanetSystem : EntitySystem
     /// Spawns an initialized planet map from a planet prototype and loads a grid onto it.
     /// Returns the map entity if loading succeeded.
     /// </summary>
-    public EntityUid? LoadPlanet(ProtoId<PlanetPrototype> id, string path)
-    {
-        var map = SpawnPlanet(id, runMapInit: false);
-        var mapId = Comp<MapComponent>(map).MapId;
-        if (!_mapLoader.TryLoadMapWithId(mapId, new ResPath(path), out _, out var grids))
-        {
-            Log.Error($"Failed to load planet grid {path} for planet {id}!");
-            Del(map);
-            return null;
-        }
+    // public EntityUid? LoadPlanet(ProtoId<PlanetPrototype> id, string path)
+    // {
+    //     var map = SpawnPlanet(id, runMapInit: false);
+    //     var mapId = Comp<MapComponent>(map).MapId;
 
-        // don't want rocks spawning inside the base
-        foreach (var gridUid in grids)
-        {
-            _setTiles.Clear();
-            var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
-            _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
-        }
+    //     if (!_mapManager.IsMapInitialized(mapId))
+    //     {
+    //         Log.Error($"Map with ID {mapId} does not exist. Cannot proceed with loading.");
+    //         return null;
+    //     }
 
-        _map.InitializeMap(map);
-        return map;
-    }
+    //     if (!_mapLoader.TryLoadGrid(mapId, new ResPath(path), out var grids))
+    //     {
+    //         Log.Error($"Failed to load planet grid {path} for planet {id}!");
+    //         return null;
+    //     }
+
+    //     if (grids.HasValue)
+    //     {
+    //         var gridUid = grids.Value;
+    //         _setTiles.Clear();
+    //         var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
+    //         _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
+    //     }
+    //     else
+    //     {
+    //         Log.Error("Grid not found for this map.");
+    //     }
+
+    //     _map.InitializeMap(map);
+    //     return map;
+    // }
 }

@@ -3,9 +3,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.EntitySerialization;
-using System.Numerics;
-using System.Linq;
 using Robust.Shared.Utility;
 
 /*
@@ -18,7 +15,6 @@ using Robust.Shared.Utility;
     ╚════════════════════════════════════╝
 
 */
-
 
 namespace Content.Server.Administration.Systems;
 
@@ -37,34 +33,32 @@ public sealed class AdminTestArenaVariableSystem : EntitySystem
 
     public (EntityUid Map, EntityUid? Grid) AssertArenaLoaded(
         ICommonSession admin,
-        string pachGridAdminRoom,
+        string pathGridAdminRoom,
         string prefixNameAdminRoom)
     {
-        if (ArenaMap.TryGetValue((admin.UserId, prefixNameAdminRoom), out var arenaMap)
-            && !Deleted(arenaMap) && !Terminating(arenaMap))
+        var key = (admin.UserId, prefixNameAdminRoom);
+
+        if (ArenaMap.TryGetValue(key, out var arenaMap) && !Deleted(arenaMap) && !Terminating(arenaMap))
         {
-            if (ArenaGrid.TryGetValue((admin.UserId, prefixNameAdminRoom), out var arenaGrid)
-                && arenaGrid.HasValue && !Deleted(arenaGrid.Value) && !Terminating(arenaGrid.Value))
+            if (ArenaGrid.TryGetValue(key, out var arenaGrid) && arenaGrid.HasValue && !Deleted(arenaGrid.Value) && !Terminating(arenaGrid.Value))
             {
                 return (arenaMap, arenaGrid);
             }
             else
             {
-                ArenaGrid[(admin.UserId, prefixNameAdminRoom)] = null;
+                ArenaGrid[key] = null;
                 return (arenaMap, null);
             }
         }
 
-        var key = (admin.UserId, prefixNameAdminRoom);
         ArenaMap[key] = _mapManager.GetMapEntityId(_mapManager.CreateMap());
         _metaDataSystem.SetEntityName(ArenaMap[key], $"{prefixNameAdminRoom}M-{admin.Name}");
 
-        _map.TryLoadMapWithId(Comp<MapComponent>(ArenaMap[key]).MapId, new ResPath(pachGridAdminRoom), out _, out var grids);
-        if (grids?.Count > 0)
+        if (_map.TryLoadGrid(Comp<MapComponent>(ArenaMap[key]).MapId, new ResPath(pathGridAdminRoom), out var grids))
         {
-            var firstEntity = grids.First();
-            _metaDataSystem.SetEntityName(firstEntity, $"{prefixNameAdminRoom}G-{admin.Name}");
-            ArenaGrid[key] = firstEntity;
+            var firstGrid = grids.GetValueOrDefault();
+            _metaDataSystem.SetEntityName(firstGrid, $"{prefixNameAdminRoom}G-{admin.Name}");
+            ArenaGrid[key] = firstGrid;
         }
         else
         {
