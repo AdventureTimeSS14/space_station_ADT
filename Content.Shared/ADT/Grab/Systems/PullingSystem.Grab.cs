@@ -186,6 +186,8 @@ public abstract partial class PullingSystem
 
     private void OnDisarmAttempt(EntityUid uid, PullerComponent comp, DisarmAttemptEvent args)
     {
+        if (args.DisarmerUid == uid)
+            return;
         if (comp.Stage < GrabStage.Soft)
             return;
         if (args.DisarmerUid != comp.Pulling)

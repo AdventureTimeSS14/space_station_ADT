@@ -437,6 +437,15 @@
   - ADTOuterVestSecurityMedic
   - ADTOuterCoatLabSecurityMedic
 
+## повар
+
+- type: loadoutGroup
+  id: ADTChefPocket1
+  name: loadout-chef-pocket1-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTChefCqc
 
 ## GUARD OFFICER (НАДЗИРАТЕЛЬ)
 

@@ -11,6 +11,7 @@
     removes:
     - type: LizardAccent
     - type: MothAccent
+    - type: RoarAccent # ADT-Tweak
     - type: ReplacementAccent
       accent: dwarf
 

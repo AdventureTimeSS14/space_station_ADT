@@ -78,3 +78,11 @@
         collection: Paracusia
   cost: -1  # ADT Quirks
   quirk: true  # ADT Quirks
+
+- type: trait
+  id: PainNumbness
+  name: trait-painnumbness-name
+  description: trait-painnumbness-desc
+  category: Disabilities
+  components:
+  - type: PainNumbness
