@@ -76911,21 +76911,21 @@ entities:
     - type: Transform
       pos: 66.55991,-3.281434
       parent: 2
-# - proto: RiotBulletShield
-#   entities:
-#   - uid: 2404
-#     components:
-#     - type: Transform
-#       pos: 40.60262,28.679474
-#       parent: 2
-#     - type: Blocking
-#       blockingToggleActionEntity: 2409
-#     - type: ActionsContainer
-#     - type: ContainerContainer
-#       containers:
-#         actions: !type:Container
-#           ents:
-#           - 2409
+- proto: RiotBulletShield
+  entities:
+  - uid: 2404
+    components:
+    - type: Transform
+      pos: 40.60262,28.679474
+      parent: 2
+    # - type: Blocking
+    #   blockingToggleActionEntity: 2409
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 2409
 #   - uid: 7584
 #     components:
 #     - type: Transform
