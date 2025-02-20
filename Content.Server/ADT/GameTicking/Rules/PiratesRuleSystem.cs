@@ -33,17 +33,16 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
         base.Started(uid, component, gameRule, args);
 
         var shuttleMap = _mapManager.CreateMap();
-        var offset = new Vector2(0, 0);
 
         var opts = new DeserializationOptions {
             StoreYamlUids = true,
             InitializeMaps = true,
         };
 
-        if (!_map.TryLoadMapWithId(shuttleMap, new ResPath(component.PiratesShuttlePath), out _, out var shuttle, opts))
+        if (!_map.TryLoadGrid(shuttleMap, new ResPath(component.PiratesShuttlePath), out var shuttle, opts))
             return;
 
-        component.PirateShip = shuttle.FirstOrDefault();
+        component.PirateShip = shuttle.Value;
 
         component.InitialShipValue = _pricingSystem.AppraiseGrid(component.PirateShip, uid =>
         {
