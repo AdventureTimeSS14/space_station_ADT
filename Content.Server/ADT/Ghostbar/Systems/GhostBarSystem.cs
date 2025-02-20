@@ -17,7 +17,7 @@ using Content.Shared.Stealth.Components;
 using Content.Server.Stealth;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.EntitySerialization;
-using System.Numerics;
+using Robust.Shared.Map.Components;
 using System.Linq;
 using Robust.Shared.Utility;
 
@@ -44,10 +44,12 @@ public sealed class GhostBarSystem : EntitySystem
 
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
     }
+
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        _mapSystem.CreateMap(out var mapId);
-        var opts = new DeserializationOptions {
+        // _mapSystem.CreateMap(out var mapId);
+        var opts = new DeserializationOptions
+        {
             StoreYamlUids = true,
             InitializeMaps = true,
         };
@@ -57,12 +59,16 @@ public sealed class GhostBarSystem : EntitySystem
         if (GhostBarMap == null)
             return;
 
-        if (!_mapLoader.TryLoadMapWithId(mapId, new ResPath(GhostBarMap.Path), out _, out _, opts))
+        if (!_mapLoader.TryLoadMap(new ResPath(GhostBarMap.Path), out var mapId, out _, opts))
             return;
 
-        _mapSystem.SetPaused(mapId, false);
+        if (!TryComp<MapComponent>(mapId, out var mapComponent))
+            return;
+
+        _mapSystem.SetPaused(mapComponent.MapId, false);
+
         if (GhostBarMap.Weather.HasValue)
-            _weathersystem.SetWeather(mapId, _prototypeManager.Index(GhostBarMap.Weather.Value), null);
+            _weathersystem.SetWeather(mapComponent.MapId, _prototypeManager.Index(GhostBarMap.Weather.Value), null);
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
