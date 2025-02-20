@@ -11,9 +11,31 @@ using Content.Shared.Alert;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Map.Components;
+using Content.Shared.ADT.Grab;
 using Content.Shared.Climbing.Systems;
-using Content.Shared.Climbing.Events;
+using Content.Shared.CombatMode;
+using System.Numerics;
+using Content.Shared.ADT.Grab;
+using Content.Shared.Database;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Speech;
+using Content.Shared.Tag;
+using Content.Shared.Throwing;
+using Robust.Shared.Audio;
+using Robust.Shared.Map;
+using Robust.Shared.Physics.Components;
+using System.Collections.Generic;
+using System.Numerics;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Maths;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+using Content.Shared.Coordinates;
 
 namespace Content.Shared.ADT.Crawling;
 
@@ -26,7 +48,8 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly BonkSystem _bonk = default!;
-
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -101,8 +124,36 @@ public abstract class SharedCrawlingSystem : EntitySystem
         if (args.Cancelled)
             return;
         _alerts.ShowAlert(uid, component.CrawlingAlert);
+
+        if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
+            combatMode.IsInCombatMode)
+        {
+            var targetTile = Vector2.Zero;
+
+            if (TryComp<PhysicsComponent>(uid, out var physics))
+            {
+                var velocity = physics.LinearVelocity;
+
+                if (velocity.LengthSquared() > 0)
+                {
+                    var direction = velocity.Normalized();
+
+                    var currentPosition = uid.ToCoordinates();
+
+                    var targetTileX = currentPosition.X + direction.X * 1;
+                    var targetTileY = currentPosition.Y + direction.Y * 1;
+
+                    int tileX = (int)MathF.Round(targetTileX);
+                    int tileY = (int)MathF.Round(targetTileY);
+
+                    targetTile = new Vector2(tileX, tileY);
+                }
+            }
+            EnsureComp<GrabThrownComponent>(uid);
+            _throwing.TryThrow(uid, targetTile, 8, animated: false, playSound: false, doSpin: false);
+        }
+
         EnsureComp<CrawlingComponent>(uid);
-        //TODO: add hiding under table
     }
     private void OnStunned(EntityUid uid, CrawlerComponent component, StunnedEvent args)
     {
