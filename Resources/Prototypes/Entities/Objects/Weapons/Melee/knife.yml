@@ -89,7 +89,7 @@
 
 - type: entity
   name: combat knife
-  parent: [BaseKnife, BaseRestrictedContraband, ADTUnderAttachmentBase] # ADT TWEAK
+  parent: [BaseKnife, BaseSecurityContraband, ADTUnderAttachmentBase] # ADT TWEAK
   id: CombatKnife
   description: A deadly knife intended for melee confrontations.
   components:

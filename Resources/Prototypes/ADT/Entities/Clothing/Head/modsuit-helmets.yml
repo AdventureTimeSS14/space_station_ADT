@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: ClothingHeadHardsuitBase
   id: ADTClothingHeadHelmetModsuitBase
   name: base MOD helmet
   description: A helmet for a MODsuit.

@@ -65,7 +65,7 @@
           - ADTBadge
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorAirsoftBlue
   name: airsoft suit
   description: Semi-flexible polycarbonate armor suit with weakened protection. Airsoft armor
@@ -78,7 +78,7 @@
   - type: GroupExamine
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorAirsoftRed
   name: airsoft suit
   description: Semi-flexible polycarbonate armor suit with weakened protection. Airsoft armor

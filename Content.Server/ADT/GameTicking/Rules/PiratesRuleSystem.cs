@@ -1,11 +1,13 @@
 using Content.Server.Cargo.Systems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Mind;
-using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
 using Content.Shared.GameTicking.Components;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization;
+using System.Numerics;
+using System.Linq;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -31,11 +33,16 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
         base.Started(uid, component, gameRule, args);
 
         var shuttleMap = _mapManager.CreateMap();
-        var options = new MapLoadOptions { LoadMap = true };
 
-        if (!_map.TryLoad(shuttleMap, component.PiratesShuttlePath, out var shuttle, options))
+        var opts = new DeserializationOptions {
+            StoreYamlUids = true,
+            InitializeMaps = true,
+        };
+
+        if (!_map.TryLoadGrid(shuttleMap, new ResPath(component.PiratesShuttlePath), out var shuttle, opts))
             return;
-        component.PirateShip = shuttle[0];
+
+        component.PirateShip = shuttle.Value;
 
         component.InitialShipValue = _pricingSystem.AppraiseGrid(component.PirateShip, uid =>
         {

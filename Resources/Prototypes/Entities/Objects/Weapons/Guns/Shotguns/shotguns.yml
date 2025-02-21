@@ -169,7 +169,7 @@
 
 - type: entity
   name: Enforcer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband, ADTBaseAttachableHolder] # adt tweak
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband, ADTBaseAttachableHolder] # adt tweak
   id: WeaponShotgunEnforcer
   description: A premium semi-automatic shotgun, and the pride of all security forces. Uses .50 shotgun shells.
   components: # intend for Enforcer to have wider choke for semi-auto function
@@ -227,7 +227,7 @@
 
 - type: entity
   name: Kammerer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband, ADTBasePumpingGun, ADTBaseMagneticGun] # adt tweak
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband, ADTBasePumpingGun, ADTBaseMagneticGun] # adt tweak
   id: WeaponShotgunKammerer
   description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses .50 shotgun shells.
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
