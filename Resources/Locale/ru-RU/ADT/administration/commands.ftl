@@ -46,3 +46,7 @@ set-mind-swap-command-target-has-no-mind-message = У одной из указа
 # Команда: adjstationjob
 cmd-adjstationjob-desc = Изменить манифест рабочих мест на станции.
 cmd-adjstationjob-help = Использование: adjstationjob <station id> <job id> <amount>
+
+# Относится к команде sendstationgoal
+station-goal-announcement-CentCom = Центральное командование
+station-goal-announcement = Станция { $station }, к вам пришла новая цель { $goal }
