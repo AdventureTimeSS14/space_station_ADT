@@ -58,36 +58,36 @@ public sealed class PlanetSystem : EntitySystem
     /// Spawns an initialized planet map from a planet prototype and loads a grid onto it.
     /// Returns the map entity if loading succeeded.
     /// </summary>
-    // public EntityUid? LoadPlanet(ProtoId<PlanetPrototype> id, string path)
-    // {
-    //     var map = SpawnPlanet(id, runMapInit: false);
-    //     var mapId = Comp<MapComponent>(map).MapId;
+    public EntityUid? LoadPlanet(ProtoId<PlanetPrototype> id, string path)
+    {
+        var map = SpawnPlanet(id, runMapInit: false);
+        var mapId = Comp<MapComponent>(map).MapId;
 
-    //     if (!_mapManager.IsMapInitialized(mapId))
-    //     {
-    //         Log.Error($"Map with ID {mapId} does not exist. Cannot proceed with loading.");
-    //         return null;
-    //     }
+        if (!_mapManager.IsMapInitialized(mapId))
+        {
+            Log.Error($"Map with ID {mapId} does not exist. Cannot proceed with loading.");
+            return null;
+        }
 
-    //     if (!_mapLoader.TryLoadGrid(mapId, new ResPath(path), out var grids))
-    //     {
-    //         Log.Error($"Failed to load planet grid {path} for planet {id}!");
-    //         return null;
-    //     }
+        if (!_mapLoader.TryLoadGrid(mapId, new ResPath(path), out var grids))
+        {
+            Log.Error($"Failed to load planet grid {path} for planet {id}!");
+            return null;
+        }
 
-    //     if (grids.HasValue)
-    //     {
-    //         var gridUid = grids.Value;
-    //         _setTiles.Clear();
-    //         var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
-    //         _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
-    //     }
-    //     else
-    //     {
-    //         Log.Error("Grid not found for this map.");
-    //     }
+        if (grids.HasValue)
+        {
+            var gridUid = grids.Value;
+            _setTiles.Clear();
+            var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
+            _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
+        }
+        else
+        {
+            Log.Error("Grid not found for this map.");
+        }
 
-    //     _map.InitializeMap(map);
-    //     return map;
-    // }
+        _map.InitializeMap(map);
+        return map;
+    }
 }
