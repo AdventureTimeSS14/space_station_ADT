@@ -23,6 +23,7 @@
   - type: FTLDestination
     whitelist:
       components:
+      - MiningShuttleGuest
       - MiningShuttle
   - type: WeatherScheduler # Regular ash storms
     stages:
@@ -70,6 +71,7 @@
   - type: FTLDestination
     whitelist:
       components:
+      - MiningShuttleGuest
       - MiningShuttle
   atmosphere:
     volume: 2500
