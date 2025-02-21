@@ -164,7 +164,7 @@
                 - !type:ComboPopupEffect
                   localeText: combo-backhit-end
                 - !type:ComboStunEffect
-                  stunTime: 6
+                  stunTime: 4
                   dropItems: false
             - actionsNeeds:
                 - Hit
@@ -206,7 +206,7 @@
                     types:
                       Blunt: 5
                 - !type:ComboStunEffect
-                  stunTime: 6
+                  stunTime: 4
                   dropItems: false
             - actionsNeeds:
                 - Disarm
