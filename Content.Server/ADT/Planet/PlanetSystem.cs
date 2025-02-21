@@ -63,12 +63,6 @@ public sealed class PlanetSystem : EntitySystem
         var map = SpawnPlanet(id, runMapInit: false);
         var mapId = Comp<MapComponent>(map).MapId;
 
-        if (!_mapManager.IsMapInitialized(mapId))
-        {
-            Log.Error($"Map with ID {mapId} does not exist. Cannot proceed with loading.");
-            return null;
-        }
-
         if (!_mapLoader.TryLoadGrid(mapId, new ResPath(path), out var grids))
         {
             Log.Error($"Failed to load planet grid {path} for planet {id}!");

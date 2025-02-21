@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadSuitWithLightBase
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetCBURNLeader
   categories: [ HideSpawnMenu ]
   name: cburn commander helmet
