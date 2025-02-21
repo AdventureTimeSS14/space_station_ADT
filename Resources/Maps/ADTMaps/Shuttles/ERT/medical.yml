@@ -1,17 +1,6 @@
 meta:
-  format: 7
-  category: Grid
-  engineVersion: 247.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 02/20/2025 21:16:20
-  entityCount: 987
-maps: []
-grids:
-- 732
-orphans:
-- 732
-nullspace: []
+  format: 6
+  postmapinit: false
 tilemap:
   0: Space
   26: FloorDark

@@ -1,3 +1,6 @@
+meta:
+  format: 6
+  postmapinit: false
 tilemap:
   34: Space
   41: FloorArcadeBlue2
