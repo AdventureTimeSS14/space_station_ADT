@@ -1,17 +1,3 @@
-meta:
-  format: 7
-  category: Map
-  engineVersion: 247.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 02/17/2025 22:19:14
-  entityCount: 17778
-maps:
-- 1
-grids:
-- 2
-orphans: []
-nullspace: []
 tilemap:
   34: Space
   41: FloorArcadeBlue2
