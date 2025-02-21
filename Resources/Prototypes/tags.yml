@@ -1384,4 +1384,6 @@
 - type: Tag
   id: WriteIgnoreStamps
 
+- type: Tag
+  id: BoomBoxTape
 # ALPHABETICAL
