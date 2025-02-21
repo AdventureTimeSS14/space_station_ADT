@@ -40,7 +40,7 @@
   components:
   - type: TranslatorImplant
     languages:
-      Nian: BadSpeak
+      Arachnid: BadSpeak #Moffic
 
 - type: entity
   parent: BaseTranslatorImplant

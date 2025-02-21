@@ -72,6 +72,7 @@
             SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ 4, 5 ]
             # juridical
+            Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Magistrat: [ 1, 1 ] #ADT-Roles
             #silicon

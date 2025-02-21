@@ -581,7 +581,7 @@
       board: [ DoorElectronicsHydroponics ]
 
 - type: entity
-  parent: ADTChaplainAirlock # ADT-Doors
+  parent: ADTChaplainAirlockGlass # ADT-Doors
   id: AirlockChapelGlassLocked
   suffix: Chapel, Locked
   components:
