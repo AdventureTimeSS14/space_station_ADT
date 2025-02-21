@@ -8,7 +8,7 @@
 - type: latheRecipePack
   id: ADTModsuitPack
   recipes:
-  - ADTModsuitHelmet #ADT modsuits start
+  - ADTModsuitHelmet
   - ADTModsuitGauntlets
   - ADTModsuitChestplate
   - ADTModsuitBoots
@@ -21,10 +21,9 @@
   - ADTModsuitPlateCience
   - ADTModsuitPlateMining
   - ADTModsuitAssembly
+  - ADTModsuitModDrill
   - ADTModsuitModAntigrav
   - ADTModsuitModApparatus
-  - ADTModsuitModDrill
-  - ADTModsuitModJetpack
   - ADTModsuitModJetpack
   - ADTModsuitModMagboot
   - ADTModsuitModNightVision
