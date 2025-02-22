@@ -1,0 +1,11 @@
+ent-ADTDroneAntagBase = antag drone base
+    .desc = { ent-BaseMob.desc }
+ent-ADTDroneAntagMiner = drone miner
+    .desc = Вам, вероятно, не стоит стоять рядом с ним, чтобы проверить, включен ли он.
+    .suffix = Miner
+ent-ADTDroneAntagEngineer = drone soldier
+    .desc = Вам, вероятно, не стоит стоять рядом с ним, чтобы проверить, включен ли он.
+    .suffix = Engineer
+ent-ADTDroneAntagCharger = drone soldier
+    .desc = Вам, вероятно, не стоит стоять рядом с ним, чтобы проверить, включен ли он.
+    .suffix = Charger

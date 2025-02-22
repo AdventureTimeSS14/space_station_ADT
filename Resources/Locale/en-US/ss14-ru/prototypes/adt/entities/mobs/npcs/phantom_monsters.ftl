@@ -1,0 +1,12 @@
+ent-ADTBasePhantomMonster = undead
+    .desc = un ded
+ent-ADTPhantomUndead = undead
+    .desc = un ded
+ent-ADTPhantomHaunted = haunted
+    .desc = huhu
+ent-ADTPhantomSoulBurned = soul burned
+    .desc = huhu
+ent-ADTPhantomSparkOfLife = spark of life
+    .desc = huhu
+ent-ADTPhantomSoullessFiend = soulless fiend
+    .desc = huhu

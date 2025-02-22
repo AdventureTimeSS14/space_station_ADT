@@ -1,0 +1,13 @@
+ent-ADTBaseShipGunMagazine = GAU-32 magazine
+    .suffix = Space Battleships
+    .desc = { ent-BaseItem.desc }
+ent-ADTShipGunMagazineGAU32Empty = GAU-32 magazine
+    .suffix = Space Battleships, Empty
+    .desc = { ent-ADTBaseShipGunMagazine.desc }
+ent-ADTShipGunMagazineGAU32 = GAU-32 magazine
+    .desc = { ent-ADTBaseShipGunMagazine.desc }
+ent-ADTShipGunMagazineDS30Empty = DS30 magazine
+    .suffix = Space Battleships, Empty
+    .desc = { ent-ADTShipGunMagazineDS30.desc }
+ent-ADTShipGunMagazineDS30 = DS30 magazine
+    .desc = { ent-ADTBaseShipGunMagazine.desc }

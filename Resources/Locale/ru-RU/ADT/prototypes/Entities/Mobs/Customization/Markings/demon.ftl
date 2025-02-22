@@ -14,7 +14,6 @@ marking-DemonChestTrinitySpots = Троичные пятна на груди
 marking-DemonGoatee = Козлиная бородка
 marking-ADTDemonrigth_eye = Правый глаз
 marking-ADTDemonleft_eye = Левый глаз
-
 # Рожки
 marking-DemonCowHorns = Коровьи рога
 marking-DemonHornsDeer = Оленьи рога

@@ -16,7 +16,6 @@ ent-ADTFoodBakedBrezelVanilla = брецель с ванилью
 ent-ADTFoodBakedBrezelPumpkin = брецель с тыквой
     .desc = Крендель с тыквенной глазурью. Десерт для посиделок на Хеллоуине.
     .suffix = Хеллоуин
-
 ent-ADTFoodBakedMuffinPumpkin = Кексик с тыквой
     .desc = Тыквенный кексик с мордочкой на верхушке
     .suffix = Хеллоуин

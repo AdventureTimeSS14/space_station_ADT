@@ -1,0 +1,16 @@
+ent-ADTClothingHandsModsuitBase = base MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ADTClothingHandsModsuitAtmos = atmos MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ADTClothingHandsModsuitClown = clown MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ADTClothingHandsModsuitEngineering = atmos MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ADTClothingHandsModsuitMedical = atmos MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ADTClothingHandsModsuitMining = mining MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ADTClothingHandsModsuitSecurity = security MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ADTClothingHandsModsuitScience = Science MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.

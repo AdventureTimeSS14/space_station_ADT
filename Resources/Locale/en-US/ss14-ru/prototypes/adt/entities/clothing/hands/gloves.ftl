@@ -1,0 +1,15 @@
+ent-ADTClothingHandsRabbitGloves = Rabbit Gloves
+    .desc = Shhh. Furry.
+ent-ADTClothingHandsEmpressOfLightGloves = empress of light gloves
+    .desc = Majestic and blue.
+ent-ADTBioMercGloves = fingerless tactical bio-fabric gloves
+    .desc = If you thought that this glove is environmentally friendly, then you are very mistaken. This glove is made of a fabric with an admixture of biomass, which strongly resembles leather. Moreover, this "skin" is unnaturally warm...
+    .suffix = Halloween
+ent-ADTVyazovGloves = gloves from the dimension of nightmares
+    .desc = The right glove has blades, it seems, with which its former owner dealt with his victims.
+    .suffix = Halloween
+ent-ADTRedMartialArtsGloves = red gloves for martial arts
+    .desc = red gloves for martial arts
+    .suffix = Halloween
+ent-ADTClothingHandsFingerlessCombat = fingerless combat gloves
+    .desc = These tactical gloves are fireproof and shockproof, and have become much cooler.

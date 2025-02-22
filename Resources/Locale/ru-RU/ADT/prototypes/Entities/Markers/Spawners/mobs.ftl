@@ -1,9 +1,4 @@
-ent-ADTSpawnMobCarpCat = спавнер КарпКат
+ent-ADTSpawnMobCarpCat = CarpCat Spawner
     .desc = { ent-MarkerBase.desc }
-
-ent-ADTSpawnMobPossumPoppy = спавнер опоссум Поппи
+ent-ADTSpawnMobPossumPoppy = Poppy Spawner
     .desc = { ent-MarkerBase.desc }
-
-ent-ADTSpawnMobCarpPirate = спавнер костлявой рыбы
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Пират

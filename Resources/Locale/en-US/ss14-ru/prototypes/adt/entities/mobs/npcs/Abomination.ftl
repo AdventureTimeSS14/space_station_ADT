@@ -1,0 +1,11 @@
+ent-ADTBaseAbomination = { ent-SimpleSpaceMobBase }
+    .desc = { ent-SimpleSpaceMobBase.desc }
+ent-ADTAbominationHypertrophied = Hypertrophied abomination
+    .desc = A creepy and bloodthirsty failed clone suffering from constant pain due to hypertrophied muscles.
+    .suffix = ADT
+ent-ADTAbominationDeath = Death
+    .desc = A pale and hypertrophied clone that constantly twitches and seems ready to jump at any moment.
+    .suffix = ADT
+ent-ADTAbominationBloated = Bloated
+    .desc = A creepy and bloated failed clone that is about to explode from an unnecessary touch.
+    .suffix = ADT

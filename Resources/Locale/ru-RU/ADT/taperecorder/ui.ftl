@@ -5,5 +5,5 @@ tape-recorder-menu-recording-button = Запись
 tape-recorder-menu-playing-button = Слушать
 tape-recorder-menu-rewinding-button = Отмотка
 tape-recorder-menu-print-button = Распечатать транскрипцию
-tape-recorder-menu-cassette-label = Кассета: {$cassetteName}
+tape-recorder-menu-cassette-label = Кассета: { $cassetteName }
 tape-recorder-menu-no-cassette-label = Кассета не вставлена.

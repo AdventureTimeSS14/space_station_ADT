@@ -25,4 +25,3 @@ ent-ADTHotChocolateGlass = стакан горячего шоколада
 ent-ADTHotChocolateAllergicGlass = стакан гипоаллергенного горячего шоколада
     .desc = Вкус хуже, чем у обычного, но не опасен для некоторых рас.
     .suffix = { "Новый Год" }
-

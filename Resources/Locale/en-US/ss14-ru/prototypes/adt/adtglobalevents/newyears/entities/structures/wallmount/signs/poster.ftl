@@ -1,0 +1,9 @@
+ent-ADTPosterNewYear = 2569
+    .desc = Poster that celebrates New Year on Earth.
+    .suffix = New Year
+ent-ADTPosterNewYear2 = happy new year
+    .desc = Poster that celebrates New Year on Earth.
+    .suffix = New Year
+ent-ADTPosterNewYear3 = new year tayaran
+    .desc = Poster that celebrates New Year on Earth.
+    .suffix = New Year

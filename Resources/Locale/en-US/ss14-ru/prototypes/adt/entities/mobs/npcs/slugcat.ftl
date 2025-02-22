@@ -1,0 +1,12 @@
+ent-ADTMobSlugCatCreek = Slug Cat
+    .desc = An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
+ent-ADTMobSlugCatHoly = Slug Cat
+    .desc = cat
+ent-ADTMobSlugCatMonk = Slug Cat
+    .desc = cat
+ent-ADTMobSlugCatSonfariel = Slug Cat
+    .desc = cat
+ent-ADTMobSlugCatSpearMaster = Slug Cat
+    .desc = cat
+ent-ADTMobSlugCatTechnician = Slug Cat
+    .desc = cat

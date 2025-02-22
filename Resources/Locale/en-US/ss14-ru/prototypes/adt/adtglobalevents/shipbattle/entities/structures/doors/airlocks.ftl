@@ -1,0 +1,15 @@
+ent-ADTAirlockKMT = KMT Airlock
+    .suffix = Space Battleships, KMT
+    .desc = { ent-Airlock.desc }
+ent-ADTAirlockTSF = TSF Airlock
+    .suffix = Space Battleships, TSF
+    .desc = { ent-ADTAirlockKMT.desc }
+ent-ADTAirlockKMTGlass = KMT Airlock Glass
+    .suffix = Space Battleships, KMT
+    .desc = { ent-AirlockGlass.desc }
+ent-ADTAirlockTSFGlass = TSF Airlock Glass
+    .suffix = Space Battleships, TSF
+    .desc = { ent-ADTAirlockKMTGlass.desc }
+ent-ADTAirlockShipBattleShuttle = Combat Shuttle Airlock
+    .suffix = Space Battleships
+    .desc = { ent-AirlockGlassShuttle.desc }

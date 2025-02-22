@@ -44,7 +44,6 @@ ent-ADTReagentCanisterNitrogen = канистра (азот)
     .desc = { ent-ADTCanister.desc }
 ent-ADTReagentCanisterOxygen = канистра (кислород)
     .desc = { ent-ADTCanister.desc }
-
 ent-ADTDrinkIceCanister = канистра (лёд)
     .desc = { ent-ADTCanister.desc }
 ent-ADTDrinkCoffeeCanister = канистра (кофе)
@@ -85,7 +84,6 @@ ent-ADTDrinkCoconutWaterCanister = канистра (кокосовая вода
     .desc = { ent-ADTCanister.desc }
 ent-ADTDrinkEnergyDrinkCanister = канистра (энергетик)
     .desc = { ent-ADTCanister.desc }
-
 ent-ADTDrinkBeerCanister = канистра (пиво)
     .desc = { ent-ADTCanister.desc }
 ent-ADTDrinkCoffeeLiqueurCanister = канистра (кофейный ликёр)

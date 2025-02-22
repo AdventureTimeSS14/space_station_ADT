@@ -1,12 +1,9 @@
-
 ent-ADTPlasticBottle = пластиковая бутылочка
     .desc = Небольшая пластиковая бутылочка.
     .suffix = { "" }
-
 ent-ADTGlassBottle = стеклянная бутылочка
     .desc = Небольшая стеклянная бутылочка.
     .suffix = { "" }
-
 ent-ADTObjectsSpecificArithrazineChemistryBottle = бутылочка аритразина
     .desc = "Маленькая бутылочка"
 ent-ADTObjectsSpecificBicaridineChemistryBottle = бутылочка бикаридина
@@ -19,7 +16,6 @@ ent-ADTObjectsSpecificDexalinChemistryBottle = бутылочка дексали
     .desc = "Маленькая бутылочка"
 ent-ADTObjectsSpecificLeporazineChemistryBottle = бутылочка лепоразина
     .desc = "Маленькая бутылочка"
-
 ent-ADTSalineChemistryBottle = бутылочка физраствора
     .desc = "Маленькая бутылочка"
 ent-ADTAmatoxinChemistryBottle = бутылочка аматоксина
@@ -28,12 +24,10 @@ ent-ADTLexorinChemistryBottle = бутылочка лексорина
     .desc = "Маленькая бутылочка"
 ent-ADTLicoxideChemistryBottle = бутылочка ликоксида
     .desc = "Маленькая бутылочка"
-
 ent-ADTDyloveneBiomicineBottle = бутылочка диловена и биомицина
     .desc = Пластиковая бутылочка, содержащая смесь биомицина и диловена. Использовать в крайних случаях отравления.
 ent-ADTOmnizineBottle = бутылочка омнизина
     .desc = Бутылочка с крайне полезным, хоть и вызывающим зависимость омнизином.
-
 ent-ADTPeroHydrogenBottle = бутылочка пероводорода
     .desc = Пластиковая бутылочка с препаратом от болезненных уколов. Препарат действует эффективнее на открытые уколы, отчего лучше всего их поливать. Становится полезнее при смешании бикаридином, хоть на этикетке этого не указано.
 ent-ADTNikematideBottle = бутылочка никематида
@@ -46,6 +40,5 @@ ent-ADTOpiumBottle = бутылочка опиума
     .desc = Небольшая бутылочка, за которую велись целые войны в далёком прошлом. Но сейчас же никто не будет убивать других ради короткого момента эйфории, верно?
 ent-ADTFormalinBottle = бутылочка формалина
     .desc = Основа работы патологоанатома.
-
 ent-ADTObjectsSpecificFluorosurfactantChemistryBottle = бутылочка фторсурфактанта
     .desc = Бутылочка с перфторированнпй сульфоновой кислотой, образующей пену при смешивании с водой.

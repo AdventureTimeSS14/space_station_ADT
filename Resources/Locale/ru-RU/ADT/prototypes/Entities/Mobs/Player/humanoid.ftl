@@ -7,7 +7,6 @@ ent-ADTRandomHumanoidSpawnerERTLeaderEVA = ОБР лидер
 ent-ADTRandomHumanoidSpawnerERTLeaderEVARiot = ОБР лидер
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
-
 ent-ADTRandomHumanoidSpawnerERTJanitor = ОБР уборщик
     .suffix = Базовый
     .desc = { "" }
@@ -17,7 +16,6 @@ ent-ADTRandomHumanoidSpawnerERTJanitorEVA = ОБР уборщик
 ent-ADTRandomHumanoidSpawnerERTJanitorEVARiot = ОБР уборщик
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
-
 ent-ADTRandomHumanoidSpawnerERTEngineer = ОБР инженер
     .suffix = Базовый
     .desc = { "" }
@@ -27,7 +25,6 @@ ent-ADTRandomHumanoidSpawnerERTEngineerEVA = ОБР инженер
 ent-ADTRandomHumanoidSpawnerERTEngineerEVARiot = ОБР инженер
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
-
 ent-ADTRandomHumanoidSpawnerERTSecurity = ОБР офицер сб
     .suffix = Базовый
     .desc = { "" }
@@ -37,7 +34,6 @@ ent-ADTRandomHumanoidSpawnerERTSecurityEVA = ОБР офицер сб
 ent-ADTRandomHumanoidSpawnerERTSecurityEVARiot = ОБР офицер сб
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
-
 ent-ADTRandomHumanoidSpawnerERTMedical = ОБР медик сб
     .suffix = Базовый
     .desc = { "" }
@@ -47,11 +43,9 @@ ent-ADTRandomHumanoidSpawnerERTMedicalEVA = ОБР медик сб
 ent-ADTRandomHumanoidSpawnerERTMedicalEVARiot = ОБР медик сб
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
-
 ent-ADTRandomHumanoidSpawnerCBURNUnit = капитан РХБЗЗ
     .suffix = РХБЗЗ
     .desc = { "" }
-
 ent-ADTSpaceSecCadet = кадет SPACE SEC
 ent-ADTRandomHumanoidSpawnerSpaceSecCadet = кадет SPACE SEC
     .suffix = Space Sec, Случайный

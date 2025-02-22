@@ -1,0 +1,12 @@
+ent-ADTWindowKMT = plastitanium window
+    .suffix = Space Battleships, KMT
+    .desc = { ent-PlastitaniumWindowSquareBase.desc }
+ent-ADTWindowTSF = plastitanium window
+    .suffix = Space Battleships, TSF
+    .desc = { ent-ADTWindowKMT.desc }
+ent-ADTWindowKMTHeavy = plastitanium window
+    .suffix = Space Battleships, KMT
+    .desc = { ent-ADTWindowKMT.desc }
+ent-ADTWindowTSFHeavy = plastitanium window
+    .suffix = Space Battleships, TSF
+    .desc = { ent-ADTWindowKMTHeavy.desc }

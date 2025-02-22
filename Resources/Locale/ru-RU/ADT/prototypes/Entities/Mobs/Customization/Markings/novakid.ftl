@@ -1,7 +1,7 @@
 marking-NovakidHair1 = сплетение
 marking-NovakidHair2 = комета
 marking-NovakidHair3 = дуализм
-marking-NovakidHair4 =  слава
+marking-NovakidHair4 = слава
 marking-NovakidHair5 = газовое облако
 marking-NovakidHair6 = газовая лавина
 marking-NovakidHair7 = сияние света

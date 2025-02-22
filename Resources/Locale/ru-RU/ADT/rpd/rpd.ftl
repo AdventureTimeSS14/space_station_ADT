@@ -2,6 +2,7 @@
 
 rpd-component-examine-mode-details = Выбран режим: '{ $mode }'.
 rpd-component-examine-build-details = Выбран режим строительства: { $name }.
+
 ### Interaction Messages
 
 # Смена мода

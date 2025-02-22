@@ -1,3 +1,5 @@
-ent-LockerMinerFilled = шкафчик шахтёра
-    .suffix = Заполненный
+
+ent-LockerSalvageSpecialistFilled = { ent-LockerSalvageSpecialist }
+    .suffix = Filled
     .desc = { ent-LockerSalvageSpecialist.desc }
+

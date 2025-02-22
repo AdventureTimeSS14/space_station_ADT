@@ -1,0 +1,15 @@
+ent-ADTEmergencyLightRed = emergency light
+    .desc = A light fixture. Draws power and produces light when equipped with a light tube.
+    .suffix = red, do not map
+ent-ADTemergencyLightGreen = emergency light
+    .desc = A light fixture. Draws power and produces light when equipped with a light tube.
+    .suffix = Green, do not map
+ent-ADTemergencyLightBlue = emergency light
+    .desc = A light fixture. Draws power and produces light when equipped with a light tube.
+    .suffix = Blue, do not map
+ent-ADTemergencyLightViolet = emergency light
+    .desc = A light fixture. Draws power and produces light when equipped with a light tube.
+    .suffix = Violet, do not map
+ent-ADTemergencyLightYellow = emergency light
+    .desc = A light fixture. Draws power and produces light when equipped with a light tube.
+    .suffix = Yellow, do not map

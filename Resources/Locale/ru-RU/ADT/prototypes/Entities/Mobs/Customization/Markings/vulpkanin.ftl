@@ -19,7 +19,6 @@ marking-ADTVulpkaninfullbelly = Окрас живота
 marking-ADTVulpkaninpointsfade = Окрас лап
 marking-ADTVulpkaninpointsfadebelly = Пятнистый окрас лап, груди и живота
 marking-ADTVulpkaninsharppoints = Резкие пятна
-
 marking-ADTVulpkanin_skullBreast = Череп на груди
 marking-ADTVulpkanin_spots = Пятна
 marking-ADTVulpkanin_spots2 = Пятна 2
@@ -49,7 +48,6 @@ marking-ADTVulpkaninScar4Left = Шрам 4 слева
 marking-ADTVulpkaninScar4Right = Шрам 4 справа
 marking-ADTVulpkaninSkeleton = Скелет
 marking-ADTVulpkaninSkull = Череп
-
 marking-ADTVulpkaninruff = Бородка 1
 marking-ADTVulpkaninkita = Усики 1
 marking-ADTVulpkaninoldchin = Скулы 2

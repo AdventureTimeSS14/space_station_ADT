@@ -1,8 +1,7 @@
-translator-implanter-refuse = {$implanter} не возымел эффекта для {$target}.
-translator-implanter-success = {$implanter} успешно имплантирован в {$target}.
+translator-implanter-refuse = { $implanter } не возымел эффекта для { $target }.
+translator-implanter-success = { $implanter } успешно имплантирован в { $target }.
 translator-implanter-ready = Имплантер готов к использованию.
 translator-implanter-used = Имплантер пуст.
-
 ent-GalacticCommonTranslatorImplanter = полноценный языковой имплант Общегалактического языка
     .suffix = язык Общегалактический
     .desc = Имплант, позволяющий понимать и общаться на Общегалактическом языке.
@@ -72,18 +71,15 @@ ent-SyndUniversalTranslatorImplanter = универсальный языково
 ent-DevTranslatorImplanter = имплант языка разработчика
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = АДМЕМЫ
-
 ent-IPCTranslatorImplanter = полноценный языковой имплант троичного кода
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = IPC
 ent-VoxPidginTranslatorImplanter = полноценный языковой имплант Вокс-Пиджин
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = Вокс-Пиджин
-
 ent-ScratchesTranslatorImplanter = полноценный языковой имплант Скретчи
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = Скретчи
-
 ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = FriendlyFire

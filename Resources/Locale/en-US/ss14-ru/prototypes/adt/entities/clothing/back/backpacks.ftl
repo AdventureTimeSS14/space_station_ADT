@@ -1,0 +1,15 @@
+ent-ADTClothingBlueshieldBackpack = blueshield's backpack
+    .desc = criminalst backpack
+ent-ADTClothingBackpackBlackLadySatchel = black lady satchel
+    .desc = Satchel for storage. Wow, whats there? A stolen hearts?
+ent-ADTClothingBackpackLeatherLadySatchel = leather lady satchel
+    .desc = Satchel for storage. Wow, whats there? A stolen hearts?
+ent-ADTClothingBackpackPathologist = { ent-ClothingBackpackMedical }
+    .desc = { ent-ClothingBackpackMedical.desc }
+ent-ADTClothingBackpackTimePatrol = backpack time patrol
+    .desc = desc
+ent-ADTClothingBackpackParamedic = paramedical backpack
+    .desc = Backpack to store some paramedical equipment.
+ent-ADTClothingBackpackParamedicFilled = paramedical backpack
+    .desc = Backpack to store some paramedical equipment.
+    .suffix = Paramedic,Filled

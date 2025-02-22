@@ -1,0 +1,15 @@
+ent-ADTCrateNecropolisHeart = { ent-ADTCrateNecropolis }
+    .suffix = Heart
+    .desc = { ent-ADTCrateNecropolis.desc }
+ent-ADTCrateNecropolisVavilon = { ent-ADTCrateNecropolis }
+    .suffix = Vavilon
+    .desc = { ent-ADTCrateNecropolis.desc }
+ent-ADTCrateNecropolisCultArmor = { ent-ADTCrateNecropolis }
+    .suffix = Cult Armor
+    .desc = { ent-ADTCrateNecropolis.desc }
+ent-ADTCrateNecropolisCultRobe = { ent-ADTCrateNecropolis }
+    .suffix = Cult Robe
+    .desc = { ent-ADTCrateNecropolis.desc }
+ent-ADTCrateNecropolisVampirismCrystal = { ent-ADTCrateNecropolis }
+    .suffix = Vampirism Crystal
+    .desc = { ent-ADTCrateNecropolis.desc }

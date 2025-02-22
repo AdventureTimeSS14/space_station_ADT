@@ -1,0 +1,14 @@
+ent-ADTClothingBackpackPathologistFilled = { ent-ADTClothingBackpackPathologist }
+    .desc = { ent-ADTClothingBackpackPathologist.desc }
+ent-ClothingBackpackFilled = { ent-ClothingBackpack }
+    .desc = { ent-ClothingBackpack.desc }
+ent-ClothingBackpackAntagDroneMiner = backpack antag drone miner
+    .desc = { ent-ClothingBackpack.desc }
+ent-ClothingBackpackAntagDroneEngineer = backpack antag drone engineer
+    .desc = { ent-ClothingBackpack.desc }
+ent-ClothingBackpackAntagDroneCharger = backpack antag drone charger
+    .desc = { ent-ClothingBackpack.desc }
+ent-ClothingBackpackBrigmedicFilled = { ent-ClothingBackpackBrigmedic }
+    .desc = { ent-ClothingBackpackBrigmedic.desc }
+ent-ADTClothingBackpackSeniorSecurityFilled = { ent-ClothingBackpackSecurity }
+    .desc = { ent-ClothingBackpackSecurity.desc }

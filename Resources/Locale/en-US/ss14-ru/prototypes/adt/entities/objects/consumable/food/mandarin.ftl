@@ -1,0 +1,12 @@
+ent-ADTFoodMandarin = mandarin
+    .desc = Healthy, very orange.
+    .suffix = NewYear
+ent-ADTFoodMandarinPeeled = mandarin
+    .desc = Peeled mandarin. Is it holidays already?
+    .suffix = NewYear
+ent-ADTTrashMandarinPeel = mandarin peel
+    .suffix = NewYear
+    .desc = { ent-BaseItem.desc }
+ent-ADTFoodMandarinSlice = mandarin slice
+    .desc = Mmm, tropical.
+    .suffix = NewYear

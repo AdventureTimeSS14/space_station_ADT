@@ -1,0 +1,16 @@
+ent-ADTClothingNeckGoldChain = golden chain
+    .desc = A chain made of gold.
+ent-ADTSpaceSecToken = space sec token
+    .desc = The standard token of the space sec corporation
+ent-SirenaChokerWithSpike = Choker Spike
+    .desc = If you turn it back and forth, then it will be a weapon of torture
+ent-SirenaChokerWithHeart = Choker Heart
+    .desc = For good crew members
+ent-ADTClownCollarCaterpillar = clown collar-caterpillar
+    .desc = A once-extinct attribute of a Buffoon and a Clown
+    .suffix = Halloween
+ent-ADTVampireCloak = vampire cloak
+    .desc = vampire cloak
+    .suffix = Halloween
+ent-ADTClothingNeckKubanoidPin = kubanoid pin
+    .desc = Be skuf eat kabachki.

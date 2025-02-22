@@ -1,0 +1,12 @@
+ent-ADTSpawnVehicleSecway = Secway Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnVehicleJanicart = Janicart Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnVehicleATV = ATV Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnVehicleMotobike = Motobike Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnVehicleWheelchair = Wheelchair Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnVehicleWheelchairFolded = Wheelchair [Folded] Spawner
+    .desc = { ent-MarkerBase.desc }

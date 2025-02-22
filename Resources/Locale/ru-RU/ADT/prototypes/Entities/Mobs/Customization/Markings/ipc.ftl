@@ -37,7 +37,6 @@ marking-ScreenSmile = Улыбка
 marking-ScreenFrown = Грусть
 marking-ScreenRing = Кольцо
 marking-ScreenL = L
-
 marking-RobotAntennaTv = ТВ
 marking-RobotAntennaTesla = Тесла
 marking-RobotAntennaLightb = Мигалка (альт.)
@@ -52,5 +51,4 @@ marking-RobotAntennaDuality = Двойная
 marking-RobotAntennaHoloaura = Голоаура
 marking-RobotAntennaWireless = Беспроводная
 marking-RobotAntennaSmallEye = Малый глаз
-
 marking-RobotHeadWires = Кабели

@@ -1,0 +1,2 @@
+ent-ADTActionTeatacles = tentacles
+    .desc = { "" }

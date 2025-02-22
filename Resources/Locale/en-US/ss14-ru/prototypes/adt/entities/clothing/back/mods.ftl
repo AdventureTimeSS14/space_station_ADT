@@ -1,0 +1,16 @@
+ent-ADTClothingModsuitBackBase = base MOD control unit
+    .desc = A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
+ent-ADTClothingModsuitBackAtmos = atmos MOD control unit
+    .desc = An atmospheric-resistant suit by Nakamura Engineering, offering extreme heat resistance compared to the engineer suit.
+ent-ADTClothingModsuitBackClown = clown MOD control unit
+    .desc = A suit by Honk Ltd. Protects against low humor environments.
+ent-ADTClothingModsuitBackEngineering = engineering MOD control unit
+    .desc = An engineer-fit suit with heat and shock resistance. Nakamura Engineering's classic.
+ent-ADTClothingModsuitBackMedical = medical MOD control unit
+    .desc = A lightweight suit by DeForest Medical Corporation, allows for easier movement.
+ent-ADTClothingModsuitBackMining = mining MOD control unit
+    .desc = A Nanotrasen mining suit for on-site operations, fit with accreting ash armor and a sphere form.
+ent-ADTClothingModsuitBackSecurity = security MOD control unit
+    .desc = An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
+ent-ADTClothingModsuitBackScience = Sciene MOD control unit
+    .desc = Made by scientists for scientists.

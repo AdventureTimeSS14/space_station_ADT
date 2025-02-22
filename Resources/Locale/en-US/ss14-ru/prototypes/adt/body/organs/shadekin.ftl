@@ -1,0 +1,14 @@
+ent-ADTOrganShadekinLungs = lungs
+    .desc = And these are the lungs? It's more like a joke.
+ent-ADTOrganShadekinBrain = brain
+    .desc = And if I eat it, will I be able to do the same as them?
+ent-ADTOrganShadekinStomach = stomach
+    .desc = It looks like it's smaller than usual..
+ent-ADTOrganShadekinLiver = liver
+    .desc = Hmm, how much it can be sold for...
+ent-ADTOrganShadekinHeart = heart
+    .desc = The heart? It seems that it has been lying here for several days.
+ent-ADTOrganShadekinKidneys = kidneys
+    .desc = Someone was definitely not watching what he was eating.
+ent-ADTOrganShadekinEyes = eyes
+    .desc = Weren't they a different color?..

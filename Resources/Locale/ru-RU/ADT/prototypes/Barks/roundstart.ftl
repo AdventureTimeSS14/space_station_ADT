@@ -1,4 +1,4 @@
-﻿bark-human1-name = Стандарт 1
+bark-human1-name = Стандарт 1
 bark-human2-name = Стандарт 2
 bark-human3-name = Стандарт 3
 bark-guitar-muted-low-name = Гитара (Низкий)

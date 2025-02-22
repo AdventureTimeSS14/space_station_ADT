@@ -1,16 +1,14 @@
 ent-ADTMechPhazon = Фазон
-    .desc =  Самый продвинутый мех на рынке, вершина технологического развития, крайне мобильная и смертоносная.
+    .desc = Самый продвинутый мех на рынке, вершина технологического развития, крайне мобильная и смертоносная.
 ent-ADTMechPhazonBattery = { ent-ADTMechPhazon }
     .suffix = Батарея
     .desc = { ent-ADTMechPhazon.desc }
-
 ent-ADTPhazonCentralElectronics = центральный модуль управления Фазона
     .desc = Центр управления электрооборудованием меха Фазон.
 ent-ADTPhazonPeripheralsElectronics = модуль управления периферией Фазона
     .desc = Система управления электрическими периферийными устройствами меха Фазон.
 ent-ADTPhazonWeaponControlElectronics = боевой контрольный модуль Фазона
     .desc = Система управления вооружениями и целеуказанием меха Фазон.
-
 ent-ADTPhazonHarness = каркас Фазона
     .desc = Ядро меха Фазон.
 ent-ADTPhazonLArm = левая рука Фазона

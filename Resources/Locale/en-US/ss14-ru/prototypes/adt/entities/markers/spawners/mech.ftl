@@ -1,0 +1,10 @@
+ent-ADTSpawnMechGygax = Gygax Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnMechDarkGygax = Dark Gygax Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnMechMarauder = Marauder Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnMechMauler = Mauler Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnMechPaddy = Paddy Spawner
+    .desc = { ent-MarkerBase.desc }

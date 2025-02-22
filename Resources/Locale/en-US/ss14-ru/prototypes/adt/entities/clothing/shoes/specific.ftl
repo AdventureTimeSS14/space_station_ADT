@@ -1,0 +1,12 @@
+ent-ADTClothingFootWrapsWhite = white footwraps
+    .desc = Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+ent-ADTClothingFootWrapsBlack = black footwraps
+    .desc = Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+ent-ADTClothingFootWrapsHighBlack = high black footwraps
+    .desc = Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+ent-ADTClothingFootWrapsHighWhite = high white footwraps
+    .desc = Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+ent-ADTClothingFootWrapsBrown = brown footwraps
+    .desc = Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.
+ent-ADTClothingFootWrapsHighBrown = brown white footwraps
+    .desc = Pair of pieces of clothing for those who are uncomfortable with ordinary shoes.

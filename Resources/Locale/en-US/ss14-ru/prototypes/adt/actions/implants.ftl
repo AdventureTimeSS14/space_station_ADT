@@ -1,0 +1,10 @@
+ent-ActionToggleMantisDaggers = action-mantis-daggers
+    .desc = action-mantis-daggers-desc
+ent-ActionToggleSundownerShields = action-sundowner-shields
+    .desc = action-sundowner-shields-desc
+ent-ActionToggleMuscles = action-muscles
+    .desc = action-muscles-desc
+ent-ActionMusclesJump = action-jump
+    .desc = action-jump-desc
+ent-ActionToggleCompStealth = action-stealth
+    .desc = action-stealth-desc

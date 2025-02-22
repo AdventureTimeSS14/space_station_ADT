@@ -1,0 +1,11 @@
+ent-ADTClothingFootNewMekkaBoots = New Mekka boots
+    .desc = Comfortable for bullies!
+    .suffix = New Mekka
+ent-ADTClothingFootMimicry = mimicry boot
+    .desc = { ent-ClothingShoesBaseButcherable.desc }
+ent-ADTClothingShoesBootsCombatTimePatrol = { ent-ClothingShoesBootsCombat }
+    .desc = { ent-ClothingShoesBootsCombat.desc }
+ent-ADTClothingShoesHighboots = Highboots
+    .desc = a pair of highboot to walk on blood puddles
+ent-ADTClothingShoesBootsSollux = Highboots
+    .desc = a pair of highboot to walk on blood puddles

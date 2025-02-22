@@ -1,14 +1,12 @@
 ent-ADTMechClarke = Кларк
-    .desc =  Быстроходный мех для космических пушешествий и планетарных экспедиций.
+    .desc = Быстроходный мех для космических пушешествий и планетарных экспедиций.
 ent-ADTMechClarkeBattery = { ent-ADTMechClarke }
     .suffix = Батарея
     .desc = { ent-ADTMechClarke.desc }
-
 ent-ADTClarkeCentralElectronics = центральный модуль управления Кларка
     .desc = Центр управления электрооборудованием меха Кларк.
 ent-ADTClarkePeripheralsElectronics = модуль управления периферией Кларка
     .desc = Система управления электрическими периферийными устройствами меха Кларк.
-
 ent-ADTClarkeHarness = каркас Кларка
     .desc = Ядро меха Кларк.
 ent-ADTClarkeLArm = левая рука Кларка

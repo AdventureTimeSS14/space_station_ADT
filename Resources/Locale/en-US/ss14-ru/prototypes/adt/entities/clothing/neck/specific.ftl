@@ -1,0 +1,12 @@
+ent-ADTClothingNeckSecBadge = sec badge
+    .desc = sec badge
+ent-ADTClothingNeckJeton = Jeton
+    .desc = { ent-ClothingNeckBase.desc }
+ent-ADTClothingNeckPatchTSF = TSF patch
+    .desc = TSF patch
+ent-ADTClothingNeckSecBadgeBronze = bronze sec badge
+    .desc = bronze sec badge
+ent-ADTClothingNeckSecBadgeSilver = silver sec badge
+    .desc = silver sec badge
+ent-ADTClothingNeckSecBadgeGold = gold sec badge
+    .desc = gold sec badge

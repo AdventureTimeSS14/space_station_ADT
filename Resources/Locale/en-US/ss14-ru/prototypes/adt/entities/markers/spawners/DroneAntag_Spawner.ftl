@@ -1,0 +1,9 @@
+ent-ADTSpawnerDroneAntagMiner = drone miner spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnerDroneAntagEngineer = drone engineer spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnerDroneAntagCharger = drone charger spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTSpawnerDroneAntagIPC = drone soldier spawner
+    .suffix = IPC
+    .desc = { ent-MarkerBase.desc }

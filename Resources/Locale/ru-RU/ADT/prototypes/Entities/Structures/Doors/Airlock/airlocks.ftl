@@ -1,6 +1,5 @@
 ent-ADTSpaceSecAirlock = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
-
 ent-ADTBathroom = шлюз
     .suffix = Уборная
     .desc = Он открывается, он закрывается, и он может вас раздавить.
@@ -51,7 +50,6 @@ ent-ADTMorgueAirlock = шлюз
 
 ent-ADTSpaceSecGlassAirlock = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
-
 ent-ADTGlassCaptainAirlock = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Капитан

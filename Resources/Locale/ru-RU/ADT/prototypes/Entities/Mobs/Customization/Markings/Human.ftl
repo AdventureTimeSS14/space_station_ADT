@@ -4,12 +4,10 @@ marking-HumanPiercingNavel = Пупок
 marking-HumanPiercingNippleL = Левый сосок
 marking-HumanPiercingNippleR = Правый сосок
 marking-HumanPiercingNipple = Сосок
-
 marking-ADTFoxTail = Лисий хвост
 marking-ADTMilkyTail = Шипастый хвост, Человек
 marking-ADTMilkyEars = Удлинённые уши, Человек
 marking-ADTMilkyHorns = Рога, Человек
-
 # Аргументации
 marking-AugmentsRoboticArmRight-r_roboarm = Аугментация, правая рука (Робот)
 marking-AugmentsRoboticArmRight = Аугментация, правая рука (Робот)

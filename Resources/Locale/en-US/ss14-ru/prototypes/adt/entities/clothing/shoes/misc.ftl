@@ -1,0 +1,17 @@
+ent-ADTClothingFootLightShoes = light shoes
+    .desc = Elegant shoes on a high heels. Made by company "Modeling Agency Dar-Vaxed".
+ent-ADTClothingFootWhiteSandals = white sandals
+    .desc = White sandals.
+ent-ADTClothingFootBlackBoots = black boots
+    .desc = Comfortable for bullies!
+ent-ADTClothingSandals = Sandals
+    .desc = pair of sandals
+ent-ADTClownNightmareShoes = clown nightmare shoes
+    .desc = No way.
+    .suffix = Halloween
+ent-ADTGreyClownPsyhoShoes = grey clown psyho shoes
+    .desc = grey clown psyho shoes
+    .suffix = Halloween
+ent-ADTEmpressOfLightShoes = empress of light shoes
+    .desc = empress of light shoes
+    .suffix = Halloween

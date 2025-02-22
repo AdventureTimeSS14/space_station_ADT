@@ -1,0 +1,17 @@
+ent-ADTCrateWedding = wedding crate
+    .desc = Contains a set of wedding dresses and bouquets for the bride!
+ent-ADTCrateFunOktoberfestClothes = oktoberfest clothing crate
+    .desc = oktoberfest clothing crate
+    .suffix = Oktoberfest
+ent-ADTCrateFunATV = ATV crate
+    .desc = Just a quadrocycle
+    .suffix = Oktoberfest
+ent-ADTCrateFunSyndicateSegway = syndicate segway crate
+    .desc = Just a quadrocycle
+    .suffix = Oktoberfest
+ent-ADTCrateHalloweenCloth = halloween clothing crate
+    .desc = halloween clothing crate
+    .suffix = Halloween
+ent-ADTCrateFunSprayPaints = spray paint crate
+    .desc = a crate filled with spray paint.
+    .suffix = Spray Paint

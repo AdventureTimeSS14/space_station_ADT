@@ -5,7 +5,6 @@ research-technology-mech-clarke = Кларк
 research-technology-mech-durand = Дюранд
 research-technology-mech-phazon = Фазон
 research-technology-mech-ripleymk2 = Рипли MKII
-
 research-technology-mech-carrier = Навесные переноски
 research-technology-mech-syringegun = Навесные шприцеметы
 research-technology-mech-sleeper = Навесные слиперы

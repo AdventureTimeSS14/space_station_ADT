@@ -1,0 +1,14 @@
+ent-MobForgottenGodBase = The Forgotten God
+    .desc = Your mind begins to bubble and ooze as it tries to comprehend what it sees.
+ent-MobForgottenGodSpawn = { ent-MobForgottenGodBase }
+    .suffix = ДАЖЕ НЕ ТРОГАТЬ, Спавн
+    .desc = { ent-MobForgottenGodBase.desc }
+ent-MobForgottenGod = { ent-MobForgottenGodBase }
+    .suffix = ДАЖЕ НЕ ТРОГАТЬ
+    .desc = { ent-MobForgottenGodBase.desc }
+ent-MobForgottenGodSpawnAnnounce = { ent-MobForgottenGodBase }
+    .suffix = ДАЖЕ НЕ ТРОГАТЬ, Спавн с объявлением
+    .desc = { ent-MobForgottenGodBase.desc }
+ent-MobForgottenGodAnnounce = { ent-MobForgottenGodBase }
+    .suffix = ДАЖЕ НЕ ТРОГАТЬ, Объявление
+    .desc = { ent-MobForgottenGodBase.desc }

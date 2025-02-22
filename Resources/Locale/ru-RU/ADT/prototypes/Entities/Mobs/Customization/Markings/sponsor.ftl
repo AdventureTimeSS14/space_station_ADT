@@ -22,7 +22,6 @@ marking-ADTAlltelehorn = Телерог
 marking-ADTAllvampirehorn = Рога Вампира
 marking-ADTSharkTail = Акулий хвост
 marking-ADTSharkFin = Акулий плавник
-
 marking-ADTAllAyanami = Аянами
 marking-ADTAllBubbleGum = Принцесса Буббль Гум
 marking-ADTAllCloud = Облако

@@ -1,0 +1,11 @@
+ent-ADTBriefcaseCentcomm = Centcomm briefcase
+    .suffix = Filled
+    .desc = { ent-BriefcaseBrown.desc }
+ent-ADTBriefcaseBrownPyotr = Pyotr`s briefcase
+    .suffix = Filled
+    .desc = { ent-BriefcaseBrown.desc }
+ent-ADTBriefcaseMedicalFilled = box of medical treatment
+    .desc = A plastic a box with bottles with medicaments.
+ent-ADTBriefcaseBrownHikingCmoFilled = Chief medical officer's hiking briefcase
+    .suffix = Filled
+    .desc = { ent-BriefcaseBrown.desc }

@@ -2,7 +2,6 @@
 chat-emote-name-synth-yes = утвердительно пискнуть
 chat-emote-name-synth-no = отрицательно пискнуть
 chat-emote-name-sigh-buzz = раздражённо жужжать
-
 chat-emote-name-workout = качаться
 chat-emote-name-laugh-apathy = выдавить из себя смех
 chat-emote-name-scream-apathy = наигранно закричать
@@ -16,5 +15,4 @@ chat-emote-name-heck = захекать
 chat-emote-name-whine = поскулить
 chat-emote-name-bark = залаять
 chat-emote-name-spit = плюнуть
-
 chat-emote-msg-spit = плюёт

@@ -1,0 +1,15 @@
+ent-LedLightTubeGreen = led light tube
+    .desc = A high power high energy bulb.
+    .suffix = green
+ent-LedLightTubeRed = led light tube
+    .desc = A high power high energy bulb.
+    .suffix = red
+ent-LedLightTubeBlue = led light tube
+    .desc = A high power high energy bulb.
+    .suffix = blue
+ent-LedLightTubeYellow = led light tube
+    .desc = A high power high energy bulb.
+    .suffix = yellow
+ent-LedLightTubeViolet = led light tube
+    .desc = A high power high energy bulb.
+    .suffix = violet

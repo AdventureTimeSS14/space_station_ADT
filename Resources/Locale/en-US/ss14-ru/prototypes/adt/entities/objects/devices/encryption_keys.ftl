@@ -1,0 +1,11 @@
+ent-ADTEncryptionKeyLawyer = law department encryption key
+    .desc = The encryption key used by the most hated person (after the clown).
+ent-ADTEncryptionKeySpaceSec = space security encryption key
+    .desc = An encryption key used by space security.
+ent-ADTEncryptionKeyDroneAntag = drone encryption key
+    .desc = An encryption key used by drones.
+ent-ADTEncryptionKeyTSF = TSF encryption key
+    .desc = An encryption key used by TSF.
+    .suffix = TSF
+ent-ADTEncryptionKeyTrader = trader encryption key
+    .desc = An encryption key used by trader.

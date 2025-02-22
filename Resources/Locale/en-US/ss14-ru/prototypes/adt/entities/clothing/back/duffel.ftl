@@ -1,0 +1,11 @@
+ent-ADTClothingBackpackDuffelBlueshield = blueshield duffel bag
+    .desc = A large duffel bag to hold medical and security equipment.
+ent-ADTClothingBackpackDuffelDurathead = Durathead Duffel bag
+    .desc = A large duffel bag for holding extra tools and supplies.
+ent-ADTClothingBackpackDuffelPathologist = { ent-ClothingBackpackDuffelMedical }
+    .desc = { ent-ClothingBackpackDuffelMedical.desc }
+ent-ADTClothingBackpackDuffelParamedic = parsmedical duffel bag
+    .desc = A large duffel bag to hold paramedical equipment
+ent-ADTClothingBackpackDuffelParamedicFilled = parsmedical duffel bag
+    .desc = A large duffel bag to hold paramedical equipment
+    .suffix = Paramedic,Filled

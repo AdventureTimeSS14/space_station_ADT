@@ -1,0 +1,14 @@
+ent-ADTShipBattleBullet30mm = bullet (30 mm AP)
+    .desc = { ent-BaseBullet.desc }
+ent-ADTShipBattleBullet100mmHE = 100 mm HE
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-ADTShipBattleBullet100mmEMP = 100 mm EMP
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-ADTShipBattleBullet100mmAP = 100 mm AP
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-ADTShipBattleBullet155mmHE = 155 mm HE
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-ADTShipBattleBullet155mmEMP = 155 mm EMP
+    .desc = { ent-BaseBulletTrigger.desc }
+ent-ADTShipBattleBullet155mmAP = 155 mm AP
+    .desc = { ent-BaseBulletTrigger.desc }

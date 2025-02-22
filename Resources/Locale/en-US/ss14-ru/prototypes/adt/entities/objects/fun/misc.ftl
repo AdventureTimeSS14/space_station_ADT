@@ -1,0 +1,10 @@
+ent-ADTHalloweenBroom = witch broom
+    .desc = time to fly
+    .suffix = Halloween
+ent-ADTSnowball = Snowball
+    .desc = yeayea. Snow? Balls! I love balls!!
+    .suffix = New Year
+ent-ADTSlimeHappines = Slime Happines
+    .desc = Slimyy..
+ent-ADTNewYearKatalka = New Year gurney
+    .desc = Yea.

@@ -6,100 +6,73 @@ ent-ADTClothingUniformJumpskirtBlueshield = юбка и костюм офице�
     .desc = Юбка и белая рубашка с погонами Офицера "Синего Щита", уже очень скоро она будет окроплена кроваво-алой кровью врагов НТ, перепутавших его с охранником продуктового магазина 21-го века.
 ent-ADTClothingUniformJumpskirtTurtleneckBlueshield = юбка-водолазка офицера синего щита
     .desc = Белая удобная водолазка с юбкой для Офицера "Синего Щита" с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
-
-
-
 ent-ADTClothingUniformJumpskirtTurtleneckBlack = чёрная водолазка с юбкой
     .desc = Любимая одежда книжного червя.
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckBlue = синяя водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckBlue.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckAzure = голубая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckAzure.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckGreen = зелёная водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckGreen.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckOrange = оранжевая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckOrange.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckPurple = фиолетовая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckPurple.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckRed = красная водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckRed.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckYellow = жёлтая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckYellow.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckWhite = белая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckWhite.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckBrown = коричневая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckBrown.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckGrey = серая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckGrey.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckAquamarine = аквамариновая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckAquamarine.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckPink = розовая водолазка с юбкой
     .desc = { ent-ADTClothingUniformTurtleneckPink.desc }
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckBlackSleeveless = чёрная водолазка с юбкой
     .desc = Практичная и удобная водолазка чёрного цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed"..
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless = белая водолазка с юбкой
     .desc = Практичная и удобная водолазка белого цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed"..
     .suffix = { "" }
-
 ent-ADTCEJumpskirtWarm = водолазка старшего инженера
     .desc = Это комбинезон повышенной заметности, который выдается тем инженерам, которые достаточно безумны и живучи, чтобы достичь звания главного инженера. Имеет слабую защиту от радиации.
-    .suffix = {""}
-
+    .suffix = { "" }
 ent-ADTCMOJumpskirtWarm = водолазка главного врача
     .desc = Это комбинезон, носимый теми, у кого есть опыт работы на должности главного врача. Он обеспечивает слабую биологическую защиту.
-    .suffix = {""}
-
+    .suffix = { "" }
 ent-ADTClothingUniformJumpskirtHopWarm = водолазка c юбкой главы персонала
     .desc = Довольно безвкусная и невзрачная. Идеально подходит для того, чтобы исчезнуть с лица Вселенной.
-    .suffix = {""}
-
+    .suffix = { "" }
 ent-ADTQMJumpskirtWarm = водолазка квартирмейстера
     .desc = Строгая водолазка, предназначенная для суровых условий работы в области снабжения.
-    .suffix = {""}
-
+    .suffix = { "" }
 ent-ClothingUniformJumpskirtBlueshieldTurtleneck = юбка-водолазка офицера синего щита
     .desc = Белая удобная водолазка с юбкой для Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
-
 ent-ADTClothingUniformJumpskirtBrigmedicTurtleneck = юбка-водолазка бригмедика
     .desc = Комфортная и тёплая водолазка. Специально для боевого медика.
-
 ent-ADTHOSJumpskirtWarm = { ent-ClothingUniformJumpsuitHoSAlt }
     .desc = { ent-ClothingUniformJumpsuitHoSAlt.desc }
-
 ent-ADTRDJumpskirtWarm = { ent-ClothingUniformJumpsuitResearchDirector }
     .desc = { ent-ClothingUniformJumpsuitResearchDirector.desc }
-
 ent-ADTCapJumpskirtWarm = { ent-ADTCapJumpsuitWarm }
     .desc = { ent-ADTCapJumpsuitWarm.desc }
-
 ent-ADTClothingUniformWhiteShortWeddingDress = бело-золотое короткое свадебное платье
     .desc = Белое платье с золотыми блестками. Для тех кто устал от платьев в пол!
 ent-ADTClothingUniformShortDressBlackGold = черно-золотое короткое свадебное платье
@@ -120,10 +93,8 @@ ent-ADTClothingUniformOrangeBeachSuit = оранжевый пляжный кос
     .desc = Цвет настроения оранжевый. Для любителей апельсинов и хорошего загара.
 ent-ADTClothingJumpskirtHopAlt = деловой костюм с юбкой главы персонала
     .desc = Качетсвенно сделанная униформа для тех глав персонала, что могут себе такую позволить.
-
 ent-ADTClothingUniformJumpskirtJanimaid = костюм горничной
     .desc = Обновленный костюм горничной от НТ.
-
 ent-ADTClothingUniformOktoberfestDirndlShort = дирндль с короткой юбкой
     .desc = Стилизованное под традиционный наряд платье с короткой юбкой.
     .suffix = { "Октоберфест" }
@@ -145,15 +116,12 @@ ent-ADTClothingUniformOktoberfestDirndlGreen = дирндль с зеленой 
 ent-ADTClothingUniformOktoberfestDirndlRed = дирндль с красной юбкой
     .desc = Стилизованное под традиционный наряд платье с красной юбкой.
     .suffix = { "Октоберфест" }
-
 ent-ADTClothingUniformRabbitDress = кроличий купальник
     .desc = А куда здесь крепить КПК?
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpskirtCMOHike = походная юбка-костюм главного врача
     .desc = Рубашка и мешковитая юбка, отлично подходящие для активной работы как вне, так и внутри своего отдела.
     .suffix = { "" }
-
 ent-ADTClothingUniformJumpSkirtRedHat = костюм красной шапочки
     .desc = Самое страшное, что ждёт эту шапочку, что вместо волка за нею придут вульпы
     .suffix = Хеллоуин

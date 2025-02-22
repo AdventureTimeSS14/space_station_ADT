@@ -1,0 +1,9 @@
+ent-ADTMobCarpNukie = Carpcat
+    .desc = This poor carp is homestucked.
+ent-ADTSpawnMobCarpCat = CarpCat Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-ADTMobCarpPirate = Carp pirate
+    .suffix = Пират
+    .desc = { ent-ADTMobCarpNukie.desc }
+ent-ADTSpawnMobCarpPirate = CarpPirate Spawner
+    .desc = { ent-MarkerBase.desc }

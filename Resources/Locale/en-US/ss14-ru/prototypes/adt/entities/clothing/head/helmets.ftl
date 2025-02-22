@@ -1,0 +1,12 @@
+ent-ADTClothingHeadHelmetSoliderIlisium = Helmet
+    .desc = Ilisium
+    .suffix = Ilisium
+ent-ADTClothingHeadHelmetTSF = TSF helmet
+    .desc = Standard security gear. Protects the head from impacts.
+    .suffix = TSF
+ent-ADTClothingHeadUSSPjuggernautHelmetArmored = USSP Armored jugger hard helmet
+    .desc = An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
+ent-ADTClothingHeadHelmetMGDGuard = MG&D guard helmet
+    .desc = MG&D guard helmet
+ent-ADTClothingHeadHelmetMiner = miner hood
+    .desc = Imbued with despair and hopelessness.

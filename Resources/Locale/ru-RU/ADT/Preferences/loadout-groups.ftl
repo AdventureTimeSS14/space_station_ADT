@@ -7,11 +7,11 @@ loadout-group-socks-adt = Носки
 # Command
 ent-MagistratNeck = Галстуки
 ent-MagistratJumpsuit = Костюмы
-
 loadout-group-blueshield-jumpsuit = ОСЩ, комбинезон
 loadout-group-blueshield-head = ОСЩ, голова
 loadout-group-blueshield-neck = ОСЩ, шея
 loadout-group-blueshield-back = ОСЩ, рюкзак
+
 # Civilian
 
 # Cargo
@@ -62,4 +62,6 @@ loadout-group-patholog-backpack = Патологоанатом, рюкзак
 loadout-group-senior-physician-head = Ведущий врач, голова
 loadout-group-senior-physician-jumpsuit = Ведущий врач, комбинезон
 loadout-group-senior-physician-outerclothing = Ведущий врач, верхняя одежда
+
 # Wildcards
+

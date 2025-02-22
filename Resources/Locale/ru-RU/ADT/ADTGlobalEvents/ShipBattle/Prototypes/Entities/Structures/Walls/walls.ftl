@@ -10,7 +10,6 @@ ent-ADTWallHeavyArmorKMT = тяжелая броня КМТ
 ent-ADTWallHeavyArmorTSF = тяжелая броня ТСФ
     .desc = Удерживает воздух внутри, а бойцов КМТ снаружи.
     .suffix = { "Космические бои, ТСФ" }
-
 ent-ADTWallLightArmorKMTDiagonal = легкая броня КМТ
     .desc = Удерживает воздух внутри, а бойцов ТСФ снаружи.
     .suffix = { "Космические бои, КМТ, Диагональная" }

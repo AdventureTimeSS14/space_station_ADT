@@ -1,0 +1,3 @@
+ent-ADTClothingNeckScarfBase = Base scarf
+    .desc = Just base scarf...
+

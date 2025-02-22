@@ -1,9 +1,11 @@
 adt-other-credits-tab = Другие
 
 ### Esc меню
+
 ui-escape-website = Boosty
 
 ### Окно очереди
+
 queue-title = В очереди
 queue-quit = Выйти
 queue-position = Ваша позиция:

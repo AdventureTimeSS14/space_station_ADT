@@ -1,0 +1,6 @@
+ent-ADTClothingNeckScarfBase = Base scarf
+    .desc = Just base scarf...
+ent-ADTClothingNeckScarfUnrobust = unrobust scarf
+    .desc = A scarf confirming that its wearer is worthy of the title of the chief unrobust in the galaxy, who has not won a single battle. The scarf is a stigma that its wearer will always be doomed to failure and ridicule from others. However, he will wear it with pride and dignity, ready for the next failure.
+ent-ADTClothingNeckScarfWindy = a windy scarf
+    .desc = It's don't seem to be a wind here...

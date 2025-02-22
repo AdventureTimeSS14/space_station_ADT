@@ -1,4 +1,5 @@
 ## Кнопки работы с модулями
+
 ui-options-header-rmc = Оружейные модули
 ui-options-function-rmc-activate-attachable-barrel = Активировать модуль ствола
 ui-options-function-rmc-activate-attachable-rail = Активировать модуль верхней планки

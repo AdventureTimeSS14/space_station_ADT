@@ -17,5 +17,5 @@ ent-ADTClothingHandsGlovesRed = красные перчатки
     .desc = Тёплые красные перчатки.
     .suffix = { "Новый Год" }
 ent-ADTClothingHandsGlovesRed2 = { ent-ADTClothingHandsGlovesRed }
-    .desc = { ent-ADTClothingHandsGlovesRed.desc}
+    .desc = { ent-ADTClothingHandsGlovesRed.desc }
     .suffix = { "Новый Год" }

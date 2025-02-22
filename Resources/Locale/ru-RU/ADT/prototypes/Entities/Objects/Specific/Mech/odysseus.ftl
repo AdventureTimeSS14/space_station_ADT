@@ -1,14 +1,12 @@
 ent-ADTMechOdysseus = Одиссей
-    .desc =  Если постараться, то с этим мехом можно спасти бесчисленное количество жизней. Или отнять.
+    .desc = Если постараться, то с этим мехом можно спасти бесчисленное количество жизней. Или отнять.
 ent-ADTMechOdysseusBattery = { ent-ADTMechOdysseus }
     .suffix = Батарея
     .desc = { ent-ADTMechOdysseus.desc }
-
 ent-ADTOdysseusCentralElectronics = центральный модуль управления Одиссея
     .desc = Центр управления электрооборудованием меха Одиссей.
 ent-ADTOdysseusPeripheralsElectronics = модуль управления периферией Одиссея
     .desc = Система управления электрическими периферийными устройствами меха Одиссей.
-
 ent-ADTOdysseusHarness = каркас Одиссея
     .desc = Ядро меха Одиссей.
 ent-ADTOdysseusLArm = левая рука Одиссея

@@ -6,21 +6,18 @@ ent-ADTPoweredShuttleLightEmpty = фара шаттла
     .suffix = Пустой
 ent-ADTPoweredShuttleLight = { ent-ADTPoweredShuttleLightEmpty }
     .desc = Осветительный прибор. Потребляет энергию и излучает свет, если оснащён лампой-трубкой.
-
 ent-ADTAlwaysPoweredShuttleLightLED = { ent-ADTAlwaysPoweredShuttleLight }
     .suffix = Всегда запитанный, LED, Светодиод
     .desc = { ent-ADTAlwaysPoweredShuttleLight.desc }
 ent-ADTPoweredShuttleLightLED = { ent-ADTPoweredShuttleLight }
     .desc = Осветительный прибор. Потребляет энергию и излучает свет, если оснащён лампой-трубкой.
     .suffix = LED, Светодиод
-
 ent-ADTAlwaysPoweredShuttleLightSodium = { ent-ADTAlwaysPoweredShuttleLight }
     .suffix = Всегда запитанный, Натриевый
     .desc = { ent-ADTAlwaysPoweredShuttleLight.desc }
 ent-ADTPoweredShuttleLightSodium = { ent-ADTPoweredShuttleLight }
     .desc = Осветительный прибор. Потребляет энергию и излучает свет, если оснащён лампой-трубкой.
     .suffix = Натриевый
-
 ent-ADTPoweredShuttleLightCyan = { ent-ADTPoweredShuttleLight }
     .suffix = Голубой
     .desc = { ent-ADTPoweredShuttleLight.desc }

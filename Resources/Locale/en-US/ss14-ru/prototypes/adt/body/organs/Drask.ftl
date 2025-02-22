@@ -1,0 +1,15 @@
+ent-OrganDraskEyes = eyes
+    .desc = I see you!
+    .suffix = drask
+ent-OrganDraskLungs = lungs
+    .desc = Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier.
+    .suffix = drask
+ent-OrganDraskHeart = heart
+    .desc = I feel bad for the heartless bastard who lost this.
+    .suffix = drask
+ent-OrganDraskInnards = innards
+    .desc = Ew innards.
+    .suffix = drask
+ent-OrganDraskKidneys = kidneys
+    .suffix = drask
+    .desc = { ent-BaseHumanOrgan.desc }

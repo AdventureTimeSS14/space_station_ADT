@@ -1,0 +1,9 @@
+ent-ADTCrateChristmasTree = crate of christmas tree
+    .desc = crate of christmas tree
+    .suffix = New Year
+ent-ADTCrateChocolateGorilla = crate of milki gorilla
+    .desc = crate of milki gorilla
+    .suffix = New Year
+ent-ADTClothingBackpackDuffelChristmasToys = bag of christmas toys
+    .desc = bag of christmas toys
+    .suffix = New Year

@@ -1,0 +1,11 @@
+ent-ADTClothingBackpackSatchelBlueshield = blueshield satchel
+    .desc = A satchel to hold medical and security equipment
+ent-ADTClothingBackpackSatchelPathologist = { ent-ClothingBackpackSatchelMedical }
+    .desc = { ent-ClothingBackpackSatchelMedical.desc }
+ent-ADTClothingCentComSatchel = centcom satchel
+    .desc = Green satchel. He smells fresh
+ent-ADTClothingBackpackSatchelParamedic = paramedical satchel
+    .desc = A satchel to store some paramedical equipment.
+ent-ADTClothingBackpackSatchelParamedicFilled = paramedical satchel
+    .desc = A satchel to store some paramedical equipment.
+    .suffix = Paramedic,Filled

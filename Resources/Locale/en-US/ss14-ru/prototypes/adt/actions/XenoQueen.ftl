@@ -1,0 +1,16 @@
+ent-ActionXenoQueenTurret = Create Xeno turret
+    .desc = Create an xeno turret in front of you, if placeable there.
+ent-ActionSpawnMobXenoQueen = Spawn Queen
+    .desc = New offspring!
+ent-ActionSpawnMobXenoBurrower = Spawn Burrower
+    .desc = Standard xeno
+ent-ActionSpawnMobXenoSpitter = Spawn Spitter
+    .desc = Give birth to Spitter who will spit!
+ent-ActionSpawnMobXenoPraetorian = Spawn Praetorian
+    .desc = Give birth to a Praetorian who will fight for you!
+ent-ActionSpawnMobXenoDrone = Just a Drone. Who needs it?
+    .desc = Give birth to a worker, Drone.
+ent-ActionSpawnMobXenoRavager = Spawn Ravager
+    .desc = Give birth to death in the flesh!
+ent-ActionSpawnMobXenoRunner = Spawn Runner
+    .desc = Give birth to the fastest larva!

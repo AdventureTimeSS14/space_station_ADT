@@ -1,0 +1,10 @@
+ent-ADTWeaponArcMantisSlash = { ent-WeaponArcStatic }
+    .desc = { ent-WeaponArcStatic.desc }
+ent-ADTWeaponArcShockSlash = { ent-WeaponArcStatic }
+    .desc = { ent-WeaponArcStatic.desc }
+ent-ADTWeaponArcShockFist = { ent-WeaponArcStatic }
+    .desc = { ent-WeaponArcStatic.desc }
+ent-ADTWeaponArcRedCrash = { ent-WeaponArcStatic }
+    .desc = { ent-WeaponArcStatic.desc }
+ent-ADTWeaponArcMantisHit = { ent-WeaponArcStatic }
+    .desc = { ent-WeaponArcStatic.desc }

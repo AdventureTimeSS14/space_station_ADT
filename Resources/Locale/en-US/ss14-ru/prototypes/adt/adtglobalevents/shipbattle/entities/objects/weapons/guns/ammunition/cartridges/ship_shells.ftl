@@ -1,0 +1,14 @@
+ent-ADTShipBattleCartridge30mm = cartridge (30 mm)
+    .desc = { ent-BaseCartridge.desc }
+ent-ADTShipBattle100mmHEShell = 100 HE Shell
+    .desc = { ent-BaseItem.desc }
+ent-ADTShipBattle100mmEMPShell = 100 EMP Shell
+    .desc = { ent-ADTShipBattle100mmHEShell.desc }
+ent-ADTShipBattle100mmAPShell = 100 AP Shell
+    .desc = { ent-ADTShipBattle100mmHEShell.desc }
+ent-ADTShipBattle155mmHEShell = 155 HE Shell
+    .desc = { ent-ADTShipBattle100mmHEShell.desc }
+ent-ADTShipBattle155mmEMPShell = 155 EMP Shell
+    .desc = { ent-ADTShipBattle155mmHEShell.desc }
+ent-ADTShipBattle155mmAPShell = 155 AP Shell
+    .desc = { ent-ADTShipBattle155mmHEShell.desc }

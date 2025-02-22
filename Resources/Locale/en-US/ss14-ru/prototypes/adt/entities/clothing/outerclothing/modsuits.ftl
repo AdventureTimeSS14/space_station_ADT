@@ -1,0 +1,16 @@
+ent-ADTClothingOuterModsuitBodyBase = base MOD chestplate
+    .desc = A chestplate for a MODsuit.
+ent-ADTClothingOuterModsuitBodyAtmos = atmos MOD chestplate
+    .desc = A chestplate for a MODsuit.
+ent-ADTClothingOuterModsuitBodyClown = clown MOD chestplate
+    .desc = A chestplate for a MODsuit.
+ent-ADTClothingOuterModsuitBodyEngineering = engineering MOD chestplate
+    .desc = A chestplate for a MODsuit.
+ent-ADTClothingOuterModsuitBodyMedical = medical MOD chestplate
+    .desc = A chestplate for a MODsuit.
+ent-ADTClothingOuterModsuitBodyMining = mining MOD chestplate
+    .desc = A chestplate for a MODsuit.
+ent-ADTClothingOuterModsuitBodySecurity = security MOD chestplate
+    .desc = A chestplate for a MODsuit.
+ent-ADTClothingOuterModsuitBodyScience = Science MOD chestplate
+    .desc = A chestplate for a MODsuit.

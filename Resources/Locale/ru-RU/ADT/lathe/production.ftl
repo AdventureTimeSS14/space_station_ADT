@@ -2,16 +2,12 @@ ent-ADTSecurityTechFabCircuitboard = охранный ТехФаб (машинн
     .desc = Печатная плата охранного ТехФаба.
 ent-ADTCircuitImprinterMachineCircuitboard = принтер схем (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
-
 ent-ADTCircuitImprinter = принтер схем
     .desc = Печатает платы для машин.
 ent-ADTSecurityTechFab = охранный ТехФаб
     .desc = Печатает снаряжение для службы безопасности и некоторые базовые вещи.
-
-
 ent-ADTCrateMechFabricator = ящик платы фабрикатора мехов
     .desc = Защищенный ящик с платой для фабрикатора мехов.
-
 ent-ADTCrateMechWeaponSecure = защищенный ящик оружия мехов
     .desc = Особо крепкий ящик под вооружение меха. Для открытия нужен доступ арсенала.
 ent-ADTMechGunImmolatorLaserCrate = мех-лазер CH-PS "Испепелитель"

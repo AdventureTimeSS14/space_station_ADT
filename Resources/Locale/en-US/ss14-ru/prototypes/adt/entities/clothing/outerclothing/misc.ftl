@@ -1,0 +1,11 @@
+ent-ADTClothingOuterApronPathologist = pathologist's apron
+    .desc = An apron used by pathologists.
+ent-ADTClothingOuterRedCardigan = red cardigan
+    .desc = red cardigan
+    .suffix = Valentine Day
+ent-ADTClothingOuterBlackCardigan = black cardigan
+    .desc = black cardigan
+    .suffix = Valentine Day
+ent-ADTClothingOuterCupidonWings = cupidon wings
+    .desc = cupidon wings
+    .suffix = Valentine Day

@@ -1,0 +1,16 @@
+ent-ADTClothingModsuitShoesBase = base MOD boots
+    .desc = A pair of boots for a MODsuit.
+ent-ADTClothingModsuitShoesAtmos = atmos MOD boots
+    .desc = A pair of boots for a MODsuit.
+ent-ADTClothingModsuitShoesClown = clown MOD boots
+    .desc = A pair of boots for a MODsuit.
+ent-ADTClothingModsuitShoesEngineering = engineering MOD boots
+    .desc = A pair of boots for a MODsuit.
+ent-ADTClothingModsuitShoesMedical = medical MOD boots
+    .desc = A pair of boots for a MODsuit.
+ent-ADTClothingModsuitShoesMining = mining MOD boots
+    .desc = A pair of boots for a MODsuit.
+ent-ADTClothingModsuitShoesSecurity = security MOD boots
+    .desc = A pair of boots for a MODsuit.
+ent-ADTClothingModsuitShoesScience = Science MOD boots
+    .desc = A pair of boots for a MODsuit.

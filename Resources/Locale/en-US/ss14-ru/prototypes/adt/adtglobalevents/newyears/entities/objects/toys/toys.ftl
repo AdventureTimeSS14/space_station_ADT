@@ -1,0 +1,9 @@
+ent-toyC4Package = Suspicious gift
+    .desc = A gift of suspicious appearance. A barely audible beeping sound comes from it.
+    .suffix = New Year
+ent-toyC4 = toy c4
+    .desc = A toy that will help you EXPLODE with laughter.
+    .suffix = Новый год
+ent-coal = coal
+    .desc = For the naughtiest ones.
+    .suffix = New Year

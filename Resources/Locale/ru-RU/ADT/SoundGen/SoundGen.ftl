@@ -2,7 +2,6 @@ ent-ADTSoundGenBase = Звукогенератор
     .desc = Вау! Звукогенератор!
 ent-ADTSoundGenBaseAmbient = Эмбиент звукогенератор
     .desc = Вау! Эмбиент звукогенератор!
-
 ent-ADTSoundGenDestruction1 = Разрушение 1
     .desc = { ent-ADTSoundGenBase.desc }
     .suffix = Звукогенератор
@@ -24,7 +23,6 @@ ent-ADTSoundGenSuddenChord = Аккорд
 ent-ADTSoundGenReverseDissolveScary = Реверс
     .desc = { ent-ADTSoundGenBase.desc }
     .suffix = Звукогенератор
-
 ent-ADTSoundGenDraskScream = Крик драска
     .desc = { ent-ADTSoundGenBase.desc }
     .suffix = Звукогенератор
@@ -100,7 +98,6 @@ ent-ADTSoundGenRadioStaticAmbient = Радио
 ent-ADTSoundGenGhostSingAmbient = Призрачное пение
     .desc = { ent-ADTSoundGenBase.desc }
     .suffix = Ambient, Звукогенератор
-
 ent-ADTSoundGenMovingObjects = Двигающиеся камни
     .desc = { ent-ADTSoundGenBaseAmbient.desc }
     .suffix = Ambient, Звукогенератор
@@ -116,7 +113,6 @@ ent-ADTSoundGenShortScaryAmbient = Нагнетение
 ent-ADTSoundGenDungeonAmbientScary = Шахта
     .desc = { ent-ADTSoundGenBaseAmbient.desc }
     .suffix = Ambient, Звукогенератор
-
 ent-ADTSoundGenDestruction1Timed = Разрушение 1
     .desc = { ent-ADTSoundGenBaseAmbient.desc }
     .suffix = Периодический, Звукогенератор

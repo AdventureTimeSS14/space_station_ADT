@@ -1,0 +1,9 @@
+ent-ADTSpawnPointPirate = pirate spawn point
+    .suffix = pirate
+    .desc = { ent-BaseAntagSpawner.desc }
+ent-ADTSpawnPointLostCaptainPirate = pirate capitan spawn point
+    .suffix = pirate
+    .desc = { ent-BaseAntagSpawner.desc }
+ent-ADTSpawnPointLostFirstmate = pirate firstmate spawn point
+    .suffix = pirate
+    .desc = { ent-BaseAntagSpawner.desc }

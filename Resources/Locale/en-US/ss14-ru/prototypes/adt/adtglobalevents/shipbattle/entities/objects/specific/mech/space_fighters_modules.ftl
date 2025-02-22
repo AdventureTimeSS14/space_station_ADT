@@ -1,0 +1,12 @@
+ent-ADTMechGunGAU32A = GAU-32A
+    .desc = GAU-32A
+ent-ADTMechGunDS30A = DS-30A
+    .desc = DS-30A
+ent-ADTMechGunSRM9 = SRM-9 Missile Rack
+    .desc = SRM-9 Missile Rack
+ent-ADTMechEquipmentTroopCapsule = troop capsule
+    .desc = You are my friend now :3
+ent-ADTBoxAmmoSpaceFighterGAU32 = ammo box GAU32
+    .desc = { ent-BaseItem.desc }
+ent-ADTBoxAmmoSpaceFighterDS30 = ammo box DS30
+    .desc = { ent-BaseItem.desc }

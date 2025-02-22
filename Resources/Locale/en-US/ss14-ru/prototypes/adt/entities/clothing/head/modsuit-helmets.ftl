@@ -1,0 +1,16 @@
+ent-ADTClothingHeadHelmetModsuitBase = base MOD helmet
+    .desc = A helmet for a MODsuit.
+ent-ADTClothingHeadHelmetModsuitAtmos = atmos MOD helmet
+    .desc = A helmet for a MODsuit.
+ent-ADTClothingHeadHelmetModsuitClown = clown MOD helmet
+    .desc = A helmet for a MODsuit.
+ent-ADTClothingHeadHelmetModsuitEngineering = engineering MOD helmet
+    .desc = A helmet for a MODsuit.
+ent-ADTClothingHeadHelmetModsuitMedical = medical MOD helmet
+    .desc = A helmet for a MODsuit.
+ent-ADTClothingHeadHelmetModsuitMining = mining MOD helmet
+    .desc = A helmet for a MODsuit.
+ent-ADTClothingHeadHelmetModsuitSecurity = security MOD helmet
+    .desc = A helmet for a MODsuit.
+ent-ADTClothingHeadHelmetModsuitScience = Science MOD helmet
+    .desc = A helmet for a MODsuit.
