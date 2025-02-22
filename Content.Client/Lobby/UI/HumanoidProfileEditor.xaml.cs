@@ -4,6 +4,7 @@ using System.Numerics;
 using Content.Client.ADT.Lobby.UI;
 using Content.Client.Corvax.Sponsors;
 using Content.Client.Guidebook;
+using System.Reflection;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -11,6 +12,7 @@ using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
+using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.ADT.CCVar;
 using Content.Client.Corvax.Sponsors;
@@ -22,6 +24,7 @@ using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Mobs;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
@@ -37,6 +40,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 
@@ -56,13 +60,14 @@ namespace Content.Client.Lobby.UI
         private readonly MarkingManager _markingManager;
         private readonly JobRequirementsManager _requirements;
         private readonly LobbyUIController _controller;
+        private readonly IDynamicTypeFactory _factory;
         [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
 
         // One at a time.
-        private LoadoutWindow? _loadoutWindow;
+        private BaseLoadoutWindow? _loadoutWindow;
 
         private bool _exporting;
         private bool _imaging;
@@ -90,7 +95,17 @@ namespace Content.Client.Lobby.UI
         /// <summary>
         /// The work in progress profile being edited.
         /// </summary>
-        public HumanoidCharacterProfile? Profile;
+        public HumanoidCharacterProfile? Profile
+        {
+            get => _profile;
+            set
+            {
+                Logger.Debug($"{value?.SAIData.Screen}");
+                _profile = value;
+            }
+        }
+
+        private HumanoidCharacterProfile? _profile;
 
         private List<SpeciesPrototype> _species = new();
 
@@ -125,7 +140,8 @@ namespace Content.Client.Lobby.UI
             IPrototypeManager prototypeManager,
             IResourceManager resManager,
             JobRequirementsManager requirements,
-            MarkingManager markings)
+            MarkingManager markings,
+            IDynamicTypeFactory factory)
         {
             RobustXamlLoader.Load(this);
             _sawmill = logManager.GetSawmill("profile.editor");
@@ -138,6 +154,7 @@ namespace Content.Client.Lobby.UI
             _preferencesManager = preferencesManager;
             _resManager = resManager;
             _requirements = requirements;
+            _factory = factory;
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
 
             ImportButton.OnPressed += args =>
@@ -1103,30 +1120,40 @@ namespace Content.Client.Lobby.UI
                     var collection = IoCManager.Instance!;
                     var protoManager = collection.Resolve<IPrototypeManager>();
 
-                    // If no loadout found then disabled button
-                    if (!protoManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto))
+                    if (job.LoadoutButtonText != null)
+                        loadoutWindowBtn.Text = Loc.GetString(job.LoadoutButtonText);
+
+                    if (job.LoadoutOverride != null)
                     {
-                        loadoutWindowBtn.Disabled = true;
+                        loadoutWindowBtn.OnPressed += args => OpenLoadoutOverride(job, job.LoadoutOverride);
                     }
-                    // else
                     else
                     {
-                        loadoutWindowBtn.OnPressed += args =>
+                        // If no loadout found then disabled button
+                        if (!protoManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto))
                         {
-                            RoleLoadout? loadout = null;
-
-                            // Clone so we don't modify the underlying loadout.
-                            Profile?.Loadouts.TryGetValue(LoadoutSystem.GetJobPrototype(job.ID), out loadout);
-                            loadout = loadout?.Clone();
-
-                            if (loadout == null)
+                            loadoutWindowBtn.Disabled = true;
+                        }
+                        // else
+                        else
+                        {
+                            loadoutWindowBtn.OnPressed += args =>
                             {
-                                loadout = new RoleLoadout(roleLoadoutProto.ID);
-                                loadout.SetDefault(Profile, _playerManager.LocalSession, _prototypeManager);
-                            }
+                                RoleLoadout? loadout = null;
 
-                            OpenLoadout(job, loadout, roleLoadoutProto);
-                        };
+                                // Clone so we don't modify the underlying loadout.
+                                Profile?.Loadouts.TryGetValue(LoadoutSystem.GetJobPrototype(job.ID), out loadout);
+                                loadout = loadout?.Clone();
+
+                                if (loadout == null)
+                                {
+                                    loadout = new RoleLoadout(roleLoadoutProto.ID);
+                                    loadout.SetDefault(Profile, _playerManager.LocalSession, _prototypeManager);
+                                }
+
+                                OpenLoadout(job, loadout, roleLoadoutProto);
+                            };
+                        }
                     }
 
                     _jobPriorities.Add((job.ID, selector));
@@ -1156,32 +1183,70 @@ namespace Content.Client.Lobby.UI
                 Title = jobProto?.ID + "-loadout",
             };
 
+            if (_loadoutWindow is not LoadoutWindow window)
+                return;
+
             // Refresh the buttons etc.
-            _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+            window.RefreshLoadouts(roleLoadout, session, collection);
             _loadoutWindow.OpenCenteredLeft();
 
-            _loadoutWindow.OnNameChanged += name =>
+            window.OnNameChanged += name =>
             {
                 roleLoadout.EntityName = name;
                 Profile = Profile.WithLoadout(roleLoadout);
                 SetDirty();
             };
 
-            _loadoutWindow.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
+            window.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
             {
                 roleLoadout.AddLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+                window.RefreshLoadouts(roleLoadout, session, collection);
                 Profile = Profile?.WithLoadout(roleLoadout);
                 ReloadPreview();
             };
 
-            _loadoutWindow.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>
+            window.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>
             {
                 roleLoadout.RemoveLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+                window.RefreshLoadouts(roleLoadout, session, collection);
                 Profile = Profile?.WithLoadout(roleLoadout);
                 ReloadPreview();
             };
+
+            JobOverride = jobProto;
+            ReloadPreview();
+
+            _loadoutWindow.OnClose += () =>
+            {
+                JobOverride = null;
+                ReloadPreview();
+            };
+
+            if (Profile is null)
+                return;
+
+            UpdateJobPriorities();
+        }
+
+        private void OpenLoadoutOverride(JobPrototype? jobProto, string windowName)
+        {
+            _loadoutWindow?.Dispose();
+            _loadoutWindow = null;
+
+            _loadoutWindow = _factory.CreateInstance(Type.GetType($"Content.Client.Lobby.UI.Loadouts.{windowName}")!) as BaseLoadoutWindow;
+            if (_loadoutWindow is not ILoadoutOverride loadoutWindow)
+                return;
+
+            _loadoutWindow.Title = jobProto?.ID + "-loadout";
+            loadoutWindow.Refresh(_prototypeManager, ref _profile);
+            loadoutWindow.OnValueChanged += profile =>
+            {
+                Profile = profile;
+                ReloadPreview();
+                SetDirty();
+            };
+
+            _loadoutWindow.OpenCenteredLeft();
 
             JobOverride = jobProto;
             ReloadPreview();

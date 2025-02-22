@@ -15,7 +15,9 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Traits;
+using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Client.State;
@@ -40,6 +42,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly JobRequirementsManager _requirements = default!;
     [Dependency] private readonly MarkingManager _markings = default!;
+    [Dependency] private readonly IDynamicTypeFactory _factory = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
     [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
@@ -281,7 +285,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             _prototypeManager,
             _resourceCache,
             _requirements,
-            _markings);
+            _markings,
+            _factory);
 
         _profileEditor.OnOpenGuidebook += _guide.OpenHelp;
 
@@ -498,9 +503,17 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
                 var loadout = humanoid.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
                 GiveDummyLoadout(dummyEnt, loadout);
             }
+
+            if (job.ID == "StationAI")  // sorry for this im just tired of experimenting
+            {
+                var sprite = _entMan.GetComponent<SpriteComponent>(dummyEnt);
+                var screen = _prototypeManager.Index(humanoid.SAIData.Screen);
+                sprite.LayerSetSprite(StationAiVisualState.Key, screen.Icon);
+            }
         }
 
         return dummyEnt;
+
     }
 
     #endregion
