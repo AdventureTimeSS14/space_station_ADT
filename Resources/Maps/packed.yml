@@ -76918,8 +76918,8 @@ entities:
     - type: Transform
       pos: 40.60262,28.679474
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 2409
+    # - type: Blocking
+    #   blockingToggleActionEntity: 2409
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -76931,8 +76931,8 @@ entities:
     - type: Transform
       pos: 40.594807,28.656036
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 7822
+    # - type: Blocking
+    #   blockingToggleActionEntity: 7822
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -76944,8 +76944,8 @@ entities:
     - type: Transform
       pos: 40.57918,28.913849
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 8413
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8413
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -76959,8 +76959,8 @@ entities:
     - type: Transform
       pos: 40.04793,28.648224
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 7583
+    # - type: Blocking
+    #   blockingToggleActionEntity: 7583
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -76972,8 +76972,8 @@ entities:
     - type: Transform
       pos: 40.04012,28.835724
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 8420
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8420
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -76985,8 +76985,8 @@ entities:
     - type: Transform
       pos: 40.063557,28.726349
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 8423
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8423
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -77000,8 +77000,8 @@ entities:
     - type: Transform
       pos: 40.368244,28.741974
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 8350
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8350
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -77013,8 +77013,8 @@ entities:
     - type: Transform
       pos: 40.368244,28.609161
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 8418
+    # - type: Blocking
+    #   blockingToggleActionEntity: 8418
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -77026,8 +77026,8 @@ entities:
     - type: Transform
       pos: 40.336994,28.882599
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 15461
+    # - type: Blocking
+    #   blockingToggleActionEntity: 15461
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
