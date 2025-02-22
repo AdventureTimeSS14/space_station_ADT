@@ -83,7 +83,7 @@
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
-  category: Quirks #ADT Quirks; mod by Prunt
+  category: Quirks #ADT Quirks; fix by Prunt
   components:
   - type: PainNumbness
   cost: -2 # ADT Quirks; add by Prunt
