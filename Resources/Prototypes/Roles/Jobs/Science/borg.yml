@@ -15,6 +15,8 @@
   containerInsert: true # ADT station AI spawn fix
   jobPreviewEntity: PlayerStationAiPreview
   applyTraits: false
+  loadoutOverride: StationAILoadoutWindow
+  loadoutButtonText: Customize
 
 - type: job
   id: Borg
