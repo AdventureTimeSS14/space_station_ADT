@@ -40251,15 +40251,15 @@ entities:
     - type: Transform
       pos: 28.5,-38.5
       parent: 2
-# - proto: CrateEngineeringAMEShielding
-#   entities:
-#   - uid: 5235
-#     components:
-#     - type: Transform
-#       pos: 28.5,-40.5
-#       parent: 2
-#     - type: Pullable
-#       prevFixedRotation: True
+- proto: CrateEngineeringAMEShielding
+  entities:
+  - uid: 5235
+    components:
+    - type: Transform
+      pos: 28.5,-40.5
+      parent: 2
+    - type: Pullable
+      prevFixedRotation: True
 - proto: CrateEngineeringCableBulk
   entities:
   - uid: 782
