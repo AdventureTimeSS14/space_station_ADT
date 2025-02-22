@@ -51,7 +51,7 @@
 
 # Blueshield
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitBlueshield
   categories: [ HideSpawnMenu ]
   name: blueshield hardsuit helmet
