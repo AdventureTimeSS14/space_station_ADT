@@ -150,12 +150,17 @@ namespace Content.Shared.Localizations
         /// <summary>
         /// Formats playtime as hours and minutes.
         /// </summary>
-        public static string FormatPlaytime(TimeSpan time)
+        public static string FormatPlaytime(TimeSpan time) // ADT changes start
         {
             var hours = (int)time.TotalHours;
-            var minutes = (int)Math.Ceiling(time.TotalMinutes);
-            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
+            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours));
         }
+
+        public static string FormatPlaytimeMinutes(TimeSpan time)
+        {
+            var minutes = (int)Math.Ceiling(time.TotalMinutes);
+            return Loc.GetString($"zzzz-fmt-playtime-minutes", ("minutes", minutes));
+        }// ADT changes end
 
         private static ILocValue FormatLoc(LocArgs args)
         {
@@ -255,5 +260,15 @@ namespace Content.Shared.Localizations
             }
             return new LocValueString(FormatPlaytime(time));
         }
+
+        /* private static ILocValue FormatPlaytimeMinutes(LocArgs args)
+        {
+            var time = TimeSpan.Zero;
+            if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
+            {
+                time = timeArg;
+            }
+            return new LocValueString(FormatPlaytimeMinutes(time));
+        } */
     }
 }
