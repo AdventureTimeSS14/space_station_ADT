@@ -6,12 +6,6 @@ meta:
   forkVersion: ""
   time: 02/22/2025 16:43:54
   entityCount: 928
-maps:
-- 916
-grids:
-- 818
-orphans: []
-nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
