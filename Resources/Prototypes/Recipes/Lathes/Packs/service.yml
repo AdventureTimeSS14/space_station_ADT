@@ -60,3 +60,6 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
+  - CloningPodMachineCircuitboard #ADT tweak
+  - CloningConsoleComputerCircuitboard #ADT tweak
+  - MedicalScannerMachineCircuitboard #ADT tweak

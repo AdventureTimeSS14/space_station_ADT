@@ -16,7 +16,7 @@ public sealed class CantShootSystem : EntitySystem
 
     private void OnShootAttempt(EntityUid uid, CantShootComponent component, ref ShotAttemptedEvent args)
     {
-        if (_whitelist.IsWhitelistPassOrNull(component.Whitelist, args.Used))
+        if (_whitelist.IsWhitelistPass(component.Whitelist, args.Used))
             return;
         if (component.Popup != null)
             _popup.PopupCursor(Loc.GetString(component.Popup, ("used", args.Used)), args.User);
