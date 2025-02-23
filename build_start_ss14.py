@@ -8,9 +8,7 @@
 #     ╚════════════════════════════════════╝
 
 
-import tkinter as tk
-from tkinter import filedialog, messagebox
-from tkinter import ttk
+import customtkinter as ctk
 import os
 import ctypes
 import subprocess
@@ -34,11 +32,13 @@ elif os.path.exists(os.path.join(os.environ.get("PROGRAMFILES", ""), "Git", "bin
 else:
     git_bash_path = None
 
-# Основное окно
-root = tk.Tk()
+# Основное окно с кастомизацией
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")  # Устанавливаем стандартную цветовую схему
+root = ctk.CTk()
 root.title("Controller Build SS14")
-root.geometry("395x410")
-root.config(bg="#f4f4f9")
+root.geometry("330x480")
+# root.config(bg="#383838")
 
 # Список для хранения созданных кнопок
 created_buttons = []
@@ -49,7 +49,7 @@ def run_command_in_terminal(command, working_directory):
         full_command = f"{command}"
         subprocess.Popen(["wt", "-d", working_directory, "powershell", "-NoExit", "-Command", full_command])
     except Exception as e:
-        messagebox.showerror("Error", f"Failed to open Windows Terminal: {str(e)}")
+        ctk.CTkMessagebox(title="Error", message=f"Failed to open Windows Terminal: {str(e)}")
 
 # Функция для запуска Git Bash
 def git_develop_adt():
@@ -63,9 +63,9 @@ def git_develop_adt():
                 creationflags=subprocess.CREATE_NEW_CONSOLE
             )
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to open Git Bash: {str(e)}")
+            ctk.CTkMessagebox(title="Error", message=f"Failed to open Git Bash: {str(e)}")
     else:
-        messagebox.showerror("Error", "Git Bash not found!")
+        ctk.CTkMessagebox(title="Error", message="Git Bash not found!")
 
 def build_develop_adt():
     command = "dotnet build"
@@ -103,66 +103,70 @@ def run_bat_file(file_name):
         try:
             subprocess.Popen(["wt", "-d", os.path.join(script_dir), "cmd", "/c", bat_file_path + " && pause"])
         except Exception as e:
-            messagebox.showerror("Error", f"Error executing {file_name}: {e}")
+            ctk.CTkMessagebox(title="Error", message=f"Error executing {file_name}: {e}")
     else:
-        messagebox.showerror("Error", f"File not found: {file_name}")
+        ctk.CTkMessagebox(title="Error", message=f"File not found: {file_name}")
 
 def reset_configurations():
     """Сбрасываем все настройки к дефолтным"""
-    messagebox.showinfo("Reset", "Configurations have been reset to default.")
+    ctk.CTkMessagebox(title="Reset", message="Configurations have been reset to default.")
 
-# Создание рамок для красивого оформления
-frame_left = tk.Frame(root, bg="#e1e1e1", padx=20, pady=10)
+# Основной фрейм для кнопок
+frame_left = ctk.CTkFrame(root)
 frame_left.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
 # Метки для разделения
-develop_adt_label = tk.Label(frame_left, text=folder_name, font=("Arial", 14, "bold"), bg="#e1e1e1")
+develop_adt_label = ctk.CTkLabel(frame_left, text=folder_name, font=("Arial", 14, "bold"))
 develop_adt_label.grid(row=0, column=0, columnspan=2, pady=10)
 
-# Кнопки
-btn_git_bash = tk.Button(frame_left, text="Git Develop_ADT", command=git_develop_adt, width=20, bg="#808080", fg="white", font=("Arial", 10, "bold"))
-btn_git_bash.grid(row=1, column=0, pady=0)
+# Общая ширина для кнопок
+button_width = 20
 
-btn_build_develop_adt = tk.Button(frame_left, text="Build Develop_ADT", command=build_develop_adt, width=20, bg="#4CAF50", fg="white", font=("Arial", 10, "bold"))
-btn_build_develop_adt.grid(row=2, column=0, pady=0)
+# Кнопки с использованием CustomTkinter
+btn_git_bash = ctk.CTkButton(frame_left, text="Git Develop_ADT", command=git_develop_adt, width=button_width)
+btn_git_bash.grid(row=1, column=0, pady=5, sticky="ew")
 
-btn_build_sorted_develop_adt = tk.Button(frame_left, text="Build(Sort) Develop_ADT", command=build_sorted_develop_adt, width=20, bg="#4CAF50", fg="white", font=("Arial", 10, "bold"))
-btn_build_sorted_develop_adt.grid(row=3, column=0, pady=0)
+btn_build_develop_adt = ctk.CTkButton(frame_left, text="Build Develop_ADT", command=build_develop_adt, width=button_width)
+btn_build_develop_adt.grid(row=2, column=0, pady=5, sticky="ew")
 
-btn_run_server = tk.Button(frame_left, text="Run Server", command=run_server, width=20, bg="#2196F3", fg="white", font=("Arial", 10, "bold"))
-btn_run_server.grid(row=4, column=0, pady=0)
+btn_build_sorted_develop_adt = ctk.CTkButton(frame_left, text="Build(Sort) Develop_ADT", command=build_sorted_develop_adt, width=button_width)
+btn_build_sorted_develop_adt.grid(row=3, column=0, pady=5, sticky="ew")
 
-btn_run_client = tk.Button(frame_left, text="Run Client", command=run_client, width=20, bg="#2196F3", fg="white", font=("Arial", 10, "bold"))
-btn_run_client.grid(row=5, column=0, pady=0)
+btn_run_server = ctk.CTkButton(frame_left, text="Run Server", command=run_server, width=button_width)
+btn_run_server.grid(row=4, column=0, pady=5, sticky="ew")
 
-btn_run_server_release = tk.Button(frame_left, text="Run Server (Release)", command=run_server_release, width=20, bg="#FF5722", fg="white", font=("Arial", 10, "bold"))
-btn_run_server_release.grid(row=6, column=0, pady=0)
+btn_run_client = ctk.CTkButton(frame_left, text="Run Client", command=run_client, width=button_width)
+btn_run_client.grid(row=5, column=0, pady=5, sticky="ew")
 
-btn_run_client_release = tk.Button(frame_left, text="Run Client (Release)", command=run_client_release, width=20, bg="#FF5722", fg="white", font=("Arial", 10, "bold"))
-btn_run_client_release.grid(row=7, column=0, pady=0)
+btn_run_server_release = ctk.CTkButton(frame_left, text="Run Server (Release)", command=run_server_release, width=button_width)
+btn_run_server_release.grid(row=6, column=0, pady=5, sticky="ew")
 
-btn_runserver_bat = tk.Button(frame_left, text="Run runserver.bat", command=lambda: run_bat_file("runserver.bat"), width=20, bg="#9C27B0", fg="white", font=("Arial", 10, "bold"))
-btn_runserver_bat.grid(row=8, column=0, pady=0)
+btn_run_client_release = ctk.CTkButton(frame_left, text="Run Client (Release)", command=run_client_release, width=button_width)
+btn_run_client_release.grid(row=7, column=0, pady=5, sticky="ew")
 
-btn_runclient_bat = tk.Button(frame_left, text="Run runclient.bat", command=lambda: run_bat_file("runclient.bat"), width=20, bg="#9C27B0", fg="white", font=("Arial", 10, "bold"))
-btn_runclient_bat.grid(row=9, column=0, pady=0)
+btn_runserver_bat = ctk.CTkButton(frame_left, text="Run runserver.bat", command=lambda: run_bat_file("runserver.bat"), width=button_width)
+btn_runserver_bat.grid(row=8, column=0, pady=5, sticky="ew")
+
+btn_runclient_bat = ctk.CTkButton(frame_left, text="Run runclient.bat", command=lambda: run_bat_file("runclient.bat"), width=button_width)
+btn_runclient_bat.grid(row=9, column=0, pady=5, sticky="ew")
 
 # Кнопки 2 столбец
-btn_test1 = tk.Button(frame_left, text="Test1", command=lambda: run_bat_file("runclient.bat"), width=20, bg="#9C27B0", fg="white", font=("Arial", 10, "bold"))
-btn_test1.grid(row=1, column=1, pady=0)
+btn_test1 = ctk.CTkButton(frame_left, text="Test1 ццццццццццц", command=lambda: run_bat_file("runclient.bat"), width=button_width)
+btn_test1.grid(row=1, column=1, pady=5, sticky="ew")
 
-btn_test2 = tk.Button(frame_left, text="Test1", command=lambda: run_bat_file("runclient.bat"), width=20, bg="#9C27B0", fg="white", font=("Arial", 10, "bold"))
-btn_test2.grid(row=2, column=1, pady=0)
+btn_test2 = ctk.CTkButton(frame_left, text="Test2", command=lambda: run_bat_file("runclient.bat"), width=button_width)
+btn_test2.grid(row=2, column=1, pady=5, sticky="ew")
 
 # Кнопки настроек
-frame_settings = tk.Frame(root, bg="#f4f4f9", padx=10, pady=10)
+frame_settings = ctk.CTkFrame(root)
 frame_settings.grid(row=1, column=0, columnspan=2, pady=10)
 
-btn_reset_config = tk.Button(frame_settings, text="Reset Configurations", command=reset_configurations, width=20, bg="#F44336", fg="white", font=("Arial", 10, "bold"))
-btn_reset_config.grid(row=0, column=1, padx=0)
+btn_reset_config = ctk.CTkButton(frame_settings, text="Reset Configurations", command=reset_configurations, width=button_width)
+btn_reset_config.grid(row=0, column=1, padx=0, pady=5, sticky="ew")
 
 # Установка гибкости для колонки и строки
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
+
 
 root.mainloop()

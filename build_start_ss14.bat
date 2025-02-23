@@ -7,21 +7,22 @@ if errorlevel 1 (
     exit /b 1
 )
 
-@REM REM Проверка версии Python
-@REM python -c "import sys; exit(0) if sys.version_info >= (3, 6) else exit(1)"
-@REM if errorlevel 1 (
-@REM     echo Требуется Python версии 3.6 или выше.
-@REM     pause
-@REM     exit /b 1
-@REM )
-
-REM Установка tkinter
-python -c "import tkinter" >nul 2>nul
+REM Обновление pip до последней версии
+echo Обновление pip до последней версии...
+python -m pip install --upgrade pip
 if errorlevel 1 (
-    echo Установка tkinter...
-    pip install tk --no-warn-script-location
+    echo Ошибка при обновлении pip.
+    pause
+    exit /b 1
+)
+
+REM Установка customtkinter
+python -c "import customtkinter" >nul 2>nul
+if errorlevel 1 (
+    echo Установка customtkinter...
+    pip install customtkinter --no-warn-script-location
     if errorlevel 1 (
-        echo Ошибка при установке tkinter.
+        echo Ошибка при установке customtkinter.
         pause
         exit /b 1
     )
