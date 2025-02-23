@@ -31,7 +31,7 @@
       shuttleTime: 600
     red:
       announcement: alert-level-red-announcement
-      sound: /Audio/Misc/redalert.ogg
+      sound: /Audio/ADT/Announcements/red.ogg # ADT Tweaked
       color: Red
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
@@ -40,7 +40,7 @@
       announcement: alert-level-gamma-announcement
       selectable: false
       sound:
-        path: /Audio/Corvax/Misc/siren.ogg # Corvax: Return of the old siren sound
+        path: /Audio/ADT/Announcements/gamma_alert.ogg # ADT Tweaked
         params:
           volume: -2
       disableSelection: true
@@ -51,7 +51,7 @@
       announcement: alert-level-delta-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/delta.ogg
+        path: /Audio/ADT/Announcements/delta.ogg # ADT Tweaked
         params:
           volume: -1 # ADT-Tweak
       disableSelection: true

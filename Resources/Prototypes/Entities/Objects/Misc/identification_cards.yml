@@ -25,7 +25,18 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
-  - type: MiningPoints # ADT tweak
+  # ADT Start
+  - type: MiningPoints
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/id_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/id_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/id_drop.ogg
+  # ADT End
 
 #IDs with layers
 

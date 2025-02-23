@@ -85,6 +85,14 @@
     stackType: ADTPaper
     count: 1
 # Corvax-Printer-End
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/paper_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/paper_drop.ogg
+  # ADT End
 
 - type: entity
   name: paper scrap
