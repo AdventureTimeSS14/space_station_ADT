@@ -62,7 +62,7 @@
 
 - type: entity
   name: AKMS
-  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseMagneticGun] # adt tweak
+  parent: [BaseWeaponRifle, BaseSecurityContraband, ADTBaseMagneticGun] # adt tweak
   id: WeaponRifleAk
   description: An iconic weapon of war. Uses .30 rifle ammo.
   components:
@@ -183,7 +183,7 @@
 
 - type: entity
   name: Lecter
-  parent: [BaseWeaponRifle, BaseRestrictedContraband, ADTBaseAttachableHolder] # ADT TWEAK
+  parent: [BaseWeaponRifle, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .20 rifle ammo.
   components:
