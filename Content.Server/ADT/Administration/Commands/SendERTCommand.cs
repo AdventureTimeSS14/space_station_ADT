@@ -6,17 +6,18 @@ using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Database;
-using Robust.Server.GameObjects;
-using Robust.Server.Maps;
+using Robust.Shared.Map;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Console;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
-using System.Numerics;
 using Content.Server.Chat.Managers;
 using Robust.Shared.ContentPack;
 using System.Threading.Tasks;
+using Robust.Shared.Utility;
+
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -125,7 +126,7 @@ public sealed class SendERTCommand : IConsoleCommand
             case "denial":
                 audioPath = $"{defaultAudioPath}/noert.ogg";
                 isAnnounce = true;
-				isLoadGrid = false;
+                isLoadGrid = false;
                 isSetAlertLevel = false;
                 break;
 
@@ -150,10 +151,8 @@ public sealed class SendERTCommand : IConsoleCommand
 
             var mapId = _mapManager.CreateMap();
             _system.GetEntitySystem<MetaDataSystem>().SetEntityName(_mapManager.GetMapEntityId(mapId), Loc.GetString("sent-ert-map-name"));
-            var girdOptions = new MapLoadOptions();
-            girdOptions.Offset = new Vector2(0, 0);
-            girdOptions.Rotation = Angle.FromDegrees(0);
-            _system.GetEntitySystem<MapLoaderSystem>().Load(mapId, gridPath, girdOptions);
+            var opts = new DeserializationOptions {StoreYamlUids = true, InitializeMaps = true};
+            _system.GetEntitySystem<MapLoaderSystem>().TryLoadGrid(mapId, new ResPath(gridPath), out _, opts);
             shell.WriteLine($"Карта {gridPath} успешно загружена! :з");
             _chat.SendAdminAlert($"Админ {player.Name} вызвал {args[0].ToLower()}. Карте 'Сектор патрулирования' было присовино ID: {mapId}. Точка телепортации для призраков появилась на шаттле.");
         }
