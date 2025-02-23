@@ -61,6 +61,7 @@
       path: /Audio/ADT/Entities/closet_close.ogg
     openSound:
       path: /Audio/ADT/Entities/closet_open.ogg
+    # ADT End
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

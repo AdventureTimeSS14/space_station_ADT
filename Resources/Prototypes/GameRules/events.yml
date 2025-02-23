@@ -301,8 +301,8 @@
     endAnnouncement: station-event-power-grid-check-end-announcement
     duration: 60
     maxDuration: 120
-    startAudio:
     # ADT Start
+    startAudio:
       # path: /Audio/Announcements/power_off.ogg
       # params:
       #   volume: -4
