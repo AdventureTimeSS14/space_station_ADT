@@ -25,7 +25,7 @@
         Radiation: 0.9
 
 - type: entity
-  parent: ClothingHeadHardsuitBase # Fix
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetIlisium
   categories: [ HideSpawnMenu ]
   name: helmet
@@ -177,7 +177,7 @@
 
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitInquisitory
   categories: [ HideSpawnMenu ]
   name: inquisitor hardsuit helmet
@@ -203,7 +203,7 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingHeadHardsuitBase  #ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -236,7 +236,7 @@
 
 #Шлемы скафандров Киберсана
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitCybersunBodyGuard
   categories: [ HideSpawnMenu ]
   name: cybersun bodyguard helmet
@@ -263,7 +263,7 @@
         Radiation: 0.5
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitCybersunCrysis
   categories: [ HideSpawnMenu ]
   name: cybersun crysis helmet
@@ -291,7 +291,7 @@
         Radiation: 0
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitSaibaSain
   categories: [ HideSpawnMenu ]
   name: Saiba Sain elite hardsuit helm
