@@ -102,7 +102,6 @@ def run_bat_file(file_name):
     if os.path.exists(bat_file_path):
         try:
             subprocess.Popen(["wt", "-d", os.path.join(script_dir), "cmd", "/c", bat_file_path + " && pause"])
-            messagebox.showinfo("Success", f"Successfully executed {file_name}")
         except Exception as e:
             messagebox.showerror("Error", f"Error executing {file_name}: {e}")
     else:
