@@ -42,6 +42,7 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
+            _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
 
 
             /*
@@ -261,7 +262,7 @@ namespace Content.Shared.Localizations
             return new LocValueString(FormatPlaytime(time));
         }
 
-        /* private static ILocValue FormatPlaytimeMinutes(LocArgs args)
+        private static ILocValue FormatPlaytimeMinutes(LocArgs args)
         {
             var time = TimeSpan.Zero;
             if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
@@ -269,6 +270,6 @@ namespace Content.Shared.Localizations
                 time = timeArg;
             }
             return new LocValueString(FormatPlaytimeMinutes(time));
-        } */
+        }
     }
 }
