@@ -1,0 +1,9 @@
+- files: ["gamma_alert.ogg", "delta.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+
+- files: ["red.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/Fluffy-Frontier/FluffySTG"
+  source: "https://github.com/Fluffy-Frontier/FluffySTG"
