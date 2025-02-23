@@ -10759,18 +10759,6 @@ entities:
     - type: Transform
       pos: 12.5,11.5
       parent: 2
-- proto: ADTVendingMachineLoveVend
-  entities:
-  - uid: 16786
-    components:
-    - type: Transform
-      pos: 21.5,-38.5
-      parent: 2
-  - uid: 20589
-    components:
-    - type: Transform
-      pos: -39.5,19.5
-      parent: 2
 - proto: ADTVendingMachineParaDrobe
   entities:
   - uid: 142
@@ -14408,7 +14396,7 @@ entities:
       pos: -30.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -75824.52
+      secondsUntilStateChange: -75761.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -117637,6 +117625,11 @@ entities:
     - type: Transform
       pos: -23.49266,-26.555698
       parent: 2
+  - uid: 16786
+    components:
+    - type: Transform
+      pos: 21.533903,-38.692165
+      parent: 2
   - uid: 16787
     components:
     - type: Transform
@@ -141086,6 +141079,13 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-8.5
+      parent: 2
+- proto: VendingMachineWinter
+  entities:
+  - uid: 20589
+    components:
+    - type: Transform
+      pos: -39.5,19.5
       parent: 2
 - proto: VendingMachineYouTool
   entities:

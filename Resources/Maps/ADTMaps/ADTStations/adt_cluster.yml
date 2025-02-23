@@ -5127,13 +5127,6 @@ entities:
     - type: Transform
       pos: -15.5,26.5
       parent: 2
-- proto: ADTMiningShop
-  entities:
-  - uid: 10992
-    components:
-    - type: Transform
-      pos: 18.5,-20.5
-      parent: 2
 - proto: ADTSpawnPointRoboticist
   entities:
   - uid: 82
@@ -5207,18 +5200,6 @@ entities:
     components:
     - type: Transform
       pos: -5.5,-24.5
-      parent: 2
-- proto: ADTVendingMachineLoveVend
-  entities:
-  - uid: 9609
-    components:
-    - type: Transform
-      pos: -2.5,13.5
-      parent: 2
-  - uid: 11009
-    components:
-    - type: Transform
-      pos: -6.5,-24.5
       parent: 2
 - proto: ADTVendingMachineParaDrobe
   entities:
@@ -6451,7 +6432,7 @@ entities:
       pos: 25.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -425.48615
+      secondsUntilStateChange: -369.55313
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -63368,6 +63349,11 @@ entities:
     - type: Transform
       pos: 6.5,12.5
       parent: 2
+  - uid: 9609
+    components:
+    - type: Transform
+      pos: -2.5,13.5
+      parent: 2
   - uid: 9610
     components:
     - type: Transform
@@ -71943,6 +71929,13 @@ entities:
     - type: Transform
       pos: -4.5,-15.5
       parent: 2
+- proto: VendingMachineSalvage
+  entities:
+  - uid: 10992
+    components:
+    - type: Transform
+      pos: 18.5,-20.5
+      parent: 2
 - proto: VendingMachineSciDrobe
   entities:
   - uid: 10993
@@ -72049,6 +72042,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,15.5
+      parent: 2
+- proto: VendingMachineWinter
+  entities:
+  - uid: 11009
+    components:
+    - type: Transform
+      pos: -6.5,-24.5
       parent: 2
 - proto: VendingMachineYouTool
   entities:
