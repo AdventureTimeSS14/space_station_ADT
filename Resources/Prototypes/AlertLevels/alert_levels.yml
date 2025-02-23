@@ -31,7 +31,7 @@
       shuttleTime: 600
     red:
       announcement: alert-level-red-announcement
-      sound: /Audio/ADT/Announcements/red.ogg # ADT Tweaked
+      sound: /Audio/ADT/Announcements/Alert/red.ogg # ADT Tweaked
       color: Red
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
@@ -40,7 +40,7 @@
       announcement: alert-level-gamma-announcement
       selectable: false
       sound:
-        path: /Audio/ADT/Announcements/gamma_alert.ogg # ADT Tweaked
+        path: /Audio/ADT/Announcements/Alert/gamma_alert.ogg # ADT Tweaked
         params:
           volume: -2
       disableSelection: true
@@ -51,7 +51,7 @@
       announcement: alert-level-delta-announcement
       selectable: false
       sound:
-        path: /Audio/ADT/Announcements/delta.ogg # ADT Tweaked
+        path: /Audio/ADT/Announcements/Alert/delta.ogg # ADT Tweaked
         params:
           volume: -1 # ADT-Tweak
       disableSelection: true
