@@ -293,7 +293,7 @@
 
 - type: entity
   id: PowerGridCheck
-  parent: BaseStationEvent
+  parent: BaseStationEvent  # ADT Tweaked
   components:
   - type: StationEvent
     weight: 5
