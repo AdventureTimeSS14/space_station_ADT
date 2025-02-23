@@ -42,7 +42,7 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
-            _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
+            _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes); // ADT Change
 
 
             /*
@@ -153,12 +153,14 @@ namespace Content.Shared.Localizations
         /// </summary>
         public static string FormatPlaytime(TimeSpan time) // ADT changes start
         {
+            time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
             return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours));
         }
 
         public static string FormatPlaytimeMinutes(TimeSpan time)
         {
+            time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
             var minutes = (int)Math.Ceiling(time.TotalMinutes);
             return Loc.GetString($"zzzz-fmt-playtime-minutes", ("minutes", minutes));
         }// ADT changes end
@@ -262,7 +264,7 @@ namespace Content.Shared.Localizations
             return new LocValueString(FormatPlaytime(time));
         }
 
-        private static ILocValue FormatPlaytimeMinutes(LocArgs args)
+        private static ILocValue FormatPlaytimeMinutes(LocArgs args) // ADT Changes start
         {
             var time = TimeSpan.Zero;
             if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
@@ -270,6 +272,6 @@ namespace Content.Shared.Localizations
                 time = timeArg;
             }
             return new LocValueString(FormatPlaytimeMinutes(time));
-        }
+        } // ADT Changes end
     }
 }
