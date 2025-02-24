@@ -196,7 +196,7 @@
       - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-      - state: box
+      - state: box_olive # ADT TWEAK - Откат кабинетных спрайтов
       - state: writing
 
 - type: entity
