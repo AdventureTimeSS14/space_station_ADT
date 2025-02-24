@@ -43,7 +43,7 @@
   parent: [ ShuttleGunBase, ConstructibleMachine]
   name: LSE-400c "Svalinn machine gun"
   description: Basic stationary laser unit. Effective against live targets and electronics. Uses regular power cells to fire, and has an extremely high rate of fire.
-  categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
+  # categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shuttles/laser.rsi
@@ -153,7 +153,7 @@
   parent: [ShuttleGunBase, ConstructibleMachine]
   name: EXP-320g "Friendship"
   description: A small stationary grenade launcher that holds 2 grenades.
-  categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
+  # categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shuttles/launcher.rsi
@@ -207,7 +207,7 @@
   parent: [ShuttleGunBase, ConstructibleMachine]
   name: EXP-2100g "Duster"
   description: A powerful stationary grenade launcher. A cartridge is required for use.
-  categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
+  # categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shuttles/launcher.rsi
@@ -305,7 +305,7 @@
   parent: [ ShuttleGunBase, ConstructibleMachine]
   name: PTK-800 "Matter Dematerializer"
   description: Salvage stationary mining turret. Gradually accumulates charges on its own, extremely effective for asteroid excavation.
-  categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
+  # categories: [ DoNotMap ] #ADT_Tweak ПУШКИ МОЖНО МАППИТЬ
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shuttles/kinetic.rsi

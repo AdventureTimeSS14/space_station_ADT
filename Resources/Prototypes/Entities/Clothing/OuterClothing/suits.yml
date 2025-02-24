@@ -289,7 +289,7 @@
   parent: ClothingOuterSuitCarp
   id: ClothingOuterHardsuitCarp
   suffix: Hardsuit, DO NOT MAP
-  categories: [ DoNotMap ]
+  # categories: [ DoNotMap ] #ADT_Tweak - убираем компонент "не маппить"
   components:
   - type: PressureProtection
     highPressureMultiplier: 0.6
