@@ -16,16 +16,21 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM Установка customtkinter
-python -c "import customtkinter" >nul 2>nul
+REM Установка необходимых библиотек
+echo Установка библиотек...
+pip install customtkinter --no-warn-script-location
 if errorlevel 1 (
-    echo Установка customtkinter...
-    pip install customtkinter --no-warn-script-location
-    if errorlevel 1 (
-        echo Ошибка при установке customtkinter.
-        pause
-        exit /b 1
-    )
+    echo Ошибка при установке customtkinter.
+    pause
+    exit /b 1
+)
+
+
+REM Проверка успешности установки
+if errorlevel 1 (
+    echo Ошибка при установке одной из библиотек.
+    pause
+    exit /b 1
 )
 
 REM Запуск Python скрипта
