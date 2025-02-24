@@ -380,6 +380,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
                 _spawn.EquipStartingGear(uid, loadoutProto);
             }
         }
+
+        _spawn.ApplyLoadoutExtras(uid, roleLoadout);
     }
 
     /// <summary>
@@ -478,6 +480,14 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         {
             // Special type like borg or AI, do not spawn a human just spawn the entity.
             dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
+
+            // Applying loadout extras to dummy
+            if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job?.ID)))
+            {
+                var loadout = humanoid?.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job?.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
+                if (loadout != null)
+                    _spawn.ApplyLoadoutExtras(dummyEnt, loadout);
+            }
             return dummyEnt;
         }
         else if (humanoid is not null)
@@ -502,13 +512,6 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             {
                 var loadout = humanoid.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
                 GiveDummyLoadout(dummyEnt, loadout);
-            }
-
-            if (job.ID == "StationAI")  // sorry for this im just tired of experimenting
-            {
-                var sprite = _entMan.GetComponent<SpriteComponent>(dummyEnt);
-                var screen = _prototypeManager.Index(humanoid.SAIData.Screen);
-                sprite.LayerSetSprite(StationAiVisualState.Key, screen.Icon);
             }
         }
 
