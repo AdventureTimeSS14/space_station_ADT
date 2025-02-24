@@ -27,8 +27,8 @@ public sealed class MousetrapSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, MousetrapComponent component, UseInHandEvent args)
     {
-        if (args.Handled)
-            return;
+        // if (args.Handled)    // ADT-Comented-fix
+        //     return;
 
         component.IsActive = !component.IsActive;
         _popupSystem.PopupEntity(component.IsActive
@@ -39,7 +39,7 @@ public sealed class MousetrapSystem : EntitySystem
 
         UpdateVisuals(uid);
 
-        args.Handled = true;
+        // args.Handled = true; // ADT-Comented-fix
     }
 
     private void OnStepTriggerAttempt(EntityUid uid, MousetrapComponent component, ref StepTriggerAttemptEvent args)
