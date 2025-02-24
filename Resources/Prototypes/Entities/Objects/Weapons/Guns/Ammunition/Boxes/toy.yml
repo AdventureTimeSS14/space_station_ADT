@@ -50,15 +50,11 @@
   - type: BallisticAmmoProvider
     proto: CartridgeCap
     capacity: 20
-  - type: MagazineVisuals
-    magState: mag-cap
-    steps: 4
-    zeroVisible: false
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
     layers:
-      - state: base
+      - state: capbase  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-cap-1
+      - state: mag-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
-      - state: capbase
+      - state: cap  # ADT TWEAK - Откат кабинетных спрайтов

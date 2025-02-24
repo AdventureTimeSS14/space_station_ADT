@@ -51,6 +51,13 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+ # ADT TWEAK Start - Откат кабинетных спрайтов
+  - type: MagazineVisuals
+    magState: magb
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+ # ADT TWEAK End - Откат кабинетных спрайтов
 
 - type: entity
   parent: BaseMagazineBoxLightRifle
