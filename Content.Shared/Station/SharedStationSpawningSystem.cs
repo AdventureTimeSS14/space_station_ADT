@@ -63,6 +63,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
 
         EquipRoleName(entity, loadout, roleProto);
+        ApplyLoadoutExtras(entity, loadout);
     }
 
     /// <summary>
@@ -210,5 +211,14 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             var ev = new StartingGearEquippedEvent(entity);
             RaiseLocalEvent(entity, ref ev);
         }
+    }
+
+    public void ApplyLoadoutExtras(EntityUid uid, RoleLoadout loadout)
+    {
+        if (loadout.ExtraData.Count <= 0)
+            return;
+
+        var ev = new ApplyLoadoutExtrasEvent(uid, loadout.ExtraData);
+        RaiseLocalEvent(uid, ref ev);
     }
 }
