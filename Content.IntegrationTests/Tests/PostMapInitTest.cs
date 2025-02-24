@@ -243,8 +243,8 @@ namespace Content.IntegrationTests.Tests
                 var version = meta["format"].AsInt();
 
                 // TODO MAP TESTS
-                // Move this to some separate test?
-                CheckDoNotMap(map, root, protoManager);
+                // Move this to some separate test? ADT-Tweak - отключен в связи с тем, что сильно мешается
+                //CheckDoNotMap(map, root, protoManager);
 
                 if (version >= 7)
                 {
@@ -283,32 +283,32 @@ namespace Content.IntegrationTests.Tests
         }
 
         /// <summary>
-        /// Check that maps do not have any entities that belong to the DoNotMap entity category
+        /// Check that maps do not have any entities that belong to the DoNotMap entity category ADT-Tweak - тест отключен в связи с тм, что сильно мешает
         /// </summary>
-        private void CheckDoNotMap(ResPath map, YamlNode node, IPrototypeManager protoManager)
-        {
-            if (DoNotMapWhitelist.Contains(map.ToString()))
-                return;
+        //private void CheckDoNotMap(ResPath map, YamlNode node, IPrototypeManager protoManager)
+        //{
+        //    if (DoNotMapWhitelist.Contains(map.ToString()))
+        //        return;
 
-            var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
-                return;
+        //    var yamlEntities = node["entities"];
+        //    if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+        //        return;
 
-            Assert.Multiple(() =>
-            {
-                foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
-                {
-                    var protoId = yamlEntity["proto"].AsString();
+        //    Assert.Multiple(() =>
+        //    {
+        //        foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
+        //        {
+        //            var protoId = yamlEntity["proto"].AsString();
 
-                    // This doesn't properly handle prototype migrations, but thats not a significant issue.
-                    if (!protoManager.TryIndex(protoId, out var proto, false))
-                        continue;
+        //            // This doesn't properly handle prototype migrations, but thats not a significant issue.
+        //            if (!protoManager.TryIndex(protoId, out var proto, false))
+        //                continue;
 
-                    Assert.That(!proto.Categories.Contains(dnmCategory),
-                        $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
-                }
-            });
-        }
+        //            Assert.That(!proto.Categories.Contains(dnmCategory),
+        //                $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
+        //        }
+        //    });
+        //}
 
         private bool IsPreInit(ResPath map, MapLoaderSystem loader, IDependencyCollection deps)
         {

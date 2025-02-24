@@ -24,7 +24,6 @@
   - ADT_Box
   - ADT_Cluster
   - ADT_Cluster_Legacy
-  - ADT_Delta
   - ADT_Gemini
   - ADT_Fland
   - ADT_Marathon
@@ -43,6 +42,7 @@
   # - ADT_Origin
   # - ADT_Packed #В рамках уменьшения числа карт
   # - ADT_Train #В рамках уменьшения числа карт
+  # - ADT_Delta Выведена из-за наличия Кербероса
 
 # ADT Halloween (Не забудьте отключить обычные)
   # - ADT_TrainHalloween

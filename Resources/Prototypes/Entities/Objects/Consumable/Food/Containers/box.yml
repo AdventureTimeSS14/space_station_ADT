@@ -493,6 +493,11 @@
     state: box
     layers:
     - state: box
+ # ADT TWEAK Start - Откат кабинетных спрайтов
+      map: ["closeLayer"]
+    - state: box-open
+      map: ["openLayer"]
+ # ADT TWEAK End - Откат кабинетных спрайтов
   - type: Item
     sprite: Objects/Storage/Happyhonk/clown.rsi
     heldPrefix: box
