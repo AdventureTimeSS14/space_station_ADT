@@ -1721,7 +1721,7 @@
     - state: icon_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: SwitchableWeapon
-    openSound: "//Audio/Items/unsheath.ogg"
+    openSound: "/Audio/ADT/Weapons/Melee/egflaer_knife_opening.ogg"
     closeSound: "/Audio/Items/sheath.ogg"
     #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
     damageOpen:
@@ -1768,5 +1768,45 @@
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDionaIneedPizza486
+  name: Diona in red hat plushie
+  description: Diona in red hat plushie
+  suffix: Personal, ineedpizza486
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_ineedpizza486
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: SolutionContainerManager
+    solutions:
+      plushie:
+        maxVol: 1
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
 
 #SPONSOR-ITEMS-END
