@@ -166,6 +166,8 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
+    - Fulton
+    - FultonBeacon
 
 - type: technology
   id: MassExcavation
@@ -180,7 +182,6 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-    - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
 
 # Tier 3
 

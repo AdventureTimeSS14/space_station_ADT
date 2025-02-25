@@ -532,7 +532,7 @@
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
   - type: Food
-    delay: 0.3
+    delay: 0.3 # ADT-tweak
     forceFeedDelay: 1
     transferAmount: null
     eatMessage: food-swallow
@@ -591,7 +591,7 @@
     areaInsertRadius: 1
     storageInsertSound: /Audio/Effects/pill_insert.ogg
     storageRemoveSound: /Audio/Effects/pill_remove.ogg
-    whitelist: 
+    whitelist:
       tags:
       - Pill
   - type: Dumpable

@@ -45,6 +45,17 @@
       Steel: 185
   - type: StaticPrice
     price: 30
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/gas_tank_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/gas_tank_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/gas_tank_drop.ogg
+  # ADT End
 
 - type: entity
   abstract: true

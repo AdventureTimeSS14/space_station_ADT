@@ -11,6 +11,11 @@
     maxItemSize: Small
     grid:
     - 0,0,3,1
+    # ADT Start
+    storageInsertSound:
+      path: /Audio/ADT/Entities/medkit_rustle.ogg
+    storageOpenSound: /Audio/ADT/Entities/medkit_open.ogg
+    # ADT End
   - type: Item
     size: Large
     sprite: Objects/Specific/Medical/firstaidkits.rsi
@@ -21,6 +26,17 @@
   - type: Tag
     tags:
     - Medkit
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/medkit_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/medkit_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/medkit_drop.ogg
+  # ADT End
 
 - type: entity
   name: burn treatment kit

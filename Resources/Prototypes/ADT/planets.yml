@@ -15,7 +15,7 @@
       - LavaDungeonRoomMarker
       - LavaDungeonRoomMarker
       - LavaDungeonRoomMarker
-      - BloodMinerDungeMarker
+      # - BloodMinerDungeMarker
     minX: -200
     maxX: 200
     minY: -200

@@ -17,6 +17,14 @@
   - type: Tag
     tags:
     - BoxCardboard
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/cardboardbox_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/cardboardbox_drop.ogg
+  # ADT End
 
 - type: entity
   name: mousetrap box
@@ -188,7 +196,7 @@
       - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-      - state: box_olive
+      - state: box_olive # ADT TWEAK - Откат кабинетных спрайтов
       - state: writing
 
 - type: entity
