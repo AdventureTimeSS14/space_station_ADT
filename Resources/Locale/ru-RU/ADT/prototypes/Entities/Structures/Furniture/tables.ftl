@@ -5,7 +5,7 @@ ent-ADTTableRedWood = красный деревянный стол
     .desc = Деревянный стол с красивой скатертью.
 
 ent-ADTTableWhiteWood = белый деревянный стол
-    .desc = { ent-ADTTableRed }
+    .desc = Красивый деревянный белый стол.
 
 ent-ADTTableRoundPlastic = пластиковый круглый столик
     .desc = Круглый столик, сделанный из пластика.

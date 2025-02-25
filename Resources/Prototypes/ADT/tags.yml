@@ -516,3 +516,6 @@
 
 - type: Tag
   id: ADTIgnoreChokeSpeechBlocking
+
+- type: Tag
+  id: ADTPoker

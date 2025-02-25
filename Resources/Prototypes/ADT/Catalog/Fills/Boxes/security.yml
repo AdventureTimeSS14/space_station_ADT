@@ -4,6 +4,10 @@
   id: BoxTapeRecorder
   description: A box with colorful cassette tapes and a tape recorder.
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
   - type: StorageFill
     contents:
       - id: ADTCassetteTape

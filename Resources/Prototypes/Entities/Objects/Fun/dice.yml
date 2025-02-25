@@ -88,6 +88,10 @@
     currentValue: 6
   - type: Sprite
     state: d6_6
+  - type: Tag # ADT change start
+    tags:
+      - Dice
+      - ADTPoker # ADT change end
 
 - type: entity
   parent: BaseDice

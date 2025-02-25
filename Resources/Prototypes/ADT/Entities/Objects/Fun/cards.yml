@@ -77,6 +77,9 @@
   components:
   - type: Item
     size: Small
+  - type: Tag
+    tags:
+      - ADTPoker
   - type: StorageFill
     contents:
       - id: ADTFunCardClubs2

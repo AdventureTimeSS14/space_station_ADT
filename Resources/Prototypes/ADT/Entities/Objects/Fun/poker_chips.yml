@@ -248,6 +248,7 @@
     tags:
       - WhitelistChameleon
       - ADTCardPlay
+      - ADTPoker
   # - type: StaticPrice
   #   price: 1
 
@@ -262,6 +263,9 @@
   - type: Stack
     stackType: ADTCasinoChip1
     count: 10
+  - type: Tag
+    tags:
+      - ADTPoker
   # - type: StaticPrice
   #   price: 0
 
@@ -276,6 +280,9 @@
   - type: Stack
     stackType: ADTCasinoChip5
     count: 10
+  - type: Tag
+    tags:
+      - ADTPoker
   # - type: StaticPrice
   #   price: 0
 
@@ -290,6 +297,9 @@
   - type: Stack
     stackType: ADTCasinoChip10
     count: 10
+  - type: Tag
+    tags:
+      - ADTPoker
   # - type: StaticPrice
   #   price: 0
 
@@ -304,6 +314,9 @@
   - type: Stack
     stackType: ADTCasinoChip50
     count: 10
+  - type: Tag
+    tags:
+      - ADTPoker
   # - type: StaticPrice
   #   price: 0
 
@@ -318,6 +331,9 @@
   - type: Stack
     stackType: ADTCasinoChip100
     count: 10
+  - type: Tag
+    tags:
+      - ADTPoker
   # - type: StaticPrice
   #   price: 0
 
@@ -337,6 +353,9 @@
     maxItemSize: Small
     grid:
     - 0,0,5,3
+    whitelist:
+      tags:
+        - ADTPoker
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
