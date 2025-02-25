@@ -489,5 +489,5 @@ ent-ADTFoodKiwiTartaliokiwi_fruit = тарталетка с киви
     .suffix = { "Именное, kiwi_fruit" }
 
 ent-ADTPlushieDionaIneedPizza486 = плюшевая диона в шляпке
-    .desc = Плюшевая игрушка в виде Диона с красной шляпой!
+    .desc = Плюшевая игрушка в виде Дионы с красной шляпой!
     .suffix = { "Спонсорское, ineedpizza486" }
