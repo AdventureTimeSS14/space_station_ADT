@@ -218,6 +218,7 @@
     - ADTPKAPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
+    - ADTPhantomPack
     #ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:

@@ -493,7 +493,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 50
+    fireCost: 100 #ADT_Tweak с 50 до 100, возвращаем станнер к старым параметрам
   - type: Tag
     tags:
     - Taser
@@ -521,7 +521,7 @@
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 100 #ADT_Tweak с 50 до 100, возвращаем станнер к старым параметрам
   - type: GuideHelp
     guides:
     - Security

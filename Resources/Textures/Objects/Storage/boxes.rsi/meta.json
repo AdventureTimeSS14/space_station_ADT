@@ -183,6 +183,33 @@
             "directions": 4
         },
         {
+            "name": "shellbeanbag"
+        },
+        {
+            "name": "shellflare"
+        },
+        {
+            "name": "shellflash"
+        },
+        {
+            "name": "shellincendiary"
+        },
+        {
+            "name": "shelllethal"
+        },
+        {
+            "name": "shellpractice"
+        },
+        {
+            "name": "shellslug"
+        },
+        {
+            "name": "shelluranium"
+        },
+        {
+            "name": "shelltranquilizer"
+        },
+        {
             "name": "shelltoy"
         },
         {
@@ -208,9 +235,6 @@
         },
         {
             "name": "recorder"
-        },
-        {
-            "name": "shelllethal"
         }
     ]
 }

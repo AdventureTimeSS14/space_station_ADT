@@ -879,9 +879,9 @@
   productEntity: AccessBreaker
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkDisruption
 
@@ -892,9 +892,9 @@
   productEntity: Emag
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4 # ADT-Tweak
+    Telecrystal: 2 # ADT-Tweak
   cost:
-    Telecrystal: 6 # ADT-Tweak
+    Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkDisruption
 

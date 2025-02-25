@@ -10,6 +10,17 @@
     size: Normal
   - type: Sprite
     sprite: Objects/Storage/boxes.rsi
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  # ADT End
 
 - type: entity
   parent: BaseAmmoProvider
@@ -38,15 +49,11 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunBeanbag
-    - type: MagazineVisuals
-      magState: mag-beanbag
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-beanbag-1
+      - state: mag-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
       - state: beanbag
 
@@ -73,14 +80,14 @@
     - type: BallisticAmmoProvider
       proto: ShellShotgunSlug
     - type: MagazineVisuals
-      magState: mag-slug
+      magState: mag-alt   # ADT TWEAK - Откат кабинетных спрайтов
       steps: 5
       zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-slug-1
+      - state: mag-alt-1   # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
       - state: slug
 
@@ -91,15 +98,11 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunFlare
-    - type: MagazineVisuals
-      magState: mag-flare
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-flare-1
+      - state: mag-1   # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
       - state: flare
 
@@ -110,15 +113,11 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunIncendiary
-    - type: MagazineVisuals
-      magState: mag-incend
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-incend-1
+      - state: mag-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
       - state: incendiary
 
@@ -130,14 +129,14 @@
     - type: BallisticAmmoProvider
       proto: ShellShotgunUranium
     - type: MagazineVisuals
-      magState: mag-uranium
+      magState: mag-alt  # ADT TWEAK - Откат кабинетных спрайтов
       steps: 5
       zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-uranium-1
+      - state: mag-alt-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
       - state: uranium
 
@@ -148,15 +147,11 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunPractice
-    - type: MagazineVisuals
-      magState: mag-practice
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-practice-1
+      - state: mag-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
       - state: practice
 
@@ -167,14 +162,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellTranquilizer
-    - type: MagazineVisuals
-      magState: mag-tranq
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-tranq-1
+      - state: mag-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
       - state: tranquilizer

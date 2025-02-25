@@ -71,6 +71,17 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/rod_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/metal_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/metal_drop.ogg
+  # ADT End
 
 - type: entity
   parent: PartRodMetal
