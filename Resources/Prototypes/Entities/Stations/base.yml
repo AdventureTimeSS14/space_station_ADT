@@ -62,8 +62,8 @@
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
-          minCount: 2
-          maxCount: 2
+          minCount: 0 #ADT tweak, moved to magnet
+          maxCount: 0 #ADT tweak, moved to magnet
           stationGrid: false
           paths:
           - /Maps/Ruins/abandoned_outpost.yml
@@ -122,10 +122,14 @@
 #          protos:
 #          - VGRoid                       ADT remove end
         # ADT-Mining-Start
-        mining: !type:GridSpawnGroup
+        salvage: !type:GridSpawnGroup
+          minCount: 3
+          maxCount: 3
           nameGrid: false
           paths:
           - /Maps/ADTMaps/Shuttles/pioneer.yml
+          - /Maps/ADTMaps/Shuttles/mining.yml
+          - /Maps/ADTMaps/Shuttles/mining_guest.yml
         # ADT-Mining-End
         # ADT-Security-Start
         security: !type:GridSpawnGroup
