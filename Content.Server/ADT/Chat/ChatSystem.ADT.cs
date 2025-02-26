@@ -1,13 +1,16 @@
 using System.Linq;
 using Content.Server.ADT.Chat;
+using Content.Shared.ADT.Language;
+using Content.Shared.Chat;
 using Content.Shared.Ghost;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chat.Systems;
 
 public sealed partial class ChatSystem
 {
-    private Dictionary<ICommonSession, ICChatRecipientData> GetWhisperRecipients(EntityUid source, float clearRange, float muffledRange)
+    public Dictionary<ICommonSession, ICChatRecipientData> GetWhisperRecipients(EntityUid source, float clearRange, float muffledRange)
     {
         var recipients = new Dictionary<ICommonSession, ICChatRecipientData>();
         var ghostHearing = GetEntityQuery<GhostHearingComponent>();
@@ -64,5 +67,40 @@ public sealed partial class ChatSystem
 
         RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, muffledRange, recipients));
         return recipients;
+    }
+
+    public void SendWhisper(
+                            EntityUid source, ProtoId<LanguagePrototype> language,
+                            string message, string obfuscatedMessage,
+                            string wrappedMessage, string wrappedobfuscatedMessage, string wrappedUnknownMessage,
+                            string wrappedLanguageMessage, string wrappedobfuscatedLanguageMessage, string wrappedUnknownLanguageMessage)
+    {
+        foreach (var (session, data) in GetWhisperRecipients(source, WhisperClearRange, WhisperMuffledRange))
+        {
+            EntityUid listener;
+
+            if (session.AttachedEntity is not { Valid: true } playerEntity)
+                continue;
+            listener = session.AttachedEntity.Value;
+
+            if (MessageRangeCheck(session, data, ChatTransmitRange.Normal) != MessageRangeCheckResult.Full)
+                continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
+
+            var (langMessage, wrappedLangMessage, wrappedUnknownLangMessage) =
+                    _language.CanUnderstand(listener, language) ?
+                    (wrappedMessage, wrappedobfuscatedMessage, wrappedUnknownMessage) :
+                    (wrappedLanguageMessage, wrappedobfuscatedLanguageMessage, wrappedUnknownLanguageMessage);
+
+            if (!data.Muffled)
+                _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, langMessage, source, false, session.Channel);
+
+            //If listener is too far, they only hear fragments of the message
+            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))
+                _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedLangMessage, source, false, session.Channel);
+
+            //If listener is too far and has no line of sight, they can't identify the whisperer's identity
+            else
+                _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownLangMessage, source, false, session.Channel);
+        }
     }
 }
