@@ -547,8 +547,12 @@
     - Scarves
     - Carpets
     - Bedsheets
+    - ADTResult
+    - ADTSatchels
+    - ADTDuffel
   - type: EmagLatheRecipes
     emagStaticPacks:
+    - ADTSyndicateDuffel
     - ClothingCentComm
     - ClothingSyndie
   - type: MaterialStorage
