@@ -260,7 +260,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
-        if (checkRadioPrefix)
+        if (checkRadioPrefix && (language ?? _language.GetCurrentLanguage(source)).LanguageType is Generic gen) // ADT Tweaked
         {
             if (TryProccessRadioMessage(source, sanitizedMessage, out var modMessage, out var channel)) // Accent fix
             {
