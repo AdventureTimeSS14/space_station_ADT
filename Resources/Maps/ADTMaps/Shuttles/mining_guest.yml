@@ -17,7 +17,7 @@ entities:
     - type: MetaData
       name: Mining Shuttle
     - type: Transform
-      parent: 2
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -126,18 +126,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-  - uid: 2
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirlockExternalGlassShuttleGuest
   entities:
   - uid: 64
