@@ -31,7 +31,7 @@
     delay: 1
   - type: PhysicalComposition
     materialComposition:
-      Wood: 250
+      Gold: 250
   - type: Tag
     tags:
     - BaseballBat
