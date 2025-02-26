@@ -46,7 +46,8 @@ using Content.Server.Stealth;
 using Content.Server.ADT.Store;
 using Robust.Server.Containers;
 using Content.Shared.ADT.Stealth.Components;
-using Content.Shared.Sirena.CollectiveMind;
+using Content.Shared.ADT.CollectiveMind;
+using Content.Server.ADT.Language;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -84,6 +85,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
     #endregion
 
     public override void Initialize()
@@ -145,7 +147,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ChangelingComponent component, MapInitEvent args)
     {
-        EnsureComp<CollectiveMindComponent>(uid);
+        EnsureComp<CollectiveMindRankComponent>(uid);
+        _language.AddSpokenLanguage(uid, "ChangelingCollectiveMind", Shared.ADT.Language.LanguageKnowledge.Speak);
+
         if (component.GainedActions)
             return;
         _action.AddAction(uid, ref component.ChangelingEvolutionMenuActionEntity, component.ChangelingEvolutionMenuAction);
