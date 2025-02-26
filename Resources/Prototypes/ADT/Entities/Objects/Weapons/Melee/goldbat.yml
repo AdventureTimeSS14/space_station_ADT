@@ -27,9 +27,6 @@
     qualities:
     - Rolling
     speedModifier: 0.75 # a bit unwieldly but does the job
-  - type: Construction
-    graph: WoodenBat
-    node: bat
   - type: UseDelay
     delay: 1
   - type: PhysicalComposition
