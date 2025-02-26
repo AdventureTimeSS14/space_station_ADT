@@ -12,6 +12,17 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  # ADT End
 
 # Boxes
 - type: entity
@@ -39,15 +50,11 @@
   - type: BallisticAmmoProvider
     proto: CartridgeCap
     capacity: 20
-  - type: MagazineVisuals
-    magState: mag-cap
-    steps: 4
-    zeroVisible: false
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
     layers:
-      - state: base
+      - state: capbase  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-cap-1
+      - state: mag-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
-      - state: capbase
+      - state: cap  # ADT TWEAK - Откат кабинетных спрайтов

@@ -8,7 +8,11 @@
   id: FemaleLaugh
   files:
     - /Audio/Voice/Human/womanlaugh.ogg
-    - /Audio/ADT/Voice/Human/female_laugh.ogg # ADT add
+    # ADT Start
+    - /Audio/ADT/Voice/Human/female_laugh.ogg
+    - /Audio/ADT/Voice/Human/female_giggle1.ogg
+    - /Audio/ADT/Voice/Human/female_giggle2.ogg
+    # ADT End
 
 - type: soundCollection
   id: MaleCough
