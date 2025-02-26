@@ -52,33 +52,13 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         UpdateUi(uid);
     }
 
-    public string ObfuscateMessage(EntityUid uid, string originalMessage, LanguagePrototype? proto = null)
+    public string ObfuscateMessage(EntityUid uid, string originalMessage, List<string> replacements, bool obfiscateSyllables)
     {
-        if (proto == null)
-        {
-            proto = GetCurrentLanguage(uid);
-        }
-
         var builder = new StringBuilder();
-        if (proto.ObfuscateSyllables)
-            ObfuscateSyllables(builder, originalMessage, proto);
+        if (obfiscateSyllables)
+            ObfuscateSyllables(builder, originalMessage, replacements);
         else
-            ObfuscatePhrases(builder, originalMessage, proto);
-
-        var result = builder.ToString();
-        result = _chat.SanitizeInGameICMessageLanguages(uid, result, out _);
-
-        return result;
-    }
-
-    public string ObfuscateMessage(EntityUid uid, string originalMessage, ProtoId<LanguagePrototype> protoId)
-    {
-        var proto = _proto.Index(protoId);
-        var builder = new StringBuilder();
-        if (proto.ObfuscateSyllables)
-            ObfuscateSyllables(builder, originalMessage, proto);
-        else
-            ObfuscatePhrases(builder, originalMessage, proto);
+            ObfuscatePhrases(builder, originalMessage, replacements);
 
         var result = builder.ToString();
         result = _chat.SanitizeInGameICMessageLanguages(uid, result, out _);
@@ -87,7 +67,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     }
 
     // Message obfuscation and seed system taken from https://github.com/new-frontiers-14/frontier-station-14/pull/671
-    private void ObfuscateSyllables(StringBuilder builder, string message, LanguagePrototype language)
+    private void ObfuscateSyllables(StringBuilder builder, string message, List<string> replacements)
     {
         // Go through each word. Calculate its hash sum and count the number of letters.
         // Replicate it with pseudo-random syllables of pseudo-random (but similar) length. Use the hash code as the seed.
@@ -108,8 +88,8 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
                     for (var j = 0; j < newWordLength; j++)
                     {
-                        var index = PseudoRandomNumber(hashCode + j, 0, language.Replacement.Count);
-                        var replacement = language.Replacement[index];
+                        var index = PseudoRandomNumber(hashCode + j, 0, replacements.Count);
+                        var replacement = replacements[index];
                         if (newSentence)
                         {
                             var replacementBuilder = new StringBuilder(replacement);
@@ -139,7 +119,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         }
     }
 
-    private void ObfuscatePhrases(StringBuilder builder, string message, LanguagePrototype language)
+    private void ObfuscatePhrases(StringBuilder builder, string message, List<string> replacements)
     {
         // In a similar manner, each phrase is obfuscated with a random number of conjoined obfuscation phrases.
         // However, the number of phrases depends on the number of characters in the original phrase.
@@ -152,11 +132,11 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
                 var length = i + 1 - sentenceBeginIndex;
                 if (length > 0)
                 {
-                    var newLength = (int) Math.Clamp(Math.Cbrt(length) - 1, 1, 4); // 27+ chars for 2 phrases, 64+ for 3, 125+ for 4.
+                    var newLength = (int)Math.Clamp(Math.Cbrt(length) - 1, 1, 4); // 27+ chars for 2 phrases, 64+ for 3, 125+ for 4.
 
                     for (var j = 0; j < newLength; j++)
                     {
-                        var phrase = _random.Pick(language.Replacement);
+                        var phrase = _random.Pick(replacements);
                         builder.Append(phrase);
                     }
                 }
@@ -213,7 +193,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
                 sb.Append(newString);
             }
 
-            if (!_random.Prob(0.5f * 3/20))
+            if (!_random.Prob(0.5f * 3 / 20))
             {
                 sb.Append(character);
                 continue;
@@ -247,6 +227,12 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
             return;
         if (!_mind.TryGetMind(uid, out _, out var mind) || mind == null || mind.Session == null)
             return;
+        foreach (var item in langs)
+        {
+            var proto = _proto.Index<LanguagePrototype>(item.Key);
+            if (!proto.ShowUnderstood && item.Value < LanguageKnowledge.BadSpeak)
+                langs.Remove(item.Key);
+        }
 
         var state = new LanguageMenuStateMessage(GetNetEntity(uid), current, langs, translator);
         RaiseNetworkEvent(state, mind.Session);
