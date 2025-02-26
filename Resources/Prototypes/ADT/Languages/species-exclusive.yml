@@ -68,7 +68,7 @@
     - mara
     - marr
     font: CaesarDressing
-    contSize: 13
+    fontSize: 13
 
 - type: language
   id: VoxPidgin
