@@ -17,3 +17,11 @@
       board: [ DoorElectronicsSalvage ]
   - type: Wires
     layoutId: AirlockCargo
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleGuest
+  suffix: External, Mining, Glass, Docking, Guest
+  components:
+  - type: PriorityDock
+    tag: DockMiningGuest

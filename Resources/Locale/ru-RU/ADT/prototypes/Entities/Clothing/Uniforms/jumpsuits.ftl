@@ -110,7 +110,6 @@ ent-ADTClothingUniformJumpsuitTurtleneckRed = красная водолазка
     .desc = Хорошо маскирует следы крови.
     .suffix = { "" }
 
-
 ent-ADTClothingUniformJumpsuitTurtleneckYellow = жёлтая водолазка
     .desc = Наполнена счастьем.
     .suffix = { "" }
@@ -118,7 +117,6 @@ ent-ADTClothingUniformJumpsuitTurtleneckYellow = жёлтая водолазка
 ent-ADTClothingUniformJumpsuitTurtleneckWhite = белая водолазка
     .desc = Тепло и уютно.
     .suffix = { "" }
-
 
 ent-ADTClothingUniformJumpsuitTurtleneckBrown = коричневая водолазка
     .desc = Знаешь ли ты, почему я ношу красное? Оно хорошо скрывает следы крови! И я вижу, что ты одета в коричневое...

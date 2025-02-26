@@ -517,3 +517,11 @@
 - type: Tag
   id: ADTIgnoreChokeSpeechBlocking
 
+- type: Tag
+  id: ADTMiningGuestShuttle
+
+- type: Tag
+  id: ADTMiningShuttle
+
+- type: Tag
+  id: DockMiningGuest

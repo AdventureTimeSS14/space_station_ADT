@@ -10,6 +10,7 @@
   startingGear: ADTTimePatrolGear
   icon: "JobIconMagistrat"
   requireAdminNotify: true
+  overrideConsoleVisibility: false
   joinNotifyCrew: true
   supervisors: job-supervisors-captain
   canBeAntag: false

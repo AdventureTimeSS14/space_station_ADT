@@ -22,7 +22,7 @@ entities:
     - type: MetaData
       name: NT-EM Terminal
     - type: Transform
-      parent: invalid
+      parent: 916
     - type: MapGrid
       chunks:
         -1,-1:
@@ -788,130 +788,113 @@ entities:
       version: 2
       data:
         tiles:
-          -1,-1:
-            0: 65535
-          0,0:
-            0: 65535
-          0,-1:
-            0: 65535
-          -1,0:
-            0: 65535
           -4,-3:
-            0: 53247
+            0: 35064
           -4,-4:
-            0: 61166
-          -4,-2:
-            0: 60620
+            0: 52428
           -4,-1:
-            0: 61166
+            0: 52428
+          -4,-2:
+            0: 2184
+          -4,0:
+            0: 35020
+          -4,-5:
+            0: 36744
           -3,-4:
             0: 65535
           -3,-3:
             0: 65535
           -3,-2:
-            0: 65535
+            0: 32767
           -3,-1:
             0: 65535
+          -3,-5:
+            0: 65535
+          -3,0:
+            0: 65535
           -2,-4:
-            0: 13107
+            0: 4369
           -2,-3:
-            0: 6007
-          -2,-2:
-            0: 61713
+            0: 112
           -2,-1:
-            0: 65535
-          -1,-2:
-            0: 61440
+            0: 65297
+          -2,0:
+            0: 2271
+            1: 8192
+          -1,-1:
+            0: 65280
+          -1,0:
+            0: 61439
+          0,-1:
+            0: 65280
+          0,0:
+            0: 49151
           0,1:
-            0: 4095
-            1: 61440
+            0: 63675
+          -1,1:
+            0: 61678
+          0,2:
+            0: 15
+            1: 3840
+          -1,2:
+            0: 15
+            1: 3840
           1,0:
-            0: 65535
+            0: 35039
+            1: 8192
+          1,2:
+            0: 1
+            1: 802
+          1,-1:
+            0: 65484
           1,1:
-            0: 959
-            1: 12288
+            1: 8738
           2,0:
             0: 65535
           2,1:
-            0: 255
-          3,0:
-            0: 4915
-          3,1:
-            0: 1
-          0,-2:
-            0: 61440
-          1,-3:
-            0: 53247
-          1,-2:
-            0: 64716
-          1,-1:
+            0: 7
+          2,-1:
             0: 65535
+          3,0:
+            0: 17
+          3,-1:
+            0: 4369
+          1,-3:
+            0: 35064
           1,-4:
-            0: 61166
+            0: 52428
+          1,-2:
+            0: 2184
+          1,-5:
+            0: 36744
           2,-4:
             0: 65535
           2,-3:
             0: 65535
           2,-2:
-            0: 65535
-          2,-1:
-            0: 65535
-          3,-4:
-            0: 13107
-          3,-3:
-            0: 6007
-          3,-2:
-            0: 12561
-          3,-1:
-            0: 13107
-          -4,0:
-            0: 52974
-          -4,1:
-            0: 140
-          -3,0:
-            0: 65535
-          -3,1:
-            0: 255
-          -2,0:
-            0: 65535
-          -2,1:
-            0: 3823
-            1: 57344
-          -1,1:
-            0: 4095
-            1: 61440
-          1,-5:
-            0: 65532
-          1,-6:
-            0: 51200
-          2,-6:
-            0: 65280
+            0: 32767
           2,-5:
             0: 65535
-          3,-6:
-            0: 4096
-          3,-5:
-            0: 30577
-          -4,-5:
-            0: 65532
-          -4,-6:
-            0: 51200
-          -3,-6:
-            0: 65280
-          -3,-5:
-            0: 65535
-          -2,-6:
-            0: 4096
-          -2,-5:
-            0: 30577
-          0,2:
-            1: 4095
-          1,2:
-            1: 819
+          3,-4:
+            0: 4369
+          3,-3:
+            0: 112
+          -3,1:
+            0: 7
+          -2,1:
+            1: 8738
+            0: 34952
           -2,2:
-            1: 3822
-          -1,2:
-            1: 4095
+            1: 3618
+            0: 8
+          2,-6:
+            0: 28672
+          3,-5:
+            0: 1792
+          -3,-6:
+            0: 28672
+          -2,-5:
+            0: 1792
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -928,9 +911,25 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
-          temperature: 293.15
+          immutable: True
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -949,6 +948,18 @@ entities:
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: Godmode
+  - uid: 916
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirlockExternalGlass
   entities:
   - uid: 2
@@ -4297,12 +4308,9 @@ entities:
   - uid: 18
     components:
     - type: Transform
-      anchored: True
       rot: 3.141592653589793 rad
       pos: 9.5,3.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -4313,11 +4321,8 @@ entities:
   - uid: 577
     components:
     - type: Transform
-      anchored: True
       pos: 10.5,1.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -4326,12 +4331,9 @@ entities:
   - uid: 591
     components:
     - type: Transform
-      anchored: True
       rot: 1.5707963267948966 rad
       pos: 8.5,0.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -4340,11 +4342,8 @@ entities:
   - uid: 703
     components:
     - type: Transform
-      anchored: True
       pos: 9.5,1.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -4353,12 +4352,9 @@ entities:
   - uid: 704
     components:
     - type: Transform
-      anchored: True
       rot: 1.5707963267948966 rad
       pos: 8.5,-0.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8057,12 +8053,9 @@ entities:
   - uid: 119
     components:
     - type: Transform
-      anchored: True
       rot: 3.141592653589793 rad
       pos: -11.5,-20.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8071,12 +8064,9 @@ entities:
   - uid: 639
     components:
     - type: Transform
-      anchored: True
       rot: 3.141592653589793 rad
       pos: -9.5,-20.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8085,12 +8075,9 @@ entities:
   - uid: 730
     components:
     - type: Transform
-      anchored: True
       rot: 3.141592653589793 rad
       pos: 8.5,-20.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8099,12 +8086,9 @@ entities:
   - uid: 737
     components:
     - type: Transform
-      anchored: True
       rot: 3.141592653589793 rad
       pos: 10.5,-20.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8113,12 +8097,9 @@ entities:
   - uid: 738
     components:
     - type: Transform
-      anchored: True
       rot: -1.5707963267948966 rad
       pos: -12.5,-0.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8127,12 +8108,9 @@ entities:
   - uid: 740
     components:
     - type: Transform
-      anchored: True
       rot: -1.5707963267948966 rad
       pos: -12.5,0.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8141,12 +8119,9 @@ entities:
   - uid: 761
     components:
     - type: Transform
-      anchored: True
       rot: -1.5707963267948966 rad
       pos: -12.5,-1.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction
@@ -8155,12 +8130,9 @@ entities:
   - uid: 914
     components:
     - type: Transform
-      anchored: True
       rot: -1.5707963267948966 rad
       pos: -12.5,-2.5
       parent: 818
-    - type: Physics
-      bodyType: Static
     - type: Godmode
     missingComponents:
     - Construction

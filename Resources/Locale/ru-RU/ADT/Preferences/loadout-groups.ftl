@@ -13,7 +13,7 @@ loadout-group-blueshield-head = ОСЩ, голова
 loadout-group-blueshield-neck = ОСЩ, шея
 loadout-group-blueshield-back = ОСЩ, рюкзак
 # Civilian
-
+loadout-chef-pocket1-adt = Шеф Повар, карман 1
 # Cargo
 
 # Engineering

@@ -8,7 +8,6 @@ ent-ADTCircuitImprinter = принтер схем
 ent-ADTSecurityTechFab = охранный ТехФаб
     .desc = Печатает снаряжение для службы безопасности и некоторые базовые вещи.
 
-
 ent-ADTCrateMechFabricator = ящик платы фабрикатора мехов
     .desc = Защищенный ящик с платой для фабрикатора мехов.
 

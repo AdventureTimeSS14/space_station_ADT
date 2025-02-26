@@ -6,7 +6,7 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
-using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Cuffs.Components;
 
 namespace Content.Server.Objectives.Systems;
