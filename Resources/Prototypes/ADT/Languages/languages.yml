@@ -2,241 +2,278 @@
 # Do not use otherwise. Try to use the respective component instead of this language.
 - type: language
   id: Universal
-  replacement:
-  - "*incomprehensible*"
+  speech: !type:Generic
+    replacement:
+    - "*incomprehensible*"
 
 # Syndicate operatives can use a series of codewords to convey complex information.
 - type: language
   id: CodeSpeak
-  obfuscateSyllables: true
-  color: Crimson
-  whisperColor: Crimson
-  replacement:
-  - Белый русский
-  - Представитель станции
-  - Шериф
-  - Депутат
-  - Хранилище
-  - Фронтир
-  - Станция
-  - Безопасность
-  - Кофе
-  - Кола
-  - Вода
-  - Инженерный
-  - Капитан
-  - Вызываю друга
-  - Атмос
-  - Робототехника
-  - Медицинский
-  - ИИ
-  - Человек
-  - Вульпканин
-  - Унатх
-  - Ниан
-  - Чай
-  - Стул
-  - Кресло
-  - Корабль
-  - Шаттл
-  - Оружие
-  - Пушки
-  - Лазер
-  - Карп
-  - Космический Карп
-  - Ксено
-  - Ксеноморф
-  - Биоугроза
-  - Деньги
-  - Космос
-  - Опасность
-  - Обезьяна
-  - Пун-пун
-  - Внутри
-  - Бежит
-  - Убивает
-  - Убить
-  - Спасти
-  - Жизнь
-  - Дракон
-  - Ниндзя
-  - Секрет
+  uiColor: Crimson
+  speech: !type:Generic
+    obfuscateSyllables: true
+    color: Crimson
+    whisperColor: Crimson
+    replacement:
+    - Белый русский
+    - Представитель станции
+    - Шериф
+    - Депутат
+    - Хранилище
+    - Фронтир
+    - Станция
+    - Безопасность
+    - Кофе
+    - Кола
+    - Вода
+    - Инженерный
+    - Капитан
+    - Вызываю друга
+    - Атмос
+    - Робототехника
+    - Медицинский
+    - ИИ
+    - Человек
+    - Вульпканин
+    - Унатх
+    - Ниан
+    - Чай
+    - Стул
+    - Кресло
+    - Корабль
+    - Шаттл
+    - Оружие
+    - Пушки
+    - Лазер
+    - Карп
+    - Космический Карп
+    - Ксено
+    - Ксеноморф
+    - Биоугроза
+    - Деньги
+    - Космос
+    - Опасность
+    - Обезьяна
+    - Пун-пун
+    - Внутри
+    - Бежит
+    - Убивает
+    - Убить
+    - Спасти
+    - Жизнь
+    - Дракон
+    - Ниндзя
+    - Секрет
 
 # Languages spoken by various critters.
 - type: language
   id: Cat
-  obfuscateSyllables: true
-  replacement:
-  - мурр
-  - мяу
-  - мурр
-  - мрау
+  speech: !type:Generic
+    obfuscateSyllables: true
+    replacement:
+    - мурр
+    - мяу
+    - мурр
+    - мрау
 
 - type: language
   id: Dog
-  obfuscateSyllables: true
-  replacement:
-  - вуф
-  - гав
-  - гаф
-  - рафф
-  - гарр
+  speech: !type:Generic
+    obfuscateSyllables: true
+    replacement:
+    - вуф
+    - гав
+    - гаф
+    - рафф
+    - гарр
 
 - type: language
   id: Mothroach
-  replacement:
-  - Бзз
-  - Чрик
-  - Скуик
-  - Пип
-  - Ииии
-  - Иип
+  speech: !type:Generic
+    replacement:
+    - Бзз
+    - Чрик
+    - Скуик
+    - Пип
+    - Ииии
+    - Иип
+    verbs:
+      Default: [ chat-speech-verb-winged-1, chat-speech-verb-winged-2, chat-speech-verb-winged-3, chat-speech-verb-insect-1 ]
 
 - type: language
   id: Xeno
-  obfuscateSyllables: true
-  replacement:
-  - ссс
-  - сСс
-  - ССС
+  speech: !type:Generic
+    obfuscateSyllables: true
+    replacement:
+    - ссс
+    - сСс
+    - ССС
 
 - type: language
   id: Monkey
-  obfuscateSyllables: true
-  replacement:
-  - аг
-  - ааг
-  - аааг
-  - ааааг
-  - аааааг
+  speech: !type:Generic
+    obfuscateSyllables: true
+    replacement:
+    - аг
+    - ааг
+    - аааг
+    - ааааг
+    - аааааг
 
 - type: language
   id: Bee
-  replacement:
-  - Бз
-  - Бзз
-  - Бззз
-  - Бзззз
-  - Бззззз
+  speech: !type:Generic
+    replacement:
+    - Бз
+    - Бзз
+    - Бззз
+    - Бзззз
+    - Бззззз
 
 - type: language
   id: Mouse
-  replacement:
-  - Скуик
-  - Пип
-  - Чуу
-  - Ииии
-  - Пип
+  speech: !type:Generic
+    replacement:
+    - Скуик
+    - Пип
+    - Чуу
+    - Ииии
+    - Пип
 
 - type: language
   id: Chicken
-  replacement:
-  - Coo
-  - Coot
-  - Cooot
+  speech: !type:Generic
+    replacement:
+    - Coo
+    - Coot
+    - Cooot
 
 - type: language
   id: Duck
-  replacement:
-  - Quack
+  speech: !type:Generic
+    replacement:
+    - Quack
 
 - type: language
   id: Cow
-  replacement:
-  - Moo
-  - Mooo
+  speech: !type:Generic
+    replacement:
+    - Moo
+    - Mooo
 
 - type: language
   id: Sheep
-  replacement:
-  - Ba
-  - Baa
-  - Baaa
+  speech: !type:Generic
+    replacement:
+    - Ba
+    - Baa
+    - Baaa
 
 - type: language
   id: Kangaroo
-  replacement:
-  - Shreak
-  - Chuu
+  speech: !type:Generic
+    replacement:
+    - Shreak
+    - Chuu
 
 - type: language
   id: Pig
-  replacement:
-  - Oink
+  speech: !type:Generic
+    replacement:
+    - Oink
 
 # Here goes admeme languages.
 - type: language
   id: Dev
-  obfuscateSyllables: true
-  color: White
-  replacement:
-  - су
-  - ка
-  - офф
-  - ямл
-  - бл
-  - пид
-  - рас
-  - о
-  - виз
-  - код
-  - с#
-  - c++
-  - python
-  - sql
-  - css
-  - go
-  - java
-  - js
-  - php
-  - ПАСКАЛЬ
-  - POWERSHELL
-  - цикл
-  - "1"
-  - 0!='0'
-  - стр!
-  - число!
-  - булево!
-  - массив!
-  - объект!
-  - ERROR#455_593_1
-  - Мама
-  - прототип
-  - астра
-  - ПОЧЕМУ-У-У-ОНО-НЕ-РАБОТАЕ-Е-Е-Т-???
-  - хз
-  - да.
-  - если
-  - условие
-  - сортировка
-  - нормализация
-  - свитч
-  - ';'
-  - парсинг
-  - слип
-  - addgamerule
-  - ban
-  - kick
-  - кофе
-  - coffee
-  - куки
-  - печеньки
-  - сессия
-  - ':('
-  - мета
-  - билд
-  - сук
-  - гни
-  - эмис
-  - баг
-  - да
-  - бля
-  - гит
-  - мердж
-  - пулл
-  - ПР
-  - огг
-  - пнг
-  - робст
-  - релз
-  - дебаг
+  uiColor: White
+  speech: !type:Generic
+    obfuscateSyllables: true
+    color: White
+    replacement:
+    - су
+    - ка
+    - офф
+    - ямл
+    - бл
+    - пид
+    - рас
+    - о
+    - виз
+    - код
+    - с#
+    - c++
+    - python
+    - sql
+    - css
+    - go
+    - java
+    - js
+    - php
+    - ПАСКАЛЬ
+    - POWERSHELL
+    - цикл
+    - "1"
+    - 0!='0'
+    - стр!
+    - число!
+    - булево!
+    - массив!
+    - объект!
+    - ERROR#455_593_1
+    - Мама
+    - прототип
+    - астра
+    - ПОЧЕМУ-У-У-ОНО-НЕ-РАБОТАЕ-Е-Е-Т-???
+    - хз
+    - да.
+    - если
+    - условие
+    - сортировка
+    - нормализация
+    - свитч
+    - ';'
+    - парсинг
+    - слип
+    - addgamerule
+    - ban
+    - kick
+    - кофе
+    - coffee
+    - куки
+    - печеньки
+    - сессия
+    - ':('
+    - мета
+    - билд
+    - сук
+    - гни
+    - эмис
+    - баг
+    - да
+    - бля
+    - гит
+    - мердж
+    - пулл
+    - ПР
+    - огг
+    - пнг
+    - робст
+    - релз
+    - дебаг
+
+- type: language
+  id: SignLanguage
+  uiColor: White
+  speech: !type:Emotes
+    color: White
+    whisperColor: White
+    replacement:
+    - изящно жестикулирует
+    - показывает непонятные жесты
+    verbs:
+      chat-speech-verb-suffix-exclamation-strong: [ яростно жестикулирует, кричит жестами ]
+      chat-speech-verb-suffix-exclamation: [ настойчиво жестикулирует ]
+      chat-speech-verb-suffix-question: [ жестикулирует, показывает жестами ]
+      chat-speech-verb-suffix-stutter: [ жестикулирует, показывает жестами ]
+      chat-speech-verb-suffix-mumble: [ жестикулирует, показывает жестами ]
+      Default: [ жестикулирует, показывает жестами ]
