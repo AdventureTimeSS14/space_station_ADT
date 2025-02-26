@@ -2,19 +2,17 @@
 - type: language
   id: RootSpeak
   uiColor: "#76ff61"
-  speech: !type:Generic
-    obfuscateSyllables: true
+  speech: !type:Emotes
     color: "#76ff61"
     whisperColor: "#7fc474"
     replacement:
-    - хс
-    - зт
-    - кр
-    - ст
-    - ш
-    - шш
+    - шуршит листьями
+    - скрежечет ветками
+    - шебуршит
     font: Miroslav
     fontSize: 14
+    sound:
+      path: /Audio/Voice/Diona/diona_scream.ogg
 
 # Spoken by slimes.
 - type: language

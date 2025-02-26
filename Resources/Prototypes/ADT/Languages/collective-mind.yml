@@ -4,7 +4,7 @@
   uiColor: "#3de500"
   speech: !type:CollectiveMind
     color: "#3de500"
-    showRank: true
+    showRank: false
     showName: false
     font: Miroslav
     fontSize: 14
