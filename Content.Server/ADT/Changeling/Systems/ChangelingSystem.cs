@@ -147,7 +147,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ChangelingComponent component, MapInitEvent args)
     {
-        EnsureComp<CollectiveMindRankComponent>(uid);
         _language.AddSpokenLanguage(uid, "ChangelingCollectiveMind", Shared.ADT.Language.LanguageKnowledge.Speak);
 
         if (component.GainedActions)
