@@ -117,6 +117,8 @@ public sealed partial class Generic : ILanguageType
             ("verb", Loc.GetString(random.Pick(verbStrings))),
             ("fontType", font),
             ("fontSize", fontSize),
+            ("defaultFont", verb.FontId),
+            ("defaultSize", verb.FontSize),
             ("message", coloredLanguageMessage));
 
         // Send
