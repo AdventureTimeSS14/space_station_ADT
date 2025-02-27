@@ -420,8 +420,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
-        SetBarkData(uid, profile.Bark, humanoid); // ADT Barks
-        SetLanguages(uid, profile.Languages.ToList());  // ADT Languages
+        // ADT Start
+        SetBarkData(uid, profile.Bark, humanoid);
+        SetLanguages(uid, profile.Languages.ToList());
         var species = _proto.Index(humanoid.Species);
         species.ForceLanguages.ForEach(x =>
         {
@@ -429,6 +430,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             if (!lang.Languages.ContainsKey(x))
                 lang.Languages.Add(x, LanguageKnowledge.Speak);
         });
+        // ADT End
+
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
