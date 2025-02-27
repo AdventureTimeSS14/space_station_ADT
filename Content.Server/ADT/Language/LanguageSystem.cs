@@ -216,7 +216,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     {
         base.UpdateUi(uid, comp);
 
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(uid, ref comp, false))
             return;
 
         Dirty(uid, comp);
