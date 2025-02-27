@@ -49,7 +49,7 @@ public sealed partial class Emotes : ILanguageType
     public List<string> Replacement = new();
 
     [DataField]
-    public SoundPathSpecifier? Sound;
+    public SoundSpecifier? Sound;
 
     public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage)
     {
