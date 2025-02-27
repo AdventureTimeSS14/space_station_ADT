@@ -45,7 +45,7 @@
   showUnderstood: false
   speech: !type:CollectiveMind
     color: "#b61e19"
-    showRank: true
+    showRank: false
     showName: false
     font: Specialelite
     fontSize: 14
