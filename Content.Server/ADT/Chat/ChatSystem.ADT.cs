@@ -75,6 +75,8 @@ public sealed partial class ChatSystem
                             string wrappedMessage, string wrappedobfuscatedMessage, string wrappedUnknownMessage,
                             string wrappedLanguageMessage, string wrappedobfuscatedLanguageMessage, string wrappedUnknownLanguageMessage)
     {
+        var lang = _prototypeManager.Index(language);
+
         foreach (var (session, data) in GetWhisperRecipients(source, WhisperClearRange, WhisperMuffledRange))
         {
             EntityUid listener;
@@ -82,6 +84,12 @@ public sealed partial class ChatSystem
             if (session.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
             listener = session.AttachedEntity.Value;
+
+            foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
+            {
+                if (!item.Condition(listener, EntityManager))
+                    continue;
+            }
 
             if (MessageRangeCheck(session, data, ChatTransmitRange.Normal) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.

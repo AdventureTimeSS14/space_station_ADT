@@ -441,8 +441,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         LanguagePrototype? language = null  // ADT Languages
         )
     {
-        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
-            return;
+        // if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)    // ADT Commented
+        //     return;
 
         //var message = TransformSpeech(source, originalMessage);   // ADT Commented
         var message = originalMessage;
@@ -453,6 +453,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         // ADT Languages start
         if (language == null)
             language = _language.GetCurrentLanguage(source);
+
+        if (!ignoreActionBlocker)
+        {
+            foreach (var item in language.Conditions.Where(x => !x.RaiseOnListener))
+            {
+                if (!item.Condition(source, EntityManager))
+                    return;
+            }
+        }
         // ADT Languages end
 
         var speech = GetSpeechVerb(source, message);
@@ -527,8 +536,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         LanguagePrototype? language = null  // ADT Languages
         )
     {
-        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
-            return;
+        // if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)    // ADT Commented
+        //     return;
 
         //var message = TransformSpeech(source, FormattedMessage.RemoveMarkupOrThrow(originalMessage));
         var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);
@@ -540,6 +549,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         // ADT Languages start
         if (language == null)
             language = _language.GetCurrentLanguage(source);
+
+        if (!ignoreActionBlocker)
+        {
+            foreach (var item in language.Conditions.Where(x => !x.RaiseOnListener))
+            {
+                if (!item.Condition(source, EntityManager))
+                    return;
+            }
+        }
         // ADT Languages end
 
         // get the entity's name by visual identity (if no override provided).
@@ -730,8 +748,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false)  // ADT Languages
     {
         // ADT Languages start
-        if (language == null)
-            language = _language.GetCurrentLanguage(source).ID!;
+        var lang = language != null ? _prototypeManager.Index(language.Value) : _language.GetCurrentLanguage(source);
 
         foreach (var (session, data) in GetRecipients(source, VoiceRange))
         {
@@ -740,6 +757,12 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (session.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
             listener = session.AttachedEntity.Value;
+
+            foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
+            {
+                if (!item.Condition(listener, EntityManager))
+                    continue;
+            }
 
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
@@ -751,7 +774,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue;
             }
 
-            if (!_language.CanUnderstand(listener, (string)language))
+            if (!_language.CanUnderstand(listener, lang))
                 _chatManager.ChatMessageToOne(channel, message, wrappedLanguageMessage, source, entHideChat, session.Channel, author: author);
             else
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
