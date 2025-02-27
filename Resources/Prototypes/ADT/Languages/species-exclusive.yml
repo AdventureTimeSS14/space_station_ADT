@@ -41,22 +41,17 @@
   id: Fire
   uiColor: "#ff6a00"
   parent: BaseVocalLanguage
-  speech: !type:Generic
-    obfuscateSyllables: true
+  speech: !type:Emotes
     color: "#ff6a00"
     whisperColor: "#e0894a"
     replacement:
-    - шш
-    - вшш
-    - шжшш
-    - сшшшс
-    - шсжсс
-    - ссш
-    - сс
-    - жжс
-    - жшж
+    - разгарается
+    - потрескивает огнём
+    - издаёт пламенные звуки
     font: Plantype
     fontSize: 14
+    sound:
+      collection: NovakidLaugh
 
 - type: language
   id: Mar
