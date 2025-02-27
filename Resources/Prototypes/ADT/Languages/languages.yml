@@ -293,3 +293,5 @@
       chat-speech-verb-suffix-stutter: [ жестикулирует, показывает жестами ]
       chat-speech-verb-suffix-mumble: [ жестикулирует, показывает жестами ]
       Default: [ жестикулирует, показывает жестами ]
+    sound:
+      collection: Salutes
