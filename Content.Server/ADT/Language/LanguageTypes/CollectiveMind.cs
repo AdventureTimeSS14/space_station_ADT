@@ -59,7 +59,7 @@ public sealed partial class CollectiveMind : ILanguageType
     [DataField]
     public string? Font { get; set; } = null;
 
-    public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, IEntityManager entMan, out bool success, out string resultMessage)
+    public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage)
     {
         var lang = entMan.System<LanguageSystem>();
         var chat = entMan.System<ChatSystem>();
@@ -92,6 +92,8 @@ public sealed partial class CollectiveMind : ILanguageType
                 Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank-name",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("source", uid),
                 ("rank", rank),
                 ("message", message),
@@ -101,6 +103,8 @@ public sealed partial class CollectiveMind : ILanguageType
                 Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-name",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("source", uid),
                 ("message", message),
                 ("channel", language.LocalizedName)) :
@@ -109,6 +113,8 @@ public sealed partial class CollectiveMind : ILanguageType
                 Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("rank", Loc.GetString(rank)),
                 ("message", message),
                 ("channel", language.LocalizedName)) :
@@ -116,12 +122,16 @@ public sealed partial class CollectiveMind : ILanguageType
            Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("message", message),
                 ("channel", language.LocalizedName));
 
         adminMessageWrap = Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-admin",
             ("fontType", Font ?? "NotoSansDisplay"),
             ("fontSize", FontSize ?? 12),
+            ("defaultFont", "NotoSansDisplay"),
+            ("defaultSize", 12),
             ("source", uid),
             ("rank", Loc.GetString(rank)),
             ("message", message),
@@ -141,7 +151,7 @@ public sealed partial class CollectiveMind : ILanguageType
         success = true;
     }
 
-    public void Whisper(EntityUid uid, string message, string name, string nameIdentity, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
+    public void Whisper(EntityUid uid, string message, string name, string nameIdentity, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
     {
         var lang = entMan.System<LanguageSystem>();
         var chat = entMan.System<ChatSystem>();
@@ -175,6 +185,8 @@ public sealed partial class CollectiveMind : ILanguageType
                 Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank-name",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("source", uid),
                 ("rank", rank),
                 ("message", message),
@@ -184,6 +196,8 @@ public sealed partial class CollectiveMind : ILanguageType
                 Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-name",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("source", uid),
                 ("message", message),
                 ("channel", language.LocalizedName)) :
@@ -192,6 +206,8 @@ public sealed partial class CollectiveMind : ILanguageType
                 Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-rank",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("rank", Loc.GetString(rank)),
                 ("message", message),
                 ("channel", language.LocalizedName)) :
@@ -199,12 +215,16 @@ public sealed partial class CollectiveMind : ILanguageType
            Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message",
                 ("fontType", Font ?? "NotoSansDisplay"),
                 ("fontSize", FontSize ?? 12),
+                ("defaultFont", "NotoSansDisplay"),
+                ("defaultSize", 12),
                 ("message", message),
                 ("channel", language.LocalizedName));
 
         adminMessageWrap = Loc.GetString("chat-manager-send-collective-mind-chat-wrap-message-admin",
             ("fontType", Font ?? "NotoSansDisplay"),
             ("fontSize", FontSize ?? 12),
+            ("defaultFont", "NotoSansDisplay"),
+            ("defaultSize", 12),
             ("source", uid),
             ("rank", Loc.GetString(rank)),
             ("message", message),

@@ -1,3 +1,4 @@
+using Content.Shared.Chat;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
@@ -47,9 +48,9 @@ public partial interface ILanguageType
     /// </summary>
     bool RaiseEvent { get; set; }
 
-    void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, IEntityManager entMan, out bool success, out string resultMessage);
+    public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage);
 
-    void Whisper(EntityUid uid, string message, string name, string nameIdentity, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage);
+    void Whisper(EntityUid uid, string message, string name, string nameIdentity, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage);
 }
 
 public enum LanguageColoration

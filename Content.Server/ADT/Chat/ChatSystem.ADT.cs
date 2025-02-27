@@ -70,7 +70,7 @@ public sealed partial class ChatSystem
     }
 
     public void SendWhisper(
-                            EntityUid source, ProtoId<LanguagePrototype> language,
+                            EntityUid source, ProtoId<LanguagePrototype> language, ChatTransmitRange range,
                             string message, string obfuscatedMessage,
                             string wrappedMessage, string wrappedobfuscatedMessage, string wrappedUnknownMessage,
                             string wrappedLanguageMessage, string wrappedobfuscatedLanguageMessage, string wrappedUnknownLanguageMessage)
@@ -91,7 +91,7 @@ public sealed partial class ChatSystem
                     continue;
             }
 
-            if (MessageRangeCheck(session, data, ChatTransmitRange.Normal) != MessageRangeCheckResult.Full)
+            if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
             var (langMessage, wrappedLangMessage, wrappedUnknownLangMessage) =

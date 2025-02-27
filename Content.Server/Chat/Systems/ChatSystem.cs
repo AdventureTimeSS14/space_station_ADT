@@ -489,7 +489,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
         var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
-        language.LanguageType.Speak(source, sanitizedMessage, name, speech, EntityManager, out var success, out var resultMessage);
+        language.LanguageType.Speak(source, sanitizedMessage, name, speech, range, EntityManager, out var success, out var resultMessage);
         if (!success)
             return;
 
@@ -583,15 +583,19 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         name = FormattedMessage.EscapeText(name);
         var sanitizedMessage = SanitizeInGameICMessage(source, FormattedMessage.EscapeText(message), out _);
-        language.LanguageType.Whisper(source, sanitizedMessage, name, nameIdentity, EntityManager, out var success, out var resultMessage, out var resultObfMessage);
+        language.LanguageType.Whisper(source, sanitizedMessage, name, nameIdentity, range, EntityManager, out var success, out var resultMessage, out var resultObfMessage);
         if (!success)
             return;
 
         // ADT - Вырезал старую часть, связанную с построением сообщений и их отправкой. Всё теперь в языках
         // ADT Languages end
 
-        var ev = new EntitySpokeEvent(source, resultMessage, language, channel, resultObfMessage, true);    // ADT message => resultMessage; obfuscatedMessage => resultObfMessage
-        RaiseLocalEvent(source, ev, true);
+        if (language.LanguageType.RaiseEvent)   // ADT Tweaked
+        {
+            var ev = new EntitySpokeEvent(source, resultMessage, language, channel, resultObfMessage, true);
+            RaiseLocalEvent(source, ev, true);
+        }
+
         if (!hideLog)
             if (originalMessage == message)
             {
@@ -1085,17 +1089,18 @@ public enum InGameOOCChatType : byte
     Dead
 }
 
-/// <summary>
-///     Controls transmission of chat.
-/// </summary>
-public enum ChatTransmitRange : byte
-{
-    /// Acts normal, ghosts can hear across the map, etc.
-    Normal,
-    /// Normal but ghosts are still range-limited.
-    GhostRangeLimit,
-    /// Hidden from the chat window.
-    HideChat,
-    /// Ghosts can't hear or see it at all. Regular players can if in-range.
-    NoGhosts
-}
+// ADT - moved to shared
+// /// <summary>
+// ///     Controls transmission of chat.
+// /// </summary>
+// public enum ChatTransmitRange : byte
+// {
+//     /// Acts normal, ghosts can hear across the map, etc.
+//     Normal,
+//     /// Normal but ghosts are still range-limited.
+//     GhostRangeLimit,
+//     /// Hidden from the chat window.
+//     HideChat,
+//     /// Ghosts can't hear or see it at all. Regular players can if in-range.
+//     NoGhosts
+// }

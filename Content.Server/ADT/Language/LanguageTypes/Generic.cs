@@ -58,7 +58,7 @@ public sealed partial class Generic : ILanguageType
 
 
 
-    public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, IEntityManager entMan, out bool success, out string resultMessage)
+    public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage)
     {
         var lang = entMan.System<LanguageSystem>();
         var chat = entMan.System<ChatSystem>();
@@ -108,6 +108,8 @@ public sealed partial class Generic : ILanguageType
             ("verb", Loc.GetString(random.Pick(verbStrings))),
             ("fontType", font),
             ("fontSize", fontSize),
+            ("defaultFont", verb.FontId),
+            ("defaultSize", verb.FontSize),
             ("message", coloredMessage));
 
         var wrappedLanguageMessage = Loc.GetString(verb.Bold && Font == null ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
@@ -118,11 +120,11 @@ public sealed partial class Generic : ILanguageType
             ("message", coloredLanguageMessage));
 
         // Send
-        chat.SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, uid, ChatTransmitRange.Normal, language: Language);
+        chat.SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, wrappedLanguageMessage, uid, range, language: Language);
         success = true;
     }
 
-    public void Whisper(EntityUid uid, string message, string name, string nameIdentity, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
+    public void Whisper(EntityUid uid, string message, string name, string nameIdentity, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
     {
         var lang = entMan.System<LanguageSystem>();
         var chat = entMan.System<ChatSystem>();
@@ -152,35 +154,47 @@ public sealed partial class Generic : ILanguageType
             ("entityName", name),
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
+            ("defaultFont", "NotoSansDisplayItalic"),
+            ("defaultSize", 11),
             ("message", accentMessage));
 
         var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
             ("entityName", nameIdentity),
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
+            ("defaultFont", "NotoSansDisplayItalic"),
+            ("defaultSize", 11),
             ("message", obfuscatedMessage));
 
         var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
+            ("defaultFont", "NotoSansDisplayItalic"),
+            ("defaultSize", 11),
             ("message", obfuscatedMessage));
 
         var wrappedLanguageMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
+            ("defaultFont", "NotoSansDisplayItalic"),
+            ("defaultSize", 11),
             ("entityName", name), ("message", languageMessage));
 
         var wrappedobfuscatedLanguageMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
+            ("defaultFont", "NotoSansDisplayItalic"),
+            ("defaultSize", 11),
             ("entityName", nameIdentity), ("message", obfuscatedLanguageMessage));
 
         var wrappedUnknownLanguageMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
+            ("defaultFont", "NotoSansDisplayItalic"),
+            ("defaultSize", 11),
             ("message", obfuscatedLanguageMessage));
 
-        chat.SendWhisper(uid, Language, message, obfuscatedMessage,
+        chat.SendWhisper(uid, Language, range, message, obfuscatedMessage,
                         wrappedMessage, wrappedobfuscatedMessage, wrappedUnknownMessage,
                         wrappedLanguageMessage, wrappedobfuscatedLanguageMessage, wrappedUnknownLanguageMessage);
         success = true;

@@ -51,7 +51,7 @@ public sealed partial class Emotes : ILanguageType
     [DataField]
     public SoundPathSpecifier? Sound;
 
-    public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, IEntityManager entMan, out bool success, out string resultMessage)
+    public void Speak(EntityUid uid, string message, string name, SpeechVerbPrototype verb, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage)
     {
         var lang = entMan.System<LanguageSystem>();
         var chat = entMan.System<ChatSystem>();
@@ -101,6 +101,8 @@ public sealed partial class Emotes : ILanguageType
             ("verb", Loc.GetString(random.Pick(verbStrings))),
             ("fontType", font),
             ("fontSize", fontSize),
+            ("defaultFont", verb.FontId),
+            ("defaultSize", verb.FontSize),
             ("message", coloredMessage));
 
         var wrappedLanguageMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
@@ -116,7 +118,7 @@ public sealed partial class Emotes : ILanguageType
                 continue;
             listener = session.AttachedEntity.Value;
 
-            var entRange = chat.MessageRangeCheck(session, data, ChatTransmitRange.Normal);
+            var entRange = chat.MessageRangeCheck(session, data, range);
             if (entRange == ChatSystem.MessageRangeCheckResult.Disallowed)
                 continue;
             var entHideChat = entRange == ChatSystem.MessageRangeCheckResult.HideChat;
@@ -131,7 +133,7 @@ public sealed partial class Emotes : ILanguageType
         success = true;
     }
 
-    public void Whisper(EntityUid uid, string message, string name, string nameIdentity, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
+    public void Whisper(EntityUid uid, string message, string name, string nameIdentity, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage)
     {
         var lang = entMan.System<LanguageSystem>();
         var chat = entMan.System<ChatSystem>();
@@ -179,6 +181,8 @@ public sealed partial class Emotes : ILanguageType
             ("verb", Loc.GetString(random.Pick(verbStrings))),
             ("fontType", font),
             ("fontSize", fontSize),
+            ("defaultFont", verb.FontId),
+            ("defaultSize", verb.FontSize),
             ("message", coloredMessage));
 
         var wrappedLanguageMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
@@ -194,7 +198,7 @@ public sealed partial class Emotes : ILanguageType
                 continue;
             listener = session.AttachedEntity.Value;
 
-            var entRange = chat.MessageRangeCheck(session, data, ChatTransmitRange.Normal);
+            var entRange = chat.MessageRangeCheck(session, data, range);
             if (entRange == ChatSystem.MessageRangeCheckResult.Disallowed)
                 continue;
             var entHideChat = entRange == ChatSystem.MessageRangeCheckResult.HideChat;
