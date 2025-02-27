@@ -458,7 +458,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             foreach (var item in language.Conditions.Where(x => !x.RaiseOnListener))
             {
-                if (!item.Condition(source, EntityManager))
+                if (!item.Condition(source, null, EntityManager))
                     return;
             }
         }
@@ -554,7 +554,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             foreach (var item in language.Conditions.Where(x => !x.RaiseOnListener))
             {
-                if (!item.Condition(source, EntityManager))
+                if (!item.Condition(source, null, EntityManager))
                     return;
             }
         }
@@ -762,11 +762,14 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue;
             listener = session.AttachedEntity.Value;
 
+            bool condition = true;
             foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
             {
-                if (!item.Condition(listener, EntityManager))
-                    continue;
+                if (!item.Condition(listener, source, EntityManager))
+                    condition = false;
             }
+            if (!condition)
+                continue;
 
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)

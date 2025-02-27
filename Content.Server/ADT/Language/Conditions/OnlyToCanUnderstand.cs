@@ -14,7 +14,7 @@ public sealed partial class OnlyToCanUnderstand : ILanguageCondition
     [DataField]
     public bool RaiseOnListener { get; set; } = true;
 
-    public bool Condition(EntityUid targetEntity, IEntityManager entMan)
+    public bool Condition(EntityUid targetEntity, EntityUid? source, IEntityManager entMan)
     {
         var lang = entMan.System<LanguageSystem>();
         return lang.CanUnderstand(targetEntity, Language);

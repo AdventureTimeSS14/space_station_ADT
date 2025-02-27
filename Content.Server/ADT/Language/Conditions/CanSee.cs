@@ -16,7 +16,7 @@ public sealed partial class CanSee : ILanguageCondition
     [DataField]
     public bool RaiseOnListener { get; set; } = true;
 
-    public bool Condition(EntityUid targetEntity, IEntityManager entMan)
+    public bool Condition(EntityUid targetEntity, EntityUid? source, IEntityManager entMan)
     {
         var ev = new CanSeeAttemptEvent();
         entMan.EventBus.RaiseLocalEvent(targetEntity, ev);

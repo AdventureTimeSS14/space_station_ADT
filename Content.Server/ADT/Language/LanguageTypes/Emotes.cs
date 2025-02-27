@@ -60,20 +60,21 @@ public sealed partial class Emotes : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
         success = false;
 
+        chat.TryProccessRadioMessage(uid, message, out message, out _);
         string coloredMessage = lang.AccentuateMessage(uid, Language, message);
 
         // We dont want to generate emotes
         string coloredLanguageMessage = random.Pick(Replacement);
         resultMessage = FormattedMessage.EscapeText(coloredMessage);
 
+        if (string.IsNullOrEmpty(coloredMessage))
+            return;
+
         // Apply language color
         if (Color != null)
         {
             coloredMessage = "[color=" + Color.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
         }
-
-        if (string.IsNullOrEmpty(FormattedMessage.EscapeText(coloredMessage)))
-            return;
 
         // Getting verbs
         List<string> verbStrings = verb.SpeechVerbStrings;
@@ -142,10 +143,13 @@ public sealed partial class Emotes : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
         success = false;
 
+        chat.TryProccessRadioMessage(uid, message, out message, out _);
         string coloredMessage = lang.AccentuateMessage(uid, Language, message);
         string coloredLanguageMessage = random.Pick(Replacement);
         resultMessage = FormattedMessage.EscapeText(coloredMessage);
-        resultObfMessage = FormattedMessage.EscapeText(coloredLanguageMessage);
+        resultObfMessage = FormattedMessage.EscapeText(coloredMessage);
+        if (string.IsNullOrEmpty(coloredMessage))
+            return;
 
         var verb = chat.GetSpeechVerb(uid, message);
 

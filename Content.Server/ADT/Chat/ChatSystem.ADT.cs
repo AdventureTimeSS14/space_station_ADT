@@ -85,11 +85,14 @@ public sealed partial class ChatSystem
                 continue;
             listener = session.AttachedEntity.Value;
 
+            bool condition = true;
             foreach (var item in lang.Conditions.Where(x => x.RaiseOnListener))
             {
-                if (!item.Condition(listener, EntityManager))
-                    continue;
+                if (!item.Condition(listener, source, EntityManager))
+                    condition = false;
             }
+            if (!condition)
+                continue;
 
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.

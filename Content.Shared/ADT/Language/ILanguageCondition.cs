@@ -10,5 +10,5 @@ public partial interface ILanguageCondition
 
     bool RaiseOnListener { get; set; }
 
-    bool Condition(EntityUid targetEntity, IEntityManager entMan);
+    bool Condition(EntityUid targetEntity, EntityUid? source, IEntityManager entMan);
 }

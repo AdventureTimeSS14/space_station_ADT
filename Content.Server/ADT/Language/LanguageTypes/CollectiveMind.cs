@@ -7,6 +7,7 @@ using Content.Shared.Chat;
 using Content.Shared.Speech;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Language;
 
@@ -68,7 +69,11 @@ public sealed partial class CollectiveMind : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
 
         success = false;
+        chat.TryProccessRadioMessage(uid, message, out message, out _);
         resultMessage = message;
+
+        if (string.IsNullOrEmpty(message))
+            return;
 
         var clients = Filter.Empty();
         var admins = Filter.Empty();
@@ -160,8 +165,12 @@ public sealed partial class CollectiveMind : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
 
         success = false;
+        chat.TryProccessRadioMessage(uid, message, out message, out _);
         resultMessage = message;
         resultObfMessage = message;
+
+        if (string.IsNullOrEmpty(message))
+            return;
 
         var clients = Filter.Empty();
         var admins = Filter.Empty();

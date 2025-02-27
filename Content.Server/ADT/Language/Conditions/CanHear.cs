@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.ADT.Chat;
 using Content.Shared.ADT.Language;
 using Robust.Shared.Prototypes;
@@ -15,9 +16,12 @@ public sealed partial class CanHear : ILanguageCondition
     [DataField]
     public bool RaiseOnListener { get; set; } = true;
 
-    public bool Condition(EntityUid targetEntity, IEntityManager entMan)
+    public bool Condition(EntityUid targetEntity, EntityUid? source, IEntityManager entMan)
     {
-        var ev = new CanHearVoiceEvent(targetEntity, false);
+        if (!source.HasValue)
+            return false;
+
+        var ev = new CanHearVoiceEvent(source.Value, false);
         entMan.EventBus.RaiseLocalEvent(targetEntity, ref ev);
 
         return !ev.Cancelled;

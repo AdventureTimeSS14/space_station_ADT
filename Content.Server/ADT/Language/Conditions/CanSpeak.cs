@@ -15,7 +15,7 @@ public sealed partial class CanSpeak : ILanguageCondition
     [DataField]
     public bool RaiseOnListener { get; set; } = false;
 
-    public bool Condition(EntityUid targetEntity, IEntityManager entMan)
+    public bool Condition(EntityUid targetEntity, EntityUid? source, IEntityManager entMan)
     {
         var blocker = entMan.System<ActionBlockerSystem>();
         return blocker.CanSpeak(targetEntity);

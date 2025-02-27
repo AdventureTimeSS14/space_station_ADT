@@ -71,6 +71,8 @@ public sealed partial class Generic : ILanguageType
         string coloredMessage = lang.AccentuateMessage(uid, Language, message);
         string coloredLanguageMessage = lang.ObfuscateMessage(uid, message, Replacement, ObfuscateSyllables);
         resultMessage = FormattedMessage.EscapeText(coloredMessage);
+        if (string.IsNullOrEmpty(coloredMessage))
+            return;
 
         // Apply language color
         if (Color != null)
@@ -78,9 +80,6 @@ public sealed partial class Generic : ILanguageType
             coloredMessage = "[color=" + Color.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
             coloredLanguageMessage = "[color=" + Color.Value.ToHex().ToString() + "]" + coloredLanguageMessage + "[/color]";
         }
-
-        if (string.IsNullOrEmpty(FormattedMessage.EscapeText(coloredMessage)))
-            return;
 
         // Getting verbs
         List<string> verbStrings = verb.SpeechVerbStrings;
@@ -138,6 +137,8 @@ public sealed partial class Generic : ILanguageType
         var obfuscatedLanguageMessage = chat.ObfuscateMessageReadability(languageMessage, 0.2f);
         resultMessage = FormattedMessage.EscapeText(accentMessage);
         resultObfMessage = FormattedMessage.EscapeText(obfuscatedMessage);
+        if (string.IsNullOrEmpty(accentMessage))
+            return;
 
         if (WhisperColor != null)
         {
@@ -146,9 +147,6 @@ public sealed partial class Generic : ILanguageType
             obfuscatedMessage = "[color=" + WhisperColor.Value.ToHex().ToString() + "]" + obfuscatedMessage + "[/color]";
             obfuscatedLanguageMessage = "[color=" + WhisperColor.Value.ToHex().ToString() + "]" + obfuscatedLanguageMessage + "[/color]";
         }
-
-        if (string.IsNullOrEmpty(FormattedMessage.EscapeText(accentMessage)))
-            return;
 
         name = FormattedMessage.EscapeText(name);
 
