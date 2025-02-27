@@ -81,4 +81,16 @@
       emergencyLightColor: "#ffbf00"
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    cascade:
+      announcement: alert-level-cascade-announcement
+      selectable: false
+      sound:
+        path: /Audio/ADT/Supermatter/cascade.ogg
+        params:
+          volume: -2
+      disableSelection: true
+      color: PaleVioletRed
+      emergencyLightColor: PaleVioletRed
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200
       #ADT end
