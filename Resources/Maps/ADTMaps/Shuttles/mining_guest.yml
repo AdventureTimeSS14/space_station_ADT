@@ -17,6 +17,7 @@ entities:
     - type: MetaData
       name: Mining Shuttle
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -46,6 +47,8 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
+    - type: Shuttle
+    - type: MiningShuttleGuest
     - type: DockingShuttle
       destinations: []
     - type: ProtectedGrid
@@ -89,6 +92,14 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
@@ -104,12 +115,20 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-- proto: AirlockShuttle
+- proto: AirlockExternalGlassShuttleGuest
   entities:
-  - uid: 2
+  - uid: 64
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -238,7 +257,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-0.5
       parent: 1
-- proto: ComputerShuttleMining
+- proto: ComputerShuttleMiningGuest
   entities:
   - uid: 24
     components:

@@ -43,3 +43,16 @@
     shuttleWhitelist:
       components:
       - MiningShuttle
+
+- type: entity
+  parent: BaseComputerDocking
+  id: ComputerShuttleMiningGuest
+  name: guest shuttle console
+  description: Used to pilot the guest shuttle to and from the mining base.
+  components:
+  - type: DockingConsole
+    windowTitle: mining-console-window-title
+    dockTag: DockMiningGuest
+    shuttleWhitelist:
+      components:
+      - MiningShuttleGuest
