@@ -52,10 +52,3 @@ public partial interface ILanguageType
 
     void Whisper(EntityUid uid, string message, string name, string nameIdentity, ChatTransmitRange range, IEntityManager entMan, out bool success, out string resultMessage, out string resultObfMessage);
 }
-
-public enum LanguageColoration
-{
-    None,
-    SpeechOnly,
-    Full
-}
