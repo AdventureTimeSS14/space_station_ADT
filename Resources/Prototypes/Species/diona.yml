@@ -33,6 +33,8 @@
   - RootSpeak
   uniqueLanguages:
   - RootSpeak
+  forceLanguages:
+  - DionaCollectiveMind
   # ADT end
 
 
