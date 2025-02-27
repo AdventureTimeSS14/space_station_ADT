@@ -73,6 +73,9 @@ public sealed class TTSSystem : EntitySystem
         if (_cfg.GetCVar(ADTCCVars.ReplaceTTSWithBarks) == true)    // ADT Barks
             return;
 
+        if (HasComp<DeafTraitComponent>(_playerManager  .LocalEntity))
+            return;
+
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
         var filePath = new ResPath($"{_fileIdx++}.ogg");

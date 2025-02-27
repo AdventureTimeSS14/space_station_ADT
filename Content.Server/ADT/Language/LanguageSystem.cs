@@ -20,6 +20,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeTraits();
 
         SubscribeLocalEvent<LanguageSpeakerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
