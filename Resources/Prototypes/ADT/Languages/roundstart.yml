@@ -3,6 +3,7 @@
   id: GalacticCommon
   roundstart: true
   priority: 2
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     replacement:
@@ -31,6 +32,7 @@
   id: Arachnid
   roundstart: true
   uiColor: "#b34444"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#b34444"
@@ -99,6 +101,7 @@
   id: Nekomimetic
   roundstart: true
   uiColor: "#ff78e8"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff78e8"
@@ -160,6 +163,7 @@
   id: Draconic
   roundstart: true
   uiColor: "#0ea600"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#0ea600"
@@ -257,6 +261,7 @@
   id: Canilunzt
   roundstart: true
   uiColor: "#ff9a3b"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff9a3b"
@@ -326,6 +331,7 @@
   id: SikTaj
   roundstart: true
   uiColor: "#ff683b"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff683b"
@@ -395,6 +401,7 @@
   id: Nian
   roundstart: true
   uiColor: "#ffdd61"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ffdd61"
@@ -436,6 +443,7 @@
   id: SolCommon
   roundstart: true
   uiColor: "#00fc65"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#00fc65"
@@ -464,6 +472,7 @@
   id: RobotTalk
   roundstart: true
   uiColor: "#5773ff"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#5773ff"
@@ -484,6 +493,7 @@
   id: BorgTalk
   roundstart: true
   uiColor: "#9faffc"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#9faffc"
@@ -503,6 +513,7 @@
   id: Drask
   roundstart: true
   uiColor: "#0074c7"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#0074c7"
@@ -531,6 +542,7 @@
   id: Urs
   roundstart: true
   uiColor: "#b36b00"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#b36b00"
@@ -565,6 +577,7 @@
   id: Arkane
   roundstart: true
   uiColor: "#e478ff"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#e478ff"
@@ -593,6 +606,7 @@
   id: Dwarf
   roundstart: true
   uiColor: "#f5e238"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#f5e238"
@@ -620,6 +634,7 @@
   id: CintaTaj
   roundstart: true
   uiColor: "#88d424"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#88d424"
@@ -773,6 +788,7 @@
   id: Gutter
   roundstart: true
   uiColor: "#0030db"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#0030db"
@@ -800,6 +816,7 @@
   id: NeoRusskiya
   roundstart: true
   uiColor: "#ff1212"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff1212"
@@ -811,6 +828,7 @@
   id: Clownish
   roundstart: true
   uiColor: "#fff700"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#fff700"
@@ -832,6 +850,7 @@
   id: Scratches
   roundstart: true
   uiColor: "#52ffcb"
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#52ffcb"

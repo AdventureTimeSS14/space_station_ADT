@@ -10,6 +10,7 @@
 - type: language
   id: CodeSpeak
   uiColor: Crimson
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     color: Crimson
@@ -68,6 +69,7 @@
 # Languages spoken by various critters.
 - type: language
   id: Cat
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     replacement:
@@ -78,6 +80,7 @@
 
 - type: language
   id: Dog
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     replacement:
@@ -89,6 +92,7 @@
 
 - type: language
   id: Mothroach
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Бзз
@@ -102,6 +106,7 @@
 
 - type: language
   id: Xeno
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     replacement:
@@ -111,6 +116,7 @@
 
 - type: language
   id: Monkey
+  parent: BaseVocalLanguage
   speech: !type:Generic
     obfuscateSyllables: true
     replacement:
@@ -122,6 +128,7 @@
 
 - type: language
   id: Bee
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Бз
@@ -132,6 +139,7 @@
 
 - type: language
   id: Mouse
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Скуик
@@ -142,6 +150,7 @@
 
 - type: language
   id: Chicken
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Coo
@@ -150,12 +159,14 @@
 
 - type: language
   id: Duck
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Quack
 
 - type: language
   id: Cow
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Moo
@@ -163,6 +174,7 @@
 
 - type: language
   id: Sheep
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Ba
@@ -171,6 +183,7 @@
 
 - type: language
   id: Kangaroo
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Shreak
@@ -178,6 +191,7 @@
 
 - type: language
   id: Pig
+  parent: BaseVocalLanguage
   speech: !type:Generic
     replacement:
     - Oink
@@ -185,6 +199,7 @@
 # Here goes admeme languages.
 - type: language
   id: Dev
+  parent: BaseVocalLanguage
   uiColor: White
   speech: !type:Generic
     obfuscateSyllables: true
@@ -264,6 +279,7 @@
 - type: language
   id: SignLanguage
   uiColor: White
+  parent: BaseEmoteLanguage
   speech: !type:Emotes
     color: White
     whisperColor: White
