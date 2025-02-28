@@ -414,7 +414,6 @@
   - Game5
   - Game6
   obeysTo: laws-owner-crew
-  roundstart: true  # ADT SAI Custom
 
  # Painter laws
 - type: siliconLaw
@@ -445,7 +444,6 @@
   - Painter3
   - Painter4
   obeysTo: laws-owner-crew
-  roundstart: true  # ADT SAI Custom
 
  # Antimov laws
 - type: siliconLaw
@@ -507,7 +505,6 @@
   - Nutimov4
   - Nutimov5
   obeysTo: laws-owner-crew
-  roundstart: true  # ADT SAI Custom
 
 # ion storm random lawsets
 - type: weightedRandom
