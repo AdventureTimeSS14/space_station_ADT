@@ -5,20 +5,15 @@ namespace Content.Server.Objectives.Components;
 /// <summary>
 /// Требование генокраду украсть определённое количество штаммов ДНК
 /// </summary>
-[RegisterComponent, Access(typeof(StealDnaConditionSystem))]
-public sealed partial class StealDnaConditionComponent : Component
+[RegisterComponent, Access(typeof(AbsorbChangelingConditionSystem))]
+public sealed partial class AbsorbChangelingConditionComponent : Component
 {
     [DataField]
-    public int AbsorbDnaCount = 4;
-
-    [DataField]
-    public int MaxDnaCount = 13;
-
-    [DataField]
-    public int MinDnaCount = 10;
+    public int AbsorbCount = 1;
 
     [DataField(required: true)]
     public LocId ObjectiveText;
+
     [DataField(required: true)]
     public LocId DescriptionText;
 
