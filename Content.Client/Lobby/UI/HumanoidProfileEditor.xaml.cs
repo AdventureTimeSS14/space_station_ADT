@@ -1228,7 +1228,6 @@ namespace Content.Client.Lobby.UI
             if (_loadoutWindow is not ILoadoutOverride loadoutWindow)
                 return;
 
-            _loadoutWindow.Title = jobProto?.ID + "-loadout";
             loadoutWindow.Refresh(Profile, roleLoadout, _prototypeManager);
             loadoutWindow.OnValueChanged += item =>
             {

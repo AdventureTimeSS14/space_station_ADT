@@ -24,6 +24,7 @@ public sealed partial class StationAILoadoutWindow : BaseLoadoutWindow, ILoadout
     {
         RobustXamlLoader.Load(this);
         SaveNameButton.OnPressed += args => OnValueChanged?.Invoke(new(SharedStationAiSystem.ExtraLoadoutNameId, RoleNameEdit.Text));
+        Title = Loc.GetString("station-ai-customization-window");
     }
 
     public void Refresh(HumanoidCharacterProfile? profile, RoleLoadout loadout, IPrototypeManager protoMan)
