@@ -286,7 +286,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             _resourceCache,
             _requirements,
             _markings,
-            _factory);
+            _factory);  // ADT SAI Custom
 
         _profileEditor.OnOpenGuidebook += _guide.OpenHelp;
 
@@ -381,7 +381,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             }
         }
 
-        _spawn.ApplyLoadoutExtras(uid, roleLoadout);
+        _spawn.ApplyLoadoutExtras(uid, roleLoadout);    // ADT SAI Custom
     }
 
     /// <summary>
@@ -481,6 +481,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             // Special type like borg or AI, do not spawn a human just spawn the entity.
             dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
 
+            // ADT SAI Custom start
             // Applying loadout extras to dummy
             if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job?.ID)))
             {
@@ -488,6 +489,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
                 if (loadout != null)
                     _spawn.ApplyLoadoutExtras(dummyEnt, loadout);
             }
+            // ADT SAI Custom end
+
             return dummyEnt;
         }
         else if (humanoid is not null)
@@ -516,7 +519,6 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         }
 
         return dummyEnt;
-
     }
 
     #endregion

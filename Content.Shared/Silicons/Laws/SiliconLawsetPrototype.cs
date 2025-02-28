@@ -80,9 +80,11 @@ public sealed partial class SiliconLawsetPrototype : IPrototype
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public string ObeysTo = string.Empty;
 
+    // ADT SAI Custom start
     [DataField]
     public int Priority = 0;
 
     [DataField]
     public bool Roundstart = false;
+    // ADT SAI Custom end
 }

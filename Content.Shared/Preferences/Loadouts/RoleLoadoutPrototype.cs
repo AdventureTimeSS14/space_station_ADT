@@ -41,6 +41,8 @@ public sealed partial class RoleLoadoutPrototype : IPrototype
     [DataField]
     public int? Points;
 
+    // ADT SAI Custom start
     [DataField]
     public string[]? AllowedExtras;
+    // ADT SAI Custom end
 }

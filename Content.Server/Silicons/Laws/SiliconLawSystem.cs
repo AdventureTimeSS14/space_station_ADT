@@ -295,6 +295,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         NotifyLawsChanged(target, cue);
     }
 
+    // ADT SAI Custom start
     public void SetLaws(ProtoId<SiliconLawsetPrototype> proto, EntityUid target, SoundSpecifier? cue = null)
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
@@ -307,6 +308,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         component.Lawset.Laws = newLaws;
         NotifyLawsChanged(target, cue);
     }
+    // ADT SAI Custom end
 
     protected override void OnUpdaterInsert(Entity<SiliconLawUpdaterComponent> ent, ref EntInsertedIntoContainerMessage args)
     {

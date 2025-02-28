@@ -27,10 +27,12 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     /// </summary>
     public string? EntityName;
 
+    // ADT SAI Custom start
     /// <summary>
     /// Extra data for this loadout.
     /// </summary>
     public Dictionary<string, string> ExtraData = new();
+    // ADT SAI Custom end
 
     /*
      * Loadout-specific data used for validation.
@@ -51,10 +53,12 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         {
             weh.SelectedLoadouts.Add(selected.Key, new List<Loadout>(selected.Value));
         }
+        // ADT SAI Custom start
         foreach (var extra in ExtraData)
         {
             weh.ExtraData.Add(extra.Key, extra.Value);
         }
+        // ADT SAI Custom end
 
         weh.EntityName = EntityName;
 
@@ -197,6 +201,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             SelectedLoadouts.Remove(value);
         }
 
+        // ADT SAI Custom start
         // Extras validation (we don't want assists to have SAI data, right?)
         if (!protoManager.TryIndex(Role, out var role) || role.AllowedExtras == null)
         {
@@ -215,6 +220,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         {
             ExtraData.Remove(key);
         }
+        // ADT SAI Custom end
     }
 
     private void Apply(LoadoutPrototype loadoutProto)
@@ -236,7 +242,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         if (force)
         {
             SelectedLoadouts.Clear();
-            ExtraData.Clear();
+            ExtraData.Clear();  // ADT SAI Custom
         }
 
         var collection = IoCManager.Instance!;
@@ -400,8 +406,10 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             }
         }
 
+        // ADT SAI Custom start
         if (!ExtraData.SequenceEqual(other.ExtraData))
             return false;
+        // ADT SAI Custom end
 
         return true;
     }

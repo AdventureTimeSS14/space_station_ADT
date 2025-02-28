@@ -19,7 +19,7 @@ using static Content.Server.Chat.Systems.ChatSystem;
 
 namespace Content.Server.Silicons.StationAi;
 
-public sealed partial class StationAiSystem : SharedStationAiSystem
+public sealed class StationAiSystem : SharedStationAiSystem
 {
     [Dependency] private readonly IChatManager _chats = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -139,6 +139,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         // Apparently there's no sound for this.
     }
 
+    // ADT SAI Custom start
     public override void SetLoadoutExtraLawset(EntityUid brain, Dictionary<string, string> data)
     {
         base.SetLoadoutExtraLawset(brain, data);
@@ -163,4 +164,5 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         SetLoadoutExtraLawset(brain, loadout.ExtraData);
         SetLoadoutExtraVisuals(core, loadout.ExtraData);
     }
+    // ADT SAI Custom end
 }

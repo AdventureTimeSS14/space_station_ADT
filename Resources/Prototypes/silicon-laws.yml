@@ -21,8 +21,10 @@
   - Crewsimov2
   - Crewsimov3
   obeysTo: laws-owner-crew
+  # ADT SAI Custom start
   roundstart: true
   priority: -1
+  # ADT SAI Custom end
 
 # Corporate
 - type: siliconLaw
@@ -53,7 +55,7 @@
   - Corporate3
   - Corporate4
   obeysTo: laws-owner-station
-  roundstart: true
+  roundstart: true  # ADT SAI Custom
 
 # NT Default
 - type: siliconLaw
@@ -84,7 +86,7 @@
   - NTDefault3
   - NTDefault4
   obeysTo: laws-owner-crew
-  roundstart: true
+  roundstart: true  # ADT SAI Custom
 
 #Drone
 - type: siliconLaw
@@ -232,7 +234,7 @@
   - Commandment9
   - Commandment10
   obeysTo: laws-owner-crew
-  roundstart: true
+  roundstart: true  # ADT SAI Custom
 
  # Paladin laws
 - type: siliconLaw
@@ -314,7 +316,7 @@
   - Efficiency2
   - Efficiency3
   obeysTo: laws-owner-station
-  roundstart: true
+  roundstart: true  # ADT SAI Custom
 
  # Robocop laws
 - type: siliconLaw
@@ -412,7 +414,7 @@
   - Game5
   - Game6
   obeysTo: laws-owner-crew
-  roundstart: true
+  roundstart: true  # ADT SAI Custom
 
  # Painter laws
 - type: siliconLaw
@@ -443,7 +445,7 @@
   - Painter3
   - Painter4
   obeysTo: laws-owner-crew
-  roundstart: true
+  roundstart: true  # ADT SAI Custom
 
  # Antimov laws
 - type: siliconLaw
@@ -505,7 +507,7 @@
   - Nutimov4
   - Nutimov5
   obeysTo: laws-owner-crew
-  roundstart: true
+  roundstart: true  # ADT SAI Custom
 
 # ion storm random lawsets
 - type: weightedRandom

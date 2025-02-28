@@ -60,14 +60,14 @@ namespace Content.Client.Lobby.UI
         private readonly MarkingManager _markingManager;
         private readonly JobRequirementsManager _requirements;
         private readonly LobbyUIController _controller;
-        private readonly IDynamicTypeFactory _factory;
+        private readonly IDynamicTypeFactory _factory;  // ADT SAI Custom
         [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
 
         // One at a time.
-        private BaseLoadoutWindow? _loadoutWindow;
+        private BaseLoadoutWindow? _loadoutWindow;  // ADT SAI Custom
 
         private bool _exporting;
         private bool _imaging;
@@ -131,7 +131,7 @@ namespace Content.Client.Lobby.UI
             IResourceManager resManager,
             JobRequirementsManager requirements,
             MarkingManager markings,
-            IDynamicTypeFactory factory)
+            IDynamicTypeFactory factory)    // ADT SAI Custom
         {
             RobustXamlLoader.Load(this);
             _sawmill = logManager.GetSawmill("profile.editor");
@@ -144,7 +144,7 @@ namespace Content.Client.Lobby.UI
             _preferencesManager = preferencesManager;
             _resManager = resManager;
             _requirements = requirements;
-            _factory = factory;
+            _factory = factory; // ADT SAI Custom
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
 
             ImportButton.OnPressed += args =>
@@ -1110,8 +1110,10 @@ namespace Content.Client.Lobby.UI
                     var collection = IoCManager.Instance!;
                     var protoManager = collection.Resolve<IPrototypeManager>();
 
+                    // ADT SAI Custom start
                     if (job.LoadoutButtonText != null)
                         loadoutWindowBtn.Text = Loc.GetString(job.LoadoutButtonText);
+                    // ADT SAI Custom end
 
                     // If no loadout found then disabled button
                     if (!protoManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto))
@@ -1134,10 +1136,12 @@ namespace Content.Client.Lobby.UI
                                 loadout.SetDefault(Profile, _playerManager.LocalSession, _prototypeManager);
                             }
 
+                            // ADT SAI Custom start
                             if (job.LoadoutOverride != null)
                                 OpenLoadoutOverride(job, loadout, job.LoadoutOverride);
                             else
                                 OpenLoadout(job, loadout, roleLoadoutProto);
+                            // ADT SAI Custom end
                         };
                     }
 
@@ -1168,32 +1172,34 @@ namespace Content.Client.Lobby.UI
                 Title = jobProto?.ID + "-loadout",
             };
 
+            // ADT SAI Custom start
             if (_loadoutWindow is not LoadoutWindow window)
                 return;
+            // ADT SAI Custom end
 
             // Refresh the buttons etc.
-            window.RefreshLoadouts(roleLoadout, session, collection);
+            window.RefreshLoadouts(roleLoadout, session, collection);   // ADT SAI Custom tweaked
             _loadoutWindow.OpenCenteredLeft();
 
-            window.OnNameChanged += name =>
+            window.OnNameChanged += name => // ADT SAI Custom tweaked
             {
                 roleLoadout.EntityName = name;
                 Profile = Profile.WithLoadout(roleLoadout);
                 SetDirty();
             };
 
-            window.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
+            window.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>  // ADT SAI Custom tweaked
             {
                 roleLoadout.AddLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                window.RefreshLoadouts(roleLoadout, session, collection);
+                window.RefreshLoadouts(roleLoadout, session, collection);   // ADT SAI Custom tweaked
                 Profile = Profile?.WithLoadout(roleLoadout);
                 ReloadPreview();
             };
 
-            window.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>
+            window.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>    // ADT SAI Custom tweaked
             {
                 roleLoadout.RemoveLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                window.RefreshLoadouts(roleLoadout, session, collection);
+                window.RefreshLoadouts(roleLoadout, session, collection);   // ADT SAI Custom tweaked
                 Profile = Profile?.WithLoadout(roleLoadout);
                 ReloadPreview();
             };
