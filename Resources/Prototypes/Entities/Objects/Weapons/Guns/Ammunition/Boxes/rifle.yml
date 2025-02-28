@@ -22,6 +22,17 @@
     steps: 4
     zeroVisible: false
   - type: Appearance
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  # ADT End
 
 # Boxes
 - type: entity
@@ -35,12 +46,14 @@
     proto: CartridgeRifle
   - type: Sprite
     layers:
-    - state: base-big
+ # ADT TWEAK Start - Откат кабинетных спрайтов
+    - state: base-b
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-big-1
+    - state: magb-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
-    magState: mag-big
+    magState: magb
+ # ADT TWEAK End - Откат кабинетных спрайтов
     steps: 4
     zeroVisible: false
   - type: Appearance

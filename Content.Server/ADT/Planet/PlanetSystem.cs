@@ -6,6 +6,12 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization;
+using System.Numerics;
+using System.Linq;
+using Robust.Shared.Utility;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Server.ADT.Planet;
 
@@ -17,6 +23,7 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
 
     private List<(Vector2i, Tile)> _setTiles = new();
 
@@ -55,19 +62,23 @@ public sealed class PlanetSystem : EntitySystem
     {
         var map = SpawnPlanet(id, runMapInit: false);
         var mapId = Comp<MapComponent>(map).MapId;
-        if (!_mapLoader.TryLoad(mapId, path, out var grids))
+
+        if (!_mapLoader.TryLoadGrid(mapId, new ResPath(path), out var grids))
         {
             Log.Error($"Failed to load planet grid {path} for planet {id}!");
-            Del(map);
             return null;
         }
 
-        // don't want rocks spawning inside the base
-        foreach (var gridUid in grids)
+        if (grids.HasValue)
         {
+            var gridUid = grids.Value;
             _setTiles.Clear();
             var aabb = Comp<MapGridComponent>(gridUid).LocalAABB;
             _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
+        }
+        else
+        {
+            Log.Error("Grid not found for this map.");
         }
 
         _map.InitializeMap(map);

@@ -244,6 +244,7 @@
     magState: mag
     steps: 2
     zeroVisible: true
+  - type: Appearance
 
 - type: entity
   name: Energy Crossbow

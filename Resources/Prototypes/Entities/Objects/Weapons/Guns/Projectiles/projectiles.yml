@@ -232,7 +232,7 @@
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 33
+    damage: 30 #ADT_Tweak с 33 до 30, возвращаем станнер к старым параметрам
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

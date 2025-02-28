@@ -138,7 +138,6 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
-    - SecurityWeaponsStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -219,6 +218,7 @@
     - ADTPKAPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
+    - ADTPhantomPack
     #ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -633,6 +633,14 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    # ADT tweak start
+    - type: AutoMaterialInsert
+      tag: ADTOreBag
+    - type: MiningPoints
+      transferSound:
+        path: /Audio/Effects/Cargo/ping.ogg
+    - type: MiningPointsLathe
+     # ADT tweak end
 
 - type: entity
   parent: OreProcessor

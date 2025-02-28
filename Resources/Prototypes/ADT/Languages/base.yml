@@ -1,0 +1,16 @@
+- type: language
+  id: BaseVocalLanguage
+  abstract: true
+  vocal: true
+  conditions:
+  - !type:CanSpeak
+  - !type:CanHear
+    raiseOnListener: true
+
+- type: language
+  id: BaseEmoteLanguage
+  abstract: true
+  conditions:
+  - !type:CanEmote
+  - !type:CanSee
+    raiseOnListener: true

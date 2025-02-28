@@ -19,11 +19,11 @@
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2
   cost:
-    Telecrystal: 8 # Originally was 13 TC but was not used due to high cost
+    Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
   categories:
   - UplinkWeaponry
 
@@ -270,10 +270,10 @@
     - UplinkExplosives
 
 - type: listing
-  id: UplinkSupermatterGrenade
-  name: uplink-supermatter-grenade-name
-  description: uplink-supermatter-grenade-desc
-  productEntity: SupermatterGrenade
+  id: UplinkSingularityGrenade
+  name: uplink-singularity-grenade-name
+  description: uplink-singularity-grenade-desc
+  productEntity: SingularityGrenade
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 3
@@ -879,9 +879,9 @@
   productEntity: AccessBreaker
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkDisruption
 
@@ -892,9 +892,9 @@
   productEntity: Emag
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4 # ADT-Tweak
+    Telecrystal: 2 # ADT-Tweak
   cost:
-    Telecrystal: 6 # ADT-Tweak
+    Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkDisruption
 
@@ -1970,11 +1970,11 @@
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4 # ADT-Tweak 5>4
+    Telecrystal: 4 # ADT-Tweak
   cost:
-    Telecrystal: 8 # ADT-Tweak 9>8
+    Telecrystal: 8 # ADT-Tweak
   categories:
   - UplinkJob
   conditions:

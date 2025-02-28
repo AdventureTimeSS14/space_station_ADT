@@ -111,7 +111,6 @@ ent-ADTFoodSnackChocolateTrashPink = обертка от Розовый шоко
 ent-ADTFoodSnackChocolateTrashTwo = обертка от Двойного батончика
     .desc = Мусор
 
-
 ent-ADTFoodSnackBlackCandies = черные конфетки
     .suffix = Хеллоуин
     .desc = Это точно сладость.

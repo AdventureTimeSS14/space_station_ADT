@@ -6194,15 +6194,6 @@ entities:
     - type: Transform
       pos: 16.5,43.5
       parent: 2
-- proto: ADTMiningShop
-  entities:
-  - uid: 11191
-    components:
-    - type: MetaData
-      name: Salvage Equipment
-    - type: Transform
-      pos: 7.5,19.5
-      parent: 2
 - proto: ADTSpawnPointRoboticist
   entities:
   - uid: 37
@@ -6251,18 +6242,6 @@ entities:
     components:
     - type: Transform
       pos: 36.556915,20.762209
-      parent: 2
-- proto: ADTVendingMachineLoveVend
-  entities:
-  - uid: 10412
-    components:
-    - type: Transform
-      pos: 29.5,2.5
-      parent: 2
-  - uid: 10565
-    components:
-    - type: Transform
-      pos: 20.5,10.5
       parent: 2
 - proto: ADTVendingMachinePatholoDrobe
   entities:
@@ -32119,7 +32098,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 30.5,25.5
+      pos: 30.500034,25.750826
       parent: 2
   - uid: 4906
     components:
@@ -32171,7 +32150,7 @@ entities:
   - uid: 4914
     components:
     - type: Transform
-      pos: 71.5,-19.5
+      pos: 71.5,-19.495005
       parent: 2
   - uid: 4915
     components:
@@ -32302,42 +32281,42 @@ entities:
   - uid: 4936
     components:
     - type: Transform
-      pos: 19.5,33.5
+      pos: 19.5,33.56914
       parent: 2
   - uid: 4937
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 69.5,33.5
+      pos: 69.50498,33.5
       parent: 2
   - uid: 4938
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 71.5,33.5
+      pos: 71.49502,33.5
       parent: 2
   - uid: 4939
     components:
     - type: Transform
-      pos: 70.5,34.5
+      pos: 70.5,34.495007
       parent: 2
   - uid: 4940
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 69.5,29.5
+      pos: 69.50498,29.5
       parent: 2
   - uid: 4941
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 69.5,27.5
+      pos: 69.50498,27.5
       parent: 2
   - uid: 4942
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 71.5,28.5
+      pos: 71.49502,28.5
       parent: 2
   - uid: 4943
     components:
@@ -32366,12 +32345,12 @@ entities:
   - uid: 4947
     components:
     - type: Transform
-      pos: 84.5,12.5
+      pos: 84.5,12.495002
       parent: 2
   - uid: 4948
     components:
     - type: Transform
-      pos: 85.5,12.5
+      pos: 85.5,12.495002
       parent: 2
   - uid: 4949
     components:
@@ -40720,7 +40699,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2091.9622
+      secondsUntilStateChange: -1979.2441
       state: Closing
   - uid: 6232
     components:
@@ -58213,7 +58192,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2592.133
+      secondsUntilStateChange: -2479.415
       state: Closing
   - uid: 8874
     components:
@@ -67611,6 +67590,11 @@ entities:
     - type: Transform
       pos: 51.5,8.5
       parent: 2
+  - uid: 10412
+    components:
+    - type: Transform
+      pos: 29.5,2.5
+      parent: 2
 - proto: SingularityGenerator
   entities:
   - uid: 10413
@@ -68432,6 +68416,15 @@ entities:
     - type: Transform
       pos: 120.5,-17.5
       parent: 2
+- proto: SpaceVillainArcadeFilled
+  entities:
+  - uid: 10565
+    components:
+    - type: Transform
+      pos: 20.5,10.5
+      parent: 2
+    - type: SpamEmitSound
+      enabled: False
 - proto: SpawnADTBlueShieldOfficer
   entities:
   - uid: 10566
@@ -69217,6 +69210,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.5,-11.5
+      parent: 2
+  - uid: 10690
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,9.5
       parent: 2
   - uid: 10691
     components:
@@ -72958,6 +72957,15 @@ entities:
     components:
     - type: Transform
       pos: 50.5,11.5
+      parent: 2
+- proto: VendingMachineSalvage
+  entities:
+  - uid: 11191
+    components:
+    - type: MetaData
+      name: Salvage Equipment
+    - type: Transform
+      pos: 7.5,19.5
       parent: 2
 - proto: VendingMachineSciDrobe
   entities:

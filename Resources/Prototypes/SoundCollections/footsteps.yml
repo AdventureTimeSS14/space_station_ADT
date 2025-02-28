@@ -213,3 +213,12 @@
   id: FootstepHoverBorg
   files:
   - /Audio/Effects/Footsteps/borgwalk2.ogg
+
+- type: soundCollection
+  id: FootstepHighHeels
+  files:
+  - /Audio/Effects/Footsteps/heelsclack1.ogg
+  - /Audio/Effects/Footsteps/heelsclack2.ogg
+  - /Audio/Effects/Footsteps/heelsclack3.ogg
+  - /Audio/Effects/Footsteps/heelsclack4.ogg
+  - /Audio/Effects/Footsteps/heelsclack5.ogg
