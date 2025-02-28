@@ -64,8 +64,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 7
+        Blunt: 7 #ADT tweak 3-> 7
+        # Heat: 7 ADT tweak
   - type: IgnitionSource
     ignited: true
 
