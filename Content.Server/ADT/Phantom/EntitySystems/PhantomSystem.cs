@@ -1511,6 +1511,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                     ("verb", "шепчет"),
                     ("fontType", "Default"),
                     ("fontSize", 12),
+                    ("defaultFont", "Default"),
+                    ("defaultSize", 12),
                     ("message", args.Message));
 
                 _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, wrappedMessage, uid, false, ghost.Channel);

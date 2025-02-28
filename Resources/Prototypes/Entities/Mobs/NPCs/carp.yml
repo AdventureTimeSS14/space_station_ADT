@@ -86,12 +86,14 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-  # ADT-CollectiveMind-Tweak-Start
-    - type: CollectiveMind
-      channel: CarpCollectiveMind
-      showRank: true
+    - type: CollectiveMindRank
       rankName: collective-mind-carp-rank
-  # ADT-CollectiveMind-Tweak-End
+    # Start ADT Tweak
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+        CarpCollectiveMind: Speak
+    # End ADT Tweak
 
 - type: entity
   parent: BaseMobCarp
@@ -271,8 +273,14 @@
         types:
           Slash: 10
           Bloodloss: 5
-    - type: CollectiveMind
+    # ADT Start
+    - type: CollectiveMindRank
       rankName: collective-mind-shark-rank
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+        CarpCollectiveMind: Speak
+    # ADT End
 
 - type: entity
   id: MobSharkSalvage
