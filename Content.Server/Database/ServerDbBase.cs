@@ -50,7 +50,12 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
-                .Include(p => p.Profiles).ThenInclude(h => h.Languages) // ADT Languages
+                // ADT Start
+                .Include(p => p.Profiles).ThenInclude(h => h.Languages)
+                .Include(p => p.Profiles)
+                    .ThenInclude(h => h.Loadouts)
+                    .ThenInclude(l => l.ExtraData)
+                // ADT End
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -103,7 +108,11 @@ namespace Content.Server.Database
                 .Include(p => p.Jobs)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
-                .Include(p => p.Languages)  // ADT Languages
+                // ADT Start
+                .Include(p => p.Languages)
+                .Include(p => p.Loadouts)
+                    .ThenInclude(l => l.ExtraData)
+                // ADT End
                 .Include(p => p.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
@@ -248,6 +257,13 @@ namespace Content.Server.Database
                     }
                 }
 
+                // ADT SAI Custom start
+                for (var i = 0; i < role.ExtraData.Count; i++)
+                {
+                    loadout.ExtraData.Add(role.ExtraData[i].Key, role.ExtraData[i].Value);
+                }
+                // ADT SAI Custom end
+
                 loadouts[role.RoleName] = loadout;
             }
 
@@ -339,6 +355,13 @@ namespace Content.Server.Database
                     RoleName = role,
                     EntityName = loadouts.EntityName ?? string.Empty,
                 };
+
+                // ADT SAI Custom start
+                for (var i = 0; i < loadouts.ExtraData.Count; i++)
+                {
+                    dz.ExtraData.Add(new() { Key = loadouts.ExtraData.Keys.ElementAt(i), Value = loadouts.ExtraData.Values.ElementAt(i) });
+                }
+                // ADT SAI Custom end
 
                 foreach (var (group, groupLoadouts) in loadouts.SelectedLoadouts)
                 {
