@@ -19,6 +19,7 @@ public sealed partial class StealDnaConditionComponent : Component
 
     [DataField(required: true)]
     public LocId ObjectiveText;
+
     [DataField(required: true)]
     public LocId DescriptionText;
 
