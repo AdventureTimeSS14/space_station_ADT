@@ -291,7 +291,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             _humanoid.SetAppearance(data.HumanoidAppearanceComponent, humanoidAppearance);
 
         if (TryComp<DnaComponent>(child, out var dnaComp))
+        {
             dnaComp.DNA = data.DNA;
+            Dirty(child, dnaComp);
+        }
 
         //Transfers all damage from the original to the new one
         if (TryComp<DamageableComponent>(child, out var damageParent)

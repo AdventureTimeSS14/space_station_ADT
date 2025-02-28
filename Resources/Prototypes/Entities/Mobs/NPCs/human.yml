@@ -93,6 +93,15 @@
         Blunt: 19
   - type: Inventory
     templateId: corpse
+  # ADT Tweak start
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - ChangelingBlacklist
+  # ADT Tweak end
 
 - type: entity
   parent: MobHuman
