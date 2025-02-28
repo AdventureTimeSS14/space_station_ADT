@@ -4,6 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Lobby.UI.Loadouts;
 
+// ADT File
 public interface ILoadoutOverride
 {
     public Action<KeyValuePair<string, string>>? OnValueChanged { get; set; }

@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Lobby.UI.Loadouts;
 
+// ADT File
 [GenerateTypedNameReferences]
 public sealed partial class StationAILoadoutWindow : BaseLoadoutWindow, ILoadoutOverride
 {
