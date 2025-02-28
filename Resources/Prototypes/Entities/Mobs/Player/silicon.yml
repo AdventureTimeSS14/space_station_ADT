@@ -319,7 +319,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
     # ADT SAI Custom start
     - state: empty
@@ -360,7 +360,7 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
-    sprite: Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
     # ADT SAI Custom start
     - state: empty
@@ -409,7 +409,7 @@
     containerId: station_ai_mind_slot
     job: StationAi
   - type: Sprite
-    sprite: Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
     # ADT SAI Custom start
     - state: empty
