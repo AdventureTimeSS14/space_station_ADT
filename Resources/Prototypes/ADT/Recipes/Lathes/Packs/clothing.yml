@@ -24,7 +24,7 @@
   - ADTClothingBackpackSatchelMime
 
 - type: latheRecipePack
-  id: ADTResult
+  id: ADTBackpacks
   recipes:
   - ADTClothingBackpack
   - ADTClothingBackpackSecurity
