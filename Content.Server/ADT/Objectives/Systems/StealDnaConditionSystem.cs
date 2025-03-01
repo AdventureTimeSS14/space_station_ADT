@@ -3,6 +3,7 @@ using Content.Shared.Changeling.Components;
 using Robust.Shared.Random;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -47,25 +48,25 @@ public sealed class StealDnaConditionSystem : EntitySystem
         if (args.Mind.CurrentEntity.HasValue)
         {
             var ling = args.Mind.CurrentEntity.Value;
-            args.Progress = GetProgress(ling, args.MindId, args.Mind, comp);
+            args.Progress = GetProgress(ling, args.Mind, comp);
         }
         else
             args.Progress = 0f;
     }
 
-    private float GetProgress(EntityUid uid, EntityUid mindId, MindComponent mind, StealDnaConditionComponent comp)
+    private float GetProgress(EntityUid uid, MindComponent mind, StealDnaConditionComponent comp)
     {
         // Не генокрад - не выполнил цель (да ладно.)
         if (!TryComp<ChangelingComponent>(uid, out var ling))
             return 0f;
 
         // Умер - не выполнил цель.
-        if (!mind.CurrentEntity.HasValue || _mind.IsCharacterDeadIc(mind))
+        if (!_mind.IsCharacterDeadIc(mind))
             return 0f;
 
         // Подсчёт требуемых и имеющихся ДНК
         var count = ling.DNAStolen;
-        var result = count / comp.AbsorbDnaCount;
+        var result = (float)count / (float)comp.AbsorbDnaCount;
         result = Math.Clamp(result, 0, 1);
         return result;
     }

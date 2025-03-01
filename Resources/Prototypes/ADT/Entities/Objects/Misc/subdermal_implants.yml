@@ -4,6 +4,9 @@
   abstract: true
   components:
   - type: SubdermalImplant
+    blacklist:
+      components:
+      - DeafTrait
   - type: Tag
     tags:
     - SubdermalImplant
