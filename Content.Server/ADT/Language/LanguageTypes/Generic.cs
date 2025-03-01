@@ -131,6 +131,8 @@ public sealed partial class Generic : ILanguageType
         var chat = entMan.System<ChatSystem>();
         success = false;
 
+        message = chat.TransformSpeech(uid, message);
+
         var accentMessage = lang.AccentuateMessage(uid, Language, message);
         var languageMessage = lang.ObfuscateMessage(uid, message, Replacement, ObfuscateSyllables);
         var obfuscatedMessage = chat.ObfuscateMessageReadability(accentMessage, 0.2f);
